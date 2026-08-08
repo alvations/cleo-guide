@@ -24,6 +24,9 @@ No build step. No framework. No backend. One `index.html`.
 - **[The full guide](index.html)** — the complete guide, 183 places, every source transcribed in full.
 - **[The shortlist](versions/v1-shortlist/guide.html)** — the original 19-stop, 3-day shortlist with a routed
   Google My Maps import. Better for a first visit; kept deliberately, not superseded.
+- **[The shortlist on Google Maps](versions/v1-shortlist/google-map.html)** — the same 19 stops rendered as a
+  routed Google map per day, in the browser. Keyless by default; paste a Google Maps Embed API key for the
+  officially supported embed.
 
 ---
 

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cleveland Field Guide — The Odd &amp; Overlooked, on Google Maps</title>
+<meta name="description" content="The 19-stop Cleveland shortlist, three days, rendered on Google Maps. Keyless by default; paste a Google Maps Embed API key for the official embed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A;
+    --slab:#1B2226;
+    --slab-2:#232C31;
+    --patina:#74AE99;
+    --patina-dim:#3E5D53;
+    --brass:#C89B4A;
+    --rust:#B45B3E;
+    --bone:#E9E5DB;
+    --bone-dim:#9AA3A2;
+    --hair:#2E393E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important;transition:none !important;}
+  }
+  body{
+    margin:0;
+    background:var(--iron);
+    color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:17px;
+    line-height:1.6;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--patina);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+
+  /* ── Masthead ────────────────────────────── */
+  header{padding:72px 0 0;border-bottom:1px solid var(--hair);}
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--patina);margin:0 0 22px;
+  }
+  h1{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(38px,8vw,82px);line-height:.92;letter-spacing:-.03em;
+    text-transform:uppercase;margin:0 0 4px;
+  }
+  h1 .thin{
+    display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(28px,5.5vw,60px);line-height:1.05;margin-top:6px;
+  }
+  .standfirst{max-width:60ch;margin:28px 0 30px;color:var(--bone);font-size:19px;}
+  .backlink{
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;
+    text-transform:uppercase;display:inline-block;margin:0 0 34px;color:var(--bone-dim);
+  }
+
+  /* ── Key panel ───────────────────────────── */
+  .keybar{
+    background:var(--slab);border:1px solid var(--hair);border-radius:10px;
+    padding:18px 20px;margin:30px 0 12px;
+  }
+  .keybar h2{
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--brass);margin:0 0 8px;font-weight:500;
+  }
+  .keybar p{margin:0 0 14px;color:var(--bone-dim);font-size:15px;max-width:70ch;}
+  .keyrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .keybar input{
+    flex:1 1 320px;min-width:0;background:var(--iron);color:var(--bone);
+    border:1px solid var(--hair);border-radius:7px;padding:11px 13px;
+    font-family:"JetBrains Mono",monospace;font-size:13px;
+  }
+  .keybar input:focus{outline:none;border-color:var(--patina);}
+  button{
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;
+    text-transform:uppercase;cursor:pointer;border-radius:7px;padding:11px 16px;
+    border:1px solid var(--patina-dim);background:var(--patina-dim);color:var(--bone);
+  }
+  button:hover{background:var(--patina);color:var(--iron);}
+  button.ghost{background:transparent;color:var(--bone-dim);border-color:var(--hair);}
+  button.ghost:hover{background:var(--slab-2);color:var(--bone);}
+  .keystate{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--bone-dim);margin-top:10px;}
+  .keystate.on{color:var(--patina);}
+
+  /* ── Days ────────────────────────────────── */
+  section.day{padding:44px 0 8px;border-bottom:1px solid var(--hair);}
+  .daymeta{
+    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 6px;
+  }
+  section.day h2{
+    font-family:"Archivo Black",sans-serif;font-size:clamp(24px,4.5vw,38px);
+    line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;
+  }
+  .daynote{color:var(--bone-dim);max-width:66ch;margin:0 0 22px;font-size:16px;}
+
+  .mapframe{
+    position:relative;width:100%;aspect-ratio:16/10;background:var(--slab);
+    border:1px solid var(--hair);border-radius:12px;overflow:hidden;
+  }
+  .mapframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .mapfallback{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:28px;color:var(--bone-dim);font-size:15px;
+  }
+  .maptools{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px;}
+  .maptools a{
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;
+    text-transform:uppercase;border:1px solid var(--hair);border-radius:7px;
+    padding:9px 13px;color:var(--bone);background:var(--slab);
+  }
+  .maptools a:hover{border-color:var(--patina);text-decoration:none;color:var(--patina);}
+
+  ol.stops{list-style:none;counter-reset:s;padding:0;margin:26px 0 8px;}
+  ol.stops li{
+    counter-increment:s;position:relative;padding:16px 0 16px 46px;
+    border-top:1px solid var(--hair);
+  }
+  ol.stops li:before{
+    content:counter(s);position:absolute;left:0;top:16px;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--slab-2);color:var(--patina);
+    font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  ol.stops .name{font-family:"Newsreader",serif;font-weight:500;font-size:19px;}
+  ol.stops .addr{
+    font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--bone-dim);
+    margin:3px 0 6px;letter-spacing:.02em;
+  }
+  ol.stops .note{color:var(--bone-dim);font-size:15px;max-width:70ch;}
+  ol.stops .go{
+    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;
+    text-transform:uppercase;margin-left:10px;white-space:nowrap;
+  }
+
+  footer{padding:48px 0 80px;color:var(--bone-dim);font-size:14px;max-width:74ch;}
+  footer p{margin:0 0 12px;}
+  code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
+  noscript{display:block;padding:20px;margin:24px 0;background:var(--slab);
+    border:1px solid var(--rust);border-radius:10px;color:var(--bone);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Cleveland Field Guide · Lite Edition</p>
+    <h1>The Odd &amp;<span class="thin">Overlooked — on Google Maps</span></h1>
+    <p class="standfirst">Nineteen stops, three days, three geographic clusters so you never cross
+      the city twice. This is the shortlist rendered on Google Maps instead of Leaflet — a routed
+      map per day you can follow, hand off, or open in the Google Maps app.</p>
+    <a class="backlink" href="./guide.html">← The Leaflet edition</a>&nbsp;&nbsp;
+    <a class="backlink" href="../../index.html">← The full 183-place guide</a>
+  </header>
+
+  <div class="keybar">
+    <h2>Google Maps rendering</h2>
+    <p>Each day shows a routed Google map. It works with no key using Google's classic embed.
+      For the officially supported embed — sharper, and stable long-term — paste a
+      <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank" rel="noopener">Google Maps Embed API key</a>
+      below. It is stored only in this browser and never leaves it.</p>
+    <div class="keyrow">
+      <input id="key" type="text" placeholder="Google Maps Embed API key (optional)" autocomplete="off" spellcheck="false">
+      <button id="save">Use key</button>
+      <button id="clear" class="ghost">Clear</button>
+    </div>
+    <div id="keystate" class="keystate">Keyless mode — Google's classic embed.</div>
+  </div>
+
+  <noscript>This page builds its maps with a little JavaScript. With scripts disabled the full
+    itinerary below still reads, and every stop links out to Google Maps.</noscript>
+
+  <main id="days"></main>
+
+  <footer>
+    <p><strong>Why two maps.</strong> The <a href="./guide.html">Leaflet edition</a> is the primary
+      shortlist: it works offline, needs no key, and never depends on Google. This page is the
+      opposite trade — it hands the routing to Google so you get turn-by-turn in the app you
+      already use. Pick whichever suits the trip.</p>
+    <p><strong>Degrades honestly.</strong> If Google's embed is blocked, each map shows a note and
+      the itinerary still reads in full, with a working <em>Open in Google Maps</em> link on every day
+      and every stop. No content depends on the map loading.</p>
+    <p>Business details come from Google and change without notice. Hours in the notes were right at
+      time of writing — confirm before a long drive. Map data © Google.</p>
+  </footer>
+</div>
+
+<script>
+/* ── Data: the 19-stop shortlist, grouped by day ──────────────────────────────
+   Coordinates are the source of truth for routing; addresses drive the "search"
+   links so a moved business still resolves by name. */
+const DAYS = [
+  {
+    n: 1,
+    title: "Downtown Core",
+    sub: "Mostly walkable",
+    note: "Everything here is within about a mile, except the USS Cod, a short walk over the Shoreway. Start early — the Terminal Tower deck is weekends only.",
+    stops: [
+      {name:"Soldiers' & Sailors' Monument", addr:"3 Public Square", lat:41.4995228, lng:-81.6929283, note:"Free inside. The tunnel labyrinth underneath opens one day a year — ask at the desk."},
+      {name:"Chess Collection, Cleveland Public Library", addr:"325 Superior Ave NE, 3rd floor", lat:41.501113, lng:-81.6916133, note:"World's largest chess collection. Photo ID; one item at a time. Closed Sunday."},
+      {name:"The Arcade", addr:"401 Euclid Ave", lat:41.4999444, lng:-81.6902444, note:"1890 glass-roofed arcade modelled on Milan's Galleria. Lunch inside."},
+      {name:"Terminal Tower Observation Deck", addr:"50 Public Square", lat:41.4983959, lng:-81.6939263, note:"Weekends only, ~$5–6, tickets online in advance. No walk-ups."},
+      {name:"Free Stamp", addr:"Willard Park, 601 Lakeside Ave E", lat:41.5054252, lng:-81.6924552, note:"Oldenburg & van Bruggen's giant rubber stamp. Two minutes, always open."},
+      {name:"USS Cod Submarine Memorial", addr:"1201 N Marginal Rd", lat:41.5100715, lng:-81.6915676, note:"Last intact WWII fleet sub. Entry down a vertical ladder — not accessible."}
+    ]
+  },
+  {
+    n: 2,
+    title: "University Circle & East",
+    sub: "Needs a car or rideshare",
+    note: "Museums cluster around Wade Oval; two stops keep tight hours. The Dittrick is Friday and Saturday only — anchor the day around it.",
+    stops: [
+      {name:"Percy Skuy Collection, Dittrick Medical History Center", addr:"11000 Euclid Ave", lat:41.5059193, lng:-81.608414, note:"Fri 10:30–4 and Sat 12–4 ONLY. Free. 1,000+ contraceptive artifacts."},
+      {name:"Cleveland Museum of Art", addr:"11150 East Blvd", lat:41.5079261, lng:-81.6119723, note:"Free. Enter from Wade Park for the view across the lagoon. Closed Monday."},
+      {name:"Cleveland Museum of Natural History", addr:"1 Wade Oval Dr", lat:41.5114773, lng:-81.6130674, note:"Lucy, Balto, and an Apollo 12 moon rock. Closed Monday."},
+      {name:"Haserot Angel, Lake View Cemetery", addr:"12316 Euclid Ave · Section 9, Lot 14", lat:41.513022, lng:-81.590375, note:"Grab a map at the gate. Nearest landmark is the Hanna Mausoleum."},
+      {name:"Rockefeller Park Greenhouse", addr:"750 E 88th St", lat:41.5370491, lng:-81.6287004, note:"Closes at 4pm — swap earlier in the day. Free."},
+      {name:"Quintana's Speakeasy", addr:"2200 S Taylor Rd, Cleveland Heights", lat:41.4998009, lng:-81.5563368, note:"Back door of the barbershop, buzzer, 'a man about a horse', then pull the right book."}
+    ]
+  },
+  {
+    n: 3,
+    title: "West Side & South",
+    sub: "Needs a car",
+    note: "The most spread-out day, ending at the best sunset in the region. Watch closures: the Market is dark Tuesday and Thursday, the Sanctuary opens only Wednesday mornings and Saturday afternoons.",
+    stops: [
+      {name:"West Side Market", addr:"1979 W 25th St", lat:41.4847078, lng:-81.7028394, note:"Bring cash. Closed Tuesday and Thursday. First hour parking free."},
+      {name:"Buckland Museum of Witchcraft & Magick", addr:"2155 Broadview Rd", lat:41.43805, lng:-81.6998196, note:"Gardner's artifacts, Sybil Leek's crystal ball, a demon in a box. Allow an hour."},
+      {name:"A Christmas Story House", addr:"3159 W 11th St", lat:41.4687304, lng:-81.6874036, note:"Tours every 30 min from 10:15. Budget two hours."},
+      {name:"b.a. Sweetie Candy Company", addr:"6770 Brookpark Rd", lat:41.4201515, lng:-81.7316654, note:"A warehouse of candy, plus a soda fountain."},
+      {name:"Superelectric Pinball Parlor", addr:"6500 Detroit Ave", lat:41.4842367, lng:-81.7304346, note:"Flat fee, unlimited play. Closed Tuesday."},
+      {name:"The Sanctuary Museum", addr:"12905 Madison Ave, Lakewood", lat:41.4767072, lng:-81.778332, note:"Wed mornings and Sat afternoons ONLY. Rescued church statuary."},
+      {name:"Solstice Steps, Lakewood Park", addr:"14532 Lake Ave, Lakewood", lat:41.4972086, lng:-81.797965, note:"Best sunset in the region. Arrive 30 min early for a lower terrace."}
+    ]
+  }
+];
+
+/* ── Key handling (localStorage, wrapped — storage throws in some sandboxes) ── */
+const KEY_STORE = "cle_gmaps_embed_key";
+function getKey(){ try{ return localStorage.getItem(KEY_STORE) || ""; }catch(e){ return window.__key || ""; } }
+function setKey(v){ try{ localStorage.setItem(KEY_STORE, v); }catch(e){ window.__key = v; } }
+function delKey(){ try{ localStorage.removeItem(KEY_STORE); }catch(e){} window.__key = ""; }
+
+const ll = s => s.lat + "," + s.lng;
+
+/* Official Google Maps Embed API — directions, needs a key. */
+function embedApiUrl(stops, key){
+  const origin = ll(stops[0]);
+  const destination = ll(stops[stops.length - 1]);
+  const waypoints = stops.slice(1, -1).map(ll).join("|");
+  let u = "https://www.google.com/maps/embed/v1/directions?key=" + encodeURIComponent(key)
+        + "&origin=" + encodeURIComponent(origin)
+        + "&destination=" + encodeURIComponent(destination)
+        + "&mode=driving";
+  if (waypoints) u += "&waypoints=" + encodeURIComponent(waypoints);
+  return u;
+}
+
+/* Keyless classic embed — directions with chained waypoints. No key required. */
+function embedKeylessUrl(stops){
+  const saddr = ll(stops[0]);
+  const daddr = stops.slice(1).map(ll).join("+to:");
+  return "https://maps.google.com/maps?saddr=" + encodeURIComponent(saddr)
+       + "&daddr=" + daddr.split("+to:").map(encodeURIComponent).join("+to:")
+       + "&output=embed";
+}
+
+/* Open in the Google Maps app/site — always works, no key, real navigation. */
+function openDirUrl(stops){
+  const origin = ll(stops[0]);
+  const destination = ll(stops[stops.length - 1]);
+  const waypoints = stops.slice(1, -1).map(ll).join("|");
+  let u = "https://www.google.com/maps/dir/?api=1"
+        + "&origin=" + encodeURIComponent(origin)
+        + "&destination=" + encodeURIComponent(destination)
+        + "&travelmode=driving";
+  if (waypoints) u += "&waypoints=" + encodeURIComponent(waypoints);
+  return u;
+}
+
+/* Per-place search — resolves by name so a moved business still lands right. */
+function searchUrl(s){
+  return "https://www.google.com/maps/search/?api=1&query="
+       + encodeURIComponent(s.name + " " + s.addr + " Cleveland");
+}
+
+function el(tag, cls, html){
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+function build(){
+  const key = getKey();
+  const host = document.getElementById("days");
+  host.innerHTML = "";
+  DAYS.forEach(day => {
+    const sec = el("section", "day");
+    sec.appendChild(el("p", "daymeta", "Day " + day.n + " · " + esc(day.sub)));
+    sec.appendChild(el("h2", null, esc(day.title)));
+    sec.appendChild(el("p", "daynote", esc(day.note)));
+
+    // Map
+    const frame = el("div", "mapframe");
+    const fb = el("div", "mapfallback",
+      "Google's map didn't load here. The routed itinerary is below, and " +
+      "<a href='" + openDirUrl(day.stops) + "' target='_blank' rel='noopener'>Open in Google Maps</a> still works.");
+    frame.appendChild(fb);
+    const iframe = document.createElement("iframe");
+    iframe.loading = "lazy";
+    iframe.referrerPolicy = "no-referrer-when-downgrade";
+    iframe.title = "Day " + day.n + " route: " + day.title;
+    iframe.allowFullscreen = true;
+    iframe.src = key ? embedApiUrl(day.stops, key) : embedKeylessUrl(day.stops);
+    frame.appendChild(iframe);
+    sec.appendChild(frame);
+
+    // Map tools
+    const tools = el("div", "maptools");
+    const open = el("a", null, "Open day " + day.n + " in Google Maps ↗");
+    open.href = openDirUrl(day.stops); open.target = "_blank"; open.rel = "noopener";
+    tools.appendChild(open);
+    sec.appendChild(tools);
+
+    // Stops
+    const ol = el("ol", "stops");
+    day.stops.forEach(s => {
+      const li = el("li");
+      const nm = el("div", "name", esc(s.name) +
+        " <a class='go' href='" + searchUrl(s) + "' target='_blank' rel='noopener'>Map ↗</a>");
+      li.appendChild(nm);
+      li.appendChild(el("div", "addr", esc(s.addr)));
+      if (s.note) li.appendChild(el("div", "note", esc(s.note)));
+      ol.appendChild(li);
+    });
+    sec.appendChild(ol);
+
+    host.appendChild(sec);
+  });
+}
+
+function refreshKeyState(){
+  const has = !!getKey();
+  const st = document.getElementById("keystate");
+  st.textContent = has
+    ? "Key active — official Google Maps Embed API."
+    : "Keyless mode — Google's classic embed.";
+  st.classList.toggle("on", has);
+  document.getElementById("key").value = getKey();
+}
+
+document.getElementById("save").addEventListener("click", () => {
+  const v = document.getElementById("key").value.trim();
+  if (v) setKey(v); else delKey();
+  refreshKeyState(); build();
+});
+document.getElementById("clear").addEventListener("click", () => {
+  delKey(); refreshKeyState(); build();
+});
+
+refreshKeyState();
+build();
+</script>
+</body>
+</html>

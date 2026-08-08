@@ -12,7 +12,8 @@ first-time visitor, this is the more useful artefact.
 |---|---|
 | `RECREATE-NATIVE-MAP.md` | **How to rebuild the routed map that worked first** — read this before writing any code |
 | `native-map-payload.json` | The exact 19-stop payload, ready to replay in one tool call |
-| `guide.html` | The original companion guide — 19 stops, source tags, filter by source |
+| `guide.html` | The original companion guide — 19 stops, source tags, filter by source (Leaflet) |
+| `google-map.html` | The same 19 stops **rendered on Google Maps** — a routed map per day, keyless, no import step |
 | `cleveland-shortlist.kml` | The 19 stops as a 3-day routed map, **for Google My Maps** |
 | `cleveland-shortlist.geojson` | Same data for any other mapping tool |
 
@@ -27,6 +28,12 @@ The routed map in this folder existed in three forms, and they are not substitut
 | **Self-hosted** (`../../index.html`) | any browser | yes, and works offline | own the whole thing, filters and all |
 
 The native map is the one that worked immediately and never broke. Build it first.
+
+There is now a fourth form: **[`google-map.html`](google-map.html)** renders the same three days
+directly on Google Maps in the browser — one routed map per day. It needs no API key (it uses
+Google's classic embed) and no import step; paste a Google Maps Embed API key to upgrade to the
+officially supported embed. It is the quickest way to *see* the route on Google's own map without
+creating a My Maps.
 
 ## Get the map into Google Maps
 
