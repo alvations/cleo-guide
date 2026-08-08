@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cleveland Field Guide — The Odd &amp; Overlooked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A;
+    --slab:#1B2226;
+    --slab-2:#232C31;
+    --patina:#74AE99;
+    --patina-dim:#3E5D53;
+    --brass:#C89B4A;
+    --rust:#B45B3E;
+    --bone:#E9E5DB;
+    --bone-dim:#9AA3A2;
+    --hair:#2E393E;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important;transition:none !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--iron);
+    color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:17px;
+    line-height:1.6;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+
+  /* ── Masthead ────────────────────────────── */
+  header{
+    padding:72px 0 0;
+    border-bottom:1px solid var(--hair);
+  }
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--patina);
+    margin:0 0 22px;
+  }
+  h1{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(40px,8.5vw,86px);
+    line-height:.92;
+    letter-spacing:-.03em;
+    text-transform:uppercase;
+    margin:0 0 4px;
+  }
+  h1 .thin{
+    display:block;
+    font-family:"Instrument Serif",serif;
+    font-style:italic;
+    font-weight:400;
+    text-transform:none;
+    letter-spacing:-.01em;
+    color:var(--patina);
+    font-size:clamp(30px,6vw,64px);
+    line-height:1.05;
+    margin-top:6px;
+  }
+  .standfirst{
+    max-width:56ch;
+    margin:28px 0 34px;
+    font-size:19px;
+    color:var(--bone-dim);
+  }
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* ── Filters ─────────────────────────────── */
+  .controls{padding:26px 0 30px;}
+  .ctrl-label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--bone-dim);
+    margin:0 0 12px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+  .chip{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    padding:7px 13px;
+    background:transparent;
+    color:var(--bone-dim);
+    border:1px solid var(--hair);
+    border-radius:2px;
+    cursor:pointer;
+    transition:border-color .15s,color .15s,background .15s;
+  }
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{
+    background:var(--patina);
+    border-color:var(--patina);
+    color:var(--iron);
+    font-weight:700;
+  }
+  .count{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    color:var(--brass);
+    letter-spacing:.1em;
+    border-top:1px solid var(--hair);
+    padding-top:16px;
+  }
+
+  /* ── Cluster headings ────────────────────── */
+  .cluster{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin:56px 0 4px;
+    padding-bottom:14px;
+    border-bottom:2px solid var(--patina-dim);
+  }
+  .cluster h2{
+    font-family:"Archivo Black",sans-serif;
+    font-size:20px;
+    letter-spacing:-.01em;
+    text-transform:uppercase;
+    margin:0;
+  }
+  .cluster .meta{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    color:var(--bone-dim);
+    letter-spacing:.08em;
+    margin-left:auto;
+    white-space:nowrap;
+  }
+
+  /* ── Entry ───────────────────────────────── */
+  .entry{
+    padding:32px 0 30px;
+    border-bottom:1px solid var(--hair);
+  }
+  .entry-head{display:flex;gap:18px;align-items:flex-start;}
+  .marker{
+    font-family:"JetBrains Mono",monospace;
+    font-size:12px;
+    font-weight:700;
+    color:var(--brass);
+    padding-top:7px;
+    min-width:26px;
+    letter-spacing:.05em;
+  }
+  .entry h3{
+    font-family:"Archivo Black",sans-serif;
+    font-size:clamp(21px,3.4vw,28px);
+    line-height:1.12;
+    letter-spacing:-.02em;
+    margin:0 0 6px;
+  }
+  .addr{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11.5px;
+    color:var(--bone-dim);
+    letter-spacing:.03em;
+    margin:0 0 16px;
+  }
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .body-col{flex:1;min-width:0;}
+  .entry p.what{margin:0 0 16px;max-width:64ch;}
+
+  .note{
+    display:flex;
+    gap:12px;
+    background:var(--slab);
+    border-left:3px solid var(--brass);
+    padding:13px 16px;
+    margin:0 0 16px;
+    font-size:15.5px;
+    max-width:64ch;
+  }
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{
+    font-family:"JetBrains Mono",monospace;
+    font-size:9.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+    padding-top:4px;
+    white-space:nowrap;
+    font-weight:700;
+  }
+  .note.warn .tag{color:var(--rust);}
+
+  .hours{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11.5px;
+    color:var(--bone-dim);
+    letter-spacing:.03em;
+    margin:0 0 18px;
+  }
+  .hours b{color:var(--bone);font-weight:500;}
+
+  /* ── Source ledger (the signature) ───────── */
+  .ledger{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:7px;
+    padding-top:14px;
+    border-top:1px dashed var(--hair);
+  }
+  .ledger .lbl{
+    font-family:"JetBrains Mono",monospace;
+    font-size:9.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--patina-dim);
+    margin-right:4px;
+  }
+  .src{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;
+    letter-spacing:.04em;
+    padding:5px 9px;
+    border:1px solid var(--patina-dim);
+    border-radius:2px;
+    color:var(--patina);
+    text-decoration:none;
+    transition:background .15s,color .15s;
+  }
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+
+  .empty{
+    padding:60px 0;
+    text-align:center;
+    font-family:"Instrument Serif",serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--bone-dim);
+  }
+
+  /* ── Sources appendix ────────────────────── */
+  .appendix{margin:80px 0 0;padding:40px 0 90px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{
+    font-family:"Archivo Black",sans-serif;
+    font-size:20px;
+    text-transform:uppercase;
+    letter-spacing:-.01em;
+    margin:0 0 8px;
+  }
+  .appendix > p{color:var(--bone-dim);max-width:60ch;margin:0 0 28px;}
+  .srcrow{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--hair);
+    align-items:baseline;
+  }
+  .srcrow .k{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;
+    letter-spacing:.04em;
+    color:var(--brass);
+    border:1px solid var(--hair);
+    padding:4px 8px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+  .srcrow .t{font-size:16px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13.5px;color:var(--bone-dim);margin-top:3px;}
+
+  footer{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    color:var(--bone-dim);
+    letter-spacing:.05em;
+    line-height:1.9;
+    padding-bottom:60px;
+  }
+
+  @media (max-width:600px){
+    header{padding-top:48px;}
+    .entry-head{gap:0;flex-direction:column;}
+    .marker{padding-top:0;margin-bottom:8px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;}
+    .note{flex-direction:column;gap:5px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · 19 stops · compiled from 7 sources</p>
+  <h1>Cleveland<span class="thin">the odd &amp; overlooked</span></h1>
+  <p class="standfirst">A weeping bronze angel, a thousand historical contraceptives, a demon in a box, and the largest chess library on earth. Every stop below traces back to the source that recommended it — <strong>tap any source tag to open the original.</strong></p>
+</header>
+
+<div class="controls">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Seven references went into this guide. Two are broad city lists; four are individual Atlas Obscura entries; one was a request by name.</p>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours and admission change. Verify before you drive.<br>
+  Assembled August 2026 · descriptions written from the sources listed above.
+</footer>
+
+</div>
+
+<script>
+const SOURCES = {
+  ao_skuy:  {key:"ATLAS OBSCURA", label:"Atlas Obscura", title:"The Percy Skuy Collection on the History of Contraception", url:"https://www.atlasobscura.com/places/the-percy-skuy-collection-on-the-history-of-contraception-cleveland-ohio"},
+  ao_angel: {key:"ATLAS OBSCURA", label:"Atlas Obscura", title:"The Haserot Angel", url:"https://www.atlasobscura.com/places/the-haserot-angel-cleveland-ohio"},
+  ao_wsm:   {key:"ATLAS OBSCURA", label:"Atlas Obscura", title:"West Side Market", url:"https://www.atlasobscura.com/places/west-side-market"},
+  ao_buck:  {key:"ATLAS OBSCURA", label:"Atlas Obscura", title:"Buckland Museum of Witchcraft and Magick", url:"https://www.atlasobscura.com/places/buckland-gallery-of-witchcraft-magick"},
+  news5:    {key:"NEWS 5", label:"News 5 Cleveland", title:"100 hidden gems of Cleveland", url:"https://www.news5cleveland.com/news/hidden-gems/100-hidden-gems-of-cleveland"},
+  tsga:     {key:"THERE SHE GOES", label:"There She Goes Again", title:"23 Unique &amp; Fun Things to Do in Cleveland, Ohio", url:"https://thereshegoesagain.org/unique-fun-things-to-do-in-cleveland-ohio/"},
+  request:  {key:"YOUR REQUEST", label:"Requested by name", title:"Chess collection at Cleveland Public Library", url:"https://www.news5cleveland.com/news/local-news/cleveland-metro/did-you-know-cleveland-is-home-to-the-worlds-largest-chess-collection"}
+};
+
+const CLUSTERS = [
+  {id:"downtown", name:"Downtown Core", meta:"Walkable · 6 stops"},
+  {id:"east",     name:"University Circle & East", meta:"Car or rideshare · 6 stops"},
+  {id:"west",     name:"West Side, Tremont & South", meta:"Car recommended · 7 stops"}
+];
+
+const STOPS = [
+  // ── DOWNTOWN ──
+  {c:"downtown", n:"Soldiers' & Sailors' Monument", a:"3 Public Square",
+   w:"A Civil War memorial with a free museum inside — bronze relief panels, marble busts, and volunteer docents who know the stories. The real draw is what's underneath: a labyrinth of historic tunnels that opens to the public exactly one day a year.",
+   k:"Ask at the desk whether a tunnel tour is scheduled. If it isn't, the interior alone takes 20–30 minutes.",
+   h:"Daily 10:00 AM – 5:30 PM · Free",
+   s:[{id:"news5", n:"#1"}]},
+
+  {c:"downtown", n:"Chess Collection, Cleveland Public Library", a:"325 Superior Ave, third floor",
+   w:"The John G. White Chess and Checkers Collection is the largest chess collection in the world — more than 35,000 items going back to the 12th century. One-of-a-kind sets, rare manuscripts, Bobby Fischer score sheets, Lasker medals. It has lived on this floor since the building opened in 1925.",
+   k:"Bring photo ID. This is a research collection: you request items and are shown one at a time. Contact Special Collections ahead if you want something specific pulled. The exhibition corridor on the way in is worth slowing down for.",
+   h:"Mon–Sat 10:00 AM – 6:00 PM · Closed Sunday · Free",
+   warn:true,
+   s:[{id:"request", n:""},{id:"news5", n:"#16"}]},
+
+  {c:"downtown", n:"The Arcade", a:"401 Euclid Ave",
+   w:"A five-story glass-roofed atrium built in 1890 as the first indoor shopping center in America, modeled on Milan's Galleria Vittorio Emanuele II and financed in part by Rockefeller. Two nine-story buildings face each other across the void. The top three floors are now a Hyatt; the bottom levels hold shops and food.",
+   k:"Good lunch stop mid-walk. Stand at the far end and look up the full height — that's the shot.",
+   h:"Daily 7:00 AM – 7:00 PM · Free to walk through",
+   s:[{id:"news5", n:"#83"},{id:"tsga", n:"#1"}]},
+
+  {c:"downtown", n:"Terminal Tower Observation Deck", a:"50 Public Square, 42nd floor",
+   w:"The 42nd floor of a 52-story tower that was briefly the second-tallest building in the world. Views across the bridges, the Cuyahoga, and out over Lake Erie. The deck itself is small and dated in a way that's part of the appeal — no glitz, just the city laid out flat.",
+   k:"Book online in advance; there are no walk-ups. Check in at the ground-floor desk, ride to 32, then transfer elevators to 42. Around $5–6.",
+   h:"Weekends only, roughly 12:00 – 4:00 PM · Verify before booking",
+   warn:true,
+   s:[{id:"news5", n:"#27"},{id:"tsga", n:"#4"}]},
+
+  {c:"downtown", n:"Free Stamp", a:"Willard Park, 601 Lakeside Ave E",
+   w:"Claes Oldenburg and Coosje van Bruggen's giant rubber stamp, tipped on its side, reading FREE. It measures roughly 28 by 26 by 49 feet. Commissioned for a corporate plaza, rejected, then exiled to this park — which is arguably the better ending.",
+   k:"Two minutes to see, always open, and it's directly between City Hall and the lakefront, so it costs you nothing to include.",
+   h:"Open 24 hours · Free",
+   s:[{id:"tsga", n:"#6"}]},
+
+  {c:"downtown", n:"USS Cod Submarine Memorial", a:"1201 N Marginal Rd",
+   w:"The last fully intact WWII fleet submarine in existence, tied up on the lakefront. No cut-away hull, no visitor stairs — you go in and out the way the crew did. Veterans narrate parts of the tour in person, and push-button audio stations cover the rest.",
+   k:"Entry is down a vertical ladder through a deck hatch. Not accessible, and genuinely tight if you're claustrophobic.",
+   h:"Daily, roughly 10:00 AM – 5:00 PM · Seasonal — confirm first",
+   s:[{id:"news5", n:"#30"}]},
+
+  // ── EAST ──
+  {c:"east", n:"Percy Skuy Collection, Dittrick Medical History Center", a:"11000 Euclid Ave (Allen Memorial Medical Library)",
+   w:"The largest and most comprehensive collection of historical contraceptives in the world — over a thousand objects arranged chronologically across a millennium. Beaver testicles, crocodile dung, spider carcasses, Goodyear rubbers, IUDs. Alongside them sit the texts: notes from Casanova recommending a hollowed half-lemon, and 1580 BCE instructions involving dates, acacia and honey. The surrounding Dittrick galleries on medical history are excellent in their own right.",
+   k:"Very limited hours, and they drive your whole day here. Free admission. Street parking is metered.",
+   h:"Fri 10:30 AM – 4:00 PM · Sat 12:00 – 4:00 PM · Closed otherwise",
+   warn:true,
+   s:[{id:"ao_skuy", n:""},{id:"news5", n:"#28"}]},
+
+  {c:"east", n:"Haserot Angel, Lake View Cemetery", a:"12316 Euclid Ave · Section 9, Lot 14",
+   w:"Formally titled \"The Angel of Death Victorious,\" this life-size bronze sits on the Haserot family plot holding an extinguished torch upside down. Decades of oxidation have left black streaks running from her eyes down her neck, so she appears to weep. Herman Matzen sculpted her; the canning magnate Francis Haserot commissioned her after his wife died in 1919. Lake View holds over 100,000 graves — Garfield's tomb, Wade Chapel's Tiffany interior, and Alan Freed's jukebox headstone are all here.",
+   k:"She's easy to miss: just off the road, tucked under trees. Grab a map at the gate or main office; the nearest marked landmark is the Hanna Mausoleum.",
+   h:"Daily 7:30 AM – 7:30 PM (Apr–Oct) · 7:30 AM – 5:30 PM (Nov–Mar) · Free",
+   s:[{id:"ao_angel", n:""},{id:"news5", n:"#5"},{id:"tsga", n:"#14"}]},
+
+  {c:"east", n:"Cleveland Museum of Art", a:"11150 East Blvd",
+   w:"One of the largest art museums in the country and free to enter. The 1916 building, East and West wings and North building wrap a glass-roofed atrium. Armor court, Egyptian galleries, and a strong Asian collection in the North building.",
+   k:"Approach from Wade Park and the South entrance for the view back across the lagoon. Special exhibitions are ticketed; the permanent collection is not.",
+   h:"Tue/Thu/Sat/Sun 10–5 · Wed & Fri 10–9 · Closed Monday · Free",
+   s:[{id:"tsga", n:"#18"},{id:"news5", n:"#60"}]},
+
+  {c:"east", n:"Cleveland Museum of Natural History", a:"1 Wade Oval Dr",
+   w:"Three things here earned separate entries on the hidden-gems list: Lucy, the Australopithecus skeleton; Balto, the sled dog, taxidermied and on display; and a chunk of the moon collected by Alan Bean in November 1969, on long-term loan from NASA. There's an outdoor wildlife area too, including a bald eagle.",
+   k:"Planetarium shows and 3D films cost extra. Attached garage parking. Allow two hours minimum — one is not enough.",
+   h:"Tue–Sun 10:00 AM – 5:00 PM · Closed Monday · Admission charged",
+   s:[{id:"news5", n:"#6"},{id:"news5", n:"#73"}]},
+
+  {c:"east", n:"Rockefeller Park Greenhouse", a:"750 E 88th St",
+   w:"A city-owned greenhouse from 1905 that grew into a full botanical facility: globally themed gardens, native Ohio plants, and a tropical house. The cactus and desert room is the one people remember. Free, and rarely crowded. The Cleveland Cultural Gardens run along the same boulevard — the Chinese Garden is the one most locals have skipped.",
+   k:"Closes at 4:00 PM, earlier than everything else in this cluster. Slot it before the cemetery, not after. Free parking, and an iris garden across the lot.",
+   h:"Daily 10:00 AM – 4:00 PM · Free",
+   warn:true,
+   s:[{id:"news5", n:"#53"},{id:"news5", n:"#7"}]},
+
+  {c:"east", n:"Quintana's Speakeasy", a:"2200 S Taylor Rd, Cleveland Heights",
+   w:"Go to the back door of the barbershop and spa. Press the buzzer. Tell the voice on the intercom you're there to see a man about a horse. The door opens. Up the stairs, turn right, find the bookshelf, and pull the correct book — the wall swings open onto a 1920s bar. Small capacity, strong cocktails, charcuterie.",
+   k:"Closed Mondays and Sundays. Seating is limited; the attic room upstairs is the quiet one. They also run cocktail classes.",
+   h:"Tue–Sat 3:00 PM – 12:00 AM · Closed Sun & Mon",
+   s:[{id:"news5", n:"#15"}]},
+
+  // ── WEST ──
+  {c:"west", n:"West Side Market", a:"1979 W 25th St, Ohio City",
+   w:"A hundred stalls under a 1912 barrel-vaulted hall with a clock tower — butchers, bakers, fishmongers, cheesemongers, spice sellers. Kielbasa in every form: smoked, fresh, double-smoked, Hungarian, Polish. One stand is called the Pork Chop Shop. Food has been sold on or beside this site since 1840. Look for the steer's head carved into the northern pediment, and go up to the balcony for the view down the hall.",
+   k:"Bring cash — most stalls don't take cards. Parking is free for the first hour; park toward the back near the beer garden, the front row is always jammed. The outdoor produce arcade is a separate building and a harder sell than the main hall.",
+   h:"Mon/Wed/Fri/Sat 8:00 AM – 5:00 PM · Sun 10:00 AM – 4:00 PM · Closed Tue & Thu",
+   warn:true,
+   s:[{id:"ao_wsm", n:""},{id:"tsga", n:"#22"},{id:"news5", n:""}]},
+
+  {c:"west", n:"Buckland Museum of Witchcraft & Magick", a:"2155 Broadview Rd",
+   w:"Raymond Buckland — leader of what became the Long Island Coven — started this collection in a Bay Shore basement in the 1960s. It followed him to New Hampshire, through legal disputes in New Orleans, into storage in Columbus, and finally here. Much of it originally belonged to Gerald Gardner, the father of Gardnerian Wicca, including his besom. Also: Sybil Leek's crystal ball, Egyptian ushabtis, a carved mandrake root, Crowley material, and a demon in a box that Buckland captured in the 1970s with help from a ceremonial magician.",
+   k:"About ten minutes from downtown. Parking behind the building and on the street. Photos allowed without flash; the curator asks for no video. Small enough to see in an hour, dense enough to want longer.",
+   h:"Mon–Thu 12:00 – 6:00 PM · Fri & Sat 12:00 – 7:00 PM · Sun 12:00 – 4:00 PM",
+   s:[{id:"ao_buck", n:""},{id:"news5", n:"#45"}]},
+
+  {c:"west", n:"A Christmas Story House", a:"3159 W 11th St, Tremont",
+   w:"The actual exterior house from the 1983 film, restored to match the movie interior, plus a museum across the street with original props and costumes and a large gift shop. The tour covers why the film was shot in Cleveland at all.",
+   k:"House interior is tour-only; tickets at the gift shop, departures every 30 minutes from 10:15 AM. Budget two hours, not one. You can also rent the house overnight and sleep in Ralphie's bedroom.",
+   h:"Daily 10:00 AM – 5:00 PM · Admission charged",
+   s:[{id:"tsga", n:"#12"},{id:"news5", n:""}]},
+
+  {c:"west", n:"b.a. Sweetie Candy Company", a:"6770 Brookpark Rd",
+   w:"A candy warehouse, not a candy store — aisles of it, in bulk, plus an ice cream and soda counter inside. It went viral in 2021 for the sheer volume. Prices are roughly retail, so come for the spectacle rather than the bargain.",
+   k:"Easy to combine with the pinball parlor and the Sanctuary Museum if you're looping the west side.",
+   h:"Mon–Sat 10:00 AM – 7:00 PM · Sun 11:00 AM – 5:00 PM",
+   s:[{id:"news5", n:"#69"}]},
+
+  {c:"west", n:"Superelectric Pinball Parlor", a:"6500 Detroit Ave, Gordon Square",
+   w:"Flat entry fee, unlimited play, well-maintained machines, and a bar. Exactly what it sounds like and no more, which is the point. Gordon Square is an arts district, so the mural walk is right outside the door.",
+   k:"Closed Tuesdays. Opens at 4:00 PM on weekdays, noon on weekends.",
+   h:"Wed–Mon from 4:00 PM (noon Fri–Sun) · Closed Tuesday",
+   s:[{id:"news5", n:"#63"}]},
+
+  {c:"west", n:"The Sanctuary Museum", a:"12905 Madison Ave, Lakewood",
+   w:"A makeup artist named Lou McClung spent years rescuing statues, stained glass, altarpieces and relics from Catholic parishes across the Diocese of Cleveland as they closed, then restored them. The result is a room of hundreds of saved objects that would otherwise have been landfilled. The wall of relics is the centerpiece — step too close and you trip the laser.",
+   k:"The hardest schedule on this list: two short windows a week. Small admission fee. Call ahead.",
+   h:"Wed 10:30 AM – 1:00 PM · Sat 12:00 – 4:00 PM · Closed otherwise",
+   warn:true,
+   s:[{id:"news5", n:"#62"}]},
+
+  {c:"west", n:"Solstice Steps, Lakewood Park", a:"14532 Lake Ave, Lakewood",
+   w:"Terraced stone steps descending to the edge of Lake Erie, built so that everyone gets a front-row seat rather than a handful of benches. Best sunset in the region, with the downtown skyline visible to the east. Porch swings and a walking path along the bluff.",
+   k:"End the day here. Arrive 30 minutes before sunset for a seat on the lower terraces. Windy and cold well into spring.",
+   h:"Daily 6:00 AM – 11:00 PM · Free",
+   s:[{id:"news5", n:"#74"}]}
+];
+
+/* ── Render ─────────────────────────────── */
+const list = document.getElementById('list');
+const countEl = document.getElementById('count');
+let activeSrc = 'all', activeDay = 'all';
+
+function srcTag(s){
+  const meta = SOURCES[s.id];
+  const num = s.n ? ` <span class="num">${s.n}</span>` : '';
+  return `<a class="src" href="${meta.url}" target="_blank" rel="noopener">${meta.key}${num}</a>`;
+}
+
+function render(){
+  let html = '', shown = 0;
+  CLUSTERS.forEach(cl => {
+    if(activeDay !== 'all' && activeDay !== cl.id) return;
+    const stops = STOPS.filter(st =>
+      st.c === cl.id &&
+      (activeSrc === 'all' || st.s.some(x => SOURCES[x.id].key === activeSrc))
+    );
+    if(!stops.length) return;
+    shown += stops.length;
+    html += `<div class="cluster"><h2>${cl.name}</h2><span class="meta">${cl.meta}</span></div>`;
+    stops.forEach(st => {
+      const idx = STOPS.indexOf(st) + 1;
+      const seen = new Set();
+      const tags = st.s.filter(x=>{
+        const k = SOURCES[x.id].key + x.n;
+        if(seen.has(k)) return false; seen.add(k); return true;
+      }).map(srcTag).join('');
+      html += `
+      <article class="entry">
+        <div class="entry-head">
+          <div class="marker">${String(idx).padStart(2,'0')}</div>
+          <div class="body-col">
+            <h3>${st.n}</h3>
+            <p class="addr"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(st.n + ', ' + st.a)}" target="_blank" rel="noopener">${st.a} ↗</a></p>
+            <p class="what">${st.w}</p>
+            <div class="note${st.warn ? ' warn' : ''}"><span class="tag">${st.warn ? 'Watch out' : 'Know before'}</span><span>${st.k}</span></div>
+            <p class="hours"><b>Hours</b> · ${st.h}</p>
+            <div class="ledger"><span class="lbl">Sourced from</span>${tags}</div>
+          </div>
+        </div>
+      </article>`;
+    });
+  });
+  list.innerHTML = html || `<p class="empty">No stops match that combination.</p>`;
+  countEl.textContent = `SHOWING ${shown} OF ${STOPS.length} STOPS`;
+}
+
+/* Filters */
+const srcKeys = [...new Set(Object.values(SOURCES).map(s => s.key))];
+document.getElementById('srcFilter').innerHTML =
+  [`<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>`]
+  .concat(srcKeys.map(k => `<button class="chip" aria-pressed="false" data-v="${k}">${k}</button>`)).join('');
+document.getElementById('dayFilter').innerHTML =
+  [`<button class="chip" aria-pressed="true" data-v="all">WHOLE CITY</button>`]
+  .concat(CLUSTERS.map(c => `<button class="chip" aria-pressed="false" data-v="${c.id}">${c.name.toUpperCase()}</button>`)).join('');
+
+function wire(id, setter){
+  document.getElementById(id).addEventListener('click', e => {
+    const btn = e.target.closest('.chip'); if(!btn) return;
+    document.querySelectorAll(`#${id} .chip`).forEach(c => c.setAttribute('aria-pressed','false'));
+    btn.setAttribute('aria-pressed','true');
+    setter(btn.dataset.v);
+    render();
+  });
+}
+wire('srcFilter', v => activeSrc = v);
+wire('dayFilter', v => activeDay = v);
+
+/* Appendix */
+document.getElementById('srcList').innerHTML = Object.values(SOURCES).map(s => `
+  <div class="srcrow">
+    <span class="k">${s.key}</span>
+    <div class="t"><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a><span>${s.label}</span></div>
+  </div>`).join('');
+
+render();
+</script>
+</body>
+</html>

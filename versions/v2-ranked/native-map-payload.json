@@ -1,0 +1,310 @@
+{
+ "_readme": "Replay-ready payload for places_map_display_v0. Every stop is tier 1 (must see / must eat). Verify place_ids with places_search before use. See SELECTION-METHOD.md.",
+ "_tool": "places_map_display_v0",
+ "title": "Cleveland — Every Must-See, Ranked (Thu–Sun)",
+ "narrative": "Rebuilt from the guide's ranking rather than hand-picked: every stop is a MUST SEE or MUST EAT, ordered by source count within each region, then re-sequenced so opening hours actually work. Thursday to Sunday, 34 stops. The weekday of each day is forced by a constraint, not a preference.",
+ "show_route": true,
+ "travel_mode": "driving",
+ "days": [
+  {
+   "day_number": 1,
+   "title": "Thursday · Suburbs, Metroparks & Cuyahoga Valley",
+   "narrative": "Thursday, because Holden closes Mondays and Tita Flora's closes Mondays. Everything else outdoors is open daily. Long driving day — start early.",
+   "locations": [
+    {
+     "name": "Holden Arboretum & Stebbins Gulch",
+     "latitude": 41.6114292,
+     "longitude": -81.3012572,
+     "place_id": "ChIJB3M7k6OnMYgRm1r-0LNgEh0",
+     "arrival_time": "9:30 AM",
+     "notes": "Must-see · 1 source. Stebbins Gulch is guided-access only and must be booked ahead. Closed Mondays."
+    },
+    {
+     "name": "Squire's Castle",
+     "latitude": 41.5800222,
+     "longitude": -81.4192778,
+     "place_id": "ChIJ6z0DLkgHMYgRvEBWfZPRDcI",
+     "arrival_time": "12:30 PM",
+     "notes": "Must-see · 1 source. Roofless stone gatehouse, free, dawn to dusk, directly on the road south."
+    },
+    {
+     "name": "Cuyahoga Valley NP — Boston Mill Visitor Center",
+     "latitude": 41.262604,
+     "longitude": -81.5603244,
+     "place_id": "ChIJ27FUSE3eMIgRhQZr5YcF3ek",
+     "arrival_time": "2:30 PM",
+     "notes": "Must-see · 1 source. Start here for maps and rangers."
+    },
+    {
+     "name": "Brandywine Falls",
+     "latitude": 41.2769085,
+     "longitude": -81.538565,
+     "place_id": "ChIJJZ89ZcLfMIgRrHgRixnF0HA",
+     "arrival_time": "3:30 PM",
+     "notes": "Must-see · 2 sources. Boardwalk to a 65-foot fall. Stairs at both levels — not fully accessible."
+    },
+    {
+     "name": "Virginia Kendall Ledges Overlook",
+     "latitude": 41.2203118,
+     "longitude": -81.5123348,
+     "place_id": "ChIJp90YwVnfMIgRhT77e2EJgFI",
+     "arrival_time": "5:30 PM",
+     "notes": "Must-see · 2 sources. Best sunset in the national park. Arrive 45 min before sunset."
+    },
+    {
+     "name": "Tita Flora's",
+     "latitude": 41.3851892,
+     "longitude": -81.6400545,
+     "place_id": "ChIJc6-BvhjlMIgRCVkhblqAkvE",
+     "arrival_time": "7:30 PM",
+     "notes": "Must-eat · Filipino. Highest diner-rated Asian restaurant in the region. Closed Monday."
+    }
+   ]
+  },
+  {
+   "day_number": 2,
+   "title": "Friday · University Circle & the East Side",
+   "narrative": "Friday, and not negotiable — the Dittrick opens Friday and Saturday only, and the art museum runs until 9pm on Fridays.",
+   "locations": [
+    {
+     "name": "Percy Skuy Collection, Dittrick Medical History Center",
+     "latitude": 41.5059193,
+     "longitude": -81.608414,
+     "place_id": "ChIJT3vYnND7MIgRZWKolGXWNP8",
+     "arrival_time": "10:30 AM",
+     "notes": "Must-see · 2 sources. THE CONSTRAINT THAT SETS THE TRIP: Friday 10:30–4 and Saturday 12–4 only. Free."
+    },
+    {
+     "name": "Lucy, Cleveland Museum of Natural History",
+     "latitude": 41.5114773,
+     "longitude": -81.6130674,
+     "place_id": "ChIJITY1VYz7MIgRH4nF3v7V9Tg",
+     "arrival_time": "12:00 PM",
+     "notes": "Must-see · 1 source. Plus Balto and the Apollo 12 moon rock. Closed Mondays."
+    },
+    {
+     "name": "Superior Phở",
+     "latitude": 41.5103169,
+     "longitude": -81.6696709,
+     "place_id": "ChIJr6dfL2j6MIgREFyp2sXk_1U",
+     "arrival_time": "1:30 PM",
+     "notes": "Must-eat · TOP-SCORING FOOD, 3 sources. Enter through Golden Plaza, free parking. Closed Monday."
+    },
+    {
+     "name": "Wade Memorial Chapel",
+     "latitude": 41.5136209,
+     "longitude": -81.5946413,
+     "place_id": "ChIJKfBgLw38MIgRaCKXofsPpgg",
+     "arrival_time": "2:45 PM",
+     "notes": "Must-see · 1 source. THE BEST THING NOBODY TELLS YOU ABOUT: a Tiffany interior by an all-female workshop. Daily 10–4, free."
+    },
+    {
+     "name": "Haserot Angel",
+     "latitude": 41.513022,
+     "longitude": -81.590375,
+     "place_id": "ChIJ6zEGqQz8MIgR0Mbn7BfCH-o",
+     "arrival_time": "3:20 PM",
+     "notes": "Must-see · HIGHEST-SOURCED PLACE IN THE GUIDE, 3 sources. Section 9, Lot 14. Nearest landmark: Hanna Mausoleum."
+    },
+    {
+     "name": "Lake View Cemetery — Garfield Memorial & grounds",
+     "latitude": 41.51398,
+     "longitude": -81.5988944,
+     "place_id": "ChIJ6zEGqQz8MIgR0Mbn7BfCH-o",
+     "arrival_time": "3:50 PM",
+     "notes": "Must-see · 2 sources. Climb the Garfield tower. Gates close 7:30pm Apr–Oct."
+    },
+    {
+     "name": "Cleveland Museum of Art & The Thinker",
+     "latitude": 41.5079261,
+     "longitude": -81.6119723,
+     "place_id": "ChIJ2Ql60437MIgRajTzalRnRgI",
+     "arrival_time": "4:50 PM",
+     "notes": "Must-see · 2 entries. Free, open to 9pm Fridays. The Rodin was bombed in 1970 and never restored."
+    },
+    {
+     "name": "Presti's Bakery",
+     "latitude": 41.50885,
+     "longitude": -81.598356,
+     "place_id": "ChIJl-VpBnT8MIgRqEGwMhBIJjc",
+     "arrival_time": "7:30 PM",
+     "notes": "Must-eat · desserts. Century-old Little Italy bakery. Take a number or get cut in line."
+    },
+    {
+     "name": "Quintana's Speakeasy",
+     "latitude": 41.4998009,
+     "longitude": -81.5563368,
+     "place_id": "ChIJyVqWt5H9MIgRsDvxcpNhxYU",
+     "arrival_time": "8:45 PM",
+     "notes": "Must-see · 1 source. Buzzer at the barbershop's back door, then pull the right book. Closed Sun & Mon."
+    }
+   ]
+  },
+  {
+   "day_number": 3,
+   "title": "Saturday · Downtown & The Flats",
+   "narrative": "Saturday, because the chess collection closes Sundays and the Terminal Tower deck opens weekends only. All ten downtown must-sees, ending under the chandelier after dark.",
+   "locations": [
+    {
+     "name": "Soldiers' & Sailors' Monument",
+     "latitude": 41.4995228,
+     "longitude": -81.6929283,
+     "place_id": "ChIJX64UxH_wMIgRIDDsnkEDIAc",
+     "arrival_time": "10:00 AM",
+     "notes": "Must-see · 1 source. Free museum. Ask whether the tunnels below are open — roughly one day a year."
+    },
+    {
+     "name": "Chess Collection — Cleveland Public Library MAIN Library",
+     "latitude": 41.501113,
+     "longitude": -81.6916133,
+     "place_id": "ChIJZWM6G4DwMIgRhQl3mo6sQ8I",
+     "arrival_time": "10:45 AM",
+     "notes": "Must-see · 2 sources. 325 Superior Ave NE, third floor — NOT the address News 5 prints. Closed Sundays. Bring photo ID."
+    },
+    {
+     "name": "The Arcade (Old Arcade)",
+     "latitude": 41.4999444,
+     "longitude": -81.6902444,
+     "place_id": "ChIJE67_B4D6MIgRUjHinWaHVPI",
+     "arrival_time": "11:45 AM",
+     "notes": "Must-see · 2 sources. 1890, America's first indoor shopping centre."
+    },
+    {
+     "name": "Heinen's Downtown",
+     "latitude": 41.5000366,
+     "longitude": -81.6861122,
+     "place_id": "ChIJDXu8A376MIgRfzR8vMBn-QE",
+     "arrival_time": "12:20 PM",
+     "notes": "Must-see · 1 source. A grocery inside a bank rotunda. Eat lunch on the balcony."
+    },
+    {
+     "name": "Terminal Tower Observation Deck",
+     "latitude": 41.4983959,
+     "longitude": -81.6939263,
+     "place_id": "ChIJfZ5nlk7xMIgRmChxUKt0_aI",
+     "arrival_time": "1:20 PM",
+     "notes": "Must-see · 2 sources. Weekends only 12–4, tickets MUST be booked online. Ride to 32, transfer to 42."
+    },
+    {
+     "name": "Hope Memorial Bridge & the Guardians of Traffic",
+     "latitude": 41.4893486,
+     "longitude": -81.6935635,
+     "place_id": "ChIJg3ufmHfwMIgRQXUgoMjScIA",
+     "arrival_time": "2:30 PM",
+     "notes": "Must-see · 1 source. Eight art deco giants, 43 feet each. Walk it — pedestrian ways both sides."
+    },
+    {
+     "name": "Steamship William G. Mather",
+     "latitude": 41.5092703,
+     "longitude": -81.6980733,
+     "place_id": "ChIJDRfY6oTwMIgRtMSVj_OwSKo",
+     "arrival_time": "3:30 PM",
+     "notes": "Must-see · 1 source. 618-foot freighter, open stem to stern. Closed Monday, seasonal."
+    },
+    {
+     "name": "Free Stamp",
+     "latitude": 41.5054252,
+     "longitude": -81.6924552,
+     "place_id": "ChIJfX6NH4LwMIgRxSRqE2vcm_c",
+     "arrival_time": "4:20 PM",
+     "notes": "Must-see · 1 source. Rejected by the corporation that commissioned it. Two minutes, always open."
+    },
+    {
+     "name": "Rock & Roll Hall of Fame",
+     "latitude": 41.5085414,
+     "longitude": -81.6953685,
+     "place_id": "ChIJHZLHDYPwMIgRXxZaKR6dG5c",
+     "arrival_time": "4:45 PM",
+     "notes": "Must-see · 1 source. Open to 8pm Saturdays. Buy ahead. Three hours minimum."
+    },
+    {
+     "name": "Wonton Gourmet & BBQ",
+     "latitude": 41.5088376,
+     "longitude": -81.6662247,
+     "place_id": "ChIJc3bSLkP6MIgR1hUyFAI1nwg",
+     "arrival_time": "8:00 PM",
+     "notes": "Must-eat · Cantonese, 2 sources. Roast duck and char siu in the window. Open to 9:15pm. Closed Tuesday."
+    },
+    {
+     "name": "GE Chandelier, Playhouse Square",
+     "latitude": 41.5009131,
+     "longitude": -81.6817691,
+     "place_id": "ChIJe0j5FH36MIgRZKUVx_P30DA",
+     "arrival_time": "9:00 PM",
+     "notes": "Must-see · 2 sources. Largest outdoor chandelier in North America. Free, lit nightly. Go after dark."
+    }
+   ]
+  },
+  {
+   "day_number": 4,
+   "title": "Sunday · West Side, Ohio City & Tremont",
+   "narrative": "Sunday, set by the market (10–4) and Buckland (12–4). Ends with sunset on the lake. Two west-side must-sees cannot fit — see README.",
+   "locations": [
+    {
+     "name": "West Side Market",
+     "latitude": 41.4847078,
+     "longitude": -81.7028394,
+     "place_id": "ChIJnzfZu23wMIgRXsydHOM2tKs",
+     "arrival_time": "10:00 AM",
+     "notes": "Must-see · HIGHEST-SOURCED PLACE IN THE GUIDE, 3 sources. Sunday 10–4. Bring cash. Park at the back."
+    },
+    {
+     "name": "Mitchell's Ice Cream, Ohio City",
+     "latitude": 41.4858111,
+     "longitude": -81.7044813,
+     "place_id": "ChIJh4rI0G3wMIgRJdm7-p5hdp0",
+     "arrival_time": "11:30 AM",
+     "notes": "Must-eat · desserts. Made on site in a restored 1920s cinema. Two minutes from the market."
+    },
+    {
+     "name": "Franklin Castle",
+     "latitude": 41.485723,
+     "longitude": -81.7165436,
+     "place_id": "ChIJ5w2qHcPxMIgRnDliy7NsWNA",
+     "arrival_time": "12:15 PM",
+     "notes": "Must-see · 1 source. Interior is Tuesday-evening tours only — today is an exterior visit."
+    },
+    {
+     "name": "A Christmas Story House & Museum",
+     "latitude": 41.4687304,
+     "longitude": -81.6874036,
+     "place_id": "ChIJbQVW7Kj6MIgRGb69WOQyj9M",
+     "arrival_time": "1:15 PM",
+     "notes": "Must-see · 2 sources. Tours every 30 min. Budget two hours, not one."
+    },
+    {
+     "name": "Buckland Museum of Witchcraft & Magick",
+     "latitude": 41.43805,
+     "longitude": -81.6998196,
+     "place_id": "ChIJo_QhBwrwMIgRmXQQj9UObQE",
+     "arrival_time": "3:00 PM",
+     "notes": "Must-see · 2 sources. Sunday 12–4 only. Gardner's artifacts and a demon in a box."
+    },
+    {
+     "name": "Barroco Arepa Bar",
+     "latitude": 41.477094,
+     "longitude": -81.7783683,
+     "place_id": "ChIJc_wK_PfxMIgR3Mq1xzeqNPc",
+     "arrival_time": "4:30 PM",
+     "notes": "Must-eat · Latin American, 2 sources. Colombian-Venezuelan. Waits get long and do not shorten."
+    },
+    {
+     "name": "Sweet Moses Soda Fountain",
+     "latitude": 41.4838234,
+     "longitude": -81.7319031,
+     "place_id": "ChIJoz5ufErwMIgR2-nk8sPcJPw",
+     "arrival_time": "6:00 PM",
+     "notes": "Must-eat · desserts. A 1920s soda fountain rebuilt from scratch. Order the root beer float."
+    },
+    {
+     "name": "Solstice Steps, Lakewood Park",
+     "latitude": 41.4972086,
+     "longitude": -81.797965,
+     "place_id": "ChIJ-1wqMzjyMIgR2B1ZxllLMWE",
+     "arrival_time": "7:45 PM",
+     "notes": "Must-see · 1 source. Best sunset in the region. Arrive 30 min early for a lower terrace."
+    }
+   ]
+  }
+ ]
+}

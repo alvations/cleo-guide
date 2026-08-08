@@ -1,0 +1,8 @@
+{
+  "name": "field-guide-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Test and validation harness for the field guide",
+  "scripts": { "test": "node test.js", "validate": "node validate.js" },
+  "dependencies": { "jsdom": "^24.0.0", "leaflet": "^1.9.4" }
+}

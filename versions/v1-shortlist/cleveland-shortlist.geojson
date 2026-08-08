@@ -1,0 +1,347 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6929283,
+     41.4995228
+    ]
+   },
+   "properties": {
+    "day": 1,
+    "cluster": "Downtown Core",
+    "name": "Soldiers' & Sailors' Monument",
+    "address": "3 Public Square",
+    "arrive": "10:00 AM",
+    "note": "Free inside. The tunnel labyrinth underneath opens one day a year \u2014 ask at the desk."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6916133,
+     41.501113
+    ]
+   },
+   "properties": {
+    "day": 1,
+    "cluster": "Downtown Core",
+    "name": "Chess Collection, Cleveland Public Library",
+    "address": "325 Superior Ave NE, 3rd floor",
+    "arrive": "10:45 AM",
+    "note": "World's largest chess collection. Photo ID; one item at a time. Closed Sunday."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6902444,
+     41.4999444
+    ]
+   },
+   "properties": {
+    "day": 1,
+    "cluster": "Downtown Core",
+    "name": "The Arcade",
+    "address": "401 Euclid Ave",
+    "arrive": "11:45 AM",
+    "note": "1890 glass-roofed arcade modelled on Milan's Galleria. Lunch inside."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6939263,
+     41.4983959
+    ]
+   },
+   "properties": {
+    "day": 1,
+    "cluster": "Downtown Core",
+    "name": "Terminal Tower Observation Deck",
+    "address": "50 Public Square",
+    "arrive": "1:00 PM",
+    "note": "Weekends only, ~$5\u20136, tickets online in advance. No walk-ups."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6924552,
+     41.5054252
+    ]
+   },
+   "properties": {
+    "day": 1,
+    "cluster": "Downtown Core",
+    "name": "Free Stamp",
+    "address": "Willard Park, 601 Lakeside Ave E",
+    "arrive": "2:30 PM",
+    "note": "Oldenburg & van Bruggen's giant rubber stamp. Two minutes, always open."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6915676,
+     41.5100715
+    ]
+   },
+   "properties": {
+    "day": 1,
+    "cluster": "Downtown Core",
+    "name": "USS Cod Submarine Memorial",
+    "address": "1201 N Marginal Rd",
+    "arrive": "3:15 PM",
+    "note": "Last intact WWII fleet sub. Entry down a vertical ladder \u2014 not accessible."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.608414,
+     41.5059193
+    ]
+   },
+   "properties": {
+    "day": 2,
+    "cluster": "University Circle & East",
+    "name": "Percy Skuy Collection, Dittrick Medical History Center",
+    "address": "11000 Euclid Ave",
+    "arrive": "11:00 AM",
+    "note": "Fri 10:30\u20134 and Sat 12\u20134 ONLY. Free. 1,000+ contraceptive artifacts."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6119723,
+     41.5079261
+    ]
+   },
+   "properties": {
+    "day": 2,
+    "cluster": "University Circle & East",
+    "name": "Cleveland Museum of Art",
+    "address": "11150 East Blvd",
+    "arrive": "1:00 PM",
+    "note": "Free. Enter from Wade Park for the view across the lagoon. Closed Monday."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6130674,
+     41.5114773
+    ]
+   },
+   "properties": {
+    "day": 2,
+    "cluster": "University Circle & East",
+    "name": "Cleveland Museum of Natural History",
+    "address": "1 Wade Oval Dr",
+    "arrive": "2:30 PM",
+    "note": "Lucy, Balto, and an Apollo 12 moon rock. Closed Monday."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.590375,
+     41.513022
+    ]
+   },
+   "properties": {
+    "day": 2,
+    "cluster": "University Circle & East",
+    "name": "Haserot Angel, Lake View Cemetery",
+    "address": "12316 Euclid Ave \u00b7 Section 9, Lot 14",
+    "arrive": "4:00 PM",
+    "note": "Grab a map at the gate. Nearest landmark is the Hanna Mausoleum."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6287004,
+     41.5370491
+    ]
+   },
+   "properties": {
+    "day": 2,
+    "cluster": "University Circle & East",
+    "name": "Rockefeller Park Greenhouse",
+    "address": "750 E 88th St",
+    "arrive": "Earlier",
+    "note": "Closes at 4pm \u2014 swap earlier in the day. Free."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.5563368,
+     41.4998009
+    ]
+   },
+   "properties": {
+    "day": 2,
+    "cluster": "University Circle & East",
+    "name": "Quintana's Speakeasy",
+    "address": "2200 S Taylor Rd, Cleveland Heights",
+    "arrive": "7:00 PM",
+    "note": "Back door of the barbershop, buzzer, 'a man about a horse', then pull the right book."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.7028394,
+     41.4847078
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "West Side Market",
+    "address": "1979 W 25th St",
+    "arrive": "9:00 AM",
+    "note": "Bring cash. Closed Tuesday and Thursday. First hour parking free."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6998196,
+     41.43805
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "Buckland Museum of Witchcraft & Magick",
+    "address": "2155 Broadview Rd",
+    "arrive": "12:30 PM",
+    "note": "Gardner's artifacts, Sybil Leek's crystal ball, a demon in a box. Allow an hour."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.6874036,
+     41.4687304
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "A Christmas Story House",
+    "address": "3159 W 11th St",
+    "arrive": "2:00 PM",
+    "note": "Tours every 30 min from 10:15. Budget two hours."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.7316654,
+     41.4201515
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "b.a. Sweetie Candy Company",
+    "address": "6770 Brookpark Rd",
+    "arrive": "3:30 PM",
+    "note": "A warehouse of candy, plus a soda fountain."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.7304346,
+     41.4842367
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "Superelectric Pinball Parlor",
+    "address": "6500 Detroit Ave",
+    "arrive": "5:00 PM",
+    "note": "Flat fee, unlimited play. Closed Tuesday."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.778332,
+     41.4767072
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "The Sanctuary Museum",
+    "address": "12905 Madison Ave, Lakewood",
+    "arrive": "6:00 PM",
+    "note": "Wed mornings and Sat afternoons ONLY. Rescued church statuary."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -81.797965,
+     41.4972086
+    ]
+   },
+   "properties": {
+    "day": 3,
+    "cluster": "West Side & South",
+    "name": "Solstice Steps, Lakewood Park",
+    "address": "14532 Lake Ave, Lakewood",
+    "arrive": "7:30 PM",
+    "note": "Best sunset in the region. Arrive 30 min early for a lower terrace."
+   }
+  }
+ ]
+}

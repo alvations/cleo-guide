@@ -1,0 +1,183 @@
+{
+ "_readme": "Replay-ready payload for places_map_display_v0. Verify each place_id with places_search before use — ids change when a business moves or relists. See RECREATE-NATIVE-MAP.md.",
+ "_tool": "places_map_display_v0",
+ "title": "Cleveland: The Odd & Overlooked",
+ "narrative": "Nineteen stops grouped into three geographic clusters so you're not crossing the city twice. Day 1 is walkable downtown; Days 2 and 3 need a car or rideshare. Opening hours drive the order — a Friday-Saturday-Sunday trip threads every constraint; Monday-Wednesday misses several.",
+ "show_route": true,
+ "travel_mode": "driving",
+ "days": [
+  {
+   "day_number": 1,
+   "title": "Downtown Core (mostly walkable)",
+   "narrative": "Everything here is within about a mile, except the USS Cod which is a short walk over the Shoreway. Start early — the Terminal Tower deck is weekends only.",
+   "locations": [
+    {
+     "name": "Soldiers' & Sailors' Monument",
+     "latitude": 41.4995228,
+     "longitude": -81.6929283,
+     "place_id": "ChIJX64UxH_wMIgRIDDsnkEDIAc",
+     "arrival_time": "10:00 AM",
+     "notes": "Free inside. The famous tunnel labyrinth underneath is only opened one day a year — ask at the desk whether a tour is scheduled."
+    },
+    {
+     "name": "Cleveland Public Library — Chess Collection",
+     "latitude": 41.501113,
+     "longitude": -81.6916133,
+     "place_id": "ChIJZWM6G4DwMIgRhQl3mo6sQ8I",
+     "arrival_time": "10:45 AM",
+     "notes": "Main Building, 325 Superior Ave NE, third floor. World's largest chess collection. Bring photo ID — you're shown one item at a time. Closed Sundays."
+    },
+    {
+     "name": "The Arcade",
+     "latitude": 41.4999444,
+     "longitude": -81.6902444,
+     "place_id": "ChIJE67_B4D6MIgRUjHinWaHVPI",
+     "arrival_time": "11:45 AM",
+     "notes": "1890 glass-roofed arcade modeled on Milan's Galleria. Rockefeller helped finance it. Grab lunch inside."
+    },
+    {
+     "name": "Terminal Tower Observation Deck",
+     "latitude": 41.4983959,
+     "longitude": -81.6939263,
+     "place_id": "ChIJfZ5nlk7xMIgRmChxUKt0_aI",
+     "arrival_time": "1:00 PM",
+     "notes": "Saturday/Sunday only, ~$5-6, tickets online in advance — no walk-ups. Two elevators: 32nd floor, then transfer to 42nd."
+    },
+    {
+     "name": "Free Stamp (Willard Park)",
+     "latitude": 41.5054252,
+     "longitude": -81.6924552,
+     "place_id": "ChIJfX6NH4LwMIgRxSRqE2vcm_c",
+     "arrival_time": "2:30 PM",
+     "notes": "Oldenburg & van Bruggen's giant rubber stamp. Two minutes to see, always open, worth the detour."
+    },
+    {
+     "name": "USS Cod Submarine Memorial",
+     "latitude": 41.5100715,
+     "longitude": -81.6915676,
+     "place_id": "ChIJQ16XKoPwMIgRa5G5UJpGlRk",
+     "arrival_time": "3:15 PM",
+     "notes": "Last fully intact WWII fleet sub. You enter by climbing down a vertical ladder — not accessible."
+    }
+   ]
+  },
+  {
+   "day_number": 2,
+   "title": "University Circle & the East Side",
+   "narrative": "The museum cluster plus the cemetery. Note the Dittrick's very limited hours — it drives the whole day's schedule.",
+   "locations": [
+    {
+     "name": "Percy Skuy Collection, Dittrick Medical History Center",
+     "latitude": 41.5059193,
+     "longitude": -81.608414,
+     "place_id": "ChIJT3vYnND7MIgRZWKolGXWNP8",
+     "arrival_time": "11:00 AM",
+     "notes": "Only open Fri 10:30-4 and Sat 12-4. Free. 1,000+ contraceptive artifacts, from crocodile dung to Casanova's lemon halves."
+    },
+    {
+     "name": "Cleveland Museum of Art",
+     "latitude": 41.5079261,
+     "longitude": -81.6119723,
+     "place_id": "ChIJ2Ql60437MIgRajTzalRnRgI",
+     "arrival_time": "1:00 PM",
+     "notes": "Free admission, one of the largest museums in the US. Enter from Wade Park for the best approach across the lagoon."
+    },
+    {
+     "name": "Cleveland Museum of Natural History",
+     "latitude": 41.5114773,
+     "longitude": -81.6130674,
+     "place_id": "ChIJITY1VYz7MIgRH4nF3v7V9Tg",
+     "arrival_time": "2:30 PM",
+     "notes": "Lucy, Balto, and an Apollo 12 moon rock on loan from NASA. Closed Mondays."
+    },
+    {
+     "name": "Haserot Angel, Lake View Cemetery",
+     "latitude": 41.51398,
+     "longitude": -81.5988944,
+     "place_id": "ChIJ6zEGqQz8MIgR0Mbn7BfCH-o",
+     "arrival_time": "4:00 PM",
+     "notes": "Section 9, Lot 14 — grab a map at the gate. Closest landmark is the Hanna Mausoleum. Also here: Garfield's tomb, Wade Chapel, Alan Freed's jukebox headstone."
+    },
+    {
+     "name": "Rockefeller Park Greenhouse",
+     "latitude": 41.5370491,
+     "longitude": -81.6287004,
+     "place_id": "ChIJj4fSrOD7MIgR_3UlO6xDXy4",
+     "arrival_time": "Move earlier",
+     "notes": "Closes at 4 — swap this earlier in the day if you want it. Free, 1905 city greenhouse. The Cultural Gardens run alongside."
+    },
+    {
+     "name": "Quintana's Speakeasy",
+     "latitude": 41.4998009,
+     "longitude": -81.5563368,
+     "place_id": "ChIJyVqWt5H9MIgRsDvxcpNhxYU",
+     "arrival_time": "7:00 PM",
+     "notes": "Back door of the barbershop, press the buzzer, say you're there to see a man about a horse. Then pull the right book off the shelf upstairs. Closed Mon & Sun."
+    }
+   ]
+  },
+  {
+   "day_number": 3,
+   "title": "West Side, Tremont & South",
+   "narrative": "Market in the morning, oddities in the afternoon, sunset over Lake Erie. The market is closed Tuesdays and Thursdays — plan around it.",
+   "locations": [
+    {
+     "name": "West Side Market",
+     "latitude": 41.4847078,
+     "longitude": -81.7028394,
+     "place_id": "ChIJnzfZu23wMIgRXsydHOM2tKs",
+     "arrival_time": "9:00 AM",
+     "notes": "Bring cash — most stalls don't take cards. Go in the morning for the meat and bakery halls. First hour of parking is free; park toward the back of the lot."
+    },
+    {
+     "name": "Buckland Museum of Witchcraft & Magick",
+     "latitude": 41.43805,
+     "longitude": -81.6998196,
+     "place_id": "ChIJo_QhBwrwMIgRmXQQj9UObQE",
+     "arrival_time": "12:30 PM",
+     "notes": "Gerald Gardner's artifacts, Sybil Leek's crystal ball, and a demon in a box. Small — allow an hour. Photos OK, no flash, no video."
+    },
+    {
+     "name": "A Christmas Story House",
+     "latitude": 41.4687304,
+     "longitude": -81.6874036,
+     "place_id": "ChIJbQVW7Kj6MIgRGb69WOQyj9M",
+     "arrival_time": "2:00 PM",
+     "notes": "House, museum and gift shop. Tours every 30 min. You can also book a night in Ralphie's bedroom."
+    },
+    {
+     "name": "b.a. Sweetie Candy Company",
+     "latitude": 41.4201515,
+     "longitude": -81.7316654,
+     "place_id": "ChIJL-FMICe8Z0ARA7ME7HbSZ0k",
+     "arrival_time": "3:30 PM",
+     "notes": "A warehouse of candy. Went viral for a reason. There's a soda fountain inside too."
+    },
+    {
+     "name": "Superelectric Pinball Parlor",
+     "latitude": 41.4842367,
+     "longitude": -81.7304346,
+     "place_id": "ChIJGQ6OFkrwMIgR02WUbSh0LVo",
+     "arrival_time": "5:00 PM",
+     "notes": "Flat entry fee, unlimited play, beer at the bar. In Gordon Square, so pair it with the mural walk."
+    },
+    {
+     "name": "The Sanctuary Museum",
+     "latitude": 41.4767072,
+     "longitude": -81.778332,
+     "place_id": "ChIJP6u3_vfxMIgRthj403HQAHM",
+     "arrival_time": "6:00 PM",
+     "notes": "Hundreds of statues and stained glass rescued from closed Catholic parishes by a makeup artist. Only open Wed mornings and Sat afternoons — check first."
+    },
+    {
+     "name": "Solstice Steps, Lakewood Park",
+     "latitude": 41.4972086,
+     "longitude": -81.797965,
+     "place_id": "ChIJ-1wqMzjyMIgR2B1ZxllLMWE",
+     "arrival_time": "7:30 PM",
+     "notes": "Terraced stone steps down to Lake Erie. Best sunset spot in the region. Downtown skyline visible to the east."
+    }
+   ]
+  }
+ ]
+}
