@@ -315,8 +315,8 @@ function build(){
     // Map
     const frame = el("div", "mapframe");
     const fb = el("div", "mapfallback",
-      "Google's map didn't load here. The routed itinerary is below, and " +
-      "<a href='" + openDirUrl(day.stops) + "' target='_blank' rel='noopener'>Open in Google Maps</a> still works.");
+      "<span>Google's map didn't load here. The routed itinerary is below, and " +
+      "<a href='" + openDirUrl(day.stops) + "' target='_blank' rel='noopener'>Open&nbsp;in&nbsp;Google&nbsp;Maps</a> still works.</span>");
     frame.appendChild(fb);
     const iframe = document.createElement("iframe");
     iframe.loading = "lazy";
