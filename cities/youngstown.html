@@ -96,27 +96,46 @@
 
   <div class="panel warn">
     <h2>How this list was built — read this</h2>
-    <p><strong>Compiled from general knowledge, not yet transcribed from a numbered source.</strong>
-      The Cleveland guide's promise is that every entry links to the source that recommended it. This
-      Youngstown page does not meet that bar yet: it was assembled without live web access, so treat
-      every entry as <code>added</code> — a credible starting point to <em>verify</em>, not a sourced
-      citation. Confirm hours, addresses and whether a place is still open before you rely on it. The
-      sources below are where that verification should come from.</p>
+    <p><strong>Researched by web search (August 2026) and fact-checked against the ranked sources
+      below.</strong> Specific facts were confirmed against those sources — the Butler opened in 1919
+      as the first U.S. museum of American art and is free; Mill Creek Park runs to 4,400+ acres; the
+      Melnick museum keeps a 1952 iron lung; the Ward Beecher Planetarium runs free public shows. Every
+      source is logged in <code>data/sources.json</code> and audited by <code>tools/research.js</code>.
+      It still isn't a full numbered-source transcription like Cleveland, so confirm current hours before
+      a drive and treat anything marked <span class="flag">verify</span> as a lead. Direct page fetches
+      are blocked in the build environment, so sourcing came through search results, not full-page reads.</p>
   </div>
 
   <div class="panel">
-    <h2>Credible sources for the Mahoning Valley</h2>
-    <p>The outlets a proper build of this page would transcribe and cite — reported, local, and
-      specific, the same kinds the Cleveland methodology calls for.</p>
+    <h2>Ranked sources — Mahoning Valley</h2>
+    <p>The outlets this page was checked against, ranked (1 = primary, 2 = corroboration). A tick means
+      a claim from that source was verified during this build. The full registry, reusable across
+      cities, lives in <code>data/sources.json</code>.</p>
     <ul class="srclist">
-      <li><b>Atlas Obscura — Youngstown</b><span>atlasobscura.com/things-to-do/youngstown-ohio</span></li>
-      <li><b>WFMJ 21 · WKBN 27 · WYTV 33</b><span>Mahoning Valley TV “best of” lists</span></li>
-      <li><b>The Business Journal</b><span>businessjournaldaily.com</span></li>
-      <li><b>Mahoning Matters</b><span>mahoningmatters.com — nonprofit local news</span></li>
-      <li><b>Mahoning Valley Historical Society</b><span>mahoninghistory.org</span></li>
-      <li><b>Mill Creek MetroParks</b><span>millcreekmetroparks.org</span></li>
-      <li><b>Ohio tourism — Find It Here</b><span>ohio.org</span></li>
-      <li><b>Youngstown Live (Mahoning CVB)</b><span>youngstownlive.com</span></li>
+      <li><b>Atlas Obscura — Ohio index ✓</b><span>1 · atlasobscura.com/things-to-do/ohio</span></li>
+      <li><b>Rose Melnick Medical Museum (YSU) ✓</b><span>1 · melnick.ysu.edu</span></li>
+      <li><b>Ward Beecher Planetarium (YSU) ✓</b><span>1 · wbplanetarium.org</span></li>
+      <li><b>Mahoning Valley Historical Society</b><span>1 · mahoninghistory.org</span></li>
+      <li><b>Mill Creek MetroParks</b><span>1 · millcreekmetroparks.org</span></li>
+      <li><b>Travel2Next — 20 Things To Do ✓</b><span>2 · travel2next.com</span></li>
+      <li><b>Explore Mahoning (local guide) ✓</b><span>2 · exploremahoning.com</span></li>
+      <li><b>Mahoning Matters ✓</b><span>2 · nonprofit local news</span></li>
+      <li><b>The Business Journal</b><span>2 · businessjournaldaily.com</span></li>
+      <li><b>WFMJ 21 · WKBN 27 · WYTV 33</b><span>2 · Mahoning Valley TV lists</span></li>
+      <li><b>Ohio tourism — Find It Here</b><span>2 · ohio.org</span></li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>Covered by — YouTube &amp; travel creators</h2>
+    <p>Video coverage found by search and fact-checked. Ranked honestly by whether the creator covered
+      Youngstown itself or the wider Mahoning Valley region.</p>
+    <ul class="srclist">
+      <li><b><a href="https://www.youtube.com/@PeterSantenello" target="_blank" rel="noopener">Peter Santenello</a></b><span>Famous · 4.2M subs · “Solo Into East Palestine, OH” (2024) — the region next door, not the city itself</span></li>
+      <li><b><a href="https://www.youtube.com/watch?v=qsyO6tX7LXM" target="_blank" rel="noopener">“Faded Cities … Rust Belt OHIO”</a></b><span>Road trip incl. Youngstown, Warren &amp; Akron (2025)</span></li>
+      <li><b><a href="https://www.youtube.com/watch?v=9UTxVf-GP9I" target="_blank" rel="noopener">Phil Kidd — Downtown Walking Tour</a></b><span>Local advocate · downtown history walk (2015)</span></li>
+      <li><b><a href="https://www.youtube.com/watch?v=ExriJA5jtnI" target="_blank" rel="noopener">Driving Through Downtown Youngstown [4K]</a></b><span>4K downtown tour (2025)</span></li>
+      <li><b><a href="https://www.youtube.com/@exploremahoning" target="_blank" rel="noopener">Explore Mahoning</a></b><span>Local channel · things to do across the Valley</span></li>
     </ul>
   </div>
 
@@ -173,8 +192,10 @@ const CLUSTERS = [
     sub: "Walkable, near YSU",
     note: "A single tree-lined avenue holds most of the city's museums, a block or two apart on the north edge of downtown by Youngstown State.",
     stops: [
-      {name:"Butler Institute of American Art", q:q("Butler Institute of American Art"), note:"Opened 1919 as the first museum built for American art. Free admission. The anchor of the row.", flag:"Free"},
+      {name:"Butler Institute of American Art", q:q("Butler Institute of American Art"), note:"Opened 1919 as the first U.S. museum devoted to American art; 20,000+ works from Winslow Homer to contemporary. Free, Tuesday–Sunday. The anchor of the row.", flag:"Free"},
       {name:"McDonough Museum of Art", q:q("McDonough Museum of Art"), note:"YSU's contemporary art museum, across from the Butler. Free.", flag:"Free"},
+      {name:"Rose Melnick Medical Museum", q:q("Rose Melnick Medical Museum, Youngstown State University"), note:"YSU's history-of-medicine museum in Cushwa Hall — office recreations, nursing and x-ray exhibits, and a 1952 Emerson iron lung. An Atlas Obscura oddity.", flag:"Free"},
+      {name:"Ward Beecher Planetarium", q:q("Ward Beecher Planetarium, Youngstown"), note:"A well-regarded YSU planetarium with free public shows, typically Friday/Saturday evenings and Saturday afternoons, September–May. Ward Beecher Science Hall, 100 Lincoln Ave.", flag:"Free"},
       {name:"Arms Family Museum", q:q("Arms Family Museum"), note:"A 1905 Arts-and-Crafts mansion run by the Mahoning Valley Historical Society, with Valley history inside."},
       {name:"Youngstown Historical Center of Industry and Labor", q:q("Youngstown Historical Center of Industry and Labor"), note:"The 'Steel Museum' — the mills that built (and left) the city, told straight. Ohio History Connection site on W Wood St."},
       {name:"Wick Park", q:q("Wick Park"), note:"A 34-acre 19th-century park ringed by the North Side's grand old houses. A stroll, not a ticket."}
@@ -183,12 +204,12 @@ const CLUSTERS = [
   {
     title: "Mill Creek Park & the West Side",
     sub: "Car helps · a genuinely wild city park",
-    note: "One of the country's great metro parks — gorges, lakes and old stone bridges minutes from downtown. Easy to spend a whole day.",
+    note: "One of the country's great metro parks — 4,400+ acres of gorges, lakes and old stone bridges minutes from downtown. Easy to spend a whole day.",
     stops: [
       {name:"Lanterman's Mill", q:q("Lanterman's Mill"), note:"An 1845–46 grist mill, restored and grinding again beside a waterfall. Seasonal — roughly May through October."},
       {name:"Fellows Riverside Gardens", q:q("Fellows Riverside Gardens"), note:"Free formal gardens overlooking Lake Glacier, with the Davis visitor center and café."},
       {name:"Ford Nature Center", q:q("Ford Nature Center"), note:"A stone-house nature center and trailhead into the park's interior."},
-      {name:"Mill Creek Suspension Bridge", q:q("Mill Creek Park Suspension Bridge"), note:"The slender 1895 pedestrian span locals call the 'Cinderella' bridge — the park's signature photo."},
+      {name:"Mill Creek Suspension Bridge", q:q("Mill Creek Park Suspension Bridge"), note:"The slender pedestrian span locals call the 'Cinderella' bridge — the park's signature photo, and an Atlas Obscura listing."},
       {name:"Pioneer Pavilion", q:q("Pioneer Pavilion Mill Creek Park"), note:"An 1821 stone mill building, one of the oldest structures around, now a picnic pavilion."}
     ]
   },

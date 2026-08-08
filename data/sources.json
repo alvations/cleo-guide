@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "purpose": "Central registry of vetted sources for the field guide, reusable across cities.",
+    "howToUse": "Run `node tools/research.js \"<City>\" \"<ST>\"` to get the search plan for a new city, run those searches, rank what you find, fact-check, then record the winners here before building a page. See docs/SOURCES.md.",
+    "rankScale": "1 = primary (transcribe fully); 2 = strong corroboration; 3 = supplemental / leads only.",
+    "verified": "true only if a claim from the source was checked via web search during this build."
+  },
+
+  "sourceTypes": [
+    { "id": "tv_numbered_list", "label": "Local TV station numbered list", "why": "Reported, photographed, numbered — ideal to transcribe and verify against.", "find": "search '100 hidden gems of {city}', '{n} best {city} ...'; identify the metro's ABC/CBS/NBC/FOX affiliates first." },
+    { "id": "atlas_obscura", "label": "Atlas Obscura city/state index", "why": "The oddities backbone. Read the index, not individual searches.", "urlPattern": "https://www.atlasobscura.com/things-to-do/{state-slug}" },
+    { "id": "roadside_america", "label": "Roadside America state index", "why": "Second oddity net; catches what Atlas Obscura misses.", "urlPattern": "https://www.roadsideamerica.com/location/{st}/all" },
+    { "id": "alt_weekly", "label": "Alt-weekly", "why": "Best food and nightlife coverage in most metros.", "find": "search '{city} alt weekly' (e.g. Scene, Reader, Weekly)." },
+    { "id": "city_magazine", "label": "City / regional magazine", "why": "Strong on neighbourhood dining and features.", "find": "search '{City} Magazine best of'." },
+    { "id": "regional_business_news", "label": "Regional business / daily news", "why": "Openings, closings, what's actually current.", "find": "search '{city} business journal' / the metro daily." },
+    { "id": "nonprofit_local_news", "label": "Nonprofit local newsroom", "why": "Civic, specific, often the best replacement for a shuttered daily.", "find": "search '{city} nonprofit news' (e.g. Matters, Signal, Documenters)." },
+    { "id": "historical_society", "label": "Historical society / public history project", "why": "Authoritative on museums, monuments, buildings.", "find": "search '{city} historical society' and university public-history projects." },
+    { "id": "metroparks", "label": "Metro / regional parks authority", "why": "Authoritative on parks, trails, natural landmarks.", "find": "search '{city} metroparks'." },
+    { "id": "state_tourism", "label": "Official state tourism", "why": "Baseline vetted attractions with hours.", "urlPattern": "https://{state}.org  (e.g. ohio.org)" },
+    { "id": "local_cvb", "label": "Local CVB / visitors bureau", "why": "The city's own curated list, usually current.", "find": "search '{city} CVB' or 'visit {city}' or 'explore {county}'." },
+    { "id": "famous_creator", "label": "Famous travel YouTuber / blogger coverage", "why": "Popular, watchable corroboration; signals what draws outsiders. Rank by whether they actually covered THIS city vs. the region.", "find": "search 'famous travel YouTuber visited {city} {state}', '{creator} {city}', '{city} walking tour youtube'." },
+    { "id": "local_creator", "label": "Local creator / walking-tour channel", "why": "Ground-level, current footage of specific streets and sites.", "find": "search '{city} walking tour youtube', '{city} things to do youtube channel'." },
+    { "id": "travel_blog", "label": "Independent travel blog round-up", "why": "Cross-checks the mainstream list; use to corroborate, not as the spine.", "find": "search 'best things to do in {city} {state} travel blog {year}'." }
+  ],
+
+  "cities": {
+    "youngstown-oh": {
+      "name": "Youngstown, Ohio",
+      "aliases": ["Mahoning Valley"],
+      "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/ohio",
+      "researchedOn": "2026-08",
+      "researchedVia": "WebSearch (direct page fetch blocked by the environment egress policy)",
+      "sources": [
+        { "key": "AO", "name": "Atlas Obscura — Ohio index", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/things-to-do/ohio", "rank": 1, "verified": true, "covers": ["Cinderella Bridge (Mill Creek suspension bridge)", "Rose Melnick Medical Museum", "Homeless Jesus", "Urban Assault Vehicle: Slingshot Pinto"] },
+        { "key": "T2N", "name": "Travel2Next — 20 Things To Do in Youngstown", "type": "travel_blog", "url": "https://travel2next.com/things-to-do-youngstown-ohio/", "rank": 2, "verified": true, "covers": ["Butler Institute (1919, first US art museum, free, Tue–Sun 11am)", "Ward Beecher Planetarium", "Covelli Centre", "Youngstown Playhouse", "Mill Creek Park", "Canfield Fair"] },
+        { "key": "EXM", "name": "Explore Mahoning (local guide)", "type": "local_cvb", "url": "https://exploremahoning.com", "youtube": "https://www.youtube.com/@exploremahoning", "rank": 2, "verified": true, "covers": ["Ward Beecher Planetarium", "things to do in Youngstown"] },
+        { "key": "YSU-MEL", "name": "Rose Melnick Medical Museum (YSU)", "type": "historical_society", "url": "https://melnick.ysu.edu", "rank": 1, "verified": true, "covers": ["1952 Emerson iron lung", "history of medicine in the Mahoning Valley", "founded 1985, now in Cushwa Hall"] },
+        { "key": "WBP", "name": "Ward Beecher Planetarium (YSU)", "type": "historical_society", "url": "https://www.wbplanetarium.org", "rank": 1, "verified": true, "covers": ["free public shows Sept–May, Fri/Sat 8pm + Sat 2pm", "Ward Beecher Science Hall, 100 Lincoln Ave"] },
+        { "key": "MVHS", "name": "Mahoning Valley Historical Society", "type": "historical_society", "url": "https://mahoninghistory.org", "rank": 1, "verified": false, "covers": ["Arms Family Museum", "Tyler History Center"] },
+        { "key": "MCMP", "name": "Mill Creek MetroParks", "type": "metroparks", "url": "https://millcreekmetroparks.org", "rank": 1, "verified": false, "covers": ["Lanterman's Mill", "Fellows Riverside Gardens", "Ford Nature Center", "Suspension Bridge", "Pioneer Pavilion"] },
+        { "key": "OHIO", "name": "Ohio tourism — Find It Here", "type": "state_tourism", "url": "https://ohio.org", "rank": 2, "verified": false },
+        { "key": "MM", "name": "Mahoning Matters (nonprofit news)", "type": "nonprofit_local_news", "url": "https://www.mahoningmatters.com", "rank": 2, "verified": true, "covers": ["Ward Beecher reopening after fire"] },
+        { "key": "BJ", "name": "The Business Journal (Mahoning Valley)", "type": "regional_business_news", "url": "https://businessjournaldaily.com", "rank": 2, "verified": false },
+        { "key": "TV", "name": "WFMJ 21 · WKBN 27 · WYTV 33", "type": "tv_numbered_list", "url": "https://www.wfmj.com", "rank": 2, "verified": false, "note": "Mahoning Valley network affiliates; look for their 'best of' lists." }
+      ],
+      "creators": [
+        { "key": "SANT", "name": "Peter Santenello", "type": "famous_creator", "subscribers": "4.2M", "youtube": "https://www.youtube.com/@PeterSantenello", "work": "Solo Into East Palestine, OH — What's It Like Now? (2024, ~1.2M views)", "workUrl": "https://petersantenello.com/videos/solo-into-east-palestine-oh-whats-it-like-now/", "scope": "region", "verified": true, "note": "Covers East Palestine (Mahoning Valley, ~20 min from Youngstown), not a dedicated Youngstown-city tour. Ranked as regional coverage, honestly." },
+        { "key": "RUSTBELT", "name": "'Faded Cities … Rust Belt OHIO' (YouTube)", "type": "famous_creator", "youtube": "https://www.youtube.com/watch?v=qsyO6tX7LXM", "work": "Rust Belt Ohio road trip incl. Youngstown, Warren & Akron (2025)", "scope": "city", "verified": true },
+        { "key": "KIDD", "name": "Phil Kidd — A Walking Tour of Downtown Youngstown", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=9UTxVf-GP9I", "work": "Downtown Youngstown history walking tour (2015)", "scope": "city", "verified": true, "note": "Local advocate ('Defend Youngstown')." },
+        { "key": "4KTOUR", "name": "Driving Through Downtown Youngstown [4K Tour]", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=ExriJA5jtnI", "work": "4K downtown driving tour (2025)", "scope": "city", "verified": true },
+        { "key": "NAPIER", "name": "Napier Vision Productions (Joseph Napier Sr)", "type": "local_creator", "youtube": "https://www.youtube.com/results?search_query=Napier+Vision+Youngstown+walking+tour", "work": "Downtown / Federal Street walking tour (2019)", "scope": "city", "verified": false, "note": "Video ID not pinned during research; search link recorded to avoid misattribution." }
+      ]
+    }
+  }
+}

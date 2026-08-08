@@ -31,7 +31,15 @@ No build step. No framework. No backend. One `index.html`.
 ## Other cities
 
 Extending the guide to a new city starts with a shortlist page, exactly as Cleveland did — see
-[docs/RECREATE.md](docs/RECREATE.md).
+[docs/RECREATE.md](docs/RECREATE.md). Sourcing for new cities is centralised and repeatable:
+sources live in [`data/sources.json`](data/sources.json) and the search-and-vet flow is codified in
+[`tools/research.js`](tools/research.js) — full guide in [docs/SOURCES.md](docs/SOURCES.md).
+
+```bash
+cd tools
+node research.js "Akron" "OH"          # print the research plan for a new city
+node research.js --validate akron-oh   # audit its sources before building a page
+```
 
 - **[Youngstown, Ohio](cities/youngstown.html)** — a starting shortlist for the Mahoning Valley on Google
   Maps: Wick Avenue's museums, Mill Creek Park, the downtown halls, and Valley day trips, with the credible

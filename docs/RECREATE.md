@@ -10,6 +10,12 @@ them. Steps 6–9 are mechanical. Step 10 is not optional.
 
 ## 1. Find the sources — do not just search
 
+This step is codified. Run `node tools/research.js "CITY" "ST"` for the exact search plan (queries,
+candidate index URLs, ranking rubric), record the ranked, fact-checked winners in
+[`data/sources.json`](../data/sources.json), then `node tools/research.js --validate <city-key>`
+before writing any page. Full guide: [SOURCES.md](SOURCES.md). The order is fixed — **search → rank →
+fact-check → build** — and fact-checking happens after ranking, before page creation.
+
 Search results for `hidden gems in CITY` are dominated by unattributed SEO filler. Skip it.
 Look specifically for:
 
