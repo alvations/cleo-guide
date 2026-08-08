@@ -28,6 +28,16 @@ No build step. No framework. No backend. One `index.html`.
   routed Google map per day, in the browser. Keyless by default; paste a Google Maps Embed API key for the
   officially supported embed.
 
+## Other cities
+
+Extending the guide to a new city starts with a shortlist page, exactly as Cleveland did — see
+[docs/RECREATE.md](docs/RECREATE.md).
+
+- **[Youngstown, Ohio](cities/youngstown.html)** — a starting shortlist for the Mahoning Valley on Google
+  Maps: Wick Avenue's museums, Mill Creek Park, the downtown halls, and Valley day trips, with the credible
+  local sources listed on the page. Compiled from general knowledge and flagged `added` — a first pass to
+  verify and cite, not yet a sourced edition.
+
 ---
 
 ## What it does
