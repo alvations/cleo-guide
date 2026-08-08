@@ -73,10 +73,10 @@ drop straight into CI if you want one.
 cd tools && npm run validate && npm test
 ```
 
-If you edit `index.html` with a script rather than by hand, **assert on record counts inside that
+If you edit `cleveland.html` with a script rather than by hand, **assert on record counts inside that
 script before it writes**. That is the only thing that reliably catches silent content loss:
 
 ```python
 assert h.count('Soldiers') == n0, "records lost"
-open('index.html','w').write(h)
+open('cleveland.html','w').write(h)
 ```

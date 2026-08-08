@@ -1,10 +1,12 @@
-# Cleveland Field Guide
+# Field Guides — Cleveland &amp; Youngstown
 
-A single-file, offline-capable travel guide: **143 sights and 40 places to eat**, every one
-traceable to the source that recommended it, on an interactive map with filters, a trip
-builder and exports to Google and Apple Maps.
+Offline-capable travel guides where every place is **traceable to the source that recommended it**,
+on interactive maps with filters, trip builders and exports to Google and Apple Maps. Cleveland is
+the complete edition (143 sights + 40 places to eat); Youngstown is a web-researched, fact-checked
+shortlist. `index.html` is now a **city chooser** with a box to suggest the next city.
 
-No build step. No framework. No backend. One `index.html`.
+No build step. No framework. No backend. Plain HTML — a chooser at `index.html`, one self-contained
+page per city (`cleveland.html`, `cities/youngstown.html`).
 
 ## Documentation
 
@@ -19,9 +21,13 @@ No build step. No framework. No backend. One `index.html`.
 | **[docs/DATA-SCHEMA.md](docs/DATA-SCHEMA.md)** | The record format |
 | **[docs/TESTING.md](docs/TESTING.md)** | Testing a page with no build system |
 
-## Two editions
+## Start here
 
-- **[The full guide](index.html)** — the complete guide, 183 places, every source transcribed in full.
+- **[Choose a city](index.html)** — the landing page: pick Cleveland or Youngstown, or suggest the next city.
+
+## Cleveland editions
+
+- **[The full guide](cleveland.html)** — the complete guide, 183 places, every source transcribed in full.
 - **[The shortlist](versions/v1-shortlist/guide.html)** — the original 19-stop, 3-day shortlist with a routed
   Google My Maps import. Better for a first visit; kept deliberately, not superseded.
 - **[The shortlist on Google Maps](versions/v1-shortlist/google-map.html)** — the same 19 stops rendered as a

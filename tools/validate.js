@@ -3,14 +3,14 @@
  * Data integrity checks. Run this before every commit.
  *
  * These exist because a careless find-and-replace once silently deleted 150
- * records from index.html and the page still parsed as valid JavaScript.
+ * records from cleveland.html and the page still parsed as valid JavaScript.
  * Syntax checks alone will not save you. Content checks will.
  *
  * Usage:  cd tools && node validate.js
  */
 const fs = require('fs');
 const path = require('path');
-const HTML = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+const HTML = fs.readFileSync(path.join(__dirname, '..', 'cleveland.html'), 'utf8');
 
 let bad = 0;
 const fail = m => { console.log('  FAIL  ' + m); bad++; };

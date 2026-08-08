@@ -1,13 +1,13 @@
 # How the ranked itinerary was selected
 
-Fully reproducible. Rerun the query against `index.html` and you get the same 34 stops.
+Fully reproducible. Rerun the query against `cleveland.html` and you get the same 34 stops.
 
 ---
 
 ## Step 1 — Filter to must-see
 
 ```js
-const P = /* sights array from index.html */;
+const P = /* sights array from cleveland.html */;
 const F = /* food array */;
 const mustSee = P.filter(p => p.t === 1);   // 32
 const mustEat = F.filter(p => p.t === 1);   // 14

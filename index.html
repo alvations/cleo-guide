@@ -2,1445 +2,225 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Every place from the Cleveland guides — Atlas Obscura, News 5's 100 Hidden Gems, There She Goes Again — on one map with sources.">
-<title>Cleveland Field Guide — 130 Places, Sourced</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
-      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Guides — Choose a City</title>
+<meta name="description" content="Source-traceable travel field guides on interactive maps. Choose Cleveland or Youngstown, or suggest the next city.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
-    --patina:#74AE99; --patina-dim:#3E5D53;
-    --brass:#C89B4A; --rust:#B45B3E;
-    --bone:#E9E5DB; --bone-dim:#9AA3A2;
-    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+    --iron:#12171A; --slab:#1B2226; --slab-2:#232C31;
+    --patina:#74AE99; --patina-dim:#3E5D53; --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2; --hair:#2E393E;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
-  body{margin:0;background:var(--iron);color:var(--bone);
-    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
-    -webkit-font-smoothing:antialiased;}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  body{margin:0;background:var(--iron);color:var(--bone);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;}
+  a{color:var(--patina);text-decoration:none;} a:hover{text-decoration:underline;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
 
-  header{padding:56px 0 0;}
-  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
-  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
-    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
-  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
-    text-transform:none;letter-spacing:-.01em;color:var(--patina);
-    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
-  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
-  .standfirst strong{color:var(--bone);font-weight:500;}
+  header{padding:76px 0 30px;border-bottom:1px solid var(--hair);}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--patina);margin:0 0 22px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 6px;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--patina);font-size:clamp(28px,5.5vw,58px);line-height:1.05;margin-top:6px;}
+  .standfirst{max-width:64ch;margin:26px 0 6px;color:var(--bone);font-size:19px;}
 
-  /* Map */
-  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
-    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
-  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
-    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
-  .maplegend span{display:flex;align-items:center;gap:6px;}
-  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
-  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
-  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
-  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
-    border-left:3px solid var(--rust);font-size:14.5px;}
-  #tilewarn button{margin-left:8px;}
-  .leaflet-container{background:#0E1316;}
-  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
-  .leaflet-popup-tip{background:var(--slab);}
-  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
-  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
-    display:block;margin-bottom:5px;line-height:1.2;}
-  .leaflet-popup-content a{color:var(--patina);}
-  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+  h2.sec{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:44px 0 16px;font-weight:500;}
 
-  /* Controls */
-  .controls{padding:28px 0 26px;}
-  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
-  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
-    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
-    border-radius:2px;cursor:pointer;transition:.15s;}
-  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
-  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
-  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
-    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
-    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
-  #search:focus{outline:none;border-color:var(--patina);}
-  #search::placeholder{color:var(--bone-dim);}
-  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
-    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+  .cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+  .city{display:block;background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:26px 26px 22px;color:var(--bone);transition:border-color .15s,transform .15s;}
+  .city:hover{border-color:var(--patina);text-decoration:none;transform:translateY(-2px);}
+  .city .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--patina);margin:0 0 8px;}
+  .city .nm{font-family:"Archivo Black",sans-serif;font-size:clamp(26px,3.4vw,34px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;overflow-wrap:anywhere;}
+  .city .desc{color:var(--bone-dim);font-size:15.5px;margin:0 0 16px;}
+  .city .stat{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--brass);}
+  .city .go{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--patina);}
+  a.cardmain{display:block;color:var(--bone);} a.cardmain:hover{text-decoration:none;color:var(--bone);}
+  .subrow{margin-top:14px;padding-top:14px;border-top:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;}
+  .subrow a{color:var(--bone-dim);} .subrow a:hover{color:var(--patina);} .subrow span{color:var(--hair);padding:0 4px;}
+  .city.soon{opacity:.6;cursor:default;} .city.soon:hover{border-color:var(--hair);transform:none;}
 
-  /* Cluster */
-  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
-    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
-  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
-    text-transform:uppercase;margin:0;}
-  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
-    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+  .panel{background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:24px 26px;margin:8px 0 12px;}
+  .panel p{color:var(--bone-dim);font-size:15px;max-width:78ch;margin:0 0 14px;}
+  textarea{width:100%;min-height:110px;resize:vertical;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:9px;padding:13px 14px;font-family:"Newsreader",serif;font-size:16px;line-height:1.5;}
+  textarea:focus{outline:none;border-color:var(--patina);}
+  .fieldrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+  input.city-in{flex:1 1 260px;min-width:0;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:9px;padding:12px 14px;font-family:"JetBrains Mono",monospace;font-size:14px;}
+  input.city-in:focus{outline:none;border-color:var(--patina);}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  button{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:8px;padding:12px 18px;border:1px solid var(--patina-dim);background:var(--patina-dim);color:var(--bone);}
+  button:hover{background:var(--patina);color:var(--iron);}
+  button.ghost{background:transparent;color:var(--bone-dim);border-color:var(--hair);}
+  button.ghost:hover{background:var(--slab-2);color:var(--bone);}
+  .note{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--bone-dim);margin-top:12px;}
+  .saved{margin:18px 0 0;padding:0;list-style:none;}
+  .saved li{border-top:1px solid var(--hair);padding:11px 0;font-size:15px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;}
+  .saved li .when{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);white-space:nowrap;}
+  .saved li button{padding:5px 10px;font-size:10px;}
+  .empty{color:var(--bone-dim);font-style:italic;font-size:14px;margin-top:12px;}
 
-  /* Entry */
-  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
-  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
-    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
-  .body-col{flex:1;min-width:0;}
-  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
-    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
-  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
-    letter-spacing:.02em;margin:0 0 13px;}
-  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
-  .addr a:hover{color:var(--brass);border-color:var(--brass);}
-  .what{margin:0 0 13px;max-width:66ch;}
-  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
-    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
-  .note.warn{border-left-color:var(--rust);}
-  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
-    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
-  .note.warn .tag{color:var(--rust);}
-  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
-    border-top:1px dashed var(--hair);}
-  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
-  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
-    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
-    color:var(--patina);text-decoration:none;transition:.15s;}
-  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
-  .src .num{color:var(--brass);}
-  .src:hover .num{color:var(--iron);}
-  .src.extra{border-color:#4A4038;color:var(--brass);}
-  .src.extra:hover{background:var(--brass);color:var(--iron);}
-  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
-  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
-    border:0;cursor:pointer;transition:.15s;}
-  .modebtn:hover{color:var(--bone);background:var(--slab);}
-  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
-  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
-  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
-
-  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
-    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
-    margin:5px 0 0;position:relative;transition:.15s;}
-  .pick:hover{border-color:var(--patina);}
-  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-  .pick:checked{background:var(--patina);border-color:var(--patina);}
-  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
-    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
-  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
-  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
-    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
-    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
-  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
-  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
-  .entry.seen{opacity:.45;}
-  .entry.seen:hover{opacity:.8;}
-  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
-    text-decoration-thickness:1px;}
-  .seenbadge{background:transparent!important;color:var(--brass)!important;
-    border:1px solid var(--brass)!important;}
-  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
-  .chip.preset:hover{background:var(--patina);color:var(--iron);}
-  .chip.gchip{border-style:dashed;}
-  .chip.gchip.needkey{opacity:.5;}
-  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
-  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
-
-  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
-    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
-    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
-  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
-  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
-    color:var(--bone-dim);margin-right:6px;}
-  .tripcount b{color:var(--brass);font-size:15px;}
-  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
-    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
-    border-radius:2px;cursor:pointer;transition:.15s;}
-  .tripbtn:hover{background:var(--patina);color:var(--iron);}
-  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
-  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
-  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
-  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
-    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
-  .applelink:hover{color:var(--brass);border-color:var(--brass);}
-  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
-    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
-    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
-  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
-    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
-    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
-  .t1{background:var(--brass);color:var(--iron);}
-  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
-  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
-  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
-    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
-  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
-    font-style:italic;font-size:21px;color:var(--bone-dim);}
-
-  /* Appendix */
-  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
-  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
-    letter-spacing:-.01em;margin:0 0 8px;}
-  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
-  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
-    border-bottom:1px solid var(--hair);align-items:baseline;}
-  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
-    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
-  .srcrow .t{font-size:15.5px;}
-  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
-    border-bottom:1px solid var(--patina-dim);}
-  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
-  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
-  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
-    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
-
-  @media (max-width:620px){
-    header{padding-top:38px;}
-    .entry{flex-direction:column;gap:0;}
-    .marker{padding-top:0;margin-bottom:7px;}
-    .cluster{flex-wrap:wrap;}
-    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
-    .note{flex-direction:column;gap:4px;}
-    #map{height:52vh;}
-  }
+  footer{padding:44px 0 80px;color:var(--bone-dim);font-size:14px;max-width:78ch;border-top:1px solid var(--hair);margin-top:44px;}
+  footer p{margin:0 0 12px;} code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <header>
+    <p class="eyebrow">Field Guides · Sourced · On a map</p>
+    <h1>Where to<span class="thin">Choose a city</span></h1>
+    <p class="standfirst">Travel field guides where every place is traceable to the source that
+      recommended it, on an interactive map with filters, a trip builder and exports. Pick a city —
+      or suggest the next one at the bottom.</p>
+  </header>
 
-<header>
-  <p class="eyebrow">Field guide · every place from all seven sources</p>
-  <h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>
-  <p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>
-</header>
+  <h2 class="sec">Cities</h2>
+  <div class="cities">
+    <div class="city">
+      <a class="cardmain" href="cleveland.html">
+        <p class="kicker">Complete edition</p>
+        <p class="nm">Cleveland</p>
+        <p class="desc">The full guide — 143 sights and 40 places to eat, every source transcribed, with
+          area/source/rank filters, cuisine sub-filters, a trip builder and Google/Apple exports.</p>
+        <p class="stat">183 places · 7 sources · fully sourced</p>
+        <span class="go">Open the Cleveland guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="versions/v1-shortlist/guide.html">19-stop shortlist</a><span>·</span>
+        <a href="versions/v1-shortlist/google-map.html">on Google Maps</a>
+      </div>
+    </div>
 
-<div id="map"></div>
-<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
-<div id="baseWrap">
-  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
-  <div class="chips" id="baseFilter"></div>
-</div>
-<div class="maplegend">
-  <span><i style="background:var(--c-dt)"></i>Downtown</span>
-  <span><i style="background:var(--c-uc)"></i>University Circle &amp; East</span>
-  <span><i style="background:var(--c-ws)"></i>West Side &amp; Tremont</span>
-  <span><i style="background:var(--c-sub)"></i>Suburbs &amp; day trips</span>
-  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
-</div>
+    <div class="city">
+      <a class="cardmain" href="cities/youngstown.html">
+        <p class="kicker">Starting shortlist</p>
+        <p class="nm">Youngstown</p>
+        <p class="desc">The Mahoning Valley on Google Maps — Wick Avenue's museums, Mill Creek Park, the
+          downtown halls, Valley day trips and Brier Hill pizza, with ranked, fact-checked local sources.</p>
+        <p class="stat">20 stops · web-researched &amp; fact-checked</p>
+        <span class="go">Open the Youngstown guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/youngstown.html#clusters">4 routed clusters</a><span>·</span>
+        <a href="docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
 
-<div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
-</div>
-
-<div class="controls">
-  <div id="cuisineWrap" hidden>
-    <p class="ctrl-label">Cuisine</p>
-    <div class="chips" id="cuisineFilter"></div>
+    <div class="city soon">
+      <p class="kicker">Not built yet</p>
+      <p class="nm">Your city?</p>
+      <p class="desc">The pipeline is reusable — any city starts with a sourced shortlist. Suggest one
+        below and it goes into the repo's backlog as a GitHub issue.</p>
+      <p class="stat">suggest it ↓</p>
+    </div>
   </div>
-  <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="witchcraft, waterfall, chess, kielbasa…" autocomplete="off">
-  <p class="ctrl-label">Filter by source</p>
-  <div class="chips" id="srcFilter"></div>
-  <p class="ctrl-label">Filter by area</p>
-  <div class="chips" id="dayFilter"></div>
-  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
-  <div class="chips" id="rankFilter"></div>
-  <p class="ctrl-label">Sort</p>
-  <div class="chips" id="sortFilter"></div>
-  <p class="ctrl-label">Been there?</p>
-  <div class="chips" id="seenFilter"></div>
-  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
-  <div class="chips" id="presets"></div>
-  <p class="count" id="count"></p>
-</div>
 
-<main id="list"></main>
-
-<div id="tripbar" hidden>
-  <div class="tripinner">
-    <span class="tripcount"><b id="tripN">0</b> on your list</span>
-    <button class="tripbtn" id="tripShow">Show only my list</button>
-    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
-    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
-    <button class="tripbtn" id="tripJson">Save list (.json)</button>
-    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  <h2 class="sec">Suggest the next city</h2>
+  <div class="panel">
+    <p>Tell us where to go next — and, if you can, drop the credible local sources you'd use (a TV
+      station's "best of" list, the alt-weekly, a historical society, a famous YouTuber or TikTok
+      creator who covered it). Suggestions are saved in your browser and can be filed straight into the
+      repository as a GitHub issue, where they become the backlog for future cities.</p>
+    <div class="fieldrow">
+      <input class="city-in" id="cityName" type="text" placeholder="City, State — e.g. Akron, OH" autocomplete="off">
+    </div>
+    <textarea id="cityNotes" placeholder="Why this city, and any sources to start from (links welcome)…"></textarea>
+    <div class="btns">
+      <button id="fileIssue">File as GitHub issue</button>
+      <button id="saveLocal" class="ghost">Save in this browser</button>
+      <button id="copyOut" class="ghost">Copy</button>
+    </div>
+    <p class="note" id="status">Saved suggestions stay in this browser until you file them.</p>
+    <ul class="saved" id="savedList"></ul>
+    <p class="empty" id="emptyNote">No suggestions saved yet.</p>
   </div>
+
+  <footer>
+    <p><strong>How suggestions reach the repo.</strong> This is a static site, so it can't write to
+      GitHub directly. "File as GitHub issue" opens a pre-filled issue on
+      <code>alvations/cleo-guide</code> with your city and notes; a maintainer (or an agent) then runs
+      the research pipeline (<code>tools/research.js</code>) and adds the city. The tracked backlog also
+      lives in <a href="data/city-requests.md">data/city-requests.md</a>.</p>
+    <p>Every place in these guides links to the source that recommended it. Business details come from
+      third parties and change without notice — confirm before you travel.</p>
+  </footer>
 </div>
 
-<section class="appendix">
-  <h2>Sources</h2>
-  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
-  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
-  <div id="srcList"></div>
-</section>
-
-<footer>
-  Hours, admission and opening days change — verify before you drive.<br>
-  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
-  Compiled August 2026. Map tiles © OpenStreetMap contributors.<br><br>
-  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
-  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
-</footer>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
+/* Feedback is stored locally (wrapped — storage throws in some sandboxes) and can be
+   filed into the repo as a GitHub issue. No backend, no tracking. */
+var REPO = "alvations/cleo-guide";
+var STORE = "fg_city_suggestions";
 
-const S = {
-  AO_SKUY:{k:"ATLAS OBSCURA",t:"The Percy Skuy Collection on the History of Contraception",u:"https://www.atlasobscura.com/places/the-percy-skuy-collection-on-the-history-of-contraception-cleveland-ohio",l:"Atlas Obscura"},
-  AO_ANGEL:{k:"ATLAS OBSCURA",t:"The Haserot Angel",u:"https://www.atlasobscura.com/places/the-haserot-angel-cleveland-ohio",l:"Atlas Obscura"},
-  AO_WSM:{k:"ATLAS OBSCURA",t:"West Side Market",u:"https://www.atlasobscura.com/places/west-side-market",l:"Atlas Obscura"},
-  AO_BUCK:{k:"ATLAS OBSCURA",t:"Buckland Museum of Witchcraft and Magick",u:"https://www.atlasobscura.com/places/buckland-gallery-of-witchcraft-magick",l:"Atlas Obscura"},
-  N5:{k:"NEWS 5",t:"100 hidden gems of Cleveland",u:"https://www.news5cleveland.com/news/hidden-gems/100-hidden-gems-of-cleveland",l:"News 5 Cleveland · Joe Donatelli & Drew Scofield"},
-  TSG:{k:"THERE SHE GOES",t:"23 Unique & Fun Things to Do in Cleveland, Ohio",u:"https://thereshegoesagain.org/unique-fun-things-to-do-in-cleveland-ohio/",l:"There She Goes Again"},
-  REQ:{k:"YOUR REQUEST",t:"Chess collection at Cleveland Public Library",u:"https://www.news5cleveland.com/news/local-news/cleveland-metro/did-you-know-cleveland-is-home-to-the-worlds-largest-chess-collection",l:"Asked for by name"},
-  AO_CLE:{k:"ATLAS OBSCURA",t:"Atlas Obscura — the full Cleveland catalogue (33 places)",u:"https://www.atlasobscura.com/things-to-do/cleveland-ohio",l:"Atlas Obscura lists far more Cleveland entries than the four you sent. These are the rest of the good ones."},
-  ADD:{k:"ADDED",t:"Local staples the hidden-gem lists skip precisely because they aren't hidden",u:"",l:"My addition — see the note in Sources"}
-};
+function load(){ try{ return JSON.parse(localStorage.getItem(STORE) || "[]"); }catch(e){ return window.__mem || []; } }
+function save(list){ try{ localStorage.setItem(STORE, JSON.stringify(list)); }catch(e){ window.__mem = list; } }
 
-const AREAS = [
-  {id:"DT",  n:"Downtown & The Flats",         c:"var(--c-dt)"},
-  {id:"UC",  n:"University Circle & East Side", c:"var(--c-uc)"},
-  {id:"WS",  n:"West Side, Ohio City & Tremont",c:"var(--c-ws)"},
-  {id:"SUB", n:"Suburbs, Metroparks & Day Trips",c:"var(--c-sub)"}
-];
-
-const P = [
-/* ══ DOWNTOWN & THE FLATS ══ */
-{t:1,a:"DT",n:"Soldiers' & Sailors' Monument",ad:"3 Public Square",la:41.4995228,ln:-81.6929283,
- w:"Civil War memorial with a free museum inside — bronze reliefs, marble busts, knowledgeable volunteers. Beneath it runs a labyrinth of tunnels that opens to the public one day a year.",
- k:"Ask at the desk whether a tunnel tour is scheduled. Interior alone: 20–30 minutes. Free.",s:[["N5","#1"]]},
-{t:1,a:"DT",n:"Chess Collection — Cleveland Public Library MAIN Library",ad:"325 Superior Ave NE · Main Building, 3rd floor, John G. White Special Collections",la:41.501113,ln:-81.6916133,
- w:"<strong>This is the right building.</strong> The 1925 Main Library on Superior Avenue — not a branch, not the Louis Stokes Wing next door. Go in the Main Building, take the marble staircase to the third floor, and pass through the John Griswold White Exhibition Corridor (look for owls in the wrought-iron cases) into Special Collections.<br><br>Inside is the John G. White Chess and Checkers Collection: the largest chess collection in the world. Over 35,000 items going back to the 12th century — one-of-a-kind sets from every continent, rare manuscripts, Bobby Fischer score sheets, Lasker medals, the most comprehensive tournament records anywhere, and two death masks of Gisela Kahn Gresser, nine-time US women's champion. White was a Cleveland attorney who collected from 1870 until his death in 1928, buying up entire European and American chess libraries; the library has kept collecting since. It has been on this floor since the doors opened.",
- k:"Bring photo ID such as a driving licence. It is a closed research collection — you request items and are shown one at a time, so email special.collections@cpl.org ahead if you want something specific pulled. Closed Sunday. <br><br><strong>Note:</strong> News 5's list prints the address as 525 Superior. That is wrong — the Main Library is at 325 Superior Ave.",warn:1,s:[["REQ",""],["N5","#16"]]},
-{t:1,a:"DT",n:"The Arcade (Old Arcade)",ad:"401 Euclid Ave",la:41.4999444,ln:-81.6902444,
- w:"Five-story glass-roofed atrium built in 1890 as America's first indoor shopping centre, modelled on Milan's Galleria and financed in part by Rockefeller. Top three floors are now a Hyatt. A Superman film was shot here.",
- k:"Stand at the far end and look up the full height. Grab Pizza 216 while you're in.",s:[["N5","#83"],["TSG","#1"]]},
-{t:2,a:"DT",n:"5th Street Arcades & Euclid Arcade",ad:"530 Euclid Ave",la:41.4997222,ln:-81.6891667,
- w:"Two smaller arcades running alongside each other, less grand than the Old Arcade but full of independent shops and cafés. One near 5th Street sells assorted knick-knacks and candy.",
- s:[["TSG","#3"]]},
-{t:1,a:"DT",n:"Terminal Tower Observation Deck",ad:"50 Public Square, 42nd floor",la:41.4983959,ln:-81.6939263,
- w:"The 42nd floor of a 52-story tower that was briefly the world's second-tallest. Views across the bridges, the Cuyahoga and Lake Erie. Small and dated in a way that's part of the appeal.",
- k:"Book online in advance — no walk-ups. Check in at the ground-floor desk, ride to 32, transfer to 42. Around $5–6. Weekends only.",warn:1,s:[["N5","#27"],["TSG","#4"]]},
-{t:2,a:"DT",n:"Old Stone Church",ad:"91 Public Square",la:41.5003186,ln:-81.6946109,
- w:"The oldest building on Public Square. You have driven past it a hundred times and never gone in — the stained glass and the all-wood arched ceiling are the reason to.",
- k:"Interior access is inconsistent. Try during a service or a scheduled tour.",s:[["N5","#17"]]},
-{t:2,a:"DT",n:"Eastman Reading Garden",ad:"Rockwell Ave, between the library buildings",la:41.5013889,ln:-81.6913889,
- w:"A walled garden of public art and trees wedged between the two library buildings — the quietest square of downtown. Jazz concerts on summer Wednesdays.",
- s:[["N5","#32"]]},
-{t:1,a:"DT",n:"Heinen's Downtown",ad:"900 Euclid Ave",la:41.5000366,ln:-81.6861122,
- w:"A grocery store inside the old Cleveland Trust Company bank rotunda — stained-glass dome, marble, murals. Go up to the balcony seating and eat lunch under it.",
- s:[["N5","#86"]]},
-{t:1,a:"DT",n:"Free Stamp",ad:"Willard Park, 601 Lakeside Ave E",la:41.5054252,ln:-81.6924552,
- w:"Claes Oldenburg and Coosje van Bruggen's giant rubber stamp, tipped on its side, reading FREE. Roughly 28 × 26 × 49 feet. Commissioned for a corporate plaza, rejected, then exiled here — arguably the better ending.",
- s:[["TSG","#6"]]},
-{t:3,a:"DT",n:"Mini Statue of Liberty",ad:"623 W St Clair Ave",la:41.5011,ln:-81.6996,
- w:"A pocket-sized Liberty on a downtown sidewalk. Considerably easier to reach on a Saturday afternoon than the original.",
- s:[["N5","#19"]]},
-{t:3,a:"DT",n:"Hoyt Block Atrium",ad:"700 W St Clair Ave",la:41.5000,ln:-81.6997,
- w:"A restored 1875 warehouse block in the Warehouse District with a genuinely delightful interior atrium. Blue Point Grille is downstairs.",
- s:[["N5","#51"]]},
-{t:3,a:"DT",n:"Fort Huntington Park",ad:"W 3rd St & Lakeside Ave",la:41.5023278,ln:-81.6981653,
- w:"A surprising patch of downtown green that somehow escaped becoming an eyesore parking lot, with views out to Lake Erie and several statues scattered through it.",
- s:[["N5","#56"]]},
-{t:2,a:"DT",n:"Jesse Owens Statue",ad:"Fort Huntington Park, 299 W Lakeside Ave",la:41.5024,ln:-81.6985,
- w:"William McVey's 1982 bronze. Owens was born in Alabama and died in Arizona, but he spent his formative years in Cleveland before winning four golds at the 1936 Berlin Olympics — in front of a regime whose entire racial theory he demolished in a week.",
- s:[["TSG","#5"]]},
-{t:3,a:"DT",n:"Cleveland Convention Center Urban Farm",ad:"300 Lakeside Ave, front of the centre by the RAPID tracks",la:41.5045,ln:-81.6942,
- w:"A working micro-farm in the middle of downtown, right beside the rail tracks. Unexpected, and we could stand to have more of it.",
- s:[["N5","#34"]]},
-{t:2,a:"DT",n:"USS Cod Submarine Memorial",ad:"1201 N Marginal Rd",la:41.5100715,ln:-81.6915676,
- w:"The last fully intact WWII fleet submarine in existence. No cut-away hull, no visitor stairs — you go in the way the crew did. Veterans narrate in person; push-button stations cover the rest.",
- k:"Entry is down a vertical ladder through a deck hatch. Not accessible, and genuinely tight. Seasonal — confirm before driving out.",warn:1,s:[["N5","#30"]]},
-{t:1,a:"DT",n:"Rock & Roll Hall of Fame",ad:"1100 E 9th St",la:41.5085414,ln:-81.6953685,
- w:"Pei's glass pyramid on the lakefront, five floors of exhibits. Even if you're not a devotee the history of how the music got made — and the DJs who took the risks — carries it.",
- k:"Buy ahead. Budget three hours minimum; six if you're thorough.",s:[["TSG","#7"]]},
-{t:2,a:"DT",n:"Voinovich Bicentennial Park & Cleveland Lighthouse view",ad:"800 E 9th Street Pier",la:41.5103861,ln:-81.697075,
- w:"Behind the Rock Hall. Walk to the water and the Cleveland Lighthouse is visible offshore — in hard winters it ices over into a frozen tower. One of the Cleveland script signs is here.",
- s:[["TSG","#8"],["TSG","#9"]]},
-{t:3,a:"DT",n:"Cleveland Script Signs — all six",ad:"North Coast Harbor, E 9th Street Pier (and five others)",la:41.5104,ln:-81.6971,
- w:"The city script signs are scattered around Cleveland and each frames a different view. All six: <strong>North Coast Harbor</strong> (E 9th Street Pier, by the Rock Hall) · <strong>Tremont</strong> (1502 Abbey Ave, best downtown view) · <strong>Edgewater Park</strong> (6500 Cleveland Memorial Shoreway) · <strong>Euclid Beach</strong> (16301 Lakeshore Blvd) · <strong>The Foundry</strong> (1831 Columbus Rd) · <strong>Cleveland Hopkins Airport</strong> (near baggage claim).",
- k:"The Tremont and Edgewater signs are the two worth going out of your way for — Tremont for the skyline, Edgewater for the sunset.",s:[["TSG","#9"]]},
-{t:2,a:"DT",n:"Goodtime III",ad:"825 E 9th St",la:41.5101979,ln:-81.6954865,
- w:"Cleveland's largest sightseeing ship, up the Cuyahoga through the Flats and out onto Lake Erie. It drew more reader nominations than anything else on the hidden-gems list.",
- s:[["N5","#91"]]},
-{t:2,a:"DT",n:"Azure Rooftop Lounge at The 9",ad:"2017 E 9th St, Level 12",la:41.499784,ln:-81.6858124,
- w:"Twelve floors up, open air, skyline in every direction. Nothing hot on the menu — come for the view and a cold drink.",
- s:[["N5","#98"]]},
-{t:2,a:"DT",n:"Butcher and the Brewer",ad:"2043 E 4th St",la:41.4991465,ln:-81.6900132,
- w:"In-house brewery, butcher and charcutier on pedestrianised East 4th. Shared plates. Order the baked pretzel and ask for the roasted garlic caramel sauce — it sounds wrong and isn't.",
- s:[["TSG","#2"]]},
-{t:2,a:"DT",n:"Greater Cleveland Aquarium — shark gallery & seatube",ad:"2000 Sycamore St, The Flats",la:41.4965744,ln:-81.7038345,
- w:"Built inside the old FirstEnergy powerhouse in the Flats. The seatube walks you beside, around and under three shark species.",
- s:[["N5","#82"]]},
-{t:2,a:"DT",n:"Veterans Memorial (Detroit-Superior) Bridge Streetcar Deck",ad:"2433 Superior Viaduct",la:41.4933927,ln:-81.7040927,
- w:"Beneath the road deck sits an abandoned streetcar level — tunnels, tiled walls and four original subway tracks, standing as they did in 1917.",
- k:"Opens for public tours roughly once a year, usually in June. Free. Watch for the announcement; it's worth planning a trip around.",warn:1,s:[["N5","#21"]]},
-{t:3,a:"DT",n:"Mini Guardians of Traffic",ad:"Washington Ave & Center St, The Flats",la:41.4938,ln:-81.7060,
- w:"Scale replicas of the Hope Memorial Bridge pylon figures, at street level in the Flats. Almost nobody knows they exist.",
- s:[["N5","#35"]]},
-{t:3,a:"DT",n:"Leif Erikson Bust",ad:"Beside 1148 Main Ave, at the jackknife bridge",la:41.4949,ln:-81.7079,
- w:"A Norse explorer glowering out of Cleveland's smallest park, at the foot of the Cuyahoga jackknife bridge. The Scandinavian community gathers here once a year for a toast on Leif Erikson Day.",
- s:[["N5","#66"]]},
-{t:3,a:"DT",n:"Cleveland Center of Gravity Mural",ad:"Columbus Rd",la:41.4903,ln:-81.7000,
- w:"A mural where Cleveland's history and the cosmos intersect, on the Columbus Road approach into the Flats.",
- s:[["N5","#52"]]},
-{t:2,a:"DT",n:"The Foundry",ad:"1831 Columbus Rd",la:41.4900533,ln:-81.700305,
- w:"A rowing and sailing centre in a converted industrial building on the river, open to the public for programmes. Skyline and freighter views from the dock. A Cleveland script sign sits outside.",
- s:[["N5","#36"],["TSG","#9"]]},
-{t:2,a:"DT",n:"Brewboat CLE",ad:"Whiskey Island",la:41.4990,ln:-81.7130,
- w:"A pedal-powered bar-boat on the Cuyahoga. The least sober and most enjoyable way to see the river.",
- s:[["N5","#87"]]},
-{t:2,a:"DT",n:"Wendy Park & the monarch migration",ad:"2800 Whiskey Island Dr",la:41.4991564,ln:-81.7138946,
- w:"Lakefront park on Whiskey Island with volleyball courts, a lighthouse view and trails connecting to Edgewater. Every September monarchs arriving from Canada stop here en masse on the way to Mexico.",
- k:"The migration window is short. Watch Cleveland Metroparks for the announcement.",s:[["N5","#90"]]},
-{t:2,a:"DT",n:"Ball Ball Waffle",ad:"2999 Payne Ave, Asia Plaza",la:41.5085099,ln:-81.669681,
- w:"Hole-in-the-wall turning out Hong Kong-style bubble waffles and milk tea. Closed Tuesdays. Large lot outside.",
- s:[["N5","#79"]]},
-{t:2,a:"DT",n:"Negative Space Gallery",ad:"1541 E 38th St, 2nd floor warehouse",la:41.512155,ln:-81.663332,
- w:"An art gallery and small live-music room hidden in a warehouse by Asia Town. Underground, punk-adjacent, genuinely good.",
- k:"Thursday to Sunday only.",s:[["N5","#42"]]},
-{t:2,a:"DT",n:"Ingenuity Cleveland",ad:"5401 Hamilton Ave",la:41.5226008,ln:-81.6549854,
- w:"An artist collective of 60–80 members in the half-abandoned, beautiful Hamilton building — home to IngenuityFest and Brite Winter. Anyone can volunteer to build exhibits.",
- s:[["N5","#89"]]},
-{t:2,a:"DT",n:"Skidmark Garage",ad:"4806 Hamilton Ave",la:41.5196228,ln:-81.6593627,
- w:"A community garden for motorcycle repair — shared tools, shared knowledge — that also has a bar and live music. Members bring in salvage bikes and rebuild them with help.",
- s:[["N5","#47"]]},
-
-/* ══ UNIVERSITY CIRCLE & EAST ══ */
-{t:1,a:"UC",n:"Percy Skuy Collection, Dittrick Medical History Center",ad:"11000 Euclid Ave, Allen Memorial Medical Library",la:41.5059193,ln:-81.608414,
- w:"The largest and most comprehensive collection of historical contraceptives in the world — over a thousand objects arranged chronologically across a millennium. Beaver testicles, crocodile dung, mule earwax, spider carcasses, Mexican yams, Goodyear rubbers, IUDs. Alongside sit the texts: Casanova recommending a hollowed half-lemon, and 1580 BCE instructions involving ground dates, acacia and honey. The wider Dittrick galleries on medical history are excellent in their own right.",
- k:"Very limited hours and they should drive your whole day. Free. Metered street parking.",warn:1,s:[["AO_SKUY",""],["N5","#28"]]},
-{t:1,a:"UC",n:"Haserot Angel, Lake View Cemetery",ad:"12316 Euclid Ave · Section 9, Lot 14",la:41.513022,ln:-81.590375,
- w:"Formally \"The Angel of Death Victorious.\" A life-size bronze on the Haserot family plot, holding an extinguished torch upside down. Decades of oxidation have left black streaks running from her eyes down her neck, so she appears to weep. Herman Matzen sculpted her; canning magnate Francis Haserot commissioned her after his wife died in 1919.",
- k:"Easy to miss — just off the road under trees. Grab a map at the gate; nearest marked landmark is the Hanna Mausoleum.",s:[["AO_ANGEL",""],["N5","#5"],["TSG","#14"]]},
-{t:1,a:"UC",n:"Lake View Cemetery (whole grounds)",ad:"12316 Euclid Ave",la:41.51398,ln:-81.5988944,
- w:"280 acres, 100,000 graves, and the best architecture walk in the city: the James A. Garfield Memorial and tomb, Wade Memorial Chapel with a Louis Tiffany interior, and mausoleums throughout. Climb the Garfield tower for a downtown view.",
- k:"Maps at the gate, main office and Garfield Monument. Bikes allowed. A trolley tour runs at 1pm — call to book. Open every day of the year.",s:[["TSG","#14"],["N5","#68"]]},
-{t:2,a:"UC",n:"Lake View Cemetery Dam",ad:"12316 Euclid Ave",la:41.5163,ln:-81.5940,
- w:"A working dam inside the cemetery grounds, built to hold back Dugway Brook and supply the city. Most visitors never find it.",
- s:[["N5","#68"]]},
-{t:2,a:"UC",n:"Grave of Alan Freed",ad:"Lake View Cemetery",la:41.5155,ln:-81.5925,
- w:"A jukebox headstone for the Cleveland disc jockey credited with coining the phrase rock and roll.",
- s:[["N5","#76"]]},
-{t:1,a:"UC",n:"Cleveland Museum of Art",ad:"11150 East Blvd",la:41.5079261,ln:-81.6119723,
- w:"One of the largest museums in the country, free to enter. The 1916 building, East and West wings and North building wrap a glass-roofed atrium. Armour court, Egyptian galleries, strong Asian collection upstairs in the North building.",
- k:"Enter via Wade Park and the South entrance for the approach across the lagoon. Special exhibitions are ticketed; the permanent collection isn't. Closed Monday.",s:[["TSG","#18"]]},
-{t:2,a:"UC",n:"The Fine Arts Garden",ad:"11130 East Blvd",la:41.5077076,ln:-81.6114527,
- w:"The formal garden and lagoon in front of the art museum. Olmsted Jr. called it a development placed exactly where the greatest number of people would pass it daily. Harpists, wedding parties, and a lot of geese.",
- s:[["N5","#60"],["TSG","#17"]]},
-{t:1,a:"UC",n:"Lucy, at the Cleveland Museum of Natural History",ad:"1 Wade Oval Dr",la:41.5114773,ln:-81.6130674,
- w:"The Australopithecus afarensis skeleton — the oldest discovered link in the chain of human evolution, and Cleveland's most famous resident. Balto the sled dog is here too, taxidermied and on display. Live animals outside, including a bald eagle.",
- k:"Planetarium and 3D films cost extra. Attached garage. Two hours minimum. Closed Monday.",s:[["N5","#73"]]},
-{t:2,a:"UC",n:"Apollo 12 Moon Rock",ad:"Cleveland Museum of Natural History, 1 Wade Oval Dr",la:41.5116,ln:-81.6134,
- w:"A chunk of the moon collected by Alan Bean on 20 November 1969, on long-term loan from NASA. There is nothing else like it on earth, which is the entire point.",
- s:[["N5","#6"]]},
-{t:3,a:"UC",n:"Wade Park & Wade Lagoon",ad:"East Blvd at Euclid Ave, University Circle",la:41.5090,ln:-81.6115,
- w:"The park wrapped around the lagoon, between MOCA and the art museum. Walk the far side of the water for the classic view of the Cleveland Museum of Art reflected across it.",
- s:[["TSG","#17"]]},
-{t:2,a:"UC",n:"Cleveland Botanical Garden",ad:"11030 East Blvd",la:41.5111392,ln:-81.6095981,
- w:"Glasshouses of Costa Rican cloud forest and Madagascan spiny desert, a butterfly house, plus outdoor Japanese, herb and rose gardens. Closed Monday.",
- s:[["N5","#81"]]},
-{t:2,a:"UC",n:"Museum of Contemporary Art Cleveland (MOCA)",ad:"11400 Euclid Ave",la:41.5089105,ln:-81.60464499999999,
- w:"Farshid Moussavi's black faceted geometric building — worth seeing from outside alone. Three of four floors are exhibition space; the fourth is working artists. Free for Ohio residents.",
- k:"Thursday to Sunday only.",s:[["TSG","#16"]]},
-{t:2,a:"UC",n:"Cleveland History Center & Euclid Beach Carousel",ad:"10825 East Blvd",la:41.5130284,ln:-81.611624,
- w:"The restored 1910 Euclid Beach Park carousel, which you can ride, inside a museum that also holds a very large collection of historic cars and a historic house.",
- k:"Odd opening days — Thursday to Sunday. Check before going.",s:[["N5","#70"]]},
-{t:2,a:"UC",n:"Chinese Cultural Garden",ad:"Martin Luther King Jr Dr, Cleveland Cultural Gardens",la:41.5073777,ln:-81.614254,
- w:"Modelled on the Chinese Imperial Palace and dedicated in 1985. Two guardian lions flank the entrance — one with a ball beneath his paw, one with a cub — and Confucius stands on a white pedestal. The only cultural garden east of E 105th.",
- s:[["N5","#7"]]},
-{t:2,a:"UC",n:"Rockefeller Park Greenhouse",ad:"750 E 88th St",la:41.5370491,ln:-81.6287004,
- w:"A city-owned greenhouse from 1905 grown into a full botanical facility: globally themed gardens, native Ohio plants, a tropical house. The cactus and desert room is the one people remember. Free, and rarely crowded.",
- k:"Closes at 4pm, earlier than everything around it. Free parking; iris garden across the lot.",warn:1,s:[["N5","#53"]]},
-{t:2,a:"UC",n:"Cozad-Bates House",ad:"11508 Mayfield Rd",la:41.5081128,ln:-81.6028629,
- w:"The oldest and only surviving pre-Civil War structure in University Circle, now an interpretive centre on Cleveland's role in the Underground Railroad and the local abolitionist movement.",
- k:"Saturday afternoons only.",warn:1,s:[["N5","#75"]]},
-{t:3,a:"UC",n:"Hessler Court",ad:"Hessler Rd, University Circle",la:41.5090,ln:-81.6055,
- w:"Cleveland's shortest street at 300 feet — and it's paved with wooden blocks. There is nowhere else like it in the city.",
- s:[["N5","#72"]]},
-{t:2,a:"UC",n:"Moonstruck CLE Vintage",ad:"11917 Mayfield Rd, Little Italy",la:41.50875,ln:-81.5996389,
- w:"Curated vintage clothing, jewellery and oddments in Little Italy, run by an owner who clearly enjoys it. Prices are unusually fair.",
- k:"Thursday to Sunday. Pair with a Little Italy meal or food tour.",s:[["TSG","#15"]]},
-{t:2,a:"UC",n:"Chateau Hough Vineyards",ad:"1650 E 66th St",la:41.5086906,ln:-81.6447624,
- w:"Vacant lots in the Hough neighbourhood turned into a working vineyard and winery — founded by Mansfield Frazier partly as a re-entry employment project. Private tastings; walk the vines.",
- k:"Wednesday, Friday, Saturday, Sunday.",s:[["N5","#24"]]},
-{t:2,a:"UC",n:"Baseball Heritage Museum at League Park",ad:"6601 Lexington Ave",la:41.5111764,ln:-81.6443127,
- w:"A free museum on the site of League Park, where Babe Ruth and Shoeless Joe Jackson played and where a replica field still stands. Small, and the guides are exceptional.",
- s:[["N5","#100"]]},
-{t:2,a:"UC",n:"Deep Roots Experience",ad:"7901 Central Ave, Fairfax",la:41.4963874,ln:-81.6333361,
- w:"A gallery exclusively featuring artists of colour, in the Fairfax neighbourhood — the same area as Karamu House, where Langston Hughes developed his plays.",
- k:"Friday to Sunday afternoons only.",s:[["N5","#29"]]},
-{t:2,a:"UC",n:"Woodland Cemetery",ad:"6901 Woodland Ave",la:41.4926879,ln:-81.6420606,
- w:"Older than Lake View and far less visited. Graves of people born only years after independence, veterans of 1812 and the Civil War, and a deep vein of Black Cleveland history that volunteers are still recovering.",
- s:[["N5","#40"]]},
-{t:2,a:"UC",n:"The Children's Museum of Cleveland",ad:"3813 Euclid Ave",la:41.5044657,ln:-81.6599124,
- w:"Less a museum than a play space, inside a Millionaires' Row mansion. Closed Thursdays; mornings only.",
- s:[["N5","#85"]]},
-{t:3,a:"UC",n:"The Trumpet Man",ad:"E 118th St & Buckeye Rd",la:41.4757,ln:-81.6055,
- w:"James Simon's 18-foot trumpeter and his dog, permanent greeters at the Buckeye Jazz Festival.",
- s:[["N5","#67"]]},
-{t:3,a:"UC",n:"Land of the Warres",ad:"4701 Perkins Ave",la:41.5070844,ln:-81.6546764,
- w:"An enigmatic marked doorway off Chester Avenue that a certain kind of person insists is a gateway to an alternate universe. Limited appeal, too odd to leave out.",
- s:[["N5","#4"]]},
-{t:3,a:"UC",n:"George Masaveg's Art Home",ad:"3678 E 55th St",la:41.4640,ln:-81.6470,
- w:"A man turned his house and lawn into a personal art collective. Eclectic, messy, wonderfully weird. View respectfully from the pavement — this is somebody's home.",
- s:[["N5","#58"]]},
-{t:3,a:"UC",n:"Junkyard Playground",ad:"E 83rd St",la:41.4800,ln:-81.6400,
- w:"Tim Willis turns scrap into larger-than-life trucks and robots on his own lot. Another one to view from the street.",
- s:[["N5","#50"]]},
-{t:3,a:"UC",n:"Morgana Run Trail",ad:"E 49th St, just north of Fleet Ave",la:41.4600,ln:-81.6520,
- w:"A rails-to-trails success story linking Slavic Village to Garfield Park Reservation and the county's tallest waterfall.",
- s:[["N5","#55"]]},
-{t:2,a:"UC",n:"St. Stanislaus Church",ad:"3649 E 65th St, Slavic Village",la:41.4590749,ln:-81.6445003,
- w:"An 1891 Polish Gothic church with hand-carved wooden altar statues, a pipe organ, painted cathedral ceiling and two first-class relics including one of John Paul II. Genuinely jaw-dropping.",
- s:[["N5","#11"]]},
-{t:2,a:"UC",n:"Harvey Pekar Statue",ad:"Lee Road Library, 2345 Lee Rd, Cleveland Heights",la:41.4958347,ln:-81.5649122,
- w:"A bronze desk-and-figure tribute to the American Splendor author, at the library that was one of his haunts.",
- s:[["N5","#20"]]},
-{t:1,a:"UC",n:"Quintana's Speakeasy",ad:"2200 S Taylor Rd, Cleveland Heights",la:41.4998009,ln:-81.5563368,
- w:"Go to the back door of the barbershop and spa. Press the buzzer. Say you're there to see a man about a horse. Up the stairs, turn right, find the bookshelf, pull the correct book — the wall opens onto a 1920s bar.",
- k:"Closed Sunday and Monday. Small capacity; the attic room is the quiet one. They run cocktail classes.",s:[["N5","#15"]]},
-{t:3,a:"UC",n:"Liberty Row",ad:"North Park Blvd near Woodmere Dr, Shaker Heights",la:41.5090,ln:-81.5680,
- w:"A row of Liberty Oaks planted as living memorials to soldiers killed in the First World War. A century on, a number still stand.",
- s:[["N5","#38"]]},
-{t:3,a:"UC",n:"NELA Holiday Lights Display",ad:"1901 Noble Rd, East Cleveland",la:41.5330,ln:-81.5680,
- w:"Seasonal, and non-negotiable if you're here in December. It isn't Christmas in Cleveland without it.",
- k:"Late November through early January only.",warn:1,s:[["N5","#96"]]},
-{t:2,a:"UC",n:"Lakefront Nature Preserve",ad:"8701 Lakeshore Blvd",la:41.5404061,ln:-81.6278953,
- w:"A capped landfill turned birding reserve, with a 1.5-mile flat perimeter trail and views of the skyline, Bratenahl and the lake. You have driven past it on I-90 a hundred times.",
- s:[["N5","#99"]]},
-
-/* ══ WEST SIDE, OHIO CITY & TREMONT ══ */
-{t:1,a:"WS",n:"West Side Market",ad:"1979 W 25th St, Ohio City",la:41.4847078,ln:-81.7028394,
- w:"A hundred stalls under a 1912 barrel-vaulted hall with a clock tower — butchers, bakers, fishmongers, cheesemongers, spice sellers. Kielbasa in every form: smoked, fresh, double-smoked, Hungarian, Polish. One stand is called the Pork Chop Shop. Food has been sold on or beside this site since 1840. Look for the steer's head carved into the northern pediment, and go up to the balcony for the view down the hall.",
- k:"Bring cash — most stalls don't take cards. First hour of parking free; park toward the back near the beer garden. The outdoor produce arcade is a separate building and a harder sell than the main hall. Closed Tuesday and Thursday.",warn:1,s:[["AO_WSM",""],["TSG","#22"],["N5",""]]},
-{t:2,a:"WS",n:"Great Lakes Brewing Co. — the bullet holes",ad:"2516 Market Ave, Ohio City",la:41.4844029,ln:-81.7045326,
- w:"Ohio's first craft brewery, across from the market. There are bullet holes in the mahogany bar; the story says they were either meant for Eliot Ness or fired by him.",
- s:[["N5","#25"],["TSG","#22"]]},
-{t:1,a:"WS",n:"Buckland Museum of Witchcraft & Magick",ad:"2155 Broadview Rd",la:41.43805,ln:-81.6998196,
- w:"Raymond Buckland — leader of what became the Long Island Coven — started this collection in a Bay Shore basement in the 1960s. It followed him to New Hampshire, through legal disputes in New Orleans, into storage in Columbus, and finally here. Much of it originally belonged to Gerald Gardner, father of Gardnerian Wicca, including his besom. Also: Sybil Leek's crystal ball, Egyptian ushabtis, a carved mandrake root, Crowley material, rare Ouija memorabilia, and a demon in a box that Buckland captured in the 1970s with help from a ceremonial magician.",
- k:"Ten minutes from downtown. Parking behind the building and on the street. Photos without flash; the curator asks for no video. Small enough for an hour, dense enough to want longer.",s:[["AO_BUCK",""],["N5","#45"]]},
-{t:1,a:"WS",n:"A Christmas Story House & Museum",ad:"3159 W 11th St, Tremont",la:41.4687304,ln:-81.6874036,
- w:"The actual exterior house from the 1983 film, restored inside to match the movie, plus a museum of original props and costumes across the street. The tour covers why it was shot in Cleveland at all.",
- k:"House interior is tour-only; tickets at the gift shop, departures every 30 minutes from 10:15am. Budget two hours. You can rent the house and sleep in Ralphie's bedroom.",s:[["TSG","#12"],["N5",""]]},
-{t:1,a:"WS",n:"St. Theodosius Russian Orthodox Cathedral",ad:"733 Starkweather Ave, Tremont",la:41.4773104,ln:-81.6816812,
- w:"Onion domes over Tremont, and the church from The Deer Hunter. Icons, stained glass, permanent incense. If you see only one of Tremont's churches, this is it.",
- k:"Weekday mornings and around services. Tremont is dense with immigrant-built churches — walk the neighbourhood for the rest.",s:[["TSG","#19"]]},
-{t:2,a:"WS",n:"Barrio Tremont",ad:"806 Literary Rd, Tremont",la:41.4821124,ln:-81.6863853,
- w:"Build-your-own tacos with Day of the Dead murals by local artist Mac in every location. Busy on game nights; takeaway is easy.",
- s:[["TSG","#13"]]},
-{t:3,a:"WS",n:"Taste of Tremont",ad:"Professor Ave, Starkweather to W 10th St",la:41.4790,ln:-81.6890,
- w:"Tremont's restaurants set up stalls the length of Professor Avenue. Held the third Sunday of July. Go around 6pm when it thins out.",
- k:"One day a year. If you've missed it: Grumpy's Cafe, Lucky's Cafe, Hi and Dry, the South Side, or Tandul for Indian.",warn:1,s:[["TSG","#20"]]},
-{t:2,a:"WS",n:"Tremont skyline view & Abbey Ave script sign",ad:"1502 Abbey Ave",la:41.4877,ln:-81.6989,
- w:"Ten minutes' walk from Professor Avenue and the best free downtown view on the west side. Best after dark when the bridge lights come up. One of the Cleveland script signs stands here.",
- s:[["TSG","#21"],["TSG","#9"]]},
-{t:2,a:"WS",n:"Towpath Mounds",ad:"Towpath Trail, Tremont",la:41.4795,ln:-81.6935,
- w:"Constructed earth mounds beside the towpath, made from Cleveland's own industrial fill, framing sweeping views of the city. A gem inside a gem.",
- s:[["N5","#95"]]},
-{t:3,a:"WS",n:"Towpath Trail",ad:"Multiple access points; Tremont trailhead nearest downtown",la:41.4750,ln:-81.6930,
- w:"Eighty-seven miles and four counties, from Lake Erie down the old Ohio & Erie canal corridor to New Philadelphia.",
- s:[["N5","#80"]]},
-{t:3,a:"WS",n:"The Pizza Mural",ad:"W 28th St & Detroit Ave, Hingetown",la:41.4880,ln:-81.7118,
- w:"A proper mural for one of the great American pizza cities, on a corner of Hingetown.",
- s:[["N5","#18"]]},
-{t:3,a:"WS",n:"Intermuseum Conservation Association (ICA-Art Conservation)",ad:"2937 W 25th St, 2nd floor",la:41.4721233,ln:-81.6989674,
- w:"Where museums from around the world send paintings, frames and textiles to be saved. Conservators here hold degrees in both art and chemistry. A forgotten space dedicated to forgotten things.",
- k:"A working lab, not a museum. Weekdays, and best approached by appointment.",s:[["N5","#57"]]},
-{t:3,a:"WS",n:"Heisman House Plaque",ad:"3928 Bridge Ave",la:41.4840,ln:-81.7180,
- w:"John Heisman's Cleveland house — with the plaque now, finally, in front of the correct one.",
- s:[["N5","#77"]]},
-{t:3,a:"WS",n:"Red Line Greenway",ad:"Michael Zone Recreation Center, W 53rd St",la:41.4813,ln:-81.7180,
- w:"Two miles of new paved trail connecting eight Cleveland neighbourhoods along the RTA Red Line. The Cleveland people had been asking for.",
- s:[["N5","#48"]]},
-{t:2,a:"WS",n:"Superelectric Pinball Parlor",ad:"6500 Detroit Ave, Gordon Square",la:41.4842367,ln:-81.7304346,
- w:"Flat entry fee, unlimited play, well-kept machines, a bar. Exactly what it sounds like, which is the point.",
- k:"Closed Tuesday. From 4pm weekdays, noon at weekends.",s:[["N5","#63"]]},
-{t:2,a:"WS",n:"Stone Mad Pub — indoor bocce",ad:"1306 W 65th St, Gordon Square",la:41.4866397,ln:-81.7304912,
- w:"A stonemason's fever dream of a pub with an Italian bocce court inside, making a serious attempt at being the most Cleveland place in Cleveland.",
- s:[["N5","#71"]]},
-{t:2,a:"WS",n:"Gordon Square Arts District murals",ad:"Detroit Ave around W 65th–W 78th",la:41.4840851,ln:-81.7392273,
- w:"A dense concentration of murals across the arts district — there's a published map so you can plan a route. Sweet Moses for ice cream when you're done.",
- s:[["TSG","#10"]]},
-{t:2,a:"WS",n:"Edgewater Park & Beach",ad:"6500 Cleveland Memorial Shoreway",la:41.4902896,ln:-81.7354552,
- w:"Swimming beach, fishing pier, open yoga classes on the lawn, and a Cleveland script sign. Sunsets here are the reason locals come.",
- s:[["TSG","#11"],["TSG","#9"]]},
-{t:2,a:"WS",n:"The Willow at Edgewater Park",ad:"Lakefront Reservation, Edgewater",la:41.4890,ln:-81.7395,
- w:"Nobody knows who planted it. It's the most famous tree in Cleveland and it has earned the title.",
- s:[["N5","#13"]]},
-{t:2,a:"WS",n:"Memphis Kiddie Park",ad:"10340 Memphis Ave, Brooklyn",la:41.4406184,ln:-81.7577434,
- w:"A 1952 amusement park whose rides have barely changed in seventy years, scaled for children eight and under. Free entry and parking, tickets never expire, and nobody tries to sell you anything.",
- s:[["N5","#3"]]},
-{t:2,a:"WS",n:"Ray's Indoor Mountain Bike Park",ad:"9801 Walford Ave",la:41.4546959,ln:-81.7523741,
- w:"The longest indoor mountain bike trail in the world, in a warehouse that looks abandoned from the street. Beginner floor-painted lines up to expert jump lines, a foam pit, and rental bikes.",
- k:"Seasonal and limited hours — check before you load the car.",warn:1,s:[["N5","#12"]]},
-{t:2,a:"WS",n:"b.a. Sweetie Candy Company",ad:"6770 Brookpark Rd, Parma",la:41.4201515,ln:-81.7316654,
- w:"A candy warehouse, not a candy store — aisles of it, in bulk, plus an ice cream and soda counter. Went viral in 2021 for sheer volume. Prices are roughly retail; come for the spectacle.",
- s:[["N5","#69"]]},
-{t:3,a:"WS",n:"Madison Park",ad:"13201 Madison Ave, Lakewood",la:41.4756662,ln:-81.7807809,
- w:"Directly between Dang Good and Birdietown: a large playground with a genuinely tall climbing structure, tennis courts, ball fields and a summer pool. Somewhere to walk off dinner.",
- k:"The pool is Lakewood residents only unless you're signed in as a guest, and it closes early — around 5:15pm.",s:[["ADD",""]]},
-{t:3,a:"WS",n:"Lakewood Public Library",ad:"15425 Detroit Ave, Lakewood",la:41.4846911,ln:-81.8042385,
- w:"Not the chess one — but an exceptional building in its own right, with soaring ceilings, floods of natural light, and a basement book sale that regularly turns up things you cannot find elsewhere. Open seven days.",
- s:[["ADD",""]]},
-{t:1,a:"WS",n:"The Sanctuary Museum (Museum of Divine Statues)",ad:"12905 Madison Ave, Lakewood",la:41.4767072,ln:-81.778332,
- w:"Makeup artist Lou McClung spent years rescuing statues, stained glass, altarpieces and relics from Catholic parishes across the Diocese of Cleveland as they closed, then restoring them. The result is a room of hundreds of saved objects that would otherwise have been landfilled. The wall of relics is the centrepiece — step too close and you trip the laser.",
- k:"The hardest schedule on this list: two short windows a week. Small admission. Call ahead.",warn:1,s:[["N5","#62"]]},
-{t:1,a:"WS",n:"Solstice Steps, Lakewood Park",ad:"14532 Lake Ave, Lakewood",la:41.4972086,ln:-81.797965,
- w:"Terraced stone steps down to Lake Erie, built so everyone gets a front-row seat rather than a handful of benches. Best sunset in the region, with the skyline visible east. Porch swings on the bluff.",
- k:"Arrive 30 minutes before sunset for a seat on the lower terraces. Windy and cold well into spring.",s:[["N5","#74"]]},
-{t:3,a:"WS",n:"Rocky River Park",ad:"20250 Beachcliff Blvd, Rocky River",la:41.4868227,ln:-81.8466157,
- w:"A small bluff-top park with steps down to the shoreline, a playground and clean facilities. Worth crossing town for even if you live east.",
- s:[["N5","#46"]]},
-
-/* ══ SUBURBS, METROPARKS & DAY TRIPS ══ */
-{t:1,a:"SUB",n:"Cuyahoga Valley National Park",ad:"Boston Mill Visitor Center, 6947 Riverview Rd, Peninsula",la:41.262604,ln:-81.5603244,
- w:"A full national park half an hour from downtown that a surprising number of Ohioans have never visited. Start at Boston Mill for maps and rangers.",
- k:"With one afternoon and a car: Brandywine Falls, then sunset from the Ledges Overlook.",s:[["TSG","#23"]]},
-{t:1,a:"SUB",n:"Brandywine Falls",ad:"8176 Brandywine Rd, Northfield",la:41.2769085,ln:-81.53856499999999,
- w:"A 65-foot waterfall reached by a boardwalk from the car park, viewable from above or from the gorge floor. Different in every season.",
- k:"Stairs at both viewing levels — not fully accessible. Gets very busy; go early.",s:[["N5","#97"],["TSG","#23"]]},
-{t:1,a:"SUB",n:"Virginia Kendall Ledges Overlook",ad:"405 Truxell Rd, Peninsula",la:41.2203118,ln:-81.5123348,
- w:"Sandstone ledges, mossy crevices and a west-facing overlook that is the best sunset in the national park. Mysterious carvings are scattered through the rock.",
- s:[["N5","#37"],["TSG","#23"]]},
-{t:1,a:"SUB",n:"Squire's Castle",ad:"2844 River Rd, North Chagrin Reservation, Willoughby Hills",la:41.5800222,ln:-81.4192778,
- w:"A roofless stone gatehouse — all that was ever built of Feargus Squire's country estate — standing free and open on a wide lawn. Hollow inside, thick with urban myth, and beautiful in fog.",
- s:[["N5","#43"]]},
-{t:2,a:"SUB",n:"Worden's Ledges",ad:"Wordens Ledges Loop Trail, Hinckley",la:41.2024843,ln:-81.7169349,
- w:"Faces and iconography carved into sandstone ledges in the 1940s by Noble Stuart, who did it in the woods his late wife had inherited. George Washington, Jefferson, a sphinx, and Ty Cobb.",
- k:"Trail is marked with a raccoon-head blaze and crossed by bridle trails — easy to end up on the wrong one.",s:[["N5","#31"]]},
-{t:2,a:"SUB",n:"Whipp's Ledges",ad:"Hinckley Reservation",la:41.2191996,ln:-81.7029816,
- w:"Rock ledges, small caves and free-climbing scrambles — closer than Hocking Hills and far less crowded. Swim at the spillway after.",
- k:"Steeper and rockier than it looks; trails are poorly marked on the way down.",s:[["N5","#64"]]},
-{t:2,a:"SUB",n:"Henry Church Rock",ad:"South Chagrin Reservation",la:41.4155,ln:-81.4290,
- w:"A blacksmith and self-taught artist carved Native American imagery into this riverside boulder in 1885, working at night by lantern.",
- s:[["N5","#54"]]},
-{t:2,a:"SUB",n:"Mill Creek Falls Overlook",ad:"Garfield Park Reservation",la:41.4358,ln:-81.6265,
- w:"The tallest waterfall in Cuyahoga County at 48 feet. Its power drove the mills that helped build the city.",
- s:[["N5","#41"]]},
-{t:2,a:"SUB",n:"Viaduct Park",ad:"Willis St, Bedford Reservation",la:41.385472,ln:-81.5342005,
- w:"A short walk down into the valley gets you Tinker's Creek Falls, mill ruins, wildflowers, trains and observation platforms — a lot packed into a small park.",
- s:[["N5","#93"]]},
-{t:2,a:"SUB",n:"Skyline Overlook Trailhead",ad:"West Creek Reservation, 1969 W Ridgewood Dr, Parma",la:41.390026,ln:-81.691429,
- w:"The downtown skyline seen from the suburbs — about fifteen minutes up a well-kept trail from the car park.",
- s:[["N5","#23"]]},
-{t:1,a:"SUB",n:"Holden Arboretum & Stebbins Gulch",ad:"9550 Sperry Rd, Kirtland",la:41.6114292,ln:-81.3012572,
- w:"Stebbins Gulch is Holden's crown jewel — a ravine of cascades and waterfalls reachable only on a guided tour. The wider arboretum has a canopy walk and an emergent tower.",
- k:"Gulch access is guided only and must be booked. Closed Mondays.",warn:1,s:[["N5","#2"]]},
-{t:2,a:"SUB",n:"Observatory Park",ad:"10610 Clay St, Montville",la:41.5848846,ln:-81.0805816,
- w:"An 1,100-acre certified dark-sky park with a Nassau telescope programme, a scale-model solar system, a pyramid and a stone circle. Come for a meteor shower.",
- s:[["N5","#33"]]},
-{t:2,a:"SUB",n:"Gardenview Horticultural Park",ad:"16711 Pearl Rd, Strongsville",la:41.29541,ln:-81.8351377,
- w:"Sixteen acres of rare plants in a cottage-style landscape, half-returned to nature for want of hands. An unexpected green island in a stretch of retail.",
- k:"Small admission. Closed Mondays.",s:[["N5","#26"]]},
-{t:3,a:"SUB",n:"Judy's Jungle",ad:"8665 Station St, Mentor",la:41.6810987,ln:-81.3291116,
- w:"A sprawling garden of fibreglass animals hiding behind an HVAC company's car park. Overgrown and in need of paint, which honestly improves it. Free.",
- s:[["N5","#8"]]},
-{t:3,a:"SUB",n:"Preston's H.O.P.E. Playground",ad:"26001 S Woodland Rd, Beachwood",la:41.4752309,ln:-81.4898939,
- w:"The largest fully accessible playground in Northeast Ohio, built as a village of small buildings and inspired by a boy born with Spinal Muscular Atrophy.",
- s:[["N5","#65"]]},
-{t:2,a:"SUB",n:"Polka Hall of Fame",ad:"605 E 222nd St, Euclid",la:41.5988543,ln:-81.5263881,
- w:"Free, in Euclid's historic old city hall, and a room full of accordions. Frankie Yankovic, Johnny Pecon, and the Slovenian roots of Cleveland-style polka. The Softball Hall of Fame is next door.",
- k:"Wednesday and Saturday mornings only.",warn:1,s:[["N5","#22"]]},
-{t:3,a:"SUB",n:"Sims Park & Lakefront Trail",ad:"23131 Lakeshore Blvd, Euclid",la:41.6154376,ln:-81.5225981,
- w:"Edgewater isn't the only lakefront park in the county. A mansion, a beach cove, a fishing pier and a new jogging path, with far fewer people.",
- s:[["N5","#39"]]},
-{t:3,a:"SUB",n:"Lakefront Lodge",ad:"30525 Lakeshore Blvd, Willowick",la:41.6408716,ln:-81.4752768,
- w:"A clifftop park with swings, picnic tables and an underrated sunset. Pack something from Alesci's at Shoregate on the way.",
- s:[["N5","#9"]]},
-{t:2,a:"SUB",n:"Fairport Harbor Marine Museum & Lighthouse",ad:"129 Second St, Fairport Harbor",la:41.7569444,ln:-81.2775,
- w:"Sixty-nine steps to a walkway around the lantern and a view over the harbour, plus a Great Lakes shipping museum below. Ask about the ghost cat.",
- k:"Wednesday, Friday, weekends. Around $10.",s:[["N5","#59"]]},
-{t:3,a:"SUB",n:"Gravity Hill",ad:"King Memorial Rd, north of Little Mountain Rd, Kirtland Hills",la:41.6300,ln:-81.3480,
- w:"An optical illusion of terrain: the road appears to run uphill, and a car in neutral rolls the way it shouldn't.",
- s:[["N5","#92"]]},
-{t:2,a:"SUB",n:"Chagrin Falls Popcorn Shop",ad:"53 N Main St, Chagrin Falls",la:41.4311329,ln:-81.3920873,
- w:"Seventy years of popcorn, ice cream and unclassifiable sweets in a tiny shop that sits directly above the falls the village is named for.",
- s:[["N5","#88"]]},
-{t:2,a:"SUB",n:"Mapleside Farms",ad:"294 Pearl Rd, Brunswick",la:41.2686111,ln:-81.8411111,
- w:"An orchard on a ridge above the valley. Go for a sunset concert; in autumn it becomes a full festival with a super slide and corn mazes.",
- k:"Heavily seasonal — much of the year it's events-only.",s:[["N5","#78"]]},
-{t:2,a:"SUB",n:"Cleveland Orchestra at Blossom Music Center",ad:"1145 W Steels Corners Rd, Cuyahoga Falls",la:41.1913055,ln:-81.5606615,
- w:"One of the world's great orchestras, outdoors on a wooded hillside, every summer. Lawn tickets are cheap and the acoustics carry.",
- k:"Summer season only. Traffic leaving the car parks is a known ordeal.",s:[["N5","#84"]]},
-{t:2,a:"SUB",n:"Cascade Park",ad:"387 Furnace St, Elyria",la:41.3770669,ln:-82.111086,
- w:"The Black River drops through a gorge in the middle of Elyria and West Falls is the headline — one of the best waterfalls in Ohio. Paved path to the falls if the trails are too steep, plus rock formations along the river.",
- s:[["N5","#61"]]},
-{t:3,a:"SUB",n:"East Falls Riverwalk",ad:"18 West Ave, Elyria",la:41.3688,ln:-82.1049,
- w:"The other set of falls in Elyria, with a boardwalk right along the water. News 5's entire write-up was: look at it. LOOK. AT. IT.",
- s:[["N5","#10"]]},
-{t:2,a:"SUB",n:"A Bench By The Road",ad:"Corner of Main & Lorain Streets, Oberlin",la:41.2936,ln:-82.2172,
- w:"One of only about twenty benches worldwide placed by the Toni Morrison Society to mark the lives of enslaved Africans — a response to Morrison's remark that there was no memorial bench by the road. Morrison was born in nearby Lorain.",
- s:[["N5","#14"]]},
-{t:3,a:"SUB",n:"Amherst Veterans Mural",ad:"248 Park Ave, Amherst",la:41.3981735,ln:-82.2245835,
- w:"A large painted veterans' memorial wall, and there is more to it than the photographs show.",
- s:[["N5","#94"]]},
-
-/* ══ ADDED: Atlas Obscura's wider Cleveland catalogue + local staples ══ */
-{t:1,a:"WS",n:"Franklin Castle",ad:"4308 Franklin Blvd, Ohio City",la:41.485723,ln:-81.7165436,
- w:"The Hannes Tiedemann house, 1881 — a Victorian sandstone pile with a history of family deaths and a reputation as the most haunted house in Ohio. Atlas Obscura has its own entry for it; your four links were only a fraction of what they list for Cleveland.",
- k:"Interior access is by booked tour or overnight stay only, currently Tuesday evenings. The exterior and the surrounding Franklin Boulevard mansions are free to walk.",s:[["AO_CLE",""]]},
-{t:1,a:"UC",n:"Wade Memorial Chapel",ad:"Lake View Cemetery, 12316 Euclid Ave",la:41.5136209,ln:-81.5946413,
- w:"From outside, an unremarkable cemetery chapel. Inside, a Louis Tiffany interior: a monumental stained-glass window and glass mosaic murals running the length of both walls, executed by an all-female workshop. It was the first place in Cleveland outside a private home to have electric light. The bronze doors weigh two tons and swing on a finger.",
- k:"Open daily 10–4, free, and there is usually a volunteer docent inside who will tell you far more than any placard. Do this in the same visit as the Haserot Angel and Garfield's tomb.",s:[["AO_CLE",""]]},
-{t:1,a:"UC",n:"The Thinker",ad:"Cleveland Museum of Art, 11150 East Blvd",la:41.5081,ln:-81.6115,
- w:"A Rodin cast at the museum's south entrance, and one of very few in the world deliberately left damaged. A bomb detonated at its base in 1970 — attributed to the Weather Underground — tore off the lower legs and pedestal. The museum chose not to restore it.",
-s:[["AO_CLE",""]]},
-{t:2,a:"UC",n:"Balto the Sled Dog",ad:"Cleveland Museum of Natural History, 1 Wade Oval Dr",la:41.5113,ln:-81.6128,
- w:"The sled dog who led the final leg of the 1925 serum run to Nome, taxidermied and on display in Cleveland since 1927 — the city bought him out of a Los Angeles dime museum by public subscription.",
-s:[["AO_CLE",""]]},
-{t:1,a:"DT",n:"GE Chandelier, Playhouse Square",ad:"E 14th St at Euclid Ave",la:41.5009131,ln:-81.6817691,
- w:"The largest outdoor chandelier in North America, hung 44 feet above Euclid Avenue: 4,200 crystals, each placed by hand at roughly twenty minutes apiece. It anchors Playhouse Square, the largest performing arts centre in the United States outside Lincoln Center — five restored 1920s theatres saved from demolition by a volunteer campaign.",
- k:"Free and lit every night. Go after dark. Parking nearby is genuinely difficult.",s:[["AO_CLE",""],["ADD",""]]},
-{t:1,a:"DT",n:"Steamship William G. Mather",ad:"601 Erieside Ave, North Coast Harbor",la:41.5092703,ln:-81.6980733,
- w:"A 618-foot Great Lakes freighter tied up beside the Science Center, open stem to stern — engine room, pilot house, crew quarters and the panelled guest staterooms. The deck gives one of the better skyline views in the city.",
- k:"Closed Monday, and seasonal. Included with Great Lakes Science Center membership.",s:[["AO_CLE",""]]},
-{t:2,a:"DT",n:"International Women's Air & Space Museum",ad:"Burke Lakefront Airport, 1501 N Marginal Rd",la:41.5115,ln:-81.6825,
- w:"Free, open during airport hours, and almost entirely overlooked — the concourse of a working lakefront airport turned into a museum of women in aviation and spaceflight.",
-s:[["AO_CLE",""]]},
-{t:1,a:"DT",n:"Hope Memorial Bridge & the Guardians of Traffic",ad:"Hope Memorial Bridge, over the Cuyahoga",la:41.4893486,ln:-81.6935635,
- w:"Eight art deco sandstone giants, each 43 feet tall, holding vehicles from a hay wagon to a 1930s truck — Henry Hering's Guardians of Traffic, carved into the bridge pylons in 1932. The baseball team took its name from them. Pedestrian walkways run both sides.",
- k:"Walk it rather than drive it. Best light is late afternoon from the west end.",s:[["ADD",""]]},
-{t:2,a:"SUB",n:"Cuyahoga Valley Scenic Railroad",ad:"Peninsula Depot, 1630 Mill St W, Peninsula",la:41.2422632,ln:-81.5490437,
- w:"A heritage train through the national park, run largely by volunteer conductors who narrate as you go. There is a dome car. You can also put a bike on board, ride one way and cycle the towpath back.",
- k:"Book ahead — peak-season and autumn-colour runs sell out.",s:[["AO_CLE",""]]},
-{t:2,a:"UC",n:"Beachland Ballroom & Tavern",ad:"15711 Waterloo Rd, Collinwood",la:41.5712428,ln:-81.5704439,
- w:"A Croatian social hall in North Collinwood turned into the club that broke half the bands you like before anyone else would book them. Two rooms — the small Tavern and the Ballroom — plus a record and vintage shop in the basement. The anchor of the Waterloo Arts District.",
- k:"Check the calendar before making the trip; it's a fair way out. Sunday brunch is a local institution.",s:[["ADD",""]]},
-{t:1,a:"WS",n:"78th Street Studios",ad:"1300 W 78th St, Gordon Square",la:41.4839491,ln:-81.7388746,
- w:"The largest art and design complex in Northeast Ohio — a 170,000 sq ft former Baker Electric car factory now holding dozens of galleries, studios, and two small theatres. On Third Fridays the whole building opens up.",
- k:"Third Friday is the night to come and needs two to three hours. Otherwise open daytimes, closed Sunday.",s:[["ADD",""]]},
-{t:2,a:"WS",n:"Transformer Station",ad:"1460 W 29th St, Hingetown",la:41.4889454,ln:-81.7106621,
- w:"A 1924 electrical substation converted into a contemporary art gallery, run jointly with the Cleveland Museum of Art. Free, small, and consistently more interesting than its size suggests. Rotating exhibitions only, so there is always something new.",
- k:"Thursday to Sunday. Combine with an Ohio City brewery walk.",s:[["ADD",""]]},
-{t:1,a:"UC",n:"Severance Music Center",ad:"11001 Euclid Ave, University Circle",la:41.5061001,ln:-81.6095521,
- w:"Home of the Cleveland Orchestra — by most reckonings one of the finest orchestras in the world — in a 1931 hall whose art deco and Egyptian Revival interior is worth the ticket on its own.",
- k:"Season runs roughly September to May; in summer the orchestra decamps to Blossom. Metered street parking is often free in the evening — check ParkMobile before paying $20 to the garage.",s:[["ADD",""]]},
-{t:2,a:"UC",n:"Karamu House",ad:"2355 E 89th St, Fairfax",la:41.4937082,ln:-81.624144,
- w:"The oldest Black theatre in the United States, founded 1915. Langston Hughes developed his plays here. Recently renovated and still producing.",
-s:[["ADD",""]]},
-{t:2,a:"UC",n:"Dunham Tavern Museum & Gardens",ad:"6709 Euclid Ave, Midtown",la:41.5046652,ln:-81.6431831,
- w:"The oldest building in Cleveland still standing on its original site — an 1824 stagecoach tavern on what was then the Buffalo–Cleveland road, now marooned in Midtown with several acres of gardens around it.",
- k:"Wednesday and Sunday afternoons only, and the tour is given by volunteers who know an enormous amount.",warn:1,s:[["ADD",""]]},
-{t:2,a:"UC",n:"Loganberry Books",ad:"13015 Larchmere Blvd",la:41.4875778,ln:-81.5914783,
- w:"A genuinely enormous independent bookshop on Larchmere — room after room of towering wooden stacks, a serious antiquarian section, and a vaulted room called the Sanctuary for first editions. Open seven days.",
-s:[["ADD",""]]},
-{t:2,a:"UC",n:"Nature Center at Shaker Lakes",ad:"2600 S Park Blvd",la:41.48505,ln:-81.5740195,
- w:"Boardwalk trails through marsh and woodland inside the city limits, on land saved from a proposed freeway by a residents' campaign in the 1960s — one of the first environmental fights of its kind in America. Free, and largely accessible.",
- k:"Closed Monday.",s:[["ADD",""]]},
-{t:2,a:"UC",n:"Cleveland Institute of Art Cinematheque",ad:"11610 Euclid Ave",la:41.50985,ln:-81.6021347,
- w:"One of the best repertory cinemas in the country, inside the art institute — restorations, world cinema, and films that will not screen anywhere else within three hundred miles.",
- k:"Check the calendar; screenings are scheduled, not continuous. Entrance is down the side of the building.",s:[["ADD",""]]},
-{t:2,a:"SUB",n:"The RainForest, Cleveland Metroparks Zoo",ad:"3900 Wildlife Way",la:41.4468123,ln:-81.7095789,
- w:"A two-storey simulated Amazon under glass, with an open aviary you walk through, a pool where it rains on a schedule, and a fog that rolls off the water. Included with zoo admission; parking is free.",
-s:[["ADD",""]]},
-{t:2,a:"SUB",n:"Hale Farm & Village",ad:"2686 Oak Hill Rd, Bath",la:41.1927749,ln:-81.5940512,
- w:"A living-history village inside the national park — working blacksmith, glassblower and potter, period buildings moved here from across the Western Reserve, and costumed interpreters at weekends in season.",
- k:"Wednesday to Sunday, seasonal. Pairs naturally with Brandywine Falls and the scenic railroad.",s:[["ADD",""]]},
-
-/* ══ NOT A PLACE / CLOSED ══ */
-{t:3,a:"DT",n:"@neorsd — not a place, but on the list",ad:"Northeast Ohio Regional Sewer District, 3900 Euclid Ave",la:41.5040,ln:-81.6588,
- w:"The only entry on News 5's hidden-gems list that is not a physical location. The Northeast Ohio Regional Sewer District's social account was, in their assessment, the best in Cleveland — a delight that transcends the list's otherwise earthly bounds. Pinned to their headquarters so nothing is missing, but there is nothing to visit.",
- k:"Do not drive here. Follow the account instead.",warn:1,s:[["N5","#49"]]},
-{t:3,a:"DT",n:"Lolly the Trolley — closed",ad:"1101 Winslow Ave (no longer operating)",la:41.5060,ln:-81.6870,
- w:"A Cleveland icon from April 1985 that covered 3.1 million miles over 37 years. It shut down permanently in May 2022. Listed here for completeness — Lake View Cemetery still runs its own trolley tours.",
- k:"Do not plan around this one. It no longer runs.",warn:1,s:[["N5","#44"]]}
-];
-
-/* Places from the sources that are not physical locations:
-   News 5 #49 — @neorsd, the sewer district's Twitter account. Listed in the appendix. */
-
-
-const FS = {
-  INFAT:{k:"INFATUATION",t:"The Best Restaurants In Cleveland / individual reviews",u:"https://www.theinfatuation.com/cleveland/guides/best-restaurants-cleveland",l:"The Infatuation Cleveland"},
-  SCENE:{k:"CLEVELAND SCENE",t:"The Many Flavors of Cleveland's Asiatown",u:"https://www.clevescene.com/cleveland-guides/the-many-flavors-of-clevelands-asiatown-one-of-the-citys-most-delicious-and-diverse-dining-neighborhoods-4998809",l:"Cleveland Scene — the city's alt-weekly"},
-  CLEMAG:{k:"CLEVELAND MAG",t:"Great Restaurants in AsiaTown / Why You Need To Visit These AsiaTown Spots",u:"https://clevelandmagazine.com/food-drink/18-great-restaurants-in-asiatown",l:"Cleveland Magazine"},
-  FRESH:{k:"FRESHWATER",t:"A perfect slice of Cleveland: AsiaTown",u:"https://www.freshwatercleveland.com/features/PerfectSliceAsiatown051916.aspx",l:"Freshwater Cleveland"},
-  BOUR:{k:"BOURDAIN / TV",t:"No Reservations S3 \u2014 Cleveland (2007), and other food TV",u:"https://clevelandmagazine.com/articles/celebrate-bourdain-day-by-watching-the-cleveland-episode-of-no-reservations-now-streaming-on-max/",l:"Anthony Bourdain, Travel Channel — plus Man v. Food and Diners, Drive-Ins & Dives features"},
-  FADD:{k:"ADDED",t:"My own addition",u:"",l:"Not from a specific article"}
-};
-
-const CUISINES = [
-  {id:"VN", n:"Vietnamese"}, {id:"SG", n:"Singaporean"}, {id:"SEA", n:"Southeast Asian"},
-  {id:"CN", n:"Chinese"}, {id:"US", n:"Unique American"}, {id:"EU", n:"European"},
-  {id:"LAT", n:"Latin American"}, {id:"ME", n:"Middle Eastern"}, {id:"DES", n:"Desserts & bakeries"},
-  {id:"TV", n:"On TV / YouTube"}
-];
-
-const F = [
-/* ── VIETNAMESE ── */
-{t:1,a:"UC",cz:["VN"],n:"Superior Ph\u1edf",ad:"3030 Superior Ave E #105, Asiatown",la:41.5103169,ln:-81.6696709,
- w:"Vietnamese-owned and family-run in Asiatown, and by consensus the best ph\u1edf in the city. The bone broth simmers 24 hours from a recipe passed down through the family; the owner is known to throw out an entire vat that doesn't meet standard. Fourteen versions of ph\u1edf, plus b\u00e1nh m\u00ec, b\u00fan th\u1ecbt n\u01b0\u1edbng, summer rolls and proper Vietnamese coffee.",
- k:"Enter through Golden Plaza, a nondescript mini-mall with free parking. Closed Monday. Do not confuse it with Number One Pho two doors down \u2014 people mix them up constantly.",
- s:[["INFAT",""],["FRESH",""],["CLEMAG",""]]},
-{t:2,a:"UC",cz:["VN"],n:"Number One Pho",ad:"3120 Superior Ave, Asiatown",la:41.5108283,ln:-81.6691569,
- w:"Two doors from Superior Ph\u1edf and a genuine rival. Cleveland Magazine singles out the wider Vietnamese menu \u2014 vermicelli bowls, broken rice, and ch\u1ea3 tr\u1ee9ng, the steamed egg cake that comes with the rice plates and that you will not find elsewhere in town.",
- k:"Closed Wednesday. Fish sauce wings are the sleeper order.",
- s:[["CLEMAG",""]]},
-{t:2,a:"WS",cz:["VN"],n:"Minh Anh Restaurant",ad:"5428 Detroit Ave, Detroit Shoreway",la:41.4856745,ln:-81.7248985,
- w:"Vietnamese, family-run, and in the same room since 1984 \u2014 the oldest Vietnamese restaurant in Cleveland. The signature is the #21 cinnamon rare beef ph\u1edf; regulars also come for the vermicelli with grilled pork, the crêpes (b\u00e1nh x\u00e8o) and the homemade chilli oil.",
- k:"Reviews from 2025 mention the family planning to close. Call before you make a trip \u2014 and if it is open, go.",warn:1,
- s:[["FADD",""]]},
-{t:2,a:"UC",cz:["VN","CN"],n:"Asia Food Co. noodle counter",ad:"Asian Town Center, 3820 Superior Ave",la:41.5117,ln:-81.6661,
- w:"A counter and a few tables at the back of a grocery, inside a mall. Cleveland Scene sends people here for b\u00fan b\u00f2 Hu\u1ebf \u2014 the spicy Hu\u1ebf beef noodle soup \u2014 and for shrimp wonton noodle soup loaded with pork dumplings and egg noodles. There's a bun bakery attached.",
- k:"Not a restaurant in any conventional sense. Go in, walk to the back, order at the counter.",
- s:[["SCENE",""]]},
-
-/* ── SINGAPOREAN ── */
-{t:1,a:"WS",cz:["SG"],n:"Dang Good Foods",ad:"13735 Madison Ave, Lakewood",la:41.4768346,ln:-81.7890595,
- w:"The only Singaporean kitchen I can find in Cleveland, and it passes the test. Confirmed on the menu: <strong>chai tow kway</strong> (white carrot cake, which they will make Singapore-spicy if you ask), <strong>curry laksa</strong>, roti, and pork bao \u2014 Hokkien and Teochew dishes cooked as dishes, not as an idea of Singapore. Three house chilli oils. A diner who lived in Singapore ten years went specifically to test it and stayed.",
- k:"Closed Sunday and Monday; dinner-only most nights (4:30\u20139), Friday from noon, Saturday 12\u20133 then 4:30\u20138:30. Small room \u2014 call ahead. <br><br><strong>Honest caveat:</strong> I could not confirm char kway teow or Hainanese chicken rice on the current menu, and the menu is short and rotates. Ask when you call. What I <em>can</em> confirm is that there is no \u201cSingapore noodles\u201d nonsense here.",warn:1,
- s:[["FADD",""]]},
-
-/* ── SOUTHEAST ASIAN ── */
-{t:1,a:"WS",cz:["SEA"],n:"Thai Thai",ad:"13415 Madison Ave, Lakewood",la:41.4768107,ln:-81.7861742,
- w:"The Infatuation's line on it: the owner set out to serve the food her mother cooks at home, and her mother works in the kitchen. Bangkok-style rather than Americanised. Go for the green papaya salad, the potstickers and the lemongrass barbecued chicken on a stick.",
- k:"Closed Tuesday, dinner only from 4pm. Tiny room \u2014 not a group dinner. Two doors from Dang Good, so you can scout both.",
- s:[["INFAT",""]]},
-{t:2,a:"WS",cz:["SEA"],n:"Ty Fun Thai Bistro",ad:"815 Jefferson Ave, Tremont",la:41.4795524,ln:-81.6841899,
- w:"Reputed to be the spiciest Thai kitchen in Cleveland, and it does not soften things for the room. Som tam, tom yum and a duck dish people come back for.",
- k:"Closed Monday. Small and cosy; the Buddha room seats about twenty.",
- s:[["FADD",""]]},
-{t:1,a:"SUB",cz:["SEA"],n:"Tita Flora's",ad:"6531 Brecksville Rd, Independence",la:41.3851892,ln:-81.6400545,
- w:"Filipino, and the highest-rated Asian restaurant in the Cleveland area by diner score. Lechon pork belly, tofu sisig, pancit bihon, ginataang, halo-halo. Filipino reviewers write about walking in and feeling homesick \u2014 which is the review that matters.",
- k:"Closed Monday. Worth the twenty-minute drive south.",
- s:[["FADD",""]]},
-
-/* ── CHINESE ── */
-{t:1,a:"UC",cz:["CN"],n:"Li Wah \u2014 Cantonese dim sum carts",ad:"Asia Plaza, 2999 Payne Ave #102",la:41.5079801,ln:-81.6693482,
- w:"<strong>Cantonese.</strong> Freshwater calls it the best dim sum in Cleveland and it is still the only place running proper steel carts at weekend lunch \u2014 har gow, siu mai, chicken feet, roast duck, rice rolls, circling the room. Hundreds of people pack it on Saturday and Sunday.",
- k:"Carts run weekend lunch only; come before 1pm or you get the menu instead. Some off-cart dishes draw mixed reviews \u2014 stick to dim sum and roast meats.",
- s:[["FRESH",""],["CLEMAG",""],["SCENE",""]]},
-{t:1,a:"UC",cz:["CN"],n:"Wonton Gourmet & BBQ",ad:"3211 Payne Ave, Asiatown",la:41.5088376,ln:-81.6662247,
- w:"<strong>Cantonese / Hong Kong-style.</strong> Freshwater rates it the best Chinese restaurant in Asiatown and says some would extend that to all of Northeast Ohio. Roast duck and char siu hanging in the window, chive pot stickers, shrimp wonton noodle soup, three-flavour dumpling soup, salt-baked shrimp, soy sauce chicken, beef chow fun. Full-colour photos of nearly every dish cover three of the four walls.",
- k:"Closed Tuesday. Cash-friendly, cheap, and not remotely fancy.",
- s:[["FRESH",""],["SCENE",""]]},
-{t:2,a:"UC",cz:["CN"],n:"Bo Loong",ad:"3922 St Clair Ave NE",la:41.5157088,ln:-81.6646469,
- w:"<strong>Cantonese.</strong> The other dim sum house, and Cleveland Magazine's pick for late night \u2014 open past midnight, until 2am Friday and Saturday. Har gow and shrimp rice rolls get named repeatedly.",
- k:"Under new ownership and remodelled; reviews since are mixed on the wider menu but consistent on the dim sum.",
- s:[["CLEMAG",""],["SCENE",""]]},
-{t:2,a:"UC",cz:["CN"],n:"Siam Cafe",ad:"3951 St Clair Ave NE",la:41.5165108,ln:-81.6649328,
- w:"<strong>Cantonese seafood</strong>, despite the Thai name \u2014 thirty years in, live tanks, Hong Kong-style dishes, whole steamed fish, pork belly with preserved vegetable. Diners who know Cantonese cooking single out the fried clams for being fried properly.",
- k:"Big room, ample parking, huge portions. The Thai-sounding dishes are not the reason to come.",
- s:[["FADD",""]]},
-{t:2,a:"UC",cz:["CN"],n:"Szechuan Gourmet",ad:"1735 E 36th St, Asiatown",la:41.5084974,ln:-81.6633075,
- w:"<strong>Sichuan.</strong> Cleveland Magazine calls it a favourite standby of Cleveland chefs. Cumin lamb skewers, scallion pancakes, and a spice level that is not adjusted for the room \u2014 mind the traditional dishes.",
- s:[["CLEMAG",""]]},
-
-/* ── MIDDLE EASTERN ── */
-{t:2,a:"WS",cz:["ME"],n:"Nate's Deli & Restaurant",ad:"1923 W 25th St, Ohio City",la:41.4852567,ln:-81.7039616,
- w:"Lebanese-Palestinian, directly across from West Side Market, and the reason a lot of market regulars skip the market food stalls. Shawarma, kafta, hummus, and a garlic sauce people write paragraphs about.",
- k:"Lunch only \u2014 closes at 3pm most days, 4pm Saturday, closed Sunday.",warn:1,
- s:[["FADD",""]]},
-{t:2,a:"UC",cz:["ME"],n:"Anatolia Cafe",ad:"2270 Lee Rd, Cleveland Heights",la:41.497751,ln:-81.565509,
- w:"Turkish, and the real thing \u2014 \u0130skender kebab, d\u00f6ner carved from actual stacked meat rather than the processed gyro cone, red lentil soup, rak\u0131, and baklava. Reviewers who have just come back from Turkey rate it against Turkey.",
- k:"Closed Monday. <br><br><strong>On Persian specifically:</strong> I searched and could not find a Persian restaurant in Cleveland with the kind of rave or viral reputation you asked for. Rather than pad the list with something mediocre, I'm telling you it isn't there. Anatolia is the closest strong option in the region.",warn:1,
- s:[["FADD",""]]},
-
-/* ── LATIN AMERICAN ── */
-{t:1,a:"WS",cz:["LAT"],n:"Barroco Arepa Bar",ad:"12906 Madison Ave, Lakewood",la:41.477094,ln:-81.7783683,
- w:"Colombian-Venezuelan, and the arepa place Cleveland actually argues about \u2014 3,300 reviews at 4.6. Arepas, cachapas, empanadas, birria arepa, and mojitos that people order first. Named repeatedly in Infatuation and Yelp's Venezuelan rankings.",
- k:"Waits get long and they do not shorten. Five minutes from Dang Good on the same road.",
- s:[["INFAT",""],["FADD",""]]},
-{t:2,a:"WS",cz:["LAT"],n:"El Rinconcito Chapin",ad:"3330 Broadview Rd",la:41.4413919,ln:-81.703947,
- w:"Guatemalan and Salvadoran, family-run, and the pupusas are what people come back for \u2014 plus the black beans, which several reviewers call the best in Cleveland. Everything is cooked to order, so it takes time.",
- k:"Closed Monday. Ten minutes from the Buckland witchcraft museum.",
- s:[["FADD",""]]},
-{t:2,a:"WS",cz:["LAT"],n:"Momocho",ad:"1835 Fulton Rd, Ohio City",la:41.4840242,ln:-81.7098024,
- w:"Modern Mexican, luchador decor, and a guacamole list \u2014 the smoked trout and bacon version is the one. Barbacoa for two, and fried ice cream to finish. A Cleveland fixture for close to twenty years.",
- k:"Closed Sunday. Reserve or expect an hour at the bar.",
- s:[["FADD",""]]},
-
-/* ── EUROPEAN ── */
-{t:2,a:"UC",cz:["EU"],n:"Marie's Restaurant",ad:"4502 St Clair Ave",la:41.517798,ln:-81.660684,
- w:"Eastern European, run by three sisters across several generations of the same family. Wiener schnitzel, cevapi, stuffed cabbage, city chicken, dumplings and gravy, and homemade strudel. Cheap, slow, and exactly what people mourn now that Sokolowski's is gone.",
- k:"Closed Sunday. Service is unhurried by design.",
- s:[["FADD",""]]},
-{t:1,a:"WS",cz:["EU","US"],n:"Larder Delicatessen and Bakery",ad:"1455 W 29th St, Hingetown",la:41.4891519,ln:-81.7103566,
- w:"Central and Eastern European deli technique crossed with koji fermentation \u2014 the Japanese fungus used to fast-forward curing, which gives their pastrami a salt-sweet umami layer nothing else in the city has. Menu changes daily and is announced on Instagram. James Beard-recognised.",
- k:"Hours have contracted sharply \u2014 recent listings show Saturday only. Check Instagram the morning you plan to go.",warn:1,
- s:[["INFAT",""],["FADD",""]]},
-{t:2,a:"SUB",cz:["EU","TV"],n:"Skyline Chili, Lyndhurst",ad:"5706 Mayfield Rd, Lyndhurst",la:41.519097,ln:-81.4738163,
- w:"<strong>Bourdain ate here.</strong> He opened the 2007 No Reservations Cleveland episode with a three-way \u2014 spaghetti, cinnamon-spiced chili, shredded cheddar \u2014 explicitly to needle his Cleveland-native guide Michael Ruhlman, since Skyline is a Cincinnati thing. Clevelanders were furious. That is exactly why it's here.",
- k:"Greek-Macedonian-style chili, sweet and cinnamon-forward. Not what you think chili is. Order a four-way with onions.",
- s:[["BOUR",""]]},
-
-/* ── UNIQUE AMERICAN ── */
-{t:1,a:"DT",cz:["US","TV"],n:"Slyman's Restaurant and Deli",ad:"3106 St Clair Ave NE",la:41.5128793,ln:-81.6712616,
- w:"The corned beef sandwich Cleveland argues about \u2014 absurdly overstacked, and a fixture of national food TV for decades. Also the best pastrami on toasted rye in the city, by a number of accounts.",
- k:"Monday to Friday, 7am\u20132:30pm. Closed both weekend days. Go early; the queue is real. Roughly $25 a sandwich now.",warn:1,
- s:[["BOUR",""],["FADD",""]]},
-{t:1,a:"WS",cz:["US","TV"],n:"Melt Bar and Grilled \u2014 the original",ad:"14718 Detroit Ave, Lakewood",la:41.4853619,ln:-81.7990865,
- w:"The first Melt, and a repeat feature on national food television for the sheer scale of the grilled cheese. The Lake Erie Monster and the Dude Abides are the classics. Unusually good vegan menu for a place built on cheese.",
- s:[["FADD",""],["BOUR",""]]},
-{t:1,a:"WS",cz:["US"],n:"Happy Dog",ad:"5801 Detroit Ave, Gordon Square",la:41.4848615,ln:-81.7264989,
- w:"Roughly fifty toppings on a tick-sheet \u2014 which alone would not earn a listing. What does is the programming: the same room books punk bands, polka nights, and members of the Cleveland Orchestra playing chamber music to a bar crowd.",
- k:"Half-price happy hour is how to explore the topping list without regret. Open late.",
- s:[["FADD",""]]},
-{t:2,a:"WS",cz:["US"],n:"Glizzys",ad:"4617 W 130th St",la:41.4282062,ln:-81.7799358,
- w:"A hot dog cart that went properly viral on local social media and holds a 4.8 across hundreds of reviews. Twelve-inch build-your-own, homemade chili, and a flaming-hot-Cheeto elote dog that has no business working and does.",
- k:"Thursday to Saturday, roughly midday to 3\u20134pm, and they sell out. This is a cart, not a restaurant.",warn:1,
- s:[["FADD",""]]},
-{t:2,a:"DT",cz:["US"],n:"Mabel's BBQ",ad:"2050 E 4th St",la:41.498935,ln:-81.6902588,
- w:"Michael Symon's attempt at a Cleveland barbecue idiom \u2014 Eastern European spicing, kielbasa alongside the brisket, pickles from Tony Packo's, and a platter literally called This Is Cleveland. The beef rib is the order.",
- k:"Closed Monday.",
- s:[["FADD",""]]},
-{t:2,a:"DT",cz:["US"],n:"Cordelia",ad:"2058 E 4th St",la:41.4987995,ln:-81.690165,
- w:"The Infatuation's framing is \u201cMidwest nice\u201d \u2014 fancied-up 1990s Ohio food. The signature is a White Castle-inspired burger box: one enormous smashburger that tears into four sliders with smoked cheddar and pickles marinated in Kool-Aid. Best pierogi several reviewers say they have eaten.",
- k:"Closed Monday. Book the kitchen counter if there are three or fewer of you.",
- s:[["INFAT",""]]},
-{t:3,a:"UC",cz:["US"],n:"Banter",ad:"3441 Tuttle Rd, Van Aken Market, Shaker Heights",la:41.4660814,ln:-81.53678,
- w:"Poutine and sausage, and an elote corndog. Uneven by report \u2014 the fries and the jalape\u00f1o popper slider are the consistent things.",
- s:[["FADD",""]]},
-
-/* ── DESSERTS & BAKERIES ── */
-{t:1,a:"WS",cz:["DES"],n:"Mitchell's Ice Cream, Ohio City",ad:"1867 W 25th St",la:41.4858111,ln:-81.7044813,
- w:"Made on site in a restored 1920s cinema, with a glass wall so you watch the production floor while you eat. Lavender honey and the Cleveland brownie sundae are the ones people name. Two minutes from West Side Market.",
- s:[["FADD",""]]},
-{t:1,a:"WS",cz:["DES"],n:"Sweet Moses Soda Fountain",ad:"6800 Detroit Ave, Gordon Square",la:41.4838234,ln:-81.7319031,
- w:"A full 1920s-style soda fountain rebuilt from scratch \u2014 marble counter, hand-pumped syrups, enormous sundaes, and a candy counter. The root beer float is the order.",
- k:"Queues badly at weekends and service can lag. Free parking behind the arcade.",
- s:[["FADD",""]]},
-{t:1,a:"UC",cz:["DES","EU"],n:"Presti's Bakery",ad:"12101 Mayfield Rd, Little Italy",la:41.50885,ln:-81.598356,
- w:"A century-old Italian bakery and the anchor of Little Italy. Cannoli, sfogliatelle, lady locks, Linzer cookies, plus savoury Stromboli and artichoke pizza. Take a number or you will get cut in line.",
- s:[["FADD",""]]},
-{t:2,a:"UC",cz:["DES","EU"],n:"Corbo's Bakery",ad:"12210 Mayfield Rd, Little Italy",la:41.5084145,ln:-81.5975784,
- w:"Directly across from Presti's, and the rivalry is the point \u2014 go to both and pick a side. Corbo's does not pre-fill its cannoli shells, and is the place for cassata cake and sfogliatelle. Closed Monday.",
- s:[["FADD",""]]},
-{t:2,a:"UC",cz:["DES","CN"],n:"Koko Bakery",ad:"3710 Payne Ave, Asiatown",la:41.5093553,ln:-81.6624423,
- w:"Taiwanese bakery and bubble tea, and where the Infatuation tells you to get a coconut cream bun after ph\u1edf. Buns sweet and savoury, egg tarts, and the best boba in the city by most local accounts.",
- k:"Closed Tuesday.",
- s:[["INFAT",""],["FADD",""]]},
-{t:2,a:"WS",cz:["DES"],n:"Honey Hut Ice Cream",ad:"4674 State Rd, Old Brooklyn",la:41.4272206,ln:-81.7092173,
- w:"Old Brooklyn institution since 1974, honey-sweetened, and the flavour Clevelanders grew up on. Orange blossom is the signature.",
- s:[["FADD",""]]},
-{t:2,a:"WS",cz:["DES"],n:"Malley's Chocolates, Lakewood",ad:"14822 Madison Ave, Lakewood",la:41.477575,ln:-81.8012303,
- w:"A Cleveland chocolate house since 1935, with a table-service ice cream parlour attached \u2014 pretzels come free with your sundae, for dipping in their hot fudge. Same road as Dang Good.",
- s:[["FADD",""]]},
-
-{t:2,a:"WS",cz:["US","EU"],n:"Birdtown Brewing",ad:"2035 Quail St, Lakewood",la:41.4759038,ln:-81.7768182,
- w:"A brewery inside a converted church, disco ball included, in Lakewood's historic Birdtown \u2014 the Czech and Slovak workers' district built around the old Union Rolling Mill, where the streets are named after birds. Pizza and wings are the order.",
- s:[["FADD",""]]},
-{t:2,a:"WS",cz:["US"],n:"Birdietown",ad:"12501 Madison Ave, Lakewood",la:41.4767067,ln:-81.7761665,
- w:"Indoor mini golf over two floors, each with its own bar and its own atmosphere \u2014 the club course upstairs, the lounge course in the basement. Every hole has somewhere to rest a drink. Eight minutes from Dang Good.",
- k:"Closed Monday. Around $13 for nine holes, $20 for eighteen.",
- s:[["FADD",""]]},
-{t:2,a:"WS",cz:["US","DES"],n:"The Root Cafe",ad:"15118 Detroit Ave, Lakewood",la:41.4851444,ln:-81.8020971,
- w:"Organic, largely vegetarian and entirely made in house \u2014 coffee, pizza, salads, and live jazz some evenings. Composts everything. The best room on this side of town to sit in for two hours with nobody minding.",
- s:[["FADD",""]]},
-/* ── GONE, BUT ON TV ── */
-{t:3,a:"WS",cz:["TV","EU"],n:"Sokolowski's University Inn \u2014 CLOSED",ad:"1201 University Rd, Tremont (closed 2023)",la:41.4832,ln:-81.6883,
- w:"<strong>Bourdain's favourite stop in Cleveland</strong> \u2014 chicken paprikash, stuffed cabbage, head cheese and boiled pig's head, served cafeteria-style. \u201cThis might be the greatest establishment ever,\u201d he said. A James Beard America's Classic. It closed after 100 years in the same family. Listed so you know it is gone rather than wondering.",
- k:"Closed permanently. Marie's on St Clair is the closest living equivalent.",warn:1,
- s:[["BOUR",""]]},
-{t:3,a:"UC",cz:["TV","US"],n:"Hot Sauce Williams \u2014 CLOSED",ad:"3770 Lee Rd (closed)",la:41.4585,ln:-81.5730,
- w:"<strong>Where Bourdain ate a Polish Boy</strong> \u2014 kielbasa, fries, coleslaw and barbecue sauce in one bun, Cleveland's own invention. Also closed. The Polish Boy lives on at Happy Dog, Banter and most Cleveland barbecue counters.",
- k:"Closed permanently.",warn:1,
- s:[["BOUR",""]]}
-];
-
-P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
-F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
-const ALL = P.concat(F);
-const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
-const SRCOF = p => p.kind==='food' ? FS : S;
-
-/* ── trip list, persisted where possible ── */
-let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
-try{const r=localStorage.getItem('cle_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
-try{const r=localStorage.getItem('cle_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
-function saveTrip(){try{localStorage.setItem('cle_trip',JSON.stringify([...TRIP]));}catch(e){}}
-function saveSeen(){try{localStorage.setItem('cle_seen',JSON.stringify([...SEEN]));}catch(e){}}
-
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Cleveland OH')+'&query_place_id=';}
-function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};
-let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
-
-function mountMap(){
-  if(mapMounted || typeof L==='undefined' || !L.map) return false;
-  mapMounted=true;
-  document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([41.4993,-81.6944],11);
-/* ── Base layers ────────────────────────────────────────────────────────────
-   Free layers need no key. Google needs your own Maps JavaScript API key and
-   is loaded through the officially sanctioned GoogleMutant plugin, because
-   scraping Google's raster tiles directly breaks their terms. Apple Maps has
-   no equivalent: MapKit JS needs a signed developer token, which a static
-   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
-const BASES=[
- {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
- {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
- {id:'light', l:'Light',      free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
- {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
-  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
- {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
-  o:{attribution:'&copy; Esri',maxZoom:19}},
- {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
- {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
- {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
-];
-const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
-
-let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
-let GKEY=''; try{GKEY=localStorage.getItem('cle_gkey')||'';}catch(e){}
-
-function clearBase(){
-  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
-  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
-}
-
-function setBase(id,manual){
-  if(!map) return;
-  const b=BASES.find(x=>x.id===id); if(!b) return;
-  if(!b.free){ return setGoogle(b,manual); }
-  clearBase(); curBase=id; tileOK=false; tileErrors=0;
-  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
-  document.getElementById('tilewarn').style.display='none';
-  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
-  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
-  baseLayer.on('tileerror',()=>{
-    tileErrors++;
-    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
-  });
-  baseLayer.addTo(map); baseLayer.bringToBack();
-  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
-  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
-  markBaseChips();
-}
-function autoFallback(){
-  fbIdx++;
-  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
-  setBase(FALLBACK[fbIdx]);
-}
-
-/* Google, via the official Maps JavaScript API + GoogleMutant */
-let gLoading=false;
-function setGoogle(b,manual){
-  if(!map) return;
-  if(!GKEY){ promptKey(); return; }
-  const go=()=>{
-    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
-      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
-    clearBase(); curBase=b.id;
-    document.getElementById('map').classList.remove('osmdark');
-    document.getElementById('tilewarn').style.display='none';
-    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
-    markBaseChips();
-  };
-  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
-  if(gLoading) return;
-  gLoading=true;
-  const s1=document.createElement('script');
-  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
-  s1.onload=()=>{
-    const s2=document.createElement('script');
-    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
-    s2.onload=()=>{gLoading=false;go();};
-    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
-    document.head.appendChild(s2);
-  };
-  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
-  document.head.appendChild(s1);
-}
-function promptKey(){
-  const k=prompt(
-    'Google base maps need your own Maps JavaScript API key.\n\n'+
-    'Google does not permit their map tiles to be used without going through their API, '+
-    'so there is no key-free way to do this legally.\n\n'+
-    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
-    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
-    'Paste your key here (it is stored only in this browser):', GKEY);
-  if(k==null) return;
-  GKEY=String(k).trim(); try{localStorage.setItem('cle_gkey',GKEY);}catch(e){}
-  markBaseChips();
-  if(GKEY) setBase('g_road',true);
-}
-
-function markBaseChips(){
-  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
-    c.setAttribute('aria-pressed', c.dataset.v===curBase);
-    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
-  });
-  const kb=document.getElementById('keyBtn');
-  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
-}
-
-document.getElementById('baseFilter').innerHTML =
-  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
-    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
- +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
-document.getElementById('baseFilter').addEventListener('click',e=>{
-  const b=e.target.closest('.chip'); if(!b) return;
-  if(b.id==='keyBtn'){promptKey();return;}
-  setBase(b.dataset.v,true);
-});
-document.getElementById('tileRetry').onclick=()=>{
-  document.getElementById('tilewarn').style.display='none';
-  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
-};
-map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
-window.addEventListener('resize',()=>map.invalidateSize());
-
-/* ── Always-on vector backdrop ──────────────────────────────────────────────
-   Drawn from coordinates in this file, so the map still shows Lake Erie, the
-   Cuyahoga and the main arteries even if every tile server is unreachable. */
-const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
- [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
- [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
- [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
-const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
- [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
- [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
- [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
-const ARTERIES=[
- [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
- [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
- [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
- [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
-];
-const LABELS=[["Lake Erie",41.5600,-81.7400],["Downtown",41.4985,-81.6880],
- ["Ohio City",41.4845,-81.7080],["Tremont",41.4790,-81.6890],["Asiatown",41.5100,-81.6660],
- ["University Circle",41.5085,-81.6060],["Lakewood",41.4820,-81.7990],["Cuyahoga Valley",41.2600,-81.5600]];
-
-backdrop=L.layerGroup().addTo(map);
-L.polygon(SHORE.concat([[41.9000,-81.1000],[41.9000,-82.1000]]),
-  {stroke:false,fillColor:'#16303A',fillOpacity:.55,interactive:false}).addTo(backdrop);
-L.polyline(SHORE,{color:'#3E5D53',weight:1.6,opacity:.9,interactive:false}).addTo(backdrop);
-L.polyline(RIVER,{color:'#2F5560',weight:2.2,opacity:.85,interactive:false}).addTo(backdrop);
-ARTERIES.forEach(a=>L.polyline(a,{color:'#2E393E',weight:1.4,opacity:.8,interactive:false}).addTo(backdrop));
-LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
-  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
-   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
-  iconSize:[0,0]})}).addTo(backdrop));
-backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
-
-layer = L.layerGroup().addTo(map);
-  markers = [];
-
-
-ALL.forEach((p,i)=>{
-  const r = p.t===1?10:(p.t===2?6.5:4.5);
-  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
-    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
-  m.bindPopup('<b>'+p.n+'</b>'
-    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
-    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
-    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
-  m._id = p.id; markers.push(m);
-});
-  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
-  setBase('dark'); markBaseChips();
-  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
-  return true;
-}
-
-const list=document.getElementById('list'), countEl=document.getElementById('count');
-let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
-
-function tag(t,tbl){
-  const [id,num]=t, m=(tbl||S)[id];
-  const cls = id==='ADD' ? 'src extra' : 'src';
-  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
-  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
-             : '<span class="'+cls+'">'+label+'</span>';
-}
-
-const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
-const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
-function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
-
-let MODE='sights', fCz='all';
-
-function match(p){
-  if(seenMode==='hide' && SEEN.has(p.id)) return false;
-  if(seenMode==='only' && !SEEN.has(p.id)) return false;
-  if(tripOnly) return TRIP.has(p.id);
-  if(fArea!=='all' && p.a!==fArea) return false;
-  const tbl=SRCOF(p);
-  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
-  if(fRank!=='all' && String(p.t)!==fRank) return false;
-  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
-  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
-  return true;
-}
-
-function card(p,n){
-  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
-  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
-                .map(t=>tag(t,tbl)).join('');
-  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('');
-  const isSeen=SEEN.has(p.id);
-  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
-    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
-    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
-    +'<span class="marker">'+n+'</span>'
-    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
-    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
-    +(isSeen?'\u2713':'\u25CB')+'</button>'
-    +'</div><div class="body-col">'
-    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
-    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
-    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
-    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
-    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
-    +'<p class="what">'+p.w+'</p>'
-    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
-    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
-    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
-    +'</div></article>';
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function stamp(){ // avoid Date in a way that still reads; ISO minute precision
+  try { return new Date().toISOString().slice(0,16).replace("T"," "); } catch(e){ return ""; }
 }
 
 function render(){
-  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
-  let html='', shown=0; const vis=new Set(), ids=[];
-  AREAS.forEach(ar=>{
-    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
-    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
-    if(!items.length) return;
-    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
-    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
-    shown+=items.length;
-    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
-    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
-  });
-  shownIds=ids;
-  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
-  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
-  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
-    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
-    +(sv?'  \u00B7  '+sv+' VISITED':'');
-  if(!layer){updateTrip();return;}
-  layer.clearLayers();
-  markers.forEach(m=>{
-    if(!vis.has(m._id)) return;
-    const p=BYID[m._id], s=SEEN.has(m._id);
-    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
-                :{color:AC[p.a],fillColor:AC[p.a],
-                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
-    layer.addLayer(m);
-  });
-  updateTrip();
-}
-
-/* ── mode toggle ── */
-function setMode(m){
-  MODE=m;
-  document.body.classList.toggle('foodmode',m==='food');
-  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
-  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
-  document.getElementById('cuisineWrap').hidden = (m!=='food');
-  document.getElementById('search').placeholder = m==='food'
-    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
-  buildSrcChips(); render();
-}
-document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
-document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
-
-function buildSrcChips(){
-  const tbl = MODE==='food'?FS:S;
-  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
-  document.getElementById('srcFilter').innerHTML =
-    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
-    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
-  fSrc='all';
-}
-
-document.getElementById('cuisineFilter').innerHTML =
-  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
-  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
-document.getElementById('rankFilter').innerHTML =
-  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
- +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
- +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
- +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
-document.getElementById('sortFilter').innerHTML =
-  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
- +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
- +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
-document.getElementById('dayFilter').innerHTML =
-  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
-  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
-
-function wire(id,set){
-  document.getElementById(id).addEventListener('click',e=>{
-    const b=e.target.closest('.chip'); if(!b) return;
-    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
-    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  var list = load();
+  var ul = document.getElementById("savedList");
+  var empty = document.getElementById("emptyNote");
+  ul.innerHTML = "";
+  empty.style.display = list.length ? "none" : "block";
+  list.forEach(function(item, i){
+    var li = document.createElement("li");
+    li.innerHTML = "<span><strong>" + esc(item.city || "(unnamed)") + "</strong>" +
+      (item.notes ? " — " + esc(item.notes) : "") + "</span>" +
+      "<span class='when'>" + esc(item.when || "") + "</span>";
+    var del = document.createElement("button");
+    del.className = "ghost"; del.textContent = "Remove";
+    del.addEventListener("click", function(){ var l = load(); l.splice(i,1); save(l); render(); });
+    li.appendChild(del);
+    ul.appendChild(li);
   });
 }
-wire('srcFilter',v=>fSrc=v);
-wire('dayFilter',v=>fArea=v);
-wire('rankFilter',v=>fRank=v);
-wire('sortFilter',v=>fSort=v);
-wire('cuisineFilter',v=>fCz=v);
-document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
 
-/* ── scoring: drives the "top N" presets ── */
-function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
-function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+function current(){
+  return {
+    city: (document.getElementById("cityName").value || "").trim(),
+    notes: (document.getElementById("cityNotes").value || "").trim(),
+    when: stamp()
+  };
+}
+function setStatus(msg){ document.getElementById("status").textContent = msg; }
 
-const PRESETS=[
- {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
- {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
- {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
- {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
- {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
- {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
- {id:'shown', l:'Everything currently shown', f:()=>null}
-];
-document.getElementById('presets').innerHTML =
-  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
- +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
-
-let shownIds=[];
-document.getElementById('presets').addEventListener('click',e=>{
-  const b=e.target.closest('.preset'); if(!b) return;
-  if(b.dataset.p==='clearSeen'){
-    if(!SEEN.size) return alert('Nothing marked as visited yet.');
-    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
-    SEEN.clear();saveSeen();render();return;
-  }
-  const pr=PRESETS.find(x=>x.id===b.dataset.p);
-  const picks = pr.f() || shownIds.map(id=>BYID[id]);
-  let added=0, skipped=0;
-  picks.forEach(p=>{
-    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
-    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
-  });
-  saveTrip();render();
-  b.textContent='\u2713 ADDED '+added;
-  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
-  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+document.getElementById("saveLocal").addEventListener("click", function(){
+  var s = current();
+  if (!s.city){ setStatus("Add a city name first."); return; }
+  var list = load(); list.unshift(s); save(list); render();
+  document.getElementById("cityName").value = ""; document.getElementById("cityNotes").value = "";
+  setStatus("Saved in this browser. File it as an issue to add it to the repo.");
 });
 
-document.getElementById('seenFilter').innerHTML =
-  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
- +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
- +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
-wire('seenFilter',v=>seenMode=v);
-
-/* ── my list ── */
-list.addEventListener('click',e=>{
-  const b=e.target.closest('.seenbtn'); if(!b) return;
-  const id=b.dataset.seen;
-  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
-  saveSeen();saveTrip();render();
+document.getElementById("fileIssue").addEventListener("click", function(){
+  var s = current();
+  if (!s.city){ setStatus("Add a city name first."); return; }
+  // Save locally too, so it isn't lost.
+  var list = load(); list.unshift(s); save(list); render();
+  var title = "City request: " + s.city;
+  var body = "**City:** " + s.city + "\n\n**Why / sources to start from:**\n" +
+             (s.notes || "(none provided)") +
+             "\n\n---\nFiled from the field-guide site. Next step: run `node tools/research.js \"" +
+             s.city + "\"` and follow docs/SOURCES.md.";
+  var url = "https://github.com/" + REPO + "/issues/new?labels=city-request" +
+            "&title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body);
+  window.open(url, "_blank", "noopener");
+  setStatus("Opened a pre-filled GitHub issue for “" + s.city + "”. Submit it there to add it to the backlog.");
 });
-list.addEventListener('change',e=>{
-  const c=e.target.closest('.pick'); if(!c) return;
-  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
-  saveTrip(); updateTrip(); if(tripOnly) render();
+
+document.getElementById("copyOut").addEventListener("click", function(){
+  var s = current();
+  var text = (s.city || "(city)") + (s.notes ? " — " + s.notes : "");
+  try { navigator.clipboard.writeText(text); setStatus("Copied."); }
+  catch(e){ setStatus("Copy not available; select and copy manually."); }
 });
-function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
-function updateTrip(){
-  const n=TRIP.size;
-  document.getElementById('tripbar').hidden = n===0;
-  document.getElementById('tripN').textContent = n;
-  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
-}
-document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
-  const mp=document.getElementById('map');
-  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
-document.getElementById('tripClear').onclick=()=>{
-  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
-  TRIP.clear();saveTrip();tripOnly=false;render();};
 
-function dl(name,type,text){
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([text],{type:type}));
-  a.download=name;document.body.appendChild(a);a.click();
-  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
-}
-document.getElementById('tripGoogle').onclick=()=>{
-  const it=tripItems(); if(!it.length) return;
-  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
-  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
-  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
-    +'&destination='+pts[pts.length-1]
-    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
-  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
-  window.open(url,'_blank');
-};
-document.getElementById('tripKml').onclick=()=>{
-  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>Cleveland \u2014 my list</name>'
-    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
-      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
-      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
-    +'</Document></kml>';
-  dl('cleveland-my-list.kml','application/vnd.google-earth.kml+xml',kml);
-  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
-};
-document.getElementById('tripJson').onclick=()=>{
-  dl('cleveland-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
-    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
-      google:gmaps(p),apple:amaps(p)})),null,2));
-};
-document.getElementById('saveGuide').onclick=()=>{
-  dl('cleveland-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
-};
-
-document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
-  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
-  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
-  +'<span>'+s.l+'</span></div></div>').join('')
-  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
-  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
-  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
-  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
-  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
-  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
-  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
-  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
-  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
-  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
-  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
-  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
-  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
-  + '<span><b>Vietnamese</b> \u2014 only Vietnamese-owned or Vietnamese-family kitchens named by local press. <b>Singaporean</b> \u2014 the menu had to carry actual Singaporean dishes; \u201cSingapore noodles\u201d would have disqualified a place, and Cleveland has exactly one that passes. <b>Chinese</b> \u2014 the regional tradition is stated on each card (Cantonese, Sichuan) and only places raved about by Cleveland Scene, Cleveland Magazine or Freshwater are here. <b>Unique American, European, Latin American</b> \u2014 had to be viral or heavily raved, no generic burger or pizza. <b>Middle Eastern</b> \u2014 you asked specifically about Persian; there is no Persian restaurant in Cleveland with that reputation, so I have said so on the card rather than padding the list. Two Bourdain restaurants are included even though they are permanently closed, so you know they are gone rather than hunting for them.</span></div></div>'
-  + '<div class="srcrow"><span class="k">ON SEARCHING</span><div class="t">What the web turned up'
-  + '<span>Most Cleveland "hidden gems" listicles online are recycled SEO with no local reporting, so I did not use them. The one genuinely useful find was that Atlas Obscura catalogues around 33 Cleveland places — your four links were a fraction of it — so the rest are now included and tagged ATLAS OBSCURA. Everything tagged ADDED is from my own knowledge rather than a specific article: places locals treat as essential that the hidden-gem lists skip precisely because they are not hidden.</span></div></div>'
-  + '<div class="srcrow"><span class="k">NEWS 5 #49</span><div class="t">'
-  + '<a href="https://twitter.com/neorsd" target="_blank" rel="noopener">@neorsd</a>'
-  + '<span>The one entry on the hidden-gems list that is not a place: the Northeast Ohio Regional Sewer District\'s Twitter account, which News 5 called the best in Cleveland.</span></div></div>';
-
-setMode('sights');
-
-/* Loader: the guide renders immediately and never waits on a CDN. The map
-   mounts as soon as Leaflet arrives; if it never does, everything else works. */
-const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
-function noMapNotice(msg){
-  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
-  const md=document.getElementById('map'); if(!md||mapMounted) return;
-  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
-   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
-}
-(function(){
-  if(mountMap()){ render(); return; }
-  noMapNotice('Loading map\u2026');
-  const s=document.createElement('script');
-  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-  s.onload=()=>{ if(mountMap()) render(); };
-  s.onerror=()=>noMapNotice(NOMAP);
-  document.head.appendChild(s);
-  setTimeout(()=>noMapNotice(NOMAP),8000);
-})();
+render();
 </script>
 </body>
 </html>

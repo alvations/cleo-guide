@@ -1,6 +1,6 @@
 # Data schema
 
-All data lives in plain JavaScript literals inside `index.html`. There is no database and no
+All data lives in plain JavaScript literals inside `cleveland.html`. There is no database and no
 build step; edit the arrays and reload.
 
 ---

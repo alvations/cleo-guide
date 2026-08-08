@@ -1,7 +1,20 @@
 # Project context for Claude Code
 
-A single-file travel field guide: **143 sights and 40 places to eat**, each traceable to the
-source that recommended it, on an interactive map. No build step, no framework, no backend.
+Travel field guides where every place is traceable to the source that recommended it, on interactive
+maps. No build step, no framework, no backend.
+
+## Repository layout (multi-city)
+
+- `index.html` — the **city chooser** hub + "suggest a city" feedback box (files GitHub issues).
+- `cleveland.html` — the complete **Cleveland** guide (143 sights + 40 food). **The validator and
+  tests read this file**, not `index.html`.
+- `cities/youngstown.html` — the **Youngstown** shortlist, rendered on Google Maps.
+- `data/sources.json` — central, reusable **sources registry** (source types + per-city ranked,
+  fact-checked sources and creators + a national creators catalogue).
+- `tools/research.js` — the **research pipeline** (`node research.js "City" "ST"`, `--validate`,
+  `--list`). Order is fixed: search → rank → fact-check → build. See `docs/SOURCES.md`.
+- Web access here: **`WebSearch` works; `WebFetch`/direct fetches are blocked by the org egress
+  policy** — do not try to route around it. Research via search results; record `researchedVia`.
 
 ---
 
@@ -15,7 +28,7 @@ npm run validate           # content integrity
 npm test                   # behaviour, with and without the map library
 ```
 
-**2. Assert on record counts inside any script that edits `index.html`.**
+**2. Assert on record counts inside any script that edits `cleveland.html`.**
 
 A find-and-replace once deleted 143 records from this file and the result was still *valid
 JavaScript that parsed cleanly*. Syntax checks cannot catch content loss. Any script that
@@ -25,7 +38,7 @@ rewrites the file must count records before and after, and refuse to write on a 
 n0 = h.count('Soldiers')
 # ...edits...
 assert h.count('Soldiers') == n0, "records lost"
-open('index.html','w').write(h)
+open('cleveland.html','w').write(h)
 ```
 
 **3. Never use `document.write` for a script fallback.** Malformed escaping produced
@@ -43,7 +56,7 @@ where storage throws. It degrades to in-memory; keep it that way.
 
 ## Where things live
 
-Everything is in `index.html`. Data is plain JS literals near the top of the final `<script>`.
+Everything is in `cleveland.html`. Data is plain JS literals near the top of the final `<script>`.
 
 | What | Identifier |
 |---|---|

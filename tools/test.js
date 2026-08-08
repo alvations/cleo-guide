@@ -18,7 +18,7 @@ const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
-const GUIDE = path.join(__dirname, '..', 'index.html');
+const GUIDE = path.join(__dirname, '..', 'cleveland.html');
 const HTML = fs.readFileSync(GUIDE, 'utf8');
 const LEAF = fs.readFileSync(require.resolve('leaflet/dist/leaflet.js'), 'utf8')
   .replace(/<\/script/gi, '<\\/script');

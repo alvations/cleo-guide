@@ -1,7 +1,7 @@
 # Recreating the native routed map (for a future Claude session)
 
 **This is the map that worked first and worked immediately.** It is not Leaflet, it is not in
-`index.html`, and it fetches no tiles of its own. It is rendered by Claude's own client using
+`cleveland.html`, and it fetches no tiles of its own. It is rendered by Claude's own client using
 Google Places data, which is why it never suffered any of the CDN and tile-server problems that
 later broke the HTML build.
 
@@ -12,7 +12,7 @@ before anyone writes a line of code, and it renders in one tool call.
 
 ## Why it worked when the HTML map did not
 
-| | Native map widget | Leaflet in `index.html` |
+| | Native map widget | Leaflet in `cleveland.html` |
 |---|---|---|
 | Renders | in the Claude client | in the reader's browser |
 | Map tiles | supplied by the client | fetched from a CDN by our code |

@@ -23,7 +23,38 @@
     { "id": "travel_blog", "label": "Independent travel blog round-up", "why": "Cross-checks the mainstream list; use to corroborate, not as the spine.", "find": "search 'best things to do in {city} {state} travel blog {year}'." }
   ],
 
+  "nationalCreators": [
+    { "name": "Peter Santenello", "platform": "YouTube", "handle": "@PeterSantenello", "url": "https://www.youtube.com/@PeterSantenello", "scale": "4.2M", "niche": "Americana / rust belt / human-story travel", "usCities": true, "note": "Great for mid-size US cities and overlooked places. Check per-city; often covers a region, not one city." },
+    { "name": "Wolters World", "platform": "YouTube", "handle": "@woltersworld", "url": "https://www.youtube.com/@woltersworld", "scale": "1M+", "niche": "Practical city guides + what to eat / what to avoid", "usCities": true },
+    { "name": "Kara and Nate", "platform": "YouTube", "handle": "@karaandnate", "url": "https://www.youtube.com/@karaandnate", "scale": "4M+", "niche": "High-energy travel vlogs; US road-trip series", "usCities": true },
+    { "name": "Dave Portnoy — One Bite Pizza Reviews", "platform": "YouTube/Barstool", "handle": "@OneBitePizzaReviews", "url": "https://onebite.app", "scale": "national", "niche": "Pizza reviews, city by city (has hit Cleveland, Youngstown, Columbus)", "usCities": true },
+    { "name": "Itchy Boots (Noraly Schoenmaker)", "platform": "YouTube", "handle": "@itchyboots", "url": "https://www.youtube.com/@itchyboots", "scale": "3.2M", "niche": "Solo motorcycle travel", "usCities": true },
+    { "name": "Lost LeBlanc (Christian LeBlanc)", "platform": "YouTube", "handle": "@LostLeBlanc", "url": "https://www.youtube.com/@LostLeBlanc", "scale": "2M+", "niche": "Backpacking / cinematic travel", "usCities": false },
+    { "name": "Louis Cole (FunForLouis)", "platform": "YouTube", "handle": "@FunForLouis", "url": "https://www.youtube.com/@FunForLouis", "scale": "1.9M", "niche": "Daily live-the-adventure vlogs", "usCities": false },
+    { "name": "Simon and Martina", "platform": "YouTube/TikTok", "handle": "@simonandmartina", "url": "https://www.youtube.com/@simonandmartina", "scale": "1M+", "niche": "Food + culture deep dives", "usCities": false },
+    { "name": "TikTok travel/food creators", "platform": "TikTok", "handle": "hashtags: #<city>food #<city>eats #thingstodoin<city>", "url": "https://www.tiktok.com/", "scale": "varies", "niche": "Short-form local food/attraction discovery — search the city hashtags", "usCities": true, "note": "Not a single channel; a search surface. Use to find current, local short-form coverage per city." }
+  ],
+
   "cities": {
+    "cleveland-oh": {
+      "name": "Cleveland, Ohio",
+      "researchedOn": "2026-08",
+      "researchedVia": "Existing repo sources (guide) + WebSearch for creators",
+      "sources": [
+        { "key": "N5", "name": "News 5 Cleveland (WEWS) — 100 Hidden Gems", "type": "tv_numbered_list", "url": "https://www.news5cleveland.com", "rank": 1, "verified": false, "note": "The guide's spine — all 100 transcribed in cleveland.html." },
+        { "key": "TSG", "name": "There She Goes… Cleveland", "type": "travel_blog", "url": "https://theresshegoesagain.org", "rank": 1, "verified": false, "note": "All 23 entries transcribed." },
+        { "key": "AO", "name": "Atlas Obscura — Cleveland", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/things-to-do/cleveland-ohio", "rank": 1, "verified": false },
+        { "key": "SCENE", "name": "Cleveland Scene (alt-weekly)", "type": "alt_weekly", "url": "https://www.clevescene.com", "rank": 2, "verified": false },
+        { "key": "FRESH", "name": "Freshwater Cleveland", "type": "nonprofit_local_news", "url": "https://www.freshwatercleveland.com", "rank": 2, "verified": false },
+        { "key": "CH", "name": "Cleveland Historical (CSU)", "type": "historical_society", "url": "https://clevelandhistorical.org", "rank": 1, "verified": false },
+        { "key": "METRO", "name": "Cleveland Metroparks", "type": "metroparks", "url": "https://www.clevelandmetroparks.com", "rank": 1, "verified": false },
+        { "key": "OHIO", "name": "Ohio tourism — Find It Here", "type": "state_tourism", "url": "https://ohio.org", "rank": 2, "verified": false }
+      ],
+      "creators": [
+        { "key": "POLK", "name": "Mike Polk Jr — 'Hastily Made Cleveland Tourism Video'", "type": "famous_creator", "youtube": "https://www.youtube.com/results?search_query=Hastily+Made+Cleveland+Tourism+Video", "work": "Viral comedy tourism video (2009, 10M+ views) + an updated version", "scope": "city", "verified": true, "note": "Famous, city-specific, comedic — the definitive outsider-eye Cleveland video." },
+        { "key": "PORTNOY", "name": "Dave Portnoy — One Bite Pizza Reviews", "type": "famous_creator", "youtube": "https://onebite.app/restaurant/crust-cleveland-ohio-d23e293c", "work": "Reviewed Cleveland pizza incl. Crust; 15 Ohio spots reviewed", "scope": "city", "verified": true, "note": "Food/pizza; national reach. 'Cleveland makes it very difficult for Dave to get his pizza.'" }
+      ]
+    },
     "youngstown-oh": {
       "name": "Youngstown, Ohio",
       "aliases": ["Mahoning Valley"],
@@ -41,7 +72,13 @@
         { "key": "OHIO", "name": "Ohio tourism — Find It Here", "type": "state_tourism", "url": "https://ohio.org", "rank": 2, "verified": false },
         { "key": "MM", "name": "Mahoning Matters (nonprofit news)", "type": "nonprofit_local_news", "url": "https://www.mahoningmatters.com", "rank": 2, "verified": true, "covers": ["Ward Beecher reopening after fire"] },
         { "key": "BJ", "name": "The Business Journal (Mahoning Valley)", "type": "regional_business_news", "url": "https://businessjournaldaily.com", "rank": 2, "verified": false },
-        { "key": "TV", "name": "WFMJ 21 · WKBN 27 · WYTV 33", "type": "tv_numbered_list", "url": "https://www.wfmj.com", "rank": 2, "verified": false, "note": "Mahoning Valley network affiliates; look for their 'best of' lists." }
+        { "key": "TV", "name": "WFMJ 21 · WKBN 27 · WYTV 33", "type": "tv_numbered_list", "url": "https://www.wfmj.com", "rank": 2, "verified": false, "note": "Mahoning Valley network affiliates; look for their 'best of' lists." },
+        { "key": "GO-BH", "name": "Gastro Obscura — Brier Hill Pizza", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/foods/brier-hill-pizza", "rank": 1, "verified": true, "covers": ["Brier Hill pizza: tomato-and-bell-pepper pie, grated romano, little/no mozzarella"] },
+        { "key": "WIKI-BH", "name": "Wikipedia — Brier Hill-style pizza", "type": "travel_blog", "url": "https://en.wikipedia.org/wiki/Brier_Hill-style_pizza", "rank": 2, "verified": true },
+        { "key": "EXM-SLICE", "name": "Explore Mahoning — Where to Grab a Slice in Y-town", "type": "local_cvb", "url": "https://exploremahoning.com/where-to-grab-a-slice-in-y-town/", "rank": 2, "verified": true },
+        { "key": "HTP", "name": "HometownPlate — Best Restaurants in Youngstown", "type": "travel_blog", "url": "https://hometownplate.com/list/best-restaurants-in-youngstown-ohio/", "rank": 2, "verified": true, "covers": ["Cassese's MVR (est. 1927, bocce)", "Avalon Downtown", "Wedgewood (est. 1967)", "Noble Creature brewery"] },
+        { "key": "HANDEL", "name": "Handel's Homemade Ice Cream — official history", "type": "historical_society", "url": "https://handelsicecream.com/history/", "rank": 1, "verified": true, "covers": ["Founded summer 1945 by Alice Handel in Youngstown; original South Side location; HQ now Canfield"] },
+        { "key": "GD", "name": "Golden Dawn — Business Journal / WFMJ history", "type": "regional_business_news", "url": "https://businessjournaldaily.com/golden-dawn-restaurant-to-reopen-friday/", "rank": 2, "verified": true, "covers": ["1245 Logan Ave; est. 1932; closed 2017, reopened; currently operating"] }
       ],
       "creators": [
         { "key": "SANT", "name": "Peter Santenello", "type": "famous_creator", "subscribers": "4.2M", "youtube": "https://www.youtube.com/@PeterSantenello", "work": "Solo Into East Palestine, OH — What's It Like Now? (2024, ~1.2M views)", "workUrl": "https://petersantenello.com/videos/solo-into-east-palestine-oh-whats-it-like-now/", "scope": "region", "verified": true, "note": "Covers East Palestine (Mahoning Valley, ~20 min from Youngstown), not a dedicated Youngstown-city tour. Ranked as regional coverage, honestly." },

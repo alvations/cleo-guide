@@ -44,12 +44,52 @@ Defined in `data/sources.json → sourceTypes`. The spine the methodology leans 
 - **Famous creator** and **local creator** coverage — popular/ground-level video. Rank these by
   whether they covered *the city itself* or only *the region*, and label that honestly on the page.
 
-## Why search, not full-page reads
+## Web access in this environment (read this before researching)
 
-Direct page fetches are blocked by this environment's network egress policy, so research is done
-through **search results** (titles, URLs, snippets), which is enough to find, rank and cross-check
-sources. When a full read is needed, open the URL in a normal browser. This limitation is recorded
-per city in the registry (`researchedVia`).
+- **`WebSearch` works.** It runs on Anthropic's server-side search backend, not through the
+  sandbox's network path, so it returns real results (titles, URLs, snippets, summaries).
+- **`WebFetch` / `curl` to arbitrary sites are blocked.** Outbound HTTP goes through a
+  policy-enforcing **org egress proxy** that allowlists only a few hosts (GitHub, package
+  registries, Anthropic). General sites (`youtube.com`, `wikipedia.org`, news sites, `maps.google.com`)
+  return **403 CONNECT** — an organization policy denial. The proxy's own docs say *"Do not retry or
+  route around it."* **Do not attempt to bypass it** (no reader proxies, tunnels, or alternate hosts).
+- **Consequence:** research and fact-checking are done from **search results**, cross-checking a
+  claim across two or more independent results rather than reading one page in full. When a genuine
+  full read is required, a human opens the URL in a normal browser. Record `researchedVia` per city.
+
+## Fact-checking procedure (explicit, step by step)
+
+Do this **after** ranking sources and **before** building or editing the page. For every place that
+will appear:
+
+1. **Search the place by name + city**, e.g. `Rose Melnick Medical Museum Youngstown`. Prefer queries
+   that surface an official/primary page (the museum, the park authority, the university, the CVB).
+2. **Cross-check the key facts across ≥2 independent results.** Confirm, at minimum:
+   - it **exists** and is **open** (watch for "permanently closed" / "reopened" / relocations);
+   - the **name/address** are right;
+   - any **specific claim** you print — founding year, "free admission", hours, "largest/first",
+     a named dish — appears in a credible result. If two sources disagree, prefer the primary
+     (official site, historical society) and soften the wording.
+3. **Closed or moved?** Keep the entry, **flag it** honestly (`closed`, `reopened`, `call ahead`) —
+   never silently drop it (a missing item reads as an error).
+4. **Record the check in `data/sources.json`:** set `"verified": true` on the source only once you've
+   checked a claim from it, and put the confirmed fact in its `covers` array. Un-checked stays
+   `"verified": false`.
+5. **Creators:** confirm the creator actually covered the place/city (watch region-vs-city — e.g. a
+   video about a neighbouring town is region-scope). Label scope honestly on the page.
+6. **Re-run** `node tools/research.js --validate <city-key>`; it must pass before you build.
+
+Honesty rules carry over from the Cleveland methodology: added-from-general-knowledge is `added`,
+never relabelled as sourced; a cuisine tag needs a **named dish**; gaps are stated, not filled.
+
+### Worked fact-check examples (Youngstown, Aug 2026)
+
+| Claim printed | Confirmed via search | Result |
+|---|---|---|
+| Butler Institute — 1919, first U.S. art museum, free | Travel2Next + multiple | ✓ printed |
+| Handel's — founded summer 1945, Youngstown | handelsicecream.com/history + Wikipedia + Mahoning Matters | ✓ printed |
+| Golden Dawn — still open? | Business Journal "to reopen" + Yelp hours 2026 | ✓ printed as "closed 2017, reopened" |
+| Peter Santenello "toured Youngstown" | His Ohio video is East Palestine (next door) | ✗ downgraded to region-scope |
 
 ## Worked example — Youngstown, Ohio
 

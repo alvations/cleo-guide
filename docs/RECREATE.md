@@ -85,7 +85,7 @@ places search.
 
 ## 6. Adapt the file
 
-Everything lives in `index.html`. Edit these, in order:
+Everything lives in `cleveland.html`. Edit these, in order:
 
 | What | Where | Notes |
 |---|---|---|

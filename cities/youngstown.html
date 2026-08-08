@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Youngstown Field Guide — The Mahoning Valley, on Google Maps</title>
-<meta name="description" content="A sourced starting shortlist for Youngstown, Ohio and the Mahoning Valley, rendered on Google Maps. Compiled from general knowledge; attribution to verify against the listed local sources.">
+<meta name="description" content="A web-researched, fact-checked shortlist for Youngstown, Ohio and the Mahoning Valley, rendered on Google Maps: sights, Brier Hill pizza and Handel's, with ranked local sources and creator coverage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -74,6 +74,7 @@
   .foodgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:24px 0 8px;}
   .food{border:1px solid var(--hair);border-radius:10px;padding:16px 18px;background:var(--slab);}
   .food .name{font-weight:500;font-size:18px;}
+  .food .cz{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin-top:5px;}
   .food .note{color:var(--bone-dim);font-size:14px;margin-top:6px;}
   .food a{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
 
@@ -91,7 +92,7 @@
     <p class="standfirst">A first pass at Youngstown, Ohio — the cultural row on Wick Avenue, the
       surprisingly wild Mill Creek Park, the downtown halls, and a few Mahoning Valley day trips.
       Rendered on Google Maps, grouped so you're not crossing the Valley twice.</p>
-    <a class="backlink" href="../index.html">← The Cleveland guide</a>
+    <a class="backlink" href="../cleveland.html">← The Cleveland guide</a>
   </header>
 
   <div class="panel warn">
@@ -161,9 +162,10 @@
   <section class="cluster" style="border-bottom:none">
     <p class="cmeta">A taste — Mahoning Valley plates</p>
     <h2>Where to eat</h2>
-    <p class="cnote">Youngstown's signature is <strong>Brier Hill pizza</strong> — a square-ish pie
-      with bell peppers and grated romano and little or no mozzarella, born in the old Brier Hill
-      steelworkers' neighborhood. A few Valley institutions, offered as leads to confirm.</p>
+    <p class="cnote">Youngstown's signature is <strong>Brier Hill pizza</strong> — a pie with bell
+      peppers and grated romano and little or no mozzarella, born in the old Brier Hill steelworkers'
+      neighbourhood and documented by <a href="https://www.atlasobscura.com/foods/brier-hill-pizza" target="_blank" rel="noopener">Gastro Obscura</a>.
+      These spots were fact-checked against local food sources; confirm hours before a drive.</p>
     <div class="foodgrid" id="food"></div>
   </section>
 
@@ -238,10 +240,13 @@ const CLUSTERS = [
 ];
 
 const FOOD = [
-  {name:"Brier Hill pizza", q:q("Brier Hill pizza"), note:"The local style itself — peppers, romano, little mozzarella. Wedgewood Pizza and several Valley pizzerias make a version; ask for it by name."},
-  {name:"Cassese's MVR", q:q("MVR restaurant"), note:"A century-old Italian restaurant with bocce courts out back on N Walnut St — as Youngstown as it gets."},
-  {name:"Handel's Homemade Ice Cream", q:q("Handel's Ice Cream"), note:"Founded in Youngstown in 1945 and grown nationwide; the Valley is where it started."},
-  {name:"Golden Dawn", q:q("Golden Dawn restaurant"), note:"A long-running Brier Hill Italian-American landmark tied to the neighborhood's pizza lore. Confirm current hours before going.", flag:"Verify"}
+  {name:"Cassese's MVR", cz:"Italian · Brier Hill pizza", q:q("Cassese's MVR restaurant"), note:"Open since 1927. The dish: a Brier Hill 'Smoky Hollow' pizza eaten beside the bocce courts out back — as Youngstown as it gets."},
+  {name:"Wedgewood Pizza", cz:"Pizza · Brier Hill", q:q("Wedgewood Pizza, Austintown OH"), note:"A local pizzeria since 1967 that makes the classic Brier Hill pie — tomato, bell peppers and grated romano, little mozzarella."},
+  {name:"Avalon Downtown Pizzeria", cz:"Pizza", q:q("Avalon Downtown Pizzeria"), note:"Brick-walled downtown spot serving Brier Hill pizza alongside inventions like a 'Pesto Hot Honey' pie."},
+  {name:"St. Anthony of Padua parish pizza", cz:"Pizza · fundraiser", q:q("St. Anthony of Padua Church, Youngstown"), note:"The Brier Hill church that sells hundreds of pizzas a week as a parish fundraiser. Takeout, cash, and a piece of neighbourhood lore.", flag:"Call ahead"},
+  {name:"Golden Dawn", cz:"Italian-American", q:q("Golden Dawn restaurant, 1245 Logan Ave"), note:"A 1932 Brier Hill landmark at 1245 Logan Ave. It closed in 2017 and has since reopened — running again, but confirm current hours."},
+  {name:"Handel's Homemade Ice Cream", cz:"Dessert", q:q("Handel's Ice Cream, South Ave, Youngstown"), note:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide, HQ in Canfield."},
+  {name:"Noble Creature Wild Ales & Lagers", cz:"Drinks · brewery", q:q("Noble Creature Cask House, Youngstown"), note:"A former church turned brewery pouring wild ales and lagers — the drinks stop on this list."}
 ];
 
 /* ── Key handling (localStorage, wrapped — storage throws in some sandboxes) ── */
@@ -329,6 +334,7 @@ function build(){
   FOOD.forEach(f => {
     const card = el("div", "food");
     card.appendChild(el("div", "name", esc(f.name) + flagHtml(f)));
+    if (f.cz) card.appendChild(el("div", "cz", esc(f.cz)));
     if (f.note) card.appendChild(el("div", "note", esc(f.note)));
     const a = el("a", null, "Find on Google Maps ↗");
     a.href = searchUrl(f); a.target = "_blank"; a.rel = "noopener";

@@ -25,7 +25,7 @@ The routed map in this folder existed in three forms, and they are not substitut
 |---|---|---|---|
 | **Native widget** (`native-map-payload.json`) | in the Claude client | no | design and confirm the itinerary, instantly, with zero infrastructure |
 | **Google My Maps** (`cleveland-shortlist.kml`) | Google's servers | yes, and syncs to the phone app | hand someone a real map they can keep |
-| **Self-hosted** (`../../index.html`) | any browser | yes, and works offline | own the whole thing, filters and all |
+| **Self-hosted** (`../../cleveland.html`) | any browser | yes, and works offline | own the whole thing, filters and all |
 
 The native map is the one that worked immediately and never broke. Build it first.
 
