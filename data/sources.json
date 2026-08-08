@@ -38,6 +38,14 @@
   "cities": {
     "cleveland-oh": {
       "name": "Cleveland, Ohio",
+      "lastUpdated": "2026-08-08",
+      "refreshLog": [
+        { "date": "2026-08-08", "mode": "refresh", "findings": [
+          "Sokolowski's University Inn — confirmed permanently closed (Oct 2020; never reopened; property sold 2023). Kept, flagged.",
+          "West Side Market — open; $70M renovation underway, East Produce Arcade reopened Jan 2026; hours refreshed.",
+          "New since build (candidates to add): Rock & Roll Hall of Fame expansion (early 2026); Cleveland Metroparks Zoo Primate Forest (summer 2026); Irishtown Bend Park (spring 2026)."
+        ] }
+      ],
       "researchedOn": "2026-08",
       "researchedVia": "Existing repo sources (guide) + WebSearch for creators",
       "sources": [
@@ -57,6 +65,10 @@
     },
     "youngstown-oh": {
       "name": "Youngstown, Ohio",
+      "lastUpdated": "2026-08-08",
+      "refreshLog": [
+        { "date": "2026-08-08", "mode": "build", "findings": ["Initial web-researched, fact-checked build."] }
+      ],
       "aliases": ["Mahoning Valley"],
       "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/ohio",
       "researchedOn": "2026-08",

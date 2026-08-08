@@ -43,7 +43,7 @@ const CREATOR_TYPES = ['famous_creator', 'local_creator'];
 
 function plan(city, st) {
   const reg = loadRegistry();
-  const year = (process.env.RESEARCH_YEAR || '').trim() || 'the current year';
+  const year = (process.env.RESEARCH_YEAR || '').trim() || String(new Date().getFullYear());
   const citySlug = slug(city);
   const stLower = (st || '').toLowerCase();
 
@@ -174,23 +174,91 @@ function validate(key) {
   console.log(`>>> READY${warn ? ` (${warn} warning(s))` : ''}. Sources cover the required types.`);
 }
 
+function daysSince(dateStr) {
+  if (!dateStr) return null;
+  var then = new Date(dateStr + 'T00:00:00Z').getTime();
+  if (isNaN(then)) return null;
+  return Math.floor((Date.now() - then) / 86400000);
+}
+
+// MODE B — refresh a previously-published city (catch closures + new places).
+function refresh(key) {
+  const reg = loadRegistry();
+  const city = reg.cities && reg.cities[key];
+  if (!city) {
+    console.error(`No city "${key}" in data/sources.json. Known: ${Object.keys(reg.cities || {}).join(', ') || '(none)'}`);
+    process.exit(1);
+  }
+  const parts = String(city.name).split(',');
+  const cityName = parts[0].trim();
+  const st = (parts[1] || '').trim();
+  const year = (process.env.RESEARCH_YEAR || '').trim() || String(new Date().getFullYear());
+  const d = daysSince(city.lastUpdated);
+  const line = '─'.repeat(72);
+
+  console.log(`\nREFRESH PLAN — ${city.name} (${key})`);
+  console.log(`last updated: ${city.lastUpdated || 'never'}${d != null ? ` (${d} days ago)` : ''}`);
+  console.log(line);
+  console.log('MODE B: re-verify what is published, catch closures, add what is new.');
+  console.log('Order: re-verify → search closures → search new places → update page + bump lastUpdated.\n');
+
+  console.log('A. RE-VERIFY the anchors already recorded (search each, confirm still open + hours)');
+  const anchors = [];
+  (city.sources || []).forEach(s => (s.covers || []).forEach(c => anchors.push(c)));
+  if (anchors.length) anchors.slice(0, 30).forEach((a, i) => console.log(`  ${String(i + 1).padStart(2)}. ${a.split('(')[0].trim()} ${cityName} hours ${year}`));
+  else console.log('  (no "covers" anchors recorded — walk the page entries and search each by name)');
+
+  console.log('\nB. CLOSURE SWEEP (things that may have shut since last update)');
+  [
+    `"${cityName}" ${st} restaurant permanently closed ${year}`,
+    `"${cityName}" ${st} museum OR attraction closed ${year}`,
+    `${cityName} ${st} landmark closed OR demolished`
+  ].forEach((q, i) => console.log(`  ${i + 1}. ${q}`));
+
+  console.log('\nC. WHAT IS NEW (things that opened since last update)');
+  [
+    `new things to do in ${cityName} ${st} opened ${year}`,
+    `new ${cityName} ${st} restaurants ${year}`,
+    `${cityName} ${st} new museum OR park OR attraction ${year}`
+  ].forEach((q, i) => console.log(`  ${i + 1}. ${q}`));
+
+  console.log('\nD. APPLY (same fact-check bar as a build)');
+  console.log('  • Confirm each change across ≥2 independent results (see docs/SOURCES.md).');
+  console.log('  • Closed places STAY, flagged — never silently drop them.');
+  console.log('  • Add new, fact-checked places; mark their sources verified:true.');
+  console.log('  • Append a refreshLog entry and set "lastUpdated" to today in data/sources.json.');
+  console.log('  • Update the visible "Last verified <date>" stamp on the page.');
+  console.log(`  • Re-run:  node tools/research.js --validate ${key}\n`);
+
+  (city.refreshLog || []).slice(-1).forEach(r =>
+    console.log(`Most recent refresh (${r.date}):\n  - ` + (r.findings || []).join('\n  - ') + '\n'));
+}
+
 function list() {
   const reg = loadRegistry();
   const cities = reg.cities || {};
-  console.log('\nCities in the registry:');
-  Object.entries(cities).forEach(([k, v]) =>
-    console.log(`  ${k.padEnd(22)} ${v.name}  —  ${(v.sources || []).length} sources, ${(v.creators || []).length} creators`));
-  console.log(`\nReusable source types: ${(reg.sourceTypes || []).length}. See docs/SOURCES.md.\n`);
+  console.log('\nCities in the registry (Mode B refresh keeps these current):');
+  Object.entries(cities).forEach(([k, v]) => {
+    const d = daysSince(v.lastUpdated);
+    const age = v.lastUpdated ? `updated ${v.lastUpdated}${d != null ? ` (${d}d)` : ''}` : 'never updated';
+    console.log(`  ${k.padEnd(22)} ${String(v.name).padEnd(20)} ${(v.sources || []).length} src · ${(v.creators || []).length} creators · ${age}`);
+  });
+  console.log(`\nReusable source types: ${(reg.sourceTypes || []).length}. National creators: ${(reg.nationalCreators || []).length}. See docs/SOURCES.md.\n`);
 }
 
 // ── entry ────────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
 if (argv[0] === '--validate') validate(argv[1]);
+else if (argv[0] === '--refresh') refresh(argv[1]);
 else if (argv[0] === '--list') list();
 else if (argv[0] && argv[0] !== '--help' && argv[0] !== '-h') plan(argv[0], argv[1]);
 else {
-  console.log('Usage:');
-  console.log('  node research.js "<City>" "<ST>"        print the research plan for a city');
-  console.log('  node research.js --validate <city-key>  audit a city\'s sources in data/sources.json');
-  console.log('  node research.js --list                 list cities already in the registry');
+  console.log('Two modes:');
+  console.log('  A · CREATE a new city');
+  console.log('    node research.js "<City>" "<ST>"        print the research plan for a new city');
+  console.log('  B · REFRESH a published city (catch closures / new places)');
+  console.log('    node research.js --refresh <city-key>   print the re-verification plan');
+  console.log('  Shared');
+  console.log('    node research.js --validate <city-key>  audit a city\'s sources before publishing');
+  console.log('    node research.js --list                 list cities + when each was last updated');
 }

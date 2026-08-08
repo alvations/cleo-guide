@@ -10,6 +10,27 @@ repeatable for new cities, sources live in one place and the flow for finding th
 | [`data/sources.json`](../data/sources.json) | The **central registry** — a reusable catalogue of *source types*, plus per-city ranked, fact-checked sources and creators. |
 | [`tools/research.js`](../tools/research.js) | The **pipeline** — generates the search plan for any city and audits a city's recorded sources. |
 
+## Two modes
+
+The same research + fact-check flow runs in two directions:
+
+- **Mode A — create a new city.** `node tools/research.js "<City>" "<ST>"` → research → rank →
+  fact-check → build a new `cities/<city>.html`, extending the sources registry as you go.
+- **Mode B — refresh a published city.** `node tools/research.js --refresh <city-key>` → re-verify
+  what's already published, sweep for **closures**, search for **new places**, then update the page.
+  Run this regularly: businesses close, hours change, new places open. Closed places **stay, flagged**;
+  new fact-checked places get added; the page's "Last verified" stamp and the registry's
+  `lastUpdated` both get bumped, and a `refreshLog` entry records what changed.
+
+`node tools/research.js --list` shows every city and how long since it was last updated, so you can
+see what's going stale.
+
+### Last-updated convention
+
+- Every city page shows a visible **"Last verified YYYY-MM-DD"** stamp (masthead and/or footer).
+- The registry stores `lastUpdated` and a `refreshLog: [{date, mode, findings[]}]` per city.
+- Bump both whenever you run Mode B (or edit content), so users and agents know the data's age.
+
 ## The pipeline order (do not reorder)
 
 ```
