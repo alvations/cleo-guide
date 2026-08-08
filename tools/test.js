@@ -31,11 +31,28 @@ const chk = (name, got, want) => {
   if (!ok) failures++;
 };
 
+// jsdom omits SVGSVGElement.createSVGRect, a standard SVG DOM method every real
+// browser implements. Leaflet's feature detection reads it to decide whether SVG
+// is supported; without it Leaflet concludes SVG is unavailable, hands back a null
+// renderer, and throws when the first vector layer is added — so no markers draw
+// even though the page is fine in a browser. Restoring the method lets Leaflet's
+// real SVG renderer run. This only affects the Leaflet-available scenario; the
+// CDN-blocked path never loads Leaflet and is untouched.
+function shimSvg(w) {
+  const proto = w.SVGSVGElement && w.SVGSVGElement.prototype;
+  if (proto && !proto.createSVGRect) {
+    proto.createSVGRect = () => ({ x: 0, y: 0, width: 0, height: 0 });
+  }
+}
+
 function boot(withLeaflet) {
   const errs = [];
   const html = HTML.replace(CDN,
     withLeaflet ? '<script>' + LEAF + '</script>' : '<script>/*blocked*/</script>');
-  const dom = new JSDOM(html, { runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/' });
+  const dom = new JSDOM(html, {
+    runScripts: 'dangerously', pretendToBeVisual: true, url: 'https://x.test/',
+    beforeParse: shimSvg,
+  });
   const w = dom.window;
   w.addEventListener('error', e => errs.push('ERR ' + (e.message || e.error)));
   w.console.error = (...a) => errs.push('console.error: ' + a.join(' '));
