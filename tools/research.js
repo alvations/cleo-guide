@@ -60,12 +60,13 @@ function pagePlaceNames(pageFile) {
   const html = fs.readFileSync(pageFile, 'utf8');
   const names = [];
   const re = /\bn:"((?:[^"\\]|\\.)*)"/g;
+  const decode = (raw) => { try { return JSON.parse('"' + raw + '"'); } catch (e) { return raw.replace(/\\"/g, '"'); } };
   for (const marker of ['const P = [', 'const F = [']) {
     const s = html.indexOf(marker);
     if (s < 0) continue;
     const e = html.indexOf('\n];', s);
     const block = html.slice(s, e < 0 ? undefined : e);
-    let m; while ((m = re.exec(block))) names.push(m[1].replace(/\\"/g, '"'));
+    let m; while ((m = re.exec(block))) names.push(decode(m[1]));
   }
   return names;
 }
