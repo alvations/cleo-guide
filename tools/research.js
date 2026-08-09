@@ -27,10 +27,37 @@ const fs = require('fs');
 const path = require('path');
 
 const REG_PATH = path.join(__dirname, '..', 'data', 'sources.json');
+const MEDIA_PATH = path.join(__dirname, '..', 'data', 'local-media.json');
 
 function loadRegistry() {
   try { return JSON.parse(fs.readFileSync(REG_PATH, 'utf8')); }
   catch (e) { console.error('Could not read data/sources.json:', e.message); process.exit(1); }
+}
+
+function loadMedia() {
+  try { return JSON.parse(fs.readFileSync(MEDIA_PATH, 'utf8')); }
+  catch (e) { return { cities: {} }; }
+}
+
+// Print a city's recorded local news outlets & TV channels (data/local-media.json).
+function media(key) {
+  const m = loadMedia();
+  const c = m.cities && m.cities[key];
+  console.log('\nLOCAL MEDIA — ' + (c ? c.name : key));
+  console.log('─'.repeat(72));
+  if (!c) {
+    console.log('Not recorded yet. Add this city to data/local-media.json (tv, newspaper, altWeekly,');
+    console.log('magazine, business, nonprofit, public, cvb, familyOrActivity) so it can be tapped.');
+    console.log('Known: ' + Object.keys(m.cities || {}).join(', ') + '\n');
+    return;
+  }
+  const groups = ['tv', 'newspaper', 'altWeekly', 'magazine', 'business', 'nonprofit', 'public', 'cvb', 'familyOrActivity'];
+  groups.forEach(g => {
+    if (!c[g] || !c[g].length) return;
+    console.log('  ' + g + ':');
+    c[g].forEach(o => console.log('    · ' + o.name + (o.url ? '  ' + o.url : '') + (o.note ? '   — ' + o.note : '')));
+  });
+  console.log('\nTap these for "best things to do / hidden gems / fall fun" lists; they change — keep updated.\n');
 }
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -70,6 +97,19 @@ function plan(city, st) {
     `${city} ${st} best flea market OR maker market OR public market OR Amish market popular`
   ];
   discovery.forEach((q, i) => console.log(`  ${String(i + 1).padStart(2)}. ${q}`));
+
+  const key = cityKey(city, st);
+  const rec = (loadMedia().cities || {})[key];
+  console.log('\nA2. LOCAL MEDIA to search (city → outlets; see data/local-media.json)');
+  if (rec) {
+    ['tv', 'newspaper', 'altWeekly', 'magazine', 'business', 'nonprofit', 'public', 'cvb', 'familyOrActivity'].forEach(g => {
+      (rec[g] || []).forEach(o => console.log('  · ' + o.name + (o.url ? '  ' + o.url : '')));
+    });
+    console.log('  (run `node research.js --media ' + key + '` for the full list with notes)');
+  } else {
+    console.log('  None recorded yet — add ' + key + ' to data/local-media.json so it can be tapped/refreshed.');
+    console.log('  Find them: search "' + city + ' ' + st + ' TV stations", the metro daily, the alt-weekly, the CVB.');
+  }
 
   console.log('\nB. CREATOR / COVERAGE SEARCHES (famous + local video)');
   const creators = [
@@ -254,6 +294,7 @@ function list() {
 const argv = process.argv.slice(2);
 if (argv[0] === '--validate') validate(argv[1]);
 else if (argv[0] === '--refresh') refresh(argv[1]);
+else if (argv[0] === '--media') media(argv[1]);
 else if (argv[0] === '--list') list();
 else if (argv[0] && argv[0] !== '--help' && argv[0] !== '-h') plan(argv[0], argv[1]);
 else {
@@ -264,5 +305,6 @@ else {
   console.log('    node research.js --refresh <city-key>   print the re-verification plan');
   console.log('  Shared');
   console.log('    node research.js --validate <city-key>  audit a city\'s sources before publishing');
+  console.log('    node research.js --media <city-key>     list a city\'s local news outlets & TV channels');
   console.log('    node research.js --list                 list cities + when each was last updated');
 }

@@ -9,6 +9,7 @@ repeatable for new cities, sources live in one place and the flow for finding th
 |---|---|
 | [`data/sources.json`](../data/sources.json) | The **central registry** — a reusable catalogue of *source types*, plus per-city ranked, fact-checked sources and creators. |
 | [`tools/research.js`](../tools/research.js) | The **pipeline** — generates the search plan for any city and audits a city's recorded sources. |
+| [`data/local-media.json`](../data/local-media.json) | The **local-media map** — each city's local news outlets and TV channels (the source of "best of / hidden gems / fall fun" lists). Living data; keep updated. |
 
 ## Two modes
 
@@ -58,6 +59,45 @@ for Makers, a regional draw), **Rogers Community Auction & Flea Market** (larges
 tri-state area, year-round Fridays), **The Amish Market** (permanent indoor, Thu–Sat), and the
 **Northside Farmers Market** (the city's oldest, since 2003). Generic Boardman/Canfield seasonal
 farmers markets were **rejected**.
+
+## Place categories — Farms (agricultural regions)
+
+For **agriculturally-minded regions** (much of Ohio, Pennsylvania, the rural Midwest, etc.), add
+**visitable farms** as a category (cuisine id `FARM`, "Farms & U-Pick", in the Food/markets/farms tab).
+A farm qualifies only if it is **publicly visitable with real activities** — pick-your-own fruit /
+vegetables / flowers, animal feeding or a petting zoo, an educational tour, a corn maze or hayride —
+**and** clears the same visit-worthy bar as markets:
+
+- **Well-reviewed and popular**, and ideally **named by local news / TV or a popular travel or family
+  blog.** Local TV stations are a prime source — e.g. WKBN's Mahoning-Valley fall-farm guide, Fox 8's
+  Northeast-Ohio pumpkin-patch guide. This is the same move as reading a station's "best places to
+  visit" list (see the local-media map below).
+- **Publicly accessible** — a real u-pick / agritourism operation open to visitors, not a private or
+  wholesale-only farm.
+- **Seasonal is expected** (orchards, pumpkin patches, mazes run in autumn) — include a seasonal farm
+  only if it's genuinely popular, and **flag it** with `warn:1` and state the season/schedule in `k`.
+- **Skip** farms with no public visiting, or generic roadside stands with no reviews or activities.
+- Only add this category where it makes sense — a dense urban city with no agritourism nearby won't
+  have qualifying farms, and that's fine.
+
+Youngstown examples: **White House Fruit Farm** (Canfield orchard + cider + doughnuts), **Detwiler
+Farm** (Columbiana — petting zoo, u-pick pumpkins, corn maze) and **Molnar Farms** (Poland — pumpkin
+patch, corn maze), all covered by WKBN and regional family blogs, all flagged seasonal.
+
+## Local-media map — tap local news to find & refresh sites
+
+`data/local-media.json` maps each city to its **local news outlets and TV channels**, because that's
+where the useful lists live ("100 hidden gems", "fall fun on the farm", "best patios"). Use it to know
+what to search for a city, and to **refresh** — those lists get re-published every year.
+
+```bash
+node tools/research.js --media <city-key>     # print a city's outlets (tv, papers, nonprofit, CVB, blogs)
+```
+
+Every city plan (`node research.js "City" "ST"`) also prints an **A2. LOCAL MEDIA** block: the recorded
+outlets if the city is in the map, or a prompt to add it if not. **This is living data** — stations
+rebrand, papers fold, new nonprofit newsrooms and blogs appear — so when you notice a change, update the
+entry and bump its `updated` (and `_meta.updated`).
 
 ## The pipeline order (do not reorder)
 

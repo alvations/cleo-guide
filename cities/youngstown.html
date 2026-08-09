@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Youngstown, Ohio field guide — 29 sights and 19 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="description" content="Youngstown, Ohio field guide — 28 sights and 22 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
 <title>Youngstown Field Guide — The Mahoning Valley, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -217,7 +217,7 @@
 <header>
   <p class="eyebrow">Field guide · the Mahoning Valley, sourced</p>
   <h1>Youngstown<span class="thin">steel, parks &amp; the odd corners</span></h1>
-  <p class="standfirst">29 sights and 19 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">28 sights and 22 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>
 </header>
 
@@ -237,7 +237,7 @@
 
 <div class="modebar">
   <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; markets</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink, markets &amp; farms</button>
 </div>
 
 <div class="controls">
@@ -400,9 +400,6 @@ const P = [
 {t:1,a:"DY",n:"National McKinley Birthplace Memorial & Museum",ad:"40 N Main St, Niles, OH",la:41.1835,ln:-80.7590,
  w:"A columned memorial and museum to President William McKinley in his birthplace of Niles, a short drive north of Youngstown. Free, and grander than you expect for a small city.",
  k:"Free. In Niles, about 15 minutes away. Check museum hours.",s:[["ADD",""]]},
-{t:2,a:"DY",n:"White House Fruit Farm",ad:"9249 Youngstown-Salem Rd, Canfield, OH",la:41.0000,ln:-80.7800,
- w:"A big farm market southwest of the city famous for its cider, apple-cider doughnuts, pies and fall pumpkins — a Valley autumn tradition.",
- k:"Busiest in fall. In Canfield, about 20 minutes out. Approximate pin.",s:[["EXM",""]]},
 {t:2,a:"DY",n:"Canfield Fairgrounds",ad:"7265 Columbiana-Canfield Rd, Canfield, OH",la:41.0206,ln:-80.7595,
  w:"Home of the Canfield Fair, Ohio's largest county fair, over Labor Day week. The grounds are quiet off-season.",
  k:"The fair is late Aug–Labor Day. Otherwise little to see. Seasonal.",warn:1,s:[["T2N",""]]},
@@ -422,6 +419,8 @@ const FS = {
   YL:{k:"YOUNGSTOWN LIVE",t:"Youngstown Live — The Amish Market",u:"https://youngstownlive.com/venue/the-amish-market/",l:"Youngstown Live (Mahoning County CVB)"},
   YF:{k:"YOUNGSTOWN FLEA",t:"The Youngstown Flea — Market for Makers",u:"http://youngstownflea.com/about/",l:"The Youngstown Flea"},
   ROG:{k:"ROGERS MARKET",t:"Rogers Community Auction & Flea Market",u:"https://rogersohio.com/",l:"Rogers Flea Market · Columbiana County"},
+  WKBN:{k:"WKBN 27",t:"WKBN — Mahoning Valley fall farm & events guide",u:"https://www.wkbn.com/community/halloween-and-fall-events/",l:"WKBN 27 (local news)"},
+  NEOFF:{k:"NE OHIO FAMILY FUN",t:"Northeast Ohio Family Fun — farms & pumpkin patches",u:"https://northeastohiofamilyfun.com/pumpkin-patches/",l:"Northeast Ohio Family Fun"},
   BJ:{k:"BUSINESS JOURNAL",t:"The Business Journal — food & drink",u:"https://businessjournaldaily.com",l:"The Business Journal"},
   VIND:{k:"THE VINDICATOR",t:"History of brewing beer in Youngstown",u:"https://www.vindy.com",l:"The Vindicator"},
   OHMAG:{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
@@ -436,7 +435,8 @@ const CUISINES = [
   {id:"DES", n:"Dessert"},
   {id:"DR",  n:"Drinks & Breweries"},
   {id:"AM",  n:"American"},
-  {id:"MKT", n:"Markets"}
+  {id:"MKT", n:"Markets"},
+  {id:"FARM",n:"Farms & U-Pick"}
 ];
 
 const F = [
@@ -497,7 +497,17 @@ const F = [
  k:"Monthly during its season — check youngstownflea.com for dates before going. Publicly open.",warn:1,s:[["YF",""]]},
 {t:2,a:"DY",cz:["MKT"],n:"Rogers Community Auction & Flea Market",ad:"45625 OH-154, Rogers, OH",la:40.7856,ln:-80.6300,
  w:"The largest open-air flea market in the tri-state area — over five miles of aisles and 1,000-plus vendor spaces of antiques, vintage, tools, produce and famous Amish doughnuts, going strong year-round. A proper day out for treasure hunters.",
- k:"Fridays only, 7:30am to mid-afternoon, year-round. About 35–40 min south; wear walking shoes.",warn:1,s:[["ROG",""]]}
+ k:"Fridays only, 7:30am to mid-afternoon, year-round. About 35–40 min south; wear walking shoes.",warn:1,s:[["ROG",""]]},
+/* == FARMS (visitable: U-pick, animals, education — publicly open, well-reviewed) == */
+{t:2,a:"DY",cz:["FARM"],n:"White House Fruit Farm",ad:"9249 Youngstown-Salem Rd, Canfield, OH",la:41.0000,ln:-80.7800,
+ w:"A big Canfield orchard and farm market open weekdays and weekends: orchard-fresh and pick-your-own apples, seasonal produce, and a fall gift barn famous for its apple-cider doughnuts and cider. The Valley's autumn tradition.",
+ k:"Open much of the year; busiest in fall. About 20 min out. Approximate pin.",s:[["EXM",""],["WKBN",""]]},
+{t:2,a:"DY",cz:["FARM"],n:"Detwiler Farm",ad:"4520 Renkenberger Rd, Columbiana, OH",la:40.9200,ln:-80.6600,
+ w:"A family fall farm in Columbiana built for a day with kids: a hayride out to a 10-acre pick-your-own pumpkin patch, a straw maze and a 4-acre corn maze, plus a petting zoo and a tractor-tire playground.",
+ k:"Seasonal (fall), about $7 admission. ~30 min south. Approximate pin.",warn:1,s:[["WKBN",""],["NEOFF",""]]},
+{t:3,a:"DY",cz:["FARM"],n:"Molnar Farms",ad:"3115 E Western Reserve Rd, Poland, OH",la:41.0100,ln:-80.6000,
+ w:"A popular Poland fall farm close to the city — a hayride to the pumpkin patch and a corn maze, cheap and cheerful.",
+ k:"Seasonal (fall), about $5 per person. ~15 min out. Approximate pin.",warn:1,s:[["WKBN",""]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -969,7 +979,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 48 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 50 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
