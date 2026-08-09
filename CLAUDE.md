@@ -49,6 +49,17 @@ Append a script element and use `onload` / `onerror`.
 separately via `mountMap()` if Leaflet arrives. A blocked CDN costs a map, not a page.
 `npm test` covers this explicitly — do not weaken it.
 
+**4a. Every address and map coordinate MUST be fact-checked against a real source — never from
+memory or estimation.** This is a hard rule, no exceptions. Verify each place's street address and
+its exact lat/lng against the place's **official site**, **Google/Apple/OpenStreetMap**, or
+**Wikipedia's published coordinates**, and record `{address, lat, lng, source, verified date}` in the
+central registry **`data/geocodes.json`**. That registry is the single source of truth for
+coordinates: the build injects lat/lng from it and **refuses to build a place with no sourced entry**;
+`node tools/research.js --geocheck <city-key>` audits coverage and must PASS before publishing. A
+coordinate you cannot verify does not go on the map — flag it, leave it out. Because every entry
+carries its source and date, pins stay auditable and updatable when a place closes or moves. Full
+procedure in [docs/SOURCES.md](docs/SOURCES.md#address--coordinate-verification--a-hard-rule-datageocodesjson).
+
 **5. Wrap every `localStorage` call in try/catch.** The guide is expected to run in sandboxes
 where storage throws. It degrades to in-memory; keep it that way.
 

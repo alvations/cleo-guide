@@ -245,15 +245,59 @@ will appear:
      (official site, historical society) and soften the wording.
 3. **Closed or moved?** Keep the entry, **flag it** honestly (`closed`, `reopened`, `call ahead`) —
    never silently drop it (a missing item reads as an error).
-4. **Record the check in `data/sources.json`:** set `"verified": true` on the source only once you've
+4. **VERIFY THE ADDRESS AND MAP COORDINATE — mandatory, never from memory (see below).** Confirm the
+   street address and the exact lat/lng against a primary source, and record both with that source in
+   `data/geocodes.json`. A place with no verified geocode entry **must not be built.**
+5. **Record the check in `data/sources.json`:** set `"verified": true` on the source only once you've
    checked a claim from it, and put the confirmed fact in its `covers` array. Un-checked stays
    `"verified": false`.
-5. **Creators:** confirm the creator actually covered the place/city (watch region-vs-city — e.g. a
+6. **Creators:** confirm the creator actually covered the place/city (watch region-vs-city — e.g. a
    video about a neighbouring town is region-scope). Label scope honestly on the page.
-6. **Re-run** `node tools/research.js --validate <city-key>`; it must pass before you build.
+7. **Re-run** `node tools/research.js --validate <city-key>`; it must pass before you build.
 
 Honesty rules carry over from the Cleveland methodology: added-from-general-knowledge is `added`,
 never relabelled as sourced; a cuisine tag needs a **named dish**; gaps are stated, not filled.
+
+## Address & coordinate verification — a hard rule (`data/geocodes.json`)
+
+> **Every address and every map coordinate MUST be fact-checked against a real source. Never place a
+> pin from memory or estimation.** This is not optional and not a one-time cleanup — it is part of
+> the fact-check for every place, every build, every refresh, every seed.
+
+**Verify against one of these primary sources**, in order of preference, and record which one:
+
+1. The place's **official website** (its "visit / directions" page — the authority on its own address).
+2. **Wikipedia's published coordinates** (the infobox prints DMS + decimal) for notable places.
+3. A **maps source** — **Google Maps, Apple Maps, or OpenStreetMap** search — or a reputable listing
+   that shows the map pin (Yelp, AAA, the CVB directory). (Note: in this environment direct map/tile
+   fetches are blocked, so confirm via WebSearch snippets that surface the maps listing.)
+
+**Rules for the coordinate:**
+- Decimal degrees, 5 places, longitude negative in the US. It must land on the **building/block** of
+  the confirmed address — a park, trail or district with no single address is pinned to its **main
+  entrance or most-visited point**, and the note says which.
+- **Sanity-check against the town/neighbourhood:** a coordinate that falls in the wrong town is wrong,
+  full stop — redo it. Never "fill in" a coordinate you could not verify; flag it and leave it out.
+
+**The central registry — `data/geocodes.json`.** Every place lives here, keyed by city then name:
+
+```json
+{ "cities": { "pittsburgh-pa": {
+  "Pennsylvania Trolley Museum": {
+    "address": "1 Electric Way, Washington, PA 15301",
+    "lat": 40.21134, "lng": -80.24609,
+    "source": "https://en.wikipedia.org/wiki/Pennsylvania_Trolley_Museum",
+    "verified": "2026-08-09", "confidence": "high" } } } }
+```
+
+This is the **single source of truth for coordinates and addresses.** The build reads lat/lng from it
+and **refuses to build any place that has no entry** (`node tools/research.js --geocheck <city-key>`
+audits coverage; the build script asserts it). Because each entry carries its `source` and `verified`
+date, the map is **auditable and updatable**: when a place closes or moves, re-verify against the same
+source, update the entry, and rebuild — the provenance travels with the coordinate.
+
+`node tools/research.js --geocheck <city-key>` lists any place on the page missing (or stale in) the
+registry, so verification can't be skipped.
 
 ### Worked fact-check examples (Youngstown, Aug 2026)
 

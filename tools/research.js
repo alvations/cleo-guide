@@ -42,6 +42,75 @@ function loadMedia() {
   catch (e) { return { cities: {} }; }
 }
 
+const GEO_PATH = path.join(__dirname, '..', 'data', 'geocodes.json');
+const PAGE_FOR = {
+  'cleveland-oh': path.join(__dirname, '..', 'cleveland.html'),
+  'pittsburgh-pa': path.join(__dirname, '..', 'cities', 'pittsburgh.html'),
+  'youngstown-oh': path.join(__dirname, '..', 'cities', 'youngstown.html'),
+};
+
+function loadGeocodes() {
+  try { return JSON.parse(fs.readFileSync(GEO_PATH, 'utf8')); }
+  catch (e) { return { cities: {} }; }
+}
+
+// Names of every place (sights + food) on a built city page — the P and F arrays
+// only (not the AREAS / CUISINES arrays, which also use an `n:` key).
+function pagePlaceNames(pageFile) {
+  const html = fs.readFileSync(pageFile, 'utf8');
+  const names = [];
+  const re = /\bn:"((?:[^"\\]|\\.)*)"/g;
+  for (const marker of ['const P = [', 'const F = [']) {
+    const s = html.indexOf(marker);
+    if (s < 0) continue;
+    const e = html.indexOf('\n];', s);
+    const block = html.slice(s, e < 0 ? undefined : e);
+    let m; while ((m = re.exec(block))) names.push(m[1].replace(/\\"/g, '"'));
+  }
+  return names;
+}
+
+// --geocheck: enforce that every place on the page has a verified geocode entry
+// (address + lat/lng + source) in data/geocodes.json. This is a HARD gate — no
+// place ships without a fact-checked, sourced coordinate. See docs/SOURCES.md.
+function geocheck(key) {
+  const line = '─'.repeat(72);
+  const page = PAGE_FOR[key];
+  if (!key || !page) {
+    console.log('\nUsage: node research.js --geocheck <city-key>   (e.g. pittsburgh-pa)');
+    console.log('Known city pages: ' + Object.keys(PAGE_FOR).join(', ') + '\n');
+    return;
+  }
+  if (!fs.existsSync(page)) { console.log('No page built at ' + page); return; }
+  const geo = (loadGeocodes().cities || {})[key] || {};
+  const names = pagePlaceNames(page);
+  console.log(`\nGEOCODE AUDIT — ${key}`);
+  console.log(line);
+  const missing = [], unsourced = [], ok = [];
+  for (const n of names) {
+    const e = geo[n];
+    if (!e) { missing.push(n); continue; }
+    if (e.lat == null || e.lng == null || !e.source) { unsourced.push(n); continue; }
+    ok.push(n);
+  }
+  console.log(`places on page: ${names.length}`);
+  console.log(`  verified (address + lat/lng + source): ${ok.length}`);
+  console.log(`  MISSING from data/geocodes.json:        ${missing.length}`);
+  missing.forEach(n => console.log('     ✗ ' + n));
+  console.log(`  incomplete (no lat/lng or no source):   ${unsourced.length}`);
+  unsourced.forEach(n => console.log('     ! ' + n));
+  const orphan = Object.keys(geo).filter(n => !names.includes(n));
+  if (orphan.length) console.log(`  (registry has ${orphan.length} entries not on the page — old/renamed)`);
+  const pass = missing.length === 0 && unsourced.length === 0;
+  console.log('\n' + line);
+  console.log(pass
+    ? '>>> PASS — every place has a fact-checked address + coordinate + source.'
+    : '>>> FAIL — verify the flagged places against an official site / Google/Apple/OSM map / Wikipedia,');
+  if (!pass) console.log('    then record address+lat/lng+source in data/geocodes.json. Never pin from memory.');
+  console.log('');
+  if (!pass) process.exitCode = 1;
+}
+
 // Print a city's recorded local news outlets & TV channels (data/local-media.json).
 function media(key) {
   const m = loadMedia();
@@ -370,6 +439,7 @@ if (argv[0] === '--validate') validate(argv[1]);
 else if (argv[0] === '--refresh') refresh(argv[1]);
 else if (argv[0] === '--media') media(argv[1]);
 else if (argv[0] === '--seed') seed(argv[1], argv[2]);
+else if (argv[0] === '--geocheck') geocheck(argv[1]);
 else if (argv[0] === '--list') list();
 else if (argv[0] && argv[0] !== '--help' && argv[0] !== '-h') plan(argv[0], argv[1]);
 else {
@@ -382,6 +452,7 @@ else {
   console.log('    node research.js --seed "<Place>" <city-key>   print the seed-expansion plan');
   console.log('  Shared');
   console.log('    node research.js --validate <city-key>    audit a city\'s sources before publishing');
+  console.log('    node research.js --geocheck <city-key>    audit that every place has a verified geocode');
   console.log('    node research.js --media <city-key>       list a city\'s local news outlets & TV channels');
   console.log('    node research.js --list                   list cities + when each was last updated');
 }
