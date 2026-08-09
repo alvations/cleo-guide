@@ -209,6 +209,11 @@
     .note{flex-direction:column;gap:4px;}
     #map{height:52vh;}
   }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
 </style>
 </head>
 <body>
@@ -1147,6 +1152,42 @@ ALL.forEach((p,i)=>{
   map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
   setBase('dark'); markBaseChips();
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
   return true;
 }
 

@@ -71,6 +71,9 @@ node research.js --validate akron-oh   # audit its sources before building a pag
 - **Visited tracking.** Mark places off; they dim, the pin greys, and presets skip them.
 - **Eight base layers.** Five free (dark, streets, light, satellite, terrain) plus three Google
   layers if you add your own API key.
+- **Show my location.** A tap drops a "you are here" marker so you can see what's around you. Privacy by
+  design: it's a one-time snapshot held only in memory — never stored, never sent anywhere — it persists while
+  you filter and zoom, and is gone the moment you refresh.
 - **Degrades honestly.** If the map library is blocked, the guide still renders in full and says so.
 
 ## Run it
