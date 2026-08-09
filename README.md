@@ -47,8 +47,9 @@ node research.js "Akron" "OH"          # print the research plan for a new city
 node research.js --validate akron-oh   # audit its sources before building a page
 ```
 
-- **[Youngstown, Ohio](cities/youngstown.html)** — 20 sights and 7 places to eat across the Mahoning Valley
-  (Wick Avenue's museums, Mill Creek Park, the downtown halls, Valley day trips, Brier Hill pizza). Uses the
+- **[Youngstown, Ohio](cities/youngstown.html)** — 29 sights and 15 places to eat &amp; drink across the Mahoning
+  Valley (Wick Avenue's museums, all of Mill Creek Park, the downtown halls, breweries, Brier Hill pizza, and
+  Warren's Dave Grohl Alley). Uses the
   **same interactive engine as Cleveland** — one map, area/source/rank filters, cuisine sub-filters, a trip
   builder, visited tracking and Google/Apple/KML/JSON exports — web-researched and fact-checked.
   A [Google-Maps rendering](cities/youngstown-beta.html) of the same shortlist is kept as a **beta** for review.

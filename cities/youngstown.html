@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Youngstown, Ohio field guide — 20 sights and 7 places to eat across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="description" content="Youngstown, Ohio field guide — 29 sights and 15 places to eat &amp; drink across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
 <title>Youngstown Field Guide — The Mahoning Valley, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -217,8 +217,8 @@
 <header>
   <p class="eyebrow">Field guide · the Mahoning Valley, sourced</p>
   <h1>Youngstown<span class="thin">steel, parks &amp; the odd corners</span></h1>
-  <p class="standfirst">20 sights and 7 places to eat across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
-  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>
+  <p class="standfirst">29 sights and 15 places to eat &amp; drink across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>
 </header>
 
 <div id="map"></div>
@@ -285,8 +285,8 @@
 <footer>
   Hours, admission and opening days change — verify before you drive.<br>
   A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
-  Compiled August 2026 · <strong>last verified 2026-08-08</strong>. Map tiles © OpenStreetMap contributors.<br>
-  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (see data/sources.json and docs/SOURCES.md). Coordinates are approximate pending a places-API pass; confirm addresses and hours before a drive. A Google-Maps rendering of the same shortlist is kept as a <a href="youngstown-beta.html">beta</a>.</span><br><br>
+  Compiled August 2026 · <strong>last verified 2026-08-09</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (see data/sources.json and docs/SOURCES.md). Coordinates are approximate pending a places-API pass; confirm addresses and hours before a drive. A Google-Maps rendering of the same guide is kept as a <a href="youngstown-beta.html">beta</a>.</span><br><br>
   <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
   <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
 </footer>
@@ -299,12 +299,14 @@
 const S = {
   AO:{k:"ATLAS OBSCURA",t:"Atlas Obscura — Ohio / Youngstown oddities",u:"https://www.atlasobscura.com/things-to-do/ohio",l:"Atlas Obscura"},
   T2N:{k:"TRAVEL2NEXT",t:"20 Things To Do in Youngstown, Ohio",u:"https://travel2next.com/things-to-do-youngstown-ohio/",l:"Travel2Next"},
-  EXM:{k:"EXPLORE MAHONING",t:"Explore Mahoning — local visitor guide",u:"https://exploremahoning.com",l:"Explore Mahoning (Mahoning County CVB)"},
+  EXM:{k:"EXPLORE MAHONING",t:"Explore Mahoning — attractions",u:"https://exploremahoning.com/visit/attractions/",l:"Explore Mahoning (Mahoning County CVB)"},
   MEL:{k:"MELNICK MUSEUM",t:"The Rose Melnick Medical Museum (YSU)",u:"https://melnick.ysu.edu",l:"Youngstown State University"},
   WBP:{k:"WARD BEECHER",t:"Ward Beecher Planetarium (YSU)",u:"https://www.wbplanetarium.org",l:"Youngstown State University"},
   MVHS:{k:"MAHONING HISTORY",t:"Mahoning Valley Historical Society",u:"https://mahoninghistory.org",l:"Mahoning Valley Historical Society"},
   MCMP:{k:"MILL CREEK METROPARKS",t:"Mill Creek MetroParks",u:"https://millcreekmetroparks.org",l:"Mill Creek MetroParks"},
   OHIO:{k:"OHIO TOURISM",t:"Ohio — Find It Here",u:"https://ohio.org",l:"Ohio tourism"},
+  BJ:{k:"BUSINESS JOURNAL",t:"The Business Journal (Mahoning Valley)",u:"https://businessjournaldaily.com",l:"The Business Journal"},
+  OHMAG:{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
   ADD:{k:"ADDED",t:"Well-known local landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"}
 };
 
@@ -318,93 +320,133 @@ const AREAS = [
 const P = [
 /* == WICK AVENUE & YSU == */
 {t:1,a:"WK",n:"Butler Institute of American Art",ad:"524 Wick Ave",la:41.1065,ln:-80.6478,
- w:"Opened in 1919 as the first museum in the country built solely for American art, with more than 20,000 works from Winslow Homer to the present. Free admission, and the anchor of the Wick Avenue museum row.",
- k:"Free. Open Tuesday–Sunday. Approximate map pin — confirm the entrance on Wick Ave.",s:[["T2N",""],["OHIO",""]]},
+ w:"Opened in 1919 as the first museum in the country built solely for American art, with more than 20,000 works from Winslow Homer to the present. Free, and the anchor of the Wick Avenue museum row — the piece of Youngstown that draws visitors from out of state.",
+ k:"Free. Open Tuesday–Sunday. Approximate map pin.",s:[["T2N",""],["OHIO",""],["EXM",""]]},
+{t:1,a:"WK",n:"Youngstown Historical Center of Industry and Labor",ad:"151 W Wood St",la:41.1028,ln:-80.6488,
+ w:"The Steel Museum — an Ohio History Connection site that tells the rise and collapse of the mills that built Youngstown, straight and unsentimental. The essential stop for understanding what this city was and what happened to it.",
+ k:"Admission charged. Check open days; often Wed–Sat.",s:[["OHIO",""],["T2N",""]]},
 {t:2,a:"WK",n:"Rose Melnick Medical Museum",ad:"Cushwa Hall, Youngstown State University",la:41.1045,ln:-80.6455,
- w:"YSU's history-of-medicine museum: office recreations, nursing and x-ray exhibits, and a bright yellow 1952 Emerson iron lung as its centrepiece. Founded 1985; now in Cushwa Hall. Listed by Atlas Obscura.",
- k:"Free. Campus building — check hours before going; parking is easier on weekends.",s:[["AO",""],["MEL",""]]},
+ w:"YSU's history-of-medicine museum: office recreations, nursing and x-ray exhibits, and a bright yellow 1952 Emerson iron lung as its centrepiece. Founded 1985; now in Cushwa Hall. An Atlas Obscura listing.",
+ k:"Free. Campus building — check hours; parking is easier on weekends.",s:[["AO",""],["MEL",""]]},
 {t:2,a:"WK",n:"Ward Beecher Planetarium",ad:"Ward Beecher Science Hall, 100 Lincoln Ave",la:41.1049,ln:-80.6472,
- w:"A well-regarded university planetarium running free public shows, typically Friday and Saturday evenings and Saturday afternoons from September through May.",
- k:"Free, no reservations. Doors 30 min early; latecomers cannot be admitted once dark. Shows Sept–May.",warn:1,s:[["EXM",""],["WBP",""]]},
-{t:3,a:"WK",n:"McDonough Museum of Art",ad:"525 Wick Ave",la:41.1069,ln:-80.6469,
- w:"Youngstown State's contemporary art museum, directly across Wick Avenue from the Butler. Rotating shows of new and student work. Free.",
- k:"Free. Closed between exhibitions — check the current show first.",s:[["ADD",""]]},
+ w:"A well-regarded university planetarium that has run free public shows since 1967 — typically Friday and Saturday evenings and Saturday afternoons, September through May.",
+ k:"Free, no reservations. Doors 30 min early; latecomers cannot enter once dark. Shows Sept–May.",warn:1,s:[["EXM",""],["WBP",""]]},
 {t:2,a:"WK",n:"Arms Family Museum",ad:"648 Wick Ave",la:41.1083,ln:-80.6472,
  w:"A 1905 Arts-and-Crafts mansion run by the Mahoning Valley Historical Society, furnished as it was and used to tell the story of the Valley's industrial families.",
  k:"Admission charged. Closed Mondays; check seasonal hours.",s:[["MVHS",""]]},
-{t:1,a:"WK",n:"Youngstown Historical Center of Industry and Labor",ad:"151 W Wood St",la:41.1028,ln:-80.6488,
- w:"The Steel Museum — an Ohio History Connection site that tells the rise and collapse of the mills that built Youngstown, straight and unsentimental. The essential stop for understanding the city.",
- k:"Admission charged. Check open days; often Wed–Sat.",s:[["OHIO",""]]},
+{t:2,a:"WK",n:"Stambaugh Auditorium",ad:"1000 Fifth Ave",la:41.1112,ln:-80.6543,
+ w:"A 1926 neoclassical concert hall with a marble-columned front, one of the finest rooms in the region and still a working venue, just north of Wick Park.",
+ k:"Ticketed events; the exterior is worth a look any time.",s:[["T2N",""]]},
+{t:3,a:"WK",n:"McDonough Museum of Art",ad:"525 Wick Ave",la:41.1069,ln:-80.6469,
+ w:"Youngstown State's contemporary art museum, directly across Wick Avenue from the Butler. Rotating shows of new and student work. Free.",
+ k:"Free. Often closed between exhibitions — check the current show.",s:[["ADD",""]]},
+{t:3,a:"WK",n:"Clarence R. Smith Mineral Museum",ad:"Moser Hall, Youngstown State University",la:41.1040,ln:-80.6440,
+ w:"A quiet hidden gem for rock hounds inside YSU — fluorescent minerals, fossils and crystals, free to walk through. Small, specific, and exactly the kind of thing this guide is for.",
+ k:"Free. Campus building; limited hours — check before going.",s:[["EXM",""]]},
 {t:3,a:"WK",n:"Wick Park",ad:"Fifth Ave & Park Ave, North Side",la:41.1128,ln:-80.6498,
  w:"A 34-acre 19th-century park ringed by the North Side's grand old mansions. A stroll and some architecture, not a ticket.",
- k:"Free, open daylight hours. Nicer by day.",s:[["ADD",""]]},
+ k:"Free, daylight hours. Nicer by day.",s:[["ADD",""]]},
 /* == MILL CREEK PARK & WEST SIDE == */
 {t:1,a:"MC",n:"Lanterman's Mill",ad:"1001 Canfield Rd, Mill Creek Park",la:41.0731,ln:-80.6809,
- w:"An 1845-46 grist mill restored and grinding again beside a waterfall on Mill Creek. The picture-book heart of one of the country's great metro parks.",
- k:"Seasonal — roughly May through October. Small admission. Approximate pin.",s:[["MCMP",""]]},
+ w:"An 1845–46 grist mill, restored and still grinding corn, wheat and buckwheat with the creek's rushing water, beside a waterfall. The picture-book heart of Mill Creek Park.",
+ k:"Seasonal — roughly May through October. Small admission. Approximate pin.",s:[["MCMP",""],["T2N",""],["EXM",""]]},
 {t:1,a:"MC",n:"Fellows Riverside Gardens",ad:"123 McKinley Ave, Mill Creek Park",la:41.0921,ln:-80.6816,
- w:"Free formal gardens overlooking Lake Glacier, with the Davis visitor center, a cafe and long seasonal colour. Part of Mill Creek MetroParks.",
- k:"Free. Gardens open daily; Davis Center has its own hours.",s:[["MCMP",""]]},
+ w:"Free formal gardens overlooking Lake Glacier, with the Davis visitor center, a cafe and long seasonal colour. Part of Mill Creek MetroParks and one of the loveliest free things in the Valley.",
+ k:"Free. Gardens open daily; Davis Center has its own hours.",s:[["MCMP",""],["EXM",""]]},
 {t:2,a:"MC",n:"Mill Creek Suspension Bridge (the Cinderella Bridge)",ad:"Mill Creek Park",la:41.0795,ln:-80.6795,
- w:"The slender pedestrian suspension span locals call the Cinderella Bridge — the park's signature photo and an Atlas Obscura listing.",
+ w:"The slender 86-foot pedestrian suspension span locals call the Cinderella Bridge, recently restored to its arches-and-spires opulence. The park's signature photo, and an Atlas Obscura listing.",
  k:"Free, always open. Approximate pin — it sits on a park trail.",s:[["AO",""],["MCMP",""]]},
+{t:2,a:"MC",n:"Lily Pond",ad:"Mill Creek Park",la:41.0760,ln:-80.6830,
+ w:"A restored pond circled by the quarter-mile Lily Pond Circle Trail — a short, flat, genuinely peaceful loop, revived from years of neglect with bioswales and permeable paving.",
+ k:"Free. Easy quarter-mile loop; good with kids. Approximate pin.",s:[["MCMP",""]]},
+{t:3,a:"MC",n:"Lake Newport & Newport Boathouse",ad:"Mill Creek Park",la:41.0680,ln:-80.6720,
+ w:"At 60 acres the largest of the park's three lakes. Kayaks and pedal boats rent from the Newport Boathouse in season — the easiest way to get out on the water in the city.",
+ k:"Boat rentals seasonal; the drive around the lakes is open year-round.",s:[["MCMP",""]]},
+{t:3,a:"MC",n:"Joanne Beeghly Rose Garden",ad:"Fellows Riverside Gardens, Mill Creek Park",la:41.0925,ln:-80.6810,
+ w:"A formal rose garden within Fellows Riverside Gardens, growing many classes of roses — at its best in June and July.",
+ k:"Free, within the gardens. Peak bloom early summer.",s:[["MCMP",""]]},
 {t:3,a:"MC",n:"Ford Nature Center",ad:"840 Old Furnace Rd, Mill Creek Park",la:41.0705,ln:-80.6890,
  w:"A stone-house nature center and trailhead into the wooded interior of Mill Creek Park, with exhibits and easy walks.",
  k:"Free. Check hours; trails open dawn to dusk.",s:[["MCMP",""]]},
 {t:3,a:"MC",n:"Pioneer Pavilion",ad:"Mill Creek Park",la:41.0805,ln:-80.6820,
- w:"An 1821 stone mill building, one of the oldest structures in the area, now a picnic pavilion in the park.",
- k:"Free. A short stop; combine with Lanterman's Mill.",s:[["MCMP",""]]},
+ w:"An 1821 stone woolen-mill building, one of the oldest structures around, remodeled in 1893 and now a rentable pavilion for reunions and receptions.",
+ k:"Free to look; rentable for events. Combine with Lanterman's Mill.",s:[["MCMP",""]]},
+{t:3,a:"MC",n:"Mill Creek Golf Course",ad:"1 W Golf Dr, Mill Creek Park",la:41.0600,ln:-80.6650,
+ w:"Two 18-hole, par-70 championship courses that opened to the public in 1928, laid through the park's woods — a genuine draw for golfers.",
+ k:"Tee times through the MetroParks. Seasonal. Approximate pin.",s:[["MCMP",""]]},
 /* == DOWNTOWN == */
-{t:1,a:"DT",n:"Stambaugh Auditorium",ad:"1000 Fifth Ave",la:41.1112,ln:-80.6543,
- w:"A 1926 neoclassical concert hall with a marble-columned front, one of the finest rooms in the region and still a working venue.",
- k:"Ticketed events; the exterior is worth a look any time. Just north of Wick Park.",s:[["ADD",""]]},
+{t:1,a:"DT",n:"DeYor Performing Arts Center (Powers Auditorium)",ad:"260 W Federal St",la:41.0982,ln:-80.6510,
+ w:"Home of the Youngstown Symphony, behind a 1931 movie-palace facade on West Federal Street. The Valley's main stage for orchestra, ballet and touring shows.",
+ k:"Ticketed performances. Lobby worth a peek on show nights.",s:[["ADD",""]]},
 {t:2,a:"DT",n:"Tyler History Center",ad:"325 W Federal St",la:41.0987,ln:-80.6520,
  w:"The Historical Society's downtown museum of Mahoning Valley history, in a restored former department store on West Federal Street.",
  k:"Admission charged. Check open days before going.",s:[["MVHS",""]]},
-{t:2,a:"DT",n:"DeYor Performing Arts Center (Powers Auditorium)",ad:"260 W Federal St",la:41.0982,ln:-80.6510,
- w:"Home of the Youngstown Symphony, behind a 1931 movie-palace facade on West Federal Street. The Valley's main stage for orchestra and touring shows.",
- k:"Ticketed performances. Lobby worth a peek on show nights.",s:[["ADD",""]]},
-{t:3,a:"DT",n:"Covelli Centre",ad:"229 E Front St",la:41.0956,ln:-80.6468,
- w:"The downtown riverfront arena — hockey, concerts and events. The anchor of the eastern edge of downtown.",
- k:"Event venue; nothing to see when dark. Check the calendar.",s:[["ADD",""]]},
+{t:2,a:"DT",n:"Roger & Gloria Jones Children's Center for Science & Technology",ad:"Downtown Youngstown",la:41.1010,ln:-80.6490,
+ w:"A hands-on STEM center for kids that opened in 2011, with interactive science and technology exhibits — the family stop downtown.",
+ k:"Admission charged; best for children. Check hours. Approximate pin.",s:[["EXM",""]]},
 {t:2,a:"DT",n:"The Youngstown Playhouse",ad:"600 Playhouse Ln",la:41.0771,ln:-80.6725,
  w:"Among the oldest continuously operating community theaters in the United States, staging affordable productions on the South Side.",
  k:"Tickets are cheap; check the season's schedule.",s:[["T2N",""]]},
+{t:3,a:"DT",n:"Covelli Centre",ad:"229 E Front St",la:41.0956,ln:-80.6468,
+ w:"The downtown riverfront arena — Phantoms hockey, concerts and events, and the anchor of the eastern edge of downtown.",
+ k:"Event venue; nothing to see when dark. Check the calendar.",s:[["ADD",""]]},
+{t:3,a:"DT",n:"Downtown Youngstown murals",ad:"around W Federal St & Central Square",la:41.0985,ln:-80.6500,
+ w:"A growing set of large downtown murals, several honoured statewide, that have brightened the old commercial core. Walkable in an afternoon between Central Square and the arts district.",
+ k:"Free, outdoors, always up. Ask at a downtown shop for the current mural map. Approximate pin.",s:[["BJ",""]]},
 /* == MAHONING VALLEY DAY TRIPS == */
+{t:1,a:"DY",n:"Dave Grohl Alley",ad:"125 David Grohl Alley, Warren, OH",la:41.2378,ln:-80.8183,
+ w:"A brick alley in downtown Warren painted wall-to-wall in tribute to Warren-born Nirvana/Foo Fighters drummer Dave Grohl — murals, a metal figure at a drum kit, and a pair of 900-pound drumsticks billed as the world's largest.",
+ k:"Free, outdoors. In Warren, about 20 minutes north; pair with a Modern Methods beer next door.",s:[["OHMAG",""],["BJ",""]]},
 {t:1,a:"DY",n:"National McKinley Birthplace Memorial & Museum",ad:"40 N Main St, Niles, OH",la:41.1835,ln:-80.7590,
- w:"A columned memorial and museum to President William McKinley in his birthplace of Niles, a short drive north of Youngstown.",
- k:"Free. In Niles, about 15 minutes from downtown. Check museum hours.",s:[["ADD",""]]},
+ w:"A columned memorial and museum to President William McKinley in his birthplace of Niles, a short drive north of Youngstown. Free, and grander than you expect for a small city.",
+ k:"Free. In Niles, about 15 minutes away. Check museum hours.",s:[["ADD",""]]},
+{t:2,a:"DY",n:"White House Fruit Farm",ad:"9249 Youngstown-Salem Rd, Canfield, OH",la:41.0000,ln:-80.7800,
+ w:"A big farm market southwest of the city famous for its cider, apple-cider doughnuts, pies and fall pumpkins — a Valley autumn tradition.",
+ k:"Busiest in fall. In Canfield, about 20 minutes out. Approximate pin.",s:[["EXM",""]]},
 {t:2,a:"DY",n:"Canfield Fairgrounds",ad:"7265 Columbiana-Canfield Rd, Canfield, OH",la:41.0206,ln:-80.7595,
  w:"Home of the Canfield Fair, Ohio's largest county fair, over Labor Day week. The grounds are quiet off-season.",
  k:"The fair is late Aug–Labor Day. Otherwise little to see. Seasonal.",warn:1,s:[["T2N",""]]},
 {t:2,a:"DY",n:"Idora Park Experience",ad:"near Canfield Rd, Youngstown",la:41.0709,ln:-80.7010,
- w:"The beloved Idora Park amusement park closed in 1984; volunteers now keep a museum of its memorabilia. A piece of vanished Youngstown.",
+ w:"The beloved Idora Park amusement park closed in 1984; volunteers now keep a museum of its memorabilia. A piece of vanished Youngstown, opened only on select days.",
  k:"Limited hours — call or check ahead. The park itself is long gone. Approximate pin.",warn:1,s:[["AO",""]]}
 ];
 
 const FS = {
+  HTP:{k:"HOMETOWN PLATE",t:"Best Restaurants in Youngstown",u:"https://hometownplate.com/list/best-restaurants-in-youngstown-ohio/",l:"HometownPlate"},
+  EXM:{k:"EXPLORE MAHONING",t:"Explore Mahoning — food & drink",u:"https://exploremahoning.com",l:"Explore Mahoning"},
+  EXM_SLICE:{k:"EXPLORE MAHONING",t:"Where to Grab a Slice in Y-town",u:"https://exploremahoning.com/where-to-grab-a-slice-in-y-town/",l:"Explore Mahoning"},
   GO_BH:{k:"GASTRO OBSCURA",t:"Brier Hill Pizza",u:"https://www.atlasobscura.com/foods/brier-hill-pizza",l:"Gastro Obscura"},
   WIKI_BH:{k:"WIKIPEDIA",t:"Brier Hill-style pizza",u:"https://en.wikipedia.org/wiki/Brier_Hill-style_pizza",l:"Wikipedia"},
-  EXM_SLICE:{k:"EXPLORE MAHONING",t:"Where to Grab a Slice in Y-town",u:"https://exploremahoning.com/where-to-grab-a-slice-in-y-town/",l:"Explore Mahoning"},
-  HTP:{k:"HOMETOWN PLATE",t:"Best Restaurants in Youngstown",u:"https://hometownplate.com/list/best-restaurants-in-youngstown-ohio/",l:"HometownPlate"},
   HANDEL:{k:"HANDEL'S HISTORY",t:"Handel's Homemade Ice Cream — history",u:"https://handelsicecream.com/history/",l:"Handel's official history"},
   GD:{k:"BUSINESS JOURNAL",t:"Golden Dawn to reopen",u:"https://businessjournaldaily.com",l:"The Business Journal"},
+  BJ:{k:"BUSINESS JOURNAL",t:"The Business Journal — food & drink",u:"https://businessjournaldaily.com",l:"The Business Journal"},
+  VIND:{k:"THE VINDICATOR",t:"History of brewing beer in Youngstown",u:"https://www.vindy.com",l:"The Vindicator"},
+  OHMAG:{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
   FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"}
 };
 
 const CUISINES = [
-  {id:"PZ", n:"Brier Hill & Pizza"},
-  {id:"IT", n:"Italian"},
-  {id:"DES",n:"Dessert"},
-  {id:"DR", n:"Drinks & Breweries"}
+  {id:"PZ",  n:"Brier Hill & Pizza"},
+  {id:"IT",  n:"Italian"},
+  {id:"DELI",n:"Deli & Sandwiches"},
+  {id:"CAF", n:"Cafe & Coffee"},
+  {id:"DES", n:"Dessert"},
+  {id:"DR",  n:"Drinks & Breweries"},
+  {id:"AM",  n:"American"}
 ];
 
 const F = [
 {t:1,a:"DT",cz:["IT","PZ"],n:"Cassese's MVR",ad:"410 N Walnut St",la:41.1039,ln:-80.6519,
- w:"Open since 1927. The dish is a Brier Hill Smoky Hollow pizza — tomato, bell peppers and grated romano — eaten beside the bocce courts out back. As Youngstown as it gets.",
+ w:"Open since 1927. The dish is a Brier Hill 'Smoky Hollow' pizza — tomato, bell peppers and grated romano — eaten beside the bocce courts out back. As Youngstown as it gets.",
  k:"Italian institution; bocce in season. Confirm hours.",s:[["HTP",""]]},
+{t:1,a:"DT",cz:["IT"],n:"Yosteria",ad:"downtown Youngstown",la:41.0975,ln:-80.6510,
+ w:"A downtown Italian spot that regularly tops the city's restaurant lists, praised for its ricotta board and made-to-order pastas.",
+ k:"Popular; reservations help on weekends. Approximate pin.",s:[["HTP",""],["EXM",""]]},
+{t:1,a:"WK",cz:["DELI"],n:"Kravitz Delicatessen",ad:"3135 Belmont Ave, Liberty",la:41.1370,ln:-80.6620,
+ w:"A classic Jewish delicatessen north of downtown, widely called the best corned beef in the Valley — plus rye, latkes and the rest of the deli canon.",
+ k:"Lunch counter; go for the corned beef. Approximate pin.",s:[["HTP",""]]},
 {t:1,a:"MC",cz:["DES"],n:"Handel's Homemade Ice Cream",ad:"South Ave, Youngstown",la:41.0642,ln:-80.6543,
- w:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide with its HQ in Canfield.",
+ w:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide, with its HQ in Canfield.",
  k:"Cash-friendly, seasonal lines. The original location marks Handel's roots.",s:[["HANDEL",""]]},
 {t:2,a:"WK",cz:["IT"],n:"Golden Dawn",ad:"1245 Logan Ave",la:41.1120,ln:-80.6558,
  w:"A 1932 Brier Hill Italian-American landmark on Logan Avenue. It closed in 2017 and has since reopened — running again, tied to the neighbourhood's pizza lore.",
@@ -415,12 +457,30 @@ const F = [
 {t:2,a:"DT",cz:["PZ"],n:"Avalon Downtown Pizzeria",ad:"Downtown Youngstown",la:41.0976,ln:-80.6503,
  w:"A brick-walled downtown spot serving Brier Hill pizza alongside inventions like a Pesto Hot Honey pie.",
  k:"Downtown; good lunch stop between museums.",s:[["HTP",""]]},
+{t:2,a:"DT",cz:["AM"],n:"The Federal",ad:"101 W Federal St",la:41.0983,ln:-80.6497,
+ w:"A bar and gathering spot on Federal Plaza with a patio and frequent live music — the social heart of downtown after dark, with a solid American menu.",
+ k:"Bar/venue; check the music calendar. Approximate pin.",s:[["EXM",""]]},
+{t:2,a:"DT",cz:["CAF","DES"],n:"The Mocha House",ad:"downtown Youngstown",la:41.0985,ln:-80.6520,
+ w:"A long-running cafe known for towering cakes, pastries and coffee, with a comfortable downtown room for a slower stop.",
+ k:"Cafe hours; save room for cake. Approximate pin.",s:[["HTP",""]]},
+{t:2,a:"DT",cz:["DR"],n:"Noble Creature Wild Ales & Lagers",ad:"101 E Boardman St",la:41.0968,ln:-80.6470,
+ w:"A downtown microbrewery in a historic church, all beer made onsite, specialising in wild ales and lagers — a distinctive taproom.",
+ k:"Taproom hours vary; check before you go. Approximate pin.",s:[["HTP",""],["VIND",""]]},
+{t:2,a:"DT",cz:["DR"],n:"Penguin City Brewing Company",ad:"460 E Federal St",la:41.0968,ln:-80.6440,
+ w:"A downtown brewery in a former warehouse, pitched as Youngstown's go-to hometown beer, with a big room, a disco ball and live music. Named for the city's old 'Penguin' nickname.",
+ k:"Taproom; check hours and events. Approximate pin.",s:[["BJ",""],["VIND",""]]},
 {t:3,a:"WK",cz:["PZ"],n:"St. Anthony of Padua parish pizza",ad:"Brier Hill",la:41.1140,ln:-80.6640,
  w:"The Brier Hill church that sells hundreds of pizzas a week as a parish fundraiser — takeout, cash, and a genuine piece of neighbourhood lore.",
  k:"Fundraiser hours only — call ahead. Cash. Approximate pin.",warn:1,s:[["EXM_SLICE",""]]},
-{t:2,a:"DT",cz:["DR"],n:"Noble Creature Wild Ales & Lagers",ad:"Youngstown",la:41.0930,ln:-80.6390,
- w:"A former church turned brewery pouring wild ales and lagers — the drinks stop on this list.",
- k:"Taproom hours vary; check before you go. Approximate pin.",s:[["HTP",""]]}
+{t:3,a:"DT",cz:["IT"],n:"Casa Di Canzonetta",ad:"downtown Youngstown",la:41.0950,ln:-80.6600,
+ w:"A well-liked Italian restaurant that turns up alongside the city's best, for a sit-down red-sauce dinner.",
+ k:"Dinner; confirm hours. Approximate pin.",s:[["HTP",""]]},
+{t:3,a:"DY",cz:["DR"],n:"Modern Methods Brewing Company",ad:"125 David Grohl Alley, Warren, OH",la:41.2378,ln:-80.8180,
+ w:"Warren's first craft brewery since 1880, opened 2018 right on Dave Grohl Alley — IPAs, stouts and pilsners in a mural-wrapped tasting room.",
+ k:"In Warren, ~20 min north; pair with Dave Grohl Alley.",s:[["OHMAG",""]]},
+{t:3,a:"DY",cz:["DR"],n:"Birdfish Brewing Co.",ad:"38 E Main St, Columbiana, OH",la:40.8880,ln:-80.6940,
+ w:"A community-minded small brewery in nearby Columbiana with a dozen rotating craft beers on tap — worth the drive south.",
+ k:"In Columbiana, ~25 min south. Check taproom hours. Approximate pin.",s:[["FADD",""]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -713,7 +773,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'brier hill, bocce, ice cream, wild ale\u2026' : 'iron lung, planetarium, brier hill, mill\u2026';
+    ? 'brier hill, corned beef, wild ale, cider\u2026' : 'iron lung, planetarium, brier hill, mill\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -883,7 +943,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the food list works'
   + '<span>Youngstown&#39;s signature is Brier Hill pizza \u2014 a pepper-and-romano pie with little or no mozzarella. A cuisine tag needs a named dish, not a label. Anything tagged ADDED is from general knowledge and should be verified before a visit.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
-  + '<span>Sources were found and cross-checked with web search. Direct page fetches are blocked in the build environment, so sourcing relied on search results, not full-page reads. The ranked, fact-checked sources for this city live in data/sources.json; the process is documented in docs/SOURCES.md.</span></div></div>'
+  + '<span>Sources were found and cross-checked with web search. Direct page fetches are blocked in the build environment, so sourcing relied on search results, not full-page reads. The ranked sources for this city live in data/sources.json; the process is documented in docs/SOURCES.md.</span></div></div>'
   + '<div class="srcrow"><span class="k">COVERED BY</span><div class="t">YouTube &amp; creators'
   + '<span>Peter Santenello (4.2M) covered next-door East Palestine \u2014 regional, not the city itself; Phil Kidd walks downtown Youngstown; Explore Mahoning covers the Valley. The Google-Maps beta page carries the full creator panel.</span></div></div>';
 
@@ -892,7 +952,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 27 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 44 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

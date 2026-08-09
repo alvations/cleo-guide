@@ -65,9 +65,14 @@
     },
     "youngstown-oh": {
       "name": "Youngstown, Ohio",
-      "lastUpdated": "2026-08-08",
+      "lastUpdated": "2026-08-09",
       "refreshLog": [
-        { "date": "2026-08-08", "mode": "build", "findings": ["Initial web-researched, fact-checked build."] }
+        { "date": "2026-08-08", "mode": "build", "findings": ["Initial web-researched, fact-checked build (Google-Maps rendering)."] },
+        { "date": "2026-08-09", "mode": "expand", "findings": [
+          "Rebuilt on the Cleveland interactive engine (map, filters, trip builder, exports); Google-Maps version kept as youngstown-beta.html.",
+          "Expanded to 29 sights + 15 food/drink via web search: added Clarence R. Smith Mineral Museum, Jones Children's science center, Mill Creek Lily Pond / Lake Newport / Rose Garden / golf, downtown murals, and Warren's Dave Grohl Alley.",
+          "Added food & drink: Yosteria, Kravitz Delicatessen, The Federal, The Mocha House, Casa Di Canzonetta, and breweries Penguin City, Modern Methods (Warren), Birdfish (Columbiana)."
+        ] }
       ],
       "aliases": ["Mahoning Valley"],
       "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/ohio",
