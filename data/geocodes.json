@@ -1,0 +1,2203 @@
+{
+ "_meta": {
+  "purpose": "Central, verifiable registry of every place's fact-checked address and exact map coordinate, with the source used to validate each. This is the single source of truth for map pins.",
+  "rule": "Never place a pin from memory or estimation. Verify address + lat/lng against the place's official site, Google/Apple/OpenStreetMap, or Wikipedia's published coordinates; record the source and date here. The build injects lat/lng from this file and fails on any place missing an entry.",
+  "howToUpdate": "When a place closes or moves, re-verify against its source, update address/lat/lng/source/verified, and rebuild. Closed places stay (flagged) — keep the entry so the pin and its provenance remain auditable.",
+  "audit": "node tools/research.js --geocheck <city-key>  — lists any place on the page missing a verified geocode; must PASS before publishing.",
+  "fields": "address, lat, lng, source (URL or naming authority: official|wikipedia|google|apple|osm|yelp), verified (YYYY-MM-DD), confidence (high|med|low), note",
+  "updated": "2026-08-09"
+ },
+ "cities": {
+  "pittsburgh-pa": {
+   "Primanti Bros (original)": {
+    "address": "46 18th St, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45071,
+    "lng": -79.98559,
+    "source": "Wikipedia/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "18th St mid-block, Wikipedia coord"
+   },
+   "The Original Oyster House": {
+    "address": "20 Market Sq, Downtown, Pittsburgh, PA 15222",
+    "lat": 40.44148,
+    "lng": -80.00198,
+    "source": "Yelp/VisitPittsburgh",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "north side of Market Square"
+   },
+   "Pamela's Diner (Strip)": {
+    "address": "60 21st St, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45195,
+    "lng": -79.98362,
+    "source": "Apple Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Apple Maps geocode 21st St"
+   },
+   "Gaucho Parrilla Argentina": {
+    "address": "1601 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.44965,
+    "lng": -79.98645,
+    "source": "Yelp/NextPittsburgh",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "original Strip loc; moved to 146 Sixth"
+   },
+   "Pierogies Plus": {
+    "address": "342 Island Ave, McKees Rocks, PA 15136",
+    "lat": 40.46895,
+    "lng": -80.06485,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "McKees Rocks business district"
+   },
+   "S&D Polish Deli": {
+    "address": "2204 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45241,
+    "lng": -79.98305,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave at 22nd St"
+   },
+   "Papa J's Twin Plaza": {
+    "address": "2016 Smallman St, Pittsburgh, PA 15222",
+    "lat": 40.4514,
+    "lng": -79.9812,
+    "source": "https://www.yelp.com/biz/papa-js-twin-plaza-pittsburgh-2",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Strip District, 21st & Smallman"
+   },
+   "De Luca's Diner": {
+    "address": "2015 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45152,
+    "lng": -79.98415,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave at 20th St"
+   },
+   "La Prima Espresso": {
+    "address": "205 21st St, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.4519,
+    "lng": -79.98375,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "21st St corner near Penn"
+   },
+   "De Fer Coffee & Tea": {
+    "address": "2002 Smallman St, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45165,
+    "lng": -79.98436,
+    "source": "Apple Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Apple Maps; was 2010, is 2002 Smallman"
+   },
+   "Klavon's Ice Cream Parlor": {
+    "address": "2801 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45517,
+    "lng": -79.97967,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave at 28th St, NE Strip"
+   },
+   "Mancini's Bakery": {
+    "address": "1717 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45015,
+    "lng": -79.98583,
+    "source": "Yelp/model",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave at 17th St"
+   },
+   "Gus and Yia Yia's": {
+    "address": "638 W Ohio St, North Side, Pittsburgh, PA 15212",
+    "lat": 40.4556,
+    "lng": -80.0124,
+    "source": "Yelp/Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "cart at W Ohio & Brighton, Allegheny Commons"
+   },
+   "Enrico Biscotti": {
+    "address": "2022 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45155,
+    "lng": -79.98412,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave at 20th St"
+   },
+   "Wigle Whiskey": {
+    "address": "2401 Smallman St, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45349,
+    "lng": -79.98209,
+    "source": "Yelp/model",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Smallman at 24th St"
+   },
+   "Dancing Gnome": {
+    "address": "1025 Main St, Sharpsburg, PA 15215",
+    "lat": 40.49387,
+    "lng": -79.93155,
+    "source": "https://maps.apple.com (Dancing Gnome Beer, 1025 Main St)",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Sharpsburg taproom; 1025 not 925"
+   },
+   "Grist House Craft Brewery": {
+    "address": "10 E Sherman St, Millvale, PA 15209",
+    "lat": 40.47873,
+    "lng": -79.97237,
+    "source": "Apple Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Apple Maps coordinate Millvale"
+   },
+   "The Strip District": {
+    "address": "Penn Ave & Smallman St, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.4518,
+    "lng": -79.9835,
+    "source": "model/area",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "neighborhood centroid near 21st"
+   },
+   "Pennsylvania Macaroni Company (Penn Mac)": {
+    "address": "2010 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.4515,
+    "lng": -79.98418,
+    "source": "Yelp/model",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave at 20th St"
+   },
+   "Wholey's": {
+    "address": "1711 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45011,
+    "lng": -79.98588,
+    "source": "geocode/Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "geocoded 17th St Penn Ave"
+   },
+   "Reyna Foods": {
+    "address": "2031 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45175,
+    "lng": -79.98392,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave between 20th-21st"
+   },
+   "Farmers@Firehouse": {
+    "address": "2216 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45245,
+    "lng": -79.983,
+    "source": "model/Penn Ave calib",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "old No.7 firehouse, Penn at 22nd"
+   },
+   "Point State Park & the Fort Pitt Museum": {
+    "address": "601 Commonwealth Pl, Pittsburgh, PA 15222",
+    "lat": 40.44063,
+    "lng": -80.00885,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Fort Pitt Museum bldg, the Point"
+   },
+   "Fort Pitt Block House": {
+    "address": "Point State Park, Pittsburgh, PA 15222",
+    "lat": 40.4412,
+    "lng": -80.0098,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Point tip, oldest structure"
+   },
+   "Great Allegheny Passage — Pittsburgh trailhead": {
+    "address": "Point State Park (waters-edge medallion), Pittsburgh, PA",
+    "lat": 40.4416,
+    "lng": -80.0118,
+    "source": "official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Point tip medallion, waters edge"
+   },
+   "Three Rivers Heritage Trail": {
+    "address": "Both banks of the three rivers, Pittsburgh, PA",
+    "lat": 40.4462,
+    "lng": -80.0075,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "North Shore riverfront segment"
+   },
+   "The Andy Warhol Museum": {
+    "address": "117 Sandusky St, Pittsburgh, PA 15212",
+    "lat": 40.4484,
+    "lng": -80.0024,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Sandusky St, North Shore"
+   },
+   "Mattress Factory": {
+    "address": "500 Sampsonia Way, Pittsburgh, PA 15212",
+    "lat": 40.45715,
+    "lng": -80.01219,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Sampsonia Way, Central Northside"
+   },
+   "Senator John Heinz History Center": {
+    "address": "1212 Smallman St, Pittsburgh, PA 15222",
+    "lat": 40.4466,
+    "lng": -79.9922,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Smallman St, Strip District"
+   },
+   "National Aviary": {
+    "address": "700 Arch St, Pittsburgh, PA 15212",
+    "lat": 40.4533,
+    "lng": -80.01,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Allegheny Commons, North Side"
+   },
+   "Carnegie Science Center": {
+    "address": "1 Allegheny Ave, Pittsburgh, PA 15212",
+    "lat": 40.44563,
+    "lng": -80.01821,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "riverfront, Chateau/North Shore"
+   },
+   "Children's Museum of Pittsburgh": {
+    "address": "10 Children's Way, Pittsburgh, PA 15212",
+    "lat": 40.4528,
+    "lng": -80.0088,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Allegheny Sq, near Buhl"
+   },
+   "Randyland": {
+    "address": "1501 Arch St, Pittsburgh, PA 15212",
+    "lat": 40.45793,
+    "lng": -80.00974,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Arch St, Central Northside"
+   },
+   "Bicycle Heaven": {
+    "address": "1800 Preble Ave, Pittsburgh, PA 15233",
+    "lat": 40.45614,
+    "lng": -80.03219,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Preble Ave, Chateau"
+   },
+   "St. Anthony's Chapel": {
+    "address": "1704 Harpster St, Pittsburgh, PA 15212",
+    "lat": 40.46489,
+    "lng": -79.98369,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Harpster St, Troy Hill"
+   },
+   "August Wilson African American Cultural Center": {
+    "address": "980 Liberty Ave, Pittsburgh, PA 15222",
+    "lat": 40.4433,
+    "lng": -79.9957,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Liberty Ave, Cultural District"
+   },
+   "Heinz Hall": {
+    "address": "600 Penn Ave, Pittsburgh, PA 15222",
+    "lat": 40.44267,
+    "lng": -80.00145,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Penn Ave, Cultural District"
+   },
+   "PNC Park": {
+    "address": "115 Federal St, Pittsburgh, PA 15212",
+    "lat": 40.44694,
+    "lng": -80.00583,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Federal St, North Shore"
+   },
+   "Allegheny Observatory": {
+    "address": "159 Riverview Ave, Pittsburgh, PA 15214",
+    "lat": 40.48253,
+    "lng": -80.02083,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Riverview Park, Perry North"
+   },
+   "Maxo Vanka Murals, St. Nicholas Croatian Catholic Church": {
+    "address": "24 Maryland Ave, Millvale, PA 15209",
+    "lat": 40.4806,
+    "lng": -79.9776,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Maryland Ave, Millvale hillside"
+   },
+   "Roberto Clemente Bridge & the Three Sisters": {
+    "address": "Sixth St over Allegheny River, Pittsburgh, PA",
+    "lat": 40.4456,
+    "lng": -80.0033,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "6th St bridge midspan, Three Sisters"
+   },
+   "Fred Rogers Memorial statue": {
+    "address": "North Shore Riverfront Park, Pittsburgh, PA 15212",
+    "lat": 40.4459,
+    "lng": -80.0117,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Manchester Bridge pier, riverfront"
+   },
+   "Acrisure Stadium": {
+    "address": "100 Art Rooney Ave, Pittsburgh, PA 15212",
+    "lat": 40.44673,
+    "lng": -80.01582,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Art Rooney Ave, North Shore"
+   },
+   "Market Square & the Cultural District": {
+    "address": "Market Square, Downtown, Pittsburgh, PA 15222",
+    "lat": 40.4407,
+    "lng": -80.0025,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Market Sq, Downtown"
+   },
+   "PPG Place Wintergarden": {
+    "address": "Third Ave & Market St (PPG Place), Pittsburgh, PA 15222",
+    "lat": 40.4399,
+    "lng": -80.0031,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "PPG Place, Third Ave side"
+   },
+   "City of Asylum / Alphabet City": {
+    "address": "40 W North Ave, Pittsburgh, PA 15212",
+    "lat": 40.45562,
+    "lng": -80.00752,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "W North Ave, North Side"
+   },
+   "Photo Antiquities Museum of Photographic History": {
+    "address": "531 E Ohio St, Pittsburgh, PA 15212",
+    "lat": 40.45348,
+    "lng": -79.99953,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "E Ohio St, Deutschtown"
+   },
+   "PPG Paints Arena": {
+    "address": "1001 Fifth Ave, Pittsburgh, PA 15219",
+    "lat": 40.43945,
+    "lng": -79.98989,
+    "source": "wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Fifth Ave, Uptown"
+   },
+   "Kayak Pittsburgh": {
+    "address": "River Front Plaza (under Clemente Br), North Shore, Pittsburgh, PA",
+    "lat": 40.4453,
+    "lng": -80.0037,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "under Clemente Br, North Shore landing"
+   },
+   "Fineview Overlook": {
+    "address": "308 Catoma St, Pittsburgh, PA 15214",
+    "lat": 40.4636,
+    "lng": -80.0057,
+    "source": "other",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Catoma St overlook, Fineview"
+   },
+   "Carrie Blast Furnaces National Historic Landmark": {
+    "address": "801 Carrie Furnace Blvd, Rankin, PA 15104",
+    "lat": 40.41308,
+    "lng": -79.89008,
+    "source": "Wikipedia Carrie Furnace",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Rankin north bank"
+   },
+   "Pump House & Battle of Homestead Site": {
+    "address": "880 E Waterfront Dr, Munhall, PA 15120",
+    "lat": 40.41307,
+    "lng": -79.89677,
+    "source": "hmdb.org marker",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "HMDB marker, Munhall waterfront"
+   },
+   "Braddock Carnegie Library": {
+    "address": "419 Library St, Braddock, PA 15104",
+    "lat": 40.40187,
+    "lng": -79.86543,
+    "source": "Wikipedia/hmdb",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Braddock"
+   },
+   "Carnegie Library of Homestead Music Hall": {
+    "address": "510 E 10th Ave, Munhall, PA 15120",
+    "lat": 40.4071,
+    "lng": -79.903,
+    "source": "hmdb.org marker",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "HMDB marker, Munhall"
+   },
+   "Bost Building (Rivers of Steel Visitor Center)": {
+    "address": "623 E 8th Ave, Homestead, PA 15120",
+    "lat": 40.40902,
+    "lng": -79.90446,
+    "source": "Google Maps/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google/Yelp coord, Homestead"
+   },
+   "The Waterfront & the Homestead stacks": {
+    "address": "E Waterfront Dr, Munhall/Homestead, PA 15120",
+    "lat": 40.41111,
+    "lng": -79.91111,
+    "source": "https://en.wikipedia.org/wiki/The_Waterfront",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "preserved stacks, Munhall Waterfront"
+   },
+   "Monroeville Mall & the Living Dead Museum": {
+    "address": "200 Mall Circle Dr, Monroeville, PA 15146",
+    "lat": 40.42976,
+    "lng": -79.79517,
+    "source": "Wikipedia Monroeville Mall",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Monroeville"
+   },
+   "Boyce Park": {
+    "address": "675 Old Frankstown Rd, Plum, PA 15239",
+    "lat": 40.46556,
+    "lng": -79.74528,
+    "source": "Waze/geocode",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Waze coord, Plum"
+   },
+   "Aspinwall Riverfront Park": {
+    "address": "285 River Ave, Aspinwall, PA 15215",
+    "lat": 40.4905,
+    "lng": -79.9,
+    "source": "borough geocode",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "riverside estimate, Aspinwall"
+   },
+   "Beechwood Farms Nature Reserve": {
+    "address": "614 Dorseyville Rd, Fox Chapel, PA 15238",
+    "lat": 40.54265,
+    "lng": -79.90589,
+    "source": "geocode Dorseyville Rd",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "geocoded coord, Fox Chapel"
+   },
+   "Braddock's Battlefield History Center": {
+    "address": "609 6th St, Braddock, PA 15104",
+    "lat": 40.40558,
+    "lng": -79.8645,
+    "source": "business listing",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "listed coord, Braddock"
+   },
+   "Tour-Ed Mine & Museum": {
+    "address": "748 Bull Creek Rd, Tarentum, PA 15084",
+    "lat": 40.61733,
+    "lng": -79.76055,
+    "source": "Waze/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Waze coord, Tarentum"
+   },
+   "Oakmont Country Club": {
+    "address": "1233 Hulton Rd, Oakmont, PA 15139",
+    "lat": 40.52694,
+    "lng": -79.82748,
+    "source": "Wikipedia Oakmont CC",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Oakmont/Plum"
+   },
+   "Duff Park": {
+    "address": "Old William Penn Hwy, Murrysville, PA 15668",
+    "lat": 40.42093,
+    "lng": -79.67874,
+    "source": "Apple Maps",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Apple Maps coord, Murrysville"
+   },
+   "Sandcastle Waterpark": {
+    "address": "1000 Sandcastle Dr, West Homestead, PA 15120",
+    "lat": 40.398,
+    "lng": -79.928,
+    "source": "Wikipedia Sandcastle",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, West Homestead"
+   },
+   "Dead Man's Hollow Conservation Area": {
+    "address": "600 Scene Ridge Rd (GAP Boston trailhead), McKeesport, PA 15133",
+    "lat": 40.31896,
+    "lng": -79.85477,
+    "source": "Wikipedia Dead Man's Hollow",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Wikipedia coord, S of McKeesport"
+   },
+   "Round Hill Park": {
+    "address": "651 Round Hill Rd, Elizabeth, PA 15037",
+    "lat": 40.24184,
+    "lng": -79.85238,
+    "source": "Google Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google coord, Elizabeth Twp"
+   },
+   "Renziehausen Park Rose Garden & Arboretum": {
+    "address": "1400 Pinoak Dr, McKeesport, PA 15132",
+    "lat": 40.3395,
+    "lng": -79.8265,
+    "source": "park/geocode",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "listed coord, McKeesport"
+   },
+   "McKees Rocks Mound": {
+    "address": "end of Sproul St, McKees Rocks, PA 15136",
+    "lat": 40.473,
+    "lng": -80.05158,
+    "source": "https://www.hmdb.org/m.asp?m=40899",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "burial mound marker, McKees Rocks"
+   },
+   "Monroeville Convention Center": {
+    "address": "209 Mall Plaza Blvd, Monroeville, PA 15146",
+    "lat": 40.43269,
+    "lng": -79.79115,
+    "source": "Google/Apple Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google/Apple coord, Monroeville"
+   },
+   "Fallingwater": {
+    "address": "1491 Mill Run Rd, Mill Run, PA 15464",
+    "lat": 39.90626,
+    "lng": -79.46783,
+    "source": "Wikipedia Fallingwater",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Mill Run"
+   },
+   "Kennywood": {
+    "address": "4800 Kennywood Blvd, West Mifflin, PA 15122",
+    "lat": 40.3875,
+    "lng": -79.86333,
+    "source": "Wikipedia Kennywood",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, West Mifflin"
+   },
+   "Ohiopyle State Park": {
+    "address": "124 Main St, Ohiopyle, PA 15470",
+    "lat": 39.86813,
+    "lng": -79.4943,
+    "source": "topozone/geocode",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Ohiopyle Falls coord, Ohiopyle"
+   },
+   "Kentuck Knob": {
+    "address": "723 Kentuck Rd, Chalk Hill, PA 15421",
+    "lat": 39.8757,
+    "lng": -79.4738,
+    "source": "address estimate",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "estimate near Ohiopyle, Chalk Hill"
+   },
+   "Idlewild & SoakZone": {
+    "address": "2574 US Hwy 30, Ligonier, PA 15658",
+    "lat": 40.26111,
+    "lng": -79.28139,
+    "source": "Wikipedia Idlewild",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Ligonier Twp"
+   },
+   "Bayernhof Music Museum": {
+    "address": "225 St Charles Pl, O'Hara Township, PA 15215",
+    "lat": 40.4984,
+    "lng": -79.9159,
+    "source": "Yelp/museum map",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Yelp coord, O'Hara Township"
+   },
+   "Meadowcroft Rockshelter": {
+    "address": "401 Meadowcroft Rd, Avella, PA 15312",
+    "lat": 40.28639,
+    "lng": -80.49167,
+    "source": "Wikipedia Meadowcroft",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coord, Avella"
+   },
+   "Superior Motors": {
+    "address": "1211 Braddock Ave, Braddock, PA 15104",
+    "lat": 40.39776,
+    "lng": -79.86046,
+    "source": "Google Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google coord, Braddock (closed)"
+   },
+   "Rey Azteca": {
+    "address": "3448 William Penn Hwy, Pittsburgh, PA 15235",
+    "lat": 40.4318,
+    "lng": -79.7936,
+    "source": "https://www.yelp.com/biz/rey-azteca-pittsburgh-2",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Center East, Monroeville/Wilkins"
+   },
+   "Vincent's Pizza Park": {
+    "address": "998 Ardmore Blvd, Forest Hills, PA 15221",
+    "lat": 40.41054,
+    "lng": -79.84473,
+    "source": "business listing",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "listed coord, Forest Hills"
+   },
+   "Oakmont Bakery": {
+    "address": "1 Sweet St, Oakmont, PA 15139",
+    "lat": 40.52565,
+    "lng": -79.8424,
+    "source": "Google Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google coord, Oakmont"
+   },
+   "Soergel Orchards": {
+    "address": "2573 Brandt School Rd, Wexford, PA 15090",
+    "lat": 40.61395,
+    "lng": -80.09243,
+    "source": "https://www.yelp.com/biz/soergel-orchards-and-garden-center-wexford",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Wexford orchard/market"
+   },
+   "Trax Farms": {
+    "address": "528 Trax Rd, Finleyville, PA 15332",
+    "lat": 40.27603,
+    "lng": -80.0305,
+    "source": "https://truckmap.com/place/trax-farms-528-trax-rd-finleyville-pa-15332-usa",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Finleyville farm market"
+   },
+   "Triple B Farms": {
+    "address": "823 Berry Ln, Monongahela, PA 15063",
+    "lat": 40.22768,
+    "lng": -79.94659,
+    "source": "https://maps.apple.com (Triple B Farms, Monongahela)",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Monongahela pick-your-own farm"
+   },
+   "Kerber's Dairy": {
+    "address": "1856 Guffey Rd, North Huntingdon, PA 15642",
+    "lat": 40.31018,
+    "lng": -79.73676,
+    "source": "https://www.yelp.com/biz/kerbers-dairy-north-huntingdon",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "North Huntingdon dairy/ice cream"
+   },
+   "Schramm Farms & Orchards": {
+    "address": "1002 Blank Rd, Jeannette, PA 15644",
+    "lat": 40.3548,
+    "lng": -79.6502,
+    "source": "https://en.wikipedia.org/wiki/Harrison_City,_Pennsylvania",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "Harrison City/Penn Twp; coord town-level est"
+   },
+   "Janoski's Farm & Greenhouse": {
+    "address": "1714 US-30, Clinton, PA 15026",
+    "lat": 40.49046,
+    "lng": -80.33274,
+    "source": "https://vymaps.com/US/Janoski-S-Farm-And-Greenhouse-T21558450/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Findlay Twp, Clinton on Rt 30"
+   },
+   "Shenot Farm & Market": {
+    "address": "3754 Wexford Run Rd, Wexford, PA 15090",
+    "lat": 40.6594,
+    "lng": -80.0791,
+    "source": "https://www.yelp.com/biz/shenot-farm-market-wexford",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Marshall Twp, Wexford"
+   },
+   "Simmons Farm": {
+    "address": "170 Simmons Rd, McMurray, PA 15317",
+    "lat": 40.2682,
+    "lng": -80.08309,
+    "source": "https://www.yelp.com/biz/simmons-farm-canonsburg",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "McMurray pick-your-own farm"
+   },
+   "Tessaro's": {
+    "address": "4601 Liberty Ave, Bloomfield, Pittsburgh, PA 15224",
+    "lat": 40.4625,
+    "lng": -79.9483,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Liberty Ave at Taylor St"
+   },
+   "The Original Hot Dog Shop": {
+    "address": "3901 Forbes Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.44148,
+    "lng": -79.95835,
+    "source": "yelp/wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forbes at Bouquet; closed 2020"
+   },
+   "Morcilla": {
+    "address": "3519 Butler St, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.46565,
+    "lng": -79.96285,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Butler St Lawrenceville"
+   },
+   "Kelly's Bar & Lounge": {
+    "address": "6012 Centre Ave, East Liberty, Pittsburgh, PA 15206",
+    "lat": 40.45985,
+    "lng": -79.925,
+    "source": "official/yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Centre Ave at Penn Circle S"
+   },
+   "Apteka": {
+    "address": "4606 Penn Ave, Bloomfield, Pittsburgh, PA 15224",
+    "lat": 40.46576,
+    "lng": -79.94932,
+    "source": "applemaps/yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Apple Maps coord"
+   },
+   "Gooski's": {
+    "address": "3117 Brereton St, Polish Hill, Pittsburgh, PA 15219",
+    "lat": 40.45702,
+    "lng": -79.9665,
+    "source": "applemaps/yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Apple Maps coord"
+   },
+   "Everyday Noodles": {
+    "address": "5875 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.4385,
+    "lng": -79.92255,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forbes Ave near Murray"
+   },
+   "Chengdu Gourmet": {
+    "address": "5840 Forward Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.4337,
+    "lng": -79.9231,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forward Ave Squirrel Hill"
+   },
+   "How Lee": {
+    "address": "5888 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.43843,
+    "lng": -79.9223,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "corner Forbes and Murray"
+   },
+   "KIIN Lao & Thai Eatery": {
+    "address": "5846 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.43843,
+    "lng": -79.92245,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forbes Ave Squirrel Hill"
+   },
+   "DiAnoia's Eatery": {
+    "address": "2549 Penn Ave, Strip District, Pittsburgh, PA 15222",
+    "lat": 40.45355,
+    "lng": -79.9737,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Penn Ave at 26th St"
+   },
+   "Piccolo Forno": {
+    "address": "3801 Butler St, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.4712,
+    "lng": -79.96095,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Butler St at 38th"
+   },
+   "Driftwood Oven": {
+    "address": "3615 Butler St, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.4699,
+    "lng": -79.9619,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Butler St Lawrenceville"
+   },
+   "Mineo's Pizza House": {
+    "address": "2128 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.43285,
+    "lng": -79.92285,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Murray Ave Squirrel Hill"
+   },
+   "Aiello's Pizza": {
+    "address": "2112 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.433,
+    "lng": -79.9229,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Murray Ave near Mineo's"
+   },
+   "Commonplace Coffee": {
+    "address": "5827 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.4385,
+    "lng": -79.923,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forbes Ave Squirrel Hill"
+   },
+   "Prantl's Bakery": {
+    "address": "5525 Walnut St, Shadyside, Pittsburgh, PA 15232",
+    "lat": 40.45215,
+    "lng": -79.9339,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Walnut St Shadyside"
+   },
+   "Gaby et Jules": {
+    "address": "5837 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.4385,
+    "lng": -79.9228,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forbes Ave Squirrel Hill"
+   },
+   "La Gourmandine": {
+    "address": "4605 Butler St, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.4723,
+    "lng": -79.9601,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Butler St at 46th"
+   },
+   "Dave & Andy's Homemade Ice Cream": {
+    "address": "207 Atwood St, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.4412,
+    "lng": -79.95725,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Atwood St Oakland"
+   },
+   "Millie's Homemade Ice Cream": {
+    "address": "232 S Highland Ave, Shadyside, Pittsburgh, PA 15206",
+    "lat": 40.4564,
+    "lng": -79.925,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "S Highland Ave Shadyside"
+   },
+   "Church Brew Works": {
+    "address": "3525 Liberty Ave, Pittsburgh, PA 15201",
+    "lat": 40.46199,
+    "lng": -79.96408,
+    "source": "google/yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google coord; Liberty at Herron"
+   },
+   "East End Brewing Company": {
+    "address": "147 Julius St, Larimer, Pittsburgh, PA 15206",
+    "lat": 40.4642,
+    "lng": -79.9083,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Julius St Larimer"
+   },
+   "Arsenal Cider House": {
+    "address": "300 39th St, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.4712,
+    "lng": -79.95855,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "39th St near Butler"
+   },
+   "Groceria Merante": {
+    "address": "3454 Bates St, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.43065,
+    "lng": -79.9602,
+    "source": "yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Bates St between McKee"
+   },
+   "Bloomfield Saturday Market": {
+    "address": "5050 Liberty Ave, Bloomfield, Pittsburgh, PA 15224",
+    "lat": 40.46265,
+    "lng": -79.9464,
+    "source": "yelp/bloomfieldpgh",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "lot btwn Winebiddle and Gross"
+   },
+   "Squirrel Hill Farmers Market": {
+    "address": "5737 Beacon St, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.4359,
+    "lng": -79.9229,
+    "source": "yelp/pittsburghpa",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Beacon-Bartlett parking lot"
+   },
+   "Cathedral of Learning & the Nationality Rooms": {
+    "address": "4200 Fifth Ave, Oakland, Pittsburgh, PA 15260",
+    "lat": 40.44417,
+    "lng": -79.95306,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Pitt tower, rooms inside"
+   },
+   "Carnegie Museum of Natural History": {
+    "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.4436,
+    "lng": -79.9501,
+    "source": "Wikipedia/latitude.to",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Forbes entrance, Oakland complex"
+   },
+   "Carnegie Museum of Art": {
+    "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.44345,
+    "lng": -79.94985,
+    "source": "Wikipedia/latitude.to",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Scaife wing, same complex"
+   },
+   "Phipps Conservatory and Botanical Gardens": {
+    "address": "1 Schenley Dr, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.43895,
+    "lng": -79.94771,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Schenley Park conservatory"
+   },
+   "Heinz Memorial Chapel": {
+    "address": "4200 Fifth Ave (S Bellefield Ave), Oakland, Pittsburgh, PA 15260",
+    "lat": 40.44528,
+    "lng": -79.95167,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Pitt chapel off Fifth"
+   },
+   "The Frick Pittsburgh": {
+    "address": "7227 Reynolds St, Point Breeze, Pittsburgh, PA 15208",
+    "lat": 40.44635,
+    "lng": -79.90251,
+    "source": "Wikipedia/Google",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Clayton estate, Point Breeze"
+   },
+   "Pittsburgh Zoo & Aquarium": {
+    "address": "7370 Baker St, Highland Park, Pittsburgh, PA 15206",
+    "lat": 40.4845,
+    "lng": -79.9179,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Highland Park zoo entrance"
+   },
+   "Schenley Park": {
+    "address": "Schenley Dr, Oakland/Squirrel Hill, Pittsburgh, PA 15213",
+    "lat": 40.436,
+    "lng": -79.945,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "large park, central point"
+   },
+   "The Clemente Museum": {
+    "address": "3339 Penn Ave, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.46259,
+    "lng": -79.96772,
+    "source": "Apple/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "pin was too far NE"
+   },
+   "Stephen Foster Memorial": {
+    "address": "4301 Forbes Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.4416,
+    "lng": -79.9533,
+    "source": "Wikipedia/Google",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "beside Cathedral of Learning"
+   },
+   "Hunt Institute for Botanical Documentation": {
+    "address": "5th floor, Hunt Library, 4909 Frew St, CMU, Pittsburgh, PA 15213",
+    "lat": 40.44165,
+    "lng": -79.9437,
+    "source": "Wikipedia/CMU",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "inside CMU Hunt Library"
+   },
+   "Frick Fine Arts Building & the Nicholas Lochoff Cloister": {
+    "address": "650 Schenley Dr, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.44153,
+    "lng": -79.95091,
+    "source": "Google/Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Pitt building at Schenley Plaza"
+   },
+   "Schenley Plaza & the Mary Schenley Memorial Fountain": {
+    "address": "4100 Forbes Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.44199,
+    "lng": -79.95189,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "fountain in Schenley Plaza"
+   },
+   "Walking to the Sky": {
+    "address": "Warner Hall lawn, 4910 Forbes Ave, CMU, Pittsburgh, PA 15213",
+    "lat": 40.44345,
+    "lng": -79.94285,
+    "source": "Yelp/CMU",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "CMU lawn off Forbes"
+   },
+   "Randy Pausch Memorial Bridge": {
+    "address": "Gates Center to Purnell, 4902 Forbes Ave, CMU, Pittsburgh, PA 15213",
+    "lat": 40.4432,
+    "lng": -79.94395,
+    "source": "CMU/pghmurals",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "CMU Gates-Purnell footbridge"
+   },
+   "Pittsburgh Glass Center": {
+    "address": "5472 Penn Ave, Friendship, Pittsburgh, PA 15206",
+    "lat": 40.46419,
+    "lng": -79.93292,
+    "source": "Wikipedia/Google",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Penn Ave glass studio"
+   },
+   "Highland Park & the Entry Garden": {
+    "address": "Reservoir Dr (top of Highland Ave), Highland Park, Pittsburgh, PA 15206",
+    "lat": 40.4826,
+    "lng": -79.9205,
+    "source": "Wikipedia/Parks Conservancy",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "entry garden at reservoir"
+   },
+   "Center for PostNatural History": {
+    "address": "4913 Penn Ave, Garfield, Pittsburgh, PA 15224",
+    "lat": 40.46536,
+    "lng": -79.94467,
+    "source": "Wikipedia/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Penn Ave, Garfield"
+   },
+   "Carnegie Library of Pittsburgh (Main)": {
+    "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.44175,
+    "lng": -79.9505,
+    "source": "latlong.net",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "main branch, Forbes at plaza"
+   },
+   "Soldiers & Sailors Memorial Hall & Museum": {
+    "address": "4141 Fifth Ave, Oakland, Pittsburgh, PA 15213",
+    "lat": 40.44512,
+    "lng": -79.95644,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "pin lat was too low"
+   },
+   "Allegheny Cemetery": {
+    "address": "4734 Butler St, Lawrenceville, Pittsburgh, PA 15201",
+    "lat": 40.4704,
+    "lng": -79.9572,
+    "source": "Wikipedia/Apple",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Butler St gatehouse entrance"
+   },
+   "Frick Park & the Frick Environmental Center": {
+    "address": "2005 Beechwood Blvd, Squirrel Hill, Pittsburgh, PA 15217",
+    "lat": 40.43598,
+    "lng": -79.90909,
+    "source": "Yelp/Parks Conservancy",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Environmental Center, park gateway"
+   },
+   "Mellon Park Walled Garden": {
+    "address": "6300 Fifth Ave, Shadyside/Point Breeze, Pittsburgh, PA 15232",
+    "lat": 40.4509,
+    "lng": -79.9185,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "walled garden south of Fifth"
+   },
+   "The Fence": {
+    "address": "The Cut, Carnegie Mellon campus, Pittsburgh, PA 15213",
+    "lat": 40.4432,
+    "lng": -79.9425,
+    "source": "Wikipedia/campus",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "The Cut between Warner/UC"
+   },
+   "Kraus Campo": {
+    "address": "Posner Center rooftop, Carnegie Mellon, Pittsburgh, PA 15213",
+    "lat": 40.4432,
+    "lng": -79.9418,
+    "source": "Wikipedia/CMU",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "roof of Posner Center, CMU"
+   },
+   "Duquesne Incline": {
+    "address": "1197 W Carson St, Mount Washington, Pittsburgh PA 15211",
+    "lat": 40.43944,
+    "lng": -80.01778,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Mount Washington incline, correct"
+   },
+   "Grandview Avenue Overlook, Mount Washington": {
+    "address": "Grandview Ave, Mount Washington, Pittsburgh PA 15211",
+    "lat": 40.431,
+    "lng": -80.01,
+    "source": "anchor/knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Grandview Ave overlook, Mount Washington"
+   },
+   "Monongahela Incline": {
+    "address": "8 Grandview Ave, Mount Washington, Pittsburgh PA 15211",
+    "lat": 40.43083,
+    "lng": -80.005,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Mon Incline upper station, Mount Washington"
+   },
+   "West End Overlook Park": {
+    "address": "Marlow St, West End, Pittsburgh PA 15220",
+    "lat": 40.4472,
+    "lng": -80.0355,
+    "source": "knowledge/anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "West End Overlook, correct"
+   },
+   "Gateway Clipper Fleet": {
+    "address": "350 W Station Square Dr, Station Square, Pittsburgh PA 15219",
+    "lat": 40.434,
+    "lng": -80.013,
+    "source": "knowledge/anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Station Square dock, South Shore"
+   },
+   "South Side Slopes city steps": {
+    "address": "South Side Slopes, Pittsburgh PA 15203",
+    "lat": 40.427,
+    "lng": -79.982,
+    "source": "anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "South Side Slopes area, Pittsburgh"
+   },
+   "East Carson Street, South Side": {
+    "address": "E Carson St, South Side Flats, Pittsburgh PA 15203",
+    "lat": 40.4285,
+    "lng": -79.975,
+    "source": "anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "E Carson corridor, South Side Flats"
+   },
+   "Station Square": {
+    "address": "125 W Station Square Dr, Pittsburgh PA 15219",
+    "lat": 40.4342,
+    "lng": -80.0142,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Station Square, South Shore"
+   },
+   "Point of View statue": {
+    "address": "Grandview Ave at Sweetbriar St, Mount Washington, Pittsburgh PA 15211",
+    "lat": 40.4288,
+    "lng": -80.0122,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Grandview overlook, Mount Washington"
+   },
+   "Emerald View Park": {
+    "address": "Grandview Ave area, Mount Washington, Pittsburgh PA 15211",
+    "lat": 40.429,
+    "lng": -80.018,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "large park, Mount Washington"
+   },
+   "Beechview–Seldom Seen Greenway": {
+    "address": "Saw Mill Run Blvd trailhead, Beechview, Pittsburgh PA 15216",
+    "lat": 40.4094,
+    "lng": -80.025,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Seldom Seen arch, Beechview"
+   },
+   "Pennsylvania Trolley Museum": {
+    "address": "1 Electric Way, Washington PA 15301",
+    "lat": 40.21134,
+    "lng": -80.24609,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "north of Washington PA, moved ~1.3mi"
+   },
+   "Andrew Carnegie Free Library & Music Hall": {
+    "address": "300 Beechwood Ave, Carnegie PA 15106",
+    "lat": 40.40684,
+    "lng": -80.08549,
+    "source": "Google/Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Carnegie, Google/Wikipedia point"
+   },
+   "Captain Thomas Espy G.A.R. Post (Civil War Room)": {
+    "address": "300 Beechwood Ave, Carnegie PA 15106",
+    "lat": 40.40724,
+    "lng": -80.08549,
+    "source": "Google/Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "inside Carnegie library building (inside the library; pin nudged ~40m so both markers show)"
+   },
+   "Uptown Mt. Lebanon business district": {
+    "address": "Washington Rd, Mt. Lebanon PA 15228",
+    "lat": 40.376,
+    "lng": -80.049,
+    "source": "anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Washington Rd district, Mt Lebanon"
+   },
+   "Dormont Pool": {
+    "address": "1801 Dormont Ave, Dormont, Pittsburgh PA 15216",
+    "lat": 40.39716,
+    "lng": -80.04516,
+    "source": "Google Maps",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Dormont, lng was off ~0.5mi"
+   },
+   "Row House — Hollywood Theater": {
+    "address": "1449 Potomac Ave, Dormont, Pittsburgh PA 15216",
+    "lat": 40.3936,
+    "lng": -80.0367,
+    "source": "Yelp/RowHouse",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "added number 1449, Dormont"
+   },
+   "LeMoyne House": {
+    "address": "49 E Maiden St, Washington PA 15301",
+    "lat": 40.16889,
+    "lng": -80.24333,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "downtown Washington PA"
+   },
+   "David Bradford House & Whiskey Rebellion Center": {
+    "address": "175 S Main St, Washington PA 15301",
+    "lat": 40.16806,
+    "lng": -80.245,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "downtown Washington PA"
+   },
+   "Woodville Plantation (John & Presley Neville House)": {
+    "address": "1375 Washington Pike, Bridgeville PA 15017",
+    "lat": 40.37972,
+    "lng": -80.09639,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Heidelberg/Bridgeville, moved ~1.6mi"
+   },
+   "Mingo Creek County Park & the covered bridges": {
+    "address": "Mingo Creek County Park, Finleyville PA 15332",
+    "lat": 40.19207,
+    "lng": -80.04037,
+    "source": "Wikipedia/park",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Ebenezer covered bridge, Mingo Park"
+   },
+   "Washington County Agricultural Fair": {
+    "address": "2151 N Main St, Washington, PA 15301",
+    "lat": 40.20778,
+    "lng": -80.25694,
+    "source": "https://en.wikipedia.org/wiki/John_White_House_(Chartiers_Township,_Pennsylvania)",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Chartiers Twp fairgrounds, same address"
+   },
+   "Duncan & Miller Glass Museum": {
+    "address": "525 Jefferson Ave, Washington PA 15301",
+    "lat": 40.17626,
+    "lng": -80.25748,
+    "source": "museum/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "addr was wrong (not Ridge Ave), Washington PA"
+   },
+   "Perry Como Statue": {
+    "address": "68 E Pike St, Canonsburg PA 15317",
+    "lat": 40.2627,
+    "lng": -80.1868,
+    "source": "Yelp/Roadside",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "front of boro building, Canonsburg"
+   },
+   "LeMoyne Crematory": {
+    "address": "Gallows Hill, N Main St, North Franklin Twp, Washington PA 15301",
+    "lat": 40.16056,
+    "lng": -80.23778,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Gallows Hill Washington PA, moved ~1.6mi"
+   },
+   "Washington County Courthouse": {
+    "address": "1 S Main St, Washington PA 15301",
+    "lat": 40.17045,
+    "lng": -80.2458,
+    "source": "Wikipedia/Google",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "downtown Washington PA"
+   },
+   "Carnegie Stage & Main Street": {
+    "address": "25 W Main St, Carnegie PA 15106",
+    "lat": 40.4083,
+    "lng": -80.0855,
+    "source": "Yelp/knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Main St, Carnegie"
+   },
+   "Mingo Creek Park Observatory": {
+    "address": "1 Shelter 10 Rd, Finleyville PA 15332",
+    "lat": 40.211,
+    "lng": -80.02,
+    "source": "3ap.org",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "atop Mansion Hill, moved ~1mi, Finleyville"
+   },
+   "Little Lake Theatre": {
+    "address": "500 Lakeside Dr S, Canonsburg PA 15317",
+    "lat": 40.2835,
+    "lng": -80.158,
+    "source": "Yelp/knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "near Canonsburg Lake, Peters Twp"
+   },
+   "Cross Creek County Park": {
+    "address": "Cross Creek County Park, near Avella PA 15312",
+    "lat": 40.24868,
+    "lng": -80.39979,
+    "source": "HometownLocator/GNIS",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "GNIS park point, near Avella"
+   },
+   "Washington & Jefferson College (McMillan Hall)": {
+    "address": "60 S Lincoln St, Washington PA 15301",
+    "lat": 40.17033,
+    "lng": -80.24108,
+    "source": "Wikipedia/Google",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "W&J campus, Washington PA"
+   },
+   "Salem's Market & Grill": {
+    "address": "2923 Penn Ave, Strip District, Pittsburgh PA 15201",
+    "lat": 40.4558,
+    "lng": -79.9683,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Penn Ave, Strip District"
+   },
+   "Kassab's": {
+    "address": "1207 E Carson St, South Side, Pittsburgh PA 15203",
+    "lat": 40.4287,
+    "lng": -79.9803,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "E Carson St, South Side"
+   },
+   "Fiori's Pizzaria": {
+    "address": "103 Wenzell Ave, Brookline, Pittsburgh PA 15226",
+    "lat": 40.3957,
+    "lng": -80.0222,
+    "source": "Yelp/knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Brookline; Yelp lists Capital Ave"
+   },
+   "Alla Famiglia": {
+    "address": "804 E Warrington Ave, Allentown, Pittsburgh PA 15210",
+    "lat": 40.4183,
+    "lng": -79.9958,
+    "source": "knowledge/anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "E Warrington Ave, Allentown"
+   },
+   "Sarris Candies": {
+    "address": "511 Adams Ave, Canonsburg PA 15317",
+    "lat": 40.2588,
+    "lng": -80.1928,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Adams Ave, Canonsburg"
+   },
+   "Page Dairy Mart": {
+    "address": "4112 E Carson St, South Side, Pittsburgh PA 15203",
+    "lat": 40.4262,
+    "lng": -79.9655,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "far E Carson St, South Side"
+   },
+   "Bedner's Farm & Greenhouse": {
+    "address": "315 Coleman Rd, McDonald PA 15057",
+    "lat": 40.3618,
+    "lng": -80.2255,
+    "source": "knowledge",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Cecil Twp near McDonald PA"
+   }
+  },
+  "youngstown-oh": {
+   "Dave Grohl Alley": {
+    "address": "125 David Grohl Alley, Warren, OH 44481",
+    "lat": 41.2378,
+    "lng": -80.8183,
+    "source": "Yelp/roadsideamerica",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Downtown Warren off Main Ave SW"
+   },
+   "National McKinley Birthplace Memorial & Museum": {
+    "address": "40 N Main St, Niles, OH 44446",
+    "lat": 41.18083,
+    "lng": -80.76611,
+    "source": "Wikipedia/latlong.net",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Niles Main St memorial"
+   },
+   "Canfield Fairgrounds": {
+    "address": "7265 Columbiana-Canfield Rd, Canfield, OH 44406",
+    "lat": 41.01068,
+    "lng": -80.76021,
+    "source": "Google Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Canfield fairgrounds"
+   },
+   "Idora Park Experience": {
+    "address": "4450 S Turner Rd, Canfield, OH 44406",
+    "lat": 41.005,
+    "lng": -80.75,
+    "source": "https://www.redfin.com/OH/Canfield/4450-S-Turner-Rd-44406/home/66526370",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "Canfield; closed; coord town-level est"
+   },
+   "Past Times Arcade": {
+    "address": "419 N State St, Girard, OH 44420",
+    "lat": 41.159,
+    "lng": -80.701,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "N State St, Girard"
+   },
+   "National Packard Museum": {
+    "address": "1899 Mahoning Ave NW, Warren, OH 44483",
+    "lat": 41.25303,
+    "lng": -80.83088,
+    "source": "latlong.net",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Mahoning Ave NW, Warren"
+   },
+   "Robins Theatre": {
+    "address": "160 E Market St, Warren, OH 44481",
+    "lat": 41.2377,
+    "lng": -80.8155,
+    "source": "Yelp",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Downtown Warren E Market St"
+   },
+   "Noah's Lost Ark Exotic Animal Sanctuary": {
+    "address": "8424 Bedell Rd, Berlin Center, OH 44401",
+    "lat": 40.99572,
+    "lng": -80.98627,
+    "source": "https://www.loopnet.com/property/8424-bedell-rd-berlin-center-oh-44401/39099-220410012000/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Berlin Center animal sanctuary"
+   },
+   "TP Tools Auto Collection Museum": {
+    "address": "7075 State Route 446, Canfield, OH 44406",
+    "lat": 41.0235,
+    "lng": -80.778,
+    "source": "Yelp/official desc",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "US224/SR446 corner W of Canfield"
+   },
+   "Mill Creek MetroParks Farm": {
+    "address": "7574 Columbiana-Canfield Rd, Canfield, OH 44406",
+    "lat": 41.005,
+    "lng": -80.757,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Columbiana-Canfield Rd, Canfield"
+   },
+   "Sports World Family Fun Center": {
+    "address": "8249 South Ave, Boardman, OH 44512",
+    "lat": 40.99778,
+    "lng": -80.63269,
+    "source": "Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "South Ave, Boardman"
+   },
+   "Hollywood Gaming at Mahoning Valley Race Course": {
+    "address": "655 N Canfield-Niles Rd, Austintown, OH 44515",
+    "lat": 41.11694,
+    "lng": -80.76167,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Austintown racino"
+   },
+   "Ernie Hall Aviation Museum": {
+    "address": "4033 North River Rd NE, Warren, OH 44484",
+    "lat": 41.26565,
+    "lng": -80.75373,
+    "source": "hmdb/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Airstrip NE of Warren"
+   },
+   "Ward-Thomas House Museum": {
+    "address": "503 Brown St, Niles, OH 44446",
+    "lat": 41.183,
+    "lng": -80.761,
+    "source": "Niles Historical Society",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Brown St, Niles"
+   },
+   "Newton Falls Covered Bridge": {
+    "address": "Covered Bridge (OH-534), Newton Falls, OH 44444",
+    "lat": 41.18806,
+    "lng": -80.97139,
+    "source": "Wikipedia/hmdb",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Newton Falls covered bridge"
+   },
+   "Modern Methods Brewing Company": {
+    "address": "125 David Grohl Alley, Warren, OH 44481",
+    "lat": 41.2378,
+    "lng": -80.818,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "David Grohl Alley, Warren"
+   },
+   "Birdfish Brewing Co.": {
+    "address": "140 E Park Ave, Columbiana, OH 44408",
+    "lat": 40.8875,
+    "lng": -80.6935,
+    "source": "official/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Columbiana (38 E Main invalid)"
+   },
+   "Rogers Community Auction & Flea Market": {
+    "address": "45625 OH-154, Rogers, OH 44455",
+    "lat": 40.786,
+    "lng": -80.629,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "SR-154 flea market, Rogers"
+   },
+   "White House Fruit Farm": {
+    "address": "9249 Youngstown-Salem Rd, Canfield, OH 44406",
+    "lat": 41.002,
+    "lng": -80.783,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "US62 SW of Canfield"
+   },
+   "Detwiler Farm": {
+    "address": "4520 Renkenberger Rd, Columbiana, OH 44408",
+    "lat": 40.92289,
+    "lng": -80.73609,
+    "source": "Waze/Yelp",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Renkenberger Rd NW of Columbiana"
+   },
+   "Molnar Farms": {
+    "address": "3115 E Western Reserve Rd, Poland, OH 44514",
+    "lat": 41.008,
+    "lng": -80.6,
+    "source": "Yelp/official",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "E Western Reserve Rd, Poland"
+   },
+   "Butler Institute of American Art": {
+    "address": "524 Wick Ave, Youngstown, OH 44502",
+    "lat": 41.10562,
+    "lng": -80.64597,
+    "source": "Apple Maps; Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Apple/Wikipedia confirm on Wick Ave"
+   },
+   "Youngstown Historical Center of Industry and Labor": {
+    "address": "151 W Wood St, Youngstown, OH 44503",
+    "lat": 41.1028,
+    "lng": -80.6495,
+    "source": "Yelp/OhioHistory addr",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "W Wood St, coords unverified"
+   },
+   "Rose Melnick Medical Museum": {
+    "address": "Cushwa Hall B241, YSU, 1 University Plaza, Youngstown, OH 44555",
+    "lat": 41.1045,
+    "lng": -80.6447,
+    "source": "https://maag.ysu.edu/melnickvisit",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "YSU Cushwa Hall; coord approx"
+   },
+   "Ward Beecher Planetarium": {
+    "address": "Ward Beecher Science Hall, 100 Lincoln Ave, YSU, Youngstown, OH 44555",
+    "lat": 41.1055,
+    "lng": -80.646,
+    "source": "https://www.wbplanetarium.org/visit",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "YSU; coord approx from addr"
+   },
+   "Arms Family Museum": {
+    "address": "648 Wick Ave, Youngstown, OH 44502",
+    "lat": 41.1082,
+    "lng": -80.64715,
+    "source": "Yelp/Waze addr",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "north of Butler on Wick"
+   },
+   "Stambaugh Auditorium": {
+    "address": "1000 Fifth Ave, Youngstown, OH 44504",
+    "lat": 41.11389,
+    "lng": -80.65194,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coordinates"
+   },
+   "McDonough Museum of Art": {
+    "address": "525 Wick Ave, Youngstown, OH 44555",
+    "lat": 41.1064,
+    "lng": -80.6464,
+    "source": "YSU addr",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "YSU, opposite Butler"
+   },
+   "Clarence R. Smith Mineral Museum": {
+    "address": "Moser Hall, 134 Lincoln Ave, YSU, Youngstown, OH 44555",
+    "lat": 41.1061,
+    "lng": -80.6484,
+    "source": "https://minerals.ysu.edu/plan-a-visit/",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "YSU Moser Hall; coord approx"
+   },
+   "Wick Park": {
+    "address": "Fifth Ave & Park Ave, North Side, Youngstown, OH 44502",
+    "lat": 41.1128,
+    "lng": -80.6493,
+    "source": "Wikipedia district",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Wick Park district center"
+   },
+   "Lanterman's Mill": {
+    "address": "1001 Canfield Rd, Youngstown, OH 44511",
+    "lat": 41.06681,
+    "lng": -80.68214,
+    "source": "map GPS listings",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "GPS db; south of prior pin"
+   },
+   "Fellows Riverside Gardens": {
+    "address": "123 McKinley Ave, Youngstown, OH 44509",
+    "lat": 41.09919,
+    "lng": -80.675,
+    "source": "Wikidata",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Wikidata coordinates"
+   },
+   "Mill Creek Suspension Bridge (the Cinderella Bridge)": {
+    "address": "Valley Dr, Mill Creek Park, Youngstown, OH",
+    "lat": 41.07333,
+    "lng": -80.68917,
+    "source": "Wikipedia",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia coordinates"
+   },
+   "Lily Pond": {
+    "address": "Lily Pond Circle Trail, off McCollum Rd, Mill Creek Park, Youngstown, OH 44509",
+    "lat": 41.049,
+    "lng": -80.691,
+    "source": "https://www.alltrails.com/trail/us/ohio/lily-pond-circle-trail + https://www.millcreekmetroparks.org/lakes-ponds/ (off McCollum Rd, zip 44509)",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "off McCollum Rd, west Mill Creek Park"
+   },
+   "Lake Newport & Newport Boathouse": {
+    "address": "West Newport Dr, Mill Creek Park, Youngstown, OH 44511",
+    "lat": 41.0533,
+    "lng": -80.6775,
+    "source": "https://www.millcreekmetroparks.org/boating-fishing/ (Lake Newport Boathouse, West Newport Dr; wetlands lot 41.0529,-80.6776 per slipstreamboating)",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "West Newport Dr boathouse, Mill Creek Park"
+   },
+   "Joanne Beeghly Rose Garden": {
+    "address": "inside Fellows Riverside Gardens, 123 McKinley Ave, Youngstown, OH 44509",
+    "lat": 41.083,
+    "lng": -80.681,
+    "source": "https://www.millcreekmetroparks.org/fellows-riverside-gardens/",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "in Fellows Gardens; coord approx"
+   },
+   "Ford Nature Center": {
+    "address": "840 Old Furnace Rd, Youngstown, OH 44511",
+    "lat": 41.063,
+    "lng": -80.665,
+    "source": "https://www.millcreekmetroparks.org/ford-nature-center/",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "addr verified; coord approx"
+   },
+   "Pioneer Pavilion": {
+    "address": "Old Furnace Rd, Mill Creek Park, Youngstown, OH",
+    "lat": 41.08262,
+    "lng": -80.68008,
+    "source": "map GPS listings",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "GPS listing"
+   },
+   "Mill Creek Golf Course": {
+    "address": "1 W Golf Dr, Boardman, OH 44512",
+    "lat": 41.014,
+    "lng": -80.663,
+    "source": "https://www.millcreekmetroparks.org/mill-creek-golf-course/",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "Boardman 44512 not Yngstn; coord approx"
+   },
+   "DeYor Performing Arts Center (Powers Auditorium)": {
+    "address": "260 W Federal St, Youngstown, OH 44503",
+    "lat": 41.1,
+    "lng": -80.653,
+    "source": "Wikipedia/anchor",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "W Federal downtown; Wiki lat high"
+   },
+   "Tyler History Center": {
+    "address": "325 W Federal St, Youngstown, OH 44503",
+    "lat": 41.10201,
+    "lng": -80.65466,
+    "source": "https://latitude.to (geocode); https://mahoninghistory.org/tyler-history-center/",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "geocoded coord; MVHS confirms addr"
+   },
+   "Roger & Gloria Jones Children's Center for Science & Technology": {
+    "address": "Downtown Youngstown, OH",
+    "lat": 41.1005,
+    "lng": -80.6495,
+    "source": "downtown anchor",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "downtown, unverified"
+   },
+   "The Youngstown Playhouse": {
+    "address": "600 Playhouse Ln, Youngstown, OH 44511",
+    "lat": 41.07861,
+    "lng": -80.67944,
+    "source": "https://www.wikidata.org/wiki/Q8058661",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikidata DMS coord"
+   },
+   "Covelli Centre": {
+    "address": "229 E Front St, Youngstown, OH 44503",
+    "lat": 41.0966,
+    "lng": -80.648,
+    "source": "Apple; latitude.to",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Apple/latitude.to on E Front"
+   },
+   "Downtown Youngstown murals": {
+    "address": "W Federal St & Central Square, Youngstown, OH",
+    "lat": 41.0996,
+    "lng": -80.6497,
+    "source": "downtown anchor",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "diffuse; Central Square"
+   },
+   "Mahoning County Courthouse": {
+    "address": "120 Market St, Youngstown, OH 44503",
+    "lat": 41.0974,
+    "lng": -80.6493,
+    "source": "county/Waze addr",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Market St off Central Sq"
+   },
+   "Cassese's MVR": {
+    "address": "410 N Walnut St, Youngstown, OH 44505",
+    "lat": 41.10102,
+    "lng": -80.65116,
+    "source": "map listing",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "search coord, N Walnut"
+   },
+   "Yosteria": {
+    "address": "252 Valley St, Youngstown, OH 44505",
+    "lat": 41.106,
+    "lng": -80.6465,
+    "source": "https://www.yelp.com/biz/yosteria-youngstown-2",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Smoky Hollow; zip 44505; coord approx"
+   },
+   "Kravitz Delicatessen": {
+    "address": "3135 Belmont Ave, Youngstown, OH 44505",
+    "lat": 41.134,
+    "lng": -80.662,
+    "source": "https://www.yelp.com/biz/kravitz-delicatessen-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Belmont Ave, Liberty; coord approx"
+   },
+   "Handel's Homemade Ice Cream": {
+    "address": "7485 South Ave, Boardman, OH 44512",
+    "lat": 41.006,
+    "lng": -80.653,
+    "source": "https://handelsicecream.com/store/south-ave/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "coord approx from verified addr"
+   },
+   "Golden Dawn": {
+    "address": "1245 Logan Ave, Youngstown, OH 44505",
+    "lat": 41.117,
+    "lng": -80.647,
+    "source": "https://www.yelp.com/biz/golden-dawn-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "coord approx from verified addr"
+   },
+   "Wedgewood Pizza": {
+    "address": "1622 S Raccoon Rd, Austintown, OH 44515",
+    "lat": 41.083,
+    "lng": -80.735,
+    "source": "https://www.wedgewoodpizza.com/locations/austintown-ohio/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "Austintown; addr found; coord approx"
+   },
+   "Avalon Downtown Pizzeria": {
+    "address": "17 W Federal St, Youngstown, OH 44503",
+    "lat": 41.09975,
+    "lng": -80.6502,
+    "source": "https://www.yelp.com/biz/avalon-downtown-pizzeria-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "downtown Federal St; coord approx"
+   },
+   "The Federal": {
+    "address": "101 W Federal St, Youngstown, OH 44503",
+    "lat": 41.0996,
+    "lng": -80.6503,
+    "source": "addr grid",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "W Federal at Central Sq"
+   },
+   "The Mocha House": {
+    "address": "120 E Boardman St, Youngstown, OH 44503",
+    "lat": 41.0988,
+    "lng": -80.6485,
+    "source": "https://www.yelp.com/biz/the-mocha-house-downtown-youngstown-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "corrected: 120 E Boardman not W Federal"
+   },
+   "Noble Creature Wild Ales & Lagers": {
+    "address": "126 E Rayen Ave, Youngstown, OH 44503",
+    "lat": 41.1025,
+    "lng": -80.6485,
+    "source": "https://www.yelp.com/biz/noble-creature-wild-ales-and-lagers-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "corrected: 126 E Rayen not Boardman"
+   },
+   "Penguin City Brewing Company": {
+    "address": "460 E Federal St, Youngstown, OH 44503",
+    "lat": 41.0993,
+    "lng": -80.6443,
+    "source": "https://www.yelp.com/biz/penguin-city-brewing-company-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "zip 44503 not 44502; coord approx"
+   },
+   "St. Anthony of Padua parish pizza": {
+    "address": "St. Anthony of Padua Church, 1125 Turin Ave, Youngstown (Brier Hill), OH 44510",
+    "lat": 41.115,
+    "lng": -80.668,
+    "source": "https://www.stanthonybrierhill.org/briar-hill-pizza/",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "Brier Hill zip 44510; coord approx"
+   },
+   "Casa Di Canzonetta": {
+    "address": "44 E Federal St, Youngstown, OH 44503",
+    "lat": 41.0999,
+    "lng": -80.6489,
+    "source": "https://www.yelp.com/biz/casa-di-canzonetta-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "downtown Federal St; coord approx"
+   },
+   "The Amish Market": {
+    "address": "6121 South Ave, Boardman, OH 44512",
+    "lat": 41.02,
+    "lng": -80.6535,
+    "source": "https://theamishmarket.net/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "coord approx from verified addr"
+   },
+   "Northside Farmers Market": {
+    "address": "Elm St, Youngstown, OH 44505 (listed 1105 Elm St)",
+    "lat": 41.108,
+    "lng": -80.652,
+    "source": "https://www.yelp.com/biz/northside-farmers-market-youngstown",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "addr conflicts 832/901/1105 Elm; approx"
+   },
+   "The Youngstown Flea": {
+    "address": "365 E Boardman St, Youngstown, OH 44503",
+    "lat": 41.0982,
+    "lng": -80.6455,
+    "source": "http://youngstownflea.com/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "downtown market; coord approx"
+   },
+   "Youngstown Historical Center of Industry and Labor (the \"Steel Museum\")": {
+    "address": "151 W Wood St, Youngstown, OH 44503",
+    "lat": 41.1025,
+    "lng": -80.65111,
+    "source": "https://en.wikipedia.org/wiki/Youngstown_Historical_Center_of_Industry_and_Labor",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia DMS coord 41-6-9N 80-39-4W"
+   },
+   "Roger & Gloria Jones Children's Center for Science & Technology (OH WOW!)": {
+    "address": "11 W Federal St, Youngstown, OH 44503",
+    "lat": 41.09975,
+    "lng": -80.6501,
+    "source": "https://ohwowkids.org/",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "downtown Federal St; coord approx"
+   }
+  }
+ }
+}
