@@ -72,7 +72,7 @@
     },
     "youngstown-oh": {
       "name": "Youngstown, Ohio (Mahoning Valley)",
-      "updated": "2026-08-09",
+      "updated": "2026-08-09b",
       "tv": [
         { "name": "WFMJ 21", "call": "WFMJ", "net": "NBC", "url": "https://www.wfmj.com" },
         { "name": "WKBN 27", "call": "WKBN", "net": "CBS", "url": "https://www.wkbn.com", "note": "Runs the Valley fall-farm / corn-maze / apple-picking guide used for the Farms category." },
@@ -83,7 +83,8 @@
       "nonprofit": [ { "name": "Mahoning Matters", "url": "https://www.mahoningmatters.com" } ],
       "magazine": [ { "name": "Metro Monthly", "url": "https://www.metromonthly.net" } ],
       "cvb": [
-        { "name": "Explore Mahoning / Youngstown Live", "url": "https://exploremahoning.com" }
+        { "name": "Explore Mahoning / Youngstown Live", "url": "https://exploremahoning.com", "note": "Mahoning County CVB — Youngstown, Boardman, Canfield, Austintown." },
+        { "name": "Truly Trumbull (Trumbull County CVB)", "url": "https://www.exploretrumbullcounty.com", "note": "Trumbull County — Warren, Niles, Girard, Newton Falls; covers Past Times Arcade, the Packard Museum, the Robins Theatre." }
       ],
       "familyOrActivity": [
         { "name": "Macaroni Kid Youngstown", "url": "https://youngstown.macaronikid.com", "note": "Family activity guides incl. 'Fall Fun on the Farm'." },

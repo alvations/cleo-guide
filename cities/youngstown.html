@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Youngstown, Ohio field guide — 28 sights and 22 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="description" content="Youngstown, Ohio field guide — 40 sights and 22 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
 <title>Youngstown Field Guide — The Mahoning Valley, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · the Mahoning Valley, sourced</p>
   <h1>Youngstown<span class="thin">steel, parks &amp; the odd corners</span></h1>
-  <p class="standfirst">28 sights and 22 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">40 sights and 22 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>
 </header>
 
@@ -312,6 +312,15 @@ const S = {
   OHIO:{k:"OHIO TOURISM",t:"Ohio — Find It Here",u:"https://ohio.org",l:"Ohio tourism"},
   BJ:{k:"BUSINESS JOURNAL",t:"The Business Journal (Mahoning Valley)",u:"https://businessjournaldaily.com",l:"The Business Journal"},
   OHMAG:{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
+  WFMJ:{k:"WFMJ 21",t:"WFMJ 21 (NBC) — Youngstown newsroom",u:"https://www.wfmj.com",l:"WFMJ 21"},
+  WKBN:{k:"WKBN 27",t:"WKBN 27 (CBS) — Youngstown newsroom",u:"https://www.wkbn.com",l:"WKBN 27"},
+  MM:{k:"MAHONING MATTERS",t:"Mahoning Matters (nonprofit newsroom)",u:"https://www.mahoningmatters.com",l:"Mahoning Matters"},
+  TRIBCH:{k:"TRIBUNE CHRONICLE",t:"Tribune Chronicle (Warren / Trumbull daily)",u:"https://www.tribtoday.com",l:"Tribune Chronicle"},
+  REPLAY:{k:"REPLAY MAG",t:"RePlay Magazine — Berk's Past Times Arcade Opens in Girard",u:"https://www.replaymag.com/berks-past-times-arcade-opens-in-girard-ohio/",l:"RePlay Magazine"},
+  TA:{k:"TRIPADVISOR",t:"Tripadvisor — Youngstown / Mahoning Valley attractions",u:"https://www.tripadvisor.com/Attractions-g50376-Activities-Youngstown_Ohio.html",l:"Tripadvisor"},
+  TRULY:{k:"TRULY TRUMBULL",t:"Truly Trumbull — Trumbull County CVB",u:"https://www.exploretrumbullcounty.com/things-to-do/",l:"Truly Trumbull (Trumbull County CVB)"},
+  OCW:{k:"OLD CARS WEEKLY",t:"Old Cars Weekly — TP Tools opens car museum in Canfield",u:"https://www.oldcarsweekly.com/features/tp-tools-car-museum",l:"Old Cars Weekly"},
+  NHS:{k:"NILES HISTORY",t:"Niles Historical Society — Ward-Thomas House Museum",u:"https://nileshistoricalsociety.org/tours.htm",l:"Niles Historical Society"},
   ADD:{k:"ADDED",t:"Well-known local landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"}
 };
 
@@ -398,6 +407,9 @@ const P = [
 {t:3,a:"DT",n:"Downtown Youngstown murals",ad:"around W Federal St & Central Square",la:41.0985,ln:-80.6500,
  w:"A growing set of large downtown murals, several honoured statewide, that have brightened the old commercial core. Walkable in an afternoon between Central Square and the arts district.",
  k:"Free, outdoors, always up. Ask at a downtown shop for the current mural map. Approximate pin.",s:[["BJ",""]]},
+{t:2,a:"DT",n:"Mahoning County Courthouse",ad:"120 Market St, Youngstown, OH",la:41.0975,ln:-80.6495,
+ w:"A 1910 Renaissance Revival landmark by Charles F. Owsley whose interior opens into a roughly 100-foot rotunda crowned by a glazed art-glass dome, ringed by marble columns, mahogany and courtroom murals.",
+ k:"Working courthouse; the interior is best seen on the periodic free public tours. Security screening applies. Approximate pin.",s:[["MM",""],["BJ",""],["WFMJ",""]]},
 /* == MAHONING VALLEY DAY TRIPS == */
 {t:1,a:"DY",n:"Dave Grohl Alley",ad:"125 David Grohl Alley, Warren, OH",la:41.2378,ln:-80.8183,
  w:"A brick alley in downtown Warren painted wall-to-wall in tribute to Warren-born Nirvana/Foo Fighters drummer Dave Grohl — murals, a metal figure at a drum kit, and a pair of 900-pound drumsticks billed as the world's largest.",
@@ -410,7 +422,40 @@ const P = [
  k:"The fair is late Aug–Labor Day. Otherwise little to see. Seasonal.",warn:1,s:[["T2N",""]]},
 {t:2,a:"DY",n:"Idora Park Experience",ad:"near Canfield Rd, Youngstown",la:41.0709,ln:-80.7010,
  w:"The beloved Idora Park amusement park closed in 1984; volunteers now keep a museum of its memorabilia. A piece of vanished Youngstown, opened only on select days.",
- k:"Limited hours — call or check ahead. The park itself is long gone. Approximate pin.",warn:1,s:[["AO",""]]}
+ k:"Limited hours — call or check ahead. The park itself is long gone. Approximate pin.",warn:1,s:[["AO",""]]},
+{t:1,a:"DY",n:"Past Times Arcade",ad:"419 N State St, Girard, OH",la:41.1565,ln:-80.7020,
+ w:"A retro pinball-and-arcade museum in a former Girard supermarket holding roughly 600 largely playable pinball machines plus 200+ classic arcade games from the 1930s on — one of the largest such collections in the country, assembled by Pinball Expo founder Rob Berk.",
+ k:"Opened 2023. Thu–Fri from 4pm, Sat–Sun from 11am; ~$20 adults / $10 ages 6–16 for unlimited play; allow 3+ hours. ~10 min north, off I-80. Approximate pin.",s:[["WFMJ",""],["BJ",""],["MM",""],["TRIBCH",""],["REPLAY",""],["TA",""],["EXM",""]]},
+{t:1,a:"DY",n:"National Packard Museum",ad:"1899 Mahoning Ave NW, Warren, OH",la:41.2470,ln:-80.8330,
+ w:"A 23,000-sq-ft museum on the site where the Packard automobile was born in 1899 — rotating original and restored Packards, classic motorcycles, and the Packard family and company archives.",
+ k:"Tue–Sat 12–5, Sun 1–5; closed Mondays and holidays. In Warren, ~20 min north. Approximate pin.",s:[["OHIO",""],["TA",""],["TRULY",""]]},
+{t:1,a:"DY",n:"Robins Theatre",ad:"160 E Market St, Warren, OH",la:41.2372,ln:-80.8165,
+ w:"A meticulously restored 1923 Art Deco/Mediterranean theatre by C. Howard Crane — a 1,400-seat house that reopened in 2020, ninety-seven years to the day after its debut, and now books national touring music and comedy.",
+ k:"Ticketed events; check the schedule. In downtown Warren, ~20 min north. Approximate pin.",s:[["WKBN",""],["TRULY",""],["TA",""]]},
+{t:2,a:"DY",n:"Noah's Lost Ark Exotic Animal Sanctuary",ad:"8424 Bedell Rd, Berlin Center, OH",la:41.0300,ln:-80.9500,
+ w:"A nonprofit no-kill exotic-animal sanctuary — lions, tigers, bears and 125+ rescued animals — one of the few facilities both state- and federally licensed to give guided public tours.",
+ k:"Seasonal, roughly May 15–Oct 31; petting zoo, gift shop, free noon tortoise feeding. ~30 min west. Approximate pin.",warn:1,s:[["EXM",""],["TA",""]]},
+{t:2,a:"DY",n:"TP Tools Auto Collection Museum",ad:"7075 State Route 446, Canfield, OH",la:41.0180,ln:-80.7020,
+ w:"A free classic-car museum inside the TP Tools complex — 50+ restored autos from 1917 on, staged amid immersive period sets: a 1950s diner, soda bar, country store and service garage.",
+ k:"Free; typically Saturdays 10–3, hours limited — confirm ahead. ~20 min south. Approximate pin.",warn:1,s:[["OCW",""],["EXM",""]]},
+{t:2,a:"DY",n:"Mill Creek MetroParks Farm",ad:"7574 Columbiana-Canfield Rd, Canfield, OH",la:41.0020,ln:-80.7560,
+ w:"A 402-acre working farm run by Mill Creek MetroParks — animal barns, the interactive AgVenture Barn, a free fall corn maze, disc golf and a natural playground — and the trailhead for the 11-mile MetroParks Bikeway.",
+ k:"Seasonal, roughly April–October; free admission. Pumpkin harvest and Bug Day in season. ~20 min south. Approximate pin.",warn:1,s:[["OHIO",""],["MCMP",""],["EXM",""]]},
+{t:2,a:"DY",n:"Sports World Family Fun Center",ad:"8249 South Ave, Boardman, OH",la:41.0000,ln:-80.6560,
+ w:"A long-running outdoor family fun center in Boardman — go-kart tracks, 18-hole adventure golf, batting cages and a redemption arcade — the valley's go-to for arcade-plus-outdoor play.",
+ k:"Seasonal outdoor attractions; pay-per-ride or packages. ~15 min south. Approximate pin.",warn:1,s:[["EXM",""],["TA",""]]},
+{t:3,a:"DY",n:"Hollywood Gaming at Mahoning Valley Race Course",ad:"655 N Canfield-Niles Rd, Austintown, OH",la:41.1120,ln:-80.7500,
+ w:"A racino (2014) pairing a one-mile thoroughbred track with 1,100+ video lottery terminals, dining and events — the region's live horse-racing venue.",
+ k:"Gaming areas 21+; live thoroughbred racing roughly Oct–April, free to watch. ~15 min northwest. Approximate pin.",warn:1,s:[["WKBN",""],["EXM",""],["TA",""]]},
+{t:3,a:"DY",n:"Ernie Hall Aviation Museum",ad:"4033 North River Rd NE, Warren, OH",la:41.2820,ln:-80.7800,
+ w:"A small but rich aviation museum honouring pioneer Ernest C. Hall — his 1947 Piper PA-12, personal letters between Hall and Orville Wright, and a scrap of fabric from the Red Baron's Fokker triplane.",
+ k:"Nonprofit, limited hours; hosts Wings-n-Wheels fly-ins. Confirm hours first. ~25 min north. Approximate pin.",warn:1,s:[["OHIO",""],["TA",""]]},
+{t:3,a:"DY",n:"Ward-Thomas House Museum",ad:"503 Brown St, Niles, OH",la:41.1830,ln:-80.7610,
+ w:"An 1862 fourteen-room Victorian mansion on the National Register, home to the Niles Historical Society's 5,000+ artefacts of local industrial heritage and reproductions of several First Ladies' inaugural gowns.",
+ k:"Very limited hours — typically the first Sunday of the month, 2–5, or by appointment. ~15 min north. Approximate pin.",warn:1,s:[["NHS",""],["TRULY",""]]},
+{t:3,a:"DY",n:"Newton Falls Covered Bridge",ad:"Covered Bridge, Newton Falls, OH",la:41.1880,ln:-80.9780,
+ w:"An 1831 covered bridge over the Mahoning River — the oldest covered bridge still in service in Ohio, with a rare attached covered pedestrian walkway.",
+ k:"Free, open to traffic and on foot year-round. ~25 min northwest. Approximate pin.",s:[["TRULY",""]]}
 ];
 
 const FS = {
@@ -1020,7 +1065,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 50 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 62 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

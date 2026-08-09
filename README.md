@@ -57,9 +57,10 @@ node research.js --validate akron-oh   # audit its sources before building a pag
   Every place is traceable to a credible source — aggregator and guidebook rankings, the official institutions,
   university visitor guides and regional heritage bodies. Same interactive engine as Cleveland; web-researched and
   fact-checked.
-- **[Youngstown, Ohio](cities/youngstown.html)** — 28 sights and 22 places to eat, drink, shop &amp; pick across
+- **[Youngstown, Ohio](cities/youngstown.html)** — 40 sights and 22 places to eat, drink, shop &amp; pick across
   the Mahoning Valley (Wick Avenue's museums, all of Mill Creek Park, the downtown halls, breweries, Brier Hill
-  pizza, Warren's Dave Grohl Alley, a strictly-curated **Markets** category — the Youngstown Flea, Rogers flea
+  pizza, Warren's Dave Grohl Alley, the **Past Times Arcade** pinball museum, the National Packard Museum and the
+  restored Robins Theatre, a strictly-curated **Markets** category — the Youngstown Flea, Rogers flea
   market, Amish Market, Northside Farmers Market — and a **Farms** category of visitable u-pick / petting
   farms). Uses the
   **same interactive engine as Cleveland** — one map, area/source/rank filters, cuisine sub-filters, a trip
