@@ -1623,562 +1623,562 @@
   },
   "youngstown-oh": {
    "Dave Grohl Alley": {
-    "address": "125 David Grohl Alley, Warren, OH 44481",
-    "lat": 41.2378,
-    "lng": -80.8183,
-    "source": "Yelp/roadsideamerica",
+    "address": "David Grohl Alley, Warren, OH 44481",
+    "lat": 41.2357,
+    "lng": -80.8194,
+    "source": "RoadsideAmerica/Yelp published 41.2357,-80.8194",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Downtown Warren off Main Ave SW"
+    "confidence": "high",
+    "note": "listing published lat/long"
    },
    "National McKinley Birthplace Memorial & Museum": {
     "address": "40 N Main St, Niles, OH 44446",
     "lat": 41.18083,
     "lng": -80.76611,
-    "source": "Wikipedia/latlong.net",
+    "source": "Wikipedia National McKinley Birthplace Memorial coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Niles Main St memorial"
+    "note": "Wikipedia published"
    },
    "Canfield Fairgrounds": {
     "address": "7265 Columbiana-Canfield Rd, Canfield, OH 44406",
     "lat": 41.01068,
     "lng": -80.76021,
-    "source": "Google Maps",
+    "source": "Google Maps place marker 41.0106804,-80.7602109",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Canfield fairgrounds"
+    "note": "Google Maps published"
    },
    "Idora Park Experience": {
     "address": "4450 S Turner Rd, Canfield, OH 44406",
-    "lat": 41.005,
-    "lng": -80.75,
-    "source": "https://www.redfin.com/OH/Canfield/4450-S-Turner-Rd-44406/home/66526370",
+    "lat": 41.009,
+    "lng": -80.706,
+    "source": "address verified (4450 S Turner Rd, Canfield); coordinate at that block (approximate). Distinct from the historic Idora Park site.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "Canfield; closed; coord town-level est"
+    "note": "S Turner Rd, Canfield (block-level)"
    },
    "Past Times Arcade": {
     "address": "419 N State St, Girard, OH 44420",
-    "lat": 41.159,
-    "lng": -80.701,
-    "source": "Yelp/official",
+    "lat": 41.1572,
+    "lng": -80.7015,
+    "source": "Yelp — 419 N State St, Girard (address verified); coordinate on N State St, downtown Girard (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "N State St, Girard"
+    "confidence": "low",
+    "note": "N State St, Girard (block-level)"
    },
    "National Packard Museum": {
     "address": "1899 Mahoning Ave NW, Warren, OH 44483",
-    "lat": 41.25303,
+    "lat": 41.25298,
     "lng": -80.83088,
-    "source": "latlong.net",
+    "source": "Ohio.org/Waze museum listing + Warren landmark",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Mahoning Ave NW, Warren"
+    "note": "Warren; fixed museum landmark"
    },
    "Robins Theatre": {
     "address": "160 E Market St, Warren, OH 44481",
-    "lat": 41.2377,
-    "lng": -80.8155,
-    "source": "Yelp",
+    "lat": 41.2358,
+    "lng": -80.81655,
+    "source": "mapcarta theater node W547757456",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Downtown Warren E Market St"
+    "confidence": "high",
+    "note": "Warren; downtown historic theatre"
    },
    "Noah's Lost Ark Exotic Animal Sanctuary": {
     "address": "8424 Bedell Rd, Berlin Center, OH 44401",
-    "lat": 40.99572,
-    "lng": -80.98627,
-    "source": "https://www.loopnet.com/property/8424-bedell-rd-berlin-center-oh-44401/39099-220410012000/",
+    "lat": 41.03,
+    "lng": -80.95,
+    "source": "address verified (8424 Bedell Rd, Berlin Center); coordinate at that rural road (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Berlin Center animal sanctuary"
+    "confidence": "low",
+    "note": "Bedell Rd, Berlin Center (rural)"
    },
    "TP Tools Auto Collection Museum": {
-    "address": "7075 State Route 446, Canfield, OH 44406",
-    "lat": 41.0235,
-    "lng": -80.778,
-    "source": "Yelp/official desc",
+    "address": "7075 State Route 446 (Herbert Rd), Canfield, OH 44406",
+    "lat": 41.019,
+    "lng": -80.7005,
+    "source": "Google — 7075 Herbert Rd/SR-446, Canfield (by Twp Fire Sta #2); coordinate at that block (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "US224/SR446 corner W of Canfield"
+    "confidence": "low",
+    "note": "SR-446/Herbert Rd, Canfield (block-level)"
    },
    "Mill Creek MetroParks Farm": {
     "address": "7574 Columbiana-Canfield Rd, Canfield, OH 44406",
-    "lat": 41.005,
-    "lng": -80.757,
-    "source": "Yelp/official",
+    "lat": 41.01021,
+    "lng": -80.76113,
+    "source": "loc8nearme/disc-golf course listing",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Columbiana-Canfield Rd, Canfield"
+    "confidence": "high",
+    "note": "Canfield; across from fairgrounds"
    },
    "Sports World Family Fun Center": {
     "address": "8249 South Ave, Boardman, OH 44512",
     "lat": 40.99778,
     "lng": -80.63269,
-    "source": "Yelp",
+    "source": "virtualglobetrotting (Google Maps coord)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "South Ave, Boardman"
+    "note": "Boardman"
    },
    "Hollywood Gaming at Mahoning Valley Race Course": {
-    "address": "655 N Canfield-Niles Rd, Austintown, OH 44515",
+    "address": "655 N Canfield-Niles Rd, Austintown, OH",
     "lat": 41.11694,
     "lng": -80.76167,
-    "source": "Wikipedia",
+    "source": "Wikipedia (41.1169444,-80.7616667)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Austintown racino"
+    "note": "Austintown"
    },
    "Ernie Hall Aviation Museum": {
     "address": "4033 North River Rd NE, Warren, OH 44484",
     "lat": 41.26565,
     "lng": -80.75373,
-    "source": "hmdb/official",
+    "source": "HMDB marker 41 15.939N 80 45.224W",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Airstrip NE of Warren"
+    "confidence": "high",
+    "note": "Warren"
    },
    "Ward-Thomas House Museum": {
     "address": "503 Brown St, Niles, OH 44446",
-    "lat": 41.183,
-    "lng": -80.761,
-    "source": "Niles Historical Society",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Brown St, Niles"
-   },
-   "Newton Falls Covered Bridge": {
-    "address": "Covered Bridge (OH-534), Newton Falls, OH 44444",
-    "lat": 41.18806,
-    "lng": -80.97139,
-    "source": "Wikipedia/hmdb",
+    "lat": 41.17438,
+    "lng": -80.76543,
+    "source": "HMDB marker 41 10.463N 80 45.926W",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Newton Falls covered bridge"
+    "note": "Niles"
+   },
+   "Newton Falls Covered Bridge": {
+    "address": "OH-534, Newton Falls, OH 44444",
+    "lat": 41.18806,
+    "lng": -80.97139,
+    "source": "Wikipedia (41.18806,-80.97139)",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Newton Falls; NRHP"
    },
    "Modern Methods Brewing Company": {
     "address": "125 David Grohl Alley, Warren, OH 44481",
-    "lat": 41.2378,
-    "lng": -80.818,
-    "source": "Yelp/official",
+    "lat": 41.2357,
+    "lng": -80.8195,
+    "source": "beeradvocate/brewerydb published 41.2357,-80.8195",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "David Grohl Alley, Warren"
+    "note": "Warren; downtown near Robins Theatre"
    },
    "Birdfish Brewing Co.": {
     "address": "140 E Park Ave, Columbiana, OH 44408",
-    "lat": 40.8875,
-    "lng": -80.6935,
-    "source": "official/Yelp",
+    "lat": 40.888,
+    "lng": -80.691,
+    "source": "address verified (140 E Park Ave, downtown Columbiana); coordinate at that block (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Columbiana (38 E Main invalid)"
+    "confidence": "low",
+    "note": "E Park Ave, Columbiana (block-level)"
    },
    "Rogers Community Auction & Flea Market": {
     "address": "45625 OH-154, Rogers, OH 44455",
-    "lat": 40.786,
-    "lng": -80.629,
-    "source": "Yelp/official",
+    "lat": 40.79382,
+    "lng": -80.64003,
+    "source": "superpages/BBB listing",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "SR-154 flea market, Rogers"
+    "confidence": "high",
+    "note": "Rogers (Columbiana Co.)"
    },
    "White House Fruit Farm": {
-    "address": "9249 Youngstown-Salem Rd, Canfield, OH 44406",
-    "lat": 41.002,
-    "lng": -80.783,
-    "source": "Yelp/official",
+    "address": "9249 Youngstown-Salem Rd (US-62), Canfield, OH 44406",
+    "lat": 40.98399,
+    "lng": -80.80676,
+    "source": "google maps directions destination waypoint !1d-80.8067596!2d40.9839932",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "US62 SW of Canfield"
+    "confidence": "high",
+    "note": "Canfield; farm market SW of Canfield on US-62"
    },
    "Detwiler Farm": {
     "address": "4520 Renkenberger Rd, Columbiana, OH 44408",
     "lat": 40.92289,
     "lng": -80.73609,
-    "source": "Waze/Yelp",
+    "source": "Yelp/Waze business listing published coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Renkenberger Rd NW of Columbiana"
+    "note": "Columbiana pumpkin farm"
    },
    "Molnar Farms": {
     "address": "3115 E Western Reserve Rd, Poland, OH 44514",
-    "lat": 41.008,
-    "lng": -80.6,
-    "source": "Yelp/official",
+    "lat": 40.98567,
+    "lng": -80.594,
+    "source": "Yelp/find-open business listing published coords",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "E Western Reserve Rd, Poland"
+    "confidence": "high",
+    "note": "Poland Twp produce farm"
    },
    "Butler Institute of American Art": {
     "address": "524 Wick Ave, Youngstown, OH 44502",
     "lat": 41.10562,
     "lng": -80.64597,
-    "source": "Apple Maps; Wikipedia",
+    "source": "Wikipedia 41.105371,-80.645458 + Apple Maps 41.1056182,-80.6459713",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Apple/Wikipedia confirm on Wick Ave"
+    "note": "Wikipedia+Apple agree"
    },
    "Youngstown Historical Center of Industry and Labor": {
     "address": "151 W Wood St, Youngstown, OH 44503",
-    "lat": 41.1028,
-    "lng": -80.6495,
-    "source": "Yelp/OhioHistory addr",
+    "lat": 41.10245,
+    "lng": -80.65078,
+    "source": "Wikipedia — Youngstown Historical Center of Industry and Labor (41°6.147′N 80°39.047′W)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "W Wood St, coords unverified"
+    "confidence": "high",
+    "note": "W Wood St, Youngstown"
    },
    "Rose Melnick Medical Museum": {
-    "address": "Cushwa Hall B241, YSU, 1 University Plaza, Youngstown, OH 44555",
-    "lat": 41.1045,
-    "lng": -80.6447,
-    "source": "https://maag.ysu.edu/melnickvisit",
+    "address": "Cushwa Hall, YSU, 1 University Plaza, Youngstown, OH 44555",
+    "lat": 41.1059,
+    "lng": -80.64966,
+    "source": "mapcarta building node (Cushwa Hall) 22648868",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "YSU Cushwa Hall; coord approx"
+    "confidence": "high",
+    "note": "Youngstown; YSU building point, museum inside"
    },
    "Ward Beecher Planetarium": {
-    "address": "Ward Beecher Science Hall, 100 Lincoln Ave, YSU, Youngstown, OH 44555",
-    "lat": 41.1055,
-    "lng": -80.646,
-    "source": "https://www.wbplanetarium.org/visit",
+    "address": "Ward Beecher Hall, 100 Lincoln Ave, YSU, Youngstown, OH 44555",
+    "lat": 41.1051,
+    "lng": -80.64765,
+    "source": "mapcarta building node (Ward Beecher Hall) 22697030",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "YSU; coord approx from addr"
+    "confidence": "high",
+    "note": "Youngstown; YSU building point, planetarium inside"
    },
    "Arms Family Museum": {
     "address": "648 Wick Ave, Youngstown, OH 44502",
-    "lat": 41.1082,
-    "lng": -80.64715,
-    "source": "Yelp/Waze addr",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "north of Butler on Wick"
-   },
-   "Stambaugh Auditorium": {
-    "address": "1000 Fifth Ave, Youngstown, OH 44504",
-    "lat": 41.11389,
-    "lng": -80.65194,
-    "source": "Wikipedia",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Wikipedia coordinates"
-   },
-   "McDonough Museum of Art": {
-    "address": "525 Wick Ave, Youngstown, OH 44555",
-    "lat": 41.1064,
-    "lng": -80.6464,
-    "source": "YSU addr",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "YSU, opposite Butler"
-   },
-   "Clarence R. Smith Mineral Museum": {
-    "address": "Moser Hall, 134 Lincoln Ave, YSU, Youngstown, OH 44555",
-    "lat": 41.1061,
-    "lng": -80.6484,
-    "source": "https://minerals.ysu.edu/plan-a-visit/",
+    "lat": 41.10704,
+    "lng": -80.6472,
+    "source": "gpsmycity (lat 41.10704) + Wick Ave (648 Wick, verified); lng approximate on Wick Ave",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "YSU Moser Hall; coord approx"
+    "note": "Wick Ave, Youngstown (block-level)"
+   },
+   "Stambaugh Auditorium": {
+    "address": "1000 Fifth Ave, Youngstown, OH",
+    "lat": 41.11389,
+    "lng": -80.65194,
+    "source": "Wikipedia Stambaugh Auditorium coords",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia published"
+   },
+   "McDonough Museum of Art": {
+    "address": "525 Wick Ave, Youngstown, OH",
+    "lat": 41.105,
+    "lng": -80.645,
+    "source": "Wikipedia McDonough Museum coords",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia published"
+   },
+   "Clarence R. Smith Mineral Museum": {
+    "address": "Moser Hall, YSU, Youngstown, OH 44555",
+    "lat": 41.10617,
+    "lng": -80.64854,
+    "source": "mapcarta YSU campus node 22700832 (Moser Hall point not published)",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "Youngstown; YSU campus point, Moser Hall imprecise"
    },
    "Wick Park": {
-    "address": "Fifth Ave & Park Ave, North Side, Youngstown, OH 44502",
-    "lat": 41.1128,
-    "lng": -80.6493,
-    "source": "Wikipedia district",
+    "address": "Fifth Ave & Park Ave, North Side, Youngstown",
+    "lat": 41.115,
+    "lng": -80.64833,
+    "source": "Wikipedia Wick Park Historic District coords",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Wick Park district center"
+    "confidence": "high",
+    "note": "district coordinate, published"
    },
    "Lanterman's Mill": {
     "address": "1001 Canfield Rd, Youngstown, OH 44511",
     "lat": 41.06681,
     "lng": -80.68214,
-    "source": "map GPS listings",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "GPS db; south of prior pin"
-   },
-   "Fellows Riverside Gardens": {
-    "address": "123 McKinley Ave, Youngstown, OH 44509",
-    "lat": 41.09919,
-    "lng": -80.675,
-    "source": "Wikidata",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Wikidata coordinates"
-   },
-   "Mill Creek Suspension Bridge (the Cinderella Bridge)": {
-    "address": "Valley Dr, Mill Creek Park, Youngstown, OH",
-    "lat": 41.07333,
-    "lng": -80.68917,
-    "source": "Wikipedia",
+    "source": "Mill Creek MetroParks official GPS 41.066806,-80.682140",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia coordinates"
+    "note": "official site published"
+   },
+   "Fellows Riverside Gardens": {
+    "address": "123 McKinley Ave, Mill Creek Park",
+    "lat": 41.09919,
+    "lng": -80.675,
+    "source": "Wikipedia Fellows Riverside Gardens coords",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia published"
+   },
+   "Mill Creek Suspension Bridge (the Cinderella Bridge)": {
+    "address": "Valley Dr, Mill Creek Park",
+    "lat": 41.07333,
+    "lng": -80.68917,
+    "source": "Wikipedia Mill Creek Park Suspension Bridge coords",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Wikipedia published"
    },
    "Lily Pond": {
     "address": "Lily Pond Circle Trail, off McCollum Rd, Mill Creek Park, Youngstown, OH 44509",
     "lat": 41.049,
     "lng": -80.691,
-    "source": "https://www.alltrails.com/trail/us/ohio/lily-pond-circle-trail + https://www.millcreekmetroparks.org/lakes-ponds/ (off McCollum Rd, zip 44509)",
+    "source": "AllTrails + Mill Creek MetroParks (off McCollum Rd, Lily Pond Circle Trail); coordinate approximate",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "off McCollum Rd, west Mill Creek Park"
+    "note": "off McCollum Rd, Mill Creek Park"
    },
    "Lake Newport & Newport Boathouse": {
-    "address": "West Newport Dr, Mill Creek Park, Youngstown, OH 44511",
-    "lat": 41.0533,
-    "lng": -80.6775,
-    "source": "https://www.millcreekmetroparks.org/boating-fishing/ (Lake Newport Boathouse, West Newport Dr; wetlands lot 41.0529,-80.6776 per slipstreamboating)",
+    "address": "Mill Creek Park, Youngstown",
+    "lat": 41.05882,
+    "lng": -80.67701,
+    "source": "paddling.com Newport Lake listing 41.058816,-80.677010",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "West Newport Dr boathouse, Mill Creek Park"
+    "confidence": "high",
+    "note": "lake point, published listing"
    },
    "Joanne Beeghly Rose Garden": {
-    "address": "inside Fellows Riverside Gardens, 123 McKinley Ave, Youngstown, OH 44509",
-    "lat": 41.083,
-    "lng": -80.681,
-    "source": "https://www.millcreekmetroparks.org/fellows-riverside-gardens/",
+    "address": "Fellows Riverside Gardens, 123 McKinley Ave, Youngstown, OH 44509",
+    "lat": 41.09964,
+    "lng": -80.675,
+    "source": "wikidata Q5442495 (Fellows Riverside Gardens) 41 05 57.1N 80 40 30.0W",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "in Fellows Gardens; coord approx"
+    "confidence": "med",
+    "note": "Youngstown; pinned to Fellows Gardens, garden inside (co-located; nudged ~50m so both show)"
    },
    "Ford Nature Center": {
     "address": "840 Old Furnace Rd, Youngstown, OH 44511",
-    "lat": 41.063,
-    "lng": -80.665,
-    "source": "https://www.millcreekmetroparks.org/ford-nature-center/",
+    "lat": 41.0575,
+    "lng": -80.672,
+    "source": "address verified (840 Old Furnace Rd, Mill Creek MetroParks); coordinate on Old Furnace Rd (approximate)",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "addr verified; coord approx"
+    "note": "Old Furnace Rd, Mill Creek Park"
    },
    "Pioneer Pavilion": {
-    "address": "Old Furnace Rd, Mill Creek Park, Youngstown, OH",
+    "address": "Old Furnace Rd, Mill Creek Park",
     "lat": 41.08262,
     "lng": -80.68008,
-    "source": "map GPS listings",
+    "source": "HMDB marker GPS 41.082615,-80.68008",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "GPS listing"
+    "confidence": "high",
+    "note": "historical marker DB published"
    },
    "Mill Creek Golf Course": {
     "address": "1 W Golf Dr, Boardman, OH 44512",
-    "lat": 41.014,
-    "lng": -80.663,
-    "source": "https://www.millcreekmetroparks.org/mill-creek-golf-course/",
+    "lat": 41.03457,
+    "lng": -80.6953,
+    "source": "google maps place pin !3d41.0345702!4d-80.6952989",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Boardman 44512 not Yngstn; coord approx"
+    "confidence": "high",
+    "note": "Boardman; Mill Creek MetroParks course"
    },
    "DeYor Performing Arts Center (Powers Auditorium)": {
-    "address": "260 W Federal St, Youngstown, OH 44503",
-    "lat": 41.1,
-    "lng": -80.653,
-    "source": "Wikipedia/anchor",
+    "address": "260 W Federal St, Youngstown, OH",
+    "lat": 41.10222,
+    "lng": -80.65333,
+    "source": "Wikipedia Powers Auditorium coords",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "W Federal downtown; Wiki lat high"
+    "confidence": "high",
+    "note": "Wikipedia published"
    },
    "Tyler History Center": {
     "address": "325 W Federal St, Youngstown, OH 44503",
     "lat": 41.10201,
     "lng": -80.65466,
-    "source": "https://latitude.to (geocode); https://mahoninghistory.org/tyler-history-center/",
+    "source": "Nextdoor Tyler Mahoning Valley History Center",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "geocoded coord; MVHS confirms addr"
+    "note": "listing published lat/long"
    },
    "Roger & Gloria Jones Children's Center for Science & Technology": {
-    "address": "Downtown Youngstown, OH",
-    "lat": 41.1005,
-    "lng": -80.6495,
-    "source": "downtown anchor",
+    "address": "11 W Federal St / Central Square, Youngstown, OH 44503",
+    "lat": 41.1,
+    "lng": -80.65028,
+    "source": "published Central Square coord (near Metropolitan Tower)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "downtown, unverified"
+    "confidence": "med",
+    "note": "Youngstown; pinned to Central Square (OH WOW)"
    },
    "The Youngstown Playhouse": {
     "address": "600 Playhouse Ln, Youngstown, OH 44511",
-    "lat": 41.07861,
-    "lng": -80.67944,
-    "source": "https://www.wikidata.org/wiki/Q8058661",
+    "lat": 41.07987,
+    "lng": -80.67396,
+    "source": "vymaps geocode 600 Playhouse Ln 41.0798712,-80.6739586",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikidata DMS coord"
+    "note": "address geocode published"
    },
    "Covelli Centre": {
     "address": "229 E Front St, Youngstown, OH 44503",
-    "lat": 41.0966,
-    "lng": -80.648,
-    "source": "Apple; latitude.to",
+    "lat": 41.09626,
+    "lng": -80.64799,
+    "source": "Google Maps place marker 41.0962558,-80.6479886",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Apple/latitude.to on E Front"
+    "confidence": "high",
+    "note": "Google Maps published"
    },
    "Downtown Youngstown murals": {
-    "address": "W Federal St & Central Square, Youngstown, OH",
-    "lat": 41.0996,
-    "lng": -80.6497,
-    "source": "downtown anchor",
+    "address": "W Federal St & Central Square, Youngstown, OH 44503",
+    "lat": 41.10045,
+    "lng": -80.65028,
+    "source": "published Central Square coord",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "diffuse; Central Square"
+    "confidence": "med",
+    "note": "Youngstown; diffuse, pinned to Central Square (co-located; nudged ~50m so both show)"
    },
    "Mahoning County Courthouse": {
     "address": "120 Market St, Youngstown, OH 44503",
-    "lat": 41.0974,
-    "lng": -80.6493,
-    "source": "county/Waze addr",
+    "lat": 41.0968,
+    "lng": -80.649,
+    "source": "address verified (120 Market St, downtown Youngstown); coordinate at that block (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Market St off Central Sq"
+    "confidence": "low",
+    "note": "Market St, downtown Youngstown"
    },
    "Cassese's MVR": {
     "address": "410 N Walnut St, Youngstown, OH 44505",
-    "lat": 41.10102,
-    "lng": -80.65116,
-    "source": "map listing",
+    "lat": 41.10343,
+    "lng": -80.64431,
+    "source": "google maps daddr geocode 410 N Walnut St %4041.10343,-80.64431",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "search coord, N Walnut"
+    "confidence": "high",
+    "note": "Youngstown; Smoky Hollow restaurant"
    },
    "Yosteria": {
     "address": "252 Valley St, Youngstown, OH 44505",
-    "lat": 41.106,
-    "lng": -80.6465,
-    "source": "https://www.yelp.com/biz/yosteria-youngstown-2",
+    "lat": 41.1068,
+    "lng": -80.6411,
+    "source": "address verified (252 Valley St, Smoky Hollow); coordinate at that block (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Smoky Hollow; zip 44505; coord approx"
+    "confidence": "low",
+    "note": "Valley St, Youngstown (block-level)"
    },
    "Kravitz Delicatessen": {
-    "address": "3135 Belmont Ave, Youngstown, OH 44505",
-    "lat": 41.134,
-    "lng": -80.662,
-    "source": "https://www.yelp.com/biz/kravitz-delicatessen-youngstown",
+    "address": "3135 Belmont Ave, Youngstown (Liberty), OH 44505",
+    "lat": 41.13936,
+    "lng": -80.66484,
+    "source": "google maps daddr geocode 3135 Belmont Ave %4041.139355,-80.66484",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Belmont Ave, Liberty; coord approx"
+    "confidence": "high",
+    "note": "Liberty/Youngstown; deli on Belmont Ave"
    },
    "Handel's Homemade Ice Cream": {
     "address": "7485 South Ave, Boardman, OH 44512",
-    "lat": 41.006,
-    "lng": -80.653,
-    "source": "https://handelsicecream.com/store/south-ave/",
+    "lat": 41.01833,
+    "lng": -80.63386,
+    "source": "google maps place pin !3d41.0183329!4d-80.6338607",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "coord approx from verified addr"
+    "confidence": "high",
+    "note": "Boardman; original South Ave stand"
    },
    "Golden Dawn": {
     "address": "1245 Logan Ave, Youngstown, OH 44505",
-    "lat": 41.117,
-    "lng": -80.647,
-    "source": "https://www.yelp.com/biz/golden-dawn-youngstown",
+    "lat": 41.1162,
+    "lng": -80.63966,
+    "source": "google maps daddr geocode 1245 Logan Ave %4041.116196,-80.63966",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "coord approx from verified addr"
+    "confidence": "high",
+    "note": "Youngstown; near Wick Park"
    },
    "Wedgewood Pizza": {
     "address": "1622 S Raccoon Rd, Austintown, OH 44515",
-    "lat": 41.083,
-    "lng": -80.735,
-    "source": "https://www.wedgewoodpizza.com/locations/austintown-ohio/",
+    "lat": 41.087,
+    "lng": -80.746,
+    "source": "address verified (1622 S Raccoon Rd, Austintown); coordinate at that block (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "Austintown; addr found; coord approx"
+    "confidence": "low",
+    "note": "S Raccoon Rd, Austintown (block-level)"
    },
    "Avalon Downtown Pizzeria": {
     "address": "17 W Federal St, Youngstown, OH 44503",
-    "lat": 41.09975,
-    "lng": -80.6502,
-    "source": "https://www.yelp.com/biz/avalon-downtown-pizzeria-youngstown",
+    "lat": 41.10027,
+    "lng": -80.65023,
+    "source": "maptons.com/roadtrippers published 41.1002722,-80.6502324",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "downtown Federal St; coord approx"
+    "confidence": "high",
+    "note": "Youngstown; on Central Square/Federal"
    },
    "The Federal": {
-    "address": "101 W Federal St, Youngstown, OH 44503",
-    "lat": 41.0996,
-    "lng": -80.6503,
-    "source": "addr grid",
+    "address": "110 W Federal St, Youngstown, OH 44503",
+    "lat": 41.10101,
+    "lng": -80.6507,
+    "source": "triptap/usarestaurants.info listing",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "W Federal at Central Sq"
+    "confidence": "high",
+    "note": "Youngstown; addr is 110 not 101"
    },
    "The Mocha House": {
     "address": "120 E Boardman St, Youngstown, OH 44503",
-    "lat": 41.0988,
+    "lat": 41.0987,
     "lng": -80.6485,
-    "source": "https://www.yelp.com/biz/the-mocha-house-downtown-youngstown-youngstown",
+    "source": "google maps place pin !3d41.0987006!4d-80.6484953",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "corrected: 120 E Boardman not W Federal"
+    "confidence": "high",
+    "note": "Youngstown; downtown location (not Boardman)"
    },
    "Noble Creature Wild Ales & Lagers": {
     "address": "126 E Rayen Ave, Youngstown, OH 44503",
-    "lat": 41.1025,
-    "lng": -80.6485,
-    "source": "https://www.yelp.com/biz/noble-creature-wild-ales-and-lagers-youngstown",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "corrected: 126 E Rayen not Boardman"
-   },
-   "Penguin City Brewing Company": {
-    "address": "460 E Federal St, Youngstown, OH 44503",
-    "lat": 41.0993,
-    "lng": -80.6443,
-    "source": "https://www.yelp.com/biz/penguin-city-brewing-company-youngstown",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "zip 44503 not 44502; coord approx"
-   },
-   "St. Anthony of Padua parish pizza": {
-    "address": "St. Anthony of Padua Church, 1125 Turin Ave, Youngstown (Brier Hill), OH 44510",
-    "lat": 41.115,
-    "lng": -80.668,
-    "source": "https://www.stanthonybrierhill.org/briar-hill-pizza/",
+    "lat": 41.1016,
+    "lng": -80.6478,
+    "source": "address verified (126 E Rayen Ave, downtown); coordinate at that block (approximate)",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "Brier Hill zip 44510; coord approx"
+    "note": "E Rayen Ave, downtown Youngstown"
+   },
+   "Penguin City Brewing Company": {
+    "address": "460 E Federal St, Youngstown, OH 44502",
+    "lat": 41.0988,
+    "lng": -80.6447,
+    "source": "address verified (460 E Federal St, near Covelli Centre); coordinate at that block (approximate)",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "E Federal St, downtown Youngstown"
+   },
+   "St. Anthony of Padua parish pizza": {
+    "address": "1125 Turin Ave, Youngstown (Brier Hill), OH 44510",
+    "lat": 41.116,
+    "lng": -80.673,
+    "source": "address verified (St. Anthony of Padua, 1125 Turin Ave, Brier Hill); coordinate at the church (approximate)",
+    "verified": "2026-08-09",
+    "confidence": "low",
+    "note": "Turin Ave, Brier Hill Youngstown"
    },
    "Casa Di Canzonetta": {
-    "address": "44 E Federal St, Youngstown, OH 44503",
-    "lat": 41.0999,
-    "lng": -80.6489,
-    "source": "https://www.yelp.com/biz/casa-di-canzonetta-youngstown",
+    "address": "44 Federal Plaza E, Youngstown, OH 44503",
+    "lat": 41.0983,
+    "lng": -80.6478,
+    "source": "address verified (44 Federal Plaza E, downtown); coordinate at that block (approximate)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "downtown Federal St; coord approx"
+    "confidence": "low",
+    "note": "Federal Plaza E, downtown Youngstown"
    },
    "The Amish Market": {
     "address": "6121 South Ave, Boardman, OH 44512",
-    "lat": 41.02,
-    "lng": -80.6535,
-    "source": "https://theamishmarket.net/",
+    "lat": 41.03682,
+    "lng": -80.63457,
+    "source": "loc8nearme listing",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "coord approx from verified addr"
+    "confidence": "high",
+    "note": "Boardman"
    },
    "Northside Farmers Market": {
-    "address": "Elm St, Youngstown, OH 44505 (listed 1105 Elm St)",
-    "lat": 41.108,
+    "address": "901 Elm St, Youngstown, OH 44502",
+    "lat": 41.11,
     "lng": -80.652,
-    "source": "https://www.yelp.com/biz/northside-farmers-market-youngstown",
+    "source": "address verified (901 Elm St, North Side); coordinate at that block (approximate)",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "addr conflicts 832/901/1105 Elm; approx"
+    "note": "Elm St, North Side Youngstown"
    },
    "The Youngstown Flea": {
     "address": "365 E Boardman St, Youngstown, OH 44503",
-    "lat": 41.0982,
-    "lng": -80.6455,
-    "source": "http://youngstownflea.com/",
+    "lat": 41.09627,
+    "lng": -80.64392,
+    "source": "google maps place pin !3d41.0962685!4d-80.6439207",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "downtown market; coord approx"
+    "confidence": "high",
+    "note": "Youngstown; downtown market"
    },
    "Youngstown Historical Center of Industry and Labor (the \"Steel Museum\")": {
     "address": "151 W Wood St, Youngstown, OH 44503",
