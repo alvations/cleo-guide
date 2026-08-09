@@ -31,6 +31,26 @@ see what's going stale.
 - The registry stores `lastUpdated` and a `refreshLog: [{date, mode, findings[]}]` per city.
 - Bump both whenever you run Mode B (or edit content), so users and agents know the data's age.
 
+## Place categories — Markets (strict rules)
+
+"Markets" is a reusable place category (cuisine id `MKT`, shown under the Food/Markets tab). The bar
+for adding one is **deliberately high** — apply the same rules for every city:
+
+- **Only notable, popular, highly-rated or genuinely viral markets.** Not "a farmers market exists
+  here," but one people specifically travel for or rave about.
+- **Prefer permanent fixtures** (a standing indoor market, an Amish market, a year-round hall).
+- **Recurring markets can qualify** if they're frequent (e.g. weekly) AND a well-established, beloved
+  institution — but decide carefully; most weekly markets do **not** clear the bar.
+- **Must be publicly accessible** — open to anyone, not members-only or private.
+- **Reject:** temporary / pop-up / one-off / event markets, and generic run-of-the-mill farmers
+  markets. When in doubt, leave it out.
+- **Seasonality:** many farmers markets run only in summer. Include a seasonal one **only** if it's a
+  standout (oldest / most-loved / viral); flag it with `warn:1` and state the schedule in `k`.
+
+Youngstown examples: **The Amish Market** (permanent indoor, Thu–Sat — clears it easily) and the
+**Northside Farmers Market** (the city's oldest, since 2003, weekly, a genuine institution — included,
+flagged seasonal). Generic Boardman/Canfield seasonal markets were **rejected**.
+
 ## The pipeline order (do not reorder)
 
 ```

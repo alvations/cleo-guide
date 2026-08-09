@@ -72,6 +72,10 @@
           "Rebuilt on the Cleveland interactive engine (map, filters, trip builder, exports); Google-Maps version kept as youngstown-beta.html.",
           "Expanded to 29 sights + 15 food/drink via web search: added Clarence R. Smith Mineral Museum, Jones Children's science center, Mill Creek Lily Pond / Lake Newport / Rose Garden / golf, downtown murals, and Warren's Dave Grohl Alley.",
           "Added food & drink: Yosteria, Kravitz Delicatessen, The Federal, The Mocha House, Casa Di Canzonetta, and breweries Penguin City, Modern Methods (Warren), Birdfish (Columbiana)."
+        ] },
+        { "date": "2026-08-09", "mode": "markets", "findings": [
+          "Added a Markets category (cuisine MKT), applied strictly per docs/SOURCES.md: The Amish Market (6121 South Ave — permanent indoor, Thu–Sat) and Northside Farmers Market (901 Elm St — oldest in the city since 2003, weekly, flagged seasonal). Generic seasonal markets rejected.",
+          "Added source: Youngstown Live (youngstownlive.com) for The Amish Market."
         ] }
       ],
       "aliases": ["Mahoning Valley"],
