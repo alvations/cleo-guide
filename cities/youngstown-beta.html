@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youngstown Field Guide — The Mahoning Valley, on Google Maps</title>
+<meta name="description" content="A web-researched, fact-checked shortlist for Youngstown, Ohio and the Mahoning Valley, rendered on Google Maps: sights, Brier Hill pizza and Handel's, with ranked local sources and creator coverage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --slab-2:#232C31;
+    --patina:#74AE99; --patina-dim:#3E5D53; --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2; --hair:#2E393E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none !important;transition:none !important;} }
+  body{margin:0;background:var(--iron);color:var(--bone);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;}
+  a{color:var(--patina);text-decoration:none;} a:hover{text-decoration:underline;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+
+  header{padding:72px 0 0;border-bottom:1px solid var(--hair);}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--patina);margin:0 0 22px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8vw,82px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 4px;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--patina);font-size:clamp(28px,5.5vw,60px);line-height:1.05;margin-top:6px;}
+  .standfirst{max-width:62ch;margin:28px 0 30px;color:var(--bone);font-size:19px;}
+  .backlink{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;display:inline-block;margin:0 0 34px;color:var(--bone-dim);}
+
+  .panel{background:var(--slab);border:1px solid var(--hair);border-radius:10px;padding:18px 20px;margin:30px 0 12px;}
+  .panel h2{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 8px;font-weight:500;}
+  .panel p{margin:0 0 12px;color:var(--bone-dim);font-size:15px;max-width:74ch;}
+  .panel.warn{border-color:var(--rust);}
+  .panel.warn h2{color:var(--rust);}
+
+  .srclist{list-style:none;padding:0;margin:6px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 22px;}
+  .srclist li{font-size:15px;padding:4px 0;border-top:1px solid var(--hair);}
+  .srclist li b{font-weight:500;color:var(--bone);}
+  .srclist li span{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);letter-spacing:.02em;}
+
+  .keyrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .panel input{flex:1 1 320px;min-width:0;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:7px;padding:11px 13px;font-family:"JetBrains Mono",monospace;font-size:13px;}
+  .panel input:focus{outline:none;border-color:var(--patina);}
+  button{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:7px;padding:11px 16px;border:1px solid var(--patina-dim);background:var(--patina-dim);color:var(--bone);}
+  button:hover{background:var(--patina);color:var(--iron);}
+  button.ghost{background:transparent;color:var(--bone-dim);border-color:var(--hair);}
+  button.ghost:hover{background:var(--slab-2);color:var(--bone);}
+  .keystate{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--bone-dim);margin-top:10px;}
+  .keystate.on{color:var(--patina);}
+
+  section.cluster{padding:44px 0 8px;border-bottom:1px solid var(--hair);}
+  .cmeta{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--patina);margin:0 0 6px;}
+  section.cluster h2{font-family:"Archivo Black",sans-serif;font-size:clamp(24px,4.5vw,38px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;}
+  .cnote{color:var(--bone-dim);max-width:66ch;margin:0 0 22px;font-size:16px;}
+
+  .mapframe{position:relative;width:100%;aspect-ratio:16/10;background:var(--slab);border:1px solid var(--hair);border-radius:12px;overflow:hidden;}
+  .mapframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .mapfallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--bone-dim);font-size:15px;}
+  .maptools{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px;}
+  .maptools a{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--hair);border-radius:7px;padding:9px 13px;color:var(--bone);background:var(--slab);}
+  .maptools a:hover{border-color:var(--patina);text-decoration:none;color:var(--patina);}
+
+  ol.stops{list-style:none;counter-reset:s;padding:0;margin:26px 0 8px;}
+  ol.stops li{counter-increment:s;position:relative;padding:16px 0 16px 46px;border-top:1px solid var(--hair);}
+  ol.stops li:before{content:counter(s);position:absolute;left:0;top:16px;width:30px;height:30px;border-radius:50%;background:var(--slab-2);color:var(--patina);font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  ol.stops .name{font-family:"Newsreader",serif;font-weight:500;font-size:19px;}
+  ol.stops .addr{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--bone-dim);margin:3px 0 6px;letter-spacing:.02em;}
+  ol.stops .note{color:var(--bone-dim);font-size:15px;max-width:70ch;}
+  ol.stops .go{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin-left:10px;white-space:nowrap;}
+  .flag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--patina-dim);border-radius:4px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
+  .flag.closed{color:var(--rust);border-color:var(--rust);}
+
+  .foodgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:24px 0 8px;}
+  .food{border:1px solid var(--hair);border-radius:10px;padding:16px 18px;background:var(--slab);}
+  .food .name{font-weight:500;font-size:18px;}
+  .food .cz{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin-top:5px;}
+  .food .note{color:var(--bone-dim);font-size:14px;margin-top:6px;}
+  .food a{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+
+  footer{padding:48px 0 80px;color:var(--bone-dim);font-size:14px;max-width:74ch;}
+  footer p{margin:0 0 12px;}
+  code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
+  noscript{display:block;padding:20px;margin:24px 0;background:var(--slab);border:1px solid var(--rust);border-radius:10px;color:var(--bone);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Field Guide · Mahoning Valley · BETA (Google Maps)</p>
+    <h1>Youngstown<span class="thin">beta — the Google-Maps experiment</span></h1>
+    <p class="standfirst">This is a <strong>beta</strong>, kept for review. The main Youngstown guide now
+      uses the same interactive experience as Cleveland — one map, filters, a trip builder and exports.
+      This page renders the shortlist a different way, on embedded Google Maps grouped by cluster, plus
+      a sources/creators panel we may fold back into the main guide.</p>
+    <a class="backlink" href="youngstown.html">→ The main Youngstown guide</a>&nbsp;&nbsp;<a class="backlink" href="../index.html">← All cities</a>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:0 0 24px;">Beta · last verified 2026-08-08</p>
+  </header>
+
+  <div class="panel warn">
+    <h2>How this list was built — read this</h2>
+    <p><strong>Researched by web search (August 2026) and fact-checked against the ranked sources
+      below.</strong> Specific facts were confirmed against those sources — the Butler opened in 1919
+      as the first U.S. museum of American art and is free; Mill Creek Park runs to 4,400+ acres; the
+      Melnick museum keeps a 1952 iron lung; the Ward Beecher Planetarium runs free public shows. Every
+      source is logged in <code>data/sources.json</code> and audited by <code>tools/research.js</code>.
+      It still isn't a full numbered-source transcription like Cleveland, so confirm current hours before
+      a drive and treat anything marked <span class="flag">verify</span> as a lead. Direct page fetches
+      are blocked in the build environment, so sourcing came through search results, not full-page reads.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Ranked sources — Mahoning Valley</h2>
+    <p>The outlets this page was checked against, ranked (1 = primary, 2 = corroboration). A tick means
+      a claim from that source was verified during this build. The full registry, reusable across
+      cities, lives in <code>data/sources.json</code>.</p>
+    <ul class="srclist">
+      <li><b>Atlas Obscura — Ohio index ✓</b><span>1 · atlasobscura.com/things-to-do/ohio</span></li>
+      <li><b>Rose Melnick Medical Museum (YSU) ✓</b><span>1 · melnick.ysu.edu</span></li>
+      <li><b>Ward Beecher Planetarium (YSU) ✓</b><span>1 · wbplanetarium.org</span></li>
+      <li><b>Mahoning Valley Historical Society</b><span>1 · mahoninghistory.org</span></li>
+      <li><b>Mill Creek MetroParks</b><span>1 · millcreekmetroparks.org</span></li>
+      <li><b>Travel2Next — 20 Things To Do ✓</b><span>2 · travel2next.com</span></li>
+      <li><b>Explore Mahoning (local guide) ✓</b><span>2 · exploremahoning.com</span></li>
+      <li><b>Mahoning Matters ✓</b><span>2 · nonprofit local news</span></li>
+      <li><b>The Business Journal</b><span>2 · businessjournaldaily.com</span></li>
+      <li><b>WFMJ 21 · WKBN 27 · WYTV 33</b><span>2 · Mahoning Valley TV lists</span></li>
+      <li><b>Ohio tourism — Find It Here</b><span>2 · ohio.org</span></li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>Covered by — YouTube &amp; travel creators</h2>
+    <p>Video coverage found by search and fact-checked. Ranked honestly by whether the creator covered
+      Youngstown itself or the wider Mahoning Valley region.</p>
+    <ul class="srclist">
+      <li><b><a href="https://www.youtube.com/@PeterSantenello" target="_blank" rel="noopener">Peter Santenello</a></b><span>Famous · 4.2M subs · “Solo Into East Palestine, OH” (2024) — the region next door, not the city itself</span></li>
+      <li><b><a href="https://www.youtube.com/watch?v=qsyO6tX7LXM" target="_blank" rel="noopener">“Faded Cities … Rust Belt OHIO”</a></b><span>Road trip incl. Youngstown, Warren &amp; Akron (2025)</span></li>
+      <li><b><a href="https://www.youtube.com/watch?v=9UTxVf-GP9I" target="_blank" rel="noopener">Phil Kidd — Downtown Walking Tour</a></b><span>Local advocate · downtown history walk (2015)</span></li>
+      <li><b><a href="https://www.youtube.com/watch?v=ExriJA5jtnI" target="_blank" rel="noopener">Driving Through Downtown Youngstown [4K]</a></b><span>4K downtown tour (2025)</span></li>
+      <li><b><a href="https://www.youtube.com/@exploremahoning" target="_blank" rel="noopener">Explore Mahoning</a></b><span>Local channel · things to do across the Valley</span></li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <h2>Google Maps rendering</h2>
+    <p>Each cluster shows a routed Google map, resolved by place name so you land on the right spot.
+      It works with no key using Google's classic embed; paste a
+      <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank" rel="noopener">Google Maps Embed API key</a>
+      for the officially supported embed. The key stays in this browser.</p>
+    <div class="keyrow">
+      <input id="key" type="text" placeholder="Google Maps Embed API key (optional)" autocomplete="off" spellcheck="false">
+      <button id="save">Use key</button>
+      <button id="clear" class="ghost">Clear</button>
+    </div>
+    <div id="keystate" class="keystate">Keyless mode — Google's classic embed.</div>
+  </div>
+
+  <noscript>This page builds its maps with a little JavaScript. With scripts disabled the full list
+    below still reads, and every stop links out to Google Maps.</noscript>
+
+  <main id="clusters"></main>
+
+  <section class="cluster" style="border-bottom:none">
+    <p class="cmeta">A taste — Mahoning Valley plates</p>
+    <h2>Where to eat</h2>
+    <p class="cnote">Youngstown's signature is <strong>Brier Hill pizza</strong> — a pie with bell
+      peppers and grated romano and little or no mozzarella, born in the old Brier Hill steelworkers'
+      neighbourhood and documented by <a href="https://www.atlasobscura.com/foods/brier-hill-pizza" target="_blank" rel="noopener">Gastro Obscura</a>.
+      These spots were fact-checked against local food sources; confirm hours before a drive.</p>
+    <div class="foodgrid" id="food"></div>
+  </section>
+
+  <footer>
+    <p><strong>Why a shortlist first.</strong> The Cleveland guide was built the same way — a small,
+      honest version proves the format before the long transcription work. This is Youngstown's
+      shortlist: verify it against the sources above, add the links and item numbers, and it graduates
+      from <code>added</code> to sourced.</p>
+    <p><strong>Degrades honestly.</strong> If Google's embed is blocked, each map shows a note and the
+      list still reads in full, with a working <em>Open in Google Maps</em> link on every cluster and
+      every stop. Map data © Google. Business details change without notice — confirm before a drive.</p>
+  </footer>
+</div>
+
+<script>
+/* ── Youngstown, OH starting shortlist ────────────────────────────────────────
+   `q` is the Google Maps search query for each place (name + locality) so routing
+   and links resolve canonically without hardcoded, unverifiable coordinates.
+   Every entry is `added` (general knowledge) until verified against a source above. */
+const CITY = "Youngstown, OH";
+const q = (name, town) => name + ", " + (town || CITY);
+
+const CLUSTERS = [
+  {
+    title: "Wick Avenue Cultural District",
+    sub: "Walkable, near YSU",
+    note: "A single tree-lined avenue holds most of the city's museums, a block or two apart on the north edge of downtown by Youngstown State.",
+    stops: [
+      {name:"Butler Institute of American Art", q:q("Butler Institute of American Art"), note:"Opened 1919 as the first U.S. museum devoted to American art; 20,000+ works from Winslow Homer to contemporary. Free, Tuesday–Sunday. The anchor of the row.", flag:"Free"},
+      {name:"McDonough Museum of Art", q:q("McDonough Museum of Art"), note:"YSU's contemporary art museum, across from the Butler. Free.", flag:"Free"},
+      {name:"Rose Melnick Medical Museum", q:q("Rose Melnick Medical Museum, Youngstown State University"), note:"YSU's history-of-medicine museum in Cushwa Hall — office recreations, nursing and x-ray exhibits, and a 1952 Emerson iron lung. An Atlas Obscura oddity.", flag:"Free"},
+      {name:"Ward Beecher Planetarium", q:q("Ward Beecher Planetarium, Youngstown"), note:"A well-regarded YSU planetarium with free public shows, typically Friday/Saturday evenings and Saturday afternoons, September–May. Ward Beecher Science Hall, 100 Lincoln Ave.", flag:"Free"},
+      {name:"Arms Family Museum", q:q("Arms Family Museum"), note:"A 1905 Arts-and-Crafts mansion run by the Mahoning Valley Historical Society, with Valley history inside."},
+      {name:"Youngstown Historical Center of Industry and Labor", q:q("Youngstown Historical Center of Industry and Labor"), note:"The 'Steel Museum' — the mills that built (and left) the city, told straight. Ohio History Connection site on W Wood St."},
+      {name:"Wick Park", q:q("Wick Park"), note:"A 34-acre 19th-century park ringed by the North Side's grand old houses. A stroll, not a ticket."}
+    ]
+  },
+  {
+    title: "Mill Creek Park & the West Side",
+    sub: "Car helps · a genuinely wild city park",
+    note: "One of the country's great metro parks — 4,400+ acres of gorges, lakes and old stone bridges minutes from downtown. Easy to spend a whole day.",
+    stops: [
+      {name:"Lanterman's Mill", q:q("Lanterman's Mill"), note:"An 1845–46 grist mill, restored and grinding again beside a waterfall. Seasonal — roughly May through October."},
+      {name:"Fellows Riverside Gardens", q:q("Fellows Riverside Gardens"), note:"Free formal gardens overlooking Lake Glacier, with the Davis visitor center and café."},
+      {name:"Ford Nature Center", q:q("Ford Nature Center"), note:"A stone-house nature center and trailhead into the park's interior."},
+      {name:"Mill Creek Suspension Bridge", q:q("Mill Creek Park Suspension Bridge"), note:"The slender pedestrian span locals call the 'Cinderella' bridge — the park's signature photo, and an Atlas Obscura listing."},
+      {name:"Pioneer Pavilion", q:q("Pioneer Pavilion Mill Creek Park"), note:"An 1821 stone mill building, one of the oldest structures around, now a picnic pavilion."}
+    ]
+  },
+  {
+    title: "Downtown & the grand halls",
+    sub: "Compact core",
+    note: "A downtown of big early-20th-century rooms that never got torn down — a symphony hall, an arena, and one of the country's oldest community theaters nearby.",
+    stops: [
+      {name:"Tyler History Center", q:q("Tyler History Center"), note:"The Historical Society's downtown museum of Mahoning Valley history, in a restored department-store building on W Federal St."},
+      {name:"DeYor Performing Arts Center (Powers Auditorium)", q:q("DeYor Performing Arts Center"), note:"Home of the Youngstown Symphony, behind a 1931 movie-palace façade on W Federal St."},
+      {name:"Covelli Centre", q:q("Covelli Centre"), note:"The downtown arena on the riverfront — hockey, concerts, events."},
+      {name:"Stambaugh Auditorium", q:q("Stambaugh Auditorium"), note:"A 1926 neoclassical concert hall on Fifth Ave near Wick Park, with a marble-columned front."},
+      {name:"The Youngstown Playhouse", q:q("The Youngstown Playhouse"), note:"Among the oldest continuously operating community theaters in the United States."}
+    ]
+  },
+  {
+    title: "Day trips in the Mahoning Valley",
+    sub: "Short drives out",
+    note: "Two Valley institutions and one piece of vanished Youngstown, all a few minutes out from the core.",
+    stops: [
+      {name:"National McKinley Birthplace Memorial & Museum", q:q("National McKinley Birthplace Memorial", "Niles, OH"), note:"A columned memorial and museum to President William McKinley, on Main St in nearby Niles."},
+      {name:"Canfield Fairgrounds", q:q("Mahoning County Fairgrounds", "Canfield, OH"), note:"Home of the Canfield Fair, Ohio's largest county fair, over Labor Day week. Grounds are quiet off-season.", flag:"Seasonal"},
+      {name:"Idora Park Experience", q:q("Idora Park Experience"), note:"The beloved Idora Park amusement park closed in 1984; volunteers keep a museum of its memorabilia. Limited hours — check ahead.", flag:"Park closed 1984"}
+    ]
+  }
+];
+
+const FOOD = [
+  {name:"Cassese's MVR", cz:"Italian · Brier Hill pizza", q:q("Cassese's MVR restaurant"), note:"Open since 1927. The dish: a Brier Hill 'Smoky Hollow' pizza eaten beside the bocce courts out back — as Youngstown as it gets."},
+  {name:"Wedgewood Pizza", cz:"Pizza · Brier Hill", q:q("Wedgewood Pizza, Austintown OH"), note:"A local pizzeria since 1967 that makes the classic Brier Hill pie — tomato, bell peppers and grated romano, little mozzarella."},
+  {name:"Avalon Downtown Pizzeria", cz:"Pizza", q:q("Avalon Downtown Pizzeria"), note:"Brick-walled downtown spot serving Brier Hill pizza alongside inventions like a 'Pesto Hot Honey' pie."},
+  {name:"St. Anthony of Padua parish pizza", cz:"Pizza · fundraiser", q:q("St. Anthony of Padua Church, Youngstown"), note:"The Brier Hill church that sells hundreds of pizzas a week as a parish fundraiser. Takeout, cash, and a piece of neighbourhood lore.", flag:"Call ahead"},
+  {name:"Golden Dawn", cz:"Italian-American", q:q("Golden Dawn restaurant, 1245 Logan Ave"), note:"A 1932 Brier Hill landmark at 1245 Logan Ave. It closed in 2017 and has since reopened — running again, but confirm current hours."},
+  {name:"Handel's Homemade Ice Cream", cz:"Dessert", q:q("Handel's Ice Cream, South Ave, Youngstown"), note:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide, HQ in Canfield."},
+  {name:"Noble Creature Wild Ales & Lagers", cz:"Drinks · brewery", q:q("Noble Creature Cask House, Youngstown"), note:"A former church turned brewery pouring wild ales and lagers — the drinks stop on this list."}
+];
+
+/* ── Key handling (localStorage, wrapped — storage throws in some sandboxes) ── */
+const KEY_STORE = "ytown_gmaps_embed_key";
+function getKey(){ try{ return localStorage.getItem(KEY_STORE) || ""; }catch(e){ return window.__key || ""; } }
+function setKey(v){ try{ localStorage.setItem(KEY_STORE, v); }catch(e){ window.__key = v; } }
+function delKey(){ try{ localStorage.removeItem(KEY_STORE); }catch(e){} window.__key = ""; }
+
+/* Official Google Maps Embed API — directions by place name, needs a key. */
+function embedApiUrl(stops, key){
+  const origin = stops[0].q, destination = stops[stops.length-1].q;
+  const waypoints = stops.slice(1,-1).map(s=>s.q).join("|");
+  let u = "https://www.google.com/maps/embed/v1/directions?key=" + encodeURIComponent(key)
+        + "&origin=" + encodeURIComponent(origin)
+        + "&destination=" + encodeURIComponent(destination) + "&mode=driving";
+  if (waypoints) u += "&waypoints=" + encodeURIComponent(waypoints);
+  return u;
+}
+/* Keyless classic embed — directions with chained place-name waypoints. */
+function embedKeylessUrl(stops){
+  const saddr = stops[0].q;
+  const daddr = stops.slice(1).map(s=>encodeURIComponent(s.q)).join("+to:");
+  return "https://maps.google.com/maps?saddr=" + encodeURIComponent(saddr) + "&daddr=" + daddr + "&output=embed";
+}
+/* Open in the Google Maps app/site — always works, no key. */
+function openDirUrl(stops){
+  const origin = stops[0].q, destination = stops[stops.length-1].q;
+  const waypoints = stops.slice(1,-1).map(s=>s.q).join("|");
+  let u = "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(origin)
+        + "&destination=" + encodeURIComponent(destination) + "&travelmode=driving";
+  if (waypoints) u += "&waypoints=" + encodeURIComponent(waypoints);
+  return u;
+}
+function searchUrl(s){ return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(s.q); }
+
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function flagHtml(s){
+  if(!s.flag) return "";
+  const closed = /clos|verify/i.test(s.flag);
+  return " <span class='flag" + (closed?" closed":"") + "'>" + esc(s.flag) + "</span>";
+}
+
+function build(){
+  const key = getKey();
+  const host = document.getElementById("clusters");
+  host.innerHTML = "";
+  CLUSTERS.forEach((c, ci) => {
+    const sec = el("section", "cluster");
+    sec.appendChild(el("p", "cmeta", "Cluster " + (ci+1) + " · " + esc(c.sub)));
+    sec.appendChild(el("h2", null, esc(c.title)));
+    sec.appendChild(el("p", "cnote", esc(c.note)));
+
+    const frame = el("div", "mapframe");
+    frame.appendChild(el("div", "mapfallback",
+      "<span>Google's map didn't load here. The list is below, and " +
+      "<a href='" + openDirUrl(c.stops) + "' target='_blank' rel='noopener'>Open&nbsp;in&nbsp;Google&nbsp;Maps</a> still works.</span>"));
+    const iframe = document.createElement("iframe");
+    iframe.loading = "lazy"; iframe.referrerPolicy = "no-referrer-when-downgrade";
+    iframe.title = c.title + " route"; iframe.allowFullscreen = true;
+    iframe.src = key ? embedApiUrl(c.stops, key) : embedKeylessUrl(c.stops);
+    frame.appendChild(iframe);
+    sec.appendChild(frame);
+
+    const tools = el("div", "maptools");
+    const open = el("a", null, "Open this cluster in Google Maps ↗");
+    open.href = openDirUrl(c.stops); open.target = "_blank"; open.rel = "noopener";
+    tools.appendChild(open);
+    sec.appendChild(tools);
+
+    const ol = el("ol", "stops");
+    c.stops.forEach(s => {
+      const li = el("li");
+      li.appendChild(el("div", "name", esc(s.name) + flagHtml(s) +
+        " <a class='go' href='" + searchUrl(s) + "' target='_blank' rel='noopener'>Map ↗</a>"));
+      if (s.note) li.appendChild(el("div", "note", esc(s.note)));
+      ol.appendChild(li);
+    });
+    sec.appendChild(ol);
+    host.appendChild(sec);
+  });
+
+  const food = document.getElementById("food");
+  food.innerHTML = "";
+  FOOD.forEach(f => {
+    const card = el("div", "food");
+    card.appendChild(el("div", "name", esc(f.name) + flagHtml(f)));
+    if (f.cz) card.appendChild(el("div", "cz", esc(f.cz)));
+    if (f.note) card.appendChild(el("div", "note", esc(f.note)));
+    const a = el("a", null, "Find on Google Maps ↗");
+    a.href = searchUrl(f); a.target = "_blank"; a.rel = "noopener";
+    card.appendChild(el("div", null, "")).appendChild(a);
+    food.appendChild(card);
+  });
+}
+
+function refreshKeyState(){
+  const has = !!getKey();
+  const st = document.getElementById("keystate");
+  st.textContent = has ? "Key active — official Google Maps Embed API." : "Keyless mode — Google's classic embed.";
+  st.classList.toggle("on", has);
+  document.getElementById("key").value = getKey();
+}
+document.getElementById("save").addEventListener("click", () => {
+  const v = document.getElementById("key").value.trim();
+  if (v) setKey(v); else delKey();
+  refreshKeyState(); build();
+});
+document.getElementById("clear").addEventListener("click", () => { delKey(); refreshKeyState(); build(); });
+
+refreshKeyState();
+build();
+</script>
+</body>
+</html>

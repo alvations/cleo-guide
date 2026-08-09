@@ -47,10 +47,11 @@ node research.js "Akron" "OH"          # print the research plan for a new city
 node research.js --validate akron-oh   # audit its sources before building a page
 ```
 
-- **[Youngstown, Ohio](cities/youngstown.html)** — a starting shortlist for the Mahoning Valley on Google
-  Maps: Wick Avenue's museums, Mill Creek Park, the downtown halls, and Valley day trips, with the credible
-  local sources listed on the page. Compiled from general knowledge and flagged `added` — a first pass to
-  verify and cite, not yet a sourced edition.
+- **[Youngstown, Ohio](cities/youngstown.html)** — 20 sights and 7 places to eat across the Mahoning Valley
+  (Wick Avenue's museums, Mill Creek Park, the downtown halls, Valley day trips, Brier Hill pizza). Uses the
+  **same interactive engine as Cleveland** — one map, area/source/rank filters, cuisine sub-filters, a trip
+  builder, visited tracking and Google/Apple/KML/JSON exports — web-researched and fact-checked.
+  A [Google-Maps rendering](cities/youngstown-beta.html) of the same shortlist is kept as a **beta** for review.
 
 ---
 

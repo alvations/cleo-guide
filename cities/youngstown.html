@@ -2,364 +2,913 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youngstown Field Guide — The Mahoning Valley, on Google Maps</title>
-<meta name="description" content="A web-researched, fact-checked shortlist for Youngstown, Ohio and the Mahoning Valley, rendered on Google Maps: sights, Brier Hill pizza and Handel's, with ranked local sources and creator coverage.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Youngstown, Ohio field guide — 20 sights and 7 places to eat across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<title>Youngstown Field Guide — The Mahoning Valley, Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --iron:#12171A; --slab:#1B2226; --slab-2:#232C31;
-    --patina:#74AE99; --patina-dim:#3E5D53; --brass:#C89B4A; --rust:#B45B3E;
-    --bone:#E9E5DB; --bone-dim:#9AA3A2; --hair:#2E393E;
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none !important;transition:none !important;} }
-  body{margin:0;background:var(--iron);color:var(--bone);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;}
-  a{color:var(--patina);text-decoration:none;} a:hover{text-decoration:underline;}
-  .wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
 
-  header{padding:72px 0 0;border-bottom:1px solid var(--hair);}
-  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--patina);margin:0 0 22px;}
-  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8vw,82px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 4px;}
-  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--patina);font-size:clamp(28px,5.5vw,60px);line-height:1.05;margin-top:6px;}
-  .standfirst{max-width:62ch;margin:28px 0 30px;color:var(--bone);font-size:19px;}
-  .backlink{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;display:inline-block;margin:0 0 34px;color:var(--bone-dim);}
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
 
-  .panel{background:var(--slab);border:1px solid var(--hair);border-radius:10px;padding:18px 20px;margin:30px 0 12px;}
-  .panel h2{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0 0 8px;font-weight:500;}
-  .panel p{margin:0 0 12px;color:var(--bone-dim);font-size:15px;max-width:74ch;}
-  .panel.warn{border-color:var(--rust);}
-  .panel.warn h2{color:var(--rust);}
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
 
-  .srclist{list-style:none;padding:0;margin:6px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 22px;}
-  .srclist li{font-size:15px;padding:4px 0;border-top:1px solid var(--hair);}
-  .srclist li b{font-weight:500;color:var(--bone);}
-  .srclist li span{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);letter-spacing:.02em;}
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
 
-  .keyrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
-  .panel input{flex:1 1 320px;min-width:0;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:7px;padding:11px 13px;font-family:"JetBrains Mono",monospace;font-size:13px;}
-  .panel input:focus{outline:none;border-color:var(--patina);}
-  button{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:7px;padding:11px 16px;border:1px solid var(--patina-dim);background:var(--patina-dim);color:var(--bone);}
-  button:hover{background:var(--patina);color:var(--iron);}
-  button.ghost{background:transparent;color:var(--bone-dim);border-color:var(--hair);}
-  button.ghost:hover{background:var(--slab-2);color:var(--bone);}
-  .keystate{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--bone-dim);margin-top:10px;}
-  .keystate.on{color:var(--patina);}
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
 
-  section.cluster{padding:44px 0 8px;border-bottom:1px solid var(--hair);}
-  .cmeta{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--patina);margin:0 0 6px;}
-  section.cluster h2{font-family:"Archivo Black",sans-serif;font-size:clamp(24px,4.5vw,38px);line-height:1;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;}
-  .cnote{color:var(--bone-dim);max-width:66ch;margin:0 0 22px;font-size:16px;}
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
 
-  .mapframe{position:relative;width:100%;aspect-ratio:16/10;background:var(--slab);border:1px solid var(--hair);border-radius:12px;overflow:hidden;}
-  .mapframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .mapfallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--bone-dim);font-size:15px;}
-  .maptools{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px;}
-  .maptools a{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--hair);border-radius:7px;padding:9px 13px;color:var(--bone);background:var(--slab);}
-  .maptools a:hover{border-color:var(--patina);text-decoration:none;color:var(--patina);}
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
 
-  ol.stops{list-style:none;counter-reset:s;padding:0;margin:26px 0 8px;}
-  ol.stops li{counter-increment:s;position:relative;padding:16px 0 16px 46px;border-top:1px solid var(--hair);}
-  ol.stops li:before{content:counter(s);position:absolute;left:0;top:16px;width:30px;height:30px;border-radius:50%;background:var(--slab-2);color:var(--patina);font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
-  ol.stops .name{font-family:"Newsreader",serif;font-weight:500;font-size:19px;}
-  ol.stops .addr{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--bone-dim);margin:3px 0 6px;letter-spacing:.02em;}
-  ol.stops .note{color:var(--bone-dim);font-size:15px;max-width:70ch;}
-  ol.stops .go{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin-left:10px;white-space:nowrap;}
-  .flag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid var(--patina-dim);border-radius:4px;padding:1px 6px;margin-left:8px;vertical-align:middle;}
-  .flag.closed{color:var(--rust);border-color:var(--rust);}
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
 
-  .foodgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:24px 0 8px;}
-  .food{border:1px solid var(--hair);border-radius:10px;padding:16px 18px;background:var(--slab);}
-  .food .name{font-weight:500;font-size:18px;}
-  .food .cz{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin-top:5px;}
-  .food .note{color:var(--bone-dim);font-size:14px;margin-top:6px;}
-  .food a{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
 
-  footer{padding:48px 0 80px;color:var(--bone-dim);font-size:14px;max-width:74ch;}
-  footer p{margin:0 0 12px;}
-  code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
-  noscript{display:block;padding:20px;margin:24px 0;background:var(--slab);border:1px solid var(--rust);border-radius:10px;color:var(--bone);}
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <p class="eyebrow">Field Guide · Mahoning Valley · Starting Shortlist</p>
-    <h1>Youngstown<span class="thin">Steel, parks &amp; the odd corners of the Valley</span></h1>
-    <p class="standfirst">A first pass at Youngstown, Ohio — the cultural row on Wick Avenue, the
-      surprisingly wild Mill Creek Park, the downtown halls, and a few Mahoning Valley day trips.
-      Rendered on Google Maps, grouped so you're not crossing the Valley twice.</p>
-    <a class="backlink" href="../cleveland.html">← The Cleveland guide</a>&nbsp;&nbsp;<a class="backlink" href="../index.html">← All cities</a>
-    <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:0 0 24px;">Last verified 2026-08-08</p>
-  </header>
 
-  <div class="panel warn">
-    <h2>How this list was built — read this</h2>
-    <p><strong>Researched by web search (August 2026) and fact-checked against the ranked sources
-      below.</strong> Specific facts were confirmed against those sources — the Butler opened in 1919
-      as the first U.S. museum of American art and is free; Mill Creek Park runs to 4,400+ acres; the
-      Melnick museum keeps a 1952 iron lung; the Ward Beecher Planetarium runs free public shows. Every
-      source is logged in <code>data/sources.json</code> and audited by <code>tools/research.js</code>.
-      It still isn't a full numbered-source transcription like Cleveland, so confirm current hours before
-      a drive and treat anything marked <span class="flag">verify</span> as a lead. Direct page fetches
-      are blocked in the build environment, so sourcing came through search results, not full-page reads.</p>
-  </div>
+<header>
+  <p class="eyebrow">Field guide · the Mahoning Valley, sourced</p>
+  <h1>Youngstown<span class="thin">steel, parks &amp; the odd corners</span></h1>
+  <p class="standfirst">20 sights and 7 places to eat across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>
+</header>
 
-  <div class="panel">
-    <h2>Ranked sources — Mahoning Valley</h2>
-    <p>The outlets this page was checked against, ranked (1 = primary, 2 = corroboration). A tick means
-      a claim from that source was verified during this build. The full registry, reusable across
-      cities, lives in <code>data/sources.json</code>.</p>
-    <ul class="srclist">
-      <li><b>Atlas Obscura — Ohio index ✓</b><span>1 · atlasobscura.com/things-to-do/ohio</span></li>
-      <li><b>Rose Melnick Medical Museum (YSU) ✓</b><span>1 · melnick.ysu.edu</span></li>
-      <li><b>Ward Beecher Planetarium (YSU) ✓</b><span>1 · wbplanetarium.org</span></li>
-      <li><b>Mahoning Valley Historical Society</b><span>1 · mahoninghistory.org</span></li>
-      <li><b>Mill Creek MetroParks</b><span>1 · millcreekmetroparks.org</span></li>
-      <li><b>Travel2Next — 20 Things To Do ✓</b><span>2 · travel2next.com</span></li>
-      <li><b>Explore Mahoning (local guide) ✓</b><span>2 · exploremahoning.com</span></li>
-      <li><b>Mahoning Matters ✓</b><span>2 · nonprofit local news</span></li>
-      <li><b>The Business Journal</b><span>2 · businessjournaldaily.com</span></li>
-      <li><b>WFMJ 21 · WKBN 27 · WYTV 33</b><span>2 · Mahoning Valley TV lists</span></li>
-      <li><b>Ohio tourism — Find It Here</b><span>2 · ohio.org</span></li>
-    </ul>
-  </div>
-
-  <div class="panel">
-    <h2>Covered by — YouTube &amp; travel creators</h2>
-    <p>Video coverage found by search and fact-checked. Ranked honestly by whether the creator covered
-      Youngstown itself or the wider Mahoning Valley region.</p>
-    <ul class="srclist">
-      <li><b><a href="https://www.youtube.com/@PeterSantenello" target="_blank" rel="noopener">Peter Santenello</a></b><span>Famous · 4.2M subs · “Solo Into East Palestine, OH” (2024) — the region next door, not the city itself</span></li>
-      <li><b><a href="https://www.youtube.com/watch?v=qsyO6tX7LXM" target="_blank" rel="noopener">“Faded Cities … Rust Belt OHIO”</a></b><span>Road trip incl. Youngstown, Warren &amp; Akron (2025)</span></li>
-      <li><b><a href="https://www.youtube.com/watch?v=9UTxVf-GP9I" target="_blank" rel="noopener">Phil Kidd — Downtown Walking Tour</a></b><span>Local advocate · downtown history walk (2015)</span></li>
-      <li><b><a href="https://www.youtube.com/watch?v=ExriJA5jtnI" target="_blank" rel="noopener">Driving Through Downtown Youngstown [4K]</a></b><span>4K downtown tour (2025)</span></li>
-      <li><b><a href="https://www.youtube.com/@exploremahoning" target="_blank" rel="noopener">Explore Mahoning</a></b><span>Local channel · things to do across the Valley</span></li>
-    </ul>
-  </div>
-
-  <div class="panel">
-    <h2>Google Maps rendering</h2>
-    <p>Each cluster shows a routed Google map, resolved by place name so you land on the right spot.
-      It works with no key using Google's classic embed; paste a
-      <a href="https://developers.google.com/maps/documentation/embed/get-api-key" target="_blank" rel="noopener">Google Maps Embed API key</a>
-      for the officially supported embed. The key stays in this browser.</p>
-    <div class="keyrow">
-      <input id="key" type="text" placeholder="Google Maps Embed API key (optional)" autocomplete="off" spellcheck="false">
-      <button id="save">Use key</button>
-      <button id="clear" class="ghost">Clear</button>
-    </div>
-    <div id="keystate" class="keystate">Keyless mode — Google's classic embed.</div>
-  </div>
-
-  <noscript>This page builds its maps with a little JavaScript. With scripts disabled the full list
-    below still reads, and every stop links out to Google Maps.</noscript>
-
-  <main id="clusters"></main>
-
-  <section class="cluster" style="border-bottom:none">
-    <p class="cmeta">A taste — Mahoning Valley plates</p>
-    <h2>Where to eat</h2>
-    <p class="cnote">Youngstown's signature is <strong>Brier Hill pizza</strong> — a pie with bell
-      peppers and grated romano and little or no mozzarella, born in the old Brier Hill steelworkers'
-      neighbourhood and documented by <a href="https://www.atlasobscura.com/foods/brier-hill-pizza" target="_blank" rel="noopener">Gastro Obscura</a>.
-      These spots were fact-checked against local food sources; confirm hours before a drive.</p>
-    <div class="foodgrid" id="food"></div>
-  </section>
-
-  <footer>
-    <p><strong>Why a shortlist first.</strong> The Cleveland guide was built the same way — a small,
-      honest version proves the format before the long transcription work. This is Youngstown's
-      shortlist: verify it against the sources above, add the links and item numbers, and it graduates
-      from <code>added</code> to sourced.</p>
-    <p><strong>Degrades honestly.</strong> If Google's embed is blocked, each map shows a note and the
-      list still reads in full, with a working <em>Open in Google Maps</em> link on every cluster and
-      every stop. Map data © Google. Business details change without notice — confirm before a drive.</p>
-  </footer>
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:var(--c-dt)"></i>Wick Ave &amp; YSU</span>
+  <span><i style="background:var(--c-uc)"></i>Mill Creek &amp; West Side</span>
+  <span><i style="background:var(--c-ws)"></i>Downtown</span>
+  <span><i style="background:var(--c-sub)"></i>Mahoning Valley day trips</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="iron lung, planetarium, brier hill, mill…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-08</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (see data/sources.json and docs/SOURCES.md). Coordinates are approximate pending a places-API pass; confirm addresses and hours before a drive. A Google-Maps rendering of the same shortlist is kept as a <a href="youngstown-beta.html">beta</a>.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-/* ── Youngstown, OH starting shortlist ────────────────────────────────────────
-   `q` is the Google Maps search query for each place (name + locality) so routing
-   and links resolve canonically without hardcoded, unverifiable coordinates.
-   Every entry is `added` (general knowledge) until verified against a source above. */
-const CITY = "Youngstown, OH";
-const q = (name, town) => name + ", " + (town || CITY);
 
-const CLUSTERS = [
-  {
-    title: "Wick Avenue Cultural District",
-    sub: "Walkable, near YSU",
-    note: "A single tree-lined avenue holds most of the city's museums, a block or two apart on the north edge of downtown by Youngstown State.",
-    stops: [
-      {name:"Butler Institute of American Art", q:q("Butler Institute of American Art"), note:"Opened 1919 as the first U.S. museum devoted to American art; 20,000+ works from Winslow Homer to contemporary. Free, Tuesday–Sunday. The anchor of the row.", flag:"Free"},
-      {name:"McDonough Museum of Art", q:q("McDonough Museum of Art"), note:"YSU's contemporary art museum, across from the Butler. Free.", flag:"Free"},
-      {name:"Rose Melnick Medical Museum", q:q("Rose Melnick Medical Museum, Youngstown State University"), note:"YSU's history-of-medicine museum in Cushwa Hall — office recreations, nursing and x-ray exhibits, and a 1952 Emerson iron lung. An Atlas Obscura oddity.", flag:"Free"},
-      {name:"Ward Beecher Planetarium", q:q("Ward Beecher Planetarium, Youngstown"), note:"A well-regarded YSU planetarium with free public shows, typically Friday/Saturday evenings and Saturday afternoons, September–May. Ward Beecher Science Hall, 100 Lincoln Ave.", flag:"Free"},
-      {name:"Arms Family Museum", q:q("Arms Family Museum"), note:"A 1905 Arts-and-Crafts mansion run by the Mahoning Valley Historical Society, with Valley history inside."},
-      {name:"Youngstown Historical Center of Industry and Labor", q:q("Youngstown Historical Center of Industry and Labor"), note:"The 'Steel Museum' — the mills that built (and left) the city, told straight. Ohio History Connection site on W Wood St."},
-      {name:"Wick Park", q:q("Wick Park"), note:"A 34-acre 19th-century park ringed by the North Side's grand old houses. A stroll, not a ticket."}
-    ]
-  },
-  {
-    title: "Mill Creek Park & the West Side",
-    sub: "Car helps · a genuinely wild city park",
-    note: "One of the country's great metro parks — 4,400+ acres of gorges, lakes and old stone bridges minutes from downtown. Easy to spend a whole day.",
-    stops: [
-      {name:"Lanterman's Mill", q:q("Lanterman's Mill"), note:"An 1845–46 grist mill, restored and grinding again beside a waterfall. Seasonal — roughly May through October."},
-      {name:"Fellows Riverside Gardens", q:q("Fellows Riverside Gardens"), note:"Free formal gardens overlooking Lake Glacier, with the Davis visitor center and café."},
-      {name:"Ford Nature Center", q:q("Ford Nature Center"), note:"A stone-house nature center and trailhead into the park's interior."},
-      {name:"Mill Creek Suspension Bridge", q:q("Mill Creek Park Suspension Bridge"), note:"The slender pedestrian span locals call the 'Cinderella' bridge — the park's signature photo, and an Atlas Obscura listing."},
-      {name:"Pioneer Pavilion", q:q("Pioneer Pavilion Mill Creek Park"), note:"An 1821 stone mill building, one of the oldest structures around, now a picnic pavilion."}
-    ]
-  },
-  {
-    title: "Downtown & the grand halls",
-    sub: "Compact core",
-    note: "A downtown of big early-20th-century rooms that never got torn down — a symphony hall, an arena, and one of the country's oldest community theaters nearby.",
-    stops: [
-      {name:"Tyler History Center", q:q("Tyler History Center"), note:"The Historical Society's downtown museum of Mahoning Valley history, in a restored department-store building on W Federal St."},
-      {name:"DeYor Performing Arts Center (Powers Auditorium)", q:q("DeYor Performing Arts Center"), note:"Home of the Youngstown Symphony, behind a 1931 movie-palace façade on W Federal St."},
-      {name:"Covelli Centre", q:q("Covelli Centre"), note:"The downtown arena on the riverfront — hockey, concerts, events."},
-      {name:"Stambaugh Auditorium", q:q("Stambaugh Auditorium"), note:"A 1926 neoclassical concert hall on Fifth Ave near Wick Park, with a marble-columned front."},
-      {name:"The Youngstown Playhouse", q:q("The Youngstown Playhouse"), note:"Among the oldest continuously operating community theaters in the United States."}
-    ]
-  },
-  {
-    title: "Day trips in the Mahoning Valley",
-    sub: "Short drives out",
-    note: "Two Valley institutions and one piece of vanished Youngstown, all a few minutes out from the core.",
-    stops: [
-      {name:"National McKinley Birthplace Memorial & Museum", q:q("National McKinley Birthplace Memorial", "Niles, OH"), note:"A columned memorial and museum to President William McKinley, on Main St in nearby Niles."},
-      {name:"Canfield Fairgrounds", q:q("Mahoning County Fairgrounds", "Canfield, OH"), note:"Home of the Canfield Fair, Ohio's largest county fair, over Labor Day week. Grounds are quiet off-season.", flag:"Seasonal"},
-      {name:"Idora Park Experience", q:q("Idora Park Experience"), note:"The beloved Idora Park amusement park closed in 1984; volunteers keep a museum of its memorabilia. Limited hours — check ahead.", flag:"Park closed 1984"}
-    ]
-  }
+const S = {
+  AO:{k:"ATLAS OBSCURA",t:"Atlas Obscura — Ohio / Youngstown oddities",u:"https://www.atlasobscura.com/things-to-do/ohio",l:"Atlas Obscura"},
+  T2N:{k:"TRAVEL2NEXT",t:"20 Things To Do in Youngstown, Ohio",u:"https://travel2next.com/things-to-do-youngstown-ohio/",l:"Travel2Next"},
+  EXM:{k:"EXPLORE MAHONING",t:"Explore Mahoning — local visitor guide",u:"https://exploremahoning.com",l:"Explore Mahoning (Mahoning County CVB)"},
+  MEL:{k:"MELNICK MUSEUM",t:"The Rose Melnick Medical Museum (YSU)",u:"https://melnick.ysu.edu",l:"Youngstown State University"},
+  WBP:{k:"WARD BEECHER",t:"Ward Beecher Planetarium (YSU)",u:"https://www.wbplanetarium.org",l:"Youngstown State University"},
+  MVHS:{k:"MAHONING HISTORY",t:"Mahoning Valley Historical Society",u:"https://mahoninghistory.org",l:"Mahoning Valley Historical Society"},
+  MCMP:{k:"MILL CREEK METROPARKS",t:"Mill Creek MetroParks",u:"https://millcreekmetroparks.org",l:"Mill Creek MetroParks"},
+  OHIO:{k:"OHIO TOURISM",t:"Ohio — Find It Here",u:"https://ohio.org",l:"Ohio tourism"},
+  ADD:{k:"ADDED",t:"Well-known local landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"}
+};
+
+const AREAS = [
+  {id:"WK", n:"Wick Avenue & YSU",            c:"var(--c-dt)"},
+  {id:"MC", n:"Mill Creek Park & West Side",  c:"var(--c-uc)"},
+  {id:"DT", n:"Downtown",                     c:"var(--c-ws)"},
+  {id:"DY", n:"Mahoning Valley Day Trips",    c:"var(--c-sub)"}
 ];
 
-const FOOD = [
-  {name:"Cassese's MVR", cz:"Italian · Brier Hill pizza", q:q("Cassese's MVR restaurant"), note:"Open since 1927. The dish: a Brier Hill 'Smoky Hollow' pizza eaten beside the bocce courts out back — as Youngstown as it gets."},
-  {name:"Wedgewood Pizza", cz:"Pizza · Brier Hill", q:q("Wedgewood Pizza, Austintown OH"), note:"A local pizzeria since 1967 that makes the classic Brier Hill pie — tomato, bell peppers and grated romano, little mozzarella."},
-  {name:"Avalon Downtown Pizzeria", cz:"Pizza", q:q("Avalon Downtown Pizzeria"), note:"Brick-walled downtown spot serving Brier Hill pizza alongside inventions like a 'Pesto Hot Honey' pie."},
-  {name:"St. Anthony of Padua parish pizza", cz:"Pizza · fundraiser", q:q("St. Anthony of Padua Church, Youngstown"), note:"The Brier Hill church that sells hundreds of pizzas a week as a parish fundraiser. Takeout, cash, and a piece of neighbourhood lore.", flag:"Call ahead"},
-  {name:"Golden Dawn", cz:"Italian-American", q:q("Golden Dawn restaurant, 1245 Logan Ave"), note:"A 1932 Brier Hill landmark at 1245 Logan Ave. It closed in 2017 and has since reopened — running again, but confirm current hours."},
-  {name:"Handel's Homemade Ice Cream", cz:"Dessert", q:q("Handel's Ice Cream, South Ave, Youngstown"), note:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide, HQ in Canfield."},
-  {name:"Noble Creature Wild Ales & Lagers", cz:"Drinks · brewery", q:q("Noble Creature Cask House, Youngstown"), note:"A former church turned brewery pouring wild ales and lagers — the drinks stop on this list."}
+const P = [
+/* == WICK AVENUE & YSU == */
+{t:1,a:"WK",n:"Butler Institute of American Art",ad:"524 Wick Ave",la:41.1065,ln:-80.6478,
+ w:"Opened in 1919 as the first museum in the country built solely for American art, with more than 20,000 works from Winslow Homer to the present. Free admission, and the anchor of the Wick Avenue museum row.",
+ k:"Free. Open Tuesday–Sunday. Approximate map pin — confirm the entrance on Wick Ave.",s:[["T2N",""],["OHIO",""]]},
+{t:2,a:"WK",n:"Rose Melnick Medical Museum",ad:"Cushwa Hall, Youngstown State University",la:41.1045,ln:-80.6455,
+ w:"YSU's history-of-medicine museum: office recreations, nursing and x-ray exhibits, and a bright yellow 1952 Emerson iron lung as its centrepiece. Founded 1985; now in Cushwa Hall. Listed by Atlas Obscura.",
+ k:"Free. Campus building — check hours before going; parking is easier on weekends.",s:[["AO",""],["MEL",""]]},
+{t:2,a:"WK",n:"Ward Beecher Planetarium",ad:"Ward Beecher Science Hall, 100 Lincoln Ave",la:41.1049,ln:-80.6472,
+ w:"A well-regarded university planetarium running free public shows, typically Friday and Saturday evenings and Saturday afternoons from September through May.",
+ k:"Free, no reservations. Doors 30 min early; latecomers cannot be admitted once dark. Shows Sept–May.",warn:1,s:[["EXM",""],["WBP",""]]},
+{t:3,a:"WK",n:"McDonough Museum of Art",ad:"525 Wick Ave",la:41.1069,ln:-80.6469,
+ w:"Youngstown State's contemporary art museum, directly across Wick Avenue from the Butler. Rotating shows of new and student work. Free.",
+ k:"Free. Closed between exhibitions — check the current show first.",s:[["ADD",""]]},
+{t:2,a:"WK",n:"Arms Family Museum",ad:"648 Wick Ave",la:41.1083,ln:-80.6472,
+ w:"A 1905 Arts-and-Crafts mansion run by the Mahoning Valley Historical Society, furnished as it was and used to tell the story of the Valley's industrial families.",
+ k:"Admission charged. Closed Mondays; check seasonal hours.",s:[["MVHS",""]]},
+{t:1,a:"WK",n:"Youngstown Historical Center of Industry and Labor",ad:"151 W Wood St",la:41.1028,ln:-80.6488,
+ w:"The Steel Museum — an Ohio History Connection site that tells the rise and collapse of the mills that built Youngstown, straight and unsentimental. The essential stop for understanding the city.",
+ k:"Admission charged. Check open days; often Wed–Sat.",s:[["OHIO",""]]},
+{t:3,a:"WK",n:"Wick Park",ad:"Fifth Ave & Park Ave, North Side",la:41.1128,ln:-80.6498,
+ w:"A 34-acre 19th-century park ringed by the North Side's grand old mansions. A stroll and some architecture, not a ticket.",
+ k:"Free, open daylight hours. Nicer by day.",s:[["ADD",""]]},
+/* == MILL CREEK PARK & WEST SIDE == */
+{t:1,a:"MC",n:"Lanterman's Mill",ad:"1001 Canfield Rd, Mill Creek Park",la:41.0731,ln:-80.6809,
+ w:"An 1845-46 grist mill restored and grinding again beside a waterfall on Mill Creek. The picture-book heart of one of the country's great metro parks.",
+ k:"Seasonal — roughly May through October. Small admission. Approximate pin.",s:[["MCMP",""]]},
+{t:1,a:"MC",n:"Fellows Riverside Gardens",ad:"123 McKinley Ave, Mill Creek Park",la:41.0921,ln:-80.6816,
+ w:"Free formal gardens overlooking Lake Glacier, with the Davis visitor center, a cafe and long seasonal colour. Part of Mill Creek MetroParks.",
+ k:"Free. Gardens open daily; Davis Center has its own hours.",s:[["MCMP",""]]},
+{t:2,a:"MC",n:"Mill Creek Suspension Bridge (the Cinderella Bridge)",ad:"Mill Creek Park",la:41.0795,ln:-80.6795,
+ w:"The slender pedestrian suspension span locals call the Cinderella Bridge — the park's signature photo and an Atlas Obscura listing.",
+ k:"Free, always open. Approximate pin — it sits on a park trail.",s:[["AO",""],["MCMP",""]]},
+{t:3,a:"MC",n:"Ford Nature Center",ad:"840 Old Furnace Rd, Mill Creek Park",la:41.0705,ln:-80.6890,
+ w:"A stone-house nature center and trailhead into the wooded interior of Mill Creek Park, with exhibits and easy walks.",
+ k:"Free. Check hours; trails open dawn to dusk.",s:[["MCMP",""]]},
+{t:3,a:"MC",n:"Pioneer Pavilion",ad:"Mill Creek Park",la:41.0805,ln:-80.6820,
+ w:"An 1821 stone mill building, one of the oldest structures in the area, now a picnic pavilion in the park.",
+ k:"Free. A short stop; combine with Lanterman's Mill.",s:[["MCMP",""]]},
+/* == DOWNTOWN == */
+{t:1,a:"DT",n:"Stambaugh Auditorium",ad:"1000 Fifth Ave",la:41.1112,ln:-80.6543,
+ w:"A 1926 neoclassical concert hall with a marble-columned front, one of the finest rooms in the region and still a working venue.",
+ k:"Ticketed events; the exterior is worth a look any time. Just north of Wick Park.",s:[["ADD",""]]},
+{t:2,a:"DT",n:"Tyler History Center",ad:"325 W Federal St",la:41.0987,ln:-80.6520,
+ w:"The Historical Society's downtown museum of Mahoning Valley history, in a restored former department store on West Federal Street.",
+ k:"Admission charged. Check open days before going.",s:[["MVHS",""]]},
+{t:2,a:"DT",n:"DeYor Performing Arts Center (Powers Auditorium)",ad:"260 W Federal St",la:41.0982,ln:-80.6510,
+ w:"Home of the Youngstown Symphony, behind a 1931 movie-palace facade on West Federal Street. The Valley's main stage for orchestra and touring shows.",
+ k:"Ticketed performances. Lobby worth a peek on show nights.",s:[["ADD",""]]},
+{t:3,a:"DT",n:"Covelli Centre",ad:"229 E Front St",la:41.0956,ln:-80.6468,
+ w:"The downtown riverfront arena — hockey, concerts and events. The anchor of the eastern edge of downtown.",
+ k:"Event venue; nothing to see when dark. Check the calendar.",s:[["ADD",""]]},
+{t:2,a:"DT",n:"The Youngstown Playhouse",ad:"600 Playhouse Ln",la:41.0771,ln:-80.6725,
+ w:"Among the oldest continuously operating community theaters in the United States, staging affordable productions on the South Side.",
+ k:"Tickets are cheap; check the season's schedule.",s:[["T2N",""]]},
+/* == MAHONING VALLEY DAY TRIPS == */
+{t:1,a:"DY",n:"National McKinley Birthplace Memorial & Museum",ad:"40 N Main St, Niles, OH",la:41.1835,ln:-80.7590,
+ w:"A columned memorial and museum to President William McKinley in his birthplace of Niles, a short drive north of Youngstown.",
+ k:"Free. In Niles, about 15 minutes from downtown. Check museum hours.",s:[["ADD",""]]},
+{t:2,a:"DY",n:"Canfield Fairgrounds",ad:"7265 Columbiana-Canfield Rd, Canfield, OH",la:41.0206,ln:-80.7595,
+ w:"Home of the Canfield Fair, Ohio's largest county fair, over Labor Day week. The grounds are quiet off-season.",
+ k:"The fair is late Aug–Labor Day. Otherwise little to see. Seasonal.",warn:1,s:[["T2N",""]]},
+{t:2,a:"DY",n:"Idora Park Experience",ad:"near Canfield Rd, Youngstown",la:41.0709,ln:-80.7010,
+ w:"The beloved Idora Park amusement park closed in 1984; volunteers now keep a museum of its memorabilia. A piece of vanished Youngstown.",
+ k:"Limited hours — call or check ahead. The park itself is long gone. Approximate pin.",warn:1,s:[["AO",""]]}
 ];
 
-/* ── Key handling (localStorage, wrapped — storage throws in some sandboxes) ── */
-const KEY_STORE = "ytown_gmaps_embed_key";
-function getKey(){ try{ return localStorage.getItem(KEY_STORE) || ""; }catch(e){ return window.__key || ""; } }
-function setKey(v){ try{ localStorage.setItem(KEY_STORE, v); }catch(e){ window.__key = v; } }
-function delKey(){ try{ localStorage.removeItem(KEY_STORE); }catch(e){} window.__key = ""; }
+const FS = {
+  GO_BH:{k:"GASTRO OBSCURA",t:"Brier Hill Pizza",u:"https://www.atlasobscura.com/foods/brier-hill-pizza",l:"Gastro Obscura"},
+  WIKI_BH:{k:"WIKIPEDIA",t:"Brier Hill-style pizza",u:"https://en.wikipedia.org/wiki/Brier_Hill-style_pizza",l:"Wikipedia"},
+  EXM_SLICE:{k:"EXPLORE MAHONING",t:"Where to Grab a Slice in Y-town",u:"https://exploremahoning.com/where-to-grab-a-slice-in-y-town/",l:"Explore Mahoning"},
+  HTP:{k:"HOMETOWN PLATE",t:"Best Restaurants in Youngstown",u:"https://hometownplate.com/list/best-restaurants-in-youngstown-ohio/",l:"HometownPlate"},
+  HANDEL:{k:"HANDEL'S HISTORY",t:"Handel's Homemade Ice Cream — history",u:"https://handelsicecream.com/history/",l:"Handel's official history"},
+  GD:{k:"BUSINESS JOURNAL",t:"Golden Dawn to reopen",u:"https://businessjournaldaily.com",l:"The Business Journal"},
+  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"}
+};
 
-/* Official Google Maps Embed API — directions by place name, needs a key. */
-function embedApiUrl(stops, key){
-  const origin = stops[0].q, destination = stops[stops.length-1].q;
-  const waypoints = stops.slice(1,-1).map(s=>s.q).join("|");
-  let u = "https://www.google.com/maps/embed/v1/directions?key=" + encodeURIComponent(key)
-        + "&origin=" + encodeURIComponent(origin)
-        + "&destination=" + encodeURIComponent(destination) + "&mode=driving";
-  if (waypoints) u += "&waypoints=" + encodeURIComponent(waypoints);
-  return u;
+const CUISINES = [
+  {id:"PZ", n:"Brier Hill & Pizza"},
+  {id:"IT", n:"Italian"},
+  {id:"DES",n:"Dessert"},
+  {id:"DR", n:"Drinks & Breweries"}
+];
+
+const F = [
+{t:1,a:"DT",cz:["IT","PZ"],n:"Cassese's MVR",ad:"410 N Walnut St",la:41.1039,ln:-80.6519,
+ w:"Open since 1927. The dish is a Brier Hill Smoky Hollow pizza — tomato, bell peppers and grated romano — eaten beside the bocce courts out back. As Youngstown as it gets.",
+ k:"Italian institution; bocce in season. Confirm hours.",s:[["HTP",""]]},
+{t:1,a:"MC",cz:["DES"],n:"Handel's Homemade Ice Cream",ad:"South Ave, Youngstown",la:41.0642,ln:-80.6543,
+ w:"Founded here in the summer of 1945 by Alice Handel at her husband's gas station; the original South Side stand still scoops. Now 175+ stores nationwide with its HQ in Canfield.",
+ k:"Cash-friendly, seasonal lines. The original location marks Handel's roots.",s:[["HANDEL",""]]},
+{t:2,a:"WK",cz:["IT"],n:"Golden Dawn",ad:"1245 Logan Ave",la:41.1120,ln:-80.6558,
+ w:"A 1932 Brier Hill Italian-American landmark on Logan Avenue. It closed in 2017 and has since reopened — running again, tied to the neighbourhood's pizza lore.",
+ k:"Reopened after 2017; confirm current hours before going.",s:[["GD",""]]},
+{t:2,a:"MC",cz:["PZ"],n:"Wedgewood Pizza",ad:"Austintown, OH",la:41.1006,ln:-80.7360,
+ w:"A local pizzeria since 1967 that makes the classic Brier Hill pie — tomato, bell peppers and grated romano, with little or no mozzarella.",
+ k:"In Austintown, west of the city. Ask for the Brier Hill pie by name.",s:[["HTP",""],["WIKI_BH",""]]},
+{t:2,a:"DT",cz:["PZ"],n:"Avalon Downtown Pizzeria",ad:"Downtown Youngstown",la:41.0976,ln:-80.6503,
+ w:"A brick-walled downtown spot serving Brier Hill pizza alongside inventions like a Pesto Hot Honey pie.",
+ k:"Downtown; good lunch stop between museums.",s:[["HTP",""]]},
+{t:3,a:"WK",cz:["PZ"],n:"St. Anthony of Padua parish pizza",ad:"Brier Hill",la:41.1140,ln:-80.6640,
+ w:"The Brier Hill church that sells hundreds of pizzas a week as a parish fundraiser — takeout, cash, and a genuine piece of neighbourhood lore.",
+ k:"Fundraiser hours only — call ahead. Cash. Approximate pin.",warn:1,s:[["EXM_SLICE",""]]},
+{t:2,a:"DT",cz:["DR"],n:"Noble Creature Wild Ales & Lagers",ad:"Youngstown",la:41.0930,ln:-80.6390,
+ w:"A former church turned brewery pouring wild ales and lagers — the drinks stop on this list.",
+ k:"Taproom hours vary; check before you go. Approximate pin.",s:[["HTP",""]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('yt_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('yt_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('yt_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('yt_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Youngstown OH')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {WK:'#74AE99',MC:'#C89B4A',DT:'#B45B3E',DY:'#7E8FC4'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.0998,-80.6495],12);
+/* ── Base layers ────────────────────────────────────────────────────────────
+   Free layers need no key. Google needs your own Maps JavaScript API key and
+   is loaded through the officially sanctioned GoogleMutant plugin, because
+   scraping Google's raster tiles directly breaks their terms. Apple Maps has
+   no equivalent: MapKit JS needs a signed developer token, which a static
+   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}},
+ {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
+ {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
+ {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+let GKEY=''; try{GKEY=localStorage.getItem('yt_gkey')||'';}catch(e){}
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
 }
-/* Keyless classic embed — directions with chained place-name waypoints. */
-function embedKeylessUrl(stops){
-  const saddr = stops[0].q;
-  const daddr = stops.slice(1).map(s=>encodeURIComponent(s.q)).join("+to:");
-  return "https://maps.google.com/maps?saddr=" + encodeURIComponent(saddr) + "&daddr=" + daddr + "&output=embed";
-}
-/* Open in the Google Maps app/site — always works, no key. */
-function openDirUrl(stops){
-  const origin = stops[0].q, destination = stops[stops.length-1].q;
-  const waypoints = stops.slice(1,-1).map(s=>s.q).join("|");
-  let u = "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(origin)
-        + "&destination=" + encodeURIComponent(destination) + "&travelmode=driving";
-  if (waypoints) u += "&waypoints=" + encodeURIComponent(waypoints);
-  return u;
-}
-function searchUrl(s){ return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(s.q); }
 
-function el(tag, cls, html){ const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
-const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-function flagHtml(s){
-  if(!s.flag) return "";
-  const closed = /clos|verify/i.test(s.flag);
-  return " <span class='flag" + (closed?" closed":"") + "'>" + esc(s.flag) + "</span>";
-}
-
-function build(){
-  const key = getKey();
-  const host = document.getElementById("clusters");
-  host.innerHTML = "";
-  CLUSTERS.forEach((c, ci) => {
-    const sec = el("section", "cluster");
-    sec.appendChild(el("p", "cmeta", "Cluster " + (ci+1) + " · " + esc(c.sub)));
-    sec.appendChild(el("h2", null, esc(c.title)));
-    sec.appendChild(el("p", "cnote", esc(c.note)));
-
-    const frame = el("div", "mapframe");
-    frame.appendChild(el("div", "mapfallback",
-      "<span>Google's map didn't load here. The list is below, and " +
-      "<a href='" + openDirUrl(c.stops) + "' target='_blank' rel='noopener'>Open&nbsp;in&nbsp;Google&nbsp;Maps</a> still works.</span>"));
-    const iframe = document.createElement("iframe");
-    iframe.loading = "lazy"; iframe.referrerPolicy = "no-referrer-when-downgrade";
-    iframe.title = c.title + " route"; iframe.allowFullscreen = true;
-    iframe.src = key ? embedApiUrl(c.stops, key) : embedKeylessUrl(c.stops);
-    frame.appendChild(iframe);
-    sec.appendChild(frame);
-
-    const tools = el("div", "maptools");
-    const open = el("a", null, "Open this cluster in Google Maps ↗");
-    open.href = openDirUrl(c.stops); open.target = "_blank"; open.rel = "noopener";
-    tools.appendChild(open);
-    sec.appendChild(tools);
-
-    const ol = el("ol", "stops");
-    c.stops.forEach(s => {
-      const li = el("li");
-      li.appendChild(el("div", "name", esc(s.name) + flagHtml(s) +
-        " <a class='go' href='" + searchUrl(s) + "' target='_blank' rel='noopener'>Map ↗</a>"));
-      if (s.note) li.appendChild(el("div", "note", esc(s.note)));
-      ol.appendChild(li);
-    });
-    sec.appendChild(ol);
-    host.appendChild(sec);
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  if(!b.free){ return setGoogle(b,manual); }
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
   });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
 
-  const food = document.getElementById("food");
-  food.innerHTML = "";
-  FOOD.forEach(f => {
-    const card = el("div", "food");
-    card.appendChild(el("div", "name", esc(f.name) + flagHtml(f)));
-    if (f.cz) card.appendChild(el("div", "cz", esc(f.cz)));
-    if (f.note) card.appendChild(el("div", "note", esc(f.note)));
-    const a = el("a", null, "Find on Google Maps ↗");
-    a.href = searchUrl(f); a.target = "_blank"; a.rel = "noopener";
-    card.appendChild(el("div", null, "")).appendChild(a);
-    food.appendChild(card);
+/* Google, via the official Maps JavaScript API + GoogleMutant */
+let gLoading=false;
+function setGoogle(b,manual){
+  if(!map) return;
+  if(!GKEY){ promptKey(); return; }
+  const go=()=>{
+    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
+      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
+    clearBase(); curBase=b.id;
+    document.getElementById('map').classList.remove('osmdark');
+    document.getElementById('tilewarn').style.display='none';
+    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
+    markBaseChips();
+  };
+  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
+  if(gLoading) return;
+  gLoading=true;
+  const s1=document.createElement('script');
+  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
+  s1.onload=()=>{
+    const s2=document.createElement('script');
+    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
+    s2.onload=()=>{gLoading=false;go();};
+    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
+    document.head.appendChild(s2);
+  };
+  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
+  document.head.appendChild(s1);
+}
+function promptKey(){
+  const k=prompt(
+    'Google base maps need your own Maps JavaScript API key.\n\n'+
+    'Google does not permit their map tiles to be used without going through their API, '+
+    'so there is no key-free way to do this legally.\n\n'+
+    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
+    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
+    'Paste your key here (it is stored only in this browser):', GKEY);
+  if(k==null) return;
+  GKEY=String(k).trim(); try{localStorage.setItem('yt_gkey',GKEY);}catch(e){}
+  markBaseChips();
+  if(GKEY) setBase('g_road',true);
+}
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
   });
+  const kb=document.getElementById('keyBtn');
+  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
 }
 
-function refreshKeyState(){
-  const has = !!getKey();
-  const st = document.getElementById("keystate");
-  st.textContent = has ? "Key active — official Google Maps Embed API." : "Keyless mode — Google's classic embed.";
-  st.classList.toggle("on", has);
-  document.getElementById("key").value = getKey();
-}
-document.getElementById("save").addEventListener("click", () => {
-  const v = document.getElementById("key").value.trim();
-  if (v) setKey(v); else delKey();
-  refreshKeyState(); build();
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  if(b.id==='keyBtn'){promptKey();return;}
+  setBase(b.dataset.v,true);
 });
-document.getElementById("clear").addEventListener("click", () => { delKey(); refreshKeyState(); build(); });
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
 
-refreshKeyState();
-build();
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle neighbourhood labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Downtown",41.0985,-80.6490],["Wick Ave / YSU",41.1060,-80.6470],
+ ["Mill Creek Park",41.0820,-80.6820],["Brier Hill",41.1130,-80.6600],["Mahoning River",41.0930,-80.6350]];
+
+// Youngstown is inland — no Lake Erie / Cuyahoga backdrop; real geography comes from tiles.
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'brier hill, bocce, ice cream, wild ale\u2026' : 'iron lung, planetarium, brier hill, mill\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see ('+P.filter(p=>p.t===1).length+')', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Youngstown \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('youngstown-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('youngstown-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('youngstown-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
+  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
+  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
+  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
+  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
+  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
+  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
+  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
+  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
+  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
+  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
+  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the food list works'
+  + '<span>Youngstown&#39;s signature is Brier Hill pizza \u2014 a pepper-and-romano pie with little or no mozzarella. A cuisine tag needs a named dish, not a label. Anything tagged ADDED is from general knowledge and should be verified before a visit.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Sources were found and cross-checked with web search. Direct page fetches are blocked in the build environment, so sourcing relied on search results, not full-page reads. The ranked, fact-checked sources for this city live in data/sources.json; the process is documented in docs/SOURCES.md.</span></div></div>'
+  + '<div class="srcrow"><span class="k">COVERED BY</span><div class="t">YouTube &amp; creators'
+  + '<span>Peter Santenello (4.2M) covered next-door East Palestine \u2014 regional, not the city itself; Phil Kidd walks downtown Youngstown; Explore Mahoning covers the Valley. The Google-Maps beta page carries the full creator panel.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 27 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
 </script>
 </body>
 </html>
