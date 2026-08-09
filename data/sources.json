@@ -63,6 +63,35 @@
         { "key": "PORTNOY", "name": "Dave Portnoy — One Bite Pizza Reviews", "type": "famous_creator", "youtube": "https://onebite.app/restaurant/crust-cleveland-ohio-d23e293c", "work": "Reviewed Cleveland pizza incl. Crust; 15 Ohio spots reviewed", "scope": "city", "verified": true, "note": "Food/pizza; national reach. 'Cleveland makes it very difficult for Dave to get his pizza.'" }
       ]
     },
+    "pittsburgh-pa": {
+      "name": "Pittsburgh, Pennsylvania",
+      "lastUpdated": "2026-08-09",
+      "refreshLog": [
+        { "date": "2026-08-09", "mode": "build", "findings": ["Full web-researched, fact-checked build on the Cleveland interactive engine — 27 sights + 17 food/markets/farms, incl. Markets (the Strip District, Neighborhood Flea) and Farms (Soergel, Trax, Simmons)."] }
+      ],
+      "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania",
+      "researchedOn": "2026-08",
+      "researchedVia": "WebSearch (direct page fetch blocked by the environment egress policy)",
+      "sources": [
+        { "key": "AO", "name": "Atlas Obscura — Pittsburgh (70 entries)", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania", "rank": 1, "verified": true, "covers": ["Mattress Factory", "Randyland", "St. Anthony's Chapel relics", "Bicycle Heaven", "Center for PostNatural History", "Duquesne & Monongahela inclines"] },
+        { "key": "HEINZ", "name": "Senator John Heinz History Center (Smithsonian affiliate)", "type": "historical_society", "url": "https://www.heinzhistorycenter.org", "rank": 1, "verified": false, "note": "Regional history authority in the Strip District." },
+        { "key": "VISITPA", "name": "Visit PA (Pennsylvania tourism)", "type": "state_tourism", "url": "https://www.visitpa.com", "rank": 2, "verified": false },
+        { "key": "VP", "name": "Visit Pittsburgh (CVB)", "type": "local_cvb", "url": "https://www.visitpittsburgh.com", "rank": 1, "verified": true },
+        { "key": "NP", "name": "NextPittsburgh", "type": "nonprofit_local_news", "url": "https://nextpittsburgh.com", "rank": 2, "verified": true },
+        { "key": "PGHMAG", "name": "Pittsburgh Magazine", "type": "city_magazine", "url": "https://www.pittsburghmagazine.com", "rank": 2, "verified": false },
+        { "key": "GFP", "name": "Good Food Pittsburgh", "type": "travel_blog", "url": "https://goodfoodpittsburgh.com", "rank": 2, "verified": true, "covers": ["Primanti's", "Apteka", "Prantl's burnt almond torte", "pierogi"] },
+        { "key": "TT", "name": "Tasting Table — Pittsburgh (a local's guide)", "type": "travel_blog", "url": "https://www.tastingtable.com/1559106/best-restaurants-pittsburgh/", "rank": 2, "verified": true },
+        { "key": "UPA", "name": "Uncovering PA", "type": "travel_blog", "url": "https://uncoveringpa.com", "rank": 2, "verified": false },
+        { "key": "KB", "name": "Kidsburgh (farm/family outings)", "type": "travel_blog", "url": "https://www.kidsburgh.org", "rank": 2, "verified": true, "covers": ["Soergel Orchards", "Trax Farms", "Simmons Farm"] },
+        { "key": "AXIOS", "name": "Axios Pittsburgh", "type": "nonprofit_local_news", "url": "https://www.axios.com/local/pittsburgh", "rank": 2, "verified": true },
+        { "key": "TV", "name": "KDKA 2 · WTAE 4 · WPXI 11", "type": "tv_numbered_list", "url": "https://www.cbsnews.com/pittsburgh/", "rank": 2, "verified": false, "note": "Full outlet list in data/local-media.json." }
+      ],
+      "creators": [
+        { "key": "BGIP", "name": "British Guy in Pittsburgh — travel vlog", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=wz2RkYoT-Ts", "work": "Mt Washington, Randyland and the museums (city tour)", "scope": "city", "verified": true },
+        { "key": "4KPGH", "name": "Pittsburgh 4K Travel Tour", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=oWUAV-3_29s", "work": "4K city tour (2025)", "scope": "city", "verified": true },
+        { "key": "SANT", "name": "Peter Santenello", "type": "famous_creator", "youtube": "https://www.youtube.com/@PeterSantenello", "subscribers": "4.2M", "scope": "reference", "verified": false, "note": "National Americana channel — confirm a Pittsburgh-specific video before citing one." }
+      ]
+    },
     "youngstown-oh": {
       "name": "Youngstown, Ohio",
       "lastUpdated": "2026-08-09",

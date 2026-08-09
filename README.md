@@ -1,4 +1,4 @@
-# Field Guides — Cleveland &amp; Youngstown
+# Field Guides — Cleveland, Youngstown &amp; Pittsburgh
 
 Offline-capable travel guides where every place is **traceable to the source that recommended it**,
 on interactive maps with filters, trip builders and exports to Google and Apple Maps. Cleveland is
@@ -47,6 +47,10 @@ node research.js "Akron" "OH"          # print the research plan for a new city
 node research.js --validate akron-oh   # audit its sources before building a page
 ```
 
+- **[Pittsburgh, Pennsylvania](cities/pittsburgh.html)** — 27 sights and 17 places to eat, drink, shop &amp; pick:
+  the Duquesne & Monongahela inclines and the Mount Washington view, the Warhol and Mattress Factory, the
+  Cathedral of Learning, Fallingwater and Kennywood, the Strip District, Primanti's, pierogi and the burnt
+  almond torte. Same interactive engine as Cleveland; web-researched and fact-checked.
 - **[Youngstown, Ohio](cities/youngstown.html)** — 28 sights and 22 places to eat, drink, shop &amp; pick across
   the Mahoning Valley (Wick Avenue's museums, all of Mill Creek Park, the downtown halls, breweries, Brier Hill
   pizza, Warren's Dave Grohl Alley, a strictly-curated **Markets** category — the Youngstown Flea, Rogers flea

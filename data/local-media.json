@@ -27,6 +27,34 @@
       "public": [ { "name": "Ideastream Public Media (WVIZ/WCPN/WKSU)", "url": "https://www.ideastream.org" } ],
       "familyOrActivity": [ { "name": "Northeast Ohio Family Fun", "url": "https://northeastohiofamilyfun.com", "note": "Regional blog; strong farm/pumpkin-patch and kid-activity round-ups." } ]
     },
+    "pittsburgh-pa": {
+      "name": "Pittsburgh, Pennsylvania",
+      "updated": "2026-08-09",
+      "tv": [
+        { "name": "KDKA-TV", "call": "KDKA", "net": "CBS", "url": "https://www.cbsnews.com/pittsburgh/", "note": "Channel 2; KDKA radio was the world's first commercial station (1920)." },
+        { "name": "WTAE-TV", "call": "WTAE", "net": "ABC", "url": "https://www.wtae.com" },
+        { "name": "WPXI", "call": "WPXI", "net": "NBC", "url": "https://www.wpxi.com" },
+        { "name": "WPGH Fox 53", "call": "WPGH", "net": "FOX", "url": "https://www.wpgh.com" },
+        { "name": "WQED", "call": "WQED", "net": "PBS", "url": "https://www.wqed.org", "note": "The nation's first community-licensed public TV station." }
+      ],
+      "newspaper": [
+        { "name": "Pittsburgh Post-Gazette", "url": "https://www.post-gazette.com", "note": "First newspaper published west of the Alleghenies." },
+        { "name": "TribLive (Pittsburgh Tribune-Review)", "url": "https://triblive.com" }
+      ],
+      "altWeekly": [ { "name": "Pittsburgh City Paper", "url": "https://www.pghcitypaper.com", "note": "Closed Dec 2025; relaunched March 2026 under new ownership." } ],
+      "magazine": [ { "name": "Pittsburgh Magazine", "url": "https://www.pittsburghmagazine.com" } ],
+      "nonprofit": [
+        { "name": "PublicSource", "url": "https://www.publicsource.org" },
+        { "name": "NextPittsburgh", "url": "https://nextpittsburgh.com" }
+      ],
+      "public": [ { "name": "90.5 WESA (NPR) / WYEP", "url": "https://www.wesa.fm" } ],
+      "cvb": [ { "name": "Visit Pittsburgh", "url": "https://www.visitpittsburgh.com" } ],
+      "familyOrActivity": [
+        { "name": "Good Food Pittsburgh", "url": "https://goodfoodpittsburgh.com", "note": "Iconic dishes & restaurant round-ups." },
+        { "name": "Kidsburgh", "url": "https://www.kidsburgh.org", "note": "Family + farm outing guides." },
+        { "name": "Uncovering PA", "url": "https://uncoveringpa.com", "note": "Statewide travel blog; strong on PA orchards and day trips." }
+      ]
+    },
     "youngstown-oh": {
       "name": "Youngstown, Ohio (Mahoning Valley)",
       "updated": "2026-08-09",
