@@ -29,7 +29,7 @@
     },
     "pittsburgh-pa": {
       "name": "Pittsburgh, Pennsylvania",
-      "updated": "2026-08-09",
+      "updated": "2026-08-09b",
       "tv": [
         { "name": "KDKA-TV", "call": "KDKA", "net": "CBS", "url": "https://www.cbsnews.com/pittsburgh/", "note": "Channel 2; KDKA radio was the world's first commercial station (1920)." },
         { "name": "WTAE-TV", "call": "WTAE", "net": "ABC", "url": "https://www.wtae.com" },
@@ -38,8 +38,23 @@
         { "name": "WQED", "call": "WQED", "net": "PBS", "url": "https://www.wqed.org", "note": "The nation's first community-licensed public TV station." }
       ],
       "newspaper": [
-        { "name": "Pittsburgh Post-Gazette", "url": "https://www.post-gazette.com", "note": "First newspaper published west of the Alleghenies." },
-        { "name": "TribLive (Pittsburgh Tribune-Review)", "url": "https://triblive.com" }
+        { "name": "Pittsburgh Post-Gazette", "url": "https://www.post-gazette.com", "note": "First newspaper published west of the Alleghenies; staffed dining desk." },
+        { "name": "TribLive (Pittsburgh Tribune-Review)", "url": "https://triblive.com", "note": "Strongest coverage of the eastern suburbs and Alle-Kiski Valley." }
+      ],
+      "suburbanAndCounty": [
+        { "name": "The Almanac", "url": "https://www.thealmanac.net", "note": "South Hills weekly (Mt. Lebanon, Bethel Park, Peters, Upper St. Clair)." },
+        { "name": "Observer-Reporter", "url": "https://www.observer-reporter.com", "note": "Washington, PA daily; paper of record for Washington County." },
+        { "name": "Mon Valley Independent", "url": "https://www.monvalleyindependent.com", "note": "Mid-Mon Valley daily (Monessen, Elizabeth)." },
+        { "name": "Valley News Dispatch", "url": "https://triblive.com/local/valley-news-dispatch/", "note": "Alle-Kiski Valley (Tarentum, Oakmont, New Kensington)." },
+        { "name": "Visit Washington County PA", "url": "https://www.visitwashingtoncountypa.com", "note": "County tourism promotion agency — the source for South Hills / Washington-county day trips (Trolley Museum, Whiskey Rebellion sites, Sarris)." }
+      ],
+      "heritage": [
+        { "name": "Rivers of Steel", "url": "https://riversofsteel.com", "note": "National Heritage Area body; the only operator of Carrie Blast Furnaces and Pump House tours." },
+        { "name": "Pittsburgh History & Landmarks Foundation", "url": "https://phlf.org", "note": "Historic-house tours (Woodville Plantation) and preservation." }
+      ],
+      "university": [
+        { "name": "University of Pittsburgh — Things to Do / Provost guide", "url": "https://www.pitt.edu/pittsburgh/things-do", "note": ".edu visitor guides that name the Carnegie museums, Heinz Chapel, Soldiers & Sailors, the Nationality Rooms." },
+        { "name": "Carnegie Mellon — Discover Pittsburgh", "url": "https://www.cmu.edu/admission/campus-experience/discover-pittsburgh", "note": "Names the Warhol, National Aviary, Phipps + the CMU campus sights." }
       ],
       "altWeekly": [ { "name": "Pittsburgh City Paper", "url": "https://www.pghcitypaper.com", "note": "Closed Dec 2025; relaunched March 2026 under new ownership." } ],
       "magazine": [ { "name": "Pittsburgh Magazine", "url": "https://www.pittsburghmagazine.com" } ],

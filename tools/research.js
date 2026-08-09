@@ -98,6 +98,26 @@ function plan(city, st) {
   ];
   discovery.forEach((q, i) => console.log(`  ${String(i + 1).padStart(2)}. ${q}`));
 
+  // A1b — the discovery playbook: authoritative rankings, official sites, university
+  // guides, and suburban/county coverage. Codified from the Pittsburgh expansion so the
+  // marquee institutions get anchored to real rankings and the suburbs aren't missed.
+  // Full write-up: docs/SOURCES.md → "Finding more sources — the discovery playbook".
+  console.log('\nA1b. AUTHORITATIVE + UNIVERSITY + SUBURBAN SEARCHES (anchor marquee places; reach the suburbs)');
+  const playbook = [
+    `"${city}" top attractions tripadvisor things to do`,
+    `best things to do in ${city} US News Travel`,
+    `PlanetWare top-rated tourist attractions in ${city}`,
+    `Fodor's OR Frommer's OR "Lonely Planet" ${city} things to do`,
+    `Britannica ${city} ${st} cultural life  ·  Wikipedia List of museums in ${city}`,
+    `<parent museum org> official site ${city}  ·  <institution> official site .org ${city}   (cite marquee places here)`,
+    `<university> things to do in ${city} students explore the city`,
+    `site:.edu things to do in ${city} student guide off campus`,
+    `visit <county> county ${st}  ·  <county> tourism hidden gems   (+ the suburban weekly / county daily)`,
+    `${city} ${st} industrial heritage tours OR land trust OR history & landmarks foundation`,
+    `<proper noun> address  ·  <proper noun> coordinates latitude longitude   (confirm + geocode)`
+  ];
+  playbook.forEach((q, i) => console.log(`  ${String(i + 1).padStart(2)}. ${q}`));
+
   const key = cityKey(city, st);
   const rec = (loadMedia().cities || {})[key];
   console.log('\nA2. LOCAL MEDIA to search (city → outlets; see data/local-media.json)');

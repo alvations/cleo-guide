@@ -47,11 +47,15 @@ node research.js "Akron" "OH"          # print the research plan for a new city
 node research.js --validate akron-oh   # audit its sources before building a page
 ```
 
-- **[Pittsburgh, Pennsylvania](cities/pittsburgh.html)** — 40 sights and 30 places to eat, drink, shop &amp; pick:
-  the Duquesne & Monongahela inclines and the Mount Washington view, the Warhol and Mattress Factory, the
-  Cathedral of Learning, the Heinz History Center, PNC Park and the Three Sisters bridges, Frick Park, Fallingwater,
-  Kennywood and Idlewild, the Strip District, Primanti's, pierogi, Morcilla, the burnt almond torte — and
-  **Triple B Farms** in the u-pick **Farms** category. Same interactive engine as Cleveland; web-researched and
+- **[Pittsburgh, Pennsylvania](cities/pittsburgh.html)** — 111 sights and 68 places to eat, drink, shop &amp; pick
+  (179 in all, Cleveland-parity), across six regions including **South Hills & the Southwest** and the **Eastern
+  Suburbs & River Valleys**: the inclines and the Mount Washington view, the Warhol and Mattress Factory, the
+  Carnegie Museums, Zoo and National Aviary, Heinz Chapel and the Cathedral of Learning, the **Carrie Blast
+  Furnaces** and the Pump House, the **Pennsylvania Trolley Museum** and Carnegie's Civil War Room, Monroeville
+  Mall's *Dawn of the Dead* legacy, Fallingwater and Kennywood, the Strip District, Primanti's, soup dumplings,
+  Oakmont Bakery and the burnt almond torte — plus **Triple B Farms** and more in the u-pick **Farms** category.
+  Every place is traceable to a credible source — aggregator and guidebook rankings, the official institutions,
+  university visitor guides and regional heritage bodies. Same interactive engine as Cleveland; web-researched and
   fact-checked.
 - **[Youngstown, Ohio](cities/youngstown.html)** — 28 sights and 22 places to eat, drink, shop &amp; pick across
   the Mahoning Valley (Wick Avenue's museums, all of Mill Creek Park, the downtown halls, breweries, Brier Hill

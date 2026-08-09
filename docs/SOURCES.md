@@ -132,6 +132,60 @@ Defined in `data/sources.json → sourceTypes`. The spine the methodology leans 
   (what's current), **historical society**, **metroparks**, **state tourism**, **local CVB**.
 - **Famous creator** and **local creator** coverage — popular/ground-level video. Rank these by
   whether they covered *the city itself* or only *the region*, and label that honestly on the page.
+- **Aggregator/review** (Tripadvisor, U.S. News, PlanetWare), **national guidebook** (Fodor's,
+  Frommer's, Lonely Planet, National Geographic), **encyclopedic** (Britannica, Wikipedia),
+  **university page** (.edu visitor/student-life guides), **official attraction** (the institution's
+  own site), **heritage org** (industrial-heritage / land-trust / landmarks bodies), and **county
+  tourism** (suburban day-trip coverage). See the discovery playbook below.
+
+## Finding more sources — the discovery playbook (repeatable)
+
+The registry is only as good as the sources feeding it, and a city-name-only search misses three big
+seams: the **authoritative rankings** that anchor the marquee institutions, the **university guides**
+that a college town publishes, and the **suburban/county** coverage outside the core city. Run these
+passes for every city and record the winners in `data/sources.json`. Every query uses `<city>` /
+`<institution>` / `<county>` as placeholders, so the method carries to the next city unchanged.
+
+**1. Authoritative rankings (anchor the marquee institutions).** The big museums, zoo and aviary
+should be cited to a real ranked list, not to a generic "added" note. These queries reliably surface
+one stable, reusable URL each:
+- `"<city>" top attractions tripadvisor things to do`
+- `best things to do in <city> US News Travel`
+- `PlanetWare top-rated tourist attractions in <city>`
+- `Visit<City> must-see attractions top 10`  (the official CVB's own must-see page)
+- `Fodor's / Frommer's / Lonely Planet <city> things to do` · `National Geographic guide <city>`
+- `Britannica <city> <state> cultural life` · `Wikipedia List of museums in <city>` (best long-tail index)
+
+**2. Official institution sites (the primary source).** Confirm the marquee places against their own
+site — authoritative address, hours and claims — and note which parent org runs several museums:
+- `<parent museum org> official site <city>` · `<institution> official site .org <city>`
+
+**3. University guides (highest-yield in a college town).** Official admissions/student-life `.edu`
+pages each link a reusable cluster of named attractions, and the campus itself often holds visitable
+sights (chapels, observatories, sculpture, botanical collections):
+- `<university> things to do in <city> students explore the city`
+- `site:.edu things to do in <city> student guide off campus`  (also finds student papers + blogs)
+
+**4. Suburban & county coverage (the places a city search misses).** Reach the suburbs and day-trip
+counties through their own tourism body and weekly papers:
+- `visit <county> county <state>` · `<county> tourism hidden gems`
+- the suburban weeklies and county dailies (an *Almanac*, an *Observer-Reporter*), plus **heritage
+  bodies** for industrial sites and historic houses (`<region> industrial heritage tours`,
+  `<region> land trust / Audubon`, `<city> history & landmarks foundation`).
+
+**5. Confirm + geocode.** `<proper noun> address` or `<proper noun> visit` pulls the institution's own
+`.edu`/`.org` page — which doubles as the citable source and the factual record — and
+`<institution> coordinates latitude longitude` pulls lat/lng from an encyclopedic snippet.
+
+Worked pass — **Pittsburgh, Aug 2026.** The marquee institutions (Carnegie Museum of Natural History &
+Art, the Pittsburgh Zoo, the National Aviary) were under-sourced. Pass 1–2 re-cited them: CMNH →
+`carnegiemnh.org` + PlanetWare + Tripadvisor + Britannica; CMoA → `cmoa.org` + U.S. News + PlanetWare;
+Zoo → `pittsburghzoo.org` + U.S. News (ranked #5) + PlanetWare; Aviary → `aviary.org` + National
+Geographic ("hugely underrated") + PlanetWare. Pass 3 added Pitt/CMU/Duquesne/Chatham guides (and the
+campus sights they name — Heinz Chapel, the Nationality Rooms, Walking to the Sky). Pass 4 added Visit
+Washington County, the Observer-Reporter, The Almanac, Rivers of Steel and PHLF, which unlocked the
+Pennsylvania Trolley Museum, the Whiskey-Rebellion houses, the Carrie Blast Furnaces and the whole
+South-Hills / Mon-Valley long tail. The registry grew from 12 to 45 Pittsburgh sources this way.
 
 ## Web access in this environment (read this before researching)
 
