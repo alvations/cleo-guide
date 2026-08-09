@@ -33,23 +33,31 @@ see what's going stale.
 
 ## Place categories — Markets (strict rules)
 
-"Markets" is a reusable place category (cuisine id `MKT`, shown under the Food/Markets tab). The bar
-for adding one is **deliberately high** — apply the same rules for every city:
+**Markets are a standard category in every city build** — a reusable place category (cuisine id `MKT`,
+shown under the "Food, drink & markets" tab). "Markets" means markets **of any kind** — public/indoor
+markets and food halls, **maker & vintage markets**, **flea and antique markets**, international
+markets, and Amish and farmers markets — not only farmers markets.
 
-- **Only notable, popular, highly-rated or genuinely viral markets.** Not "a farmers market exists
-  here," but one people specifically travel for or rave about.
-- **Prefer permanent fixtures** (a standing indoor market, an Amish market, a year-round hall).
-- **Recurring markets can qualify** if they're frequent (e.g. weekly) AND a well-established, beloved
-  institution — but decide carefully; most weekly markets do **not** clear the bar.
+The bar is **deliberately high — they must be genuinely visit-worthy.** Apply the same rules everywhere:
+
+- **Only well-reviewed, popular, or genuinely viral markets** people specifically travel for or rave
+  about. A market merely existing is not enough.
+- **Prefer permanent fixtures** (a standing indoor/public market, an Amish market, a year-round hall).
+- **Recurring markets can qualify** if they're frequent (weekly/monthly) AND a well-established,
+  celebrated institution — but decide carefully; most recurring markets do **not** clear the bar.
 - **Must be publicly accessible** — open to anyone, not members-only or private.
-- **Reject:** temporary / pop-up / one-off / event markets, and generic run-of-the-mill farmers
-  markets. When in doubt, leave it out.
-- **Seasonality:** many farmers markets run only in summer. Include a seasonal one **only** if it's a
-  standout (oldest / most-loved / viral); flag it with `warn:1` and state the schedule in `k`.
+- **Reject:** temporary / pop-up / one-off / event markets, and generic run-of-the-mill markets.
+  When in doubt, leave it out.
+- **Seasonality:** many markets are seasonal or run on set days. Include one **only** if it's a
+  standout (largest / oldest / most-loved / viral); flag it with `warn:1` and state the schedule in `k`.
+- **Discovery:** during research, run a market pass — e.g. `"<city> best flea / maker / public /
+  antique market popular"` — and vet each hit against the rules above.
 
-Youngstown examples: **The Amish Market** (permanent indoor, Thu–Sat — clears it easily) and the
-**Northside Farmers Market** (the city's oldest, since 2003, weekly, a genuine institution — included,
-flagged seasonal). Generic Boardman/Canfield seasonal markets were **rejected**.
+Youngstown examples that cleared the bar: **The Youngstown Flea** (downtown's curated monthly Market
+for Makers, a regional draw), **Rogers Community Auction & Flea Market** (largest open-air market in the
+tri-state area, year-round Fridays), **The Amish Market** (permanent indoor, Thu–Sat), and the
+**Northside Farmers Market** (the city's oldest, since 2003). Generic Boardman/Canfield seasonal
+farmers markets were **rejected**.
 
 ## The pipeline order (do not reorder)
 

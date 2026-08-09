@@ -74,8 +74,9 @@
           "Added food & drink: Yosteria, Kravitz Delicatessen, The Federal, The Mocha House, Casa Di Canzonetta, and breweries Penguin City, Modern Methods (Warren), Birdfish (Columbiana)."
         ] },
         { "date": "2026-08-09", "mode": "markets", "findings": [
-          "Added a Markets category (cuisine MKT), applied strictly per docs/SOURCES.md: The Amish Market (6121 South Ave — permanent indoor, Thu–Sat) and Northside Farmers Market (901 Elm St — oldest in the city since 2003, weekly, flagged seasonal). Generic seasonal markets rejected.",
-          "Added source: Youngstown Live (youngstownlive.com) for The Amish Market."
+          "Added a Markets category (cuisine MKT) as a standard part of the process — markets of any kind, strictly vetted per docs/SOURCES.md (well-reviewed, popular, visit-worthy; permanent or established-recurring; publicly accessible).",
+          "Included: The Youngstown Flea (curated monthly Market for Makers, downtown — regional draw), Rogers Community Auction & Flea Market (largest open-air market in the tri-state area, year-round Fridays), The Amish Market (permanent indoor, Thu–Sat), Northside Farmers Market (city's oldest, since 2003, flagged seasonal). Generic Boardman/Canfield seasonal markets rejected.",
+          "Sources added: Youngstown Live (Amish Market), youngstownflea.com, Rogers Flea Market."
         ] }
       ],
       "aliases": ["Mahoning Valley"],

@@ -66,7 +66,8 @@ function plan(city, st) {
     `${city} historical society museums`,
     `${city} metroparks trails`,
     `visit ${city} ${st} official tourism`,
-    `best things to do in ${city} ${st} travel blog ${year}`
+    `best things to do in ${city} ${st} travel blog ${year}`,
+    `${city} ${st} best flea market OR maker market OR public market OR Amish market popular`
   ];
   discovery.forEach((q, i) => console.log(`  ${String(i + 1).padStart(2)}. ${q}`));
 
@@ -96,6 +97,9 @@ function plan(city, st) {
   console.log('  3 = lead only: aggregator/SEO/thin → mine for names, never cite as the source.');
   console.log('  Reject: no byline, no photos, no specifics.');
   console.log('  Creators: rank by whether they covered THIS city vs. only the region — label honestly.');
+  console.log('  Markets: a standard category (cuisine MKT). Add only genuinely visit-worthy markets of');
+  console.log('           any kind (flea/maker/public/antique/Amish/farmers) — see the strict rules in');
+  console.log('           docs/SOURCES.md. Reject temporary/pop-up/generic ones.');
 
   console.log('\nE. FACT-CHECK (do this AFTER ranking, BEFORE building the page)');
   console.log('  For every place that will appear: confirm it exists, is open, and the address/hours');

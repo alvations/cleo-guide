@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Youngstown, Ohio field guide — 29 sights and 17 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="description" content="Youngstown, Ohio field guide — 29 sights and 19 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
 <title>Youngstown Field Guide — The Mahoning Valley, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -217,7 +217,7 @@
 <header>
   <p class="eyebrow">Field guide · the Mahoning Valley, sourced</p>
   <h1>Youngstown<span class="thin">steel, parks &amp; the odd corners</span></h1>
-  <p class="standfirst">29 sights and 17 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">29 sights and 19 places to eat, drink &amp; shop across the Mahoning Valley, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a> · <a href="youngstown-beta.html" style="color:var(--bone-dim);text-decoration:none;">Google-Maps beta ↗</a></p>
 </header>
 
@@ -420,6 +420,8 @@ const FS = {
   HANDEL:{k:"HANDEL'S HISTORY",t:"Handel's Homemade Ice Cream — history",u:"https://handelsicecream.com/history/",l:"Handel's official history"},
   GD:{k:"BUSINESS JOURNAL",t:"Golden Dawn to reopen",u:"https://businessjournaldaily.com",l:"The Business Journal"},
   YL:{k:"YOUNGSTOWN LIVE",t:"Youngstown Live — The Amish Market",u:"https://youngstownlive.com/venue/the-amish-market/",l:"Youngstown Live (Mahoning County CVB)"},
+  YF:{k:"YOUNGSTOWN FLEA",t:"The Youngstown Flea — Market for Makers",u:"http://youngstownflea.com/about/",l:"The Youngstown Flea"},
+  ROG:{k:"ROGERS MARKET",t:"Rogers Community Auction & Flea Market",u:"https://rogersohio.com/",l:"Rogers Flea Market · Columbiana County"},
   BJ:{k:"BUSINESS JOURNAL",t:"The Business Journal — food & drink",u:"https://businessjournaldaily.com",l:"The Business Journal"},
   VIND:{k:"THE VINDICATOR",t:"History of brewing beer in Youngstown",u:"https://www.vindy.com",l:"The Vindicator"},
   OHMAG:{k:"OHIO MAGAZINE",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
@@ -489,7 +491,13 @@ const F = [
  k:"Thu 9–6, Fri 9–6, Sat 8–4; closed Sun–Wed. Cash-friendly. Approximate pin.",s:[["YL",""]]},
 {t:2,a:"WK",cz:["MKT"],n:"Northside Farmers Market",ad:"901 Elm St, North Side",la:41.1085,ln:-80.6510,
  w:"Youngstown's oldest farmers market, running since 2003 near Wick Park — a dozen-plus local growers with produce, preserves, plants and prepared food, and the occasional live music or demo. Small but excellent, and a genuine community institution.",
- k:"Saturday mornings (about 10–1); seasonal, so check the schedule before going. Publicly open.",warn:1,s:[["EXM",""]]}
+ k:"Saturday mornings (about 10–1); seasonal, so check the schedule before going. Publicly open.",warn:1,s:[["EXM",""]]},
+{t:1,a:"DT",cz:["MKT"],n:"The Youngstown Flea",ad:"365 E Boardman St (downtown)",la:41.0965,ln:-80.6450,
+ w:"Downtown's premier 'Market for Makers' — a monthly, tightly curated indoor/outdoor market of local artists, vintage sellers, antique and repurposed furniture, apparel and food that draws treasure-hunters from across the region. One of the best reasons to be downtown on a market day.",
+ k:"Monthly during its season — check youngstownflea.com for dates before going. Publicly open.",warn:1,s:[["YF",""]]},
+{t:2,a:"DY",cz:["MKT"],n:"Rogers Community Auction & Flea Market",ad:"45625 OH-154, Rogers, OH",la:40.7856,ln:-80.6300,
+ w:"The largest open-air flea market in the tri-state area — over five miles of aisles and 1,000-plus vendor spaces of antiques, vintage, tools, produce and famous Amish doughnuts, going strong year-round. A proper day out for treasure hunters.",
+ k:"Fridays only, 7:30am to mid-afternoon, year-round. About 35–40 min south; wear walking shoes.",warn:1,s:[["ROG",""]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -961,7 +969,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 46 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 48 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
