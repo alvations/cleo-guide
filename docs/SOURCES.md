@@ -11,9 +11,9 @@ repeatable for new cities, sources live in one place and the flow for finding th
 | [`tools/research.js`](../tools/research.js) | The **pipeline** — generates the search plan for any city and audits a city's recorded sources. |
 | [`data/local-media.json`](../data/local-media.json) | The **local-media map** — each city's local news outlets and TV channels (the source of "best of / hidden gems / fall fun" lists). Living data; keep updated. |
 
-## Two modes
+## Three modes
 
-The same research + fact-check flow runs in two directions:
+The same research + fact-check flow runs in three directions:
 
 - **Mode A — create a new city.** `node tools/research.js "<City>" "<ST>"` → research → rank →
   fact-check → build a new `cities/<city>.html`, extending the sources registry as you go.
@@ -22,9 +22,39 @@ The same research + fact-check flow runs in two directions:
   Run this regularly: businesses close, hours change, new places open. Closed places **stay, flagged**;
   new fact-checked places get added; the page's "Last verified" stamp and the registry's
   `lastUpdated` both get bumped, and a `refreshLog` entry records what changed.
+- **Mode C — seed-place expansion.** `node tools/research.js --seed "<Place>" <city-key>` — when
+  someone names one or a few specific places to add to an existing city. See below.
 
 `node tools/research.js --list` shows every city and how long since it was last updated, so you can
 see what's going stale.
+
+### Mode C — seed-place expansion (you name a place, we source it and find more)
+
+When a specific place is requested for a city, **never add the bare name.** Run the same
+source-first discipline as a build, seeded by that one place:
+
+1. **Confirm & source the seed.** Search the place by name + city and find **credible sources that
+   refer to it** — local TV, the metro daily, the nonprofit newsroom, the CVB, a reputable travel
+   blog, plus its Tripadvisor/Yelp standing. Confirm it **exists, is open**, and grab the
+   address/coords. If it can't clear the bar (below), say so and **stop** — don't add it.
+2. **Mine those sources for more places.** A source that ran a piece on the seed almost always
+   ranks *other* places; read its list and pull anything genuinely visit-worthy we're missing. Sweep
+   the city's local media (`--media <city-key>`) and the authoritative playbook (Tripadvisor / U.S.
+   News / PlanetWare / the CVB's must-see) at the same time.
+3. **Fact-check** each candidate (exists, open, address/hours right; flag closures, keep them).
+4. **Re-rank** within each region (tiers are graded inside a region; keep ≥1 tier-1 per region).
+5. **Record every reusable source** in `data/sources.json` (rank + `verified`) so future cities
+   inherit it, rebuild the page, and run `--validate <city-key>`.
+
+**The bar (same as everywhere):** only **notable, visit-worthy, highly-reviewed or viral** places,
+**publicly accessible**. When in doubt, leave it out. The point of the seed is not just to add that
+one place — it's to let a trusted request open a vetted source you then reuse to widen the city.
+
+`node tools/research.js --seed "<Place>" <city-key>` prints this plan with the queries filled in.
+
+> **Worked seed — Past Times Arcade → Youngstown (Aug 2026).** A request to add the retro arcade;
+> sourced it, then reused those outlets to widen the Youngstown guide. See
+> `cities["youngstown-oh"].refreshLog` for exactly what the seed unlocked.
 
 ### Last-updated convention
 

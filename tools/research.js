@@ -16,9 +16,12 @@
  *   3. validate — check a city's recorded sources cover the required source types
  *
  * Usage:
- *   node research.js "Youngstown" "OH"          # print the research plan
- *   node research.js --validate youngstown-oh   # audit coverage in data/sources.json
- *   node research.js --list                     # list cities already in the registry
+ *   node research.js "Youngstown" "OH"               # A: research plan for a new city
+ *   node research.js --refresh youngstown-oh         # B: re-verification plan for a published city
+ *   node research.js --seed "Past Times Arcade" youngstown-oh  # C: source a named place & find more
+ *   node research.js --validate youngstown-oh        # audit coverage in data/sources.json
+ *   node research.js --media youngstown-oh           # list a city's local news outlets & TV
+ *   node research.js --list                          # list cities already in the registry
  *
  * The pipeline order is deliberate and must not be reordered:
  *   search → rank → FACT-CHECK the ranked winners → only then build the page.
@@ -310,21 +313,75 @@ function list() {
   console.log(`\nReusable source types: ${(reg.sourceTypes || []).length}. National creators: ${(reg.nationalCreators || []).length}. See docs/SOURCES.md.\n`);
 }
 
+// Mode C — SEED-PLACE EXPANSION. The user names one or a few places to add to an
+// existing city; we don't just drop them in — we look up CREDIBLE sources that refer
+// to each, mine those sources for MORE visit-worthy places, fact-check, and re-rank.
+// Same discipline as a build: sources first, then places, then verification.
+function seed(place, key) {
+  const line = '─'.repeat(72);
+  if (!place || !key) {
+    console.log('\nUsage: node research.js --seed "<Place name>" <city-key>');
+    console.log('  e.g. node research.js --seed "Past Times Arcade" youngstown-oh');
+    console.log('  Add several at once by repeating: --seed "A" --seed "B" <city-key> (run one at a time is fine too).\n');
+    return;
+  }
+  const reg = loadRegistry();
+  const c = (reg.cities || {})[key];
+  const cityName = c ? c.name : key;
+  const media = (loadMedia().cities || {})[key];
+  console.log(`\nSEED-PLACE EXPANSION — add "${place}" to ${cityName}`);
+  console.log(`registry key: ${key}`);
+  console.log(line);
+  console.log('PRINCIPLE: never add a bare name. Source it, mine the source for more, fact-check, re-rank.');
+  console.log('BAR: only notable, visit-worthy, highly-reviewed or viral places. Publicly accessible.\n');
+
+  console.log('1. CONFIRM & SOURCE THE SEED (find credible sources that refer to it)');
+  [
+    `${place} ${cityName}`,
+    `${place} ${cityName} review OR hours OR address`,
+    `${place} ${(c && c.name) || key} WFMJ OR WKBN OR local news`,
+    `"${place}" things to do ${cityName}`,
+    `${place} tripadvisor OR yelp ${cityName}`
+  ].forEach((q, i) => console.log(`   ${i + 1}. ${q}`));
+  console.log('   → Capture each credible source (URL + what it says). Confirm the place exists, is open,');
+  console.log('     and note the address/coords. If it fails the bar, say so and stop — do not add it.');
+
+  console.log('\n2. MINE THOSE SOURCES FOR MORE PLACES (reuse the same outlets)');
+  console.log('   A source that ran a piece on the seed almost always ranks other places. Read its list;');
+  console.log('   pull anything genuinely visit-worthy we are missing. Also sweep the local media:');
+  if (media) {
+    const groups = Object.keys(media).filter(g => Array.isArray(media[g]));
+    console.log('   local outlets: run `node research.js --media ' + key + '` — ' + groups.join(', '));
+  } else {
+    console.log('   (no local-media entry yet — add ' + key + ' to data/local-media.json)');
+  }
+  console.log('   Plus the authoritative playbook: Tripadvisor / U.S. News / PlanetWare / a CVB "must-see".');
+
+  console.log('\n3. FACT-CHECK each candidate (exists, open, address/hours right; flag closures, keep them).');
+  console.log('4. RE-RANK within its region (tiers are graded inside a region; keep ≥1 tier-1 per region).');
+  console.log('5. RECORD every reusable source in data/sources.json under cities["' + key + '"] (rank + verified),');
+  console.log('   then rebuild the page and run: node research.js --validate ' + key + '\n');
+  console.log('Full write-up: docs/SOURCES.md → "Mode C — seed-place expansion".\n');
+}
+
 // ── entry ────────────────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
 if (argv[0] === '--validate') validate(argv[1]);
 else if (argv[0] === '--refresh') refresh(argv[1]);
 else if (argv[0] === '--media') media(argv[1]);
+else if (argv[0] === '--seed') seed(argv[1], argv[2]);
 else if (argv[0] === '--list') list();
 else if (argv[0] && argv[0] !== '--help' && argv[0] !== '-h') plan(argv[0], argv[1]);
 else {
-  console.log('Two modes:');
+  console.log('Three modes:');
   console.log('  A · CREATE a new city');
-  console.log('    node research.js "<City>" "<ST>"        print the research plan for a new city');
+  console.log('    node research.js "<City>" "<ST>"          print the research plan for a new city');
   console.log('  B · REFRESH a published city (catch closures / new places)');
-  console.log('    node research.js --refresh <city-key>   print the re-verification plan');
+  console.log('    node research.js --refresh <city-key>     print the re-verification plan');
+  console.log('  C · SEED-PLACE expansion (you name a place; source it, mine for more, fact-check)');
+  console.log('    node research.js --seed "<Place>" <city-key>   print the seed-expansion plan');
   console.log('  Shared');
-  console.log('    node research.js --validate <city-key>  audit a city\'s sources before publishing');
-  console.log('    node research.js --media <city-key>     list a city\'s local news outlets & TV channels');
-  console.log('    node research.js --list                 list cities + when each was last updated');
+  console.log('    node research.js --validate <city-key>    audit a city\'s sources before publishing');
+  console.log('    node research.js --media <city-key>       list a city\'s local news outlets & TV channels');
+  console.log('    node research.js --list                   list cities + when each was last updated');
 }
