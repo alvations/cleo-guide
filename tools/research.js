@@ -102,12 +102,23 @@ function geocheck(key) {
   unsourced.forEach(n => console.log('     ! ' + n));
   const orphan = Object.keys(geo).filter(n => !names.includes(n));
   if (orphan.length) console.log(`  (registry has ${orphan.length} entries not on the page — old/renamed)`);
+  // Placement confidence — coverage can PASS while pins still need the re-verify pass.
+  const byConf = { high: [], med: [], low: [], none: [] };
+  ok.forEach(n => { const c = (geo[n].confidence || 'none').toLowerCase(); (byConf[c] || byConf.none).push(n); });
+  console.log(`  placement confidence: high ${byConf.high.length} · med ${byConf.med.length} · low ${byConf.low.length}`
+    + (byConf.none.length ? ` · ungraded ${byConf.none.length}` : ''));
+  const toReverify = byConf.low.concat(byConf.none);
+  if (toReverify.length) {
+    console.log(`  ↻ re-verify placement (block-level / ungraded — upgrade to an exact !3d!4d place pin):`);
+    toReverify.forEach(n => console.log('     ↻ ' + n));
+  }
   const pass = missing.length === 0 && unsourced.length === 0;
   console.log('\n' + line);
   console.log(pass
     ? '>>> PASS — every place has a fact-checked address + coordinate + source.'
     : '>>> FAIL — verify the flagged places against an official site / Google/Apple/OSM map / Wikipedia,');
   if (!pass) console.log('    then record address+lat/lng+source in data/geocodes.json. Never pin from memory.');
+  else if (toReverify.length) console.log(`    NOTE: ${toReverify.length} pin(s) still block-level/ungraded — run the re-verify & fix pass before publishing (docs/SOURCES.md).`);
   console.log('');
   if (!pass) process.exitCode = 1;
 }

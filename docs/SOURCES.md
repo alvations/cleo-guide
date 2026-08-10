@@ -132,11 +132,17 @@ entry and bump its `updated` (and `_meta.updated`).
 ## The pipeline order (do not reorder)
 
 ```
-search  →  rank sources  →  FACT-CHECK the ranked winners  →  build the page
+search → rank sources → FACT-CHECK the ranked winners → geocode → build → RE-VERIFY & fix pins → publish
 ```
 
 Fact-checking happens **after** you've decided which sources to rank and **before** any page is
 created. A source is only marked `"verified": true` once a specific claim from it has been checked.
+The **geocode** and **re-verify & fix pins** stages are not optional finishing touches — every
+address and coordinate is fact-checked into `data/geocodes.json` before the build (the build's gate
+refuses any place without a sourced entry), and after the build the pins are audited for *placement*
+and the wrong ones corrected before anything goes live. Full procedure: [Address & coordinate
+verification](#address--coordinate-verification--a-hard-rule-datageocodesjson) and
+[The re-verify & fix pass](#the-re-verify--fix-pass--a-required-step-for-every-city-not-a-one-off-cleanup).
 
 ## Using it for a new city
 
@@ -147,11 +153,17 @@ node research.js "Akron" "OH"          # 1. print the search plan (queries + can
 # 3. fact-check the ranked winners (place exists? open? address/hours?)
 # 4. record the winners in data/sources.json under cities["akron-oh"]
 node research.js --validate akron-oh    # 5. audit coverage before building the page
+# 6. fact-check every address + coordinate into data/geocodes.json (cities["akron-oh"])
+node research.js --geocheck akron-oh     # 7. gate: every place has a sourced address+lat/lng
+# 8. build the page, then RE-VERIFY pin placement (see the re-verify & fix pass) and fix any that
+#    are off — upgrade every `low`/misplaced pin to a `!3d!4d` place coordinate before publishing
 node research.js --list                 # (any time) list cities already researched
 ```
 
 `--validate` fails if the required source types are missing, if there's no primary (rank-1)
 source, or if nothing has been fact-checked yet — so a page can't be built on thin sourcing.
+`--geocheck` fails if any place on the page lacks a sourced address+coordinate in the registry — and
+publishing is not done until the re-verify pass has audited pin *placement*, not just coverage.
 
 ## Source types (reusable across cities)
 
@@ -298,6 +310,56 @@ source, update the entry, and rebuild — the provenance travels with the coordi
 
 `node tools/research.js --geocheck <city-key>` lists any place on the page missing (or stale in) the
 registry, so verification can't be skipped.
+
+### The re-verify & fix pass — a required step for every city (not a one-off cleanup)
+
+Getting a *sourced* coordinate is not the same as getting the *right* one. A whole batch of
+Pittsburgh pins once landed ~200 m off — every one had a real map URL behind it — because they were
+built from the map **viewport centre**, not the **place pin**. So re-verification is now a standing
+step: after a city builds and `--geocheck` PASSes, **audit the pins for placement**, fix the wrong
+ones, and only then publish. Run it for every new city, and re-run it whenever a place is added.
+
+**The one lesson that caused the 200 m error — read the right number out of a Google Maps URL:**
+
+| URL fragment | What it is | Use it? |
+|---|---|---|
+| `!3d<LAT>!4d<LNG>` (also `!8m2!3d..!4d..`) | the **actual place pin** | ✅ **yes — this is the coordinate** |
+| `daddr=...%40<LAT>%2C<LNG>` / `query=...@<LAT>,<LNG>` | the destination pin | ✅ yes |
+| `/@<LAT>,<LNG>,17z` | map **viewport centre** (where the camera is aimed) | ❌ **no — systematically ~200 m off** |
+| `/@<LAT>,<LNG>,3a,75y,...` | a Street View **camera** position | ⚠️ corroboration only; prefer the place pin |
+
+**How to re-verify autonomously in this locked-down environment** (map/tile fetches are blocked; the
+only channel is the `WebSearch` tool — Anthropic-side, so it reaches Google while curl/WebFetch cannot):
+
+1. `WebSearch` with `allowed_domains:["google.com"]` and a query of the bare address plus a nudge:
+   `"146 Sixth St, Pittsburgh, PA 15222 !3d40 !4d-79"`. Google Maps result URLs embed `!3d!4d` /
+   `daddr@` — read those, **never** the `/@` viewport value.
+2. If google.com is dry after ~3 tries, drop `allowed_domains` and try sources that publish decimal
+   coordinates WebSearch will surface: **mapcarta.com** (OSM node), **untappd.com** (breweries),
+   Yelp map pages, **hometownlocator/topozone** (GNIS), the place's official directions page.
+3. **Extraction is stochastic** — the same query may return only a `/@` viewport one call and the
+   `!3d!4d` pin the next. Rephrase and retry a couple times before giving up.
+4. **Sanity-check** every hit against the town/neighbourhood bounding box, and against neighbours on
+   the same street (house numbers must increase monotonically along the block).
+
+**Grade every coordinate with a `confidence`, and record exactly how it was obtained in `source`:**
+
+- **`high`** — exact-address place pin (`!3d!4d` / `daddr@`) or Wikipedia/official published
+  coordinate. This is the target for every pin.
+- **`med`** — adjacent-door geocode (1–2 storefronts away, ~15–30 m) or a place pin corroborated only
+  by a Street View camera position. Acceptable for a map pin; leave a `note` saying so.
+- **`low`** — block-level only (address confirmed, exact point not). **Flag for the re-verify pass**;
+  do not let `low` be the final state of a published pin if a `high` source can still be found.
+
+**Never fabricate.** If no real published coordinate surfaces, set `lat`/`lng` to `null` and
+`source: "UNVERIFIED"` — the build's geocode gate will refuse to place it, which is the correct
+outcome. A pin you cannot source does not go on the map.
+
+Batch mechanics that matter: the `WebSearch` budget is **shared across all concurrent subagents**, so
+run re-verify agents **sequentially, one wave at a time** — parallel waves starve the later batches.
+Feed each wave a small JSON list (`{city, n, addr}`), have it emit `{city, n, lat, lng, source, conf,
+note}`, then merge **highest-confidence-wins** into `data/geocodes.json` (an `UNVERIFIED` result must
+never overwrite an existing good value). Assert record counts on the merge, per the CLAUDE.md rule.
 
 ### Worked fact-check examples (Youngstown, Aug 2026)
 

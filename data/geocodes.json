@@ -308,12 +308,12 @@
    },
    "Bicycle Heaven": {
     "address": "1800 Preble Ave, Chateau, Pittsburgh, PA 15233",
-    "lat": 40.45614,
-    "lng": -80.03219,
-    "source": "wikipedia + yelp listing (1800 Preble Ave)",
+    "lat": 40.45636,
+    "lng": -80.03245,
+    "source": "google place geocode /place/40.4563577,-80.0324464 of 1800 Preble Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Chateau, along Preble Ave"
+    "note": "place pin of exact address"
    },
    "St. Anthony's Chapel": {
     "address": "1704 Harpster St, Troy Hill, Pittsburgh, PA 15212",
@@ -425,12 +425,12 @@
    },
    "Photo Antiquities Museum of Photographic History": {
     "address": "531 E Ohio St, Deutschtown, Pittsburgh, PA 15212",
-    "lat": 40.45348,
-    "lng": -79.99953,
-    "source": "pghcitypaper + yelp listing (531 E Ohio St)",
+    "lat": 40.45388,
+    "lng": -79.99942,
+    "source": "interpolated daddr 424 & 630 E Ohio St (exact snapped to card)",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "East Ohio St, Deutschtown"
+    "confidence": "low",
+    "note": "bounded between flanking geocodes"
    },
    "PPG Paints Arena": {
     "address": "1001 Fifth Ave, Uptown, Pittsburgh, PA 15219",
@@ -812,12 +812,12 @@
    },
    "Tessaro's": {
     "address": "4601 Liberty Ave, Bloomfield, Pittsburgh, PA 15224",
-    "lat": 40.4625,
-    "lng": -79.9483,
-    "source": "yelp/official",
+    "lat": 40.46271,
+    "lng": -79.95073,
+    "source": "google daddr@ geocode of 4601 Liberty Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Liberty Ave at Taylor St"
+    "note": "exact address daddr"
    },
    "The Original Hot Dog Shop": {
     "address": "3901 Forbes Ave, Oakland, Pittsburgh, PA",
@@ -830,12 +830,12 @@
    },
    "Morcilla": {
     "address": "3519 Butler St, Lawrenceville, Pittsburgh, PA 15201",
-    "lat": 40.46565,
-    "lng": -79.96285,
-    "source": "yelp/official",
+    "lat": 40.46456,
+    "lng": -79.96609,
+    "source": "google daddr@ geocode of 3519 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Butler St Lawrenceville"
+    "note": "exact address daddr"
    },
    "Kelly's Bar & Lounge": {
     "address": "6012 Centre Ave, East Liberty, Pittsburgh, PA 15206",
@@ -884,111 +884,111 @@
    },
    "How Lee": {
     "address": "5888 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.43843,
-    "lng": -79.9223,
-    "source": "yelp/official",
+    "lat": 40.43807,
+    "lng": -79.91944,
+    "source": "google daddr of adjacent 5880 Forbes + block step",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "corner Forbes and Murray"
+    "confidence": "low",
+    "note": "snaps to card; 8 doors extrapolated"
    },
    "KIIN Lao & Thai Eatery": {
     "address": "5846 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.43843,
-    "lng": -79.92245,
-    "source": "yelp/official",
+    "lat": 40.43811,
+    "lng": -79.92117,
+    "source": "interpolated Forbes anchors 5835/5876 (exact snapped to card)",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Forbes Ave Squirrel Hill"
+    "confidence": "low",
+    "note": "bounded between flanking geocodes"
    },
    "DiAnoia's Eatery": {
     "address": "2549 Penn Ave, Strip District, Pittsburgh, PA 15222",
-    "lat": 40.45355,
-    "lng": -79.9737,
-    "source": "yelp/official",
+    "lat": 40.45492,
+    "lng": -79.97878,
+    "source": "google !3d!4d geocode of 2549 Penn Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Penn Ave at 26th St"
+    "note": "exact place coordinate"
    },
    "Piccolo Forno": {
     "address": "3801 Butler St, Lawrenceville, Pittsburgh, PA 15201",
-    "lat": 40.4712,
-    "lng": -79.96095,
-    "source": "yelp/official",
+    "lat": 40.46705,
+    "lng": -79.96442,
+    "source": "google !3d!4d geocode of 3801 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Butler St at 38th"
+    "note": "exact place coordinate"
    },
    "Driftwood Oven": {
     "address": "3615 Butler St, Lawrenceville, Pittsburgh, PA 15201",
-    "lat": 40.4699,
-    "lng": -79.9619,
-    "source": "yelp/official",
+    "lat": 40.46589,
+    "lng": -79.96512,
+    "source": "google daddr@ geocode of 3615 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Butler St Lawrenceville"
+    "note": "exact address daddr"
    },
    "Mineo's Pizza House": {
     "address": "2128 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.43285,
-    "lng": -79.92285,
-    "source": "yelp/official",
+    "lat": 40.43286,
+    "lng": -79.92326,
+    "source": "google daddr@ geocode of 2128 Murray Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Murray Ave Squirrel Hill"
+    "note": "exact address daddr"
    },
    "Aiello's Pizza": {
     "address": "2112 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.433,
-    "lng": -79.9229,
-    "source": "yelp/official",
+    "lat": 40.43326,
+    "lng": -79.9232,
+    "source": "google daddr@ geocode of 2112 Murray Ave Ste 1",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Murray Ave near Mineo's"
+    "note": "exact address daddr"
    },
    "Commonplace Coffee": {
     "address": "5827 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.4385,
-    "lng": -79.923,
-    "source": "yelp/official",
+    "lat": 40.4382,
+    "lng": -79.9219,
+    "source": "google daddr@ geocode of 5827 Forbes Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Forbes Ave Squirrel Hill"
+    "note": "exact address daddr"
    },
    "Prantl's Bakery": {
     "address": "5525 Walnut St, Shadyside, Pittsburgh, PA 15232",
-    "lat": 40.45215,
-    "lng": -79.9339,
-    "source": "yelp/official",
+    "lat": 40.45154,
+    "lng": -79.9329,
+    "source": "google daddr of adjacent 5523 Walnut St",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Walnut St Shadyside"
+    "confidence": "med",
+    "note": "1-2 doors from exact"
    },
    "Gaby et Jules": {
     "address": "5837 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.4385,
-    "lng": -79.9228,
-    "source": "yelp/official",
+    "lat": 40.43823,
+    "lng": -79.92155,
+    "source": "google daddr of adjacent 5835 Forbes Ave",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Forbes Ave Squirrel Hill"
+    "confidence": "med",
+    "note": "1-2 doors from exact"
    },
    "La Gourmandine": {
     "address": "4605 Butler St, Lawrenceville, Pittsburgh, PA 15201",
-    "lat": 40.4723,
-    "lng": -79.9601,
-    "source": "yelp/official",
+    "lat": 40.47361,
+    "lng": -79.9584,
+    "source": "interpolated Butler anchors 4305 & 4635 (Abbey)",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Butler St at 46th"
+    "confidence": "med",
+    "note": "30 doors from near anchor"
    },
    "Dave & Andy's Homemade Ice Cream": {
     "address": "207 Atwood St, Oakland, Pittsburgh, PA 15213",
-    "lat": 40.4412,
+    "lat": 40.44096,
     "lng": -79.95725,
-    "source": "yelp/official",
+    "source": "google daddr@ geocode of 207 Atwood St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Atwood St Oakland"
+    "note": "exact address daddr"
    },
    "Millie's Homemade Ice Cream": {
     "address": "232 S Highland Ave, Pittsburgh, PA 15206",
@@ -1606,10 +1606,10 @@
     "address": "4112 E Carson St (at Becks Run Rd), Pittsburgh, PA 15210",
     "lat": 40.41123,
     "lng": -79.9558,
-    "source": "nextdoor page-dairy-mart-pittsburgh-pa (40.411228,-79.9557969)",
+    "source": "Nextdoor page-dairy-mart-pittsburgh-pa + Google Street View pano @40.41112,-79.95557 (facing storefront); corner E Carson at Becks Run Rd",
     "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "South Side, E Carson at Becks Run"
+    "confidence": "med",
+    "note": "E Carson at Becks Run, South Side; corroborated by street-level pano"
    },
    "Bedner's Farm & Greenhouse": {
     "address": "315 Coleman Rd, McDonald, PA 15057",

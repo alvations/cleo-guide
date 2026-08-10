@@ -60,6 +60,16 @@ coordinate you cannot verify does not go on the map — flag it, leave it out. B
 carries its source and date, pins stay auditable and updatable when a place closes or moves. Full
 procedure in [docs/SOURCES.md](docs/SOURCES.md#address--coordinate-verification--a-hard-rule-datageocodesjson).
 
+**4b. After building any city, re-verify pin *placement* — a required step, not a one-off.** A sourced
+coordinate can still be the wrong point: a batch of pins once landed ~200 m off because they were read
+from a Google Maps **viewport** (`/@lat,lng`) instead of the **place pin** (`!3d<lat>!4d<lng>`). So
+every city's pins get audited for placement and the wrong ones fixed **before publishing**, and again
+whenever a place is added. Read `!3d!4d`/`daddr@`, never `/@`; grade each pin `high`/`med`/`low` and
+upgrade every `low`/misplaced pin to an exact place coordinate; never fabricate — mark `UNVERIFIED`
+and let the gate drop it. `WebSearch` is the only geocoding channel here and its budget is shared, so
+run re-verify agents sequentially, one wave at a time. Full procedure — including how to read a Google
+Maps URL — in [docs/SOURCES.md](docs/SOURCES.md#the-re-verify--fix-pass--a-required-step-for-every-city-not-a-one-off-cleanup).
+
 **5. Wrap every `localStorage` call in try/catch.** The guide is expected to run in sandboxes
 where storage throws. It degrades to in-memory; keep it that way.
 
