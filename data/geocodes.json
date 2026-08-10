@@ -16,7 +16,10 @@
     "source": "business listing published lat/long",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District original"
+    "note": "Strip District original",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Original Oyster House": {
     "address": "20 Market Sq, Downtown, Pittsburgh, PA",
@@ -25,7 +28,10 @@
     "source": "usarestaurants listing lat/long",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Market Square downtown"
+    "note": "Market Square downtown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pamela's Diner (Strip)": {
     "address": "60 21st St, Strip District, Pittsburgh, PA 15222",
@@ -34,7 +40,10 @@
     "source": "Apple Maps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Apple Maps geocode 21st St"
+    "note": "Apple Maps geocode 21st St",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gaucho Parrilla Argentina": {
     "address": "146 Sixth St, Pittsburgh, PA 15222",
@@ -43,7 +52,10 @@
     "source": "google !3d!4d place pin of Gaucho Parrilla Argentina (146 6th St)",
     "verified": "2026-08-10",
     "confidence": "high",
-    "note": "Exact Google Maps place pin: /place/Gaucho+Parrilla+Argentina/@40.4427824,-80.0050811,17z/data=...!8m2!3d40.4427824!4d-80.0025062"
+    "note": "Exact Google Maps place pin: /place/Gaucho+Parrilla+Argentina/@40.4427824,-80.0050811,17z/data=...!8m2!3d40.4427824!4d-80.0025062",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pierogies Plus": {
     "address": "342 Island Ave, McKees Rocks, PA 15136",
@@ -52,7 +64,10 @@
     "source": "published business listing lat/long, exact addr",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "McKees Rocks; ~400m E of old pin"
+    "note": "McKees Rocks; ~400m E of old pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "S&D Polish Deli": {
     "address": "2204 Penn Ave, Pittsburgh, PA 15222",
@@ -61,7 +76,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Papa J's Twin Plaza": {
     "address": "2016 Smallman St, Pittsburgh, PA 15222",
@@ -70,7 +88,10 @@
     "source": "interpolated between 1916 Smallman daddr pin (40.451443,-79.984795) and 2101 Smallman / Strip District Terminal Apple coordinate=40.452592,-79.983909",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "2016 is ~54% of the way from 1916 to 2101 along the block; both bracketing points are real rooftop pins, so target uncertainty ~40-60m. No exact 2016 pin surfaced."
+    "note": "2016 is ~54% of the way from 1916 to 2101 along the block; both bracketing points are real rooftop pins, so target uncertainty ~40-60m. No exact 2016 pin surfaced.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "De Luca's Diner": {
     "address": "2015 Penn Ave, Pittsburgh, PA 15222",
@@ -79,7 +100,10 @@
     "source": "mapcarta W646470037 DMS",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Strip District, coarse DMS"
+    "note": "Strip District, coarse DMS",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "La Prima Espresso": {
     "address": "205 21st St, Pittsburgh, PA 15222",
@@ -88,7 +112,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "De Fer Coffee & Tea": {
     "address": "2002 Smallman St, Strip District, Pittsburgh, PA 15222",
@@ -97,7 +124,10 @@
     "source": "Apple Maps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Apple Maps; was 2010, is 2002 Smallman"
+    "note": "Apple Maps; was 2010, is 2002 Smallman",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Klavon's Ice Cream Parlor": {
     "address": "2801 Penn Ave, Pittsburgh, PA 15222",
@@ -106,7 +136,10 @@
     "source": "wheree DMS 40 27 25.3N 79 58 32.2W",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mancini's Bakery": {
     "address": "1717 Penn Ave, Pittsburgh, PA 15222",
@@ -115,7 +148,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gus and Yia Yia's": {
     "address": "638 W Ohio St, Allegheny Commons, Pittsburgh, PA 15212",
@@ -124,7 +160,10 @@
     "source": "wikipedia Gus and Yiayia's article",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published coord"
+    "note": "Wikipedia published coord",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Enrico Biscotti": {
     "address": "2022 Penn Ave, Pittsburgh, PA 15222",
@@ -133,7 +172,10 @@
     "source": "google-maps-url 3d/4d pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wigle Whiskey": {
     "address": "2401 Smallman St, Pittsburgh, PA 15222",
@@ -142,7 +184,10 @@
     "source": "wikipedia Wigle Whiskey article",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia DMS 40d27'15.8N"
+    "note": "Wikipedia DMS 40d27'15.8N",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Dancing Gnome": {
     "address": "925 Main St, Sharpsburg, PA 15215",
@@ -151,7 +196,10 @@
     "source": "Apple Maps coordinate= for 'Dancing Gnome Beer' (directory link listed address 1025 Main St)",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Apple coordinate is for the Dancing Gnome production facility at 1025 Main; the 925 Main taproom ('Nine Two Five') is ~1 block away, so ~100-150m possible offset."
+    "note": "Apple coordinate is for the Dancing Gnome production facility at 1025 Main; the 925 Main taproom ('Nine Two Five') is ~1 block away, so ~100-150m possible offset.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Grist House Craft Brewery": {
     "address": "10 E Sherman St, Millvale, PA 15209",
@@ -160,7 +208,10 @@
     "source": "apple maps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Apple Maps coordinate=40.478731"
+    "note": "Apple Maps coordinate=40.478731",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Strip District": {
     "address": "Penn Ave & Smallman St, Pittsburgh, PA 15222",
@@ -169,7 +220,10 @@
     "source": "wikipedia Strip District infobox",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "district anchor near 21st/Penn"
+    "note": "district anchor near 21st/Penn",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pennsylvania Macaroni Company (Penn Mac)": {
     "address": "2010 Penn Ave, Pittsburgh, PA 15222",
@@ -178,7 +232,10 @@
     "source": "loc8nearme",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wholey's": {
     "address": "1711 Penn Ave, Strip District, Pittsburgh, PA 15222",
@@ -187,7 +244,10 @@
     "source": "geocode/Wikipedia",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "geocoded 17th St Penn Ave"
+    "note": "geocoded 17th St Penn Ave",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Reyna Foods": {
     "address": "2031 Penn Ave, Pittsburgh, PA 15222",
@@ -196,7 +256,10 @@
     "source": "latlong.net poi (Casa Reyna, same addr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Farmers@Firehouse": {
     "address": "2216 Penn Ave, Pittsburgh, PA 15222",
@@ -205,7 +268,10 @@
     "source": "google-maps geocode (2216 Penn / Bar Marco firehouse bldg)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "historic firehouse market"
+    "note": "historic firehouse market",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Point State Park & the Fort Pitt Museum": {
     "address": "601 Commonwealth Pl, Point State Park, Pittsburgh, PA 15222",
@@ -214,7 +280,10 @@
     "source": "wikipedia: Fort Pitt Museum article coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Point State Park museum building"
+    "note": "Point State Park museum building",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fort Pitt Block House": {
     "address": "Point State Park, Downtown Pittsburgh, PA 15222",
@@ -223,7 +292,10 @@
     "source": "wikipedia: Fort Pitt Block House coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Redoubt inside Point State Park"
+    "note": "Redoubt inside Point State Park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Great Allegheny Passage — Pittsburgh trailhead": {
     "address": "Point State Park, Pittsburgh, PA 15222",
@@ -232,7 +304,10 @@
     "source": "latitude.to Point State Park",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Point portal anchor for trailhead"
+    "note": "Point portal anchor for trailhead",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Three Rivers Heritage Trail": {
     "address": "Point State Park / riverfront, Pittsburgh, PA",
@@ -241,7 +316,10 @@
     "source": "Point State Park anchor (latitude.to)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "linear trail, anchored at the Point (co-located; pin nudged ~50m so both show)"
+    "note": "linear trail, anchored at the Point (co-located; pin nudged ~50m so both show)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Andy Warhol Museum": {
     "address": "117 Sandusky St, North Shore, Pittsburgh, PA 15212",
@@ -250,7 +328,10 @@
     "source": "wikipedia: The Andy Warhol Museum / wikidata Q751172",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "North Shore near 7th St Bridge"
+    "note": "North Shore near 7th St Bridge",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mattress Factory": {
     "address": "500 Sampsonia Way, North Side, Pittsburgh, PA 15212",
@@ -259,7 +340,10 @@
     "source": "wikipedia + google maps place pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Mexican War Streets, North Side"
+    "note": "Mexican War Streets, North Side",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Senator John Heinz History Center": {
     "address": "1212 Smallman St, Strip District, Pittsburgh, PA 15222",
@@ -268,7 +352,10 @@
     "source": "google maps place pin (1212 Smallman St)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District warehouse block"
+    "note": "Strip District warehouse block",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "National Aviary": {
     "address": "700 Arch St, North Side, Pittsburgh, PA 15212",
@@ -277,7 +364,10 @@
     "source": "wikipedia: National Aviary coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "West Park, Allegheny Commons"
+    "note": "West Park, Allegheny Commons",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carnegie Science Center": {
     "address": "1 Allegheny Ave, North Shore, Pittsburgh, PA 15212",
@@ -286,7 +376,10 @@
     "source": "google maps place pin (Kamin Science Center)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Ohio River bank, North Shore"
+    "note": "Ohio River bank, North Shore",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Children's Museum of Pittsburgh": {
     "address": "10 Children's Way, North Side, Pittsburgh, PA 15212",
@@ -295,7 +388,10 @@
     "source": "wikipedia: Children's Museum of Pittsburgh coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Allegheny Center, old Buhl Planetarium"
+    "note": "Allegheny Center, old Buhl Planetarium",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Randyland": {
     "address": "1501 Arch St, Mexican War Streets, Pittsburgh, PA 15212",
@@ -304,7 +400,10 @@
     "source": "google maps place pin (1501 Arch St)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Arch St corner, Central North Side"
+    "note": "Arch St corner, Central North Side",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Bicycle Heaven": {
     "address": "1800 Preble Ave, Chateau, Pittsburgh, PA 15233",
@@ -313,7 +412,10 @@
     "source": "google place geocode /place/40.4563577,-80.0324464 of 1800 Preble Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "place pin of exact address"
+    "note": "place pin of exact address",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "St. Anthony's Chapel": {
     "address": "1704 Harpster St, Troy Hill, Pittsburgh, PA 15212",
@@ -322,7 +424,10 @@
     "source": "wikipedia: Saint Anthony's Chapel coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Troy Hill, Harpster St"
+    "note": "Troy Hill, Harpster St",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "August Wilson African American Cultural Center": {
     "address": "980 Liberty Ave, Cultural District, Pittsburgh, PA 15222",
@@ -331,7 +436,10 @@
     "source": "wikipedia: August Wilson AACC coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Liberty Ave, Cultural District"
+    "note": "Liberty Ave, Cultural District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Heinz Hall": {
     "address": "600 Penn Ave, Cultural District, Pittsburgh, PA 15222",
@@ -340,7 +448,10 @@
     "source": "wikipedia + google maps place pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Penn Ave, Cultural District"
+    "note": "Penn Ave, Cultural District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "PNC Park": {
     "address": "115 Federal St, North Shore, Pittsburgh, PA 15212",
@@ -349,7 +460,10 @@
     "source": "wikipedia: PNC Park coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Ballpark, North Shore"
+    "note": "Ballpark, North Shore",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Allegheny Observatory": {
     "address": "159 Riverview Ave, Perry North, Pittsburgh, PA 15214",
@@ -358,7 +472,10 @@
     "source": "wikipedia: Allegheny Observatory coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Riverview Park, Perry North"
+    "note": "Riverview Park, Perry North",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Maxo Vanka Murals, St. Nicholas Croatian Catholic Church": {
     "address": "24 Maryland Ave, Millvale, PA 15209",
@@ -367,7 +484,10 @@
     "source": "wikipedia: St. Nicholas Croatian Church (Millvale) coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Millvale, Maryland Ave"
+    "note": "Millvale, Maryland Ave",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Roberto Clemente Bridge & the Three Sisters": {
     "address": "Sixth Street Bridge over Allegheny River, Pittsburgh, PA",
@@ -376,7 +496,10 @@
     "source": "wikipedia: Roberto Clemente Bridge coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "6th St Bridge midspan"
+    "note": "6th St Bridge midspan",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fred Rogers Memorial statue": {
     "address": "North Shore Riverfront Park, Pittsburgh, PA 15212",
@@ -385,7 +508,10 @@
     "source": "Visit Pittsburgh — Tribute to Children, North Shore Riverfront Park (between PNC Park & Acrisure)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "North Shore Riverfront Park"
+    "note": "North Shore Riverfront Park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Acrisure Stadium": {
     "address": "100 Art Rooney Ave, North Shore, Pittsburgh, PA 15212",
@@ -394,7 +520,10 @@
     "source": "wikipedia: Acrisure Stadium coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Steelers stadium, North Shore"
+    "note": "Steelers stadium, North Shore",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Market Square & the Cultural District": {
     "address": "Market Square, Downtown Pittsburgh, PA 15222",
@@ -403,7 +532,10 @@
     "source": "wikipedia: Market Square (Pittsburgh) coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Forbes Ave & Market St plaza"
+    "note": "Forbes Ave & Market St plaza",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "PPG Place Wintergarden": {
     "address": "Third Ave & Market St (One PPG Place), Downtown Pittsburgh, PA",
@@ -412,7 +544,10 @@
     "source": "wikipedia: PPG Place coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "PPG Place complex, Downtown"
+    "note": "PPG Place complex, Downtown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "City of Asylum / Alphabet City": {
     "address": "40 W North Ave, North Side, Pittsburgh, PA 15212",
@@ -421,7 +556,10 @@
     "source": "pghcitypaper listing (40 W North Ave)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "W North Ave, Central North Side"
+    "note": "W North Ave, Central North Side",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Photo Antiquities Museum of Photographic History": {
     "address": "531 E Ohio St, Pittsburgh, PA 15212",
@@ -430,7 +568,10 @@
     "source": "decimal coordinate published on Yelp/directory listing for 531 E Ohio St",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Consistent with neighbor 630 E Ohio St daddr place pin 40.454113,-79.998116 (531 is odd/south side, slightly west & south as expected)."
+    "note": "Consistent with neighbor 630 E Ohio St daddr place pin 40.454113,-79.998116 (531 is odd/south side, slightly west & south as expected).",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "PPG Paints Arena": {
     "address": "1001 Fifth Ave, Uptown, Pittsburgh, PA 15219",
@@ -439,7 +580,10 @@
     "source": "wikipedia: PPG Paints Arena coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Uptown, Fifth Ave arena"
+    "note": "Uptown, Fifth Ave arena",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kayak Pittsburgh": {
     "address": "North Shore under Roberto Clemente Bridge, Pittsburgh, PA 15212",
@@ -448,7 +592,10 @@
     "source": "wikipedia Roberto Clemente Bridge",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "anchored to Clemente Bridge landing (co-located; pin nudged ~50m so both show)"
+    "note": "anchored to Clemente Bridge landing (co-located; pin nudged ~50m so both show)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fineview Overlook": {
     "address": "308 Catoma St, Fineview, Pittsburgh, PA 15212",
@@ -457,7 +604,10 @@
     "source": "hmdb.org historical marker 'The Story of a Fine View' at overlook",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Catoma & Lanark St overlook"
+    "note": "Catoma & Lanark St overlook",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carrie Blast Furnaces National Historic Landmark": {
     "address": "801 Carrie Furnace Blvd, Rankin",
@@ -466,7 +616,10 @@
     "source": "Wikipedia Carrie Furnace",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NHL"
+    "note": "NHL",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pump House & Battle of Homestead Site": {
     "address": "880 E Waterfront Dr, Munhall",
@@ -475,7 +628,10 @@
     "source": "HMDB historical marker coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin"
+    "note": "matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Braddock Carnegie Library": {
     "address": "419 Library St, Braddock",
@@ -484,7 +640,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NHL, matches prior pin"
+    "note": "NHL, matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carnegie Library of Homestead Music Hall": {
     "address": "510 E 10th Ave, Munhall",
@@ -493,7 +652,10 @@
     "source": "HMDB marker + maps listings",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin"
+    "note": "matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Bost Building (Rivers of Steel Visitor Center)": {
     "address": "623 E 8th Ave, Homestead",
@@ -502,7 +664,10 @@
     "source": "Wikipedia Bost Building",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NHL, matches prior pin"
+    "note": "NHL, matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Waterfront & the Homestead stacks": {
     "address": "E Waterfront Dr, Homestead, PA 15120",
@@ -511,7 +676,10 @@
     "source": "wikipedia The Waterfront",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "district anchor"
+    "note": "district anchor",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Monroeville Mall & the Living Dead Museum": {
     "address": "200 Mall Circle Dr, Monroeville, PA",
@@ -520,7 +688,10 @@
     "source": "Wikipedia Monroeville Mall coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Monroeville mall center"
+    "note": "Monroeville mall center",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Boyce Park": {
     "address": "675 Old Frankstown Rd, Plum, PA",
@@ -529,7 +700,10 @@
     "source": "Wikipedia Boyce Park coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Plum county park"
+    "note": "Plum county park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Aspinwall Riverfront Park": {
     "address": "285 River Ave, Aspinwall, PA 15215",
@@ -538,7 +712,10 @@
     "source": "mapcarta Aspinwall Recreational Area W257202868",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "riverfront park"
+    "note": "riverfront park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Beechwood Farms Nature Reserve": {
     "address": "614 Dorseyville Rd, Fox Chapel, PA",
@@ -547,7 +724,10 @@
     "source": "Wikipedia Beechwood Farms coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Fox Chapel reserve"
+    "note": "Fox Chapel reserve",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Braddock's Battlefield History Center": {
     "address": "609 6th St, Braddock, PA",
@@ -556,7 +736,10 @@
     "source": "business listing published lat/long",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Braddock museum"
+    "note": "Braddock museum",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Tour-Ed Mine & Museum": {
     "address": "748 Bull Creek Rd, Tarentum, PA",
@@ -565,7 +748,10 @@
     "source": "Yelp/Waze listing lat/long",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Tarentum mine"
+    "note": "Tarentum mine",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Oakmont Country Club": {
     "address": "1233 Hulton Rd, Oakmont, PA",
@@ -574,7 +760,10 @@
     "source": "Wikipedia Oakmont Country Club coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Oakmont golf club"
+    "note": "Oakmont golf club",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Duff Park": {
     "address": "Old William Penn Hwy, Murrysville, PA",
@@ -583,7 +772,10 @@
     "source": "Good For PA / mypacer listing lat/long",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Murrysville park"
+    "note": "Murrysville park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Sandcastle Waterpark": {
     "address": "1000 Sandcastle Dr, West Homestead, PA",
@@ -592,7 +784,10 @@
     "source": "Wikipedia Sandcastle Waterpark coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "West Homestead waterpark"
+    "note": "West Homestead waterpark",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Dead Man's Hollow Conservation Area": {
     "address": "near GAP Boston trailhead, McKeesport, PA",
@@ -601,7 +796,10 @@
     "source": "Wikipedia Dead Man's Hollow coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "McKeesport conservation area"
+    "note": "McKeesport conservation area",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Round Hill Park": {
     "address": "651 Round Hill Rd, Elizabeth, PA",
@@ -610,7 +808,10 @@
     "source": "Google Maps place marker lat/long",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Elizabeth Twp park"
+    "note": "Elizabeth Twp park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Renziehausen Park Rose Garden & Arboretum": {
     "address": "1400 Pinoak Dr, McKeesport, PA",
@@ -619,7 +820,10 @@
     "source": "published park coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "McKeesport park"
+    "note": "McKeesport park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "McKees Rocks Mound": {
     "address": "near Chartiers Creek & the Ohio, McKees Rocks, PA",
@@ -628,7 +832,10 @@
     "source": "HMDB historical marker coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "McKees Rocks burial mound"
+    "note": "McKees Rocks burial mound",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Monroeville Convention Center": {
     "address": "209 Mall Plaza Blvd, Monroeville, PA",
@@ -637,7 +844,10 @@
     "source": "Apple Maps published coordinate",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Monroeville convention center"
+    "note": "Monroeville convention center",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fallingwater": {
     "address": "1491 Mill Run Rd, Mill Run, PA",
@@ -646,7 +856,10 @@
     "source": "Wikipedia Fallingwater coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Mill Run FLW house"
+    "note": "Mill Run FLW house",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kennywood": {
     "address": "4800 Kennywood Blvd, West Mifflin, PA",
@@ -655,7 +868,10 @@
     "source": "Wikipedia Kennywood coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "West Mifflin park"
+    "note": "West Mifflin park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ohiopyle State Park": {
     "address": "Ohiopyle, PA (Laurel Highlands)",
@@ -664,7 +880,10 @@
     "source": "Wikipedia Ohiopyle State Park coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Ohiopyle state park"
+    "note": "Ohiopyle state park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kentuck Knob": {
     "address": "723 Kentuck Rd, Chalk Hill, PA 15421",
@@ -673,7 +892,10 @@
     "source": "wikipedia Kentuck Knob infobox",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "FLW house, Stewart Twp"
+    "note": "FLW house, Stewart Twp",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Idlewild & SoakZone": {
     "address": "2574 Rt 30, Ligonier, PA",
@@ -682,7 +904,10 @@
     "source": "Wikipedia Idlewild and Soak Zone coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Ligonier park"
+    "note": "Ligonier park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Bayernhof Music Museum": {
     "address": "225 St Charles Pl, O'Hara Township, PA",
@@ -691,7 +916,10 @@
     "source": "Wikipedia/listing DMS coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "O'Hara Twp mansion"
+    "note": "O'Hara Twp mansion",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Meadowcroft Rockshelter": {
     "address": "401 Meadowcroft Rd, Avella, PA",
@@ -700,16 +928,10 @@
     "source": "Wikipedia Meadowcroft Rockshelter coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Avella rockshelter"
-   },
-   "Superior Motors": {
-    "address": "1211 Braddock Ave, Braddock, PA 15104",
-    "lat": 40.39776,
-    "lng": -79.86046,
-    "source": "Google Maps",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Google coord, Braddock (closed)"
+    "note": "Avella rockshelter",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Rey Azteca": {
     "address": "3448 William Penn Hwy, Monroeville, PA 15235",
@@ -718,7 +940,10 @@
     "source": "google-maps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Penn Center East / Wilkins"
+    "note": "Penn Center East / Wilkins",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Vincent's Pizza Park": {
     "address": "998 Ardmore Blvd, Pittsburgh (Forest Hills), PA 15221",
@@ -727,7 +952,10 @@
     "source": "published listing coord, exact addr",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Forest Hills; matches"
+    "note": "Forest Hills; matches",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Oakmont Bakery": {
     "address": "1 Sweet St, Oakmont, PA 15139",
@@ -736,7 +964,10 @@
     "source": "Google Maps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Google coord, Oakmont"
+    "note": "Google coord, Oakmont",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Soergel Orchards": {
     "address": "2573 Brandt School Rd, Wexford, PA 15090",
@@ -745,7 +976,10 @@
     "source": "loc8nearme decimal listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "published decimal 40.612184"
+    "note": "published decimal 40.612184",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Trax Farms": {
     "address": "528 Trax Rd, Finleyville, PA 15332",
@@ -754,7 +988,10 @@
     "source": "truckmap DMS listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "DMS 40d16'33.7N 80d1'49.8W"
+    "note": "DMS 40d16'33.7N 80d1'49.8W",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Triple B Farms": {
     "address": "823 Berry Ln, Monongahela, PA 15063",
@@ -763,7 +1000,10 @@
     "source": "loc8nearme DMS listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "DMS 40d13'39.63N"
+    "note": "DMS 40d13'39.63N",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kerber's Dairy": {
     "address": "1856 Guffey Rd, North Huntingdon, PA 15642",
@@ -772,7 +1012,10 @@
     "source": "foursquare decimal listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "published decimal 40.311283"
+    "note": "published decimal 40.311283",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Schramm Farms & Orchards": {
     "address": "1002 Blank Rd, Jeannette, PA 15644",
@@ -781,7 +1024,10 @@
     "source": "listing decimal",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "corrects estimate; published 40.37479"
+    "note": "corrects estimate; published 40.37479",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Janoski's Farm & Greenhouse": {
     "address": "1714 Rt 30, Clinton, PA 15026",
@@ -790,7 +1036,10 @@
     "source": "businessyab / vymaps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Findlay Twp"
+    "note": "Findlay Twp",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Shenot Farm & Market": {
     "address": "3754 Wexford Run Rd, Wexford, PA 15090",
@@ -799,7 +1048,10 @@
     "source": "listing DMS",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "DMS 40d37'33.59N 80d4'44.82W"
+    "note": "DMS 40d37'33.59N 80d4'44.82W",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Simmons Farm": {
     "address": "170 Simmons Rd, McMurray, PA 15317",
@@ -808,7 +1060,10 @@
     "source": "loc8nearme DMS listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "DMS 40d16'5.52N 80d4'59.11W"
+    "note": "DMS 40d16'5.52N 80d4'59.11W",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Tessaro's": {
     "address": "4601 Liberty Ave, Bloomfield, Pittsburgh, PA 15224",
@@ -817,7 +1072,10 @@
     "source": "google daddr@ geocode of 4601 Liberty Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Original Hot Dog Shop": {
     "address": "3901 Forbes Ave, Oakland, Pittsburgh, PA",
@@ -826,7 +1084,10 @@
     "source": "Wikipedia Essie's Original Hot Dog Shop coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Oakland hot dog shop"
+    "note": "Oakland hot dog shop",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Morcilla": {
     "address": "3519 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -835,7 +1096,10 @@
     "source": "google daddr@ geocode of 3519 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kelly's Bar & Lounge": {
     "address": "6012 Centre Ave, East Liberty, Pittsburgh, PA 15206",
@@ -844,7 +1108,10 @@
     "source": "official/yelp",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Centre Ave at Penn Circle S"
+    "note": "Centre Ave at Penn Circle S",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Apteka": {
     "address": "4606 Penn Ave, Pittsburgh (Bloomfield), PA 15224",
@@ -853,7 +1120,10 @@
     "source": "Apple Maps coordinate= param, exact address",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Bloomfield, matches"
+    "note": "Bloomfield, matches",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gooski's": {
     "address": "3117 Brereton St, Pittsburgh (Polish Hill), PA 15219",
@@ -862,7 +1132,10 @@
     "source": "Apple Maps ll= param, exact address",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Polish Hill, matches"
+    "note": "Polish Hill, matches",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Everyday Noodles": {
     "address": "5875 Forbes Ave, Pittsburgh (Squirrel Hill), PA 15217",
@@ -871,7 +1144,10 @@
     "source": "Compass property record + listing, agree",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Squirrel Hill; old pin was W estimate"
+    "note": "Squirrel Hill; old pin was W estimate",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Chengdu Gourmet": {
     "address": "5840 Forward Ave, Pittsburgh (Squirrel Hill), PA 15217",
@@ -880,7 +1156,10 @@
     "source": "Apple Maps coordinate= param, exact address",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Squirrel Hill; old pin was wrong"
+    "note": "Squirrel Hill; old pin was wrong",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "How Lee": {
     "address": "5888 Forbes Ave, Pittsburgh, PA 15217",
@@ -889,7 +1168,10 @@
     "source": "adjacent-door interpolation from 5876 Forbes google place pin (!3d40.4377646!4d-79.9199814)",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "5888 is ~12 numbers east of the 5876 rooftop pin; nudged east per block orientation (task note: higher numbers = east = less-negative lng). ~2-3 storefronts."
+    "note": "5888 is ~12 numbers east of the 5876 rooftop pin; nudged east per block orientation (task note: higher numbers = east = less-negative lng). ~2-3 storefronts.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "KIIN Lao & Thai Eatery": {
     "address": "5846 Forbes Ave, Pittsburgh, PA 15217",
@@ -898,7 +1180,10 @@
     "source": "interpolation from 5876 Forbes google place pin (40.4377646,-79.9199814), ~30 numbers west along block",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Task anchor: block runs -79.919 (E) to -79.922 (W); Everyday Noodles 5875 = -79.9201. 5846 sits ~30 numbers west of 5876, hence ~-79.9209. Second-floor space above Forbes."
+    "note": "Task anchor: block runs -79.919 (E) to -79.922 (W); Everyday Noodles 5875 = -79.9201. 5846 sits ~30 numbers west of 5876, hence ~-79.9209. Second-floor space above Forbes.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "DiAnoia's Eatery": {
     "address": "2549 Penn Ave, Strip District, Pittsburgh, PA 15222",
@@ -907,7 +1192,10 @@
     "source": "google !3d!4d geocode of 2549 Penn Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact place coordinate"
+    "note": "exact place coordinate",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Piccolo Forno": {
     "address": "3801 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -916,7 +1204,10 @@
     "source": "google !3d!4d geocode of 3801 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact place coordinate"
+    "note": "exact place coordinate",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Driftwood Oven": {
     "address": "3615 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -925,7 +1216,10 @@
     "source": "google daddr@ geocode of 3615 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mineo's Pizza House": {
     "address": "2128 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -934,7 +1228,10 @@
     "source": "google daddr@ geocode of 2128 Murray Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Aiello's Pizza": {
     "address": "2112 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -943,7 +1240,10 @@
     "source": "google daddr@ geocode of 2112 Murray Ave Ste 1",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Commonplace Coffee": {
     "address": "5827 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -952,7 +1252,10 @@
     "source": "google daddr@ geocode of 5827 Forbes Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Prantl's Bakery": {
     "address": "5525 Walnut St, Shadyside, Pittsburgh, PA 15232",
@@ -961,7 +1264,10 @@
     "source": "google daddr of adjacent 5523 Walnut St",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "1-2 doors from exact"
+    "note": "1-2 doors from exact",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gaby et Jules": {
     "address": "5837 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -970,7 +1276,10 @@
     "source": "google daddr of adjacent 5835 Forbes Ave",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "1-2 doors from exact"
+    "note": "1-2 doors from exact",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "La Gourmandine": {
     "address": "4605 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -979,7 +1288,10 @@
     "source": "interpolated Butler anchors 4305 & 4635 (Abbey)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "30 doors from near anchor"
+    "note": "30 doors from near anchor",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Dave & Andy's Homemade Ice Cream": {
     "address": "207 Atwood St, Oakland, Pittsburgh, PA 15213",
@@ -988,7 +1300,10 @@
     "source": "google daddr@ geocode of 207 Atwood St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr"
+    "note": "exact address daddr",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Millie's Homemade Ice Cream": {
     "address": "232 S Highland Ave, Pittsburgh, PA 15206",
@@ -997,7 +1312,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Shadyside"
+    "note": "Shadyside",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Church Brew Works": {
     "address": "3525 Liberty Ave, Pittsburgh, PA 15201",
@@ -1006,7 +1324,10 @@
     "source": "google maps place",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Google Maps place coord"
+    "note": "Google Maps place coord",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "East End Brewing Company": {
     "address": "147 Julius St, Pittsburgh, PA 15206",
@@ -1015,7 +1336,10 @@
     "source": "apple maps",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Apple Maps coord; corrects estimate"
+    "note": "Apple Maps coord; corrects estimate",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Arsenal Cider House": {
     "address": "300 39th St, Pittsburgh, PA 15201",
@@ -1024,7 +1348,10 @@
     "source": "google maps place",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Google Maps 3d40.465108 4d-79.96092"
+    "note": "Google Maps 3d40.465108 4d-79.96092",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Groceria Merante": {
     "address": "3454 Bates St, Oakland, Pittsburgh, PA 15213",
@@ -1033,7 +1360,10 @@
     "source": "nextdoor merante-groceria-pittsburgh-pa (40.43652428,-79.95531396)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Central Oakland, matches Bates St"
+    "note": "Central Oakland, matches Bates St",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Bloomfield Saturday Market": {
     "address": "5050 Liberty Ave, Pittsburgh, PA 15224",
@@ -1042,16 +1372,22 @@
     "source": "google-maps-url 3d/4d pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Bloomfield"
+    "note": "Bloomfield",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Squirrel Hill Farmers Market": {
     "address": "5737 Beacon St, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.43086,
-    "lng": -79.92305,
-    "source": "nextdoor 40.43085841695733,-79.92304953595485 (Beacon/Bartlett lot)",
-    "verified": "2026-08-09",
+    "lat": 40.4357,
+    "lng": -79.92359,
+    "source": "Google Maps place pin !3d40.4357023!4d-79.9235858 (Beacon/Bartlett lot) + pittsburghpa.gov official page (5737 Beacon St)",
+    "verified": "2026-08-10",
     "confidence": "high",
-    "note": "Beacon-Bartlett lot south end"
+    "note": "Beacon St at Bartlett, Squirrel Hill (Sunday market lot). Old Nextdoor pin was ~540m south, off Beacon St.",
+    "status": "open",
+    "statusSource": "pittsburghpa.gov active 2026 season",
+    "statusChecked": "2026-08-10"
    },
    "Cathedral of Learning & the Nationality Rooms": {
     "address": "4200 Fifth Ave, Oakland, Pittsburgh, PA 15260",
@@ -1060,7 +1396,10 @@
     "source": "wikipedia: Cathedral of Learning coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Pitt campus, Oakland"
+    "note": "Pitt campus, Oakland",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carnegie Museum of Natural History": {
     "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1069,7 +1408,10 @@
     "source": "wikipedia: Carnegie Museum of Natural History coordinates",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Forbes Ave, Oakland"
+    "note": "Forbes Ave, Oakland",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carnegie Museum of Art": {
     "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1078,7 +1420,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches Oakland building"
+    "note": "matches Oakland building",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Phipps Conservatory and Botanical Gardens": {
     "address": "1 Schenley Dr, Oakland, Pittsburgh, PA 15213",
@@ -1087,7 +1432,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "in Schenley Park"
+    "note": "in Schenley Park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Heinz Memorial Chapel": {
     "address": "4200 Fifth Ave, Oakland, Pittsburgh, PA 15260",
@@ -1096,7 +1444,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Pitt campus"
+    "note": "Pitt campus",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Frick Pittsburgh": {
     "address": "7227 Reynolds St, Point Breeze, Pittsburgh, PA 15208",
@@ -1105,7 +1456,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Point Breeze"
+    "note": "Point Breeze",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pittsburgh Zoo & Aquarium": {
     "address": "7370 Baker St, Highland Park, Pittsburgh, PA 15206",
@@ -1114,7 +1468,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Highland Park"
+    "note": "Highland Park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Schenley Park": {
     "address": "Schenley Dr, Oakland, Pittsburgh, PA",
@@ -1123,7 +1480,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "park centroid"
+    "note": "park centroid",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Clemente Museum": {
     "address": "3339 Penn Ave, Lawrenceville, Pittsburgh, PA 15201",
@@ -1132,7 +1492,10 @@
     "source": "apple maps place coordinate",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Lawrenceville engine house"
+    "note": "Lawrenceville engine house",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Stephen Foster Memorial": {
     "address": "4301 Forbes Ave, Oakland, Pittsburgh, PA 15260",
@@ -1141,7 +1504,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Pitt campus"
+    "note": "Pitt campus",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Hunt Institute for Botanical Documentation": {
     "address": "5th fl Hunt Library, 4909 Frew St, CMU, Pittsburgh, PA 15213",
@@ -1150,7 +1516,10 @@
     "source": "latlong.net Hunt Library listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "CMU Hunt Library"
+    "note": "CMU Hunt Library",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Frick Fine Arts Building & the Nicholas Lochoff Cloister": {
     "address": "650 Schenley Dr, Oakland, Pittsburgh, PA 15213",
@@ -1159,7 +1528,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "south edge Schenley Plaza"
+    "note": "south edge Schenley Plaza",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Schenley Plaza & the Mary Schenley Memorial Fountain": {
     "address": "4100 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1168,7 +1540,10 @@
     "source": "wikipedia infobox (fountain)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Schenley Plaza"
+    "note": "Schenley Plaza",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Walking to the Sky": {
     "address": "Warner Hall lawn, 5000 Forbes Ave, CMU, Pittsburgh, PA",
@@ -1177,7 +1552,10 @@
     "source": "hmdb historical marker",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "front of Warner Hall"
+    "note": "front of Warner Hall",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Randy Pausch Memorial Bridge": {
     "address": "4902 Forbes Ave, Gates to Purnell, CMU, Pittsburgh, PA",
@@ -1186,7 +1564,10 @@
     "source": "pghmurals listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "CMU footbridge"
+    "note": "CMU footbridge",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pittsburgh Glass Center": {
     "address": "5472 Penn Ave, Friendship, Pittsburgh, PA 15206",
@@ -1195,7 +1576,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Friendship"
+    "note": "Friendship",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Highland Park & the Entry Garden": {
     "address": "Reservoir Dr, Highland Park, Pittsburgh, PA",
@@ -1204,7 +1588,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "park centroid, not garden point"
+    "note": "park centroid, not garden point",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Center for PostNatural History": {
     "address": "4913 Penn Ave, Garfield, Pittsburgh, PA 15224",
@@ -1213,7 +1600,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Garfield"
+    "note": "Garfield",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carnegie Library of Pittsburgh (Main)": {
     "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1222,7 +1612,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Oakland main branch"
+    "note": "Oakland main branch",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Soldiers & Sailors Memorial Hall & Museum": {
     "address": "4141 Fifth Ave, Oakland, Pittsburgh, PA 15213",
@@ -1231,7 +1624,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Oakland"
+    "note": "Oakland",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Allegheny Cemetery": {
     "address": "4734 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -1240,7 +1636,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "cemetery centroid, low precision"
+    "note": "cemetery centroid, low precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Frick Park & the Frick Environmental Center": {
     "address": "2005 Beechwood Blvd, Pittsburgh, PA 15217",
@@ -1249,7 +1648,10 @@
     "source": "google maps place coordinate",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Environmental Center building"
+    "note": "Environmental Center building",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mellon Park Walled Garden": {
     "address": "6300 Fifth Ave, Point Breeze, Pittsburgh, PA 15232",
@@ -1258,7 +1660,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "park coordinate; garden is south"
+    "note": "park coordinate; garden is south",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Fence": {
     "address": "The Cut, Carnegie Mellon University, Pittsburgh, PA 15213",
@@ -1267,7 +1672,10 @@
     "source": "latitude.to Carnegie Mellon University",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "CMU campus anchor (the Cut)"
+    "note": "CMU campus anchor (the Cut)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kraus Campo": {
     "address": "Posner Center rooftop, Carnegie Mellon University, Pittsburgh, PA 15213",
@@ -1276,7 +1684,10 @@
     "source": "latitude.to Carnegie Mellon University",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "CMU campus anchor (Posner rooftop) (co-located; pin nudged ~50m so both show)"
+    "note": "CMU campus anchor (Posner rooftop) (co-located; pin nudged ~50m so both show)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Duquesne Incline": {
     "address": "1197 W Carson St, Mount Washington, Pittsburgh, PA 15211",
@@ -1285,7 +1696,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "upper station"
+    "note": "upper station",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Grandview Avenue Overlook, Mount Washington": {
     "address": "Grandview Ave, Mount Washington, Pittsburgh, PA 15211",
@@ -1294,7 +1708,10 @@
     "source": "topozone/GNIS Mount Washington Overlook",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "named overlook feature"
+    "note": "named overlook feature",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Monongahela Incline": {
     "address": "8 Grandview Ave (lower W Carson St), Pittsburgh, PA 15211",
@@ -1303,7 +1720,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Mount Washington funicular"
+    "note": "Mount Washington funicular",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "West End Overlook Park": {
     "address": "Marlow St, Elliott/West End, Pittsburgh, PA 15220",
@@ -1312,7 +1732,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Elliott neighborhood"
+    "note": "Elliott neighborhood",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gateway Clipper Fleet": {
     "address": "350 W Station Square Dr, Pittsburgh, PA 15219",
@@ -1321,7 +1744,10 @@
     "source": "wikipedia Station Square station",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "dock anchored to Station Square"
+    "note": "dock anchored to Station Square",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "South Side Slopes city steps": {
     "address": "South Side Slopes, Pittsburgh, PA 15203",
@@ -1330,7 +1756,10 @@
     "source": "wikipedia South Side Slopes neighborhood",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "diffuse feature, district anchor"
+    "note": "diffuse feature, district anchor",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "East Carson Street, South Side": {
     "address": "E Carson St, South Side Flats, Pittsburgh, PA 15203",
@@ -1339,7 +1768,10 @@
     "source": "NRHP/livingplaces historic district",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "district center 9th-24th St"
+    "note": "district center 9th-24th St",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Station Square": {
     "address": "125 W Station Square Dr, Pittsburgh, PA",
@@ -1348,7 +1780,10 @@
     "source": "Wikipedia Station Square infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "complex-center coordinate"
+    "note": "complex-center coordinate",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Point of View statue": {
     "address": "Grandview Ave at Sweetbriar St, Mount Washington",
@@ -1357,7 +1792,10 @@
     "source": "Wikidata Q7208266 + GPS listing agree",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "old pin was wrong"
+    "note": "old pin was wrong",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Emerald View Park": {
     "address": "Grandview Ave, Mount Washington, Pittsburgh, PA 15211",
@@ -1366,7 +1804,10 @@
     "source": "alltopsights Grandview Overlook",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Mt Washington overlook anchor"
+    "note": "Mt Washington overlook anchor",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Beechview–Seldom Seen Greenway": {
     "address": "Saw Mill Run Blvd trailhead, Beechview, Pittsburgh, PA 15216",
@@ -1375,7 +1816,10 @@
     "source": "wikipedia Beechview neighborhood",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "diffuse greenway, neighborhood anchor"
+    "note": "diffuse greenway, neighborhood anchor",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pennsylvania Trolley Museum": {
     "address": "1 Electric Way, Washington, PA",
@@ -1384,7 +1828,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin"
+    "note": "matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Andrew Carnegie Free Library & Music Hall": {
     "address": "300 Beechwood Ave, Carnegie",
@@ -1393,7 +1840,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP building"
+    "note": "NRHP building",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Captain Thomas Espy G.A.R. Post (Civil War Room)": {
     "address": "300 Beechwood Ave, Carnegie",
@@ -1402,7 +1852,10 @@
     "source": "Wikipedia (same ACFL&MH building)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "inside ACFL&MH (co-located; pin nudged ~50m so both show)"
+    "note": "inside ACFL&MH (co-located; pin nudged ~50m so both show)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Uptown Mt. Lebanon business district": {
     "address": "Washington Rd, Mt. Lebanon, PA 15228",
@@ -1411,7 +1864,10 @@
     "source": "wikipedia Mt. Lebanon",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "district anchor, Washington Rd"
+    "note": "district anchor, Washington Rd",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Dormont Pool": {
     "address": "1801 Dormont Ave, Dormont",
@@ -1420,7 +1876,10 @@
     "source": "Google Maps place coordinate",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin"
+    "note": "matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Row House — Hollywood Theater": {
     "address": "1449 Potomac Ave, Dormont, Pittsburgh, PA 15216",
@@ -1429,7 +1888,10 @@
     "source": "nextdoor hollywood-theater-pittsburgh-pa (40.39607907,-80.03538201)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Dormont, matches Potomac Ave"
+    "note": "Dormont, matches Potomac Ave",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "LeMoyne House": {
     "address": "49 E Maiden St, Washington, PA",
@@ -1438,7 +1900,10 @@
     "source": "Wikipedia F. Julius LeMoyne House",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP"
+    "note": "NRHP",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "David Bradford House & Whiskey Rebellion Center": {
     "address": "175 S Main St, Washington, PA",
@@ -1447,7 +1912,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NHL"
+    "note": "NHL",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Woodville Plantation (John & Presley Neville House)": {
     "address": "1375 Washington Pike, Bridgeville",
@@ -1456,7 +1924,10 @@
     "source": "HMDB historical marker coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin"
+    "note": "matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mingo Creek County Park & the covered bridges": {
     "address": "Mingo Creek County Park, Finleyville",
@@ -1465,7 +1936,10 @@
     "source": "TopoZone/GNIS park point",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "authoritative park point"
+    "note": "authoritative park point",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Washington County Agricultural Fair": {
     "address": "2151 N Main St, Washington, PA 15301",
@@ -1474,7 +1948,10 @@
     "source": "decimal coordinate published on mypacer/directory listing for Washington County Fairgrounds",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Washington PA is ~40.17-40.21 lat (just south of the stated Pittsburgh floor, geographically correct). Google place_id 0x8835ad414e521b87:0x3a4019bbdc965681 confirms same venue."
+    "note": "Washington PA is ~40.17-40.21 lat (just south of the stated Pittsburgh floor, geographically correct). Google place_id 0x8835ad414e521b87:0x3a4019bbdc965681 confirms same venue.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Duncan & Miller Glass Museum": {
     "address": "525 Jefferson Ave, Washington, PA 15301",
@@ -1483,7 +1960,10 @@
     "source": "decimal coordinate published on directory listing for Duncan & Miller Glass Museum, 525 Jefferson Ave",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Washington PA range verified (~40.17,-80.25). Some directories also cite 100 Ridge Ave / 119 Murtland; 525 Jefferson Ave is the museum's stated address."
+    "note": "Washington PA range verified (~40.17,-80.25). Some directories also cite 100 Ridge Ave / 119 Murtland; 525 Jefferson Ave is the museum's stated address.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Perry Como Statue": {
     "address": "68 E Pike St, Canonsburg, PA 15317",
@@ -1492,7 +1972,10 @@
     "source": "google-maps Canonsburg downtown/borough",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "at borough municipal building"
+    "note": "at borough municipal building",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "LeMoyne Crematory": {
     "address": "Gallows Hill, North Franklin Twp",
@@ -1501,7 +1984,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP, matches prior pin"
+    "note": "NRHP, matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Washington County Courthouse": {
     "address": "1 S Main St, Washington, PA",
@@ -1510,7 +1996,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP"
+    "note": "NRHP",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Carnegie Stage & Main Street": {
     "address": "25 W Main St, Carnegie, PA 15106",
@@ -1519,7 +2008,10 @@
     "source": "wikipedia Carnegie borough",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Main St district anchor"
+    "note": "Main St district anchor",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mingo Creek Park Observatory": {
     "address": "1 Shelter 10 Rd, Finleyville",
@@ -1528,7 +2020,10 @@
     "source": "AAAP published (3dp)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "low precision but published"
+    "note": "low precision but published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Little Lake Theatre": {
     "address": "500 Lakeside Dr S, Canonsburg, PA 15317",
@@ -1537,7 +2032,10 @@
     "source": "google-maps Canonsburg Lake (adjacent)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "beside Canonsburg Lake"
+    "note": "beside Canonsburg Lake",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cross Creek County Park": {
     "address": "near Avella, PA",
@@ -1546,7 +2044,10 @@
     "source": "GNIS FID 1205175",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "official GNIS point"
+    "note": "official GNIS point",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Washington & Jefferson College (McMillan Hall)": {
     "address": "60 S Lincoln St, Washington, PA",
@@ -1555,7 +2056,10 @@
     "source": "Wikipedia/Wikidata McMillan Hall",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin"
+    "note": "matches prior pin",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Salem's Market & Grill": {
     "address": "2923 Penn Ave, Pittsburgh, PA 15201",
@@ -1564,7 +2068,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Strip District"
+    "note": "Strip District",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kassab's": {
     "address": "1207 E Carson St, Pittsburgh, PA 15203",
@@ -1573,7 +2080,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "South Side"
+    "note": "South Side",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fiori's Pizzaria": {
     "address": "103 Capital Ave, Pittsburgh, PA 15226",
@@ -1582,7 +2092,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Brookline; Yelp lists 103 Capital Ave (batch said Wenzell)"
+    "note": "Brookline; Yelp lists 103 Capital Ave (batch said Wenzell)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Alla Famiglia": {
     "address": "804 E Warrington Ave, Pittsburgh, PA 15210",
@@ -1591,7 +2104,10 @@
     "source": "google-maps-url 3d/4d pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Allentown"
+    "note": "Allentown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Sarris Candies": {
     "address": "511 Adams Ave, Canonsburg, PA 15317",
@@ -1600,7 +2116,10 @@
     "source": "nextdoor sarris-candies-canonsburg-pa (40.265647,-80.173214)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Canonsburg, matches Adams Ave"
+    "note": "Canonsburg, matches Adams Ave",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Page Dairy Mart": {
     "address": "4112 E Carson St (at Becks Run Rd), Pittsburgh, PA 15210",
@@ -1609,7 +2128,10 @@
     "source": "Nextdoor page-dairy-mart-pittsburgh-pa + Google Street View pano @40.41112,-79.95557 (facing storefront); corner E Carson at Becks Run Rd",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "E Carson at Becks Run, South Side; corroborated by street-level pano"
+    "note": "E Carson at Becks Run, South Side; corroborated by street-level pano",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Bedner's Farm & Greenhouse": {
     "address": "315 Coleman Rd, McDonald, PA 15057",
@@ -1618,7 +2140,22 @@
     "source": "loc8nearme DMS listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "DMS 40d20'6.18N; corrects estimate"
+    "note": "DMS 40d20'6.18N; corrects estimate",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
+   },
+   "Superior Motors — CLOSED": {
+    "address": "1211 Braddock Ave, Braddock, PA 15104",
+    "lat": 40.39776,
+    "lng": -79.86046,
+    "source": "Google Maps",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Google coord, Braddock (closed); permanently closed",
+    "status": "closed",
+    "statusSource": "Google Maps \"Permanently closed\"; closed 2020, never reopened (per guide note)",
+    "statusChecked": "2026-08-10"
    }
   },
   "youngstown-oh": {
@@ -1629,7 +2166,10 @@
     "source": "RoadsideAmerica/Yelp published 41.2357,-80.8194",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "listing published lat/long"
+    "note": "listing published lat/long",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "National McKinley Birthplace Memorial & Museum": {
     "address": "40 N Main St, Niles, OH 44446",
@@ -1638,7 +2178,10 @@
     "source": "Wikipedia National McKinley Birthplace Memorial coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published"
+    "note": "Wikipedia published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Canfield Fairgrounds": {
     "address": "7265 Columbiana-Canfield Rd, Canfield, OH 44406",
@@ -1647,7 +2190,10 @@
     "source": "Google Maps place marker 41.0106804,-80.7602109",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Google Maps published"
+    "note": "Google Maps published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Idora Park Experience": {
     "address": "4450 S Turner Rd, Canfield, OH 44406",
@@ -1656,7 +2202,10 @@
     "source": "address verified (4450 S Turner Rd, Canfield, OH 44406); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Past Times Arcade": {
     "address": "419 N State St, Girard, OH 44420",
@@ -1665,7 +2214,10 @@
     "source": "address verified (419 N State St, Girard, OH 44420); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "National Packard Museum": {
     "address": "1899 Mahoning Ave NW, Warren, OH 44483",
@@ -1674,7 +2226,10 @@
     "source": "Ohio.org/Waze museum listing + Warren landmark",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Warren; fixed museum landmark"
+    "note": "Warren; fixed museum landmark",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Robins Theatre": {
     "address": "160 E Market St, Warren, OH 44481",
@@ -1683,7 +2238,10 @@
     "source": "mapcarta theater node W547757456",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Warren; downtown historic theatre"
+    "note": "Warren; downtown historic theatre",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Noah's Lost Ark Exotic Animal Sanctuary": {
     "address": "8424 Bedell Rd, Berlin Center, OH 44401",
@@ -1692,7 +2250,10 @@
     "source": "nextdoor noahs-lost-ark-animal-park-berlin-center-oh (40.99614814,-80.99002499)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Bedell Rd near Berlin Lake, matches"
+    "note": "Bedell Rd near Berlin Lake, matches",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "TP Tools Auto Collection Museum": {
     "address": "7075 State Route 446 (Herbert Rd), Canfield, OH 44406",
@@ -1701,7 +2262,10 @@
     "source": "nextdoor tp-tools-auto-museum-canfield-oh (41.021382,-80.781156)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "SR 446 Canfield, matches"
+    "note": "SR 446 Canfield, matches",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mill Creek MetroParks Farm": {
     "address": "7574 Columbiana-Canfield Rd, Canfield, OH 44406",
@@ -1710,7 +2274,10 @@
     "source": "loc8nearme/disc-golf course listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Canfield; across from fairgrounds"
+    "note": "Canfield; across from fairgrounds",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Sports World Family Fun Center": {
     "address": "8249 South Ave, Boardman, OH 44512",
@@ -1719,7 +2286,10 @@
     "source": "virtualglobetrotting (Google Maps coord)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Boardman"
+    "note": "Boardman",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Hollywood Gaming at Mahoning Valley Race Course": {
     "address": "655 N Canfield-Niles Rd, Austintown, OH",
@@ -1728,7 +2298,10 @@
     "source": "Wikipedia (41.1169444,-80.7616667)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Austintown"
+    "note": "Austintown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ernie Hall Aviation Museum": {
     "address": "4033 North River Rd NE, Warren, OH 44484",
@@ -1737,7 +2310,10 @@
     "source": "HMDB marker 41 15.939N 80 45.224W",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Warren"
+    "note": "Warren",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ward-Thomas House Museum": {
     "address": "503 Brown St, Niles, OH 44446",
@@ -1746,7 +2322,10 @@
     "source": "HMDB marker 41 10.463N 80 45.926W",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Niles"
+    "note": "Niles",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Newton Falls Covered Bridge": {
     "address": "OH-534, Newton Falls, OH 44444",
@@ -1755,7 +2334,10 @@
     "source": "Wikipedia (41.18806,-80.97139)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Newton Falls; NRHP"
+    "note": "Newton Falls; NRHP",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Modern Methods Brewing Company": {
     "address": "125 David Grohl Alley, Warren, OH 44481",
@@ -1764,7 +2346,10 @@
     "source": "beeradvocate/brewerydb published 41.2357,-80.8195",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Warren; downtown near Robins Theatre"
+    "note": "Warren; downtown near Robins Theatre",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Birdfish Brewing Co.": {
     "address": "140 E Park Ave, Columbiana, OH 44408",
@@ -1773,7 +2358,10 @@
     "source": "untappd venue 4015817 40.8889,-80.6909 (main taproom)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "140 E Park Ave main location"
+    "note": "140 E Park Ave main location",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Rogers Community Auction & Flea Market": {
     "address": "45625 OH-154, Rogers, OH 44455",
@@ -1782,7 +2370,10 @@
     "source": "superpages/BBB listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Rogers (Columbiana Co.)"
+    "note": "Rogers (Columbiana Co.)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "White House Fruit Farm": {
     "address": "9249 Youngstown-Salem Rd (US-62), Canfield, OH 44406",
@@ -1791,7 +2382,10 @@
     "source": "google maps directions destination waypoint !1d-80.8067596!2d40.9839932",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Canfield; farm market SW of Canfield on US-62"
+    "note": "Canfield; farm market SW of Canfield on US-62",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Detwiler Farm": {
     "address": "4520 Renkenberger Rd, Columbiana, OH 44408",
@@ -1800,7 +2394,10 @@
     "source": "Yelp/Waze business listing published coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Columbiana pumpkin farm"
+    "note": "Columbiana pumpkin farm",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Molnar Farms": {
     "address": "3115 E Western Reserve Rd, Poland, OH 44514",
@@ -1809,7 +2406,10 @@
     "source": "Yelp/find-open business listing published coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Poland Twp produce farm"
+    "note": "Poland Twp produce farm",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Butler Institute of American Art": {
     "address": "524 Wick Ave, Youngstown, OH 44502",
@@ -1818,7 +2418,10 @@
     "source": "Wikipedia 41.105371,-80.645458 + Apple Maps 41.1056182,-80.6459713",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia+Apple agree"
+    "note": "Wikipedia+Apple agree",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Youngstown Historical Center of Industry and Labor": {
     "address": "151 W Wood St, Youngstown, OH 44503",
@@ -1827,7 +2430,10 @@
     "source": "Wikipedia — Youngstown Historical Center of Industry and Labor (41°6.147′N 80°39.047′W)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "W Wood St, Youngstown"
+    "note": "W Wood St, Youngstown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Rose Melnick Medical Museum": {
     "address": "Cushwa Hall, YSU, 1 University Plaza, Youngstown, OH 44555",
@@ -1836,7 +2442,10 @@
     "source": "mapcarta building node (Cushwa Hall) 22648868",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; YSU building point, museum inside"
+    "note": "Youngstown; YSU building point, museum inside",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ward Beecher Planetarium": {
     "address": "Ward Beecher Hall, 100 Lincoln Ave, YSU, Youngstown, OH 44555",
@@ -1845,7 +2454,10 @@
     "source": "mapcarta building node (Ward Beecher Hall) 22697030",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; YSU building point, planetarium inside"
+    "note": "Youngstown; YSU building point, planetarium inside",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Arms Family Museum": {
     "address": "648 Wick Ave, Youngstown, OH 44502",
@@ -1854,7 +2466,10 @@
     "source": "gpsmycity/evendo lat 41.107041 published; candidate long confirmed",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "lat published; long matches address"
+    "note": "lat published; long matches address",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Stambaugh Auditorium": {
     "address": "1000 Fifth Ave, Youngstown, OH",
@@ -1863,7 +2478,10 @@
     "source": "Wikipedia Stambaugh Auditorium coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published"
+    "note": "Wikipedia published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "McDonough Museum of Art": {
     "address": "525 Wick Ave, Youngstown, OH",
@@ -1872,7 +2490,10 @@
     "source": "Wikipedia McDonough Museum coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published"
+    "note": "Wikipedia published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Clarence R. Smith Mineral Museum": {
     "address": "Moser Hall, Youngstown State University, 1 University Plaza, Youngstown, OH 44555",
@@ -1881,7 +2502,10 @@
     "source": "decimal coordinate published on helpmecovid/evendo directory for Clarence R. Smith Mineral Museum (Moser Hall, YSU)",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "On the YSU campus, consistent with campus anchor Beeghly Center 41.10806,-80.64889. Museum is in the Moser Hall first-floor atrium."
+    "note": "On the YSU campus, consistent with campus anchor Beeghly Center 41.10806,-80.64889. Museum is in the Moser Hall first-floor atrium.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wick Park": {
     "address": "Fifth Ave & Park Ave, North Side, Youngstown",
@@ -1890,7 +2514,10 @@
     "source": "Wikipedia Wick Park Historic District coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "district coordinate, published"
+    "note": "district coordinate, published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lanterman's Mill": {
     "address": "1001 Canfield Rd, Youngstown, OH 44511",
@@ -1899,7 +2526,10 @@
     "source": "Mill Creek MetroParks official GPS 41.066806,-80.682140",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "official site published"
+    "note": "official site published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fellows Riverside Gardens": {
     "address": "123 McKinley Ave, Mill Creek Park",
@@ -1908,7 +2538,10 @@
     "source": "Wikipedia Fellows Riverside Gardens coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published"
+    "note": "Wikipedia published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mill Creek Suspension Bridge (the Cinderella Bridge)": {
     "address": "Valley Dr, Mill Creek Park",
@@ -1917,7 +2550,10 @@
     "source": "Wikipedia Mill Creek Park Suspension Bridge coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published"
+    "note": "Wikipedia published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lily Pond": {
     "address": "Lily Pond Circle Trail, off McCollum Rd, Mill Creek Park, Youngstown, OH 44509",
@@ -1926,7 +2562,10 @@
     "source": "hometownlocator GNIS fid 1042566 (41.0887208,-80.6808421)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "USGS GNIS named feature, Mill Creek Park"
+    "note": "USGS GNIS named feature, Mill Creek Park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lake Newport & Newport Boathouse": {
     "address": "Mill Creek Park, Youngstown",
@@ -1935,7 +2574,10 @@
     "source": "paddling.com Newport Lake listing 41.058816,-80.677010",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "lake point, published listing"
+    "note": "lake point, published listing",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Joanne Beeghly Rose Garden": {
     "address": "Fellows Riverside Gardens, 123 McKinley Ave, Youngstown, OH 44509",
@@ -1944,7 +2586,10 @@
     "source": "wikidata Q5442495 (Fellows Riverside Gardens) 41 05 57.1N 80 40 30.0W",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Youngstown; pinned to Fellows Gardens, garden inside (co-located; nudged ~50m so both show)"
+    "note": "Youngstown; pinned to Fellows Gardens, garden inside (co-located; nudged ~50m so both show)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ford Nature Center": {
     "address": "840 Old Furnace Rd, Youngstown, OH 44511",
@@ -1953,7 +2598,10 @@
     "source": "birdinghotspots L6677014 41.08565,-80.67859",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Mill Creek Park historic district"
+    "note": "Mill Creek Park historic district",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Pioneer Pavilion": {
     "address": "Old Furnace Rd, Mill Creek Park",
@@ -1962,7 +2610,10 @@
     "source": "HMDB marker GPS 41.082615,-80.68008",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "historical marker DB published"
+    "note": "historical marker DB published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mill Creek Golf Course": {
     "address": "1 W Golf Dr, Boardman, OH 44512",
@@ -1971,7 +2622,10 @@
     "source": "google maps place pin !3d41.0345702!4d-80.6952989",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Boardman; Mill Creek MetroParks course"
+    "note": "Boardman; Mill Creek MetroParks course",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "DeYor Performing Arts Center (Powers Auditorium)": {
     "address": "260 W Federal St, Youngstown, OH",
@@ -1980,7 +2634,10 @@
     "source": "Wikipedia Powers Auditorium coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia published"
+    "note": "Wikipedia published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Tyler History Center": {
     "address": "325 W Federal St, Youngstown, OH 44503",
@@ -1989,7 +2646,10 @@
     "source": "Nextdoor Tyler Mahoning Valley History Center",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "listing published lat/long"
+    "note": "listing published lat/long",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Roger & Gloria Jones Children's Center for Science & Technology": {
     "address": "11 W Federal St / Central Square, Youngstown, OH 44503",
@@ -1998,7 +2658,10 @@
     "source": "published Central Square coord (near Metropolitan Tower)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Youngstown; pinned to Central Square (OH WOW)"
+    "note": "Youngstown; pinned to Central Square (OH WOW)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Youngstown Playhouse": {
     "address": "600 Playhouse Ln, Youngstown, OH 44511",
@@ -2007,7 +2670,10 @@
     "source": "vymaps geocode 600 Playhouse Ln 41.0798712,-80.6739586",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "address geocode published"
+    "note": "address geocode published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Covelli Centre": {
     "address": "229 E Front St, Youngstown, OH 44503",
@@ -2016,7 +2682,10 @@
     "source": "Google Maps place marker 41.0962558,-80.6479886",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Google Maps published"
+    "note": "Google Maps published",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Downtown Youngstown murals": {
     "address": "W Federal St & Central Square, Youngstown, OH 44503",
@@ -2025,7 +2694,10 @@
     "source": "published Central Square coord",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "Youngstown; diffuse, pinned to Central Square (co-located; nudged ~50m so both show)"
+    "note": "Youngstown; diffuse, pinned to Central Square (co-located; nudged ~50m so both show)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mahoning County Courthouse": {
     "address": "120 Market St, Youngstown, OH 44503",
@@ -2034,7 +2706,10 @@
     "source": "decimal coordinate published on helpmecovid for Mahoning County Courthouse, 120 Market St",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Consistent with nearby anchor 20 W Federal St google place pin (41.1008916,-80.6494263) — courthouse sits just SW on Market. Google viewport values (/@41.0989376,-80.6691608,7318m) rejected as too coarse/west."
+    "note": "Consistent with nearby anchor 20 W Federal St google place pin (41.1008916,-80.6494263) — courthouse sits just SW on Market. Google viewport values (/@41.0989376,-80.6691608,7318m) rejected as too coarse/west.",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cassese's MVR": {
     "address": "410 N Walnut St, Youngstown, OH 44505",
@@ -2043,7 +2718,10 @@
     "source": "google maps daddr geocode 410 N Walnut St %4041.10343,-80.64431",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; Smoky Hollow restaurant"
+    "note": "Youngstown; Smoky Hollow restaurant",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Yosteria": {
     "address": "252 Valley St, Youngstown, OH 44505",
@@ -2052,7 +2730,10 @@
     "source": "menupix/nextdoor map (41.10491,-80.64061)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Valley St, north-central Youngstown"
+    "note": "Valley St, north-central Youngstown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Kravitz Delicatessen": {
     "address": "3135 Belmont Ave, Youngstown (Liberty), OH 44505",
@@ -2061,7 +2742,10 @@
     "source": "google maps daddr geocode 3135 Belmont Ave %4041.139355,-80.66484",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Liberty/Youngstown; deli on Belmont Ave"
+    "note": "Liberty/Youngstown; deli on Belmont Ave",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Handel's Homemade Ice Cream": {
     "address": "7485 South Ave, Boardman, OH 44512",
@@ -2070,7 +2754,10 @@
     "source": "google maps place pin !3d41.0183329!4d-80.6338607",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Boardman; original South Ave stand"
+    "note": "Boardman; original South Ave stand",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Golden Dawn": {
     "address": "1245 Logan Ave, Youngstown, OH 44505",
@@ -2079,7 +2766,10 @@
     "source": "google maps daddr geocode 1245 Logan Ave %4041.116196,-80.63966",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; near Wick Park"
+    "note": "Youngstown; near Wick Park",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wedgewood Pizza": {
     "address": "1622 S Raccoon Rd, Austintown, OH 44515",
@@ -2088,7 +2778,10 @@
     "source": "nextdoor wedgewood-pizza-austintown (41.08443,-80.73282)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "S Raccoon Rd, Austintown"
+    "note": "S Raccoon Rd, Austintown",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Avalon Downtown Pizzeria": {
     "address": "17 W Federal St, Youngstown, OH 44503",
@@ -2097,7 +2790,10 @@
     "source": "maptons.com/roadtrippers published 41.1002722,-80.6502324",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; on Central Square/Federal"
+    "note": "Youngstown; on Central Square/Federal",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Federal": {
     "address": "110 W Federal St, Youngstown, OH 44503",
@@ -2106,7 +2802,10 @@
     "source": "triptap/usarestaurants.info listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; addr is 110 not 101"
+    "note": "Youngstown; addr is 110 not 101",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Mocha House": {
     "address": "120 E Boardman St, Youngstown, OH 44503",
@@ -2115,7 +2814,10 @@
     "source": "google maps place pin !3d41.0987006!4d-80.6484953",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; downtown location (not Boardman)"
+    "note": "Youngstown; downtown location (not Boardman)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Noble Creature Wild Ales & Lagers": {
     "address": "126 E Rayen Ave, Youngstown, OH 44503",
@@ -2124,7 +2826,10 @@
     "source": "nextdoor noble-creature-cask-house-youngstown-oh (41.10218,-80.64489)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "E Rayen Ave, Smoky Hollow"
+    "note": "E Rayen Ave, Smoky Hollow",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Penguin City Brewing Company": {
     "address": "460 E Federal St, Youngstown, OH 44502",
@@ -2133,7 +2838,10 @@
     "source": "address verified (460 E Federal St, Youngstown, OH 44502); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "St. Anthony of Padua parish pizza": {
     "address": "1125 Turin Ave, Youngstown (Brier Hill), OH 44510",
@@ -2142,7 +2850,10 @@
     "source": "nextdoor st-anthony-church-pizza-youngstown-oh (41.123089,-80.671082)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Turin, Brier Hill, matches"
+    "note": "Turin, Brier Hill, matches",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Casa Di Canzonetta": {
     "address": "44 Federal Plaza E, Youngstown, OH 44503",
@@ -2151,7 +2862,10 @@
     "source": "address verified (44 Federal Plaza E, Youngstown, OH 44503); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Amish Market": {
     "address": "6121 South Ave, Boardman, OH 44512",
@@ -2160,7 +2874,10 @@
     "source": "loc8nearme listing",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Boardman"
+    "note": "Boardman",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Northside Farmers Market": {
     "address": "901 Elm St, Youngstown, OH 44502",
@@ -2169,7 +2886,10 @@
     "source": "address verified (901 Elm St, Youngstown, OH 44502); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Youngstown Flea": {
     "address": "365 E Boardman St, Youngstown, OH 44503",
@@ -2178,7 +2898,10 @@
     "source": "google maps place pin !3d41.0962685!4d-80.6439207",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Youngstown; downtown market"
+    "note": "Youngstown; downtown market",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Youngstown Historical Center of Industry and Labor (the \"Steel Museum\")": {
     "address": "151 W Wood St, Youngstown, OH 44503",
@@ -2187,7 +2910,10 @@
     "source": "https://en.wikipedia.org/wiki/Youngstown_Historical_Center_of_Industry_and_Labor",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Wikipedia DMS coord 41-6-9N 80-39-4W"
+    "note": "Wikipedia DMS coord 41-6-9N 80-39-4W",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Roger & Gloria Jones Children's Center for Science & Technology (OH WOW!)": {
     "address": "11 W Federal St, Youngstown, OH 44503",
@@ -2196,7 +2922,10 @@
     "source": "https://ohwowkids.org/",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "downtown Federal St; coord approx"
+    "note": "downtown Federal St; coord approx",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    }
   },
   "cleveland-oh": {
@@ -2207,7 +2936,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Chess Collection — Cleveland Public Library MAIN Library": {
     "address": "325 Superior Ave NE · Main Building, 3rd floor, John G. White Special Collections",
@@ -2216,7 +2948,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Arcade (Old Arcade)": {
     "address": "401 Euclid Ave",
@@ -2225,7 +2960,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "5th Street Arcades & Euclid Arcade": {
     "address": "530 Euclid Ave",
@@ -2234,7 +2972,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Terminal Tower Observation Deck": {
     "address": "50 Public Square, 42nd floor",
@@ -2243,7 +2984,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Old Stone Church": {
     "address": "91 Public Square",
@@ -2252,7 +2996,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Eastman Reading Garden": {
     "address": "Rockwell Ave, between the library buildings",
@@ -2261,7 +3008,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Heinen's Downtown": {
     "address": "900 Euclid Ave",
@@ -2270,7 +3020,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Free Stamp": {
     "address": "Willard Park, 601 Lakeside Ave E",
@@ -2279,7 +3032,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mini Statue of Liberty": {
     "address": "623 W St Clair Ave",
@@ -2288,7 +3044,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Hoyt Block Atrium": {
     "address": "700 W St Clair Ave",
@@ -2297,7 +3056,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fort Huntington Park": {
     "address": "W 3rd St & Lakeside Ave",
@@ -2306,7 +3068,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Jesse Owens Statue": {
     "address": "Fort Huntington Park, 299 W Lakeside Ave",
@@ -2315,7 +3080,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Convention Center Urban Farm": {
     "address": "300 Lakeside Ave, front of the centre by the RAPID tracks",
@@ -2324,7 +3092,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "USS Cod Submarine Memorial": {
     "address": "1201 N Marginal Rd",
@@ -2333,7 +3104,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Rock & Roll Hall of Fame": {
     "address": "1100 E 9th St",
@@ -2342,7 +3116,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Voinovich Bicentennial Park & Cleveland Lighthouse view": {
     "address": "800 E 9th Street Pier",
@@ -2351,7 +3128,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Script Signs — all six": {
     "address": "North Coast Harbor, E 9th Street Pier (and five others)",
@@ -2360,7 +3140,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Goodtime III": {
     "address": "825 E 9th St",
@@ -2369,7 +3152,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Azure Rooftop Lounge at The 9": {
     "address": "2017 E 9th St, Level 12",
@@ -2378,7 +3164,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Butcher and the Brewer": {
     "address": "2043 E 4th St",
@@ -2387,7 +3176,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Greater Cleveland Aquarium — shark gallery & seatube": {
     "address": "2000 Sycamore St, The Flats",
@@ -2396,7 +3188,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Veterans Memorial (Detroit-Superior) Bridge Streetcar Deck": {
     "address": "2433 Superior Viaduct",
@@ -2405,7 +3200,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mini Guardians of Traffic": {
     "address": "Washington Ave & Center St, The Flats",
@@ -2414,7 +3212,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Leif Erikson Bust": {
     "address": "Beside 1148 Main Ave, at the jackknife bridge",
@@ -2423,7 +3224,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Center of Gravity Mural": {
     "address": "Columbus Rd",
@@ -2432,7 +3236,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Foundry": {
     "address": "1831 Columbus Rd",
@@ -2441,7 +3248,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Brewboat CLE": {
     "address": "Whiskey Island",
@@ -2450,7 +3260,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wendy Park & the monarch migration": {
     "address": "2800 Whiskey Island Dr",
@@ -2459,7 +3272,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ball Ball Waffle": {
     "address": "2999 Payne Ave, Asia Plaza",
@@ -2468,7 +3284,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Negative Space Gallery": {
     "address": "1541 E 38th St, 2nd floor warehouse",
@@ -2477,7 +3296,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ingenuity Cleveland": {
     "address": "5401 Hamilton Ave",
@@ -2486,7 +3308,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Skidmark Garage": {
     "address": "4806 Hamilton Ave",
@@ -2495,7 +3320,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Percy Skuy Collection, Dittrick Medical History Center": {
     "address": "11000 Euclid Ave, Allen Memorial Medical Library",
@@ -2504,7 +3332,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Haserot Angel, Lake View Cemetery": {
     "address": "12316 Euclid Ave · Section 9, Lot 14",
@@ -2513,7 +3344,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lake View Cemetery (whole grounds)": {
     "address": "12316 Euclid Ave",
@@ -2522,7 +3356,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lake View Cemetery Dam": {
     "address": "12316 Euclid Ave",
@@ -2531,7 +3368,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Grave of Alan Freed": {
     "address": "Lake View Cemetery",
@@ -2540,7 +3380,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Museum of Art": {
     "address": "11150 East Blvd",
@@ -2549,7 +3392,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Fine Arts Garden": {
     "address": "11130 East Blvd",
@@ -2558,7 +3404,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lucy, at the Cleveland Museum of Natural History": {
     "address": "1 Wade Oval Dr",
@@ -2567,7 +3416,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Apollo 12 Moon Rock": {
     "address": "Cleveland Museum of Natural History, 1 Wade Oval Dr",
@@ -2576,7 +3428,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wade Park & Wade Lagoon": {
     "address": "East Blvd at Euclid Ave, University Circle",
@@ -2585,7 +3440,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Botanical Garden": {
     "address": "11030 East Blvd",
@@ -2594,7 +3452,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Museum of Contemporary Art Cleveland (MOCA)": {
     "address": "11400 Euclid Ave",
@@ -2603,7 +3464,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland History Center & Euclid Beach Carousel": {
     "address": "10825 East Blvd",
@@ -2612,7 +3476,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Chinese Cultural Garden": {
     "address": "Martin Luther King Jr Dr, Cleveland Cultural Gardens",
@@ -2621,7 +3488,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Rockefeller Park Greenhouse": {
     "address": "750 E 88th St",
@@ -2630,7 +3500,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cozad-Bates House": {
     "address": "11508 Mayfield Rd",
@@ -2639,7 +3512,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Hessler Court": {
     "address": "Hessler Rd, University Circle",
@@ -2648,7 +3524,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Moonstruck CLE Vintage": {
     "address": "11917 Mayfield Rd, Little Italy",
@@ -2657,7 +3536,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Chateau Hough Vineyards": {
     "address": "1650 E 66th St",
@@ -2666,7 +3548,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Baseball Heritage Museum at League Park": {
     "address": "6601 Lexington Ave",
@@ -2675,7 +3560,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Deep Roots Experience": {
     "address": "7901 Central Ave, Fairfax",
@@ -2684,7 +3572,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Woodland Cemetery": {
     "address": "6901 Woodland Ave",
@@ -2693,7 +3584,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Children's Museum of Cleveland": {
     "address": "3813 Euclid Ave",
@@ -2702,7 +3596,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Trumpet Man": {
     "address": "E 118th St & Buckeye Rd",
@@ -2711,7 +3608,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Land of the Warres": {
     "address": "4701 Perkins Ave",
@@ -2720,7 +3620,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "George Masaveg's Art Home": {
     "address": "3678 E 55th St",
@@ -2729,7 +3632,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Junkyard Playground": {
     "address": "E 83rd St",
@@ -2738,7 +3644,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Morgana Run Trail": {
     "address": "E 49th St, just north of Fleet Ave",
@@ -2747,7 +3656,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "St. Stanislaus Church": {
     "address": "3649 E 65th St, Slavic Village",
@@ -2756,7 +3668,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Harvey Pekar Statue": {
     "address": "Lee Road Library, 2345 Lee Rd, Cleveland Heights",
@@ -2765,7 +3680,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Quintana's Speakeasy": {
     "address": "2200 S Taylor Rd, Cleveland Heights",
@@ -2774,7 +3692,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Liberty Row": {
     "address": "North Park Blvd near Woodmere Dr, Shaker Heights",
@@ -2783,7 +3704,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "NELA Holiday Lights Display": {
     "address": "1901 Noble Rd, East Cleveland",
@@ -2792,7 +3716,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lakefront Nature Preserve": {
     "address": "8701 Lakeshore Blvd",
@@ -2801,7 +3728,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "West Side Market": {
     "address": "1979 W 25th St, Ohio City",
@@ -2810,7 +3740,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Great Lakes Brewing Co. — the bullet holes": {
     "address": "2516 Market Ave, Ohio City",
@@ -2819,7 +3752,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Buckland Museum of Witchcraft & Magick": {
     "address": "2155 Broadview Rd",
@@ -2828,7 +3764,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "A Christmas Story House & Museum": {
     "address": "3159 W 11th St, Tremont",
@@ -2837,7 +3776,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "St. Theodosius Russian Orthodox Cathedral": {
     "address": "733 Starkweather Ave, Tremont",
@@ -2846,7 +3788,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Barrio Tremont": {
     "address": "806 Literary Rd, Tremont",
@@ -2855,7 +3800,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Taste of Tremont": {
     "address": "Professor Ave, Starkweather to W 10th St",
@@ -2864,7 +3812,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Tremont skyline view & Abbey Ave script sign": {
     "address": "1502 Abbey Ave",
@@ -2873,7 +3824,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Towpath Mounds": {
     "address": "Towpath Trail, Tremont",
@@ -2882,7 +3836,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Towpath Trail": {
     "address": "Multiple access points; Tremont trailhead nearest downtown",
@@ -2891,7 +3848,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Pizza Mural": {
     "address": "W 28th St & Detroit Ave, Hingetown",
@@ -2900,7 +3860,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Intermuseum Conservation Association (ICA-Art Conservation)": {
     "address": "2937 W 25th St, 2nd floor",
@@ -2909,7 +3872,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Heisman House Plaque": {
     "address": "3928 Bridge Ave",
@@ -2918,7 +3884,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Red Line Greenway": {
     "address": "Michael Zone Recreation Center, W 53rd St",
@@ -2927,7 +3896,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Superelectric Pinball Parlor": {
     "address": "6500 Detroit Ave, Gordon Square",
@@ -2936,7 +3908,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Stone Mad Pub — indoor bocce": {
     "address": "1306 W 65th St, Gordon Square",
@@ -2945,7 +3920,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gordon Square Arts District murals": {
     "address": "Detroit Ave around W 65th–W 78th",
@@ -2954,7 +3932,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Edgewater Park & Beach": {
     "address": "6500 Cleveland Memorial Shoreway",
@@ -2963,7 +3944,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Willow at Edgewater Park": {
     "address": "Lakefront Reservation, Edgewater",
@@ -2972,7 +3956,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Memphis Kiddie Park": {
     "address": "10340 Memphis Ave, Brooklyn",
@@ -2981,7 +3968,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ray's Indoor Mountain Bike Park": {
     "address": "9801 Walford Ave",
@@ -2990,7 +3980,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "b.a. Sweetie Candy Company": {
     "address": "6770 Brookpark Rd, Parma",
@@ -2999,7 +3992,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Madison Park": {
     "address": "13201 Madison Ave, Lakewood",
@@ -3008,7 +4004,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lakewood Public Library": {
     "address": "15425 Detroit Ave, Lakewood",
@@ -3017,7 +4016,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Sanctuary Museum (Museum of Divine Statues)": {
     "address": "12905 Madison Ave, Lakewood",
@@ -3026,7 +4028,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Solstice Steps, Lakewood Park": {
     "address": "14532 Lake Ave, Lakewood",
@@ -3035,7 +4040,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Rocky River Park": {
     "address": "20250 Beachcliff Blvd, Rocky River",
@@ -3044,7 +4052,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cuyahoga Valley National Park": {
     "address": "Boston Mill Visitor Center, 6947 Riverview Rd, Peninsula",
@@ -3053,7 +4064,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Brandywine Falls": {
     "address": "8176 Brandywine Rd, Northfield",
@@ -3062,7 +4076,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Virginia Kendall Ledges Overlook": {
     "address": "405 Truxell Rd, Peninsula",
@@ -3071,7 +4088,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Squire's Castle": {
     "address": "2844 River Rd, North Chagrin Reservation, Willoughby Hills",
@@ -3080,7 +4100,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Worden's Ledges": {
     "address": "Wordens Ledges Loop Trail, Hinckley",
@@ -3089,7 +4112,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Whipp's Ledges": {
     "address": "Hinckley Reservation",
@@ -3098,7 +4124,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Henry Church Rock": {
     "address": "South Chagrin Reservation",
@@ -3107,7 +4136,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mill Creek Falls Overlook": {
     "address": "Garfield Park Reservation",
@@ -3116,7 +4148,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Viaduct Park": {
     "address": "Willis St, Bedford Reservation",
@@ -3125,7 +4160,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Skyline Overlook Trailhead": {
     "address": "West Creek Reservation, 1969 W Ridgewood Dr, Parma",
@@ -3134,7 +4172,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Holden Arboretum & Stebbins Gulch": {
     "address": "9550 Sperry Rd, Kirtland",
@@ -3143,7 +4184,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Observatory Park": {
     "address": "10610 Clay St, Montville",
@@ -3152,7 +4196,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gardenview Horticultural Park": {
     "address": "16711 Pearl Rd, Strongsville",
@@ -3161,7 +4208,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Judy's Jungle": {
     "address": "8665 Station St, Mentor",
@@ -3170,7 +4220,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Preston's H.O.P.E. Playground": {
     "address": "26001 S Woodland Rd, Beachwood",
@@ -3179,7 +4232,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Polka Hall of Fame": {
     "address": "605 E 222nd St, Euclid",
@@ -3188,7 +4244,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Sims Park & Lakefront Trail": {
     "address": "23131 Lakeshore Blvd, Euclid",
@@ -3197,7 +4256,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lakefront Lodge": {
     "address": "30525 Lakeshore Blvd, Willowick",
@@ -3206,7 +4268,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Fairport Harbor Marine Museum & Lighthouse": {
     "address": "129 Second St, Fairport Harbor",
@@ -3215,7 +4280,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Gravity Hill": {
     "address": "King Memorial Rd, north of Little Mountain Rd, Kirtland Hills",
@@ -3224,7 +4292,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Chagrin Falls Popcorn Shop": {
     "address": "53 N Main St, Chagrin Falls",
@@ -3233,7 +4304,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mapleside Farms": {
     "address": "294 Pearl Rd, Brunswick",
@@ -3242,7 +4316,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Orchestra at Blossom Music Center": {
     "address": "1145 W Steels Corners Rd, Cuyahoga Falls",
@@ -3251,7 +4328,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cascade Park": {
     "address": "387 Furnace St, Elyria",
@@ -3260,7 +4340,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "East Falls Riverwalk": {
     "address": "18 West Ave, Elyria",
@@ -3269,7 +4352,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "A Bench By The Road": {
     "address": "Corner of Main & Lorain Streets, Oberlin",
@@ -3278,7 +4364,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Amherst Veterans Mural": {
     "address": "248 Park Ave, Amherst",
@@ -3287,7 +4376,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Franklin Castle": {
     "address": "4308 Franklin Blvd, Ohio City",
@@ -3296,7 +4388,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wade Memorial Chapel": {
     "address": "Lake View Cemetery, 12316 Euclid Ave",
@@ -3305,7 +4400,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Thinker": {
     "address": "Cleveland Museum of Art, 11150 East Blvd",
@@ -3314,7 +4412,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Balto the Sled Dog": {
     "address": "Cleveland Museum of Natural History, 1 Wade Oval Dr",
@@ -3323,7 +4424,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "GE Chandelier, Playhouse Square": {
     "address": "E 14th St at Euclid Ave",
@@ -3332,7 +4436,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Steamship William G. Mather": {
     "address": "601 Erieside Ave, North Coast Harbor",
@@ -3341,7 +4448,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "International Women's Air & Space Museum": {
     "address": "Burke Lakefront Airport, 1501 N Marginal Rd",
@@ -3350,7 +4460,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Hope Memorial Bridge & the Guardians of Traffic": {
     "address": "Hope Memorial Bridge, over the Cuyahoga",
@@ -3359,7 +4472,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cuyahoga Valley Scenic Railroad": {
     "address": "Peninsula Depot, 1630 Mill St W, Peninsula",
@@ -3368,7 +4484,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Beachland Ballroom & Tavern": {
     "address": "15711 Waterloo Rd, Collinwood",
@@ -3377,7 +4496,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "78th Street Studios": {
     "address": "1300 W 78th St, Gordon Square",
@@ -3386,7 +4508,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Transformer Station": {
     "address": "1460 W 29th St, Hingetown",
@@ -3395,7 +4520,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Severance Music Center": {
     "address": "11001 Euclid Ave, University Circle",
@@ -3404,7 +4532,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Karamu House": {
     "address": "2355 E 89th St, Fairfax",
@@ -3413,7 +4544,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Dunham Tavern Museum & Gardens": {
     "address": "6709 Euclid Ave, Midtown",
@@ -3422,7 +4556,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Loganberry Books": {
     "address": "13015 Larchmere Blvd",
@@ -3431,7 +4568,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Nature Center at Shaker Lakes": {
     "address": "2600 S Park Blvd",
@@ -3440,7 +4580,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cleveland Institute of Art Cinematheque": {
     "address": "11610 Euclid Ave",
@@ -3449,7 +4592,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The RainForest, Cleveland Metroparks Zoo": {
     "address": "3900 Wildlife Way",
@@ -3458,7 +4604,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Hale Farm & Village": {
     "address": "2686 Oak Hill Rd, Bath",
@@ -3467,7 +4616,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "@neorsd — not a place, but on the list": {
     "address": "Northeast Ohio Regional Sewer District, 3900 Euclid Ave",
@@ -3476,7 +4628,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Lolly the Trolley — closed": {
     "address": "1101 Winslow Ave (no longer operating)",
@@ -3485,7 +4640,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "closed",
+    "statusSource": "name-flagged on page",
+    "statusChecked": "2026-08-10"
    },
    "Superior Phở": {
     "address": "3030 Superior Ave E #105, Asiatown",
@@ -3494,7 +4652,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Number One Pho": {
     "address": "3120 Superior Ave, Asiatown",
@@ -3503,7 +4664,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Minh Anh Restaurant": {
     "address": "5428 Detroit Ave, Detroit Shoreway",
@@ -3512,7 +4676,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Asia Food Co. noodle counter": {
     "address": "Asian Town Center, 3820 Superior Ave",
@@ -3521,7 +4688,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Dang Good Foods": {
     "address": "13735 Madison Ave, Lakewood",
@@ -3530,7 +4700,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Thai Thai": {
     "address": "13415 Madison Ave, Lakewood",
@@ -3539,7 +4712,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Ty Fun Thai Bistro": {
     "address": "815 Jefferson Ave, Tremont",
@@ -3548,7 +4724,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Tita Flora's": {
     "address": "6531 Brecksville Rd, Independence",
@@ -3557,7 +4736,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Li Wah — Cantonese dim sum carts": {
     "address": "Asia Plaza, 2999 Payne Ave #102",
@@ -3566,7 +4748,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Wonton Gourmet & BBQ": {
     "address": "3211 Payne Ave, Asiatown",
@@ -3575,7 +4760,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Bo Loong": {
     "address": "3922 St Clair Ave NE",
@@ -3584,7 +4772,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Siam Cafe": {
     "address": "3951 St Clair Ave NE",
@@ -3593,7 +4784,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Szechuan Gourmet": {
     "address": "1735 E 36th St, Asiatown",
@@ -3602,7 +4796,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Nate's Deli & Restaurant": {
     "address": "1923 W 25th St, Ohio City",
@@ -3611,7 +4808,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Anatolia Cafe": {
     "address": "2270 Lee Rd, Cleveland Heights",
@@ -3620,7 +4820,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Barroco Arepa Bar": {
     "address": "12906 Madison Ave, Lakewood",
@@ -3629,7 +4832,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "El Rinconcito Chapin": {
     "address": "3330 Broadview Rd",
@@ -3638,7 +4844,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Momocho": {
     "address": "1835 Fulton Rd, Ohio City",
@@ -3647,7 +4856,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Marie's Restaurant": {
     "address": "4502 St Clair Ave",
@@ -3656,7 +4868,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Larder Delicatessen and Bakery": {
     "address": "1455 W 29th St, Hingetown",
@@ -3665,7 +4880,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Skyline Chili, Lyndhurst": {
     "address": "5706 Mayfield Rd, Lyndhurst",
@@ -3674,7 +4892,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Slyman's Restaurant and Deli": {
     "address": "3106 St Clair Ave NE",
@@ -3683,7 +4904,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Melt Bar and Grilled — the original": {
     "address": "14718 Detroit Ave, Lakewood",
@@ -3692,7 +4916,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Happy Dog": {
     "address": "5801 Detroit Ave, Gordon Square",
@@ -3701,7 +4928,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Glizzys": {
     "address": "4617 W 130th St",
@@ -3710,7 +4940,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mabel's BBQ": {
     "address": "2050 E 4th St",
@@ -3719,7 +4952,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Cordelia": {
     "address": "2058 E 4th St",
@@ -3728,7 +4964,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Banter": {
     "address": "3441 Tuttle Rd, Van Aken Market, Shaker Heights",
@@ -3737,7 +4976,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Mitchell's Ice Cream, Ohio City": {
     "address": "1867 W 25th St",
@@ -3746,7 +4988,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Sweet Moses Soda Fountain": {
     "address": "6800 Detroit Ave, Gordon Square",
@@ -3755,7 +5000,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Presti's Bakery": {
     "address": "12101 Mayfield Rd, Little Italy",
@@ -3764,7 +5012,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Corbo's Bakery": {
     "address": "12210 Mayfield Rd, Little Italy",
@@ -3773,7 +5024,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Koko Bakery": {
     "address": "3710 Payne Ave, Asiatown",
@@ -3782,7 +5036,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Honey Hut Ice Cream": {
     "address": "4674 State Rd, Old Brooklyn",
@@ -3791,7 +5048,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Malley's Chocolates, Lakewood": {
     "address": "14822 Madison Ave, Lakewood",
@@ -3800,7 +5060,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Birdtown Brewing": {
     "address": "2035 Quail St, Lakewood",
@@ -3809,7 +5072,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Birdietown": {
     "address": "12501 Madison Ave, Lakewood",
@@ -3818,7 +5084,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "The Root Cafe": {
     "address": "15118 Detroit Ave, Lakewood",
@@ -3827,7 +5096,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision"
+    "note": "7dp precision",
+    "status": "open",
+    "statusSource": "",
+    "statusChecked": null
    },
    "Sokolowski's University Inn — CLOSED": {
     "address": "1201 University Rd, Tremont (closed 2023)",
@@ -3836,7 +5108,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "closed",
+    "statusSource": "name-flagged on page",
+    "statusChecked": "2026-08-10"
    },
    "Hot Sauce Williams — CLOSED": {
     "address": "3770 Lee Rd (closed)",
@@ -3845,7 +5120,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed"
+    "note": "lower-precision — verify if refreshed",
+    "status": "closed",
+    "statusSource": "name-flagged on page",
+    "statusChecked": "2026-08-10"
    }
   }
  }

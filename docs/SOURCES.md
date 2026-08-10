@@ -132,17 +132,19 @@ entry and bump its `updated` (and `_meta.updated`).
 ## The pipeline order (do not reorder)
 
 ```
-search → rank sources → FACT-CHECK the ranked winners → geocode → build → RE-VERIFY & fix pins → publish
+search → rank sources → FACT-CHECK (incl. OPEN/CLOSED) → geocode → build → RE-VERIFY pins + STATUS → publish
 ```
 
 Fact-checking happens **after** you've decided which sources to rank and **before** any page is
 created. A source is only marked `"verified": true` once a specific claim from it has been checked.
-The **geocode** and **re-verify & fix pins** stages are not optional finishing touches — every
-address and coordinate is fact-checked into `data/geocodes.json` before the build (the build's gate
-refuses any place without a sourced entry), and after the build the pins are audited for *placement*
-and the wrong ones corrected before anything goes live. Full procedure: [Address & coordinate
-verification](#address--coordinate-verification--a-hard-rule-datageocodesjson) and
-[The re-verify & fix pass](#the-re-verify--fix-pass--a-required-step-for-every-city-not-a-one-off-cleanup).
+The **geocode**, **re-verify & fix pins**, and **open/closed status** stages are not optional
+finishing touches — every address and coordinate is fact-checked into `data/geocodes.json` before the
+build (the build's gate refuses any place without a sourced entry); every place's **operating status**
+(open vs permanently closed) is verified and recorded there too; and after the build the pins are
+audited for *placement* and the status for *consistency* before anything goes live. Full procedure:
+[Address & coordinate verification](#address--coordinate-verification--a-hard-rule-datageocodesjson),
+[The re-verify & fix pass](#the-re-verify--fix-pass--a-required-step-for-every-city-not-a-one-off-cleanup),
+and [Open/closed status verification](#openclosed-status-verification--a-hard-rule).
 
 ## Using it for a new city
 
@@ -153,17 +155,21 @@ node research.js "Akron" "OH"          # 1. print the search plan (queries + can
 # 3. fact-check the ranked winners (place exists? open? address/hours?)
 # 4. record the winners in data/sources.json under cities["akron-oh"]
 node research.js --validate akron-oh    # 5. audit coverage before building the page
-# 6. fact-check every address + coordinate into data/geocodes.json (cities["akron-oh"])
-node research.js --geocheck akron-oh     # 7. gate: every place has a sourced address+lat/lng
-# 8. build the page, then RE-VERIFY pin placement (see the re-verify & fix pass) and fix any that
-#    are off — upgrade every `low`/misplaced pin to a `!3d!4d` place coordinate before publishing
+# 6. fact-check every address + coordinate + OPEN/CLOSED status into data/geocodes.json
+node research.js --geocheck akron-oh      # 7. gate: every place has a sourced address+lat/lng
+node research.js --statuscheck akron-oh   # 8. gate: every place's open/closed status is verified
+# 9. build the page, then RE-VERIFY pin placement + status consistency and fix any that are off —
+#    upgrade every `low`/misplaced pin to a `!3d!4d` place coordinate, flag every closed place,
+#    before publishing
 node research.js --list                 # (any time) list cities already researched
 ```
 
 `--validate` fails if the required source types are missing, if there's no primary (rank-1)
 source, or if nothing has been fact-checked yet — so a page can't be built on thin sourcing.
-`--geocheck` fails if any place on the page lacks a sourced address+coordinate in the registry — and
-publishing is not done until the re-verify pass has audited pin *placement*, not just coverage.
+`--geocheck` fails if any place on the page lacks a sourced address+coordinate in the registry;
+`--statuscheck` fails if any permanently-closed place isn't surfaced as closed (or a closed status
+lacks a source). Publishing is not done until both the re-verify pass (pin *placement*) and the
+closure-check pass (every `statusChecked` filled) have run — not just coverage.
 
 ## Source types (reusable across cities)
 
@@ -360,6 +366,54 @@ run re-verify agents **sequentially, one wave at a time** — parallel waves sta
 Feed each wave a small JSON list (`{city, n, addr}`), have it emit `{city, n, lat, lng, source, conf,
 note}`, then merge **highest-confidence-wins** into `data/geocodes.json` (an `UNVERIFIED` result must
 never overwrite an existing good value). Assert record counts on the merge, per the CLAUDE.md rule.
+
+## Open/closed status verification — a hard rule
+
+> **Every place's operating status MUST be verified against a real source and recorded — a
+> permanently-closed place is never presented as a live suggestion.** A pin that points to a shuttered
+> business is as wrong as a pin on the wrong street. This is part of the fact-check for every place,
+> every build, every refresh — not a one-off.
+
+**Closed places stay, flagged — they are not deleted** (the editorial rule). A closed place is kept
+for its story, but its **name carries a closed marker** so it never reads as "go here today":
+
+```
+n:"Sokolowski's University Inn — CLOSED"     ad:"1201 University Rd, Tremont (closed 2023)"
+n:"Superior Motors — CLOSED"                 ad:"1211 Braddock Ave, Braddock (permanently closed)"
+```
+
+**Record status in the same registry entry** (`data/geocodes.json`), alongside the coordinate:
+
+```json
+"Superior Motors — CLOSED": {
+  "address": "1211 Braddock Ave, Braddock, PA 15104",
+  "lat": 40.40300, "lng": -79.86900, "source": "Google Maps", "confidence": "high",
+  "status": "closed",
+  "statusSource": "Google Maps \"Permanently closed\"; closed 2020, never reopened",
+  "statusChecked": "2026-08-10" }
+```
+
+- `status`: `"open"` or `"closed"`.
+- `statusSource`: **how** you know — the place's own site/socials ("we've closed"), Google/Apple
+  "Permanently closed", a news obituary of the business, or the official municipal site for a city-run
+  venue (e.g. `pittsburghpa.gov` for a farmers market's active season). Never from memory.
+- `statusChecked`: the date you checked. A stale check is re-run on every refresh.
+
+**How to verify in this environment:** `WebSearch` the place name plus `permanently closed` /
+`closed` / `still open 2026`, and read Google's "Permanently closed" banner, the business's own
+"we've closed" post, or a local-news closing story. If sources conflict (a reopening, a relocation),
+record what's current and note the history — the same honesty rule as coordinates.
+
+**The gate — `node tools/research.js --statuscheck <city-key>`.** It enforces consistency in both
+directions and is required (alongside `--geocheck`) before publishing:
+
+- every place on the page has a `status` in the registry;
+- every registry `status:"closed"` is **surfaced on the page** (the name carries a closed marker) and
+  carries a `statusSource` — a closed place that still looks live is a **FAIL**;
+- every page name flagged closed maps to a `status:"closed"` entry — a stray flag is a **FAIL**;
+- it reports how many places have **no closure check yet** (`statusChecked` empty) so coverage can't
+  silently lapse. Run the closure-check pass (sequential `WebSearch` waves, same budget rule as the
+  geocode re-verify) until that count is zero before calling a city done.
 
 ### Worked fact-check examples (Youngstown, Aug 2026)
 

@@ -123,6 +123,56 @@ function geocheck(key) {
   if (!pass) process.exitCode = 1;
 }
 
+// --statuscheck: enforce that every place's OPEN/CLOSED status is verified, sourced, and
+// consistent between the registry and the page. A place that has permanently closed must be
+// surfaced as such (name flagged "— CLOSED"); a place flagged closed on the page must carry a
+// sourced 'closed' status in the registry. Mirrors --geocheck for operating status.
+const CLOSED_MARK = /(CLOSED|closed|no longer|defunct|permanently closed)/;
+function statuscheck(key) {
+  const line = '─'.repeat(72);
+  const page = PAGE_FOR[key];
+  if (!key || !page) {
+    console.log('\nUsage: node research.js --statuscheck <city-key>   (e.g. pittsburgh-pa)');
+    console.log('Known city pages: ' + Object.keys(PAGE_FOR).join(', ') + '\n');
+    return;
+  }
+  if (!fs.existsSync(page)) { console.log('No page built at ' + page); return; }
+  const geo = (loadGeocodes().cities || {})[key] || {};
+  const names = pagePlaceNames(page);
+  console.log(`\nOPEN/CLOSED AUDIT — ${key}`);
+  console.log(line);
+  const missing = [], unverified = [], closedFlagged = [], closedNotFlagged = [], flaggedNotClosed = [], open = [];
+  for (const n of names) {
+    const e = geo[n];
+    const nameSaysClosed = CLOSED_MARK.test(n);
+    if (!e || !e.status) { missing.push(n); continue; }
+    const isClosed = e.status === 'closed';
+    // consistency: closed status <-> name flag must agree
+    if (isClosed && !nameSaysClosed) closedNotFlagged.push(n);
+    if (!isClosed && nameSaysClosed) flaggedNotClosed.push(n);
+    if (isClosed) { closedFlagged.push(n); continue; }
+    if (!e.statusChecked || !e.statusSource) { unverified.push(n); continue; }
+    open.push(n);
+  }
+  console.log(`places on page: ${names.length}`);
+  console.log(`  open (status verified + source + date):  ${open.length}`);
+  console.log(`  closed (flagged + sourced):              ${closedFlagged.length}`);
+  closedFlagged.forEach(n => console.log('     ⊘ ' + n));
+  console.log(`  status UNVERIFIED (no source/date yet):  ${unverified.length}`);
+  if (missing.length) { console.log(`  MISSING status in registry:              ${missing.length}`); missing.forEach(n => console.log('     ✗ ' + n)); }
+  if (closedNotFlagged.length) { console.log(`  ✗ CLOSED but NOT surfaced on the page (name lacks a closed marker):`); closedNotFlagged.forEach(n => console.log('     ! ' + n)); }
+  if (flaggedNotClosed.length) { console.log(`  ✗ name says closed but registry status is not 'closed':`); flaggedNotClosed.forEach(n => console.log('     ! ' + n)); }
+  const consistent = missing.length === 0 && closedNotFlagged.length === 0 && flaggedNotClosed.length === 0;
+  console.log('\n' + line);
+  console.log(consistent
+    ? '>>> CONSISTENT — every closed place is surfaced and sourced; no open/closed mismatches.'
+    : '>>> FAIL — resolve the mismatches above (a permanently-closed place must be flagged on the page,');
+  if (!consistent) console.log("    and every registry 'closed' must carry a statusSource). See docs/SOURCES.md.");
+  else if (unverified.length) console.log(`    NOTE: ${unverified.length} place(s) have no closure check yet — run the closure-check pass before publishing (docs/SOURCES.md).`);
+  console.log('');
+  if (!consistent) process.exitCode = 1;
+}
+
 // Print a city's recorded local news outlets & TV channels (data/local-media.json).
 function media(key) {
   const m = loadMedia();
@@ -452,6 +502,7 @@ else if (argv[0] === '--refresh') refresh(argv[1]);
 else if (argv[0] === '--media') media(argv[1]);
 else if (argv[0] === '--seed') seed(argv[1], argv[2]);
 else if (argv[0] === '--geocheck') geocheck(argv[1]);
+else if (argv[0] === '--statuscheck') statuscheck(argv[1]);
 else if (argv[0] === '--list') list();
 else if (argv[0] && argv[0] !== '--help' && argv[0] !== '-h') plan(argv[0], argv[1]);
 else {
@@ -465,6 +516,7 @@ else {
   console.log('  Shared');
   console.log('    node research.js --validate <city-key>    audit a city\'s sources before publishing');
   console.log('    node research.js --geocheck <city-key>    audit that every place has a verified geocode');
+  console.log('    node research.js --statuscheck <city-key> audit that every place\'s open/closed status is verified');
   console.log('    node research.js --media <city-key>       list a city\'s local news outlets & TV channels');
   console.log('    node research.js --list                   list cities + when each was last updated');
 }

@@ -70,6 +70,19 @@ and let the gate drop it. `WebSearch` is the only geocoding channel here and its
 run re-verify agents sequentially, one wave at a time. Full procedure — including how to read a Google
 Maps URL — in [docs/SOURCES.md](docs/SOURCES.md#the-re-verify--fix-pass--a-required-step-for-every-city-not-a-one-off-cleanup).
 
+**4c. Every place's OPEN/CLOSED status MUST be verified against a real source — a permanently-closed
+place is never presented as a live suggestion.** A pin on a shuttered business is as wrong as a pin on
+the wrong street. Record `{status, statusSource, statusChecked}` in `data/geocodes.json` next to the
+coordinate; verify via the place's own site/socials, Google/Apple "Permanently closed", a news
+closing story, or the official municipal site — never from memory. **Closed places stay, flagged**
+(don't delete them): the name carries a closed marker (`— CLOSED`) so it never reads as "go here
+today". `node tools/research.js --statuscheck <city-key>` is a required gate alongside `--geocheck`:
+it FAILs if any closed place isn't surfaced as closed (or a `closed` status lacks a source), and
+reports how many places still have no closure check so coverage can't lapse. Run the closure-check
+pass (sequential `WebSearch` waves) until that count is zero before publishing — for every city, and
+on every refresh/extension. Full procedure in
+[docs/SOURCES.md](docs/SOURCES.md#openclosed-status-verification--a-hard-rule).
+
 **5. Wrap every `localStorage` call in try/catch.** The guide is expected to run in sandboxes
 where storage throws. It degrades to in-memory; keep it that way.
 

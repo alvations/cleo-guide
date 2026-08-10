@@ -1,223 +1,1357 @@
 {
-  "_meta": {
-    "purpose": "Central registry of vetted sources for the field guide, reusable across cities.",
-    "howToUse": "Run `node tools/research.js \"<City>\" \"<ST>\"` to get the search plan for a new city, run those searches, rank what you find, fact-check, then record the winners here before building a page. See docs/SOURCES.md.",
-    "rankScale": "1 = primary (transcribe fully); 2 = strong corroboration; 3 = supplemental / leads only.",
-    "verified": "true only if a claim from the source was checked via web search during this build."
+ "_meta": {
+  "purpose": "Central registry of vetted sources for the field guide, reusable across cities.",
+  "howToUse": "Run `node tools/research.js \"<City>\" \"<ST>\"` to get the search plan for a new city, run those searches, rank what you find, fact-check, then record the winners here before building a page. See docs/SOURCES.md.",
+  "rankScale": "1 = primary (transcribe fully); 2 = strong corroboration; 3 = supplemental / leads only.",
+  "verified": "true only if a claim from the source was checked via web search during this build."
+ },
+ "sourceTypes": [
+  {
+   "id": "tv_numbered_list",
+   "label": "Local TV station numbered list",
+   "why": "Reported, photographed, numbered — ideal to transcribe and verify against.",
+   "find": "search '100 hidden gems of {city}', '{n} best {city} ...'; identify the metro's ABC/CBS/NBC/FOX affiliates first."
   },
-
-  "sourceTypes": [
-    { "id": "tv_numbered_list", "label": "Local TV station numbered list", "why": "Reported, photographed, numbered — ideal to transcribe and verify against.", "find": "search '100 hidden gems of {city}', '{n} best {city} ...'; identify the metro's ABC/CBS/NBC/FOX affiliates first." },
-    { "id": "atlas_obscura", "label": "Atlas Obscura city/state index", "why": "The oddities backbone. Read the index, not individual searches.", "urlPattern": "https://www.atlasobscura.com/things-to-do/{state-slug}" },
-    { "id": "roadside_america", "label": "Roadside America state index", "why": "Second oddity net; catches what Atlas Obscura misses.", "urlPattern": "https://www.roadsideamerica.com/location/{st}/all" },
-    { "id": "alt_weekly", "label": "Alt-weekly", "why": "Best food and nightlife coverage in most metros.", "find": "search '{city} alt weekly' (e.g. Scene, Reader, Weekly)." },
-    { "id": "city_magazine", "label": "City / regional magazine", "why": "Strong on neighbourhood dining and features.", "find": "search '{City} Magazine best of'." },
-    { "id": "regional_business_news", "label": "Regional business / daily news", "why": "Openings, closings, what's actually current.", "find": "search '{city} business journal' / the metro daily." },
-    { "id": "nonprofit_local_news", "label": "Nonprofit local newsroom", "why": "Civic, specific, often the best replacement for a shuttered daily.", "find": "search '{city} nonprofit news' (e.g. Matters, Signal, Documenters)." },
-    { "id": "historical_society", "label": "Historical society / public history project", "why": "Authoritative on museums, monuments, buildings.", "find": "search '{city} historical society' and university public-history projects." },
-    { "id": "metroparks", "label": "Metro / regional parks authority", "why": "Authoritative on parks, trails, natural landmarks.", "find": "search '{city} metroparks'." },
-    { "id": "state_tourism", "label": "Official state tourism", "why": "Baseline vetted attractions with hours.", "urlPattern": "https://{state}.org  (e.g. ohio.org)" },
-    { "id": "local_cvb", "label": "Local CVB / visitors bureau", "why": "The city's own curated list, usually current.", "find": "search '{city} CVB' or 'visit {city}' or 'explore {county}'." },
-    { "id": "famous_creator", "label": "Famous travel YouTuber / blogger coverage", "why": "Popular, watchable corroboration; signals what draws outsiders. Rank by whether they actually covered THIS city vs. the region.", "find": "search 'famous travel YouTuber visited {city} {state}', '{creator} {city}', '{city} walking tour youtube'." },
-    { "id": "local_creator", "label": "Local creator / walking-tour channel", "why": "Ground-level, current footage of specific streets and sites.", "find": "search '{city} walking tour youtube', '{city} things to do youtube channel'." },
-    { "id": "travel_blog", "label": "Independent travel blog round-up", "why": "Cross-checks the mainstream list; use to corroborate, not as the spine.", "find": "search 'best things to do in {city} {state} travel blog {year}'." },
-    { "id": "aggregator_review", "label": "Crowd-ranked aggregator (Tripadvisor, U.S. News, PlanetWare)", "why": "Continuously re-ranked by review volume; the default first stop for visitors and a reusable anchor citation for marquee institutions plus a harvest list for the long tail.", "find": "search '\"{city}\" top attractions tripadvisor things to do', 'best things to do in {city} US News Travel', 'PlanetWare top-rated tourist attractions in {city}'. One stable per-city URL each." },
-    { "id": "national_guidebook", "label": "National guidebook (Fodor's, Frommer's, Lonely Planet, National Geographic)", "why": "Editor-written attraction rundowns; strong for tier justification and for confirming a place belongs on a first-time itinerary.", "find": "search 'Fodor's {city} things to do', 'Frommer's {city} top attractions', 'Lonely Planet {city} best things to do', 'National Geographic guide {city}'." },
-    { "id": "encyclopedic", "label": "Encyclopedic authority (Britannica, Wikipedia)", "why": "Highest-authority statement that an institution is central to the city; Wikipedia's 'List of museums in {city}' is the best single harvesting index for the museum long tail.", "find": "search 'Britannica {city} {state} cultural life', 'Wikipedia List of museums in {city}', 'Wikipedia Tourism in {city}'." },
-    { "id": "university_page", "label": "University visitor / student-life page (.edu)", "why": "Official admissions and student-life pages recommend a reusable cluster of named city attractions (and the campus itself often holds visitable sights); highest-yield source family for a college town.", "find": "search '{university} things to do in {city} students explore the city', 'site:.edu things to do in {city} student guide off campus'. Also mine student newspapers and university blogs for numbered must-visit lists." },
-    { "id": "official_attraction", "label": "Official institution / parent-org site", "why": "The primary source for a marquee place — authoritative address, hours and claims. Cite the big institutions here, not to a generic list.", "find": "search '{parent museum org} official site {city}', '{institution} official site .org {city}'. One org often runs several museums." },
-    { "id": "heritage_org", "label": "Regional heritage / conservation body", "why": "The definitive authority and often the only tour operator for industrial-heritage sites, nature reserves and historic houses (e.g. Rivers of Steel, Audubon, a landmarks foundation).", "find": "search '{city} industrial heritage tours', '{region} land trust / Audubon reserve', '{city} history & landmarks foundation'." },
-    { "id": "county_tourism", "label": "County / suburban tourism promotion agency", "why": "Covers the visit-worthy places outside the core city — the suburbs and day-trip counties a city-only search misses.", "find": "search 'visit {county} county {state}', '{county} tourism hidden gems', plus the suburban weekly papers (e.g. an 'Almanac' or 'Observer-Reporter')." },
-    { "id": "local_newspaper", "label": "Local / community newspaper (daily or weekly)", "why": "Original reporting on a specific place — openings, history features, hours — and the paper of record for towns a metro daily skips.", "find": "search '{place} {town} {paper}' or '{town} newspaper'; use the county daily and the suburban weekly. A story on one seed place usually links others." }
-  ],
-
-  "nationalCreators": [
-    { "name": "Peter Santenello", "platform": "YouTube", "handle": "@PeterSantenello", "url": "https://www.youtube.com/@PeterSantenello", "scale": "4.2M", "niche": "Americana / rust belt / human-story travel", "usCities": true, "note": "Great for mid-size US cities and overlooked places. Check per-city; often covers a region, not one city." },
-    { "name": "Wolters World", "platform": "YouTube", "handle": "@woltersworld", "url": "https://www.youtube.com/@woltersworld", "scale": "1M+", "niche": "Practical city guides + what to eat / what to avoid", "usCities": true },
-    { "name": "Kara and Nate", "platform": "YouTube", "handle": "@karaandnate", "url": "https://www.youtube.com/@karaandnate", "scale": "4M+", "niche": "High-energy travel vlogs; US road-trip series", "usCities": true },
-    { "name": "Dave Portnoy — One Bite Pizza Reviews", "platform": "YouTube/Barstool", "handle": "@OneBitePizzaReviews", "url": "https://onebite.app", "scale": "national", "niche": "Pizza reviews, city by city (has hit Cleveland, Youngstown, Columbus)", "usCities": true },
-    { "name": "Itchy Boots (Noraly Schoenmaker)", "platform": "YouTube", "handle": "@itchyboots", "url": "https://www.youtube.com/@itchyboots", "scale": "3.2M", "niche": "Solo motorcycle travel", "usCities": true },
-    { "name": "Lost LeBlanc (Christian LeBlanc)", "platform": "YouTube", "handle": "@LostLeBlanc", "url": "https://www.youtube.com/@LostLeBlanc", "scale": "2M+", "niche": "Backpacking / cinematic travel", "usCities": false },
-    { "name": "Louis Cole (FunForLouis)", "platform": "YouTube", "handle": "@FunForLouis", "url": "https://www.youtube.com/@FunForLouis", "scale": "1.9M", "niche": "Daily live-the-adventure vlogs", "usCities": false },
-    { "name": "Simon and Martina", "platform": "YouTube/TikTok", "handle": "@simonandmartina", "url": "https://www.youtube.com/@simonandmartina", "scale": "1M+", "niche": "Food + culture deep dives", "usCities": false },
-    { "name": "TikTok travel/food creators", "platform": "TikTok", "handle": "hashtags: #<city>food #<city>eats #thingstodoin<city>", "url": "https://www.tiktok.com/", "scale": "varies", "niche": "Short-form local food/attraction discovery — search the city hashtags", "usCities": true, "note": "Not a single channel; a search surface. Use to find current, local short-form coverage per city." }
-  ],
-
-  "cities": {
-    "cleveland-oh": {
-      "name": "Cleveland, Ohio",
-      "lastUpdated": "2026-08-08",
-      "refreshLog": [
-        { "date": "2026-08-08", "mode": "refresh", "findings": [
-          "Sokolowski's University Inn — confirmed permanently closed (Oct 2020; never reopened; property sold 2023). Kept, flagged.",
-          "West Side Market — open; $70M renovation underway, East Produce Arcade reopened Jan 2026; hours refreshed.",
-          "New since build (candidates to add): Rock & Roll Hall of Fame expansion (early 2026); Cleveland Metroparks Zoo Primate Forest (summer 2026); Irishtown Bend Park (spring 2026)."
-        ] }
-      ],
-      "researchedOn": "2026-08",
-      "researchedVia": "Existing repo sources (guide) + WebSearch for creators",
-      "sources": [
-        { "key": "N5", "name": "News 5 Cleveland (WEWS) — 100 Hidden Gems", "type": "tv_numbered_list", "url": "https://www.news5cleveland.com", "rank": 1, "verified": false, "note": "The guide's spine — all 100 transcribed in cleveland.html." },
-        { "key": "TSG", "name": "There She Goes… Cleveland", "type": "travel_blog", "url": "https://theresshegoesagain.org", "rank": 1, "verified": false, "note": "All 23 entries transcribed." },
-        { "key": "AO", "name": "Atlas Obscura — Cleveland", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/things-to-do/cleveland-ohio", "rank": 1, "verified": false },
-        { "key": "SCENE", "name": "Cleveland Scene (alt-weekly)", "type": "alt_weekly", "url": "https://www.clevescene.com", "rank": 2, "verified": false },
-        { "key": "FRESH", "name": "Freshwater Cleveland", "type": "nonprofit_local_news", "url": "https://www.freshwatercleveland.com", "rank": 2, "verified": false },
-        { "key": "CH", "name": "Cleveland Historical (CSU)", "type": "historical_society", "url": "https://clevelandhistorical.org", "rank": 1, "verified": false },
-        { "key": "METRO", "name": "Cleveland Metroparks", "type": "metroparks", "url": "https://www.clevelandmetroparks.com", "rank": 1, "verified": false },
-        { "key": "OHIO", "name": "Ohio tourism — Find It Here", "type": "state_tourism", "url": "https://ohio.org", "rank": 2, "verified": false }
-      ],
-      "creators": [
-        { "key": "POLK", "name": "Mike Polk Jr — 'Hastily Made Cleveland Tourism Video'", "type": "famous_creator", "youtube": "https://www.youtube.com/results?search_query=Hastily+Made+Cleveland+Tourism+Video", "work": "Viral comedy tourism video (2009, 10M+ views) + an updated version", "scope": "city", "verified": true, "note": "Famous, city-specific, comedic — the definitive outsider-eye Cleveland video." },
-        { "key": "PORTNOY", "name": "Dave Portnoy — One Bite Pizza Reviews", "type": "famous_creator", "youtube": "https://onebite.app/restaurant/crust-cleveland-ohio-d23e293c", "work": "Reviewed Cleveland pizza incl. Crust; 15 Ohio spots reviewed", "scope": "city", "verified": true, "note": "Food/pizza; national reach. 'Cleveland makes it very difficult for Dave to get his pizza.'" }
-      ]
-    },
-    "pittsburgh-pa": {
-      "name": "Pittsburgh, Pennsylvania",
-      "lastUpdated": "2026-08-09",
-      "refreshLog": [
-        { "date": "2026-08-09", "mode": "build", "findings": ["Full web-researched, fact-checked build on the Cleveland interactive engine — 27 sights + 17 food/markets/farms, incl. Markets (the Strip District, Neighborhood Flea) and Farms (Soergel, Trax, Simmons)."] },
-        { "date": "2026-08-09", "mode": "refresh", "findings": ["Substantial expansion (27→40 sights, 17→30 food) — the coverage was too thin for a city this size. Added Heinz History Center, Children's Museum, PNC Park + the Roberto Clemente Bridge / Three Sisters, the Fred Rogers statue, the Pittsburgh Zoo, Carnegie Library Main, Soldiers & Sailors Memorial, Allegheny Cemetery, Frick Park, East Carson St, Kentuck Knob, Idlewild & SoakZone, Meadowcroft Rockshelter. Food/markets/farms added: the Original Hot Dog Shop, Morcilla, Superior Motors, S&D Polish Deli, De Luca's, La Prima, Page Dairy Mart, Millie's, Enrico Biscotti, Wigle Whiskey, East End Brewing, Dancing Gnome — and Triple B Farms (u-pick, per user request)."] },
-        { "date": "2026-08-09", "mode": "refresh", "findings": [
-          "Major expansion to Cleveland-parity (40→111 sights, 30→68 food; 179 places total) with two new regions — 'South Hills & the Southwest' and 'Eastern Suburbs & River Valleys' — and a full within-region re-rank.",
-          "Broadened the SOURCE LIST per user request: added crowd-ranked aggregators (Tripadvisor, U.S. News, PlanetWare), national guidebooks (Fodor's, Frommer's, Lonely Planet, National Geographic), encyclopedic authorities (Britannica, Wikipedia museums list), university visitor guides (Pitt, CMU, Duquesne, Chatham + student papers), the official institution sites (Carnegie Museums org, cmoa.org, carnegiemnh.org, pittsburghzoo.org, aviary.org), regional heritage bodies (Rivers of Steel, Audubon W. PA, PHLF, Battle of Homestead) and suburban/county outlets (Visit Washington County, Observer-Reporter, The Almanac, TribLive, PA Bucket List). Method codified in docs/SOURCES.md and tools/research.js.",
-          "RE-CITED the marquee institutions the user flagged as under-sourced: Carnegie Museum of Natural History → carnegiemnh.org + PlanetWare + Tripadvisor + Britannica; Carnegie Museum of Art → cmoa.org + U.S. News + PlanetWare; Pittsburgh Zoo → pittsburghzoo.org + U.S. News (#5) + PlanetWare; National Aviary → aviary.org + National Geographic ('hugely underrated') + PlanetWare + U.S. News.",
-          "New sights incl. Carrie Blast Furnaces, the Pump House / Battle of Homestead, Braddock Carnegie Library (the first in the US), the Pennsylvania Trolley Museum, the Andrew Carnegie Free Library & Espy Civil War Room (Carnegie), Dormont Pool, the Hollywood Theater, LeMoyne/Bradford/Woodville Whiskey-Rebellion houses, Monroeville Mall / Living Dead Museum, Heinz Memorial Chapel, Schenley Park & Plaza, the CMU campus set (Walking to the Sky, Randy Pausch Bridge, the Fence, Kraus Campo), Maxo Vanka Murals, the Clemente Museum, the West End Overlook and more. New food incl. Oakmont Bakery, Penn Mac, Wholey's, Reyna, Tessaro's, the Original Oyster House, Everyday Noodles, Chengdu Gourmet, Salem's, Sarris Candies, Mancini's, plus farms (Bedner's, Schramm, Kerber's, Janoski's, Shenot, Hozak)."
-        ] },
-        { "date": "2026-08-09", "mode": "geocode", "findings": [
-          "Address + coordinate verification pass (now a hard rule, CLAUDE.md 4a): every one of the 179 places re-verified against a primary source and recorded in data/geocodes.json with source + date. 98 pins were meaningfully misplaced (>150m) and corrected — Janoski's 11.7km, Idlewild 7.9km, Triple B 5.8km, Monroeville Mall 2.8km; the Strip District had a systematic ~0.6mi longitude shift. Verified via Wikipedia coordinates, official sites, Google/Apple/OSM listings. geocheck PASS; 0 out-of-bounds, 0 stacked.",
-          "Closures caught and flagged (kept): Original Hot Dog Shop (Apr 2020) and Superior Motors, Braddock (2020). Address fixes incl. Duncan & Miller Glass Museum (525 Jefferson Ave, not 100 Ridge), Papa J's (2016 Smallman), Monroeville Mall (Mall Circle Dr), Sandcastle (1000 Sandcastle Dr)."
-        ] }
-      ],
-      "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania",
-      "researchedOn": "2026-08",
-      "researchedVia": "WebSearch (direct page fetch blocked by the environment egress policy)",
-      "sources": [
-        { "key": "AO", "name": "Atlas Obscura — Pittsburgh (70 entries)", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania", "rank": 1, "verified": true, "covers": ["Mattress Factory", "Randyland", "St. Anthony's Chapel relics", "Bicycle Heaven", "Center for PostNatural History", "Duquesne & Monongahela inclines"] },
-        { "key": "HEINZ", "name": "Senator John Heinz History Center (Smithsonian affiliate)", "type": "historical_society", "url": "https://www.heinzhistorycenter.org", "rank": 1, "verified": false, "note": "Regional history authority in the Strip District." },
-        { "key": "VISITPA", "name": "Visit PA (Pennsylvania tourism)", "type": "state_tourism", "url": "https://www.visitpa.com", "rank": 2, "verified": false },
-        { "key": "VP", "name": "Visit Pittsburgh (CVB)", "type": "local_cvb", "url": "https://www.visitpittsburgh.com", "rank": 1, "verified": true },
-        { "key": "NP", "name": "NextPittsburgh", "type": "nonprofit_local_news", "url": "https://nextpittsburgh.com", "rank": 2, "verified": true },
-        { "key": "PGHMAG", "name": "Pittsburgh Magazine", "type": "city_magazine", "url": "https://www.pittsburghmagazine.com", "rank": 2, "verified": false },
-        { "key": "GFP", "name": "Good Food Pittsburgh", "type": "travel_blog", "url": "https://goodfoodpittsburgh.com", "rank": 2, "verified": true, "covers": ["Primanti's", "Apteka", "Prantl's burnt almond torte", "pierogi"] },
-        { "key": "TT", "name": "Tasting Table — Pittsburgh (a local's guide)", "type": "travel_blog", "url": "https://www.tastingtable.com/1559106/best-restaurants-pittsburgh/", "rank": 2, "verified": true },
-        { "key": "UPA", "name": "Uncovering PA", "type": "travel_blog", "url": "https://uncoveringpa.com", "rank": 2, "verified": false },
-        { "key": "KB", "name": "Kidsburgh (farm/family outings)", "type": "travel_blog", "url": "https://www.kidsburgh.org", "rank": 2, "verified": true, "covers": ["Soergel Orchards", "Trax Farms", "Simmons Farm"] },
-        { "key": "AXIOS", "name": "Axios Pittsburgh", "type": "nonprofit_local_news", "url": "https://www.axios.com/local/pittsburgh", "rank": 2, "verified": true },
-        { "key": "TV", "name": "KDKA 2 · WTAE 4 · WPXI 11", "type": "tv_numbered_list", "url": "https://www.cbsnews.com/pittsburgh/", "rank": 2, "verified": false, "note": "Full outlet list in data/local-media.json." },
-
-        { "key": "TA", "name": "Tripadvisor — THE 15 BEST Things to Do in Pittsburgh", "type": "aggregator_review", "url": "https://www.tripadvisor.com/Attractions-g53449-Activities-Pittsburgh_Pennsylvania.html", "rank": 1, "verified": true, "covers": ["Carnegie Museum of Natural History", "Carnegie Museum of Art", "Pittsburgh Zoo", "National Aviary", "Strip District"] },
-        { "key": "USN", "name": "U.S. News Travel — 15 Best Things to Do in Pittsburgh", "type": "aggregator_review", "url": "https://travel.usnews.com/Pittsburgh_PA/Things_To_Do/", "rank": 1, "verified": true, "covers": ["Pittsburgh Zoo (ranked #5)", "Strip District (#2)", "Carnegie Museum of Art", "National Aviary", "Three Rivers Heritage Trail"] },
-        { "key": "PW", "name": "PlanetWare — Top-Rated Tourist Attractions in Pittsburgh", "type": "aggregator_review", "url": "https://www.planetware.com/tourist-attractions-/pittsburgh-us-pa-pt.htm", "rank": 1, "verified": true, "covers": ["Carnegie Museum of Natural History", "Carnegie Museum of Art", "Pittsburgh Zoo", "National Aviary", "Phipps"] },
-        { "key": "LP", "name": "Lonely Planet — 11 of the best things to do in Pittsburgh", "type": "national_guidebook", "url": "https://www.lonelyplanet.com/articles/top-things-to-do-in-pittsburgh", "rank": 2, "verified": true, "covers": ["Carrie Blast Furnaces", "Carnegie museums", "Fallingwater"] },
-        { "key": "FOD", "name": "Fodor's — Pittsburgh Travel Guide", "type": "national_guidebook", "url": "https://www.fodors.com/world/north-america/usa/pennsylvania/pittsburgh", "rank": 2, "verified": false },
-        { "key": "FRO", "name": "Frommer's — Things to See in Pittsburgh", "type": "national_guidebook", "url": "https://www.frommers.com/destinations/pittsburgh/attractions", "rank": 2, "verified": false },
-        { "key": "NATGEO", "name": "National Geographic — A guide to Pittsburgh", "type": "national_guidebook", "url": "https://www.nationalgeographic.com/travel/article/guide-pittsburgh-americas-characterful-cultural-powerhouse", "rank": 2, "verified": true, "covers": ["National Aviary ('hugely underrated')", "Carnegie museums"] },
-        { "key": "BRIT", "name": "Encyclopaedia Britannica — Pittsburgh (Cultural life)", "type": "encyclopedic", "url": "https://www.britannica.com/place/Pittsburgh", "rank": 2, "verified": true, "covers": ["Carnegie museums", "Pittsburgh Zoo & PPG Aquarium", "Phipps", "Cultural District"] },
-        { "key": "WIKI", "name": "Wikipedia — List of museums in Pittsburgh", "type": "encyclopedic", "url": "https://en.wikipedia.org/wiki/List_of_museums_in_Pittsburgh", "rank": 3, "verified": false, "note": "Best single harvesting index for the museum long tail." },
-        { "key": "DTB", "name": "Discover the Burgh (local expert blog)", "type": "travel_blog", "url": "https://www.discovertheburgh.com/things-to-do-in-pittsburgh/", "rank": 2, "verified": true, "note": "The most-cited local Pittsburgh travel blog; strong for the suburban long tail and addresses." },
-        { "key": "CT", "name": "Culture Trip — Best Things To Do In Pittsburgh", "type": "travel_blog", "url": "https://theculturetrip.com/north-america/usa/pittsburgh", "rank": 3, "verified": false },
-
-        { "key": "CMP", "name": "Carnegie Museums of Pittsburgh (parent org, official)", "type": "official_attraction", "url": "https://carnegiemuseums.org/", "rank": 1, "verified": true, "covers": ["Carnegie Museum of Natural History", "Carnegie Museum of Art", "Carnegie Science Center", "The Warhol"] },
-        { "key": "CMOA", "name": "Carnegie Museum of Art (official)", "type": "official_attraction", "url": "https://cmoa.org/", "rank": 1, "verified": true, "covers": ["4400 Forbes Ave", "Carnegie International", "Teenie Harris archive"] },
-        { "key": "CMNH", "name": "Carnegie Museum of Natural History (official)", "type": "official_attraction", "url": "https://carnegiemnh.org/", "rank": 1, "verified": true, "covers": ["Dippy", "T. rex holotype", "Dinosaurs in Their Time"] },
-        { "key": "ZOO", "name": "Pittsburgh Zoo & Aquarium (official)", "type": "official_attraction", "url": "https://www.pittsburghzoo.org/", "rank": 1, "verified": true, "covers": ["77 acres, Highland Park", "7370 Baker St", "~4,000 animals"] },
-        { "key": "AVI", "name": "National Aviary (official)", "type": "official_attraction", "url": "https://www.aviary.org/", "rank": 1, "verified": true, "covers": ["congressionally designated National Aviary", "700 Arch St", "500+ birds"] },
-
-        { "key": "PITT", "name": "University of Pittsburgh — Guide to Oakland & Pittsburgh / Things to Do", "type": "university_page", "url": "https://www.provost.pitt.edu/acc-aln-conference/guide", "rank": 2, "verified": true, "covers": ["Carnegie Museums", "Heinz Memorial Chapel", "Soldiers & Sailors", "Allegheny Observatory", "Maxo Vanka Murals", "Nationality Rooms"] },
-        { "key": "CMU", "name": "Carnegie Mellon — Discover Pittsburgh / SLICE Traditions", "type": "university_page", "url": "https://www.cmu.edu/admission/campus-experience/discover-pittsburgh", "rank": 2, "verified": true, "covers": ["Warhol", "August Wilson Center", "National Aviary", "Phipps", "Walking to the Sky", "Randy Pausch Bridge", "the Fence"] },
-        { "key": "DUQ", "name": "Duquesne University — Our Pittsburgh Community", "type": "university_page", "url": "https://www.duq.edu/life-at-duquesne/our-campus/our-pittsburgh-community.php", "rank": 3, "verified": false, "covers": ["Duquesne Incline", "Market Square"] },
-        { "key": "CHAT", "name": "Chatham University — Free Activities in Pittsburgh", "type": "university_page", "url": "https://www.pulse.chatham.edu", "rank": 3, "verified": false, "covers": ["Point State Park", "Three Rivers Heritage Trail", "Carnegie Library"] },
-
-        { "key": "ROS", "name": "Rivers of Steel (Mon Valley industrial heritage)", "type": "heritage_org", "url": "https://riversofsteel.com/", "rank": 1, "verified": true, "covers": ["Carrie Blast Furnaces", "Pump House / Battle of Homestead", "Bost Building", "Homestead Music Hall"] },
-        { "key": "BOH", "name": "Battle of Homestead Foundation", "type": "heritage_org", "url": "https://battleofhomestead.org/", "rank": 2, "verified": false, "covers": ["Pump House"] },
-        { "key": "PHLF", "name": "Pittsburgh History & Landmarks Foundation", "type": "heritage_org", "url": "https://phlf.org/", "rank": 2, "verified": true, "covers": ["Woodville Plantation (Neville House)"] },
-        { "key": "AUD", "name": "Audubon Society of Western PA", "type": "heritage_org", "url": "https://www.aswp.org/", "rank": 2, "verified": true, "covers": ["Beechwood Farms Nature Reserve"] },
-        { "key": "ACP", "name": "Allegheny County Parks", "type": "metroparks", "url": "https://www.alleghenycounty.us/Parks-and-Events/Parks/", "rank": 2, "verified": true, "covers": ["Boyce Park", "Round Hill Park"] },
-
-        { "key": "VWC", "name": "Visit Washington County PA (county tourism)", "type": "county_tourism", "url": "https://www.visitwashingtoncountypa.com/", "rank": 1, "verified": true, "covers": ["Pennsylvania Trolley Museum", "LeMoyne House", "David Bradford House", "Sarris Candies", "Whiskey Rebellion sites"] },
-        { "key": "OBSREP", "name": "Observer-Reporter (Washington, PA daily)", "type": "local_newspaper", "url": "https://www.observer-reporter.com/", "rank": 2, "verified": true, "covers": ["Washington County history & attractions"] },
-        { "key": "ALM", "name": "The Almanac (South Hills weekly)", "type": "local_newspaper", "url": "https://www.thealmanac.net/", "rank": 2, "verified": true, "covers": ["Mt. Lebanon", "Dormont"] },
-        { "key": "TRIB", "name": "TribLive (Pittsburgh Tribune-Review)", "type": "regional_business_news", "url": "https://triblive.com/", "rank": 2, "verified": true, "covers": ["eastern suburbs", "Carnegie", "Alle-Kiski Valley"] },
-        { "key": "PABL", "name": "PA Bucket List (Pennsylvania travel blog)", "type": "travel_blog", "url": "https://pabucketlist.com/", "rank": 3, "verified": false, "covers": ["Washington County attractions"] },
-        { "key": "CP", "name": "Pittsburgh City Paper — Best Of Readers' Poll", "type": "alt_weekly", "url": "https://www.pghcitypaper.com/best-of/", "rank": 2, "verified": true, "covers": ["Fiori's (Best Pizza)", "Chengdu Gourmet", "Salem's"] },
-        { "key": "PGPG", "name": "Pittsburgh Post-Gazette (dining desk)", "type": "regional_business_news", "url": "https://newsinteractive.post-gazette.com/pittsburgh-best-restaurants-2025/", "rank": 2, "verified": true },
-        { "key": "SAV", "name": "Saveur — Pittsburgh's next great Chinatown", "type": "travel_blog", "url": "https://www.saveur.com/how-pittsburgh-is-growing-americas-next-chinatown-chinese-restaurants", "rank": 3, "verified": true, "covers": ["Everyday Noodles", "Chengdu Gourmet", "How Lee"] }
-      ],
-      "creators": [
-        { "key": "BGIP", "name": "British Guy in Pittsburgh — travel vlog", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=wz2RkYoT-Ts", "work": "Mt Washington, Randyland and the museums (city tour)", "scope": "city", "verified": true },
-        { "key": "4KPGH", "name": "Pittsburgh 4K Travel Tour", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=oWUAV-3_29s", "work": "4K city tour (2025)", "scope": "city", "verified": true },
-        { "key": "SANT", "name": "Peter Santenello", "type": "famous_creator", "youtube": "https://www.youtube.com/@PeterSantenello", "subscribers": "4.2M", "scope": "reference", "verified": false, "note": "National Americana channel — confirm a Pittsburgh-specific video before citing one." }
-      ]
-    },
-    "youngstown-oh": {
-      "name": "Youngstown, Ohio",
-      "lastUpdated": "2026-08-09",
-      "refreshLog": [
-        { "date": "2026-08-08", "mode": "build", "findings": ["Initial web-researched, fact-checked build (Google-Maps rendering)."] },
-        { "date": "2026-08-09", "mode": "expand", "findings": [
-          "Rebuilt on the Cleveland interactive engine (map, filters, trip builder, exports); Google-Maps version kept as youngstown-beta.html.",
-          "Expanded to 29 sights + 15 food/drink via web search: added Clarence R. Smith Mineral Museum, Jones Children's science center, Mill Creek Lily Pond / Lake Newport / Rose Garden / golf, downtown murals, and Warren's Dave Grohl Alley.",
-          "Added food & drink: Yosteria, Kravitz Delicatessen, The Federal, The Mocha House, Casa Di Canzonetta, and breweries Penguin City, Modern Methods (Warren), Birdfish (Columbiana)."
-        ] },
-        { "date": "2026-08-09", "mode": "markets", "findings": [
-          "Added a Markets category (cuisine MKT) as a standard part of the process — markets of any kind, strictly vetted per docs/SOURCES.md (well-reviewed, popular, visit-worthy; permanent or established-recurring; publicly accessible).",
-          "Included: The Youngstown Flea (curated monthly Market for Makers, downtown — regional draw), Rogers Community Auction & Flea Market (largest open-air market in the tri-state area, year-round Fridays), The Amish Market (permanent indoor, Thu–Sat), Northside Farmers Market (city's oldest, since 2003, flagged seasonal). Generic Boardman/Canfield seasonal markets rejected.",
-          "Sources added: Youngstown Live (Amish Market), youngstownflea.com, Rogers Flea Market."
-        ] },
-        { "date": "2026-08-09", "mode": "farms", "findings": [
-          "Added a Farms category (cuisine FARM) for this agricultural region — visitable u-pick / petting / education farms only, per docs/SOURCES.md. Moved White House Fruit Farm here; added Detwiler Farm (Columbiana — petting zoo, u-pick, corn maze) and Molnar Farms (Poland), all flagged seasonal.",
-          "Sources added: WKBN 27 (local TV fall-farm guide), Northeast Ohio Family Fun.",
-          "Started data/local-media.json (central, updatable city -> local news/TV map); recorded Cleveland and Youngstown. Tap via `research.js --media <city>`."
-        ] },
-        { "date": "2026-08-09", "mode": "seed", "findings": [
-          "Seed-place expansion (Mode C) from a user request to add Past Times Arcade — sourced the seed first, then reused those same outlets to widen the guide (50 -> 62 places; 29 -> 40 sights).",
-          "Past Times Arcade (Girard, Trumbull Co.) confirmed tier-1 — a ~600-machine pinball/arcade museum by Pinball Expo founder Rob Berk — sourced to WFMJ, Business Journal Daily (x3 articles), Mahoning Matters, the Tribune Chronicle, trade press RePlay Magazine, Tripadvisor, and the Mahoning County CVB.",
-          "Mining those outlets added, all fact-checked: National Packard Museum and the restored 1923 Robins Theatre (Warren), Noah's Lost Ark exotic-animal sanctuary (Berlin Center), TP Tools auto museum and Mill Creek MetroParks Farm (Canfield), the Mahoning County Courthouse art-glass rotunda (downtown), Sports World family fun center (Boardman), Hollywood Gaming racino (Austintown), the Ernie Hall Aviation Museum, the Ward-Thomas House Museum (Niles), and the 1831 Newton Falls Covered Bridge (the oldest covered bridge still in service in Ohio).",
-          "New reusable sources recorded: WFMJ, WKBN, Tribune Chronicle, RePlay Magazine, Tripadvisor, Truly Trumbull (Trumbull County CVB), Old Cars Weekly, Niles Historical Society. Held below the bar and dropped: chain arcades, Sutliff Museum, Skate Zone, the Firestone shopping district, and the now-merged Children's Museum of the Valley."
-        ] },
-        { "date": "2026-08-09", "mode": "geocode", "findings": [
-          "Address + coordinate verification pass (hard rule): all 62 places re-verified against a primary source and recorded in data/geocodes.json. 45 pins were meaningfully off (>150m) and corrected — Idora Park Experience 8.4km (it is at 4450 S Turner Rd, Canfield, not the defunct amusement-park site), Handel's 6.5km, TP Tools 6.4km, Mill Creek Golf 5.1km. Address fixes incl. Birdfish Brewing (140 E Park Ave, Columbiana — the old address was invalid), Noble Creature (126 E Rayen Ave), Mocha House (120 E Boardman St). geocheck PASS; 0 out-of-bounds, 0 stacked."
-        ] }
-      ],
-      "aliases": ["Mahoning Valley"],
-      "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/ohio",
-      "researchedOn": "2026-08",
-      "researchedVia": "WebSearch (direct page fetch blocked by the environment egress policy)",
-      "sources": [
-        { "key": "AO", "name": "Atlas Obscura — Ohio index", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/things-to-do/ohio", "rank": 1, "verified": true, "covers": ["Cinderella Bridge (Mill Creek suspension bridge)", "Rose Melnick Medical Museum", "Homeless Jesus", "Urban Assault Vehicle: Slingshot Pinto"] },
-        { "key": "T2N", "name": "Travel2Next — 20 Things To Do in Youngstown", "type": "travel_blog", "url": "https://travel2next.com/things-to-do-youngstown-ohio/", "rank": 2, "verified": true, "covers": ["Butler Institute (1919, first US art museum, free, Tue–Sun 11am)", "Ward Beecher Planetarium", "Covelli Centre", "Youngstown Playhouse", "Mill Creek Park", "Canfield Fair"] },
-        { "key": "EXM", "name": "Explore Mahoning (local guide)", "type": "local_cvb", "url": "https://exploremahoning.com", "youtube": "https://www.youtube.com/@exploremahoning", "rank": 2, "verified": true, "covers": ["Ward Beecher Planetarium", "things to do in Youngstown"] },
-        { "key": "YSU-MEL", "name": "Rose Melnick Medical Museum (YSU)", "type": "historical_society", "url": "https://melnick.ysu.edu", "rank": 1, "verified": true, "covers": ["1952 Emerson iron lung", "history of medicine in the Mahoning Valley", "founded 1985, now in Cushwa Hall"] },
-        { "key": "WBP", "name": "Ward Beecher Planetarium (YSU)", "type": "historical_society", "url": "https://www.wbplanetarium.org", "rank": 1, "verified": true, "covers": ["free public shows Sept–May, Fri/Sat 8pm + Sat 2pm", "Ward Beecher Science Hall, 100 Lincoln Ave"] },
-        { "key": "MVHS", "name": "Mahoning Valley Historical Society", "type": "historical_society", "url": "https://mahoninghistory.org", "rank": 1, "verified": false, "covers": ["Arms Family Museum", "Tyler History Center"] },
-        { "key": "MCMP", "name": "Mill Creek MetroParks", "type": "metroparks", "url": "https://millcreekmetroparks.org", "rank": 1, "verified": false, "covers": ["Lanterman's Mill", "Fellows Riverside Gardens", "Ford Nature Center", "Suspension Bridge", "Pioneer Pavilion"] },
-        { "key": "OHIO", "name": "Ohio tourism — Find It Here", "type": "state_tourism", "url": "https://ohio.org", "rank": 2, "verified": false },
-        { "key": "MM", "name": "Mahoning Matters (nonprofit news)", "type": "nonprofit_local_news", "url": "https://www.mahoningmatters.com", "rank": 2, "verified": true, "covers": ["Ward Beecher reopening after fire"] },
-        { "key": "BJ", "name": "The Business Journal (Mahoning Valley)", "type": "regional_business_news", "url": "https://businessjournaldaily.com", "rank": 2, "verified": false },
-        { "key": "TV", "name": "WFMJ 21 · WKBN 27 · WYTV 33", "type": "tv_numbered_list", "url": "https://www.wfmj.com", "rank": 2, "verified": false, "note": "Mahoning Valley network affiliates; look for their 'best of' lists." },
-        { "key": "GO-BH", "name": "Gastro Obscura — Brier Hill Pizza", "type": "atlas_obscura", "url": "https://www.atlasobscura.com/foods/brier-hill-pizza", "rank": 1, "verified": true, "covers": ["Brier Hill pizza: tomato-and-bell-pepper pie, grated romano, little/no mozzarella"] },
-        { "key": "WIKI-BH", "name": "Wikipedia — Brier Hill-style pizza", "type": "travel_blog", "url": "https://en.wikipedia.org/wiki/Brier_Hill-style_pizza", "rank": 2, "verified": true },
-        { "key": "EXM-SLICE", "name": "Explore Mahoning — Where to Grab a Slice in Y-town", "type": "local_cvb", "url": "https://exploremahoning.com/where-to-grab-a-slice-in-y-town/", "rank": 2, "verified": true },
-        { "key": "HTP", "name": "HometownPlate — Best Restaurants in Youngstown", "type": "travel_blog", "url": "https://hometownplate.com/list/best-restaurants-in-youngstown-ohio/", "rank": 2, "verified": true, "covers": ["Cassese's MVR (est. 1927, bocce)", "Avalon Downtown", "Wedgewood (est. 1967)", "Noble Creature brewery"] },
-        { "key": "HANDEL", "name": "Handel's Homemade Ice Cream — official history", "type": "historical_society", "url": "https://handelsicecream.com/history/", "rank": 1, "verified": true, "covers": ["Founded summer 1945 by Alice Handel in Youngstown; original South Side location; HQ now Canfield"] },
-        { "key": "GD", "name": "Golden Dawn — Business Journal / WFMJ history", "type": "regional_business_news", "url": "https://businessjournaldaily.com/golden-dawn-restaurant-to-reopen-friday/", "rank": 2, "verified": true, "covers": ["1245 Logan Ave; est. 1932; closed 2017, reopened; currently operating"] },
-
-        { "key": "WFMJ", "name": "WFMJ 21 (NBC, Youngstown)", "type": "tv_numbered_list", "url": "https://www.wfmj.com", "rank": 2, "verified": true, "covers": ["Past Times Arcade", "Mahoning County Courthouse tours"] },
-        { "key": "WKBN", "name": "WKBN 27 (CBS, Youngstown)", "type": "tv_numbered_list", "url": "https://www.wkbn.com", "rank": 2, "verified": true, "covers": ["Robins Theatre centennial", "Hollywood Gaming"] },
-        { "key": "TRIBCH", "name": "Tribune Chronicle (Warren / Trumbull daily)", "type": "local_newspaper", "url": "https://www.tribtoday.com", "rank": 2, "verified": true, "covers": ["Past Times Arcade ('Our Heritage' feature)"] },
-        { "key": "REPLAY", "name": "RePlay Magazine (coin-op / amusement trade)", "type": "city_magazine", "url": "https://www.replaymag.com/berks-past-times-arcade-opens-in-girard-ohio/", "rank": 2, "verified": true, "covers": ["Berk's Past Times Arcade — national significance of the collection"] },
-        { "key": "TA", "name": "Tripadvisor — Youngstown / Mahoning Valley", "type": "aggregator_review", "url": "https://www.tripadvisor.com/Attractions-g50376-Activities-Youngstown_Ohio.html", "rank": 2, "verified": true, "covers": ["Past Times Arcade", "National Packard Museum", "Robins Theatre"] },
-        { "key": "TRULY", "name": "Truly Trumbull (Trumbull County CVB)", "type": "county_tourism", "url": "https://www.exploretrumbullcounty.com/things-to-do/", "rank": 1, "verified": true, "covers": ["National Packard Museum", "Robins Theatre", "Ward-Thomas House", "Newton Falls Covered Bridge"] },
-        { "key": "OCW", "name": "Old Cars Weekly (collector-car trade)", "type": "city_magazine", "url": "https://www.oldcarsweekly.com/features/tp-tools-car-museum", "rank": 3, "verified": true, "covers": ["TP Tools Auto Collection Museum, Canfield"] },
-        { "key": "NHS", "name": "Niles Historical Society", "type": "historical_society", "url": "https://nileshistoricalsociety.org/tours.htm", "rank": 2, "verified": true, "covers": ["Ward-Thomas House Museum (1862)"] }
-      ],
-      "creators": [
-        { "key": "SANT", "name": "Peter Santenello", "type": "famous_creator", "subscribers": "4.2M", "youtube": "https://www.youtube.com/@PeterSantenello", "work": "Solo Into East Palestine, OH — What's It Like Now? (2024, ~1.2M views)", "workUrl": "https://petersantenello.com/videos/solo-into-east-palestine-oh-whats-it-like-now/", "scope": "region", "verified": true, "note": "Covers East Palestine (Mahoning Valley, ~20 min from Youngstown), not a dedicated Youngstown-city tour. Ranked as regional coverage, honestly." },
-        { "key": "RUSTBELT", "name": "'Faded Cities … Rust Belt OHIO' (YouTube)", "type": "famous_creator", "youtube": "https://www.youtube.com/watch?v=qsyO6tX7LXM", "work": "Rust Belt Ohio road trip incl. Youngstown, Warren & Akron (2025)", "scope": "city", "verified": true },
-        { "key": "KIDD", "name": "Phil Kidd — A Walking Tour of Downtown Youngstown", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=9UTxVf-GP9I", "work": "Downtown Youngstown history walking tour (2015)", "scope": "city", "verified": true, "note": "Local advocate ('Defend Youngstown')." },
-        { "key": "4KTOUR", "name": "Driving Through Downtown Youngstown [4K Tour]", "type": "local_creator", "youtube": "https://www.youtube.com/watch?v=ExriJA5jtnI", "work": "4K downtown driving tour (2025)", "scope": "city", "verified": true },
-        { "key": "NAPIER", "name": "Napier Vision Productions (Joseph Napier Sr)", "type": "local_creator", "youtube": "https://www.youtube.com/results?search_query=Napier+Vision+Youngstown+walking+tour", "work": "Downtown / Federal Street walking tour (2019)", "scope": "city", "verified": false, "note": "Video ID not pinned during research; search link recorded to avoid misattribution." }
-      ]
-    }
+  {
+   "id": "atlas_obscura",
+   "label": "Atlas Obscura city/state index",
+   "why": "The oddities backbone. Read the index, not individual searches.",
+   "urlPattern": "https://www.atlasobscura.com/things-to-do/{state-slug}"
+  },
+  {
+   "id": "roadside_america",
+   "label": "Roadside America state index",
+   "why": "Second oddity net; catches what Atlas Obscura misses.",
+   "urlPattern": "https://www.roadsideamerica.com/location/{st}/all"
+  },
+  {
+   "id": "alt_weekly",
+   "label": "Alt-weekly",
+   "why": "Best food and nightlife coverage in most metros.",
+   "find": "search '{city} alt weekly' (e.g. Scene, Reader, Weekly)."
+  },
+  {
+   "id": "city_magazine",
+   "label": "City / regional magazine",
+   "why": "Strong on neighbourhood dining and features.",
+   "find": "search '{City} Magazine best of'."
+  },
+  {
+   "id": "regional_business_news",
+   "label": "Regional business / daily news",
+   "why": "Openings, closings, what's actually current.",
+   "find": "search '{city} business journal' / the metro daily."
+  },
+  {
+   "id": "nonprofit_local_news",
+   "label": "Nonprofit local newsroom",
+   "why": "Civic, specific, often the best replacement for a shuttered daily.",
+   "find": "search '{city} nonprofit news' (e.g. Matters, Signal, Documenters)."
+  },
+  {
+   "id": "historical_society",
+   "label": "Historical society / public history project",
+   "why": "Authoritative on museums, monuments, buildings.",
+   "find": "search '{city} historical society' and university public-history projects."
+  },
+  {
+   "id": "metroparks",
+   "label": "Metro / regional parks authority",
+   "why": "Authoritative on parks, trails, natural landmarks.",
+   "find": "search '{city} metroparks'."
+  },
+  {
+   "id": "state_tourism",
+   "label": "Official state tourism",
+   "why": "Baseline vetted attractions with hours.",
+   "urlPattern": "https://{state}.org  (e.g. ohio.org)"
+  },
+  {
+   "id": "local_cvb",
+   "label": "Local CVB / visitors bureau",
+   "why": "The city's own curated list, usually current.",
+   "find": "search '{city} CVB' or 'visit {city}' or 'explore {county}'."
+  },
+  {
+   "id": "famous_creator",
+   "label": "Famous travel YouTuber / blogger coverage",
+   "why": "Popular, watchable corroboration; signals what draws outsiders. Rank by whether they actually covered THIS city vs. the region.",
+   "find": "search 'famous travel YouTuber visited {city} {state}', '{creator} {city}', '{city} walking tour youtube'."
+  },
+  {
+   "id": "local_creator",
+   "label": "Local creator / walking-tour channel",
+   "why": "Ground-level, current footage of specific streets and sites.",
+   "find": "search '{city} walking tour youtube', '{city} things to do youtube channel'."
+  },
+  {
+   "id": "travel_blog",
+   "label": "Independent travel blog round-up",
+   "why": "Cross-checks the mainstream list; use to corroborate, not as the spine.",
+   "find": "search 'best things to do in {city} {state} travel blog {year}'."
+  },
+  {
+   "id": "aggregator_review",
+   "label": "Crowd-ranked aggregator (Tripadvisor, U.S. News, PlanetWare)",
+   "why": "Continuously re-ranked by review volume; the default first stop for visitors and a reusable anchor citation for marquee institutions plus a harvest list for the long tail.",
+   "find": "search '\"{city}\" top attractions tripadvisor things to do', 'best things to do in {city} US News Travel', 'PlanetWare top-rated tourist attractions in {city}'. One stable per-city URL each."
+  },
+  {
+   "id": "national_guidebook",
+   "label": "National guidebook (Fodor's, Frommer's, Lonely Planet, National Geographic)",
+   "why": "Editor-written attraction rundowns; strong for tier justification and for confirming a place belongs on a first-time itinerary.",
+   "find": "search 'Fodor's {city} things to do', 'Frommer's {city} top attractions', 'Lonely Planet {city} best things to do', 'National Geographic guide {city}'."
+  },
+  {
+   "id": "encyclopedic",
+   "label": "Encyclopedic authority (Britannica, Wikipedia)",
+   "why": "Highest-authority statement that an institution is central to the city; Wikipedia's 'List of museums in {city}' is the best single harvesting index for the museum long tail.",
+   "find": "search 'Britannica {city} {state} cultural life', 'Wikipedia List of museums in {city}', 'Wikipedia Tourism in {city}'."
+  },
+  {
+   "id": "university_page",
+   "label": "University visitor / student-life page (.edu)",
+   "why": "Official admissions and student-life pages recommend a reusable cluster of named city attractions (and the campus itself often holds visitable sights); highest-yield source family for a college town.",
+   "find": "search '{university} things to do in {city} students explore the city', 'site:.edu things to do in {city} student guide off campus'. Also mine student newspapers and university blogs for numbered must-visit lists."
+  },
+  {
+   "id": "official_attraction",
+   "label": "Official institution / parent-org site",
+   "why": "The primary source for a marquee place — authoritative address, hours and claims. Cite the big institutions here, not to a generic list.",
+   "find": "search '{parent museum org} official site {city}', '{institution} official site .org {city}'. One org often runs several museums."
+  },
+  {
+   "id": "heritage_org",
+   "label": "Regional heritage / conservation body",
+   "why": "The definitive authority and often the only tour operator for industrial-heritage sites, nature reserves and historic houses (e.g. Rivers of Steel, Audubon, a landmarks foundation).",
+   "find": "search '{city} industrial heritage tours', '{region} land trust / Audubon reserve', '{city} history & landmarks foundation'."
+  },
+  {
+   "id": "county_tourism",
+   "label": "County / suburban tourism promotion agency",
+   "why": "Covers the visit-worthy places outside the core city — the suburbs and day-trip counties a city-only search misses.",
+   "find": "search 'visit {county} county {state}', '{county} tourism hidden gems', plus the suburban weekly papers (e.g. an 'Almanac' or 'Observer-Reporter')."
+  },
+  {
+   "id": "local_newspaper",
+   "label": "Local / community newspaper (daily or weekly)",
+   "why": "Original reporting on a specific place — openings, history features, hours — and the paper of record for towns a metro daily skips.",
+   "find": "search '{place} {town} {paper}' or '{town} newspaper'; use the county daily and the suburban weekly. A story on one seed place usually links others."
+  },
+  {
+   "id": "municipal_gov",
+   "label": "Official city / county government site",
+   "why": "The authority on public parks, farmers markets, recreation and events — and on a place's official address and whether a city-run venue is currently operating. Ideal for verifying open/closed status and locations.",
+   "find": "search '{city}.gov' or '{city} official site parks/events/farmers markets'; prefer the .gov domain over aggregators."
   }
+ ],
+ "nationalCreators": [
+  {
+   "name": "Peter Santenello",
+   "platform": "YouTube",
+   "handle": "@PeterSantenello",
+   "url": "https://www.youtube.com/@PeterSantenello",
+   "scale": "4.2M",
+   "niche": "Americana / rust belt / human-story travel",
+   "usCities": true,
+   "note": "Great for mid-size US cities and overlooked places. Check per-city; often covers a region, not one city."
+  },
+  {
+   "name": "Wolters World",
+   "platform": "YouTube",
+   "handle": "@woltersworld",
+   "url": "https://www.youtube.com/@woltersworld",
+   "scale": "1M+",
+   "niche": "Practical city guides + what to eat / what to avoid",
+   "usCities": true
+  },
+  {
+   "name": "Kara and Nate",
+   "platform": "YouTube",
+   "handle": "@karaandnate",
+   "url": "https://www.youtube.com/@karaandnate",
+   "scale": "4M+",
+   "niche": "High-energy travel vlogs; US road-trip series",
+   "usCities": true
+  },
+  {
+   "name": "Dave Portnoy — One Bite Pizza Reviews",
+   "platform": "YouTube/Barstool",
+   "handle": "@OneBitePizzaReviews",
+   "url": "https://onebite.app",
+   "scale": "national",
+   "niche": "Pizza reviews, city by city (has hit Cleveland, Youngstown, Columbus)",
+   "usCities": true
+  },
+  {
+   "name": "Itchy Boots (Noraly Schoenmaker)",
+   "platform": "YouTube",
+   "handle": "@itchyboots",
+   "url": "https://www.youtube.com/@itchyboots",
+   "scale": "3.2M",
+   "niche": "Solo motorcycle travel",
+   "usCities": true
+  },
+  {
+   "name": "Lost LeBlanc (Christian LeBlanc)",
+   "platform": "YouTube",
+   "handle": "@LostLeBlanc",
+   "url": "https://www.youtube.com/@LostLeBlanc",
+   "scale": "2M+",
+   "niche": "Backpacking / cinematic travel",
+   "usCities": false
+  },
+  {
+   "name": "Louis Cole (FunForLouis)",
+   "platform": "YouTube",
+   "handle": "@FunForLouis",
+   "url": "https://www.youtube.com/@FunForLouis",
+   "scale": "1.9M",
+   "niche": "Daily live-the-adventure vlogs",
+   "usCities": false
+  },
+  {
+   "name": "Simon and Martina",
+   "platform": "YouTube/TikTok",
+   "handle": "@simonandmartina",
+   "url": "https://www.youtube.com/@simonandmartina",
+   "scale": "1M+",
+   "niche": "Food + culture deep dives",
+   "usCities": false
+  },
+  {
+   "name": "TikTok travel/food creators",
+   "platform": "TikTok",
+   "handle": "hashtags: #<city>food #<city>eats #thingstodoin<city>",
+   "url": "https://www.tiktok.com/",
+   "scale": "varies",
+   "niche": "Short-form local food/attraction discovery — search the city hashtags",
+   "usCities": true,
+   "note": "Not a single channel; a search surface. Use to find current, local short-form coverage per city."
+  }
+ ],
+ "cities": {
+  "cleveland-oh": {
+   "name": "Cleveland, Ohio",
+   "lastUpdated": "2026-08-08",
+   "refreshLog": [
+    {
+     "date": "2026-08-08",
+     "mode": "refresh",
+     "findings": [
+      "Sokolowski's University Inn — confirmed permanently closed (Oct 2020; never reopened; property sold 2023). Kept, flagged.",
+      "West Side Market — open; $70M renovation underway, East Produce Arcade reopened Jan 2026; hours refreshed.",
+      "New since build (candidates to add): Rock & Roll Hall of Fame expansion (early 2026); Cleveland Metroparks Zoo Primate Forest (summer 2026); Irishtown Bend Park (spring 2026)."
+     ]
+    }
+   ],
+   "researchedOn": "2026-08",
+   "researchedVia": "Existing repo sources (guide) + WebSearch for creators",
+   "sources": [
+    {
+     "key": "N5",
+     "name": "News 5 Cleveland (WEWS) — 100 Hidden Gems",
+     "type": "tv_numbered_list",
+     "url": "https://www.news5cleveland.com",
+     "rank": 1,
+     "verified": false,
+     "note": "The guide's spine — all 100 transcribed in cleveland.html."
+    },
+    {
+     "key": "TSG",
+     "name": "There She Goes… Cleveland",
+     "type": "travel_blog",
+     "url": "https://theresshegoesagain.org",
+     "rank": 1,
+     "verified": false,
+     "note": "All 23 entries transcribed."
+    },
+    {
+     "key": "AO",
+     "name": "Atlas Obscura — Cleveland",
+     "type": "atlas_obscura",
+     "url": "https://www.atlasobscura.com/things-to-do/cleveland-ohio",
+     "rank": 1,
+     "verified": false
+    },
+    {
+     "key": "SCENE",
+     "name": "Cleveland Scene (alt-weekly)",
+     "type": "alt_weekly",
+     "url": "https://www.clevescene.com",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "FRESH",
+     "name": "Freshwater Cleveland",
+     "type": "nonprofit_local_news",
+     "url": "https://www.freshwatercleveland.com",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "CH",
+     "name": "Cleveland Historical (CSU)",
+     "type": "historical_society",
+     "url": "https://clevelandhistorical.org",
+     "rank": 1,
+     "verified": false
+    },
+    {
+     "key": "METRO",
+     "name": "Cleveland Metroparks",
+     "type": "metroparks",
+     "url": "https://www.clevelandmetroparks.com",
+     "rank": 1,
+     "verified": false
+    },
+    {
+     "key": "OHIO",
+     "name": "Ohio tourism — Find It Here",
+     "type": "state_tourism",
+     "url": "https://ohio.org",
+     "rank": 2,
+     "verified": false
+    }
+   ],
+   "creators": [
+    {
+     "key": "POLK",
+     "name": "Mike Polk Jr — 'Hastily Made Cleveland Tourism Video'",
+     "type": "famous_creator",
+     "youtube": "https://www.youtube.com/results?search_query=Hastily+Made+Cleveland+Tourism+Video",
+     "work": "Viral comedy tourism video (2009, 10M+ views) + an updated version",
+     "scope": "city",
+     "verified": true,
+     "note": "Famous, city-specific, comedic — the definitive outsider-eye Cleveland video."
+    },
+    {
+     "key": "PORTNOY",
+     "name": "Dave Portnoy — One Bite Pizza Reviews",
+     "type": "famous_creator",
+     "youtube": "https://onebite.app/restaurant/crust-cleveland-ohio-d23e293c",
+     "work": "Reviewed Cleveland pizza incl. Crust; 15 Ohio spots reviewed",
+     "scope": "city",
+     "verified": true,
+     "note": "Food/pizza; national reach. 'Cleveland makes it very difficult for Dave to get his pizza.'"
+    }
+   ]
+  },
+  "pittsburgh-pa": {
+   "name": "Pittsburgh, Pennsylvania",
+   "lastUpdated": "2026-08-09",
+   "refreshLog": [
+    {
+     "date": "2026-08-09",
+     "mode": "build",
+     "findings": [
+      "Full web-researched, fact-checked build on the Cleveland interactive engine — 27 sights + 17 food/markets/farms, incl. Markets (the Strip District, Neighborhood Flea) and Farms (Soergel, Trax, Simmons)."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "refresh",
+     "findings": [
+      "Substantial expansion (27→40 sights, 17→30 food) — the coverage was too thin for a city this size. Added Heinz History Center, Children's Museum, PNC Park + the Roberto Clemente Bridge / Three Sisters, the Fred Rogers statue, the Pittsburgh Zoo, Carnegie Library Main, Soldiers & Sailors Memorial, Allegheny Cemetery, Frick Park, East Carson St, Kentuck Knob, Idlewild & SoakZone, Meadowcroft Rockshelter. Food/markets/farms added: the Original Hot Dog Shop, Morcilla, Superior Motors, S&D Polish Deli, De Luca's, La Prima, Page Dairy Mart, Millie's, Enrico Biscotti, Wigle Whiskey, East End Brewing, Dancing Gnome — and Triple B Farms (u-pick, per user request)."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "refresh",
+     "findings": [
+      "Major expansion to Cleveland-parity (40→111 sights, 30→68 food; 179 places total) with two new regions — 'South Hills & the Southwest' and 'Eastern Suburbs & River Valleys' — and a full within-region re-rank.",
+      "Broadened the SOURCE LIST per user request: added crowd-ranked aggregators (Tripadvisor, U.S. News, PlanetWare), national guidebooks (Fodor's, Frommer's, Lonely Planet, National Geographic), encyclopedic authorities (Britannica, Wikipedia museums list), university visitor guides (Pitt, CMU, Duquesne, Chatham + student papers), the official institution sites (Carnegie Museums org, cmoa.org, carnegiemnh.org, pittsburghzoo.org, aviary.org), regional heritage bodies (Rivers of Steel, Audubon W. PA, PHLF, Battle of Homestead) and suburban/county outlets (Visit Washington County, Observer-Reporter, The Almanac, TribLive, PA Bucket List). Method codified in docs/SOURCES.md and tools/research.js.",
+      "RE-CITED the marquee institutions the user flagged as under-sourced: Carnegie Museum of Natural History → carnegiemnh.org + PlanetWare + Tripadvisor + Britannica; Carnegie Museum of Art → cmoa.org + U.S. News + PlanetWare; Pittsburgh Zoo → pittsburghzoo.org + U.S. News (#5) + PlanetWare; National Aviary → aviary.org + National Geographic ('hugely underrated') + PlanetWare + U.S. News.",
+      "New sights incl. Carrie Blast Furnaces, the Pump House / Battle of Homestead, Braddock Carnegie Library (the first in the US), the Pennsylvania Trolley Museum, the Andrew Carnegie Free Library & Espy Civil War Room (Carnegie), Dormont Pool, the Hollywood Theater, LeMoyne/Bradford/Woodville Whiskey-Rebellion houses, Monroeville Mall / Living Dead Museum, Heinz Memorial Chapel, Schenley Park & Plaza, the CMU campus set (Walking to the Sky, Randy Pausch Bridge, the Fence, Kraus Campo), Maxo Vanka Murals, the Clemente Museum, the West End Overlook and more. New food incl. Oakmont Bakery, Penn Mac, Wholey's, Reyna, Tessaro's, the Original Oyster House, Everyday Noodles, Chengdu Gourmet, Salem's, Sarris Candies, Mancini's, plus farms (Bedner's, Schramm, Kerber's, Janoski's, Shenot, Hozak)."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "geocode",
+     "findings": [
+      "Address + coordinate verification pass (now a hard rule, CLAUDE.md 4a): every one of the 179 places re-verified against a primary source and recorded in data/geocodes.json with source + date. 98 pins were meaningfully misplaced (>150m) and corrected — Janoski's 11.7km, Idlewild 7.9km, Triple B 5.8km, Monroeville Mall 2.8km; the Strip District had a systematic ~0.6mi longitude shift. Verified via Wikipedia coordinates, official sites, Google/Apple/OSM listings. geocheck PASS; 0 out-of-bounds, 0 stacked.",
+      "Closures caught and flagged (kept): Original Hot Dog Shop (Apr 2020) and Superior Motors, Braddock (2020). Address fixes incl. Duncan & Miller Glass Museum (525 Jefferson Ave, not 100 Ridge), Papa J's (2016 Smallman), Monroeville Mall (Mall Circle Dr), Sandcastle (1000 Sandcastle Dr)."
+     ]
+    }
+   ],
+   "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania",
+   "researchedOn": "2026-08",
+   "researchedVia": "WebSearch (direct page fetch blocked by the environment egress policy)",
+   "sources": [
+    {
+     "key": "AO",
+     "name": "Atlas Obscura — Pittsburgh (70 entries)",
+     "type": "atlas_obscura",
+     "url": "https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Mattress Factory",
+      "Randyland",
+      "St. Anthony's Chapel relics",
+      "Bicycle Heaven",
+      "Center for PostNatural History",
+      "Duquesne & Monongahela inclines"
+     ]
+    },
+    {
+     "key": "HEINZ",
+     "name": "Senator John Heinz History Center (Smithsonian affiliate)",
+     "type": "historical_society",
+     "url": "https://www.heinzhistorycenter.org",
+     "rank": 1,
+     "verified": false,
+     "note": "Regional history authority in the Strip District."
+    },
+    {
+     "key": "VISITPA",
+     "name": "Visit PA (Pennsylvania tourism)",
+     "type": "state_tourism",
+     "url": "https://www.visitpa.com",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "VP",
+     "name": "Visit Pittsburgh (CVB)",
+     "type": "local_cvb",
+     "url": "https://www.visitpittsburgh.com",
+     "rank": 1,
+     "verified": true
+    },
+    {
+     "key": "NP",
+     "name": "NextPittsburgh",
+     "type": "nonprofit_local_news",
+     "url": "https://nextpittsburgh.com",
+     "rank": 2,
+     "verified": true
+    },
+    {
+     "key": "PGHMAG",
+     "name": "Pittsburgh Magazine",
+     "type": "city_magazine",
+     "url": "https://www.pittsburghmagazine.com",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "GFP",
+     "name": "Good Food Pittsburgh",
+     "type": "travel_blog",
+     "url": "https://goodfoodpittsburgh.com",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Primanti's",
+      "Apteka",
+      "Prantl's burnt almond torte",
+      "pierogi"
+     ]
+    },
+    {
+     "key": "TT",
+     "name": "Tasting Table — Pittsburgh (a local's guide)",
+     "type": "travel_blog",
+     "url": "https://www.tastingtable.com/1559106/best-restaurants-pittsburgh/",
+     "rank": 2,
+     "verified": true
+    },
+    {
+     "key": "UPA",
+     "name": "Uncovering PA",
+     "type": "travel_blog",
+     "url": "https://uncoveringpa.com",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "KB",
+     "name": "Kidsburgh (farm/family outings)",
+     "type": "travel_blog",
+     "url": "https://www.kidsburgh.org",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Soergel Orchards",
+      "Trax Farms",
+      "Simmons Farm"
+     ]
+    },
+    {
+     "key": "AXIOS",
+     "name": "Axios Pittsburgh",
+     "type": "nonprofit_local_news",
+     "url": "https://www.axios.com/local/pittsburgh",
+     "rank": 2,
+     "verified": true
+    },
+    {
+     "key": "TV",
+     "name": "KDKA 2 · WTAE 4 · WPXI 11",
+     "type": "tv_numbered_list",
+     "url": "https://www.cbsnews.com/pittsburgh/",
+     "rank": 2,
+     "verified": false,
+     "note": "Full outlet list in data/local-media.json."
+    },
+    {
+     "key": "TA",
+     "name": "Tripadvisor — THE 15 BEST Things to Do in Pittsburgh",
+     "type": "aggregator_review",
+     "url": "https://www.tripadvisor.com/Attractions-g53449-Activities-Pittsburgh_Pennsylvania.html",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Carnegie Museum of Natural History",
+      "Carnegie Museum of Art",
+      "Pittsburgh Zoo",
+      "National Aviary",
+      "Strip District"
+     ]
+    },
+    {
+     "key": "USN",
+     "name": "U.S. News Travel — 15 Best Things to Do in Pittsburgh",
+     "type": "aggregator_review",
+     "url": "https://travel.usnews.com/Pittsburgh_PA/Things_To_Do/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Pittsburgh Zoo (ranked #5)",
+      "Strip District (#2)",
+      "Carnegie Museum of Art",
+      "National Aviary",
+      "Three Rivers Heritage Trail"
+     ]
+    },
+    {
+     "key": "PW",
+     "name": "PlanetWare — Top-Rated Tourist Attractions in Pittsburgh",
+     "type": "aggregator_review",
+     "url": "https://www.planetware.com/tourist-attractions-/pittsburgh-us-pa-pt.htm",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Carnegie Museum of Natural History",
+      "Carnegie Museum of Art",
+      "Pittsburgh Zoo",
+      "National Aviary",
+      "Phipps"
+     ]
+    },
+    {
+     "key": "LP",
+     "name": "Lonely Planet — 11 of the best things to do in Pittsburgh",
+     "type": "national_guidebook",
+     "url": "https://www.lonelyplanet.com/articles/top-things-to-do-in-pittsburgh",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Carrie Blast Furnaces",
+      "Carnegie museums",
+      "Fallingwater"
+     ]
+    },
+    {
+     "key": "FOD",
+     "name": "Fodor's — Pittsburgh Travel Guide",
+     "type": "national_guidebook",
+     "url": "https://www.fodors.com/world/north-america/usa/pennsylvania/pittsburgh",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "FRO",
+     "name": "Frommer's — Things to See in Pittsburgh",
+     "type": "national_guidebook",
+     "url": "https://www.frommers.com/destinations/pittsburgh/attractions",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "NATGEO",
+     "name": "National Geographic — A guide to Pittsburgh",
+     "type": "national_guidebook",
+     "url": "https://www.nationalgeographic.com/travel/article/guide-pittsburgh-americas-characterful-cultural-powerhouse",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "National Aviary ('hugely underrated')",
+      "Carnegie museums"
+     ]
+    },
+    {
+     "key": "BRIT",
+     "name": "Encyclopaedia Britannica — Pittsburgh (Cultural life)",
+     "type": "encyclopedic",
+     "url": "https://www.britannica.com/place/Pittsburgh",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Carnegie museums",
+      "Pittsburgh Zoo & PPG Aquarium",
+      "Phipps",
+      "Cultural District"
+     ]
+    },
+    {
+     "key": "WIKI",
+     "name": "Wikipedia — List of museums in Pittsburgh",
+     "type": "encyclopedic",
+     "url": "https://en.wikipedia.org/wiki/List_of_museums_in_Pittsburgh",
+     "rank": 3,
+     "verified": false,
+     "note": "Best single harvesting index for the museum long tail."
+    },
+    {
+     "key": "DTB",
+     "name": "Discover the Burgh (local expert blog)",
+     "type": "travel_blog",
+     "url": "https://www.discovertheburgh.com/things-to-do-in-pittsburgh/",
+     "rank": 2,
+     "verified": true,
+     "note": "The most-cited local Pittsburgh travel blog; strong for the suburban long tail and addresses."
+    },
+    {
+     "key": "CT",
+     "name": "Culture Trip — Best Things To Do In Pittsburgh",
+     "type": "travel_blog",
+     "url": "https://theculturetrip.com/north-america/usa/pittsburgh",
+     "rank": 3,
+     "verified": false
+    },
+    {
+     "key": "CMP",
+     "name": "Carnegie Museums of Pittsburgh (parent org, official)",
+     "type": "official_attraction",
+     "url": "https://carnegiemuseums.org/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Carnegie Museum of Natural History",
+      "Carnegie Museum of Art",
+      "Carnegie Science Center",
+      "The Warhol"
+     ]
+    },
+    {
+     "key": "CMOA",
+     "name": "Carnegie Museum of Art (official)",
+     "type": "official_attraction",
+     "url": "https://cmoa.org/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "4400 Forbes Ave",
+      "Carnegie International",
+      "Teenie Harris archive"
+     ]
+    },
+    {
+     "key": "CMNH",
+     "name": "Carnegie Museum of Natural History (official)",
+     "type": "official_attraction",
+     "url": "https://carnegiemnh.org/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Dippy",
+      "T. rex holotype",
+      "Dinosaurs in Their Time"
+     ]
+    },
+    {
+     "key": "ZOO",
+     "name": "Pittsburgh Zoo & Aquarium (official)",
+     "type": "official_attraction",
+     "url": "https://www.pittsburghzoo.org/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "77 acres, Highland Park",
+      "7370 Baker St",
+      "~4,000 animals"
+     ]
+    },
+    {
+     "key": "AVI",
+     "name": "National Aviary (official)",
+     "type": "official_attraction",
+     "url": "https://www.aviary.org/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "congressionally designated National Aviary",
+      "700 Arch St",
+      "500+ birds"
+     ]
+    },
+    {
+     "key": "PITT",
+     "name": "University of Pittsburgh — Guide to Oakland & Pittsburgh / Things to Do",
+     "type": "university_page",
+     "url": "https://www.provost.pitt.edu/acc-aln-conference/guide",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Carnegie Museums",
+      "Heinz Memorial Chapel",
+      "Soldiers & Sailors",
+      "Allegheny Observatory",
+      "Maxo Vanka Murals",
+      "Nationality Rooms"
+     ]
+    },
+    {
+     "key": "CMU",
+     "name": "Carnegie Mellon — Discover Pittsburgh / SLICE Traditions",
+     "type": "university_page",
+     "url": "https://www.cmu.edu/admission/campus-experience/discover-pittsburgh",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Warhol",
+      "August Wilson Center",
+      "National Aviary",
+      "Phipps",
+      "Walking to the Sky",
+      "Randy Pausch Bridge",
+      "the Fence"
+     ]
+    },
+    {
+     "key": "DUQ",
+     "name": "Duquesne University — Our Pittsburgh Community",
+     "type": "university_page",
+     "url": "https://www.duq.edu/life-at-duquesne/our-campus/our-pittsburgh-community.php",
+     "rank": 3,
+     "verified": false,
+     "covers": [
+      "Duquesne Incline",
+      "Market Square"
+     ]
+    },
+    {
+     "key": "CHAT",
+     "name": "Chatham University — Free Activities in Pittsburgh",
+     "type": "university_page",
+     "url": "https://www.pulse.chatham.edu",
+     "rank": 3,
+     "verified": false,
+     "covers": [
+      "Point State Park",
+      "Three Rivers Heritage Trail",
+      "Carnegie Library"
+     ]
+    },
+    {
+     "key": "ROS",
+     "name": "Rivers of Steel (Mon Valley industrial heritage)",
+     "type": "heritage_org",
+     "url": "https://riversofsteel.com/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Carrie Blast Furnaces",
+      "Pump House / Battle of Homestead",
+      "Bost Building",
+      "Homestead Music Hall"
+     ]
+    },
+    {
+     "key": "BOH",
+     "name": "Battle of Homestead Foundation",
+     "type": "heritage_org",
+     "url": "https://battleofhomestead.org/",
+     "rank": 2,
+     "verified": false,
+     "covers": [
+      "Pump House"
+     ]
+    },
+    {
+     "key": "PHLF",
+     "name": "Pittsburgh History & Landmarks Foundation",
+     "type": "heritage_org",
+     "url": "https://phlf.org/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Woodville Plantation (Neville House)"
+     ]
+    },
+    {
+     "key": "AUD",
+     "name": "Audubon Society of Western PA",
+     "type": "heritage_org",
+     "url": "https://www.aswp.org/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Beechwood Farms Nature Reserve"
+     ]
+    },
+    {
+     "key": "ACP",
+     "name": "Allegheny County Parks",
+     "type": "metroparks",
+     "url": "https://www.alleghenycounty.us/Parks-and-Events/Parks/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Boyce Park",
+      "Round Hill Park"
+     ]
+    },
+    {
+     "key": "VWC",
+     "name": "Visit Washington County PA (county tourism)",
+     "type": "county_tourism",
+     "url": "https://www.visitwashingtoncountypa.com/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Pennsylvania Trolley Museum",
+      "LeMoyne House",
+      "David Bradford House",
+      "Sarris Candies",
+      "Whiskey Rebellion sites"
+     ]
+    },
+    {
+     "key": "OBSREP",
+     "name": "Observer-Reporter (Washington, PA daily)",
+     "type": "local_newspaper",
+     "url": "https://www.observer-reporter.com/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Washington County history & attractions"
+     ]
+    },
+    {
+     "key": "ALM",
+     "name": "The Almanac (South Hills weekly)",
+     "type": "local_newspaper",
+     "url": "https://www.thealmanac.net/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Mt. Lebanon",
+      "Dormont"
+     ]
+    },
+    {
+     "key": "TRIB",
+     "name": "TribLive (Pittsburgh Tribune-Review)",
+     "type": "regional_business_news",
+     "url": "https://triblive.com/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "eastern suburbs",
+      "Carnegie",
+      "Alle-Kiski Valley"
+     ]
+    },
+    {
+     "key": "PABL",
+     "name": "PA Bucket List (Pennsylvania travel blog)",
+     "type": "travel_blog",
+     "url": "https://pabucketlist.com/",
+     "rank": 3,
+     "verified": false,
+     "covers": [
+      "Washington County attractions"
+     ]
+    },
+    {
+     "key": "CP",
+     "name": "Pittsburgh City Paper — Best Of Readers' Poll",
+     "type": "alt_weekly",
+     "url": "https://www.pghcitypaper.com/best-of/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Fiori's (Best Pizza)",
+      "Chengdu Gourmet",
+      "Salem's"
+     ]
+    },
+    {
+     "key": "PGPG",
+     "name": "Pittsburgh Post-Gazette (dining desk)",
+     "type": "regional_business_news",
+     "url": "https://newsinteractive.post-gazette.com/pittsburgh-best-restaurants-2025/",
+     "rank": 2,
+     "verified": true
+    },
+    {
+     "key": "SAV",
+     "name": "Saveur — Pittsburgh's next great Chinatown",
+     "type": "travel_blog",
+     "url": "https://www.saveur.com/how-pittsburgh-is-growing-americas-next-chinatown-chinese-restaurants",
+     "rank": 3,
+     "verified": true,
+     "covers": [
+      "Everyday Noodles",
+      "Chengdu Gourmet",
+      "How Lee"
+     ]
+    },
+    {
+     "key": "PGHGOV",
+     "name": "City of Pittsburgh — pittsburghpa.gov (CitiParks: farmers markets, parks, events)",
+     "type": "municipal_gov",
+     "url": "https://www.pittsburghpa.gov",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Squirrel Hill Farmers Market",
+      "CitiParks farmers markets",
+      "city parks & recreation",
+      "official addresses & operating status"
+     ]
+    }
+   ],
+   "creators": [
+    {
+     "key": "BGIP",
+     "name": "British Guy in Pittsburgh — travel vlog",
+     "type": "local_creator",
+     "youtube": "https://www.youtube.com/watch?v=wz2RkYoT-Ts",
+     "work": "Mt Washington, Randyland and the museums (city tour)",
+     "scope": "city",
+     "verified": true
+    },
+    {
+     "key": "4KPGH",
+     "name": "Pittsburgh 4K Travel Tour",
+     "type": "local_creator",
+     "youtube": "https://www.youtube.com/watch?v=oWUAV-3_29s",
+     "work": "4K city tour (2025)",
+     "scope": "city",
+     "verified": true
+    },
+    {
+     "key": "SANT",
+     "name": "Peter Santenello",
+     "type": "famous_creator",
+     "youtube": "https://www.youtube.com/@PeterSantenello",
+     "subscribers": "4.2M",
+     "scope": "reference",
+     "verified": false,
+     "note": "National Americana channel — confirm a Pittsburgh-specific video before citing one."
+    }
+   ]
+  },
+  "youngstown-oh": {
+   "name": "Youngstown, Ohio",
+   "lastUpdated": "2026-08-09",
+   "refreshLog": [
+    {
+     "date": "2026-08-08",
+     "mode": "build",
+     "findings": [
+      "Initial web-researched, fact-checked build (Google-Maps rendering)."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "expand",
+     "findings": [
+      "Rebuilt on the Cleveland interactive engine (map, filters, trip builder, exports); Google-Maps version kept as youngstown-beta.html.",
+      "Expanded to 29 sights + 15 food/drink via web search: added Clarence R. Smith Mineral Museum, Jones Children's science center, Mill Creek Lily Pond / Lake Newport / Rose Garden / golf, downtown murals, and Warren's Dave Grohl Alley.",
+      "Added food & drink: Yosteria, Kravitz Delicatessen, The Federal, The Mocha House, Casa Di Canzonetta, and breweries Penguin City, Modern Methods (Warren), Birdfish (Columbiana)."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "markets",
+     "findings": [
+      "Added a Markets category (cuisine MKT) as a standard part of the process — markets of any kind, strictly vetted per docs/SOURCES.md (well-reviewed, popular, visit-worthy; permanent or established-recurring; publicly accessible).",
+      "Included: The Youngstown Flea (curated monthly Market for Makers, downtown — regional draw), Rogers Community Auction & Flea Market (largest open-air market in the tri-state area, year-round Fridays), The Amish Market (permanent indoor, Thu–Sat), Northside Farmers Market (city's oldest, since 2003, flagged seasonal). Generic Boardman/Canfield seasonal markets rejected.",
+      "Sources added: Youngstown Live (Amish Market), youngstownflea.com, Rogers Flea Market."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "farms",
+     "findings": [
+      "Added a Farms category (cuisine FARM) for this agricultural region — visitable u-pick / petting / education farms only, per docs/SOURCES.md. Moved White House Fruit Farm here; added Detwiler Farm (Columbiana — petting zoo, u-pick, corn maze) and Molnar Farms (Poland), all flagged seasonal.",
+      "Sources added: WKBN 27 (local TV fall-farm guide), Northeast Ohio Family Fun.",
+      "Started data/local-media.json (central, updatable city -> local news/TV map); recorded Cleveland and Youngstown. Tap via `research.js --media <city>`."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "seed",
+     "findings": [
+      "Seed-place expansion (Mode C) from a user request to add Past Times Arcade — sourced the seed first, then reused those same outlets to widen the guide (50 -> 62 places; 29 -> 40 sights).",
+      "Past Times Arcade (Girard, Trumbull Co.) confirmed tier-1 — a ~600-machine pinball/arcade museum by Pinball Expo founder Rob Berk — sourced to WFMJ, Business Journal Daily (x3 articles), Mahoning Matters, the Tribune Chronicle, trade press RePlay Magazine, Tripadvisor, and the Mahoning County CVB.",
+      "Mining those outlets added, all fact-checked: National Packard Museum and the restored 1923 Robins Theatre (Warren), Noah's Lost Ark exotic-animal sanctuary (Berlin Center), TP Tools auto museum and Mill Creek MetroParks Farm (Canfield), the Mahoning County Courthouse art-glass rotunda (downtown), Sports World family fun center (Boardman), Hollywood Gaming racino (Austintown), the Ernie Hall Aviation Museum, the Ward-Thomas House Museum (Niles), and the 1831 Newton Falls Covered Bridge (the oldest covered bridge still in service in Ohio).",
+      "New reusable sources recorded: WFMJ, WKBN, Tribune Chronicle, RePlay Magazine, Tripadvisor, Truly Trumbull (Trumbull County CVB), Old Cars Weekly, Niles Historical Society. Held below the bar and dropped: chain arcades, Sutliff Museum, Skate Zone, the Firestone shopping district, and the now-merged Children's Museum of the Valley."
+     ]
+    },
+    {
+     "date": "2026-08-09",
+     "mode": "geocode",
+     "findings": [
+      "Address + coordinate verification pass (hard rule): all 62 places re-verified against a primary source and recorded in data/geocodes.json. 45 pins were meaningfully off (>150m) and corrected — Idora Park Experience 8.4km (it is at 4450 S Turner Rd, Canfield, not the defunct amusement-park site), Handel's 6.5km, TP Tools 6.4km, Mill Creek Golf 5.1km. Address fixes incl. Birdfish Brewing (140 E Park Ave, Columbiana — the old address was invalid), Noble Creature (126 E Rayen Ave), Mocha House (120 E Boardman St). geocheck PASS; 0 out-of-bounds, 0 stacked."
+     ]
+    }
+   ],
+   "aliases": [
+    "Mahoning Valley"
+   ],
+   "atlasObscuraIndex": "https://www.atlasobscura.com/things-to-do/ohio",
+   "researchedOn": "2026-08",
+   "researchedVia": "WebSearch (direct page fetch blocked by the environment egress policy)",
+   "sources": [
+    {
+     "key": "AO",
+     "name": "Atlas Obscura — Ohio index",
+     "type": "atlas_obscura",
+     "url": "https://www.atlasobscura.com/things-to-do/ohio",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Cinderella Bridge (Mill Creek suspension bridge)",
+      "Rose Melnick Medical Museum",
+      "Homeless Jesus",
+      "Urban Assault Vehicle: Slingshot Pinto"
+     ]
+    },
+    {
+     "key": "T2N",
+     "name": "Travel2Next — 20 Things To Do in Youngstown",
+     "type": "travel_blog",
+     "url": "https://travel2next.com/things-to-do-youngstown-ohio/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Butler Institute (1919, first US art museum, free, Tue–Sun 11am)",
+      "Ward Beecher Planetarium",
+      "Covelli Centre",
+      "Youngstown Playhouse",
+      "Mill Creek Park",
+      "Canfield Fair"
+     ]
+    },
+    {
+     "key": "EXM",
+     "name": "Explore Mahoning (local guide)",
+     "type": "local_cvb",
+     "url": "https://exploremahoning.com",
+     "youtube": "https://www.youtube.com/@exploremahoning",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Ward Beecher Planetarium",
+      "things to do in Youngstown"
+     ]
+    },
+    {
+     "key": "YSU-MEL",
+     "name": "Rose Melnick Medical Museum (YSU)",
+     "type": "historical_society",
+     "url": "https://melnick.ysu.edu",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "1952 Emerson iron lung",
+      "history of medicine in the Mahoning Valley",
+      "founded 1985, now in Cushwa Hall"
+     ]
+    },
+    {
+     "key": "WBP",
+     "name": "Ward Beecher Planetarium (YSU)",
+     "type": "historical_society",
+     "url": "https://www.wbplanetarium.org",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "free public shows Sept–May, Fri/Sat 8pm + Sat 2pm",
+      "Ward Beecher Science Hall, 100 Lincoln Ave"
+     ]
+    },
+    {
+     "key": "MVHS",
+     "name": "Mahoning Valley Historical Society",
+     "type": "historical_society",
+     "url": "https://mahoninghistory.org",
+     "rank": 1,
+     "verified": false,
+     "covers": [
+      "Arms Family Museum",
+      "Tyler History Center"
+     ]
+    },
+    {
+     "key": "MCMP",
+     "name": "Mill Creek MetroParks",
+     "type": "metroparks",
+     "url": "https://millcreekmetroparks.org",
+     "rank": 1,
+     "verified": false,
+     "covers": [
+      "Lanterman's Mill",
+      "Fellows Riverside Gardens",
+      "Ford Nature Center",
+      "Suspension Bridge",
+      "Pioneer Pavilion"
+     ]
+    },
+    {
+     "key": "OHIO",
+     "name": "Ohio tourism — Find It Here",
+     "type": "state_tourism",
+     "url": "https://ohio.org",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "MM",
+     "name": "Mahoning Matters (nonprofit news)",
+     "type": "nonprofit_local_news",
+     "url": "https://www.mahoningmatters.com",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Ward Beecher reopening after fire"
+     ]
+    },
+    {
+     "key": "BJ",
+     "name": "The Business Journal (Mahoning Valley)",
+     "type": "regional_business_news",
+     "url": "https://businessjournaldaily.com",
+     "rank": 2,
+     "verified": false
+    },
+    {
+     "key": "TV",
+     "name": "WFMJ 21 · WKBN 27 · WYTV 33",
+     "type": "tv_numbered_list",
+     "url": "https://www.wfmj.com",
+     "rank": 2,
+     "verified": false,
+     "note": "Mahoning Valley network affiliates; look for their 'best of' lists."
+    },
+    {
+     "key": "GO-BH",
+     "name": "Gastro Obscura — Brier Hill Pizza",
+     "type": "atlas_obscura",
+     "url": "https://www.atlasobscura.com/foods/brier-hill-pizza",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Brier Hill pizza: tomato-and-bell-pepper pie, grated romano, little/no mozzarella"
+     ]
+    },
+    {
+     "key": "WIKI-BH",
+     "name": "Wikipedia — Brier Hill-style pizza",
+     "type": "travel_blog",
+     "url": "https://en.wikipedia.org/wiki/Brier_Hill-style_pizza",
+     "rank": 2,
+     "verified": true
+    },
+    {
+     "key": "EXM-SLICE",
+     "name": "Explore Mahoning — Where to Grab a Slice in Y-town",
+     "type": "local_cvb",
+     "url": "https://exploremahoning.com/where-to-grab-a-slice-in-y-town/",
+     "rank": 2,
+     "verified": true
+    },
+    {
+     "key": "HTP",
+     "name": "HometownPlate — Best Restaurants in Youngstown",
+     "type": "travel_blog",
+     "url": "https://hometownplate.com/list/best-restaurants-in-youngstown-ohio/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Cassese's MVR (est. 1927, bocce)",
+      "Avalon Downtown",
+      "Wedgewood (est. 1967)",
+      "Noble Creature brewery"
+     ]
+    },
+    {
+     "key": "HANDEL",
+     "name": "Handel's Homemade Ice Cream — official history",
+     "type": "historical_society",
+     "url": "https://handelsicecream.com/history/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "Founded summer 1945 by Alice Handel in Youngstown; original South Side location; HQ now Canfield"
+     ]
+    },
+    {
+     "key": "GD",
+     "name": "Golden Dawn — Business Journal / WFMJ history",
+     "type": "regional_business_news",
+     "url": "https://businessjournaldaily.com/golden-dawn-restaurant-to-reopen-friday/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "1245 Logan Ave; est. 1932; closed 2017, reopened; currently operating"
+     ]
+    },
+    {
+     "key": "WFMJ",
+     "name": "WFMJ 21 (NBC, Youngstown)",
+     "type": "tv_numbered_list",
+     "url": "https://www.wfmj.com",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Past Times Arcade",
+      "Mahoning County Courthouse tours"
+     ]
+    },
+    {
+     "key": "WKBN",
+     "name": "WKBN 27 (CBS, Youngstown)",
+     "type": "tv_numbered_list",
+     "url": "https://www.wkbn.com",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Robins Theatre centennial",
+      "Hollywood Gaming"
+     ]
+    },
+    {
+     "key": "TRIBCH",
+     "name": "Tribune Chronicle (Warren / Trumbull daily)",
+     "type": "local_newspaper",
+     "url": "https://www.tribtoday.com",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Past Times Arcade ('Our Heritage' feature)"
+     ]
+    },
+    {
+     "key": "REPLAY",
+     "name": "RePlay Magazine (coin-op / amusement trade)",
+     "type": "city_magazine",
+     "url": "https://www.replaymag.com/berks-past-times-arcade-opens-in-girard-ohio/",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Berk's Past Times Arcade — national significance of the collection"
+     ]
+    },
+    {
+     "key": "TA",
+     "name": "Tripadvisor — Youngstown / Mahoning Valley",
+     "type": "aggregator_review",
+     "url": "https://www.tripadvisor.com/Attractions-g50376-Activities-Youngstown_Ohio.html",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Past Times Arcade",
+      "National Packard Museum",
+      "Robins Theatre"
+     ]
+    },
+    {
+     "key": "TRULY",
+     "name": "Truly Trumbull (Trumbull County CVB)",
+     "type": "county_tourism",
+     "url": "https://www.exploretrumbullcounty.com/things-to-do/",
+     "rank": 1,
+     "verified": true,
+     "covers": [
+      "National Packard Museum",
+      "Robins Theatre",
+      "Ward-Thomas House",
+      "Newton Falls Covered Bridge"
+     ]
+    },
+    {
+     "key": "OCW",
+     "name": "Old Cars Weekly (collector-car trade)",
+     "type": "city_magazine",
+     "url": "https://www.oldcarsweekly.com/features/tp-tools-car-museum",
+     "rank": 3,
+     "verified": true,
+     "covers": [
+      "TP Tools Auto Collection Museum, Canfield"
+     ]
+    },
+    {
+     "key": "NHS",
+     "name": "Niles Historical Society",
+     "type": "historical_society",
+     "url": "https://nileshistoricalsociety.org/tours.htm",
+     "rank": 2,
+     "verified": true,
+     "covers": [
+      "Ward-Thomas House Museum (1862)"
+     ]
+    }
+   ],
+   "creators": [
+    {
+     "key": "SANT",
+     "name": "Peter Santenello",
+     "type": "famous_creator",
+     "subscribers": "4.2M",
+     "youtube": "https://www.youtube.com/@PeterSantenello",
+     "work": "Solo Into East Palestine, OH — What's It Like Now? (2024, ~1.2M views)",
+     "workUrl": "https://petersantenello.com/videos/solo-into-east-palestine-oh-whats-it-like-now/",
+     "scope": "region",
+     "verified": true,
+     "note": "Covers East Palestine (Mahoning Valley, ~20 min from Youngstown), not a dedicated Youngstown-city tour. Ranked as regional coverage, honestly."
+    },
+    {
+     "key": "RUSTBELT",
+     "name": "'Faded Cities … Rust Belt OHIO' (YouTube)",
+     "type": "famous_creator",
+     "youtube": "https://www.youtube.com/watch?v=qsyO6tX7LXM",
+     "work": "Rust Belt Ohio road trip incl. Youngstown, Warren & Akron (2025)",
+     "scope": "city",
+     "verified": true
+    },
+    {
+     "key": "KIDD",
+     "name": "Phil Kidd — A Walking Tour of Downtown Youngstown",
+     "type": "local_creator",
+     "youtube": "https://www.youtube.com/watch?v=9UTxVf-GP9I",
+     "work": "Downtown Youngstown history walking tour (2015)",
+     "scope": "city",
+     "verified": true,
+     "note": "Local advocate ('Defend Youngstown')."
+    },
+    {
+     "key": "4KTOUR",
+     "name": "Driving Through Downtown Youngstown [4K Tour]",
+     "type": "local_creator",
+     "youtube": "https://www.youtube.com/watch?v=ExriJA5jtnI",
+     "work": "4K downtown driving tour (2025)",
+     "scope": "city",
+     "verified": true
+    },
+    {
+     "key": "NAPIER",
+     "name": "Napier Vision Productions (Joseph Napier Sr)",
+     "type": "local_creator",
+     "youtube": "https://www.youtube.com/results?search_query=Napier+Vision+Youngstown+walking+tour",
+     "work": "Downtown / Federal Street walking tour (2019)",
+     "scope": "city",
+     "verified": false,
+     "note": "Video ID not pinned during research; search link recorded to avoid misattribution."
+    }
+   ]
+  }
+ }
 }
