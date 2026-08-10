@@ -37,13 +37,13 @@
     "note": "Apple Maps geocode 21st St"
    },
    "Gaucho Parrilla Argentina": {
-    "address": "146 Sixth St, Pittsburgh, PA 15222 (relocated from 1601 Penn Ave)",
-    "lat": 40.44274,
-    "lng": -80.0026,
-    "source": "apple-maps-url coordinate= (current 146 Sixth St location)",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "business moved downtown; 1601 Penn vacated"
+    "address": "146 Sixth St, Pittsburgh, PA 15222",
+    "lat": 40.44278,
+    "lng": -80.00251,
+    "source": "google !3d!4d place pin of Gaucho Parrilla Argentina (146 6th St)",
+    "verified": "2026-08-10",
+    "confidence": "high",
+    "note": "Exact Google Maps place pin: /place/Gaucho+Parrilla+Argentina/@40.4427824,-80.0050811,17z/data=...!8m2!3d40.4427824!4d-80.0025062"
    },
    "Pierogies Plus": {
     "address": "342 Island Ave, McKees Rocks, PA 15136",
@@ -64,13 +64,13 @@
     "note": "Strip District"
    },
    "Papa J's Twin Plaza": {
-    "address": "2016 Smallman St, Strip District, Pittsburgh, PA 15222",
-    "lat": 40.4515,
-    "lng": -79.9852,
-    "source": "address verified (2016 Smallman St, Strip District, Pittsburgh, PA 15222); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "address": "2016 Smallman St, Pittsburgh, PA 15222",
+    "lat": 40.45206,
+    "lng": -79.98432,
+    "source": "interpolated between 1916 Smallman daddr pin (40.451443,-79.984795) and 2101 Smallman / Strip District Terminal Apple coordinate=40.452592,-79.983909",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "2016 is ~54% of the way from 1916 to 2101 along the block; both bracketing points are real rooftop pins, so target uncertainty ~40-60m. No exact 2016 pin surfaced."
    },
    "De Luca's Diner": {
     "address": "2015 Penn Ave, Pittsburgh, PA 15222",
@@ -145,13 +145,13 @@
     "note": "Wikipedia DMS 40d27'15.8N"
    },
    "Dancing Gnome": {
-    "address": "925 Main St, Sharpsburg, Pittsburgh, PA 15215",
+    "address": "925 Main St, Sharpsburg, PA 15215",
     "lat": 40.49387,
     "lng": -79.93155,
-    "source": "apple maps (1025 Main brewery)",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "verified coord is 1025 Main not 925"
+    "source": "Apple Maps coordinate= for 'Dancing Gnome Beer' (directory link listed address 1025 Main St)",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "Apple coordinate is for the Dancing Gnome production facility at 1025 Main; the 925 Main taproom ('Nine Two Five') is ~1 block away, so ~100-150m possible offset."
    },
    "Grist House Craft Brewery": {
     "address": "10 E Sherman St, Millvale, PA 15209",
@@ -424,13 +424,13 @@
     "note": "W North Ave, Central North Side"
    },
    "Photo Antiquities Museum of Photographic History": {
-    "address": "531 E Ohio St, Deutschtown, Pittsburgh, PA 15212",
-    "lat": 40.45388,
-    "lng": -79.99942,
-    "source": "interpolated daddr 424 & 630 E Ohio St (exact snapped to card)",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "bounded between flanking geocodes"
+    "address": "531 E Ohio St, Pittsburgh, PA 15212",
+    "lat": 40.45348,
+    "lng": -79.99953,
+    "source": "decimal coordinate published on Yelp/directory listing for 531 E Ohio St",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "Consistent with neighbor 630 E Ohio St daddr place pin 40.454113,-79.998116 (531 is odd/south side, slightly west & south as expected)."
    },
    "PPG Paints Arena": {
     "address": "1001 Fifth Ave, Uptown, Pittsburgh, PA 15219",
@@ -883,22 +883,22 @@
     "note": "Squirrel Hill; old pin was wrong"
    },
    "How Lee": {
-    "address": "5888 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.43807,
-    "lng": -79.91944,
-    "source": "google daddr of adjacent 5880 Forbes + block step",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "snaps to card; 8 doors extrapolated"
+    "address": "5888 Forbes Ave, Pittsburgh, PA 15217",
+    "lat": 40.43776,
+    "lng": -79.91972,
+    "source": "adjacent-door interpolation from 5876 Forbes google place pin (!3d40.4377646!4d-79.9199814)",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "5888 is ~12 numbers east of the 5876 rooftop pin; nudged east per block orientation (task note: higher numbers = east = less-negative lng). ~2-3 storefronts."
    },
    "KIIN Lao & Thai Eatery": {
-    "address": "5846 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.43811,
-    "lng": -79.92117,
-    "source": "interpolated Forbes anchors 5835/5876 (exact snapped to card)",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "bounded between flanking geocodes"
+    "address": "5846 Forbes Ave, Pittsburgh, PA 15217",
+    "lat": 40.4376,
+    "lng": -79.92085,
+    "source": "interpolation from 5876 Forbes google place pin (40.4377646,-79.9199814), ~30 numbers west along block",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "Task anchor: block runs -79.919 (E) to -79.922 (W); Everyday Noodles 5875 = -79.9201. 5846 sits ~30 numbers west of 5876, hence ~-79.9209. Second-floor space above Forbes."
    },
    "DiAnoia's Eatery": {
     "address": "2549 Penn Ave, Strip District, Pittsburgh, PA 15222",
@@ -1471,19 +1471,19 @@
     "address": "2151 N Main St, Washington, PA 15301",
     "lat": 40.2095,
     "lng": -80.2573,
-    "source": "mypacer Washington County Fairgrounds",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "fairgrounds, needs verification"
+    "source": "decimal coordinate published on mypacer/directory listing for Washington County Fairgrounds",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "Washington PA is ~40.17-40.21 lat (just south of the stated Pittsburgh floor, geographically correct). Google place_id 0x8835ad414e521b87:0x3a4019bbdc965681 confirms same venue."
    },
    "Duncan & Miller Glass Museum": {
-    "address": "525 Jefferson Ave, Washington, PA",
+    "address": "525 Jefferson Ave, Washington, PA 15301",
     "lat": 40.17626,
     "lng": -80.25748,
-    "source": "listing lat/long (address ambiguity)",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "one source cites 100 Ridge Ave"
+    "source": "decimal coordinate published on directory listing for Duncan & Miller Glass Museum, 525 Jefferson Ave",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "Washington PA range verified (~40.17,-80.25). Some directories also cite 100 Ridge Ave / 119 Murtland; 525 Jefferson Ave is the museum's stated address."
    },
    "Perry Como Statue": {
     "address": "68 E Pike St, Canonsburg, PA 15317",
@@ -1875,13 +1875,13 @@
     "note": "Wikipedia published"
    },
    "Clarence R. Smith Mineral Museum": {
-    "address": "Moser Hall, YSU, Youngstown, OH 44555",
-    "lat": 41.10617,
-    "lng": -80.64854,
-    "source": "mapcarta YSU campus node 22700832 (Moser Hall point not published)",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Youngstown; YSU campus point, Moser Hall imprecise"
+    "address": "Moser Hall, Youngstown State University, 1 University Plaza, Youngstown, OH 44555",
+    "lat": 41.10552,
+    "lng": -80.64838,
+    "source": "decimal coordinate published on helpmecovid/evendo directory for Clarence R. Smith Mineral Museum (Moser Hall, YSU)",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "On the YSU campus, consistent with campus anchor Beeghly Center 41.10806,-80.64889. Museum is in the Moser Hall first-floor atrium."
    },
    "Wick Park": {
     "address": "Fifth Ave & Park Ave, North Side, Youngstown",
@@ -2029,12 +2029,12 @@
    },
    "Mahoning County Courthouse": {
     "address": "120 Market St, Youngstown, OH 44503",
-    "lat": 41.0968,
-    "lng": -80.649,
-    "source": "address verified (120 Market St, Youngstown, OH 44503); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
-    "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
+    "lat": 41.09881,
+    "lng": -80.65058,
+    "source": "decimal coordinate published on helpmecovid for Mahoning County Courthouse, 120 Market St",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "note": "Consistent with nearby anchor 20 W Federal St google place pin (41.1008916,-80.6494263) — courthouse sits just SW on Market. Google viewport values (/@41.0989376,-80.6691608,7318m) rejected as too coarse/west."
    },
    "Cassese's MVR": {
     "address": "410 N Walnut St, Youngstown, OH 44505",
