@@ -67,10 +67,10 @@
     "address": "2016 Smallman St, Strip District, Pittsburgh, PA 15222",
     "lat": 40.4515,
     "lng": -79.9852,
-    "source": "address verified (2016 Smallman St, Strip); coordinate at that block (approximate)",
+    "source": "address verified (2016 Smallman St, Strip District, Pittsburgh, PA 15222); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "Smallman St, Strip District (block-level)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "De Luca's Diner": {
     "address": "2015 Penn Ave, Pittsburgh, PA 15222",
@@ -1046,12 +1046,12 @@
    },
    "Squirrel Hill Farmers Market": {
     "address": "5737 Beacon St, Squirrel Hill, Pittsburgh, PA 15217",
-    "lat": 40.431,
-    "lng": -79.9225,
-    "source": "address verified (Beacon/Bartlett lot, Squirrel Hill); coordinate at that block (approximate)",
+    "lat": 40.43086,
+    "lng": -79.92305,
+    "source": "nextdoor 40.43085841695733,-79.92304953595485 (Beacon/Bartlett lot)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Beacon St, Squirrel Hill (block-level)"
+    "confidence": "high",
+    "note": "Beacon-Bartlett lot south end"
    },
    "Cathedral of Learning & the Nationality Rooms": {
     "address": "4200 Fifth Ave, Oakland, Pittsburgh, PA 15260",
@@ -1653,19 +1653,19 @@
     "address": "4450 S Turner Rd, Canfield, OH 44406",
     "lat": 41.009,
     "lng": -80.706,
-    "source": "address verified (4450 S Turner Rd, Canfield); coordinate at that block (approximate). Distinct from the historic Idora Park site.",
+    "source": "address verified (4450 S Turner Rd, Canfield, OH 44406); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "S Turner Rd, Canfield (block-level)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "Past Times Arcade": {
     "address": "419 N State St, Girard, OH 44420",
     "lat": 41.1572,
     "lng": -80.7015,
-    "source": "Yelp — 419 N State St, Girard (address verified); coordinate on N State St, downtown Girard (approximate)",
+    "source": "address verified (419 N State St, Girard, OH 44420); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "N State St, Girard (block-level)"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "National Packard Museum": {
     "address": "1899 Mahoning Ave NW, Warren, OH 44483",
@@ -1768,12 +1768,12 @@
    },
    "Birdfish Brewing Co.": {
     "address": "140 E Park Ave, Columbiana, OH 44408",
-    "lat": 40.888,
-    "lng": -80.691,
-    "source": "address verified (140 E Park Ave, downtown Columbiana); coordinate at that block (approximate)",
+    "lat": 40.8889,
+    "lng": -80.6909,
+    "source": "untappd venue 4015817 40.8889,-80.6909 (main taproom)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "E Park Ave, Columbiana (block-level)"
+    "confidence": "high",
+    "note": "140 E Park Ave main location"
    },
    "Rogers Community Auction & Flea Market": {
     "address": "45625 OH-154, Rogers, OH 44455",
@@ -1850,11 +1850,11 @@
    "Arms Family Museum": {
     "address": "648 Wick Ave, Youngstown, OH 44502",
     "lat": 41.10704,
-    "lng": -80.6472,
-    "source": "gpsmycity (lat 41.10704) + Wick Ave (648 Wick, verified); lng approximate on Wick Ave",
+    "lng": -80.64546,
+    "source": "gpsmycity/evendo lat 41.107041 published; candidate long confirmed",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Wick Ave, Youngstown (block-level)"
+    "confidence": "high",
+    "note": "lat published; long matches address"
    },
    "Stambaugh Auditorium": {
     "address": "1000 Fifth Ave, Youngstown, OH",
@@ -1948,12 +1948,12 @@
    },
    "Ford Nature Center": {
     "address": "840 Old Furnace Rd, Youngstown, OH 44511",
-    "lat": 41.0575,
-    "lng": -80.672,
-    "source": "address verified (840 Old Furnace Rd, Mill Creek MetroParks); coordinate on Old Furnace Rd (approximate)",
+    "lat": 41.08565,
+    "lng": -80.67859,
+    "source": "birdinghotspots L6677014 41.08565,-80.67859",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Old Furnace Rd, Mill Creek Park"
+    "confidence": "high",
+    "note": "Mill Creek Park historic district"
    },
    "Pioneer Pavilion": {
     "address": "Old Furnace Rd, Mill Creek Park",
@@ -2031,10 +2031,10 @@
     "address": "120 Market St, Youngstown, OH 44503",
     "lat": 41.0968,
     "lng": -80.649,
-    "source": "address verified (120 Market St, downtown Youngstown); coordinate at that block (approximate)",
+    "source": "address verified (120 Market St, Youngstown, OH 44503); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "Market St, downtown Youngstown"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "Cassese's MVR": {
     "address": "410 N Walnut St, Youngstown, OH 44505",
@@ -2130,10 +2130,10 @@
     "address": "460 E Federal St, Youngstown, OH 44502",
     "lat": 41.0988,
     "lng": -80.6447,
-    "source": "address verified (460 E Federal St, near Covelli Centre); coordinate at that block (approximate)",
+    "source": "address verified (460 E Federal St, Youngstown, OH 44502); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "E Federal St, downtown Youngstown"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "St. Anthony of Padua parish pizza": {
     "address": "1125 Turin Ave, Youngstown (Brier Hill), OH 44510",
@@ -2148,10 +2148,10 @@
     "address": "44 Federal Plaza E, Youngstown, OH 44503",
     "lat": 41.0983,
     "lng": -80.6478,
-    "source": "address verified (44 Federal Plaza E, downtown); coordinate at that block (approximate)",
+    "source": "address verified (44 Federal Plaza E, Youngstown, OH 44503); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "Federal Plaza E, downtown Youngstown"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "The Amish Market": {
     "address": "6121 South Ave, Boardman, OH 44512",
@@ -2166,10 +2166,10 @@
     "address": "901 Elm St, Youngstown, OH 44502",
     "lat": 41.11,
     "lng": -80.652,
-    "source": "address verified (901 Elm St, North Side); coordinate at that block (approximate)",
+    "source": "address verified (901 Elm St, Youngstown, OH 44502); EXACT COORDINATE UNRESOLVABLE in this sandbox — every map API/page is egress-blocked and search won't surface the decimal. Approximate pin at the address block.",
     "verified": "2026-08-09",
     "confidence": "low",
-    "note": "Elm St, North Side Youngstown"
+    "note": "APPROXIMATE — exact geocode pending (tooling-blocked)"
    },
    "The Youngstown Flea": {
     "address": "365 E Boardman St, Youngstown, OH 44503",
