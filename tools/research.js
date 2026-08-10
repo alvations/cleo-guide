@@ -47,6 +47,7 @@ const PAGE_FOR = {
   'cleveland-oh': path.join(__dirname, '..', 'cleveland.html'),
   'pittsburgh-pa': path.join(__dirname, '..', 'cities', 'pittsburgh.html'),
   'youngstown-oh': path.join(__dirname, '..', 'cities', 'youngstown.html'),
+  'new-york-ny': path.join(__dirname, '..', 'cities', 'newyork.html'),
 };
 
 function loadGeocodes() {
