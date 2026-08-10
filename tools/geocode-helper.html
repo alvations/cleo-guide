@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geocode helper — resolve the tooling-blocked pins</title>
+<style>
+  :root{color-scheme:light dark}
+  body{font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:900px;margin:24px auto;padding:0 16px}
+  h1{font-size:20px} p.sub{color:#666;margin-top:-6px}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+  th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;vertical-align:top}
+  th{background:#f2f2f2}
+  .ok{color:#137333;font-weight:600}.bad{color:#c5221f;font-weight:600}.wait{color:#a56a00}
+  code,textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  textarea{width:100%;height:180px;margin-top:8px;font-size:12px;padding:8px}
+  button{font-size:14px;padding:8px 14px;cursor:pointer;margin:4px 0}
+  .match{font-size:12px;color:#555}
+  a{color:#1a73e8}
+</style>
+</head>
+<body>
+<h1>Geocode helper — the 7 pins the sandbox couldn't resolve</h1>
+<p class="sub">Runs in <strong>your</strong> browser (which can reach the map servers). It geocodes each
+address against <strong>OpenStreetMap / Nominatim</strong> — the same OSM you asked to plot on — no API key.
+Check each result's "OSM matched" text is the right place, then copy the JSON at the bottom back to the chat.</p>
+
+<button id="run">▶ Geocode all</button> <span id="status"></span>
+<table id="tbl">
+  <thead><tr><th>#</th><th>Place</th><th>Address queried</th><th>lat, lng</th><th>OSM matched</th></tr></thead>
+  <tbody></tbody>
+</table>
+
+<h3>Copy this back to the chat</h3>
+<textarea id="out" readonly placeholder="Run the geocoder, then copy this JSON."></textarea>
+
+<script>
+// The 7 places the locked-down build environment could not geocode.
+// city keys match data/geocodes.json. Each has a primary address and optional fallbacks.
+const PLACES = [
+  {city:"pittsburgh-pa", n:"Papa J's Twin Plaza",            q:["2016 Smallman St, Pittsburgh, PA 15222","Papa J's Twin Plaza, Pittsburgh, PA"]},
+  {city:"youngstown-oh", n:"Idora Park Experience",          q:["4450 S Turner Rd, Canfield, OH 44406","Idora Park Experience, Canfield, OH"]},
+  {city:"youngstown-oh", n:"Past Times Arcade",              q:["419 N State St, Girard, OH 44420","Past Times Arcade, Girard, OH"]},
+  {city:"youngstown-oh", n:"Mahoning County Courthouse",     q:["120 Market St, Youngstown, OH 44503","Mahoning County Courthouse, Youngstown, OH"]},
+  {city:"youngstown-oh", n:"Penguin City Brewing Company",   q:["460 E Federal St, Youngstown, OH 44502","Penguin City Brewing, Youngstown, OH"]},
+  {city:"youngstown-oh", n:"Casa Di Canzonetta",             q:["44 E Federal St, Youngstown, OH 44503","44 Federal Plaza East, Youngstown, OH"]},
+  {city:"youngstown-oh", n:"Northside Farmers Market",       q:["901 Elm St, Youngstown, OH 44502","Northside Farmers Market, Youngstown, OH"]},
+];
+const results = [];
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+
+async function nominatim(query){
+  const url = "https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=1&q=" + encodeURIComponent(query);
+  const r = await fetch(url, {headers:{"Accept":"application/json"}});
+  if(!r.ok) throw new Error("HTTP "+r.status);
+  const j = await r.json();
+  return (j && j[0]) || null;
+}
+
+function row(i){ return document.querySelector("#tbl tbody").children[i]; }
+
+async function run(){
+  const btn=document.getElementById("run"); btn.disabled=true;
+  const tb=document.querySelector("#tbl tbody"); tb.innerHTML="";
+  PLACES.forEach((p,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${i+1}</td><td>${p.n}</td><td>${p.q[0]}</td><td class="wait">…</td><td class="match"></td>`;
+    tb.appendChild(tr);
+  });
+  results.length=0;
+  for(let i=0;i<PLACES.length;i++){
+    const p=PLACES[i]; let hit=null, used="";
+    document.getElementById("status").textContent = `geocoding ${i+1}/${PLACES.length}…`;
+    for(const q of p.q){
+      try{ hit = await nominatim(q); used=q; }catch(e){ hit=null; }
+      if(hit) break;
+      await sleep(1100); // Nominatim: max ~1 req/sec
+    }
+    const cell=row(i).children[3], mcell=row(i).children[4];
+    if(hit){
+      const lat=+(+hit.lat).toFixed(5), lng=+(+hit.lon).toFixed(5);
+      cell.textContent=`${lat}, ${lng}`; cell.className="ok";
+      mcell.innerHTML=(hit.display_name||"").slice(0,90)+` <a target="_blank" href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}&zoom=19">verify on OSM ↗</a>`;
+      results.push({city:p.city,n:p.n,lat,lng,source:`OpenStreetMap/Nominatim (browser geocode of "${used}")`,conf:"high"});
+    } else {
+      cell.textContent="not found"; cell.className="bad";
+      mcell.textContent="No OSM match — tweak the address and re-run.";
+    }
+    await sleep(1100);
+  }
+  document.getElementById("status").textContent = `done — ${results.length}/${PLACES.length} resolved.`;
+  document.getElementById("out").value = JSON.stringify(results,null,1);
+  btn.disabled=false;
+}
+document.getElementById("run").addEventListener("click", run);
+</script>
+</body>
+</html>
