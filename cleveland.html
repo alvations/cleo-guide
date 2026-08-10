@@ -256,6 +256,10 @@
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
   <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
   <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
   <div class="chips" id="rankFilter"></div>
   <p class="ctrl-label">Sort</p>
@@ -783,6 +787,11 @@ const CUISINES = [
   {id:"TV", n:"On TV / YouTube"}
 ];
 
+// Collections — a cross-cutting theme filter (a place may carry several ids in its `g` array).
+// Empty here; cities that use it (e.g. New York) inject their own list and tag records with `g`.
+// When CATS is empty the "Filter by collection" control auto-hides, so other cities are unaffected.
+const CATS = [];
+
 const F = [
 /* ── VIETNAMESE ── */
 {t:1,a:"UC",cz:["VN"],n:"Superior Ph\u1edf",ad:"3030 Superior Ave E #105, Asiatown",la:41.5103169,ln:-81.6696709,
@@ -1204,9 +1213,10 @@ function tag(t,tbl){
 
 const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
 const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
 function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
 
-let MODE='sights', fCz='all';
+let MODE='sights', fCz='all', fCat='all';
 
 function match(p){
   if(seenMode==='hide' && SEEN.has(p.id)) return false;
@@ -1217,6 +1227,7 @@ function match(p){
   if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
   if(fRank!=='all' && String(p.t)!==fRank) return false;
   if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
   if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
   return true;
 }
@@ -1225,7 +1236,8 @@ function card(p,n){
   const tbl=SRCOF(p), nc=cites(p), seen=new Set();
   const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
                 .map(t=>tag(t,tbl)).join('');
-  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
   const isSeen=SEEN.has(p.id);
   return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
     +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
@@ -1317,6 +1329,13 @@ document.getElementById('sortFilter').innerHTML =
 document.getElementById('dayFilter').innerHTML =
   ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
   .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
 
 function wire(id,set){
   document.getElementById(id).addEventListener('click',e=>{
@@ -1330,6 +1349,7 @@ wire('dayFilter',v=>fArea=v);
 wire('rankFilter',v=>fRank=v);
 wire('sortFilter',v=>fSort=v);
 wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
 document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
 
 /* ── scoring: drives the "top N" presets ── */
