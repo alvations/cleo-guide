@@ -178,13 +178,13 @@
     "statusChecked": "2026-08-10"
    },
    "Dancing Gnome": {
-    "address": "925 Main St, Sharpsburg, PA 15215",
+    "address": "1025 Main St, Sharpsburg, PA 15215",
     "lat": 40.49387,
     "lng": -79.93155,
     "source": "Apple Maps coordinate= for 'Dancing Gnome Beer' (directory link listed address 1025 Main St)",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Apple coordinate is for the Dancing Gnome production facility at 1025 Main; the 925 Main taproom ('Nine Two Five') is ~1 block away, so ~100-150m possible offset.; Current listings show 1025 Main St, Sharpsburg (input has 925 Main St)",
+    "note": "Apple coordinate is for the Dancing Gnome production facility at 1025 Main; the 925 Main taproom ('Nine Two Five') is ~1 block away, so ~100-150m possible offset.; Current listings show 1025 Main St, Sharpsburg (input has 925 Main St)main all-ages taproom at 1025 Main; original 925 taproom reopened one block away",
     "status": "open",
     "statusSource": "Yelp updated Aug 2026, active hours; NextPittsburgh coverage of reopened original taproom",
     "statusChecked": "2026-08-10"
@@ -355,18 +355,6 @@
     "note": "West Park, Allegheny Commons",
     "status": "open",
     "statusSource": "official aviary.org; open daily 10-5, Jul 2026 Yelp reviews",
-    "statusChecked": "2026-08-10"
-   },
-   "Carnegie Science Center": {
-    "address": "1 Allegheny Ave, North Shore, Pittsburgh, PA 15212",
-    "lat": 40.44568,
-    "lng": -80.01819,
-    "source": "google maps place pin (Kamin Science Center)",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "Ohio River bank, North Shore; Rebranded as Kamin Science Center; same location and mission, still Pittsburgh's most-visited museum",
-    "status": "open",
-    "statusSource": "carnegiemuseums.org / kaminsciencecenter.org — open daily 10-5",
     "statusChecked": "2026-08-10"
    },
    "Children's Museum of Pittsburgh": {
@@ -2155,6 +2143,18 @@
     "note": "Oakland hot dog shop; Permanently closed since 2020",
     "status": "closed",
     "statusSource": "Pittsburgh City Paper + Post-Gazette + Yelp 'CLOSED' banner: closed for good Apr 2020; site now Capriotti's + Viva Los Tacos",
+    "statusChecked": "2026-08-10"
+   },
+   "Kamin Science Center (formerly Carnegie Science Center)": {
+    "address": "1 Allegheny Ave, North Shore, Pittsburgh, PA 15212",
+    "lat": 40.44568,
+    "lng": -80.01819,
+    "source": "google maps place pin (Kamin Science Center)",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "Ohio River bank, North Shore; Rebranded as Kamin Science Center; same location and mission, still Pittsburgh's most-visited museumrenamed Kamin Science Center (Sept 2025, $65M Kamin gift)",
+    "status": "open",
+    "statusSource": "official kaminsciencecenter.org + Post-Gazette/CBS (renamed from Carnegie Science Center, Sept 2025)",
     "statusChecked": "2026-08-10"
    }
   },
