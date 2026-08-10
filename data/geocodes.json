@@ -1028,12 +1028,12 @@
    },
    "Groceria Merante": {
     "address": "3454 Bates St, Oakland, Pittsburgh, PA 15213",
-    "lat": 40.43,
-    "lng": -79.9605,
-    "source": "address verified (3454 Bates St, South Oakland); coordinate at that block (approximate)",
+    "lat": 40.43652,
+    "lng": -79.95531,
+    "source": "nextdoor merante-groceria-pittsburgh-pa (40.43652428,-79.95531396)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Bates St, South Oakland (block-level)"
+    "confidence": "high",
+    "note": "Central Oakland, matches Bates St"
    },
    "Bloomfield Saturday Market": {
     "address": "5050 Liberty Ave, Pittsburgh, PA 15224",
@@ -1424,12 +1424,12 @@
    },
    "Row House — Hollywood Theater": {
     "address": "1449 Potomac Ave, Dormont, Pittsburgh, PA 15216",
-    "lat": 40.39546,
-    "lng": -80.0356,
-    "source": "Google Maps — Potomac Ave, Dormont block (adjacent 1412 Potomac @40.3954,-80.0345); address approximate",
+    "lat": 40.39608,
+    "lng": -80.03538,
+    "source": "nextdoor hollywood-theater-pittsburgh-pa (40.39607907,-80.03538201)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Potomac Ave, Dormont (block-level)"
+    "confidence": "high",
+    "note": "Dormont, matches Potomac Ave"
    },
    "LeMoyne House": {
     "address": "49 E Maiden St, Washington, PA",
@@ -1595,21 +1595,21 @@
    },
    "Sarris Candies": {
     "address": "511 Adams Ave, Canonsburg, PA 15317",
-    "lat": 40.2615,
-    "lng": -80.1847,
-    "source": "loc8nearme/Yelp — 511 Adams Ave, Canonsburg (address verified); coordinate approximate on Adams Ave",
+    "lat": 40.26565,
+    "lng": -80.17321,
+    "source": "nextdoor sarris-candies-canonsburg-pa (40.265647,-80.173214)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Adams Ave, Canonsburg (block-level)"
+    "confidence": "high",
+    "note": "Canonsburg, matches Adams Ave"
    },
    "Page Dairy Mart": {
     "address": "4112 E Carson St (at Becks Run Rd), Pittsburgh, PA 15210",
-    "lat": 40.4269,
-    "lng": -79.9654,
-    "source": "Foursquare — 4112 Carson St at Becks Run Rd, South Side; coordinate at that corner (approximate)",
+    "lat": 40.41123,
+    "lng": -79.9558,
+    "source": "nextdoor page-dairy-mart-pittsburgh-pa (40.411228,-79.9557969)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "E Carson at Becks Run, South Side"
+    "confidence": "high",
+    "note": "South Side, E Carson at Becks Run"
    },
    "Bedner's Farm & Greenhouse": {
     "address": "315 Coleman Rd, McDonald, PA 15057",
@@ -1687,21 +1687,21 @@
    },
    "Noah's Lost Ark Exotic Animal Sanctuary": {
     "address": "8424 Bedell Rd, Berlin Center, OH 44401",
-    "lat": 41.03,
-    "lng": -80.95,
-    "source": "address verified (8424 Bedell Rd, Berlin Center); coordinate at that rural road (approximate)",
+    "lat": 40.99615,
+    "lng": -80.99002,
+    "source": "nextdoor noahs-lost-ark-animal-park-berlin-center-oh (40.99614814,-80.99002499)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Bedell Rd, Berlin Center (rural)"
+    "confidence": "high",
+    "note": "Bedell Rd near Berlin Lake, matches"
    },
    "TP Tools Auto Collection Museum": {
     "address": "7075 State Route 446 (Herbert Rd), Canfield, OH 44406",
-    "lat": 41.019,
-    "lng": -80.7005,
-    "source": "Google — 7075 Herbert Rd/SR-446, Canfield (by Twp Fire Sta #2); coordinate at that block (approximate)",
+    "lat": 41.02138,
+    "lng": -80.78116,
+    "source": "nextdoor tp-tools-auto-museum-canfield-oh (41.021382,-80.781156)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "SR-446/Herbert Rd, Canfield (block-level)"
+    "confidence": "high",
+    "note": "SR 446 Canfield, matches"
    },
    "Mill Creek MetroParks Farm": {
     "address": "7574 Columbiana-Canfield Rd, Canfield, OH 44406",
@@ -1921,12 +1921,12 @@
    },
    "Lily Pond": {
     "address": "Lily Pond Circle Trail, off McCollum Rd, Mill Creek Park, Youngstown, OH 44509",
-    "lat": 41.049,
-    "lng": -80.691,
-    "source": "AllTrails + Mill Creek MetroParks (off McCollum Rd, Lily Pond Circle Trail); coordinate approximate",
+    "lat": 41.08872,
+    "lng": -80.68084,
+    "source": "hometownlocator GNIS fid 1042566 (41.0887208,-80.6808421)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "off McCollum Rd, Mill Creek Park"
+    "confidence": "high",
+    "note": "USGS GNIS named feature, Mill Creek Park"
    },
    "Lake Newport & Newport Boathouse": {
     "address": "Mill Creek Park, Youngstown",
@@ -2047,12 +2047,12 @@
    },
    "Yosteria": {
     "address": "252 Valley St, Youngstown, OH 44505",
-    "lat": 41.1068,
-    "lng": -80.6411,
-    "source": "address verified (252 Valley St, Smoky Hollow); coordinate at that block (approximate)",
+    "lat": 41.10491,
+    "lng": -80.64061,
+    "source": "menupix/nextdoor map (41.10491,-80.64061)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Valley St, Youngstown (block-level)"
+    "confidence": "high",
+    "note": "Valley St, north-central Youngstown"
    },
    "Kravitz Delicatessen": {
     "address": "3135 Belmont Ave, Youngstown (Liberty), OH 44505",
@@ -2083,12 +2083,12 @@
    },
    "Wedgewood Pizza": {
     "address": "1622 S Raccoon Rd, Austintown, OH 44515",
-    "lat": 41.087,
-    "lng": -80.746,
-    "source": "address verified (1622 S Raccoon Rd, Austintown); coordinate at that block (approximate)",
+    "lat": 41.08443,
+    "lng": -80.73282,
+    "source": "nextdoor wedgewood-pizza-austintown (41.08443,-80.73282)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "S Raccoon Rd, Austintown (block-level)"
+    "confidence": "high",
+    "note": "S Raccoon Rd, Austintown"
    },
    "Avalon Downtown Pizzeria": {
     "address": "17 W Federal St, Youngstown, OH 44503",
@@ -2119,12 +2119,12 @@
    },
    "Noble Creature Wild Ales & Lagers": {
     "address": "126 E Rayen Ave, Youngstown, OH 44503",
-    "lat": 41.1016,
-    "lng": -80.6478,
-    "source": "address verified (126 E Rayen Ave, downtown); coordinate at that block (approximate)",
+    "lat": 41.10218,
+    "lng": -80.64489,
+    "source": "nextdoor noble-creature-cask-house-youngstown-oh (41.10218,-80.64489)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "E Rayen Ave, downtown Youngstown"
+    "confidence": "high",
+    "note": "E Rayen Ave, Smoky Hollow"
    },
    "Penguin City Brewing Company": {
     "address": "460 E Federal St, Youngstown, OH 44502",
@@ -2137,12 +2137,12 @@
    },
    "St. Anthony of Padua parish pizza": {
     "address": "1125 Turin Ave, Youngstown (Brier Hill), OH 44510",
-    "lat": 41.116,
-    "lng": -80.673,
-    "source": "address verified (St. Anthony of Padua, 1125 Turin Ave, Brier Hill); coordinate at the church (approximate)",
+    "lat": 41.12309,
+    "lng": -80.67108,
+    "source": "nextdoor st-anthony-church-pizza-youngstown-oh (41.123089,-80.671082)",
     "verified": "2026-08-09",
-    "confidence": "low",
-    "note": "Turin Ave, Brier Hill Youngstown"
+    "confidence": "high",
+    "note": "Turin, Brier Hill, matches"
    },
    "Casa Di Canzonetta": {
     "address": "44 Federal Plaza E, Youngstown, OH 44503",
