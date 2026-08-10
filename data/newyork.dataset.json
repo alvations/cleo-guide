@@ -1,0 +1,3950 @@
+{
+ "areas": [
+  {
+   "id": "MAN",
+   "n": "Manhattan"
+  },
+  {
+   "id": "BK",
+   "n": "Brooklyn"
+  },
+  {
+   "id": "QNS",
+   "n": "Queens"
+  },
+  {
+   "id": "BX",
+   "n": "The Bronx"
+  },
+  {
+   "id": "SI",
+   "n": "Staten Island"
+  },
+  {
+   "id": "DAY",
+   "n": "Day Trips"
+  }
+ ],
+ "ac": {
+  "MAN": "#C0504D",
+  "BK": "#4F81BD",
+  "QNS": "#9BBB59",
+  "BX": "#8064A2",
+  "SI": "#4BACC6",
+  "DAY": "#F79646"
+ },
+ "cuisines": [
+  {
+   "id": "PZ",
+   "n": "Pizza"
+  },
+  {
+   "id": "IT",
+   "n": "Italian"
+  },
+  {
+   "id": "JD",
+   "n": "Jewish Deli & Bagels"
+  },
+  {
+   "id": "US",
+   "n": "American & Steakhouse"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican"
+  },
+  {
+   "id": "LAT",
+   "n": "Latin American"
+  },
+  {
+   "id": "CN",
+   "n": "Chinese"
+  },
+  {
+   "id": "CANT",
+   "n": "Cantonese & Dim Sum"
+  },
+  {
+   "id": "SICH",
+   "n": "Sichuan"
+  },
+  {
+   "id": "TWN",
+   "n": "Taiwanese"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnamese"
+  },
+  {
+   "id": "TH",
+   "n": "Thai"
+  },
+  {
+   "id": "MY",
+   "n": "Malaysian"
+  },
+  {
+   "id": "SG",
+   "n": "Singaporean"
+  },
+  {
+   "id": "SEA",
+   "n": "Southeast Asian"
+  },
+  {
+   "id": "IN",
+   "n": "Indian"
+  },
+  {
+   "id": "HIM",
+   "n": "Himalayan"
+  },
+  {
+   "id": "LK",
+   "n": "Sri Lankan"
+  },
+  {
+   "id": "KR",
+   "n": "Korean"
+  },
+  {
+   "id": "GRK",
+   "n": "Greek"
+  },
+  {
+   "id": "ME",
+   "n": "Middle Eastern & Persian"
+  },
+  {
+   "id": "EU",
+   "n": "European"
+  },
+  {
+   "id": "DES",
+   "n": "Desserts & Bakeries"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "ICON",
+   "n": "Iconic Landmarks & Views"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Food Halls"
+  },
+  {
+   "id": "ARTS",
+   "n": "Performing Arts & Music"
+  },
+  {
+   "id": "WATER",
+   "n": "Waterfront & Islands"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "The Metropolitan Museum of Art",
+   "ad": "1000 Fifth Avenue, New York, NY 10028",
+   "w": "Encyclopedic art museum on Museum Mile with over 1.5 million works spanning 5,000 years, from Egyptian temples to European masters.",
+   "k": "Pay-what-you-wish only for NY State residents; others pay a fixed admission. Closed Wednesdays.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "METMUSEUM",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Central Park",
+   "ad": "Central Park, New York, NY 10024",
+   "w": "843-acre landscaped park by Olmsted and Vaux running from 59th to 110th Street, with Bethesda Terrace, the Ramble, and the Reservoir loop.",
+   "k": "Free and open 6am to 1am daily.",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Empire State Building",
+   "ad": "20 West 34th Street, New York, NY 10001",
+   "w": "1931 Art Deco skyscraper with 86th and 102nd floor observatories offering 360-degree views across the city and beyond.",
+   "k": "Timed tickets recommended; sunset slots sell out. Open late, past 11pm.",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Top of the Rock",
+   "ad": "30 Rockefeller Plaza, New York, NY 10112",
+   "w": "Open-air observation deck atop Rockefeller Center with an unobstructed head-on view of the Empire State Building and Central Park.",
+   "k": "Entrance is on West 50th Street between Fifth and Sixth Avenues.",
+   "g": [
+    "PARK",
+    "ICON"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "The High Line",
+   "ad": "Gansevoort Street & Washington Street, New York, NY 10014",
+   "w": "1.45-mile elevated park built on a former freight rail viaduct, running through Chelsea past gardens, art installations, and city views.",
+   "k": "Southern entrance at Gansevoort St has elevator access. Free.",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Grand Central Terminal",
+   "ad": "89 East 42nd Street, New York, NY 10017",
+   "w": "1913 Beaux-Arts rail terminal with a celestial-mural ceiling over the Main Concourse and the acoustic Whispering Gallery by the Oyster Bar ramp.",
+   "k": "Stand in opposite corners of the tiled archway to hear a whisper across the vault.",
+   "g": [
+    "MUS",
+    "ICON"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "UNTAPPED",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "New York Public Library, Stephen A. Schwarzman Building",
+   "ad": "476 Fifth Avenue, New York, NY 10018",
+   "w": "1911 Beaux-Arts main branch guarded by the marble lions Patience and Fortitude, home to the vast third-floor Rose Main Reading Room.",
+   "k": "Free entry; Rose Reading Room open Monday to Saturday.",
+   "g": [
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "The Met Cloisters",
+   "ad": "99 Margaret Corbin Drive, New York, NY 10040",
+   "w": "The Met's branch for medieval European art in Fort Tryon Park, built from parts of five French cloisters and home to the Unicorn Tapestries.",
+   "k": "Far uptown in Washington Heights; admission is included with a Met ticket.",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "METMUSEUM",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Washington Square Park",
+   "ad": "Washington Square, New York, NY 10012",
+   "w": "Greenwich Village square anchored by the Washington Arch and a central fountain, a longtime hub for street performers, chess, and NYU life.",
+   "k": "Free; liveliest on warm weekend afternoons.",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "The Frick Collection",
+   "ad": "1 East 70th Street, New York, NY 10021",
+   "w": "Henry Clay Frick's Gilded Age mansion showing Old Master paintings by Vermeer, Rembrandt, and Bellini; reopened April 2025 after a major renovation.",
+   "k": "The mansion's second floor is now open to the public for the first time.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYT",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "The Morgan Library & Museum",
+   "ad": "225 Madison Avenue, New York, NY 10016",
+   "w": "J.P. Morgan's 1906 private library in Murray Hill, with a three-tier tapestry-hung study and holdings from Gutenberg Bibles to literary manuscripts.",
+   "k": "Closed Mondays; the historic library rooms are the highlight.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Lower East Side Tenement Museum",
+   "ad": "103 Orchard Street, New York, NY 10002",
+   "w": "Restored 19th-century tenement telling immigrant stories through recreated apartments; entry is only by guided tour from the visitor center.",
+   "k": "Tours must be booked; the museum interior is not open for free walk-ins.",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "The Elevated Acre",
+   "ad": "55 Water Street, New York, NY 10004",
+   "w": "Hidden one-acre park perched 40 feet above the Financial District, with a lawn, boardwalk, and East River views over the Brooklyn Bridge.",
+   "k": "Reach it via an easy-to-miss escalator set back from Water Street.",
+   "g": [
+    "PARK",
+    "ICON",
+    "ODD"
+   ],
+   "s": [
+    [
+     "UNTAPPED",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Hispanic Society Museum & Library",
+   "ad": "613 West 155th Street, New York, NY 10032",
+   "w": "Free Washington Heights museum with the finest collection of Spanish art outside Spain, including Goya, El Greco, and Sorolla's Vision of Spain murals.",
+   "k": "Free timed ticket required as of January 2026.",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Marjorie Eliot's Parlor Jazz",
+   "ad": "555 Edgecombe Avenue, Apt 3F, New York, NY 10032",
+   "w": "Free living-room jazz concert held every Sunday since 1993 in a Sugar Hill apartment, run by pianist Marjorie Eliot and family.",
+   "k": "Sundays at 3pm; doors around 2:30pm. Free, donations welcome; arrive early for a seat.",
+   "g": [
+    "ARTS",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Old City Hall Subway Station",
+   "ad": "City Hall Station, New York, NY 10007",
+   "w": "Ornate 1904 station with Guastavino-tiled vaults and skylights, closed to service since 1945; NY Transit Museum runs occasional member tours.",
+   "k": "No regular access; you can glimpse it by staying on a downtown 6 train past the Brooklyn Bridge stop as it loops.",
+   "g": [
+    "MUS",
+    "ICON",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "UNTAPPED",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Brooklyn Botanic Garden",
+   "ad": "990 Washington Ave, Brooklyn, NY 11225",
+   "w": "52-acre garden famed for its Japanese Hill-and-Pond Garden and springtime cherry-blossom esplanade.",
+   "k": "garden",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Brooklyn Museum",
+   "ad": "200 Eastern Pkwy, Brooklyn, NY 11238",
+   "w": "Encyclopedic art museum on Eastern Parkway with Egyptian holdings and Judy Chicago's The Dinner Party.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Prospect Park",
+   "ad": "95 Prospect Park West, Brooklyn, NY 11215",
+   "w": "526-acre Olmsted and Vaux park with the Long Meadow, a lake, and the Prospect Park Zoo.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Luna Park in Coney Island",
+   "ad": "1000 Surf Ave, Brooklyn, NY 11224",
+   "w": "Seaside amusement park home to the 1927 wooden Cyclone coaster; reopened for the 2026 season March 30.",
+   "k": "amusement",
+   "g": [
+    "PARK",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "OFFICIAL",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Green-Wood Cemetery",
+   "ad": "500 25th St, Brooklyn, NY 11232",
+   "w": "478-acre 1838 garden cemetery and National Historic Landmark with monuments, ponds, and skyline views.",
+   "k": "cemetery",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Jane's Carousel",
+   "ad": "1 Dock St, Brooklyn, NY 11201",
+   "w": "Restored 1922 carousel in a glass pavilion in Brooklyn Bridge Park beneath the Brooklyn Bridge.",
+   "k": "landmark",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "OFFICIAL",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Dumbo Manhattan Bridge View",
+   "ad": "Washington St at Water St, Brooklyn, NY 11201",
+   "w": "Cobblestoned Washington Street framing the Manhattan Bridge tower, one of NYC's most photographed views.",
+   "k": "viewpoint",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Brooklyn Heights Promenade",
+   "ad": "Columbia Heights, Brooklyn, NY 11201",
+   "w": "Cantilevered esplanade over the BQE with panoramic views of Lower Manhattan and the harbor.",
+   "k": "viewpoint",
+   "g": [
+    "ICON",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "New York Transit Museum",
+   "ad": "99 Schermerhorn St, Brooklyn, NY 11201",
+   "w": "Museum inside a decommissioned 1936 subway station with vintage subway cars on original track.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Deno's Wonder Wheel Amusement Park",
+   "ad": "3059 W 12th St, Brooklyn, NY 11224",
+   "w": "Family park built around the 1920 Wonder Wheel, a 150-foot NYC-landmark Ferris wheel with swinging cars.",
+   "k": "amusement",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "OFFICIAL",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "Soldiers' and Sailors' Memorial Arch",
+   "ad": "Grand Army Plaza, Brooklyn, NY 11238",
+   "w": "1892 triumphal arch honoring Civil War veterans, anchoring Grand Army Plaza at Prospect Park's entrance.",
+   "k": "monument",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "The City Reliquary",
+   "ad": "370 Metropolitan Ave, Brooklyn, NY 11211",
+   "w": "Tiny Williamsburg community museum of NYC ephemera behind a bodega-style canopy; open Thursday-Sunday.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "OFFICIAL",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "Domino Park",
+   "ad": "15 River St, Brooklyn, NY 11249",
+   "w": "Five-acre Williamsburg waterfront park on the former Domino Sugar Refinery site with salvaged syrup tanks.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "The Bushwick Collective",
+   "ad": "427 Troutman St, Brooklyn, NY 11237",
+   "w": "Open-air street-art gallery of rotating murals across warehouse walls around Troutman St and St. Nicholas Ave.",
+   "k": "street-art",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "Weeksville Heritage Center",
+   "ad": "158 Buffalo Ave, Brooklyn, NY 11213",
+   "w": "Historic-house museum of Weeksville, a free Black community founded in 1838, with restored Hunterfly Road Houses.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Queens Museum",
+   "ad": "New York City Building, Flushing Meadows Corona Park, Corona, NY 11368",
+   "w": "Home of the Panorama of the City of New York, a 9,335 sq ft scale model of all five boroughs built for the 1964 World's Fair, with 895,000 buildings.",
+   "k": "panorama",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Unisphere",
+   "ad": "Flushing Meadows Corona Park, Corona, NY 11368",
+   "w": "The 140-foot stainless-steel globe built for the 1964 World's Fair, ringed by fountains and the borough's most iconic landmark.",
+   "k": "landmark",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "The Noguchi Museum",
+   "ad": "9-01 33rd Rd, Long Island City, NY 11106",
+   "w": "Isamu Noguchi's own museum of stone, metal and wood sculpture arranged around a serene indoor-outdoor garden he designed himself.",
+   "k": "sculpture",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Rockaway Beach and Boardwalk",
+   "ad": "90-16 Rockaway Beach Blvd, Rockaway Beach, NY 11693",
+   "w": "A 5.5-mile boardwalk on the Atlantic and NYC's only legal surfing beach, with designated surf zones and taco stands along the sand.",
+   "k": "beach",
+   "g": [
+    "WATER"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "MoMA PS1",
+   "ad": "22-25 Jackson Ave, Long Island City, NY 11101",
+   "w": "Contemporary art in a converted 1890s public school, MoMA's edgier affiliate, now free admission with rotating experimental installations.",
+   "k": "art",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Louis Armstrong House Museum",
+   "ad": "34-56 107th St, Corona, NY 11368",
+   "w": "The modest Corona home where Louis and Lucille Armstrong lived from 1943, preserved with his den intact; guided 40-minute tours only.",
+   "k": "music",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Socrates Sculpture Park",
+   "ad": "32-01 Vernon Blvd, Long Island City, NY 11106",
+   "w": "A former illegal dumpsite turned free waterfront sculpture park on the East River, with rotating large-scale outdoor commissions and Manhattan views.",
+   "k": "sculpture",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "New York Hall of Science",
+   "ad": "47-01 111th St, Corona, NY 11368",
+   "w": "Hands-on science museum in a 1964 World's Fair pavilion, with 450+ interactive exhibits and a large outdoor Science Playground.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Museum of the Moving Image",
+   "ad": "36-01 35th Ave, Astoria, NY 11106",
+   "w": "Film and TV history at the historic Kaufman Astoria Studios complex, with movie artifacts, a Jim Henson gallery, and daily screenings.",
+   "k": "film",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Gantry Plaza State Park",
+   "ad": "4-09 47th Rd, Long Island City, NY 11101",
+   "w": "Riverfront park with restored 1920s rail gantries and the landmarked 1940 Pepsi-Cola neon sign, facing the Midtown skyline across the East River.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "USTA Billie Jean King National Tennis Center",
+   "ad": "Flushing Meadows Corona Park, Flushing, NY 11368",
+   "w": "Year-round public tennis complex and home of the US Open since 1978, anchored by 23,000-seat Arthur Ashe Stadium.",
+   "k": "sports",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Jamaica Bay Wildlife Refuge",
+   "ad": "175-10 Cross Bay Blvd, Broad Channel, NY 11693",
+   "w": "A 9,000-acre National Park Service refuge of salt marsh and freshwater ponds, one of the Northeast's premier urban birding sites on the Atlantic Flyway.",
+   "k": "nature",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NPS",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Hindu Temple Society of North America (Ganesh Temple)",
+   "ad": "45-57 Bowne St, Flushing, NY 11355",
+   "w": "The first traditional Hindu temple in North America, built in 1977 of granite imported from India, dedicated to Lord Ganesha.",
+   "k": "temple",
+   "g": [
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Jackson Heights Historic District",
+   "ad": "37th Ave & 80th St, Jackson Heights, NY 11372",
+   "w": "The nation's first and largest garden-apartment community, built 1914-1939 in Tudor and Mediterranean revival styles around hidden interior gardens.",
+   "k": "architecture",
+   "g": [
+    "PARK",
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Queens Botanical Garden",
+   "ad": "43-50 Main St, Flushing, NY 11355",
+   "w": "A 39-acre garden with rose, herb and bee gardens and an award-winning LEED Platinum visitor center, at the edge of Flushing's Chinatown.",
+   "k": "garden",
+   "g": [
+    "PARK",
+    "ICON"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BX",
+   "n": "Bronx Zoo",
+   "ad": "2300 Southern Blvd, Bronx, NY 10460",
+   "w": "The largest metropolitan zoo in the US, 265 acres with 6,000+ animals, run by the Wildlife Conservation Society since 1899.",
+   "k": "zoo",
+   "g": [
+    "FAM"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BX",
+   "n": "New York Botanical Garden",
+   "ad": "2900 Southern Blvd, Bronx, NY 10458",
+   "w": "A 250-acre National Historic Landmark garden with the Victorian-era Enid A. Haupt Conservatory and 50 acres of old-growth forest.",
+   "k": "garden",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BX",
+   "n": "Yankee Stadium",
+   "ad": "1 E 161st St, Bronx, NY 10451",
+   "w": "Home of the New York Yankees since 2009, in the Concourse neighborhood; hosts baseball plus NYCFC soccer and concerts.",
+   "k": "sports",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Wave Hill",
+   "ad": "4900 Independence Ave, Bronx, NY 10471",
+   "w": "A 28-acre public garden and cultural center in Riverdale on a bluff above the Hudson with sweeping Palisades views.",
+   "k": "garden",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Edgar Allan Poe Cottage",
+   "ad": "2640 Grand Concourse, Bronx, NY 10458",
+   "w": "The 1812 farmhouse where Poe spent his last years and wrote 'Annabel Lee'; now a museum run by the Bronx County Historical Society.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Woodlawn Cemetery",
+   "ad": "4199 Webster Ave, Bronx, NY 10470",
+   "w": "A 400-acre National Historic Landmark garden cemetery, resting place of Duke Ellington, Herman Melville and Miles Davis.",
+   "k": "landmark",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "City Island",
+   "ad": "City Island Ave, Bronx, NY 10464",
+   "w": "A 1.5-mile island in Long Island Sound with a New England fishing-village feel, seafood shacks, marinas and yacht clubs.",
+   "k": "neighborhood",
+   "g": [
+    "WATER"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "UNTAPPED",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Grand Concourse Art Deco",
+   "ad": "Grand Concourse, Bronx, NY 10457",
+   "w": "The 'Boulevard of Dreams,' a 1909 Champs-Elysees-inspired axis lined with one of the nation's densest concentrations of Art Deco buildings.",
+   "k": "architecture",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNTAPPED",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "Bartow-Pell Mansion Museum",
+   "ad": "895 Shore Rd, Bronx, NY 10464",
+   "w": "A Greek Revival stone mansion (c.1836-42) in Pelham Bay Park with period rooms and a formal terraced garden.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "Van Cortlandt House Museum",
+   "ad": "6036 Broadway, Bronx, NY 10471",
+   "w": "The oldest surviving building in the Bronx, a 1748 Georgian fieldstone house in Van Cortlandt Park.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "The Bronx Museum of the Arts",
+   "ad": "1040 Grand Concourse, Bronx, NY 10456",
+   "w": "A free contemporary-art museum on the Grand Concourse focused on 20th- and 21st-century work by artists of African, Asian and Latin American descent.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "Hall of Fame for Great Americans",
+   "ad": "2155 University Ave, Bronx, NY 10453",
+   "w": "The first US hall of fame, a 630-foot open-air colonnade (1901, Stanford White) on the Bronx Community College campus with 98 bronze busts.",
+   "k": "landmark",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "Andrew Freedman Home",
+   "ad": "1125 Grand Concourse, Bronx, NY 10452",
+   "w": "A 1924 limestone Italian Renaissance mansion built as a retirement home for the formerly wealthy; now a community arts and events space.",
+   "k": "landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "Orchard Beach",
+   "ad": "Orchard Beach Rd, Bronx, NY 10464",
+   "w": "The Bronx's only public beach, a mile-long crescent in Pelham Bay Park built as a WPA project under Robert Moses in the 1930s, nicknamed the 'Bronx Riviera'.",
+   "k": "beach",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SI",
+   "n": "Staten Island Ferry (St. George Terminal)",
+   "ad": "1 Bay Street, St. George Terminal, Staten Island, NY 10301",
+   "w": "Free 25-minute harbor crossing between Whitehall (Manhattan) and St. George, passing within view of the Statue of Liberty; runs 24 hours, no ticket needed.",
+   "k": "ferry, free, Statue of Liberty views",
+   "g": [
+    "ICON",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SI",
+   "n": "Snug Harbor Cultural Center & Botanical Garden",
+   "ad": "1000 Richmond Terrace, Staten Island, NY 10301",
+   "w": "83-acre campus of Greek Revival buildings, a Chinese Scholar's Garden, and botanical gardens on a former sailors' retirement home; grounds free dawn to dusk.",
+   "k": "gardens, cultural center",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SI",
+   "n": "Historic Richmond Town",
+   "ad": "441 Clarke Avenue, Staten Island, NY 10306",
+   "w": "Living-history village and museum complex spanning 300 years of New York history, with restored houses and costumed interpreters; open Wednesday through Sunday afternoons.",
+   "k": "living history, museum village",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SI",
+   "n": "Fort Wadsworth & Battery Weed",
+   "ad": "210 New York Avenue, Fort Wadsworth, Staten Island, NY 10305",
+   "w": "One of America's oldest military sites, guarding the Narrows beneath the Verrazzano bridge; the tiered granite Battery Weed and Fort Tompkins offer sweeping harbor views. Part of Gateway National Recreation Area.",
+   "k": "historic fort, harbor views",
+   "g": [
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NPS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Alice Austen House",
+   "ad": "2 Hylan Boulevard, Staten Island, NY 10305",
+   "w": "Victorian Gothic cottage on the shore that was home to pioneering photographer Alice Austen; now a museum of historic and contemporary photography with Narrows views.",
+   "k": "photography, historic house",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Postcards: Staten Island 9/11 Memorial",
+   "ad": "North Shore Waterfront Esplanade, Bank Street, St. George, Staten Island, NY 10301",
+   "w": "Two white sail-like forms framing the Manhattan skyline, honoring the 274 Staten Island residents lost in the September 11 attacks and 1993 bombing; each name inscribed on a granite plaque.",
+   "k": "9/11 memorial, waterfront",
+   "g": [
+    "ICON",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Greenbelt Nature Center",
+   "ad": "700 Rockland Avenue, Staten Island, NY 10314",
+   "w": "Gateway to the Staten Island Greenbelt, a 2,800-acre network of woodlands, wetlands, and marked hiking trails in the middle of the borough; center has exhibits and trail maps.",
+   "k": "hiking, nature preserve",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Staten Island Museum",
+   "ad": "1000 Richmond Terrace, Building A, Staten Island, NY 10301",
+   "w": "New York City's only remaining general-interest museum, covering art, natural science, and local history; located on the Snug Harbor campus in St. George.",
+   "k": "museum, natural history",
+   "g": [
+    "MUS",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "Conference House",
+   "ad": "298 Satterlee Street, Staten Island, NY 10307",
+   "w": "17th-century stone manor near the southernmost point in New York State, where a failed 1776 peace conference between the British and American delegates was held during the Revolution.",
+   "k": "colonial history, Tottenville",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "Jacques Marchais Museum of Tibetan Art",
+   "ad": "338 Lighthouse Avenue, Staten Island, NY 10306",
+   "w": "Stone temple-style buildings and terraced gardens housing one of the largest collections of Himalayan and Tibetan art in the U.S.; the Dalai Lama visited in 1991.",
+   "k": "Tibetan art, hillside garden",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "National Lighthouse Museum",
+   "ad": "200 The Promenade at Lighthouse Point, Staten Island, NY 10301",
+   "w": "Museum on the grounds of the former U.S. Lighthouse Service depot beside the St. George ferry terminal, telling the history of American lighthouses and lightkeeping.",
+   "k": "lighthouses, waterfront",
+   "g": [
+    "MUS",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "Staten Island Zoo",
+   "ad": "614 Broadway, Staten Island, NY 10310",
+   "w": "Compact West Brighton zoo known for its serpentarium and reptile collection, plus aquarium, big cats, and a children's farm; open daily with free Wednesday afternoons.",
+   "k": "zoo, reptiles",
+   "g": [
+    "MUS",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "High Rock Park",
+   "ad": "200 Nevada Avenue, Staten Island, NY 10306",
+   "w": "Wooded 90-acre preserve at the heart of the Greenbelt, laced with hiking trails, ponds, and boardwalks; a former Girl Scout camp turned nature sanctuary.",
+   "k": "hiking, Greenbelt trails",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Storm King Art Center",
+   "ad": "1 Museum Road, New Windsor, NY 12553",
+   "w": "500-acre open-air sculpture park in the Hudson Highlands with monumental works by Calder, Serra, di Suvero, and a Maya Lin earthwork set across meadows and hills.",
+   "k": "Hudson Valley (Orange County); ~1.5 hr drive, or Metro-North to Beacon plus shuttle. Seasonal (spring-fall), closed Tuesdays.",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "STORMKING",
+     ""
+    ],
+    [
+     "NYT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Dia Beacon",
+   "ad": "3 Beekman Street, Beacon, NY 12508",
+   "w": "Dia's collection of 1960s-to-present minimal and land art in a former Nabisco box-printing factory, with vast daylit galleries of Richard Serra, Agnes Martin, and Dan Flavin.",
+   "k": "Hudson Valley (Dutchess County); ~80 min on the Metro-North Hudson line to Beacon. Open Fri-Mon.",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "DIAART",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Walkway Over the Hudson State Historic Park",
+   "ad": "61 Parker Avenue, Poughkeepsie, NY 12601",
+   "w": "The world's longest elevated pedestrian bridge, a 1.28-mile former railroad span 212 feet above the Hudson linking Poughkeepsie and Highland.",
+   "k": "Hudson Valley (Dutchess County); ~1.75 hr drive, or Metro-North to Poughkeepsie. Free; open daily 7am-sunset.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WALKWAYORG",
+     ""
+    ],
+    [
+     "NYSPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Kykuit, the Rockefeller Estate",
+   "ad": "381 North Broadway, Sleepy Hollow, NY 10591",
+   "w": "Six-story Rockefeller family mansion above the Hudson with Beaux-Arts gardens, a modern-sculpture collection, and a coach barn of classic cars and carriages.",
+   "k": "Westchester (Sleepy Hollow); ~45 min drive. Guided tours only from the Philipsburg Manor visitor center. Tours are SUSPENDED for the 2026 season; confirm before visiting.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ICON"
+   ],
+   "s": [
+    [
+     "HUDSONVALLEY",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Bear Mountain State Park",
+   "ad": "3006 Seven Lakes Drive, Bear Mountain, NY 10911",
+   "w": "Hudson Highlands park with a summit auto road and Perkins Tower views toward the Manhattan skyline, a lakeside 1920s inn, a trailside zoo, and a merry-go-round.",
+   "k": "Hudson Valley (Rockland/Orange counties); ~1 hr drive. Open year-round.",
+   "g": [
+    "PARK",
+    "ICON",
+    "FAM"
+   ],
+   "s": [
+    [
+     "NYSPARKS",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Cold Spring",
+   "ad": "Main Street, Cold Spring, NY 10516",
+   "w": "Well-preserved 19th-century riverfront village of antique shops and cafes across from Storm King, a gateway to Breakneck Ridge and Hudson Highlands hiking.",
+   "k": "Hudson Valley (Putnam County); ~80 min on the Metro-North Hudson line, walkable straight from the station.",
+   "g": [
+    "WATER"
+   ],
+   "s": [
+    [
+     "ILOVENY",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "West Point (U.S. Military Academy)",
+   "ad": "2107 New South Post Road, West Point, NY 10996",
+   "w": "The nation's oldest continuously operating Army post and academy above the Hudson; public bus tours visit Trophy Point, the Cadet Chapel, and Battle Monument.",
+   "k": "Hudson Valley (Orange County); ~1.5 hr drive. Access to the post is by guided bus tour only; bring government ID for the required background check.",
+   "g": [
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WESTPOINT",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Philipsburg Manor",
+   "ad": "381 North Broadway, Sleepy Hollow, NY 10591",
+   "w": "Restored 18th-century Dutch-colonial milling and trading site with a working water mill, telling the story of the 23 enslaved Africans who ran it.",
+   "k": "Westchester (Sleepy Hollow); ~45 min drive. Timed tours May-early November, Wed-Sun.",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "HUDSONVALLEY",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Liberty State Park",
+   "ad": "200 Morris Pesin Drive, Jersey City, NJ 07305",
+   "w": "Waterfront NJ park facing the Statue of Liberty and Ellis Island, with the restored 1889 Central Railroad terminal, a 2-mile promenade, and ferries to the monuments.",
+   "k": "New Jersey (Jersey City); ~25 min via PATH plus a short walk, or a quick drive. Open daily 6am-10pm.",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITNJ",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Grounds For Sculpture",
+   "ad": "80 Sculptors Way, Hamilton, NJ 08619",
+   "w": "42-acre sculpture park and museum on former state fairgrounds, dotted with Seward Johnson's life-size bronzes set among gardens, ponds, and roaming peacocks.",
+   "k": "New Jersey (Mercer County); ~1.5 hr drive, or NJ Transit to Hamilton. Closed Tuesdays.",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "GFS",
+     ""
+    ],
+    [
+     "VISITNJ",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Princeton University",
+   "ad": "Nassau Hall, Princeton, NJ 08544",
+   "w": "Ivy League campus of Collegiate Gothic quadrangles anchored by 1756 Nassau Hall, once the U.S. capitol, with a free open-air Putnam sculpture collection.",
+   "k": "New Jersey (Mercer County); ~1.5 hr by NJ Transit to Princeton Junction plus the Dinky shuttle. Free student-led campus tours.",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "PRINCETON",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Parrish Art Museum",
+   "ad": "279 Montauk Highway, Water Mill, NY 11976",
+   "w": "Herzog & de Meuron-designed museum of American art in the Hamptons, strong in East End painters like Fairfield Porter and the region's postwar artists.",
+   "k": "Long Island (Hamptons/Water Mill); ~2.5 hr drive, or LIRR to Southampton. Closed Tue-Wed.",
+   "g": [
+    "MUS",
+    "WATER"
+   ],
+   "s": [
+    [
+     "PARRISHART",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Old Westbury Gardens",
+   "ad": "71 Old Westbury Road, Old Westbury, NY 11568",
+   "w": "Gold Coast estate of the Phipps family with a 1906 Charles II-style mansion and 200 acres of formal English gardens, ponds, and tree-lined allees.",
+   "k": "Long Island (Nassau Gold Coast); ~45 min drive. Closed Tuesdays; grounds are seasonal, roughly April-December.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "OLDWESTBURY",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Jones Beach State Park",
+   "ad": "1 Ocean Parkway, Wantagh, NY 11793",
+   "w": "Robert Moses's 1929 Atlantic beach with 6.5 miles of sand, an Art Deco bathhouse and water tower, a long boardwalk, and a summer amphitheater.",
+   "k": "Long Island (Nassau County); ~1 hr drive, or LIRR to Freeport/Wantagh plus a beach-bus shuttle. Busiest on summer weekends.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "NYSPARKS",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Fire Island Lighthouse",
+   "ad": "4640 Captree Island, Fire Island, NY 11770",
+   "w": "168-foot black-and-white striped 1858 lighthouse on the barrier-island seashore, with a keepers' museum and a tower climb over the dunes and ocean.",
+   "k": "Long Island (Fire Island); ~1.5 hr drive via the Robert Moses Causeway to Field 5, then a half-mile boardwalk. Seasonal; tower climbs weather-permitting.",
+   "g": [
+    "MUS",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPS",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Montauk Point Lighthouse",
+   "ad": "2000 Montauk Highway, Montauk, NY 11954",
+   "w": "New York's oldest lighthouse, authorized under George Washington and lit in 1796, at the easternmost tip of Long Island, with a museum and a tower climb.",
+   "k": "Long Island (East End); ~3 hr drive or LIRR Montauk line, the farthest of these trips. Seasonal, roughly spring-fall.",
+   "g": [
+    "MUS",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MONTAUKHS",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DAY",
+   "n": "Wolffer Estate Vineyard",
+   "ad": "139 Sagg Road, Sagaponack, NY 11962",
+   "w": "Long Island wine-country estate near the Hamptons known for its dry rose and sparkling wines, with a year-round tasting room among the vines.",
+   "k": "Long Island (East End/Sagaponack); ~2.5 hr drive, or LIRR to Bridgehampton plus a short ride. Tasting room open daily; reservations advised.",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WOLFFER",
+     ""
+    ],
+    [
+     "ILOVENY",
+     ""
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Katz's Delicatessen",
+   "ad": "205 East Houston Street, New York, NY 10002",
+   "w": "Cash-and-ticket Lower East Side deli open since 1888, serving 15,000 lbs of pastrami a week under old neon and salami-hanging signs.",
+   "cz": [
+    "JD"
+   ],
+   "s": [
+    [
+     "EATERNY",
+     ""
+    ],
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Joe's Pizza",
+   "ad": "7 Carmine Street, New York, NY 10014",
+   "w": "Greenwich Village slice institution since 1975, turning out thin, foldable New York-style plain slices from a stand-up counter until the early hours.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Xi'an Famous Foods",
+   "ad": "45 Bayard Street, New York, NY 10013",
+   "w": "Chinatown counter for Xi'an-style hand-pulled biang biang noodles and cumin lamb, grown from a Flushing basement stall into a beloved local chain.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "EATERNY",
+     ""
+    ],
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Russ & Daughters",
+   "ad": "179 East Houston Street, New York, NY 10002",
+   "w": "Family-run appetizing shop since 1914, slicing smoked salmon, whitefish, and sable behind the counter of a landmark Lower East Side storefront.",
+   "cz": [
+    "JD",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "EATERNY",
+     ""
+    ],
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Los Tacos No. 1",
+   "ad": "75 Ninth Avenue, New York, NY 10011",
+   "w": "Chelsea Market taco stand griddling adobada pork shaved from a trompo onto hand-pressed tortillas; standing-room only and near-constant lines.",
+   "cz": [
+    "MEX"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Keens Steakhouse",
+   "ad": "72 West 36th Street, New York, NY 10018",
+   "w": "1885 Garment District chophouse famous for its mammoth mutton chop, dry-aged steaks, and ceilings hung with thousands of clay churchwarden pipes.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Levain Bakery",
+   "ad": "167 West 74th Street, New York, NY 10023",
+   "w": "Original Upper West Side basement bakery known for its thick, gooey-centered six-ounce chocolate chip walnut cookies baked to order.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Sylvia's Restaurant",
+   "ad": "328 Malcolm X Boulevard, New York, NY 10027",
+   "w": "Harlem soul food landmark founded by Sylvia Woods in 1962, serving fried chicken, braised oxtails, and cornbread with weekend gospel brunch.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "EATERNY",
+     ""
+    ],
+    [
+     "NYT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Peter Luger Steak House",
+   "ad": "178 Broadway, Brooklyn, NY 11211",
+   "w": "Cash-only Williamsburg institution since 1887; the broiled dry-aged porterhouse arrives sizzling in its jus.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Roberta's",
+   "ad": "261 Moore St, Brooklyn, NY 11206",
+   "w": "Bushwick wood-fired pizzeria whose Bee Sting pie pairs tomato and mozzarella with soppressata and spicy honey.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "TRIPADVISOR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Di Fara Pizza",
+   "ad": "1424 Avenue J, Brooklyn, NY 11230",
+   "w": "Midwood pizza shrine since 1965; the classic round pie is finished with hand-torn basil and grated cheese.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "TRIPADVISOR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "L&B Spumoni Gardens",
+   "ad": "2725 86th St, Brooklyn, NY 11223",
+   "w": "Bensonhurst landmark since 1939 known for the upside-down Sicilian square slice and house-made spumoni.",
+   "cz": [
+    "PZ",
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "OFFICIAL",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Nathan's Famous",
+   "ad": "1310 Surf Ave, Brooklyn, NY 11224",
+   "w": "The 1916 Coney Island original at Surf and Stillwell, home of the July 4 hot-dog eating contest.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "TRIPADVISOR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Tanoreen",
+   "ad": "7523 3rd Ave, Brooklyn, NY 11209",
+   "w": "Chef Rawia Bishara's Bay Ridge Palestinian restaurant since 1998; known for muhammara, fried cauliflower and knafeh.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "BROOKLYNPAPER",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Junior's Restaurant",
+   "ad": "386 Flatbush Ave Ext, Brooklyn, NY 11201",
+   "w": "Downtown Brooklyn diner since 1950 famous for its dense New York-style cheesecake.",
+   "cz": [
+    "DES",
+    "US"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "East Harbor Seafood Palace",
+   "ad": "714 65th St, Brooklyn, NY 11220",
+   "w": "Cavernous Sunset Park banquet hall with roving carts of dim sum; a MICHELIN Guide pick for har gow and rice rolls.",
+   "cz": [
+    "CN",
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "MICHELIN",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Taverna Kyclades",
+   "ad": "36-01 Ditmars Blvd, Astoria, NY 11105",
+   "w": "Perennially packed, no-reservations Astoria taverna considered among the city's best Greek seafood; expect a wait for the charred octopus.",
+   "cz": [
+    "GRK",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Nan Xiang Xiao Long Bao",
+   "ad": "39-16 Prince St, Flushing, NY 11354",
+   "w": "Michelin-recommended Flushing institution famous for delicate, broth-filled Shanghai soup dumplings pleated to order.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     ""
+    ],
+    [
+     "EATERNY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Arepa Lady",
+   "ad": "77-17 37th Ave, Jackson Heights, NY 11372",
+   "w": "The brick-and-mortar home of Maria Cano, the legendary Jackson Heights street vendor, serving sweet grilled corn arepas.",
+   "cz": [
+    "LAT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "EATERNY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Ayada Thai",
+   "ad": "77-08 Woodside Ave, Elmhurst, NY 11373",
+   "w": "Fiery, regional Thai cooking in Elmhurst that draws citywide crowds for its panang duck, crispy pork and drunken noodles.",
+   "cz": [
+    "TH"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "White Bear",
+   "ad": "135-02 Roosevelt Ave, Flushing, NY 11354",
+   "w": "Tiny cash-only Flushing counter beloved for its No. 6, a dozen tender pork wontons swimming in roasted-chili oil.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "EATERNY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Casa Enrique",
+   "ad": "5-48 49th Ave, Long Island City, NY 11101",
+   "w": "Refined Chiapas-inspired Mexican in Long Island City, a former Michelin-starred spot known for cochinita pibil and mole de Piaxtla.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Lhasa Fast Food",
+   "ad": "37-50 74th St, Jackson Heights, NY 11372",
+   "w": "A hidden Tibetan counter tucked behind a cell-phone shop, an open secret for hand-pleated momos and thukpa noodle soup.",
+   "cz": [
+    "HIM"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Ganesh Temple Canteen",
+   "ad": "143-09 Holly Ave, Flushing, NY 11355",
+   "w": "All-vegetarian South Indian canteen in the basement of the Ganesh Temple, prized for crisp dosas, idli and sambar at bargain prices.",
+   "cz": [
+    "IN",
+    "US"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "EATERNY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BX",
+   "n": "Roberto's",
+   "ad": "603 Crescent Ave, Bronx, NY 10458",
+   "w": "Chef Roberto Paciullo's flagship trattoria off Arthur Avenue serving the country cooking of Salerno with handmade pasta and daily specials.",
+   "cz": [
+    "IT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BX",
+   "n": "La Morada",
+   "ad": "308 Willis Ave, Bronx, NY 10454",
+   "w": "Family-run Mott Haven Oaxacan restaurant renowned for a rainbow of hand-ground moles, including the rare mole blanco.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BX",
+   "n": "Mike's Deli",
+   "ad": "2344 Arthur Ave, Bronx, NY 10458",
+   "w": "A 1940s Italian deli counter inside the WPA-built Arthur Avenue Retail Market, known for house mozzarella and overstuffed heros.",
+   "cz": [
+    "IT",
+    "JD"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Zero Otto Nove",
+   "ad": "2357 Arthur Ave, Bronx, NY 10458",
+   "w": "Roberto Paciullo's Salernitano trattoria and pizzeria on Arthur Avenue, named for the area code of his hometown.",
+   "cz": [
+    "IT",
+    "PZ"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Dominick's",
+   "ad": "2335 Arthur Ave, Bronx, NY 10458",
+   "w": "Cash-only Arthur Avenue institution since 1962 with communal tables, no menus and no reservations; servers recite the day's dishes.",
+   "cz": [
+    "IT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "City Island Lobster House",
+   "ad": "691 Bridge St, Bronx, NY 10464",
+   "w": "Waterfront seafood house at the tip of City Island with outdoor seats on Long Island Sound, serving lobster and fried seafood since 1939.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BX",
+   "n": "Liebman's Kosher Delicatessen",
+   "ad": "552 W 235th St, Bronx, NY 10463",
+   "w": "Founded 1953 in Riverdale, the last kosher deli in the Bronx, famed for hand-carved, piled-high pastrami.",
+   "cz": [
+    "JD"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BX",
+   "n": "Full Moon Pizzeria",
+   "ad": "600 E 187th St, Bronx, NY 10458",
+   "w": "Neighborhood slice shop on the corner of Arthur Avenue since 1976, known for its Sicilian pan pizza and calzones.",
+   "cz": [
+    "PZ",
+    "IT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SI",
+   "n": "Enoteca Maria",
+   "ad": "27 Hyatt Street, Staten Island, NY 10301",
+   "w": "Bib Gourmand trattoria near the St. George ferry where a rotating cast of grandmothers cook regional Italian and 'Nonnas of the World' menus that change nightly.",
+   "cz": [
+    "IT",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SI",
+   "n": "Denino's Pizzeria & Tavern",
+   "ad": "524 Port Richmond Avenue, Staten Island, NY 10302",
+   "w": "Blue-collar Port Richmond tavern serving thin, crackly-crust pizza since 1937 under the motto 'In crust we trust'; the plain cheese and garlic-onion white pies are the classics.",
+   "cz": [
+    "PZ",
+    "IT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Joe & Pat's Pizzeria",
+   "ad": "1758 Victory Boulevard, Staten Island, NY 10314",
+   "w": "Family pizzeria running since 1960, famous for a paper-thin cracker crust and its vodka-sauce pie topped with fresh mozzarella and basil.",
+   "cz": [
+    "PZ",
+    "IT"
+   ],
+   "s": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Lee's Tavern",
+   "ad": "60 Hancock Street, Staten Island, NY 10305",
+   "w": "Cash-only Dongan Hills neighborhood tavern open since 1940, prized for a thin-crust white clam pie and old-school bar-pizza atmosphere.",
+   "cz": [
+    "PZ",
+    "IT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SI",
+   "n": "Lakruwana",
+   "ad": "668 Bay Street, Staten Island, NY 10304",
+   "w": "Elaborately decorated Stapleton restaurant, among the first Sri Lankan spots in NYC, known for its weekend all-you-can-eat buffet of curries served on banana leaves.",
+   "cz": [
+    "LK"
+   ],
+   "s": [
+    [
+     "UNTAPPED",
+     ""
+    ],
+    [
+     "TRIPADVISOR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "New Asha",
+   "ad": "322 Victory Boulevard, Staten Island, NY 10301",
+   "w": "Tiny, cash-only Tompkinsville storefront in 'Little Sri Lanka' cooking homestyle rice-and-curry and string hoppers from a steam-table counter since the late 1990s.",
+   "cz": [
+    "LK"
+   ],
+   "s": [
+    [
+     "UNTAPPED",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SI",
+   "n": "Ralph's Famous Italian Ices",
+   "ad": "501 Port Richmond Avenue, Staten Island, NY 10302",
+   "w": "The original 1928 Port Richmond stand, a summer institution serving scores of Italian-ice flavors plus cream-ice and ice-cream combinations from a walk-up window.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "TRIPADVISOR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Blue Hill at Stone Barns",
+   "ad": "630 Bedford Road, Pocantico Hills, NY 10591",
+   "w": "Two-Michelin-star farm-to-table destination at the Stone Barns agriculture center, serving a long tasting menu built from the surrounding fields and livestock.",
+   "k": "Westchester (Pocantico Hills); ~45 min drive. Reservation-only, prix fixe; among the country's hardest tables to book.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ],
+    [
+     "NYT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Duryea's Montauk",
+   "ad": "65 Tuthill Road, Montauk, NY 11954",
+   "w": "Waterfront lobster deck and seafood market on Fort Pond Bay, an order-at-the-counter Montauk institution famed for its lobster roll and sunset harbor views.",
+   "k": "Long Island (Montauk); ~3 hr drive or LIRR Montauk line. Seasonal; casual outdoor picnic-table seating over the water.",
+   "cz": [
+    "SEAF"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "DURYEAS",
+     ""
+    ],
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Le Bernardin",
+   "ad": "155 W 51st St, New York, NY 10019",
+   "w": "Eric Ripert's Midtown seafood temple, holding 3 MICHELIN Stars and a fixture atop the global best lists.",
+   "cz": [
+    "EU",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Semma",
+   "ad": "60 Greenwich Ave, New York, NY 10011",
+   "w": "West Village Tamil kitchen from chef Vijay Kumar, a 1 MICHELIN Star and NYC's only starred Indian restaurant.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Torrisi",
+   "ad": "275 Mulberry St, New York, NY 10012",
+   "w": "Rich Torrisi's imaginative Italian-American room in the Puck Building, awarded 1 MICHELIN Star.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Rezdora",
+   "ad": "27 E 20th St, New York, NY 10003",
+   "w": "Stefano Secchi's Flatiron ode to Emilia-Romagna pasta, a 1 MICHELIN Star handmade-pasta destination.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Atomix",
+   "ad": "104 E 30th St, New York, NY 10016",
+   "w": "JP and Ellia Park's 14-seat NoMad counter, holding 2 MICHELIN Stars for its New Korean tasting menu.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Dhamaka",
+   "ad": "119 Delancey St, New York, NY 10002",
+   "w": "Unapologetically rustic regional Indian in Essex Market, a MICHELIN Bib Gourmand pick on the Lower East Side.",
+   "cz": [
+    "IN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Oxomoco",
+   "ad": "128 Greenpoint Ave, Brooklyn, NY 11222",
+   "w": "Wood-fired Mexican in Greenpoint with house blue-corn tortillas, awarded 1 MICHELIN Star.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Bonnie's",
+   "ad": "398 Manhattan Ave, Brooklyn, NY 11211",
+   "w": "Calvin Eng's retro Cantonese-American diner in Williamsburg, a MICHELIN Bib Gourmand for value cooking.",
+   "cz": [
+    "CANT",
+    "CN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Win Son",
+   "ad": "159 Graham Ave, Brooklyn, NY 11206",
+   "w": "East Williamsburg Taiwanese-American favorite, a repeat MICHELIN Bib Gourmand for zha jiang mian and fried chicken.",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BK",
+   "n": "Chuan Tian Xia",
+   "ad": "5502 7th Ave, Brooklyn, NY 11220",
+   "w": "Sunset Park Sichuan superstar with lines out the door, recognized as a MICHELIN Bib Gourmand.",
+   "cz": [
+    "SICH",
+    "CN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Jiang Nan",
+   "ad": "133-42 39th Ave, Flushing, NY 11354",
+   "w": "Flushing crowd-pleaser spanning Shanghai and Sichuan regions, a MICHELIN Bib Gourmand original location.",
+   "cz": [
+    "CN",
+    "SICH"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Alley 41",
+   "ad": "136-45 41st Ave, Flushing, NY 11355",
+   "w": "Hidden Sichuan stalwart off Flushing's Main Street, a MICHELIN Bib Gourmand for its fiery, creative plates.",
+   "cz": [
+    "SICH",
+    "CN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Legend of Taste",
+   "ad": "20-02 Utopia Pkwy, Whitestone, NY 11357",
+   "w": "Whitestone destination for southwestern-China heat and smoke, a MICHELIN Bib Gourmand Sichuan kitchen.",
+   "cz": [
+    "SICH",
+    "CN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "QNS",
+   "n": "Phayul",
+   "ad": "37-65 74th St, Jackson Heights, NY 11372",
+   "w": "Second-floor Tibetan comfort-food mainstay on Jackson Heights' 74th Street, a MICHELIN Bib Gourmand for its momos.",
+   "cz": [
+    "HIM"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Native Noodles",
+   "ad": "2129 Amsterdam Ave, New York, NY 10032",
+   "w": "Washington Heights Singaporean spot, grown out of the Queens Night Market, ladling out a rich coconut curry laksa and chili crab uptown.",
+   "cz": [
+    "SG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/reviews/native-noodles"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Banh Anh Em",
+   "ad": "99 Third Ave, New York, NY 10003",
+   "w": "Michelin Bib Gourmand East Village Vietnamese from the Banh Shop House team; in-house baked banh mi and a soulful pho with homemade noodles.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/new-york-state/new-york/restaurant/banh-anh-em"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "La Dong",
+   "ad": "11 E 17th St, New York, NY 10003",
+   "w": "Michelin Bib Gourmand Vietnamese just off Union Square, pouring a fragrant pho over thin slivers of Miyazaki A5 wagyu tableside.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/la-dong"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Ba Xuyen",
+   "ad": "4222 8th Ave, Brooklyn, NY 11232",
+   "w": "No-frills Sunset Park counter turning out one of the city's best banh mi, layered with pate, ham, head cheese and pork roll for around ten dollars.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/guides/the-best-banh-mi-in-nyc"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Golden Lake Pavilion",
+   "ad": "6015 Main St, Flushing, NY 11355",
+   "w": "Regal cart-service dim sum palace in Flushing where crisp deep-fried shrimp rice rolls, taro puffs and caramelized chicken feet zoom past on weekend mornings.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/reviews/golden-lake-pavilion"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "House of Joy",
+   "ad": "28 Pell St, New York, NY 10013",
+   "w": "One of the largest Manhattan Chinatown dim sum parlors still running push carts, delivering quality siu mai, chicken feet and pork buns since 1989.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/guides/best-dim-sum-nyc"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Wah Fung No 1",
+   "ad": "79 Chrystie St, New York, NY 10002",
+   "w": "Cash-only Chinatown takeout legend whose sweet, tender roast pork over cabbage and gravy-soaked rice starts around five dollars and draws a permanent line.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://m.yelp.com/biz/wah-fung-no-1-new-york-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Hay Hay Roasted",
+   "ad": "81 Mott St, New York, NY 10013",
+   "w": "Cash-only Mott Street hole-in-the-wall with a giant duck statue out front, roasting mahogany-skinned Cantonese duck, crispy pork belly and char siu.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "CORNER",
+     "https://www.corner.inc/place/pTo9yXRbsbVf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Zaab Zaab",
+   "ad": "76-04 Woodside Ave, Elmhurst, NY 11373",
+   "w": "Michelin Bib Gourmand anchor of Elmhurst's Little Thailand serving fiery Isan northeastern cooking, from rich khao soi beef shank to Zaab Zaab wings.",
+   "cz": [
+    "TH"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/new-york-state/queens/restaurant/zaab-zaab"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Somtum Der",
+   "ad": "85 Avenue A, New York, NY 10009",
+   "w": "East Village outpost of the Bangkok Isan specialist, built around bright, pounded som tum papaya salads and Laotian-influenced northeastern Thai plates.",
+   "cz": [
+    "TH"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/nl/new-york-state/new-york/restaurant/somtum-der"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "QNS",
+   "n": "Taste Good Malaysian Cuisine",
+   "ad": "82-18 45th Ave, Elmhurst, NY 11373",
+   "w": "Three-decade Elmhurst Malaysian institution, cash-only, reliably excellent for flaky roti canai, curry laksa, char kway teow and Hainanese chicken.",
+   "cz": [
+    "MY"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/reviews/taste-good-malaysian-cuisine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Nyonya",
+   "ad": "199 Grand St, New York, NY 10013",
+   "w": "Warm, lodge-like Manhattan Chinatown Malaysian favorite known for tangy asam laksa, cold Hainanese chicken and okra with shrimp.",
+   "cz": [
+    "MY"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/guides/best-malaysian-restaurants-nyc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Sumatera Restaurant",
+   "ad": "8620 Whitney Ave, Elmhurst, NY 11373",
+   "w": "Rare Sumatra-focused Indonesian spot in Elmhurst near the LIRR tracks, praised for nasi campur rendang with tender, slow-spiced beef.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "EATERNY",
+     "https://robertsietsema.substack.com/p/a-rare-restaurant-channeling-sumatra"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Awang Kitchen",
+   "ad": "8405 Queens Blvd, Elmhurst, NY 11373",
+   "w": "Halal Indonesian comfort-food kitchen in Elmhurst known for creamy peanut-dressed gado-gado, ketoprak and batagor.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "TRIPADVISOR",
+     "https://www.tripadvisor.com/Restaurant_Review-g47681-d12504850-Reviews-Awang_Kitchen-Elmhurst_Queens_New_York.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Naks",
+   "ad": "201 1st Ave, New York, NY 10003",
+   "w": "Boundary-pushing East Village Filipino from chef Eric Valdez and the Unapologetic Foods team, spreading fried duck and lemongrass pork belly kamayan-style on banana leaves.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/guides/the-best-filipino-restaurants-in-nyc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Renee's Kitchenette & Grill",
+   "ad": "6914 Roosevelt Ave, Woodside, NY 11377",
+   "w": "Home-style Filipino cornerstone of Woodside's Little Manila since 1992, famous for sizzling pig-head sisig and peanut-rich oxtail kare-kare.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/reviews/renees-kitchenette-grille"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Little Myanmar",
+   "ad": "150 E 2nd St, New York, NY 10009",
+   "w": "Family-run Michelin-listed East Village Burmese spot, the city's standout for laphet thoke fermented tea leaf salad and coconut chicken noodle soup.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/little-myanmar"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BK",
+   "n": "Sofreh",
+   "ad": "75 St Marks Ave, Brooklyn, NY 11217",
+   "w": "Chef Nasim Alikhan's modern Prospect Heights Persian dining room, celebrated for its shattering tahdig crust, kuku sabzi and sabzi polo with fish.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/hk/en/new-york-state/new-york/restaurant/sofreh"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Eyval",
+   "ad": "25 Bogart St, Brooklyn, NY 11206",
+   "w": "Stylish Bushwick Persian small-plates spot from ex-Sofreh chef Ali Saboor, plating fava bean borani, wagyu kebabs and crackling potato tahdig.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/reviews/eyval"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Apollo Bagels",
+   "ad": "242 E 10th St, New York, NY 10009",
+   "w": "Sourdough bagels that blew up on TikTok, drawing weekend lines so long the East Village shop reportedly faced landlord eviction threats.",
+   "cz": [
+    "VIRAL",
+    "JD",
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Mama's Too",
+   "ad": "2750 Broadway, New York, NY 10025",
+   "w": "TikTok turned its burrata-and-vodka-sauce chicken cutlet hero and square Sicilian slices into a citywide, line-out-the-door obsession.",
+   "cz": [
+    "VIRAL",
+    "IT",
+    "PZ",
+    "US"
+   ],
+   "s": [
+    [
+     "TIKTOK",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Birria-Landia",
+   "ad": "77-99 Roosevelt Ave, Jackson Heights, NY 11372",
+   "w": "Queens taco truck that ignited NYC's quesabirria craze after a glowing NYT review and viral broth-dipping taco videos.",
+   "cz": [
+    "VIRAL",
+    "MEX"
+   ],
+   "s": [
+    [
+     "NYT",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Nuts Factory",
+   "ad": "100 Smith St, Brooklyn, NY 11201",
+   "w": "Rode the viral Dubai-chocolate wave, reportedly selling 100+ pistachio-and-kataifi bars a day as the treat took over social feeds.",
+   "cz": [
+    "VIRAL",
+    "DES"
+   ],
+   "s": [
+    [
+     "GOTHAMIST",
+     ""
+    ],
+    [
+     "HOODLINE",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Supermoon Bakehouse",
+   "ad": "120 Rivington St, New York, NY 10002",
+   "w": "Instagram-famous laminated-pastry bakery whose over-the-top cruffins and croissants draw hour-plus weekend lines on the LES.",
+   "cz": [
+    "VIRAL",
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Dominique Ansel Bakery",
+   "ad": "189 Spring St, New York, NY 10012",
+   "w": "Birthplace of the Cronut, the croissant-doughnut hybrid whose 2013 debut sparked the modern viral-pastry era and still sells out.",
+   "cz": [
+    "VIRAL",
+    "DES"
+   ],
+   "s": [
+    [
+     "GOTHAMIST",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "L'Appartement 4F",
+   "ad": "115 Montague St, Brooklyn, NY 11201",
+   "w": "Brooklyn Heights bakery whose 'croissant cereal' went viral, drawing hours-long weekend lines for warm French pastries.",
+   "cz": [
+    "VIRAL",
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Taiyaki NYC",
+   "ad": "119 Baxter St, New York, NY 10013",
+   "w": "Chinatown shop that broke Instagram with pastel unicorn soft serve served in a griddled fish-shaped taiyaki cone.",
+   "cz": [
+    "VIRAL",
+    "DES"
+   ],
+   "s": [
+    [
+     "ABC7",
+     ""
+    ],
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Joe's Steam Rice Roll",
+   "ad": "136-20 Roosevelt Ave, Flushing, NY 11354",
+   "w": "Flushing stall that turned Cantonese cheung fun into a social-media hit with mesmerizing rice-roll prep videos and long lines.",
+   "cz": [
+    "VIRAL",
+    "CN",
+    "CANT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "7th Street Burger",
+   "ad": "91 E 7th St, New York, NY 10009",
+   "w": "East Village smashburger that went viral for its griddled cheese-crusted patties, fueling a rapid multi-city expansion.",
+   "cz": [
+    "VIRAL"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BK",
+   "n": "Radio Bakery",
+   "ad": "135 India St, Brooklyn, NY 11222",
+   "w": "Greenpoint bakery that sold out 600 pastries on opening day and keeps drawing hour-plus lines for viral croissants and focaccia.",
+   "cz": [
+    "VIRAL",
+    "DES"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "DIAART": {
+   "k": "DIA",
+   "t": "Dia Art Foundation (official)",
+   "u": "https://www.diaart.org",
+   "l": "Dia Art Foundation (official)"
+  },
+  "GFS": {
+   "k": "GROUNDS FOR SCULPTURE",
+   "t": "Grounds For Sculpture (official)",
+   "u": "https://www.groundsforsculpture.org",
+   "l": "Grounds For Sculpture (official)"
+  },
+  "HUDSONVALLEY": {
+   "k": "HUDSON VALLEY",
+   "t": "Historic Hudson Valley (official)",
+   "u": "https://hudsonvalley.org",
+   "l": "Historic Hudson Valley (official)"
+  },
+  "ILOVENY": {
+   "k": "I LOVE NY",
+   "t": "I LOVE NY (New York State tourism)",
+   "u": "https://www.iloveny.com",
+   "l": "I LOVE NY (New York State tourism)"
+  },
+  "METMUSEUM": {
+   "k": "THE MET",
+   "t": "The Metropolitan Museum of Art (official)",
+   "u": "https://www.metmuseum.org",
+   "l": "The Metropolitan Museum of Art (official)"
+  },
+  "MONTAUKHS": {
+   "k": "MONTAUK HS",
+   "t": "Montauk Historical Society (official)",
+   "u": "https://montaukhistoricalsociety.org",
+   "l": "Montauk Historical Society (official)"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service",
+   "u": "https://www.nps.gov/gate",
+   "l": "National Park Service"
+  },
+  "NYCGO": {
+   "k": "NYC TOURISM",
+   "t": "NYC Tourism + Conventions (official)",
+   "u": "https://www.nyctourism.com",
+   "l": "NYC Tourism + Conventions (official)"
+  },
+  "NYCPARKS": {
+   "k": "NYC PARKS",
+   "t": "NYC Parks",
+   "u": "https://www.nycgovparks.org",
+   "l": "NYC Parks"
+  },
+  "NYSPARKS": {
+   "k": "NY STATE PARKS",
+   "t": "New York State Parks & Historic Sites",
+   "u": "https://parks.ny.gov",
+   "l": "New York State Parks & Historic Sites"
+  },
+  "NYT": {
+   "k": "NYT",
+   "t": "The New York Times",
+   "u": "https://www.nytimes.com",
+   "l": "The New York Times"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official venue site",
+   "u": "",
+   "l": "Official venue site"
+  },
+  "OLDWESTBURY": {
+   "k": "OLD WESTBURY",
+   "t": "Old Westbury Gardens (official)",
+   "u": "https://www.oldwestburygardens.org",
+   "l": "Old Westbury Gardens (official)"
+  },
+  "PARRISHART": {
+   "k": "PARRISH",
+   "t": "Parrish Art Museum (official)",
+   "u": "https://parrishart.org",
+   "l": "Parrish Art Museum (official)"
+  },
+  "PRINCETON": {
+   "k": "PRINCETON",
+   "t": "Princeton University (official)",
+   "u": "https://www.princeton.edu",
+   "l": "Princeton University (official)"
+  },
+  "STORMKING": {
+   "k": "STORM KING",
+   "t": "Storm King Art Center (official)",
+   "u": "https://stormking.org",
+   "l": "Storm King Art Center (official)"
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out New York",
+   "u": "https://www.timeout.com/newyork",
+   "l": "Time Out New York"
+  },
+  "UNTAPPED": {
+   "k": "UNTAPPED NY",
+   "t": "Untapped New York",
+   "u": "https://www.untappedcities.com",
+   "l": "Untapped New York"
+  },
+  "VISITNJ": {
+   "k": "VISIT NJ",
+   "t": "Visit NJ (New Jersey tourism)",
+   "u": "https://visitnj.org",
+   "l": "Visit NJ (New Jersey tourism)"
+  },
+  "WALKWAYORG": {
+   "k": "WALKWAY",
+   "t": "Walkway Over the Hudson (official)",
+   "u": "https://walkway.org",
+   "l": "Walkway Over the Hudson (official)"
+  },
+  "WESTPOINT": {
+   "k": "WEST POINT",
+   "t": "West Point / U.S. Army (official)",
+   "u": "https://home.army.mil/westpoint",
+   "l": "West Point / U.S. Army (official)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  },
+  "WOLFFER": {
+   "k": "WOLFFER",
+   "t": "Wolffer Estate Vineyard (official)",
+   "u": "https://wolffer.com",
+   "l": "Wolffer Estate Vineyard (official)"
+  }
+ },
+ "FS": {
+  "ABC7": {
+   "k": "ABC7 NY",
+   "t": "ABC7 NY",
+   "u": "",
+   "l": ""
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "BROOKLYNPAPER": {
+   "k": "BROOKLYN PAPER",
+   "t": "Brooklyn Paper",
+   "u": "https://www.brooklynpaper.com",
+   "l": "Brooklyn Paper"
+  },
+  "CORNER": {
+   "k": "CORNER",
+   "t": "CORNER",
+   "u": "",
+   "l": ""
+  },
+  "DURYEAS": {
+   "k": "DURYEA'S",
+   "t": "Duryea's Montauk (official)",
+   "u": "https://duryeas.com",
+   "l": "Duryea's Montauk (official)"
+  },
+  "EATERNY": {
+   "k": "EATER NY",
+   "t": "Eater NY",
+   "u": "https://ny.eater.com",
+   "l": "Eater NY"
+  },
+  "GOTHAMIST": {
+   "k": "GOTHAMIST",
+   "t": "GOTHAMIST",
+   "u": "",
+   "l": ""
+  },
+  "HOODLINE": {
+   "k": "HOODLINE",
+   "t": "HOODLINE",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "The Infatuation",
+   "u": "https://www.theinfatuation.com/new-york",
+   "l": "The Infatuation"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN Guide",
+   "u": "https://guide.michelin.com",
+   "l": "MICHELIN Guide"
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB",
+   "t": "MICHELIN BIB",
+   "u": "https://guide.michelin.com/us/en/new-york-state/staten-island/restaurants",
+   "l": ""
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN ★",
+   "t": "MICHELIN Guide (starred)",
+   "u": "https://guide.michelin.com",
+   "l": "MICHELIN Guide (starred)"
+  },
+  "NYCGO": {
+   "k": "NYC TOURISM",
+   "t": "NYC Tourism + Conventions (official)",
+   "u": "https://www.nyctourism.com",
+   "l": "NYC Tourism + Conventions (official)"
+  },
+  "NYT": {
+   "k": "NYT",
+   "t": "The New York Times",
+   "u": "https://www.nytimes.com",
+   "l": "The New York Times"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official venue site",
+   "u": "",
+   "l": "Official venue site"
+  },
+  "TIKTOK": {
+   "k": "TIKTOK/SOCIAL",
+   "t": "TIKTOK/SOCIAL",
+   "u": "",
+   "l": ""
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out New York",
+   "u": "https://www.timeout.com/newyork",
+   "l": "Time Out New York"
+  },
+  "TRIPADVISOR": {
+   "k": "TRIPADVISOR",
+   "t": "Tripadvisor",
+   "u": "https://www.tripadvisor.com",
+   "l": "Tripadvisor"
+  },
+  "UNTAPPED": {
+   "k": "UNTAPPED NY",
+   "t": "Untapped New York",
+   "u": "https://www.untappedcities.com",
+   "l": "Untapped New York"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  },
+  "YELP": {
+   "k": "YELP",
+   "t": "YELP",
+   "u": "",
+   "l": ""
+  }
+ }
+}
