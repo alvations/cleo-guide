@@ -9,6 +9,20 @@ OUT  = os.path.join(ROOT, "cities", "newyork.html")
 DS   = json.load(open(os.path.join(ROOT, "data", "newyork.dataset.json"), encoding="utf-8"))
 h    = open(SRC, encoding="utf-8").read()
 
+# Include only places that already carry a verified, sourced pin in the registry; drop (and log)
+# any still awaiting geocoding so the map never shows an unsourced pin. Full dataset stays intact.
+_REG = json.load(open(os.path.join(ROOT, "data", "geocodes.json"), encoding="utf-8"))["cities"].get("new-york-ny", {})
+def _has_pin(n):
+    e = _REG.get(n)
+    return bool(e and e.get("lat") is not None and e.get("lng") is not None
+                and e.get("source") and e.get("source") != "UNVERIFIED")
+_dropped = [r["n"] for r in DS["P"] + DS["F"] if not _has_pin(r["n"])]
+DS["P"] = [r for r in DS["P"] if _has_pin(r["n"])]
+DS["F"] = [r for r in DS["F"] if _has_pin(r["n"])]
+if _dropped:
+    print("NOTE: %d place(s) not yet geocoded — dropped from this build (queued for the geocode-helper):" % len(_dropped))
+    for n in _dropped: print("   -", n)
+
 def js(v):  # JSON is valid JS for our string/number literals
     return json.dumps(v, ensure_ascii=False)
 
@@ -132,6 +146,20 @@ new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, w
                   "? 'pastrami, dim sum, birria, cannoli\\u2026' : 'tenement, skyline, ferry, brownstone\\u2026'")
 # "all cities" back-link is relative from cities/
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
+
+# footer provenance note + dates
+new = new.replace("last verified 2026-08-08", "last verified 2026-08-10")
+new = new.replace(
+'''  <span style="opacity:.8">Refresh check (Aug 2026, via the pipeline): Sokolowski's University Inn confirmed still closed (kept, flagged); West Side Market open amid a $70M renovation, produce arcade reopened Jan 2026; newly opened since build — Rock &amp; Roll Hall of Fame expansion, Cleveland Metroparks Zoo Primate Forest, Irishtown Bend Park. Findings logged in data/sources.json.</span><br><br>''',
+'''  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin (stars + Bib Gourmand), Eater, The Infatuation, NYT, Time Out, Atlas Obscura, Untapped New York and the official NYC Parks / NYC Tourism sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added food spots are pending a final coordinate pass before they appear.</span><br><br>''')
+# appendix — cuisine rules + how-sourced (replace the Cleveland block)
+NYC_APPENDIX = (
+ "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
+ "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. <b>Vietnamese, Chinese / Cantonese (dim sum), Sichuan, Thai (incl. Isan), Malaysian, Singaporean, wider Southeast Asian (Indonesian, Filipino, Burmese)</b> and <b>Persian</b> each got a dedicated search led by Michelin (stars + Bib Gourmand), Eater, The Infatuation and NYT. <b>Singaporean</b> and <b>Burmese</b> are genuinely thin in NYC, so they are labelled as such rather than padded, and closed spots (Urban Hawker, Rangoon) were excluded. A <b>Viral</b> tag marks TikTok/Instagram-famous places whose virality is sourced to food media \\u2014 not hype.</span></div></div>'\n"
+ "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
+ "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater, The Infatuation, NYT, Time Out, Atlas Obscura, Untapped New York, NYC Parks / NYC Tourism and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
+)
+new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: NYC_APPENDIX, new, flags=re.S)
 
 open(OUT, "w", encoding="utf-8").write(new)
 # guards
