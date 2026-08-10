@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Geocode helper — resolve the tooling-blocked pins</title>
+<title>Geocode helper — resolve the map-access-blocked pins</title>
 <style>
   :root{color-scheme:light dark}
   body{font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:900px;margin:24px auto;padding:0 16px}
@@ -20,10 +20,11 @@
 </style>
 </head>
 <body>
-<h1>Geocode helper — the 7 pins the sandbox couldn't resolve</h1>
+<h1>Geocode helper — pins this sandbox can't resolve (map hosts blocked)</h1>
 <p class="sub">Runs in <strong>your</strong> browser (which can reach the map servers). It geocodes each
-address against <strong>OpenStreetMap / Nominatim</strong> — the same OSM you asked to plot on — no API key.
-Check each result's "OSM matched" text is the right place, then copy the JSON at the bottom back to the chat.</p>
+address against <strong>OpenStreetMap / Nominatim</strong> — no API key.
+Check each result's "OSM matched" text is the right place, then copy the JSON at the bottom back to the chat
+and I'll merge it into <code>data/geocodes.json</code> (address + coordinate + source), then rebuild.</p>
 
 <button id="run">▶ Geocode all</button> <span id="status"></span>
 <table id="tbl">
@@ -35,16 +36,20 @@ Check each result's "OSM matched" text is the right place, then copy the JSON at
 <textarea id="out" readonly placeholder="Run the geocoder, then copy this JSON."></textarea>
 
 <script>
-// The 7 places the locked-down build environment could not geocode.
+// Places whose exact pin the locked-down build environment could not resolve (map hosts blocked).
 // city keys match data/geocodes.json. Each has a primary address and optional fallbacks.
+// When resolved, the "address" is also updated to the primary query below (relocations included).
 const PLACES = [
-  {city:"pittsburgh-pa", n:"Papa J's Twin Plaza",            q:["2016 Smallman St, Pittsburgh, PA 15222","Papa J's Twin Plaza, Pittsburgh, PA"]},
+  // Relocated to 100 Ridge Ave (from 525 Jefferson Ave); needs the new pin.
+  {city:"pittsburgh-pa", n:"Duncan & Miller Glass Museum", newAddress:"100 Ridge Ave, Washington, PA 15301",
+     q:["100 Ridge Ave, Washington, PA 15301","Duncan & Miller Glass Museum, Washington, PA"]},
+  // Youngstown small venues whose place-pin never surfaced via search (block-level today):
   {city:"youngstown-oh", n:"Idora Park Experience",          q:["4450 S Turner Rd, Canfield, OH 44406","Idora Park Experience, Canfield, OH"]},
   {city:"youngstown-oh", n:"Past Times Arcade",              q:["419 N State St, Girard, OH 44420","Past Times Arcade, Girard, OH"]},
   {city:"youngstown-oh", n:"Mahoning County Courthouse",     q:["120 Market St, Youngstown, OH 44503","Mahoning County Courthouse, Youngstown, OH"]},
   {city:"youngstown-oh", n:"Penguin City Brewing Company",   q:["460 E Federal St, Youngstown, OH 44502","Penguin City Brewing, Youngstown, OH"]},
   {city:"youngstown-oh", n:"Casa Di Canzonetta",             q:["44 E Federal St, Youngstown, OH 44503","44 Federal Plaza East, Youngstown, OH"]},
-  {city:"youngstown-oh", n:"Northside Farmers Market",       q:["901 Elm St, Youngstown, OH 44502","Northside Farmers Market, Youngstown, OH"]},
+  {city:"youngstown-oh", n:"Northside Farmers Market",       q:["901 Elm St, Youngstown, OH 44505","Northside Farmers Market, Youngstown, OH"]},
 ];
 const results = [];
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
@@ -81,7 +86,7 @@ async function run(){
       const lat=+(+hit.lat).toFixed(5), lng=+(+hit.lon).toFixed(5);
       cell.textContent=`${lat}, ${lng}`; cell.className="ok";
       mcell.innerHTML=(hit.display_name||"").slice(0,90)+` <a target="_blank" href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}&zoom=19">verify on OSM ↗</a>`;
-      results.push({city:p.city,n:p.n,lat,lng,source:`OpenStreetMap/Nominatim (browser geocode of "${used}")`,conf:"high"});
+      results.push(Object.assign({city:p.city,n:p.n,lat,lng,source:`OpenStreetMap/Nominatim (browser geocode of "${used}")`,conf:"high"}, p.newAddress?{address:p.newAddress}:{}));
     } else {
       cell.textContent="not found"; cell.className="bad";
       mcell.textContent="No OSM match — tweak the address and re-run.";
