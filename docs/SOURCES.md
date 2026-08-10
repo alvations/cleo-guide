@@ -114,6 +114,39 @@ Youngstown examples: **White House Fruit Farm** (Canfield orchard + cider + doug
 Farm** (Columbiana — petting zoo, u-pick pumpkins, corn maze) and **Molnar Farms** (Poland — pumpkin
 patch, corn maze), all covered by WKBN and regional family blogs, all flagged seasonal.
 
+## Food discovery — cuisine deep-dive & viral pop-ups (food-heavy cities)
+
+For cities with a serious food scene (NYC, LA, the Bay, Houston…), the standard "best of" round-ups
+under-cover the depth. Two extra discovery passes are **required** for these cities — and, like
+everything else, **every place they surface is fact-checked** (exists, currently open, real address →
+coordinate + status verified downstream). No compromise.
+
+**1. Targeted-cuisine deep-dive.** Run a dedicated pass per high-value cuisine, not just a generic
+"best restaurants" search. Always sweep at least: **Singaporean, Vietnamese, Chinese / Cantonese
+(dim sum, Cantonese BBQ), Thai (incl. regional Isan / Northern), Malaysian, wider Southeast Asian
+(Indonesian, Filipino, Burmese), and Persian** — plus whatever the city is known for. For each:
+- find the genuine standouts via **Michelin (stars + Bib Gourmand)**, Eater, The Infatuation, NYT,
+  Time Out — attribute honestly;
+- require a **named signature dish** (a cuisine label with no dish doesn't qualify — the editorial
+  rule); tag the cuisine in `CUISINES`;
+- **state the gap, don't fill it.** If a cuisine has no worthy standout, say so (as Cleveland does for
+  Persian) rather than force a mediocre pick. Drop anything that's closed (e.g. NYC: Urban Hawker,
+  Rangoon, Adda LIC were all excluded as closed rather than listed).
+
+**2. Viral / social-media pop-ups.** Hunt the TikTok/Instagram/YouTube-famous spots — but this is the
+**highest-risk category**, so the bar is strict:
+- must be a **real, currently-operating** place (fixed spot, standing stall, or a recurring pop-up with
+  a findable location) — not a one-night event that's already gone;
+- its **virality must be sourced** — a food-media/news story about the moment (Eater, Infatuation,
+  Time Out, Grub Street, Gothamist, local news), not trend hearsay;
+- tag it `"Viral"` (a first-class cuisine/marker) alongside its actual cuisine, and name the viral item.
+- If you can't confirm real + open + sourced, drop it. (NYC dropped an unsourced Bronx smashburger and
+  the dated rainbow-bagel for exactly this reason.)
+
+Both passes run as their own agent waves (sequential, shared `WebSearch` budget) and dedupe against the
+places already found. `Michelin` (starred + Bib Gourmand) and `James Beard` are registered reusable
+source types in `data/sources.json` — lead with them for any food-heavy city.
+
 ## Local-media map — tap local news to find & refresh sites
 
 `data/local-media.json` maps each city to its **local news outlets and TV channels**, because that's
