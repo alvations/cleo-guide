@@ -143,6 +143,24 @@
    "label": "Official city / county government site",
    "why": "The authority on public parks, farmers markets, recreation and events — and on a place's official address and whether a city-run venue is currently operating. Ideal for verifying open/closed status and locations.",
    "find": "search '{city}.gov' or '{city} official site parks/events/farmers markets'; prefer the .gov domain over aggregators."
+  },
+  {
+   "id": "michelin_guide",
+   "label": "Michelin Guide — stars & Bib Gourmand",
+   "why": "The most rigorously fact-checked restaurant authority: anonymous inspectors, published star (1-3) and Bib Gourmand (great value) lists per city. Each listing is a verifiable, dated entry with the restaurant's address.",
+   "find": "guide.michelin.com/us/en/new-york-state/restaurants — filter by Bib Gourmand and by stars; record each restaurant's borough + address."
+  },
+  {
+   "id": "james_beard",
+   "label": "James Beard Foundation Awards",
+   "why": "National, juried culinary awards (winners + nominees) — credible, dated, verifiable. Good for anchoring a city's most significant restaurants and chefs.",
+   "find": "search 'James Beard Award winners <city>' and the Foundation's official awards database."
+  },
+  {
+   "id": "food_media",
+   "label": "Reputable food media (Eater, The Infatuation, Bon Appétit)",
+   "why": "Bylined, reported restaurant journalism with standing city maps/guides. Corroborate the spine and catch what's current.",
+   "find": "Eater <city> 'essential' / 'best' maps; The Infatuation city guides; Bon Appétit / NYT Food."
   }
  ],
  "nationalCreators": [
@@ -1350,6 +1368,115 @@
      "scope": "city",
      "verified": false,
      "note": "Video ID not pinned during research; search link recorded to avoid misattribution."
+    }
+   ]
+  },
+  "new-york-ny": {
+   "name": "New York, NY",
+   "lastUpdated": "2026-08-10",
+   "researchedOn": "2026-08-10",
+   "researchedVia": "WebSearch (map/tile hosts blocked; sources confirmed via search snippets)",
+   "refreshLog": [],
+   "creators": [],
+   "sources": [
+    {
+     "key": "MICHELIN_STAR",
+     "name": "Michelin Guide New York — Starred restaurants (1–3 ★)",
+     "type": "michelin_guide",
+     "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurants/3-stars-michelin/2-stars-michelin/1-star-michelin",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "MICHELIN_BIB",
+     "name": "Michelin Guide New York — Bib Gourmand (great value)",
+     "type": "michelin_guide",
+     "url": "https://guide.michelin.com/us/en/new-york-state/new-york/restaurants/bib-gourmand",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "JAMESBEARD",
+     "name": "James Beard Foundation Awards — New York winners & nominees",
+     "type": "james_beard",
+     "url": "https://www.jamesbeard.org/awards",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "EATERNY",
+     "name": "Eater NY — essential/best maps",
+     "type": "food_media",
+     "url": "https://ny.eater.com",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "INFATUATION",
+     "name": "The Infatuation — New York guides",
+     "type": "food_media",
+     "url": "https://www.theinfatuation.com/new-york",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "TIMEOUTNY",
+     "name": "Time Out New York — things to do & eat",
+     "type": "city_magazine",
+     "url": "https://www.timeout.com/newyork",
+     "rank": 2,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "NYT",
+     "name": "The New York Times — Food & Travel",
+     "type": "local_newspaper",
+     "url": "https://www.nytimes.com/section/food",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "ATLASOBSCURA",
+     "name": "Atlas Obscura — New York",
+     "type": "atlas_obscura",
+     "url": "https://www.atlasobscura.com/things-to-do/new-york-new-york",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "UNTAPPED",
+     "name": "Untapped New York — hidden/history",
+     "type": "heritage_org",
+     "url": "https://untappedcities.com",
+     "rank": 2,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "NYCPARKS",
+     "name": "NYC Parks (official) — parks, greenways, monuments",
+     "type": "municipal_gov",
+     "url": "https://www.nycgovparks.org",
+     "rank": 1,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "NYCGO",
+     "name": "NYC Tourism + Conventions (official CVB)",
+     "type": "local_cvb",
+     "url": "https://www.nyctourism.com",
+     "rank": 2,
+     "verified": true,
+     "covers": []
     }
    ]
   }
