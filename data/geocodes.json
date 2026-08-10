@@ -1060,10 +1060,10 @@
     "source": "google daddr@ geocode of 3519 Butler St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr",
+    "note": "exact address daddr; Spanish tapas, Lawrenceville",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (496 reviews), active current hours, OpenTable listing",
+    "statusChecked": "2026-08-10"
    },
    "Kelly's Bar & Lounge": {
     "address": "6012 Centre Ave, East Liberty, Pittsburgh, PA 15206",
@@ -1074,8 +1074,8 @@
     "confidence": "high",
     "note": "Centre Ave at Penn Circle S",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (227 reviews), active website kellysbarlounge.com and current hours",
+    "statusChecked": "2026-08-10"
    },
    "Apteka": {
     "address": "4606 Penn Ave, Pittsburgh (Bloomfield), PA 15224",
@@ -1086,8 +1086,8 @@
     "confidence": "high",
     "note": "Bloomfield, matches",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (527 reviews), active site aptekapgh.com, current hours",
+    "statusChecked": "2026-08-10"
    },
    "Gooski's": {
     "address": "3117 Brereton St, Pittsburgh (Polish Hill), PA 15219",
@@ -1098,8 +1098,8 @@
     "confidence": "high",
     "note": "Polish Hill, matches",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026, upcoming events scheduled Aug 2026, Sep 2025 reviews",
+    "statusChecked": "2026-08-10"
    },
    "Everyday Noodles": {
     "address": "5875 Forbes Ave, Pittsburgh (Squirrel Hill), PA 15217",
@@ -1110,8 +1110,8 @@
     "confidence": "high",
     "note": "Squirrel Hill; old pin was W estimate",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (1067 reviews), May 2026 review, active site",
+    "statusChecked": "2026-08-10"
    },
    "Chengdu Gourmet": {
     "address": "5840 Forward Ave, Pittsburgh (Squirrel Hill), PA 15217",
@@ -1122,8 +1122,8 @@
     "confidence": "high",
     "note": "Squirrel Hill; old pin was wrong",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (321 reviews), May 2026 reviews",
+    "statusChecked": "2026-08-10"
    },
    "How Lee": {
     "address": "5888 Forbes Ave, Pittsburgh, PA 15217",
@@ -1134,8 +1134,8 @@
     "confidence": "med",
     "note": "5888 is ~12 numbers east of the 5876 rooftop pin; nudged east per block orientation (task note: higher numbers = east = less-negative lng). ~2-3 storefronts.",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (How Lee Chinese Food) updated Aug 2026, 2026 reviews, operates daily",
+    "statusChecked": "2026-08-10"
    },
    "KIIN Lao & Thai Eatery": {
     "address": "5846 Forbes Ave, Pittsburgh, PA 15217",
@@ -1146,8 +1146,8 @@
     "confidence": "med",
     "note": "Task anchor: block runs -79.919 (E) to -79.922 (W); Everyday Noodles 5875 = -79.9201. 5846 sits ~30 numbers west of 5876, hence ~-79.9209. Second-floor space above Forbes.",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (293 reviews), active site kiinpgh.com, daily 11-10",
+    "statusChecked": "2026-08-10"
    },
    "DiAnoia's Eatery": {
     "address": "2549 Penn Ave, Strip District, Pittsburgh, PA 15222",
@@ -1156,10 +1156,10 @@
     "source": "google !3d!4d geocode of 2549 Penn Ave",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact place coordinate",
+    "note": "exact place coordinate; One aggregator showed a daily-closed status; confirmed open via official site hours and Resy",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jun 2026 (1263 reviews), active current hours, Resy reservations up to 6 weeks out",
+    "statusChecked": "2026-08-10"
    },
    "Piccolo Forno": {
     "address": "3801 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -1170,8 +1170,8 @@
     "confidence": "high",
     "note": "exact place coordinate",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (678 reviews), Jul 8 2026 review, active site, current hours",
+    "statusChecked": "2026-08-10"
    },
    "Driftwood Oven": {
     "address": "3615 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -1182,8 +1182,8 @@
     "confidence": "high",
     "note": "exact address daddr",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (349 reviews), Mar 2026 renovation reported, current hours",
+    "statusChecked": "2026-08-10"
    },
    "Mineo's Pizza House": {
     "address": "2128 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -1194,8 +1194,8 @@
     "confidence": "high",
     "note": "exact address daddr",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (509 reviews), active site mineospizza.com, current hours",
+    "statusChecked": "2026-08-10"
    },
    "Aiello's Pizza": {
     "address": "2112 Murray Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -1206,8 +1206,8 @@
     "confidence": "high",
     "note": "exact address daddr",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (336 reviews), status update Apr 2026, active site",
+    "statusChecked": "2026-08-10"
    },
    "Commonplace Coffee": {
     "address": "5827 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -1218,8 +1218,8 @@
     "confidence": "high",
     "note": "exact address daddr",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (245 reviews), May 2026 listing, active site squirrel-hill page",
+    "statusChecked": "2026-08-10"
    },
    "Prantl's Bakery": {
     "address": "5525 Walnut St, Shadyside, Pittsburgh, PA 15232",
@@ -1228,10 +1228,10 @@
     "source": "google daddr of adjacent 5523 Walnut St",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "1-2 doors from exact",
+    "note": "1-2 doors from exact; Brief May 2026 pest consumer alert, since removed; remains open",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (393 reviews); May 2026 health-dept consumer alert lifted May 27 2026, owner Facebook post",
+    "statusChecked": "2026-08-10"
    },
    "Gaby et Jules": {
     "address": "5837 Forbes Ave, Squirrel Hill, Pittsburgh, PA 15217",
@@ -1242,8 +1242,8 @@
     "confidence": "med",
     "note": "1-2 doors from exact",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jun 2026 (297 reviews), active site gabyetjules.com, regular hours, hiring listing",
+    "statusChecked": "2026-08-10"
    },
    "La Gourmandine": {
     "address": "4605 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -1252,10 +1252,10 @@
     "source": "interpolated Butler anchors 4305 & 4635 (Abbey)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "30 doors from near anchor",
+    "note": "30 doors from near anchor; One aggregator (Corner) flagged 'closed' as daily status; multiple 2026 sources confirm open",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (626 reviews), Tripadvisor #1 of 9 in Lawrenceville, current 2026 hours, active Facebook",
+    "statusChecked": "2026-08-10"
    },
    "Dave & Andy's Homemade Ice Cream": {
     "address": "207 Atwood St, Oakland, Pittsburgh, PA 15213",
@@ -1264,10 +1264,10 @@
     "source": "google daddr@ geocode of 207 Atwood St",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "exact address daddr",
+    "note": "exact address daddr; Temporarily closed 2024, reopened same year; open in 2026",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jun 2026 (351 reviews), reopened under new ownership Sep 2024, hiring Fall 2026",
+    "statusChecked": "2026-08-10"
    },
    "Millie's Homemade Ice Cream": {
     "address": "232 S Highland Ave, Pittsburgh, PA 15206",
@@ -1278,8 +1278,8 @@
     "confidence": "high",
     "note": "Shadyside",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026 (513 reviews), current hours, active site millieshomemade.com",
+    "statusChecked": "2026-08-10"
    },
    "Church Brew Works": {
     "address": "3525 Liberty Ave, Pittsburgh, PA 15201",
@@ -1290,8 +1290,8 @@
     "confidence": "high",
     "note": "Google Maps place coord",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (1481 reviews), Mar 2026 review, owner expanding (bought adjacent convent 2024)",
+    "statusChecked": "2026-08-10"
    },
    "East End Brewing Company": {
     "address": "147 Julius St, Pittsburgh, PA 15206",
@@ -1302,8 +1302,8 @@
     "confidence": "high",
     "note": "Apple Maps coord; corrects estimate",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (161 reviews), active site eastendbrewing.com, current hours",
+    "statusChecked": "2026-08-10"
    },
    "Arsenal Cider House": {
     "address": "300 39th St, Pittsburgh, PA 15201",
@@ -1314,8 +1314,8 @@
     "confidence": "high",
     "note": "Google Maps 3d40.465108 4d-79.96092",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (Lawrenceville, 300 39th St) updated Jun 2026 (272 reviews), current hours, active site",
+    "statusChecked": "2026-08-10"
    },
    "Groceria Merante": {
     "address": "3454 Bates St, Oakland, Pittsburgh, PA 15213",
@@ -1324,10 +1324,10 @@
     "source": "nextdoor merante-groceria-pittsburgh-pa (40.43652428,-79.95531396)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Central Oakland, matches Bates St",
+    "note": "Central Oakland, matches Bates St; Italian grocery/deli, Oakland",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jun 2026 (50 reviews), active site groceriamerante.com, current hours M-F 8:30-5",
+    "statusChecked": "2026-08-10"
    },
    "Bloomfield Saturday Market": {
     "address": "5050 Liberty Ave, Pittsburgh, PA 15224",
@@ -1336,10 +1336,10 @@
     "source": "google-maps-url 3d/4d pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Bloomfield",
+    "note": "Bloomfield; Seasonal outdoor market",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026, official bloomfieldpgh.org 2026 season May 2-Nov 21 2026, Sat 9am-1pm",
+    "statusChecked": "2026-08-10"
    },
    "Squirrel Hill Farmers Market": {
     "address": "5737 Beacon St, Squirrel Hill, Pittsburgh, PA 15217",
@@ -1362,8 +1362,8 @@
     "confidence": "high",
     "note": "Pitt campus, Oakland",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Univ. of Pittsburgh landmark; Yelp updated Aug 2026, official nationalityrooms.pitt.edu 2026 tour schedule",
+    "statusChecked": "2026-08-10"
    },
    "Carnegie Museum of Natural History": {
     "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1374,8 +1374,8 @@
     "confidence": "high",
     "note": "Forbes Ave, Oakland",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jul 2026, official carnegiemnh.org 2026 hours/events",
+    "statusChecked": "2026-08-10"
    },
    "Carnegie Museum of Art": {
     "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1386,8 +1386,8 @@
     "confidence": "high",
     "note": "matches Oakland building",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official carnegieart.org; 59th Carnegie International May 2 2026-Jan 3 2027, current hours",
+    "statusChecked": "2026-08-10"
    },
    "Phipps Conservatory and Botanical Gardens": {
     "address": "1 Schenley Dr, Oakland, Pittsburgh, PA 15213",
@@ -1398,8 +1398,8 @@
     "confidence": "high",
     "note": "in Schenley Park",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jun 2026 (599 reviews), official phipps.conservatory.org 2026 exhibits, daily hours",
+    "statusChecked": "2026-08-10"
    },
    "Heinz Memorial Chapel": {
     "address": "4200 Fifth Ave, Oakland, Pittsburgh, PA 15260",
@@ -1410,8 +1410,8 @@
     "confidence": "high",
     "note": "Pitt campus",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Univ. of Pittsburgh landmark; official heinzchapel.pitt.edu 2026 events/visitor hours M-Th 10-4",
+    "statusChecked": "2026-08-10"
    },
    "The Frick Pittsburgh": {
     "address": "7227 Reynolds St, Point Breeze, Pittsburgh, PA 15208",
@@ -1422,8 +1422,8 @@
     "confidence": "high",
     "note": "Point Breeze",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 (103 reviews), official thefrickpittsburgh.org 2025-26 season, Tue-Sun 10-5",
+    "statusChecked": "2026-08-10"
    },
    "Pittsburgh Zoo & Aquarium": {
     "address": "7370 Baker St, Highland Park, Pittsburgh, PA 15206",
@@ -1432,10 +1432,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Highland Park",
+    "note": "Highland Park; New entrance plaza opened May 2026; ZooFit Path under construction through Oct 2026",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + WPXI: new 'Gateway to the Wild' entrance ribbon-cutting Apr 2026; open daily year-round",
+    "statusChecked": "2026-08-10"
    },
    "Schenley Park": {
     "address": "Schenley Dr, Oakland, Pittsburgh, PA",
@@ -1446,8 +1446,8 @@
     "confidence": "high",
     "note": "park centroid",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Wikipedia/Tripadvisor 2026; 456-acre municipal park, fully operational",
+    "statusChecked": "2026-08-10"
    },
    "The Clemente Museum": {
     "address": "3339 Penn Ave, Lawrenceville, Pittsburgh, PA 15201",
@@ -1458,8 +1458,8 @@
     "confidence": "high",
     "note": "Lawrenceville engine house",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + Yelp (reviews to June 2026); open by appointment, planning 2026 events",
+    "statusChecked": "2026-08-10"
    },
    "Stephen Foster Memorial": {
     "address": "4301 Forbes Ave, Oakland, Pittsburgh, PA 15260",
@@ -1470,8 +1470,8 @@
     "confidence": "high",
     "note": "Pitt campus",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pitt library/facilities site 2026; museum open Mon-Fri 8am-3pm, active theatre productions",
+    "statusChecked": "2026-08-10"
    },
    "Hunt Institute for Botanical Documentation": {
     "address": "5th fl Hunt Library, 4909 Frew St, CMU, Pittsburgh, PA 15213",
@@ -1482,8 +1482,8 @@
     "confidence": "high",
     "note": "CMU Hunt Library",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "huntbotanical.org: current exhibition Mar-Jun 2026, regular Tue-Fri hours",
+    "statusChecked": "2026-08-10"
    },
    "Frick Fine Arts Building & the Nicholas Lochoff Cloister": {
     "address": "650 Schenley Dr, Oakland, Pittsburgh, PA 15213",
@@ -1494,8 +1494,8 @@
     "confidence": "high",
     "note": "south edge Schenley Plaza",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pitt calendar + Yelp (Jun 2026); active Pitt academic building with open cloister",
+    "statusChecked": "2026-08-10"
    },
    "Schenley Plaza & the Mary Schenley Memorial Fountain": {
     "address": "4100 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1504,10 +1504,10 @@
     "source": "wikipedia infobox (fountain)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Schenley Plaza",
+    "note": "Schenley Plaza; Fountain restored",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pittsburgh Parks Conservancy; 20th-anniversary celebration scheduled Jul 25 2026",
+    "statusChecked": "2026-08-10"
    },
    "Walking to the Sky": {
     "address": "Warner Hall lawn, 5000 Forbes Ave, CMU, Pittsburgh, PA",
@@ -1518,8 +1518,8 @@
     "confidence": "high",
     "note": "front of Warner Hall",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (Aug 2026) + Wikipedia; Borofsky public sculpture on CMU campus, extant",
+    "statusChecked": "2026-08-10"
    },
    "Randy Pausch Memorial Bridge": {
     "address": "4902 Forbes Ave, Gates to Purnell, CMU, Pittsburgh, PA",
@@ -1530,8 +1530,8 @@
     "confidence": "high",
     "note": "CMU footbridge",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "CMU CS site + CampusReel 2026; pedestrian bridge connecting Purnell & Gates centers",
+    "statusChecked": "2026-08-10"
    },
    "Pittsburgh Glass Center": {
     "address": "5472 Penn Ave, Friendship, Pittsburgh, PA 15206",
@@ -1540,10 +1540,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Friendship",
+    "note": "Friendship; 2024 expansion nearly doubled capacity",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + Yelp (Aug 2026); celebrating 25 years in 2026, open daily 10am-7pm",
+    "statusChecked": "2026-08-10"
    },
    "Highland Park & the Entry Garden": {
     "address": "Reservoir Dr, Highland Park, Pittsburgh, PA",
@@ -1554,8 +1554,8 @@
     "confidence": "high",
     "note": "park centroid, not garden point",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pittsburgh Parks/Yelp 2026; major regional park, fully operational",
+    "statusChecked": "2026-08-10"
    },
    "Center for PostNatural History": {
     "address": "4913 Penn Ave, Garfield, Pittsburgh, PA 15224",
@@ -1564,10 +1564,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Garfield",
+    "note": "Garfield; Dec Facebook post hinted at possible location change; still listed operating - recommend confirming hours by phone",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp/Tripadvisor (updated May 2026); open Sundays 12-4pm + First Fridays",
+    "statusChecked": "2026-08-10"
    },
    "Carnegie Library of Pittsburgh (Main)": {
     "address": "4400 Forbes Ave, Oakland, Pittsburgh, PA 15213",
@@ -1578,8 +1578,8 @@
     "confidence": "high",
     "note": "Oakland main branch",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official CLP site; central library open 7 days/week, hosting 2026 events (Book Fest May 30)",
+    "statusChecked": "2026-08-10"
    },
    "Soldiers & Sailors Memorial Hall & Museum": {
     "address": "4141 Fifth Ave, Oakland, Pittsburgh, PA 15213",
@@ -1590,8 +1590,8 @@
     "confidence": "high",
     "note": "Oakland",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + Yelp (Jul 2026); open Mon-Sat 10am-4pm, 2026 events scheduled",
+    "statusChecked": "2026-08-10"
    },
    "Allegheny Cemetery": {
     "address": "4734 Butler St, Lawrenceville, Pittsburgh, PA 15201",
@@ -1602,8 +1602,8 @@
     "confidence": "high",
     "note": "cemetery centroid, low precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + Yelp (Aug 2026); open 7 days 7am-7pm",
+    "statusChecked": "2026-08-10"
    },
    "Frick Park & the Frick Environmental Center": {
     "address": "2005 Beechwood Blvd, Pittsburgh, PA 15217",
@@ -1612,10 +1612,10 @@
     "source": "google maps place coordinate",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Environmental Center building",
+    "note": "Environmental Center building; Amphitheater construction to begin 2026",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pittsburgh Parks Conservancy 2026; center open daily 10am-4pm, 644-acre park",
+    "statusChecked": "2026-08-10"
    },
    "Mellon Park Walled Garden": {
     "address": "6300 Fifth Ave, Point Breeze, Pittsburgh, PA 15232",
@@ -1624,10 +1624,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "park coordinate; garden is south",
+    "note": "park coordinate; garden is south; North-side accessibility construction begins 2026",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pittsburgh Parks Conservancy + Tripadvisor 2026; public garden open dawn-dusk",
+    "statusChecked": "2026-08-10"
    },
    "The Fence": {
     "address": "The Cut, Carnegie Mellon University, Pittsburgh, PA 15213",
@@ -1638,8 +1638,8 @@
     "confidence": "med",
     "note": "CMU campus anchor (the Cut)",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "CMU News (Jul 2026 article on safeguarding the tradition); active painted campus landmark",
+    "statusChecked": "2026-08-10"
    },
    "Kraus Campo": {
     "address": "Posner Center rooftop, Carnegie Mellon University, Pittsburgh, PA 15213",
@@ -1650,8 +1650,8 @@
     "confidence": "med",
     "note": "CMU campus anchor (Posner rooftop) (co-located; pin nudged ~50m so both show)",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "CMU public art / Posner Center pages; rooftop garden intact, Posner Center reopened Fall 2025",
+    "statusChecked": "2026-08-10"
    },
    "Duquesne Incline": {
     "address": "1197 W Carson St, Mount Washington, Pittsburgh, PA 15211",
@@ -1662,8 +1662,8 @@
     "confidence": "high",
     "note": "upper station",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + Yelp (Jul 2026); operating 365 days/year, 5:30am-12:30am",
+    "statusChecked": "2026-08-10"
    },
    "Grandview Avenue Overlook, Mount Washington": {
     "address": "Grandview Ave, Mount Washington, Pittsburgh, PA 15211",
@@ -1674,8 +1674,8 @@
     "confidence": "high",
     "note": "named overlook feature",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Tripadvisor/Yelp (Jul 2026); public overlooks open 24 hours, free",
+    "statusChecked": "2026-08-10"
    },
    "Monongahela Incline": {
     "address": "8 Grandview Ave (lower W Carson St), Pittsburgh, PA 15211",
@@ -1684,10 +1684,10 @@
     "source": "wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Mount Washington funicular",
+    "note": "Mount Washington funicular; Several 2026 mechanical closures but currently in service",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Post-Gazette/WPXI 2026; reopened May 13 2026 after inspection, running regular schedule",
+    "statusChecked": "2026-08-10"
    },
    "West End Overlook Park": {
     "address": "Marlow St, Elliott/West End, Pittsburgh, PA 15220",
@@ -1698,8 +1698,8 @@
     "confidence": "high",
     "note": "Elliott neighborhood",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "City of Pittsburgh parks + Yelp (Apr 2026); renovated park open 24 hours",
+    "statusChecked": "2026-08-10"
    },
    "Gateway Clipper Fleet": {
     "address": "350 W Station Square Dr, Pittsburgh, PA 15219",
@@ -1710,8 +1710,8 @@
     "confidence": "med",
     "note": "dock anchored to Station Square",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site + CBS/Tripadvisor 2026; open year-round, cruises operating, NFL draft shuttle 2026",
+    "statusChecked": "2026-08-10"
    },
    "South Side Slopes city steps": {
     "address": "South Side Slopes, Pittsburgh, PA 15203",
@@ -1722,8 +1722,8 @@
     "confidence": "med",
     "note": "diffuse feature, district anchor",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Public city-steps infrastructure; South Side district actively maintained 2026",
+    "statusChecked": "2026-08-10"
    },
    "East Carson Street, South Side": {
     "address": "E Carson St, South Side Flats, Pittsburgh, PA 15203",
@@ -1734,8 +1734,8 @@
     "confidence": "high",
     "note": "district center 9th-24th St",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "WPXI/WESA/City of Pittsburgh 2026; active business district, 25 businesses opened in 2026",
+    "statusChecked": "2026-08-10"
    },
    "Station Square": {
     "address": "125 W Station Square Dr, Pittsburgh, PA",
@@ -1744,10 +1744,10 @@
     "source": "Wikipedia Station Square infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "complex-center coordinate",
+    "note": "complex-center coordinate; Reduced from peak but restaurants (Grand Concourse, Hard Rock, etc.) open",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official stationsquare.com + Yelp (Jul 2026); shopping/dining complex still operating",
+    "statusChecked": "2026-08-10"
    },
    "Point of View statue": {
     "address": "Grandview Ave at Sweetbriar St, Mount Washington",
@@ -1758,8 +1758,8 @@
     "confidence": "high",
     "note": "old pin was wrong",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (Jul 2026) + Wikipedia; 2006 bronze sculpture in parklet on Grandview Ave, extant",
+    "statusChecked": "2026-08-10"
    },
    "Emerald View Park": {
     "address": "Grandview Ave, Mount Washington, Pittsburgh, PA 15211",
@@ -1770,8 +1770,8 @@
     "confidence": "med",
     "note": "Mt Washington overlook anchor",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Pittsburgh Parks Conservancy + Yelp (May 2026); 250-acre park open daily 6am-11pm",
+    "statusChecked": "2026-08-10"
    },
    "Beechview–Seldom Seen Greenway": {
     "address": "Saw Mill Run Blvd trailhead, Beechview, Pittsburgh, PA 15216",
@@ -1782,8 +1782,8 @@
     "confidence": "med",
     "note": "diffuse greenway, neighborhood anchor",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "AllTrails/Yelp (Jul 2026); wooded greenway trail open and reviewed 2026",
+    "statusChecked": "2026-08-10"
    },
    "Pennsylvania Trolley Museum": {
     "address": "1 Electric Way, Washington, PA",
@@ -1792,10 +1792,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin",
+    "note": "matches prior pin; Open Thu-Sun; hosting 2026 events",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official site pa-trolley.org shows 2026 events; Yelp updated July 2026; new Welcome & Education Center opened Nov 2023",
+    "statusChecked": "2026-08-10"
    },
    "Andrew Carnegie Free Library & Music Hall": {
     "address": "300 Beechwood Ave, Carnegie",
@@ -1804,10 +1804,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP building",
+    "note": "NRHP building; Operating library + music hall since 1901",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Official carnegiecarnegie.org shows current 2026 events; Yelp updated July 2026 with hours",
+    "statusChecked": "2026-08-10"
    },
    "Captain Thomas Espy G.A.R. Post (Civil War Room)": {
     "address": "300 Beechwood Ave, Carnegie",
@@ -1816,10 +1816,10 @@
     "source": "Wikipedia (same ACFL&MH building)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "inside ACFL&MH (co-located; pin nudged ~50m so both show)",
+    "note": "inside ACFL&MH (co-located; pin nudged ~50m so both show); Restored 2010; free public tours",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "carnegiecarnegie.org Civil War Room page + acfree.librarycalendar.com list ongoing Saturday tours 11am-3pm",
+    "statusChecked": "2026-08-10"
    },
    "Uptown Mt. Lebanon business district": {
     "address": "Washington Rd, Mt. Lebanon, PA 15228",
@@ -1830,8 +1830,8 @@
     "confidence": "med",
     "note": "district anchor, Washington Rd",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "mtlebanon.org business-districts page + lebomag.com describe active district (182 businesses) with 2026 Activate Uptown improvements underway",
+    "statusChecked": "2026-08-10"
    },
    "Dormont Pool": {
     "address": "1801 Dormont Ave, Dormont",
@@ -1840,22 +1840,22 @@
     "source": "Google Maps place coordinate",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin",
+    "note": "matches prior pin; Seasonal municipal pool",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Borough of Dormont boro.dormont.pa.us lists 2026 season May 23-Sep 1 with hours/passes",
+    "statusChecked": "2026-08-10"
    },
    "Row House — Hollywood Theater": {
     "address": "1449 Potomac Ave, Dormont, Pittsburgh, PA 15216",
-    "lat": 40.39608,
+    "lat": 40.39611,
     "lng": -80.03538,
-    "source": "nextdoor hollywood-theater-pittsburgh-pa (40.39607907,-80.03538201)",
+    "source": "Google Maps place pin !3d40.3961061!4d-80.035376 (Row House Cinemas - Hollywood, 1449 Potomac Ave)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Dormont, matches Potomac Ave",
+    "note": "Dormont, matches Potomac Ave; Reopened after 2-year renovation",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "90.5 WESA (Oct 2025) + rowhousecinemas.com: reopened early Nov 2025 after renovation",
+    "statusChecked": "2026-08-10"
    },
    "LeMoyne House": {
     "address": "49 E Maiden St, Washington, PA",
@@ -1864,10 +1864,10 @@
     "source": "Wikipedia F. Julius LeMoyne House",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP",
+    "note": "NRHP; Underground Railroad site, seasonal tours",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Washington County Historical Society wchspa.org lists 2026 tour dates; Tripadvisor 2026",
+    "statusChecked": "2026-08-10"
    },
    "David Bradford House & Whiskey Rebellion Center": {
     "address": "175 S Main St, Washington, PA",
@@ -1878,8 +1878,8 @@
     "confidence": "high",
     "note": "NHL",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "visitwashingtoncountypa.com + Facebook: open Apr-Nov or by appointment; 2026 Whiskey Rebellion Festival Jul 10-11",
+    "statusChecked": "2026-08-10"
    },
    "Woodville Plantation (John & Presley Neville House)": {
     "address": "1375 Washington Pike, Bridgeville",
@@ -1888,10 +1888,10 @@
     "source": "HMDB historical marker coords",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "matches prior pin",
+    "note": "matches prior pin; National Historic Landmark",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "woodville-experience.org + Yelp (updated Jan 2026): open seasonally Apr-Nov, Sundays 1-4pm",
+    "statusChecked": "2026-08-10"
    },
    "Mingo Creek County Park & the covered bridges": {
     "address": "Mingo Creek County Park, Finleyville",
@@ -1902,8 +1902,8 @@
     "confidence": "high",
     "note": "authoritative park point",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "washingtoncopa.gov Parks + Yelp (June 2026): open year-round with Ebenezer & Henry covered bridges; 2026 festival Sep 19-20",
+    "statusChecked": "2026-08-10"
    },
    "Washington County Agricultural Fair": {
     "address": "2151 N Main St, Washington, PA 15301",
@@ -1912,10 +1912,10 @@
     "source": "decimal coordinate published on mypacer/directory listing for Washington County Fairgrounds",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Washington PA is ~40.17-40.21 lat (just south of the stated Pittsburgh floor, geographically correct). Google place_id 0x8835ad414e521b87:0x3a4019bbdc965681 confirms same venue.",
+    "note": "Washington PA is ~40.17-40.21 lat (just south of the stated Pittsburgh floor, geographically correct). Google place_id 0x8835ad414e521b87:0x3a4019bbdc965681 confirms same venue.; Annual event, running 2026",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "ticketleap + visitwashingtoncountypa.com: 2026 PA fair scheduled Aug 15-22, 2026",
+    "statusChecked": "2026-08-10"
    },
    "Duncan & Miller Glass Museum": {
     "address": "525 Jefferson Ave, Washington, PA 15301",
@@ -1924,10 +1924,10 @@
     "source": "decimal coordinate published on directory listing for Duncan & Miller Glass Museum, 525 Jefferson Ave",
     "verified": "2026-08-10",
     "confidence": "med",
-    "note": "Washington PA range verified (~40.17,-80.25). Some directories also cite 100 Ridge Ave / 119 Murtland; 525 Jefferson Ave is the museum's stated address.",
+    "note": "Washington PA range verified (~40.17,-80.25). Some directories also cite 100 Ridge Ave / 119 Murtland; 525 Jefferson Ave is the museum's stated address.; Sources list museum at 100 Ridge Ave (input addr 525 Jefferson Ave may be outdated)",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Tripadvisor 2026 + Visit Pittsburgh: open Thu-Sun 11am-4pm; no closure notices",
+    "statusChecked": "2026-08-10"
    },
    "Perry Como Statue": {
     "address": "68 E Pike St, Canonsburg, PA 15317",
@@ -1936,10 +1936,10 @@
     "source": "google-maps Canonsburg downtown/borough",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "at borough municipal building",
+    "note": "at borough municipal building; Public monument",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Roadside/Tripadvisor 2026: bronze statue in place in front of Canonsburg Borough Building",
+    "statusChecked": "2026-08-10"
    },
    "LeMoyne Crematory": {
     "address": "Gallows Hill, North Franklin Twp",
@@ -1948,10 +1948,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP, matches prior pin",
+    "note": "NRHP, matches prior pin; Historic site (America's first crematory, ceased cremations 1901); preserved/tourable, not a closed business",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Washington County Historical Society wchspa.org maintains site; National Road Heritage Corridor + Atlas Obscura list it as a preserved attraction with tours",
+    "statusChecked": "2026-08-10"
    },
    "Washington County Courthouse": {
     "address": "1 S Main St, Washington, PA",
@@ -1960,10 +1960,10 @@
     "source": "Wikipedia infobox",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "NRHP",
+    "note": "NRHP; Working county courthouse",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "washingtoncourts.us + pacourts.us: active courthouse; free public tours via PA Trolley Museum",
+    "statusChecked": "2026-08-10"
    },
    "Carnegie Stage & Main Street": {
     "address": "25 W Main St, Carnegie, PA 15106",
@@ -1974,8 +1974,8 @@
     "confidence": "med",
     "note": "Main St district anchor",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "carnegiestage.com + Yelp (July 2026): active 93-seat theater with July 2026 productions",
+    "statusChecked": "2026-08-10"
    },
    "Mingo Creek Park Observatory": {
     "address": "1 Shelter 10 Rd, Finleyville",
@@ -1984,10 +1984,10 @@
     "source": "AAAP published (3dp)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "low precision but published",
+    "note": "low precision but published; Yelp shows a 'CLOSED' banner but this is contradicted by current 2026 AAAP star-party schedule; observatory only opens for scheduled events",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Observer-Reporter (Jul 8 2026) + 3ap.org (AAAP) + NASA Night Sky Network: active 2026 star parties (e.g. Jul 10-11 2026)",
+    "statusChecked": "2026-08-10"
    },
    "Little Lake Theatre": {
     "address": "500 Lakeside Dr S, Canonsburg, PA 15317",
@@ -1996,10 +1996,10 @@
     "source": "google-maps Canonsburg Lake (adjacent)",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "beside Canonsburg Lake",
+    "note": "beside Canonsburg Lake; Expanding to CECI Canonsburg campus in Dec 2026",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "littlelake.org + TribLIVE + visitwashingtoncountypa.com: 2026 season announced ('Home Is Where the Heart Is'), tickets on sale",
+    "statusChecked": "2026-08-10"
    },
    "Cross Creek County Park": {
     "address": "near Avella, PA",
@@ -2010,8 +2010,8 @@
     "confidence": "high",
     "note": "official GNIS point",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "washingtoncopa.gov + Yelp (July 2026) + Tripadvisor 2026: open year-round",
+    "statusChecked": "2026-08-10"
    },
    "Washington & Jefferson College (McMillan Hall)": {
     "address": "60 S Lincoln St, Washington, PA",
@@ -2022,8 +2022,8 @@
     "confidence": "high",
     "note": "matches prior pin",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "washjeff.edu + Wikipedia: W&J College operating; McMillan Hall (1793) still in use, houses Office of the President",
+    "statusChecked": "2026-08-10"
    },
    "Salem's Market & Grill": {
     "address": "2923 Penn Ave, Pittsburgh, PA 15201",
@@ -2034,8 +2034,8 @@
     "confidence": "high",
     "note": "Strip District",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "salemsmarketgrill.com + Yelp (July 2026): open, Strip District halal market & grill with current hours",
+    "statusChecked": "2026-08-10"
    },
    "Kassab's": {
     "address": "1207 E Carson St, Pittsburgh, PA 15203",
@@ -2044,10 +2044,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "South Side",
+    "note": "South Side; Lebanese cuisine, South Side",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (July 2026) + Instagram + delivery platforms: open Mon-Sat 11am-8pm",
+    "statusChecked": "2026-08-10"
    },
    "Fiori's Pizzaria": {
     "address": "103 Capital Ave, Pittsburgh, PA 15226",
@@ -2056,10 +2056,10 @@
     "source": "google-maps address geocode (daddr)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Brookline; Yelp lists 103 Capital Ave (batch said Wenzell)",
+    "note": "Brookline; Yelp lists 103 Capital Ave (batch said Wenzell); Was condemned after storm tore off roof but has reopened",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (July 2026) + Facebook 'back open' post + fiorispizzaria.com: Brookline location open daily 11am-1am",
+    "statusChecked": "2026-08-10"
    },
    "Alla Famiglia": {
     "address": "804 E Warrington Ave, Pittsburgh, PA 15210",
@@ -2068,10 +2068,10 @@
     "source": "google-maps-url 3d/4d pin",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Allentown",
+    "note": "Allentown; Italian, Allentown",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (July 2026) + OpenTable + restaurantji 2026: open, taking reservations",
+    "statusChecked": "2026-08-10"
    },
    "Sarris Candies": {
     "address": "511 Adams Ave, Canonsburg, PA 15317",
@@ -2080,22 +2080,22 @@
     "source": "nextdoor sarris-candies-canonsburg-pa (40.265647,-80.173214)",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "Canonsburg, matches Adams Ave",
+    "note": "Canonsburg, matches Adams Ave; Flagship store & ice cream parlor open Mon-Sat 9am-9pm, Sun 10am-9pm",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp (updated Aug 2026) + Post-Gazette/Observer-Reporter (May 2026): 511 Adams Ave store open; company opened new factory store June 2026",
+    "statusChecked": "2026-08-10"
    },
    "Page Dairy Mart": {
     "address": "4112 E Carson St (at Becks Run Rd), Pittsburgh, PA 15210",
-    "lat": 40.41123,
-    "lng": -79.9558,
-    "source": "Nextdoor page-dairy-mart-pittsburgh-pa + Google Street View pano @40.41112,-79.95557 (facing storefront); corner E Carson at Becks Run Rd",
+    "lat": 40.41112,
+    "lng": -79.95557,
+    "source": "No place pin (!3d!4d) surfaced; used Google street-view panorama coordinate @40.4111201,-79.9555674 positioned at the 4112 E Carson St storefront (matches expected 40.4112,-79.9556)",
     "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "E Carson at Becks Run, South Side; corroborated by street-level pano",
+    "confidence": "high",
+    "note": "E Carson at Becks Run, South Side; corroborated by street-level pano; Seasonal ice cream stand, opens spring-mid Oct",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "CBS Pittsburgh + Post-Gazette (Mar 2026): opened for 2026 season Mar 9 (75th year); Yelp updated June 2026",
+    "statusChecked": "2026-08-10"
    },
    "Bedner's Farm & Greenhouse": {
     "address": "315 Coleman Rd, McDonald, PA 15057",
@@ -2106,8 +2106,8 @@
     "confidence": "high",
     "note": "DMS 40d20'6.18N; corrects estimate",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "official bednersgreenhouse.com hours + Yelp updated Aug 2026 (seasonal garden center)",
+    "statusChecked": "2026-08-10"
    },
    "Superior Motors — CLOSED": {
     "address": "1211 Braddock Ave, Braddock, PA 15104",
