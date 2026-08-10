@@ -2936,10 +2936,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; Civil War memorial on Public Square",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp landmark listing updated May 2026; America 250 event scheduled at the monument July 2026",
+    "statusChecked": "2026-08-10"
    },
    "Chess Collection — Cleveland Public Library MAIN Library": {
     "address": "325 Superior Ave NE · Main Building, 3rd floor, John G. White Special Collections",
@@ -2950,8 +2950,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "cpl.org Special Collections; world's largest chess collection, free and open to public; library marked Main building centennial with major chess acquisition",
+    "statusChecked": "2026-08-10"
    },
    "The Arcade (Old Arcade)": {
     "address": "401 Euclid Ave",
@@ -2962,8 +2962,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated June 2026, daily 7am-7pm",
+    "statusChecked": "2026-08-10"
    },
    "5th Street Arcades & Euclid Arcade": {
     "address": "530 Euclid Ave",
@@ -2974,8 +2974,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp/Tripadvisor updated July 2026, regular daily hours",
+    "statusChecked": "2026-08-10"
    },
    "Terminal Tower Observation Deck": {
     "address": "50 Public Square, 42nd floor",
@@ -2984,10 +2984,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; Seasonal, not year-round",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Tripadvisor 2026 reviews; operates seasonally (spring-fall + holidays), reservations online",
+    "statusChecked": "2026-08-10"
    },
    "Old Stone Church": {
     "address": "91 Public Square",
@@ -2998,8 +2998,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated May 2026; active Presbyterian congregation on Public Square",
+    "statusChecked": "2026-08-10"
    },
    "Eastman Reading Garden": {
     "address": "Rockwell Ave, between the library buildings",
@@ -3008,22 +3008,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; CPL Main Library garden",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
-   },
-   "Heinen's Downtown": {
-    "address": "900 Euclid Ave",
-    "lat": 41.5000366,
-    "lng": -81.6861122,
-    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "7dp precision",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "cpl.org; open during library hours; Yelp listing active",
+    "statusChecked": "2026-08-10"
    },
    "Free Stamp": {
     "address": "Willard Park, 601 Lakeside Ave E",
@@ -3034,8 +3022,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "thisiscleveland.com / Cleveland Historical; permanent public Oldenburg sculpture in Willard Park",
+    "statusChecked": "2026-08-10"
    },
    "Mini Statue of Liberty": {
     "address": "623 W St Clair Ave",
@@ -3044,10 +3032,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; Publicly viewable",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "News5 Cleveland hidden gems; replica outside Morganstern MacAdams & DeVito law firm at 623 W St Clair",
+    "statusChecked": "2026-08-10"
    },
    "Hoyt Block Atrium": {
     "address": "700 W St Clair Ave",
@@ -3058,8 +3046,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "LoopNet/Crexi listings 2024+; occupied office/retail building with public atrium in Warehouse District",
+    "statusChecked": "2026-08-10"
    },
    "Fort Huntington Park": {
     "address": "W 3rd St & Lakeside Ave",
@@ -3070,8 +3058,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cleveland Historical; public park downtown, home to Jesse Owens statue",
+    "statusChecked": "2026-08-10"
    },
    "Jesse Owens Statue": {
     "address": "Fort Huntington Park, 299 W Lakeside Ave",
@@ -3082,8 +3070,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "thisiscleveland.com; 1982 McVey sculpture in Fort Huntington Park",
+    "statusChecked": "2026-08-10"
    },
    "Cleveland Convention Center Urban Farm": {
     "address": "300 Lakeside Ave, front of the centre by the RAPID tracks",
@@ -3094,8 +3082,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "News5 Cleveland / clevelandconventions.com sustainability page; active 19,000 sq ft urban farm managed by Levy Restaurants",
+    "statusChecked": "2026-08-10"
    },
    "USS Cod Submarine Memorial": {
     "address": "1201 N Marginal Rd",
@@ -3104,10 +3092,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; Seasonal",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "usscod.org hours; open daily 10-5 Apr 1-Nov 30, 2026 season",
+    "statusChecked": "2026-08-10"
    },
    "Rock & Roll Hall of Fame": {
     "address": "1100 E 9th St",
@@ -3118,8 +3106,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Tripadvisor/official 2026; open daily; $135M expansion opening fall 2026",
+    "statusChecked": "2026-08-10"
    },
    "Voinovich Bicentennial Park & Cleveland Lighthouse view": {
     "address": "800 E 9th Street Pier",
@@ -3130,8 +3118,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "northcoastharbor.org; Yelp updated July 2026; hosts 2026 seasonal events",
+    "statusChecked": "2026-08-10"
    },
    "Cleveland Script Signs — all six": {
     "address": "North Coast Harbor, E 9th Street Pier (and five others)",
@@ -3140,10 +3128,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; Public art",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "thisiscleveland.com / Yelp updated June 2026; North Coast Harbor sign freely accessible year-round",
+    "statusChecked": "2026-08-10"
    },
    "Goodtime III": {
     "address": "825 E 9th St",
@@ -3154,20 +3142,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
-   },
-   "Azure Rooftop Lounge at The 9": {
-    "address": "2017 E 9th St, Level 12",
-    "lat": 41.499784,
-    "lng": -81.6858124,
-    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "7dp precision",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "goodtimeiii.com 2026 cruise schedule (Air Show Sep 2026, Halloween Oct 31 2026)",
+    "statusChecked": "2026-08-10"
    },
    "Butcher and the Brewer": {
     "address": "2043 E 4th St",
@@ -3178,8 +3154,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 with current hours; official site active",
+    "statusChecked": "2026-08-10"
    },
    "Greater Cleveland Aquarium — shark gallery & seatube": {
     "address": "2000 Sycamore St, The Flats",
@@ -3190,8 +3166,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated June 2026; open daily 10-5 year-round",
+    "statusChecked": "2026-08-10"
    },
    "Veterans Memorial (Detroit-Superior) Bridge Streetcar Deck": {
     "address": "2433 Superior Viaduct",
@@ -3200,10 +3176,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; Seasonal/tour access to lower streetcar level",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cuyahoga County / Ideastream 2025-2026; Rediscover event June 27 2026 plus weekly Take-a-Hike tours through September",
+    "statusChecked": "2026-08-10"
    },
    "Mini Guardians of Traffic": {
     "address": "Washington Ave & Center St, The Flats",
@@ -3212,10 +3188,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; Public art",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Propped Productions video / sculpture references; mini Guardians at Washington & Center in the Flats",
+    "statusChecked": "2026-08-10"
    },
    "Leif Erikson Bust": {
     "address": "Beside 1148 Main Ave, at the jackknife bridge",
@@ -3226,8 +3202,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "RoadsideAmerica / Cleveland101; bust outside Shooters in the Flats near the jackknife bridge",
+    "statusChecked": "2026-08-10"
    },
    "Cleveland Center of Gravity Mural": {
     "address": "Columbus Rd",
@@ -3236,10 +3212,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; Public mural",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "landmarkmurals.com Cleveland Centre Mural Project; Gravity Place mural on Flats Industrial Railroad building, Columbus Rd",
+    "statusChecked": "2026-08-10"
    },
    "The Foundry": {
     "address": "1831 Columbus Rd",
@@ -3250,8 +3226,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "clevelandfoundry.org; Yelp updated June 2026; active community rowing & sailing center",
+    "statusChecked": "2026-08-10"
    },
    "Brewboat CLE": {
     "address": "Whiskey Island",
@@ -3262,8 +3238,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated July 2026; 2026 season launched May 1, Whiskey Island",
+    "statusChecked": "2026-08-10"
    },
    "Wendy Park & the monarch migration": {
     "address": "2800 Whiskey Island Dr",
@@ -3274,8 +3250,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cleveland Metroparks; Yelp updated April 2026; 2026 events scheduled",
+    "statusChecked": "2026-08-10"
    },
    "Ball Ball Waffle": {
     "address": "2999 Payne Ave, Asia Plaza",
@@ -3286,8 +3262,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated April 2026; Instagram shows current hours 12-5 (closed Tue), Asia Plaza",
+    "statusChecked": "2026-08-10"
    },
    "Negative Space Gallery": {
     "address": "1541 E 38th St, 2nd floor warehouse",
@@ -3296,10 +3272,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; Active gallery; some listings show 3820 Superior Ave",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated June 2026; clevescene/clevelandartsevents list 2026 events (Jan/Apr/May 2026)",
+    "statusChecked": "2026-08-10"
    },
    "Ingenuity Cleveland": {
     "address": "5401 Hamilton Ave",
@@ -3310,20 +3286,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
-   },
-   "Skidmark Garage": {
-    "address": "4806 Hamilton Ave",
-    "lat": 41.5196228,
-    "lng": -81.6593627,
-    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
-    "verified": "2026-08-09",
-    "confidence": "high",
-    "note": "7dp precision",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Jan 2026; IngenuityLabs 2026 event calendar (festival Sep 25-27, 2026) at 5401 Hamilton Ave",
+    "statusChecked": "2026-08-10"
    },
    "Percy Skuy Collection, Dittrick Medical History Center": {
     "address": "11000 Euclid Ave, Allen Memorial Medical Library",
@@ -3334,8 +3298,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Dittrick Center site: current hours (Fri/Sat) and 2026 lecture series (Apr 22, 2026)",
+    "statusChecked": "2026-08-10"
    },
    "Haserot Angel, Lake View Cemetery": {
     "address": "12316 Euclid Ave · Section 9, Lot 14",
@@ -3346,8 +3310,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Axios Cleveland May 2026 feature; Lake View Cemetery points-of-interest page; free to view, cemetery open daily",
+    "statusChecked": "2026-08-10"
    },
    "Lake View Cemetery (whole grounds)": {
     "address": "12316 Euclid Ave",
@@ -3358,8 +3322,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "lakeviewcemetery.com; open daily year-round to visitors",
+    "statusChecked": "2026-08-10"
    },
    "Lake View Cemetery Dam": {
     "address": "12316 Euclid Ave",
@@ -3370,8 +3334,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Landmark within Lake View Cemetery grounds (cemetery confirmed open daily)",
+    "statusChecked": "2026-08-10"
    },
    "Grave of Alan Freed": {
     "address": "Lake View Cemetery",
@@ -3382,8 +3346,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Ashes re-interred May 7, 2016 at Lake View Cemetery (wkyc/Atlas Obscura); jukebox gravestone in place",
+    "statusChecked": "2026-08-10"
    },
    "Cleveland Museum of Art": {
     "address": "11150 East Blvd",
@@ -3394,8 +3358,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "clevelandart.org: 2026 exhibition schedule, ArtLens Reimagined opens July 28, 2026; 110th anniversary programming",
+    "statusChecked": "2026-08-10"
    },
    "The Fine Arts Garden": {
     "address": "11130 East Blvd",
@@ -3406,8 +3370,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "universitycircle.org destination page; CMA outdoor garden with Wade Lagoon, publicly accessible",
+    "statusChecked": "2026-08-10"
    },
    "Lucy, at the Cleveland Museum of Natural History": {
     "address": "1 Wade Oval Dr",
@@ -3418,8 +3382,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "CMNH reopened Dec 2024 after $150M renovation; open Tue-Sun 10-5 (cmnh.org); Lucy cast on display",
+    "statusChecked": "2026-08-10"
    },
    "Apollo 12 Moon Rock": {
     "address": "Cleveland Museum of Natural History, 1 Wade Oval Dr",
@@ -3430,8 +3394,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "cmnh.org Visitor Hall: moon rock is one of 8 iconic objects displayed in new free Visitor Hall as of 2026",
+    "statusChecked": "2026-08-10"
    },
    "Wade Park & Wade Lagoon": {
     "address": "East Blvd at Euclid Ave, University Circle",
@@ -3442,8 +3406,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "universitycircle.org / Wikipedia Wade Park; public park in University Circle",
+    "statusChecked": "2026-08-10"
    },
    "Cleveland Botanical Garden": {
     "address": "11030 East Blvd",
@@ -3454,8 +3418,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Holden Forests & Gardens (holdenfg.org): 2026 seasonal programs, hours Tue-Sun; Tripadvisor 2026 reviews",
+    "statusChecked": "2026-08-10"
    },
    "Museum of Contemporary Art Cleveland (MOCA)": {
     "address": "11400 Euclid Ave",
@@ -3466,8 +3430,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "mocacleveland.org events for Jun/Jul/Aug 2026; 11400 Euclid Ave",
+    "statusChecked": "2026-08-10"
    },
    "Cleveland History Center & Euclid Beach Carousel": {
     "address": "10825 East Blvd",
@@ -3478,8 +3442,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "WRHS wrhs.org; Cleveland19 (Apr 17, 2026) carousel story; carousel open for rides with admission",
+    "statusChecked": "2026-08-10"
    },
    "Chinese Cultural Garden": {
     "address": "Martin Luther King Jr Dr, Cleveland Cultural Gardens",
@@ -3490,8 +3454,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "clevelandculturalgardens.org; open dawn-dusk daily year-round, free",
+    "statusChecked": "2026-08-10"
    },
    "Rockefeller Park Greenhouse": {
     "address": "750 E 88th St",
@@ -3502,8 +3466,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "City of Cleveland clevelandohio.gov; free, open daily 10-4 year-round",
+    "statusChecked": "2026-08-10"
    },
    "Cozad-Bates House": {
     "address": "11508 Mayfield Rd",
@@ -3514,8 +3478,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "universitycircle.org / thisiscleveland.com; interpretive center open Saturdays noon-4",
+    "statusChecked": "2026-08-10"
    },
    "Hessler Court": {
     "address": "Hessler Rd, University Circle",
@@ -3526,8 +3490,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Public street / Hessler Rd-Court historic district in University Circle; not a closable venue",
+    "statusChecked": "2026-08-10"
    },
    "Moonstruck CLE Vintage": {
     "address": "11917 Mayfield Rd, Little Italy",
@@ -3538,8 +3502,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated May 2026; Instagram current hours (Thu-Sun); Little Italy shop listings active",
+    "statusChecked": "2026-08-10"
    },
    "Chateau Hough Vineyards": {
     "address": "1650 E 66th St",
@@ -3550,8 +3514,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "chateauhough.com / Yelp updated June 2026 / Tock 2026 events; winery open Wed-Sun, reservations required",
+    "statusChecked": "2026-08-10"
    },
    "Baseball Heritage Museum at League Park": {
     "address": "6601 Lexington Ave",
@@ -3562,8 +3526,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "baseballheritagemuseum.org; open Thu-Sun 9-3, 2026 events incl. Larry Doby Weekend July 4-5, 2026",
+    "statusChecked": "2026-08-10"
    },
    "Deep Roots Experience": {
     "address": "7901 Central Ave, Fairfax",
@@ -3574,8 +3538,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "wearedeeproots.com / News 5 hidden gems feature; active Black-artist gallery at 7901 Central Ave, Fairfax",
+    "statusChecked": "2026-08-10"
    },
    "Woodland Cemetery": {
     "address": "6901 Woodland Ave",
@@ -3586,8 +3550,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "City of Cleveland designated landmark page / thisiscleveland.com; public historic cemetery, enter via 6901 Quincy Ave",
+    "statusChecked": "2026-08-10"
    },
    "The Children's Museum of Cleveland": {
     "address": "3813 Euclid Ave",
@@ -3598,8 +3562,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "cmcleveland.org current hours; Tripadvisor 2026 reviews; 3813 Euclid Ave",
+    "statusChecked": "2026-08-10"
    },
    "The Trumpet Man": {
     "address": "E 118th St & Buckeye Rd",
@@ -3608,10 +3572,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; Some sources cite address 2851 E 118th St",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Ohio Outdoor Sculpture / James Simon (artist) / Roadside America; 16ft public sculpture in Buckeye pocket park",
+    "statusChecked": "2026-08-10"
    },
    "Land of the Warres": {
     "address": "4701 Perkins Ave",
@@ -3622,8 +3586,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Atlas Obscura / kcymaerxthaere.com; permanent Kcymaerxthaere plaque installation at 4701 Perkins Ave",
+    "statusChecked": "2026-08-10"
    },
    "George Masaveg's Art Home": {
     "address": "3678 E 55th St",
@@ -3634,8 +3598,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Atlas Obscura / Roadside America / Spectrum News; outsider-art houses in Slavic Village, private but visible from street",
+    "statusChecked": "2026-08-10"
    },
    "Junkyard Playground": {
     "address": "E 83rd St",
@@ -3644,10 +3608,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; Listings give exact address 2265 E 83rd St",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Atlas Obscura / Cleveland19 (Jun 26, 2025); Tim Willis' robot yard, open daily 10-7, call ahead",
+    "statusChecked": "2026-08-10"
    },
    "Morgana Run Trail": {
     "address": "E 49th St, just north of Fleet Ave",
@@ -3656,10 +3620,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; active multi-use trail through Slavic Village",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "City of Cleveland planning page + AllTrails/CoolCleveland; 2.1-mi paved trail, 2026 expansion construction planned",
+    "statusChecked": "2026-08-10"
    },
    "St. Stanislaus Church": {
     "address": "3649 E 65th St, Slavic Village",
@@ -3668,10 +3632,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; National Register historic shrine church",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "ststanislaus.org + Yelp (updated July 2026); still holds Polish/English masses",
+    "statusChecked": "2026-08-10"
    },
    "Harvey Pekar Statue": {
     "address": "Lee Road Library, 2345 Lee Rd, Cleveland Heights",
@@ -3680,10 +3644,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; public library landmark",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "ALA/Heights Observer; permanent interactive statue at Lee Road Library since 2012, still installed",
+    "statusChecked": "2026-08-10"
    },
    "Quintana's Speakeasy": {
     "address": "2200 S Taylor Rd, Cleveland Heights",
@@ -3694,8 +3658,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated June 2026 + qbds.net; Tue-Sat 3pm-12am",
+    "statusChecked": "2026-08-10"
    },
    "Liberty Row": {
     "address": "North Park Blvd near Woodmere Dr, Shaker Heights",
@@ -3704,22 +3668,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; outdoor memorial along North Park Blvd",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
-   },
-   "NELA Holiday Lights Display": {
-    "address": "1901 Noble Rd, East Cleveland",
-    "lat": 41.533,
-    "lng": -81.568,
-    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
-    "verified": "2026-08-09",
-    "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
-    "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "clevelandlibertyrow.com + Cleveland Historical; WWI memorial oaks/plaques, active restoration, signs installed 2016",
+    "statusChecked": "2026-08-10"
    },
    "Lakefront Nature Preserve": {
     "address": "8701 Lakeshore Blvd",
@@ -3730,8 +3682,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Port of Cleveland + Western Cuyahoga Audubon; 88-acre Dike 14 preserve, free year-round access",
+    "statusChecked": "2026-08-10"
    },
    "West Side Market": {
     "address": "1979 W 25th St, Ohio City",
@@ -3740,10 +3692,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; open Mon/Wed/Fri/Sat/Sun",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "WKYC/Spectrum News Jan 2026; new KeyBank Produce Arcade reopened Jan 14 2026, mid-$70M renovation",
+    "statusChecked": "2026-08-10"
    },
    "Great Lakes Brewing Co. — the bullet holes": {
     "address": "2516 Market Ave, Ohio City",
@@ -3752,10 +3704,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; Eliot Ness bullet holes at the original bar",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated Aug 2026 + greatlakesbrewing.com; brewpub open at 2516 Market Ave",
+    "statusChecked": "2026-08-10"
    },
    "Buckland Museum of Witchcraft & Magick": {
     "address": "2155 Broadview Rd",
@@ -3766,8 +3718,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "bucklandmuseum.org + Yelp updated June 2026; regular hours, 4.8 rating",
+    "statusChecked": "2026-08-10"
    },
    "A Christmas Story House & Museum": {
     "address": "3159 W 11th St, Tremont",
@@ -3778,8 +3730,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "housefromachristmasstory.com + Yelp updated June 2026; open year-round 10am-5pm",
+    "statusChecked": "2026-08-10"
    },
    "St. Theodosius Russian Orthodox Cathedral": {
     "address": "733 Starkweather Ave, Tremont",
@@ -3790,8 +3742,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "sttheodosius.org; active parish, oldest Orthodox church in Ohio, National Register",
+    "statusChecked": "2026-08-10"
    },
    "Barrio Tremont": {
     "address": "806 Literary Rd, Tremont",
@@ -3802,8 +3754,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated July 2026 + barrio-tacos; open 7 days at 806 Literary Rd",
+    "statusChecked": "2026-08-10"
    },
    "Taste of Tremont": {
     "address": "Professor Ave, Starkweather to W 10th St",
@@ -3812,10 +3764,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; annual free street festival",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cleveland Scene photos + Eventbrite; 2026 festival held Sun July 19/20 2026",
+    "statusChecked": "2026-08-10"
    },
    "Tremont skyline view & Abbey Ave script sign": {
     "address": "1502 Abbey Ave",
@@ -3824,10 +3776,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; public overlook of the Flats",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp/Tripadvisor updated 2026 + thisiscleveland.com; Cleveland Script Sign at Abbey Ave overlook",
+    "statusChecked": "2026-08-10"
    },
    "Towpath Mounds": {
     "address": "Towpath Trail, Tremont",
@@ -3836,10 +3788,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; part of Towpath Trail",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Canalway Partners; sculpted mounds between W 7th & Quigley on the Towpath in Tremont",
+    "statusChecked": "2026-08-10"
    },
    "Towpath Trail": {
     "address": "Multiple access points; Tremont trailhead nearest downtown",
@@ -3850,8 +3802,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cuyahoga County + Ohio & Erie Canalway; 93+ miles paved and open, Scranton Flats/Tremont section active",
+    "statusChecked": "2026-08-10"
    },
    "The Pizza Mural": {
     "address": "W 28th St & Detroit Ave, Hingetown",
@@ -3862,8 +3814,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "News5 hidden gems feature + Cleveland mural guides; Mike Sobeck mural in Hingetown, popular photo spot",
+    "statusChecked": "2026-08-10"
    },
    "Intermuseum Conservation Association (ICA-Art Conservation)": {
     "address": "2937 W 25th St, 2nd floor",
@@ -3872,10 +3824,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; regional art conservation lab",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "clevelandartsevents.com; operating, now on 2nd floor of PIVOT Center at W 25th & Castle Ave",
+    "statusChecked": "2026-08-10"
    },
    "Heisman House Plaque": {
     "address": "3928 Bridge Ave",
@@ -3884,10 +3836,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; John Heisman birthplace marker",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Fox8/News5/Cleveland19; historical marker correctly relocated to 3928 Bridge Ave in 2021",
+    "statusChecked": "2026-08-10"
    },
    "Red Line Greenway": {
     "address": "Michael Zone Recreation Center, W 53rd St",
@@ -3898,8 +3850,8 @@
     "confidence": "med",
     "note": "lower-precision — verify if refreshed",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cleveland Metroparks + The Land; ~2-mi paved trail opened May 2021, connects 8 neighborhoods",
+    "statusChecked": "2026-08-10"
    },
    "Superelectric Pinball Parlor": {
     "address": "6500 Detroit Ave, Gordon Square",
@@ -3910,8 +3862,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "superelectric.tv + Yelp updated July 2026; regular hours at 6500 Detroit Ave",
+    "statusChecked": "2026-08-10"
    },
    "Stone Mad Pub — indoor bocce": {
     "address": "1306 W 65th St, Gordon Square",
@@ -3922,8 +3874,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "stonemadpub.com + Yelp updated June 2026; open at 1306 W 65th St",
+    "statusChecked": "2026-08-10"
    },
    "Gordon Square Arts District murals": {
     "address": "Detroit Ave around W 65th–W 78th",
@@ -3932,10 +3884,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; public art corridor",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "LAND Studio + News5; murals along Detroit Ave, staples like Greetings from Cleveland remain",
+    "statusChecked": "2026-08-10"
    },
    "Edgewater Park & Beach": {
     "address": "6500 Cleveland Memorial Shoreway",
@@ -3946,8 +3898,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Cleveland Metroparks official park pages; 147-acre lakefront park & beach",
+    "statusChecked": "2026-08-10"
    },
    "The Willow at Edgewater Park": {
     "address": "Lakefront Reservation, Edgewater",
@@ -3956,10 +3908,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "med",
-    "note": "lower-precision — verify if refreshed",
+    "note": "lower-precision — verify if refreshed; iconic tree / photo landmark at the Lakefront Reservation",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "News5 + Axios (Sep 2025) + Cleveland Magazine; famous weeping willow tree, confirmed still standing 2025",
+    "statusChecked": "2026-08-10"
    },
    "Memphis Kiddie Park": {
     "address": "10340 Memphis Ave, Brooklyn",
@@ -3968,10 +3920,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; America's oldest kiddie land",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "WKYC + memphiskiddiepark.com; 2026 season opened, Yelp updated Aug 2026",
+    "statusChecked": "2026-08-10"
    },
    "Ray's Indoor Mountain Bike Park": {
     "address": "9801 Walford Ave",
@@ -3980,10 +3932,10 @@
     "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
     "verified": "2026-08-09",
     "confidence": "high",
-    "note": "7dp precision",
+    "note": "7dp precision; a BikeMag headline about a 'closing date' referred to an earlier season pause; park is operating",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "raysmtb.com + Facebook; 23rd season underway, new party room for 2026-27, open Sundays",
+    "statusChecked": "2026-08-10"
    },
    "b.a. Sweetie Candy Company": {
     "address": "6770 Brookpark Rd, Parma",
@@ -3994,8 +3946,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "Yelp updated July 2026 + BBB; largest candy store in N. America, open Mon-Fri, plus soda shoppe & mini golf",
+    "statusChecked": "2026-08-10"
    },
    "Madison Park": {
     "address": "13201 Madison Ave, Lakewood",
@@ -4006,8 +3958,8 @@
     "confidence": "high",
     "note": "7dp precision",
     "status": "open",
-    "statusSource": "",
-    "statusChecked": null
+    "statusSource": "lakewoodoh.gov + Yelp updated April 2026; 17-acre Lakewood city park, open daily",
+    "statusChecked": "2026-08-10"
    },
    "Lakewood Public Library": {
     "address": "15425 Detroit Ave, Lakewood",
@@ -5123,6 +5075,54 @@
     "note": "lower-precision — verify if refreshed",
     "status": "closed",
     "statusSource": "name-flagged on page",
+    "statusChecked": "2026-08-10"
+   },
+   "Heinen's Downtown — CLOSED": {
+    "address": "900 Euclid Ave",
+    "lat": 41.5000366,
+    "lng": -81.6861122,
+    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "7dp precision; PERMANENTLY CLOSED July 31, 2026 after ~11 years; company cited $18M loss",
+    "status": "closed",
+    "statusSource": "Signal Cleveland and TheStreet: Heinen's permanently closed its downtown store (900 Euclid, Cleveland Trust rotunda) on July 31, 2026",
+    "statusChecked": "2026-08-10"
+   },
+   "Azure Rooftop Lounge at The 9 — CLOSED": {
+    "address": "2017 E 9th St, Level 12",
+    "lat": 41.499784,
+    "lng": -81.6858124,
+    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "7dp precision; Rebranded/closed; rooftop now operates as Garden of Eden",
+    "status": "closed",
+    "statusSource": "Yelp lists 'Azure Rooftop Lounge - CLOSED' (updated May 2026); the 2017 E 9th rooftop at The Metropolitan at The 9 was replaced by The Garden of Eden rooftop",
+    "statusChecked": "2026-08-10"
+   },
+   "Skidmark Garage — CLOSED": {
+    "address": "4806 Hamilton Ave",
+    "lat": 41.5196228,
+    "lng": -81.6593627,
+    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
+    "verified": "2026-08-09",
+    "confidence": "high",
+    "note": "7dp precision; Confirmed permanently closed",
+    "status": "closed",
+    "statusSource": "News 5 Cleveland: 'Skidmark Garage is closing after 11 years'; closed April 30, 2026 due to financial difficulties/bankruptcy",
+    "statusChecked": "2026-08-10"
+   },
+   "NELA Holiday Lights Display — CLOSED": {
+    "address": "1901 Noble Rd, East Cleveland",
+    "lat": 41.533,
+    "lng": -81.568,
+    "source": "curated field-guide build (machine-geocoded); sample-audited vs Apple Maps/Wikipedia 2026-08-09",
+    "verified": "2026-08-09",
+    "confidence": "med",
+    "note": "lower-precision — verify if refreshed; Grand 1-million-light display discontinued after 2024 centennial; GE/Savant donated most decorations to nonprofits, only a lone tree / modest installation remains",
+    "status": "closed",
+    "statusSource": "Cleveland Scene: 'Nela Park's Christmas Light Display Goes Dark After 100 Years With No Festivities for 2025 Season' + News5",
     "statusChecked": "2026-08-10"
    }
   }
