@@ -420,13 +420,20 @@ function refresh(key) {
     `${cityName} ${st} new museum OR park OR attraction ${year}`
   ].forEach((q, i) => console.log(`  ${i + 1}. ${q}`));
 
-  console.log('\nD. APPLY (same fact-check bar as a build)');
+  console.log('\nD. APPLY (same fact-check bar as a build — coordinates AND status)');
   console.log('  • Confirm each change across ≥2 independent results (see docs/SOURCES.md).');
-  console.log('  • Closed places STAY, flagged — never silently drop them.');
+  console.log('  • Closed places STAY, flagged "— CLOSED" — never silently drop them.');
+  console.log('  • For every place confirmed still open OR newly closed, update its registry entry:');
+  console.log('      status / statusSource / statusChecked = today  (data/geocodes.json).');
+  console.log('  • RE-VERIFY the coordinate of any place that moved/relocated, and of every new place —');
+  console.log('    from the Google place pin (!3d!4d / daddr@), never the /@ viewport. Record source+date.');
   console.log('  • Add new, fact-checked places; mark their sources verified:true.');
   console.log('  • Append a refreshLog entry and set "lastUpdated" to today in data/sources.json.');
   console.log('  • Update the visible "Last verified <date>" stamp on the page.');
-  console.log(`  • Re-run:  node tools/research.js --validate ${key}\n`);
+  console.log('\nE. GATE before publishing (all three must pass — same as a new city):');
+  console.log(`  • node tools/research.js --validate    ${key}   (sources)`);
+  console.log(`  • node tools/research.js --geocheck    ${key}   (every pin sourced; re-verify low/moved)`);
+  console.log(`  • node tools/research.js --statuscheck ${key}   (every open/closed status sourced & current)\n`);
 
   (city.refreshLog || []).slice(-1).forEach(r =>
     console.log(`Most recent refresh (${r.date}):\n  - ` + (r.findings || []).join('\n  - ') + '\n'));
@@ -490,8 +497,13 @@ function seed(place, key) {
 
   console.log('\n3. FACT-CHECK each candidate (exists, open, address/hours right; flag closures, keep them).');
   console.log('4. RE-RANK within its region (tiers are graded inside a region; keep ≥1 tier-1 per region).');
-  console.log('5. RECORD every reusable source in data/sources.json under cities["' + key + '"] (rank + verified),');
-  console.log('   then rebuild the page and run: node research.js --validate ' + key + '\n');
+  console.log('5. GEOCODE + STATUS each added place into data/geocodes.json (same hard bar as a build):');
+  console.log('   • coordinate from the Google place pin (!3d!4d / daddr@), never the /@ viewport;');
+  console.log('   • {status, statusSource, statusChecked} — verify open/closed, never from memory;');
+  console.log('   • a permanently-closed seed is kept and flagged "— CLOSED", not silently dropped.');
+  console.log('6. RECORD every reusable source in data/sources.json under cities["' + key + '"] (rank + verified),');
+  console.log('   then rebuild the page and GATE before publishing:');
+  console.log('     node research.js --validate ' + key + '   ·   --geocheck ' + key + '   ·   --statuscheck ' + key + '\n');
   console.log('Full write-up: docs/SOURCES.md → "Mode C — seed-place expansion".\n');
 }
 
