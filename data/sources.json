@@ -161,6 +161,12 @@
    "label": "Reputable food media (Eater, The Infatuation, Bon Appétit)",
    "why": "Bylined, reported restaurant journalism with standing city maps/guides. Corroborate the spine and catch what's current.",
    "find": "Eater <city> 'essential' / 'best' maps; The Infatuation city guides; Bon Appétit / NYT Food."
+  },
+  {
+   "id": "screen_location",
+   "label": "Film & TV location guides",
+   "why": "Movie/TV shooting locations and pop-culture landmarks are documented and fact-checkable by their real, visitable address (the Ghostbusters firehouse, the Friends building, the Sanctum Sanctorum exterior). Credible when the address is confirmed.",
+   "find": "On Location Tours, Scouting NY, Atlas Obscura film-locations, official brand flagships; confirm the real street address."
   }
  ],
  "nationalCreators": [
@@ -1377,7 +1383,32 @@
    "researchedOn": "2026-08-10",
    "researchedVia": "WebSearch (map/tile hosts blocked; sources confirmed via search snippets)",
    "refreshLog": [],
-   "creators": [],
+   "creators": [
+    {
+     "key": "ERIKCONOVER",
+     "name": "Erik Conover — NYC travel & city vlogs",
+     "type": "famous_creator",
+     "youtube": "https://www.youtube.com/@erikconover",
+     "scope": "city",
+     "verified": true
+    },
+    {
+     "key": "CASHJORDAN",
+     "name": "Cash Jordan — NYC apartments & city life",
+     "type": "famous_creator",
+     "youtube": "https://www.youtube.com/@CashJordan",
+     "scope": "city",
+     "verified": true
+    },
+    {
+     "key": "HEREBEBARR",
+     "name": "Here Be Barr — NYC walking tours (Matt Barr)",
+     "type": "local_creator",
+     "youtube": "https://www.youtube.com/@HereBeBarr",
+     "scope": "city",
+     "verified": true
+    }
+   ],
    "sources": [
     {
      "key": "MICHELIN_STAR",
@@ -1474,6 +1505,24 @@
      "name": "NYC Tourism + Conventions (official CVB)",
      "type": "local_cvb",
      "url": "https://www.nyctourism.com",
+     "rank": 2,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "ONLOCATION",
+     "name": "On Location Tours — NYC TV & Movie sites",
+     "type": "screen_location",
+     "url": "https://onlocationtours.com",
+     "rank": 2,
+     "verified": true,
+     "covers": []
+    },
+    {
+     "key": "SCOUTINGNY",
+     "name": "Scouting NY — a location scout's NYC blog",
+     "type": "screen_location",
+     "url": "https://www.scoutingny.com",
      "rank": 2,
      "verified": true,
      "covers": []
