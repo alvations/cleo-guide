@@ -1,0 +1,744 @@
+{
+ "area": {
+  "id": "MAN",
+  "n": "Manhattan"
+ },
+ "sights": [
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Solomon R. Guggenheim Museum",
+   "address": "1071 Fifth Ave, New York NY 10128",
+   "w": "Frank Lloyd Wright's white spiral ramp on Museum Mile, a modern-art collection you view by descending one continuous coil.",
+   "k": "modern art",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Neue Galerie New York",
+   "address": "1048 Fifth Ave, New York NY 10028",
+   "w": "Intimate Gilded-Age mansion devoted to German and Austrian art, home to Klimt's gold 'Woman in Gold' portrait of Adele Bloch-Bauer.",
+   "k": "Klimt",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Cooper Hewitt, Smithsonian Design Museum",
+   "address": "2 E 91st St, New York NY 10128",
+   "w": "The Smithsonian's design museum inside Andrew Carnegie's mansion, where an interactive pen lets you draw and save objects.",
+   "k": "design",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "The Jewish Museum",
+   "address": "1109 Fifth Ave, New York NY 10128",
+   "w": "Warburg mansion holding 30,000 objects of Jewish art and history, from ancient Judaica to modern painting and rotating shows.",
+   "k": "art",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Museum of the City of New York",
+   "address": "1220 Fifth Ave, New York NY 10029",
+   "w": "The city's own biography told through photographs, film and artifacts, including the sweeping 'Timescapes' history film.",
+   "k": "history",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "El Museo del Barrio",
+   "address": "1230 Fifth Ave, New York NY 10029",
+   "w": "Founded in East Harlem in 1969, the city's leading museum of Puerto Rican, Caribbean and Latin American art and culture.",
+   "k": "Latino art",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "American Museum of Natural History",
+   "address": "200 Central Park West, New York NY 10024",
+   "w": "The dinosaur halls, blue-whale model and Rose Center planetarium anchor one of the world's great natural-history collections.",
+   "k": "dinosaurs",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "New-York Historical Society",
+   "address": "170 Central Park West, New York NY 10024",
+   "w": "The city's oldest museum, holding Tiffany lamps, all of Audubon's watercolors and a vast library of Americana across from the park.",
+   "k": "history",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Cathedral of St. John the Divine",
+   "address": "1047 Amsterdam Ave, New York NY 10025",
+   "w": "Still-unfinished Gothic behemoth in Morningside Heights, one of the largest church buildings on earth, with a resident peacock garden.",
+   "k": "cathedral",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "General Grant National Memorial",
+   "address": "W 122nd St & Riverside Dr, New York NY 10027",
+   "w": "Grant's Tomb, the granite mausoleum of Ulysses S. Grant and his wife, is the largest tomb in North America overlooking the Hudson.",
+   "k": "monument",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Apollo Theater",
+   "address": "253 W 125th St, New York NY 10027",
+   "w": "Harlem's landmark stage where Amateur Night launched Ella Fitzgerald, James Brown and countless others since 1934.",
+   "k": "music venue",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "The Studio Museum in Harlem",
+   "address": "144 W 125th St, New York NY 10027",
+   "w": "The premier museum of artists of African descent, reopened November 2025 in a new David Adjaye-designed seven-floor building.",
+   "k": "art",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Hamilton Grange National Memorial",
+   "address": "414 W 141st St, New York NY 10031",
+   "w": "Alexander Hamilton's only home, a 1802 Federal-style country house moved to St. Nicholas Park and restored by the Park Service.",
+   "k": "historic house",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Morris-Jumel Mansion",
+   "address": "65 Jumel Terrace, New York NY 10032",
+   "w": "Manhattan's oldest surviving house, a 1765 mansion that served as Washington's Revolutionary War headquarters in Washington Heights.",
+   "k": "historic house",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Sugar Hill Historic District",
+   "address": "St. Nicholas Ave & W 155th St, New York NY 10031",
+   "w": "The elevated Harlem enclave where W.E.B. Du Bois, Duke Ellington and Thurgood Marshall lived among grand rowhouses and Art Deco flats.",
+   "k": "district",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Little Red Lighthouse",
+   "address": "Fort Washington Park, W 178th St, New York NY 10033",
+   "w": "Jeffrey's Hook Light, the 1880 cast-iron lighthouse dwarfed beneath the George Washington Bridge and saved by a children's book.",
+   "k": "lighthouse",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Fort Tryon Park",
+   "address": "Riverside Dr to Broadway, New York NY 10040",
+   "w": "Olmsted-designed clifftop park with the Heather Garden's terraced plantings and sweeping Hudson and Palisades views.",
+   "k": "park",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "n": "Bethesda Terrace and Fountain",
+   "address": "Central Park, Terrace Dr at 72nd St, New York NY 10024",
+   "w": "Central Park's grand ceremonial heart, its 'Angel of the Waters' fountain framed by an arcade of tiled ceilings above the Lake.",
+   "k": "landmark",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Bow Bridge",
+   "address": "Central Park, mid-park at 74th St, New York NY 10024",
+   "w": "The graceful cast-iron span arcing over the Lake, Central Park's most photographed bridge and a fixture of countless films.",
+   "k": "bridge",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Belvedere Castle",
+   "address": "Central Park, mid-park at 79th St, New York NY 10024",
+   "w": "Calvert Vaux's Victorian folly perched on Vista Rock, a working weather station with the park's highest lookout.",
+   "k": "castle",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Conservatory Garden",
+   "address": "Central Park, Fifth Ave at E 105th St, New York NY 10029",
+   "w": "Central Park's only formal garden, six acres of Italian, French and English planting entered through the Vanderbilt Gate.",
+   "k": "garden",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "The Ramble",
+   "address": "Central Park, mid-park 73rd-79th St, New York NY 10024",
+   "w": "A deliberately wild 38-acre woodland of winding paths and a stream, prime warbler-migration birding in the heart of the park.",
+   "k": "woodland",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Strawberry Fields",
+   "address": "Central Park, W 72nd St, New York NY 10023",
+   "w": "The tear-shaped memorial garden to John Lennon opposite the Dakota, centered on the black-and-white 'Imagine' mosaic.",
+   "k": "memorial",
+   "closed": false,
+   "sources": [
+    [
+     "NYCPARKS",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "n": "Roosevelt Island Tramway",
+   "address": "Tramway Plaza, 2nd Ave & E 59th St, New York NY 10044",
+   "w": "The aerial commuter cable car that glides beside the Queensboro Bridge, giving a four-minute skyline ride over the East River.",
+   "k": "tram",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "n": "Renwick Smallpox Hospital Ruins",
+   "address": "900 Southpoint Park, Roosevelt Island, New York NY 10044",
+   "w": "The ivy-clad Gothic Revival shell of an 1856 smallpox hospital, the only ruin with official NYC landmark status.",
+   "k": "ruin",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ],
+    [
+     "ATLASOBSCURA",
+     ""
+    ]
+   ]
+  }
+ ],
+ "food": [
+  {
+   "t": 1,
+   "a": "MAN",
+   "cz": [
+    "Jewish Deli"
+   ],
+   "dish": "smoked sturgeon and eggs",
+   "n": "Barney Greengrass",
+   "address": "541 Amsterdam Ave, New York NY 10024",
+   "w": "The self-styled 'Sturgeon King' since 1908, a UWS appetizing counter where scrambled eggs come folded with silky smoked sturgeon.",
+   "closed": false,
+   "sources": [
+    [
+     "NYT",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
+   "cz": [
+    "Caribbean",
+    "Soul Food"
+   ],
+   "dish": "braised oxtail",
+   "n": "Tatiana by Kwame Onwuachi",
+   "address": "10 Lincoln Center Plaza, New York NY 10023",
+   "w": "Kwame Onwuachi's Afro-Caribbean showpiece at Lincoln Center, where day-marinated braised oxtail and curry-goat patties draw long waits.",
+   "closed": false,
+   "sources": [
+    [
+     "MICHELIN",
+     ""
+    ],
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Soul Food",
+    "American"
+   ],
+   "dish": "fried yardbird",
+   "n": "Red Rooster Harlem",
+   "address": "310 Lenox Ave, New York NY 10027",
+   "w": "Marcus Samuelsson's lively Lenox Avenue dining room serving modern Harlem comfort food like fried yardbird and mac & greens.",
+   "closed": false,
+   "sources": [
+    [
+     "NYCGO",
+     ""
+    ],
+    [
+     "EATERNY",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Soul Food"
+   ],
+   "dish": "The Rev. Al Sharpton chicken and waffles",
+   "n": "Amy Ruth's",
+   "address": "113 W 116th St, New York NY 10026",
+   "w": "Harlem soul-food institution whose menu names dishes for local figures; 'The Rev. Al Sharpton' pairs fried chicken with waffles.",
+   "closed": false,
+   "sources": [
+    [
+     "INFATUATION",
+     ""
+    ],
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Soul Food"
+   ],
+   "dish": "chicken and eggnog waffles",
+   "n": "Melba's",
+   "address": "300 W 114th St, New York NY 10026",
+   "w": "Melba Wilson's Harlem comfort-food spot whose chicken and eggnog waffles beat Bobby Flay on a televised 'Throwdown'.",
+   "closed": false,
+   "sources": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Senegalese",
+    "West African"
+   ],
+   "dish": "thieboudienne",
+   "n": "Le Baobab Gouygui",
+   "address": "120 W 116th St, New York NY 10026",
+   "w": "A Little Senegal mainstay serving Senegal's national dish, thieboudienne, plus lamb maffe in big communal portions.",
+   "closed": false,
+   "sources": [
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Barbecue"
+   ],
+   "dish": "St. Louis pork ribs",
+   "n": "Dinosaur Bar-B-Que",
+   "address": "700 W 125th St, New York NY 10027",
+   "w": "Rustic smokehouse under the Riverside Drive viaduct, slow-smoking dry-rubbed St. Louis ribs since 2004 with blues on the side.",
+   "closed": false,
+   "sources": [
+    [
+     "NYCGO",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Dominican"
+   ],
+   "dish": "rotisserie chicken (pollo)",
+   "n": "Malecon",
+   "address": "4141 Broadway, New York NY 10033",
+   "w": "Washington Heights Dominican classic since 1987, famous for the garlicky spit-roasted chicken turning in its front window.",
+   "closed": false,
+   "sources": [
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Italian"
+   ],
+   "dish": "lemon chicken",
+   "n": "Rao's",
+   "address": "455 E 114th St, New York NY 10029",
+   "w": "The famously impossible-to-book East Harlem Italian-American room, open since 1896, where the lemon chicken is legend.",
+   "closed": false,
+   "sources": [
+    [
+     "NYT",
+     ""
+    ],
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Pizza"
+   ],
+   "dish": "coal-oven margherita",
+   "n": "Patsy's Pizzeria",
+   "address": "2287 First Ave, New York NY 10035",
+   "w": "East Harlem coal-oven pizzeria since 1933, said to have pioneered the pizza-by-the-slice walk-up counter still working today.",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "Austrian",
+    "Cafe"
+   ],
+   "dish": "Sachertorte",
+   "n": "Cafe Sabarsky",
+   "address": "1048 Fifth Ave, New York NY 10028",
+   "w": "Viennese coffeehouse inside the Neue Galerie, serving Sachertorte and apple strudel beneath period paneling on Museum Mile.",
+   "closed": false,
+   "sources": [
+    [
+     "NYT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAN",
+   "cz": [
+    "American",
+    "Burgers"
+   ],
+   "dish": "bacon cheeseburger",
+   "n": "J.G. Melon",
+   "address": "1291 Third Ave, New York NY 10021",
+   "w": "Green-checkered Upper East Side pub since 1972 turning out a benchmark bacon cheeseburger with crisp cottage fries.",
+   "closed": false,
+   "sources": [
+    [
+     "INFATUATION",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "cz": [
+    "Southern"
+   ],
+   "dish": "fried chicken biscuit",
+   "n": "Jacob's Pickles",
+   "address": "680 Columbus Ave, New York NY 10025",
+   "w": "Upper West Side Southern comfort spot piling fried chicken on housemade biscuits alongside its namesake jarred pickles.",
+   "closed": false,
+   "sources": [
+    [
+     "TIMEOUT",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "cz": [
+    "Diner"
+   ],
+   "dish": "diner breakfast",
+   "n": "Tom's Restaurant",
+   "address": "2880 Broadway, New York NY 10025",
+   "w": "The Morningside Heights diner whose exterior stood in as Monk's on 'Seinfeld' and inspired Suzanne Vega's 'Tom's Diner'.",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     ""
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAN",
+   "cz": [
+    "Hot Dogs"
+   ],
+   "dish": "Recession Special hot dogs",
+   "n": "Gray's Papaya",
+   "address": "2090 Broadway, New York NY 10023",
+   "w": "The 24-hour Upper West Side hot-dog stand at 72nd Street, famous for its griddled dogs and papaya-drink Recession Special.",
+   "closed": false,
+   "sources": [
+    [
+     "EATERNY",
+     ""
+    ]
+   ]
+  }
+ ]
+}

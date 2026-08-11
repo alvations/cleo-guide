@@ -48,7 +48,9 @@ CATS=[{"id":"MUS","n":"Museums & Galleries"},{"id":"PARK","n":"Parks & Gardens"}
       {"id":"ICON","n":"Iconic Landmarks & Views"},{"id":"ARCH","n":"Architecture & History"},
       {"id":"MKT","n":"Markets & Food Halls"},{"id":"ARTS","n":"Performing Arts & Music"},
       {"id":"WATER","n":"Waterfront & Islands"},{"id":"FAM","n":"Family & Kids"},
-      {"id":"ODD","n":"Oddities & Hidden Gems"},{"id":"FREE","n":"Free to Visit"}]
+      {"id":"ODD","n":"Oddities & Hidden Gems"},{"id":"FREE","n":"Free to Visit"},
+      {"id":"ROOF","n":"Rooftop & Views"},{"id":"SPEAK","n":"Speakeasies & Cocktail Bars"},
+      {"id":"POP","n":"Pop Culture & Screen"}]
 KW={
  "MUS":["museum","gallery","moma","collection","hall of fame","noguchi","frick","whitney","guggenheim","reliquary"],
  "PARK":["park","garden","botanic","greenbelt","conservancy","meadow","reservation","high line","arboretum","grounds for sculpture","wave hill"],
@@ -60,25 +62,29 @@ KW={
  "FAM":["zoo","aquarium","carousel","science","children","amusement","luna park","coney island","playground","hall of science","moving image"],
 }
 ODD_SRC={"ATLASOBSCURA","UNTAPPED"}
+ROOF_KW=["rooftop","roof top","roof bar","skyline view","sky-high","top of the","observation deck","observatory","panoramic view","penthouse bar","with a view","view of the skyline"]
+SPEAK_KW=["speakeasy","hidden bar","password","cocktail bar","cocktail den","secret bar","behind a","phone booth","unmarked door"]
+POP_KW=["marvel","spider-man","spiderman","avengers","stark","sanctum","ghostbuster","seinfeld","friends ","men in black","home alone","movie","filmed","film location","tv show","sopranos","daily bugle","lego store","nintendo","pop culture","comic"]
 def collections(x, is_food):
-    g=[]
-    hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("k","")).lower()
+    g=list(x.get("g",[]))          # honour tags an agent already assigned (e.g. POP, ROOF, SPEAK)
+    hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("k","")+" "+" ".join(x.get("cz",[]))).lower()
+    if any(k in hay for k in ROOF_KW): g.append("ROOF")
+    if any(k in hay for k in SPEAK_KW): g.append("SPEAK")
+    if any(k in hay for k in POP_KW): g.append("POP")
     if is_food:
-        # food only carries MKT (halls/markets) or VIRAL-adjacent; keep collections sight-focused
         if any(k in hay for k in ["market","food hall","smorgasburg","arthur avenue","essex market"]): g.append("MKT")
-        return g
-    for cid,kws in KW.items():
-        if any(k in hay for k in kws): g.append(cid)
-    srcs={t[0] for t in x.get("sources",[])}
-    if (x.get("t")==3 and (srcs & ODD_SRC)) or "oddit" in hay or "quirk" in hay or "hidden" in hay:
-        if "ODD" not in g: g.append("ODD")
-    if re.search(r'\bfree\b|no admission|free to (enter|visit)', hay): g.append("FREE")
-    if not g: g.append("ARCH")  # sensible default for an unmatched sight/landmark
-    # de-dup, cap at 3 for tidiness (keep first)
+    else:
+        for cid,kws in KW.items():
+            if any(k in hay for k in kws): g.append(cid)
+        srcs={t[0] for t in x.get("sources",[])}
+        if (x.get("t")==3 and (srcs & ODD_SRC)) or "oddit" in hay or "quirk" in hay or "hidden gem" in hay:
+            g.append("ODD")
+        if re.search(r'\bfree\b|no admission|free to (enter|visit)', hay): g.append("FREE")
+        if not g: g.append("ARCH")  # sensible default for an unmatched sight/landmark
     out=[]
     for c in g:
         if c not in out: out.append(c)
-    return out[:3]
+    return out[:4]
 
 # ---- source metadata (labels for filter chips); synthesize for missing keys ----
 SRC_LABEL={
@@ -97,15 +103,25 @@ SRC_LABEL={
 ALIAS={"TIMEOUTNY":"TIMEOUT","NYCTOURISM":"NYCGO","EATER":"EATERNY"}
 def canon(k): return ALIAS.get(k,k)
 
-# ---- build unified records ----
-sights=[]; food=[]; srcmeta={}
-for f in files:
-    d=json.load(open(os.path.join(D,f+'.json')))
-    for s in d.get('sources',[]): srcmeta.setdefault(s['key'],s)
-    for x in d.get('sights',[]): sights.append(x)
-    for x in d.get('food',[]): food.append(x)
-for extra in ['EXTRA_michelin','EXTRA_cuisine','EXTRA_viral']:
-    for x in json.load(open(os.path.join(D,extra+'.json'))): food.append(x)
+# ---- build unified records (generic: any research file in this dir) ----
+# object files carry {sights,food,sources}; array files are food records (michelin/cuisine/viral/FB).
+# skip helper/output/intermediate files (_*, out_*, nyc_*, *dataset*).
+import glob
+sights=[]; food=[]; srcmeta={}; seen_names=set()
+def _take(x, bucket):
+    n=x.get("n")
+    if not n or n in seen_names: return          # global de-dup by name across all files
+    seen_names.add(n); bucket.append(x)
+for path in sorted(glob.glob(os.path.join(D,"*.json"))):
+    base=os.path.basename(path)
+    if base.startswith(("_","out_","nyc_","geo_")) or "dataset" in base: continue
+    d=json.load(open(path))
+    if isinstance(d, list):
+        for x in d: _take(x, food)               # array files are food records
+    else:
+        for s in d.get('sources',[]): srcmeta.setdefault(s['key'],s)
+        for x in d.get('sights',[]): _take(x, sights)
+        for x in d.get('food',[]):   _take(x, food)
 
 def norm_sources(x):
     seen=[]; out=[]
