@@ -2420,6 +2420,90 @@
     "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
     "statusChecked": "2026-08-10",
     "note": ""
+   },
+   "Lilith": {
+    "address": "238 Spahr St, Pittsburgh PA 15232",
+    "lat": 40.45786,
+    "lng": -79.92757,
+    "source": "Google daddr exact numbered-address geocode '238 Spahr Street, Pittsburgh, PA 15232' %40 40.457855,-79.92757",
+    "verified": "2026-08-10",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
+   },
+   "Noodlehead": {
+    "address": "242 S Highland Ave, Pittsburgh PA 15206",
+    "lat": 40.45787,
+    "lng": -79.92538,
+    "source": "Google daddr same-block neighbor '232 S Highland Ave' (40.457874,-79.92538); 242 is same even side ~5 doors; exact 242 pin never surfaced",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
+   },
+   "Reva Modern Indian Cuisine": {
+    "address": "220 N Highland Ave, Pittsburgh PA 15206",
+    "lat": 40.46307,
+    "lng": -79.92401,
+    "source": "Google search-URL exact geocode '220 N Highland Ave, Pittsburgh, PA 15206, USA'/40.46306824838373,-79.92401156207028",
+    "verified": "2026-08-10",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
+   },
+   "Squirrel Hill Cafe": {
+    "address": "5802 Forbes Ave, Pittsburgh PA 15217",
+    "lat": 40.43787,
+    "lng": -79.92267,
+    "source": "Google daddr exact numbered-address geocode '5802 Forbes Ave, Pittsburgh, PA 15217-1602' %40 40.437866,-79.92267",
+    "verified": "2026-08-10",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
+   },
+   "Fet-Fisk": {
+    "address": "4786 Liberty Ave, Pittsburgh PA 15224",
+    "lat": 40.46051,
+    "lng": -79.94733,
+    "source": "Google daddr exact numbered-address geocode '4786 Liberty Avenue, Pittsburgh, PA 15224' %40 40.460506,-79.947334 (note: input addr 4786 Liberty Ave, not prompt's 4404 Butler)",
+    "verified": "2026-08-10",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
+   },
+   "Balvanera": {
+    "address": "1660 Smallman St, Pittsburgh PA 15222",
+    "lat": 40.452,
+    "lng": -79.98375,
+    "source": "Google search-URL same-block neighbor '1620 Smallman Street'/40.45200375171341,-79.98375004937988; 1660 confirmed as Balvanera addr, sits slightly NE same block; exact 1660 pin never surfaced",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
+   },
+   "Hidden Harbor": {
+    "address": "1708 Shady Ave, Pittsburgh PA 15217",
+    "lat": 40.4377,
+    "lng": -79.91951,
+    "source": "Google place pin '1704 Shady Ave' !3d40.4376962!4d-79.9195107 - Hidden Harbor (1708) occupies the SAME building as Independent Brewing (1704); adjacent/same structure",
+    "verified": "2026-08-10",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Pittsburgh Mode C research 2026-08-10 (fact-checked open via credible local sources)",
+    "statusChecked": "2026-08-10",
+    "note": ""
    }
   },
   "youngstown-oh": {

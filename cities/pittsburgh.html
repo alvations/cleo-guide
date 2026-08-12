@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Pittsburgh, PA field guide — 111 sights and 68 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="description" content="Pittsburgh, PA field guide — 111 sights and 97 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
 <title>Pittsburgh Field Guide — The Steel City, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · the Steel City, sourced</p>
   <h1>Pittsburgh<span class="thin">rivers, inclines &amp; the odd corners</span></h1>
-  <p class="standfirst">111 sights and 68 places to eat, drink, shop &amp; pick across Greater Pittsburgh, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">111 sights and 97 places to eat, drink, shop &amp; pick across Greater Pittsburgh, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -258,6 +258,10 @@
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
   <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
   <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
   <div class="chips" id="rankFilter"></div>
   <p class="ctrl-label">Sort</p>
@@ -710,7 +714,15 @@ const FS = {
   KB:{k:"KIDSBURGH",t:"Kidsburgh — farm festivals & u-pick",u:"https://www.kidsburgh.org/pick-perfect-pumpkin-10-pittsburgh-farm-festivals/",l:"Kidsburgh"},
   VWC:{k:"VISIT WASH. CO",t:"Visit Washington County PA",u:"https://www.visitwashingtoncountypa.com/",l:"Visit Washington County"},
   AXIOS:{k:"AXIOS PGH",t:"Axios Pittsburgh — apple picking",u:"https://www.axios.com/local/pittsburgh",l:"Axios Pittsburgh"},
-  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"}
+  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"},
+  TABLE:{k:"TABLE MAG",t:"TABLE Magazine \u2014 Pittsburgh food & drink",u:"https://www.tablemagazine.com",l:"TABLE Magazine"},
+  EATER:{k:"EATER",t:"Eater \u2014 dining coverage",u:"https://www.eater.com",l:"Eater"},
+  VLOCAL:{k:"VERY LOCAL",t:"Very Local Pittsburgh",u:"https://verylocal.com/pittsburgh",l:"Very Local Pittsburgh"},
+  WESA:{k:"WESA",t:"90.5 WESA \u2014 Pittsburgh NPR",u:"https://www.wesa.fm",l:"WESA \u00b7 NPR Pittsburgh"},
+  HOPC:{k:"HOP CULTURE",t:"Hop Culture \u2014 craft beer",u:"https://www.hopculture.com",l:"Hop Culture"},
+  PLAT:{k:"PGH LATINO",t:"Pittsburgh Latino Magazine",u:"https://www.pghlatinomag.com",l:"Pittsburgh Latino Magazine"},
+  NYT:{k:"NYT",t:"The New York Times \u2014 dining",u:"https://www.nytimes.com/section/food",l:"The New York Times"},
+  TRIB:{k:"TRIBLIVE",t:"TribLive \u2014 Tribune-Review",u:"https://triblive.com",l:"TribLive"}
 };
 
 const CUISINES = [
@@ -724,6 +736,9 @@ const CUISINES = [
   {id:"DES", n:"Dessert & Bakery"},
   {id:"DR",  n:"Drinks & Breweries"},
   {id:"MKT", n:"Markets"},
+  {id:"IN",  n:"Indian & South Asian"},
+  {id:"AFR", n:"African"},
+  {id:"EU",  n:"European"},
   {id:"FARM",n:"Farms & U-Pick"}
 ];
 
@@ -931,7 +946,36 @@ const F = [
  k:"North Hills; seasonal crops. ~25 min north. Approximate pin.",warn:1,s:[["KB",""]]},
 {t:3,a:"DY",cz:["FARM"],n:"Simmons Farm",ad:"170 Simmons Rd, McMurray, PA",la:40.26820,ln:-80.08309,
  w:"A South Hills u-pick farm with apples, pumpkins and flowers, hayrides, a petting zoo and an on-site market — easy fall fun with animals for the kids.",
- k:"Seasonal u-pick; check the crop schedule. ~30 min south. Approximate pin.",warn:1,s:[["KB",""]]}
+ k:"Seasonal u-pick; check the crop schedule. ~30 min south. Approximate pin.",warn:1,s:[["KB",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Taiwanese Bistro Cafe 33",ad:"1711 Shady Ave, Squirrel Hill",la:40.43794,ln:-79.91922,w:"Squirrel Hill Taiwanese bistro doing proper beef noodle soup, soup dumplings and scallion pancakes",s:[["PGHMAG",""]]},
+{t:1,a:"OAK",cz:["AM","IT"],n:"Lilith",ad:"238 Spahr St, Shadyside",la:40.45786,ln:-79.92757,w:"Tiny reservation-only Shadyside spot from chefs Dianne DeStefano and Jamilka Borges, coastal Sicilian-Puerto Rican cooking",s:[["PGPG",""],["TABLE",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Noodlehead",ad:"242 S Highland Ave, Shadyside",la:40.45787,ln:-79.92538,w:"Cash-only, BYOB Thai street-food counter with a tight noodle-focused menu; the drunken noodles are the draw",s:[["CP",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Teppanyaki Kyoto",ad:"5808 Bryant St, Highland Park",la:40.47574,ln:-79.92047,w:"Highland Park Japanese kitchen known for teppanyaki and its rare Hiroshima-style okonomiyaki (dinner only)",s:[["PGHMAG",""],["CP",""]]},
+{t:2,a:"OAK",cz:["IN"],n:"Reva Modern Indian Cuisine",ad:"220 N Highland Ave, East Liberty",la:40.46307,ln:-79.92401,w:"Modern Indian kitchen in East Liberty turning out biryani and contemporary takes on regional Indian dishes",s:[["VLOCAL",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Independent Brewing Company",ad:"1704 Shady Ave, Squirrel Hill",la:40.43770,ln:-79.91950,w:"Squirrel Hill tavern pouring only fresh, independent Western PA beer alongside locally sourced comfort food",s:[["HOPC",""],["CP",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Lorelei",ad:"124 S Highland Ave, East Liberty",la:40.46030,ln:-79.92513,w:"Dual-concept cocktail bar and Alpine beer hall in the historic Werner Building on the East Liberty corner",s:[["PGHMAG",""],["NP",""]]},
+{t:2,a:"OAK",cz:["DR","AM"],n:"Squirrel Hill Cafe",ad:"5802 Forbes Ave, Squirrel Hill",la:40.43787,ln:-79.92267,w:"The 'Squirrel Cage,' a 1935 art-deco dive on Forbes with cheap drinks, big burgers and cult status",s:[["WESA",""],["CP",""]]},
+{t:3,a:"EV",cz:["IN"],n:"Udipi Cafe",ad:"4141 Old William Penn Hwy, Monroeville",la:40.44345,ln:-79.79049,w:"All-vegetarian South Indian mainstay near the Venkateswara Temple, open since 1995; dosas, idli and thalis",s:[["VLOCAL",""],["CP",""]]},
+{t:1,a:"OAK",cz:["EU","AM"],n:"Fet-Fisk",ad:"4786 Liberty Ave, Bloomfield",la:40.46051,ln:-79.94733,w:"Nordic-influenced seafood room in a former Bloomfield red-sauce space; a 2025 James Beard Best New Restaurant finalist and New York Times top-50 pick, known for roasted chicken with lingonberries, mussels and freshly shucked oysters.",s:[["PGHMAG","Best Restaurants"],["NYT","50 best restaurants in America"],["PGPG",""]]},
+{t:2,a:"DT",cz:["LAT"],n:"Balvanera",ad:"1660 Smallman St, Strip District",la:40.45200,ln:-79.98375,w:"Argentine-style brasserie in the Strip District grilling wood-fired steaks and folding hand-crimped beef empanadas; the entraña skirt steak and lomo are standouts.",s:[["PGHMAG","Best Restaurants list"]]},
+{t:2,a:"OAK",cz:["AS"],n:"Pusadee's Garden",ad:"5319 Butler St, Upper Lawrenceville",la:40.48254,ln:-79.95198,w:"Family-run traditional Thai in Upper Lawrenceville with a lush garden patio where the matriarch cooks daily; the fall-off-the-bone massaman lamb shank routinely sells out before close.",s:[["PGHMAG","restaurant review"],["INF",""],["CP",""]]},
+{t:2,a:"OAK",cz:["AS"],n:"Soju",ad:"4923 Penn Ave, Garfield",la:40.46540,ln:-79.94431,w:"Small, lively Korean-American spot in Garfield pairing house craft cocktails and soju with Korean barbecue and stone-bowl bibimbap.",s:[["PGPG","opening feature"],["PGHMAG","First Look"],["CP",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Hidden Harbor",ad:"1708 Shady Ave, Squirrel Hill",la:40.43770,ln:-79.91951,w:"Squirrel Hill tiki bar and repeat City Paper Best Craft Cocktails winner, pouring elaborate drinks from 500-plus rum bottlings with tropical juices pressed in house.",s:[["CP","Best Craft Cocktails 2025, 1st place"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Bar Botanico",ad:"4325 Butler St, Lawrenceville",la:40.47137,ln:-79.96012,w:"Plant-filled, artsy Lawrenceville cocktail bar leaning on seasonal, local ingredients; a City Paper 2025 Best Craft Cocktails runner-up known for a crisp, frothy Clover Club.",s:[["CP","Best Craft Cocktails 2025, 2nd place"]]},
+{t:3,a:"SS",cz:["DR"],n:"Acacia",ad:"2108 E Carson St, South Side",la:40.42828,ln:-79.97588,w:"Below-street South Side speakeasy where bartenders build custom drinks to a guest's taste; a City Paper 2025 Best Craft Cocktails pick, with a standout Mai Tai.",s:[["CP","Best Craft Cocktails 2025, 3rd place"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Tina's",ad:"4144 Main St, Bloomfield",la:40.46518,ln:-79.95477,w:"Bloomfield corner store and bar pouring an all-organic, biodynamic natural-wine list, plus bottled old fashioneds to drink in or take away.",s:[["CP","natural wine guide"],["TABLE",""]]},
+{t:2,a:"DT",cz:["LAT"],n:"Arepittas",ad:"412 Cherry Way, Downtown",la:40.43876,ln:-79.99822,w:"Downtown Venezuelan counter on Cherry Way, City Paper's 2025 Best Latin Restaurant, griddling gluten-free corn arepas stuffed to order plus tequeños and cachapas.",s:[["CP","Best Latin Restaurant 2025"],["PGPG","business feature"]]},
+{t:2,a:"OAK",cz:["AFR"],n:"Tana Ethiopian Cuisine",ad:"5929 Baum Blvd, East Liberty",la:40.46064,ln:-79.92688,w:"Pittsburgh's established Ethiopian kitchen in East Liberty, family-run since 2008, serving big shareable sampler platters of stewed meats and legumes on fresh-made injera.",s:[["CP","staff review"]]},
+{t:3,a:"OAK",cz:["AS"],n:"Banh Mi & Ti",ad:"4502 Butler St, Lawrenceville",la:40.47218,ln:-79.95905,w:"Central Lawrenceville Vietnamese cafe on Butler Street with traditional and vegan banh mi, Vietnamese coffee and bubble tea; the Viet Special layers pate, pork roll and head cheese.",s:[["CP",""]]},
+{t:3,a:"OAK",cz:["DES","EU"],n:"Madeleine Bakery & Bistro",ad:"609 S Trenton Ave, Regent Square",la:40.43899,ln:-79.89220,w:"Family French bakery in Regent Square turning out blistered, flaky croissants, baguettes and sweet pastries baked fresh daily.",s:[["PGHMAG","best croissants roundup"]]},
+{t:2,a:"OAK",cz:["CAF","ME"],n:"Shibam Coffee",ad:"4630 Centre Ave, North Oakland",la:40.45213,ln:-79.95175,w:"Pittsburgh's first Yemeni cafe, opened 2025 in North Oakland, serving cardamom-spiced coffees, kettle teas and honeycomb pastries in a gilded room open late.",s:[["PGPG","opening feature"],["TABLE",""],["AXIOS","2025 coffee boom"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Trace Brewing",ad:"4312 Main St, Bloomfield",la:40.46410,ln:-79.95328,w:"Bloomfield brewery, bottle shop and community hangout on Main Street pouring hop-forward IPAs and mixed-culture farmhouse ales, with a food truck out front nightly.",s:[["NP","opening feature"],["VLOCAL",""]]},
+{t:3,a:"DT",cz:["DR"],n:"Cinderlands Warehouse",ad:"2601 Smallman St, Strip District",la:40.45573,ln:-79.97965,w:"Strip District production brewery and taproom with chef-driven pub food, best known for its Squish-series hazy IPAs and crisp house lagers.",s:[["VP","craft breweries guide"]]},
+{t:3,a:"EV",cz:["LAT"],n:"El Campesino",ad:"4771 McKnight Rd, North Hills",la:40.52086,ln:-80.00574,w:"Family-run Mexican restaurant in the North Hills, voted City Paper's 2025 Best Mexican Restaurant, praised for al pastor tacos on flour tortillas.",s:[["CP","Best Mexican Restaurant 2025"]]},
+{t:3,a:"OAK",cz:["AS"],n:"Smiling Banana Leaf",ad:"5901 Bryant St, Highland Park",la:40.47585,ln:-79.91958,w:"Tiny, long-loved BYOB Thai spot in Highland Park serving down-home curries, pad Thai and pineapple fried rice at gentle prices.",s:[["CP",""],["TRIB","feature"]]},
+{t:3,a:"SH",cz:["ME"],n:"Laziz Lebanese Cuisine",ad:"615 Washington Rd, Mt. Lebanon",la:40.38240,ln:-80.04374,w:"Family Lebanese kitchen in Mt. Lebanon with fresh, generous plates; standouts include chicken shawarma, falafel wraps and lamb shanks.",s:[["PGHMAG","opening feature"]]},
+{t:3,a:"OAK",cz:["CAF"],n:"KLVN Coffee Lab",ad:"6600 Hamilton Ave, Larimer",la:40.45770,ln:-79.91074,w:"Scandinavian-style specialty roaster and cafe in Larimer with single-origin coffees roasted in view of the bar in a revived industrial building.",s:[["VLOCAL","Now Open feature"]]},
+{t:3,a:"OAK",cz:["IN"],n:"Tamarind Flavor of India",ad:"257 N Craig St, Oakland",la:40.45115,ln:-79.95195,w:"No-frills South Indian house on North Craig Street in Oakland, a go-to for crisp paper and mysore masala dosas, idli and vegetarian thalis.",s:[["PGHMAG","Indian restaurants feature"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -1179,9 +1223,10 @@ function tag(t,tbl){
 
 const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
 const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
 function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
 
-let MODE='sights', fCz='all';
+let MODE='sights', fCz='all', fCat='all';
 
 function match(p){
   if(seenMode==='hide' && SEEN.has(p.id)) return false;
@@ -1192,6 +1237,7 @@ function match(p){
   if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
   if(fRank!=='all' && String(p.t)!==fRank) return false;
   if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
   if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
   return true;
 }
@@ -1200,7 +1246,8 @@ function card(p,n){
   const tbl=SRCOF(p), nc=cites(p), seen=new Set();
   const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
                 .map(t=>tag(t,tbl)).join('');
-  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
   const isSeen=SEEN.has(p.id);
   return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
     +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
@@ -1292,6 +1339,13 @@ document.getElementById('sortFilter').innerHTML =
 document.getElementById('dayFilter').innerHTML =
   ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
   .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
 
 function wire(id,set){
   document.getElementById(id).addEventListener('click',e=>{
@@ -1305,6 +1359,7 @@ wire('dayFilter',v=>fArea=v);
 wire('rankFilter',v=>fRank=v);
 wire('sortFilter',v=>fSort=v);
 wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
 document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
 
 /* ── scoring: drives the "top N" presets ── */
@@ -1441,7 +1496,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 179 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 208 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

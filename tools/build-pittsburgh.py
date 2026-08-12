@@ -413,7 +413,15 @@ const FS = {
   KB:{k:"KIDSBURGH",t:"Kidsburgh — farm festivals & u-pick",u:"https://www.kidsburgh.org/pick-perfect-pumpkin-10-pittsburgh-farm-festivals/",l:"Kidsburgh"},
   VWC:{k:"VISIT WASH. CO",t:"Visit Washington County PA",u:"https://www.visitwashingtoncountypa.com/",l:"Visit Washington County"},
   AXIOS:{k:"AXIOS PGH",t:"Axios Pittsburgh — apple picking",u:"https://www.axios.com/local/pittsburgh",l:"Axios Pittsburgh"},
-  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"}
+  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"},
+  TABLE:{k:"TABLE MAG",t:"TABLE Magazine \u2014 Pittsburgh food & drink",u:"https://www.tablemagazine.com",l:"TABLE Magazine"},
+  EATER:{k:"EATER",t:"Eater \u2014 dining coverage",u:"https://www.eater.com",l:"Eater"},
+  VLOCAL:{k:"VERY LOCAL",t:"Very Local Pittsburgh",u:"https://verylocal.com/pittsburgh",l:"Very Local Pittsburgh"},
+  WESA:{k:"WESA",t:"90.5 WESA \u2014 Pittsburgh NPR",u:"https://www.wesa.fm",l:"WESA \u00b7 NPR Pittsburgh"},
+  HOPC:{k:"HOP CULTURE",t:"Hop Culture \u2014 craft beer",u:"https://www.hopculture.com",l:"Hop Culture"},
+  PLAT:{k:"PGH LATINO",t:"Pittsburgh Latino Magazine",u:"https://www.pghlatinomag.com",l:"Pittsburgh Latino Magazine"},
+  NYT:{k:"NYT",t:"The New York Times \u2014 dining",u:"https://www.nytimes.com/section/food",l:"The New York Times"},
+  TRIB:{k:"TRIBLIVE",t:"TribLive \u2014 Tribune-Review",u:"https://triblive.com",l:"TribLive"}
 };
 
 const CUISINES = [
@@ -427,6 +435,9 @@ const CUISINES = [
   {id:"DES", n:"Dessert & Bakery"},
   {id:"DR",  n:"Drinks & Breweries"},
   {id:"MKT", n:"Markets"},
+  {id:"IN",  n:"Indian & South Asian"},
+  {id:"AFR", n:"African"},
+  {id:"EU",  n:"European"},
   {id:"FARM",n:"Farms & U-Pick"}
 ];
 
@@ -634,7 +645,36 @@ const F = [
  k:"North Hills; seasonal crops. ~25 min north. Approximate pin.",warn:1,s:[["KB",""]]},
 {t:3,a:"DY",cz:["FARM"],n:"Simmons Farm",ad:"170 Simmons Rd, McMurray, PA",la:40.2900,ln:-80.0900,
  w:"A South Hills u-pick farm with apples, pumpkins and flowers, hayrides, a petting zoo and an on-site market — easy fall fun with animals for the kids.",
- k:"Seasonal u-pick; check the crop schedule. ~30 min south. Approximate pin.",warn:1,s:[["KB",""]]}
+ k:"Seasonal u-pick; check the crop schedule. ~30 min south. Approximate pin.",warn:1,s:[["KB",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Taiwanese Bistro Cafe 33",ad:"1711 Shady Ave, Squirrel Hill",la:0.0,ln:0.0,w:"Squirrel Hill Taiwanese bistro doing proper beef noodle soup, soup dumplings and scallion pancakes",s:[["PGHMAG",""]]},
+{t:1,a:"OAK",cz:["AM","IT"],n:"Lilith",ad:"238 Spahr St, Shadyside",la:0.0,ln:0.0,w:"Tiny reservation-only Shadyside spot from chefs Dianne DeStefano and Jamilka Borges, coastal Sicilian-Puerto Rican cooking",s:[["PGPG",""],["TABLE",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Noodlehead",ad:"242 S Highland Ave, Shadyside",la:0.0,ln:0.0,w:"Cash-only, BYOB Thai street-food counter with a tight noodle-focused menu; the drunken noodles are the draw",s:[["CP",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Teppanyaki Kyoto",ad:"5808 Bryant St, Highland Park",la:0.0,ln:0.0,w:"Highland Park Japanese kitchen known for teppanyaki and its rare Hiroshima-style okonomiyaki (dinner only)",s:[["PGHMAG",""],["CP",""]]},
+{t:2,a:"OAK",cz:["IN"],n:"Reva Modern Indian Cuisine",ad:"220 N Highland Ave, East Liberty",la:0.0,ln:0.0,w:"Modern Indian kitchen in East Liberty turning out biryani and contemporary takes on regional Indian dishes",s:[["VLOCAL",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Independent Brewing Company",ad:"1704 Shady Ave, Squirrel Hill",la:0.0,ln:0.0,w:"Squirrel Hill tavern pouring only fresh, independent Western PA beer alongside locally sourced comfort food",s:[["HOPC",""],["CP",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Lorelei",ad:"124 S Highland Ave, East Liberty",la:0.0,ln:0.0,w:"Dual-concept cocktail bar and Alpine beer hall in the historic Werner Building on the East Liberty corner",s:[["PGHMAG",""],["NP",""]]},
+{t:2,a:"OAK",cz:["DR","AM"],n:"Squirrel Hill Cafe",ad:"5802 Forbes Ave, Squirrel Hill",la:0.0,ln:0.0,w:"The 'Squirrel Cage,' a 1935 art-deco dive on Forbes with cheap drinks, big burgers and cult status",s:[["WESA",""],["CP",""]]},
+{t:3,a:"EV",cz:["IN"],n:"Udipi Cafe",ad:"4141 Old William Penn Hwy, Monroeville",la:0.0,ln:0.0,w:"All-vegetarian South Indian mainstay near the Venkateswara Temple, open since 1995; dosas, idli and thalis",s:[["VLOCAL",""],["CP",""]]},
+{t:1,a:"OAK",cz:["EU","AM"],n:"Fet-Fisk",ad:"4786 Liberty Ave, Bloomfield",la:0.0,ln:0.0,w:"Nordic-influenced seafood room in a former Bloomfield red-sauce space; a 2025 James Beard Best New Restaurant finalist and New York Times top-50 pick, known for roasted chicken with lingonberries, mussels and freshly shucked oysters.",s:[["PGHMAG","Best Restaurants"],["NYT","50 best restaurants in America"],["PGPG",""]]},
+{t:2,a:"DT",cz:["LAT"],n:"Balvanera",ad:"1660 Smallman St, Strip District",la:0.0,ln:0.0,w:"Argentine-style brasserie in the Strip District grilling wood-fired steaks and folding hand-crimped beef empanadas; the entraña skirt steak and lomo are standouts.",s:[["PGHMAG","Best Restaurants list"]]},
+{t:2,a:"OAK",cz:["AS"],n:"Pusadee's Garden",ad:"5319 Butler St, Upper Lawrenceville",la:0.0,ln:0.0,w:"Family-run traditional Thai in Upper Lawrenceville with a lush garden patio where the matriarch cooks daily; the fall-off-the-bone massaman lamb shank routinely sells out before close.",s:[["PGHMAG","restaurant review"],["INF",""],["CP",""]]},
+{t:2,a:"OAK",cz:["AS"],n:"Soju",ad:"4923 Penn Ave, Garfield",la:0.0,ln:0.0,w:"Small, lively Korean-American spot in Garfield pairing house craft cocktails and soju with Korean barbecue and stone-bowl bibimbap.",s:[["PGPG","opening feature"],["PGHMAG","First Look"],["CP",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Hidden Harbor",ad:"1708 Shady Ave, Squirrel Hill",la:0.0,ln:0.0,w:"Squirrel Hill tiki bar and repeat City Paper Best Craft Cocktails winner, pouring elaborate drinks from 500-plus rum bottlings with tropical juices pressed in house.",s:[["CP","Best Craft Cocktails 2025, 1st place"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Bar Botanico",ad:"4325 Butler St, Lawrenceville",la:0.0,ln:0.0,w:"Plant-filled, artsy Lawrenceville cocktail bar leaning on seasonal, local ingredients; a City Paper 2025 Best Craft Cocktails runner-up known for a crisp, frothy Clover Club.",s:[["CP","Best Craft Cocktails 2025, 2nd place"]]},
+{t:3,a:"SS",cz:["DR"],n:"Acacia",ad:"2108 E Carson St, South Side",la:0.0,ln:0.0,w:"Below-street South Side speakeasy where bartenders build custom drinks to a guest's taste; a City Paper 2025 Best Craft Cocktails pick, with a standout Mai Tai.",s:[["CP","Best Craft Cocktails 2025, 3rd place"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Tina's",ad:"4144 Main St, Bloomfield",la:0.0,ln:0.0,w:"Bloomfield corner store and bar pouring an all-organic, biodynamic natural-wine list, plus bottled old fashioneds to drink in or take away.",s:[["CP","natural wine guide"],["TABLE",""]]},
+{t:2,a:"DT",cz:["LAT"],n:"Arepittas",ad:"412 Cherry Way, Downtown",la:0.0,ln:0.0,w:"Downtown Venezuelan counter on Cherry Way, City Paper's 2025 Best Latin Restaurant, griddling gluten-free corn arepas stuffed to order plus tequeños and cachapas.",s:[["CP","Best Latin Restaurant 2025"],["PGPG","business feature"]]},
+{t:2,a:"OAK",cz:["AFR"],n:"Tana Ethiopian Cuisine",ad:"5929 Baum Blvd, East Liberty",la:0.0,ln:0.0,w:"Pittsburgh's established Ethiopian kitchen in East Liberty, family-run since 2008, serving big shareable sampler platters of stewed meats and legumes on fresh-made injera.",s:[["CP","staff review"]]},
+{t:3,a:"OAK",cz:["AS"],n:"Banh Mi & Ti",ad:"4502 Butler St, Lawrenceville",la:0.0,ln:0.0,w:"Central Lawrenceville Vietnamese cafe on Butler Street with traditional and vegan banh mi, Vietnamese coffee and bubble tea; the Viet Special layers pate, pork roll and head cheese.",s:[["CP",""]]},
+{t:3,a:"OAK",cz:["DES","EU"],n:"Madeleine Bakery & Bistro",ad:"609 S Trenton Ave, Regent Square",la:0.0,ln:0.0,w:"Family French bakery in Regent Square turning out blistered, flaky croissants, baguettes and sweet pastries baked fresh daily.",s:[["PGHMAG","best croissants roundup"]]},
+{t:2,a:"OAK",cz:["CAF","ME"],n:"Shibam Coffee",ad:"4630 Centre Ave, North Oakland",la:0.0,ln:0.0,w:"Pittsburgh's first Yemeni cafe, opened 2025 in North Oakland, serving cardamom-spiced coffees, kettle teas and honeycomb pastries in a gilded room open late.",s:[["PGPG","opening feature"],["TABLE",""],["AXIOS","2025 coffee boom"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Trace Brewing",ad:"4312 Main St, Bloomfield",la:0.0,ln:0.0,w:"Bloomfield brewery, bottle shop and community hangout on Main Street pouring hop-forward IPAs and mixed-culture farmhouse ales, with a food truck out front nightly.",s:[["NP","opening feature"],["VLOCAL",""]]},
+{t:3,a:"DT",cz:["DR"],n:"Cinderlands Warehouse",ad:"2601 Smallman St, Strip District",la:0.0,ln:0.0,w:"Strip District production brewery and taproom with chef-driven pub food, best known for its Squish-series hazy IPAs and crisp house lagers.",s:[["VP","craft breweries guide"]]},
+{t:3,a:"EV",cz:["LAT"],n:"El Campesino",ad:"4771 McKnight Rd, North Hills",la:0.0,ln:0.0,w:"Family-run Mexican restaurant in the North Hills, voted City Paper's 2025 Best Mexican Restaurant, praised for al pastor tacos on flour tortillas.",s:[["CP","Best Mexican Restaurant 2025"]]},
+{t:3,a:"OAK",cz:["AS"],n:"Smiling Banana Leaf",ad:"5901 Bryant St, Highland Park",la:0.0,ln:0.0,w:"Tiny, long-loved BYOB Thai spot in Highland Park serving down-home curries, pad Thai and pineapple fried rice at gentle prices.",s:[["CP",""],["TRIB","feature"]]},
+{t:3,a:"SH",cz:["ME"],n:"Laziz Lebanese Cuisine",ad:"615 Washington Rd, Mt. Lebanon",la:0.0,ln:0.0,w:"Family Lebanese kitchen in Mt. Lebanon with fresh, generous plates; standouts include chicken shawarma, falafel wraps and lamb shanks.",s:[["PGHMAG","opening feature"]]},
+{t:3,a:"OAK",cz:["CAF"],n:"KLVN Coffee Lab",ad:"6600 Hamilton Ave, Larimer",la:0.0,ln:0.0,w:"Scandinavian-style specialty roaster and cafe in Larimer with single-origin coffees roasted in view of the bar in a revived industrial building.",s:[["VLOCAL","Now Open feature"]]},
+{t:3,a:"OAK",cz:["IN"],n:"Tamarind Flavor of India",ad:"257 N Craig St, Oakland",la:0.0,ln:0.0,w:"No-frills South Indian house on North Craig Street in Oakland, a go-to for crisp paper and mysore masala dosas, idli and vegetarian thalis.",s:[["PGHMAG","Indian restaurants feature"]]}
 ];
 '''
 
