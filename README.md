@@ -1,18 +1,31 @@
-# Field Guides — Cleveland, Youngstown &amp; Pittsburgh
+# Field Guides — New York City, Cleveland, Pittsburgh &amp; Youngstown
 
 Offline-capable travel guides where every place is **traceable to the source that recommended it**,
-on interactive maps with filters, trip builders and exports to Google and Apple Maps. Cleveland is
-the complete edition (143 sights + 40 places to eat); Youngstown is a web-researched, fact-checked
-shortlist. `index.html` is now a **city chooser** with a box to suggest the next city.
+on interactive maps with filters, trip builders and exports to Google and Apple Maps. **New York City**
+is the largest edition (500+ places across the five boroughs + day trips); **Cleveland** is the origin
+engine; **Pittsburgh** is a full parity edition; **Youngstown** is a fact-checked shortlist.
+`index.html` is a **city chooser** with a box to suggest the next city.
 
-No build step. No framework. No backend. Plain HTML — a chooser at `index.html`, one self-contained
-page per city (`cleveland.html`, `cities/youngstown.html`).
+No build step for the reader. No framework. No backend. Plain HTML — a chooser at `index.html`, one
+self-contained page per city (`cleveland.html`, `cities/newyork.html`, `cities/pittsburgh.html`,
+`cities/youngstown.html`). Behind the scenes, a small **research + verification pipeline**
+(`tools/research.js`, per-city build scripts, `data/geocodes.json`, `data/sources.json`) makes every
+pin auditable and every extension repeatable — see **[Reproduce this](#reproduce-this--add-or-expand-a-city)**.
+
+**Hard rules that keep it honest** (enforced by gates, not vibes): every place's **address + coordinate**
+is fact-checked into `data/geocodes.json` and the build refuses an unsourced pin (`--geocheck`); every
+place's **open/closed status** is verified and closed places are flagged, never shown as live
+(`--statuscheck`); a cuisine tag names the **kitchen's cuisine, not a dish it serves**. Full rules in
+[CLAUDE.md](CLAUDE.md) and [docs/SOURCES.md](docs/SOURCES.md).
 
 ## Documentation
 
 | Doc | Read it for |
 |---|---|
-| **[docs/RESEARCH-LOG.md](docs/RESEARCH-LOG.md)** | Every search, fetch, dead end and extension technique — **start here to repeat the process** |
+| **[CLAUDE.md](CLAUDE.md)** | **The ground rules** — the hard rules (geocode, status, categorization), invariants, and where the data lives. Read first. |
+| **[docs/SOURCES.md](docs/SOURCES.md)** | **The pipeline** — the fixed order (source → fact-check → geocode → build → re-verify → status), the address/coordinate + open/closed hard rules, the food discovery playbook, Mode C seed-expansion, and how to run each gate |
+| **[docs/RECREATE.md](docs/RECREATE.md)** | Step-by-step to stand up a **new city** |
+| **[docs/RESEARCH-LOG.md](docs/RESEARCH-LOG.md)** | Every search, fetch, dead end and extension technique |
 | **[docs/DECISIONS.md](docs/DECISIONS.md)** | All 16 judgement calls with reasoning and rejected alternatives |
 | **[docs/METHODOLOGY.md](docs/METHODOLOGY.md)** | The rules that governed sourcing, ranking and licensing |
 | **[docs/RECREATE.md](docs/RECREATE.md)** | 10-step sequence for a different city |
@@ -23,7 +36,7 @@ page per city (`cleveland.html`, `cities/youngstown.html`).
 
 ## Start here
 
-- **[Choose a city](index.html)** — the landing page: pick Cleveland or Youngstown, or suggest the next city.
+- **[Choose a city](index.html)** — the landing page: pick New York, Cleveland, Pittsburgh or Youngstown, or suggest the next city.
 
 ## Cleveland editions
 
@@ -47,6 +60,16 @@ node research.js "Akron" "OH"          # print the research plan for a new city
 node research.js --validate akron-oh   # audit its sources before building a page
 ```
 
+- **[New York City](cities/newyork.html)** — the largest edition: **500+ places across all five boroughs
+  (Manhattan, Brooklyn, Queens, The Bronx, Staten Island) plus regional day trips** (Hudson Valley, Long
+  Island, Westchester, NJ). Sourced from **Michelin (stars + Bib Gourmand)**, Eater, The Infatuation, NYT,
+  Time Out, Atlas Obscura, Untapped New York, NYC Parks/Tourism and verified local creators. Adds a
+  cross-cutting **Collections** filter (Museums, Parks, Iconic Landmarks, Markets & Food Halls, **Pop
+  Culture & Screen** — Ghostbusters firehouse, Sanctum Sanctorum, Nintendo/LEGO — Rooftop & Views,
+  Speakeasies, Oddities, Free, Family, Arts, Architecture) on top of the borough and cuisine filters, with
+  deep food coverage (Singaporean/Malaysian, Cantonese/dim sum, Thai, Vietnamese, Persian, viral spots,
+  boba/coffee/dessert, Hainanese chicken rice + wonton noodles). Built by splicing the NYC dataset
+  (`data/newyork.dataset.json`) into the Cleveland engine via `tools/build-newyork.py`.
 - **[Pittsburgh, Pennsylvania](cities/pittsburgh.html)** — 111 sights and 68 places to eat, drink, shop &amp; pick
   (179 in all, Cleveland-parity), across six regions including **South Hills & the Southwest** and the **Eastern
   Suburbs & River Valleys**: the inclines and the Mount Washington view, the Warhol and Mattress Factory, the
@@ -74,9 +97,14 @@ node research.js --validate akron-oh   # audit its sources before building a pag
 - **Two separate maps.** Sights and food never clutter each other; a toggle switches between them.
 - **Source attribution on every entry.** Tap a tag to open the original article, with the item
   number where the source numbered its list.
-- **Three filter axes** — area, source, and rank — plus full-text search.
-- **Cuisine sub-filters** in food mode: Vietnamese, Singaporean, Southeast Asian, Chinese,
-  Unique American, European, Latin American, Middle Eastern, desserts, and on-TV.
+- **Filter axes** — area/borough, source, rank, and (where a city defines them) a cross-cutting
+  **Collections** theme filter — plus full-text search.
+- **Cuisine sub-filters** in food mode (per city; New York carries the widest set — Singaporean,
+  Malaysian, Cantonese & dim sum, Sichuan, Vietnamese, Thai, Korean, Middle Eastern & Persian,
+  Jewish deli, desserts, a *Viral* tag, and more).
+- **Collections** (New York): a theme axis that cuts across all boroughs — Museums, Parks, Iconic
+  Landmarks, Markets & Food Halls, Pop Culture & Screen, Rooftop & Views, Speakeasies, Oddities, Free,
+  Family, Arts, Architecture. Backward-compatible: hidden for cities that don't define it.
 - **Trip builder.** Tick anything, or use presets (top 10, top 20, top 5 per area, top 10 to eat).
   Export to Google Maps directions, `.kml` for Google My Maps, or `.json`.
 - **Visited tracking.** Mark places off; they dim, the pin greys, and presets skip them.
@@ -118,6 +146,61 @@ npm test           # behaviour, both with and without the map library
 
 Both must pass before pushing. `validate.js` exists because a careless find-and-replace once
 silently deleted 143 records while leaving the file syntactically valid.
+
+## Reproduce this — add or expand a city
+
+Everything here is reproducible from a fresh clone with the committed tooling and data. The pipeline
+order is fixed (do not reorder):
+
+```
+search → rank sources → FACT-CHECK (incl. open/closed) → geocode → build → RE-VERIFY pins + status → publish
+```
+
+**Central, auditable data (the single sources of truth):**
+- `data/sources.json` — ranked, credibility-vetted sources + creators per city, and reusable source
+  types (incl. `michelin_guide`, `james_beard`, `food_media`, `screen_location`, `municipal_gov`).
+- `data/geocodes.json` — every place → `{address, lat, lng, source, verified, confidence, status,
+  statusSource, statusChecked}`. The build injects lat/lng from here and **refuses to place a pin with
+  no sourced entry.** Closed places carry `status:"closed"` and are flagged, never dropped.
+
+**The gates (run before publishing; all must pass):**
+```bash
+cd tools && npm install
+node research.js --validate  <city-key>   # sources: required types present, a rank-1 primary, fact-checked
+node research.js --geocheck  <city-key>   # every place has a sourced address+coordinate; lists low/ungraded pins
+node research.js --statuscheck <city-key> # every open/closed status is sourced; closed places surfaced
+npm run validate && npm test              # content integrity + behaviour (with and without the map CDN)
+```
+
+**Add a NEW city (Mode A):** `node research.js "City" "ST"` prints the research plan → run the searches,
+rank + fact-check sources into `data/sources.json` → fact-check every place's address, coordinate and
+open/closed status into `data/geocodes.json` → build the page from the Cleveland engine → run the gates.
+Full checklist in [docs/SOURCES.md](docs/SOURCES.md) and [docs/RECREATE.md](docs/RECREATE.md).
+
+**EXPAND a city (always the full flow — never just add names):**
+`source (vet credibility) → fact-check open/closed → add → geocode + location-verify every new pin →
+re-rank tiers within region → rebuild → gate.`
+- **Seed-place / Mode C:** `node research.js --seed "<Place>" <city-key>` — you name places; the flow
+  finds the credible sources that list them, mines those sources for more, fact-checks, geocodes, re-ranks.
+- **Food-heavy cities** additionally run a targeted-cuisine deep-dive and a viral/pop-up pass (see the
+  food playbook in docs/SOURCES.md). **Categorize by the kitchen's cuisine, never by a dish it serves.**
+
+**Geocoding in a locked-down environment:** map/tile hosts may be blocked; the coordinate is read from
+published sources via search — Wikipedia infobox coords for landmarks, Google Maps **place pins**
+(`!3d<lat>!4d<lng>` / `daddr=…@lat,lng`, never the `/@` viewport), or Apple Maps `coordinate=` for
+restaurants. Anything that won't resolve goes into `tools/geocode-helper.html` — a browser page that
+geocodes the leftovers against OSM/Nominatim; paste its JSON back and merge into `data/geocodes.json`.
+
+**Per-city build scripts** (regenerate a page from the engine + data; portable, repo-relative paths):
+```bash
+python3 tools/build-newyork.py       # New York  (reads data/newyork.dataset.json + data/geocodes.json)
+python3 tools/build-pittsburgh.py    # Pittsburgh
+python3 tools/build-youngstown.py    # Youngstown
+```
+New York's dataset is assembled from per-topic research files by
+`data/newyork-research/consolidate.py` (normalizes cuisines, assigns Collections, cross-tags
+Malaysian↔Singaporean by cuisine — the reference for correct categorization). Cleveland is the base
+engine (`cleveland.html`); the validator and behaviour tests read it.
 
 ## Attribution
 
