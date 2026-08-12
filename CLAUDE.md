@@ -121,6 +121,18 @@ Full field reference: [docs/DATA-SCHEMA.md](docs/DATA-SCHEMA.md)
 - **Gaps are stated, not filled.** The Middle Eastern card says outright that Cleveland has no
   Persian restaurant meeting the bar. Do not replace that with a mediocre suggestion.
 - **Cuisine tags require a named dish**, not a label. "Singapore noodles" disqualifies a place.
+- **A cuisine tag names the RESTAURANT's own tradition — never a single dish it happens to serve.**
+  Shared dishes cross cuisines: Hainanese chicken rice is served by Singaporean, Malaysian, Hainanese,
+  Thai (*khao man kai*) and Taiwanese kitchens; laksa/char kway teow span Singapore & Malaysia. A
+  Taiwanese diner (Wenwen) or a Thai *khao man kai* spot is **not** Singaporean/Malaysian just because
+  it plates a shared dish. Categorize by the kitchen's actual origin. This mistake was made once
+  (Wenwen mis-filed under Singaporean via a dish-keyword heuristic) — do not repeat it: any
+  auto-tagging must key on the **cuisine**, not on dish/description keywords.
+- **Cross-tagging overlapping cuisines is allowed only between genuinely-overlapping traditions.**
+  Malaysian ↔ Singaporean (Nyonya/Peranakan hawker canon) may carry both `SG` and `MY` so either
+  filter surfaces a real hybrid (Nyonya, Kopitiam, Taste Good) — but the trigger is the restaurant
+  being Malaysian or Singaporean, never a dish. `tools/build-newyork` /
+  `data/newyork-research/consolidate.py` encodes this (`_is_sgmy` keys on cuisine labels only).
 - **Attribution is honest.** `ADD` / `FADD` mean added from general knowledge. Never relabel
   those as sourced.
 - The chess collection is at **325 Superior Ave NE**. News 5 prints 525; that is wrong and the

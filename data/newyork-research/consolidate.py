@@ -151,13 +151,15 @@ for x in food:
     if x.get("k"): r["k"]=x["k"]
     if x.get("closed"): r["closed"]=True
     r["cz"]=map_cz(x.get("cz",[]))
-    # Singaporean & Malaysian share a hawker canon — cross-tag shared-dish spots under BOTH
-    # so the SG and MY filters both surface them (laksa, char kway teow, Hokkien mee, etc.).
-    _hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("dish","")+" "+" ".join(x.get("cz",[]))).lower()
-    _SHARED=["laksa","char kway teow","kway teow","hokkien mee","hainanese chicken","chicken rice",
-             "nasi lemak","kaya toast","kaya","roti canai","roti prata","chili crab","bak kut teh",
-             "singaporean","malaysian","nyonya","peranakan"]
-    if any(k in _hay for k in _SHARED):
+    # Singaporean & Malaysian cuisines overlap so heavily (Nyonya/Peranakan hawker canon) that a
+    # genuine Malaysian OR Singaporean restaurant reasonably belongs under BOTH filters. Cross-tag
+    # ONLY on the restaurant's actual CUISINE — never on a dish it happens to serve. A Thai khao-man-kai
+    # spot or a Taiwanese diner serving Hainanese-style chicken is NOT Singaporean/Malaysian.
+    _labels=" ".join(x.get("cz",[])).lower()
+    _is_sgmy = ("SG" in r["cz"] or "MY" in r["cz"]
+                or "singaporean" in _labels or "malaysian" in _labels
+                or "nyonya" in _labels or "peranakan" in _labels)
+    if _is_sgmy:
         for _t in ("SG","MY"):
             if _t not in r["cz"]: r["cz"].append(_t)
     g=collections(x,True)

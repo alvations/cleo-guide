@@ -121,6 +121,26 @@ under-cover the depth. Two extra discovery passes are **required** for these cit
 everything else, **every place they surface is fact-checked** (exists, currently open, real address →
 coordinate + status verified downstream). No compromise.
 
+> **Categorize by the kitchen's cuisine, never by a dish it serves — a hard rule.** A cuisine tag
+> describes the restaurant's own tradition, not any single item on its menu. Shared dishes cross
+> cuisines: **Hainanese chicken rice** is served by Singaporean, Malaysian, Hainanese, **Thai
+> (*khao man kai*)** and **Taiwanese** kitchens; laksa / char kway teow / Hokkien mee span Singapore
+> *and* Malaysia. So a Thai *khao man kai* spot or a Taiwanese diner (e.g. **Wenwen**) is **not**
+> Singaporean/Malaysian just because it plates a shared dish. **Real bug that happened once:** an
+> auto-tagger keyed on dish keywords ("hainanese chicken", "chicken rice") and mis-filed Wenwen
+> (Taiwanese) and two Thai spots under *Singaporean*. The fix — and the rule — is that any
+> cross-tagging keys on the **cuisine label only**. Malaysian ↔ Singaporean may carry both `SG` and
+> `MY` (the Nyonya/Peranakan hawker canon genuinely overlaps — Nyonya, Kopitiam, Taste Good), but the
+> trigger is the restaurant *being* Malaysian or Singaporean, never a dish. See
+> `data/newyork-research/consolidate.py` (`_is_sgmy`), which is committed so any agent can reproduce
+> the categorization on a local machine.
+
+**And the whole-pipeline rule for every expansion:** whenever you expand a city (seed-place / Mode C,
+a cuisine deep-dive, a borough top-up — anything), run the *complete* flow, never a partial:
+**source (vet credibility) → fact-check open/closed → add → geocode + location-verify every new pin →
+re-rank tiers within region → rebuild → gate (`--validate` · `--geocheck` · `--statuscheck`)**. Adding
+names without geocoding + status + re-rank is not an expansion, it's a regression.
+
 **1. Targeted-cuisine deep-dive.** Run a dedicated pass per high-value cuisine, not just a generic
 "best restaurants" search. Always sweep at least: **Singaporean, Vietnamese, Chinese / Cantonese
 (dim sum, Cantonese BBQ), Thai (incl. regional Isan / Northern), Malaysian, wider Southeast Asian
