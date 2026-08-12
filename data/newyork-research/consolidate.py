@@ -107,10 +107,14 @@ def canon(k): return ALIAS.get(k,k)
 # object files carry {sights,food,sources}; array files are food records (michelin/cuisine/viral/FB).
 # skip helper/output/intermediate files (_*, out_*, nyc_*, *dataset*).
 import glob
+# places confirmed permanently CLOSED (or not a visitable business) during geocoding — never re-add
+EXCLUDE={"Ralph's Coffee","Ayat","Gloria's West Indian Food","Sifu Chio",
+         "John Brown BBQ","Do the Right Thing Way","Madam Wong's","Singapura","Sanur",
+         "Kancil","Penang Upper West Side"}
 sights=[]; food=[]; srcmeta={}; seen_names=set()
 def _take(x, bucket):
     n=x.get("n")
-    if not n or n in seen_names: return          # global de-dup by name across all files
+    if not n or n in seen_names or n in EXCLUDE: return   # de-dup + drop closed/non-places
     seen_names.add(n); bucket.append(x)
 for path in sorted(glob.glob(os.path.join(D,"*.json"))):
     base=os.path.basename(path)
@@ -147,6 +151,15 @@ for x in food:
     if x.get("k"): r["k"]=x["k"]
     if x.get("closed"): r["closed"]=True
     r["cz"]=map_cz(x.get("cz",[]))
+    # Singaporean & Malaysian share a hawker canon — cross-tag shared-dish spots under BOTH
+    # so the SG and MY filters both surface them (laksa, char kway teow, Hokkien mee, etc.).
+    _hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("dish","")+" "+" ".join(x.get("cz",[]))).lower()
+    _SHARED=["laksa","char kway teow","kway teow","hokkien mee","hainanese chicken","chicken rice",
+             "nasi lemak","kaya toast","kaya","roti canai","roti prata","chili crab","bak kut teh",
+             "singaporean","malaysian","nyonya","peranakan"]
+    if any(k in _hay for k in _SHARED):
+        for _t in ("SG","MY"):
+            if _t not in r["cz"]: r["cz"].append(_t)
     g=collections(x,True)
     if g: r["g"]=g
     r["s"]=norm_sources(x)
