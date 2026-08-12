@@ -441,6 +441,10 @@ const CUISINES = [
   {id:"FARM",n:"Farms & U-Pick"}
 ];
 
+// Collections (cross-cutting themes over all areas). Empty → the Collections
+// filter auto-hides; the engine guards on CATS.length. Pittsburgh defines none yet.
+const CATS = [];
+
 const F = [
 {t:1,a:"DT",cz:["AM"],n:"Primanti Bros (original)",ad:"46 18th St, Strip District",la:40.4500,ln:-79.9760,
  w:"The 1933 Strip original of a Pittsburgh institution. The sandwich: grilled meat, provolone, oil-and-vinegar slaw and fries all stacked inside the Italian bread. Order it as-is.",
