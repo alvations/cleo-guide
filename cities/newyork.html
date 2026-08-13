@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="New York City field guide — 219 sights and 288 places to eat across the five boroughs plus day trips, each traceable to its source (Michelin, Eater, Infatuation, Atlas Obscura, NYC Parks), on one interactive map with borough, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="New York City field guide — 219 sights and 289 places to eat across the five boroughs plus day trips, each traceable to its source (Michelin, Eater, Infatuation, Atlas Obscura, NYC Parks), on one interactive map with borough, collection and cuisine filters, a trip builder and exports.">
 <title>New York City Field Guide — 5 Boroughs, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · the five boroughs &amp; beyond, sourced</p>
   <h1>New York City<span class="thin">five boroughs, day trips &amp; the best tables</span></h1>
-  <p class="standfirst">219 sights and 288 places to eat across the five boroughs and day trips, each traceable to the source that named it &mdash; Michelin, Eater, The Infatuation, Atlas Obscura, NYC Parks and more. <strong>Switch modes below</strong>, filter by <strong>borough</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">219 sights and 289 places to eat across the five boroughs and day trips, each traceable to the source that named it &mdash; Michelin, Eater, The Infatuation, Atlas Obscura, NYC Parks and more. <strong>Switch modes below</strong>, filter by <strong>borough</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -596,6 +596,7 @@ const FS = {
   TIMEOUT:{k:"TIME OUT",t:"Time Out New York",u:"https://www.timeout.com/newyork",l:"Time Out New York"},
   TRIPADVISOR:{k:"TRIPADVISOR",t:"Tripadvisor",u:"https://www.tripadvisor.com",l:"Tripadvisor"},
   UNTAPPED:{k:"UNTAPPED NY",t:"Untapped New York",u:"https://www.untappedcities.com",l:"Untapped New York"},
+  VENDY:{k:"VENDY AWARDS",t:"VENDY AWARDS",u:"",l:""},
   WELCOMETOCHINATOWN:{k:"WELCOMETOCHINATOWN",t:"Welcome to Chinatown",u:"https://welcometochinatown.com/news/business-spotlight-wok-wok",l:"Welcome to Chinatown"},
   WIKIPEDIA:{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
   YELP:{k:"YELP",t:"YELP",u:"",l:""}
@@ -709,6 +710,7 @@ const F = [
 {t:1,a:"MAN",n:"Little Myanmar",ad:"150 E 2nd St, New York, NY 10009",cz:["SEA"],la:40.72299,ln:-73.98552,w:"Family-run Michelin-listed East Village Burmese spot, the city's standout for laphet thoke fermented tea leaf salad and coconut chicken noodle soup.",s:[["MICHELIN","https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/little-myanmar"]]},
 {t:1,a:"BK",n:"Sofreh",ad:"75 St Marks Ave, Brooklyn, NY 11217",cz:["ME"],la:40.67991,ln:-73.97397,w:"Chef Nasim Alikhan's modern Prospect Heights Persian dining room, celebrated for its shattering tahdig crust, kuku sabzi and sabzi polo with fish.",s:[["MICHELIN","https://guide.michelin.com/hk/en/new-york-state/new-york/restaurant/sofreh"]]},
 {t:2,a:"BK",n:"Eyval",ad:"25 Bogart St, Brooklyn, NY 11206",cz:["ME"],la:40.70414,ln:-73.93316,w:"Stylish Bushwick Persian small-plates spot from ex-Sofreh chef Ali Saboor, plating fava bean borani, wagyu kebabs and crackling potato tahdig.",s:[["INFATUATION","https://www.theinfatuation.com/new-york/reviews/eyval"]]},
+{t:1,a:"MAN",n:"The Halal Guys",ad:"SW corner of W 53rd St & 6th Ave, New York, NY 10019",cz:["ME"],la:40.76166,ln:-73.97966,w:"The 1990 cart that made NYC chicken-and-gyro-over-rice famous, still drawing a line down the block at the southwest corner of 53rd & 6th until the early hours — the white sauce (and the red) started here.",s:[["EATERNY","https://ny.eater.com/maps/best-halal-carts-nyc"],["TIMEOUT","https://www.timeout.com/newyork/restaurants/best-cheap-falafel"]]},
 {t:1,a:"MAN",n:"Le Bernardin",ad:"155 W 51st St, New York, NY 10019",cz:["EU","SEAF"],la:40.76142,ln:-73.98219,w:"Eric Ripert's Midtown seafood temple, holding 3 MICHELIN Stars and a fixture atop the global best lists.",s:[["MICHELIN_STAR",""]]},
 {t:1,a:"MAN",n:"Semma",ad:"60 Greenwich Ave, New York, NY 10011",cz:["IN"],la:40.73603,ln:-74.00051,w:"West Village Tamil kitchen from chef Vijay Kumar, a 1 MICHELIN Star and NYC's only starred Indian restaurant.",s:[["MICHELIN_STAR",""]]},
 {t:1,a:"MAN",n:"Torrisi",ad:"275 Mulberry St, New York, NY 10012",cz:["IT"],la:40.72433,ln:-73.99544,w:"Rich Torrisi's imaginative Italian-American room in the Puck Building, awarded 1 MICHELIN Star.",s:[["MICHELIN_STAR",""]]},
@@ -1451,7 +1453,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 507 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 508 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

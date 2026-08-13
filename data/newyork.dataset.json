@@ -5734,6 +5734,62 @@
   {
    "t": 1,
    "a": "MAN",
+   "n": "The Halal Guys",
+   "ad": "SW corner of W 53rd St & 6th Ave, New York, NY 10019",
+   "w": "The 1990 cart that made NYC chicken-and-gyro-over-rice famous, still drawing a line down the block at the southwest corner of 53rd & 6th until the early hours — the white sauce (and the red) started here.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "EATERNY",
+     "https://ny.eater.com/maps/best-halal-carts-nyc"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/newyork/restaurants/best-cheap-falafel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "King of Falafel & Shawarma",
+   "ad": "30-15 Broadway, Astoria, NY 11106",
+   "w": "Astoria's Vendy Award-winning Palestinian cart-turned-storefront — fava-free chickpea falafel and hand-shaved shawarma from a recipe traced to Ramallah; a citywide street-food benchmark.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "VENDY",
+     "New York's Best Street Food winner"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/new-york/reviews/king-of-falafel-shawarma"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "QNS",
+   "n": "Sammy's Halal",
+   "ad": "73-01 37th Rd, Jackson Heights, NY 11372",
+   "w": "The Jackson Heights halal cart that won a Vendy on the strength of its bright green sauce — chicken and lamb over rice served late into the night at 73rd & Broadway.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "VENDY",
+     "Vendy Award winner"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAN",
    "n": "Le Bernardin",
    "ad": "155 W 51st St, New York, NY 10019",
    "w": "Eric Ripert's Midtown seafood temple, holding 3 MICHELIN Stars and a fixture atop the global best lists.",
@@ -10030,6 +10086,12 @@
    "t": "Untapped New York",
    "u": "https://www.untappedcities.com",
    "l": "Untapped New York"
+  },
+  "VENDY": {
+   "k": "VENDY AWARDS",
+   "t": "VENDY AWARDS",
+   "u": "",
+   "l": ""
   },
   "WELCOMETOCHINATOWN": {
    "k": "WELCOMETOCHINATOWN",
