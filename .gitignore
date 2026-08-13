@@ -2,3 +2,7 @@ node_modules/
 package-lock.json
 *.log
 .DS_Store
+
+# consolidate.py intermediates (canonical dataset is data/newyork.dataset.json)
+data/newyork-research/nyc_dataset.json
+data/newyork-research/nyc_worklist.json
