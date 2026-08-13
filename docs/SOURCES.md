@@ -114,6 +114,48 @@ Youngstown examples: **White House Fruit Farm** (Canfield orchard + cider + doug
 Farm** (Columbiana — petting zoo, u-pick pumpkins, corn maze) and **Molnar Farms** (Poland — pumpkin
 patch, corn maze), all covered by WKBN and regional family blogs, all flagged seasonal.
 
+## Food & drink discovery — start with what the city is FAMOUS for (every city, the opening move)
+
+The **first** question for any city is: *what food and drinks is this city actually famous for?* — its
+signature, iconic, uniquely-local canon, the things a visitor comes specifically to eat and drink.
+Discovery **starts there**, before any generic "best restaurants" search. This is not an NYC-only or
+food-city-only step; **every city gets it**, and it runs before the deeper passes below.
+
+1. **Name the city's signatures first — write the list before you search.** The local canon of dishes
+   and drinks. Examples:
+   - **Pittsburgh** — pierogi, Primanti-style stacked sandwiches & hoagies, the Friday **fish
+     sandwich / fish fry**, chipped-chopped ham, city chicken, haluski, kolbassi, the "Pittsburgh
+     salad" (fries *on* the salad), Klondike, Isaly's, Mancini's bread.
+   - **Cleveland** — the **Polish Boy**, pierogi, kielbasa, corned beef (Slyman's), West Side Market,
+     Barberton fried chicken, Cleveland-style pizza, Bertman Ball Park mustard.
+   - **NYC** — the dollar/《regular》slice, bagel & lox, pastrami on rye, soup dumplings & dollar
+     dumplings, the halal cart, egg cream, black-and-white cookie, the NY bacon-egg-and-cheese.
+2. **Find the hidden-gem places that serve those signatures** — the beloved local institutions *and*
+   the up-and-comers, not just the one obvious tourist name. If a signature has no worthy standout,
+   **state the gap — never fill it** with a mediocre pick (editorial rule).
+3. **Source each from a reference that is genuinely popular, viral, or uniquely credible — and vet the
+   reference itself** (next block). Then run the whole pipeline, same as every expansion.
+
+### The source must itself be popular / viral / credible — VET it, don't just cite it
+A place earns a pin because a source *that actually carries weight* points to it. Before trusting a
+creator or outlet, confirm it **is** what it claims, and record *why* in the source entry's `credible`
+field:
+- **Local editorial of record** — the city's daily paper, alt-weekly, CVB and regional magazine
+  (ranked 1–3 in `data/sources.json`). Always the backbone.
+- **Influencers / TikTokers / YouTubers / travel bloggers** — welcome and encouraged, **but only when
+  the creator is verifiably popular or genuinely authoritative**: a real, sizable following; a real
+  track record on *this* city or cuisine; a **findable piece of content** (the actual video/post/story),
+  not trend hearsay. Note the follower scale / beat / notable coverage in `credible`, exactly like any
+  other source. Register them in `data/sources.json` creators lists so they're reusable.
+- **Reject** anonymous aggregators, SEO "10 best" listicles with no byline, and AI content farms.
+  *Virality or popularity you cannot verify is not virality* — drop it.
+
+This is the same credibility bar the cuisine deep-dive and viral-popup passes use — now stated **up
+front as the opening move for every city**. After sourcing, the full flow runs as always:
+**source (vet credibility) → fact-check open/closed → add → geocode + location-verify → re-rank within
+region → rebuild → gate.** Signature-first discovery is applied uniformly — **make sure every city gets
+the same treatment**, and re-run it whenever a city is refreshed or extended.
+
 ## Food discovery — cuisine deep-dive & viral pop-ups (food-heavy cities)
 
 For cities with a serious food scene (NYC, LA, the Bay, Houston…), the standard "best of" round-ups

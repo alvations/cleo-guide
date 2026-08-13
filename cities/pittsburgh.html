@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Pittsburgh, PA field guide — 111 sights and 97 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="description" content="Pittsburgh, PA field guide — 111 sights and 101 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
 <title>Pittsburgh Field Guide — The Steel City, Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · the Steel City, sourced</p>
   <h1>Pittsburgh<span class="thin">rivers, inclines &amp; the odd corners</span></h1>
-  <p class="standfirst">111 sights and 97 places to eat, drink, shop &amp; pick across Greater Pittsburgh, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">111 sights and 101 places to eat, drink, shop &amp; pick across Greater Pittsburgh, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -979,7 +979,11 @@ const F = [
 {t:3,a:"OAK",cz:["AS"],n:"Smiling Banana Leaf",ad:"5901 Bryant St, Highland Park",la:40.47585,ln:-79.91958,w:"Tiny, long-loved BYOB Thai spot in Highland Park serving down-home curries, pad Thai and pineapple fried rice at gentle prices.",s:[["CP",""],["TRIB","feature"]]},
 {t:3,a:"SH",cz:["ME"],n:"Laziz Lebanese Cuisine",ad:"615 Washington Rd, Mt. Lebanon",la:40.38240,ln:-80.04374,w:"Family Lebanese kitchen in Mt. Lebanon with fresh, generous plates; standouts include chicken shawarma, falafel wraps and lamb shanks.",s:[["PGHMAG","opening feature"]]},
 {t:3,a:"OAK",cz:["CAF"],n:"KLVN Coffee Lab",ad:"6600 Hamilton Ave, Larimer",la:40.45770,ln:-79.91074,w:"Scandinavian-style specialty roaster and cafe in Larimer with single-origin coffees roasted in view of the bar in a revived industrial building.",s:[["VLOCAL","Now Open feature"]]},
-{t:3,a:"OAK",cz:["IN"],n:"Tamarind Flavor of India",ad:"257 N Craig St, Oakland",la:40.45115,ln:-79.95195,w:"No-frills South Indian house on North Craig Street in Oakland, a go-to for crisp paper and mysore masala dosas, idli and vegetarian thalis.",s:[["PGHMAG","Indian restaurants feature"]]}
+{t:3,a:"OAK",cz:["IN"],n:"Tamarind Flavor of India",ad:"257 N Craig St, Oakland",la:40.45115,ln:-79.95195,w:"No-frills South Indian house on North Craig Street in Oakland, a go-to for crisp paper and mysore masala dosas, idli and vegetarian thalis.",s:[["PGHMAG","Indian restaurants feature"]]},
+{t:1,a:"OAK",cz:["AM","POL"],n:"Butterjoint",ad:"208 N Craig St, North Oakland",la:40.45010,ln:-79.95066,w:"North Oakland bar from the Legume team where light-as-air pierogi and a cult bar burger share the menu with French-bistro plates — a Post-Gazette pierogi-project favorite and an Infatuation pick.",s:[["PGHMAG","Now Open"],["INF",""],["PGPG","pierogi project"]]},
+{t:2,a:"OAK",cz:["IT","AM"],n:"Spak Brothers",ad:"5107 Penn Ave, Garfield",la:40.46516,ln:-79.94253,w:"Garfield pizza-and-sub shop beloved for giant hoagies and one of the city's best vegan-friendly menus — seitan wings, soy-cheese pies and locally sourced ingredients alongside the classic steak hoagie.",s:[["CP","review"],["DTB","review"]]},
+{t:2,a:"DT",cz:["AM"],n:"Pamela's Diner",ad:"60 21st St, Strip District",la:40.45195,ln:-79.98362,w:"The Strip's cash-only griddle famous for crisp-edged, crêpe-thin banana or blueberry hotcakes and Lyonnaise potatoes — President Obama ate here, and it's a Pittsburgh breakfast rite. Cash only.",s:[["VP","Favorite Diners"],["GFP","Best Diners"]]},
+{t:2,a:"DT",cz:["AM"],n:"DeLuca's Diner",ad:"2015 Penn Ave, Strip District",la:40.45155,ln:-79.98376,w:"Since 1950, the Strip District's line-out-the-door breakfast institution — huge skillets, hotcakes and eggs off a busy open griddle in the heart of the market district. Cash only.",s:[["VP","Strip District dining"],["GFP","Best Diners"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -1500,7 +1504,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 208 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 212 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
