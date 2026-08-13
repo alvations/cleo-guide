@@ -115,16 +115,18 @@ Full field reference: [docs/DATA-SCHEMA.md](docs/DATA-SCHEMA.md)
 
 ## Editorial rules — do not quietly change these
 
-- **Food discovery starts with what the city is FAMOUS for — every city, no exceptions.** Before any
-  generic "best restaurants" search, name the city's signature/iconic/uniquely-local dishes and drinks
-  (Pittsburgh: pierogi, hoagies, the Friday fish sandwich, chipped ham, haluski; Cleveland: Polish Boy,
-  pierogi, corned beef; NYC: the slice, bagels, pastrami, dumplings), then find the hidden-gem places
-  that serve them. Source each from references that are **genuinely popular / viral / credible** — local
-  editorial of record, or influencers/TikTokers/YouTubers/travel bloggers **only when the creator is
-  verifiably popular or authoritative** (real following, real track record, a findable piece of content);
-  reject anonymous SEO listicles and content farms — *popularity you can't verify isn't popularity.* Then
-  the full pipeline as always: vet source → fact-check open/closed → geocode + location-verify → re-rank →
-  gate. **Every city gets this same treatment.** Full playbook: [docs/SOURCES.md](docs/SOURCES.md#food--drink-discovery--start-with-what-the-city-is-famous-for-every-city-the-opening-move).
+- **Food discovery centres on what is UNIQUE to the city — every city, no exceptions.** The core of any
+  city's food list is the dishes and drinks *unique or signature to that city* — not a generic "best
+  restaurants" list. Before searching, name the city-unique canon (Pittsburgh: pierogi, hoagies, the
+  Friday fish sandwich, chipped ham, haluski; Cleveland: Polish Boy, Barberton chicken, pierogi, corned
+  beef, lake perch; NYC: the slice, bagels, pastrami, dumplings), then find the hidden-gem places that
+  serve them. Source each from references that are **genuinely popular, viral, or uniquely meaningful to
+  that city** — the local editorial of record, a beloved city food writer/outlet, or
+  influencers/TikTokers/YouTubers/travel bloggers **only when the creator is verifiably popular or
+  authoritative** (real following, real track record, a findable piece of content); reject anonymous SEO
+  listicles and content farms — *popularity you can't verify isn't popularity.* Then the full pipeline as
+  always: vet source → fact-check open/closed → geocode + location-verify → re-rank → gate. **Every city
+  gets this same treatment.** Full playbook: [docs/SOURCES.md](docs/SOURCES.md#food--drink-discovery--start-with-what-the-city-is-famous-for-every-city-the-opening-move).
 - **Tiers are graded within each region, not across the city.** Ranking globally clusters
   everything downtown and makes the filter useless elsewhere.
 - **Closed places stay**, flagged. Lolly the Trolley, Sokolowski's, Hot Sauce Williams.

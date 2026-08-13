@@ -1,0 +1,9 @@
+{
+  "note": "Cleveland signature-food gap: Lake Erie yellow perch / Friday fish fry — a dish and ritual genuinely unique to Cleveland & NE Ohio, previously absent. Cuisine 'US' (Unique American). Sourced to Fox 8 Cleveland's annual NE-Ohio Fish Fry Guide (FOX8, newly registered — a city-meaningful institution) + Cleveland Scene. Open/closed fact-checked (2026 guide lists them operating; all established venues). Coordinates verified to place pins into data/geocodes.json cleveland-oh.",
+  "sources_registered": [{"key": "FOX8", "name": "Fox 8 Cleveland (WJW) — NE Ohio Fish Fry Guide", "why": "the region's long-running, uniquely-Cleveland guide to the Lake Erie perch / Friday fish-fry tradition"}],
+  "food": [
+    {"t": 2, "cz": ["US"], "dish": "Lake Erie yellow perch fry", "n": "Prosperity Social Club", "address": "1109 Starkweather Ave, Tremont", "area": "WS", "w": "Restored 1938 Tremont corner bar and Cleveland landmark whose Friday Lake Erie yellow-perch fry draws a line out the door.", "closed": false, "sources": [["FOX8", ""], ["SCENE", ""]]},
+    {"t": 2, "cz": ["US"], "dish": "fresh Lake Erie perch, year-round", "n": "Gunselman's Tavern", "address": "21490 Lorain Rd, Fairview Park", "area": "SUB", "w": "West-suburban tavern frying fresh Lake Erie yellow perch every Friday year-round, not just Lent.", "closed": false, "sources": [["FOX8", ""]]},
+    {"t": 3, "cz": ["US"], "dish": "Friday perch & fish fry", "n": "Merry Arts Pub & Grille", "address": "15607 Detroit Ave, Lakewood", "area": "SUB", "w": "Tiny, well-worn Lakewood neighborhood pub whose Lenten Friday fish and Lake Erie perch fries are a west-side ritual.", "closed": false, "sources": [["FOX8", ""]]}
+  ]
+}

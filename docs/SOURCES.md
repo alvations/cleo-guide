@@ -136,10 +136,12 @@ food-city-only step; **every city gets it**, and it runs before the deeper passe
 3. **Source each from a reference that is genuinely popular, viral, or uniquely credible — and vet the
    reference itself** (next block). Then run the whole pipeline, same as every expansion.
 
-### The source must itself be popular / viral / credible — VET it, don't just cite it
-A place earns a pin because a source *that actually carries weight* points to it. Before trusting a
-creator or outlet, confirm it **is** what it claims, and record *why* in the source entry's `credible`
-field:
+### The source must itself be popular / viral / uniquely meaningful to the city — VET it, don't just cite it
+A place earns a pin because a source *that actually carries weight for this city* points to it — one
+that is genuinely popular, genuinely viral, **or uniquely meaningful to the city** (a beloved local
+institution's own following, the city's food writer of record, a hometown outlet everyone there reads).
+Before trusting a creator or outlet, confirm it **is** what it claims, and record *why* in the source
+entry's `credible` field:
 - **Local editorial of record** — the city's daily paper, alt-weekly, CVB and regional magazine
   (ranked 1–3 in `data/sources.json`). Always the backbone.
 - **Influencers / TikTokers / YouTubers / travel bloggers** — welcome and encouraged, **but only when
