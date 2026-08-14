@@ -48,6 +48,7 @@ const PAGE_FOR = {
   'pittsburgh-pa': path.join(__dirname, '..', 'cities', 'pittsburgh.html'),
   'youngstown-oh': path.join(__dirname, '..', 'cities', 'youngstown.html'),
   'new-york-ny': path.join(__dirname, '..', 'cities', 'newyork.html'),
+  'silicon-valley-ca': path.join(__dirname, '..', 'cities', 'siliconvalley.html'),
 };
 
 function loadGeocodes() {

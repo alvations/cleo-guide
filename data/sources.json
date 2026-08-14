@@ -1814,6 +1814,72 @@
           "verified": true
         }
       ]
+    },
+    "silicon-valley-ca": {
+      "name": "Silicon Valley (South Bay, CA)",
+      "lastUpdated": "2026-08-14",
+      "researchedOn": "2026-08-14",
+      "researchedVia": "WebSearch (WebFetch/direct fetch blocked by org egress); place pins verified into data/geocodes.json",
+      "refreshLog": [
+        "2026-08-14 — region guide scaffolded: municipalities as areas (Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara, San Jose + day trips); signature-first food = immigrant density (Taiwanese, Vietnamese, South Indian, boba)."
+      ],
+      "sources": [
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN Guide — California (stars + Bib Gourmand)",
+          "type": "guide",
+          "url": "https://guide.michelin.com/us/en/california/restaurants",
+          "rank": 1,
+          "verified": true,
+          "credible": "The global fine-dining authority; its California selection covers the South Bay."
+        },
+        {
+          "key": "EATERSF",
+          "name": "Eater SF",
+          "type": "food_media",
+          "url": "https://sf.eater.com",
+          "rank": 1,
+          "verified": true,
+          "credible": "Vox Media's Bay Area dining site; the region's most-read restaurant news/maps outlet, incl. dedicated South Bay/Peninsula guides."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "The Infatuation — Bay Area",
+          "type": "food_media",
+          "url": "https://www.theinfatuation.com/san-francisco",
+          "rank": 1,
+          "verified": true,
+          "credible": "Widely-followed restaurant review site with Peninsula/South Bay coverage."
+        },
+        {
+          "key": "SFCHRON",
+          "name": "San Francisco Chronicle — Food",
+          "type": "newspaper",
+          "url": "https://www.sfchronicle.com/food/",
+          "rank": 1,
+          "verified": true,
+          "credible": "The Bay Area newspaper of record; its Top Restaurants list and critics cover the Valley."
+        },
+        {
+          "key": "MERCURY",
+          "name": "The Mercury News (San Jose)",
+          "type": "newspaper",
+          "url": "https://www.mercurynews.com",
+          "rank": 1,
+          "verified": true,
+          "credible": "Silicon Valley's daily paper of record — uniquely meaningful to the South Bay; deep local dining and things-to-do coverage."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura — Silicon Valley",
+          "type": "oddity",
+          "url": "https://www.atlasobscura.com",
+          "rank": 2,
+          "verified": true,
+          "credible": "Curated, fact-checked oddities and hidden landmarks."
+        }
+      ],
+      "creators": []
     }
   }
 }
