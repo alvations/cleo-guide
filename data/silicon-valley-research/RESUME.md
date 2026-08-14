@@ -10,11 +10,17 @@ a scheduled wake, or a brand-new session — resumes deterministically by readin
 Then run `cd data/silicon-valley-research && python3 consolidate.py` to see the live count.
 
 ## Design goal (NYC parity) — acceptance criteria
-- [ ] **~500 places** total (sights + food), dense across all 7 areas and every cuisine/collection.
-- [ ] **Every place fact-checked** — open/closed verified from a real source; notability
-      (viral/popular/authentic/notable/credible) confirmed; closures kept-but-flagged, non-places excluded.
-- [ ] **Every place credibly sourced** — Michelin / Infatuation / KQED / official / Atlas Obscura, or a
-      **vetted creator**; Yelp-only entries upgraded with an editorial/creator recommender.
+**500 is a YARDSTICK, not a goal.** The real bar is quality: every place **notable / authentic /
+hidden-gem / popular / viral / iconic — and above all CREDIBLE.** Never pad to a number; prune or hold
+anything not credibly sourceable. Density comparable to NYC is the aim, reached only through places that
+clear the bar. See `_AGENT_BRIEF.md` for the full source palette + rules.
+- [ ] **NYC-comparable density** across all 7 areas and every cuisine/collection — via credible places only.
+- [ ] **Every place fact-checked** — open/closed verified from a real source; notability confirmed;
+      closures kept-but-flagged, non-places excluded.
+- [ ] **Every place credibly sourced — NO Yelp-only recommenders in the final set.** Yelp/TripAdvisor are
+      open-verification ONLY. Each place must carry ≥1 source from: Michelin/James Beard · Infatuation/KQED ·
+      Metro Silicon Valley/San José Spotlight/The Six Fifty/Palo Alto Online/MV Voice · NBC Bay Area/ABC7 ·
+      Atlas Obscura/official · or a **vetted creator**. Upgrade every entry in `_yelp_only_food.txt`.
 - [ ] **Every place location-verified** — exact place pin in `data/geocodes.json`, or queued in the helper.
 - [ ] **Built + gated** — `build-siliconvalley.py`; geocheck PASS · statuscheck CONSISTENT · validate
       DATA OK · npm test ALL PASS · headless render-verify (Leaflet mounts, markers>0, 0 errors).

@@ -1821,7 +1821,8 @@
       "researchedOn": "2026-08-14",
       "researchedVia": "WebSearch (WebFetch/direct fetch blocked by org egress); place pins verified into data/geocodes.json",
       "refreshLog": [
-        "2026-08-14 — region guide scaffolded: municipalities as areas (Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara, San Jose + day trips); signature-first food = immigrant density (Taiwanese, Vietnamese, South Indian, boba)."
+        "2026-08-14 — region guide scaffolded: municipalities as areas (Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara, San Jose + day trips); signature-first food = immigrant density (Taiwanese, Vietnamese, South Indian, boba).",
+        "2026-08-14 — expanded the credible source palette beyond Michelin/Infatuation/KQED: added Metro Silicon Valley (Best of SV poll), San José Spotlight, The Six Fifty, Palo Alto Online, Mountain View Voice, NBC Bay Area, ABC7, James Beard. Rule reaffirmed: Yelp is open-verification ONLY, never the sole recommender; exhaust credible local outlets + vetted creators first. 500 is a yardstick, not a goal — the bar is notable/authentic/hidden-gem/popular/viral/credible."
       ],
       "sources": [
         {
@@ -1886,6 +1887,78 @@
           "rank": 1,
           "verified": true,
           "credible": "Bay Area public-media food desk; Luke Tsai is a widely-followed, award-recognized Bay Area food writer — genuine named editorial, uniquely meaningful to the region (not an SEO listicle). In practice one of the few elite outlets reachable when Eater/Chronicle/Mercury domains were blocked to the crawler."
+        },
+        {
+          "key": "METROSV",
+          "name": "Metro Silicon Valley (Metroactive) — incl. Best of Silicon Valley reader poll",
+          "type": "alt_weekly",
+          "url": "https://www.metrosiliconvalley.com",
+          "rank": 1,
+          "verified": true,
+          "credible": "The South Bay's alt-weekly of record; its long-running 'Best of Silicon Valley' reader poll is a genuine local institution — the Cleveland-Scene/Vendy equivalent for this region."
+        },
+        {
+          "key": "SJSPOTLIGHT",
+          "name": "San José Spotlight",
+          "type": "local_news",
+          "url": "https://sanjosespotlight.com",
+          "rank": 1,
+          "verified": true,
+          "credible": "Respected nonprofit civic-news newsroom covering San José; independent, bylined reporting incl. food & culture."
+        },
+        {
+          "key": "SIXFIFTY",
+          "name": "The Six Fifty",
+          "type": "local_media",
+          "url": "https://thesixfifty.com",
+          "rank": 1,
+          "verified": true,
+          "credible": "Peninsula/South-Bay culture & food publication (Embarcadero Media); bylined, local, curated — not an SEO farm."
+        },
+        {
+          "key": "PALOALTOONLINE",
+          "name": "Palo Alto Online / The Almanac (Embarcadero Media)",
+          "type": "newspaper",
+          "url": "https://www.paloaltoonline.com",
+          "rank": 2,
+          "verified": true,
+          "credible": "Credible local newspaper of record for Palo Alto & the mid-Peninsula; reachable to the crawler when the bigger dailies are blocked."
+        },
+        {
+          "key": "MTNVIEWVOICE",
+          "name": "Mountain View Voice (Embarcadero Media)",
+          "type": "newspaper",
+          "url": "https://www.mv-voice.com",
+          "rank": 2,
+          "verified": true,
+          "credible": "Local newspaper of record for Mountain View/Los Altos; bylined dining coverage."
+        },
+        {
+          "key": "NBCBAY",
+          "name": "NBC Bay Area",
+          "type": "tv_news",
+          "url": "https://www.nbcbayarea.com",
+          "rank": 2,
+          "verified": true,
+          "credible": "Major Bay Area TV station; food/things-to-do segments — reported, on-camera, verifiable."
+        },
+        {
+          "key": "ABC7",
+          "name": "ABC7 News Bay Area (KGO)",
+          "type": "tv_news",
+          "url": "https://abc7news.com",
+          "rank": 2,
+          "verified": true,
+          "credible": "Major Bay Area TV station with reported food features."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "url": "https://www.jamesbeard.org/awards",
+          "rank": 1,
+          "verified": true,
+          "credible": "The national culinary authority; nominees/semifinalists/winners are a credible, verifiable mark of distinction."
         }
       ],
       "creators": []

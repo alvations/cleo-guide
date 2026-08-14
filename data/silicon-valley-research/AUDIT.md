@@ -36,6 +36,16 @@ Accepted (registered in `data/sources.json` with `credible`):
 | OFFICIAL / CASTATEPARKS / SJTOURISM / VISITCA | official site / parks / tourism | primary source for sights, hours, status | yes |
 | YELP / TRIPADVISOR | review aggregators | **open-status verification only** — NOT a recommender. Any Yelp-only place is flagged for a creator/editorial upgrade (see `_PENDING_LEADS.md`). | yes |
 
+**Expanded palette (2026-08-14, per repeated user directive "don't rely on Yelp — expand sources").**
+Added a South-Bay local-of-record tier so agents stop defaulting to Yelp: **METROSV** (Metro Silicon
+Valley + its "Best of Silicon Valley" reader poll — the region's alt-weekly of record), **SJSPOTLIGHT**
+(San José Spotlight), **SIXFIFTY** (The Six Fifty), **PALOALTOONLINE**, **MTNVIEWVOICE**, plus reported
+TV **NBCBAY**/**ABC7** and the **JAMESBEARD** awards authority. Standing rule, now codified in
+`_AGENT_BRIEF.md` and RESUME.md acceptance: **Yelp/TripAdvisor are open-verification ONLY, never the
+sole recommender** — exhaust the credible palette + vetted creators first; a place with only Yelp is held
+in a needs-credible-source state, not shipped. Waves 1–3 predate the brief and left ~75+ Yelp-only food
+entries (`_yelp_only_food.txt`); the **re-sourcing wave** upgrades each to a credible source or prunes it.
+
 **Rejected** ([D1](../../docs/DECISIONS.md)): anonymous SEO listicles and content farms
 (e.g. findindianrestaurants.com, generic "10 best…" aggregators) — no byline, unverifiable claims.
 **Reachability finding (important, reproducible):** eater.com, sfchronicle.com, mercurynews.com,
