@@ -2059,6 +2059,103 @@
           "credible": "@vyeatsfood_ 'Vy | San Jose Foodie', ~5.5K IG followers, San Jose-based, reels of specific SJ spots (banh mi, Kai Japanese Sushi San Jose, AYCE hot pot). Small but real and consistently South Bay; listed in Social Cat's San Jose creators. Lowest following on this list — weight accordingly."
         }
       ]
+    },
+    "san-francisco-ca": {
+      "name": "San Francisco & the Peninsula (to San Mateo, incl. SFO corridor)",
+      "sources": [
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN Guide (star / Bib Gourmand)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "The definitive dining authority; SF is one of its flagship US cities."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "rank": 1,
+          "verified": true,
+          "credible": "National culinary authority; nominees/winners are verifiable distinction."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "The Infatuation — SF",
+          "type": "food_media",
+          "rank": 1,
+          "verified": true,
+          "credible": "Bylined, opinionated SF restaurant reviews; a primary local food authority."
+        },
+        {
+          "key": "KQED",
+          "name": "KQED / Bay Area Bites",
+          "type": "public_media",
+          "rank": 1,
+          "verified": true,
+          "credible": "NPR/PBS member station; Luke Tsai & Bay Area Bites food journalism."
+        },
+        {
+          "key": "SFSTANDARD",
+          "name": "The San Francisco Standard",
+          "type": "local_news",
+          "rank": 1,
+          "verified": true,
+          "credible": "Well-funded SF newsroom with a strong food & city desk."
+        },
+        {
+          "key": "HOODLINE",
+          "name": "Hoodline SF",
+          "type": "local_news",
+          "rank": 2,
+          "verified": true,
+          "credible": "Neighborhood-level SF reporting incl. openings/closings."
+        },
+        {
+          "key": "MISSIONLOCAL",
+          "name": "Mission Local",
+          "type": "local_news",
+          "rank": 2,
+          "verified": true,
+          "credible": "Award-winning nonprofit newsroom covering the Mission & SF."
+        },
+        {
+          "key": "SEVENXSEVEN",
+          "name": "7x7 San Francisco",
+          "type": "city_mag",
+          "rank": 2,
+          "verified": true,
+          "credible": "Long-running SF city magazine; food & culture."
+        },
+        {
+          "key": "BOLDITALIC",
+          "name": "The Bold Italic",
+          "type": "city_media",
+          "rank": 2,
+          "verified": true,
+          "credible": "SF culture publication; local, bylined."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out San Francisco",
+          "type": "city_mag",
+          "rank": 2,
+          "verified": true,
+          "credible": "Editorially curated things-to-do & eats."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "curated",
+          "rank": 2,
+          "verified": true,
+          "credible": "Vetted oddities/hidden gems."
+        }
+      ],
+      "creators": [],
+      "refreshLog": [
+        "2026-08-14 — region scaffolded: SF + northern Peninsula to San Mateo incl. SFO corridor; same pipeline + >=2-credible-source gate as SV/NYC."
+      ]
     }
   }
 }

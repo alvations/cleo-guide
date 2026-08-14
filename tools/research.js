@@ -49,11 +49,13 @@ const PAGE_FOR = {
   'youngstown-oh': path.join(__dirname, '..', 'cities', 'youngstown.html'),
   'new-york-ny': path.join(__dirname, '..', 'cities', 'newyork.html'),
   'silicon-valley-ca': path.join(__dirname, '..', 'cities', 'siliconvalley.html'),
+  'san-francisco-ca': path.join(__dirname, '..', 'cities', 'sanfrancisco.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
   'new-york-ny': path.join(__dirname, '..', 'data', 'newyork.dataset.json'),
   'silicon-valley-ca': path.join(__dirname, '..', 'data', 'siliconvalley.dataset.json'),
+  'san-francisco-ca': path.join(__dirname, '..', 'data', 'sanfrancisco.dataset.json'),
 };
 
 function loadGeocodes() {

@@ -1,0 +1,167 @@
+{
+ "areas": [
+  {
+   "id": "DTN",
+   "n": "Downtown, SoMa & Union Square"
+  },
+  {
+   "id": "NECN",
+   "n": "Chinatown, North Beach & the Wharf"
+  },
+  {
+   "id": "NOB",
+   "n": "Nob Hill, Russian Hill & Polk"
+  },
+  {
+   "id": "NW",
+   "n": "Marina, Pacific Heights & Presidio"
+  },
+  {
+   "id": "AVE",
+   "n": "Richmond, Sunset & Golden Gate Park"
+  },
+  {
+   "id": "MIS",
+   "n": "Mission, Castro & Noe Valley"
+  },
+  {
+   "id": "HAI",
+   "n": "Haight, Hayes Valley & Divisadero"
+  },
+  {
+   "id": "SE",
+   "n": "Bayview, Dogpatch & the Southeast"
+  },
+  {
+   "id": "PEN",
+   "n": "Peninsula & SFO (to San Mateo)"
+  }
+ ],
+ "ac": {
+  "DTN": "#E8973A",
+  "NECN": "#C0504D",
+  "NOB": "#8064A2",
+  "NW": "#4F81BD",
+  "AVE": "#4BACC6",
+  "MIS": "#9BBB59",
+  "HAI": "#D16BA5",
+  "SE": "#7E8FC4",
+  "PEN": "#5AA469"
+ },
+ "cuisines": [
+  {
+   "id": "CANT",
+   "n": "Chinese & Dim Sum"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnamese"
+  },
+  {
+   "id": "MX",
+   "n": "Mexican & Taqueria"
+  },
+  {
+   "id": "IT",
+   "n": "Italian & Pizza"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood & Oysters"
+  },
+  {
+   "id": "JP",
+   "n": "Japanese, Sushi & Ramen"
+  },
+  {
+   "id": "KR",
+   "n": "Korean"
+  },
+  {
+   "id": "SEA",
+   "n": "Southeast Asian"
+  },
+  {
+   "id": "BURM",
+   "n": "Burmese"
+  },
+  {
+   "id": "IN",
+   "n": "Indian & South Asian"
+  },
+  {
+   "id": "US",
+   "n": "California & New American"
+  },
+  {
+   "id": "BAKE",
+   "n": "Bakeries & Sourdough"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "DES",
+   "n": "Desserts & Ice Cream"
+  },
+  {
+   "id": "BAR",
+   "n": "Bars & Cocktails"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Hikes"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "ENT",
+   "n": "Nightlife, Music & Theatre"
+  },
+  {
+   "id": "SHOP",
+   "n": "Shopping & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "WATER",
+   "n": "Waterfront & Piers"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}
