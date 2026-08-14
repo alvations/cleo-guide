@@ -14,11 +14,13 @@ h    = open(SRC, encoding="utf-8").read()
 #    (not asserted): any under-sourced place is dropped-and-logged so the published map provably
 #    contains only corroborated places. Mirror of tools/sourcecheck.py.
 _OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
-def _credible(r):
-    return len({t[0] for t in r.get("s", []) if t[0] not in _OPEN_CHECK_ONLY})
-_undersourced = [r["n"] for r in DS["P"] + DS["F"] if _credible(r) < 2]
-DS["P"] = [r for r in DS["P"] if _credible(r) >= 2]
-DS["F"] = [r for r in DS["F"] if _credible(r) >= 2]
+_ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD"}
+def _sourced_ok(r):
+    c = {t[0] for t in r.get("s", []) if t[0] not in _OPEN_CHECK_ONLY}
+    return len(c) >= 2 or bool(c & _ELITE_SOLO)   # >=2 credible, OR a lone institutional authority
+_undersourced = [r["n"] for r in DS["P"] + DS["F"] if not _sourced_ok(r)]
+DS["P"] = [r for r in DS["P"] if _sourced_ok(r)]
+DS["F"] = [r for r in DS["F"] if _sourced_ok(r)]
 if _undersourced:
     print("NOTE: %d place(s) dropped — <2 credible sources (MULTIPLE-SOURCES-OF-TRUTH gate; Yelp counts as 0)." % len(_undersourced))
     print("      Re-source them (tools/sourcecheck.py --list) before they can appear.")

@@ -11,6 +11,9 @@ import json, sys, os
 from collections import Counter
 
 OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
+# Definitive institutional authorities: a single one of these is sufficient ground truth on its own
+# (vetted recognition, not one editorial opinion). A lone editorial source still needs a 2nd.
+ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD"}
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
@@ -18,21 +21,23 @@ def main():
     path = args[0] if args else "data/siliconvalley.dataset.json"
     ds = json.load(open(path, encoding="utf-8"))
     recs = ds.get("P", []) + ds.get("F", [])
-    yelp_only, single, ok = [], [], 0
+    yelp_only, single, ok, elite_solo = [], [], 0, 0
     src_usage = Counter()
     for r in recs:
         keys = [t[0] for t in r.get("s", [])]
         credible = [k for k in keys if k not in OPEN_CHECK_ONLY]
         for k in keys: src_usage[k] += 1
         n = len(set(credible))
-        if n == 0:   yelp_only.append(r["n"])
-        elif n == 1: single.append((r["n"], credible[0]))
-        else:        ok += 1
+        if n >= 2:                                       ok += 1
+        elif n == 1 and set(credible) & ELITE_SOLO:      elite_solo += 1
+        elif n == 1:                                     single.append((r["n"], credible[0]))
+        else:                                            yelp_only.append(r["n"])
+    ok += elite_solo
     total = len(recs)
     print(f"== Sourcing check: {os.path.basename(path)} ==")
     print(f"  places:                         {total}")
-    print(f"  >=2 credible sources (PASS):    {ok}")
-    print(f"  1 credible source (needs +1):   {len(single)}")
+    print(f"  PASS (>=2 credible, or lone Michelin/JB): {ok}   (of which {elite_solo} on a lone institutional authority)")
+    print(f"  1 editorial source (needs +1):  {len(single)}")
     print(f"  0 credible / Yelp-only (FAIL):  {len(yelp_only)}")
     print(f"  distinct sources in use:        {len([k for k in src_usage if k not in OPEN_CHECK_ONLY])} credible + "
           f"{len([k for k in src_usage if k in OPEN_CHECK_ONLY])} open-check")

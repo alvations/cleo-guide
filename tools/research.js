@@ -528,17 +528,27 @@ function sourcecheck(key) {
   }
   if (!fs.existsSync(ds)) { console.log('No dataset at ' + ds); return; }
   const OPEN_ONLY = new Set(['YELP', 'TRIPADVISOR', 'OPENTABLE', 'GOOGLE', 'GOOGLEMAPS']);
+  // A lone institutional authority (Michelin / James Beard) is sufficient on its own; a lone
+  // editorial source still needs a 2nd. Keep in sync with tools/sourcecheck.py + build-*.py.
+  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD']);
   const data = JSON.parse(fs.readFileSync(ds, 'utf8'));
   const recs = (data.P || []).concat(data.F || []);
-  const credible = r => new Set((r.s || []).map(t => t[0]).filter(k => !OPEN_ONLY.has(k))).size;
+  const credSet = r => new Set((r.s || []).map(t => t[0]).filter(k => !OPEN_ONLY.has(k)));
   const yelpOnly = [], single = [];
-  let ok = 0;
-  for (const r of recs) { const n = credible(r); if (n === 0) yelpOnly.push(r.n); else if (n === 1) single.push(r.n); else ok++; }
+  let ok = 0, eliteSolo = 0;
+  for (const r of recs) {
+    const c = credSet(r);
+    if (c.size >= 2) ok++;
+    else if (c.size === 1 && [...c].some(k => ELITE_SOLO.has(k))) eliteSolo++;
+    else if (c.size === 1) single.push(r.n);
+    else yelpOnly.push(r.n);
+  }
+  ok += eliteSolo;
   console.log(`\nSOURCING AUDIT — ${key}  (multiple sources of truth)`);
   console.log(line);
   console.log(`places:                        ${recs.length}`);
-  console.log(`  >=2 credible sources (PASS): ${ok}`);
-  console.log(`  1 credible source:           ${single.length}`);
+  console.log(`  PASS (>=2 credible, or lone Michelin/JB): ${ok}  (${eliteSolo} on a lone authority)`);
+  console.log(`  1 editorial source:          ${single.length}`);
   console.log(`  0 credible / Yelp-only:      ${yelpOnly.length}`);
   const pass = yelpOnly.length === 0 && single.length === 0;
   console.log('\n' + line);

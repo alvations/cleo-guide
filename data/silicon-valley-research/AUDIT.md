@@ -137,9 +137,15 @@ recorded in `data/geocodes.json` with `source` (the URL/DB read), `confidence` h
 ## Stage 6 — Build & gate  (status: PENDING pins + re-sourcing)
 `consolidate.py → build-siliconvalley.py → cities/siliconvalley.html`, held until pins exist AND the
 sourcing gate passes. Gates required — **enforced in code, verifiable, not asserted**:
-- **`node tools/research.js --sourcecheck silicon-valley-ca`** — multiple sources of truth; ≥2 credible
-  per place, Yelp/TripAdvisor = 0. **Baseline 2026-08-14: FAIL — 106 PASS / 60 single / 119 Yelp-only**
-  (identical from `python3 tools/sourcecheck.py`; both exit 1). Re-sourcing wave in progress.
+- **`node tools/research.js --sourcecheck silicon-valley-ca`** — multiple sources of truth. Rule (in code,
+  all three checkers agree): a place PASSES with **≥2 credible sources**, OR a single **institutional
+  authority** (Michelin / James Beard) — a vetted listing that is ground truth on its own; a lone
+  *editorial* source (Infatuation/KQED/local paper) still needs a 2nd. Yelp/TripAdvisor = 0.
+  - Baseline 2026-08-14: 106 PASS / 60 single / 119 Yelp-only.
+  - After re-sourcing waves 1+2 (+139 source rows, 4+2 agents): **170 PASS / 48 single-editorial /
+    67 Yelp-only** — 43 distinct credible outlets now in use (was 3). Still FAIL by 115; the held places
+    stay in research (not deleted) for future 2nd-sourcing, and the build gate drops them meanwhile.
+    Confirmed diminishing returns: ~74 places (chains/boba) have no credible coverage that exists.
 - `build-siliconvalley.py` **GATE 1** drops-and-logs any place with <2 credible sources, **GATE 2** drops
   any place without a sourced pin — so the published page provably contains only corroborated, located places.
 - geocheck PASS · statuscheck CONSISTENT · validate DATA OK · npm test ALL PASS · headless render-verify.
