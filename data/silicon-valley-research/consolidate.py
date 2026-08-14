@@ -49,22 +49,27 @@ def map_cz(raw):
     return out or ["US"]
 
 # ---- Collections (CATS) + keyword rules ----
-CATS=[{"id":"TECH","n":"Tech Landmarks & Campuses"},{"id":"MUS","n":"Museums & Galleries"},
-      {"id":"PARK","n":"Parks & Gardens"},{"id":"ICON","n":"Iconic & Must-See"},
+# TECH is the marquee filter for this region: the big-company campuses and the publicly-visitable
+# parts of them (Apple Park Visitor Center, the Google Visitor Experience / Android lawn, Meta's
+# thumbs-up sign, Nvidia HQ, the Intel Museum). The map is emphatically NOT just food.
+CATS=[{"id":"TECH","n":"Big Tech Campuses"},{"id":"ICON","n":"Iconic & Must-See"},
+      {"id":"MUS","n":"Museums & Galleries"},{"id":"PARK","n":"Parks & Gardens"},
+      {"id":"ENT","n":"Sports, Music & Entertainment"},{"id":"SHOP","n":"Shopping & Districts"},
       {"id":"ARCH","n":"Architecture & History"},{"id":"VIEW","n":"Views & Hikes"},
       {"id":"FAM","n":"Family & Kids"},{"id":"ODD","n":"Oddities & Hidden Gems"},
       {"id":"FREE","n":"Free to Visit"}]
 KW={
- "TECH":["apple park","googleplex","google campus","computer history","intel museum","nvidia","hp garage","hewlett","nasa ames","moffett","tesla","semiconductor","android","visitor center","the tech interactive","stanford dish","xerox parc","fairchild","facebook","meta","silicon valley"],
- "MUS":["museum","gallery","collection","hall of fame","rosicrucian","cantor","anderson collection","planetarium","egyptian museum"],
- "PARK":["park","garden","gardens","preserve","open space","arboretum","baylands","hakone","japanese garden","municipal rose","overfelt","regional park","redwood grove"],
- "ICON":["winchester","stanford","memorial church","hoover tower","cathedral","mission santa clara","observatory","lick observatory","great mall","iconic","landmark"],
+ "TECH":["apple park","apple store","apple visitor","googleplex","google campus","google visitor","android statue","android lawn","1 hacker way","meta ","facebook","nvidia","intel museum","intel ","hp garage","hewlett","hewlett-packard","nasa ames","moffett","tesla","semiconductor","xerox parc","fairchild","adobe","cisco","ebay","paypal hq","linkedin","oracle","netflix","western digital","applied materials","amd ","juniper","broadcom","birthplace of silicon valley","tech campus","headquarters","hq"],
+ "MUS":["museum","gallery","collection","hall of fame","rosicrucian","cantor","anderson collection","planetarium","egyptian museum","computer history","tech interactive"],
+ "PARK":["park","garden","gardens","preserve","open space","arboretum","baylands","hakone","japanese garden","municipal rose","overfelt","regional park","redwood grove","shoreline"],
+ "ICON":["winchester","stanford","memorial church","hoover tower","cathedral","mission santa clara","observatory","lick observatory","iconic","landmark","apple park","computer history museum"],
+ "ENT":["stadium","arena","amphitheatre","amphitheater","levi's","sap center","paypal park","shoreline amphitheatre","mountain winery","theatre","theater","concert","sharks","49ers","earthquakes","comedy","cinema","bowl","music venue","the ritz","raging waters","california's great america"],
+ "SHOP":["santana row","stanford shopping","shopping center","the pruneyard","great mall","university avenue","university ave","castro street","downtown los gatos","main street","market district","plaza","the row"],
  "ARCH":["mission","historic","landmark","mansion","house","victorian","cathedral","church","temple","gurdwara","adobe","heritage","tower","monument","memorial"],
  "VIEW":["dish","hike","hiking","summit","peak","overlook","ridge","vista","view","fremont older","rancho san antonio","mission peak","stevens creek"],
- "FAM":["zoo","aquarium","carousel","science","children","amusement","great america","happy hollow","raging waters","tech interactive","playground","planetarium"],
+ "FAM":["zoo","aquarium","carousel","science","children","amusement","great america","happy hollow","raging waters","tech interactive","playground","planetarium","gilroy gardens"],
 }
 ODD_SRC={"ATLASOBSCURA"}
-POP_KW=["hp garage","birthplace of silicon valley","google","apple","tv show","filmed","film location","movie","pixar","steve jobs","xerox parc","fairchild"]
 def collections(x, is_food):
     g=list(x.get("g",[]))
     hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("k","")+" "+" ".join(x.get("cz",[]))).lower()
