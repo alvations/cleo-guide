@@ -156,6 +156,10 @@ GitHub Pages, `main` / root. `.nojekyll` is present. No Actions workflow needed.
 
 ## Read before large changes
 
+- [docs/PIPELINE.md](docs/PIPELINE.md) — **the audited pipeline contract**: the fixed order (discover
+  sources → extract places → fact-check → re-rank → location-verify → build) and the audit artifact
+  each stage must leave in `data/<city>-research/AUDIT.md` so any agent can reproduce or continue the
+  work. Follow it for every new city and every refresh.
 - [docs/RESEARCH-LOG.md](docs/RESEARCH-LOG.md) — every search, fetch, dead end, extension technique
 - [docs/DECISIONS.md](docs/DECISIONS.md) — 16 judgement calls with rejected alternatives
 - [docs/RECREATE.md](docs/RECREATE.md) — doing this for another city
