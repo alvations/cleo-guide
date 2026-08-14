@@ -28,15 +28,16 @@ clear the bar. See `_AGENT_BRIEF.md` for the full source palette + rules.
 - [ ] `index.html` card counts finalized; page live in the chooser.
 
 ## State (update this block every wave)
-- **Last updated:** 2026-08-14, wave 2 complete.
-- **Consolidated total: 211 places** (87 sights + 124 food). Waves 1 (110) + 2 (+101).
-- **Sourcing:** 48 food editorial-sourced · 75 Yelp-only pending creator/editorial upgrade
-  (`_yelp_only_food.txt`).
-- **Toward 500:** ~289 more to go. Biggest gaps: Mexican/taqueria (only 1!), seafood, American/burgers/
-  BBQ, Vietnamese non-SJ + coffee/chè, Persian/Afghan, breweries/wineries; per-subregion sight depth;
-  more day trips.
-- **Geocoded:** 0 — location-verify not started. All 211 queued in `tools/geocode-helper.html`.
-- **Built:** no (held until pins exist).
+- **Last updated:** 2026-08-14, wave 3 (food+sights) complete; creator pass still running.
+- **Consolidated total: 285 places** (110 sights + 175 food). Waves 1 (110) + 2 (+101) + 3 (+74:
+  MEXICAN 19, AMERICAN 16, PERSIAN_VN2 16, SIGHTS_DEEP 23).
+- **Sourcing:** credible palette expanded (Metro SV, San José Spotlight, Six Fifty, PA Online, MV Voice,
+  NBC Bay Area, ABC7, James Beard). BUT waves 1–3 predate `_AGENT_BRIEF.md`, so many food entries are
+  still Yelp-only → **re-sourcing wave (task #26)** must upgrade/prune them; refresh `_yelp_only_food.txt`.
+- **Remaining gaps** (quality-first, 500 is a yardstick): breweries/wineries/cocktail bars, more seafood,
+  wine-country day trips, per-subregion food depth; then re-source + creators + geocode + build.
+- **Geocoded:** 0 — all 285 queued in `tools/geocode-helper.html`.
+- **Built:** no (held until pins exist + Yelp-only resolved).
 
 ## Next actions, in order (resumable)
 1. **Finish wave 2:** when CHINESE2 / KRJPSEA / CAFES_BOBA land, `consolidate.py`, refresh

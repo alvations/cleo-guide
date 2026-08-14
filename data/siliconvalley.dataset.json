@@ -469,6 +469,526 @@
   {
    "t": 1,
    "a": "PA",
+   "n": "Elizabeth F. Gamble Garden",
+   "ad": "1431 Waverley St, Palo Alto, CA 94301",
+   "w": "A historic 2.5-acre estate garden in downtown Palo Alto, with formal rose and perennial beds, a wisteria arbor and the 1902 Gamble family house. A quiet horticultural retreat open daily during daylight hours.",
+   "k": "Grounds free and open every day at daylight; the Main House and offices keep weekday hours (roughly 9am-2pm). Donations encouraged.",
+   "g": [
+    "PARK",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.gamblegarden.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Foothills Nature Preserve",
+   "ad": "3300 Page Mill Rd, Los Altos Hills, CA 94022",
+   "w": "A 1,400-acre Palo Alto nature preserve in the Santa Cruz Mountain foothills, with oak woodland trails, Boronda Lake and sweeping ridge views. Famous for being residents-only from 1969 until it finally opened to everyone in December 2020.",
+   "k": "Now open to all; a small per-vehicle entry fee applies and the lot can fill on weekends. Open sunrise to sunset.",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.paloalto.gov/Departments/Community-Services/Parks-Open-Space-Golf-Division/Neighborhood-Parks/Foothills-Nature-Preserve"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Foothills_Nature_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Los Altos History Museum",
+   "ad": "51 S San Antonio Rd, Los Altos, CA 94022",
+   "w": "A free community museum telling the story of the Santa Clara Valley's orchard era and its turn into Silicon Valley, set on a campus beside the 1905 J. Gilbert Smith farmhouse. A gentle stop in downtown Los Altos.",
+   "k": "Free admission; open Thursday-Sunday, roughly noon-4pm. Closed major holidays.",
+   "g": [
+    "MUS",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.losaltoshistory.org/visit/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MV",
+   "n": "Cuesta Park",
+   "ad": "615 Cuesta Dr, Mountain View, CA 94040",
+   "w": "A beloved 32-acre Mountain View neighborhood park shaded by mature redwoods and oaks, with tennis courts, playgrounds, picnic lawns and a demonstration garden. A classic local weekend spot.",
+   "k": "Free; parking off Cuesta Dr fills on sunny weekends. Better as a picnic/family stop than a destination sight.",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.mountainview.gov/Home/Components/FacilityDirectory/FacilityDirectory/20/671"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "Historic Murphy Avenue",
+   "ad": "S Murphy Ave, Sunnyvale, CA 94086",
+   "w": "The character-filled heart of downtown Sunnyvale: a block of restored late-1800s brick storefronts named for pioneer Martin Murphy Jr., now a pedestrian-only strip of restaurants, cafes and shops. Converted to a walking mall in 2023.",
+   "k": "Free to stroll; liveliest at the Saturday farmers market and in the evenings. On-street/garage parking nearby.",
+   "g": [
+    "FREE",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://murphysv.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Sunnyvale Baylands Park",
+   "ad": "999 E Caribbean Dr, Sunnyvale, CA 94089",
+   "w": "A 177-acre bayfront park on the edge of the salt marsh, with seasonal wetlands, a large playground, picnic areas and flat trails linking to the Bay Trail. A joint city-county park good for birding and kite-flying.",
+   "k": "Per-vehicle parking fee on weekends and holidays; open 8am to 30 minutes after sunset. Windy near the marsh.",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://parks.santaclaracounty.gov/locations/sunnyvale-baylands-park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Sunnyvale Heritage Park Museum",
+   "ad": "570 E Remington Dr, Sunnyvale, CA 94087",
+   "w": "A small volunteer-run museum housed in a replica of the historic Murphy family's Bay View farmhouse, set in Orchard Heritage Park amid one of the valley's last surviving apricot orchards. Free local history exhibits.",
+   "k": "Free; open limited hours (typically Tue/Thu/Sun afternoons). Combine with a walk through the adjacent heritage orchard.",
+   "g": [
+    "MUS",
+    "FREE",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://heritageparkmuseum.org/visit-us"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sunnyvale_Heritage_Park_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SUN",
+   "n": "Las Palmas Park",
+   "ad": "850 Russet Dr, Sunnyvale, CA 94087",
+   "w": "A green Sunnyvale neighborhood park with a pond, big playground, tennis and a walking loop shaded by palms and redwoods. An easygoing family stop away from the tech campuses.",
+   "k": "Free; mainly a picnic/playground park rather than a marquee sight.",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE",
+    "TECH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sunnyvale.ca.gov/Home/Components/FacilityDirectory/FacilityDirectory/51/456"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Historic Saratoga Village",
+   "ad": "14503 Big Basin Way, Saratoga, CA 95070",
+   "w": "The walkable historic core of Saratoga along Big Basin Way (once 1850s 'Lumber Street'), lined with wine-country-style restaurants, galleries, boutiques and Blaney Plaza. The gateway to Hakone Gardens and Montalvo.",
+   "k": "Free to wander; parking on Big Basin Way and side lots. Best paired with a nearby garden or winery visit.",
+   "g": [
+    "FREE",
+    "ARCH",
+    "PARK",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.saratoga.ca.us/276/Saratoga-Village"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "McClellan Ranch Preserve",
+   "ad": "22221 McClellan Rd, Cupertino, CA 95014",
+   "w": "A rustic 18-acre former horse ranch preserved as a nature area on Stevens Creek, with 1930s barns, a blacksmith shop, community gardens, a rotary nature museum and an environmental education center. A designated Cupertino natural preserve.",
+   "k": "Free; open daily 6am to dusk. Saturday open-house and last-Saturday blacksmith demos are the liveliest times.",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cupertino.gov/Parks-Recreation/McClellan-Ranch-Preserve"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/McClellan_Ranch_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Triton Museum of Art",
+   "ad": "1505 Warburton Ave, Santa Clara, CA 95050",
+   "w": "A free art museum on El Camino Real focused on Bay Area and California artists, with rotating exhibitions, a permanent collection and a sculpture garden on the grounds. A well-kept Santa Clara secret.",
+   "k": "Free admission and free parking; open Tuesday-Sunday, 11am-5pm, closed Mondays.",
+   "g": [
+    "MUS",
+    "FREE",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.tritonmuseum.org/visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Triton_Museum_of_Art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "de Saisset Museum",
+   "ad": "500 El Camino Real, Santa Clara, CA 95053",
+   "w": "Santa Clara University's free art and history museum, holding a California/mission-era collection and rotating fine-art shows, next to the historic Mission Santa Clara on the leafy campus. Accredited and free to all.",
+   "k": "Free; open Tuesday-Sunday afternoons, closed Mondays. Check the site as campus schedules shift hours.",
+   "g": [
+    "MUS",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.scu.edu/desaisset/about/visit/hours/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/De_Saisset_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Almaden Quicksilver County Park",
+   "ad": "21785 Almaden Rd, San Jose, CA 95120",
+   "w": "A 4,163-acre park on the grounds of the New Almaden mercury ('quicksilver') mines, which ran for 135 years and helped fuel the Gold Rush. Over 37 miles of trails wind past mine ruins, brick chimneys and hillside views above south San Jose.",
+   "k": "Free entry; hot and exposed in summer with little water. The nearby Casa Grande / New Almaden Quicksilver Mining Museum tells the mine story.",
+   "g": [
+    "PARK",
+    "ODD",
+    "VIEW",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://parks.santaclaracounty.gov/locations/almaden-quicksilver-county-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Almaden_Quicksilver_County_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Pulgas Water Temple",
+   "ad": "80 Cañada Rd, Redwood City, CA 94062",
+   "w": "A neoclassical Beaux-Arts temple built by the SFPUC in 1934 to mark where Hetch Hetchy water — piped 160 miles from Yosemite — arrives on the Peninsula, framed by cypress and a long reflecting pool. A striking, little-known monument near Woodside.",
+   "k": "Free; grounds open weekdays 9am-5pm, and to pedestrians/cyclists on weekends (the parking lot is closed weekends and holidays). Off Cañada Rd near I-280.",
+   "g": [
+    "ARCH",
+    "ODD",
+    "FREE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sfpuc.gov/learning/come-visit/pulgas-water-temple"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/pulgas-water-temple"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pulgas_Water_Temple"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Natural Bridges State Beach",
+   "ad": "2531 W Cliff Dr, Santa Cruz, CA 95060",
+   "w": "A pretty Santa Cruz cove named for its remaining natural rock arch, with tide pools and, from mid-October to mid-February, California's only State Monarch Butterfly Preserve, where thousands of monarchs cluster in the eucalyptus grove.",
+   "k": "Open 8am to sunset; parking about $10. Monarchs are seasonal (roughly November-January is peak) — the beach is worth it year-round.",
+   "g": [
+    "PARK",
+    "ICON",
+    "FAM",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/?page_id=541"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Natural_Bridges_State_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "West Cliff Drive",
+   "ad": "701 W Cliff Dr, Santa Cruz, CA 95060",
+   "w": "A scenic ~3-mile clifftop walking and biking path running from the wharf to Natural Bridges, overlooking Monterey Bay and the world-famous Steamer Lane surf break. Lighthouse Point holds the tiny Santa Cruz Surfing Museum.",
+   "k": "Free and always open; storm damage has closed short stretches to cars in recent years, but the coastal path remains the draw. Parking along the bluff.",
+   "g": [
+    "VIEW",
+    "ICON",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/?page_id=550"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Steamer_Lane"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Mystery Spot",
+   "ad": "465 Mystery Spot Rd, Santa Cruz, CA 95065",
+   "w": "A classic 1940s roadside gravity-illusion attraction in the redwoods above Santa Cruz, where a tilted cabin makes balls appear to roll uphill and people seem to change height. A campy, only-in-California guided tour.",
+   "k": "Paid timed tours every half hour (~$12), plus $5 cash parking; it sells out midday. Arrive 30 minutes early. Open daily.",
+   "g": [
+    "ODD",
+    "ICON",
+    "FAM",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.mysteryspot.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mystery_Spot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Wilder Ranch State Park",
+   "ad": "1401 Coast Rd, Santa Cruz, CA 95060",
+   "w": "A coastal state park just north of Santa Cruz combining a preserved 1800s dairy ranch (Victorian farmhouse, adobe, working blacksmith) with bluff-top trails over pocket beaches and tide pools. Popular with hikers and mountain bikers.",
+   "k": "Day-use parking about $10 (free on foot or bike); park open 8am-sunset, the historic Interpretive Center Thursday-Sunday.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "TECH",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/?page_id=549"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wilder_Ranch_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Roaring Camp Railroads",
+   "ad": "5401 Graham Hill Rd, Felton, CA 95018",
+   "w": "A 19th-century-style logging camp in Felton running two heritage trains: an 1890s narrow-gauge steam train that climbs through old-growth redwoods to Bear Mountain, and a diesel line down the San Lorenzo gorge to the Santa Cruz Boardwalk.",
+   "k": "Paid excursions; gates open 9am-5pm on operating days. Book steam-train tickets ahead, especially for holiday and Thomas events.",
+   "g": [
+    "FAM",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://roaringcamp.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Roaring_Camp_%26_Big_Trees_Narrow_Gauge_Railroad"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Pigeon Point Lighthouse",
+   "ad": "210 Pigeon Point Rd, Pescadero, CA 94060",
+   "w": "One of the tallest lighthouses in the U.S. — a 115-foot 1872 tower on a dramatic bluff on the San Mateo coast, 5 miles south of Pescadero. A photogenic Highway 1 landmark now run as a state historic park (and hostel).",
+   "k": "Grounds free and open daily for photos and whale-watching; the tower itself has long been closed for restoration, so views are from the base. Bring a windbreaker.",
+   "g": [
+    "ICON",
+    "VIEW",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/?page_id=533"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pigeon_Point_Lighthouse"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Mount Umunhum Summit",
+   "ad": "Mount Umunhum Rd, Los Gatos, CA 95033",
+   "w": "A 3,486-foot Santa Cruz Mountains peak inside Sierra Azul Open Space Preserve, crowned by 'the Cube' — the concrete base of a Cold War radar tower from the former Almaden Air Force Station. Reopened to the public in 2017 with 360-degree Bay-to-ocean views.",
+   "k": "Free; reach the summit by the paved Mount Umunhum Rd or a strenuous ~3.7-mile trail from the Bald Mountain lot. The narrow mountain road can close in bad weather — check before going.",
+   "g": [
+    "VIEW",
+    "ODD",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.openspace.org/preserves/sierra-azul"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sierra_Azul_Open_Space_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Pillar Point Harbor & Mavericks",
+   "ad": "1 Johnson Pier, Half Moon Bay, CA 94019",
+   "w": "A working fishing harbor at Princeton-by-the-Sea and the launch point for Mavericks, the legendary big-wave surf break a half-mile offshore where winter swells top 60 feet. Harbor tide pools, seafood shacks and coastal trails round out a day.",
+   "k": "Harbor free to visit; to glimpse Mavericks, park at the Pillar Point bluff lot and walk the dirt trail. Big-wave season is roughly November-March.",
+   "g": [
+    "ICON",
+    "VIEW",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.smharbor.com/pillar-point-harbor"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mavericks_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Pinnacles National Park",
+   "ad": "5000 East Entrance Rd, Paicines, CA 95043",
+   "w": "California's newest national park (2013): the eroded remnants of an ancient volcano, with jagged rock spires, talus caves and one of the best places in the state to spot free-flying California condors. A striking, harder-to-reach day trip southeast of Gilroy.",
+   "k": "About 1.5-2 hours from San Jose; the east and west entrances are NOT connected by road. Entry fee per vehicle; brutally hot in summer, best in spring. High Peaks Trail is the top condor spot.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nps.gov/pinn/planyourvisit/basicinfo.htm"
+    ],
+    [
+     "VISITCA",
+     "https://www.visitcalifornia.com/experience/plan-your-trip-pinnacles-national-park/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
    "n": "Stanford Dish Loop",
    "ad": "Stanford Ave & Junipero Serra Blvd, Stanford, CA 94305",
    "w": "An iconic ~3.7-mile paved loop over Stanford's rolling foothills, named for the giant radio telescope dish on the ridge, with sweeping views of the Bay and campus. A local exercise ritual dawn to dusk.",
@@ -2154,6 +2674,273 @@
   }
  ],
  "F": [
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Smoking Pig BBQ",
+   "ad": "1144 N 4th St, San Jose, CA 95112",
+   "w": "San Jose's cult Southern-style smokehouse and perennial local BBQ champ; go for the slow-smoked beef brisket with the house sauces, plus St. Louis ribs, pulled pork and the fried Louisiana Hots. The old Newhall Dr location closed; this 4th St spot is the one that's open.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/smoking-pig-bbq-san-jose - open, updated Aug 2026 (3,496 reviews); 1144 N 4th St. Note: separate Newhall Dr location marked CLOSED"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Back A Yard Caribbean Grill",
+   "ad": "457 E San Carlos St, San Jose, CA 95112",
+   "w": "The South Bay's beloved Jamaican-Caribbean institution; the signature is smoky, allspice-and-scotch-bonnet jerk chicken paired with braised beef oxtail, rice and peas and fried plantains. Downtown flagship on San Carlos (the old 80 N Market location is closed; Capitol Expy and 13th St branches also open).",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/back-a-yard-caribbean-grill-san-jose - open, updated July 2026; 457 E San Carlos St. Note: 80 N Market St location marked CLOSED"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "The Table",
+   "ad": "1110 Willow St, San Jose, CA 95125",
+   "w": "Willow Glen's farm-to-table favorite and one of San Jose's most in-demand brunches; the signature buttermilk fried chicken and waffles anchors a seasonal, house-made menu (lemon ricotta pancakes, vanilla-custard French toast) with bottomless mimosas. Reservations recommended.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/the-table-san-jose - open, updated Aug 2026 (3,892 reviews); 1110 Willow St, New American / brunch"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "John's of Willow Glen",
+   "ad": "1238 Lincoln Ave, San Jose, CA 95125",
+   "w": "A longtime Willow Glen all-day diner on Lincoln Ave; comfort-food breakfast served till mid-afternoon, with the house Willow Glen scramble and steak and eggs as the go-tos, plus pancakes, omelets and burgers.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/johns-of-willow-glen-san-jose - open, updated May 2026 (607 reviews); 1238 Lincoln Ave, American / breakfast"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Alexander's Steakhouse",
+   "ad": "19379 Stevens Creek Blvd, Cupertino, CA 95014",
+   "w": "Cupertino's landmark high-end steakhouse and a California pioneer of imported Japanese wagyu; the draw is one of the region's deepest A5 wagyu selections plus dry-aged, hand-cut prime steaks with Japanese accents. Reopened end of July 2026 after a renovation.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/alexanders-steakhouse-cupertino-11 - open, updated July 2026 (4,337 reviews); 19379 Stevens Creek Blvd. Temporarily closed for renovation June-July 2026, reopened end July 2026"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "LB Steak",
+   "ad": "334 Santana Row #1000, San Jose, CA 95128",
+   "w": "Santana Row's modern American steakhouse; hand-cut prime Angus and rare A5 Japanese wagyu aged and butchered in-house, from the bone-in ribeye to steak frites, in a sleek room off the shopping promenade.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/lb-steak-san-jose-3 - open, updated July 2026 (2,431 reviews); 334 Santana Row #1000, Steakhouse"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Scott's Seafood San Jose",
+   "ad": "200 S First St, San Jose, CA 95113",
+   "w": "A downtown San Jose seafood classic (going since 1986) now on First St; tomato-and-shellfish cioppino, fresh fish, house pastas and premium steaks with a full bar. The old 185 Park Ave location is closed; this First St spot is the current one.",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/scotts-seafood-san-jose-san-jose-2 - open, updated July 2026; 200 S First St. Note: 185 Park Ave location marked CLOSED"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Pacific Catch",
+   "ad": "1875 S Bascom Ave #550, Campbell, CA 95008",
+   "w": "A West Coast fish-house chainlet (The Pruneyard, Campbell) doing Pacific-Rim seafood; the ahi poke bowl is the standout alongside fish tacos, rice bowls and a raw bar. Reliable casual seafood on the San Jose/Campbell line.",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/pacific-catch-campbell-2 - open, updated July 2026 (2,118 reviews); 1875 S Bascom Ave #550, Campbell (Pruneyard), Seafood"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Stacks",
+   "ad": "139 E Campbell Ave, Campbell, CA 95008",
+   "w": "A busy downtown Campbell breakfast-and-lunch spot on the South Bay staple mini-chain; famous for fluffy buttermilk pancakes, thick French toast, omelets and breakfast burritos.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/stacks-campbell - open, updated Aug 2026 (1,874 reviews); 139 E Campbell Ave, Campbell, Breakfast & Brunch"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Los Gatos Cafe",
+   "ad": "340 N Santa Cruz Ave, Los Gatos, CA 95030",
+   "w": "A cheerful, long-running Los Gatos breakfast cafe on the main downtown drag; big brunch menu built on eggs benedicts (including a seafood benedict), scrambles and pancakes. Also an Uptown location on Los Gatos Blvd.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/los-gatos-cafe-los-gatos-4 - open, updated Aug 2026 (2,558 reviews); 340 N Santa Cruz Ave, Los Gatos, Breakfast & Brunch"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "Hobee's",
+   "ad": "800 W Ahwanee Ave, Sunnyvale, CA 94086",
+   "w": "A Bay Area breakfast institution since 1974, best known for its world-famous blueberry coffee cake alongside all-day scrambles, Cha Cha Bowls and healthy diner fare. The Mountain View branch closed; the Sunnyvale location (and Palo Alto) is open.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/hobees-restaurant-sunnyvale - open, updated Aug 2026 (609 reviews); 800 W Ahwanee Ave, Sunnyvale. Note: Mountain View location marked CLOSED"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "St. John's Bar & Grill",
+   "ad": "510 Lawrence Expy, Sunnyvale, CA 94085",
+   "w": "A no-frills Sunnyvale bar-and-grill known for charbroiled burgers - Cajun, hickory, bleu-bacon and jalapeño versions - plus cheesesteaks and hand-cut fries. A local burger standby off Lawrence Expy.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/st-johns-bar-and-grill-sunnyvale-2 - open, updated Aug 2026 (2,646 reviews); 510 Lawrence Expy, Sunnyvale, American / burgers"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Crepevine",
+   "ad": "367 University Ave, Palo Alto, CA 94301",
+   "w": "A New American brunch spot on Palo Alto's University Ave; savory and sweet crepes (the spinach-and-mushroom Florentine is a staple) plus benedicts, scrambles and big breakfast plates. Also a Mountain View location on Castro St.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/crepevine-restaurants-palo-alto-2 - open, updated Aug 2026 (1,670 reviews); 367 University Ave, Palo Alto, New American / breakfast"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Sam's Chowder House",
+   "ad": "4210 N Cabrillo Hwy, Half Moon Bay, CA 94019",
+   "w": "A Half Moon Bay coastal destination on Hwy 1 with ocean views; the award-winning, Food-Network-featured Maine-style lobster roll is the signature, backed by clam chowder and New England seafood. A worthwhile day trip over the hill.",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/sams-chowder-house-half-moon-bay - open, updated Aug 2026 (6,170 reviews); 4210 N Cabrillo Hwy (Hwy 1), Half Moon Bay, Seafood"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Barbara's Fishtrap",
+   "ad": "281 Capistrano Rd, Half Moon Bay, CA 94019",
+   "w": "A rustic, cash-only harborside shack in Princeton-by-the-Sea (Half Moon Bay); crispy fish and chips and fried calamari eaten looking out over Pillar Point Harbor. Classic coastside day-trip stop.",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/barbaras-fishtrap-half-moon-bay - open, updated Aug 2026 (3,531 reviews); 281 Capistrano Rd, Princeton/Half Moon Bay, Seafood"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Cook's Seafood",
+   "ad": "751 El Camino Real, Menlo Park, CA 94025",
+   "w": "A longtime Menlo Park seafood restaurant and fish market on El Camino; order at the counter for crisp cod fish and chips, chowder and fresh grilled fish, or buy from the market case. Unfussy and reliable.",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/cook-s-seafood-menlo-park - open, updated July 2026 (732 reviews); 751 El Camino Real, Menlo Park, Seafood"
+    ]
+   ]
+  },
   {
    "t": 1,
    "a": "PA",
@@ -3913,6 +4700,600 @@
     [
      "YELP",
      "yelp.com/biz/kaita-restaurant-san-jose-2 - open, updated August 2026 (696 reviews); 215 Jackson St, Japantown"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "LUNA Mexican Kitchen",
+   "ad": "1495 The Alameda, San Jose, CA 95126",
+   "w": "San Jose's Michelin Bib Gourmand Mexican kitchen on The Alameda: an ingredient-first, from-scratch room (heirloom-corn tortillas, house salsas) that elevates carne asada tacos, esquites and enchiladas without leaving the everyday-taqueria spirit behind. The most decorated Mexican table in the South Bay.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "guide.michelin.com — LUNA Mexican Kitchen, Bib Gourmand, San Jose; 1495 The Alameda"
+    ],
+    [
+     "YELP",
+     "yelp.com — open, verified Aug 2026"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Taqueria El Grullense",
+   "ad": "1175 E Julian St Ste 5, San Jose, CA 95116",
+   "w": "A 1982 East-San-Jose taqueria carrying the flavors of Jalisco: spit-roasted al pastor, carne asada and a fast counter line that has anchored the E Julian St / Alum Rock side of town for four decades. A benchmark for the neighborhood taqueria the city is known for.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/taqueria-el-grullense-san-jose-3 — open, updated July 2026; 1175 E Julian St, est. 1982"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Super Taqueria",
+   "ad": "480 S 10th St, San Jose, CA 95112",
+   "w": "A homegrown San Jose mini-chain (this is the original SoFA-adjacent S 10th St location) that locals reach for first — crackly-edged carnitas, reliably hot food and friendly counter service, open till late. Featured by The Infatuation's San Jose guide.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose — named in the Best Restaurants in San Jose guide"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/super-taqueria-san-jose-2 — open, updated Aug 2026; 480 S 10th St"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Taqueria Eduardo",
+   "ad": "3123 Williamsburg Dr, San Jose, CA 95117",
+   "w": "A West San Jose institution whose carnitas — served open-face, juicy inside and crisped at the edges — draw a devoted following; regulars call them among the best in the Bay. Also strong al pastor and quesadillas.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/taqueria-eduardo-san-jose-2 — open, updated Aug 2026 (679 reviews); 3123 Williamsburg Dr"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Zona Rosa",
+   "ad": "1411 The Alameda, San Jose, CA 95126",
+   "w": "A The Alameda favorite that hand-presses every tortilla from organic corn masa (La Finca, Oakland) and won a San Jose best-taco award; the fresh-masa tacos and antojitos are the reason. Featured by The Infatuation's San Jose guide.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose — named in the Best Restaurants in San Jose guide"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/zona-rosa-san-jose — open, updated Aug 2026 (1,771 reviews); 1411 The Alameda"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Acopio",
+   "ad": "399 S 24th St, San Jose, CA 95116",
+   "w": "A contemporary East-San-Jose Mexican room that feels transplanted from Mexico City or Guadalajara: chile-adobo duck confit under chocolate-chile mole, plus mushroom-and-hibiscus tacos. The city's most ambitious modern-Mexican table. Featured by The Infatuation's San Jose guide.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose — named in the Best Restaurants in San Jose guide as a contemporary Mexican pick"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/acopio-san-jose — open, updated July 2026; 399 S 24th St"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "La Chingada Taqueria",
+   "ad": "3281 Sierra Rd, San Jose, CA 95132",
+   "w": "A family-run North San Jose taqueria (since 2017) built on Mexico City and Jalisco cooking — al pastor, huaraches, homemade salsas and weekend molcajete with hand-made tortillas. Featured by The Infatuation's San Jose guide.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose — named in the Best Restaurants in San Jose guide"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/la-chingada-taqueria-san-jose — open, updated July 2026; 3281 Sierra Rd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Jalisco Taqueria",
+   "ad": "401 S King Rd, San Jose, CA 95116",
+   "w": "An East San Jose drive-thru taqueria on S King Rd cooking authentic Jalisco-style plates fresh daily, with a window open until 3 a.m. Friday and Saturday — the go-to when the sit-down spots have closed.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/jalisco-taqueria-san-jose — open, updated July 2026; 401 S King Rd, late-night drive-thru"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "El Camaron de Sinaloa",
+   "ad": "245 Willow St, San Jose, CA 95110",
+   "w": "Willow Glen-edge mariscos done Sinaloa-style: bright, chile-electric aguachile, ceviche and shrimp cocktails from a kitchen that leans on coastal-Mexican technique. Open late on weekends.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/camaron-de-sinaloa-san-jose — open, updated July 2026 (490 reviews); 245 Willow St"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "La Costa",
+   "ad": "1805 Alum Rock Ave, San Jose, CA 95116",
+   "w": "A long-running Alum Rock Ave mariscos house at the heart of East San Jose's Mexican corridor — heaping seafood cocktails, ceviche tostadas and caldos in a bustling neighborhood room.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/la-costa-san-jose-2 — open, updated Aug 2026 (1,014 reviews); 1805 Alum Rock Ave"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Mariscos Costa Alegre",
+   "ad": "855 N 13th St, San Jose, CA 95112",
+   "w": "A packed North 13th St seafood-Mexican spot beloved for its campechana cocktails, aguachile and whole-fish plates — one of the highest-volume mariscos rooms in the city.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/mariscos-costa-alegre-san-jose — open, updated June 2026 (1,148 reviews); 855 N 13th St"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "La Costeña",
+   "ad": "235 E Middlefield Rd Ste 1A, Mountain View, CA 94043",
+   "w": "A 1984 Mountain View family institution famous for its burrito bar — you walk the line and build a burrito bigger than your head (it once set a Guinness record for the largest burrito). A Silicon Valley rite of passage.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/la-costena-mountain-view-5 — open, updated July 2026; 235 E Middlefield Rd, est. 1984"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Vive Sol",
+   "ad": "2020 W El Camino Real, Mountain View, CA 94040",
+   "w": "A Mountain View sit-down Mexican room revered for its moles — enchiladas bathed in a richly spiced, cocoa-deepened sauce — a step up from the taqueria counter for regional dishes and dinner service.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/vive-sol-mountain-view — open, updated July 2026 (1,516 reviews); 2020 W El Camino Real"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Taqueria El Grullense M&G",
+   "ad": "3636 El Camino Real, Palo Alto, CA 94306",
+   "w": "Palo Alto's top taqueria on El Camino Real — all-day breakfast, al pastor and carne asada tacos and burritos from open till late, the rare no-frills taqueria on the pricey Peninsula stretch.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/taqueria-el-grullense-palo-alto — open, updated July 2026 (642 reviews); 3636 El Camino Real"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Speedy's Tacos",
+   "ad": "929 E Duane Ave, Sunnyvale, CA 94085",
+   "w": "A Sunnyvale counter that tops the area's al pastor lists — quick, cheap, spit-roasted pastor tacos and burritos filling the taqueria gap on the north-county side.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/speedys-tacos — open, updated 2026; 929 E Duane Ave, Sunnyvale"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SUN",
+   "n": "Chavez Supermarket & Taqueria",
+   "ad": "666 N Fairoaks Ave, Sunnyvale, CA 94085",
+   "w": "The taqueria counter inside a Mexican supermarket — a South Bay genre unto itself: order carne asada and al pastor tacos off the carnicería, grab pan dulce from the panadería, eat like a local. This is the Sunnyvale/N Fairoaks branch.",
+   "cz": [
+    "MX"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/chavez-supermarket-and-taqueria-sunnyvale — open, updated Aug 2026 (509 reviews); 666 N Fairoaks Ave"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Inka's Restaurant",
+   "ad": "700 S Winchester Blvd Ste 25, San Jose, CA 95128",
+   "w": "San Jose's go-to Peruvian kitchen near Santana Row: tender beef lomo saltado over fries and rice, plus causa, tiradito and ceviche — the South Bay's most reliable window into Peruvian cooking.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/inkas-restaurant-san-jose-2 — open, updated July 2026 (281 reviews); 700 S Winchester Blvd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Pupuseria Delmy",
+   "ad": "3039 Monterey Rd, San Jose, CA 95111",
+   "w": "A South San Jose Salvadoran standby for hand-patted pupusas — revueltas and loroco griddled thick and served with curtido and salsa roja — plus tamales and platos típicos.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/pupuseria-delmy-san-jose — open, updated April 2026 (146 reviews); 3039 Monterey Rd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Fonda Colombiana",
+   "ad": "1442 S White Rd, San Jose, CA 95127",
+   "w": "An East San Jose Colombian kitchen for the full bandeja paisa — beans, chicharrón, chorizo, arepa and fried egg on one plate — plus house-made cheese arepas. Fills the South Bay's Colombian gap.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/fonda-colombiana-san-jose — open, updated July 2026 (114 reviews); 1442 S White Rd"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "Chelokababi Persian Cuisine",
+   "ad": "1236 S Wolfe Rd, Sunnyvale, CA 94086",
+   "w": "Family-run Sunnyvale institution open since 1979 and still the South Bay's benchmark for Persian charcoal kababs; order the kabab koobideh, succulent ground-lamb skewers over saffron chelo rice with grilled tomato. One of the most beloved Iranian tables in the Valley.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/chelokababi-persian-cuisine-sunnyvale — 1,400+ reviews, updated Aug 2026, OPEN; est. 1979; address 1236 S Wolfe Rd"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Shalizaar",
+   "ad": "300 El Camino Real, Belmont, CA 94002",
+   "w": "Upscale white-tablecloth Persian room on the Peninsula, chandeliers and Persian carpets, listed in the Michelin Guide; go for the crackly saffron tahdig ladled with gheimeh and the joojeh and koobideh kababs. Belmont day-trip worth the drive.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "Listed in the MICHELIN Guide — San Francisco Peninsula (guide update Oct 14 2025)"
+    ],
+    [
+     "YELP",
+     "https://www.yelp.com/biz/shalizaar-belmont — updated Dec 2025, OPEN; 300 El Camino Real, Belmont"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "DishDash",
+   "ad": "190 S Murphy Ave, Sunnyvale, CA 94086",
+   "w": "The famous Levantine anchor of Sunnyvale's Murphy Avenue restaurant row, always packed; the slow-braised lamb shank over rice, the muhammara and the hummus made it a South Bay date-night standard. Modern Middle Eastern done at a high level.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/dishdash-sunnyvale — 4,800+ reviews, updated Aug 2026, OPEN; 190 S Murphy Ave"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Oren's Hummus",
+   "ad": "261 University Ave, Palo Alto, CA 94301",
+   "w": "The University Avenue original of the beloved Israeli mini-chain, where silky made-daily hummus arrives warm topped with ful, mushrooms or lamb and mopped with fresh pita. A Palo Alto staple whose lines say it all.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/orens-hummus-palo-alto — 2,700+ reviews, updated 2026, OPEN; 261 University Ave"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Kabul Afghan Cuisine",
+   "ad": "135 El Camino Real, San Carlos, CA 94070",
+   "w": "Long-running Afghan favorite on the Peninsula (a Sunnyvale sibling too), where the kabuli palaw heaps raisins and carrots over lamb-scented rice and the steamed mantu dumplings come under garlic yogurt and meat sauce. Halal, generous, San Carlos day-trip.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/kabul-afghan-cuisine-san-carlos — 1,890+ reviews, updated Jul 2026, OPEN; 135 El Camino Real, San Carlos"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Falafel STOP",
+   "ad": "1325 Sunnyvale Saratoga Rd, Sunnyvale, CA 94087",
+   "w": "A tiny beloved Sunnyvale counter turning out crisp-shelled falafel and an overstuffed sabich (fried eggplant, egg, hummus, amba) in pillowy pita. Cult following, cash-quick, one of the Valley's best cheap Middle Eastern eats.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/falafel-stop-sunnyvale — 3,100+ reviews, updated Jul 2026, OPEN; 1325 Sunnyvale Saratoga Rd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Zeni Ethiopian Restaurant",
+   "ad": "1320 Saratoga Ave, San Jose, CA 95129",
+   "w": "San Jose's best-known Ethiopian table, with a traditional mesob-seated room; scoop the spice-deep doro wat, kitfo and veggie combos with spongy injera. The South Bay's go-to for East African cooking.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/zeni-ethiopian-restaurant-san-jose — 2,000+ reviews, updated Aug 2026, OPEN; 1320 Saratoga Ave"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Rose International Market",
+   "ad": "801 W El Camino Real, Ste B, Mountain View, CA 94040",
+   "w": "A 36-year-old Iranian grocery with a homey kabob counter in back — KQED called it a destination for Persian home cooking; get the charcoal koobideh plate with tahdig, then shop the shelves of Iranian pantry staples on the way out.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13965475/rose-market-iranian-persian-food-mountain-view — KQED feature: 'homey destination for Iranian food'"
+    ],
+    [
+     "YELP",
+     "https://www.yelp.com/biz/rose-international-market-mountain-view-3 — updated Aug 2026, OPEN; 801 W El Camino Real, Ste B"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Caspian Restaurant",
+   "ad": "1910 W El Camino Real, Ste D, Mountain View, CA 94040",
+   "w": "A Mountain View Persian mainstay locals rate for juicy joojeh (saffron chicken) kabob, koobideh and crispy tahdig paired with ghormeh or gheimeh stew. Halal, unfussy, consistently good.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/caspian-restaurant-mountain-view-2 — 1,140+ reviews, updated Aug 2026, OPEN; 1910 W El Camino Real, Ste D"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "De Afghanan Kabob House",
+   "ad": "37405 Fremont Blvd, Fremont, CA 94536",
+   "w": "A cornerstone of Fremont's 'Little Kabul' since 1993, featured on Bizarre Foods and ABC7; the char-edged chapli kabob, kabuli palaw and crisp-fried bolani draw Afghan families from across the Bay. The definitive Little Kabul day-trip.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/de-afghanan-kabob-house-fremont-3 — 650+ reviews, updated Aug 2026, OPEN; 37405 Fremont Blvd, Fremont; feat. Bizarre Foods America"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Da Vien Coffee",
+   "ad": "279 W Calaveras Blvd, Milpitas, CA 95035",
+   "w": "A Milpitas Vietnamese coffee specialist beloved for its strong, sweet ca phe sua da and a viral banana latte, brewing from early morning to late night. The non-San-Jose spot for a proper Vietnamese caffeine hit.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/da-vien-coffee-milpitas — 410+ reviews, updated Jul 2026, OPEN; 279 W Calaveras Blvd, Milpitas"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Banh Cuon Tay Ho",
+   "ad": "2047 El Camino Real, Santa Clara, CA 95050",
+   "w": "The Santa Clara outpost of the Tay Ho name that made banh cuon its calling card — gossamer steamed rice sheets rolled around minced pork and wood-ear mushroom, made to order with cha lua and nuoc cham. A specialist worth crossing town for, outside the San Jose cluster.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/banh-cuon-tay-ho-santa-clara — updated 2026, OPEN; 2047 El Camino Real, Santa Clara"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SC",
+   "n": "Pho Nguyen",
+   "ad": "275 W Calaveras Blvd, Milpitas, CA 95035",
+   "w": "A Milpitas neighborhood Vietnamese kitchen whose bun rieu — tomato-bright broth thick with crab-and-pork rieu, tofu and morning glory — is the reason regulars keep coming back, alongside solid pho. Non-San-Jose bun rieu depth.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/pho-nguyen-milpitas — 610+ reviews, updated Aug 2026, OPEN; 275 W Calaveras Blvd, Milpitas"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SC",
+   "n": "Bambu Dessert & Drinks",
+   "ad": "89 S Park Victoria Dr, Milpitas, CA 95035",
+   "w": "A Milpitas dessert-drink stop where the che is made fresh daily — pandan jelly, red tapioca, taro paste and fresh young-coconut water layered into che ba mau over crushed ice. The sweet, cooling end to a Vietnamese meal, north of San Jose.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/bambu-dessert-and-drinks-milpitas-5 — updated Apr 2026, OPEN; 89 S Park Victoria Dr, Milpitas"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Thien Long",
+   "ad": "3005 Silver Creek Rd, Ste 138, San Jose, CA 95121",
+   "w": "A cash-only, family-run East San Jose favorite since 2006 and one of the Bay Area's rare cha ca la vong specialists — turmeric-marinated fish sizzled tableside over dill and scallion, plus hard-to-find banh bot chien trung. A specialty pick, not a wave-1 Little Saigon spot.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/thien-long-san-jose — 1,430+ reviews, updated Aug 2026, OPEN; 3005 Silver Creek Rd, Ste 138; est. 2006"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Cam Hung Sandwich and Coffee",
+   "ad": "903 Reed Ave, Sunnyvale, CA 94086",
+   "w": "A long-loved Sunnyvale banh mi and coffee shop (listed by Visit Silicon Valley) with crackly-crust baguettes, house drip Vietnamese coffee and handmade desserts. The go-to Vietnamese sandwich-and-coffee stop on the west side, away from San Jose.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/cam-hung-sunnyvale — 1,580+ reviews, updated Jun 2026, OPEN; 903 Reed Ave, Sunnyvale"
     ]
    ]
   },

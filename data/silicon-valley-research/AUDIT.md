@@ -63,6 +63,14 @@ Provenance for every place is carried in its research file (`data/silicon-valley
   (19), SIGHTS_BIGTECH (14), SIGHTS_SCENES (20); VIETNAMESE (11), TAIWANESE_BOBA (8), INDIAN (5),
   EASTASIAN (6), FOOD_VIRAL (14 after dedup). Truncated by the 200/200 WebSearch cap mid-wave (several
   cuisines returned well below target — logged in `_PENDING_LEADS.md`).
+- **Wave 3 (2026-08-14) — food+sights complete, +74 → 285 total** (110 sights + 175 food). Files:
+  MEXICAN (19; LUNA=Michelin Bib, 4 Infatuation), AMERICAN (16), PERSIAN_VN2 (16; Shalizaar=Michelin,
+  Rose Market=KQED), SIGHTS_DEEP (23; PA/MV/SUN/CU/SC gardens+museums + 10 day trips: Pigeon Point,
+  Natural Bridges, Mystery Spot, Wilder Ranch, Roaring Camp, Mount Umunhum, Mavericks, Pinnacles).
+  Creator pass still running. **Launched pre-`_AGENT_BRIEF`, so the food is Yelp-heavy → re-sourcing
+  wave (task #26).** Wave-3 exclusions (verified closed): Pampas, Fiesta del Mar, Tu Mero Mole, El Faro
+  (SF not SB), Armadillo Willy's (SCC locations), Uncle Frank's, Salang Pass, Little Kabul Market,
+  Vung Tau II.
 - **Wave 2 (2026-08-14) — complete, +101 → 211 total** (87 sights + 124 food). Files: SIGHTS_SJ (23),
   INDIAN2 (22), CHINESE2 (20), KRJPSEA (18), CAFES_BOBA (21). Deep dives: South Indian canon,
   Chinese/Taiwanese/Sichuan/hot-pot, Korean/Japanese/Thai/Filipino/Burmese, San Jose + Peninsula
