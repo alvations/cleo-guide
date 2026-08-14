@@ -40,3 +40,12 @@ Discovery targets:
   * the 5 Yelp-only Vietnamese: Com Tam Thien Huong, Bun Bo Hue An Nam, Banh Xeo Ngon, Anh Hong, Nem Nuong Nha Trang
   * the boba/Taiwanese + South-Indian canon listed above (Boba Guys, Tpumps, 85C, Meet Fresh; Saravanaa Bhavan, Sri Ananda Bhavan, Anjappar, Madras Cafe, Naan-N-Masala…)
 - Location-verify (exact place pin) every creator-sourced place before it maps.
+
+## Fact-check pass: swap section-guide URLs for exact per-place review URLs
+Some FOOD_VIRAL entries cite the correct outlet's city/section guide rather than a per-place
+article — swap in exact review URLs when budget allows: Original Joe's, La Victoria Taqueria,
+Bill's Cafe, Nick the Greek, Steins Beer Garden, Voyager Craft Coffee, Dutch Goose. Also note:
+thrillist.com, mercurynews.com, sfchronicle.com, sfgate.com are blocked to WebSearch here, so
+Mercury citations used edition.pagesuite.com article URLs — reconfirm when those domains are reachable.
+Dropped for lack of an approved URL (open + real, revisit): Gilroy garlic (Garlic City Cafe),
+Chromatic Coffee.
