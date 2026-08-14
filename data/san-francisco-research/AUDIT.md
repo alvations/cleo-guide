@@ -37,10 +37,27 @@ re-sourcing backlog).
   murals, Lands End, Castro Theatre (reopened Feb 2026). Closed & flagged: Contemporary Jewish Museum.
   Excluded closed: Museum of Ice Cream, Cartoon Art Museum.
 
-**Wave 2 (in progress):** North Beach Italian + Cal-cuisine/Michelin fine dining; third-wave coffee +
-cocktail bars + viral; the Peninsula/SFO corridor (Daly City Filipino, Millbrae dim sum, Burlingame,
-San Mateo + SFO Aviation Museum, Sign Hill, San Bruno Mtn, Pacifica). Fills the PEN area (0 in wave 1)
-and the Italian/coffee/bars cuisine gaps. Append results here.
+**Wave 2 (2026-08-14) — +62 → 148 total, `--sourcecheck` PASS 148/148 (5 on lone Michelin/JB).**
+- `FOOD_ITALIAN_CALI.json` (25): North Beach Italian (Tony's, Golden Boy, Molinari, Original Joe's,
+  Tosca), Cal-cuisine/Michelin (State Bird, Zuni, Nopa, Acquerello, Gary Danko, Californios, Kokkari),
+  gap fills Bansang (KR Bib)/Besharam (IN)/Naides (Filipino Bib)/Bi-Rite. Excluded closed: DOSA, Petit
+  Crenn, Café Jacqueline, Bistro Aix (the classic French rooms are largely shuttered).
+- `FOOD_COFFEE_BARS.json` (17): third-wave coffee (Blue Bottle Ferry Bldg, Ritual, Sightglass, Four
+  Barrel, Saint Frank, Andytown), cocktail bars (Trick Dog, Smuggler's Cove, Bourbon & Branch, PCH),
+  viral bakeries (Arsicault, b. Patisserie). Excluded closed: Blue Bottle Mint Plaza, Trouble, Whitechapel.
+- `PENINSULA_SFO.json` (20 = 9 food + 11 sights): fills the PEN area — The Kitchen (Millbrae dim sum),
+  Daly City Filipino (Fil-Am, Chibog, Bread Basket), Wakuriya (San Mateo ★), Ramen Dojo, Rasa; SFO
+  Aviation Museum, Sign Hill, San Bruno Mtn, Sweeney Ridge, CuriOdyssey, Pacifica Pier, Devil's Slide,
+  Mori Point, Mussel Rock. Kept-flagged closed: Wursthall, PEZ Museum. Excluded closed: HK Flower
+  Lounge & Zen Peninsula (the famous Millbrae dim sum halls are gone). Stops at San Mateo (SV seam).
+
+**Full set: 148 places (57 sights + 91 food).** Cuisine spread: Cantonese 11, US/Cal 15, Italian 9,
+bars 8, bakery 8, SEAsian 7, seafood 7, coffee 7, Mexican 5, Japanese 4, Vietnamese 4, Burmese 3,
+dessert 3, Korean 2, Indian 2. Closed-flagged: PEZ Museum, Contemporary Jewish Museum, The Mill, Wursthall.
+
+## Stage 5 — Location-verify  (status: PENDING — task #32)
+Geocode 148 places; sights via Wikipedia/official place pins, restaurants via place pins (may UNVERIFY →
+browser helper, tracked in `docs/GEOCODE-BACKLOG.md`). Then build + gate + render-verify + relink card.
 
 ## Stage 3 — Fact-check (open/closed + notability)  ·  Stage 4 — Re-rank  ·  Stage 5 — Location-verify
 ·  Stage 6 — Build & gate  — all PENDING. Gates (enforced in code): `--sourcecheck` (≥2 credible or

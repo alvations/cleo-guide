@@ -163,6 +163,251 @@
  "P": [
   {
    "t": 1,
+   "a": "PEN",
+   "n": "SFO Louis A. Turpen Aviation Museum & Library",
+   "ad": "International Terminal Main Hall, Departures Level (pre-security), San Francisco International Airport, San Francisco, CA 94128",
+   "w": "The only accredited museum inside an airport: a free, pre-security gallery built as a replica 1930s passenger terminal, tracing West Coast and Pacific commercial aviation with aircraft models, airline memorabilia and photographs. Open daily 10am-4:30pm, no ticket needed.",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sfomuseum.org/aviation-museum-library"
+    ],
+    [
+     "NPR",
+     "https://www.npr.org/2010/04/26/126201248/flying-through-san-francisco-stop-to-enjoy-the-art"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Sign Hill (SOUTH SAN FRANCISCO THE INDUSTRIAL CITY letters)",
+   "ad": "Sign Hill Park, Poplar Ave, South San Francisco, CA 94080",
+   "w": "The city's Hollywood-style hillside sign: white concrete letters 48-65 ft tall spelling SOUTH SAN FRANCISCO THE INDUSTRIAL CITY, built in 1929 and listed on the National Register of Historic Places. A 30-acre park with ~2 miles of trails climbs to the letters and bay views.",
+   "g": [
+    "VIEW",
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/South_San_Francisco_hillside_sign"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.ssfca.gov/Departments/Parks-Recreation/Divisions/Parks-Division/Interactive-Parks-Maps/Sign-Hill-Letters"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "San Bruno Mountain State & County Park",
+   "ad": "555 Guadalupe Canyon Pkwy, Brisbane, CA 94005",
+   "w": "A rare island of native coastal-scrub habitat rising straight off the bay's edge above Daly City, Brisbane and South SF. Summit and ridge trails deliver 360-degree views from the Golden Gate to the Santa Cruz Mountains; home to endangered Mission blue butterflies.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Bruno_Mountain_State_Park"
+    ],
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/?page_id=518"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Sweeney Ridge (San Francisco Bay Discovery Site)",
+   "ad": "Sneath Lane Trailhead, Sneath Ln, San Bruno, CA 94066",
+   "w": "GGNRA ridgeline between San Bruno and Pacifica where the Portola expedition first sighted San Francisco Bay on Nov 4, 1769 - a registered historic landmark. Trails from Sneath Lane and Skyline College climb to the discovery-site monument and ocean-to-bay panoramas.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sweeney_Ridge"
+    ],
+    [
+     "NPS",
+     "https://www.parksconservancy.org/parks/sweeney-ridge"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "CuriOdyssey at Coyote Point",
+   "ad": "1651 Coyote Point Dr, San Mateo, CA 94401",
+   "w": "A hands-on science-and-wildlife museum inside Coyote Point Recreation Area, overlooking the bay: live native-animal exhibits (raptors, foxes, bobcat) and interactive natural-science galleries. Surrounded by shoreline, eucalyptus groves and beach in a regional park.",
+   "g": [
+    "MUS",
+    "FAM",
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://curiodyssey.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/CuriOdyssey"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "San Mateo Central Park & Japanese Garden",
+   "ad": "50 E 5th Ave, San Mateo, CA 94401",
+   "w": "A hidden strolling garden designed by Nagao Sakurai of the Imperial Palace of Tokyo, with a granite pagoda, teahouse, koi pond and bamboo grove, tucked inside downtown San Mateo's Central Park. Free admission.",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cityofsanmateo.org/3319/Central-Park-Japanese-Garden"
+    ],
+    [
+     "NICHIBEI",
+     "https://www.nichibei.org/2023/03/a-japanese-garden-hidden-in-downtown-san-mateo/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "Pacifica Municipal Pier",
+   "ad": "Beach Blvd (at Santa Rosa Ave), Pacifica, CA 94044",
+   "w": "A 1,140-ft concrete pier jutting into the Pacific off Sharp Park Beach - a free, no-license fishing and crabbing spot famous for salmon and Dungeness crab runs, with wide-open sunset and whale-watching views straight out over the ocean.",
+   "g": [
+    "WATER",
+    "VIEW",
+    "FREE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pacifica_Pier"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.cityofpacifica.org/departments/public-works/field-services/pacifica-pier"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Devil's Slide Trail",
+   "ad": "Devil's Slide Trail, CA-1 (Cabrillo Hwy), Pacifica, CA 94044",
+   "w": "A 1.3-mile paved clifftop trail on a former stretch of Highway 1, reopened in 2014 after the Tom Lantos Tunnels rerouted the road. It hugs a sheer cliff face hundreds of feet above the surf with sweeping ocean, seabird and gray-whale views. Parking lots at both ends.",
+   "g": [
+    "VIEW",
+    "WATER",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Devil%27s_Slide_(California)"
+    ],
+    [
+     "SMCPARKS",
+     "https://supportparks.org/parks-map/devils-slide-california-coastal-trail/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "Mori Point",
+   "ad": "Mori Point Rd, Pacifica, CA 94044",
+   "w": "A 110-acre GGNRA headland in Pacifica: a short climb up the Mori Point Peak loop delivers a dramatic bluff-top view over the ocean, Sharp Park Beach and the coastline, through wildflower meadows and wetlands that shelter the endangered red-legged frog and San Francisco garter snake.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mori_Point"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/places/000/mori-point-trailhead.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "Mussel Rock Park",
+   "ad": "Westline Dr, Daly City, CA 94015",
+   "w": "The point where the San Andreas Fault meets the Pacific - the closest land to the epicenter of the 1906 earthquake, its tarmac visibly rippled by the fault. Cliffside 'laminar flow' winds make it one of the Bay Area's premier hang-gliding and paragliding launches, with big coastal sunsets.",
+   "g": [
+    "VIEW",
+    "WATER",
+    "ODD",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mussel_Rock"
+    ],
+    [
+     "ISLANDS",
+     "https://www.islands.com/1987991/epicenter-san-francisco-earthquake-mussel-rock-park-hidden-paragliders-soar/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "Burlingame Museum of PEZ Memorabilia — CLOSED",
+   "ad": "214 California Dr, Burlingame, CA 94010",
+   "w": "A beloved roadside oddity that displayed one of the world's largest PEZ dispenser collections plus banned/rare pieces and the 'world's largest PEZ dispenser.' Permanently closed in July 2019 - kept here for the record; do not visit.",
+   "closed": true,
+   "g": [
+    "MUS",
+    "ODD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Burlingame_Museum_of_Pez_Memorabilia"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/burlingame-museum-pez-memorabilia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "NW",
    "n": "Golden Gate Bridge",
    "ad": "Golden Gate Bridge, San Francisco, CA 94129",
@@ -1647,6 +1892,851 @@
   },
   {
    "t": 1,
+   "a": "DTN",
+   "n": "Blue Bottle Coffee (Ferry Building)",
+   "ad": "1 Ferry Building #7, San Francisco, CA 94111",
+   "w": "SF's third-wave standard-bearer; the Ferry Building espresso bar is the only Blue Bottle pouring single-origin flights (the original Mint Plaza cafe is now closed).",
+   "cz": [
+    "COF"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/blue-bottle-coffee-kiosk"
+    ],
+    [
+     "OFFICIAL",
+     "https://bluebottlecoffee.com/us/eng/cafes/ferry-building"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Ritual Coffee Roasters",
+   "ad": "1026 Valencia St, San Francisco, CA 94110",
+   "w": "One of the original SF third-wave roasters; the cavernous Valencia flagship is a Mission daily ritual, cited in Food & Wine's 2026 top U.S. coffee-cities ranking.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/ritual-coffee-roasters"
+    ],
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/best-coffee-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Sightglass Coffee",
+   "ad": "270 7th St, San Francisco, CA 94103",
+   "w": "Iconic SoMa roastery in a 1914 warehouse open to the rafters; craft light-roast single origins roasted on-site, one of the shops that gave SF its roaster depth.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2024/05/22/sightglass-coffee-founders-depart-new-ceo-joins/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/sightglass-coffee"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Four Barrel Coffee",
+   "ad": "375 Valencia St, San Francisco, CA 94103",
+   "w": "Mission third-wave roaster (est. 2008) roasting in-house on a vintage German machine; a spare menu that lets the roast talk, with a visible roaster and long communal tables.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Four_Barrel_Coffee"
+    ],
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/best-coffee-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Saint Frank Coffee",
+   "ad": "2340 Polk St, San Francisco, CA 94109",
+   "w": "Russian Hill/Polk Gulch's sleekest cafe, a Scandi-minimalist counter; the owner's obsessive sourcing from Guatemala, Kenya and Honduras and its housemade nut milk draw the coffee crowd.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/saint-frank"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/saint-frank-coffee"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Andytown Coffee Roasters",
+   "ad": "3655 Lawton St, San Francisco, CA 94122",
+   "w": "Outer Sunset roaster-bakery (est. 2014); the signature Snowy Plover is a foggy-day icon of the neighborhood coffee scene.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/andytown-coffee-roasters"
+    ],
+    [
+     "SPRUDGE",
+     "https://sprudge.com/andytown-is-expanding-coffee-culture-in-san-franciscos-outer-sunset-neighborhood-119553.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Wrecking Ball Coffee Roasters",
+   "ad": "2271 Union St, San Francisco, CA 94123",
+   "w": "Cow Hollow micro-cafe from Trish Rothgeb — the roaster who literally coined 'third wave coffee' — and Nicholas Cho; pineapple-wallpaper #pineappleselfie spot with a custom pour-over bar.",
+   "cz": [
+    "COF"
+   ],
+   "s": [
+    [
+     "SPRUDGE",
+     "https://sprudge.com/in-san-francisco-wrecking-ball-coffees-making-better-less-cool-87750.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Third-wave_coffee"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Trick Dog",
+   "ad": "3010 20th St, San Francisco, CA 94110",
+   "w": "Mission cocktail landmark whose art-object menus reinvent around a theme (Pantone colors, astrology, records); a World's 50 Best Bars regular and top-ranked U.S. bar.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/trick-dog"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/bars/trick-dog"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Smuggler's Cove",
+   "ad": "650 Gough St, San Francisco, CA 94102",
+   "w": "Hayes Valley tiki temple with the largest rum selection in the U.S. (1,300+) and 80 cocktails; six-time World's 50 Best Bars listee and once Tales of the Cocktail's best U.S. bar.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/smugglers-cove"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Smuggler%27s_Cove_(bar)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Bourbon & Branch",
+   "ad": "501 Jones St, San Francisco, CA 94102",
+   "w": "Tenderloin Prohibition-era speakeasy in a real 1920s bar space; password-and-buzzer entry, five secret rooms, and the walk-in Library behind a bookcase — a trailblazer of SF's cocktail revival.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/best-speakeasy-bars-san-francisco-2659288562/bourbon-and-branch-wilson-and-wilson"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/bars/bourbon-branch"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Comstock Saloon",
+   "ad": "155 Columbus Ave, San Francisco, CA 94133",
+   "w": "North Beach's last standing Barbary Coast bar (1907), original mahogany bar and punkah fans; well-dressed bartenders, live jazz and a Free Lunch Friday tradition.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/comstock-saloon"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Comstock_Saloon"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "ABV",
+   "ad": "3174 16th St, San Francisco, CA 94103",
+   "w": "Mission bar from Bourbon & Branch/Beretta alumni — cocktails several steps above the norm in an unpretentious room, with one of the best burgers in the city until midnight.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/abv"
+    ],
+    [
+     "SFEXAMINER",
+     "https://www.sfexaminer.com/news/the-city/how-mission-district-bar-abv-crafts-its-unique-cocktail-menu/article_9135ce6a-42ec-4633-9324-3a11021cecbf.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "True Laurel",
+   "ad": "753 Alabama St, San Francisco, CA 94110",
+   "w": "Mission cocktail bar from the Michelin-starred Lazy Bear team; inventive drinks using fermented honey and roasted quince, and North America's 50 Best 'most sustainable bar'.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/bars/true-laurel"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/true-laurel"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Pacific Cocktail Haven (PCH)",
+   "ad": "550 Sutter St, San Francisco, CA 94102",
+   "w": "Award-winning Union Square bar led by local legend Kevin Diedrich; Asian-Pacific-driven drinks that landed it at #16 on North America's 50 Best Bars.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/pacific-cocktail-haven"
+    ],
+    [
+     "BOLDITALIC",
+     "https://thebolditalic.substack.com/p/san-francisco-is-so-dead-said-all"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Arsicault Bakery",
+   "ad": "397 Arguello Blvd, San Francisco, CA 94118",
+   "w": "Inner Richmond bakery named Bon Appetit's Bakery of the Year; preposterously flaky, brioche-tender croissants that draw a daily line — widely called SF's best.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "NBCBAY",
+     "https://www.nbcbayarea.com/news/local/san-franciscos-arsicault-bakery-named-best-bakery-of-the-year/2004723/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/arsicault-bakery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "b. Patisserie",
+   "ad": "2821 California St, San Francisco, CA 94115",
+   "w": "Lower Pac Heights French patisserie from James Beard-winning pastry chef Belinda Leong; the caramel-crusted kouign-amann is considered among the country's best.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/b-patisserie"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.bakemag.com/articles/20341-the-queen-of-kouign-amann-resides-at-b-patisserie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Devil's Teeth Baking Company",
+   "ad": "3876 Noriega St, San Francisco, CA 94122",
+   "w": "Outer Sunset beach-side bakery selling 500-600 breakfast sandwiches a weekend — egg, pepper jack, bacon, avocado and lemon-garlic aioli on a buttermilk biscuit; pillowy $1 Sunday beignets.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "HOODLINE",
+     "https://hoodline.com/2016/02/inside-devil-s-teeth-baking-company-an-outer-sunset-favorite/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/devils-teeth-baking-company"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Tony's Pizza Napoletana",
+   "ad": "1570 Stockton St, San Francisco, CA 94133",
+   "w": "13-time World Pizza Champion Tony Gemignani's flagship; ranked #3 pizza in the U.S. by 50 Top Pizza. 12 styles cooked in seven ovens — the Neapolitan Margherita (limited daily) and the coal-fired New Yorker are the ones to get.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/tonys-pizza-napoletana"
+    ],
+    [
+     "KRON4",
+     "https://www.kron4.com/news/bay-area/tonys-pizza-in-sf-cracks-top-10-best-in-the-world-list/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Golden Boy Pizza",
+   "ad": "542 Green St, San Francisco, CA 94133",
+   "w": "Punk-rock North Beach institution since 1978; airy focaccia squares with an impeccably crunchy bottom, sold by the slice. The clam & garlic and the sausage combo are the classics — line out the door, takeout only.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/golden-boy-pizza"
+    ],
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13959808/golden-boy-pizza-north-beach-sf-late-night"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Molinari Delicatessen",
+   "ad": "373 Columbus Ave, San Francisco, CA 94133",
+   "w": "Gold-medal Italian deli since 1896, one of the oldest in the U.S. House-cured Molinari salami piled on Dutch-crunch — a legendary counter sandwich by Washington Square.",
+   "cz": [
+    "IT",
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/molinari-delicatessen"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Molinari's"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Original Joe's",
+   "ad": "601 Union St, San Francisco, CA 94133",
+   "w": "Family-run since 1937, overlooking Washington Square. The originator of the Joe's Special — a mayor-proclaimed San Francisco classic — plus reliable red-sauce pasta and steaks in an old-school room.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/original-joes"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Original_Joe's"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Tosca Cafe",
+   "ad": "242 Columbus Ave, San Francisco, CA 94133",
+   "w": "Iconic 1919 North Beach bar-restaurant revived by Anna Weinberg, chef Nancy Oakes and Ken Fulk. Go for the scene, the Tosca meatballs, and the boozy house 'cappuccino' (armagnac and bourbon, no espresso).",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/tosca-cafe"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Anna_Weinberg_(restaurateur)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Il Casaro Pizzeria & Mozzarella Bar",
+   "ad": "348 Columbus Ave, San Francisco, CA 94133",
+   "w": "VPN-certified wood-fired Neapolitan pies (Caputo flour, DOP San Marzano) plus a mozzarella bar of imported bufala and burrata. Time Out rates it 5/5; the broccoli & salsiccia is the pick.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/il-casaro-pizzeria-mozzarella-bar"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/il-casaro"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NECN",
+   "n": "Sodini's Green Valley",
+   "ad": "510 Green St, San Francisco, CA 94133",
+   "w": "A North Beach red-sauce holdout tracing to 1906 (celebrated its 110th year in 2016). Old-school family-recipe pastas and a convivial, checkered-tablecloth room on Green St.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "HOODLINE",
+     "https://hoodline.com/2016/10/sodini-s-green-valley-restaurant-celebrates-110th-year-in-north-beach/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/sodinis"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Restaurant Gary Danko",
+   "ad": "800 North Point St, San Francisco, CA 94109",
+   "w": "Michelin-starred SF institution since 1999 near the Wharf. Build a multi-course tasting around signatures like glazed oysters with lettuce cream and osetra, and herb-crusted loin of lamb.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/gary-danko"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/gary-danko"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "State Bird Provisions",
+   "ad": "1529 Fillmore St, San Francisco, CA 94115",
+   "w": "James Beard Best New Restaurant (2013) and Michelin-starred. Dim-sum-style carts roll New American small plates — the namesake quail and the cheesy sauerkraut pancakes are essential.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/state-bird-provisions"
+    ],
+    [
+     "BOLDITALIC",
+     "https://www.thebolditalic.com/almost-10-years-old-san-franciscos-state-bird-provisions-is-still-going-strong/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Bansang",
+   "ad": "1560 Fillmore St, San Francisco, CA 94115",
+   "w": "Michelin Bib Gourmand (2023) — a contemporary Korean sharing-menu that folds in parmesan and chorizo alongside classics like mulhwe (raw seafood in chilled fermented-chili broth) and crackling lime-soy fried chicken.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/bansang"
+    ],
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/bib-gourmand-restaurants-san-francisco-2663397928.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Zuni Café",
+   "ad": "1658 Market St, San Francisco, CA 94102",
+   "w": "James Beard Outstanding Restaurant winner and Michelin-listed; Judy Rodgers' brick-oven roast chicken for two over warm bread salad has been the city's defining Cal-cuisine dish since 1979.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/zuni-cafe"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/zuni-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Nopa",
+   "ad": "560 Divisadero St, San Francisco, CA 94117",
+   "w": "The Divisadero gathering place that named a neighborhood; organic wood-fired California cooking whose pork chop is routinely called the best in the city, with bubbling wood-baked beans alongside.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/checkplease/933/nopa-reviews"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/nopa"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Rich Table",
+   "ad": "199 Gough St, San Francisco, CA 94102",
+   "w": "Hayes Valley's inventive Californian star (former Michelin star; #3 on the SF Chronicle Top 100, 2025). The sardine-threaded potato chips with horseradish dip are the signature opener.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/rich-table"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/rich-table"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Nightbird",
+   "ad": "330 Gough St, San Francisco, CA 94102",
+   "w": "Chef Kim Alter's intimate Hayes Valley tasting-menu room behind a carved-owl door; a tightly orchestrated seasonal menu (dry-aged squab with cabbage and mole) with the Linden Room bar next door.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/nightbird"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/nightbird"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Foreign Cinema",
+   "ad": "2534 Mission St, San Francisco, CA 94110",
+   "w": "James Beard-nominated Gayle Pirie and John Clark's California-Mediterranean landmark since 1999; oysters and sesame-curry fried chicken, with foreign films projected on the patio wall at dusk.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/foreign-cinema-restaurant"
+    ],
+    [
+     "JAMESBEARD",
+     "https://foreigncinema.com/about-us/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Frances",
+   "ad": "3870 17th St, San Francisco, CA 94114",
+   "w": "Melissa Perello's Michelin-recognized Castro bistro since 2010 — a refined but neighborly French-leaning California menu that changes daily; the closest clean fill for the French gap now that the classic French rooms have shuttered.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/frances"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/frances"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Bi-Rite Creamery",
+   "ad": "3692 18th St, San Francisco, CA 94110",
+   "w": "The Mission's iconic hand-churned creamery by Dolores Park (since 2006); the salted-caramel and coffee-toffee ice-cream sandwiches draw a line around the block.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/bi-rite-creamery"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/bi-rite-creamery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SE",
+   "n": "Besharam",
+   "ad": "1275 Minnesota St, San Francisco, CA 94107",
+   "w": "James Beard-nominated Heena Patel's regional Gujarati cooking inside the Minnesota Street Project in Dogpatch; California-inflected home dishes like malai kofta, blue-cheese naan and fire-charred eggplant with garlic confit.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/besharam"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/besharam"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Aziza",
+   "ad": "5800 Geary Blvd, San Francisco, CA 94121",
+   "w": "Mourad Lahlou's Richmond restaurant — the first Moroccan restaurant in the U.S. to earn a Michelin star (2010) — reimagining Moroccan cooking with California produce; the golden basteeya is the icon.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/aziza"
+    ],
+    [
+     "BOLDITALIC",
+     "https://www.thebolditalic.com/sfs-aziza-serves-some-of-the-best-moroccan-food-in-the-country/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Californios",
+   "ad": "355 11th St, San Francisco, CA 94103",
+   "w": "Val Cantu's SoMa tasting-menu room — the world's first three-Michelin-star Mexican restaurant — fusing regional technique with Bay Area produce; squab tacos on house sourdough tortillas and a blue-masa Dungeness-crab tostada.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/how-californios-became-the-first-three-michelin-star-mexican-restaurant-in-the-world"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Californios_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Kokkari Estiatorio",
+   "ad": "200 Jackson St, San Francisco, CA 94111",
+   "w": "The city's definitive upscale Greek room in Jackson Square — open-hearth grill and wood oven perfuming a fireplace-lit dining room; grilled lamb chops, moussaka and some of the best grilled octopus in town.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/kokkari-estiatorio"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/kokkari-estiatorio"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Angler",
+   "ad": "132 The Embarcadero, San Francisco, CA 94105",
+   "w": "Michelin-starred, live-fire seafood from Saison Hospitality on the Embarcadero waterfront; embered oysters with smoked chili butter and a steak-knife radicchio salad, cooked over an open hearth.",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/angler-sf"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/angler"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Acquerello",
+   "ad": "1722 Sacramento St, San Francisco, CA 94109",
+   "w": "Suzette Gresham's two-Michelin-star Italian fine-dining room in a converted chapel on Nob Hill; house-made pastas, seasonal truffle risotto, and the signature ridged pasta with faux foie gras and truffle.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/acquerello"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Acquerello"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Restaurant Naides",
+   "ad": "708 Bush St, San Francisco, CA 94108",
+   "w": "Michelin Bib Gourmand — the Bay Area's modern Filipino tasting-menu counter from chef Patrick Gabon; fermentation-driven takes like braised-gizzard sisig on brioche pandesal and dry-aged duck-breast adobo, 10-12 seats at a single counter.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/naides"
+    ],
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/filipino-fine-dining-restaurant-naides-2675574022.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Swensen's Ice Cream",
+   "ad": "1999 Hyde St, San Francisco, CA 94109",
+   "w": "The original Swensen's, opened 1948 at Hyde & Union on the Russian Hill cable-car line and the last U.S. parlor of the name — over 100 flavors churned old-school on the corner.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/swensens-ice-cream"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2023/05/31/swensons-ice-cream-san-francisco-origin-story-legacy-status/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "MIS",
    "n": "La Taqueria",
    "ad": "2889 Mission St, San Francisco, CA 94110",
@@ -2009,6 +3099,180 @@
      "kqed.org/food/1337457 — the story of the It's-It ice cream sandwich"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "The Kitchen",
+   "ad": "279 El Camino Real, Millbrae, CA 94030",
+   "w": "With Millbrae's famous dim sum halls (Hong Kong Flower Lounge, Zen Peninsula, Asian Pearl) all now shuttered, this Michelin Guide-listed Cantonese hall is the survivor - cart-service lunch dim sum known for its baked (not steamed) BBQ pork buns and roast duck with truffle oil.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/millbrae/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Fil-Am Cuisine",
+   "ad": "66 School St, Daly City, CA 94014",
+   "w": "The flagship turo-turo ('point-point') of Daly City, the largest Filipino community in the U.S.: point at steaming trays of crispy lechon kawali and peanutty kare-kare, plus grilled BBQ skewers. Cash-only, takeout, a decades-old local institution.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/fil-am-bbq"
+    ],
+    [
+     "ALMANAC",
+     "https://www.almanacnews.com/ae/2024/01/04/12-peninsula-spots-to-visit-for-a-filipino-food-crawl/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Chibog",
+   "ad": "2055 Gellert Blvd, Ste 5, Daly City, CA 94015",
+   "w": "A low-key Daly City sit-down spot (walls of '80s movie and boxing posters) doing sharp renditions of Filipino classics; the must-order is the crispy, citrusy sizzling sisig, with lumpiang Shanghai close behind. Featured on KQED's Check, Please! Bay Area.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/chibog"
+    ],
+    [
+     "KQED",
+     "https://www.kqed.org/checkplease"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "The Bread Basket",
+   "ad": "7099 Mission St, Daly City, CA 94014",
+   "w": "A family-run Filipino bakery on Top of the Hill baking pandesal since 1977 - warm rolls out of the oven from 5-7am, plus ensaymada and bibingka. A generational Daly City institution recently kept in the family by three cousins.",
+   "cz": [
+    "SEA",
+    "BAKE"
+   ],
+   "s": [
+    [
+     "ALMANAC",
+     "https://www.almanacnews.com/ae/2024/01/04/12-peninsula-spots-to-visit-for-a-filipino-food-crawl/"
+    ],
+    [
+     "KQED",
+     "https://www.kqed.org/bayareabites/133626/how-has-the-bays-filipino-food-scene-changed-just-ask-daly-citys-chel-gilla"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Basque Cultural Center",
+   "ad": "599 Railroad Ave, South San Francisco, CA 94080",
+   "w": "The Bay Area's living Basque hearth: founded 1982 by the region's sheepherding diaspora, it serves hearty family-style Basque dinners - lamb, duck, seafood - and the classic Picon Punch, beside an indoor pilota (jai alai) court. A genuine cultural institution, open to all.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://sfbasqueculturalcenter.org/history"
+    ],
+    [
+     "PATCH",
+     "https://patch.com/california/southsanfrancisco/basque-cultural-center-has-a-long-history-in-south-city"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Wakuriya",
+   "ad": "115 De Anza Blvd, San Mateo, CA 94402",
+   "w": "San Mateo's sole Michelin-starred restaurant: a 16-seat strip-mall counter where chef Katsuhiro Yamasaki serves a monthly-changing nine-course kaiseki built on California-seasonal ingredients. Reservations vanish instantly.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-mateo/restaurant/wakuriya"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Ramen Dojo",
+   "ad": "805 S B St, San Mateo, CA 94401",
+   "w": "A 24-seat downtown San Mateo ramen shop with a line half an hour before it opens: garlic-pork, soybean or soy broths dialed from mild to extra-spicy, loaded with fried whole garlic. Come early - they run out of broth.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/first-bite-ramen-dojo-san-mateo-1779465053.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/ramen-dojo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Rasa",
+   "ad": "209 Park Rd, Burlingame, CA 94010",
+   "w": "The first Indian restaurant in California to win a Michelin star (held 2016-2021); chef Ajay Walia's modern South-Indian coastal cooking - dosa, chutney prawns, Railway pepper, biryani - reopened on Burlingame Ave in 2024 after a hiatus.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "SMDAILYJOURNAL",
+     "https://www.smdailyjournal.com/news/local/burlingames-michelin-starred-rasa-returns/article_b61bf866-90ed-11ef-9b68-9b529ef14e70.html"
+    ],
+    [
+     "PATCH",
+     "https://patch.com/california/burlingame-hillsborough/acclaimed-peninsula-indian-restaurant-returns-burlingame"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "Wursthall — CLOSED",
+   "ad": "310 Baldwin Ave, San Mateo, CA 94401",
+   "w": "The German beer-hall co-founded by cookbook author J. Kenji Lopez-Alt, a downtown San Mateo fixture since 2018 known for house sausages, currywurst and pretzels. Permanently closed Sept 27, 2025 - kept here for the record (basement bar Wunderbar may continue).",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "PALOALTOONLINE",
+     "https://www.paloaltoonline.com/san-mateo-county/2025/09/03/san-mateos-wursthall-to-permanently-close-but-its-basement-cocktail-bar-will-likely-stay/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/J._Kenji_L%C3%B3pez-Alt"
+    ]
+   ]
   }
  ],
  "S": {
@@ -2018,17 +3282,35 @@
    "u": "https://www.afar.com",
    "l": "AFAR"
   },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/",
+   "l": "Atlas Obscura"
+  },
+  "CASTATEPARKS": {
+   "k": "CA STATE PARKS",
+   "t": "California State Parks",
+   "u": "https://www.parks.ca.gov/",
+   "l": "California State Parks"
+  },
   "FOUNDSF": {
    "k": "FOUNDSF",
    "t": "FoundSF (SF history archive)",
    "u": "https://www.foundsf.org",
    "l": "FoundSF (SF history archive)"
   },
+  "ISLANDS": {
+   "k": "ISLANDS",
+   "t": "Islands.com",
+   "u": "https://www.islands.com/",
+   "l": "Islands.com"
+  },
   "KQED": {
    "k": "KQED BAY AREA",
-   "t": "KQED Arts",
-   "u": "https://www.kqed.org/arts",
-   "l": "KQED Arts"
+   "t": "KQED / Check, Please! Bay Area / Bay Area Bites",
+   "u": "https://www.kqed.org/",
+   "l": "KQED / Check, Please! Bay Area / Bay Area Bites"
   },
   "NBCBAY": {
    "k": "NBC BAY AREA",
@@ -2036,17 +3318,29 @@
    "u": "https://www.nbcbayarea.com",
    "l": "NBC Bay Area"
   },
+  "NICHIBEI": {
+   "k": "NICHIBEI",
+   "t": "Nichi Bei News",
+   "u": "https://www.nichibei.org/",
+   "l": "Nichi Bei News"
+  },
+  "NPR": {
+   "k": "NPR",
+   "t": "NPR",
+   "u": "https://www.npr.org/",
+   "l": "NPR"
+  },
   "NPS": {
    "k": "NATIONAL PARK SVC",
-   "t": "National Park Service",
-   "u": "https://www.nps.gov",
-   "l": "National Park Service"
+   "t": "National Park Service / Golden Gate National Parks Conservancy (GGNRA)",
+   "u": "https://www.nps.gov/goga/",
+   "l": "National Park Service / Golden Gate National Parks Conservancy (GGNRA)"
   },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
-   "t": "Official site",
+   "t": "Official site / municipal source",
    "u": "",
-   "l": "Official site"
+   "l": "Official site / municipal source"
   },
   "PARKSCON": {
    "k": "PARKSCON",
@@ -2056,9 +3350,9 @@
   },
   "SEVENXSEVEN": {
    "k": "7X7",
-   "t": "7x7",
-   "u": "https://www.7x7.com",
-   "l": "7x7"
+   "t": "7x7 Bay Area",
+   "u": "https://www.7x7.com/",
+   "l": "7x7 Bay Area"
   },
   "SFPARKS": {
    "k": "SF REC & PARK",
@@ -2078,6 +3372,12 @@
    "u": "https://www.sftravel.com",
    "l": "San Francisco Travel"
   },
+  "SMCPARKS": {
+   "k": "SMCPARKS",
+   "t": "San Mateo County Parks / Parks Foundation",
+   "u": "https://supportparks.org/",
+   "l": "San Mateo County Parks / Parks Foundation"
+  },
   "TIMEOUT": {
    "k": "TIME OUT",
    "t": "Time Out SF",
@@ -2087,15 +3387,21 @@
   "WIKIPEDIA": {
    "k": "WIKIPEDIA",
    "t": "Wikipedia",
-   "u": "https://en.wikipedia.org",
+   "u": "https://en.wikipedia.org/",
    "l": "Wikipedia"
   }
  },
  "FS": {
+  "ALMANAC": {
+   "k": "ALMANAC",
+   "t": "The Almanac / Palo Alto Online (Embarcadero Media)",
+   "u": "https://www.almanacnews.com/",
+   "l": "The Almanac / Palo Alto Online (Embarcadero Media)"
+  },
   "ATLASOBSCURA": {
    "k": "ATLAS OBSCURA",
    "t": "Atlas Obscura",
-   "u": "https://www.atlasobscura.com",
+   "u": "https://www.atlasobscura.com/",
    "l": "Atlas Obscura"
   },
   "BOLDITALIC": {
@@ -2118,9 +3424,9 @@
   },
   "INFATUATION": {
    "k": "INFATUATION",
-   "t": "INFATUATION",
-   "u": "",
-   "l": ""
+   "t": "The Infatuation (SF)",
+   "u": "https://www.theinfatuation.com/san-francisco",
+   "l": "The Infatuation (SF)"
   },
   "JAMESBEARD": {
    "k": "JAMES BEARD",
@@ -2130,15 +3436,21 @@
   },
   "KQED": {
    "k": "KQED BAY AREA",
-   "t": "KQED Arts",
-   "u": "https://www.kqed.org/arts",
-   "l": "KQED Arts"
+   "t": "KQED / Check, Please! Bay Area / Bay Area Bites",
+   "u": "https://www.kqed.org/",
+   "l": "KQED / Check, Please! Bay Area / Bay Area Bites"
+  },
+  "KRON4": {
+   "k": "KRON4",
+   "t": "KRON4",
+   "u": "",
+   "l": ""
   },
   "MICHELIN": {
    "k": "MICHELIN",
-   "t": "MICHELIN",
-   "u": "",
-   "l": ""
+   "t": "The MICHELIN Guide",
+   "u": "https://guide.michelin.com/",
+   "l": "The MICHELIN Guide"
   },
   "MICHELIN_BIB": {
    "k": "MICHELIN BIB",
@@ -2148,9 +3460,9 @@
   },
   "MICHELIN_STAR": {
    "k": "MICHELIN ★",
-   "t": "MICHELIN ★",
-   "u": "",
-   "l": ""
+   "t": "The MICHELIN Guide (Star)",
+   "u": "https://guide.michelin.com/",
+   "l": "The MICHELIN Guide (Star)"
   },
   "MISSIONLOCAL": {
    "k": "MISSION LOCAL",
@@ -2158,17 +3470,41 @@
    "u": "",
    "l": ""
   },
+  "NBCBAY": {
+   "k": "NBC BAY AREA",
+   "t": "NBC Bay Area",
+   "u": "https://www.nbcbayarea.com",
+   "l": "NBC Bay Area"
+  },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
-   "t": "Official site",
+   "t": "Official site / municipal source",
    "u": "",
-   "l": "Official site"
+   "l": "Official site / municipal source"
+  },
+  "PALOALTOONLINE": {
+   "k": "PALOALTOONLINE",
+   "t": "Palo Alto Online (Embarcadero Media)",
+   "u": "https://www.paloaltoonline.com/",
+   "l": "Palo Alto Online (Embarcadero Media)"
+  },
+  "PATCH": {
+   "k": "PATCH",
+   "t": "Patch (local news)",
+   "u": "https://patch.com/california",
+   "l": "Patch (local news)"
   },
   "SEVENXSEVEN": {
    "k": "7X7",
-   "t": "7x7",
-   "u": "https://www.7x7.com",
-   "l": "7x7"
+   "t": "7x7 Bay Area",
+   "u": "https://www.7x7.com/",
+   "l": "7x7 Bay Area"
+  },
+  "SFEXAMINER": {
+   "k": "SFEXAMINER",
+   "t": "SFEXAMINER",
+   "u": "",
+   "l": ""
   },
   "SFGATE": {
    "k": "SFGATE",
@@ -2194,6 +3530,18 @@
    "u": "",
    "l": ""
   },
+  "SMDAILYJOURNAL": {
+   "k": "SMDAILYJOURNAL",
+   "t": "San Mateo Daily Journal",
+   "u": "https://www.smdailyjournal.com/",
+   "l": "San Mateo Daily Journal"
+  },
+  "SPRUDGE": {
+   "k": "SPRUDGE",
+   "t": "SPRUDGE",
+   "u": "",
+   "l": ""
+  },
   "TIMEOUT": {
    "k": "TIME OUT",
    "t": "Time Out SF",
@@ -2203,7 +3551,7 @@
   "WIKIPEDIA": {
    "k": "WIKIPEDIA",
    "t": "Wikipedia",
-   "u": "https://en.wikipedia.org",
+   "u": "https://en.wikipedia.org/",
    "l": "Wikipedia"
   }
  }
