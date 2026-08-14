@@ -1,0 +1,2245 @@
+{
+ "areas": [
+  {
+   "id": "PA",
+   "n": "Palo Alto & Stanford"
+  },
+  {
+   "id": "MV",
+   "n": "Mountain View & Los Altos"
+  },
+  {
+   "id": "SUN",
+   "n": "Sunnyvale"
+  },
+  {
+   "id": "CU",
+   "n": "Cupertino & Saratoga"
+  },
+  {
+   "id": "SC",
+   "n": "Santa Clara"
+  },
+  {
+   "id": "SJ",
+   "n": "San Jose"
+  },
+  {
+   "id": "DAY",
+   "n": "Day Trips & Coast"
+  }
+ ],
+ "ac": {
+  "PA": "#C0504D",
+  "MV": "#4F81BD",
+  "SUN": "#9BBB59",
+  "CU": "#8064A2",
+  "SC": "#4BACC6",
+  "SJ": "#E8973A",
+  "DAY": "#7E8FC4"
+ },
+ "cuisines": [
+  {
+   "id": "TWN",
+   "n": "Taiwanese"
+  },
+  {
+   "id": "CN",
+   "n": "Chinese"
+  },
+  {
+   "id": "CANT",
+   "n": "Cantonese & Dim Sum"
+  },
+  {
+   "id": "SICH",
+   "n": "Sichuan"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnamese"
+  },
+  {
+   "id": "KR",
+   "n": "Korean"
+  },
+  {
+   "id": "JP",
+   "n": "Japanese, Sushi & Ramen"
+  },
+  {
+   "id": "IN",
+   "n": "Indian & South Indian"
+  },
+  {
+   "id": "SEA",
+   "n": "Southeast Asian"
+  },
+  {
+   "id": "MX",
+   "n": "Mexican & Taqueria"
+  },
+  {
+   "id": "US",
+   "n": "American & Californian"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood"
+  },
+  {
+   "id": "BOBA",
+   "n": "Boba & Tea"
+  },
+  {
+   "id": "DES",
+   "n": "Desserts & Bakeries"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "TECH",
+   "n": "Big Tech Campuses"
+  },
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "ENT",
+   "n": "Sports, Music & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Shopping & Districts"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Hikes"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Apple Park Visitor Center",
+   "ad": "10600 N Tantau Ave, Cupertino, CA 95014",
+   "w": "The public building Apple built across the street from its 'spaceship' ring HQ, opened 2017. A design landmark in its own right, with a carbon-fiber roof floating on stone columns.",
+   "k": "Open to anyone: full Apple Store, Caffe Macs rooftop cafe/terrace with a distant view over the ring, and an augmented-reality tabletop model of the campus. The ring building itself and the grounds are closed to the public.",
+   "g": [
+    "TECH",
+    "ICON",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.apple.com/retail/appleparkvisitorcenter/"
+    ],
+    [
+     "YELP",
+     "https://www.yelp.com/biz/apple-park-visitor-center-cupertino-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Steve Jobs' Childhood Home & Apple Garage",
+   "ad": "2066 Crist Dr, Los Altos, CA 94024",
+   "w": "The ranch house where Steve Jobs grew up and where he and Steve Wozniak built the first Apple I computers in the garage in 1976. Los Altos designated it a historic resource in 2013.",
+   "k": "View from the public street ONLY. It is a private, occupied residence with no plaque or tour; do not enter the property or disturb residents. Just a quiet curbside pilgrimage.",
+   "g": [
+    "TECH",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Steve_Jobs"
+    ],
+    [
+     "MERCURY",
+     "https://www.nbcbayarea.com/news/local/los-altos-turns-steve-jobs-childhood-home-into-historical-site/1958074/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Google Visitor Experience",
+   "ad": "2000 N Shoreline Blvd, Mountain View, CA 94043",
+   "w": "Google's official public front door at the Googleplex, opened October 2023 inside the striking curved 'Gradient Canopy' (Charleston East) building. The rest of the Googleplex is closed to non-employees.",
+   "k": "Open to the public: the Google Store (hardware + exclusive branded merch), a cafe, the Huddle event space and an outdoor Plaza with public art. Offices and the wider campus are off-limits.",
+   "g": [
+    "TECH",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://visit.withgoogle.com/plan-your-visit/"
+    ],
+    [
+     "OFFICIAL",
+     "https://9to5google.com/2023/10/12/google-store-mountain-view/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Android Lawn Statues",
+   "ad": "Charleston Rd & Huff Ave, Mountain View, CA 94043",
+   "w": "The beloved oversized foam sculptures of Android dessert mascots (Cupcake through Pie, etc.). The tradition ran 2008-2019; newer versions are digital-only.",
+   "k": "An outdoor photo spot beside the Google Visitor Experience. The statues were moved here from the old Landings Drive lawn (redeveloped) in 2022; the area is technically for Google employees and guests, but visitors are generally welcomed to walk up and photograph them. Best combined with a Visitor Experience stop.",
+   "g": [
+    "TECH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Android_lawn_statues"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/android-lawn-statues-mountain-view"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Computer History Museum",
+   "ad": "1401 N Shoreline Blvd, Mountain View, CA 94043",
+   "w": "The world's leading museum of computing history, holding everything from a working Babbage Difference Engine reconstruction to Cray supercomputers and a restored PDP-1. A must for any tech traveler.",
+   "k": "Fully open to the public (Wed-Sun, ~10a-5p; general admission ~$15). No membership or affiliation needed.",
+   "g": [
+    "TECH",
+    "ICON",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://computerhistory.org/hours-admission/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Computer_History_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Intel Museum",
+   "ad": "2200 Mission College Blvd, Santa Clara, CA 95054",
+   "w": "A free museum at Intel's HQ tracing the silicon-chip story from the transistor to modern processors, with hands-on exhibits on how chips are made and Intel's Silicon Valley founding.",
+   "k": "Free and open to the public inside the Robert Noyce Building lobby (Mon-Fri, ~9a-5p; call ahead as it closes for events). The rest of the Intel campus is not public.",
+   "g": [
+    "TECH",
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.intel.com/content/www/us/en/history/museum-visiting-intel.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Intel_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SC",
+   "n": "NVIDIA HQ - Voyager & Endeavor",
+   "ad": "2788 San Tomas Expy, Santa Clara, CA 95051",
+   "w": "NVIDIA's dramatic triangle-motif headquarters: the Gensler-designed Endeavor (2017) and the enormous Voyager (2022), whose sloped glass 'mountain' roof shelters an indoor landscaped village.",
+   "k": "Exterior architecture only. The buildings are private and closed to the public; the striking hexagonal/triangular forms are best appreciated from the sidewalk and San Tomas Expressway. No visitor center or tours.",
+   "g": [
+    "TECH"
+   ],
+   "s": [
+    [
+     "MERCURY",
+     "https://therealdeal.com/san-francisco/2025/12/09/nvidia-grows-with-new-santa-clara-headquarters-building/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nvidia"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "HP Garage - Birthplace of Silicon Valley",
+   "ad": "367 Addison Ave, Palo Alto, CA 94301",
+   "w": "The one-car garage where Bill Hewlett and Dave Packard started Hewlett-Packard in 1939, widely honored as the birthplace of Silicon Valley. California Historical Landmark and on the National Register.",
+   "k": "View from the public sidewalk ONLY. It is a private HP-owned property, not open inside; a bronze plaque on the front lawn reads 'Birthplace of Silicon Valley.'",
+   "g": [
+    "TECH",
+    "ICON",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/HP_Garage"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/birthplace-of-silicon-valley"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "PA",
+   "n": "Xerox PARC",
+   "ad": "3333 Coyote Hill Rd, Palo Alto, CA 94304",
+   "w": "The low-slung research lab (now PARC, part of SRI International) where the graphical user interface, the mouse, Ethernet, laser printing and WYSIWYG editing were invented in the 1970s - ideas that shaped every modern computer.",
+   "k": "Exterior/landmark only. It is a working private research facility, not open to the public; the site sits on Coyote Hill above Stanford with hiking-trail views nearby. A pilgrimage for the story, not the building.",
+   "g": [
+    "TECH",
+    "ICON",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/PARC_(company)"
+    ],
+    [
+     "MERCURY",
+     "https://www.theregister.com/2023/04/25/xerox_parc_goodbye/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "NASA Ames Exploration Center & Hangar One",
+   "ad": "Moffett Blvd, Mountain View, CA 94035",
+   "w": "NASA's free space-science visitor center at Ames Research Center/Moffett Field, with Mercury and Apollo-era artifacts, a Mars meteorite and moon-mission exhibits. Nearby looms Hangar One, the colossal 1930s airship hangar that is a Bay Area landmark.",
+   "k": "The Exploration Center sits outside the security gate and is free and open to the public (Tue-Fri 10a-4p, Sat-Sun 12-4p) - no base access needed. Hangar One and the airfield itself are secured; the hangar is viewable from outside/afar only. (The separate Moffett Field Museum, inside the gate, requires ID and a fee.)",
+   "g": [
+    "TECH",
+    "MUS",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nasa.gov/ames/visit-ames-research-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hangar_One_(Moffett_Federal_Airfield)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Meta 'Like' Sign, 1 Hacker Way",
+   "ad": "1 Hacker Way, Menlo Park, CA 94025",
+   "w": "The famous sign at the entrance to Meta's (Facebook's) headquarters - once the giant blue thumbs-up 'Like', now the blue Meta infinity logo (swapped in the 2021 rebrand). A classic Silicon Valley selfie stop.",
+   "k": "Photo stop at the entrance sign ONLY, from the public roadside. The Meta campus is closed to the public - no walk-in access. The famous thumbs-up is gone; the sign now shows the Meta infinity mark (with 'Facebook' still on the reverse).",
+   "g": [
+    "TECH"
+   ],
+   "s": [
+    [
+     "SFCHRON",
+     "https://www.paloaltoonline.com/news/2021/10/29/facebook-changes-its-name-to-meta/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Meta_Platforms"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Adobe HQ & San Jose Semaphore",
+   "ad": "151 S Almaden Blvd, San Jose, CA 95113",
+   "w": "Adobe's cluster of towers that anchors downtown San Jose's skyline. Atop the Almaden Tower is the 'San Jose Semaphore,' a public art installation of four rotating LED disks that broadcast an encoded message.",
+   "k": "Exterior and skyline only - the offices are private. The San Jose Semaphore art piece is visible free from the street/downtown after dark (message decodable online). No public interior or tours.",
+   "g": [
+    "TECH",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.adobe.com/about-adobe/visit-us/sj-semaphore.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adobe_World_Headquarters"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "eBay Main Campus",
+   "ad": "2025 Hamilton Ave, San Jose, CA 95125",
+   "w": "The headquarters campus of eBay, one of the dot-com era's defining companies, whose whimsical signage and 'Main Street' welcome center reflect its marketplace roots.",
+   "k": "Exterior and signage only. The campus is a private workplace not open to the public; the branded eBay sign and buildings can be seen from the roadside.",
+   "g": [
+    "TECH",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/EBay"
+    ],
+    [
+     "MERCURY",
+     "https://oceanwestcp.com/properties/north-first-commons-ebay/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Samsung Semiconductor 'Samsung@First'",
+   "ad": "3655 N First St, San Jose, CA 95134",
+   "w": "Samsung's striking 10-story North American semiconductor HQ (opened 2015), a LEED-Platinum tower with a sculptural stepped facade - the standout landmark of North San Jose's 'Golden Triangle' tech corridor along N First St, which also hosts PayPal, Cisco and others.",
+   "k": "Exterior architecture and signage only. The building is a private office, not open to the public; admire the facade from N First St. Neighboring PayPal (2211 N First St) and Cisco (170 W Tasman Dr) campuses are likewise exteriors-only drive-bys.",
+   "g": [
+    "TECH",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://semiconductor.samsung.com/about-us/locations/us/us-campus/"
+    ],
+    [
+     "MERCURY",
+     "https://en.wikipedia.org/wiki/North_San_Jose"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Stanford Dish Loop",
+   "ad": "Stanford Ave & Junipero Serra Blvd, Stanford, CA 94305",
+   "w": "An iconic ~3.7-mile paved loop over Stanford's rolling foothills, named for the giant radio telescope dish on the ridge, with sweeping views of the Bay and campus. A local exercise ritual dawn to dusk.",
+   "k": "No dogs, no bikes; free street parking on Stanford Ave fills early on weekends. No water on the loop.",
+   "g": [
+    "PARK",
+    "ICON",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://dish.stanford.edu/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stanford_Dish"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Baylands Nature Preserve",
+   "ad": "2500 Embarcadero Rd, Palo Alto, CA 94303",
+   "w": "One of the largest tracts of undisturbed marshland left on the Bay, with 15 miles of flat trails, boardwalks and superb birding along the salt marsh and sloughs. The Lucy Evans Interpretive Center sits at 2775 Embarcadero Rd.",
+   "k": "Flat and stroller/bike friendly; best light and bird activity at sunrise and sunset.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.paloalto.gov/Departments/Community-Services/Parks-Open-Space-Golf-Division/Neighborhood-Parks/Baylands-Nature-Preserve"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palo_Alto_Baylands_Nature_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Shoreline Park & Lake",
+   "ad": "3160 N Shoreline Blvd, Mountain View, CA 94043",
+   "w": "A 750-acre bayfront park built on former landfill, with a 50-acre sailing lake, kite-flying meadows, burrowing owls and miles of paved trails linking to the Bay Trail. The historic Rengstorff House stands near the entrance.",
+   "k": "Boat and kayak rentals at the lake; Shoreline Amphitheatre concerts can jam parking on show nights.",
+   "g": [
+    "PARK",
+    "ENT",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.mountainview.gov/our-city/departments/community-services/shoreline-at-mountain-view"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shoreline_Park_(Mountain_View,_California)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Rancho San Antonio Preserve",
+   "ad": "22500 Cristo Rey Dr, Cupertino, CA 95014",
+   "w": "The South Bay's most popular open space: 24 miles of oak-and-grassland trails, the family-favorite Deer Hollow Farm, and the climb to Wildcat Loop and PG&E Trail. Open 8 a.m. to 30 minutes after sunset.",
+   "k": "The lot fills by mid-morning on weekends; arrive early or expect to wait.",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.openspace.org/preserves/rancho-san-antonio"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rancho_San_Antonio_County_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "Fremont Older Open Space Preserve",
+   "ad": "22898 Prospect Rd, Saratoga, CA 95070",
+   "w": "A 739-acre preserve of hayfields, oak woodland and orchard on the Saratoga/Cupertino line, with two lookout peaks (Hunters Point, Maisie's Peak) giving valley-wide views. A favorite of hikers, riders and mountain bikers.",
+   "k": "Only ~21 spaces at the Prospect Rd lot; go early. Trails are shared with bikes and horses.",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.openspace.org/preserves/fremont-older-preserve"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fremont_Older_Open_Space_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "Stevens Creek County Park",
+   "ad": "11401 Stevens Canyon Rd, Cupertino, CA 95014",
+   "w": "Santa Clara County's first regional park (1924): 1,077 acres of foothills around a 92-acre reservoir, with hiking, fishing, non-motorized boating and links to the Fremont Older and Skyline trails.",
+   "k": "$6 parking at the ranger station; a second lot near the reservoir is closer to the water.",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://parks.santaclaracounty.gov/locations/stevens-creek-county-park"
+    ],
+    [
+     "MERCURY",
+     "https://www.mercurynews.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Hakone Estate & Gardens",
+   "ad": "21000 Big Basin Way, Saratoga, CA 95070",
+   "w": "One of the oldest Japanese-style residential gardens in the Western Hemisphere (est. 1917), with a koi pond, tea house, bamboo grove and hillside strolling paths. A National Historic District in the Saratoga hills.",
+   "k": "Paid admission; the Lower House and tea garden are best in spring azalea and fall maple season.",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.hakone.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hakone_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Japanese Friendship Garden",
+   "ad": "1300 Senter Rd, San Jose, CA 95112",
+   "w": "A serene 6.5-acre koi garden in Kelley Park modeled on Okayama's Korakuen, sister city to San Jose, with waterfalls, arched bridges and hundreds of koi. Free to enter.",
+   "k": "Inside Kelley Park; parking on Senter Rd. Combine with the neighboring Happy Hollow zoo.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sanjoseca.gov/your-government/departments-offices/parks-recreation-neighborhood-services/parks/regional-parks/japanese-friendship-garden"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japanese_Friendship_Garden_(San_Jose)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Municipal Rose Garden",
+   "ad": "Naglee Ave & Dana Ave, San Jose, CA 95126",
+   "w": "A 5.5-acre historic rose garden with roughly 3,500 plantings of nearly 200 varieties, repeatedly voted America's Best Rose Garden. Peak bloom is late April through the summer.",
+   "k": "Free; on-street parking. Fragrance and color peak in May. GPS 1649 Naglee Ave.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityDirectory/2295/2028"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Jose_Municipal_Rose_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Overfelt Gardens & Chinese Cultural Garden",
+   "ad": "368 Educational Park Dr, San Jose, CA 95133",
+   "w": "A quiet 33-acre passive park with ponds, a fragrance/sensory garden and the Chinese Cultural Garden, complete with a Friendship Gate and a towering statue of Confucius. Free and rarely crowded.",
+   "k": "Free entry; wandering pathways suit a slow stroll rather than a workout.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityDirectory/2311/2028"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chinese_Cultural_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Alum Rock Park",
+   "ad": "15350 Penitencia Creek Rd, San Jose, CA 95127",
+   "w": "Founded in 1872, one of California's oldest municipal parks: 720 acres of rugged canyon in the Diablo foothills, with mineral springs, stone grottoes, a creek and 13 miles of trails. Open 8 a.m. to a half-hour after sunset.",
+   "k": "Weekend parking fee; the Creek and North Rim trails give the best canyon views.",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityDirectory/2088/2028"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alum_Rock_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Mission Peak (Fremont)",
+   "ad": "680 Stanford Ave, Fremont, CA 94539",
+   "w": "The Bay Area's most famous foothill summit hike: a relentless ~6-mile round trip climbing 2,000 ft to a 2,517-ft peak and its selfie-famous survey pole, with 360-degree valley and Bay views. A rite of passage for South Bay hikers.",
+   "k": "Tiny Stanford Ave lot fills at dawn; overflow on Vineyard Ave. Bring water, no shade. Entrance open 6:30 a.m.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.ebparks.org/parks/mission-peak"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mission_Peak"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Lick Observatory (Mt Hamilton)",
+   "ad": "7281 Mt Hamilton Rd, Mount Hamilton, CA 95140",
+   "w": "A working University of California observatory on the 4,200-ft summit of Mt Hamilton, reached by a famously winding road with knockout views over San Jose. Free visitor center and tours of the historic 36-inch Great Refractor.",
+   "k": "Public grounds open weekends noon-5 p.m.; the drive is long and twisty with no gas or food. Check for construction closures.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.lickobservatory.org/public-visitor-information/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lick_Observatory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Filoli Historic House & Garden",
+   "ad": "86 Canada Rd, Woodside, CA 94062",
+   "w": "A 1917 Georgian country estate on 654 acres in Woodside, with 16 acres of formal English Renaissance gardens, reflecting pools and seasonal displays. A National Trust site open daily 10 a.m.-5 p.m.",
+   "k": "Paid, often timed-ticket admission; spring tulips and the holiday displays draw crowds. Book ahead.",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://filoli.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Filoli"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Big Basin Redwoods State Park",
+   "ad": "21600 Big Basin Way, Boulder Creek, CA 95006",
+   "w": "California's oldest state park (1902) and its old-growth coast redwoods. Badly burned in the 2020 CZU fire, it has reopened for limited day-use with reservations; over 20 miles of trails are restored and the forest is visibly regenerating.",
+   "k": "Day-use reservations required; a summer weekend/holiday shuttle runs. Full rebuild will take years, so check current access before going.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/bigbasin"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Big_Basin_Redwoods_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Henry Cowell Redwoods State Park",
+   "ad": "101 Big Trees Park Rd, Felton, CA 95018",
+   "w": "An accessible grove of ancient coast redwoods near Felton, with an easy self-guided Redwood Loop, the San Lorenzo River and trails up to an observation deck. A gentler redwood day than Big Basin.",
+   "k": "Day-use fee; the flat Redwood Loop is stroller-friendly. The Roaring Camp steam railroad runs nearby.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/henrycowell/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Henry_Cowell_Redwoods_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Santa Cruz Beach Boardwalk",
+   "ad": "400 Beach St, Santa Cruz, CA 95060",
+   "w": "California's classic beachfront amusement park, home to the 1924 wooden Giant Dipper coaster and the 1911 Looff carousel, both National Historic Landmarks. Free to enter, pay per ride; open year-round.",
+   "k": "Free admission, ride wristbands sold separately; summer weekends are packed and parking is tight.",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://beachboardwalk.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Santa_Cruz_Beach_Boardwalk"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Half Moon Bay State Beach",
+   "ad": "95 Kelly Ave, Half Moon Bay, CA 94019",
+   "w": "Four miles of sandy state beach on the San Mateo coast, edged by the level, paved Coastside Trail running from Pillar Point to Poplar Beach with wide-open ocean views. Day-use 8 a.m. to sunset.",
+   "k": "Francis Beach is at the end of Kelly Ave; the coast is windy and cold-water, more for walking than swimming.",
+   "g": [
+    "VIEW"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/?page_id=531"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.halfmoonbay.gov/732/Beaches"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DAY",
+   "n": "Gilroy Gardens Family Theme Park",
+   "ad": "3050 Hecker Pass Hwy, Gilroy, CA 95020",
+   "w": "A horticulture-themed family park in the garlic capital of Gilroy, built around famous 'circus trees' and six gardens with gentle rides and attractions. Seasonal, open roughly late March through early January.",
+   "k": "Paid admission; low-key rides aimed at younger kids. Pair with Gilroy's garlic scene and the July Garlic Festival heritage.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.gilroygardens.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gilroy_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Levi's Stadium & 49ers Museum",
+   "ad": "4900 Marie P DeBartolo Way, Santa Clara, CA 95054",
+   "w": "Home of the NFL's San Francisco 49ers and host of Super Bowl 50 and the 2026 Super Bowl LX, this open-air stadium also holds the 49ers Museum, an 20,000-sq-ft hall of trophies, memorabilia, and Hall of Fame exhibits.",
+   "k": "Stadium interior only by game/event ticket or scheduled tour. The 49ers Museum keeps separate hours (typically Fri-Sun) on non-event days; on gamedays it needs both a game and a museum ticket. Verify hours before visiting.",
+   "g": [
+    "ENT",
+    "TECH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://levisstadium.com/visit-the-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Levi%27s_Stadium"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "SAP Center at San Jose (The Shark Tank)",
+   "ad": "525 W Santa Clara St, San Jose, CA 95113",
+   "w": "The 17,500-seat downtown arena nicknamed 'The Shark Tank,' home of the NHL's San Jose Sharks since 1993 and one of the busiest concert and event arenas in the country.",
+   "k": "Interior accessible only with a ticket to a Sharks game, concert, or event. No general tours.",
+   "g": [
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sapcenter.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/SAP_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "PayPal Park",
+   "ad": "1123 Coleman Ave, San Jose, CA 95110",
+   "w": "An 18,000-seat soccer-specific stadium beside the airport, home to MLS's San Jose Earthquakes and NWSL's Bay FC, known for its steep stands and the largest outdoor bar in North America.",
+   "k": "Match-day or event ticket required to enter; no regular public access otherwise.",
+   "g": [
+    "ENT",
+    "TECH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sjearthquakes.com/paypalpark"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/PayPal_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Shoreline Amphitheatre",
+   "ad": "1 Amphitheatre Pkwy, Mountain View, CA 94043",
+   "w": "Northern California's largest outdoor amphitheater, opened in 1986 by Bill Graham, seating about 22,500 between reserved seats and a big grass lawn, next to Shoreline Park by the bay.",
+   "k": "Open only for concerts, roughly May through October; entry by event ticket. Lawn seating is general admission.",
+   "g": [
+    "ENT",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.shorelineamphitheatre.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shoreline_Amphitheatre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "The Mountain Winery",
+   "ad": "14831 Pierce Rd, Saratoga, CA 95070",
+   "w": "A historic hilltop winery estate in the Saratoga foothills whose open-air amphitheater seats about 2,500 for an intimate summer concert series with sweeping views over Silicon Valley.",
+   "k": "Concert season runs spring through fall; entry by event ticket. Gates open ~2 hours before showtime; ~$20 per car parking.",
+   "g": [
+    "ENT",
+    "PARK",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.mountainwinery.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mountain_Winery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "California's Great America",
+   "ad": "4701 Great America Pkwy, Santa Clara, CA 95054",
+   "w": "A 100-acre amusement park opened in 1976 with roller coasters, a Boardwalk water area, and the landmark Carousel Columbia, celebrating its 50th season in 2026.",
+   "k": "Seasonal ride park; entry by ticket. Slated to close after the 2027 season (lease expires 2028) unless extended - still fully operating for now.",
+   "g": [
+    "ENT",
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/California%27s_Great_America"
+    ],
+    [
+     "MERCURY",
+     "https://sanjosespotlight.com/fact-brief-is-californias-great-america-in-santa-clara-closing/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "The Ritz",
+   "ad": "400 S First St, San Jose, CA 95113",
+   "w": "A 500-capacity live-music venue and nightclub in a former 1940s movie theater at the heart of the SoFA District, hosting touring rock, hip-hop, Latin, and electronic acts.",
+   "k": "Open for scheduled shows and club nights only; entry by ticket. Check the calendar before going.",
+   "g": [
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://sofadistrict.org/the-ritz-nightclub-san-jose/"
+    ],
+    [
+     "MERCURY",
+     "https://www.metrosiliconvalley.com/can-the-ritz-bring-rock-roll-back-to-sofa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Santana Row",
+   "ad": "377 Santana Row, San Jose, CA 95128",
+   "w": "Silicon Valley's premier open-air shopping and dining district on Stevens Creek Blvd, a European-styled neighborhood of ~50 shops, 30-plus restaurants, a boutique hotel, and a cinema, dubbed the 'Rodeo Drive of Silicon Valley.'",
+   "k": "Open-air district, free to stroll; individual shops and restaurants keep their own hours. Paid garages and street parking.",
+   "g": [
+    "SHOP",
+    "PARK",
+    "ENT",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.santanarow.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Santana_Row"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Stanford Shopping Center",
+   "ad": "660 Stanford Shopping Center, Palo Alto, CA 94304",
+   "w": "An upscale open-air mall on El Camino Real at Sand Hill Road with 140-plus specialty stores from luxury brands to local favorites, adjoining the Stanford campus.",
+   "k": "Free to enter; store hours vary. Ample free parking.",
+   "g": [
+    "SHOP",
+    "PARK",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.simon.com/mall/stanford-shopping-center"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stanford_Shopping_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "University Avenue (Downtown Palo Alto)",
+   "ad": "University Ave, Palo Alto, CA 94301",
+   "w": "The walkable spine of downtown Palo Alto, lined with boutiques, bookstores, cafes, art galleries, a cinema, and a dense run of restaurants a short walk from the Caltrain station.",
+   "k": "Public street district, free to explore; shops and restaurants set their own hours. Street parking is tight at peak times; use the public garages.",
+   "g": [
+    "SHOP",
+    "PARK",
+    "ENT",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.destinationpaloalto.com/downtown-palo-alto"
+    ],
+    [
+     "VISITCA",
+     "https://www.destinationpaloalto.com/fun/shopping"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Castro Street (Downtown Mountain View)",
+   "ad": "Castro St, Mountain View, CA 94041",
+   "w": "Downtown Mountain View's pedestrian-friendly main street between Evelyn Ave and El Camino Real, packed with diverse restaurants, sidewalk cafes, beer gardens, boutiques, and a Sunday farmers' market.",
+   "k": "Public street district (100-300 blocks are a pedestrian mall); free to walk. Individual businesses keep their own hours.",
+   "g": [
+    "SHOP",
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITCA",
+     "https://visitsiliconvalley.org/attractions/castro-street-shopping-district"
+    ],
+    [
+     "OFFICIAL",
+     "https://econdev.mountainview.gov/downtown"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Downtown Los Gatos (Santa Cruz Avenue)",
+   "ad": "N Santa Cruz Ave, Los Gatos, CA 95030",
+   "w": "A picturesque four-to-five-block historic downtown along Santa Cruz Avenue with independent boutiques, art and cooking shops, fine dining, and turn-of-the-century architecture at the foot of the Santa Cruz Mountains.",
+   "k": "Public street district, free to stroll; shop and restaurant hours vary. A pleasant day-trip stop en route to Santa Cruz.",
+   "g": [
+    "SHOP",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://visitlosgatosca.com/shop/"
+    ],
+    [
+     "VISITCA",
+     "https://www.losgatoschamber.com/list/ql/shopping-specialty-retail-23"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "The Pruneyard Shopping Center",
+   "ad": "1875 S Bascom Ave, Campbell, CA 95008",
+   "w": "A relaxed open-air shopping, dining, and cinema center at Bascom and Campbell Avenues, named for the prune orchards it replaced and known for the landmark 1980s free-speech Supreme Court case that bears its name.",
+   "k": "Free to enter; store and restaurant hours vary. Just southwest of San Jose in Campbell.",
+   "g": [
+    "SHOP",
+    "ICON",
+    "ENT",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pruneyard_Shopping_Center"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.downtowncampbell.com/directory/location/5709"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "SoFA District & SoFA Market",
+   "ad": "387 S First St, San Jose, CA 95113",
+   "w": "Downtown San Jose's 'Creative District' (South of First Area), a cluster of galleries, theaters, live-music clubs, and the SoFA Market food hall, anchored by the monthly South First Fridays art walk.",
+   "k": "Public district, free to wander; the food hall and venues keep their own hours. South First Fridays runs the first Friday evening of each month.",
+   "g": [
+    "SHOP",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/sofa-district"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/SoFA_District"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Japantown San Jose",
+   "ad": "N 5th St & Jackson St, San Jose, CA 95112",
+   "w": "One of only three surviving historic Japantowns in the U.S., centered on Jackson and Fifth Streets, with the Japanese American Museum, family-run shops and restaurants, temples, and Empire Seven Studios murals.",
+   "k": "Public historic neighborhood, free to explore; museum, shops, and eateries keep their own hours. Also a strong food destination.",
+   "g": [
+    "SHOP",
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.japantownsanjose.org/where-is-jtown"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japantown,_San_Jose"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Children's Discovery Museum of San Jose",
+   "ad": "180 Woz Way, San Jose, CA 95110",
+   "w": "A large purple hands-on children's museum on Woz Way (named for Apple's Steve Wozniak, its biggest founding donor), with interactive exhibits on water, art, science, and community for young families.",
+   "k": "Ticketed admission; check open days and hours before visiting. Near the convention center in downtown San Jose.",
+   "g": [
+    "FAM",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cdm.org/getting-here/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Children%27s_Discovery_Museum_of_San_Jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Happy Hollow Park & Zoo",
+   "ad": "748 Story Rd, San Jose, CA 95112",
+   "w": "A family amusement park and accredited zoo in Kelley Park, mixing gentle rides, a puppet theater, and a Danny the Dragon ride with animal habitats for lemurs, jaguars, and more.",
+   "k": "Ticketed admission; typically closed some weekdays - check the calendar. Parking at 748 Story Rd or 1300 Senter Rd.",
+   "g": [
+    "FAM",
+    "PARK",
+    "ENT",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://happyhollow.org/visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Happy_Hollow_Park_%26_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Downtown San Jose Murals & Public Art",
+   "ad": "396 S First St, San Jose, CA 95113",
+   "w": "An outdoor gallery of 70-plus murals and installations produced by Empire Seven Studios and the SJ Walls festival, concentrated in the SoFA District and Japantown, including El Mac's 'Sophie Holding the World Together' at Discovery Meadow.",
+   "k": "Free, self-guided, viewable any time on public streets and walls. Cluster around S First St in SoFA; more in Japantown.",
+   "g": [
+    "ENT",
+    "MUS",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.empiresevenstudios.com/"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.kqed.org/arts/11741855/find-beauty-in-the-streets-of-san-jose-this-summer"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "St. James Park",
+   "ad": "N 2nd St & E St James St, San Jose, CA 95112",
+   "w": "A 6.8-acre downtown square laid out in 1848, ringed by the St. James Square Historic District's landmark courthouse, post office, and churches, and the site where President McKinley once spoke.",
+   "k": "Free public park, open daytime; a recent renovation has reopened it as a downtown green. Ringed by historic civic buildings.",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/St._James_Park_(San_Jose)"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/st-james-park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "The Tech Interactive",
+   "ad": "201 S Market St, San Jose, CA 95113",
+   "w": "A hands-on science and technology center in downtown San Jose with interactive innovation labs, a design workshop, and an IMAX dome theater, aimed at families and curious minds.",
+   "k": "Since June 2026 on a reduced schedule; closed Mondays and Tuesdays. Not permanently closed despite some stale listings.",
+   "g": [
+    "MUS",
+    "ENT",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.thetech.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Tech_Interactive"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/tech-interactive"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Google Android Lawn Statues & Visitor Experience",
+   "ad": "Charleston Rd & Huff Ave, Mountain View, CA 94043",
+   "w": "A lawn of giant foam mascots for each dessert-named Android release (Cupcake through the final statue in 2019), next to the Google Visitor Experience store near the Googleplex - a favorite photo stop.",
+   "k": "The Googleplex office buildings are not open to the public; the outdoor Android statues and the visitor store/merch area are the freely visitable parts.",
+   "g": [
+    "TECH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Android_lawn_statues"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/android-lawn-statues-mountain-view"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "NASA Ames Exploration Center",
+   "ad": "NASA Ames Research Center, Moffett Field, Mountain View, CA 94035",
+   "w": "NASA's free public visitor center at Moffett Field, with exhibits on space exploration, Mars and Kepler missions, a lunar meteorite, and models of spacecraft developed at Ames.",
+   "k": "Only the Exploration Center (just outside the main gate) is open to the public; the research base itself is secured. Closed Mondays and federal holidays; free admission.",
+   "g": [
+    "TECH",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nasa.gov/ames/visit-ames-research-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ames_Research_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Stanford Main Quad & Memorial Church",
+   "ad": "450 Jane Stanford Way, Stanford, CA 94305",
+   "w": "The sandstone Romanesque heart of Stanford's campus, where the arcaded Main Quad frames Memorial Church, famed for its gold-leaf mosaic facade and stained glass, built by Jane Stanford in memory of Leland.",
+   "k": "Free and open to the public; the Quad is walkable any time and the church is open daily outside services. Docent tours Fridays.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://orsl.stanford.edu/memorial-church-directions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stanford_Memorial_Church"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Hoover Tower",
+   "ad": "550 Serra Mall, Stanford, CA 94305",
+   "w": "Stanford's 285-foot landmark tower, home to the Hoover Institution archives, with a 14th-floor observation deck giving sweeping views over campus and across Silicon Valley to the bay.",
+   "k": "Observation deck is ticketed and keeps seasonal hours - it closes for parts of the year (e.g. mid-Aug 2026 through late Jan 2027), so verify before visiting.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.hoover.org/visit-us-hoover-tower"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hoover_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Cantor Arts Center & Rodin Sculpture Garden",
+   "ad": "328 Lomita Dr, Stanford, CA 94305",
+   "w": "Stanford's free art museum spanning 5,000 years, holding the largest Rodin collection outside Paris - including a cast of The Gates of Hell - with an outdoor Rodin Sculpture Garden open around the clock.",
+   "k": "Free admission; museum closed Tuesdays. The outdoor sculpture garden is open 24/7 and lit at night.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://museum.stanford.edu/visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cantor_Arts_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Anderson Collection at Stanford",
+   "ad": "314 Lomita Dr, Stanford, CA 94305",
+   "w": "A jewel-box museum of postwar American modern and contemporary art - Pollock, Rothko, Diebenkorn, de Kooning - given to Stanford by the Anderson family, next door to the Cantor Arts Center.",
+   "k": "Always free; open Thursday-Monday, closed Tuesday and Wednesday. No reservation needed.",
+   "g": [
+    "MUS",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://anderson.stanford.edu/visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Anderson_Collection_at_Stanford"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "PA",
+   "n": "Bing Concert Hall",
+   "ad": "327 Lasuen St, Stanford, CA 94305",
+   "w": "Stanford's acoustically acclaimed 842-seat 'vineyard'-style concert hall, opened in 2013, where audience terraces wrap the stage so no seat sits more than 75 feet from the performers.",
+   "k": "A performing-arts venue - visitable by attending a Stanford Live concert or event; check the calendar for public performances.",
+   "g": [
+    "ICON",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://live.stanford.edu/your-visit/venues/bing-concert-hall/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bing_Concert_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Winchester Mystery House",
+   "ad": "525 S Winchester Blvd, San Jose, CA 95128",
+   "w": "The sprawling, labyrinthine Victorian mansion built continuously for decades by rifle heiress Sarah Winchester, riddled with stairs to nowhere, doors opening onto walls, and 160 rooms.",
+   "k": "Guided tours only, by ticket; open daily. On the National Register of Historic Places.",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://winchestermysteryhouse.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Winchester_Mystery_House"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/winchester-mystery-house"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Rosicrucian Egyptian Museum",
+   "ad": "1660 Park Ave, San Jose, CA 95191",
+   "w": "The largest collection of Egyptian antiquities on display in western North America - mummies, sarcophagi, amulets, and a walk-in replica rock-cut tomb - set in a distinctive Egyptian-Revival campus.",
+   "k": "Ticketed; check days open before visiting. Free parking at Naglee Ave and Chapman St, one block east.",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.egyptianmuseum.org/directions"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/rosicrucian-egyptian-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Mission Santa Clara de Asis",
+   "ad": "500 El Camino Real, Santa Clara, CA 95053",
+   "w": "The eighth of California's 21 Franciscan missions, founded in 1777 and now the centerpiece of Santa Clara University, with a restored adobe-style church, rose gardens, and centuries-old olive trees.",
+   "k": "Free; grounds and church open daily roughly 7am-7pm. No guided tours (self-guided pamphlet available). Free visitor parking permit at the campus kiosk on weekdays.",
+   "g": [
+    "TECH",
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.scu.edu/missionchurch/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mission_Santa_Clara_de_As%C3%ADs"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Cathedral Basilica of St. Joseph",
+   "ad": "80 S Market St, San Jose, CA 95113",
+   "w": "San Jose's landmark downtown cathedral, an 1877 Italianate-Renaissance church crowned by a great dome, richly frescoed inside and designated a minor basilica by the Vatican.",
+   "k": "Free to visit outside of Mass and services; open to the public in downtown San Jose.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://stjosephcathedral.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cathedral_Basilica_of_St._Joseph_(San_Jose,_California)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "History Park San Jose",
+   "ad": "635 Phelan Ave, San Jose, CA 95112",
+   "w": "A 14-acre open-air museum in Kelley Park with 30-plus original and re-created homes, shops, and landmarks of early San Jose - including a half-scale Electric Light Tower - plus a working trolley and the O'Brien's ice cream parlor.",
+   "k": "Park grounds free to walk; some buildings and the trolley run on limited days. Run by History San Jose.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://historysanjose.org/plan-your-visit/history-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/History_Park"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Koi Palace (Milpitas)",
+   "ad": "768 Barber Ln, Milpitas, CA 95035",
+   "w": "The Bay Area's dim sum benchmark for Cantonese banquet cooking; the har gow come with near-translucent skins over sweet whole shrimp, alongside flaky baked BBQ-pork buns and whole roast duck.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/reviews/koi-palace - 'the dim sum gold standard in the Bay Area' (review of the Koi Palace flagship; Milpitas is the South Bay outpost)"
+    ],
+    [
+     "EATERSF",
+     "Eater SF feature 'How Dim Sum Legend Koi Palace Preserves the Legacy of Cantonese Banquet Culture'"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Fu Lam Mum",
+   "ad": "153 Castro St, Mountain View, CA 94041",
+   "w": "One of the dwindling handful of South Bay rooms still doing dim sum cart service; carts roll out har gow bursting with juicy shrimp plus super-crispy sesame balls with sweet red-bean paste.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/reviews/fu-lam-mum - 'great dim sum and one of the dwindling handful still doing cart service'"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Ox 9 Lanzhou Handpulled Noodles",
+   "ad": "10745 S De Anza Blvd, Cupertino, CA 95014",
+   "w": "The first Bay Area shop to specialize in Gansu-province Lanzhou noodles; choose your noodle cut for a clear, 10-hour spiced beef broth, or get the flat noodles with the ten-hour Sichuan-braised beef stew.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose/reviews/ox-9-lanzhou-handpulled-noodles"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Jang Su Jang",
+   "ad": "3561 El Camino Real #10, Santa Clara, CA 95051",
+   "w": "A longtime anchor of Santa Clara's El Camino Koreatown and a repeat Michelin Guide selection; the tabletop galbi (marinated beef short ribs) and stone-pot stews arrive with a generous banchan spread.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "MICHELIN Guide selected restaurant, Santa Clara (Korean); multi-year California Guide listing"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Ramen Nagi",
+   "ad": "541 Bryant St, Palo Alto, CA 94301",
+   "w": "The Tokyo chain's first U.S. shop, famous for long nightly waits; the Original King is a silky 24-hour tonkotsu you customize by richness, garlic and a 1-to-10 spice scale.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/reviews/ramen-nagi-palo-alto"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Gombei",
+   "ad": "193 Jackson St, San Jose, CA 95112",
+   "w": "A bare-bones mainstay in historic San Jose Japantown for comforting teishoku; go for the tangy chicken teriyaki, breaded katsu cutlets and savory udon.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose/reviews/gombei"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Ettan",
+   "ad": "518 Bryant St, Palo Alto, CA 94301",
+   "w": "Chef Srijith Gopinathan's Michelin Guide-listed 'Cal-Indian' dining room; the peas-and-ricotta stuffed kulcha with bright kale chutney is the signature.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/palo-alto/restaurant/ettan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Eylan",
+   "ad": "500 El Camino Real, Suite 101, Menlo Park, CA 94025",
+   "w": "2026 Michelin Bib Gourmand and 2026 James Beard finalist for inventive regional Indian with a Californian twist; the flaky paratha-like flatbread stuffed with Dungeness crab is the standout. (On the Palo Alto/Menlo El Camino corridor.)",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/california/menlo-park/restaurant/eylan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Zareen's",
+   "ad": "1477 Plymouth St, Mountain View, CA 94043",
+   "w": "Michelin Guide-recognized Pakistani & Indian halal home-cooking institution; the Guide singled out the caramelized chicken shami kebabs and chicken Memoni samosas.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "Zareen's, Michelin Guide (2016-2020) recognition; per zareensrestaurant.com/about and Stanford Daily Q&A on its Michelin Guide status"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Fitoor",
+   "ad": "377 Santana Row, Suite 1140, San Jose, CA 95128",
+   "w": "The Infatuation-reviewed modern-Indian grill & lounge in Santana Row from the Rooh/Alora team; coastal South Indian plates like the Mangalorean-style duck ghee roast and soft-shell crab poriyal stand out.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/reviews/fitoor"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Chaat Bhavan",
+   "ad": "165 E El Camino Real, Mountain View, CA 94040",
+   "w": "Beloved family-run vegetarian street-food spot flagged in The Infatuation's Peninsula & South Bay coverage; the pani puri and crisp paper dosa are the go-tos.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/neighborhoods/peninsula-south-bay"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Din Tai Fung",
+   "ad": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
+   "w": "The Bay Area's first outpost of the world-famous Taiwanese chain, inside Westfield Valley Fair; the hand-folded xiao long bao (pork and pork-crab) are the benchmark for soup dumplings and draw hours-long waits. Open (verified July 2026).",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/california/santa-clara/restaurant/din-tai-fung"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Liang's Village",
+   "ad": "20530 Stevens Creek Blvd, Cupertino, CA 95014",
+   "w": "Cupertino's standard-bearer for Taiwanese juancun (military-village) cooking; the beef tendon noodle soup, with many bite-size chunks of beef in a rich but not oily broth, is called one of the best versions in the South Bay. Open (verified July 2026).",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13897936/best-taiwanese-restaurants-sf-oakland-cupertino-bay-area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Taiwan Bento",
+   "ad": "587 E El Camino Real, Sunnyvale, CA 94087",
+   "w": "A boba-and-bento shop (originally Oakland) whose house-special GPIE is a crunchy, well-seasoned ji pai, the oversized fried-chicken cutlet of Taiwanese night markets; the kitchen also runs pop-ups of Taiwanese breakfast fan tuan and dan bing. Open.",
+   "cz": [
+    "TWN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13897868/taiwanese-breakfast-bay-area"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CU",
+   "n": "O2 Valley",
+   "ad": "19058 Stevens Creek Blvd, Cupertino, CA 95014",
+   "w": "A small boba-and-bento shop turning out classic Taiwanese flavors in takeout-friendly rice plates, including a homey lu rou fan (braised pork over rice). Open.",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13897936/best-taiwanese-restaurants-sf-oakland-cupertino-bay-area"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CU",
+   "n": "Red Hot Wok",
+   "ad": "10074 E Estates Dr, Cupertino, CA 95014",
+   "w": "A Taiwanese restaurant-pub built for sharing bar bites over a Taiwan Beer; the standout is san bei ji, three-cup chicken braised with soy, rice wine, sesame oil and basil. Open.",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13897936/best-taiwanese-restaurants-sf-oakland-cupertino-bay-area"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CU",
+   "n": "Taiwan Porridge Kingdom",
+   "ad": "20956 Homestead Rd, Cupertino, CA 95014",
+   "w": "A Cupertino specialist in Taiwanese congee, the soupy rice porridge eaten with a spread of small braised and pickled side dishes. Open.",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13897936/best-taiwanese-restaurants-sf-oakland-cupertino-bay-area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Sunright Tea Studio",
+   "ad": "795 E El Camino Real, Sunnyvale, CA 94087",
+   "w": "Brews high-quality loose leaf imported from Taiwan and remixes it with bold flavors; the signature torched brûlée milk tea with house-made boba is the draw. Open (verified Aug 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13957666/best-boba-shops-bay-area-berkeley-cupertino-sf"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CU",
+   "n": "Fantasia Coffee & Tea",
+   "ad": "10933 N Wolfe Rd, Cupertino, CA 95014",
+   "w": "A long-running Cupertino boba spot near Apple Park known for its Okinawa (brown-sugar) milk tea and hot taro milk tea. Open.",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13957666/best-boba-shops-bay-area-berkeley-cupertino-sf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Pho Ha Noi",
+   "ad": "969 Story Rd, San Jose, CA 95122",
+   "w": "Little Saigon's benchmark for Northern-style pho, its golden bone-marrow broth simmered nearly a day; get the pho bo dac biet or splurge on the one-pound bone-in short rib. SF Chronicle calls it a 'pho sensation' and Eater singles out its amply-portioned bowls and char-grilled pork rolls.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/reviews/pho-ha-noi"
+    ],
+    [
+     "SFCHRON",
+     "SF Chronicle called Pho Ha Noi a 'pho sensation' (Bay Area pho coverage)"
+    ],
+    [
+     "EATERSF",
+     "Eater praised its 'generous, amply-portioned servings' and char-grilled pork rolls"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Pho Ga Nha",
+   "ad": "930 Story Rd, San Jose, CA 95122",
+   "w": "A family-run shrine to poultry on Story Road whose pho ga is built on a delicate broth and free-range, local chicken. The Infatuation notes it is nearly always packed, so go for a late lunch or dinner.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/reviews/pho-ga-nha"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Hue Restaurant",
+   "ad": "3005 Silver Creek Rd, Ste 190, San Jose, CA 95121",
+   "w": "East San Jose's Central-Vietnamese standout, where the spicy lemongrass bun bo Hue is as satisfying as its next-level banh beo and banh bot loc rice cakes at about $6 a plate. An ever-revolving line at the door tells you it leaves competitors in the dust.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/reviews/hue"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Duc Huong Sandwiches",
+   "ad": "1020 Story Rd, Ste C, San Jose, CA 95122",
+   "w": "The Infatuation calls this takeout counter the best lunch deal in San Jose: small banh mi for $4, large for $8. Get the grilled pork banh mi, punchy strips of pork and lightly pickled julienned vegetables in a crackly-yet-fluffy baguette.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/reviews/duc-huong"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Com Tam Thien Huong",
+   "ad": "909 Story Rd, Unit 100, San Jose, CA 95122",
+   "w": "Little Saigon's broken-rice institution, routinely called one of the best com tam in the country; the sampler stacks grilled pork chop, bi, shrimp cake and steamed egg cake over fractured rice with nuoc cham. (A second Senter Rd location has closed; the Story Rd flagship is open.)",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/com-tam-thien-huong-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Bo Ne Phu Yen",
+   "ad": "1818 Tully Rd, San Jose, CA 95122",
+   "w": "Tucked in Little Saigon's Lion Plaza food court and worth getting lost for, per The Infatuation, for its sizzling pate-topped bo ne, a cast-iron plate of steak and eggs mopped up with baguette.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/reviews/bo-ne-phu-yen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Green Lotus",
+   "ad": "1143 Story Rd, #180, San Jose, CA 95122",
+   "w": "A plant-based Vietnamese spot in the Little Saigon shopping plaza drawing in-the-know locals and monks from the nearby monastery, with dishes like caramelized faux-fish claypot and sweet-and-sour hot pot in a small sunlit room.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-jose/guides/best-restaurants-san-jose-california"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Bun Bo Hue An Nam",
+   "ad": "740 Story Rd, Ste 3, San Jose, CA 95122",
+   "w": "A tiny family counter that does little but bun bo Hue and pho, its lemongrass-and-chili beef broth made from scratch and widely considered among the most famous bowls in San Jose. (The former Tully Rd location has closed; the Story Rd shop is open.)",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/bun-bo-hue-an-nam-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Banh Xeo Ngon",
+   "ad": "3005 Silver Creek Rd, Ste 176, San Jose, CA 95121",
+   "w": "An East San Jose specialist whose namesake banh xeo arrives crispy-yet-chewy and stuffed with shrimp, pork and bean sprouts, torn into lettuce with herbs and nuoc cham.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/banh-xeo-ngon-san-jose-3"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Anh Hong",
+   "ad": "1818 Tully Rd, Ste 150, San Jose, CA 95122",
+   "w": "The go-to in Little Saigon for bo 7 mon, the celebratory seven-courses-of-beef feast where the animal comes boiled, grilled, wrapped, minced and souped in sequence, ending in chao bo.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/anh-hong-restaurant-san-jose-2"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Nem Nuong Nha Trang",
+   "ad": "919 Story Rd, Ste 1100, San Jose, CA 95122",
+   "w": "A Little Saigon specialist for Nha Trang-style nem nuong, springy grilled pork sausage served over bun vermicelli or rolled at the table with rice paper, herbs and a sweet dipping sauce. (An older 1111 Story Rd location has closed; the 919 Story Rd shop is open.)",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/nem-n%C6%B0%E1%BB%9Bng-nha-trang-san-jose-3"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/",
+   "l": "Atlas Obscura"
+  },
+  "CASTATEPARKS": {
+   "k": "CA STATE PARKS",
+   "t": "California State Parks",
+   "u": "https://www.parks.ca.gov/",
+   "l": "California State Parks"
+  },
+  "MERCURY": {
+   "k": "MERCURY NEWS",
+   "t": "San Jose Mercury News / Bay Area business press",
+   "u": "https://www.mercurynews.com/",
+   "l": "San Jose Mercury News / Bay Area business press"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official company/institution site",
+   "u": "",
+   "l": "Official company/institution site"
+  },
+  "SFCHRON": {
+   "k": "SF CHRONICLE",
+   "t": "San Francisco Chronicle / Bay Area news",
+   "u": "https://www.sfchronicle.com/",
+   "l": "San Francisco Chronicle / Bay Area news"
+  },
+  "SJTOURISM": {
+   "k": "VISIT SAN JOSE",
+   "t": "Visit San Jose",
+   "u": "https://www.sanjose.org/",
+   "l": "Visit San Jose"
+  },
+  "VISITCA": {
+   "k": "VISIT CALIFORNIA",
+   "t": "Visit California",
+   "u": "https://www.visitcalifornia.com/",
+   "l": "Visit California"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "YELP": {
+   "k": "YELP",
+   "t": "Yelp business listing (hours/access cross-check)",
+   "u": "https://www.yelp.com/",
+   "l": "Yelp business listing (hours/access cross-check)"
+  }
+ },
+ "FS": {
+  "EATERSF": {
+   "k": "EATER SF",
+   "t": "EATER SF",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "INFATUATION",
+   "u": "",
+   "l": ""
+  },
+  "KQED": {
+   "k": "KQED BAY AREA",
+   "t": "KQED BAY AREA",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB",
+   "t": "MICHELIN BIB",
+   "u": "",
+   "l": ""
+  },
+  "SFCHRON": {
+   "k": "SF CHRONICLE",
+   "t": "San Francisco Chronicle / Bay Area news",
+   "u": "https://www.sfchronicle.com/",
+   "l": "San Francisco Chronicle / Bay Area news"
+  },
+  "YELP": {
+   "k": "YELP",
+   "t": "Yelp business listing (hours/access cross-check)",
+   "u": "https://www.yelp.com/",
+   "l": "Yelp business listing (hours/access cross-check)"
+  }
+ }
+}
