@@ -9,6 +9,21 @@ OUT  = os.path.join(ROOT, "cities", "siliconvalley.html")
 DS   = json.load(open(os.path.join(ROOT, "data", "siliconvalley.dataset.json"), encoding="utf-8"))
 h    = open(SRC, encoding="utf-8").read()
 
+# ── GATE 1: multiple sources of truth — a place needs >=2 CREDIBLE sources.
+#    Yelp/TripAdvisor/OpenTable are open-verification only and count as ZERO. Enforced here in code
+#    (not asserted): any under-sourced place is dropped-and-logged so the published map provably
+#    contains only corroborated places. Mirror of tools/sourcecheck.py.
+_OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
+def _credible(r):
+    return len({t[0] for t in r.get("s", []) if t[0] not in _OPEN_CHECK_ONLY})
+_undersourced = [r["n"] for r in DS["P"] + DS["F"] if _credible(r) < 2]
+DS["P"] = [r for r in DS["P"] if _credible(r) >= 2]
+DS["F"] = [r for r in DS["F"] if _credible(r) >= 2]
+if _undersourced:
+    print("NOTE: %d place(s) dropped — <2 credible sources (MULTIPLE-SOURCES-OF-TRUTH gate; Yelp counts as 0)." % len(_undersourced))
+    print("      Re-source them (tools/sourcecheck.py --list) before they can appear.")
+
+# ── GATE 2: verified location — a place needs a sourced place pin in the registry.
 _REG = json.load(open(os.path.join(ROOT, "data", "geocodes.json"), encoding="utf-8"))["cities"].get("silicon-valley-ca", {})
 def _has_pin(n):
     e = _REG.get(n)

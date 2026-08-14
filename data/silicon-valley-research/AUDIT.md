@@ -134,10 +134,15 @@ recorded in `data/geocodes.json` with `source` (the URL/DB read), `confidence` h
 `verified` date, reading `!3d!4d`/Apple `coordinate=` place pins — never the `/@` viewport
 ([METHODOLOGY 4a/4b](../../docs/METHODOLOGY.md)). `--geocheck silicon-valley-ca` must PASS before build.
 
-## Stage 6 — Build & gate  (status: PENDING pins)
-`consolidate.py → build-siliconvalley.py → cities/siliconvalley.html`, held until pins exist. Gates
-required: geocheck PASS · statuscheck CONSISTENT · validate DATA OK · npm test ALL PASS · headless
-render-verify (Leaflet mounts, markers > 0, 0 JS errors).
+## Stage 6 — Build & gate  (status: PENDING pins + re-sourcing)
+`consolidate.py → build-siliconvalley.py → cities/siliconvalley.html`, held until pins exist AND the
+sourcing gate passes. Gates required — **enforced in code, verifiable, not asserted**:
+- **`node tools/research.js --sourcecheck silicon-valley-ca`** — multiple sources of truth; ≥2 credible
+  per place, Yelp/TripAdvisor = 0. **Baseline 2026-08-14: FAIL — 106 PASS / 60 single / 119 Yelp-only**
+  (identical from `python3 tools/sourcecheck.py`; both exit 1). Re-sourcing wave in progress.
+- `build-siliconvalley.py` **GATE 1** drops-and-logs any place with <2 credible sources, **GATE 2** drops
+  any place without a sourced pin — so the published page provably contains only corroborated, located places.
+- geocheck PASS · statuscheck CONSISTENT · validate DATA OK · npm test ALL PASS · headless render-verify.
 
 ---
 ### Refresh protocol (when re-checking a live SV)

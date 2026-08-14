@@ -105,9 +105,12 @@ on method and on anything re-verified after a misplacement. `node tools/research
 <city>` must PASS.
 
 ## Stage 6 — Build & gate
-`consolidate → build-<city>.py → cities/<city>.html`. Gates, all required: `--geocheck` PASS,
-`--statuscheck` CONSISTENT, `npm run validate` DATA OK, `npm test` ALL PASS, and a headless
-**render-verify** (real Leaflet mounts, markers present, 0 JS errors).
+`consolidate → build-<city>.py → cities/<city>.html`. Gates, all required and enforced **in code**
+(not asserted): `--geocheck` PASS, `--statuscheck` CONSISTENT, **`--sourcecheck` PASS** (every place
+≥2 credible sources; Yelp/TripAdvisor count as 0), `npm run validate` DATA OK, `npm test` ALL PASS, and
+a headless **render-verify** (real Leaflet mounts, markers present, 0 JS errors). The dataset-built
+`build-<city>.py` additionally **drops-and-logs** any place failing the sources-of-truth or geocode
+gate, so the published page provably cannot contain an under-sourced or un-located place.
 
 ---
 

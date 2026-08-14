@@ -50,6 +50,11 @@ const PAGE_FOR = {
   'new-york-ny': path.join(__dirname, '..', 'cities', 'newyork.html'),
   'silicon-valley-ca': path.join(__dirname, '..', 'cities', 'siliconvalley.html'),
 };
+// Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
+const DATASET_FOR = {
+  'new-york-ny': path.join(__dirname, '..', 'data', 'newyork.dataset.json'),
+  'silicon-valley-ca': path.join(__dirname, '..', 'data', 'siliconvalley.dataset.json'),
+};
 
 function loadGeocodes() {
   try { return JSON.parse(fs.readFileSync(GEO_PATH, 'utf8')); }
@@ -510,6 +515,40 @@ function seed(place, key) {
 }
 
 // ── entry ────────────────────────────────────────────────────────────────────
+// --sourcecheck: enforce MULTIPLE SOURCES OF TRUTH. Every place needs >=2 CREDIBLE sources;
+// Yelp/TripAdvisor/OpenTable are open-verification only and count as ZERO. Reads the city's
+// normalized dataset (source arrays live there pre-build). HARD gate — the build drops any
+// under-sourced place. Mirror of tools/sourcecheck.py.
+function sourcecheck(key) {
+  const line = '─'.repeat(72);
+  const ds = DATASET_FOR[key];
+  if (!key || !ds) {
+    console.log('\nUsage: node research.js --sourcecheck <city-key>   (dataset-built cities: ' + Object.keys(DATASET_FOR).join(', ') + ')\n');
+    return;
+  }
+  if (!fs.existsSync(ds)) { console.log('No dataset at ' + ds); return; }
+  const OPEN_ONLY = new Set(['YELP', 'TRIPADVISOR', 'OPENTABLE', 'GOOGLE', 'GOOGLEMAPS']);
+  const data = JSON.parse(fs.readFileSync(ds, 'utf8'));
+  const recs = (data.P || []).concat(data.F || []);
+  const credible = r => new Set((r.s || []).map(t => t[0]).filter(k => !OPEN_ONLY.has(k))).size;
+  const yelpOnly = [], single = [];
+  let ok = 0;
+  for (const r of recs) { const n = credible(r); if (n === 0) yelpOnly.push(r.n); else if (n === 1) single.push(r.n); else ok++; }
+  console.log(`\nSOURCING AUDIT — ${key}  (multiple sources of truth)`);
+  console.log(line);
+  console.log(`places:                        ${recs.length}`);
+  console.log(`  >=2 credible sources (PASS): ${ok}`);
+  console.log(`  1 credible source:           ${single.length}`);
+  console.log(`  0 credible / Yelp-only:      ${yelpOnly.length}`);
+  const pass = yelpOnly.length === 0 && single.length === 0;
+  console.log('\n' + line);
+  console.log(pass
+    ? '>>> PASS — every place has >=2 credible sources of truth.'
+    : `>>> FAIL — ${yelpOnly.length} Yelp-only + ${single.length} single-source place(s) need corroboration (the build drops them).`);
+  console.log('');
+  if (!pass) process.exitCode = 1;
+}
+
 const argv = process.argv.slice(2);
 if (argv[0] === '--validate') validate(argv[1]);
 else if (argv[0] === '--refresh') refresh(argv[1]);
@@ -517,6 +556,7 @@ else if (argv[0] === '--media') media(argv[1]);
 else if (argv[0] === '--seed') seed(argv[1], argv[2]);
 else if (argv[0] === '--geocheck') geocheck(argv[1]);
 else if (argv[0] === '--statuscheck') statuscheck(argv[1]);
+else if (argv[0] === '--sourcecheck') sourcecheck(argv[1]);
 else if (argv[0] === '--list') list();
 else if (argv[0] && argv[0] !== '--help' && argv[0] !== '-h') plan(argv[0], argv[1]);
 else {
@@ -531,6 +571,7 @@ else {
   console.log('    node research.js --validate <city-key>    audit a city\'s sources before publishing');
   console.log('    node research.js --geocheck <city-key>    audit that every place has a verified geocode');
   console.log('    node research.js --statuscheck <city-key> audit that every place\'s open/closed status is verified');
+  console.log('    node research.js --sourcecheck <city-key> audit that every place has >=2 credible sources (Yelp counts as 0)');
   console.log('    node research.js --media <city-key>       list a city\'s local news outlets & TV channels');
   console.log('    node research.js --list                   list cities + when each was last updated');
 }
