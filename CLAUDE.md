@@ -6,13 +6,23 @@ maps. No build step, no framework, no backend.
 ## Repository layout (multi-city)
 
 - `index.html` — the **city chooser** hub + "suggest a city" feedback box (files GitHub issues).
-- `cleveland.html` — the complete **Cleveland** guide (143 sights + 40 food). **The validator and
-  tests read this file**, not `index.html`.
+- `cleveland.html` — the complete **Cleveland** guide (143 sights + 40 food) and the shared **engine**
+  every dataset-built city clones. **The validator and tests read this file**, not `index.html`.
 - `cities/youngstown.html` — the **Youngstown** shortlist, rendered on Google Maps.
-- `data/sources.json` — central, reusable **sources registry** (source types + per-city ranked,
-  fact-checked sources and creators + a national creators catalogue).
-- `tools/research.js` — the **research pipeline** (`node research.js "City" "ST"`, `--validate`,
-  `--list`). Order is fixed: search → rank → fact-check → build. See `docs/SOURCES.md`.
+- **Other cities/regions** (dataset-built off the Cleveland engine): `cities/pittsburgh.html`,
+  `cities/newyork.html`, `cities/siliconvalley.html`, `cities/sanfrancisco.html` (in progress). Each is
+  `data/<city>-research/` (with `AUDIT.md` + `RESUME.md` + `_AGENT_BRIEF.md` + `consolidate.py`) →
+  `data/<city>.dataset.json` → `tools/build-<city>.py`. **[`docs/CITIES.md`](docs/CITIES.md) is the
+  master index** of every city, its state, and the commands to verify/continue it — read it first.
+- `data/sources.json` — central, reusable **sources registry** (per-city ranked, fact-checked sources +
+  creators). **Expand it per city; Yelp/TripAdvisor are never the recommender.**
+- `data/geocodes.json` — every coordinate + `source` + `confidence` + open/closed `status` + dates.
+- `tools/research.js` — the **research + gate pipeline**: `--sourcecheck` (≥2 credible sources, or a lone
+  Michelin/James Beard; Yelp=0), `--geocheck`, `--statuscheck`, `--validate`, `--list`. Order is fixed:
+  discover sources → extract → fact-check → re-rank → location-verify → build. See `docs/PIPELINE.md`.
+- `tools/sourcecheck.py` (sources-of-truth gate) · `tools/geocode-status.py` (writes the cross-city
+  geocode backlog `docs/GEOCODE-BACKLOG.md`) · `tools/geocode-helper.html` (browser geocoder for
+  restaurant place-pins WebSearch can't resolve here).
 - Web access here: **`WebSearch` works; `WebFetch`/direct fetches are blocked by the org egress
   policy** — do not try to route around it. Research via search results; record `researchedVia`.
 

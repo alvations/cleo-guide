@@ -104,13 +104,29 @@ DB / viewport-rejected) · confidence · verified date`. This is `data/geocodes.
 on method and on anything re-verified after a misplacement. `node tools/research.js --geocheck
 <city>` must PASS.
 
+**Cross-city geocode backlog (tracked in code, for every city).** `python3 tools/geocode-status.py`
+scans `data/geocodes.json` + every dataset and (re)writes [`docs/GEOCODE-BACKLOG.md`](GEOCODE-BACKLOG.md)
+— per city: verified pins by confidence, pins still `UNVERIFIED` (held by the gate), `low`-confidence
+pins to re-verify, and ship-worthy places not yet geocoded at all. Re-run it after every geocode wave
+so outstanding location work for **all** cities/regions stays visible to the next agent, never lost.
+Known hard limit in this sandbox: restaurant **place-pins often won't surface via WebSearch**
+(WebFetch is blocked); those are finished with the browser **`tools/geocode-helper.html`** (reaches the
+map servers) or any Places-API channel — the backlog is the queue for that pass.
+
 ## Stage 6 — Build & gate
 `consolidate → build-<city>.py → cities/<city>.html`. Gates, all required and enforced **in code**
-(not asserted): `--geocheck` PASS, `--statuscheck` CONSISTENT, **`--sourcecheck` PASS** (every place
-≥2 credible sources; Yelp/TripAdvisor count as 0), `npm run validate` DATA OK, `npm test` ALL PASS, and
-a headless **render-verify** (real Leaflet mounts, markers present, 0 JS errors). The dataset-built
-`build-<city>.py` additionally **drops-and-logs** any place failing the sources-of-truth or geocode
-gate, so the published page provably cannot contain an under-sourced or un-located place.
+(not asserted): `--geocheck` PASS, `--statuscheck` CONSISTENT, **`--sourcecheck` PASS**, `npm run
+validate` DATA OK, `npm test` ALL PASS, and a headless **render-verify** (real Leaflet mounts, markers
+present, 0 JS errors). The dataset-built `build-<city>.py` additionally **drops-and-logs** any place
+failing the sources-of-truth or geocode gate, so the published page provably cannot contain an
+under-sourced or un-located place.
+
+**The multiple-sources-of-truth rule (in `tools/sourcecheck.py`, `research.js --sourcecheck`, and
+`build-<city>.py` GATE 1 — kept in sync):** a place PASSES with **≥2 independent credible sources**,
+OR a single **institutional authority** (Michelin star/Bib, or James Beard) — a vetted listing that is
+ground truth on its own. A lone *editorial* source (Infatuation/KQED/a local paper) still needs a 2nd.
+**Yelp/TripAdvisor/OpenTable are open-verification only and count as ZERO.** This is the same gate for
+every city; NYC/SV/SF all run it.
 
 ---
 
