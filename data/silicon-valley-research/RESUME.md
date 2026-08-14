@@ -17,10 +17,11 @@ clear the bar. See `_AGENT_BRIEF.md` for the full source palette + rules.
 - [ ] **NYC-comparable density** across all 7 areas and every cuisine/collection — via credible places only.
 - [ ] **Every place fact-checked** — open/closed verified from a real source; notability confirmed;
       closures kept-but-flagged, non-places excluded.
-- [ ] **Every place credibly sourced — NO Yelp-only recommenders in the final set.** Yelp/TripAdvisor are
-      open-verification ONLY. Each place must carry ≥1 source from: Michelin/James Beard · Infatuation/KQED ·
-      Metro Silicon Valley/San José Spotlight/The Six Fifty/Palo Alto Online/MV Voice · NBC Bay Area/ABC7 ·
-      Atlas Obscura/official · or a **vetted creator**. Upgrade every entry in `_yelp_only_food.txt`.
+- [ ] **MULTIPLE SOURCES OF TRUTH — `python3 tools/sourcecheck.py data/siliconvalley.dataset.json` = PASS**
+      (every place ≥2 credible sources; Yelp/TripAdvisor count as ZERO). **Baseline 2026-08-14: 106 PASS /
+      60 single / 119 Yelp-only** → re-sourcing wave (#26) in progress against `_needs_sources_*.json`.
+      Credible = Michelin/James Beard · Infatuation/KQED · Metro Silicon Valley/San José Spotlight/The Six
+      Fifty/Palo Alto Online/MV Voice · NBC Bay Area/ABC7 · Atlas Obscura/official · vetted creator.
 - [ ] **Every place location-verified** — exact place pin in `data/geocodes.json`, or queued in the helper.
 - [ ] **Built + gated** — `build-siliconvalley.py`; geocheck PASS · statuscheck CONSISTENT · validate
       DATA OK · npm test ALL PASS · headless render-verify (Leaflet mounts, markers>0, 0 errors).

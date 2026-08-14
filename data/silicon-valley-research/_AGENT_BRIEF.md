@@ -8,6 +8,14 @@ all CREDIBLE**: traceable to a source that carries real weight, with the specifi
 **500 is a yardstick, not a goal.** Never pad to a number. A smaller set of genuinely notable,
 credibly-sourced places beats a padded one. Prune or hold anything you cannot credibly source.
 
+## MULTIPLE SOURCES OF TRUTH — the hard rule (gated)
+Every place must carry **≥2 independent CREDIBLE sources** — corroboration, not a single say-so.
+Yelp/TripAdvisor/OpenTable are **open-verification only and count as ZERO** toward the two. One credible
+source is an improvement but not the bar; keep looking for a second. `python3 tools/sourcecheck.py
+data/siliconvalley.dataset.json` reports the count and must reach PASS (0 Yelp-only, 0 single-source)
+before the build ships. When you genuinely cannot find a second credible source, say so — that place is a
+prune candidate, not a fabrication opportunity.
+
 ## Sources — exhaust these BEFORE ever touching Yelp
 Yelp/TripAdvisor are **open-status verification ONLY — never the recommender.** A place may not ship
 with Yelp as its sole source. Work down this palette and cite the first credible one that names it:
