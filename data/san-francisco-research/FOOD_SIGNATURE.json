@@ -1,0 +1,254 @@
+[
+  {
+    "t": 1,
+    "a": "MIS",
+    "cz": ["Mexican"],
+    "dish": "carne asada super burrito (riceless, Mission-style)",
+    "n": "La Taqueria",
+    "address": "2889 Mission St, San Francisco, CA 94110",
+    "w": "The definitive Mission burrito since 1973 — no rice, seared meat, lines down the block. The carne asada super burrito is the one to get.",
+    "closed": false,
+    "sources": [
+      ["MICHELIN_BIB", "guide.michelin.com/us/en/california/san-francisco/restaurant/la-taqueria — in the Michelin Guide (recommended since 2019)"],
+      ["JAMESBEARD", "James Beard Foundation 'America's Classic' winner, 2017"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "MIS",
+    "cz": ["Mexican"],
+    "dish": "al pastor / carne asada super burrito",
+    "n": "El Farolito",
+    "address": "2779 Mission St, San Francisco, CA 94110",
+    "w": "Infatuation names it SF's best burrito outright — a nearly two-pound super burrito with charred carne asada and ideal ratios of guac, cheese, crema. Open since 1983.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/reviews/taqueria-el-farolito — 'the best burritos in San Francisco'"],
+      ["TIMEOUT", "timeout.com/san-francisco/restaurants/best-burritos-in-san-francisco — best burritos list"]
+    ]
+  },
+  {
+    "t": 2,
+    "a": "MIS",
+    "cz": ["Mexican"],
+    "dish": "carnitas burrito mojado (wet burrito, red chili sauce)",
+    "n": "Taqueria Cancun",
+    "address": "2288 Mission St, San Francisco, CA 94110",
+    "w": "Classic Mission taqueria; the carnitas burrito mojado doused in red chili with red and green salsa is big enough to split.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/guides/best-burrito-san-francisco — 'get the carnitas in the burrito mojado'"],
+      ["TIMEOUT", "timeout.com/san-francisco/restaurants/best-burritos-in-san-francisco — best burritos list"]
+    ]
+  },
+  {
+    "t": 2,
+    "a": "MIS",
+    "cz": ["Mexican"],
+    "dish": "carnitas taco / handmade tortillas on fresh nixtamal masa",
+    "n": "La Palma Mexicatessen",
+    "address": "2884 24th St, San Francisco, CA 94110",
+    "w": "Tortilla factory, grocery and taqueria on Calle 24 since 1953 — daily nixtamal masa and hand-pressed tortillas; get the carnitas and the huaraches/pupusas.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/reviews/la-palma-mexicatessen-molino-y-tortilleria — the masa/tortilleria review"],
+      ["MISSIONLOCAL", "missionlocal.org/2023/12/keeping-culture-alive-sf-masa-line-lapalma-and-tamales/ — 'In line at La Palma' masa/tamales feature"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "MIS",
+    "cz": ["Seafood"],
+    "dish": "Sicilian-style cioppino; oysters on the half shell",
+    "n": "Anchor Oyster Bar",
+    "address": "579 Castro St, San Francisco, CA 94114",
+    "w": "Old-school marble-counter seafood in the Castro since 1977 — famous for a Sicilian-inspired cioppino with garlic bread and Boston clam chowder.",
+    "closed": false,
+    "sources": [
+      ["MICHELIN", "guide.michelin.com/us/en/california/san-francisco/restaurant/anchor-oyster-bar — Michelin Guide listed"],
+      ["INFATUATION", "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "MIS",
+    "cz": ["Bakery"],
+    "dish": "country sourdough loaf; morning bun",
+    "n": "Tartine Bakery",
+    "address": "600 Guerrero St, San Francisco, CA 94110",
+    "w": "The naturally-leavened country loaf that helped define modern SF sourdough, plus the famous morning bun. Owners won the James Beard pastry award.",
+    "closed": false,
+    "sources": [
+      ["JAMESBEARD", "James Beard Foundation — Outstanding Pastry Chef award (Elisabeth Prueitt & Chad Robertson), 2008"],
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/Tartine — James Beard-winning bakery, 600 Guerrero St"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "NOB",
+    "cz": ["Seafood"],
+    "dish": "cracked Dungeness crab; oysters; cioppino at the counter",
+    "n": "Swan Oyster Depot",
+    "address": "1517 Polk St, San Francisco, CA 94109",
+    "w": "An 18-stool marble counter running since 1912 — cracked Dungeness crab, fresh oysters, and the crab/shrimp Louie. No reservations, line out the door.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"],
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/Swan_Oyster_Depot — SF institution est. 1912, 1517 Polk St"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "NECN",
+    "cz": ["Seafood", "Italian"],
+    "dish": "crab cioppino (Best Damn Crab Cioppino)",
+    "n": "Sotto Mare",
+    "address": "552 Green St, San Francisco, CA 94133",
+    "w": "North Beach seafood house whose cauldron of crab, clams, mussels and shrimp over pasta is many locals' pick for the city's best cioppino.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"],
+      ["SFTRAVEL", "sftravel.com/article/where-to-find-seafood-san-francisco — SF seafood guide"]
+    ]
+  },
+  {
+    "t": 2,
+    "a": "NECN",
+    "cz": ["Seafood"],
+    "dish": "roasted whole Dungeness crab",
+    "n": "Scoma's",
+    "address": "1965 Al Scoma Way, San Francisco, CA 94133",
+    "w": "Pier-to-plate Fisherman's Wharf institution since 1965; the roasted whole Dungeness crab is the reason to wear a bib.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"],
+      ["SFTRAVEL", "sftravel.com/article/crack-crab-these-11-san-francisco-restaurants-all-year-round — crab guide"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "NECN",
+    "cz": ["Bakery"],
+    "dish": "original San Francisco sourdough; clam chowder in a sourdough bread bowl",
+    "n": "Boudin Bakery (Fisherman's Wharf)",
+    "address": "160 Jefferson St, San Francisco, CA 94133",
+    "w": "The original SF sourdough — same mother starter since 1849, the city's oldest continuously operating business. Get the clam chowder in a sourdough bread bowl.",
+    "closed": false,
+    "sources": [
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/Boudin_Bakery — original SF sourdough, 1849 mother starter"],
+      ["OFFICIAL", "boudinbakery.com/boudin-at-the-wharf/ — flagship Fisherman's Wharf bakery, 160 Jefferson St"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "NECN",
+    "cz": ["Bar"],
+    "dish": "Irish coffee",
+    "n": "The Buena Vista Cafe",
+    "address": "2765 Hyde St, San Francisco, CA 94109",
+    "w": "The bar that introduced Irish coffee to the United States in 1952 — still lines up dozens of glasses on the marble at once, near the Hyde St cable car turnaround.",
+    "closed": false,
+    "sources": [
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/Buena_Vista_Cafe — U.S. Irish coffee origin, 1952"],
+      ["OFFICIAL", "thebuenavista.com — 2765 Hyde St; Irish coffee since 1952"]
+    ]
+  },
+  {
+    "t": 2,
+    "a": "NECN",
+    "cz": ["Bakery"],
+    "dish": "hand-folded fortune cookies (fresh, foldable)",
+    "n": "Golden Gate Fortune Cookie Factory",
+    "address": "56 Ross Alley, San Francisco, CA 94133",
+    "w": "A tiny Chinatown alley factory hand-folding thousands of fortune cookies a day since 1962 — watch them off the press and buy them warm.",
+    "closed": false,
+    "sources": [
+      ["TIMEOUT", "timeout.com/san-francisco/restaurants/golden-gate-fortune-cookie-factory"],
+      ["ATLASOBSCURA", "atlasobscura — Golden Gate Fortune Cookie Factory, 56 Ross Alley, hand-folded since 1962"]
+    ]
+  },
+  {
+    "t": 3,
+    "a": "NECN",
+    "cz": ["Italian"],
+    "dish": "40-clove garlic chicken; garlic ice cream",
+    "n": "The Stinking Rose",
+    "address": "430 Columbus Ave, San Francisco, CA 94133",
+    "w": "The all-garlic North Beach novelty institution ('we season our garlic with food') — 40-clove garlic chicken and, yes, garlic ice cream. Touristy but iconic.",
+    "closed": false,
+    "sources": [
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/The_Stinking_Rose — garlic-themed restaurant, North Beach"],
+      ["OFFICIAL", "thestinkingrose.com — 430 Columbus Ave; garlic menu"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "DTN",
+    "cz": ["Seafood"],
+    "dish": "cioppino; charcoal-grilled seafood",
+    "n": "Tadich Grill",
+    "address": "240 California St, San Francisco, CA 94111",
+    "w": "California's oldest restaurant (est. 1849) — a wood-paneled Financial District classic for cioppino and mesquite-grilled seafood.",
+    "closed": false,
+    "sources": [
+      ["JAMESBEARD", "James Beard Foundation 'America's Classic' winner, 1998"],
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/Tadich_Grill — oldest continuously running restaurant in California, est. 1849"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "DTN",
+    "cz": ["Seafood"],
+    "dish": "raw oysters on the half shell (Hog Island Sweetwaters)",
+    "n": "Hog Island Oyster Co.",
+    "address": "1 Ferry Building #11, San Francisco, CA 94111",
+    "w": "The Ferry Building raw bar from the Tomales Bay oyster farm — some of the sweetest, freshest West Coast bivalves, shucked to order.",
+    "closed": false,
+    "sources": [
+      ["MICHELIN", "guide.michelin.com/us/en/california/san-francisco/restaurant/hog-island-oyster-co — Michelin Guide listed"],
+      ["SFTRAVEL", "sftravel.com/article/where-to-find-seafood-san-francisco — SF seafood guide"]
+    ]
+  },
+  {
+    "t": 1,
+    "a": "AVE",
+    "cz": ["Vietnamese"],
+    "dish": "roasted whole Dungeness crab; garlic noodles",
+    "n": "Thanh Long",
+    "address": "4101 Judah St, San Francisco, CA 94122",
+    "w": "The Sunset District Vietnamese house (An family, since 1971) that invented SF garlic noodles — order them with the pepper-crusted roasted whole crab.",
+    "closed": false,
+    "sources": [
+      ["INFATUATION", "theinfatuation.com/san-francisco/reviews/thanh-long — 'invented garlic noodles, still the best in SF'"],
+      ["SFTRAVEL", "sftravel.com/article/crack-crab-these-11-san-francisco-restaurants-all-year-round — roasted crab"]
+    ]
+  },
+  {
+    "t": 2,
+    "a": "HAI",
+    "cz": ["Bakery"],
+    "dish": "thick-cut sourdough toast (Josey Baker Bread)",
+    "n": "The Mill",
+    "address": "736 Divisadero St, San Francisco, CA 94117",
+    "w": "Divisadero cafe milling its own whole-grain flour with Josey Baker Bread — the destination for SF's cult thick-cut sourdough toast. TEMPORARILY CLOSED after a June 29, 2026 fire; verify before visiting.",
+    "closed": true,
+    "sources": [
+      ["BOLDITALIC", "thebolditalic.com/the-mill-is-closed-indefinitely-after-a-fire/ — closed indefinitely after June 2026 fire"],
+      ["OFFICIAL", "joseybakerbread.com/the-mill — 736 Divisadero; house-milled sourdough"]
+    ]
+  },
+  {
+    "t": 2,
+    "a": "PEN",
+    "cz": ["Dessert"],
+    "dish": "It's-It ice cream sandwich (vanilla between oatmeal cookies, dark-chocolate dipped)",
+    "n": "It's-It Ice Cream Factory Shop",
+    "address": "865 Burlway Rd, Burlingame, CA 94010",
+    "w": "The SF-born ice cream sandwich (invented 1928 at Playland-at-the-Beach) — buy them fresh at the Burlingame factory shop where they're made.",
+    "closed": false,
+    "sources": [
+      ["WIKIPEDIA", "en.wikipedia.org/wiki/It's-It_Ice_Cream — invented 1928, San Francisco"],
+      ["KQED", "kqed.org/food/1337457 — the story of the It's-It ice cream sandwich"]
+    ]
+  }
+]
