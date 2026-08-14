@@ -160,8 +160,2051 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
- "F": [],
- "S": {},
- "FS": {}
+ "P": [
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Golden Gate Bridge",
+   "ad": "Golden Gate Bridge, San Francisco, CA 94129",
+   "w": "The 1937 Art Deco suspension span in International Orange is SF's defining icon; the free Welcome Center and south vista point at Strauss Plaza sit at the city end for the classic view and a walk across the deck.",
+   "k": "Welcome Center open daily 9am-5pm; walkway free, southbound toll on drivers only.",
+   "g": [
+    "ICON",
+    "VIEW",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/prsf/planyourvisit/bridge-pavilion.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Alcatraz Island",
+   "ad": "Alcatraz Island, San Francisco, CA 94133",
+   "w": "The former federal penitentiary in the middle of the bay, now a Golden Gate NRA site with the audio-guided cellhouse tour, gardens and the 1969 occupation history; ferries depart Pier 33 Alcatraz Landing.",
+   "k": "Book the City Experiences ferry well ahead - tickets sell out weeks out. A short dock repair briefly closed the island in April 2026; normal service resumed.",
+   "g": [
+    "ICON",
+    "WATER",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/alca/planyourvisit/basicinfo.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alcatraz_Island"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Cable Cars (Powell-Hyde & Powell-Mason)",
+   "ad": "Powell Street cable car turnaround, Powell St & Market St, San Francisco, CA 94102",
+   "w": "The world's last manually operated cable-car system, running since 1873; the Powell-Hyde and Powell-Mason lines climb Nob and Russian hills from the Powell/Market turnaround down to Fisherman's Wharf.",
+   "k": "A sheave-rehab project (Feb-Jun 2026) causes occasional segment closures with bus shuttles; at least one line stays running.",
+   "g": [
+    "ICON",
+    "FAM",
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sfmta.com/getting-around/muni/cable-cars"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_cable_car_system"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Cable Car Museum",
+   "ad": "1201 Mason St, San Francisco, CA 94108",
+   "w": "Free museum inside the still-working Nob Hill powerhouse, where you can watch the giant sheaves and cables that haul every cable car in the city, plus antique cars and exhibits.",
+   "k": "Free. Closed Mondays.",
+   "g": [
+    "MUS",
+    "FREE",
+    "FAM",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cablecarmuseum.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Cable_Car_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Ferry Building Marketplace",
+   "ad": "1 Ferry Building, San Francisco, CA 94111",
+   "w": "The 1898 Beaux-Arts ferry terminal with its landmark clock tower, reborn as a food hall of local artisans; the Tuesday/Thursday/Saturday farmers' market on the plaza is one of the country's best.",
+   "g": [
+    "ICON",
+    "WATER",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.ferrybuildingmarketplace.com/visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Ferry_Building"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Fisherman's Wharf",
+   "ad": "Jefferson St & Taylor St, San Francisco, CA 94133",
+   "w": "The historic Italian fishing port turned waterfront district; walk-up crab and clam-chowder stands line Jefferson Street, and the iconic 1968 crab-wheel sign marks its heart at Taylor and Jefferson.",
+   "g": [
+    "ICON",
+    "WATER",
+    "FAM",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/fishermans-wharf"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fisherman%27s_Wharf,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "PIER 39 & the Sea Lions",
+   "ad": "Beach St & The Embarcadero, San Francisco, CA 94133",
+   "w": "A 45-acre waterfront complex of shops and restaurants best known for the wild California sea lions that have hauled out on K-Dock since 1990, barking and jockeying for space for free.",
+   "g": [
+    "ICON",
+    "WATER",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.pier39.com/pier39sealionjeopardy/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pier_39"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Coit Tower & the Filbert Steps",
+   "ad": "1 Telegraph Hill Blvd, San Francisco, CA 94133",
+   "w": "The 210-ft fluted tower atop Telegraph Hill, wrapped inside with free 1934 WPA Depression-era murals of California life; climb the flower-lined wooden Filbert Steps up to it for 360-degree bay views.",
+   "k": "Ground-floor murals free; elevator to the observation deck about $10.",
+   "g": [
+    "ICON",
+    "VIEW",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/Coit-Tower-290"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/things-to-do/attractions/iconic-sf/coit-tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Lombard Street (Crookedest Street)",
+   "ad": "Lombard St between Hyde St & Leavenworth St, San Francisco, CA 94109",
+   "w": "The one-way brick block on Russian Hill with eight hairpin turns added in 1922 to tame the grade, lined with hydrangea beds; free to walk down the side stairs or drive one-way eastbound.",
+   "k": "GPS to 1070 Lombard St. Free, open 24/7.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/things-to-do/attractions/iconic-sf/lombard-street"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lombard_Street_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Painted Ladies & Alamo Square",
+   "ad": "710-720 Steiner St, San Francisco, CA 94117",
+   "w": "The 'Postcard Row' of seven Queen Anne Victorians on Steiner Street, framed against the downtown skyline from Alamo Square Park - among the most photographed houses in America.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/things-to-do/attractions/iconic-sf/painted-ladies"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Painted_Ladies"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Chinatown Dragon Gate & Grant Avenue",
+   "ad": "Dragon Gate, Grant Ave & Bush St, San Francisco, CA 94108",
+   "w": "The 1970 Dragon Gate at Grant and Bush, a Taiwan gift with guardian lions, is the southern entrance to the oldest Chinatown in North America; Grant Avenue and lantern-strung Ross Alley run north from it.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FAM",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dragon_Gate_(San_Francisco)"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/chinatown"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Transamerica Pyramid & Redwood Park",
+   "ad": "600 Montgomery St, San Francisco, CA 94111",
+   "w": "SF's tallest and most recognizable tower (1972), reopened in 2024 after a $1B restoration; the adjoining half-acre Transamerica Redwood Park, a public grove of coast redwoods with a sculpture, is the free draw.",
+   "k": "Tower interior is private offices; Redwood Park is the public space.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/transamerica-pyramid-reopening-2669160071.html"
+    ],
+    [
+     "NBCBAY",
+     "https://www.nbcbayarea.com/news/local/san-francisco/transamerica-pyramid-reopening-restoration/3650414/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Ghirardelli Square",
+   "ad": "900 North Point St, San Francisco, CA 94109",
+   "w": "The 1893 red-brick Ghirardelli chocolate factory, now a landmark open-air complex of shops and restaurants above Aquatic Park; the original Ghirardelli ice-cream and chocolate shop still serves hot-fudge sundaes.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FAM",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.ghirardellisq.com/visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ghirardelli_Square"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Musee Mecanique",
+   "ad": "Pier 45, Shed A, San Francisco, CA 94133",
+   "w": "One of the world's largest collections of antique coin-operated arcade machines - 300-plus fortune tellers, player pianos, and the creepy Laffing Sal - free to enter, a quarter or two to play.",
+   "k": "Free admission; machines take coins. Open daily.",
+   "g": [
+    "MUS",
+    "ODD",
+    "FREE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/museums/musee-mecanique"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mus%C3%A9e_M%C3%A9canique"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Fort Point National Historic Site",
+   "ad": "201 Marine Dr, San Francisco, CA 94129",
+   "w": "A Civil War-era brick coastal fort tucked directly under the south end of the Golden Gate Bridge, with cannon casemates, a spiral staircase, and dramatic bridge-and-bay views; free.",
+   "k": "Free. Fort interior open Fri-Mon only; grounds Thu-Mon.",
+   "g": [
+    "ARCH",
+    "VIEW",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/fopo/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fort_Point_National_Historic_Site"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "SF Maritime NHP & Aquatic Park",
+   "ad": "499 Jefferson St, San Francisco, CA 94109",
+   "w": "The national park on Aquatic Park Cove: a free Visitor Center, the streamline-moderne Maritime Museum (900 Beach St), the curved swimming beach and bleachers, and the historic Hyde Street Pier fleet.",
+   "k": "Hyde Street Pier is closed for the Hyde Street Rebuild and its historic ships are temporarily relocated to Mare Island; Visitor Center, Maritime Museum and Aquatic Park remain open.",
+   "g": [
+    "MUS",
+    "WATER",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/safr/index.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Maritime_National_Historical_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "The Wave Organ",
+   "ad": "83 Marina Green Dr (end of Yacht Rd), San Francisco, CA 94123",
+   "w": "A wave-activated acoustic sculpture (1986) on a jetty past the Golden Gate Yacht Club, built by Exploratorium artists from salvaged cemetery granite; 25 PVC-and-concrete pipes murmur with the tides.",
+   "k": "Free, always open; best at high tide.",
+   "g": [
+    "ODD",
+    "WATER",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.exploratorium.edu/visit/wave-organ"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wave_Organ"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Pier 7",
+   "ad": "Pier 7, The Embarcadero, San Francisco, CA 94111",
+   "w": "An 840-ft public promenade pier with antique iron lamp posts and wooden benches jutting into the bay; a favorite for anglers and photographers - the deck lines up straight at the Transamerica Pyramid.",
+   "k": "Free, open to pedestrians and fishing.",
+   "g": [
+    "WATER",
+    "VIEW",
+    "FREE",
+    "ODD"
+   ],
+   "s": [
+    [
+     "FOUNDSF",
+     "https://www.foundsf.org/index.php?title=Pier_7"
+    ],
+    [
+     "AFAR",
+     "https://www.afar.com/places/pier-7-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "de Young Museum",
+   "ad": "50 Hagiwara Tea Garden Dr, San Francisco, CA 94118",
+   "w": "Golden Gate Park's fine-arts museum for American art, textiles and global cultures, wrapped in a copper Herzog & de Meuron building with a free 9th-floor observation tower over the park. Open Tue-Sun; one ticket also admits the Legion of Honor same day.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.famsf.org/visit/de-young"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/De_Young_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Legion of Honor",
+   "ad": "100 34th Ave, San Francisco, CA 94121",
+   "w": "A neoclassical palace on the Lincoln Park cliffs (a Beaux-Arts copy of Paris's Legion of Honor) holding European painting and Rodin bronzes, with Lands End and Golden Gate views out front. Open Tue-Sun; admission covers same-day de Young entry.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.famsf.org/visit/legion-of-honor"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Legion_of_Honor_(museum)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "California Academy of Sciences",
+   "ad": "55 Music Concourse Dr, San Francisco, CA 94118",
+   "w": "A natural-history museum, aquarium, planetarium and four-story indoor rainforest under one living roof in Golden Gate Park. A top family stop; open daily with Sunday opening at 11am.",
+   "g": [
+    "MUS",
+    "FAM",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.calacademy.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/California_Academy_of_Sciences"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Japanese Tea Garden",
+   "ad": "75 Hagiwara Tea Garden Dr, San Francisco, CA 94118",
+   "w": "The oldest public Japanese garden in the US (1894), with a drum bridge, pagoda, koi ponds and a tea house; the birthplace of the American fortune cookie. Free entry Mon/Wed/Fri 9-10am.",
+   "g": [
+    "PARK",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.japaneseteagardensf.com/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/everything-you-need-to-know-about-japanese-tea-garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Conservatory of Flowers",
+   "ad": "100 John F Kennedy Dr, San Francisco, CA 94118",
+   "w": "A gleaming white Victorian glasshouse (1879), the oldest wood-and-glass conservatory in North America, packed with tropical and aquatic plants. Open Thu-Tue; closed Wednesdays for maintenance.",
+   "g": [
+    "PARK",
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://gggp.org/conservatory-of-flowers/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Conservatory_of_Flowers"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "San Francisco Botanical Garden",
+   "ad": "1199 9th Ave, San Francisco, CA 94122",
+   "w": "55 acres and roughly 8,000 kinds of plants in Golden Gate Park, from a cloud-forest collection to a magnolia grove that's one of the best outside China. Open daily.",
+   "k": "Free for SF residents with ID; paid for non-residents.",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://gggp.org/venue/sf-botanical-garden/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Botanical_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Dutch Windmill & Queen Wilhelmina Tulip Garden",
+   "ad": "1690 John F Kennedy Dr, San Francisco, CA 94121",
+   "w": "A 1903 Dutch-style windmill at Golden Gate Park's ocean edge, fronted by the Queen Wilhelmina tulip garden that blooms brightest in late winter and early spring. Free, open grounds.",
+   "g": [
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/908/Golden-Gate-Park---Queen-Wilhelmina-Gard"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Golden_Gate_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Lands End & Sutro Baths Ruins",
+   "ad": "680 Point Lobos Ave, San Francisco, CA 94121",
+   "w": "A rugged NPS coastal trail past cypress groves, shipwreck-strewn surf and the concrete ruins of the 1896 Sutro Baths, with the Golden Gate Bridge framed the whole way. Free; open daily.",
+   "k": "The adjacent Cliff House (1090 Point Lobos Ave) has been closed since 2020; a reopening has been announced for late 2026 but repeatedly delayed.",
+   "g": [
+    "VIEW",
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/goga/planyourvisit/cliff-house-sutro-baths.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sutro_Baths"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "16th Avenue Tiled Steps",
+   "ad": "16th Ave & Moraga St, San Francisco, CA 94122",
+   "w": "A 163-step mosaic staircase in Golden Gate Heights, tiled in a sea-to-stars swirl by artists Aileen Barr and Colette Crutcher with the neighborhood; climb it to Grand View Park for a Sunset-and-ocean panorama. Free, always open.",
+   "g": [
+    "VIEW",
+    "ODD",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "http://www.16thavenuetiledsteps.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/16th_Avenue_Tiled_Steps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "SFMOMA",
+   "ad": "151 Third St, San Francisco, CA 94103",
+   "w": "The West Coast's flagship modern-art museum, expanded by Snohetta into seven gallery floors with a free ground-floor Richard Serra and a living wall on the sculpture terrace. Open daily except Wednesday.",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sfmoma.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Museum_of_Modern_Art"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Asian Art Museum",
+   "ad": "200 Larkin St, San Francisco, CA 94102",
+   "w": "One of the largest Asian art collections in the West, 18,000+ works spanning 6,000 years, housed in the old Beaux-Arts main library on Civic Center. Open Thu-Mon; closed Tue/Wed.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://asianart.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Asian_Art_Museum_of_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Contemporary Jewish Museum",
+   "ad": "736 Mission St, San Francisco, CA 94103",
+   "w": "Daniel Libeskind's tilted blue-steel cube grafted onto a 1907 power substation, one of downtown's boldest buildings.",
+   "k": "CLOSED as an operating museum since December 2024 amid a financial crisis; in March 2026 the museum announced it is selling the Libeskind building, though it continues hosting some events through January 2027. The exterior remains a landmark to view.",
+   "closed": true,
+   "g": [
+    "MUS",
+    "ARCH",
+    "VIEW",
+    "ENT"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13987725/contemporary-jewish-museum-to-sell-its-downtown-sf-building"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Contemporary_Jewish_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Exploratorium",
+   "ad": "Pier 15, The Embarcadero, San Francisco, CA 94111",
+   "w": "A pioneering hands-on science and perception museum sprawling across an Embarcadero pier, with 600+ tinker-with-it exhibits and adults-only After Dark Thursday nights. Open Tue-Sun.",
+   "g": [
+    "MUS",
+    "FAM",
+    "WATER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.exploratorium.edu/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Exploratorium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "The Beat Museum",
+   "ad": "540 Broadway, San Francisco, CA 94133",
+   "w": "A cluttered shrine to the Beat Generation across from City Lights, with Kerouac and Ginsberg letters, first editions and the car from the film of On the Road.",
+   "k": "Temporarily closed from December 2025 for a seismic (soft-story) retrofit, with reopening announced for mid-to-late 2026 - confirm before visiting.",
+   "g": [
+    "MUS",
+    "ODD"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.kerouac.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Beat_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Saints Peter and Paul Church",
+   "ad": "666 Filbert St, San Francisco, CA 94133",
+   "w": "The twin-spired \"Italian Cathedral of the West\" on Washington Square, where Joe DiMaggio and Marilyn Monroe took wedding photos on the steps. Open daily.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://parish.sspeterpaulsf.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Saints_Peter_and_Paul_Church,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "The Walt Disney Family Museum",
+   "ad": "104 Montgomery St, San Francisco, CA 94129",
+   "w": "In a former Presidio barracks, the story of Walt Disney himself - early drawings, the multiplane camera, Oscars and a huge model of Disneyland. Open Thu-Mon.",
+   "g": [
+    "MUS",
+    "FAM",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.waltdisney.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walt_Disney_Family_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Palace of Fine Arts",
+   "ad": "3601 Lyon St, San Francisco, CA 94123",
+   "w": "A monumental Beaux-Arts rotunda and colonnade left from the 1915 Panama-Pacific Exposition, mirrored in a swan lagoon in the Marina. Grounds are free and open daily.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/guide-to-san-franciscos-palace-fine-arts"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palace_of_Fine_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Baker Beach",
+   "ad": "Gibson Rd, San Francisco, CA 94129",
+   "w": "A mile of Presidio sand with a full-frontal view of the Golden Gate Bridge; the north end is clothing-optional and the surf is strong (no swimming). Free, open daily.",
+   "g": [
+    "VIEW",
+    "PARK",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/goga/planyourvisit/beaches.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Baker_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Presidio Tunnel Tops",
+   "ad": "210 Lincoln Blvd, San Francisco, CA 94129",
+   "w": "A 14-acre park (opened 2022) built over the Presidio Parkway tunnels, linking Crissy Field to the Main Post with Golden Gate views, a nature-play Outpost for kids and picnic meadows. Free, open daily.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://presidio.gov/explore/attractions/presidio-tunnel-tops"
+    ],
+    [
+     "PARKSCON",
+     "https://www.parksconservancy.org/location/presidio-tunnel-tops"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Grace Cathedral",
+   "ad": "1100 California St, San Francisco, CA 94108",
+   "w": "A French Gothic Episcopal cathedral atop Nob Hill with gilded Ghiberti \"Gates of Paradise\" doors and two labyrinths you can walk. Open daily; admission for general visiting.",
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://gracecathedral.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grace_Cathedral,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Japantown Peace Pagoda",
+   "ad": "Peace Plaza, Post St & Buchanan St, San Francisco, CA 94115",
+   "w": "A five-tiered concrete stupa gifted by sister-city Osaka in 1968, the centerpiece of the Peace Plaza in one of only three remaining Japantowns in the US. Free, open plaza.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "FREE",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/881/Japantown-Peace-Plaza"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Peace_Pagoda"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Mission Dolores",
+   "ad": "3321 16th St, San Francisco, CA 94114",
+   "w": "Mission San Francisco de Asis (1776), the city's oldest surviving building, with the original adobe chapel beside an ornate 1918 basilica and a historic cemetery. Open daily 9am-4pm.",
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.missiondolores.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mission_San_Francisco_de_As%C3%ADs"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Dolores Park",
+   "ad": "Dolores St & 19th St, San Francisco, CA 94114",
+   "w": "The Mission's sun-trap hillside lawn, part civic living room and part downtown-skyline overlook, packed on any warm weekend. Free, open daily.",
+   "g": [
+    "PARK",
+    "ICON",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/mission-dolores-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mission_Dolores_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Castro Theatre",
+   "ad": "429 Castro St, San Francisco, CA 94114",
+   "w": "A 1922 movie-palace landmark and the heart of the Castro, famous for its Wurlitzer organ and sing-alongs. Reopened February 2026 after a $41M restoration, now with flexible seating for films and concerts.",
+   "k": "Reopened February 2026 after a two-year renovation led by Another Planet Entertainment; programming now mixes film with concerts and events - check the calendar.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://thecastro.com/"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2026/02/05/castro-theatre-reopens-renovation/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Twin Peaks",
+   "ad": "501 Twin Peaks Blvd, San Francisco, CA 94114",
+   "w": "The near-geographic center of the city and its best 360-degree panorama, from downtown and the bridges to the ocean. Free; open daily 5am-midnight.",
+   "g": [
+    "VIEW",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/twin-peaks-384"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Twin_Peaks_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "GLBT History Museum",
+   "ad": "4127 18th St, San Francisco, CA 94114",
+   "w": "The first stand-alone museum of LGBTQ history and culture in the US, in the Castro, drawing on the GLBT Historical Society's archive (Harvey Milk material included). Open Tue-Sun; free first Wednesdays.",
+   "g": [
+    "MUS",
+    "ODD",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.glbthistory.org/museum"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/museums/glbt-history-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Balmy Alley Murals",
+   "ad": "Balmy St, San Francisco, CA 94110",
+   "w": "The densest concentration of murals in the Mission - a one-block alley off 24th Street painted since the 1970s with Latin-American political and cultural art, continuously renewed. Free, always open.",
+   "g": [
+    "ARCH",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://balmyalley.org/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/guide-to-san-franciscos-mission-district-murals"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SE",
+   "n": "Bernal Heights Park",
+   "ad": "Bernal Heights Blvd, San Francisco, CA 94110",
+   "w": "A grassy, car-free hilltop above the Mission with a mellow local vibe and a wide-open view of downtown and the bay; a favorite dog and sunset spot. Free, open daily.",
+   "g": [
+    "VIEW",
+    "PARK",
+    "FREE",
+    "WATER"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/Bernal-Heights-Park-151"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bernal_Heights,_San_Francisco"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Mister Jiu's",
+   "ad": "28 Waverly Pl, San Francisco, CA 94108",
+   "w": "Chef Brandon Jew's Cal-Chinese landmark in the old Four Families banquet hall — the first Chinatown restaurant to win a Michelin star (2017, held through 2026). Order the honey-butter scallion milk bread and the Peking duck with whipped duck-liver mousse.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/mister-jiu%E2%80%99s"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2023/12/13/san-francisco-chinese-cuisine-michelin-stars/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Yank Sing",
+   "ad": "101 Spear St, San Francisco, CA 94105",
+   "w": "Third-generation cart dim sum since 1958 and a Michelin Bib Gourmand — the Guide calls it 'arguably the place in town for dim sum.' The Shanghai Kurobuta pork dumplings and shrimp har gow are the draws.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/california/san-francisco/restaurant/yank-sing"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/usa/restaurants/best-dim-sum-in-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Good Mong Kok Bakery",
+   "ad": "1039 Stockton St, San Francisco, CA 94108",
+   "w": "Shoebox Chinatown takeout counter with a daily line out the door; The Infatuation calls it some of the best dim sum in the city. Get the generously stuffed char siu bao, pork shumai and har gow to go.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/good-mong-kok-bakery"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2022/11/21/get-your-dumplings-to-go-at-chinatowns-good-mong-kok-bakery/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "HK Lounge Bistro",
+   "ad": "1136 Folsom St, San Francisco, CA 94103",
+   "w": "The Michelin-recognized successor to the beloved Hong Kong Lounge II (which burned down in 2019), reborn in SoMa. Handmade Hong Kong-style dim sum — the crab-and-broth Shanghai dumplings and braised pork belly stand out.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/hk-lounge-bistro"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2023/02/13/acclaimed-sf-dim-sum-restaurant-has-been-reborn-in-another-neighborhood/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "R&G Lounge",
+   "ad": "631 Kearny St, San Francisco, CA 94108",
+   "w": "Chinatown's group-dinner institution since 1985, built around live salt-and-pepper crab chopped and fried in the shell. Nine straight years of Michelin recognition; The Infatuation's go-to for a Cantonese banquet.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/r-g-lounge"
+    ],
+    [
+     "HOODLINE",
+     "https://hoodline.com/2026/08/sf-chinatown-icon-r-g-lounge-brings-salt-and-pepper-crab-to-las-vegas-strip/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Z & Y Restaurant",
+   "ad": "655 Jackson St, San Francisco, CA 94133",
+   "w": "Chinatown's fiery Sichuan standard-bearer and a Michelin Bib Gourmand every year since 2012. Nearly every plate is crowned with chilies — get the 'explosive' fried chicken and the chili-oil bean-jelly noodles.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/z-y"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "House of Nanking",
+   "ad": "919 Kearny St, San Francisco, CA 94133",
+   "w": "A Chinatown-edge institution since 1988 (chef Kathy Fang of 'Chef Dynasty'), famous for letting the staff order for you. Time Out's pick: the cold sesame noodles; the signature Nanking sesame chicken and peanut-sauce potstickers.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/house-of-nanking"
+    ],
+    [
+     "EATERSF",
+     "https://sf.eater.com/maps/best-restaurants-chinatown-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Great Eastern Restaurant",
+   "ad": "649 Jackson St, San Francisco, CA 94133",
+   "w": "Old-school Chinatown Cantonese with live seafood tanks and 80-plus daily dim sum items — the spot Obama famously ordered takeout from. Go for the tank lobster and cilantro shrimp dumplings.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/great-eastern"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/article/dining-out/best-chinese-restaurants-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Dragon Beaux",
+   "ad": "5700 Geary Blvd, San Francisco, CA 94121",
+   "w": "Outer Richmond glam-dim-sum from the Koi Palace family — creative XLB in squid-ink, black-truffle and beet wrappers by day, Cantonese hot pot by night. Order the 'Five Guys' soup-dumpling flight.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/hong-kong-lounge"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/dragon-beaux"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "San Tung",
+   "ad": "1031 Irving St, San Francisco, CA 94122",
+   "w": "Inner Sunset Shandong-style/Korean-Chinese cult favorite whose sweet-garlicky dry-fried chicken wings are a citywide obsession (a former Bib Gourmand). Pair them with the handmade black-bean noodles.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/san-tung"
+    ],
+    [
+     "SEVENXSEVEN",
+     "https://www.axios.com/local/san-francisco/2026/05/15/best-thing-i-ate-san-tung-s-chicken-wings"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Turtle Tower",
+   "ad": "220 California St, San Francisco, CA 94111",
+   "w": "The cult of Northern-Vietnamese chicken pho, reborn in the Financial District in 2025 after the original Tenderloin flagship closed. Hanoi-style phở gà — no anise, no bean sprouts, just clean broth. Also try the stir-fried pho.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2025/04/03/with-the-rebirth-of-turtle-tower-the-cult-of-chicken-noodle-soup-has-a-new-home/"
+    ],
+    [
+     "HOODLINE",
+     "https://hoodline.com/2025/11/turtle-tower-targets-fillmore-2nd-location-to-grace-cow-hollow-with-late-night-pho-neighborhood-heat/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Bodega SF",
+   "ad": "138 Mason St, San Francisco, CA 94102",
+   "w": "Matthew Ho's modern Northern-Vietnamese follow-up to his family's Bodega Bistro, bringing casual fine-dining to the Tenderloin edge. Order the bún chả, garlic noodles and shaking beef; there's a tasting menu with caviar bánh khọt.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/guides/best-vietnamese-restaurants-san-francisco"
+    ],
+    [
+     "BOLDITALIC",
+     "https://www.thebolditalic.com/elegant-vietnamese-diner-vibes-and-cocktails-at-the-tenderloins-new-bodega/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Saigon Sandwich",
+   "ad": "560 Larkin St, San Francisco, CA 94102",
+   "w": "Cash-only Tenderloin counter that The Infatuation and Time Out both crown for the best bánh mì in SF — crackly rolls, well-seasoned proteins, packed to bursting, about $5. Get the combination.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/guides/best-banh-mi-san-francisco"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/best-banh-mi-in-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Lers Ros",
+   "ad": "730 Larkin St, San Francisco, CA 94109",
+   "w": "A chefs'-favorite Tenderloin Thai (since 2008) with a novel-length menu of regional dishes — including rabbit, frog and venison — beyond the usual. A former Bib Gourmand; get the garlic pork and roasted-duck curry.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/lers-ros-larkin-st"
+    ],
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/71-bay-area-restaurants-make-the-cut-for-2019-michelin-guide-california-bib-gourmand-list-2638424026.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Kin Khao",
+   "ad": "55 Cyril Magnin St, San Francisco, CA 94102",
+   "w": "Pim Techamuanvivit's Michelin-recognized Thai off Union Square, using local farm ingredients — the slow-cooked green rabbit curry with meatballs is the signature. No pad-Thai-by-default here; deeply regional cooking.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/kin-khao"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/best-thai-food-in-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Burma Superstar",
+   "ad": "309 Clement St, San Francisco, CA 94118",
+   "w": "The Inner Richmond original (since 1992) that made Bay Area Burmese famous — its tossed-tableside fermented tea-leaf salad is a cult classic. No reservations; expect a line.",
+   "cz": [
+    "BURM"
+   ],
+   "s": [
+    [
+     "SEVENXSEVEN",
+     "https://www.7x7.com/the-secrets-of-burma-superstars-cult-classic-tea-leaf-salad-1787218226.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/Burma-Superstar"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Mandalay Restaurant",
+   "ad": "4348 California St, San Francisco, CA 94118",
+   "w": "SF's oldest Burmese restaurant (est. 1984) and a 2024 James Beard 'America's Classic' honoree. The Richmond-District standard for tea-leaf salad and Burmese home cooking.",
+   "cz": [
+    "BURM"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://en.wikipedia.org/wiki/Mandalay_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Burma Love",
+   "ad": "211 Valencia St, San Francisco, CA 94103",
+   "w": "The Mission's more elegant sibling to Burma Superstar, serving the same Burmese classics — the Good Food Award-winning tea-leaf salad in a sleeker space. Named among SFGATE's best Burmese for 2025.",
+   "cz": [
+    "BURM"
+   ],
+   "s": [
+    [
+     "MISSIONLOCAL",
+     "https://missionlocal.org/2023/10/burma-love-much-to-love/"
+    ],
+    [
+     "SFGATE",
+     "https://www.sfstation.com/burma-love-mission-b39004349"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Marufuku Ramen",
+   "ad": "1581 Webster St Suite 235, San Francisco, CA 94115",
+   "w": "Japantown's benchmark for Hakata-style ramen — a 20-hour milky tonkotsu broth with ultra-thin noodles and melting chashu; The Infatuation and Time Out both rate it a top SF bowl. Try the chicken paitan too.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/marufuku-ramen"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/marufuku-ramen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Rintaro",
+   "ad": "82 14th St, San Francisco, CA 94103",
+   "w": "Sylvan Mishima Brackett's redwood-and-hinoki izakaya, a Michelin Bib Gourmand, plating handmade Japanese izakaya fare with NorCal produce. Get the binchotan-grilled tsukune and sansho-pepper chicken wings.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/izakaya-rintaro"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Um.ma",
+   "ad": "1220 9th Ave, San Francisco, CA 94122",
+   "w": "Chris Oh's Inner Sunset Korean spot (a former Michelin star) with a tree-shaded patio and '90s hip-hop soundtrack — grill-it-yourself bulgogi, pork belly and 48-hour marinated kalbi, plus creamy pickled quail eggs.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/umma"
+    ],
+    [
+     "SFWEEKLY",
+     "https://www.sfweekly.com/dining/what-s-up-mom/article_15209489-1fdd-549b-8b8d-3bacdac3a502.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Abacá",
+   "ad": "2700 Jones St, San Francisco, CA 94133",
+   "w": "SF's first Filipino fine-dining restaurant (Fisherman's Wharf), a Michelin-recognized standout for contemporary Filipino cooking. Order the pork-belly adobo with pineapple, lumpia and sisig fried rice.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/abaca"
+    ],
+    [
+     "JAMESBEARD",
+     "https://vogue.ph/lifestyle/food/filipino-restaurant-abaca-san-francisco-james-beard/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "La Taqueria",
+   "ad": "2889 Mission St, San Francisco, CA 94110",
+   "w": "The definitive Mission burrito since 1973 — no rice, seared meat, lines down the block. The carne asada super burrito is the one to get.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "guide.michelin.com/us/en/california/san-francisco/restaurant/la-taqueria — in the Michelin Guide (recommended since 2019)"
+    ],
+    [
+     "JAMESBEARD",
+     "James Beard Foundation 'America's Classic' winner, 2017"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "El Farolito",
+   "ad": "2779 Mission St, San Francisco, CA 94110",
+   "w": "Infatuation names it SF's best burrito outright — a nearly two-pound super burrito with charred carne asada and ideal ratios of guac, cheese, crema. Open since 1983.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/reviews/taqueria-el-farolito — 'the best burritos in San Francisco'"
+    ],
+    [
+     "TIMEOUT",
+     "timeout.com/san-francisco/restaurants/best-burritos-in-san-francisco — best burritos list"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Taqueria Cancun",
+   "ad": "2288 Mission St, San Francisco, CA 94110",
+   "w": "Classic Mission taqueria; the carnitas burrito mojado doused in red chili with red and green salsa is big enough to split.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/guides/best-burrito-san-francisco — 'get the carnitas in the burrito mojado'"
+    ],
+    [
+     "TIMEOUT",
+     "timeout.com/san-francisco/restaurants/best-burritos-in-san-francisco — best burritos list"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "La Palma Mexicatessen",
+   "ad": "2884 24th St, San Francisco, CA 94110",
+   "w": "Tortilla factory, grocery and taqueria on Calle 24 since 1953 — daily nixtamal masa and hand-pressed tortillas; get the carnitas and the huaraches/pupusas.",
+   "cz": [
+    "MX"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/reviews/la-palma-mexicatessen-molino-y-tortilleria — the masa/tortilleria review"
+    ],
+    [
+     "MISSIONLOCAL",
+     "missionlocal.org/2023/12/keeping-culture-alive-sf-masa-line-lapalma-and-tamales/ — 'In line at La Palma' masa/tamales feature"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Anchor Oyster Bar",
+   "ad": "579 Castro St, San Francisco, CA 94114",
+   "w": "Old-school marble-counter seafood in the Castro since 1977 — famous for a Sicilian-inspired cioppino with garlic bread and Boston clam chowder.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "guide.michelin.com/us/en/california/san-francisco/restaurant/anchor-oyster-bar — Michelin Guide listed"
+    ],
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Tartine Bakery",
+   "ad": "600 Guerrero St, San Francisco, CA 94110",
+   "w": "The naturally-leavened country loaf that helped define modern SF sourdough, plus the famous morning bun. Owners won the James Beard pastry award.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "James Beard Foundation — Outstanding Pastry Chef award (Elisabeth Prueitt & Chad Robertson), 2008"
+    ],
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/Tartine — James Beard-winning bakery, 600 Guerrero St"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Swan Oyster Depot",
+   "ad": "1517 Polk St, San Francisco, CA 94109",
+   "w": "An 18-stool marble counter running since 1912 — cracked Dungeness crab, fresh oysters, and the crab/shrimp Louie. No reservations, line out the door.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"
+    ],
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/Swan_Oyster_Depot — SF institution est. 1912, 1517 Polk St"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Sotto Mare",
+   "ad": "552 Green St, San Francisco, CA 94133",
+   "w": "North Beach seafood house whose cauldron of crab, clams, mussels and shrimp over pasta is many locals' pick for the city's best cioppino.",
+   "cz": [
+    "SEAF",
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"
+    ],
+    [
+     "SFTRAVEL",
+     "sftravel.com/article/where-to-find-seafood-san-francisco — SF seafood guide"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Scoma's",
+   "ad": "1965 Al Scoma Way, San Francisco, CA 94133",
+   "w": "Pier-to-plate Fisherman's Wharf institution since 1965; the roasted whole Dungeness crab is the reason to wear a bib.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/guides/seafood-restaurants-san-francisco — best seafood guide"
+    ],
+    [
+     "SFTRAVEL",
+     "sftravel.com/article/crack-crab-these-11-san-francisco-restaurants-all-year-round — crab guide"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Boudin Bakery (Fisherman's Wharf)",
+   "ad": "160 Jefferson St, San Francisco, CA 94133",
+   "w": "The original SF sourdough — same mother starter since 1849, the city's oldest continuously operating business. Get the clam chowder in a sourdough bread bowl.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/Boudin_Bakery — original SF sourdough, 1849 mother starter"
+    ],
+    [
+     "OFFICIAL",
+     "boudinbakery.com/boudin-at-the-wharf/ — flagship Fisherman's Wharf bakery, 160 Jefferson St"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "The Buena Vista Cafe",
+   "ad": "2765 Hyde St, San Francisco, CA 94109",
+   "w": "The bar that introduced Irish coffee to the United States in 1952 — still lines up dozens of glasses on the marble at once, near the Hyde St cable car turnaround.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/Buena_Vista_Cafe — U.S. Irish coffee origin, 1952"
+    ],
+    [
+     "OFFICIAL",
+     "thebuenavista.com — 2765 Hyde St; Irish coffee since 1952"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Golden Gate Fortune Cookie Factory",
+   "ad": "56 Ross Alley, San Francisco, CA 94133",
+   "w": "A tiny Chinatown alley factory hand-folding thousands of fortune cookies a day since 1962 — watch them off the press and buy them warm.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "timeout.com/san-francisco/restaurants/golden-gate-fortune-cookie-factory"
+    ],
+    [
+     "ATLASOBSCURA",
+     "atlasobscura — Golden Gate Fortune Cookie Factory, 56 Ross Alley, hand-folded since 1962"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NECN",
+   "n": "The Stinking Rose",
+   "ad": "430 Columbus Ave, San Francisco, CA 94133",
+   "w": "The all-garlic North Beach novelty institution ('we season our garlic with food') — 40-clove garlic chicken and, yes, garlic ice cream. Touristy but iconic.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/The_Stinking_Rose — garlic-themed restaurant, North Beach"
+    ],
+    [
+     "OFFICIAL",
+     "thestinkingrose.com — 430 Columbus Ave; garlic menu"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Tadich Grill",
+   "ad": "240 California St, San Francisco, CA 94111",
+   "w": "California's oldest restaurant (est. 1849) — a wood-paneled Financial District classic for cioppino and mesquite-grilled seafood.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "James Beard Foundation 'America's Classic' winner, 1998"
+    ],
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/Tadich_Grill — oldest continuously running restaurant in California, est. 1849"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Hog Island Oyster Co.",
+   "ad": "1 Ferry Building #11, San Francisco, CA 94111",
+   "w": "The Ferry Building raw bar from the Tomales Bay oyster farm — some of the sweetest, freshest West Coast bivalves, shucked to order.",
+   "cz": [
+    "SEAF"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "guide.michelin.com/us/en/california/san-francisco/restaurant/hog-island-oyster-co — Michelin Guide listed"
+    ],
+    [
+     "SFTRAVEL",
+     "sftravel.com/article/where-to-find-seafood-san-francisco — SF seafood guide"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Thanh Long",
+   "ad": "4101 Judah St, San Francisco, CA 94122",
+   "w": "The Sunset District Vietnamese house (An family, since 1971) that invented SF garlic noodles — order them with the pepper-crusted roasted whole crab.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-francisco/reviews/thanh-long — 'invented garlic noodles, still the best in SF'"
+    ],
+    [
+     "SFTRAVEL",
+     "sftravel.com/article/crack-crab-these-11-san-francisco-restaurants-all-year-round — roasted crab"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "The Mill",
+   "ad": "736 Divisadero St, San Francisco, CA 94117",
+   "w": "Divisadero cafe milling its own whole-grain flour with Josey Baker Bread — the destination for SF's cult thick-cut sourdough toast. TEMPORARILY CLOSED after a June 29, 2026 fire; verify before visiting.",
+   "closed": true,
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "BOLDITALIC",
+     "thebolditalic.com/the-mill-is-closed-indefinitely-after-a-fire/ — closed indefinitely after June 2026 fire"
+    ],
+    [
+     "OFFICIAL",
+     "joseybakerbread.com/the-mill — 736 Divisadero; house-milled sourdough"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PEN",
+   "n": "It's-It Ice Cream Factory Shop",
+   "ad": "865 Burlway Rd, Burlingame, CA 94010",
+   "w": "The SF-born ice cream sandwich (invented 1928 at Playland-at-the-Beach) — buy them fresh at the Burlingame factory shop where they're made.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "en.wikipedia.org/wiki/It's-It_Ice_Cream — invented 1928, San Francisco"
+    ],
+    [
+     "KQED",
+     "kqed.org/food/1337457 — the story of the It's-It ice cream sandwich"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "AFAR": {
+   "k": "AFAR",
+   "t": "AFAR",
+   "u": "https://www.afar.com",
+   "l": "AFAR"
+  },
+  "FOUNDSF": {
+   "k": "FOUNDSF",
+   "t": "FoundSF (SF history archive)",
+   "u": "https://www.foundsf.org",
+   "l": "FoundSF (SF history archive)"
+  },
+  "KQED": {
+   "k": "KQED BAY AREA",
+   "t": "KQED Arts",
+   "u": "https://www.kqed.org/arts",
+   "l": "KQED Arts"
+  },
+  "NBCBAY": {
+   "k": "NBC BAY AREA",
+   "t": "NBC Bay Area",
+   "u": "https://www.nbcbayarea.com",
+   "l": "NBC Bay Area"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service",
+   "u": "https://www.nps.gov",
+   "l": "National Park Service"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site",
+   "u": "",
+   "l": "Official site"
+  },
+  "PARKSCON": {
+   "k": "PARKSCON",
+   "t": "Golden Gate National Parks Conservancy",
+   "u": "https://www.parksconservancy.org",
+   "l": "Golden Gate National Parks Conservancy"
+  },
+  "SEVENXSEVEN": {
+   "k": "7X7",
+   "t": "7x7",
+   "u": "https://www.7x7.com",
+   "l": "7x7"
+  },
+  "SFPARKS": {
+   "k": "SF REC & PARK",
+   "t": "SF Recreation & Parks",
+   "u": "https://sfrecpark.org",
+   "l": "SF Recreation & Parks"
+  },
+  "SFSTANDARD": {
+   "k": "SF STANDARD",
+   "t": "The San Francisco Standard",
+   "u": "https://sfstandard.com",
+   "l": "The San Francisco Standard"
+  },
+  "SFTRAVEL": {
+   "k": "SF TRAVEL",
+   "t": "San Francisco Travel",
+   "u": "https://www.sftravel.com",
+   "l": "San Francisco Travel"
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out SF",
+   "u": "https://www.timeout.com/san-francisco",
+   "l": "Time Out SF"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "BOLDITALIC": {
+   "k": "THE BOLD ITALIC",
+   "t": "THE BOLD ITALIC",
+   "u": "",
+   "l": ""
+  },
+  "EATERSF": {
+   "k": "EATER SF",
+   "t": "EATER SF",
+   "u": "",
+   "l": ""
+  },
+  "HOODLINE": {
+   "k": "HOODLINE",
+   "t": "HOODLINE",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "INFATUATION",
+   "u": "",
+   "l": ""
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "JAMES BEARD",
+   "u": "",
+   "l": ""
+  },
+  "KQED": {
+   "k": "KQED BAY AREA",
+   "t": "KQED Arts",
+   "u": "https://www.kqed.org/arts",
+   "l": "KQED Arts"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB",
+   "t": "MICHELIN BIB",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN ★",
+   "t": "MICHELIN ★",
+   "u": "",
+   "l": ""
+  },
+  "MISSIONLOCAL": {
+   "k": "MISSION LOCAL",
+   "t": "MISSION LOCAL",
+   "u": "",
+   "l": ""
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site",
+   "u": "",
+   "l": "Official site"
+  },
+  "SEVENXSEVEN": {
+   "k": "7X7",
+   "t": "7x7",
+   "u": "https://www.7x7.com",
+   "l": "7x7"
+  },
+  "SFGATE": {
+   "k": "SFGATE",
+   "t": "SFGATE",
+   "u": "",
+   "l": ""
+  },
+  "SFSTANDARD": {
+   "k": "SF STANDARD",
+   "t": "The San Francisco Standard",
+   "u": "https://sfstandard.com",
+   "l": "The San Francisco Standard"
+  },
+  "SFTRAVEL": {
+   "k": "SF TRAVEL",
+   "t": "San Francisco Travel",
+   "u": "https://www.sftravel.com",
+   "l": "San Francisco Travel"
+  },
+  "SFWEEKLY": {
+   "k": "SFWEEKLY",
+   "t": "SFWEEKLY",
+   "u": "",
+   "l": ""
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out SF",
+   "u": "https://www.timeout.com/san-francisco",
+   "l": "Time Out SF"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  }
+ }
 }
