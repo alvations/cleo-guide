@@ -11883,11 +11883,11 @@
     "address": "S Murphy Ave, Sunnyvale, CA 94086",
     "lat": 37.3773,
     "lng": -122.0305,
-    "source": "GOOGLEMAPS approximate (historic downtown block of S Murphy Ave between Washington & Evelyn)",
+    "source": "District centerpoint; anchored by Wikipedia-published Sunnyvale station coords 37.37861,-122.03083 at the avenue's north end. Point is a reasonable center of the pedestrian district (a street, not a single storefront)",
     "verified": "2026-08-14",
-    "confidence": "low",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Downtown Sunnyvale historic district (public street)",
+    "statusSource": "Active public district; Yelp landmark page updated August 2026; sunnyvale.com",
     "statusChecked": "2026-08-14"
    },
    "Sunnyvale Baylands Park": {
@@ -12679,7 +12679,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "US Fish & Wildlife Service refuge page; EEC open weekends 10am-4pm, trails dawn to dusk",
+    "statusSource": "fws.gov Alviso Environmental Education Center visit page (active); grounds sunrise-sunset, center open weekends",
     "statusChecked": "2026-08-14"
    },
    "Cantor Arts Center": {
@@ -12783,13 +12783,13 @@
    },
    "NASA Ames Exploration Center": {
     "address": "NASA Ames Research Center, Moffett Field, Mountain View, CA 94035",
-    "lat": 37.41289,
-    "lng": -122.04989,
-    "source": "museum directory geocode",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
     "verified": "2026-08-14",
-    "confidence": "low",
+    "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "NASA.gov Visit Ames Research Center page lists Exploration Center public hours",
+    "statusSource": "nasa.gov/ames visitor info: Exploration Center open Tue-Fri 10a-4p, weekends noon-4p; Yelp updated August 2026",
     "statusChecked": "2026-08-14"
    },
    "Stanford Main Quad & Memorial Church": {
@@ -12972,11 +12972,11 @@
     "address": "500 El Camino Real, Suite 101, Menlo Park, CA 94025",
     "lat": 37.4505,
     "lng": -122.1803,
-    "source": "address-level estimate (El Camino Real & Middle Ave, The Villa Menlo Park)",
+    "source": "Prior-pass address-level geocode; address confirmed via Yelp/Michelin/official eylanrestaurant.com. Point sits on the Menlo Park El Camino Real corridor as expected. No exact place-pin surfaced via WebSearch to upgrade",
     "verified": "2026-08-14",
-    "confidence": "low",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Michelin Guide listing + Yelp updated Jul 2026; eylanrestaurant.com live",
+    "statusSource": "Michelin Guide listing; Yelp updated July 2026 (opened 2025); official eylanrestaurant.com",
     "statusChecked": "2026-08-14"
    },
    "Zareen's (Mountain View)": {
@@ -13027,22 +13027,22 @@
     "address": "5968 Silver Creek Valley Rd, Ste 20, San Jose, CA 95138",
     "lat": 37.2905,
     "lng": -121.7815,
-    "source": "address-level estimate (Silver Creek Valley Rd shopping center)",
+    "source": "Prior-pass address-level geocode; address confirmed via Yelp/official order.saapaaduu.com. Point matches the Silver Creek Valley Rd corridor (95138). No exact place-pin surfaced via WebSearch to upgrade",
     "verified": "2026-08-14",
-    "confidence": "low",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 (280 reviews)",
+    "statusSource": "Yelp updated August 2026 (280 reviews, closed Mondays); official order.saapaaduu.com",
     "statusChecked": "2026-08-14"
    },
    "Arka": {
     "address": "725 S Fair Oaks Ave, Sunnyvale, CA 94086",
     "lat": 37.3608,
     "lng": -121.9975,
-    "source": "address-level estimate (S Fair Oaks Ave, Sunnyvale)",
+    "source": "Prior-pass address-level geocode; address confirmed via Sulekha/SFStation/Tripadvisor. Point matches S Fair Oaks Ave, Sunnyvale (94086). No exact place-pin surfaced via WebSearch to upgrade",
     "verified": "2026-08-14",
-    "confidence": "low",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Facebook/TripAdvisor active; allmenus listing live",
+    "statusSource": "Tripadvisor + BBB A+ profile active; SFStation listing",
     "statusChecked": "2026-08-14"
    },
    "Minato Japanese Restaurant": {
@@ -13097,7 +13097,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Michelin Guide (Bib Gourmand) + official site + Yelp updated July 2026, hours posted",
+    "statusSource": "Yelp updated Jul 2026 (4080 photos, active); Michelin Guide current listing",
     "statusChecked": "2026-08-14"
    },
    "Super Taqueria": {
@@ -13130,7 +13130,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated July 2026 + official netwaiter listing, hours posted",
+    "statusSource": "Yelp updated Jul 2026 (602 photos, 1516 reviews, active)",
     "statusChecked": "2026-08-14"
    },
    "Shalizaar": {
@@ -13152,7 +13152,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 + official dishdash.com location page, hours posted",
+    "statusSource": "Yelp updated Jul 2026 (4468 photos, 4853 reviews, active); official dishdash.com location page live",
     "statusChecked": "2026-08-14"
    },
    "Oren's Hummus": {
@@ -13174,7 +13174,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated July 2026 + official kabulcuisine.co, hours posted",
+    "statusSource": "Yelp updated Apr 2026 (1288 photos, 1885 reviews, active); official site location-hours page live",
     "statusChecked": "2026-08-14"
    },
    "Zeni Ethiopian Restaurant": {
@@ -13190,13 +13190,13 @@
    },
    "Rose International Market": {
     "address": "801 W El Camino Real, Ste B, Mountain View, CA 94040",
-    "lat": 37.386141,
-    "lng": -122.083955,
-    "source": "findlatitudeandlongitude.com for adjacent 800 W El Camino Real (approximate, same block/street; place pin not verified)",
+    "lat": 37.385709,
+    "lng": -122.084495,
+    "source": "Place-level coordinate returned by WebSearch (travel-DB indexing); consistent with 801 W El Camino Real by San Antonio Shopping Center. Supersedes prior-pass 37.386141,-122.083955 (~50 m away)",
     "verified": "2026-08-14",
-    "confidence": "low",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 + ilovemv.org 'Return of Rose Market' + Tripadvisor, hours posted",
+    "statusSource": "Yelp updated August 2026 (275 reviews, 9AM-8PM daily); order.online store listing",
     "statusChecked": "2026-08-14"
    },
    "De Afghanan Kabob House": {
@@ -13207,7 +13207,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 + Restaurantji, hours posted (an older 2022 note called the small unit temporarily closed w/ sister restaurant next door at 37395; current listings show it operating)",
+    "statusSource": "Yelp updated Aug 2026 (509 photos, 658 reviews, active)",
     "statusChecked": "2026-08-14"
    },
    "Sunright Tea Studio": {
@@ -13218,7 +13218,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 + official snrtea.com store locations, hours posted",
+    "statusSource": "Yelp updated Aug 2026 (1444 photos, 801 reviews, active); official store-location page live",
     "statusChecked": "2026-08-14"
    },
    "Pho Ha Noi": {
@@ -13262,7 +13262,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 (2646 reviews), active Facebook, official stjohnsgrill.com",
+    "statusSource": "Yelp updated Aug 2026 (1918 photos, 2646 reviews, active hours listed)",
     "statusChecked": "2026-08-14"
    },
    "Sam's Chowder House": {
@@ -13273,7 +13273,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 (6170 reviews), official samschowderhouse.com active",
+    "statusSource": "Yelp updated Aug 2026 (10756 photos, 6170 reviews, active); official site live",
     "statusChecked": "2026-08-14"
    },
    "Tpumps": {
@@ -13284,7 +13284,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 (218 reviews), active",
+    "statusSource": "Yelp updated Aug 2026 (327 photos, 218 reviews, active)",
     "statusChecked": "2026-08-14"
    },
    "Chromatic Coffee": {
@@ -13295,7 +13295,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Birdeye 700 reviews + official chromaticcoffee.com active listings",
+    "statusSource": "Official chromaticcoffee.com cafe/roastery site active (2026)",
     "statusChecked": "2026-08-14"
    },
    "Academic Coffee": {
@@ -13306,7 +13306,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026 (1032 reviews), active",
+    "statusSource": "Wheree menu updated 2026; Apple Maps listing active",
     "statusChecked": "2026-08-14"
    },
    "Nirvana Soul": {
@@ -13372,7 +13372,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Jul 2026 (341 reviews), official mianusa.com active",
+    "statusSource": "Yelp updated July 2026 (894 photos, 341 reviews, active hours); official site mianusa.com",
     "statusChecked": "2026-08-14"
    },
    "Liang's Village": {
@@ -13383,7 +13383,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Jul 2026 (1511 reviews), official liangsvillage.com active",
+    "statusSource": "Yelp updated July 2026 (2970 photos, 1511 reviews); official liangsvillage.com/location",
     "statusChecked": "2026-08-14"
    },
    "Koi Palace (Milpitas)": {
@@ -13471,7 +13471,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Aug 2026, lavicsj.com active, open daily 7AM-3AM",
+    "statusSource": "Yelp updated August 2026 (3952 reviews, daily 7AM-3AM); official lavicsj.com/locations",
     "statusChecked": "2026-08-14"
    },
    "Bill's Cafe": {
@@ -13482,7 +13482,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Yelp updated Jul 2026, billscafe.com active, Toast ordering live",
+    "statusSource": "Yelp updated July 2026 (2475 reviews); official billscafe.com/locations",
     "statusChecked": "2026-08-14"
    },
    "Adega": {
@@ -13504,7 +13504,7 @@
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "santanarow.com dine listing active, smittenicecream.com locations page, Toast ordering live",
+    "statusSource": "Yelp updated August 2026 (747 reviews); santanarow.com/dine/smitten-ice-cream",
     "statusChecked": "2026-08-14"
    },
    "Philz Coffee": {
@@ -13542,13 +13542,35 @@
    },
    "Steins Beer Garden": {
     "address": "895 Villa St, Mountain View, CA 94041",
+    "lat": 37.393935,
+    "lng": -122.080002,
+    "source": "Place-level coordinate returned by WebSearch (trip.com/travel-DB indexing); consistent with 895 Villa St in downtown Mountain View",
+    "verified": "2026-08-14",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Yelp updated July 2026 (1700 reviews); official steinsbeergarden.com/location",
+    "statusChecked": "2026-08-14"
+   },
+   "Apple Infinite Loop Campus": {
+    "address": "1 Infinite Loop, Cupertino, CA 95014",
+    "lat": 37.33182,
+    "lng": -122.03118,
+    "source": "WIKIPEDIA published coordinates (37°19′55″N 122°01′52″W = 37.33182, -122.03118)",
+    "verified": "2026-08-14",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Campus active (Wikipedia, Apple Maps 'Apple Inc. - Infinite Loop Campus'); the on-site Apple Company Store closed permanently Jan 20 2024 (Localmint / Yelp listing marked closed).",
+    "statusChecked": "2026-08-14"
+   },
+   "Google Bay View Campus": {
+    "address": "100 Bay View Dr, Mountain View, CA 94043",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-14",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Palo Alto Online 2025-03-26 'Steins is saved' + 2025-08-13 new-owner story; steinsbeergarden.com active",
+    "statusSource": "Palo Alto Online / 9to5Google, May 2022 opening; still operating (Azahner/Studios 2026 listings).",
     "statusChecked": "2026-08-14"
    }
   }

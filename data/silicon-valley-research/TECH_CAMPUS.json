@@ -1,0 +1,233 @@
+{
+  "_meta": {
+    "task": "Verify public-accessibility of existing SV tech-campus attractions and add any missing genuinely-public ones. WebSearch only.",
+    "generated": "2026-08-14",
+    "classification": "publicAccess = public (visitor center / public store / public museum / freely-walkable public art or landmark) | viewable (only seen from public street/sidewalk, no entry) | private (registered/badge/owner only)",
+    "sourceFormat": "source/sources = list of [TYPE, url] pairs"
+  },
+
+  "verify": [
+    {
+      "n": "Apple Park Visitor Center",
+      "a": "CU",
+      "publicAccess": "public",
+      "note": "Purpose-built public building across from the ring HQ: full Apple Store, Caffe Macs rooftop terrace, and an AR tabletop model. The ring building and grounds stay closed to non-employees; the Visitor Center itself is open to anyone, daily.",
+      "source": [
+        ["OFFICIAL", "https://www.apple.com/retail/appleparkvisitorcenter/"],
+        ["ABC7", "https://abc7news.com/post/apple-opens-new-visitor-center-in-cupertino/2662716/"]
+      ]
+    },
+    {
+      "n": "Google Visitor Experience",
+      "a": "MV",
+      "publicAccess": "public",
+      "note": "Google's official public front door at the Googleplex (Gradient Canopy / Charleston East, opened Oct 2023): public Google Store, cafe, and an outdoor plaza with art. The rest of the Googleplex is off-limits, but the Visitor Experience is open to the public.",
+      "source": [
+        ["OFFICIAL", "https://visit.withgoogle.com/plan-your-visit/"],
+        ["MVVOICE", "https://www.mv-voice.com/news/2023/10/12/opening-its-doors-to-the-community-google-unveils-new-visitor-center-in-mountain-view/"]
+      ]
+    },
+    {
+      "n": "Android Lawn Statues",
+      "a": "MV",
+      "publicAccess": "public",
+      "note": "Outdoor foam mascot sculptures (Cupcake through Pie), relocated in 2022 to sit beside the Google Visitor Experience. Effectively a freely-walkable public photo spot next to the Visitor Experience; the immediate lawn is Google-guest area but visitors are routinely welcomed to walk up and photograph. Best combined with the Visitor Experience stop.",
+      "source": [
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/android-lawn-statues-mountain-view"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Android_lawn_statues"]
+      ]
+    },
+    {
+      "n": "Meta 'Like' Sign, 1 Hacker Way",
+      "a": "DAY",
+      "publicAccess": "viewable",
+      "note": "The thumbs-up 'Like' sign at Meta's Menlo Park HQ entrance (the old Sun Microsystems logo on its back). No public building access; visitors pull up to the entrance sign to photograph it from the public frontage. Campus interior is badge-only.",
+      "source": [
+        ["DISCOVERSANTACLARA", "https://www.discoversantaclara.org/blog/silicon-valley-tech-tour/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Meta_Platforms"]
+      ]
+    },
+    {
+      "n": "Intel Museum",
+      "a": "SC",
+      "publicAccess": "public",
+      "note": "Free ~10,000 sq ft public museum in the Robert Noyce Building lobby at Intel HQ (Mon-Fri, ~9a-5p; closes for corporate events). Rest of the Intel campus is not public, but the museum is freely open.",
+      "source": [
+        ["OFFICIAL", "https://www.intel.com/content/www/us/en/company-overview/intel-museum.html"],
+        ["DISCOVERSANTACLARA", "https://www.discoversantaclara.org/blog/silicon-valley-tech-tour/"]
+      ]
+    },
+    {
+      "n": "NASA Ames Exploration Center",
+      "a": "MV",
+      "publicAccess": "public",
+      "note": "Free public visitor center outside the secured gate of NASA Ames Research Center (Moffett Field): space/aeronautics exhibits, a moon rock, and a theater. Open to the public; the working NASA campus behind it is restricted.",
+      "source": [
+        ["OFFICIAL", "https://www.nasa.gov/ames/exploration-center/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Ames_Research_Center"]
+      ]
+    },
+    {
+      "n": "HP Garage - Birthplace of Silicon Valley",
+      "a": "PA",
+      "publicAccess": "viewable",
+      "note": "California Historical Landmark No. 976, the garage where Hewlett and Packard started HP (1938-39). Private HP-owned property, not open inside; view and photograph the garage and 'Birthplace of Silicon Valley' plaque from the public sidewalk only.",
+      "source": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/HP_Garage"],
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/birthplace-of-silicon-valley"]
+      ]
+    },
+    {
+      "n": "Xerox PARC",
+      "a": "PA",
+      "publicAccess": "viewable",
+      "note": "The research lab (now PARC / part of SRI) where the GUI, mouse, Ethernet and laser printing were invented. A working private research facility with no visitor center or tours; only the exterior is glimpsed from Coyote Hill Rd and adjacent open-space trails. Exterior/landmark pilgrimage only.",
+      "source": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/PARC_(company)"],
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/xerox-parc"]
+      ]
+    },
+    {
+      "n": "Adobe HQ & San Jose Semaphore",
+      "a": "SJ",
+      "publicAccess": "viewable",
+      "note": "Adobe's downtown San Jose towers carry the San Jose Semaphore, a rooftop public art installation of four rotating LED disks encoding a message. No public tours or visitor center at Adobe HQ; the Semaphore is viewed from the surrounding streets.",
+      "source": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/San_Jose_Semaphore"],
+        ["OFFICIAL", "https://www.adobe.com/about-adobe/san-jose-semaphore.html"]
+      ]
+    },
+    {
+      "n": "NVIDIA HQ - Voyager & Endeavor",
+      "a": "SC",
+      "publicAccess": "viewable",
+      "note": "CONFIRMED registered-visitors-only inside (no public tours). The public experience is exterior only: the triangular Endeavor (2017) and giant Voyager (2022) 'mountain' buildings are seen on a drive/walk along San Tomas Expressway. Treat as viewable, NOT a public visitor attraction.",
+      "source": [
+        ["DISCOVERSANTACLARA", "https://www.discoversantaclara.org/blog/silicon-valley-tech-tour/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Nvidia"]
+      ]
+    },
+    {
+      "n": "Samsung Semiconductor 'Samsung@First'",
+      "a": "SJ",
+      "publicAccess": "viewable",
+      "note": "Samsung Semiconductor's North San Jose device-solutions HQ (10-story tower, opened 2015) at First & Tasman. No public visitor center or tours; the architecture and plaza are viewable from N First St / the VTA light-rail frontage only.",
+      "source": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Samsung_Semiconductor"],
+        ["DISCOVERSANTACLARA", "https://www.discoversantaclara.org/blog/silicon-valley-tech-tour/"]
+      ]
+    },
+    {
+      "n": "eBay Main Campus",
+      "a": "SJ",
+      "publicAccess": "viewable",
+      "note": "eBay's headquarters campus off Hamilton Ave in San Jose. No public visitor center or tours; the campus and eBay signage are viewable from the public street only. Not a walk-in attraction.",
+      "source": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/EBay"],
+        ["DISCOVERSANTACLARA", "https://www.discoversantaclara.org/blog/silicon-valley-tech-tour/"]
+      ]
+    },
+    {
+      "n": "Computer History Museum",
+      "a": "MV",
+      "publicAccess": "public",
+      "note": "Fully public museum (Wed-Sun, general admission), the world's leading collection of computing history. No affiliation needed.",
+      "source": [
+        ["OFFICIAL", "https://computerhistory.org/hours-admission/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Computer_History_Museum"]
+      ]
+    },
+    {
+      "n": "The Tech Interactive",
+      "a": "SJ",
+      "publicAccess": "public",
+      "note": "Public hands-on science/technology center in downtown San Jose (ticketed; reduced schedule since June 2026, closed Mon-Tue). Not permanently closed despite stale listings.",
+      "source": [
+        ["OFFICIAL", "https://www.thetech.org/"],
+        ["SJTOURISM", "https://www.sanjose.org/listings/tech-interactive"]
+      ]
+    },
+    {
+      "n": "Steve Jobs' Childhood Home & Apple Garage",
+      "a": "MV",
+      "publicAccess": "viewable",
+      "note": "The Los Altos ranch house (2066 Crist Dr) where Jobs grew up and the first Apple I units were built. A private, occupied residence designated a historic resource in 2013; view from the public street ONLY, no plaque or tour, do not enter or disturb residents.",
+      "source": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Steve_Jobs"],
+        ["NBCBAY", "https://www.nbcbayarea.com/news/local/los-altos-turns-steve-jobs-childhood-home-into-historical-site/1958074/"]
+      ]
+    }
+  ],
+
+  "add": [
+    {
+      "t": 3,
+      "a": "CU",
+      "n": "Apple Infinite Loop Campus",
+      "address": "1 Infinite Loop, Cupertino, CA 95014",
+      "publicAccess": "viewable",
+      "w": "Apple's original headquarters (1993-2017, still active offices/labs) on the private U-shaped street Infinite Loop, the iconic '1 Infinite Loop' address. VIEWABLE ONLY now: the public Apple Company Store that once operated here (exclusive Apple-branded merch you could buy nowhere else) PERMANENTLY CLOSED on Jan 20, 2024, so there is no longer anything open to the public inside. Photograph the entrance sign and campus from the perimeter (De Anza Blvd / Mariani Ave / N Tantau); for a public Apple stop, use the Apple Park Visitor Center instead.",
+      "g": ["TECH"],
+      "closed": false,
+      "status": "open",
+      "statusSource": "Campus active (Wikipedia, Apple Maps 'Apple Inc. - Infinite Loop Campus'); the on-site Apple Company Store closed permanently Jan 20 2024 (Localmint / Yelp listing marked closed).",
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Apple_Infinite_Loop_campus"],
+        ["OFFICIAL", "https://maps.apple.com/place?place-id=I92DB6EB7006183F4"]
+      ],
+      "lat": 37.33182,
+      "lng": -122.03118,
+      "geoSource": "WIKIPEDIA published coordinates (37°19′55″N 122°01′52″W = 37.33182, -122.03118)",
+      "confidence": "high"
+    },
+    {
+      "t": 3,
+      "a": "MV",
+      "n": "Google Bay View Campus",
+      "address": "100 Bay View Dr, Mountain View, CA 94043",
+      "publicAccess": "viewable",
+      "w": "Google's first self-built campus (opened 2022), an architectural landmark famed for its tent-like BIG + Heatherwick 'dragonscale' roof of ~50,000 prismatic solar shingles, on NASA Ames land beside Moffett. The interior is not open to the public, but the campus is edged by public bike/walk trails (Bay Trail / Stevens Creek corridor) from which the roofline is visible. A viewing, not an entry.",
+      "g": ["TECH"],
+      "closed": false,
+      "status": "open",
+      "statusSource": "Palo Alto Online / 9to5Google, May 2022 opening; still operating (Azahner/Studios 2026 listings).",
+      "sources": [
+        ["NEWATLAS", "https://newatlas.com/architecture/google-big-heatherwick-bay-view-hq/"],
+        ["PALOALTOONLINE", "https://www.paloaltoonline.com/news/2022/05/17/google-opens-the-doors-on-its-massive-bay-view-campus-next-door-to-nasa-ames/"]
+      ],
+      "lat": null,
+      "lng": null,
+      "geoSource": "UNVERIFIED — street address '100 Bay View Dr' confirmed (Yelp/Waze), but no published place-pin (!3d!4d / Wikipedia coords) was retrievable via WebSearch; did not fabricate a coordinate. Needs a place-pin in the re-verify pass before it can go on the map.",
+      "confidence": "low"
+    },
+    {
+      "t": 3,
+      "a": "SUN",
+      "n": "Fry's Electronics (Sunnyvale) — CLOSED",
+      "address": "1077 E Arques Ave, Sunnyvale, CA 94085",
+      "publicAccess": "closed",
+      "w": "The legendary Silicon Valley computer/electronics superstore chain was founded in Sunnyvale in 1985; this 'History of Computers'-themed store was its final Sunnyvale location. The ENTIRE chain shut down abruptly on Feb 24, 2021 (liquidation). Included flagged-CLOSED as a Silicon Valley retail landmark, not a live suggestion. (The famous Egyptian-pyramid-themed Fry's was the Campbell store, outside the guide's area set.)",
+      "g": ["TECH"],
+      "closed": true,
+      "status": "closed",
+      "statusSource": "SFist 2021-02-24 'Fry's Electronics Officially Calls It Quits'; Silicon Valley Voice; Wikipedia — all stores permanently closed Feb 24 2021.",
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Fry%27s_Electronics"],
+        ["SFIST", "https://sfist.com/2021/02/24/frys-electronics-officially-calls-it-quits/"],
+        ["SVVOICE", "https://www.svvoice.com/customers-employees-surprised-after-frys-electronics-closes-overnight/"]
+      ],
+      "lat": 37.38203,
+      "lng": -122.00165,
+      "geoSource": "Coordinate lookup for 1077 E Arques Ave, Sunnyvale (not a clean Google place-pin) — graded med; low priority as the place is closed.",
+      "confidence": "med"
+    }
+  ],
+
+  "excluded": [
+    {"n": "Apple Company Store (1 Infinite Loop)", "reason": "PERMANENTLY CLOSED Jan 20, 2024 — no longer a public store. Folded into 'Apple Infinite Loop Campus' (viewable) above with the closure noted.", "source": [["OFFICIAL", "https://maps.apple.com/place?place-id=I92DB6EB7006183F4"]]},
+    {"n": "Google Merchandise Store / gStore (Mountain View)", "reason": "No separate public physical gStore; the public Google retail store IS the one inside the Google Visitor Experience (already listed). The 'Google Merchandise Store' proper is online-only.", "source": [["OFFICIAL", "https://visit.withgoogle.com/plan-your-visit/"]]},
+    {"n": "Tesla Fremont Factory", "reason": "NOT public. Factory tours are Tesla-OWNERS-only (VIN required); an active manufacturing site with no walk-in public access = private.", "source": [["OFFICIAL", "https://www.tesla.com/tour-the-factory"]]},
+    {"n": "Cisco / Microsoft Silicon Valley / Oracle / LinkedIn / Yahoo / AMD / Applied Materials", "reason": "No public visitor center, store, or tour at any of these SV campuses — viewable-from-street at best, and none are notable public landmarks, so not added. (Oracle's iconic Redwood Shores towers are also outside the guide's area set.)", "source": [["DISCOVERSANTACLARA", "https://www.discoversantaclara.org/blog/silicon-valley-tech-tour/"]]},
+    {"n": "WeirdStuff Warehouse", "reason": "Closed 2017 and the site was redeveloped by Google; nothing to visit. Fry's (Sunnyvale) is retained as the flagged-closed retail landmark instead.", "source": [["WIKIPEDIA", "https://en.wikipedia.org/wiki/Fry%27s_Electronics"]]}
+  ]
+}
