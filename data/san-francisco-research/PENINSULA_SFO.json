@@ -1,0 +1,295 @@
+{
+  "sights": [
+    {
+      "t": 1,
+      "a": "PEN",
+      "n": "SFO Louis A. Turpen Aviation Museum & Library",
+      "address": "International Terminal Main Hall, Departures Level (pre-security), San Francisco International Airport, San Francisco, CA 94128",
+      "w": "The only accredited museum inside an airport: a free, pre-security gallery built as a replica 1930s passenger terminal, tracing West Coast and Pacific commercial aviation with aircraft models, airline memorabilia and photographs. Open daily 10am-4:30pm, no ticket needed.",
+      "closed": false,
+      "g": ["MUS", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://www.sfomuseum.org/aviation-museum-library"],
+        ["NPR", "https://www.npr.org/2010/04/26/126201248/flying-through-san-francisco-stop-to-enjoy-the-art"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "n": "Sign Hill (SOUTH SAN FRANCISCO THE INDUSTRIAL CITY letters)",
+      "address": "Sign Hill Park, Poplar Ave, South San Francisco, CA 94080",
+      "w": "The city's Hollywood-style hillside sign: white concrete letters 48-65 ft tall spelling SOUTH SAN FRANCISCO THE INDUSTRIAL CITY, built in 1929 and listed on the National Register of Historic Places. A 30-acre park with ~2 miles of trails climbs to the letters and bay views.",
+      "closed": false,
+      "g": ["VIEW", "PARK", "ODD", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/South_San_Francisco_hillside_sign"],
+        ["OFFICIAL", "https://www.ssfca.gov/Departments/Parks-Recreation/Divisions/Parks-Division/Interactive-Parks-Maps/Sign-Hill-Letters"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "n": "San Bruno Mountain State & County Park",
+      "address": "555 Guadalupe Canyon Pkwy, Brisbane, CA 94005",
+      "w": "A rare island of native coastal-scrub habitat rising straight off the bay's edge above Daly City, Brisbane and South SF. Summit and ridge trails deliver 360-degree views from the Golden Gate to the Santa Cruz Mountains; home to endangered Mission blue butterflies.",
+      "closed": false,
+      "g": ["PARK", "VIEW"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/San_Bruno_Mountain_State_Park"],
+        ["CASTATEPARKS", "https://www.parks.ca.gov/?page_id=518"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "n": "Sweeney Ridge (San Francisco Bay Discovery Site)",
+      "address": "Sneath Lane Trailhead, Sneath Ln, San Bruno, CA 94066",
+      "w": "GGNRA ridgeline between San Bruno and Pacifica where the Portola expedition first sighted San Francisco Bay on Nov 4, 1769 - a registered historic landmark. Trails from Sneath Lane and Skyline College climb to the discovery-site monument and ocean-to-bay panoramas.",
+      "closed": false,
+      "g": ["PARK", "VIEW"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Sweeney_Ridge"],
+        ["NPS", "https://www.parksconservancy.org/parks/sweeney-ridge"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "n": "CuriOdyssey at Coyote Point",
+      "address": "1651 Coyote Point Dr, San Mateo, CA 94401",
+      "w": "A hands-on science-and-wildlife museum inside Coyote Point Recreation Area, overlooking the bay: live native-animal exhibits (raptors, foxes, bobcat) and interactive natural-science galleries. Surrounded by shoreline, eucalyptus groves and beach in a regional park.",
+      "closed": false,
+      "g": ["MUS", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://curiodyssey.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/CuriOdyssey"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "n": "San Mateo Central Park & Japanese Garden",
+      "address": "50 E 5th Ave, San Mateo, CA 94401",
+      "w": "A hidden strolling garden designed by Nagao Sakurai of the Imperial Palace of Tokyo, with a granite pagoda, teahouse, koi pond and bamboo grove, tucked inside downtown San Mateo's Central Park. Free admission.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://www.cityofsanmateo.org/3319/Central-Park-Japanese-Garden"],
+        ["NICHIBEI", "https://www.nichibei.org/2023/03/a-japanese-garden-hidden-in-downtown-san-mateo/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "n": "Pacifica Municipal Pier",
+      "address": "Beach Blvd (at Santa Rosa Ave), Pacifica, CA 94044",
+      "w": "A 1,140-ft concrete pier jutting into the Pacific off Sharp Park Beach - a free, no-license fishing and crabbing spot famous for salmon and Dungeness crab runs, with wide-open sunset and whale-watching views straight out over the ocean.",
+      "closed": false,
+      "g": ["WATER", "VIEW", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Pacifica_Pier"],
+        ["OFFICIAL", "https://www.cityofpacifica.org/departments/public-works/field-services/pacifica-pier"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "n": "Devil's Slide Trail",
+      "address": "Devil's Slide Trail, CA-1 (Cabrillo Hwy), Pacifica, CA 94044",
+      "w": "A 1.3-mile paved clifftop trail on a former stretch of Highway 1, reopened in 2014 after the Tom Lantos Tunnels rerouted the road. It hugs a sheer cliff face hundreds of feet above the surf with sweeping ocean, seabird and gray-whale views. Parking lots at both ends.",
+      "closed": false,
+      "g": ["VIEW", "WATER", "PARK"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Devil%27s_Slide_(California)"],
+        ["SMCPARKS", "https://supportparks.org/parks-map/devils-slide-california-coastal-trail/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "n": "Mori Point",
+      "address": "Mori Point Rd, Pacifica, CA 94044",
+      "w": "A 110-acre GGNRA headland in Pacifica: a short climb up the Mori Point Peak loop delivers a dramatic bluff-top view over the ocean, Sharp Park Beach and the coastline, through wildflower meadows and wetlands that shelter the endangered red-legged frog and San Francisco garter snake.",
+      "closed": false,
+      "g": ["PARK", "VIEW", "WATER"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Mori_Point"],
+        ["NPS", "https://www.nps.gov/places/000/mori-point-trailhead.htm"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "n": "Mussel Rock Park",
+      "address": "Westline Dr, Daly City, CA 94015",
+      "w": "The point where the San Andreas Fault meets the Pacific - the closest land to the epicenter of the 1906 earthquake, its tarmac visibly rippled by the fault. Cliffside 'laminar flow' winds make it one of the Bay Area's premier hang-gliding and paragliding launches, with big coastal sunsets.",
+      "closed": false,
+      "g": ["VIEW", "WATER", "ODD"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Mussel_Rock"],
+        ["ISLANDS", "https://www.islands.com/1987991/epicenter-san-francisco-earthquake-mussel-rock-park-hidden-paragliders-soar/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "n": "Burlingame Museum of PEZ Memorabilia — CLOSED",
+      "address": "214 California Dr, Burlingame, CA 94010",
+      "w": "A beloved roadside oddity that displayed one of the world's largest PEZ dispenser collections plus banned/rare pieces and the 'world's largest PEZ dispenser.' Permanently closed in July 2019 - kept here for the record; do not visit.",
+      "closed": true,
+      "g": ["MUS", "ODD"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Burlingame_Museum_of_Pez_Memorabilia"],
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/burlingame-museum-pez-memorabilia"]
+      ]
+    }
+  ],
+  "food": [
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Cantonese", "Dim Sum"],
+      "dish": "baked BBQ pork buns, har gow, roast duck with truffle oil",
+      "n": "The Kitchen",
+      "address": "279 El Camino Real, Millbrae, CA 94030",
+      "w": "With Millbrae's famous dim sum halls (Hong Kong Flower Lounge, Zen Peninsula, Asian Pearl) all now shuttered, this Michelin Guide-listed Cantonese hall is the survivor - cart-service lunch dim sum known for its baked (not steamed) BBQ pork buns and roast duck with truffle oil.",
+      "closed": false,
+      "sources": [
+        ["MICHELIN", "https://guide.michelin.com/us/en/california/millbrae/restaurants"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Filipino"],
+      "dish": "lechon kawali, kare-kare, BBQ skewers (turo-turo)",
+      "n": "Fil-Am Cuisine",
+      "address": "66 School St, Daly City, CA 94014",
+      "w": "The flagship turo-turo ('point-point') of Daly City, the largest Filipino community in the U.S.: point at steaming trays of crispy lechon kawali and peanutty kare-kare, plus grilled BBQ skewers. Cash-only, takeout, a decades-old local institution.",
+      "closed": false,
+      "sources": [
+        ["INFATUATION", "https://www.theinfatuation.com/san-francisco/reviews/fil-am-bbq"],
+        ["ALMANAC", "https://www.almanacnews.com/ae/2024/01/04/12-peninsula-spots-to-visit-for-a-filipino-food-crawl/"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Filipino"],
+      "dish": "sizzling sisig, lumpiang Shanghai",
+      "n": "Chibog",
+      "address": "2055 Gellert Blvd, Ste 5, Daly City, CA 94015",
+      "w": "A low-key Daly City sit-down spot (walls of '80s movie and boxing posters) doing sharp renditions of Filipino classics; the must-order is the crispy, citrusy sizzling sisig, with lumpiang Shanghai close behind. Featured on KQED's Check, Please! Bay Area.",
+      "closed": false,
+      "sources": [
+        ["INFATUATION", "https://www.theinfatuation.com/san-francisco/reviews/chibog"],
+        ["KQED", "https://www.kqed.org/checkplease"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "cz": ["Filipino", "Bakery"],
+      "dish": "pandesal, ensaymada",
+      "n": "The Bread Basket",
+      "address": "7099 Mission St, Daly City, CA 94014",
+      "w": "A family-run Filipino bakery on Top of the Hill baking pandesal since 1977 - warm rolls out of the oven from 5-7am, plus ensaymada and bibingka. A generational Daly City institution recently kept in the family by three cousins.",
+      "closed": false,
+      "sources": [
+        ["ALMANAC", "https://www.almanacnews.com/ae/2024/01/04/12-peninsula-spots-to-visit-for-a-filipino-food-crawl/"],
+        ["KQED", "https://www.kqed.org/bayareabites/133626/how-has-the-bays-filipino-food-scene-changed-just-ask-daly-citys-chel-gilla"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Basque"],
+      "dish": "family-style lamb, duck, picon punch",
+      "n": "Basque Cultural Center",
+      "address": "599 Railroad Ave, South San Francisco, CA 94080",
+      "w": "The Bay Area's living Basque hearth: founded 1982 by the region's sheepherding diaspora, it serves hearty family-style Basque dinners - lamb, duck, seafood - and the classic Picon Punch, beside an indoor pilota (jai alai) court. A genuine cultural institution, open to all.",
+      "closed": false,
+      "sources": [
+        ["OFFICIAL", "https://sfbasqueculturalcenter.org/history"],
+        ["PATCH", "https://patch.com/california/southsanfrancisco/basque-cultural-center-has-a-long-history-in-south-city"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Japanese", "Kaiseki"],
+      "dish": "monthly 9-course kaiseki tasting",
+      "n": "Wakuriya",
+      "address": "115 De Anza Blvd, San Mateo, CA 94402",
+      "w": "San Mateo's sole Michelin-starred restaurant: a 16-seat strip-mall counter where chef Katsuhiro Yamasaki serves a monthly-changing nine-course kaiseki built on California-seasonal ingredients. Reservations vanish instantly.",
+      "closed": false,
+      "sources": [
+        ["MICHELIN_STAR", "https://guide.michelin.com/us/en/california/san-mateo/restaurant/wakuriya"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Japanese", "Ramen"],
+      "dish": "garlic pork (tonkotsu) ramen with fried whole garlic",
+      "n": "Ramen Dojo",
+      "address": "805 S B St, San Mateo, CA 94401",
+      "w": "A 24-seat downtown San Mateo ramen shop with a line half an hour before it opens: garlic-pork, soybean or soy broths dialed from mild to extra-spicy, loaded with fried whole garlic. Come early - they run out of broth.",
+      "closed": false,
+      "sources": [
+        ["SEVENXSEVEN", "https://www.7x7.com/first-bite-ramen-dojo-san-mateo-1779465053.html"],
+        ["TIMEOUT", "https://www.timeout.com/san-francisco/restaurants/ramen-dojo"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "PEN",
+      "cz": ["Indian", "South Indian"],
+      "dish": "dosa, chutney prawns, biryani",
+      "n": "Rasa",
+      "address": "209 Park Rd, Burlingame, CA 94010",
+      "w": "The first Indian restaurant in California to win a Michelin star (held 2016-2021); chef Ajay Walia's modern South-Indian coastal cooking - dosa, chutney prawns, Railway pepper, biryani - reopened on Burlingame Ave in 2024 after a hiatus.",
+      "closed": false,
+      "sources": [
+        ["SMDAILYJOURNAL", "https://www.smdailyjournal.com/news/local/burlingames-michelin-starred-rasa-returns/article_b61bf866-90ed-11ef-9b68-9b529ef14e70.html"],
+        ["PATCH", "https://patch.com/california/burlingame-hillsborough/acclaimed-peninsula-indian-restaurant-returns-burlingame"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "PEN",
+      "cz": ["German"],
+      "dish": "currywurst, house-made sausages, schnitzel",
+      "n": "Wursthall — CLOSED",
+      "address": "310 Baldwin Ave, San Mateo, CA 94401",
+      "w": "The German beer-hall co-founded by cookbook author J. Kenji Lopez-Alt, a downtown San Mateo fixture since 2018 known for house sausages, currywurst and pretzels. Permanently closed Sept 27, 2025 - kept here for the record (basement bar Wunderbar may continue).",
+      "closed": true,
+      "sources": [
+        ["PALOALTOONLINE", "https://www.paloaltoonline.com/san-mateo-county/2025/09/03/san-mateos-wursthall-to-permanently-close-but-its-basement-cocktail-bar-will-likely-stay/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/J._Kenji_L%C3%B3pez-Alt"]
+      ]
+    }
+  ],
+  "sources": [
+    {"key": "SFOMUSEUM", "name": "SFO Museum (San Francisco International Airport)", "url": "https://www.sfomuseum.org/", "type": "official"},
+    {"key": "NPR", "name": "NPR", "url": "https://www.npr.org/", "type": "media"},
+    {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org/", "type": "reference"},
+    {"key": "OFFICIAL", "name": "Official site / municipal source", "url": "", "type": "official"},
+    {"key": "CASTATEPARKS", "name": "California State Parks", "url": "https://www.parks.ca.gov/", "type": "official"},
+    {"key": "NPS", "name": "National Park Service / Golden Gate National Parks Conservancy (GGNRA)", "url": "https://www.nps.gov/goga/", "type": "official"},
+    {"key": "SMCPARKS", "name": "San Mateo County Parks / Parks Foundation", "url": "https://supportparks.org/", "type": "official"},
+    {"key": "NICHIBEI", "name": "Nichi Bei News", "url": "https://www.nichibei.org/", "type": "media"},
+    {"key": "ISLANDS", "name": "Islands.com", "url": "https://www.islands.com/", "type": "media"},
+    {"key": "ATLASOBSCURA", "name": "Atlas Obscura", "url": "https://www.atlasobscura.com/", "type": "curated"},
+    {"key": "MICHELIN", "name": "The MICHELIN Guide", "url": "https://guide.michelin.com/", "type": "guide"},
+    {"key": "MICHELIN_STAR", "name": "The MICHELIN Guide (Star)", "url": "https://guide.michelin.com/", "type": "guide"},
+    {"key": "INFATUATION", "name": "The Infatuation (SF)", "url": "https://www.theinfatuation.com/san-francisco", "type": "media"},
+    {"key": "KQED", "name": "KQED / Check, Please! Bay Area / Bay Area Bites", "url": "https://www.kqed.org/", "type": "media"},
+    {"key": "SEVENXSEVEN", "name": "7x7 Bay Area", "url": "https://www.7x7.com/", "type": "media"},
+    {"key": "TIMEOUT", "name": "Time Out SF", "url": "https://www.timeout.com/san-francisco", "type": "media"},
+    {"key": "SMDAILYJOURNAL", "name": "San Mateo Daily Journal", "url": "https://www.smdailyjournal.com/", "type": "media"},
+    {"key": "PATCH", "name": "Patch (local news)", "url": "https://patch.com/california", "type": "media"},
+    {"key": "ALMANAC", "name": "The Almanac / Palo Alto Online (Embarcadero Media)", "url": "https://www.almanacnews.com/", "type": "media"},
+    {"key": "PALOALTOONLINE", "name": "Palo Alto Online (Embarcadero Media)", "url": "https://www.paloaltoonline.com/", "type": "media"}
+  ]
+}
