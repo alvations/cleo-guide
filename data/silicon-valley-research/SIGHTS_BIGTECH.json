@@ -1,37 +1,360 @@
-{"sights":[
-{"t":1,"a":"CU","n":"Apple Park Visitor Center","address":"10600 N Tantau Ave, Cupertino, CA 95014","w":"The public building Apple built across the street from its 'spaceship' ring HQ, opened 2017. A design landmark in its own right, with a carbon-fiber roof floating on stone columns.","k":"Open to anyone: full Apple Store, Caffe Macs rooftop cafe/terrace with a distant view over the ring, and an augmented-reality tabletop model of the campus. The ring building itself and the grounds are closed to the public.","closed":false,"g":["TECH","ICON"],"sources":[["OFFICIAL","https://www.apple.com/retail/appleparkvisitorcenter/"],["YELP","https://www.yelp.com/biz/apple-park-visitor-center-cupertino-2"]]},
-
-{"t":2,"a":"MV","n":"Steve Jobs' Childhood Home & Apple Garage","address":"2066 Crist Dr, Los Altos, CA 94024","w":"The ranch house where Steve Jobs grew up and where he and Steve Wozniak built the first Apple I computers in the garage in 1976. Los Altos designated it a historic resource in 2013.","k":"View from the public street ONLY. It is a private, occupied residence with no plaque or tour; do not enter the property or disturb residents. Just a quiet curbside pilgrimage.","closed":false,"g":["TECH"],"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/Steve_Jobs"],["MERCURY","https://www.nbcbayarea.com/news/local/los-altos-turns-steve-jobs-childhood-home-into-historical-site/1958074/"]]},
-
-{"t":1,"a":"MV","n":"Google Visitor Experience","address":"2000 N Shoreline Blvd, Mountain View, CA 94043","w":"Google's official public front door at the Googleplex, opened October 2023 inside the striking curved 'Gradient Canopy' (Charleston East) building. The rest of the Googleplex is closed to non-employees.","k":"Open to the public: the Google Store (hardware + exclusive branded merch), a cafe, the Huddle event space and an outdoor Plaza with public art. Offices and the wider campus are off-limits.","closed":false,"g":["TECH"],"sources":[["OFFICIAL","https://visit.withgoogle.com/plan-your-visit/"],["OFFICIAL","https://9to5google.com/2023/10/12/google-store-mountain-view/"]]},
-
-{"t":2,"a":"MV","n":"Android Lawn Statues","address":"Charleston Rd & Huff Ave, Mountain View, CA 94043","w":"The beloved oversized foam sculptures of Android dessert mascots (Cupcake through Pie, etc.). The tradition ran 2008-2019; newer versions are digital-only.","k":"An outdoor photo spot beside the Google Visitor Experience. The statues were moved here from the old Landings Drive lawn (redeveloped) in 2022; the area is technically for Google employees and guests, but visitors are generally welcomed to walk up and photograph them. Best combined with a Visitor Experience stop.","closed":false,"g":["TECH"],"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/Android_lawn_statues"],["ATLASOBSCURA","https://www.atlasobscura.com/places/android-lawn-statues-mountain-view"]]},
-
-{"t":1,"a":"MV","n":"Computer History Museum","address":"1401 N Shoreline Blvd, Mountain View, CA 94043","w":"The world's leading museum of computing history, holding everything from a working Babbage Difference Engine reconstruction to Cray supercomputers and a restored PDP-1. A must for any tech traveler.","k":"Fully open to the public (Wed-Sun, ~10a-5p; general admission ~$15). No membership or affiliation needed.","closed":false,"g":["TECH","ICON"],"sources":[["OFFICIAL","https://computerhistory.org/hours-admission/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Computer_History_Museum"]]},
-
-{"t":1,"a":"SC","n":"Intel Museum","address":"2200 Mission College Blvd, Santa Clara, CA 95054","w":"A free museum at Intel's HQ tracing the silicon-chip story from the transistor to modern processors, with hands-on exhibits on how chips are made and Intel's Silicon Valley founding.","k":"Free and open to the public inside the Robert Noyce Building lobby (Mon-Fri, ~9a-5p; call ahead as it closes for events). The rest of the Intel campus is not public.","closed":false,"g":["TECH"],"sources":[["OFFICIAL","https://www.intel.com/content/www/us/en/history/museum-visiting-intel.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Intel_Museum"]]},
-
-{"t":3,"a":"SC","n":"NVIDIA HQ - Voyager & Endeavor","address":"2788 San Tomas Expy, Santa Clara, CA 95051","w":"NVIDIA's dramatic triangle-motif headquarters: the Gensler-designed Endeavor (2017) and the enormous Voyager (2022), whose sloped glass 'mountain' roof shelters an indoor landscaped village.","k":"Exterior architecture only. The buildings are private and closed to the public; the striking hexagonal/triangular forms are best appreciated from the sidewalk and San Tomas Expressway. No visitor center or tours.","closed":false,"g":["TECH"],"sources":[["MERCURY","https://therealdeal.com/san-francisco/2025/12/09/nvidia-grows-with-new-santa-clara-headquarters-building/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nvidia"]]},
-
-{"t":2,"a":"PA","n":"HP Garage - Birthplace of Silicon Valley","address":"367 Addison Ave, Palo Alto, CA 94301","w":"The one-car garage where Bill Hewlett and Dave Packard started Hewlett-Packard in 1939, widely honored as the birthplace of Silicon Valley. California Historical Landmark and on the National Register.","k":"View from the public sidewalk ONLY. It is a private HP-owned property, not open inside; a bronze plaque on the front lawn reads 'Birthplace of Silicon Valley.'","closed":false,"g":["TECH"],"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/HP_Garage"],["ATLASOBSCURA","https://www.atlasobscura.com/places/birthplace-of-silicon-valley"]]},
-
-{"t":3,"a":"PA","n":"Xerox PARC","address":"3333 Coyote Hill Rd, Palo Alto, CA 94304","w":"The low-slung research lab (now PARC, part of SRI International) where the graphical user interface, the mouse, Ethernet, laser printing and WYSIWYG editing were invented in the 1970s - ideas that shaped every modern computer.","k":"Exterior/landmark only. It is a working private research facility, not open to the public; the site sits on Coyote Hill above Stanford with hiking-trail views nearby. A pilgrimage for the story, not the building.","closed":false,"g":["TECH"],"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/PARC_(company)"],["MERCURY","https://www.theregister.com/2023/04/25/xerox_parc_goodbye/"]]},
-
-{"t":2,"a":"MV","n":"NASA Ames Exploration Center & Hangar One","address":"Moffett Blvd, Mountain View, CA 94035","w":"NASA's free space-science visitor center at Ames Research Center/Moffett Field, with Mercury and Apollo-era artifacts, a Mars meteorite and moon-mission exhibits. Nearby looms Hangar One, the colossal 1930s airship hangar that is a Bay Area landmark.","k":"The Exploration Center sits outside the security gate and is free and open to the public (Tue-Fri 10a-4p, Sat-Sun 12-4p) - no base access needed. Hangar One and the airfield itself are secured; the hangar is viewable from outside/afar only. (The separate Moffett Field Museum, inside the gate, requires ID and a fee.)","closed":false,"g":["TECH"],"sources":[["OFFICIAL","https://www.nasa.gov/ames/visit-ames-research-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hangar_One_(Moffett_Federal_Airfield)"]]},
-
-{"t":2,"a":"DAY","n":"Meta 'Like' Sign, 1 Hacker Way","address":"1 Hacker Way, Menlo Park, CA 94025","w":"The famous sign at the entrance to Meta's (Facebook's) headquarters - once the giant blue thumbs-up 'Like', now the blue Meta infinity logo (swapped in the 2021 rebrand). A classic Silicon Valley selfie stop.","k":"Photo stop at the entrance sign ONLY, from the public roadside. The Meta campus is closed to the public - no walk-in access. The famous thumbs-up is gone; the sign now shows the Meta infinity mark (with 'Facebook' still on the reverse).","closed":false,"g":["TECH"],"sources":[["SFCHRON","https://www.paloaltoonline.com/news/2021/10/29/facebook-changes-its-name-to-meta/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Meta_Platforms"]]},
-
-{"t":3,"a":"SJ","n":"Adobe HQ & San Jose Semaphore","address":"151 S Almaden Blvd, San Jose, CA 95113","w":"Adobe's cluster of towers that anchors downtown San Jose's skyline. Atop the Almaden Tower is the 'San Jose Semaphore,' a public art installation of four rotating LED disks that broadcast an encoded message.","k":"Exterior and skyline only - the offices are private. The San Jose Semaphore art piece is visible free from the street/downtown after dark (message decodable online). No public interior or tours.","closed":false,"g":["TECH"],"sources":[["OFFICIAL","https://www.adobe.com/about-adobe/visit-us/sj-semaphore.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Adobe_World_Headquarters"]]},
-
-{"t":3,"a":"SJ","n":"eBay Main Campus","address":"2025 Hamilton Ave, San Jose, CA 95125","w":"The headquarters campus of eBay, one of the dot-com era's defining companies, whose whimsical signage and 'Main Street' welcome center reflect its marketplace roots.","k":"Exterior and signage only. The campus is a private workplace not open to the public; the branded eBay sign and buildings can be seen from the roadside.","closed":false,"g":["TECH"],"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/EBay"],["MERCURY","https://oceanwestcp.com/properties/north-first-commons-ebay/"]]},
-
-{"t":3,"a":"SJ","n":"Samsung Semiconductor 'Samsung@First'","address":"3655 N First St, San Jose, CA 95134","w":"Samsung's striking 10-story North American semiconductor HQ (opened 2015), a LEED-Platinum tower with a sculptural stepped facade - the standout landmark of North San Jose's 'Golden Triangle' tech corridor along N First St, which also hosts PayPal, Cisco and others.","k":"Exterior architecture and signage only. The building is a private office, not open to the public; admire the facade from N First St. Neighboring PayPal (2211 N First St) and Cisco (170 W Tasman Dr) campuses are likewise exteriors-only drive-bys.","closed":false,"g":["TECH"],"sources":[["OFFICIAL","https://semiconductor.samsung.com/about-us/locations/us/us-campus/"],["MERCURY","https://en.wikipedia.org/wiki/North_San_Jose"]]}
-],
-"sources":[
-{"key":"OFFICIAL","name":"Official company/institution site","url":"","type":"official"},
-{"key":"ATLASOBSCURA","name":"Atlas Obscura","url":"https://www.atlasobscura.com/","type":"editorial"},
-{"key":"WIKIPEDIA","name":"Wikipedia","url":"https://en.wikipedia.org/","type":"reference"},
-{"key":"SFCHRON","name":"San Francisco Chronicle / Bay Area news","url":"https://www.sfchronicle.com/","type":"news"},
-{"key":"MERCURY","name":"San Jose Mercury News / Bay Area business press","url":"https://www.mercurynews.com/","type":"news"},
-{"key":"YELP","name":"Yelp business listing (hours/access cross-check)","url":"https://www.yelp.com/","type":"listing"}
-]}
+{
+ "sights": [
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Apple Park Visitor Center",
+   "address": "10600 N Tantau Ave, Cupertino, CA 95014",
+   "w": "The public building Apple built across the street from its 'spaceship' ring HQ, opened 2017. A design landmark in its own right, with a carbon-fiber roof floating on stone columns.",
+   "k": "Open to anyone: full Apple Store, Caffe Macs rooftop cafe/terrace with a distant view over the ring, and an augmented-reality tabletop model of the campus. The ring building itself and the grounds are closed to the public.",
+   "closed": false,
+   "g": [
+    "TECH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.apple.com/retail/appleparkvisitorcenter/"
+    ],
+    [
+     "YELP",
+     "https://www.yelp.com/biz/apple-park-visitor-center-cupertino-2"
+    ],
+    [
+     "ABC7",
+     "Apple opens new visitor center in Cupertino — https://abc7news.com/post/apple-opens-new-visitor-center-in-cupertino/2662716/"
+    ],
+    [
+     "NBCBAY",
+     "Aerial Photos Show New Apple 'Spaceship' Campus Taking Shape in Cupertino — https://nbcbayarea.com/news/tech/Aerial-Photos-Show-New-Apple-Spaceship-Campus-Taking-Shape-in-Cupertino-257432561.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Steve Jobs' Childhood Home & Apple Garage",
+   "address": "2066 Crist Dr, Los Altos, CA 94024",
+   "w": "The ranch house where Steve Jobs grew up and where he and Steve Wozniak built the first Apple I computers in the garage in 1976. Los Altos designated it a historic resource in 2013.",
+   "k": "View from the public street ONLY. It is a private, occupied residence with no plaque or tour; do not enter the property or disturb residents. Just a quiet curbside pilgrimage.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Steve_Jobs"
+    ],
+    [
+     "MERCURY",
+     "https://www.nbcbayarea.com/news/local/los-altos-turns-steve-jobs-childhood-home-into-historical-site/1958074/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Google Visitor Experience",
+   "address": "2000 N Shoreline Blvd, Mountain View, CA 94043",
+   "w": "Google's official public front door at the Googleplex, opened October 2023 inside the striking curved 'Gradient Canopy' (Charleston East) building. The rest of the Googleplex is closed to non-employees.",
+   "k": "Open to the public: the Google Store (hardware + exclusive branded merch), a cafe, the Huddle event space and an outdoor Plaza with public art. Offices and the wider campus are off-limits.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://visit.withgoogle.com/plan-your-visit/"
+    ],
+    [
+     "OFFICIAL",
+     "https://9to5google.com/2023/10/12/google-store-mountain-view/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Android Lawn Statues",
+   "address": "Charleston Rd & Huff Ave, Mountain View, CA 94043",
+   "w": "The beloved oversized foam sculptures of Android dessert mascots (Cupcake through Pie, etc.). The tradition ran 2008-2019; newer versions are digital-only.",
+   "k": "An outdoor photo spot beside the Google Visitor Experience. The statues were moved here from the old Landings Drive lawn (redeveloped) in 2022; the area is technically for Google employees and guests, but visitors are generally welcomed to walk up and photograph them. Best combined with a Visitor Experience stop.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Android_lawn_statues"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/android-lawn-statues-mountain-view"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Computer History Museum",
+   "address": "1401 N Shoreline Blvd, Mountain View, CA 94043",
+   "w": "The world's leading museum of computing history, holding everything from a working Babbage Difference Engine reconstruction to Cray supercomputers and a restored PDP-1. A must for any tech traveler.",
+   "k": "Fully open to the public (Wed-Sun, ~10a-5p; general admission ~$15). No membership or affiliation needed.",
+   "closed": false,
+   "g": [
+    "TECH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://computerhistory.org/hours-admission/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Computer_History_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Intel Museum",
+   "address": "2200 Mission College Blvd, Santa Clara, CA 95054",
+   "w": "A free museum at Intel's HQ tracing the silicon-chip story from the transistor to modern processors, with hands-on exhibits on how chips are made and Intel's Silicon Valley founding.",
+   "k": "Free and open to the public inside the Robert Noyce Building lobby (Mon-Fri, ~9a-5p; call ahead as it closes for events). The rest of the Intel campus is not public.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.intel.com/content/www/us/en/history/museum-visiting-intel.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Intel_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SC",
+   "n": "NVIDIA HQ - Voyager & Endeavor",
+   "address": "2788 San Tomas Expy, Santa Clara, CA 95051",
+   "w": "NVIDIA's dramatic triangle-motif headquarters: the Gensler-designed Endeavor (2017) and the enormous Voyager (2022), whose sloped glass 'mountain' roof shelters an indoor landscaped village.",
+   "k": "Exterior architecture only. The buildings are private and closed to the public; the striking hexagonal/triangular forms are best appreciated from the sidewalk and San Tomas Expressway. No visitor center or tours.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "MERCURY",
+     "https://therealdeal.com/san-francisco/2025/12/09/nvidia-grows-with-new-santa-clara-headquarters-building/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nvidia"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "HP Garage - Birthplace of Silicon Valley",
+   "address": "367 Addison Ave, Palo Alto, CA 94301",
+   "w": "The one-car garage where Bill Hewlett and Dave Packard started Hewlett-Packard in 1939, widely honored as the birthplace of Silicon Valley. California Historical Landmark and on the National Register.",
+   "k": "View from the public sidewalk ONLY. It is a private HP-owned property, not open inside; a bronze plaque on the front lawn reads 'Birthplace of Silicon Valley.'",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/HP_Garage"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/birthplace-of-silicon-valley"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "PA",
+   "n": "Xerox PARC",
+   "address": "3333 Coyote Hill Rd, Palo Alto, CA 94304",
+   "w": "The low-slung research lab (now PARC, part of SRI International) where the graphical user interface, the mouse, Ethernet, laser printing and WYSIWYG editing were invented in the 1970s - ideas that shaped every modern computer.",
+   "k": "Exterior/landmark only. It is a working private research facility, not open to the public; the site sits on Coyote Hill above Stanford with hiking-trail views nearby. A pilgrimage for the story, not the building.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/PARC_(company)"
+    ],
+    [
+     "MERCURY",
+     "https://www.theregister.com/2023/04/25/xerox_parc_goodbye/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "NASA Ames Exploration Center & Hangar One",
+   "address": "Moffett Blvd, Mountain View, CA 94035",
+   "w": "NASA's free space-science visitor center at Ames Research Center/Moffett Field, with Mercury and Apollo-era artifacts, a Mars meteorite and moon-mission exhibits. Nearby looms Hangar One, the colossal 1930s airship hangar that is a Bay Area landmark.",
+   "k": "The Exploration Center sits outside the security gate and is free and open to the public (Tue-Fri 10a-4p, Sat-Sun 12-4p) - no base access needed. Hangar One and the airfield itself are secured; the hangar is viewable from outside/afar only. (The separate Moffett Field Museum, inside the gate, requires ID and a fee.)",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.nasa.gov/ames/visit-ames-research-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hangar_One_(Moffett_Federal_Airfield)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Meta 'Like' Sign, 1 Hacker Way",
+   "address": "1 Hacker Way, Menlo Park, CA 94025",
+   "w": "The famous sign at the entrance to Meta's (Facebook's) headquarters - once the giant blue thumbs-up 'Like', now the blue Meta infinity logo (swapped in the 2021 rebrand). A classic Silicon Valley selfie stop.",
+   "k": "Photo stop at the entrance sign ONLY, from the public roadside. The Meta campus is closed to the public - no walk-in access. The famous thumbs-up is gone; the sign now shows the Meta infinity mark (with 'Facebook' still on the reverse).",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "SFCHRON",
+     "https://www.paloaltoonline.com/news/2021/10/29/facebook-changes-its-name-to-meta/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Meta_Platforms"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Adobe HQ & San Jose Semaphore",
+   "address": "151 S Almaden Blvd, San Jose, CA 95113",
+   "w": "Adobe's cluster of towers that anchors downtown San Jose's skyline. Atop the Almaden Tower is the 'San Jose Semaphore,' a public art installation of four rotating LED disks that broadcast an encoded message.",
+   "k": "Exterior and skyline only - the offices are private. The San Jose Semaphore art piece is visible free from the street/downtown after dark (message decodable online). No public interior or tours.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.adobe.com/about-adobe/visit-us/sj-semaphore.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adobe_World_Headquarters"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "eBay Main Campus",
+   "address": "2025 Hamilton Ave, San Jose, CA 95125",
+   "w": "The headquarters campus of eBay, one of the dot-com era's defining companies, whose whimsical signage and 'Main Street' welcome center reflect its marketplace roots.",
+   "k": "Exterior and signage only. The campus is a private workplace not open to the public; the branded eBay sign and buildings can be seen from the roadside.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/EBay"
+    ],
+    [
+     "MERCURY",
+     "https://oceanwestcp.com/properties/north-first-commons-ebay/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Samsung Semiconductor 'Samsung@First'",
+   "address": "3655 N First St, San Jose, CA 95134",
+   "w": "Samsung's striking 10-story North American semiconductor HQ (opened 2015), a LEED-Platinum tower with a sculptural stepped facade - the standout landmark of North San Jose's 'Golden Triangle' tech corridor along N First St, which also hosts PayPal, Cisco and others.",
+   "k": "Exterior architecture and signage only. The building is a private office, not open to the public; admire the facade from N First St. Neighboring PayPal (2211 N First St) and Cisco (170 W Tasman Dr) campuses are likewise exteriors-only drive-bys.",
+   "closed": false,
+   "g": [
+    "TECH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://semiconductor.samsung.com/about-us/locations/us/us-campus/"
+    ],
+    [
+     "MERCURY",
+     "https://en.wikipedia.org/wiki/North_San_Jose"
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "key": "OFFICIAL",
+   "name": "Official company/institution site",
+   "url": "",
+   "type": "official"
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "url": "https://www.atlasobscura.com/",
+   "type": "editorial"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org/",
+   "type": "reference"
+  },
+  {
+   "key": "SFCHRON",
+   "name": "San Francisco Chronicle / Bay Area news",
+   "url": "https://www.sfchronicle.com/",
+   "type": "news"
+  },
+  {
+   "key": "MERCURY",
+   "name": "San Jose Mercury News / Bay Area business press",
+   "url": "https://www.mercurynews.com/",
+   "type": "news"
+  },
+  {
+   "key": "YELP",
+   "name": "Yelp business listing (hours/access cross-check)",
+   "url": "https://www.yelp.com/",
+   "type": "listing"
+  }
+ ]
+}

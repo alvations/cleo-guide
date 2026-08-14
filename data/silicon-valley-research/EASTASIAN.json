@@ -1,8 +1,137 @@
 [
-  {"t":1, "a":"SJ", "cz":["Cantonese","Dim Sum"], "dish":"har gow", "n":"Koi Palace (Milpitas)", "address":"768 Barber Ln, Milpitas, CA 95035", "w":"The Bay Area's dim sum benchmark for Cantonese banquet cooking; the har gow come with near-translucent skins over sweet whole shrimp, alongside flaky baked BBQ-pork buns and whole roast duck.", "closed":false, "sources":[["INFATUATION","theinfatuation.com/san-francisco/reviews/koi-palace - 'the dim sum gold standard in the Bay Area' (review of the Koi Palace flagship; Milpitas is the South Bay outpost)"],["EATERSF","Eater SF feature 'How Dim Sum Legend Koi Palace Preserves the Legacy of Cantonese Banquet Culture'"]]},
-  {"t":1, "a":"MV", "cz":["Cantonese","Dim Sum"], "dish":"har gow", "n":"Fu Lam Mum", "address":"153 Castro St, Mountain View, CA 94041", "w":"One of the dwindling handful of South Bay rooms still doing dim sum cart service; carts roll out har gow bursting with juicy shrimp plus super-crispy sesame balls with sweet red-bean paste.", "closed":false, "sources":[["INFATUATION","theinfatuation.com/san-francisco/reviews/fu-lam-mum - 'great dim sum and one of the dwindling handful still doing cart service'"]]},
-  {"t":1, "a":"CU", "cz":["Chinese"], "dish":"Lanzhou hand-pulled beef noodle soup", "n":"Ox 9 Lanzhou Handpulled Noodles", "address":"10745 S De Anza Blvd, Cupertino, CA 95014", "w":"The first Bay Area shop to specialize in Gansu-province Lanzhou noodles; choose your noodle cut for a clear, 10-hour spiced beef broth, or get the flat noodles with the ten-hour Sichuan-braised beef stew.", "closed":false, "sources":[["INFATUATION","theinfatuation.com/san-jose/reviews/ox-9-lanzhou-handpulled-noodles"]]},
-  {"t":1, "a":"SC", "cz":["Korean","Korean BBQ"], "dish":"galbi (marinated beef short ribs)", "n":"Jang Su Jang", "address":"3561 El Camino Real #10, Santa Clara, CA 95051", "w":"A longtime anchor of Santa Clara's El Camino Koreatown and a repeat Michelin Guide selection; the tabletop galbi (marinated beef short ribs) and stone-pot stews arrive with a generous banchan spread.", "closed":false, "sources":[["MICHELIN","MICHELIN Guide selected restaurant, Santa Clara (Korean); multi-year California Guide listing"]]},
-  {"t":1, "a":"PA", "cz":["Ramen"], "dish":"Original King tonkotsu ramen", "n":"Ramen Nagi", "address":"541 Bryant St, Palo Alto, CA 94301", "w":"The Tokyo chain's first U.S. shop, famous for long nightly waits; the Original King is a silky 24-hour tonkotsu you customize by richness, garlic and a 1-to-10 spice scale.", "closed":false, "sources":[["INFATUATION","theinfatuation.com/san-francisco/reviews/ramen-nagi-palo-alto"]]},
-  {"t":1, "a":"SJ", "cz":["Japanese"], "dish":"chicken teriyaki", "n":"Gombei", "address":"193 Jackson St, San Jose, CA 95112", "w":"A bare-bones mainstay in historic San Jose Japantown for comforting teishoku; go for the tangy chicken teriyaki, breaded katsu cutlets and savory udon.", "closed":false, "sources":[["INFATUATION","theinfatuation.com/san-jose/reviews/gombei"]]}
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Cantonese",
+   "Dim Sum"
+  ],
+  "dish": "har gow",
+  "n": "Koi Palace (Milpitas)",
+  "address": "768 Barber Ln, Milpitas, CA 95035",
+  "w": "The Bay Area's dim sum benchmark for Cantonese banquet cooking; the har gow come with near-translucent skins over sweet whole shrimp, alongside flaky baked BBQ-pork buns and whole roast duck.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "theinfatuation.com/san-francisco/reviews/koi-palace - 'the dim sum gold standard in the Bay Area' (review of the Koi Palace flagship; Milpitas is the South Bay outpost)"
+   ],
+   [
+    "EATERSF",
+    "Eater SF feature 'How Dim Sum Legend Koi Palace Preserves the Legacy of Cantonese Banquet Culture'"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "MV",
+  "cz": [
+   "Cantonese",
+   "Dim Sum"
+  ],
+  "dish": "har gow",
+  "n": "Fu Lam Mum",
+  "address": "153 Castro St, Mountain View, CA 94041",
+  "w": "One of the dwindling handful of South Bay rooms still doing dim sum cart service; carts roll out har gow bursting with juicy shrimp plus super-crispy sesame balls with sweet red-bean paste.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "theinfatuation.com/san-francisco/reviews/fu-lam-mum - 'great dim sum and one of the dwindling handful still doing cart service'"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CU",
+  "cz": [
+   "Chinese"
+  ],
+  "dish": "Lanzhou hand-pulled beef noodle soup",
+  "n": "Ox 9 Lanzhou Handpulled Noodles",
+  "address": "10745 S De Anza Blvd, Cupertino, CA 95014",
+  "w": "The first Bay Area shop to specialize in Gansu-province Lanzhou noodles; choose your noodle cut for a clear, 10-hour spiced beef broth, or get the flat noodles with the ten-hour Sichuan-braised beef stew.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "theinfatuation.com/san-jose/reviews/ox-9-lanzhou-handpulled-noodles"
+   ],
+   [
+    "MICHELIN",
+    "guide.michelin.com — Ox 9 Lanzhou is Michelin-recommended (also featured Michelin Cover Story 2018)"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SC",
+  "cz": [
+   "Korean",
+   "Korean BBQ"
+  ],
+  "dish": "galbi (marinated beef short ribs)",
+  "n": "Jang Su Jang",
+  "address": "3561 El Camino Real #10, Santa Clara, CA 95051",
+  "w": "A longtime anchor of Santa Clara's El Camino Koreatown and a repeat Michelin Guide selection; the tabletop galbi (marinated beef short ribs) and stone-pot stews arrive with a generous banchan spread.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "MICHELIN Guide selected restaurant, Santa Clara (Korean); multi-year California Guide listing"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "PA",
+  "cz": [
+   "Ramen"
+  ],
+  "dish": "Original King tonkotsu ramen",
+  "n": "Ramen Nagi",
+  "address": "541 Bryant St, Palo Alto, CA 94301",
+  "w": "The Tokyo chain's first U.S. shop, famous for long nightly waits; the Original King is a silky 24-hour tonkotsu you customize by richness, garlic and a 1-to-10 spice scale.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "theinfatuation.com/san-francisco/reviews/ramen-nagi-palo-alto"
+   ],
+   [
+    "PALOALTOONLINE",
+    "Japan's Ramen Nagi arrives to elevate Palo Alto's noodle game — https://www.paloaltoonline.com/uncategorized/2018/06/19/japans-ramen-nagi-arrives-to-elevate-palo-altos-noodle-game/"
+   ],
+   [
+    "METROSV",
+    "Bowls of Bliss at Ramen Nagi — https://www.metrosiliconvalley.com/bowls-of-bliss-at-ramen-nagi/"
+   ],
+   [
+    "SIXFIFTY",
+    "Japan's Ramen Nagi arrives to elevate Palo Alto's noodle game — https://www.thesixfifty.com/japans-ramen-nagi-arrives-to-elevate-palo-altos-noodle-game-6073/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Japanese"
+  ],
+  "dish": "chicken teriyaki",
+  "n": "Gombei",
+  "address": "193 Jackson St, San Jose, CA 95112",
+  "w": "A bare-bones mainstay in historic San Jose Japantown for comforting teishoku; go for the tangy chicken teriyaki, breaded katsu cutlets and savory udon.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "theinfatuation.com/san-jose/reviews/gombei"
+   ],
+   [
+    "KQED",
+    "https://www.kqed.org/arts/13904788/san-jose-japantown-changes-minato-gombei-shuei-do-santo-market (names Gombei; owner Shiro Kubota profile)"
+   ]
+  ]
+ }
 ]

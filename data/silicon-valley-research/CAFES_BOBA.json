@@ -1,43 +1,433 @@
 [
-  {"t":1, "a":"PA", "cz":["Boba"], "dish":"jasmine milk tea with tapioca", "n":"Boba Guys", "address":"855 El Camino Real #120, Palo Alto, CA 94301", "w":"The Palo Alto outpost of the cult Bay Area bubble-tea brand (founded in SF's Mission, 2011) that helped push American boba upscale — house-brewed organic teas, Straus Family Creamery milk and hand-cooked tapioca in the signature jasmine milk tea. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/boba-guys-palo-alto-6"]]},
-
-  {"t":1, "a":"CU", "cz":["Bakery","Coffee"], "dish":"iced sea salt coffee + marble taro bread", "n":"85C Bakery Cafe", "address":"19459 Stevens Creek Blvd #100, Cupertino, CA 95014", "w":"The Taiwanese bakery-cafe juggernaut whose Cupertino store draws constant trays-and-tongs crowds; the famous iced sea salt coffee (cold brew capped with a salty-sweet cream float) and the marble taro bread are the must-grabs. The Milpitas branch has closed; this one is open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/85-c-bakery-cafe-cupertino-cupertino"]]},
-
-  {"t":1, "a":"CU", "cz":["Dessert"], "dish":"taro ball + grass jelly herbal jelly bowl", "n":"Meet Fresh", "address":"19449 Stevens Creek Blvd Ste 120, Cupertino, CA 95014", "w":"A destination for authentic Taiwanese dessert (the chain began in Taichung, 1996); the signature is a warm bowl of hand-made Q-chewy taro balls over silky herbal grass jelly with red bean and taro. Open (verified Mar 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/meet-fresh-cupertino"]]},
-
-  {"t":2, "a":"SJ", "cz":["Boba"], "dish":"honey boba milk tea", "n":"Tpumps", "address":"7290 Bollinger Rd, San Jose, CA 95129", "w":"The South Bay branch of the San Mateo-born chain (started by Alex Su out of a downtown San Mateo shop) that became a Bay Area boba phenomenon on the back of its honey boba and mix-and-match flavor wall. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://m.yelp.com/biz/tpumps-san-jose"]]},
-
-  {"t":2, "a":"CU", "cz":["Boba"], "dish":"tie guan yin milk tea with cheese cream foam", "n":"TP Tea", "address":"10787 S Blaney Ave, Cupertino, CA 95014", "w":"Cupertino outpost of the Taiwanese brand TP Tea (茶湯會), from the founding family behind Chatime; the roasted tie guan yin milk tea crowned with salty cheese cream foam is the pick, with chewy house pearls. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/tp-tea-cupertino"]]},
-
-  {"t":2, "a":"SJ", "cz":["Boba"], "dish":"fruit tea with cheese foam", "n":"Ume Tea", "address":"4750 Almaden Expy Ste 136, San Jose, CA 95118", "w":"A Silicon Valley-born boba brand (founded 2019 by local engineers) that leans on fresh-fruit teas and cheese-foam toppings; now several South Bay shops strong. Open (verified Jul 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/ume-tea-san-jose"]]},
-
-  {"t":3, "a":"SJ", "cz":["Boba"], "dish":"brown sugar fresh milk with pearls", "n":"Tea Top", "address":"6158 Bollinger Rd, San Jose, CA 95129", "w":"West San Jose shop of the Taiwanese chain Tea Top, a boba-scene staple for its brown sugar fresh milk with warm chewy pearls and jasmine milk tea. Open (verified Jul 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/tea-top-san-jose"]]},
-
-  {"t":3, "a":"SJ", "cz":["Boba"], "dish":"Okinawa (brown sugar) milk tea", "n":"iTea", "address":"2936 Aborn Square Rd, San Jose, CA 95121", "w":"A long-running Taiwanese-style boba spot on San Jose's east side known for a big roster of milk teas and slushes; the Okinawa and Hokkaido milk teas are the go-tos. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/i-tea-san-jose"]]},
-
-  {"t":3, "a":"SJ", "cz":["Boba"], "dish":"classic pearl milk tea", "n":"Sharetea", "address":"1728 Hostetter Rd Ste 30, San Jose, CA 95131", "w":"San Jose branch of the global Taiwanese chain Sharetea (est. 1992), a reliable pour for classic pearl milk tea and QQ (pearl + herbal jelly) toppings. Open (verified Apr 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/sharetea-san-jose-3"]]},
-
-  {"t":1, "a":"MV", "cz":["Coffee","Cafe"], "dish":"pour-over + open-mic upstairs", "n":"Red Rock Coffee", "address":"201 Castro St, Mountain View, CA 94041", "w":"The iconic community cafe smack in the middle of downtown Mountain View's Castro Street — red walls, a laptop-packed upstairs loft, and a beloved Monday open-mic; a South Bay institution for founders, students and artists. Open (verified Jul 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/red-rock-coffee-mountain-view-2"]]},
-
-  {"t":1, "a":"SC", "cz":["Coffee"], "dish":"single-origin espresso", "n":"Chromatic Coffee", "address":"5237 Stevens Creek Blvd, Santa Clara, CA 95051", "w":"A Santa Clara third-wave roaster-cafe (roasting since 2012) that's a serious-coffee anchor of the Valley; pull a single-origin espresso or grab house-roasted beans alongside local pastries. Open (verified 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/search?find_desc=Chromatic+Coffee&find_loc=Santa+Clara%2C+CA"]]},
-
-  {"t":1, "a":"SJ", "cz":["Coffee"], "dish":"banana matcha latte", "n":"Academic Coffee", "address":"499 S 2nd St, San Jose, CA 95113", "w":"A contemporary specialty cafe in downtown San Jose's SoFA District, prized for thoughtfully roasted coffee and creative espresso drinks like the banana matcha latte, plus fresh pastries. (The old 169 W Santa Clara St location closed; this S 2nd St flagship is open — verified Aug 2026.)", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/academic-coffee-san-jose-3"]]},
-
-  {"t":1, "a":"SJ", "cz":["Coffee","Cafe"], "dish":"house latte", "n":"Nirvana Soul", "address":"315 S 1st St, San Jose, CA 95113", "w":"Downtown San Jose's first Black-owned coffeehouse, opened by sisters Jeronica Macey and Be'Anka Ashaolu — a warm SoFA gathering spot with quality espresso, a soulful vibe and a strong community following. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/nirvana-soul-coffee-san-jose-3"]]},
-
-  {"t":1, "a":"SJ", "cz":["Coffee"], "dish":"in-house single-origin pour-over", "n":"Coffee & Water Lab", "address":"603 Saratoga Ave #40, San Jose, CA 95129", "w":"A geeky West San Jose specialty roaster that roasts single-origin beans in-store on a zero-emissions roaster and brews with mineral-tuned water — one of the Valley's most precise cups. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/coffee-and-water-lab-san-jose-2"]]},
-
-  {"t":1, "a":"SJ", "cz":["Coffee","Cafe"], "dish":"Verve espresso in a 1930s gas station", "n":"Roy's Station Coffee & Tea", "address":"197 Jackson St, San Jose, CA 95112", "w":"A San Jose Japantown landmark: the corner Mobil station 'Grandpa Roy' Murotsune ran for decades (his family bought it after returning from WWII internment), converted in 2009 into a warm cafe pouring Verve coffee with the vintage pumps still in view. Open.", "closed":false, "sources":[["YELP","https://www.tripadvisor.com/Restaurant_Review-g33020-d5112974-Reviews-Roy_s_Station_Coffee_and_Tea-San_Jose_California.html"]]},
-
-  {"t":2, "a":"SJ", "cz":["Coffee","Cafe"], "dish":"proper espresso on a leafy patio", "n":"Crema Coffee Roasting", "address":"1202 The Alameda, San Jose, CA 95126", "w":"A neighborhood-staple San Jose roaster with warm wood interiors and a laid-back patio where regulars bring dogs and laptops; solid espresso and house-roasted beans. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/crema-coffee-roasting-san-jose"]]},
-
-  {"t":1, "a":"DAY", "cz":["Bakery","Dessert"], "dish":"banana cake", "n":"Icing on the Cake", "address":"50 W Main St, Los Gatos, CA 95030", "w":"A downtown Los Gatos bakery institution since 1985; the from-scratch banana cake has a cult following, alongside handmade cupcakes, cookies and celebration cakes. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/icing-on-the-cake-los-gatos"]]},
-
-  {"t":2, "a":"SJ", "cz":["Bakery","Dessert"], "dish":"French macarons", "n":"Cocola Bakery", "address":"333 Santana Row #1045, San Jose, CA 95128", "w":"An indoor/outdoor French patisserie on Santana Row baking daily — croissants, tarts, cakes and a rainbow of macarons, plus baguette sandwiches; open late on weekends. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/cocola-bakery-san-jose"]]},
-
-  {"t":2, "a":"CU", "cz":["Bakery"], "dish":"coffee-cream milk bread + taro bun", "n":"Sheng Kee Bakery", "address":"10961 N Wolfe Rd, Cupertino, CA 95014", "w":"The Cupertino branch of the Bay Area's Taiwanese-style bakery chain near Apple Park; go for the soft milk breads, taro buns and coffee-cream loaves, plus milk tea to go. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/sheng-kee-bakery-cupertino-2"]]},
-
-  {"t":2, "a":"SC", "cz":["Bakery","Cafe"], "dish":"strawberry soft-cream cake", "n":"Paris Baguette", "address":"3159 Mission College Blvd, Santa Clara, CA 95054", "w":"The Korean-founded French-style bakery cafe; the Santa Clara store turns out the fluffy strawberry soft-cream cake, pastries and coffee that made the brand a Bay Area staple. Open (verified Jun 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/paris-baguette-santa-clara-3"]]},
-
-  {"t":2, "a":"SC", "cz":["Dessert","Ice Cream"], "dish":"matcha soft serve parfait", "n":"Matcha Cafe Maiko", "address":"2855 Stevens Creek Blvd Ste 9254, Santa Clara, CA 95050", "w":"A Uji-matcha specialist inside Westfield Valley Fair known for stone-ground matcha soft serve and layered parfaits with red bean, mochi and shiratama. Open (verified Aug 2026).", "closed":false, "sources":[["YELP","https://www.yelp.com/biz/matcha-cafe-maiko-santa-clara"]]}
+ {
+  "t": 1,
+  "a": "PA",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "jasmine milk tea with tapioca",
+  "n": "Boba Guys",
+  "address": "855 El Camino Real #120, Palo Alto, CA 94301",
+  "w": "The Palo Alto outpost of the cult Bay Area bubble-tea brand (founded in SF's Mission, 2011) that helped push American boba upscale — house-brewed organic teas, Straus Family Creamery milk and hand-cooked tapioca in the signature jasmine milk tea. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/boba-guys-palo-alto-6"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CU",
+  "cz": [
+   "Bakery",
+   "Coffee"
+  ],
+  "dish": "iced sea salt coffee + marble taro bread",
+  "n": "85C Bakery Cafe",
+  "address": "19459 Stevens Creek Blvd #100, Cupertino, CA 95014",
+  "w": "The Taiwanese bakery-cafe juggernaut whose Cupertino store draws constant trays-and-tongs crowds; the famous iced sea salt coffee (cold brew capped with a salty-sweet cream float) and the marble taro bread are the must-grabs. The Milpitas branch has closed; this one is open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/85-c-bakery-cafe-cupertino-cupertino"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CU",
+  "cz": [
+   "Dessert"
+  ],
+  "dish": "taro ball + grass jelly herbal jelly bowl",
+  "n": "Meet Fresh",
+  "address": "19449 Stevens Creek Blvd Ste 120, Cupertino, CA 95014",
+  "w": "A destination for authentic Taiwanese dessert (the chain began in Taichung, 1996); the signature is a warm bowl of hand-made Q-chewy taro balls over silky herbal grass jelly with red bean and taro. Open (verified Mar 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/meet-fresh-cupertino"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "honey boba milk tea",
+  "n": "Tpumps",
+  "address": "7290 Bollinger Rd, San Jose, CA 95129",
+  "w": "The South Bay branch of the San Mateo-born chain (started by Alex Su out of a downtown San Mateo shop) that became a Bay Area boba phenomenon on the back of its honey boba and mix-and-match flavor wall. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://m.yelp.com/biz/tpumps-san-jose"
+   ],
+   [
+    "KQED",
+    "Guide: Five Great Bubble Tea Cafes South of San Francisco — https://www.kqed.org/bayareabites/110645/bay-area-bites-guide-five-great-bubble-tea-cafes-south-of-san-francisco (names Tpumps)"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "CU",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "tie guan yin milk tea with cheese cream foam",
+  "n": "TP Tea",
+  "address": "10787 S Blaney Ave, Cupertino, CA 95014",
+  "w": "Cupertino outpost of the Taiwanese brand TP Tea (茶湯會), from the founding family behind Chatime; the roasted tie guan yin milk tea crowned with salty cheese cream foam is the pick, with chewy house pearls. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/tp-tea-cupertino"
+   ],
+   [
+    "KQED",
+    "https://www.kqed.org/arts/13957666/best-boba-shops-bay-area-berkeley-cupertino-sf (KQED 'Best Boba Shops in the Bay Area' names TP Tea)"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "fruit tea with cheese foam",
+  "n": "Ume Tea",
+  "address": "4750 Almaden Expy Ste 136, San Jose, CA 95118",
+  "w": "A Silicon Valley-born boba brand (founded 2019 by local engineers) that leans on fresh-fruit teas and cheese-foam toppings; now several South Bay shops strong. Open (verified Jul 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/ume-tea-san-jose"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "SJ",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "brown sugar fresh milk with pearls",
+  "n": "Tea Top",
+  "address": "6158 Bollinger Rd, San Jose, CA 95129",
+  "w": "West San Jose shop of the Taiwanese chain Tea Top, a boba-scene staple for its brown sugar fresh milk with warm chewy pearls and jasmine milk tea. Open (verified Jul 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/tea-top-san-jose"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "SJ",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "Okinawa (brown sugar) milk tea",
+  "n": "iTea",
+  "address": "2936 Aborn Square Rd, San Jose, CA 95121",
+  "w": "A long-running Taiwanese-style boba spot on San Jose's east side known for a big roster of milk teas and slushes; the Okinawa and Hokkaido milk teas are the go-tos. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/i-tea-san-jose"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "SJ",
+  "cz": [
+   "Boba"
+  ],
+  "dish": "classic pearl milk tea",
+  "n": "Sharetea",
+  "address": "1728 Hostetter Rd Ste 30, San Jose, CA 95131",
+  "w": "San Jose branch of the global Taiwanese chain Sharetea (est. 1992), a reliable pour for classic pearl milk tea and QQ (pearl + herbal jelly) toppings. Open (verified Apr 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/sharetea-san-jose-3"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "MV",
+  "cz": [
+   "Coffee",
+   "Cafe"
+  ],
+  "dish": "pour-over + open-mic upstairs",
+  "n": "Red Rock Coffee",
+  "address": "201 Castro St, Mountain View, CA 94041",
+  "w": "The iconic community cafe smack in the middle of downtown Mountain View's Castro Street — red walls, a laptop-packed upstairs loft, and a beloved Monday open-mic; a South Bay institution for founders, students and artists. Open (verified Jul 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/red-rock-coffee-mountain-view-2"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SC",
+  "cz": [
+   "Coffee"
+  ],
+  "dish": "single-origin espresso",
+  "n": "Chromatic Coffee",
+  "address": "5237 Stevens Creek Blvd, Santa Clara, CA 95051",
+  "w": "A Santa Clara third-wave roaster-cafe (roasting since 2012) that's a serious-coffee anchor of the Valley; pull a single-origin espresso or grab house-roasted beans alongside local pastries. Open (verified 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/search?find_desc=Chromatic+Coffee&find_loc=Santa+Clara%2C+CA"
+   ],
+   [
+    "METROSV",
+    "Metro / Best of Silicon Valley — Best Coffee Roaster 2025 & Best New Coffee Roaster 2013"
+   ],
+   [
+    "THRILLIST",
+    "Thrillist expert survey named Chromatic the top roaster in the Bay Area (title/quote surfaced; crawler-blocked)"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Coffee"
+  ],
+  "dish": "banana matcha latte",
+  "n": "Academic Coffee",
+  "address": "499 S 2nd St, San Jose, CA 95113",
+  "w": "A contemporary specialty cafe in downtown San Jose's SoFA District, prized for thoughtfully roasted coffee and creative espresso drinks like the banana matcha latte, plus fresh pastries. (The old 169 W Santa Clara St location closed; this S 2nd St flagship is open — verified Aug 2026.)",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/academic-coffee-san-jose-3"
+   ],
+   [
+    "METROSV",
+    "Academic Coffee and Resilience — https://www.metrosiliconvalley.com/academic-coffee/ ; also Silicon Alleys: Downtown San Jose Cafe — https://www.metrosiliconvalley.com/silicon-alleys-downtown-san-jose-cafe-models-cafe-culture-in-time-of-isolation/"
+   ],
+   [
+    "SJSPOTLIGHT",
+    "San Jose Inside (Metro sister): Academic Coffee Wins Sustainability Grant — https://www.sanjoseinside.com/business/san-joses-academic-coffee-wins-sustainability-grant/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Coffee",
+   "Cafe"
+  ],
+  "dish": "house latte",
+  "n": "Nirvana Soul",
+  "address": "315 S 1st St, San Jose, CA 95113",
+  "w": "Downtown San Jose's first Black-owned coffeehouse, opened by sisters Jeronica Macey and Be'Anka Ashaolu — a warm SoFA gathering spot with quality espresso, a soulful vibe and a strong community following. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/nirvana-soul-coffee-san-jose-3"
+   ],
+   [
+    "SJSPOTLIGHT",
+    "https://sanjosespotlight.com/san-jose-coffee-shop-is-community-anchor-for-local-artists/"
+   ],
+   [
+    "NBCBAY",
+    "https://www.nbcbayarea.com/news/local/nirvana-soul-san-jose-coffee/3156262/"
+   ],
+   [
+    "ABC7",
+    "https://abc7news.com/nirvana-soul-san-jose-coffee-shop-opening-black-owned-businesses/6550735/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Coffee"
+  ],
+  "dish": "in-house single-origin pour-over",
+  "n": "Coffee & Water Lab",
+  "address": "603 Saratoga Ave #40, San Jose, CA 95129",
+  "w": "A geeky West San Jose specialty roaster that roasts single-origin beans in-store on a zero-emissions roaster and brews with mineral-tuned water — one of the Valley's most precise cups. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/coffee-and-water-lab-san-jose-2"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Coffee",
+   "Cafe"
+  ],
+  "dish": "Verve espresso in a 1930s gas station",
+  "n": "Roy's Station Coffee & Tea",
+  "address": "197 Jackson St, San Jose, CA 95112",
+  "w": "A San Jose Japantown landmark: the corner Mobil station 'Grandpa Roy' Murotsune ran for decades (his family bought it after returning from WWII internment), converted in 2009 into a warm cafe pouring Verve coffee with the vintage pumps still in view. Open.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.tripadvisor.com/Restaurant_Review-g33020-d5112974-Reviews-Roy_s_Station_Coffee_and_Tea-San_Jose_California.html"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Coffee",
+   "Cafe"
+  ],
+  "dish": "proper espresso on a leafy patio",
+  "n": "Crema Coffee Roasting",
+  "address": "1202 The Alameda, San Jose, CA 95126",
+  "w": "A neighborhood-staple San Jose roaster with warm wood interiors and a laid-back patio where regulars bring dogs and laptops; solid espresso and house-roasted beans. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/crema-coffee-roasting-san-jose"
+   ],
+   [
+    "SJSPOTLIGHT",
+    "Access v. Abuse: Crema Coffee in San Jose closes due to ADA lawsuit — https://sanjosespotlight.com/access-v-abuse-crema-coffee-in-san-jose-closes-due-to-ada-lawsuit/ (NOTE: covers flagship/original closure; 1202 The Alameda location remained open)"
+   ],
+   [
+    "SJINSIDE",
+    "San Jose Inside: Crema Coffee Shutters Flagship Location in Wake of ADA Suit — https://www.sanjoseinside.com/the-fly/crema-coffee-shutters-flagship-location-in-wake-of-ada-suit/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "DAY",
+  "cz": [
+   "Bakery",
+   "Dessert"
+  ],
+  "dish": "banana cake",
+  "n": "Icing on the Cake",
+  "address": "50 W Main St, Los Gatos, CA 95030",
+  "w": "A downtown Los Gatos bakery institution since 1985; the from-scratch banana cake has a cult following, alongside handmade cupcakes, cookies and celebration cakes. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/icing-on-the-cake-los-gatos"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Bakery",
+   "Dessert"
+  ],
+  "dish": "French macarons",
+  "n": "Cocola Bakery",
+  "address": "333 Santana Row #1045, San Jose, CA 95128",
+  "w": "An indoor/outdoor French patisserie on Santana Row baking daily — croissants, tarts, cakes and a rainbow of macarons, plus baguette sandwiches; open late on weekends. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/cocola-bakery-san-jose"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "CU",
+  "cz": [
+   "Bakery"
+  ],
+  "dish": "coffee-cream milk bread + taro bun",
+  "n": "Sheng Kee Bakery",
+  "address": "10961 N Wolfe Rd, Cupertino, CA 95014",
+  "w": "The Cupertino branch of the Bay Area's Taiwanese-style bakery chain near Apple Park; go for the soft milk breads, taro buns and coffee-cream loaves, plus milk tea to go. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/sheng-kee-bakery-cupertino-2"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SC",
+  "cz": [
+   "Bakery",
+   "Cafe"
+  ],
+  "dish": "strawberry soft-cream cake",
+  "n": "Paris Baguette",
+  "address": "3159 Mission College Blvd, Santa Clara, CA 95054",
+  "w": "The Korean-founded French-style bakery cafe; the Santa Clara store turns out the fluffy strawberry soft-cream cake, pastries and coffee that made the brand a Bay Area staple. Open (verified Jun 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/paris-baguette-santa-clara-3"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SC",
+  "cz": [
+   "Dessert",
+   "Ice Cream"
+  ],
+  "dish": "matcha soft serve parfait",
+  "n": "Matcha Cafe Maiko",
+  "address": "2855 Stevens Creek Blvd Ste 9254, Santa Clara, CA 95050",
+  "w": "A Uji-matcha specialist inside Westfield Valley Fair known for stone-ground matcha soft serve and layered parfaits with red bean, mochi and shiratama. Open (verified Aug 2026).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/matcha-cafe-maiko-santa-clara"
+   ]
+  ]
+ }
 ]

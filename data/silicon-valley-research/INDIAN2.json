@@ -2,243 +2,440 @@
  {
   "t": 1,
   "a": "MV",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "dum ki boti lamb curry",
   "n": "Aurum",
   "address": "132 State St, Los Altos, CA 94022",
   "w": "Michelin Guide (2025) modern-Indian dining room from chef Manish Tyagi and Anupam Bhatia; the slow-cooked dum ki boti lamb curry and the spinach-and-paneer 'lasagna' with fenugreek and browned garlic are the standouts. (Los Altos, mapped to the Mountain View cluster.)",
   "closed": false,
-  "sources": [["MICHELIN", "https://guide.michelin.com/us/en/california/los-altos/restaurant/aurum-1195363"]]
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/california/los-altos/restaurant/aurum-1195363"
+   ],
+   [
+    "PALOALTOONLINE",
+    "paloaltoonline.com/blogs/p/2020/12/24 — 'August 1 Five chef opens Indian restaurant in Los Altos' (Aurum, 132 State St)"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "MV",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "gol gappa shots",
   "n": "Sakoon",
   "address": "357 Castro St, Mountain View, CA 94041",
   "w": "KQED South Bay favorite: chef Sachin Chopra's glossy, multi-regional contemporary Indian room on Castro Street; go for the gol gappa (pani puri) shots and tandoori specialties.",
   "closed": false,
-  "sources": [["KQED", "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"]]
+  "sources": [
+   [
+    "KQED",
+    "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+   ],
+   [
+    "METROSV",
+    "Sakoon | Modern Indian | Mountain View — https://www.metrosiliconvalley.com/metro/11.04.09/dining-0944.html"
+   ],
+   [
+    "MTNVIEWVOICE",
+    "Restaurant review: Sakoon's food lives up to vibrancy and color of decor — https://www.mv-voice.com/uncategorized/2009/10/02/restaurant-review-sakoons-food-lives-up-to-vibrancy-and-color-of-decor/"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "SUN",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "Mysore masala dosa",
   "n": "Saravanaa Bhavan",
   "address": "1305 S Mary Ave, Sunnyvale, CA 94087",
   "w": "The Silicon Valley outpost of the global vegetarian South Indian institution (est. Chennai 1981); the crisp Mysore masala dosa with three chutneys and sambar is the benchmark order.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/saravanaa-bhavan-sunnyvale-3"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/saravanaa-bhavan-sunnyvale-3"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "SC",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "seeraga samba mutton biryani",
   "n": "Anjappar Chettinad (Milpitas)",
   "address": "458 Barber Ln, Milpitas, CA 95035",
   "w": "The Bay Area branch of the 40-year Chennai Chettinad chain; the fragrant seeraga samba mutton biryani and pepper-heavy Chettinad curries are why it stays packed. (Milpitas, mapped to the Santa Clara cluster.)",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/anjappar-chettinad-indian-restaurant-milpitas"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/anjappar-chettinad-indian-restaurant-milpitas"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "SUN",
-  "cz": ["South Indian", "Indian"],
+  "cz": [
+   "South Indian",
+   "Indian"
+  ],
   "dish": "ulavacharu biryani",
   "n": "UlavacharU",
   "address": "685 E El Camino Real, Sunnyvale, CA 94087",
   "w": "One of the valley's most-reviewed Andhra kitchens; the namesake ulavacharu biryani (built on the tangy horse-gram broth) and fiery Telugu home-style curries are the draw.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/ulavacharu-indian-restaurant-sunnyvale"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/ulavacharu-indian-restaurant-sunnyvale"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "SJ",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "Chettinad mutton curry",
   "n": "Saapaaduu",
   "address": "5968 Silver Creek Valley Rd, Ste 20, San Jose, CA 95138",
   "w": "South San Jose homestyle Tamil Nadu cooking singled out by the SF Chronicle for dishes still rare on American Indian menus; the banana-leaf saapaadu meals and Chettinad mutton curry are the reason to make the drive.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/saapaaduu-san-jose"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/saapaaduu-san-jose"
+   ],
+   [
+    "SJSPOTLIGHT",
+    "https://sanjosespotlight.com/the-biz-beat-san-jose-restaurant-saapaaduu-serves-dishes-from-southern-india/"
+   ],
+   [
+    "SFCHRON",
+    "SF Chronicle highlighted Saapaaduu as one of California's notable Indian restaurants, emphasizing its Tamil Nadu cooking (title/quote surfaced; sfchronicle crawler-blocked)"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "SC",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "chili paneer",
   "n": "Naan-N-Masala",
   "address": "94 S Dempsey Rd, Milpitas, CA 95035",
   "w": "KQED South Bay pick for hearty North Indian plus a sharp Indo-Chinese streak; the sizzling chili paneer and fresh-from-the-tandoor naan are the go-tos. (Milpitas, mapped to the Santa Clara cluster.)",
   "closed": false,
-  "sources": [["KQED", "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"]]
+  "sources": [
+   [
+    "KQED",
+    "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+   ]
+  ]
  },
  {
   "t": 1,
   "a": "SUN",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "paper masala dosa",
   "n": "Madras Cafe",
   "address": "1177 W El Camino Real, Sunnyvale, CA 94087",
   "w": "KQED-recommended Sunnyvale mainstay for South Indian vegetarian; the yard-long paper masala dosa and medu vada with sambar are the signatures.",
   "closed": false,
-  "sources": [["KQED", "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"]]
+  "sources": [
+   [
+    "KQED",
+    "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "ghee roast dosa",
   "n": "Sri Ananda Bhavan (Sunnyvale)",
   "address": "920 E Arques Ave, Sunnyvale, CA 94085",
   "w": "Pure-veg South Indian branch of the Chennai-rooted chain; the crackly ghee roast dosa and soft idli-vada breakfasts pull steady weekend crowds.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/sri-ananda-bhavan-sunnyvale-2"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/sri-ananda-bhavan-sunnyvale-2"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "Hyderabadi dum biryani",
   "n": "Bagara's",
   "address": "594 E El Camino Real, Sunnyvale, CA 94087",
   "w": "Small Sunnyvale room devoted to Hyderabadi Telangana home cooking; the authentic Hyderabadi dum biryani and bagara rice with mirchi ka salan are the specialties.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/bagaras-sunnyvale"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/bagaras-sunnyvale"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SJ",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "ghee podi idli",
   "n": "Kovai Cafe",
   "address": "1136 S De Anza Blvd, Ste B, San Jose, CA 95129",
   "w": "Kongunadu (Coimbatore-region) vegetarian cafe founded by homesick Bay Area techies; the ghee podi idli and paper roast dosa with filter coffee are the comfort orders.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/kovai-cafe-san-jose"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/kovai-cafe-san-jose"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SC",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "pesarattu",
   "n": "Tirupathi Bhimas (Milpitas)",
   "address": "1208 S Abel St, Milpitas, CA 95035",
   "w": "Pure-veg South Indian near the Great Mall since 2004; the green-gram pesarattu and Andhra-leaning tiffin are longtime favorites. (Milpitas, mapped to the Santa Clara cluster.)",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/tirupathi-bhimas-milpitas"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/tirupathi-bhimas-milpitas"
+   ],
+   [
+    "METROSV",
+    "https://www.metrosiliconvalley.com/metro/10.03.07/dining-0740.html"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "rava masala dosa",
   "n": "Komala Vilas",
   "address": "1020 E El Camino Real, Sunnyvale, CA 94087",
   "w": "South Indian vegetarian stalwart on the El Camino corridor (est. 1998), noted in KQED South Indian coverage; the crisp rava masala dosa and filter coffee are the staples.",
   "closed": false,
-  "sources": [["KQED", "Komala Vilas cited in KQED Bay Area Bites South Indian coverage; open-status/address verified via https://www.yelp.com/biz/komala-vilas-sunnyvale"]]
+  "sources": [
+   [
+    "KQED",
+    "Komala Vilas cited in KQED Bay Area Bites South Indian coverage; open-status/address verified via https://www.yelp.com/biz/komala-vilas-sunnyvale"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["South Indian", "Indian"],
+  "cz": [
+   "South Indian",
+   "Indian"
+  ],
   "dish": "gongura mutton",
   "n": "Arka",
   "address": "725 S Fair Oaks Ave, Sunnyvale, CA 94086",
   "w": "Sunnyvale kitchen bridging the South Indian shoreline and North Indian frontier; the tart, chili-laced gongura mutton is the Andhra signature to chase.",
   "closed": false,
-  "sources": [["YELP", "https://us.sulekha.com/sunnyvale-ca/restaurants/arka-indian-restaurant-819435"]]
+  "sources": [
+   [
+    "YELP",
+    "https://us.sulekha.com/sunnyvale-ca/restaurants/arka-indian-restaurant-819435"
+   ],
+   [
+    "SANJOSECOM",
+    "sanjose.com/2012/02/21/review_chef_sachin_chopras_arka/ — Metro/SanJose.com critic review of Chef Sachin Chopra's Arka"
+   ],
+   [
+    "FOODGAL",
+    "foodgal.com/2012/01/arka-rises-brightly-in-sunnyvale/ — Carolyn Jung, former Mercury News food editor"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SC",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "Hyderabadi chicken dum biryani",
   "n": "Paradise Biryani Pointe (Santa Clara)",
   "address": "2961 El Camino Real, Santa Clara, CA 95051",
   "w": "Santa Clara branch of the famed Hyderabad Paradise biryani name; the Hyderabadi chicken dum biryani with mirchi ka salan is the whole point.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/paradise-biryani-pointe-santa-clara"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/paradise-biryani-pointe-santa-clara"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SC",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "butter chicken",
   "n": "Kabab and Curry's",
   "address": "1498 Isabella St, Santa Clara, CA 95050",
   "w": "Longtime Santa Clara mainstay for consistently rich North Indian; the butter chicken and tandoori kababs are the reliable orders.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/kabab-and-currys-santa-clara"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/kabab-and-currys-santa-clara"
+   ],
+   [
+    "METROSV",
+    "Review: Kabab & Curry's (Santa Clara) — https://www.metrosiliconvalley.com/kabab-currys/ (also Metroactive Dining 06.01.05)"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "goat biryani",
   "n": "Little India Cafe",
   "address": "415 N Mary Ave, Ste 101, Sunnyvale, CA 94085",
   "w": "KQED South Bay pick for homestyle North Indian; the aromatic goat biryani and vegetable pakora anchor a well-liked lunch buffet.",
   "closed": false,
-  "sources": [["KQED", "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"]]
+  "sources": [
+   [
+    "KQED",
+    "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SC",
-  "cz": ["South Indian"],
+  "cz": [
+   "South Indian"
+  ],
   "dish": "benne masala dose",
   "n": "Surya Darshini Dosa Cafe",
   "address": "691 S Milpitas Blvd, Ste 131, Milpitas, CA 95035",
   "w": "Bengaluru-style dosa specialist with no additives or coloring; the buttery benne masala dose and Mysuru masala dose with ghee-podi idli are the standouts. (Milpitas, mapped to the Santa Clara cluster.)",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/surya-darshini-dosa-cafe-milpitas-2"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/surya-darshini-dosa-cafe-milpitas-2"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "chili chicken",
   "n": "Inchin's Bamboo Garden (Sunnyvale)",
   "address": "151 W Washington Ave, Sunnyvale, CA 94086",
   "w": "Heritage District go-to for the valley's beloved Indo-Chinese canon; the saucy chili chicken with chili-garlic noodles and chicken lollipops are the crowd orders.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/inchins-bamboo-garden-sunnyvale-3"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/inchins-bamboo-garden-sunnyvale-3"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "CU",
-  "cz": ["South Indian", "Indian"],
+  "cz": [
+   "South Indian",
+   "Indian"
+  ],
   "dish": "Andhra chicken biryani",
   "n": "Avachi Biryani House",
   "address": "10251 S De Anza Blvd, Cupertino, CA 95014",
   "w": "Cupertino De Anza spot known for a spicy South Indian buffet with fresh-made dosas; the Andhra chicken biryani is the specialty.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/avachi-biryani-house-cupertino"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/avachi-biryani-house-cupertino"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "chole bhature",
   "n": "Chaat House",
   "address": "939 W El Camino Real, Sunnyvale, CA 94086",
   "w": "Homestyle North Indian and Punjabi street-food counter; the puffy chole bhature and fresh pani puri / bhel are the reasons to line up.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/chaat-house-sunnyvale"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/chaat-house-sunnyvale"
+   ],
+   [
+    "METROSV",
+    "Walking El Camino: Silicon Valley's Indian Restaurant Corridor — https://www.metrosiliconvalley.com/silicon-valley-indian-restaurant-corridor/ (describes Chaat House at El Camino & Wolfe, Sunnyvale)"
+   ]
+  ]
  },
  {
   "t": 2,
   "a": "SUN",
-  "cz": ["Indian"],
+  "cz": [
+   "Indian"
+  ],
   "dish": "dahi puri",
   "n": "Delhiwala Chaat",
   "address": "590 Old San Francisco Rd, Sunnyvale, CA 94086",
   "w": "Top-rated Sunnyvale chaat window turning out crisp, fresh Delhi-style street snacks; the dahi puri and aloo tikki chaat are the ones to get.",
   "closed": false,
-  "sources": [["YELP", "https://www.yelp.com/biz/delhiwala-chaat-sunnyvale-8"]]
+  "sources": [
+   [
+    "YELP",
+    "https://www.yelp.com/biz/delhiwala-chaat-sunnyvale-8"
+   ]
+  ]
  }
 ]

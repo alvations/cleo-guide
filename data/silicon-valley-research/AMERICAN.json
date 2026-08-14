@@ -1,18 +1,370 @@
 [
-  {"t":1,"a":"SJ","cz":["Barbecue"],"dish":"beef brisket","n":"Smoking Pig BBQ","address":"1144 N 4th St, San Jose, CA 95112","w":"San Jose's cult Southern-style smokehouse and perennial local BBQ champ; go for the slow-smoked beef brisket with the house sauces, plus St. Louis ribs, pulled pork and the fried Louisiana Hots. The old Newhall Dr location closed; this 4th St spot is the one that's open.","closed":false,"sources":[["YELP","yelp.com/biz/smoking-pig-bbq-san-jose - open, updated Aug 2026 (3,496 reviews); 1144 N 4th St. Note: separate Newhall Dr location marked CLOSED"]]},
-  {"t":1,"a":"SJ","cz":["Caribbean"],"dish":"jerk chicken with oxtail","n":"Back A Yard Caribbean Grill","address":"457 E San Carlos St, San Jose, CA 95112","w":"The South Bay's beloved Jamaican-Caribbean institution; the signature is smoky, allspice-and-scotch-bonnet jerk chicken paired with braised beef oxtail, rice and peas and fried plantains. Downtown flagship on San Carlos (the old 80 N Market location is closed; Capitol Expy and 13th St branches also open).","closed":false,"sources":[["YELP","yelp.com/biz/back-a-yard-caribbean-grill-san-jose - open, updated July 2026; 457 E San Carlos St. Note: 80 N Market St location marked CLOSED"]]},
-  {"t":1,"a":"SJ","cz":["American","Breakfast","Diner"],"dish":"Willow Glen scramble","n":"The Table","address":"1110 Willow St, San Jose, CA 95125","w":"Willow Glen's farm-to-table favorite and one of San Jose's most in-demand brunches; the signature buttermilk fried chicken and waffles anchors a seasonal, house-made menu (lemon ricotta pancakes, vanilla-custard French toast) with bottomless mimosas. Reservations recommended.","closed":false,"sources":[["YELP","yelp.com/biz/the-table-san-jose - open, updated Aug 2026 (3,892 reviews); 1110 Willow St, New American / brunch"]]},
-  {"t":2,"a":"SJ","cz":["American","Breakfast","Diner"],"dish":"steak and eggs","n":"John's of Willow Glen","address":"1238 Lincoln Ave, San Jose, CA 95125","w":"A longtime Willow Glen all-day diner on Lincoln Ave; comfort-food breakfast served till mid-afternoon, with the house Willow Glen scramble and steak and eggs as the go-tos, plus pancakes, omelets and burgers.","closed":false,"sources":[["YELP","yelp.com/biz/johns-of-willow-glen-san-jose - open, updated May 2026 (607 reviews); 1238 Lincoln Ave, American / breakfast"]]},
-  {"t":1,"a":"CU","cz":["Steakhouse","American"],"dish":"imported A5 wagyu","n":"Alexander's Steakhouse","address":"19379 Stevens Creek Blvd, Cupertino, CA 95014","w":"Cupertino's landmark high-end steakhouse and a California pioneer of imported Japanese wagyu; the draw is one of the region's deepest A5 wagyu selections plus dry-aged, hand-cut prime steaks with Japanese accents. Reopened end of July 2026 after a renovation.","closed":false,"sources":[["YELP","yelp.com/biz/alexanders-steakhouse-cupertino-11 - open, updated July 2026 (4,337 reviews); 19379 Stevens Creek Blvd. Temporarily closed for renovation June-July 2026, reopened end July 2026"]]},
-  {"t":1,"a":"SJ","cz":["Steakhouse","American"],"dish":"bone-in ribeye","n":"LB Steak","address":"334 Santana Row #1000, San Jose, CA 95128","w":"Santana Row's modern American steakhouse; hand-cut prime Angus and rare A5 Japanese wagyu aged and butchered in-house, from the bone-in ribeye to steak frites, in a sleek room off the shopping promenade.","closed":false,"sources":[["YELP","yelp.com/biz/lb-steak-san-jose-3 - open, updated July 2026 (2,431 reviews); 334 Santana Row #1000, Steakhouse"]]},
-  {"t":2,"a":"SJ","cz":["Seafood","American"],"dish":"cioppino","n":"Scott's Seafood San Jose","address":"200 S First St, San Jose, CA 95113","w":"A downtown San Jose seafood classic (going since 1986) now on First St; tomato-and-shellfish cioppino, fresh fish, house pastas and premium steaks with a full bar. The old 185 Park Ave location is closed; this First St spot is the current one.","closed":false,"sources":[["YELP","yelp.com/biz/scotts-seafood-san-jose-san-jose-2 - open, updated July 2026; 200 S First St. Note: 185 Park Ave location marked CLOSED"]]},
-  {"t":3,"a":"SJ","cz":["Seafood","American"],"dish":"ahi poke bowl","n":"Pacific Catch","address":"1875 S Bascom Ave #550, Campbell, CA 95008","w":"A West Coast fish-house chainlet (The Pruneyard, Campbell) doing Pacific-Rim seafood; the ahi poke bowl is the standout alongside fish tacos, rice bowls and a raw bar. Reliable casual seafood on the San Jose/Campbell line.","closed":false,"sources":[["YELP","yelp.com/biz/pacific-catch-campbell-2 - open, updated July 2026 (2,118 reviews); 1875 S Bascom Ave #550, Campbell (Pruneyard), Seafood"]]},
-  {"t":2,"a":"SJ","cz":["Breakfast","American"],"dish":"buttermilk pancakes","n":"Stacks","address":"139 E Campbell Ave, Campbell, CA 95008","w":"A busy downtown Campbell breakfast-and-lunch spot on the South Bay staple mini-chain; famous for fluffy buttermilk pancakes, thick French toast, omelets and breakfast burritos.","closed":false,"sources":[["YELP","yelp.com/biz/stacks-campbell - open, updated Aug 2026 (1,874 reviews); 139 E Campbell Ave, Campbell, Breakfast & Brunch"]]},
-  {"t":2,"a":"SJ","cz":["Breakfast","American"],"dish":"seafood eggs benedict","n":"Los Gatos Cafe","address":"340 N Santa Cruz Ave, Los Gatos, CA 95030","w":"A cheerful, long-running Los Gatos breakfast cafe on the main downtown drag; big brunch menu built on eggs benedicts (including a seafood benedict), scrambles and pancakes. Also an Uptown location on Los Gatos Blvd.","closed":false,"sources":[["YELP","yelp.com/biz/los-gatos-cafe-los-gatos-4 - open, updated Aug 2026 (2,558 reviews); 340 N Santa Cruz Ave, Los Gatos, Breakfast & Brunch"]]},
-  {"t":1,"a":"SUN","cz":["Breakfast","American"],"dish":"blueberry coffee cake","n":"Hobee's","address":"800 W Ahwanee Ave, Sunnyvale, CA 94086","w":"A Bay Area breakfast institution since 1974, best known for its world-famous blueberry coffee cake alongside all-day scrambles, Cha Cha Bowls and healthy diner fare. The Mountain View branch closed; the Sunnyvale location (and Palo Alto) is open.","closed":false,"sources":[["YELP","yelp.com/biz/hobees-restaurant-sunnyvale - open, updated Aug 2026 (609 reviews); 800 W Ahwanee Ave, Sunnyvale. Note: Mountain View location marked CLOSED"]]},
-  {"t":2,"a":"SUN","cz":["Burgers","American"],"dish":"jalapeño charbroiled burger","n":"St. John's Bar & Grill","address":"510 Lawrence Expy, Sunnyvale, CA 94085","w":"A no-frills Sunnyvale bar-and-grill known for charbroiled burgers - Cajun, hickory, bleu-bacon and jalapeño versions - plus cheesesteaks and hand-cut fries. A local burger standby off Lawrence Expy.","closed":false,"sources":[["YELP","yelp.com/biz/st-johns-bar-and-grill-sunnyvale-2 - open, updated Aug 2026 (2,646 reviews); 510 Lawrence Expy, Sunnyvale, American / burgers"]]},
-  {"t":2,"a":"PA","cz":["Breakfast","American"],"dish":"Florentine crepe","n":"Crepevine","address":"367 University Ave, Palo Alto, CA 94301","w":"A New American brunch spot on Palo Alto's University Ave; savory and sweet crepes (the spinach-and-mushroom Florentine is a staple) plus benedicts, scrambles and big breakfast plates. Also a Mountain View location on Castro St.","closed":false,"sources":[["YELP","yelp.com/biz/crepevine-restaurants-palo-alto-2 - open, updated Aug 2026 (1,670 reviews); 367 University Ave, Palo Alto, New American / breakfast"]]},
-  {"t":1,"a":"DAY","cz":["Seafood","American"],"dish":"lobster roll","n":"Sam's Chowder House","address":"4210 N Cabrillo Hwy, Half Moon Bay, CA 94019","w":"A Half Moon Bay coastal destination on Hwy 1 with ocean views; the award-winning, Food-Network-featured Maine-style lobster roll is the signature, backed by clam chowder and New England seafood. A worthwhile day trip over the hill.","closed":false,"sources":[["YELP","yelp.com/biz/sams-chowder-house-half-moon-bay - open, updated Aug 2026 (6,170 reviews); 4210 N Cabrillo Hwy (Hwy 1), Half Moon Bay, Seafood"]]},
-  {"t":2,"a":"DAY","cz":["Seafood","American"],"dish":"fish and chips","n":"Barbara's Fishtrap","address":"281 Capistrano Rd, Half Moon Bay, CA 94019","w":"A rustic, cash-only harborside shack in Princeton-by-the-Sea (Half Moon Bay); crispy fish and chips and fried calamari eaten looking out over Pillar Point Harbor. Classic coastside day-trip stop.","closed":false,"sources":[["YELP","yelp.com/biz/barbaras-fishtrap-half-moon-bay - open, updated Aug 2026 (3,531 reviews); 281 Capistrano Rd, Princeton/Half Moon Bay, Seafood"]]},
-  {"t":2,"a":"DAY","cz":["Seafood","American"],"dish":"cod fish and chips","n":"Cook's Seafood","address":"751 El Camino Real, Menlo Park, CA 94025","w":"A longtime Menlo Park seafood restaurant and fish market on El Camino; order at the counter for crisp cod fish and chips, chowder and fresh grilled fish, or buy from the market case. Unfussy and reliable.","closed":false,"sources":[["YELP","yelp.com/biz/cook-s-seafood-menlo-park - open, updated July 2026 (732 reviews); 751 El Camino Real, Menlo Park, Seafood"]]}
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Barbecue"
+  ],
+  "dish": "beef brisket",
+  "n": "Smoking Pig BBQ",
+  "address": "1144 N 4th St, San Jose, CA 95112",
+  "w": "San Jose's cult Southern-style smokehouse and perennial local BBQ champ; go for the slow-smoked beef brisket with the house sauces, plus St. Louis ribs, pulled pork and the fried Louisiana Hots. The old Newhall Dr location closed; this 4th St spot is the one that's open.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/smoking-pig-bbq-san-jose - open, updated Aug 2026 (3,496 reviews); 1144 N 4th St. Note: separate Newhall Dr location marked CLOSED"
+   ],
+   [
+    "SJTODAY",
+    "San Jose Today (sjtoday.6amcity.com): 'Meat, smoke, and sauce: A guide to local San Jose barbecue spots' names Smoking Pig BBQ"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Caribbean"
+  ],
+  "dish": "jerk chicken with oxtail",
+  "n": "Back A Yard Caribbean Grill",
+  "address": "457 E San Carlos St, San Jose, CA 95112",
+  "w": "The South Bay's beloved Jamaican-Caribbean institution; the signature is smoky, allspice-and-scotch-bonnet jerk chicken paired with braised beef oxtail, rice and peas and fried plantains. Downtown flagship on San Carlos (the old 80 N Market location is closed; Capitol Expy and 13th St branches also open).",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/back-a-yard-caribbean-grill-san-jose - open, updated July 2026; 457 E San Carlos St. Note: 80 N Market St location marked CLOSED"
+   ],
+   [
+    "MICHELIN",
+    "guide.michelin.com/us/en/article/dining-out/back-a-yard-caribbean-restaurant-michelin — 'Hidden Gems: Back A Yard'"
+   ],
+   [
+    "INFATUATION",
+    "theinfatuation.com/san-jose/reviews/backayard"
+   ],
+   [
+    "KQED",
+    "kqed.org/checkplease/6666/back-a-yard-caribbean-american-grill-reviews"
+   ],
+   [
+    "ABC7",
+    "abc7news.com/back-a-yard-grill-caribbean-menlo-park-san-jose/5486122/ — 'Back A Yard brings Jamaican family flavor to South Bay'"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "American",
+   "Breakfast",
+   "Diner"
+  ],
+  "dish": "Willow Glen scramble",
+  "n": "The Table",
+  "address": "1110 Willow St, San Jose, CA 95125",
+  "w": "Willow Glen's farm-to-table favorite and one of San Jose's most in-demand brunches; the signature buttermilk fried chicken and waffles anchors a seasonal, house-made menu (lemon ricotta pancakes, vanilla-custard French toast) with bottomless mimosas. Reservations recommended.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/the-table-san-jose - open, updated Aug 2026 (3,892 reviews); 1110 Willow St, New American / brunch"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "American",
+   "Breakfast",
+   "Diner"
+  ],
+  "dish": "steak and eggs",
+  "n": "John's of Willow Glen",
+  "address": "1238 Lincoln Ave, San Jose, CA 95125",
+  "w": "A longtime Willow Glen all-day diner on Lincoln Ave; comfort-food breakfast served till mid-afternoon, with the house Willow Glen scramble and steak and eggs as the go-tos, plus pancakes, omelets and burgers.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/johns-of-willow-glen-san-jose - open, updated May 2026 (607 reviews); 1238 Lincoln Ave, American / breakfast"
+   ],
+   [
+    "NBCBAY",
+    "Rooftop break-in at restaurant in San Jose's Willow Glen — https://www.nbcbayarea.com/news/local/rooftop-break-in-san-jose-willow-glen-restaurant/3630882/ (names John's of Willow Glen)"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CU",
+  "cz": [
+   "Steakhouse",
+   "American"
+  ],
+  "dish": "imported A5 wagyu",
+  "n": "Alexander's Steakhouse",
+  "address": "19379 Stevens Creek Blvd, Cupertino, CA 95014",
+  "w": "Cupertino's landmark high-end steakhouse and a California pioneer of imported Japanese wagyu; the draw is one of the region's deepest A5 wagyu selections plus dry-aged, hand-cut prime steaks with Japanese accents. Reopened end of July 2026 after a renovation.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/alexanders-steakhouse-cupertino-11 - open, updated July 2026 (4,337 reviews); 19379 Stevens Creek Blvd. Temporarily closed for renovation June-July 2026, reopened end July 2026"
+   ],
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/california/cupertino/restaurant/alexander-s-steakhouse"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "cz": [
+   "Steakhouse",
+   "American"
+  ],
+  "dish": "bone-in ribeye",
+  "n": "LB Steak",
+  "address": "334 Santana Row #1000, San Jose, CA 95128",
+  "w": "Santana Row's modern American steakhouse; hand-cut prime Angus and rare A5 Japanese wagyu aged and butchered in-house, from the bone-in ribeye to steak frites, in a sleek room off the shopping promenade.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/lb-steak-san-jose-3 - open, updated July 2026 (2,431 reviews); 334 Santana Row #1000, Steakhouse"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Seafood",
+   "American"
+  ],
+  "dish": "cioppino",
+  "n": "Scott's Seafood San Jose",
+  "address": "200 S First St, San Jose, CA 95113",
+  "w": "A downtown San Jose seafood classic (going since 1986) now on First St; tomato-and-shellfish cioppino, fresh fish, house pastas and premium steaks with a full bar. The old 185 Park Ave location is closed; this First St spot is the current one.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/scotts-seafood-san-jose-san-jose-2 - open, updated July 2026; 200 S First St. Note: 185 Park Ave location marked CLOSED"
+   ],
+   [
+    "METROSV",
+    "metrosiliconvalley.com/papers/metro/05.04.00/dining-0018.html — Metroactive Dining review of Scott's Seafood San Jose"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "SJ",
+  "cz": [
+   "Seafood",
+   "American"
+  ],
+  "dish": "ahi poke bowl",
+  "n": "Pacific Catch",
+  "address": "1875 S Bascom Ave #550, Campbell, CA 95008",
+  "w": "A West Coast fish-house chainlet (The Pruneyard, Campbell) doing Pacific-Rim seafood; the ahi poke bowl is the standout alongside fish tacos, rice bowls and a raw bar. Reliable casual seafood on the San Jose/Campbell line.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/pacific-catch-campbell-2 - open, updated July 2026 (2,118 reviews); 1875 S Bascom Ave #550, Campbell (Pruneyard), Seafood"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Breakfast",
+   "American"
+  ],
+  "dish": "buttermilk pancakes",
+  "n": "Stacks",
+  "address": "139 E Campbell Ave, Campbell, CA 95008",
+  "w": "A busy downtown Campbell breakfast-and-lunch spot on the South Bay staple mini-chain; famous for fluffy buttermilk pancakes, thick French toast, omelets and breakfast burritos.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/stacks-campbell - open, updated Aug 2026 (1,874 reviews); 139 E Campbell Ave, Campbell, Breakfast & Brunch"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Breakfast",
+   "American"
+  ],
+  "dish": "seafood eggs benedict",
+  "n": "Los Gatos Cafe",
+  "address": "340 N Santa Cruz Ave, Los Gatos, CA 95030",
+  "w": "A cheerful, long-running Los Gatos breakfast cafe on the main downtown drag; big brunch menu built on eggs benedicts (including a seafood benedict), scrambles and pancakes. Also an Uptown location on Los Gatos Blvd.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/los-gatos-cafe-los-gatos-4 - open, updated Aug 2026 (2,558 reviews); 340 N Santa Cruz Ave, Los Gatos, Breakfast & Brunch"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SUN",
+  "cz": [
+   "Breakfast",
+   "American"
+  ],
+  "dish": "blueberry coffee cake",
+  "n": "Hobee's",
+  "address": "800 W Ahwanee Ave, Sunnyvale, CA 94086",
+  "w": "A Bay Area breakfast institution since 1974, best known for its world-famous blueberry coffee cake alongside all-day scrambles, Cha Cha Bowls and healthy diner fare. The Mountain View branch closed; the Sunnyvale location (and Palo Alto) is open.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/hobees-restaurant-sunnyvale - open, updated Aug 2026 (609 reviews); 800 W Ahwanee Ave, Sunnyvale. Note: Mountain View location marked CLOSED"
+   ],
+   [
+    "MTNVIEWVOICE",
+    "mv-voice.com/food/2024/12/04/hobees-will-introduce-dinner-craft-beer-and-elevated-twists-on-its-signature-coffee-cake — names Hobee's, blueberry coffee cake"
+   ],
+   [
+    "KQED",
+    "kqed.org/news/11578267 — 'In a Startup and Cash-Out World, One Silicon Valley Restaurant Keeps It Homespun' (Hobee's, coffee cake)"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SUN",
+  "cz": [
+   "Burgers",
+   "American"
+  ],
+  "dish": "jalapeño charbroiled burger",
+  "n": "St. John's Bar & Grill",
+  "address": "510 Lawrence Expy, Sunnyvale, CA 94085",
+  "w": "A no-frills Sunnyvale bar-and-grill known for charbroiled burgers - Cajun, hickory, bleu-bacon and jalapeño versions - plus cheesesteaks and hand-cut fries. A local burger standby off Lawrence Expy.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/st-johns-bar-and-grill-sunnyvale-2 - open, updated Aug 2026 (2,646 reviews); 510 Lawrence Expy, Sunnyvale, American / burgers"
+   ],
+   [
+    "MTNVIEWVOICE",
+    "Sunnyvale's hamburger heaven at St. John's Bar & Grill — https://www.mv-voice.com/morgue/2001/2001_02_02.dine2000.html"
+   ],
+   [
+    "KQED",
+    "Bay Area Bites Guide to 10 Favorite South Bay Burger Spots — https://www.kqed.org/bayareabites/98432/bay-area-bites-guide-to-10-favorite-south-bay-hamburger-restaurants"
+   ],
+   [
+    "METROSV",
+    "Best Burgers and BBQ — https://www.metrosiliconvalley.com/best-burgers-and-bbq/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "PA",
+  "cz": [
+   "Breakfast",
+   "American"
+  ],
+  "dish": "Florentine crepe",
+  "n": "Crepevine",
+  "address": "367 University Ave, Palo Alto, CA 94301",
+  "w": "A New American brunch spot on Palo Alto's University Ave; savory and sweet crepes (the spinach-and-mushroom Florentine is a staple) plus benedicts, scrambles and big breakfast plates. Also a Mountain View location on Castro St.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/crepevine-restaurants-palo-alto-2 - open, updated Aug 2026 (1,670 reviews); 367 University Ave, Palo Alto, New American / breakfast"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "DAY",
+  "cz": [
+   "Seafood",
+   "American"
+  ],
+  "dish": "lobster roll",
+  "n": "Sam's Chowder House",
+  "address": "4210 N Cabrillo Hwy, Half Moon Bay, CA 94019",
+  "w": "A Half Moon Bay coastal destination on Hwy 1 with ocean views; the award-winning, Food-Network-featured Maine-style lobster roll is the signature, backed by clam chowder and New England seafood. A worthwhile day trip over the hill.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/sams-chowder-house-half-moon-bay - open, updated Aug 2026 (6,170 reviews); 4210 N Cabrillo Hwy (Hwy 1), Half Moon Bay, Seafood"
+   ],
+   [
+    "MERCURYNEWS",
+    "samschowderhouse.com/best-bay-area-clam-chowder/ hosts Mercury News 'Best Bay Area Clam Chowder' pick naming Sam's (title surfaced)"
+   ],
+   [
+    "VISITCALIFORNIA",
+    "visitcalifornia.com/experience/sams-chowder-house/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "DAY",
+  "cz": [
+   "Seafood",
+   "American"
+  ],
+  "dish": "fish and chips",
+  "n": "Barbara's Fishtrap",
+  "address": "281 Capistrano Rd, Half Moon Bay, CA 94019",
+  "w": "A rustic, cash-only harborside shack in Princeton-by-the-Sea (Half Moon Bay); crispy fish and chips and fried calamari eaten looking out over Pillar Point Harbor. Classic coastside day-trip stop.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/barbaras-fishtrap-half-moon-bay - open, updated Aug 2026 (3,531 reviews); 281 Capistrano Rd, Princeton/Half Moon Bay, Seafood"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "DAY",
+  "cz": [
+   "Seafood",
+   "American"
+  ],
+  "dish": "cod fish and chips",
+  "n": "Cook's Seafood",
+  "address": "751 El Camino Real, Menlo Park, CA 94025",
+  "w": "A longtime Menlo Park seafood restaurant and fish market on El Camino; order at the counter for crisp cod fish and chips, chowder and fresh grilled fish, or buy from the market case. Unfussy and reliable.",
+  "closed": false,
+  "sources": [
+   [
+    "YELP",
+    "yelp.com/biz/cook-s-seafood-menlo-park - open, updated July 2026 (732 reviews); 751 El Camino Real, Menlo Park, Seafood"
+   ],
+   [
+    "PALOALTOONLINE",
+    "Restaurant Review: A fine kettle of fish (Cook's Seafood, Menlo Park) — https://www.paloaltoonline.com/weekly/morgue/restaurants/1997_May_16.EATOUT16.html ; also tops Best-of fresh-fish reader vote in Palo Alto Online Best-of lists"
+   ]
+  ]
+ }
 ]
