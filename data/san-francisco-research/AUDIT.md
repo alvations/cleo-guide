@@ -18,9 +18,29 @@ Credible palette registered (see sources.json). Crawler-BLOCKED (cite only if a 
 EATERSF, SFCHRON, THRILLIST. Rule (same as SV): Yelp/TripAdvisor = open-verification only, never the
 sole recommender; exhaust the credible palette + vetted creators first.
 
-## Stage 2 — Place extraction  (status: PENDING — waves #30 food, #31 sights)
-Signature-first food canon + comprehensive sights, each with a full address for geocoding. Log counts
-+ exclusions per wave here.
+## Stage 2 — Place extraction  (status: IN PROGRESS)
+Signature-first food canon + comprehensive sights, each with a full address for geocoding.
+
+**Wave 1 (2026-08-14) — 86 places, `--sourcecheck` PASS 86/86 (0 Yelp-only, 0 single-source).** The
+agents followed `_AGENT_BRIEF.md` from the start, so SF sourcing is clean out of the gate (no SV-style
+re-sourcing backlog).
+- `FOOD_SIGNATURE.json` (18): Mission-burrito belt, old-SF cioppino/crab, Hog Island oysters,
+  Boudin/Tartine sourdough, Buena Vista Irish coffee, fortune-cookie factory, It's-It. Closed & flagged:
+  The Mill (June 2026 fire).
+- `FOOD_ASIAN.json` (22): Cantonese/dim sum (Mister Jiu's ★, Yank Sing Bib, R&G…), Sichuan (Z&Y Bib),
+  Vietnamese, Burmese (Mandalay JB), JP/KR/Thai/Filipino (Rintaro Bib, Abacá ★). Excluded closed:
+  HK Lounge II (burned 2019) → successor HK Lounge Bistro used; Turtle Tower moved to FiDi.
+- `SIGHTS_ICONS.json` (18): Golden Gate, Alcatraz, cable cars, Ferry Building, Coit Tower, Lombard,
+  Painted Ladies, Transamerica, Musée Mécanique, Fort Point, Maritime NHP. Caveats: Hyde St Pier
+  rebuild, cable-car rehab shuttles.
+- `SIGHTS_MUSEUMS_PARKS.json` (28): GG Park museums/gardens, SFMOMA, Exploratorium, Presidio, Mission
+  murals, Lands End, Castro Theatre (reopened Feb 2026). Closed & flagged: Contemporary Jewish Museum.
+  Excluded closed: Museum of Ice Cream, Cartoon Art Museum.
+
+**Wave 2 (in progress):** North Beach Italian + Cal-cuisine/Michelin fine dining; third-wave coffee +
+cocktail bars + viral; the Peninsula/SFO corridor (Daly City Filipino, Millbrae dim sum, Burlingame,
+San Mateo + SFO Aviation Museum, Sign Hill, San Bruno Mtn, Pacifica). Fills the PEN area (0 in wave 1)
+and the Italian/coffee/bars cuisine gaps. Append results here.
 
 ## Stage 3 — Fact-check (open/closed + notability)  ·  Stage 4 — Re-rank  ·  Stage 5 — Location-verify
 ·  Stage 6 — Build & gate  — all PENDING. Gates (enforced in code): `--sourcecheck` (≥2 credible or
