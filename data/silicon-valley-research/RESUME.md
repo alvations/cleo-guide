@@ -28,8 +28,12 @@ clear the bar. See `_AGENT_BRIEF.md` for the full source palette + rules.
       empty). Nothing renders until pins exist. Two paths: (a) browser geocode-helper (task #8, bulk,
       no search budget), or (b) sequential WebSearch geocode waves per CLAUDE.md 4a/4b (read `!3d!4d`,
       record {address,lat,lng,source,date}, then re-verify placement).
-- [ ] **Built + gated** — `build-siliconvalley.py`; geocheck PASS · statuscheck CONSISTENT · validate
-      DATA OK · npm test ALL PASS · headless render-verify (Leaflet mounts, markers>0, 0 errors).
+- [x] **Built + gated + LIVE** (2026-08-14) — `cities/siliconvalley.html`, 150 places (107 sights + 43
+      food). geocheck PASS · statuscheck CONSISTENT · sourcecheck (built page) all-pass · jsdom
+      render-verify ALL PASS (107 markers, 0 JS errors, degrades w/o CDN). index.html card relinked.
+      Deploy branch = `claude/cleveland-page-creation-pant4l` (repo default), so pushes go live.
+      NEXT (needs WebSearch budget — capped 2026-08-14): #27 all publicly-accessible tech campuses;
+      #28 re-verify 18 UNVERIFIED food + 5 low pins (rebalances 107/43 → more food).
 - [ ] **Audit complete** — every stage recorded in `AUDIT.md` so it is reproducible.
 - [ ] `index.html` card counts finalized; page live in the chooser.
 
