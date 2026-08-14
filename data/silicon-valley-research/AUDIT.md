@@ -53,8 +53,17 @@ Provenance for every place is carried in its research file (`data/silicon-valley
   (19), SIGHTS_BIGTECH (14), SIGHTS_SCENES (20); VIETNAMESE (11), TAIWANESE_BOBA (8), INDIAN (5),
   EASTASIAN (6), FOOD_VIRAL (14 after dedup). Truncated by the 200/200 WebSearch cap mid-wave (several
   cuisines returned well below target — logged in `_PENDING_LEADS.md`).
-- **Wave 2 (2026-08-14) — in progress.** Deep dives: South Indian canon, Chinese/Taiwanese/Sichuan,
-  Korean/Japanese/SEA, San Jose + Peninsula sights, cafes/boba/bakeries. Target ~+90 → ~200.
+- **Wave 2 (2026-08-14) — complete, +101 → 211 total** (87 sights + 124 food). Files: SIGHTS_SJ (23),
+  INDIAN2 (22), CHINESE2 (20), KRJPSEA (18), CAFES_BOBA (21). Deep dives: South Indian canon,
+  Chinese/Taiwanese/Sichuan/hot-pot, Korean/Japanese/Thai/Filipino/Burmese, San Jose + Peninsula
+  sights, boba/coffee/bakery/dessert. Not truncated (budget had refreshed).
+
+**Sourcing mix after wave 2 (food, 124 unique):** 48 editorial-sourced (Michelin / Infatuation / KQED)
+· **75 YELP/TripAdvisor-only** — open-verified but lacking an editorial/creator *recommender*. This is
+structural: the credible editorial domains (Eater/Chronicle/Mercury/Thrillist) are crawler-blocked and
+Michelin/Infatuation don't reach most neighbourhood spots. **Remedy = the creator wave (task #24) +
+re-sourcing**, targeting the exact list in `_yelp_only_food.txt`. Per user directive, Yelp-only never
+stands as the final recommender — it is a placeholder until a vetted creator/editorial source is layered on.
 
 ## Stage 3 — Fact-check ledger  (2026-08-14)
 Method: open/closed confirmed against a 2025/2026 source — the place's own site/socials, Google/Apple
@@ -72,6 +81,15 @@ named dish. **Exclusions found (kept out of the map, with reason):**
 | Aachi Aappakadai (Sunnyvale) | closed | per Yelp |
 | Orenchi Ramen (Santa Clara) | relocated to Los Altos Hills; used Ramen Nagi instead | 2024 |
 | Happy Lemon (Cupertino) | closed | per Yelp |
+
+**Wave-2 exclusions (2026-08-14):** Udupi Palace, Turmeric (Sunnyvale) · Aachi Aappakadai (Santa
+Clara + Sunnyvale) · Red Chillies (Milpitas) · Boiling Point Cupertino/Vallco (used open SJ location) ·
+Liou's House Milpitas (became Gangnam House) · Shanghai Flavor Shop (Sunnyvale) · Palace BBQ Buffet ·
+Kappo Nami Nami (Mountain View, closed May 2026) · Amarin Thai old 174 Castro St (relocated to open 147
+Castro St) · OneZo SJ · Tin Pot Creamery (Palo Alto + Los Altos) · Bellano/B2 Coffee · 85°C Milpitas ·
+Happy Lemon Cupertino · Kee Wah Bakery Cupertino — all verified permanently closed / relocated, kept
+off the map. Out-of-region look-alikes rejected (Class 302, Third Culture, Wushiland, Kevin's Noodle
+House, etc.). No coordinates invented anywhere.
 
 Vietnamese closed *branches* steered to the surviving open address (Com Tam Thien Huong Senter Rd;
 Bun Bo Hue An Nam Tully Rd; Nem Nuong Nha Trang 1111 Story Rd). **Open-status flag:** the 5 Yelp-only

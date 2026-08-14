@@ -1341,6 +1341,537 @@
   {
    "t": 1,
    "a": "SJ",
+   "n": "San Jose Museum of Art",
+   "ad": "110 S Market St, San Jose, CA 95113",
+   "w": "Downtown's flagship art museum, set in a landmarked 1892 Richardsonian-Romanesque former post office joined to a modern wing, with a strong collection of modern and contemporary West Coast art.",
+   "k": "Closed Mondays; open Tue-Sun (Fri until 9pm). Paid admission.",
+   "g": [
+    "MUS",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://sjmusart.org/hours-and-admissions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Jose_Museum_of_Art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "MACLA (Movimiento de Arte y Cultura Latino Americana)",
+   "ad": "510 S 1st St, San Jose, CA 95113",
+   "w": "A contemporary arts space in the SoFA District grounded in the Chicano/Latino experience, showing visual art, performance, and spoken word with free admission.",
+   "k": "Gallery open Wed-Sun, roughly noon-5pm; free.",
+   "g": [
+    "MUS",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://maclaarte.org/visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Movimiento_de_Arte_y_Cultura_Latino_Americana"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "San Jose Museum of Quilts & Textiles",
+   "ad": "520 S 1st St, San Jose, CA 95113",
+   "w": "The first US museum devoted entirely to quilts and textiles, with rotating exhibitions of fiber art in the heart of the SoFA arts district.",
+   "k": "Open Thu-Sun; closed early week. Paid admission.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://sj-mqt.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Jose_Museum_of_Quilts_%26_Textiles"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Institute of Contemporary Art San Jose",
+   "ad": "560 S 1st St, San Jose, CA 95113",
+   "w": "A non-collecting contemporary art center in SoFA showing rotating exhibitions by emerging and established artists, with free admission and an active public-programs schedule.",
+   "k": "Open Thu-Sun, noon-5pm; free.",
+   "g": [
+    "MUS",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.icasanjose.org/visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Institute_of_Contemporary_Art_San_Jos%C3%A9"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Peralta Adobe & Fallon House Historic Site",
+   "ad": "175 W St John St, San Jose, CA 95110",
+   "w": "Two eras side by side: the 1797 Peralta Adobe, the oldest surviving structure in San Jose and last remnant of the original Pueblo de San Jose, faces the ornate 1855 Fallon House built by an early city mayor.",
+   "k": "Interiors are seen by guided tour only, generally weekend afternoons, booked in advance; the site is run by History San Jose. The surrounding street was renamed Sharks Way near the arena.",
+   "g": [
+    "ARCH",
+    "TECH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://historysanjose.org/plan-your-visit/peralta-fallon-historic-site/"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/peralta-adobe-fallon-house-historic-site"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Japanese American Museum of San Jose",
+   "ad": "535 N 5th St, San Jose, CA 95112",
+   "w": "In the heart of San Jose's Japantown, this museum collects and preserves Japanese American history and culture, including the WWII incarceration era, with a focus on the Bay Area.",
+   "k": "Open Thu-Sun, noon-4pm; closed Mon-Wed.",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.jamsj.org/visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japanese_American_Museum_of_San_Jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Viet Museum (Museum of the Boat People & the Republic of Vietnam)",
+   "ad": "1650 Senter Rd, San Jose, CA 95112",
+   "w": "Housed in the historic Greenwalt House within History Park at Kelley Park, this is believed to be the only museum focused on the Vietnamese diaspora and the boat-people exodus, in a city with one of the largest Vietnamese populations in the US.",
+   "k": "Limited hours (often weekends); confirm before visiting. Inside History Park at Kelley Park.",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://vietmuseumsanjose.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Viet_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Emma Prusch Farm Park",
+   "ad": "647 S King Rd, San Jose, CA 95116",
+   "w": "A 47-acre working farm park preserving San Jose's agricultural past, with the city's largest barn, a rare-fruit orchard, community gardens, and roaming farm animals, all free to visit.",
+   "k": "Open daily 8:30am to sunset; free.",
+   "g": [
+    "PARK",
+    "FREE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.pruschfarmpark.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Emma_Prusch_Farm_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "San Jose Heritage Rose Garden",
+   "ad": "399 W Taylor St, San Jose, CA 95110",
+   "w": "One of the largest public collections of rare and historic roses in the world, with roughly 3,000 varieties on nearly four acres of the Guadalupe River Park's Guadalupe Gardens.",
+   "k": "Open daily sunrise to sunset; free. Best bloom in spring.",
+   "g": [
+    "PARK",
+    "FREE",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://grpg.org/visit/guadalupe-gardens/san-jose-heritage-rose-garden/"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/heritage-rose-garden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Plaza de Cesar Chavez",
+   "ad": "170 S Market St, San Jose, CA 95113",
+   "w": "A 2.2-acre downtown park with a central fountain, ringed by the art museum, The Tech, and the adjacent Circle of Palms; on the site of the 1797 pueblo plaza, it is among the oldest public spaces in Northern California.",
+   "k": "Open daily; free. Hosts frequent festivals and Music in the Park.",
+   "g": [
+    "PARK",
+    "FREE",
+    "MUS",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Plaza_de_C%C3%A9sar_Ch%C3%A1vez"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/plaza-de-cesar-chavez"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Mexican Heritage Plaza",
+   "ad": "1700 Alum Rock Ave, San Jose, CA 95116",
+   "w": "A landmark cultural campus on the Eastside, opened in 1999 and run by the School of Arts and Culture, with a 500-seat theater, galleries, gardens, and a pavilion celebrating Latino arts and heritage.",
+   "k": "Grounds and gardens are open to the public; indoor venues are event- and program-driven, so check the calendar.",
+   "g": [
+    "ARCH",
+    "PARK",
+    "ICON",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.schoolofartsandculture.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mexican_Heritage_Plaza"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Five Wounds Portuguese National Church",
+   "ad": "1375 E Santa Clara St, San Jose, CA 95116",
+   "w": "The soaring Manueline-Gothic landmark of San Jose's Little Portugal, built 1916-19 partly from timbers salvaged from the Portuguese Pavilion of the 1915 Panama-Pacific Exposition.",
+   "k": "An active parish; visit respectfully and check Mass times before entering.",
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://fivewoundschurch.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Five_Wounds_Portuguese_National_Church"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "SoFA District",
+   "ad": "420 S 1st St, San Jose, CA 95113",
+   "w": "The South First Area, downtown's compact arts-and-nightlife quarter along South First Street, packing MACLA, the ICA, the Quilts & Textiles museum, Anno Domini gallery, the historic California Theatre, and live-music venues into a few walkable blocks.",
+   "k": "A walkable district (representative address given). Liveliest on the free South First Fridays art walk, first Friday each month.",
+   "g": [
+    "FREE",
+    "MUS",
+    "ENT",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/SoFA_District"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/listings/sofa-district"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Japantown Historic District",
+   "ad": "Jackson St & N 5th St, San Jose, CA 95112",
+   "w": "One of only three surviving Japantowns in the United States and widely called the most authentic, this three-block Jackson Street district of family shops, markets, and restaurants dates to around 1900 and was named a California Cultural District in 2025.",
+   "k": "A walkable neighborhood (central intersection given). Pair with the Japanese American Museum on N 5th St.",
+   "g": [
+    "FREE",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japantown,_San_Jose"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/neighborhoods/japantown"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Downtown Willow Glen (Lincoln Avenue)",
+   "ad": "1261 Lincoln Ave, San Jose, CA 95125",
+   "w": "A tree-lined, small-town-feeling shopping and dining strip along Lincoln Avenue, with hundreds of independent boutiques, cafes, and restaurants a few miles southwest of downtown.",
+   "k": "A walkable district (central address given); pedestrian-friendly, best on foot.",
+   "g": [
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Willow_Glen,_San_Jose"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.sanjose.org/neighborhoods/willow-glen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Don Edwards San Francisco Bay National Wildlife Refuge - Environmental Education Center",
+   "ad": "1751 Grand Blvd, Alviso, CA 95002",
+   "w": "The southern gateway to the first urban national wildlife refuge in the US, on the restored salt-pond wetlands at Alviso, with an education center, boardwalks, and miles of level trails prized for birdwatching.",
+   "k": "Trails open daily; the Environmental Education Center building keeps limited days/hours, so check ahead. Free.",
+   "g": [
+    "PARK",
+    "FREE",
+    "TECH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.fws.gov/refuge/don-edwards-san-francisco-bay"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Don_Edwards_San_Francisco_Bay_National_Wildlife_Refuge"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Cantor Arts Center",
+   "ad": "328 Lomita Dr, Stanford, CA 94305",
+   "w": "Stanford's free art museum, whose 24-hour outdoor Rodin Sculpture Garden holds some 20 monumental bronzes, one of the largest Rodin collections outside Paris, alongside wide-ranging galleries indoors.",
+   "k": "Museum closed Tue-Wed; free. The Rodin Sculpture Garden is open outdoors 24/7, free.",
+   "g": [
+    "MUS",
+    "FREE",
+    "PARK",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://museum.stanford.edu/visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cantor_Center_for_Visual_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Anderson Collection at Stanford University",
+   "ad": "314 Lomita Dr, Stanford, CA 94305",
+   "w": "A purpose-built museum next to the Cantor housing the Anderson family's gift of postwar American painting, with major works by Pollock, Rothko, de Kooning, and Diebenkorn, all free to see.",
+   "k": "Open Thu-Mon (closed Tue-Wed); free, no reservation needed.",
+   "g": [
+    "MUS",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://anderson.stanford.edu/visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Anderson_Collection"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Hoover Tower",
+   "ad": "550 Serra Mall, Stanford, CA 94305",
+   "w": "The 285-foot 1941 landmark tower at the center of Stanford's campus, home to the Hoover Institution's library and archives, with an observation deck that gives sweeping views over the Peninsula.",
+   "k": "The observation deck runs seasonal hours and closes for stretches (closed Aug 2026-Jan 2027); paid ticket to ascend. Verify it is open before visiting.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.hoover.org/visit-us-hoover-tower"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hoover_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Palo Alto Junior Museum & Zoo",
+   "ad": "1451 Middlefield Rd, Palo Alto, CA 94301",
+   "w": "A hands-on children's science museum paired with a small zoo of rescued and native animals, rebuilt and reopened in 2021 as a bright, interactive family destination.",
+   "k": "Closed Mondays; open Tue-Sun 10am-5pm.",
+   "g": [
+    "FAM",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cityofpaloalto.org/Departments/Community-Services/Junior-Museum-Zoo"
+    ],
+    [
+     "SJTOURISM",
+     "https://www.destinationpaloalto.com/junior-museum-and-zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Barron Park Donkeys (Bol Park)",
+   "ad": "3590 Laguna Ave, Palo Alto, CA 94306",
+   "w": "Palo Alto's beloved community donkeys graze a pasture beside the Bol Park bike path; one resident, Perry, was a live model for the Donkey character in Shrek.",
+   "k": "View free from the fence any time; volunteers host Sunday morning walks and feedings. Small pasture, not a formal attraction.",
+   "g": [
+    "FAM",
+    "FREE",
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-donkeys-of-barron-park-palo-alto-california"
+    ],
+    [
+     "OFFICIAL",
+     "https://barronparkdonkeys.org/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Montalvo Arts Center (Villa Montalvo)",
+   "ad": "15400 Montalvo Rd, Saratoga, CA 95070",
+   "w": "A 1912 Mediterranean-Revival villa built by Senator James Phelan, now an arts center set in 175 hillside acres with formal gardens, an outdoor amphitheater, an artist residency, and free hiking trails through the redwoods.",
+   "k": "Grounds and trails open daily 8am-sunset, free parking on weekdays; villa interior access varies with events and tours.",
+   "g": [
+    "ARCH",
+    "PARK",
+    "FREE",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://montalvoarts.org/experience/plan-visit/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Montalvo_Arts_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "New Museum Los Gatos (NUMU)",
+   "ad": "106 E Main St, Los Gatos, CA 95030",
+   "w": "A community art and history museum in downtown Los Gatos with rotating contemporary-art and local-history exhibitions, an easy stop on a day trip to the town's shops and the Los Gatos Creek Trail.",
+   "k": "Closed Mon-Tue; open Wed-Sun. Free for Los Gatos residents and under-18s; modest admission otherwise.",
+   "g": [
+    "MUS",
+    "SHOP",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.numulosgatos.org/visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/New_Museum_Los_Gatos"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
    "n": "The Tech Interactive",
    "ad": "201 S Market St, San Jose, CA 95113",
    "w": "A hands-on science and technology center in downtown San Jose with interactive innovation labs, a design workshop, and an IMAX dome theater, aimed at families and curious minds.",
@@ -1429,29 +1960,6 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Stanford_Memorial_Church"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "PA",
-   "n": "Hoover Tower",
-   "ad": "550 Serra Mall, Stanford, CA 94305",
-   "w": "Stanford's 285-foot landmark tower, home to the Hoover Institution archives, with a 14th-floor observation deck giving sweeping views over campus and across Silicon Valley to the bay.",
-   "k": "Observation deck is ticketed and keeps seasonal hours - it closes for parts of the year (e.g. mid-Aug 2026 through late Jan 2027), so verify before visiting.",
-   "g": [
-    "ICON",
-    "ARCH",
-    "VIEW"
-   ],
-   "s": [
-    [
-     "OFFICIAL",
-     "https://www.hoover.org/visit-us-hoover-tower"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://en.wikipedia.org/wiki/Hoover_Tower"
     ]
    ]
   },
@@ -1646,6 +2154,677 @@
   }
  ],
  "F": [
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Boba Guys",
+   "ad": "855 El Camino Real #120, Palo Alto, CA 94301",
+   "w": "The Palo Alto outpost of the cult Bay Area bubble-tea brand (founded in SF's Mission, 2011) that helped push American boba upscale — house-brewed organic teas, Straus Family Creamery milk and hand-cooked tapioca in the signature jasmine milk tea. Open (verified Aug 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/boba-guys-palo-alto-6"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "85C Bakery Cafe",
+   "ad": "19459 Stevens Creek Blvd #100, Cupertino, CA 95014",
+   "w": "The Taiwanese bakery-cafe juggernaut whose Cupertino store draws constant trays-and-tongs crowds; the famous iced sea salt coffee (cold brew capped with a salty-sweet cream float) and the marble taro bread are the must-grabs. The Milpitas branch has closed; this one is open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/85-c-bakery-cafe-cupertino-cupertino"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Meet Fresh",
+   "ad": "19449 Stevens Creek Blvd Ste 120, Cupertino, CA 95014",
+   "w": "A destination for authentic Taiwanese dessert (the chain began in Taichung, 1996); the signature is a warm bowl of hand-made Q-chewy taro balls over silky herbal grass jelly with red bean and taro. Open (verified Mar 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/meet-fresh-cupertino"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Tpumps",
+   "ad": "7290 Bollinger Rd, San Jose, CA 95129",
+   "w": "The South Bay branch of the San Mateo-born chain (started by Alex Su out of a downtown San Mateo shop) that became a Bay Area boba phenomenon on the back of its honey boba and mix-and-match flavor wall. Open (verified Aug 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://m.yelp.com/biz/tpumps-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "TP Tea",
+   "ad": "10787 S Blaney Ave, Cupertino, CA 95014",
+   "w": "Cupertino outpost of the Taiwanese brand TP Tea (茶湯會), from the founding family behind Chatime; the roasted tie guan yin milk tea crowned with salty cheese cream foam is the pick, with chewy house pearls. Open (verified Aug 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/tp-tea-cupertino"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Ume Tea",
+   "ad": "4750 Almaden Expy Ste 136, San Jose, CA 95118",
+   "w": "A Silicon Valley-born boba brand (founded 2019 by local engineers) that leans on fresh-fruit teas and cheese-foam toppings; now several South Bay shops strong. Open (verified Jul 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/ume-tea-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Tea Top",
+   "ad": "6158 Bollinger Rd, San Jose, CA 95129",
+   "w": "West San Jose shop of the Taiwanese chain Tea Top, a boba-scene staple for its brown sugar fresh milk with warm chewy pearls and jasmine milk tea. Open (verified Jul 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/tea-top-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "iTea",
+   "ad": "2936 Aborn Square Rd, San Jose, CA 95121",
+   "w": "A long-running Taiwanese-style boba spot on San Jose's east side known for a big roster of milk teas and slushes; the Okinawa and Hokkaido milk teas are the go-tos. Open (verified Aug 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/i-tea-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Sharetea",
+   "ad": "1728 Hostetter Rd Ste 30, San Jose, CA 95131",
+   "w": "San Jose branch of the global Taiwanese chain Sharetea (est. 1992), a reliable pour for classic pearl milk tea and QQ (pearl + herbal jelly) toppings. Open (verified Apr 2026).",
+   "cz": [
+    "BOBA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/sharetea-san-jose-3"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Red Rock Coffee",
+   "ad": "201 Castro St, Mountain View, CA 94041",
+   "w": "The iconic community cafe smack in the middle of downtown Mountain View's Castro Street — red walls, a laptop-packed upstairs loft, and a beloved Monday open-mic; a South Bay institution for founders, students and artists. Open (verified Jul 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/red-rock-coffee-mountain-view-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Chromatic Coffee",
+   "ad": "5237 Stevens Creek Blvd, Santa Clara, CA 95051",
+   "w": "A Santa Clara third-wave roaster-cafe (roasting since 2012) that's a serious-coffee anchor of the Valley; pull a single-origin espresso or grab house-roasted beans alongside local pastries. Open (verified 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/search?find_desc=Chromatic+Coffee&find_loc=Santa+Clara%2C+CA"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Academic Coffee",
+   "ad": "499 S 2nd St, San Jose, CA 95113",
+   "w": "A contemporary specialty cafe in downtown San Jose's SoFA District, prized for thoughtfully roasted coffee and creative espresso drinks like the banana matcha latte, plus fresh pastries. (The old 169 W Santa Clara St location closed; this S 2nd St flagship is open — verified Aug 2026.)",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/academic-coffee-san-jose-3"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Nirvana Soul",
+   "ad": "315 S 1st St, San Jose, CA 95113",
+   "w": "Downtown San Jose's first Black-owned coffeehouse, opened by sisters Jeronica Macey and Be'Anka Ashaolu — a warm SoFA gathering spot with quality espresso, a soulful vibe and a strong community following. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/nirvana-soul-coffee-san-jose-3"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Coffee & Water Lab",
+   "ad": "603 Saratoga Ave #40, San Jose, CA 95129",
+   "w": "A geeky West San Jose specialty roaster that roasts single-origin beans in-store on a zero-emissions roaster and brews with mineral-tuned water — one of the Valley's most precise cups. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/coffee-and-water-lab-san-jose-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Roy's Station Coffee & Tea",
+   "ad": "197 Jackson St, San Jose, CA 95112",
+   "w": "A San Jose Japantown landmark: the corner Mobil station 'Grandpa Roy' Murotsune ran for decades (his family bought it after returning from WWII internment), converted in 2009 into a warm cafe pouring Verve coffee with the vintage pumps still in view. Open.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.tripadvisor.com/Restaurant_Review-g33020-d5112974-Reviews-Roy_s_Station_Coffee_and_Tea-San_Jose_California.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Crema Coffee Roasting",
+   "ad": "1202 The Alameda, San Jose, CA 95126",
+   "w": "A neighborhood-staple San Jose roaster with warm wood interiors and a laid-back patio where regulars bring dogs and laptops; solid espresso and house-roasted beans. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/crema-coffee-roasting-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Icing on the Cake",
+   "ad": "50 W Main St, Los Gatos, CA 95030",
+   "w": "A downtown Los Gatos bakery institution since 1985; the from-scratch banana cake has a cult following, alongside handmade cupcakes, cookies and celebration cakes. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/icing-on-the-cake-los-gatos"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Cocola Bakery",
+   "ad": "333 Santana Row #1045, San Jose, CA 95128",
+   "w": "An indoor/outdoor French patisserie on Santana Row baking daily — croissants, tarts, cakes and a rainbow of macarons, plus baguette sandwiches; open late on weekends. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/cocola-bakery-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "Sheng Kee Bakery",
+   "ad": "10961 N Wolfe Rd, Cupertino, CA 95014",
+   "w": "The Cupertino branch of the Bay Area's Taiwanese-style bakery chain near Apple Park; go for the soft milk breads, taro buns and coffee-cream loaves, plus milk tea to go. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/sheng-kee-bakery-cupertino-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Paris Baguette",
+   "ad": "3159 Mission College Blvd, Santa Clara, CA 95054",
+   "w": "The Korean-founded French-style bakery cafe; the Santa Clara store turns out the fluffy strawberry soft-cream cake, pastries and coffee that made the brand a Bay Area staple. Open (verified Jun 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/paris-baguette-santa-clara-3"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Matcha Cafe Maiko",
+   "ad": "2855 Stevens Creek Blvd Ste 9254, Santa Clara, CA 95050",
+   "w": "A Uji-matcha specialist inside Westfield Valley Fair known for stone-ground matcha soft serve and layered parfaits with red bean, mochi and shiratama. Open (verified Aug 2026).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/matcha-cafe-maiko-santa-clara"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Din Tai Fung",
+   "ad": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
+   "w": "The Taiwanese soup-dumpling juggernaut's Valley Fair flagship, where you can watch the pleating line fold the 18-fold xiao long bao that release a scalding pork-and-crab broth; get them with the truffle upgrade and a side of green beans.",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/din-tai-fung-santa-clara-5 - 2855 Stevens Creek Blvd, Westfield Valley Fair; updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Tai Er Sichuan Cuisine",
+   "ad": "2855 Stevens Creek Blvd, Unit A268, Santa Clara, CA 95050",
+   "w": "The viral Chinese chain built on a single dish: suan cai yu, boneless fish poached in a tangy house-fermented sauerkraut and pork-bone broth. This Valley Fair location is its second Bay Area outpost, opened spring 2026.",
+   "cz": [
+    "SICH"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com Tai Er Sichuan Cuisine Valley Fair - opened Westfield Valley Fair spring 2026; also westfield.com/valleyfair restaurant listing, open"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Chef Chu's",
+   "ad": "1067 N San Antonio Rd, Los Altos, CA 94022",
+   "w": "The definitive Silicon Valley Chinese institution, run by chef Lawrence Chu since 1970 and a stop for heads of state and tech elite; the minced-squab lettuce cups and lemon chicken are the enduring classics.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "kqed.org/checkplease/6741/chef-chus-restaurant-info - KQED Check, Please! Bay Area listing"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/chef-chus-los-altos - 1067 N San Antonio Rd, updated 2026, open since 1970"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Dynasty Chinese Seafood Restaurant",
+   "ad": "1001 Story Rd, San Jose, CA 95122",
+   "w": "A big banquet hall on Story Road doing weekend push-cart dim sum from a roomy second floor; go for the plump-shrimp har gow, siu mai and BBQ-pork buns rolled out on the carts.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/dynasty-chinese-seafood-restaurant-san-jose - 1001 Story Rd; updated August 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Boiling Point",
+   "ad": "1698 Hostetter Rd, Ste E, San Jose, CA 95131",
+   "w": "The SV-beloved individual-hot-pot chain where everyone gets their own bubbling clay pot; the House Special stone-bowl broth comes loaded with fish tofu, pork, clams and enoki, with a soft egg cracked in tableside.",
+   "cz": [
+    "TWN",
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/boiling-point-san-jose - 1698 Hostetter Rd Ste E; updated August 2026, open (note: the former Cupertino Vallco location is permanently closed)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "Happy Lamb Hot Pot",
+   "ad": "19062 Stevens Creek Blvd, Cupertino, CA 95014",
+   "w": "The successor brand to Little Sheep, built on a mineral-rich Mongolian broth simmered with goji, jujube and dozens of spices; order the thin-sliced lamb shoulder to swish through the milky pot.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/happy-lamb-hot-pot-cupertino-3 - 19062 Stevens Creek Blvd; updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Mian Sichuan Noodles & Dumplings",
+   "ad": "19389 Stevens Creek Blvd, Cupertino, CA 95014",
+   "w": "Michelin Bib Gourmand casual offshoot from James Beard-nominated chef Tony Xu; the dan dan noodles arrive under a slick of chili oil, ground pork and mouth-numbing Sichuan peppercorn, alongside spicy wontons.",
+   "cz": [
+    "SICH"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "MICHELIN Guide Bib Gourmand (Mian, first location); Cupertino outpost at 19389 Stevens Creek Blvd"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/mian-sichuan-noodles-and-dumplings-cupertino-3 - updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Liang's Village",
+   "ad": "20530 Stevens Creek Blvd, Cupertino, CA 95014",
+   "w": "A Cupertino Taiwanese comfort-food anchor since 1982; the flagship beef noodle soup pairs braised beef and tendon with hand-pulled noodles in a rich broth, backed by spicy red-oil mini wontons.",
+   "cz": [
+    "TWN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/liangs-village-cupertino - 20530 Stevens Creek Blvd; updated May 2026, open"
+    ],
+    [
+     "OWN",
+     "liangsvillage.com - 'authentic Taiwanese food & noodles since 1982'"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Yummy Kitchen (Wen Xiang Ju)",
+   "ad": "1711 Branham Ln, San Jose, CA 95118",
+   "w": "A tiny family-run kitchen tucked in a Branham Lane strip mall turning out some of the South Bay's most authentic Sichuan home cooking, heavy on mala seasoning, dried chilies and Sichuan peppercorn in unfussy portions.",
+   "cz": [
+    "SICH"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/yummy-kitchen-san-jose - 1711 Branham Ln, filed under Szechuan; updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Shanghai Delight",
+   "ad": "218 Barber Ct, Milpitas, CA 95035",
+   "w": "A Milpitas Shanghainese room going 15-plus years; the xiao long bao are praised for juicy filling and a delicate skin, alongside drunken chicken and stir-fried eel.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/shanghai-delight-milpitas-3 - 218 Barber Ct; updated August 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Mr. Bao Kitchen",
+   "ad": "357 Castro St, Mountain View, CA 94041",
+   "w": "A downtown Castro Street newcomer doing Shanghai-style dumplings and noodles; the pork-belly xiao long bao come with a flavorful broth trapped inside a hand-pleated skin.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/mr-bao-kitchen-chinese-cuisine-mountain-view - 357 Castro St; updated August 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Shang Cafe",
+   "ad": "6154 Bollinger Rd, San Jose, CA 95129",
+   "w": "A West San Jose Sichuan spot near the Cupertino line known for face-melting mala; the boiled fish in chili oil and the mapo tofu bring the numbing-spicy Chengdu heat.",
+   "cz": [
+    "SICH"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/shang-cafe-san-jose-3 - 6154 Bollinger Rd, filed under Szechuan; updated June 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Changsha Rice Noodles",
+   "ad": "10911 N Wolfe Rd, Ste B, Cupertino, CA 95014",
+   "w": "KQED's pick for the South Bay's tastiest roast duck, open late (till midnight most nights) from the team behind next-door banquet hall Jade Tea Garden; the lacquered Cantonese roast duck is the must-order, alongside Hunan rice noodles.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "KQED",
+     "kqed.org/arts/13991068 - Luke Tsai, 'A Cupertino Noodle House Slings the South Bay's Tastiest Roast Duck'; 10911 N Wolfe Rd Ste B"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Xian Kitchen",
+   "ad": "300 Barber Ct, Milpitas, CA 95035",
+   "w": "An authentic Shaanxi/Xi'an kitchen in Milpitas specializing in wide, hand-ripped biang biang noodles slicked with chili oil, plus rou jia mo (Chinese 'burger') and cumin-lamb dishes.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/xian-kitchen-milpitas-5 - 300 Barber Ct; updated August 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Xiang Xiang Noodle",
+   "ad": "1115 Tasman Dr, Ste 2228, Sunnyvale, CA 94089",
+   "w": "A packed Sunnyvale specialist in Shanxi-style noodles; the dao xiao mian (knife-shaved noodles) are shaved to order into soups that are soft yet chewy, with salt-and-pepper eggplant on the side.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/xiang-xiang-noodle-sunnyvale - 1115 Tasman Dr #2228; updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Hunan Impression",
+   "ad": "5152 Moorpark Ave, Ste 30, San Jose, CA 95129",
+   "w": "A West San Jose Hunan kitchen bringing Changsha-style dry heat; the house smoked pork tossed with dried chilies and scallions arrives in a flaming pot, distinct from the numbing mala of Sichuan.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz Hunan Impression San Jose - 5152 Moorpark Ave Ste 30; Hunan cuisine, open"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CU",
+   "n": "Haidilao Hot Pot",
+   "ad": "19409 Stevens Creek Blvd, Ste 100, Cupertino, CA 95014",
+   "w": "The global Sichuan hot-pot chain famous for over-the-top service and a huge sauce bar; get the split pot with the mala Sichuan broth, an extensive-menu sauce bar, and the theatrical hand-pulled-noodle dance.",
+   "cz": [
+    "CN",
+    "SICH"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/haidilao-hot-pot-cupertino-4 - 19409 Stevens Creek Blvd Ste 100; updated August 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SC",
+   "n": "Tasty Pot",
+   "ad": "222 Barber Ct, Milpitas, CA 95035",
+   "w": "A Milpitas individual-hot-pot shop with a dozen personal-pot flavors; the Taiwanese Supreme broth comes packed with fish balls, pork and greens, a solo alternative to Boiling Point.",
+   "cz": [
+    "CN",
+    "TWN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/tasty-pot-milpitas-2 - 222 Barber Ct; updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Cheung Hing (Milpitas)",
+   "ad": "1235 E Calaveras Blvd, Milpitas, CA 95035",
+   "w": "A Milpitas Cantonese BBQ-and-dim-sum spot whose roast duck and roast pork hang in the window; also strong on Chiu Chow dumplings and daily dim sum plates.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/cheung-hing-milpitas-milpitas - 1235 E Calaveras Blvd, filed under Dim Sum; updated July 2026, open"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SUN",
+   "n": "Hunan House",
+   "ad": "122 S Sunnyvale Ave, Sunnyvale, CA 94086",
+   "w": "A small downtown-Sunnyvale Hunan room for chili-forward, smoky Changsha cooking; the smoked pork and steamed fish head with chopped chilies deliver Hunan's dry, punchy heat.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/hunan-house-sunnyvale-2 - 122 S Sunnyvale Ave; updated July 2026, open"
+    ]
+   ]
+  },
   {
    "t": 1,
    "a": "SJ",
@@ -2089,33 +3268,651 @@
   },
   {
    "t": 1,
-   "a": "SC",
-   "n": "Din Tai Fung",
-   "ad": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
-   "w": "The Bay Area's first outpost of the world-famous Taiwanese chain, inside Westfield Valley Fair; the hand-folded xiao long bao (pork and pork-crab) are the benchmark for soup dumplings and draw hours-long waits. Open (verified July 2026).",
+   "a": "MV",
+   "n": "Aurum",
+   "ad": "132 State St, Los Altos, CA 94022",
+   "w": "Michelin Guide (2025) modern-Indian dining room from chef Manish Tyagi and Anupam Bhatia; the slow-cooked dum ki boti lamb curry and the spinach-and-paneer 'lasagna' with fenugreek and browned garlic are the standouts. (Los Altos, mapped to the Mountain View cluster.)",
    "cz": [
-    "TWN"
+    "IN"
    ],
    "s": [
     [
      "MICHELIN",
-     "https://guide.michelin.com/en/california/santa-clara/restaurant/din-tai-fung"
+     "https://guide.michelin.com/us/en/california/los-altos/restaurant/aurum-1195363"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Sakoon",
+   "ad": "357 Castro St, Mountain View, CA 94041",
+   "w": "KQED South Bay favorite: chef Sachin Chopra's glossy, multi-regional contemporary Indian room on Castro Street; go for the gol gappa (pani puri) shots and tandoori specialties.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "Saravanaa Bhavan",
+   "ad": "1305 S Mary Ave, Sunnyvale, CA 94087",
+   "w": "The Silicon Valley outpost of the global vegetarian South Indian institution (est. Chennai 1981); the crisp Mysore masala dosa with three chutneys and sambar is the benchmark order.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/saravanaa-bhavan-sunnyvale-3"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Anjappar Chettinad (Milpitas)",
+   "ad": "458 Barber Ln, Milpitas, CA 95035",
+   "w": "The Bay Area branch of the 40-year Chennai Chettinad chain; the fragrant seeraga samba mutton biryani and pepper-heavy Chettinad curries are why it stays packed. (Milpitas, mapped to the Santa Clara cluster.)",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/anjappar-chettinad-indian-restaurant-milpitas"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "UlavacharU",
+   "ad": "685 E El Camino Real, Sunnyvale, CA 94087",
+   "w": "One of the valley's most-reviewed Andhra kitchens; the namesake ulavacharu biryani (built on the tangy horse-gram broth) and fiery Telugu home-style curries are the draw.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/ulavacharu-indian-restaurant-sunnyvale"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Saapaaduu",
+   "ad": "5968 Silver Creek Valley Rd, Ste 20, San Jose, CA 95138",
+   "w": "South San Jose homestyle Tamil Nadu cooking singled out by the SF Chronicle for dishes still rare on American Indian menus; the banana-leaf saapaadu meals and Chettinad mutton curry are the reason to make the drive.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/saapaaduu-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Naan-N-Masala",
+   "ad": "94 S Dempsey Rd, Milpitas, CA 95035",
+   "w": "KQED South Bay pick for hearty North Indian plus a sharp Indo-Chinese streak; the sizzling chili paneer and fresh-from-the-tandoor naan are the go-tos. (Milpitas, mapped to the Santa Clara cluster.)",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "Madras Cafe",
+   "ad": "1177 W El Camino Real, Sunnyvale, CA 94087",
+   "w": "KQED-recommended Sunnyvale mainstay for South Indian vegetarian; the yard-long paper masala dosa and medu vada with sambar are the signatures.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Sri Ananda Bhavan (Sunnyvale)",
+   "ad": "920 E Arques Ave, Sunnyvale, CA 94085",
+   "w": "Pure-veg South Indian branch of the Chennai-rooted chain; the crackly ghee roast dosa and soft idli-vada breakfasts pull steady weekend crowds.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/sri-ananda-bhavan-sunnyvale-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Bagara's",
+   "ad": "594 E El Camino Real, Sunnyvale, CA 94087",
+   "w": "Small Sunnyvale room devoted to Hyderabadi Telangana home cooking; the authentic Hyderabadi dum biryani and bagara rice with mirchi ka salan are the specialties.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/bagaras-sunnyvale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Kovai Cafe",
+   "ad": "1136 S De Anza Blvd, Ste B, San Jose, CA 95129",
+   "w": "Kongunadu (Coimbatore-region) vegetarian cafe founded by homesick Bay Area techies; the ghee podi idli and paper roast dosa with filter coffee are the comfort orders.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/kovai-cafe-san-jose"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Tirupathi Bhimas (Milpitas)",
+   "ad": "1208 S Abel St, Milpitas, CA 95035",
+   "w": "Pure-veg South Indian near the Great Mall since 2004; the green-gram pesarattu and Andhra-leaning tiffin are longtime favorites. (Milpitas, mapped to the Santa Clara cluster.)",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/tirupathi-bhimas-milpitas"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Komala Vilas",
+   "ad": "1020 E El Camino Real, Sunnyvale, CA 94087",
+   "w": "South Indian vegetarian stalwart on the El Camino corridor (est. 1998), noted in KQED South Indian coverage; the crisp rava masala dosa and filter coffee are the staples.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "Komala Vilas cited in KQED Bay Area Bites South Indian coverage; open-status/address verified via https://www.yelp.com/biz/komala-vilas-sunnyvale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Arka",
+   "ad": "725 S Fair Oaks Ave, Sunnyvale, CA 94086",
+   "w": "Sunnyvale kitchen bridging the South Indian shoreline and North Indian frontier; the tart, chili-laced gongura mutton is the Andhra signature to chase.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://us.sulekha.com/sunnyvale-ca/restaurants/arka-indian-restaurant-819435"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Paradise Biryani Pointe (Santa Clara)",
+   "ad": "2961 El Camino Real, Santa Clara, CA 95051",
+   "w": "Santa Clara branch of the famed Hyderabad Paradise biryani name; the Hyderabadi chicken dum biryani with mirchi ka salan is the whole point.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/paradise-biryani-pointe-santa-clara"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Kabab and Curry's",
+   "ad": "1498 Isabella St, Santa Clara, CA 95050",
+   "w": "Longtime Santa Clara mainstay for consistently rich North Indian; the butter chicken and tandoori kababs are the reliable orders.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/kabab-and-currys-santa-clara"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Little India Cafe",
+   "ad": "415 N Mary Ave, Ste 101, Sunnyvale, CA 94085",
+   "w": "KQED South Bay pick for homestyle North Indian; the aromatic goat biryani and vegetable pakora anchor a well-liked lunch buffet.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "KQED",
+     "https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Surya Darshini Dosa Cafe",
+   "ad": "691 S Milpitas Blvd, Ste 131, Milpitas, CA 95035",
+   "w": "Bengaluru-style dosa specialist with no additives or coloring; the buttery benne masala dose and Mysuru masala dose with ghee-podi idli are the standouts. (Milpitas, mapped to the Santa Clara cluster.)",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/surya-darshini-dosa-cafe-milpitas-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Inchin's Bamboo Garden (Sunnyvale)",
+   "ad": "151 W Washington Ave, Sunnyvale, CA 94086",
+   "w": "Heritage District go-to for the valley's beloved Indo-Chinese canon; the saucy chili chicken with chili-garlic noodles and chicken lollipops are the crowd orders.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/inchins-bamboo-garden-sunnyvale-3"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CU",
+   "n": "Avachi Biryani House",
+   "ad": "10251 S De Anza Blvd, Cupertino, CA 95014",
+   "w": "Cupertino De Anza spot known for a spicy South Indian buffet with fresh-made dosas; the Andhra chicken biryani is the specialty.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/avachi-biryani-house-cupertino"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Chaat House",
+   "ad": "939 W El Camino Real, Sunnyvale, CA 94086",
+   "w": "Homestyle North Indian and Punjabi street-food counter; the puffy chole bhature and fresh pani puri / bhel are the reasons to line up.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/chaat-house-sunnyvale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUN",
+   "n": "Delhiwala Chaat",
+   "ad": "590 Old San Francisco Rd, Sunnyvale, CA 94086",
+   "w": "Top-rated Sunnyvale chaat window turning out crisp, fresh Delhi-style street snacks; the dahi puri and aloo tikki chaat are the ones to get.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "YELP",
+     "https://www.yelp.com/biz/delhiwala-chaat-sunnyvale-8"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "SGD Tofu House (So Gong Dong)",
+   "ad": "3450 El Camino Real #105, Santa Clara, CA 95051",
+   "w": "The Santa Clara El Camino Koreatown go-to for soft-tofu stew: order the soondubu jjigae, a bubbling stone pot of silken tofu in spicy broth cracked with a raw egg, served with a spread of banchan and a stone-pot rice you scrape into nurungji.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/sgd-tofu-house-santa-clara - open, updated July 2026 (1,514 reviews); 3450 El Camino Real Ste 105"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Minato Japanese Restaurant",
+   "ad": "617 N 6th St, San Jose, CA 95112",
+   "w": "A family-run anchor of historic San Jose Japantown since 1957, doing timeless home-style teishoku; go for the katsudon (crisp pork cutlet over rice bound with egg), the shioyaki salt-grilled fish and light tempura.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "theinfatuation.com/san-jose - featured in the Best Restaurants in San Jose guide as a Japantown pick for tempura, curry and tonkatsu"
+    ],
+    [
+     "YELP",
+     "yelp.com/biz/minato-japanese-restaurant-san-jose - open, 617 N 6th St (891 reviews)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Burma Ruby",
+   "ad": "445 Emerson St, Palo Alto, CA 94301",
+   "w": "Downtown Palo Alto's Burmese standby near Stanford; the tossed-tableside tea leaf salad layers fermented laphet with fried garlic, split-pea and yellow-bean crunch, peanuts, sesame and tomato, alongside coconut chicken noohn khao swe.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/burma-ruby-palo-alto-3 - open, updated July 2026 (530 reviews); 445 Emerson St"
     ]
    ]
   },
   {
    "t": 1,
    "a": "CU",
-   "n": "Liang's Village",
-   "ad": "20530 Stevens Creek Blvd, Cupertino, CA 95014",
-   "w": "Cupertino's standard-bearer for Taiwanese juancun (military-village) cooking; the beef tendon noodle soup, with many bite-size chunks of beef in a rich but not oily broth, is called one of the best versions in the South Bay. Open (verified July 2026).",
+   "n": "Gochi Japanese Fusion Tapas",
+   "ad": "19980 Homestead Rd, Cupertino, CA 95014",
+   "w": "One of the South Bay's best izakayas, a boisterous room of shareable Japanese small plates with Italian and Spanish flourishes; the unagi clay-pot rice, hamachi carpaccio and mentaiko dishes are the reasons reservations go fast.",
    "cz": [
-    "TWN"
+    "JP"
    ],
    "s": [
     [
-     "KQED",
-     "https://www.kqed.org/arts/13897936/best-taiwanese-restaurants-sf-oakland-cupertino-bay-area"
+     "YELP",
+     "yelp.com/biz/gochi-cupertino-cupertino - open, updated July 2026 (2,400 reviews); 19980 E Homestead Rd"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MV",
+   "n": "Orenchi Ramen",
+   "ad": "170 State St #107, Los Altos, CA 94022",
+   "w": "A longtime Bay Area tonkotsu destination (originally Santa Clara/Redwood City) now at Los Altos' State Street Market; the signature tonkotsu runs a touch lighter than most so you can finish the pork-bone bowl without reaching for water.",
+   "cz": [
+    "JP"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/orenchi-ramen-los-altos-hills-2 - open, updated June 2026; relocated to 170 State St, Los Altos (State Street Market)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SC",
+   "n": "Seorai Korean BBQ",
+   "ad": "3044 El Camino Real, Santa Clara, CA 95051",
+   "w": "A tabletop grill house in the heart of Santa Clara's El Camino Koreatown, open late; the marinated galbi short rib and pork belly come with a wide banchan spread, and the kitchen also fires shabu-shabu and pajeon.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/seorai-korean-bbq-santa-clara - open, updated July 2026 (573 reviews); 3044 El Camino Real"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Tapsilog Bistro",
+   "ad": "819 W Hamilton Ave, Campbell, CA 95008",
+   "w": "The South Bay's most-loved sit-down Filipino spot (a Check, Please! Bay Area pick); the namesake tapsilog pairs sweet-garlicky beef tapa with garlic fried rice and a fried egg, and the sisig and longsilog are just as reliable.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/tapsilog-bistro-campbell - open, updated July 2026 (1,619 reviews); 819 W Hamilton Ave, Campbell"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Sushi Confidential",
+   "ad": "26 N San Pedro St, San Jose, CA 95113",
+   "w": "The downtown San Jose sushi bar off San Pedro Square that locals pack for happy hour; go for fresh nigiri and the over-the-top specialty rolls, with a lively bar scene that has anchored the block since 2016.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/sushi-confidential-san-jose-san-jose - open, updated August 2026 (1,195 reviews); 26 N San Pedro St"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Thaibodia Bistro",
+   "ad": "2200 S Bascom Ave, Campbell, CA 95008",
+   "w": "A Campbell room that plates both Thai and Cambodian cooking; the curries carry a Khmer accent, and there's a deep vegan menu alongside the pad see ew and tom kha.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/thaibodia-bistro-campbell-campbell-2 - open, updated July 2026 (293 reviews); 2200 S Bascom Ave, Campbell"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Hokkaido Ramen Santouka",
+   "ad": "675 Saratoga Ave #103, San Jose, CA 95129",
+   "w": "The San Jose outpost of the Hokkaido chain inside Mitsuwa Marketplace; the pearl-white tonkotsu simmers around 20 hours, but the shio ramen with a pickled-plum-topped bowl is the one to order.",
+   "cz": [
+    "JP"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/hokkaido-ramen-santouka-san-jose - open, updated July 2026 (3,438 reviews); 675 Saratoga Ave inside Mitsuwa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SC",
+   "n": "Kunjip",
+   "ad": "1066 Kiely Blvd, Santa Clara, CA 95051",
+   "w": "A homestyle Korean staple in Santa Clara for comforting stews and braises; the galbi jjim (soy-braised short rib) and bone-broth soups come with generous banchan, and it's an easygoing alternative to the El Camino BBQ strip.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/kunjip-santa-clara-3 - open, updated August 2026 (2,408 reviews); 1066 Kiely Blvd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "The Original Krung Thai Restaurant",
+   "ad": "642 S Winchester Blvd, San Jose, CA 95128",
+   "w": "A long-running San Jose Thai institution on Winchester near Santana Row; the pad Thai, panang curry and crispy garlic pork keep the dining room full, and it's a reliable benchmark for the region's Thai canon.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/the-original-krung-thai-restaurant-san-jose - open, updated August 2026 (1,309 reviews); 642 S Winchester Blvd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PA",
+   "n": "Green Elephant Gourmet",
+   "ad": "3950 Middlefield Rd, Palo Alto, CA 94303",
+   "w": "A tucked-away Midtown Palo Alto room doing Burmese-Chinese home cooking for two decades; the tea leaf salad and coconut-chicken noodles sit next to garlic-forward Chinese plates in an intimate, no-frills space.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/green-elephant-gourmet-palo-alto - open, updated June 2026 (335 reviews); 3950 Middlefield Rd"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PA",
+   "n": "Iki Omakase",
+   "ad": "460 Ramona St, Palo Alto, CA 94301",
+   "w": "An intimate eight-seat omakase counter in downtown Palo Alto led by chef Jiabo Li (formerly Sushi Hon and Sato Omakase); the edomae-style nigiri courses use fish sourced from Japan and beyond, at $105 lunch / $195 dinner.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/iki-omakase-palo-alto - open, updated August 2026 (93 reviews); 460 Ramona St, 8-seat counter"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUN",
+   "n": "Rene-Rose Island Cuisine",
+   "ad": "621 Caliente Dr, Sunnyvale, CA 94085",
+   "w": "A family-run turo-turo (point-point) Filipino cafeteria in Sunnyvale since 1993; point at the steam-table trays for crackly lechon, saucy pancit and Shanghai lumpia, then eat it home-style.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/rene-rose-island-cuisine-sunnyvale-2 - open, updated June 2026 (307 reviews); 621 Caliente Dr, Sunnyvale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Gen Korean BBQ House",
+   "ad": "1554 Saratoga Ave, San Jose, CA 95129",
+   "w": "A high-volume, all-you-can-eat tabletop grill at Westgate for a crowd; work through spicy bulgogi, marinated short rib and pork belly across a long meat lineup with sides included, open late nightly.",
+   "cz": [
+    "KR"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/gen-korean-bbq-house-san-jose-3 - open, updated July 2026 (1,499 reviews); 1554 Saratoga Ave (Westgate)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MV",
+   "n": "Amarin Thai Cuisine",
+   "ad": "147 Castro St, Mountain View, CA 94041",
+   "w": "Downtown Mountain View's Thai standby (now relocated a few doors down Castro St from its old 174 address); the pad Thai, pineapple curry and coconut prawn soup draw the Castro Street lunch crowd.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/amarin-thai-cuisine-mountain-view-3 - open, updated August 2026; current address 147 Castro St (old 174 Castro listing is marked CLOSED)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Kaita Restaurant",
+   "ad": "215 Jackson St, San Jose, CA 95112",
+   "w": "A tiny family-run Japanese room in historic San Jose Japantown; the counter turns out precise sashimi and sushi alongside izakaya-style small plates and comforting donburi, a Japantown insider favorite.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "YELP",
+     "yelp.com/biz/kaita-restaurant-san-jose-2 - open, updated August 2026 (696 reviews); 215 Jackson St, Japantown"
     ]
    ]
   },
@@ -2499,6 +4296,12 @@
   "MICHELIN_STAR": {
    "k": "MICHELIN ★",
    "t": "MICHELIN ★",
+   "u": "",
+   "l": ""
+  },
+  "OWN": {
+   "k": "OWN",
+   "t": "OWN",
    "u": "",
    "l": ""
   },
