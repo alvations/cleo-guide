@@ -10,3 +10,8 @@ data/newyork-research/nyc_worklist.json
 # consolidate.py SV intermediates (canonical dataset is data/siliconvalley.dataset.json)
 data/silicon-valley-research/sv_dataset.json
 data/silicon-valley-research/sv_worklist.json
+
+# SV re-sourcing wave transient work files (regenerable via tools/sourcecheck.py;
+# durable record is the merged sources in data/silicon-valley-research/*.json + AUDIT.md)
+data/silicon-valley-research/_needs_sources*.json
+data/silicon-valley-research/_resourced_*.json
