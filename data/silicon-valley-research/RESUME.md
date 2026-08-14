@@ -28,12 +28,19 @@ clear the bar. See `_AGENT_BRIEF.md` for the full source palette + rules.
       empty). Nothing renders until pins exist. Two paths: (a) browser geocode-helper (task #8, bulk,
       no search budget), or (b) sequential WebSearch geocode waves per CLAUDE.md 4a/4b (read `!3d!4d`,
       record {address,lat,lng,source,date}, then re-verify placement).
-- [x] **Built + gated + LIVE** (2026-08-14) — `cities/siliconvalley.html`, 150 places (107 sights + 43
-      food). geocheck PASS · statuscheck CONSISTENT · sourcecheck (built page) all-pass · jsdom
-      render-verify ALL PASS (107 markers, 0 JS errors, degrades w/o CDN). index.html card relinked.
-      Deploy branch = `claude/cleveland-page-creation-pant4l` (repo default), so pushes go live.
-      NEXT (needs WebSearch budget — capped 2026-08-14): #27 all publicly-accessible tech campuses;
-      #28 re-verify 18 UNVERIFIED food + 5 low pins (rebalances 107/43 → more food).
+- [x] **Built + gated + LIVE** (2026-08-14) — `cities/siliconvalley.html`, **152 places** (108 sights +
+      44 food). geocheck PASS (97 high/55 med/**0 low**) · statuscheck CONSISTENT · render-verify ALL PASS
+      (108 markers, 0 JS errors, degrades w/o CDN). Deploy branch = repo default, so pushes go live.
+- [x] **Tech campuses (#27) — COMPLETE.** 15 verified for real access (7 public / 8 viewable-only), each
+      annotated; +Apple Infinite Loop; non-public/closed excluded with sourced reasons. Comprehensive.
+- [~] **Re-verify (#28) — autonomous ceiling reached.** WebSearch CANNOT resolve street-level restaurant
+      place-pins here (WebFetch blocked; rv0 spent 22 searches/place, 0 hits). ~18 food pins stay
+      UNVERIFIED (gate drops them) — **only the browser geocode-helper unlocks them** (Google Place IDs
+      captured in the rv0 agent log for instant resolution). Corrected a bad NASA Ames pin (~1.1km off).
+
+**Residual (NOT autonomously doable in this env):** ~18 restaurant coordinates + thereby more food
+density need the browser `tools/geocode-helper.html` (reaches map servers this sandbox can't). Everything
+achievable via WebSearch is done and live.
 - [ ] **Audit complete** — every stage recorded in `AUDIT.md` so it is reproducible.
 - [ ] `index.html` card counts finalized; page live in the chooser.
 
