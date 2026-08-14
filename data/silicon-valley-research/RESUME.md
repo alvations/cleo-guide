@@ -17,14 +17,17 @@ clear the bar. See `_AGENT_BRIEF.md` for the full source palette + rules.
 - [ ] **NYC-comparable density** across all 7 areas and every cuisine/collection — via credible places only.
 - [ ] **Every place fact-checked** — open/closed verified from a real source; notability confirmed;
       closures kept-but-flagged, non-places excluded.
-- [ ] **MULTIPLE SOURCES OF TRUTH — `node tools/research.js --sourcecheck silicon-valley-ca` = PASS**
-      (every place ≥2 credible sources; Yelp/TripAdvisor count as ZERO). **Progress (checker-verified):
-      106→157 PASS · 119→67 Yelp-only · 61 single-source (2026-08-14 after re-sourcing wave 1).** Still
-      FAIL; next: micro-wave on the 61 single-source (need only +1) + prune the 74 no-credible-source
-      chains in `_prune_candidates.json` (the build gate already drops all under-sourced places).
-      Credible = Michelin/James Beard · Infatuation/KQED · Metro Silicon Valley/San José Spotlight/The Six
-      Fifty/Palo Alto Online/MV Voice · NBC Bay Area/ABC7 · Atlas Obscura/official · vetted creator.
-- [ ] **Every place location-verified** — exact place pin in `data/geocodes.json`, or queued in the helper.
+- [x] **MULTIPLE SOURCES OF TRUTH — gate in code (`--sourcecheck`), all 3 checkers agree.** Rule: ≥2
+      credible sources, OR a lone institutional authority (Michelin/James Beard); a lone editorial source
+      still needs a 2nd; Yelp/TripAdvisor = 0. **Checker-verified 2026-08-14 after re-sourcing waves 1+2:
+      170 PASS · 48 single-editorial · 67 Yelp-only · 43 distinct credible outlets (was 3).** The 170 are
+      the shippable set. Held 115 stay in research for future 2nd-sourcing; ~74 (chains/boba) have no
+      credible coverage that exists (`_prune_candidates.json`). Further density = discover MORE
+      pre-credible places (from Michelin/Infatuation/KQED/Metro Best-of lists), not re-source Yelp finds.
+- [ ] **Every place location-verified — THE CURRENT BLOCKER. 0 of 170 geocoded** (`data/geocodes.json`
+      empty). Nothing renders until pins exist. Two paths: (a) browser geocode-helper (task #8, bulk,
+      no search budget), or (b) sequential WebSearch geocode waves per CLAUDE.md 4a/4b (read `!3d!4d`,
+      record {address,lat,lng,source,date}, then re-verify placement).
 - [ ] **Built + gated** — `build-siliconvalley.py`; geocheck PASS · statuscheck CONSISTENT · validate
       DATA OK · npm test ALL PASS · headless render-verify (Leaflet mounts, markers>0, 0 errors).
 - [ ] **Audit complete** — every stage recorded in `AUDIT.md` so it is reproducible.
