@@ -1,7 +1,98 @@
 [
-  {"t":1, "a":"PA", "cz":["Indian"], "dish":"peas & ricotta kulcha", "n":"Ettan", "address":"518 Bryant St, Palo Alto, CA 94301", "w":"Chef Srijith Gopinathan's Michelin Guide-listed 'Cal-Indian' dining room; the peas-and-ricotta stuffed kulcha with bright kale chutney is the signature.", "closed":false, "sources":[["MICHELIN","https://guide.michelin.com/us/en/california/palo-alto/restaurant/ettan"]]},
-  {"t":1, "a":"PA", "cz":["Indian"], "dish":"Dungeness crab paratha", "n":"Eylan", "address":"500 El Camino Real, Suite 101, Menlo Park, CA 94025", "w":"2026 Michelin Bib Gourmand and 2026 James Beard finalist for inventive regional Indian with a Californian twist; the flaky paratha-like flatbread stuffed with Dungeness crab is the standout. (On the Palo Alto/Menlo El Camino corridor.)", "closed":false, "sources":[["MICHELIN_BIB","https://guide.michelin.com/us/en/california/menlo-park/restaurant/eylan"]]},
-  {"t":1, "a":"MV", "cz":["Pakistani"], "dish":"chicken shami kebab", "n":"Zareen's", "address":"1477 Plymouth St, Mountain View, CA 94043", "w":"Michelin Guide-recognized Pakistani & Indian halal home-cooking institution; the Guide singled out the caramelized chicken shami kebabs and chicken Memoni samosas.", "closed":false, "sources":[["MICHELIN","Zareen's, Michelin Guide (2016-2020) recognition; per zareensrestaurant.com/about and Stanford Daily Q&A on its Michelin Guide status"]]},
-  {"t":2, "a":"SJ", "cz":["Indian","South Indian"], "dish":"duck ghee roast", "n":"Fitoor", "address":"377 Santana Row, Suite 1140, San Jose, CA 95128", "w":"The Infatuation-reviewed modern-Indian grill & lounge in Santana Row from the Rooh/Alora team; coastal South Indian plates like the Mangalorean-style duck ghee roast and soft-shell crab poriyal stand out.", "closed":false, "sources":[["INFATUATION","https://www.theinfatuation.com/san-jose/reviews/fitoor"]]},
-  {"t":2, "a":"MV", "cz":["Indian","South Indian"], "dish":"pani puri", "n":"Chaat Bhavan", "address":"165 E El Camino Real, Mountain View, CA 94040", "w":"Beloved family-run vegetarian street-food spot flagged in The Infatuation's Peninsula & South Bay coverage; the pani puri and crisp paper dosa are the go-tos.", "closed":false, "sources":[["INFATUATION","https://www.theinfatuation.com/san-francisco/neighborhoods/peninsula-south-bay"]]}
+ {
+  "t": 1,
+  "a": "PA",
+  "cz": [
+   "Indian"
+  ],
+  "dish": "peas & ricotta kulcha",
+  "n": "Ettan",
+  "address": "518 Bryant St, Palo Alto, CA 94301",
+  "w": "Chef Srijith Gopinathan's Michelin Guide-listed 'Cal-Indian' dining room; the peas-and-ricotta stuffed kulcha with bright kale chutney is the signature.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/california/palo-alto/restaurant/ettan"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "PA",
+  "cz": [
+   "Indian"
+  ],
+  "dish": "Dungeness crab paratha",
+  "n": "Eylan",
+  "address": "500 El Camino Real, Suite 101, Menlo Park, CA 94025",
+  "w": "2026 Michelin Bib Gourmand and 2026 James Beard finalist for inventive regional Indian with a Californian twist; the flaky paratha-like flatbread stuffed with Dungeness crab is the standout. (On the Palo Alto/Menlo El Camino corridor.)",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/california/menlo-park/restaurant/eylan"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "MV",
+  "cz": [
+   "Pakistani"
+  ],
+  "dish": "chicken shami kebab",
+  "n": "Zareen's (Mountain View)",
+  "address": "1477 Plymouth St, Mountain View, CA 94043",
+  "w": "Michelin Guide-recognized Pakistani & Indian halal home-cooking institution; the Guide singled out the caramelized chicken shami kebabs and chicken Memoni samosas.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "Zareen's, Michelin Guide (2016-2020) recognition; per zareensrestaurant.com/about and Stanford Daily Q&A on its Michelin Guide status"
+   ],
+   [
+    "INFATUATION",
+    ""
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "cz": [
+   "Indian",
+   "South Indian"
+  ],
+  "dish": "duck ghee roast",
+  "n": "Fitoor",
+  "address": "377 Santana Row, Suite 1140, San Jose, CA 95128",
+  "w": "The Infatuation-reviewed modern-Indian grill & lounge in Santana Row from the Rooh/Alora team; coastal South Indian plates like the Mangalorean-style duck ghee roast and soft-shell crab poriyal stand out.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-jose/reviews/fitoor"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "MV",
+  "cz": [
+   "Indian",
+   "South Indian"
+  ],
+  "dish": "pani puri",
+  "n": "Chaat Bhavan",
+  "address": "165 E El Camino Real, Mountain View, CA 94040",
+  "w": "Beloved family-run vegetarian street-food spot flagged in The Infatuation's Peninsula & South Bay coverage; the pani puri and crisp paper dosa are the go-tos.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/neighborhoods/peninsula-south-bay"
+   ]
+  ]
+ }
 ]
