@@ -6,3 +6,7 @@ package-lock.json
 # consolidate.py intermediates (canonical dataset is data/newyork.dataset.json)
 data/newyork-research/nyc_dataset.json
 data/newyork-research/nyc_worklist.json
+
+# consolidate.py SV intermediates (canonical dataset is data/siliconvalley.dataset.json)
+data/silicon-valley-research/sv_dataset.json
+data/silicon-valley-research/sv_worklist.json
