@@ -55,9 +55,21 @@ re-sourcing backlog).
 bars 8, bakery 8, SEAsian 7, seafood 7, coffee 7, Mexican 5, Japanese 4, Vietnamese 4, Burmese 3,
 dessert 3, Korean 2, Indian 2. Closed-flagged: PEZ Museum, Contemporary Jewish Museum, The Mill, Wursthall.
 
-## Stage 5 — Location-verify  (status: PENDING — task #32)
-Geocode 148 places; sights via Wikipedia/official place pins, restaurants via place pins (may UNVERIFY →
-browser helper, tracked in `docs/GEOCODE-BACKLOG.md`). Then build + gate + render-verify + relink card.
+## Stage 5 — Location-verify  (status: DONE 2026-08-14)
+Geocoded 148 places in 4 WebSearch waves — **141 verified pins (113 high / 27 med / 1 low), 7 UNVERIFIED**
+(budget capped at the end: Boudin Bakery, It's-It, Restaurant Naides, Chibog, The Bread Basket, Basque
+Cultural Center + closed Wursthall). SF geocoded far cleaner than SV (sights resolve via Wikipedia coords;
+restaurants at least to address-level). Pins read from `!3d!4d`/Apple `coordinate=`/Wikipedia, never a
+viewport; all sanity-checked to SF (~37.75-37.81) / Peninsula (~37.52-37.69) bounds. The 7 UNVERIFIED are
+in `docs/GEOCODE-BACKLOG.md` for the browser-helper pass. Reconciled 2 closures to the `— CLOSED` naming
+convention + `closed` registry status (Contemporary Jewish Museum, The Mill).
+
+## Stage 6 — Build & gate  (status: DONE + LIVE 2026-08-14)
+`build-sanfrancisco.py` → `cities/sanfrancisco.html`, **141 places (57 sights + 84 food)**. Gates:
+**geocheck PASS** (113 high/27 med/1 low) · **statuscheck CONSISTENT** (3 closed flagged: PEZ, Contemporary
+Jewish Museum, The Mill) · **sourcecheck PASS** · **jsdom render-verify ALL PASS** (57 markers, 0 JS errors,
+degrades w/o CDN). index.html card relinked to live. Deploy branch = repo default → live on next Pages build.
+Residual: 7 UNVERIFIED food/Peninsula pins → browser helper (`docs/GEOCODE-BACKLOG.md`).
 
 ## Stage 3 — Fact-check (open/closed + notability)  ·  Stage 4 — Re-rank  ·  Stage 5 — Location-verify
 ·  Stage 6 — Build & gate  — all PENDING. Gates (enforced in code): `--sourcecheck` (≥2 credible or

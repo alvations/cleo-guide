@@ -7,8 +7,21 @@
    "address": "50 Hagiwara Tea Garden Dr, San Francisco, CA 94118",
    "w": "Golden Gate Park's fine-arts museum for American art, textiles and global cultures, wrapped in a copper Herzog & de Meuron building with a free 9th-floor observation tower over the park. Open Tue-Sun; one ticket also admits the Legion of Honor same day.",
    "closed": false,
-   "g": ["MUS", "PARK", "ARCH"],
-   "sources": [["OFFICIAL", "https://www.famsf.org/visit/de-young"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/De_Young_Museum"]]
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.famsf.org/visit/de-young"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/De_Young_Museum"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -17,8 +30,22 @@
    "address": "100 34th Ave, San Francisco, CA 94121",
    "w": "A neoclassical palace on the Lincoln Park cliffs (a Beaux-Arts copy of Paris's Legion of Honor) holding European painting and Rodin bronzes, with Lands End and Golden Gate views out front. Open Tue-Sun; admission covers same-day de Young entry.",
    "closed": false,
-   "g": ["MUS", "PARK", "ARCH", "VIEW"],
-   "sources": [["OFFICIAL", "https://www.famsf.org/visit/legion-of-honor"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Legion_of_Honor_(museum)"]]
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.famsf.org/visit/legion-of-honor"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Legion_of_Honor_(museum)"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -27,8 +54,21 @@
    "address": "55 Music Concourse Dr, San Francisco, CA 94118",
    "w": "A natural-history museum, aquarium, planetarium and four-story indoor rainforest under one living roof in Golden Gate Park. A top family stop; open daily with Sunday opening at 11am.",
    "closed": false,
-   "g": ["MUS", "FAM", "PARK"],
-   "sources": [["OFFICIAL", "https://www.calacademy.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/California_Academy_of_Sciences"]]
+   "g": [
+    "MUS",
+    "FAM",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.calacademy.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/California_Academy_of_Sciences"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -37,8 +77,20 @@
    "address": "75 Hagiwara Tea Garden Dr, San Francisco, CA 94118",
    "w": "The oldest public Japanese garden in the US (1894), with a drum bridge, pagoda, koi ponds and a tea house; the birthplace of the American fortune cookie. Free entry Mon/Wed/Fri 9-10am.",
    "closed": false,
-   "g": ["PARK", "ICON"],
-   "sources": [["OFFICIAL", "https://www.japaneseteagardensf.com/"], ["SFTRAVEL", "https://www.sftravel.com/article/everything-you-need-to-know-about-japanese-tea-garden"]]
+   "g": [
+    "PARK",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.japaneseteagardensf.com/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/everything-you-need-to-know-about-japanese-tea-garden"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -47,8 +99,21 @@
    "address": "100 John F Kennedy Dr, San Francisco, CA 94118",
    "w": "A gleaming white Victorian glasshouse (1879), the oldest wood-and-glass conservatory in North America, packed with tropical and aquatic plants. Open Thu-Tue; closed Wednesdays for maintenance.",
    "closed": false,
-   "g": ["PARK", "ARCH", "ICON"],
-   "sources": [["OFFICIAL", "https://gggp.org/conservatory-of-flowers/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Conservatory_of_Flowers"]]
+   "g": [
+    "PARK",
+    "ARCH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://gggp.org/conservatory-of-flowers/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Conservatory_of_Flowers"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -57,9 +122,21 @@
    "address": "1199 9th Ave, San Francisco, CA 94122",
    "w": "55 acres and roughly 8,000 kinds of plants in Golden Gate Park, from a cloud-forest collection to a magnolia grove that's one of the best outside China. Open daily.",
    "closed": false,
-   "g": ["PARK", "FREE"],
+   "g": [
+    "PARK",
+    "FREE"
+   ],
    "k": "Free for SF residents with ID; paid for non-residents.",
-   "sources": [["OFFICIAL", "https://gggp.org/venue/sf-botanical-garden/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/San_Francisco_Botanical_Garden"]]
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://gggp.org/venue/sf-botanical-garden/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Botanical_Garden"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -68,8 +145,21 @@
    "address": "1690 John F Kennedy Dr, San Francisco, CA 94121",
    "w": "A 1903 Dutch-style windmill at Golden Gate Park's ocean edge, fronted by the Queen Wilhelmina tulip garden that blooms brightest in late winter and early spring. Free, open grounds.",
    "closed": false,
-   "g": ["PARK", "ODD", "FREE"],
-   "sources": [["SFPARKS", "https://sfrecpark.org/908/Golden-Gate-Park---Queen-Wilhelmina-Gard"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Golden_Gate_Park"]]
+   "g": [
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/908/Golden-Gate-Park---Queen-Wilhelmina-Gard"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Golden_Gate_Park"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -78,9 +168,23 @@
    "address": "680 Point Lobos Ave, San Francisco, CA 94121",
    "w": "A rugged NPS coastal trail past cypress groves, shipwreck-strewn surf and the concrete ruins of the 1896 Sutro Baths, with the Golden Gate Bridge framed the whole way. Free; open daily.",
    "closed": false,
-   "g": ["VIEW", "PARK", "ODD", "FREE"],
+   "g": [
+    "VIEW",
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
    "k": "The adjacent Cliff House (1090 Point Lobos Ave) has been closed since 2020; a reopening has been announced for late 2026 but repeatedly delayed.",
-   "sources": [["NPS", "https://www.nps.gov/goga/planyourvisit/cliff-house-sutro-baths.htm"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Sutro_Baths"]]
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/goga/planyourvisit/cliff-house-sutro-baths.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sutro_Baths"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -89,8 +193,22 @@
    "address": "16th Ave & Moraga St, San Francisco, CA 94122",
    "w": "A 163-step mosaic staircase in Golden Gate Heights, tiled in a sea-to-stars swirl by artists Aileen Barr and Colette Crutcher with the neighborhood; climb it to Grand View Park for a Sunset-and-ocean panorama. Free, always open.",
    "closed": false,
-   "g": ["VIEW", "ODD", "FREE", "ARCH"],
-   "sources": [["OFFICIAL", "http://www.16thavenuetiledsteps.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/16th_Avenue_Tiled_Steps"]]
+   "g": [
+    "VIEW",
+    "ODD",
+    "FREE",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "http://www.16thavenuetiledsteps.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/16th_Avenue_Tiled_Steps"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -99,8 +217,20 @@
    "address": "151 Third St, San Francisco, CA 94103",
    "w": "The West Coast's flagship modern-art museum, expanded by Snohetta into seven gallery floors with a free ground-floor Richard Serra and a living wall on the sculpture terrace. Open daily except Wednesday.",
    "closed": false,
-   "g": ["MUS", "ARCH"],
-   "sources": [["OFFICIAL", "https://www.sfmoma.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/San_Francisco_Museum_of_Modern_Art"]]
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.sfmoma.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Museum_of_Modern_Art"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -109,19 +239,43 @@
    "address": "200 Larkin St, San Francisco, CA 94102",
    "w": "One of the largest Asian art collections in the West, 18,000+ works spanning 6,000 years, housed in the old Beaux-Arts main library on Civic Center. Open Thu-Mon; closed Tue/Wed.",
    "closed": false,
-   "g": ["MUS", "ARCH"],
-   "sources": [["OFFICIAL", "https://asianart.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Asian_Art_Museum_of_San_Francisco"]]
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://asianart.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Asian_Art_Museum_of_San_Francisco"
+    ]
+   ]
   },
   {
    "t": 2,
    "a": "DTN",
-   "n": "Contemporary Jewish Museum",
+   "n": "Contemporary Jewish Museum — CLOSED",
    "address": "736 Mission St, San Francisco, CA 94103",
    "w": "Daniel Libeskind's tilted blue-steel cube grafted onto a 1907 power substation, one of downtown's boldest buildings.",
    "closed": true,
-   "g": ["MUS", "ARCH"],
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
    "k": "CLOSED as an operating museum since December 2024 amid a financial crisis; in March 2026 the museum announced it is selling the Libeskind building, though it continues hosting some events through January 2027. The exterior remains a landmark to view.",
-   "sources": [["KQED", "https://www.kqed.org/arts/13987725/contemporary-jewish-museum-to-sell-its-downtown-sf-building"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Contemporary_Jewish_Museum"]]
+   "sources": [
+    [
+     "KQED",
+     "https://www.kqed.org/arts/13987725/contemporary-jewish-museum-to-sell-its-downtown-sf-building"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Contemporary_Jewish_Museum"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -130,8 +284,20 @@
    "address": "Pier 15, The Embarcadero, San Francisco, CA 94111",
    "w": "A pioneering hands-on science and perception museum sprawling across an Embarcadero pier, with 600+ tinker-with-it exhibits and adults-only After Dark Thursday nights. Open Tue-Sun.",
    "closed": false,
-   "g": ["MUS", "FAM"],
-   "sources": [["OFFICIAL", "https://www.exploratorium.edu/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Exploratorium"]]
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.exploratorium.edu/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Exploratorium"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -140,9 +306,21 @@
    "address": "540 Broadway, San Francisco, CA 94133",
    "w": "A cluttered shrine to the Beat Generation across from City Lights, with Kerouac and Ginsberg letters, first editions and the car from the film of On the Road.",
    "closed": false,
-   "g": ["MUS", "ODD"],
+   "g": [
+    "MUS",
+    "ODD"
+   ],
    "k": "Temporarily closed from December 2025 for a seismic (soft-story) retrofit, with reopening announced for mid-to-late 2026 - confirm before visiting.",
-   "sources": [["OFFICIAL", "https://www.kerouac.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Beat_Museum"]]
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.kerouac.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Beat_Museum"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -151,8 +329,21 @@
    "address": "666 Filbert St, San Francisco, CA 94133",
    "w": "The twin-spired \"Italian Cathedral of the West\" on Washington Square, where Joe DiMaggio and Marilyn Monroe took wedding photos on the steps. Open daily.",
    "closed": false,
-   "g": ["ARCH", "ICON", "FREE"],
-   "sources": [["OFFICIAL", "https://parish.sspeterpaulsf.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Saints_Peter_and_Paul_Church,_San_Francisco"]]
+   "g": [
+    "ARCH",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://parish.sspeterpaulsf.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Saints_Peter_and_Paul_Church,_San_Francisco"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -161,8 +352,20 @@
    "address": "104 Montgomery St, San Francisco, CA 94129",
    "w": "In a former Presidio barracks, the story of Walt Disney himself - early drawings, the multiplane camera, Oscars and a huge model of Disneyland. Open Thu-Mon.",
    "closed": false,
-   "g": ["MUS", "FAM"],
-   "sources": [["OFFICIAL", "https://www.waltdisney.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Walt_Disney_Family_Museum"]]
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.waltdisney.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walt_Disney_Family_Museum"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -171,8 +374,22 @@
    "address": "3601 Lyon St, San Francisco, CA 94123",
    "w": "A monumental Beaux-Arts rotunda and colonnade left from the 1915 Panama-Pacific Exposition, mirrored in a swan lagoon in the Marina. Grounds are free and open daily.",
    "closed": false,
-   "g": ["ARCH", "ICON", "PARK", "FREE"],
-   "sources": [["SFTRAVEL", "https://www.sftravel.com/article/guide-to-san-franciscos-palace-fine-arts"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Palace_of_Fine_Arts"]]
+   "g": [
+    "ARCH",
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/guide-to-san-franciscos-palace-fine-arts"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palace_of_Fine_Arts"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -181,8 +398,21 @@
    "address": "Gibson Rd, San Francisco, CA 94129",
    "w": "A mile of Presidio sand with a full-frontal view of the Golden Gate Bridge; the north end is clothing-optional and the surf is strong (no swimming). Free, open daily.",
    "closed": false,
-   "g": ["VIEW", "PARK", "FREE"],
-   "sources": [["NPS", "https://www.nps.gov/goga/planyourvisit/beaches.htm"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Baker_Beach"]]
+   "g": [
+    "VIEW",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/goga/planyourvisit/beaches.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Baker_Beach"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -191,8 +421,22 @@
    "address": "210 Lincoln Blvd, San Francisco, CA 94129",
    "w": "A 14-acre park (opened 2022) built over the Presidio Parkway tunnels, linking Crissy Field to the Main Post with Golden Gate views, a nature-play Outpost for kids and picnic meadows. Free, open daily.",
    "closed": false,
-   "g": ["PARK", "VIEW", "FREE", "FAM"],
-   "sources": [["OFFICIAL", "https://presidio.gov/explore/attractions/presidio-tunnel-tops"], ["PARKSCON", "https://www.parksconservancy.org/location/presidio-tunnel-tops"]]
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE",
+    "FAM"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://presidio.gov/explore/attractions/presidio-tunnel-tops"
+    ],
+    [
+     "PARKSCON",
+     "https://www.parksconservancy.org/location/presidio-tunnel-tops"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -201,8 +445,20 @@
    "address": "1100 California St, San Francisco, CA 94108",
    "w": "A French Gothic Episcopal cathedral atop Nob Hill with gilded Ghiberti \"Gates of Paradise\" doors and two labyrinths you can walk. Open daily; admission for general visiting.",
    "closed": false,
-   "g": ["ARCH", "ICON"],
-   "sources": [["OFFICIAL", "https://gracecathedral.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Grace_Cathedral,_San_Francisco"]]
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://gracecathedral.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grace_Cathedral,_San_Francisco"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -211,8 +467,21 @@
    "address": "Peace Plaza, Post St & Buchanan St, San Francisco, CA 94115",
    "w": "A five-tiered concrete stupa gifted by sister-city Osaka in 1968, the centerpiece of the Peace Plaza in one of only three remaining Japantowns in the US. Free, open plaza.",
    "closed": false,
-   "g": ["ARCH", "ICON", "FREE"],
-   "sources": [["SFPARKS", "https://sfrecpark.org/881/Japantown-Peace-Plaza"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/San_Francisco_Peace_Pagoda"]]
+   "g": [
+    "ARCH",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/881/Japantown-Peace-Plaza"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Peace_Pagoda"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -221,8 +490,20 @@
    "address": "3321 16th St, San Francisco, CA 94114",
    "w": "Mission San Francisco de Asis (1776), the city's oldest surviving building, with the original adobe chapel beside an ornate 1918 basilica and a historic cemetery. Open daily 9am-4pm.",
    "closed": false,
-   "g": ["ARCH", "ICON"],
-   "sources": [["OFFICIAL", "https://www.missiondolores.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Mission_San_Francisco_de_As%C3%ADs"]]
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.missiondolores.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mission_San_Francisco_de_As%C3%ADs"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -231,8 +512,22 @@
    "address": "Dolores St & 19th St, San Francisco, CA 94114",
    "w": "The Mission's sun-trap hillside lawn, part civic living room and part downtown-skyline overlook, packed on any warm weekend. Free, open daily.",
    "closed": false,
-   "g": ["PARK", "ICON", "VIEW", "FREE"],
-   "sources": [["SFPARKS", "https://sfrecpark.org/facilities/facility/details/mission-dolores-park"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Mission_Dolores_Park"]]
+   "g": [
+    "PARK",
+    "ICON",
+    "VIEW",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/mission-dolores-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mission_Dolores_Park"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -241,9 +536,21 @@
    "address": "429 Castro St, San Francisco, CA 94114",
    "w": "A 1922 movie-palace landmark and the heart of the Castro, famous for its Wurlitzer organ and sing-alongs. Reopened February 2026 after a $41M restoration, now with flexible seating for films and concerts.",
    "closed": false,
-   "g": ["ARCH", "ICON"],
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
    "k": "Reopened February 2026 after a two-year renovation led by Another Planet Entertainment; programming now mixes film with concerts and events - check the calendar.",
-   "sources": [["OFFICIAL", "https://thecastro.com/"], ["SFSTANDARD", "https://sfstandard.com/2026/02/05/castro-theatre-reopens-renovation/"]]
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://thecastro.com/"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2026/02/05/castro-theatre-reopens-renovation/"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -252,8 +559,21 @@
    "address": "501 Twin Peaks Blvd, San Francisco, CA 94114",
    "w": "The near-geographic center of the city and its best 360-degree panorama, from downtown and the bridges to the ocean. Free; open daily 5am-midnight.",
    "closed": false,
-   "g": ["VIEW", "ICON", "FREE"],
-   "sources": [["SFPARKS", "https://sfrecpark.org/facilities/facility/details/twin-peaks-384"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Twin_Peaks_(San_Francisco)"]]
+   "g": [
+    "VIEW",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/twin-peaks-384"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Twin_Peaks_(San_Francisco)"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -262,8 +582,20 @@
    "address": "4127 18th St, San Francisco, CA 94114",
    "w": "The first stand-alone museum of LGBTQ history and culture in the US, in the Castro, drawing on the GLBT Historical Society's archive (Harvey Milk material included). Open Tue-Sun; free first Wednesdays.",
    "closed": false,
-   "g": ["MUS", "ODD"],
-   "sources": [["OFFICIAL", "https://www.glbthistory.org/museum"], ["TIMEOUT", "https://www.timeout.com/san-francisco/museums/glbt-history-museum"]]
+   "g": [
+    "MUS",
+    "ODD"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.glbthistory.org/museum"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/museums/glbt-history-museum"
+    ]
+   ]
   },
   {
    "t": 2,
@@ -272,8 +604,21 @@
    "address": "Balmy St, San Francisco, CA 94110",
    "w": "The densest concentration of murals in the Mission - a one-block alley off 24th Street painted since the 1970s with Latin-American political and cultural art, continuously renewed. Free, always open.",
    "closed": false,
-   "g": ["ARCH", "ODD", "FREE"],
-   "sources": [["OFFICIAL", "https://balmyalley.org/"], ["SFTRAVEL", "https://www.sftravel.com/article/guide-to-san-franciscos-mission-district-murals"]]
+   "g": [
+    "ARCH",
+    "ODD",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://balmyalley.org/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/guide-to-san-franciscos-mission-district-murals"
+    ]
+   ]
   },
   {
    "t": 1,
@@ -282,19 +627,77 @@
    "address": "Bernal Heights Blvd, San Francisco, CA 94110",
    "w": "A grassy, car-free hilltop above the Mission with a mellow local vibe and a wide-open view of downtown and the bay; a favorite dog and sunset spot. Free, open daily.",
    "closed": false,
-   "g": ["VIEW", "PARK", "FREE"],
-   "sources": [["SFPARKS", "https://sfrecpark.org/facilities/facility/details/Bernal-Heights-Park-151"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Bernal_Heights,_San_Francisco"]]
+   "g": [
+    "VIEW",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/facilities/facility/details/Bernal-Heights-Park-151"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bernal_Heights,_San_Francisco"
+    ]
+   ]
   }
  ],
  "sources": [
-  {"key": "OFFICIAL", "name": "Official site", "url": "", "type": "official"},
-  {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org", "type": "reference"},
-  {"key": "SFTRAVEL", "name": "San Francisco Travel", "url": "https://www.sftravel.com", "type": "official"},
-  {"key": "SFPARKS", "name": "SF Rec & Park", "url": "https://sfrecpark.org", "type": "official"},
-  {"key": "NPS", "name": "National Park Service (GGNRA/Presidio)", "url": "https://www.nps.gov/goga", "type": "official"},
-  {"key": "PARKSCON", "name": "Golden Gate National Parks Conservancy", "url": "https://www.parksconservancy.org", "type": "official"},
-  {"key": "KQED", "name": "KQED Arts", "url": "https://www.kqed.org/arts", "type": "media"},
-  {"key": "SFSTANDARD", "name": "The San Francisco Standard", "url": "https://sfstandard.com", "type": "media"},
-  {"key": "TIMEOUT", "name": "Time Out San Francisco", "url": "https://www.timeout.com/san-francisco", "type": "media"}
+  {
+   "key": "OFFICIAL",
+   "name": "Official site",
+   "url": "",
+   "type": "official"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org",
+   "type": "reference"
+  },
+  {
+   "key": "SFTRAVEL",
+   "name": "San Francisco Travel",
+   "url": "https://www.sftravel.com",
+   "type": "official"
+  },
+  {
+   "key": "SFPARKS",
+   "name": "SF Rec & Park",
+   "url": "https://sfrecpark.org",
+   "type": "official"
+  },
+  {
+   "key": "NPS",
+   "name": "National Park Service (GGNRA/Presidio)",
+   "url": "https://www.nps.gov/goga",
+   "type": "official"
+  },
+  {
+   "key": "PARKSCON",
+   "name": "Golden Gate National Parks Conservancy",
+   "url": "https://www.parksconservancy.org",
+   "type": "official"
+  },
+  {
+   "key": "KQED",
+   "name": "KQED Arts",
+   "url": "https://www.kqed.org/arts",
+   "type": "media"
+  },
+  {
+   "key": "SFSTANDARD",
+   "name": "The San Francisco Standard",
+   "url": "https://sfstandard.com",
+   "type": "media"
+  },
+  {
+   "key": "TIMEOUT",
+   "name": "Time Out San Francisco",
+   "url": "https://www.timeout.com/san-francisco",
+   "type": "media"
+  }
  ]
 }

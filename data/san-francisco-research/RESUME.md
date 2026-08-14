@@ -26,7 +26,8 @@ starts ~Menlo Park/Redwood City). 9 areas — see `_AGENT_BRIEF.md`.
   the start (agents used the brief). See AUDIT.md Stage 2 for the ledger + closures.
 - **2026-08-14 discovery wave 2 (running):** Italian/Cal-cuisine fine dining, coffee/cocktail bars/viral,
   Peninsula/SFO corridor (fills PEN + Italian/coffee/bars gaps).
-- **NEXT after wave 2:** consolidate → any re-sourcing needed (should be minimal) → **geocode + status
+- **2026-08-14 BUILT + LIVE:** 141 places (57 sights + 84 food); geocheck PASS · statuscheck CONSISTENT · sourcecheck PASS · render-verify ALL PASS; index card relinked. 7 UNVERIFIED pins (Boudin, It's-It, 4 Peninsula spots + closed Wursthall) → browser helper via docs/GEOCODE-BACKLOG.md. Optional next: density waves (more neighborhoods/cuisines) + helper geocode of the 7.
+- **(historical) NEXT after wave 2:** consolidate → any re-sourcing needed (should be minimal) → **geocode + status
   waves** (WebSearch place-pins for sights/landmarks work well; restaurant pins may need the browser
   helper — track in `docs/GEOCODE-BACKLOG.md`) → `build-sanfrancisco.py` → gates → render-verify →
   relink index card. Budget caps ~200/window — wave it; this file + AUDIT.md keep it resumable.
