@@ -45,6 +45,7 @@ Each `data/<city>-research/` carries, per [PIPELINE.md](PIPELINE.md):
 node tools/research.js --sourcecheck <city-key>   # ≥2 credible sources (or lone Michelin/JB); Yelp=0
 node tools/research.js --geocheck    <city-key>   # every pin fact-checked + sourced
 node tools/research.js --statuscheck <city-key>   # every open/closed status sourced & consistent
+node tools/research.js --buildcheck  <city-key>   # map centre + labels match THIS city's pins (no wrong-city page)
 python3 tools/sourcecheck.py data/<city>.dataset.json   # same sources gate, standalone
 python3 tools/geocode-status.py                    # refresh the cross-city geocode backlog
 cd tools && npm run validate && npm test           # data integrity + no-CDN behaviour
@@ -56,7 +57,11 @@ published page provably cannot contain an under-sourced or un-located place.
 ## Adding a new city / region (what was done for San Francisco)
 1. `data/<city>-research/` with `consolidate.py` (areas + cuisine/collection taxonomy), `_AGENT_BRIEF.md`,
    `AUDIT.md`, `RESUME.md`.
-2. `tools/build-<city>.py` (clone an existing dataset build; swap the page/key/dataset paths).
+2. `tools/build-<city>.py` (clone an existing dataset build; swap the page/key/dataset paths). **The
+   map centre + on-map labels are DERIVED from the geocoded pins — do NOT hardcode coordinates.** The
+   only per-city text to write by hand is the prose (eyebrow, H1, standfirst, meta, search placeholders,
+   footer, cuisine appendix); after building, run `--buildcheck` — it FAILs if the map geography still
+   points at the city you cloned from. (This is why SF once shipped centred on San Jose; it can't now.)
 3. `data/sources.json` entry (credible outlets + rationale); empty `data/geocodes.json` city entry.
 4. Register the key in `tools/research.js` `PAGE_FOR` + `DATASET_FOR`, and in `DATASETS` in
    `tools/geocode-status.py`.

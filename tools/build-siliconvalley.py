@@ -105,8 +105,33 @@ def rep(a, b):
 # marker colours
 ac = "{" + ",".join("%s:'%s'" % (a["id"], DS["ac"][a["id"]]) for a in DS["areas"]) + "}"
 rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};", "const AC = %s;" % ac)
-# map centre → Silicon Valley (between Palo Alto and San Jose)
-rep("setView([41.4993,-81.6944],11)", "setView([37.3700,-122.0200],11)")
+# ── Map centre + area labels are DERIVED from the geocoded pins — never hardcoded. A build cloned
+#    from another city that forgot to swap coordinates would otherwise land on the wrong city; deriving
+#    them makes that class of bug structurally impossible. (see docs/PIPELINE.md Stage 6)
+from collections import defaultdict as _dd
+_pins = {n: (e["lat"], e["lng"]) for n, e in _GEO.items()
+         if e.get("lat") is not None and e.get("lng") is not None}
+_lats = [p[0] for p in _pins.values()]; _lngs = [p[1] for p in _pins.values()]
+def _pct(vals, q):
+    s = sorted(vals); return s[min(len(s) - 1, int(q * len(s)))]
+if _lats:
+    _clat = round(_pct(_lats, 0.5), 4); _clng = round(_pct(_lngs, 0.5), 4)   # median → centre on the density
+    _span = max(_pct(_lats, 0.95) - _pct(_lats, 0.05), (_pct(_lngs, 0.95) - _pct(_lngs, 0.05)) * 0.7)
+    _zoom = 13 if _span < 0.05 else 12 if _span < 0.11 else 11 if _span < 0.26 else 10 if _span < 0.55 else 9
+else:
+    _clat, _clng, _zoom = 37.37, -122.02, 11          # empty-registry fallback only
+_byarea = _dd(list); _aname = {a["id"]: a["n"] for a in DS["areas"]}
+for _r in DS["P"] + DS["F"]:
+    if _r["n"] in _pins: _byarea[_r["a"]].append(_pins[_r["n"]])
+_labels = []
+for _a in DS["areas"]:                                # one label per area, at its pin centroid
+    _pts = _byarea.get(_a["id"])
+    if not _pts: continue
+    _la = round(sum(p[0] for p in _pts) / len(_pts), 4); _lo = round(sum(p[1] for p in _pts) / len(_pts), 4)
+    _short = _a["n"].split(",")[0].split(" & ")[0].split(" &amp; ")[0].strip()
+    _labels.append([_short, _la, _lo])
+_labels_js = "const LABELS=" + json.dumps(_labels, ensure_ascii=False) + ";"
+rep("setView([41.4993,-81.6944],11)", "setView([%s,%s],%d)" % (_clat, _clng, _zoom))
 # storage keys + export filenames
 for a, b in [("cle_trip","sv_trip"),("cle_seen","sv_seen"),("cle_gkey","sv_gkey"),
              ("cleveland-my-list","siliconvalley-my-list"),("cleveland-field-guide","siliconvalley-field-guide")]:
@@ -129,12 +154,9 @@ L.polyline(SHORE,{color:'#3E5D53',weight:1.6,opacity:.9,interactive:false}).addT
 L.polyline(RIVER,{color:'#2F5560',weight:2.2,opacity:.85,interactive:false}).addTo(backdrop);
 ARTERIES.forEach(a=>L.polyline(a,{color:'#2E393E',weight:1.4,opacity:.8,interactive:false}).addTo(backdrop));
 LABELS.forEach(''',
-'''const LABELS=[["Palo Alto",37.4440,-122.1450],["Stanford",37.4275,-122.1700],
- ["Mountain View",37.3860,-122.0838],["Sunnyvale",37.3688,-122.0363],["Cupertino",37.3230,-122.0322],
- ["Santa Clara",37.3541,-121.9552],["San Jose",37.3382,-121.8863],["Los Gatos",37.2358,-121.9624],
- ["Santa Cruz",36.9741,-122.0308]];
+_labels_js + '''
 
-// Real geography comes from the tiles; here we add only municipality labels.
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
 LABELS.forEach(''')
 new = new.replace("so the map still shows Lake Erie, the\n   Cuyahoga and the main arteries even if every tile server is unreachable.",

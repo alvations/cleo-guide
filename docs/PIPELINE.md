@@ -115,9 +115,16 @@ map servers) or any Places-API channel — the backlog is the queue for that pas
 
 ## Stage 6 — Build & gate
 `consolidate → build-<city>.py → cities/<city>.html`. Gates, all required and enforced **in code**
-(not asserted): `--geocheck` PASS, `--statuscheck` CONSISTENT, **`--sourcecheck` PASS**, `npm run
-validate` DATA OK, `npm test` ALL PASS, and a headless **render-verify** (real Leaflet mounts, markers
-present, 0 JS errors). The dataset-built `build-<city>.py` additionally **drops-and-logs** any place
+(not asserted): `--geocheck` PASS, `--statuscheck` CONSISTENT, **`--sourcecheck` PASS**, **`--buildcheck`
+PASS**, `npm run validate` DATA OK, `npm test` ALL PASS, and a headless **render-verify** (real Leaflet
+mounts, markers present, 0 JS errors).
+
+**The map centre + on-map labels are DERIVED, never hardcoded.** `build-<city>.py` computes the initial
+`setView` centre from the median of the city's geocoded pins and one label per area at its pin centroid —
+so a build cloned from another city *cannot* land on the wrong map, even if a coordinate swap is
+forgotten. **`node tools/research.js --buildcheck <city>`** is the guard: it FAILs if the page's map
+centre or any label falls outside the bounding box of the city's own pins (this is exactly the bug that
+once shipped SF centred on San Jose). Run it after every build; never reintroduce a hardcoded centre. The dataset-built `build-<city>.py` additionally **drops-and-logs** any place
 failing the sources-of-truth or geocode gate, so the published page provably cannot contain an
 under-sourced or un-located place.
 

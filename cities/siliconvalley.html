@@ -591,7 +591,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([37.3700,-122.0200],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([37.3475,-121.9975],10);
 /* ── Base layers ────────────────────────────────────────────────────────────
    Free layers need no key. Google needs your own Maps JavaScript API key and
    is loaded through the officially sanctioned GoogleMutant plugin, because
@@ -732,12 +732,9 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Palo Alto",37.4440,-122.1450],["Stanford",37.4275,-122.1700],
- ["Mountain View",37.3860,-122.0838],["Sunnyvale",37.3688,-122.0363],["Cupertino",37.3230,-122.0322],
- ["Santa Clara",37.3541,-121.9552],["San Jose",37.3382,-121.8863],["Los Gatos",37.2358,-121.9624],
- ["Santa Cruz",36.9741,-122.0308]];
+const LABELS=[["Palo Alto", 37.4311, -122.1573], ["Mountain View", 37.3988, -122.0846], ["Sunnyvale", 37.3778, -122.0194], ["Cupertino", 37.2975, -122.0454], ["Santa Clara", 37.3615, -121.9609], ["San Jose", 37.3317, -121.8903], ["Day Trips", 37.2066, -122.0539]];
 
-// Real geography comes from the tiles; here we add only municipality labels.
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
 LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
   html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'

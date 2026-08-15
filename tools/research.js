@@ -561,8 +561,56 @@ function sourcecheck(key) {
   if (!pass) process.exitCode = 1;
 }
 
+// --buildcheck: catch a page built for the WRONG city. The map centre and every on-map label must
+// fall within the bounding box of the city's OWN geocoded pins. This makes the "cloned another city's
+// build and forgot to swap the coordinates" bug impossible to ship (build-<city>.py now DERIVES the
+// centre/labels from the pins; this gate guards against any regression or hand-edit). See PIPELINE.md.
+function buildcheck(key) {
+  const line = '─'.repeat(72);
+  const page = PAGE_FOR[key];
+  if (!key || !page) {
+    console.log('\nUsage: node research.js --buildcheck <city-key>   (' + Object.keys(PAGE_FOR).join(', ') + ')\n');
+    return;
+  }
+  if (!fs.existsSync(page)) { console.log('No page built at ' + page); return; }
+  const geo = (loadGeocodes().cities || {})[key] || {};
+  const pts = Object.values(geo).filter(e => e && e.lat != null && e.lng != null).map(e => [e.lat, e.lng]);
+  if (pts.length < 3) { console.log('Not enough geocoded pins to check ' + key); return; }
+  const lats = pts.map(p => p[0]), lngs = pts.map(p => p[1]);
+  const box = { minLat: Math.min(...lats), maxLat: Math.max(...lats), minLng: Math.min(...lngs), maxLng: Math.max(...lngs) };
+  const MARGIN = 0.08; // ~9km grace outside the pin cloud
+  const inBox = (la, lo) => la >= box.minLat - MARGIN && la <= box.maxLat + MARGIN &&
+                            lo >= box.minLng - MARGIN && lo <= box.maxLng + MARGIN;
+  const html = fs.readFileSync(page, 'utf8');
+  console.log(`\nBUILD CHECK — ${key}  (map centre & labels vs the city's own pins)`);
+  console.log(line);
+  console.log(`pin bounds: lat ${box.minLat.toFixed(3)}..${box.maxLat.toFixed(3)} · lng ${box.minLng.toFixed(3)}..${box.maxLng.toFixed(3)}`);
+  const fails = [];
+  const cm = html.match(/setView\(\[\s*(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)\s*\]\s*,\s*(\d+)\s*\)/);
+  if (!cm) fails.push('no setView() map centre found on the page');
+  else {
+    const [la, lo] = [parseFloat(cm[1]), parseFloat(cm[2])];
+    const ok = inBox(la, lo);
+    console.log(`map centre: ${la},${lo} (zoom ${cm[3]})  ${ok ? '✓ inside pin bounds' : '✗ OUTSIDE — wrong city?'}`);
+    if (!ok) fails.push(`map centre ${la},${lo} is outside the pin bounds — likely a stale/cloned coordinate`);
+  }
+  const lm = html.match(/const LABELS=\[(.*?)\];/s);
+  let labels = [];
+  if (lm) for (const t of lm[1].matchAll(/\[\s*"((?:[^"\\]|\\.)*)"\s*,\s*(-?\d+\.?\d*)\s*,\s*(-?\d+\.?\d*)\s*\]/g))
+    labels.push([t[1], parseFloat(t[2]), parseFloat(t[3])]);
+  const strayLabels = labels.filter(l => !inBox(l[1], l[2]));
+  console.log(`on-map labels: ${labels.length} · outside pin bounds: ${strayLabels.length}`);
+  strayLabels.forEach(l => { console.log(`     ✗ "${l[0]}" at ${l[1]},${l[2]} — not this city`); fails.push(`label "${l[0]}" is outside the pin bounds`); });
+  console.log('\n' + line);
+  console.log(fails.length ? `>>> FAIL — ${fails.length} issue(s): the page's map geography does not match ${key}'s pins.`
+                           : '>>> PASS — map centre and all labels sit within the city\'s own pins.');
+  if (fails.length) { console.log('    build-<city>.py DERIVES centre+labels from the pins — rebuild; never hardcode another city\'s coords.'); process.exitCode = 1; }
+  console.log('');
+}
+
 const argv = process.argv.slice(2);
-if (argv[0] === '--validate') validate(argv[1]);
+if (argv[0] === '--buildcheck') buildcheck(argv[1]);
+else if (argv[0] === '--validate') validate(argv[1]);
 else if (argv[0] === '--refresh') refresh(argv[1]);
 else if (argv[0] === '--media') media(argv[1]);
 else if (argv[0] === '--seed') seed(argv[1], argv[2]);

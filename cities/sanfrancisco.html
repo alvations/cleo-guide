@@ -576,7 +576,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([37.7300,-122.4200],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([37.7841,-122.4189],11);
 /* ── Base layers ────────────────────────────────────────────────────────────
    Free layers need no key. Google needs your own Maps JavaScript API key and
    is loaded through the officially sanctioned GoogleMutant plugin, because
@@ -717,12 +717,9 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Downtown",37.7880,-122.4050],["North Beach",37.8010,-122.4100],
- ["Mission",37.7600,-122.4190],["Sunset",37.7520,-122.4950],["Richmond",37.7800,-122.4840],
- ["Presidio",37.7980,-122.4620],["Daly City",37.6880,-122.4700],["South S.F.",37.6547,-122.4077],
- ["Millbrae",37.5985,-122.3872],["San Mateo",37.5630,-122.3255],["Pacifica",37.6138,-122.4869]];
+const LABELS=[["Downtown", 37.7881, -122.4044], ["Chinatown", 37.8015, -122.4106], ["Nob Hill", 37.7955, -122.4182], ["Marina", 37.7981, -122.4515], ["Richmond", 37.7713, -122.4805], ["Mission", 37.7598, -122.4233], ["Haight", 37.7772, -122.4288], ["Bayview", 37.7486, -122.4016], ["Peninsula", 37.6104, -122.4088]];
 
-// Real geography comes from the tiles; here we add only municipality labels.
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
 LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
   html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
