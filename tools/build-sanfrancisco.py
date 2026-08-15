@@ -106,7 +106,7 @@ def rep(a, b):
 ac = "{" + ",".join("%s:'%s'" % (a["id"], DS["ac"][a["id"]]) for a in DS["areas"]) + "}"
 rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};", "const AC = %s;" % ac)
 # map centre → San Francisco (between Palo Alto and San Jose)
-rep("setView([41.4993,-81.6944],11)", "setView([37.3700,-122.0200],11)")
+rep("setView([41.4993,-81.6944],11)", "setView([37.7300,-122.4200],11)")
 # storage keys + export filenames
 for a, b in [("cle_trip","sv_trip"),("cle_seen","sv_seen"),("cle_gkey","sv_gkey"),
              ("cleveland-my-list","sanfrancisco-my-list"),("cleveland-field-guide","sanfrancisco-field-guide")]:
@@ -129,10 +129,10 @@ L.polyline(SHORE,{color:'#3E5D53',weight:1.6,opacity:.9,interactive:false}).addT
 L.polyline(RIVER,{color:'#2F5560',weight:2.2,opacity:.85,interactive:false}).addTo(backdrop);
 ARTERIES.forEach(a=>L.polyline(a,{color:'#2E393E',weight:1.4,opacity:.8,interactive:false}).addTo(backdrop));
 LABELS.forEach(''',
-'''const LABELS=[["Palo Alto",37.4440,-122.1450],["Stanford",37.4275,-122.1700],
- ["Mountain View",37.3860,-122.0838],["Sunnyvale",37.3688,-122.0363],["Cupertino",37.3230,-122.0322],
- ["Santa Clara",37.3541,-121.9552],["San Jose",37.3382,-121.8863],["Los Gatos",37.2358,-121.9624],
- ["Santa Cruz",36.9741,-122.0308]];
+'''const LABELS=[["Downtown",37.7880,-122.4050],["North Beach",37.8010,-122.4100],
+ ["Mission",37.7600,-122.4190],["Sunset",37.7520,-122.4950],["Richmond",37.7800,-122.4840],
+ ["Presidio",37.7980,-122.4620],["Daly City",37.6880,-122.4700],["South S.F.",37.6547,-122.4077],
+ ["Millbrae",37.5985,-122.3872],["San Mateo",37.5630,-122.3255],["Pacifica",37.6138,-122.4869]];
 
 // Real geography comes from the tiles; here we add only municipality labels.
 backdrop=L.layerGroup().addTo(map);
@@ -144,29 +144,29 @@ new = new.replace("all 183 places", "all %d places" % TOTAL)
 rep("<title>Cleveland Field Guide — 130 Places, Sourced</title>",
     "<title>San Francisco Field Guide — Sourced</title>")
 rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
-    '<p class="eyebrow">Field guide · the Santa Clara Valley, sourced</p>')
+    '<p class="eyebrow">Field guide · San Francisco &amp; the Peninsula, sourced</p>')
 rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
-    '<h1>San Francisco<span class="thin">the South Bay &mdash; tech, trails &amp; the best Asian tables in America</span></h1>')
+    '<h1>San Francisco<span class="thin">the city &amp; the Peninsula &mdash; icons, neighborhoods &amp; famous food</span></h1>')
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-    '<p class="standfirst">%d sights and %d places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to the source that named it. The Valley\\u2019s food is its immigrant density &mdash; arguably the best Taiwanese, Vietnamese and South Indian eating in the country. <strong>Switch modes below</strong>, filter by <strong>city</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
+    '<p class="standfirst">%d sights and %d places to eat across San Francisco and the northern Peninsula down to San Mateo, each traceable to the source that named it. The city\\u2019s food canon runs from the Mission burrito and Chinatown dim sum to cioppino, Tenderloin Vietnamese and the third-wave coffee it helped invent. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 new = re.sub(r'<meta name="description"[^>]*>',
-    '<meta name="description" content="San Francisco field guide — %d sights and %d places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to its source (Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura), on one interactive map with city, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
-new = new.replace(", Cleveland OH", ", San Jose CA")
+    '<meta name="description" content="San Francisco field guide — %d sights and %d places to eat across San Francisco and the Peninsula to San Mateo, each traceable to its source (Michelin, The Infatuation, KQED, the SF Standard, Mission Local, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
+new = new.replace(", Cleveland OH", ", San Francisco CA")
 new = new.replace(">Cleveland \\u2014 my list<", ">San Francisco \\u2014 my list<").replace(">Cleveland — my list<", ">San Francisco — my list<")
-new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="dosa, boba, Stanford, dim sum…"')
+new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="dim sum, cioppino, Alcatraz, burrito…"')
 new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'beef noodle, dosa, dim sum, boba\\u2026' : 'Apple Park, mission, redwoods, HP garage\\u2026'")
+                  "? 'dim sum, burrito, cioppino, oysters\\u2026' : 'Golden Gate, cable car, Alcatraz, murals\\u2026'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 # footer provenance note + dates
 new = new.replace("last verified 2026-08-08", "last verified 2026-08-14")
 new = new.replace(
 '''  <span style="opacity:.8">Refresh check (Aug 2026, via the pipeline): Sokolowski's University Inn confirmed still closed (kept, flagged); West Side Market open amid a $70M renovation, produce arcade reopened Jan 2026; newly opened since build — Rock &amp; Roll Hall of Fame expansion, Cleveland Metroparks Zoo Primate Forest, Irishtown Bend Park. Findings logged in data/sources.json.</span><br><br>''',
-'''  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin (stars + Bib Gourmand), Eater SF, The Infatuation, the San Francisco Chronicle, the San Jose Mercury News, Atlas Obscura and official municipal / state-park sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>''')
+'''  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin (stars + Bib Gourmand), James Beard, The Infatuation, KQED, the SF Standard, Mission Local, Hoodline, 7x7, Atlas Obscura and official / national-park / state-park sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>''')
 # appendix — cuisine rules + how-sourced
 SV_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. The Valley\\u2019s signature strength is immigrant density: <b>Taiwanese</b> (Cupertino/Sunnyvale), <b>Vietnamese</b> (San Jose\\u2019s Little Saigon, the largest outside Vietnam), <b>South Indian</b> (Sunnyvale/Milpitas) and the American <b>boba</b> scene the region invented each got a dedicated search led by Michelin, Eater SF, The Infatuation and the SF Chronicle. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. San Francisco\\u2019s signature strength is its food canon: the <b>Mission burrito</b> and taqueria belt, <b>Cantonese dim sum</b> in the oldest Chinatown in America, <b>cioppino</b> and Dungeness crab, <b>Tenderloin Vietnamese</b>, the Bay\\u2019s famous <b>Burmese</b>, <b>sourdough</b> and the <b>third-wave coffee</b> it helped invent \\u2014 each led by Michelin, The Infatuation, KQED and the SF Standard. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
  "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
