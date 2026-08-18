@@ -391,8 +391,11 @@ def from_config(cfg) -> LLMBackend:
                              api_key=opts.get("api_key"), **_clean(opts, {"api_key"}))
 
     transport = _TRANSPORT_PREFIXES.get(backend, "litellm")
-    # For litellm we keep the full spec (e.g. "ollama/llama3.1") as the model.
-    litellm_model = spec if transport == "litellm" and "/" in model else model
+    # For litellm we keep the provider-qualified model (e.g. "ollama/llama3.1"),
+    # which is exactly `model` — the part after the "litellm:" prefix. (Bugfix:
+    # this used `spec`, which re-prepended the "litellm:" backend selector and
+    # produced an invalid model id like "litellm:ollama/llama3.1".)
+    litellm_model = model
     return LocalBackend(
         model=litellm_model if transport == "litellm" else model,
         transport=transport,
