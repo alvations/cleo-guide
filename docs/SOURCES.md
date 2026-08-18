@@ -332,6 +332,37 @@ Washington County, the Observer-Reporter, The Almanac, Rivers of Steel and PHLF,
 Pennsylvania Trolley Museum, the Whiskey-Rebellion houses, the Carrie Blast Furnaces and the whole
 South-Hills / Mon-Valley long tail. The registry grew from 12 to 45 Pittsburgh sources this way.
 
+## Creator, viral & social-source pass — a repeatable per-city step (run on every build + refresh)
+
+A first-class discovery + corroboration pass, run for **every** city (new build or update). It widens
+the credible-source base beyond local press into **verified creators** and surfaces **viral/notable**
+places the editorial passes miss. Same credibility bar and same downstream flow as everything else.
+
+**Who counts (VET, don't just cite — record the evidence in `credible`):** YouTubers, TikTokers, travel
+bloggers/vloggers, food creators, and "weird-history / weird-food / roadside" channels — **only** with
+(a) a real, sizable **following** (state the platform + approximate count you actually found), (b) a real
+**track record** on *this* city/cuisine, and (c) a **findable piece of content** (the specific
+video/post URL). Reject anyone whose popularity you can't verify, region-only creators mislabeled as
+city creators, and pay-to-play accounts. *Popularity you can't verify isn't popularity.*
+
+**The steps (identical every city):**
+1. **Discover + vet** ~8–12 creators covering the city; classify `famous_creator` vs `local_creator` and
+   `scope: city|region`.
+2. **Register** them in `data/sources.json → cities[<key>].creators[]` (key, name, platform+count,
+   `verified`, `credible`) so they're reusable on refresh.
+3. **Attach** a creator to a place only where the creator has a **findable** piece of content *at that
+   named place* — it becomes one corroborating credible source (creator keys count toward the
+   ≥2-sources gate, but a lone creator is **not** an institutional authority: the place still needs a 2nd
+   credible source unless that 2nd is Michelin/James Beard/NPS).
+4. **Surface new viral/notable places** the creators put on the map — each must still clear the full bar:
+   **≥2 credible sources → fact-check OPEN/CLOSED → FULL address (never invent coords) → geocode +
+   location-verify → re-rank within region → rebuild → gate.**
+
+**Artifacts (so any agent can reproduce/continue):** write vetted creators + attachments to
+`data/<city>-research/CREATORS.json` and new viral places to `data/<city>-research/VIRAL_EXPAND.json`;
+log the pass (counts, who was rejected and why) in that city's `AUDIT.md`. This pass is **not optional**
+and **not one-off** — re-run it on every refresh, exactly like the geocode re-verify and status passes.
+
 ## Web access in this environment (read this before researching)
 
 - **`WebSearch` works.** It runs on Anthropic's server-side search backend, not through the
