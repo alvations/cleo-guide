@@ -13,7 +13,7 @@ from collections import Counter
 OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
 # Definitive institutional authorities: a single one of these is sufficient ground truth on its own
 # (vetted recognition, not one editorial opinion). A lone editorial source still needs a 2nd.
-ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD"}
+ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS"}
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]

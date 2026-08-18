@@ -130,10 +130,12 @@ under-sourced or un-located place.
 
 **The multiple-sources-of-truth rule (in `tools/sourcecheck.py`, `research.js --sourcecheck`, and
 `build-<city>.py` GATE 1 — kept in sync):** a place PASSES with **≥2 independent credible sources**,
-OR a single **institutional authority** (Michelin star/Bib, or James Beard) — a vetted listing that is
-ground truth on its own. A lone *editorial* source (Infatuation/KQED/a local paper) still needs a 2nd.
-**Yelp/TripAdvisor/OpenTable are open-verification only and count as ZERO.** This is the same gate for
-every city; NYC/SV/SF all run it.
+OR a single **institutional authority** that is ground truth on its own: **Michelin** (star/Bib) or
+**James Beard** for food, and the **National Park Service (NPS)** for a site it actually operates (a
+national historic site / national park — e.g. the Wright brothers' Dayton Aviation Heritage units,
+Alcatraz, Golden Gate NRA). A lone *editorial* source (Infatuation/KQED/a local paper) or a place's own
+*official* site still needs a 2nd. **Yelp/TripAdvisor/OpenTable are open-verification only and count as
+ZERO.** Same gate for every city.
 
 ---
 

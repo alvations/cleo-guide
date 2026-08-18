@@ -14,7 +14,7 @@ h    = open(SRC, encoding="utf-8").read()
 #    (not asserted): any under-sourced place is dropped-and-logged so the published map provably
 #    contains only corroborated places. Mirror of tools/sourcecheck.py.
 _OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
-_ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD"}
+_ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS"}
 def _sourced_ok(r):
     c = {t[0] for t in r.get("s", []) if t[0] not in _OPEN_CHECK_ONLY}
     return len(c) >= 2 or bool(c & _ELITE_SOLO)   # >=2 credible, OR a lone institutional authority

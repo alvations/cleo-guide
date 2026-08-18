@@ -538,7 +538,7 @@ function sourcecheck(key) {
   const OPEN_ONLY = new Set(['YELP', 'TRIPADVISOR', 'OPENTABLE', 'GOOGLE', 'GOOGLEMAPS']);
   // A lone institutional authority (Michelin / James Beard) is sufficient on its own; a lone
   // editorial source still needs a 2nd. Keep in sync with tools/sourcecheck.py + build-*.py.
-  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD']);
+  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD', 'NPS']);
   const data = JSON.parse(fs.readFileSync(ds, 'utf8'));
   const recs = (data.P || []).concat(data.F || []);
   const credSet = r => new Set((r.s || []).map(t => t[0]).filter(k => !OPEN_ONLY.has(k)));
