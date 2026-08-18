@@ -39,9 +39,12 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-# Keep these in lockstep with tools/sourcecheck.py and build-<city>.py.
+# Keep these in lockstep with tools/sourcecheck.py, tools/research.js,
+# tools/geocode-status.py and build-<city>.py. (Bugfix: NPS was missing here, so
+# this preview wrongly failed a lone-NPS place — e.g. Alcatraz / Golden Gate NRA —
+# that the real gate PASSES. The five source-of-truth definitions must match.)
 OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
-ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD"}
+ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS"}
 
 
 def credible_source_keys(sources: List[List[str]]) -> set:
@@ -55,8 +58,9 @@ def credible_source_keys(sources: List[List[str]]) -> set:
 def passes_sourcing(sources: List[List[str]]) -> bool:
     """True iff a record would clear the multiple-sources-of-truth gate.
 
-    >=2 credible sources, OR a single institutional authority (Michelin/JB).
-    This is a *preview* of the gate so a discovery worker can self-filter; the
+    >=2 credible sources, OR a single institutional authority (Michelin / James
+    Beard for food; NPS for a site it operates). This is a *preview* of the gate
+    kept in lockstep with tools/sourcecheck.py so a discovery worker can self-filter; the
     real gate is still ``tools/sourcecheck.py`` run via ``pipeline.sourcecheck``.
     """
     c = credible_source_keys(sources)
