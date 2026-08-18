@@ -2233,7 +2233,98 @@
           "credible": "Vetted oddities / hidden gems."
         }
       ],
-      "creators": [],
+      "creators": [
+        {
+          "key": "DAVEPORTNOY",
+          "name": "Dave Portnoy — Barstool 'One Bite' pizza reviews; Nov 2025 Cincinnati pizza tour",
+          "type": "famous_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/stoolpresidente/",
+          "followers": "~4M+ Instagram / Barstool 'One Bite' (national pizza-review franchise)",
+          "verified": true,
+          "credible": "FOX19 documented his Nov 2025 Cincinnati One Bite tour of five pizzerias (Adriatico's, Taglio, Guardia, Trophy, St. Francis Apizza); St. Francis Apizza scored 8.2 — the highest One Bite score of any pizzeria in Ohio. Findable content: onebite.app Cincinnati reviews + FOX19 recaps."
+        },
+        {
+          "key": "STEFANJOHNSON",
+          "name": "Stefan Johnson (@s_johnson_voiceovers) — viral TikTok food reviews; Cincinnati chili-parlor tour",
+          "type": "famous_creator",
+          "scope": "city",
+          "tiktok": "https://www.tiktok.com/@s_johnson_voiceovers",
+          "followers": "~8M TikTok",
+          "verified": true,
+          "credible": "Voice actor turned viral food-review creator; made city-specific Cincinnati content — a dedicated Camp Washington Chili video (tiktok video 7429443957513293102) and a Cincinnati chili-tour video reviewing Skyline/Gold Star/Camp Washington (7419405277805432107, ~46K likes). Note: Cleveland-based, but this content is scoped to Cincinnati itself, not the region."
+        },
+        {
+          "key": "KAITLOTT",
+          "name": "Kait Lott (@kaitskravings) — Cincinnati food influencer, Queen City eats",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/kaitskravings/",
+          "followers": "~38K Instagram",
+          "verified": true,
+          "credible": "Cincinnati Magazine profile ('Kait Lott Knows What You Crave'); Cincinnati-based food creator highlighting local restaurants and Queen City culinary developments."
+        },
+        {
+          "key": "DIONEWU",
+          "name": "Dione Wu (@drinkingdiningdione) — Cincinnati foodie, dining-scene reels",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/drinkingdiningdione/",
+          "followers": "~41K Instagram",
+          "verified": true,
+          "credible": "Cincinnati Magazine profile ('Dione Wu Cooks Up Aesthetically Pleasing Food Photos'); ranked #5 among Cincinnati food & drink Instagram influencers (infludata, Mar 2026). Miami University grad based in Cincinnati."
+        },
+        {
+          "key": "CINCYEATS",
+          "name": "Cincinnati Eats (@cincyeats) — Queen City restaurant/dish curation since 2014",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/cincyeats/",
+          "followers": "~30K Instagram",
+          "verified": true,
+          "credible": "Featured by Cincinnati Refined ('Foodies Will Love These 5 Local Instagrammers'); run by two local photographers, posting Cincinnati eats since 2014."
+        },
+        {
+          "key": "CINCYFOODIES",
+          "name": "Cincinnati Food Blog (@cincinnatifoodies) — Cincinnati food & drink content creators",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/cincinnatifoodies/",
+          "followers": "~32K Instagram",
+          "verified": true,
+          "credible": "Established Cincinnati food-and-drink IG account (~32K, 'showing you all the eats in Cincinnati, Ohio'); appears in Cincinnati food-influencer roundups (Upfluence, influData)."
+        },
+        {
+          "key": "RONNYSALERNO",
+          "name": "Ronny Salerno — Queen City Discovery; Cincinnati urbex / weird-history photojournalist",
+          "type": "local_creator",
+          "scope": "city",
+          "blog": "https://ronnysalerno.com/",
+          "followers": "~3K social — included on AUTHORITY, not follower scale",
+          "verified": true,
+          "credible": "Published author of 'Fading Ads of Cincinnati'; founded Queen City Discovery (2007) documenting the abandoned Cincinnati Subway, the NKY 'ghost ship', and forgotten local sites; photojournalist at Cincinnati Public Radio; profiled by Cincinnati Magazine, Cincinnati Refined and Voyage Ohio. Kept as a genuinely authoritative weird-history creator rather than a large-following one."
+        },
+        {
+          "key": "JULIENIESEN",
+          "name": "Julie Niesen — 'Wine Me, Dine Me' / WVXU 'Bits & Bites'; veteran Cincinnati food writer",
+          "type": "local_creator",
+          "scope": "city",
+          "blog": "https://www.wvxu.org/julie-niesen-bits-bites",
+          "followers": "authority basis — award-winning food blog (2007–) + WVXU food columnist",
+          "verified": true,
+          "credible": "Covered Cincinnati food since 2007–08; her 'Wine Me, Dine Me' blog was cited by The Washington Post, USA Today, Serious Eats, the Cincinnati Enquirer and CityBeat; now writes 'Bits & Bites' for Cincinnati Public Radio (WVXU). Longtime Over-the-Rhine resident."
+        },
+        {
+          "key": "CHRISTIANGILL",
+          "name": "Christian Gill — 'Feast Mode 513' / Boomtown chef; Food Network champion",
+          "type": "local_creator",
+          "scope": "city",
+          "youtube": "https://www.youtube.com/results?search_query=Feast+Mode+513+Christian+Gill",
+          "followers": "YouTube following NOT independently verifiable — included on AUTHORITY",
+          "verified": true,
+          "credible": "Cincinnati chef/owner of Boomtown Biscuits & Whiskey (Pendleton); Food Network competitor and champion (won Ultimate Thanksgiving Challenge; also Beat Bobby Flay, Guy's Grocery Games); runs the 'Feast Mode 513' Cincinnati takeout-review channel (covered by Cincinnati Magazine, 2020). Note: his creator-following is not independently verifiable, so he is kept on chef/Food-Network authority, not on a claimed subscriber count."
+        }
+      ],
       "refreshLog": [
         "2026-08-14 — region scaffolded: Cincinnati OH + NKY riverfront; same pipeline + >=2-credible-source gate as SV/SF/NYC. No Michelin coverage in this market -> James Beard is the lone institutional authority."
       ]
@@ -2306,7 +2397,81 @@
           "credible": "Vetted oddities / hidden gems."
         }
       ],
-      "creators": [],
+      "creators": [
+        {
+          "key": "BWNICK",
+          "name": "Nick Dekker (Breakfast With Nick) — 'Dr. Breakfast', Columbus food/travel writer",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/breakfastwithnick/",
+          "blog": "https://breakfastwithnick.com/",
+          "followers": "IG @breakfastwithnick ~32K; blog since 2007",
+          "verified": true,
+          "credible": "IG @breakfastwithnick 32K followers / 8,201 posts; running the Breakfast With Nick blog since 2007; bylines in Columbus Monthly, Columbus Dispatch, Ohio Magazine, The Kitchn; leads brunch tours for Columbus Food Adventures. Deep, findable per-place Columbus content."
+        },
+        {
+          "key": "CFA",
+          "name": "Columbus Food Adventures / alt.eats.columbus (Bethia Woolf & Andy Dehus)",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/cbusadventures/",
+          "blog": "https://www.columbusfoodadventures.com/",
+          "followers": "IG @cbusadventures ~62K",
+          "verified": true,
+          "credible": "62K IG; USA Today 10Best 'Best Food Tour in the U.S.' 2024; 15 years of tours; grew out of the original alt.eats.columbus and tacotruckscolumbus sites — the authority on Columbus ethnic/hidden-gem eats and the taco-truck scene."
+        },
+        {
+          "key": "FEAST614",
+          "name": "Anthony O'Connell (614feast) — Columbus food creator & podcaster",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/614feast/",
+          "blog": "https://614feast.com/",
+          "followers": "IG @614feast ~34K",
+          "verified": true,
+          "credible": "~34K IG plus the '614 feast' podcast interviewing Columbus restaurateurs and foodies. Columbus-based; NOTE his separate @upperfeast (95K) is a NYC/Upper-East-Side account — the Columbus-scope account is @614feast."
+        },
+        {
+          "key": "OHF614",
+          "name": "Dan Wyatt (Ohio Foodie 614)",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/ohiofoodie614/",
+          "followers": "IG @ohiofoodie614 ~31K",
+          "verified": true,
+          "credible": "31K IG / 792 posts; steady Columbus restaurant reviews and new-opening alerts ('occasional trips outside Columbus' but Columbus-centered)."
+        },
+        {
+          "key": "TASTECBUS",
+          "name": "Alina & Kate (Tasting Columbus)",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/tastingcolumbus/",
+          "followers": "IG @tastingcolumbus ~31K",
+          "verified": true,
+          "credible": "31K IG / 1,728 posts; long-running Columbus food-blogger duo covering where to eat & explore in Columbus."
+        },
+        {
+          "key": "CBUSFOODIE",
+          "name": "Katy (& Reanna) — columbus_foodie, Columbus RNs",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/columbus_foodie/",
+          "followers": "IG @columbus_foodie ~50K (34K+ and growing)",
+          "verified": true,
+          "credible": "Two Columbus RNs (Katy Thompson, co-founded with Reanna) photographing the Columbus food scene; ~50K IG. Featured in Spoon University / Shoutout Ohio round-ups of Columbus food bloggers."
+        },
+        {
+          "key": "EATIN614",
+          "name": "Hollen Campbell (Eating in the 614)",
+          "type": "local_creator",
+          "scope": "city",
+          "instagram": "https://www.instagram.com/eatinginthe614/",
+          "followers": "IG @eatinginthe614 ~23K",
+          "verified": true,
+          "credible": "23K IG / 876 posts; blogging & Instagramming Columbus eats since 2016; Columbus food/lifestyle/events, social-media manager at a local venue."
+        }
+      ],
       "refreshLog": [
         "2026-08-14 — region scaffolded via the codified pipeline; >=2-credible-source gate. No Michelin/Eater in this market -> James Beard is the lone institutional authority."
       ]
@@ -2379,7 +2544,74 @@
           "credible": "Vetted oddities / hidden gems."
         }
       ],
-      "creators": [],
+      "creators": [
+        {
+          "key": "TIBE",
+          "name": "Emily Pentecost (@thingsivebeeneating) — Ohio food & travel creator whose Dayton reels go viral",
+          "type": "famous_creator",
+          "scope": "region",
+          "tiktok": "https://www.tiktok.com/@thingsivebeeneating",
+          "instagram": "https://www.instagram.com/thingsivebeeneating/",
+          "followers": "TikTok ~93.9K (2.9M likes), Instagram ~78K",
+          "verified": true,
+          "credible": "Cleveland-based Ohio food+travel creator; her Val's Bakery reel hit ~2.5M views and drove a documented 500% traffic spike (per WDTN). Findable Dayton videos at named places: Culture (video 7414662934174928171), Koji Burger (video 7413452663330835755)."
+        },
+        {
+          "key": "GIDS",
+          "name": "Gideon General (@gidsgids) — Dayton Fil-Am chef & recipe creator",
+          "type": "famous_creator",
+          "scope": "city",
+          "tiktok": "https://www.tiktok.com/@gidsgids",
+          "followers": "TikTok ~1.3M",
+          "verified": true,
+          "credible": "1.3M TikTok followers; Centerville HS + Sinclair Community College Culinary grad; dedicated 'goes viral' features in Dayton Daily News and WDTN; brand work with Pepsi, NFL, Samsung, Walmart, KFC; covered by Buzzfeed and Manila Bulletin. Recipe creator (not a place reviewer)."
+        },
+        {
+          "key": "KAITS",
+          "name": "Kait Lott (@kaitskravings) — Cincinnati/Ohio travel foodie",
+          "type": "famous_creator",
+          "scope": "region",
+          "instagram": "https://www.instagram.com/kaitskravings/",
+          "tiktok": "https://www.tiktok.com/@kaitskravings",
+          "followers": "Instagram ~38K",
+          "verified": true,
+          "credible": "~38K Instagram; profiled by Cincinnati Magazine ('Kait Lott Knows What You Crave'); Midwest/Ohio travel-foodie track record. Findable Dayton content at a named place: Tender Mercy ('Don't Sleep on Dayton', video 7165589419142171950)."
+        },
+        {
+          "key": "DAYTONVISTAS",
+          "name": "Andrew Walsh (Dayton Vistas) — Dayton history, architecture & preservation author",
+          "type": "local_creator",
+          "scope": "city",
+          "youtube": "https://www.youtube.com/@andrewwalshcities",
+          "blog": "https://daytonvistas.com/",
+          "instagram": "https://www.instagram.com/daytonvistas/",
+          "followers": "Published author + YouTube channel + Dayton Vistas Podcast + IG @daytonvistas",
+          "verified": true,
+          "credible": "Authoritative local historian: author of 'Lost Dayton, Ohio' (The History Press, 2018); academic librarian; runs Dayton Vistas (blog, YouTube, podcast) covering Dayton architecture and redevelopment; gives public talks and walking tours; documented press/media appearances. Qualifies on authority."
+        },
+        {
+          "key": "GIRLABOUTDAYTON",
+          "name": "Lauren Rinehart (Girl About Dayton) — Dayton lifestyle & food blogger",
+          "type": "local_creator",
+          "scope": "city",
+          "blog": "https://girlaboutdayton.com/",
+          "instagram": "https://www.instagram.com/girlaboutdayton/",
+          "followers": "Blog since 2011 (relaunched 2023) + weekly newsletter; IG/Threads/Pinterest/Facebook @girlaboutdayton",
+          "verified": true,
+          "credible": "Longest-running Dayton lifestyle blog (started 2011); weekly newsletter; Dayton-native marketing pro; profiled by Voyage Ohio Magazine; publishes dedicated first-person food posts at named Dayton places (e.g., Wheat Penny)."
+        },
+        {
+          "key": "SLIDERGUY",
+          "name": "Simba Muhammad II (@DaSliderGuy) — Dayton social-media chef",
+          "type": "local_creator",
+          "scope": "city",
+          "tiktok": "https://www.tiktok.com/@dasliderguy",
+          "youtube": "https://www.youtube.com/@DaSliderGuy",
+          "followers": "Viral per DDN/WDTN; full-time across TikTok/YouTube/IG/FB (exact count not surfaced via search)",
+          "verified": true,
+          "credible": "Dayton Daily News and WDTN both ran dedicated features documenting his viral rise ('Dayton content creator goes viral on TikTok'; 'Dayton chef goes viral by sharing recipes'); full-time creator; Voyage Ohio 'Rising Stars' profile. Popularity is third-party-documented even though a scraped follower number was not surfaced. Recipe/comfort-food creator (not a place reviewer)."
+        }
+      ],
       "refreshLog": [
         "2026-08-14 — region scaffolded via the codified pipeline; >=2-credible-source gate. No Michelin/Eater in this market -> James Beard is the lone institutional authority."
       ]

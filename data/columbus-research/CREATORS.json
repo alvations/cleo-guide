@@ -1,0 +1,102 @@
+{
+  "creators": [
+    {
+      "key": "BWNICK",
+      "name": "Nick Dekker (Breakfast With Nick) — 'Dr. Breakfast', Columbus food/travel writer",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/breakfastwithnick/",
+      "blog": "https://breakfastwithnick.com/",
+      "followers": "IG @breakfastwithnick ~32K; blog since 2007",
+      "verified": true,
+      "credible": "IG @breakfastwithnick 32K followers / 8,201 posts; running the Breakfast With Nick blog since 2007; bylines in Columbus Monthly, Columbus Dispatch, Ohio Magazine, The Kitchn; leads brunch tours for Columbus Food Adventures. Deep, findable per-place Columbus content."
+    },
+    {
+      "key": "CFA",
+      "name": "Columbus Food Adventures / alt.eats.columbus (Bethia Woolf & Andy Dehus)",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/cbusadventures/",
+      "blog": "https://www.columbusfoodadventures.com/",
+      "followers": "IG @cbusadventures ~62K",
+      "verified": true,
+      "credible": "62K IG; USA Today 10Best 'Best Food Tour in the U.S.' 2024; 15 years of tours; grew out of the original alt.eats.columbus and tacotruckscolumbus sites — the authority on Columbus ethnic/hidden-gem eats and the taco-truck scene."
+    },
+    {
+      "key": "FEAST614",
+      "name": "Anthony O'Connell (614feast) — Columbus food creator & podcaster",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/614feast/",
+      "blog": "https://614feast.com/",
+      "followers": "IG @614feast ~34K",
+      "verified": true,
+      "credible": "~34K IG plus the '614 feast' podcast interviewing Columbus restaurateurs and foodies. Columbus-based; NOTE his separate @upperfeast (95K) is a NYC/Upper-East-Side account — the Columbus-scope account is @614feast."
+    },
+    {
+      "key": "OHF614",
+      "name": "Dan Wyatt (Ohio Foodie 614)",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/ohiofoodie614/",
+      "followers": "IG @ohiofoodie614 ~31K",
+      "verified": true,
+      "credible": "31K IG / 792 posts; steady Columbus restaurant reviews and new-opening alerts ('occasional trips outside Columbus' but Columbus-centered)."
+    },
+    {
+      "key": "TASTECBUS",
+      "name": "Alina & Kate (Tasting Columbus)",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/tastingcolumbus/",
+      "followers": "IG @tastingcolumbus ~31K",
+      "verified": true,
+      "credible": "31K IG / 1,728 posts; long-running Columbus food-blogger duo covering where to eat & explore in Columbus."
+    },
+    {
+      "key": "CBUSFOODIE",
+      "name": "Katy (& Reanna) — columbus_foodie, Columbus RNs",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/columbus_foodie/",
+      "followers": "IG @columbus_foodie ~50K (34K+ and growing)",
+      "verified": true,
+      "credible": "Two Columbus RNs (Katy Thompson, co-founded with Reanna) photographing the Columbus food scene; ~50K IG. Featured in Spoon University / Shoutout Ohio round-ups of Columbus food bloggers."
+    },
+    {
+      "key": "EATIN614",
+      "name": "Hollen Campbell (Eating in the 614)",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/eatinginthe614/",
+      "followers": "IG @eatinginthe614 ~23K",
+      "verified": true,
+      "credible": "23K IG / 876 posts; blogging & Instagramming Columbus eats since 2016; Columbus food/lifestyle/events, social-media manager at a local venue."
+    }
+  ],
+  "attach": [
+    {
+      "place": "Fox in the Snow Cafe",
+      "creatorKey": "BWNICK",
+      "url": "https://breakfastwithnick.com/2022/10/02/best-coffee-fox-in-the-snow-italian-village/"
+    },
+    {
+      "place": "Katalina's",
+      "creatorKey": "BWNICK",
+      "url": "https://breakfastwithnick.com/2015/10/01/katalinas-columbus/"
+    },
+    {
+      "place": "Schmidt's Sausage Haus",
+      "creatorKey": "BWNICK",
+      "url": "https://breakfastwithnick.com/2022/09/06/where-to-find-german-food-in-columbus/"
+    }
+  ],
+  "rejected": [
+    {"name": "exploreohiofood (Julia Sharrock)", "platform": "TikTok/Instagram", "reason": "Real track record (active since 2017, Voyage Ohio feature) but no follower count could be verified in search — popularity you can't verify isn't popularity."},
+    {"name": "laneyintheland (Laney)", "platform": "TikTok 108K", "reason": "Region-only: Akron-based statewide 'For the love of Ohio' travel creator; no Columbus food track record — a region creator mislabeled as a city creator."},
+    {"name": "upperfeast (Anthony O'Connell)", "platform": "Instagram 95K", "reason": "Wrong-city scope: @upperfeast is a NYC/Upper-East-Side account. Kept his Columbus-scope @614feast instead."},
+    {"name": "CbusFoodie614 (Lindsay R)", "platform": "Instagram 2,628", "reason": "Following too small to count as a sizable, credible creator."},
+    {"name": "foodieofcolumbus", "platform": "Instagram 9,521", "reason": "Below the sizable-following bar next to the 23K-62K accounts kept."},
+    {"name": "Yeahh Mike (@rightideawrongchef)", "platform": "claimed 278K", "reason": "Could not verify a Columbus track record in search; unverifiable city scope."}
+  ]
+}

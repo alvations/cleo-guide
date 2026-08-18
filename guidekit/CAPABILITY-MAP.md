@@ -65,6 +65,24 @@ without a git round-trip — another reason delegation was neither necessary nor
 appropriate here. Had a real gap existed, the delegation target would have been
 that constrained-decoding adapter.)
 
+## Tests & fixes (audit, 2026-08-18)
+
+`guidekit/tests/` — 42 offline unit tests (`python3 -m unittest discover -s guidekit/tests`),
+no network / Ollama / API keys. They cover config precedence, the JSON extractor, the sourcing-gate
+preview (incl. parity with `tools/sourcecheck.py`), search de-dup, Nominatim place-pin grading, the
+fan-out orchestrator, and a live drive of the **real** `tools/sourcecheck.py` through the wrapper.
+
+Two genuine bugs fixed during the audit (both in guidekit; the `tools/*` scripts were left unchanged):
+
+* `llm.py` `from_config` kept the `litellm:` prefix in the model id
+  (`litellm:ollama/llama3.1` → `model="litellm:ollama/llama3.1"`, an id LiteLLM rejects). Fixed to
+  emit the provider-qualified `ollama/llama3.1`.
+* `schemas.py` `ELITE_SOLO` was missing **`NPS`**, so the in-process `passes_sourcing` preview
+  disagreed with the real gate (it would drop a lone-NPS place like Alcatraz that the gate keeps).
+  Now matches all five authoritative definitions.
+
+Full write-up + the documented-not-fixed `sourcecheck.py` worklist-path quirk: [`../docs/TOOLS.md`](../docs/TOOLS.md).
+
 ## What is NOT abstracted (by design)
 
 * The **deterministic gates themselves** — they are the source of truth and run
