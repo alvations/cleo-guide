@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Cincinnati field guide — 50 sights and 31 places to eat across Cincinnati and Northern Kentucky, each traceable to its source (the Cincinnati Enquirer, Cincinnati Magazine, CityBeat, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<title>Cincinnati Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Cincinnati, sourced</p>
+  <h1>Cincinnati<span class="thin">the Queen City &mdash; chili, Over-the-Rhine &amp; the Ohio riverfront</span></h1>
+  <p class="standfirst">50 sights and 31 places to eat across Cincinnati and the Northern Kentucky riverfront, each traceable to the source that named it. The city\u2019s food canon is its own: <strong>Cincinnati chili</strong> (Skyline, Camp Washington), goetta, Montgomery Inn ribs, Findlay Market, Graeter’s ice cream and the German brewing heritage of Over-the-Rhine. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#E8973A"></i>Downtown & The Banks</span>
+  <span><i style="background:#C0504D"></i>Over-the-Rhine & Pendleton</span>
+  <span><i style="background:#8064A2"></i>Uptown (Clifton, Corryville & CUF)</span>
+  <span><i style="background:#4F81BD"></i>East Side (Hyde Park, Oakley, Mt. Lookout)</span>
+  <span><i style="background:#9BBB59"></i>West Side & Northside</span>
+  <span><i style="background:#4BACC6"></i>Northern Suburbs (Blue Ash, Montgomery, Mason)</span>
+  <span><i style="background:#7E8FC4"></i>Northern Kentucky (Covington, Newport, Bellevue)</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="chili, goetta, Union Terminal, ribs…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-14</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across James Beard, the Cincinnati Enquirer, Cincinnati Magazine, CityBeat, Cincinnati Refined, Soapbox, Atlas Obscura and official / visitor-bureau sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  ATLASOBSCURA:{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  CINCYMAG:{k:"CINCINNATI MAG",t:"Cincinnati Magazine",u:"https://www.cincinnatimagazine.com",l:"Cincinnati Magazine"},
+  CINCYREFINED:{k:"CINCINNATI REFINED",t:"Cincinnati Refined",u:"https://cincinnatirefined.com",l:"Cincinnati Refined"},
+  CITYBEAT:{k:"CITYBEAT",t:"CityBeat Cincinnati",u:"https://www.citybeat.com",l:"CityBeat Cincinnati"},
+  NPS:{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/wiho/",l:"National Park Service"},
+  OFFICIAL:{k:"OFFICIAL SITE",t:"Official venue/site",u:"",l:"Official venue/site"},
+  OHIOHISTORY:{k:"OHIO HISTORY",t:"Ohio History Connection / historical markers",u:"https://historicsites.ohiohistory.org",l:"Ohio History Connection / historical markers"},
+  VISITCINCY:{k:"CINCINNATI USA",t:"Cincinnati USA (Visit Cincy CVB)",u:"https://www.visitcincy.com",l:"Cincinnati USA (Visit Cincy CVB)"},
+  WIKIPEDIA:{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"DTN",n:"Downtown & The Banks",c:"#E8973A"},
+  {id:"OTR",n:"Over-the-Rhine & Pendleton",c:"#C0504D"},
+  {id:"UPT",n:"Uptown (Clifton, Corryville & CUF)",c:"#8064A2"},
+  {id:"EAST",n:"East Side (Hyde Park, Oakley, Mt. Lookout)",c:"#4F81BD"},
+  {id:"WEST",n:"West Side & Northside",c:"#9BBB59"},
+  {id:"BURB",n:"Northern Suburbs (Blue Ash, Montgomery, Mason)",c:"#4BACC6"},
+  {id:"NKY",n:"Northern Kentucky (Covington, Newport, Bellevue)",c:"#7E8FC4"}
+];
+
+const P = [
+{t:1,a:"WEST",n:"Cincinnati Museum Center at Union Terminal",ad:"1301 Western Ave, Cincinnati, OH 45203",la:39.11000,ln:-84.53778,w:"One of the last grand Art Deco railroad terminals (1933), a National Historic Landmark whose half-dome rotunda now houses the History, Natural History & Science, and Children's museums plus an OMNIMAX theater.",k:"Multi-museum complex; check which museums/exhibits are open before visiting.",g:["ICON","MUS","ARCH","FAM"],s:[["OFFICIAL","https://www.cincymuseum.org/union-terminal/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cincinnati_Museum_Center"]]},
+{t:1,a:"DTN",n:"John A. Roebling Suspension Bridge",ad:"100 W Mehring Way, Cincinnati, OH 45202 (Covington side: 200 Riverside Dr, Covington, KY 41011)",la:39.09222,ln:-84.50972,w:"Opened 1867 as the longest suspension span in the world, John A. Roebling's Ohio River bridge was the prototype for his Brooklyn Bridge; its illuminated cables are Cincinnati's signature riverfront image.",g:["ICON","RIVER","ARCH","FREE"],s:[["OFFICIAL","https://roeblingbridge.org/Bridge-History"],["WIKIPEDIA","https://en.wikipedia.org/wiki/John_A._Roebling_Suspension_Bridge"]]},
+{t:1,a:"DTN",n:"Fountain Square & the Tyler Davidson Fountain",ad:"520 Vine St, Cincinnati, OH 45202",la:39.10164,ln:-84.51244,w:"The city's civic living room since 1871, anchored by 'The Genius of Water,' Ferdinand von Miller's bronze fountain gifted by Henry Probasco in memory of Tyler Davidson.",g:["ICON","FREE"],s:[["OFFICIAL","https://myfountainsquare.com/history/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tyler_Davidson_Fountain"]]},
+{t:3,a:"DTN",n:"Carew Tower Observation Deck — CLOSED",ad:"441 Vine St, Cincinnati, OH 45202",la:39.10070,ln:-84.51320,w:"The 49th-floor open-air deck atop the 1931 Art Deco Carew Tower (by the Empire State Building's architects) long gave the best downtown-and-river panorama.",k:"Deck closed as of 2026 during the tower's conversion to apartments; slated to reopen but no date announced. The building's ground-floor Art Deco arcade remains accessible.",closed:1,g:["ICON","VIEW","ARCH"],s:[["OFFICIAL","https://carewtower.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Carew_Tower"]]},
+{t:1,a:"OTR",n:"Cincinnati Music Hall",ad:"1241 Elm St, Cincinnati, OH 45202",la:39.10944,ln:-84.51889,w:"Samuel Hannaford's 1878 High Victorian Gothic landmark facing Washington Park, home to the Cincinnati Symphony, Pops, Opera and Ballet, reopened in 2017 after a $143M restoration.",g:["ICON","ARCH","ENT","PARK"],s:[["OFFICIAL","https://www.cincinnatiarts.org/music-hall-home/about-music-hall"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cincinnati_Music_Hall"]]},
+{t:1,a:"DTN",n:"National Underground Railroad Freedom Center",ad:"50 E Freedom Way, Cincinnati, OH 45202",la:39.09767,ln:-84.51132,w:"Opened 2004 on the riverfront where escaping slaves crossed the Ohio, this museum tells the story of the Underground Railroad and contemporary freedom struggles, anchored by a rescued slave pen.",g:["ICON","MUS","RIVER"],s:[["OFFICIAL","https://freedomcenter.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Underground_Railroad_Freedom_Center"]]},
+{t:1,a:"UPT",n:"Cincinnati Zoo & Botanical Garden",ad:"3400 Vine St, Cincinnati, OH 45220",la:39.14500,ln:-84.50750,w:"The nation's second-oldest zoo (1875) and an accredited botanical garden, now world-famous as the home of Fiona the hippo, born prematurely in 2017.",g:["ICON","FAM","PARK"],s:[["OFFICIAL","https://cincinnatizoo.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cincinnati_Zoo_and_Botanical_Garden"]]},
+{t:1,a:"OTR",n:"Findlay Market",ad:"1801 Race St, Cincinnati, OH 45202",la:39.11528,ln:-84.51917,w:"Ohio's oldest continuously operated public market (1855), an iron-framed OTR institution packed with Eckerlin Meats, Pho Lang Thang and dozens of vendors plus a weekend farmers' market.",g:["ICON","FREE","FAM","SHOP"],s:[["OFFICIAL","https://www.findlaymarket.org/history"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Findlay_Market"]]},
+{t:2,a:"OTR",n:"Washington Park",ad:"1230 Elm St, Cincinnati, OH 45202",la:39.10889,ln:-84.51750,w:"A restored 6-acre park (reopened 2012) across from Music Hall with an interactive fountain, bandstand and event lawn, the green heart of Over-the-Rhine's revival.",g:["PARK","FREE","FAM","ICON"],s:[["OFFICIAL","https://washingtonpark.org/history/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Washington_Park_(Cincinnati,_Ohio)"]]},
+{t:1,a:"DTN",n:"Great American Ball Park & Reds Hall of Fame",ad:"100 Joe Nuxhall Way, Cincinnati, OH 45202",la:39.09750,ln:-84.50667,w:"Riverfront home of the Cincinnati Reds, baseball's oldest professional franchise, since 2003; the adjoining Reds Hall of Fame & Museum honors the Big Red Machine.",g:["ICON","ENT","RIVER","MUS"],s:[["OFFICIAL","https://www.mlb.com/reds/ballpark"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Great_American_Ball_Park"]]},
+{t:2,a:"DTN",n:"Paycor Stadium",ad:"1 Paycor Stadium, Cincinnati, OH 45202",la:39.09500,ln:-84.51600,w:"The riverfront home of the NFL's Cincinnati Bengals since 2000 (formerly Paul Brown Stadium), part of the downtown sports-and-Banks corridor.",g:["ICON","ENT","RIVER"],s:[["OFFICIAL","https://www.bengals.com/stadium/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Paycor_Stadium"]]},
+{t:2,a:"DTN",n:"TQL Stadium",ad:"1501 Central Pkwy, Cincinnati, OH 45214",la:39.11139,ln:-84.52222,w:"FC Cincinnati's $250M soccer-specific stadium in the West End, opened 2021, known for a translucent LED-lit facade and one of MLS's loudest atmospheres.",g:["ENT","ARCH"],s:[["OFFICIAL","https://tqlstadium.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/TQL_Stadium"]]},
+{t:2,a:"DTN",n:"Smale Riverfront Park & Carol Ann's Carousel",ad:"166 W Mehring Way, Cincinnati, OH 45202",la:39.09530,ln:-84.50947,w:"A landscaped riverfront park between the ballpark and stadium with swings, water features and Carol Ann's Carousel, whose 44 hand-carved animals honor Cincinnati history.",g:["PARK","RIVER","FAM","FREE"],s:[["VISITCINCY","https://www.visitcincy.com/listing/smale-riverfront-park/5509/"],["CINCYMAG","https://www.cincinnatimagazine.com/article/smale-riverfront-park-is-good-old-fashioned-summer-fun/"]]},
+{t:2,a:"DTN",n:"Sawyer Point & the Serpentine Wall",ad:"705 E Pete Rose Way, Cincinnati, OH 45202",la:39.10109,ln:-84.49810,w:"A mile of riverfront park at Yeatman's Cove where the stepped Serpentine Wall (1976) descends to the Ohio, a classic spot to sit and watch the river and the Kentucky skyline.",g:["PARK","RIVER","FREE"],s:[["OFFICIAL","https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/sawyer-point-yeatmans-cove/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sawyer_Point_Park_%26_Yeatman's_Cove"]]},
+{t:2,a:"NKY",n:"Purple People Bridge",ad:"1 Levee Way, Newport, KY 41071",la:39.09802,ln:-84.49775,w:"A 2,670-ft former rail bridge, restored in 2006 as a purple-painted pedestrian-only crossing linking Newport on the Levee to downtown Cincinnati with skyline views.",g:["RIVER","VIEW","FREE","SHOP"],s:[["OFFICIAL","https://purplepeoplebridge.com/history/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Purple_People_Bridge"]]},
+{t:1,a:"NKY",n:"Newport Aquarium",ad:"1 Aquarium Way, Newport, KY 41071",la:39.09437,ln:-84.49759,w:"A riverfront aquarium at Newport on the Levee with 20,000+ animals, walk-through acrylic tunnels and a rope 'Shark Bridge' suspended over the sharks.",g:["FAM","ENT","SHOP","RIVER"],s:[["OFFICIAL","https://www.newportaquarium.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Newport_Aquarium"]]},
+{t:1,a:"NKY",n:"MainStrasse Village",ad:"Main St & W 6th St, Covington, KY 41011",la:39.08431,ln:-84.51753,w:"A restored 19th-century German neighborhood in Covington with Italianate storefronts, bars and the Carroll Chimes Bell Tower's animated Pied Piper show over the Goose Girl Fountain.",g:["ICON","ODD","FREE","ARCH"],s:[["OFFICIAL","https://www.mainstrassevillage.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mainstrasse_Village"]]},
+{t:1,a:"NKY",n:"Devou Park City Overlook",ad:"1201 Park Dr, Covington, KY 41011",la:39.08178,ln:-84.52625,w:"The Drees Pavilion overlook in Covington's 700-acre Devou Park frames the definitive postcard view of the Cincinnati skyline across the Ohio, renovated in 2024.",g:["VIEW","PARK","FREE"],s:[["OFFICIAL","https://www.covingtonky.gov/government/departments/neighborhood-services/parks-recreation/parks-playgrounds/devou-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Devou_Park"]]},
+{t:1,a:"OTR",n:"Over-the-Rhine Historic District",ad:"Vine St & E 12th St, Cincinnati, OH 45202",la:39.11306,ln:-84.51611,w:"One of the largest, most intact urban historic districts in the U.S. (NRHP 1983, ~943 contributing buildings) with the country's largest contiguous collection of 19th-century Italianate architecture, built by German immigrants.",g:["ICON","ARCH","FREE","SHOP"],s:[["VISITCINCY","https://www.visitcincy.com/neighborhoods/downtown/over-the-rhine/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Over-the-Rhine"]]},
+{t:2,a:"NKY",n:"BB Riverboats",ad:"101 Riverboat Row, Newport, KY 41071",la:39.09368,ln:-84.50134,w:"Long-running Ohio River sightseeing, lunch and dinner cruises departing the Newport landing on Riverboat Row, across from downtown Cincinnati.",k:"Regular sightseeing schedule runs roughly Memorial Day to Labor Day; check dates.",g:["RIVER","ENT","FAM","ICON"],s:[["OFFICIAL","https://bbriverboats.com/"],["VISITCINCY","https://www.visitcincy.com/listing/bb-riverboats/4764/"]]},
+{t:2,a:"NKY",n:"Newport on the Levee",ad:"1 Levee Way, Newport, KY 41071",la:39.09470,ln:-84.49640,w:"A multi-level riverfront dining and entertainment complex (opened 2001) housing the Newport Aquarium, a food hall, cinema and comedy club, at the foot of the Purple People Bridge.",g:["ENT","FAM","RIVER","SHOP"],s:[["OFFICIAL","https://www.newportonthelevee.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Newport_on_the_Levee"]]},
+{t:2,a:"DTN",n:"The Banks",ad:"150 E Freedom Way, Cincinnati, OH 45202",la:39.09726,ln:-84.50985,w:"An 18-acre mixed-use riverfront district tucked between the ballpark and Paycor Stadium, tying together restaurants, bars and residences alongside Smale Park and the Freedom Center.",g:["ENT","RIVER","FREE","ICON"],s:[["OFFICIAL","https://thebankscincy.com/"],["CITYBEAT","https://community.citybeat.com/location/the-banks-12641594"]]},
+{t:1,a:"EAST",n:"Cincinnati Art Museum",ad:"953 Eden Park Dr, Cincinnati, OH 45202",la:39.11390,ln:-84.49690,w:"Encyclopedic collection of 67,000+ works spanning 6,000 years, perched in Eden Park; general admission and parking are always free.",k:"Free general admission; closed Mondays (Tue–Sun 11–5, Thu to 8).",g:["MUS","ARCH","FREE","PARK"],s:[["OFFICIAL","https://www.cincinnatiartmuseum.org/visit/"],["VISITCINCY","https://www.visitcincy.com/listing/cincinnati-art-museum/4766/"]]},
+{t:1,a:"DTN",n:"Taft Museum of Art",ad:"316 Pike St, Cincinnati, OH 45202",la:39.10250,ln:-84.50333,w:"European old masters (Rembrandt, Turner, Hals, Ingres) plus Chinese porcelains and French Renaissance enamels inside an 1820 Federal mansion with Robert S. Duncanson murals; bequeathed to the city in 1927.",k:"Historic house museum, small but exceptional; check hours.",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Taft_Museum_of_Art"],["OFFICIAL","https://www.taftmuseum.org/about-the-museum"]]},
+{t:1,a:"DTN",n:"Contemporary Arts Center",ad:"44 E 6th St, Cincinnati, OH 45202",la:39.10280,ln:-84.51201,w:"Zaha Hadid's 2003 Lois & Richard Rosenthal Center — the first American art museum designed by a woman, an internationally studied piece of architecture at 6th & Walnut.",k:"Rotating contemporary shows; the building itself is the draw.",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Contemporary_Arts_Center"],["OFFICIAL","https://www.contemporaryartscenter.org/about-us/our-building"]]},
+{t:1,a:"WEST",n:"American Sign Museum",ad:"1330 Monmouth Ave, Cincinnati, OH 45225",la:39.14349,ln:-84.53993,w:"The nation's largest public sign museum — a glowing indoor streetscape of vintage neon and Americana signage in Camp Washington.",k:"Closed Mon–Tue (Wed–Sun 10–4).",g:["MUS","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/American_Sign_Museum"],["OFFICIAL","https://www.americansignmuseum.org/entry/"]]},
+{t:2,a:"DTN",n:"Cincinnati Fire Museum",ad:"315 W Court St, Cincinnati, OH 45202",la:39.10535,ln:-84.51963,w:"200+ years of firefighting history in the restored 1906 Court Street Firehouse — Cincinnati created the nation's first paid professional fire department in 1853.",k:"Housed in a National Register 1906 firehouse; limited hours.",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Fire_Museum_of_Greater_Cincinnati"],["OFFICIAL","https://www.cincyfiremuseum.com/exhibits/cfm-history/"]]},
+{t:2,a:"WEST",n:"The Betts House",ad:"416 Clark St, Cincinnati, OH 45203",la:39.10781,ln:-84.52211,w:"Ohio's oldest brick house (1804) and the anchor of the Betts-Longworth Historic District — now a small museum of the built environment in the West End.",k:"Very small; check for open days/guided tours.",g:["MUS","ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Betts_House_(Cincinnati,_Ohio)"],["OFFICIAL","https://www.bettshousecincinnati.org/about/about-us/"]]},
+{t:2,a:"NKY",n:"Behringer-Crawford Museum",ad:"1600 Montague Rd, Covington, KY 41011",la:39.08120,ln:-84.53860,w:"Northern Kentucky's regional history and natural history museum, set inside Devou Park with skyline views over the river.",k:"In Devou Park (NKY); closed Mondays.",g:["MUS","PARK","VIEW"],s:[["OFFICIAL","https://www.exploredevoupark.org/behringercrawford-museum"],["VISITCINCY","https://www.aaa.com/travelinfo/kentucky/covington/attractions/behringer-crawford-museum-540138.html"]]},
+{t:1,a:"EAST",n:"Eden Park & Twin Lakes Overlook",ad:"950 Eden Park Dr, Cincinnati, OH 45202",la:39.11667,ln:-84.49167,w:"Cincinnati's grand hilltop park above the river — the Twin Lakes overlook gives one of the best Ohio River views in the city, plus the Presidential Grove of memorial oaks (first planted 1882 for Washington).",k:"Free, open daily; overlook is in the NE corner.",g:["PARK","VIEW","FREE","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Eden_Park_(Cincinnati)"],["VISITCINCY","https://www.visitcincy.com/plan-your-visit/trip-ideas-culture-guides/parks-with-best-views-of-cincinnati/"]]},
+{t:2,a:"EAST",n:"Krohn Conservatory",ad:"1501 Eden Park Dr, Cincinnati, OH 45202",la:39.11519,ln:-84.49039,w:"Art Deco glasshouse in Eden Park (1933) with rainforest, desert and orchid houses and a beloved annual spring butterfly show.",k:"Small admission for special shows; closed Mondays.",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Krohn_Conservatory"],["OFFICIAL","https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/krohn-conservatory/"]]},
+{t:2,a:"EAST",n:"Ault Park",ad:"3600 Observatory Ave, Cincinnati, OH 45208",la:39.13289,ln:-84.41100,w:"224-acre Mt. Lookout park crowned by a 1930 Italian Renaissance pavilion; climb to the overlook for panoramic views across the Little Miami valley.",k:"Free; hilltop pavilion is a popular event venue.",g:["PARK","VIEW","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Ault_Park"],["OFFICIAL","https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/ault-park/"]]},
+{t:2,a:"WEST",n:"Mt. Airy Forest",ad:"5083 Colerain Ave, Cincinnati, OH 45223",la:39.17968,ln:-84.56601,w:"At 1,459 acres Cincinnati's largest park and one of the country's largest urban forests, with miles of trails and a free 120-acre arboretum.",k:"Free; huge — pick a trailhead or the arboretum.",g:["PARK","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mount_Airy_Forest"],["VISITCINCY","https://www.visitcincy.com/listing/mt-airy-forest/6320/"]]},
+{t:1,a:"WEST",n:"Spring Grove Cemetery & Arboretum",ad:"4521 Spring Grove Ave, Cincinnati, OH 45232",la:39.16444,ln:-84.52278,w:"A National Historic Landmark garden cemetery (1844) — 733 acres of lakes, monuments and champion trees, one of the largest cemeteries in the US and a designated arboretum.",k:"Free; a working cemetery — be respectful.",g:["PARK","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Spring_Grove_Cemetery"],["OFFICIAL","https://www.springgrove.org/visitors-guide/"]]},
+{t:2,a:"BURB",n:"Cincinnati Nature Center (Rowe Woods)",ad:"4949 Tealtown Rd, Milford, OH 45150",la:39.12639,ln:-84.24694,w:"1,000+ acres of woodland trails, ponds and a nature center in Milford — a longtime regional favorite for hiking and birding.",k:"Admission/membership; east-suburb drive.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cincinnati_Nature_Center"],["OFFICIAL","https://www.cincynature.org/visit/rowe-woods"]]},
+{t:2,a:"EAST",n:"Alms Park",ad:"710 Tusculum Ave, Cincinnati, OH 45226",la:39.11132,ln:-84.42899,w:"Hilltop Mt. Lookout park on Mt. Tusculum with several overlooks taking in the Ohio and Little Miami rivers, the NKY hills and Lunken Airport.",k:"Free, open daily 6a–10p.",g:["PARK","VIEW","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Alms_Park"],["OFFICIAL","https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/alms-park/"]]},
+{t:1,a:"EAST",n:"Cincinnati Observatory",ad:"3489 Observatory Pl, Cincinnati, OH 45208",la:39.13861,ln:-84.42278,w:"The oldest professional observatory in the US and 'Birthplace of American Astronomy,' with one of the world's oldest working telescopes; on its Mt. Lookout hilltop since 1873.",k:"Public viewing nights and tours — check schedule.",g:["MUS","ARCH","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cincinnati_Observatory"],["ATLASOBSCURA","https://www.atlasobscura.com/places/cincinnati-observatory"]]},
+{t:1,a:"EAST",n:"Mt. Adams & Holy Cross-Immaculata Church",ad:"30 Guido St, Cincinnati, OH 45202",la:39.10760,ln:-84.49661,w:"Hillside artists' neighborhood of steep streets and skyline views; its 1859 Immaculata Church draws 10,000+ pilgrims each Good Friday to 'Pray the Steps' up St. Gregory St.",k:"Church is active; the Good Friday steps tradition is the signature draw.",g:["VIEW","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Immaculata_Church"],["CITYBEAT","https://www.citybeat.com/arts/things-to-do/cincinnatians-gather-for-praying-the-steps-friday/"]]},
+{t:2,a:"UPT",n:"Bellevue Hill Park",ad:"2191 Ohio Ave, Cincinnati, OH 45219",la:39.12124,ln:-84.51985,w:"Clifton Heights hillside park with a grand, wide-open view over the entire Cincinnati basin, downtown skyline and the Ohio River.",k:"Free; small neighborhood park (not the NKY Bellevue).",g:["VIEW","PARK","FREE","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Bellevue_Hill_Park"],["OFFICIAL","https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/bellevue-hill-park/"]]},
+{t:2,a:"DTN",n:"Isaac M. Wise (Plum Street) Temple",ad:"720 Plum St, Cincinnati, OH 45202",la:39.10361,ln:-84.51806,w:"One of the best-preserved Moorish Revival buildings in the US (1866), a National Historic Landmark tied to Reform Judaism founder Rabbi Isaac Mayer Wise.",k:"Active synagogue; interior by tour/arrangement.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Isaac_M._Wise_Temple"],["OHIOHISTORY","https://www.hmdb.org/m.asp?m=24089"]]},
+{t:2,a:"DTN",n:"Cathedral Basilica of St. Peter in Chains",ad:"325 W 8th St, Cincinnati, OH 45202",la:39.10386,ln:-84.51908,w:"Greek Revival 'White Angel' cathedral (1845) at 8th & Plum with a soaring spire and mosaic interior, seat of the Archdiocese of Cincinnati.",k:"Active cathedral; open for visits around services.",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cathedral_Basilica_of_St._Peter_in_Chains"],["OFFICIAL","https://resources.catholicaoc.org/wpfd_file/cathedral-basilica-of-st-peter-in-chains"]]},
+{t:1,a:"UPT",n:"William Howard Taft National Historic Site",ad:"2038 Auburn Ave, Cincinnati, OH 45219",la:39.11972,ln:-84.50861,w:"NPS-run birthplace and boyhood home of the only man to serve as both US President and Chief Justice, in the Mt. Auburn Historic District.",k:"Free NPS site; ranger tours of the restored home.",g:["ARCH","FREE","SHOP"],s:[["NPS","https://www.nps.gov/wiho/planyourvisit/basicinfo.htm"],["WIKIPEDIA","https://en.wikipedia.org/wiki/William_Howard_Taft_National_Historic_Site"]]},
+{t:2,a:"EAST",n:"Harriet Beecher Stowe House",ad:"2950 Gilbert Ave, Cincinnati, OH 45206",la:39.13302,ln:-84.48766,w:"Walnut Hills home where the future 'Uncle Tom's Cabin' author lived; now an Ohio History Connection museum on abolition and Cincinnati's Black history, reopened after a $2.5M renovation.",k:"Limited hours; recently renovated.",g:["MUS","ARCH","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Harriet_Beecher_Stowe_House_(Cincinnati,_Ohio)"],["OHIOHISTORY","https://historicsites.ohiohistory.org/stowehouse/"]]},
+{t:1,a:"BURB",n:"Loveland Castle (Chateau Laroche)",ad:"12075 Shore Dr, Loveland, OH 45140",la:39.28323,ln:-84.26623,w:"A medieval-style stone castle on the Little Miami River hand-built over decades starting 1927 by WWI vet and Boy Scout leader Harry Andrews — a beloved regional oddity.",k:"Seasonal/weekend hours; NE-suburb drive to Loveland.",g:["ODD","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Chateau_Laroche"],["ATLASOBSCURA","https://www.atlasobscura.com/places/harry-andrews-chateau-laroche"]]},
+{t:2,a:"EAST",n:"Rookwood Pottery Building",ad:"1077 Celestial St, Cincinnati, OH 45202",la:39.10722,ln:-84.50083,w:"The 1892 Tudor-style Mt. Adams pottery works of famed Rookwood Pottery, its old kilns big enough to dine in; now a restaurant/bar with skyline views.",k:"Building now a restaurant — exterior/architecture and kiln dining rooms are the draw.",g:["ARCH","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Rookwood_Pottery_Company"],["CITYBEAT","https://www.citybeat.com/location/the-rookwood-pottery-building-14711863"]]},
+{t:2,a:"EAST",n:"Hyde Park Square",ad:"2700 Erie Ave, Cincinnati, OH 45208",la:39.13972,ln:-84.44250,w:"Cincinnati's most charming shopping square, centered on the classical 1900 Kilgour Fountain and a grassy green, lined with 100+ boutiques and cafes.",k:"Walkable district; Sunday farmers' market mid-May–Oct.",g:["ICON","PARK","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hyde_Park,_Cincinnati"],["OFFICIAL","https://www.hydeparksquare.org/about"]]},
+{t:2,a:"EAST",n:"Village of Mariemont",ad:"6907 Wooster Pike, Mariemont, OH 45227",la:39.14417,ln:-84.37611,w:"A National Historic Landmark 'garden city' — one of America's first fully planned suburbs, laid out in the 1920s by Mary Emery and John Nolen in Tudor-village style with a central concourse and carillon.",k:"Historic village ~10 mi east; stroll the square.",g:["ARCH","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mariemont_Historic_District"],["OFFICIAL","https://mariemont.org/lifestyle/history-of-the-village-of-mariemont/"]]},
+{t:2,a:"WEST",n:"Northside (Hamilton Avenue District)",ad:"Hamilton Ave & Hoffner St, Cincinnati, OH 45223",la:39.16056,ln:-84.53944,w:"Cincinnati's most eclectic, creative neighborhood — a two-mile stretch of Hamilton Ave lined with locally-owned restaurants, vintage shops, record stores and music venues amid the Italianate Hoffner Historic District.",k:"Best explored on foot; nightlife-heavy.",g:["ICON","ARCH","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Northside,_Cincinnati"],["VISITCINCY","https://www.visitcincy.com/blog/post/local-guide-northside-cincinnati/"]]},
+{t:1,a:"BURB",n:"Kings Island",ad:"6300 Kings Island Dr, Mason, OH 45040",la:39.34479,ln:-84.26861,w:"Regional icon 24 miles NE in Mason — a 364-acre amusement park with 15+ coasters, an Eiffel Tower replica and the Soak City water park, open since 1972.",k:"Seasonal (spring–fall + Halloween/holiday events); paid admission.",g:["FAM","ICON","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kings_Island"],["VISITCINCY","https://www.visitcincy.com/blog/post/an-insiders-guide-to-kings-island/"]]},
+{t:3,a:"BURB",n:"EnterTRAINment Junction — CLOSED",ad:"7379 Squire Ct, West Chester, OH 45069",la:39.35109,ln:-84.37483,w:"Once home to the world's largest indoor model-train display (25,000 sq ft, 2+ miles of track) in West Chester.",k:"CLOSED — permanently shut January 5, 2025. Listed for reference; do not visit.",closed:1,g:["FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/EnterTRAINment_Junction"],["CINCYREFINED","https://cincinnatirefined.com/lifestyle/entertrainment-junction-west-chester-trains-locomotives-family-fun-kid-friendly-cincinnati"]]}
+];
+
+const FS = {
+  CINCYMAG:{k:"CINCINNATI MAG",t:"Cincinnati Magazine",u:"https://www.cincinnatimagazine.com",l:"Cincinnati Magazine"},
+  CINCYREFINED:{k:"CINCINNATI REFINED",t:"Cincinnati Refined",u:"https://cincinnatirefined.com",l:"Cincinnati Refined"},
+  CITYBEAT:{k:"CITYBEAT",t:"CityBeat Cincinnati",u:"https://www.citybeat.com",l:"CityBeat Cincinnati"},
+  JAMESBEARD:{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
+  OFFICIAL:{k:"OFFICIAL SITE",t:"Official venue/site",u:"",l:"Official venue/site"},
+  OHIOMAG:{k:"OHIO MAGAZINE",t:"OHIO MAGAZINE",u:"",l:""},
+  USATODAY:{k:"USA TODAY 10BEST",t:"USA TODAY 10BEST",u:"",l:""},
+  VISITCINCY:{k:"CINCINNATI USA",t:"Cincinnati USA (Visit Cincy CVB)",u:"https://www.visitcincy.com",l:"Cincinnati USA (Visit Cincy CVB)"},
+  WCPO:{k:"WCPO 9",t:"WCPO 9",u:"",l:""},
+  WIKIPEDIA:{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  WKRC:{k:"WKRC 12",t:"WKRC 12",u:"",l:""}
+};
+
+const CUISINES = [
+  {id:"CHILI",n:"Cincinnati Chili"},
+  {id:"GERMAN",n:"German & Goetta"},
+  {id:"BBQ",n:"Ribs & Barbecue"},
+  {id:"PIZZA",n:"Pizza"},
+  {id:"US",n:"American & New American"},
+  {id:"BURG",n:"Burgers & Diners"},
+  {id:"SOUL",n:"Soul & Southern"},
+  {id:"MEX",n:"Mexican & Latin"},
+  {id:"ASIAN",n:"Asian"},
+  {id:"MED",n:"Mediterranean & Middle Eastern"},
+  {id:"ICE",n:"Ice Cream & Bakeries"},
+  {id:"BREW",n:"Breweries & Beer"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks & Gardens"},
+  {id:"VIEW",n:"Views & Hills"},
+  {id:"ARCH",n:"Architecture & History"},
+  {id:"ENT",n:"Sports, Music & Entertainment"},
+  {id:"SHOP",n:"Markets & Districts"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"RIVER",n:"Riverfront & Ohio River"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"WEST",n:"Camp Washington Chili",ad:"3005 Colerain Ave, Cincinnati, OH 45225",cz:["CHILI"],la:39.13727,ln:-84.53770,w:"Cincinnati's only James Beard honoree for chili (America's Classic, 2000) — a 24-hour parlor since 1940. Order the 5-way: spaghetti, cinnamon-clove chili, kidney beans, diced onion and a mountain of shredded cheddar; the cheese coneys are the sleeper order.",s:[["JAMESBEARD","James Beard America's Classics winner (2000) — en.wikipedia.org/wiki/List_of_James_Beard_America%27s_Classics; en.wikipedia.org/wiki/Camp_Washington_Chili"],["CINCYMAG","cincinnatimagazine.com/forkopolisblog/eight-classic-cincinnati-chili-parlors/ — 'Eight Classic Cincinnati Chili Parlors'"]]},
+{t:1,a:"DTN",n:"Skyline Chili (Downtown)",ad:"1001 Vine St, Cincinnati, OH 45202",cz:["CHILI"],la:39.10666,ln:-84.51453,w:"The defining Cincinnati-chili brand, founded 1949 by Greek immigrant Nicholas Lambrinides. The downtown parlor is the classic city stop for a cheese coney (mustard, chili, mound of cheddar) and the 4-way onion.",s:[["CINCYMAG","cincinnatimagazine.com/forkopolisblog/eight-classic-cincinnati-chili-parlors/"],["USATODAY","10Best readers' polls repeatedly rank Skyline atop Cincinnati chili — see USA Today 10Best Cincinnati chili"],["WIKIPEDIA","en.wikipedia.org/wiki/Skyline_Chili — founded 1949, Nicholas Lambrinides"]]},
+{t:1,a:"EAST",n:"Pleasant Ridge Chili",ad:"6032 Montgomery Rd, Cincinnati, OH 45213",cz:["CHILI"],la:39.18123,ln:-84.43010,w:"A neighborhood parlor run by three generations of the Sideris family since 1964, beloved as much for its award-winning gravy cheese fries as its 2-through-5-way chili and homemade coneys.",s:[["CINCYMAG","cincinnatimagazine.com/forkopolisblog/eight-classic-cincinnati-chili-parlors/"],["CITYBEAT","citybeat.com/food-drink/pleasant-ridge-chili-and-restaurant-12174247/"]]},
+{t:1,a:"BURB",n:"Blue Ash Chili",ad:"9525 Kenwood Rd, Blue Ash, OH 45242",cz:["CHILI"],la:39.23100,ln:-84.37840,w:"A 1969 Blue Ash institution twice featured on Guy Fieri's 'Diners, Drive-Ins and Dives' — he called the 5-way something he'd eat every day. Add jalapenos for the house 6-way.",s:[["CITYBEAT","citybeat.com/food-drink/blue-ash-chili-to-appear-on-another-episode-of-diners-drive-ins-and-dives-12693910/"],["WCPO","wcpo.com/best-cincinnati-chili-restaurants — Top chili parlors in the Tri-State"]]},
+{t:2,a:"WEST",n:"Price Hill Chili",ad:"4920 Glenway Ave, Cincinnati, OH 45238",cz:["CHILI"],la:39.11912,ln:-84.59945,w:"A West Side family restaurant since 1962 with the Golden Fleece Lounge attached — Cincinnati chili 2-through-5-way, cheese coneys, Greek favorites and big all-day breakfasts.",s:[["CINCYREFINED","cincinnatirefined.com/eat-drink/the-chili-debate-continues-in-price-hill"],["VISITCINCY","visitcincy.com/listing/price-hill-chili/6138/ — neighborhood institution since 1962"]]},
+{t:1,a:"NKY",n:"Dixie Chili",ad:"733 Monmouth St, Newport, KY 41071",cz:["CHILI"],la:39.08944,ln:-84.49417,w:"Northern Kentucky's first chili parlor, founded 1929 by Nicholas Sarakatsannis and still slinging 3-, 4- and 5-ways and coneys into the small hours across the river in Newport.",s:[["CINCYMAG","cincinnatimagazine.com/forkopolisblog/eight-classic-cincinnati-chili-parlors/"],["WIKIPEDIA","en.wikipedia.org/wiki/Dixie_Chili_and_Deli — founded 1929, NKY's first chili parlor"]]},
+{t:1,a:"EAST",n:"Sugar n' Spice",ad:"4381 Reading Rd, Cincinnati, OH 45229",cz:["GERMAN"],la:39.16438,ln:-84.47245,w:"A sassy pink diner (since 1941) famous for 'wispy thin' pancakes and crisp-griddled goetta — the German pork-and-oats loaf that is Cincinnati's own breakfast meat.",s:[["CINCYMAG","cincinnatimagazine.com/article/fresh-paint-classic-bites-at-sugar-n-spice/"],["WCPO","Cincinnati breakfast institution — wcpo.com coverage; also Roadfood.com"]]},
+{t:1,a:"OTR",n:"Eckerlin Meats",ad:"116 W Elder St, Cincinnati, OH 45202",cz:["GERMAN"],la:39.11500,ln:-84.51890,w:"An old-fashioned Findlay Market butcher, family-run since 1852, voted Cincinnati's Best Goetta and selling 400-500 lbs a week — the goetta many city diners (including Tucker's) buy to griddle. Grab a loaf plus the house mettwurst.",g:["MKT"],s:[["CITYBEAT","citybeat.com/food-drink/eckerlin-meats-moves-into-temporary-home-near-findlay-market-15393185/"],["CINCYMAG","Twice voted 'Best Goetta' by Cincinnati Magazine — cincinnatifoodtours.com/blog/cincinnati-goetta; local12.com Eckerlin coverage"],["WKRC","local12.com/news/local/170-year-old-tenant-eckerlin-meats-reopen-original-findlay-market-space"]]},
+{t:1,a:"EAST",n:"Eli's BBQ",ad:"3313 Riverside Dr, Cincinnati, OH 45226",cz:["BBQ"],la:39.11792,ln:-84.44275,w:"A riverside East End smoke shack that turned into a Cincinnati favorite: hickory pulled pork, ribs, all-beef dogs and the cult jalapeno-cheddar grits. Cash-friendly, picnic-table casual.",s:[["CINCYMAG","Frequent Cincinnati Magazine BBQ pick; cincinnatibites.com/reviews/elis-bbq/"],["CITYBEAT","Repeatedly cited among the city's best BBQ — citybeat.com food coverage"]]},
+{t:1,a:"OTR",n:"Pho Lang Thang",ad:"1828 Race St, Cincinnati, OH 45202",cz:["ASIAN"],la:39.11560,ln:-84.51920,w:"Cincinnati's standout Vietnamese kitchen, grown from a Findlay Market stall (2011) to a full Race Street room with a bar. 20-hour broth from Ohio Sakura Farms Wagyu, lemongrass grilled pork, sharp banh mi.",g:["MKT"],s:[["CINCYMAG","cincinnatimagazine.com/article/welcome-to-the-new-pho-lang-thang/"],["CINCYREFINED","cincinnatirefined.com/eat-drink/pho-lang-thang-vietnamese-food-restaurant-and-bar-over-the-rhine"],["CITYBEAT","citybeat.com/food-drink/the-new-pho-lang-thang-near-findlay-market-12177775/"]]},
+{t:1,a:"OTR",n:"Taste of Belgium",ad:"1801 Race St, Cincinnati, OH 45202",cz:["US"],la:39.11531,ln:-84.51906,w:"Began 2007 as a 120-lb cast-iron waffle iron in the back of a Findlay Market produce shop; now the caramelized-sugar Liege waffle and the waffle-and-fried-chicken are a Cincinnati brunch signature.",g:["MKT"],s:[["CINCYMAG","Cincinnati Magazine dining coverage of Taste of Belgium's Findlay Market origin"],["VISITCINCY","visitcincy.com/listing/taste-of-belgium-belgium-bistro-otr/5018/"],["OFFICIAL","tasteofbelgium.com/locations/findlay-market/ — original 2007 stand"]]},
+{t:1,a:"EAST",n:"Graeter's (Hyde Park)",ad:"2704 Erie Ave, Cincinnati, OH 45208",cz:["ICE"],la:39.13995,ln:-84.44300,w:"French-pot ice cream, hand-packed 2.5-gallon batches since 1870, with giant chocolate chunks. Cincinnati Magazine named the black raspberry chip a flavor that 'defines' the city; the Hyde Park scoop shop is the classic stop.",s:[["WIKIPEDIA","en.wikipedia.org/wiki/Graeter's — Cincinnati Magazine named black raspberry chip a defining city food (2004)"],["CINCYMAG","Cincinnati Magazine — black raspberry chip among foods that define Cincinnati"]]},
+{t:2,a:"EAST",n:"Aglamesis Bros",ad:"3046 Madison Rd, Cincinnati, OH 45209",cz:["ICE"],la:39.15118,ln:-84.43325,w:"An Oakley Square parlor barely changed since 1913 — Portuguese marble, Tiffany lamps, hand-laid tile — where the Greek Aglamesis family still makes French-pot ice cream and hand-dipped chocolates.",s:[["CITYBEAT","citybeat.com/food-drink/longtime-owner-of-cincinnati-legendary-ice-cream-brand-aglamesis-bros-has-died-12157001"],["WIKIPEDIA","en.wikipedia.org/wiki/Aglamesis_Bro's — Oakley parlor since 1913"]]},
+{t:1,a:"EAST",n:"The BonBonerie",ad:"2030 Madison Rd, Cincinnati, OH 45208",cz:["ICE"],la:39.13241,ln:-84.46152,w:"O'Bryonville patisserie (since 1983) whose signature is the Opera Cream Torte — dark chocolate, white chocolate and vanilla opera cream, a distinctly Cincinnati confection — plus schnecken and whimsical iced cookies.",s:[["CINCYMAG","cincinnatimagazine.com/forkopolisblog/the-breakdown-opera-cream-torte/"],["CITYBEAT","citybeat.com/food-drink/obryonvilles-bonbonerie-bakery-has-reopened-for-curbside-carryout-orders-12159391"]]},
+{t:2,a:"EAST",n:"Busken Bakery (Hyde Park)",ad:"2675 Madison Rd, Cincinnati, OH 45208",cz:["ICE"],la:39.14463,ln:-84.44349,w:"A hometown tradition since 1928, best known for the yellow-iced 'smiley' cookie (a Cincinnati billboard icon) and buttery schnecken. The Hyde Park shop is the flagship counter.",s:[["CINCYMAG","cincinnatimagazine.com/article/busken-bakery-offers-comic-relief-with-toilet-paper-shaped-cakes/"],["CITYBEAT","citybeat.com/food-drink/greater-cincinnatis-best-bakeries-for-a-sweet-treat-15633863/ — reader-poll best bakeries"],["WCPO","wcpo.com/money/local-business-news/braxton-brewing-busken-bakery-team-up-for-smiley-cookie-flavored-dark-charge-stout"]]},
+{t:1,a:"NKY",n:"Wunderbar",ad:"1132 Lee St, Covington, KY 41011",cz:["GERMAN"],la:39.07681,ln:-84.51504,w:"A Covington Westside beer hall built on scratch-ground German sausages — Feuerwurst, currywurst, apple-honey wurst — with schnitzel, giant pretzels with beer cheese and 40+ German/craft taps.",s:[["CITYBEAT","citybeat.com/food-drink/wunderbar-profile-12176417/"],["CINCYREFINED","cincinnatirefined.com/eat-drink/street-cred--sausages-a-visit-to-covingtons-wunderbar"]]},
+{t:1,a:"WEST",n:"LaRosa's (Boudinot)",ad:"2411 Boudinot Ave, Cincinnati, OH 45238",cz:["PIZZA"],la:39.13110,ln:-84.60545,w:"The Cincinnati pizza icon: Buddy LaRosa opened here in 1954 using his Aunt Dena's Sicilian recipe (sweeter provolone-topped pies). The original Westwood parlor is the fan-favorite original.",s:[["WCPO","wcpo.com/news/local-news/larosas-celebrates-70-years-of-pizza-and-community-connections"],["CINCYREFINED","cincinnatirefined.com/eat-drink/buddy-larosa-90th-birthday-pizza-community-cincinnati"],["WIKIPEDIA","en.wikipedia.org/wiki/LaRosa's_Pizzeria — founded 1954, Boudinot Ave"]]},
+{t:1,a:"DTN",n:"Boca",ad:"114 E 6th St, Cincinnati, OH 45202",cz:["US"],la:39.10299,ln:-84.51108,w:"David Falk's flagship in the old Maisonette space — award-winning European cooking with French precision; Cincinnati Magazine's No. 1 Best Restaurant.",s:[["CINCYMAG","https://www.cincinnatimagazine.com/article/best-restaurants-no-1-boca/"],["CITYBEAT","https://www.citybeat.com/food-drink/the-dish/blog/21145939/downtowns-boca-is-reopening-to-inperson-dining-with-a-new-menu"]]},
+{t:1,a:"DTN",n:"Sotto",ad:"118 E 6th St, Cincinnati, OH 45202",cz:["US"],la:39.10299,ln:-84.51103,w:"Candlelit subterranean Italian below Boca — famed short rib cappellacci and truffle-season tajarin; Cincinnati Magazine No. 3 Best Restaurant.",s:[["CINCYMAG","https://www.cincinnatimagazine.com/article/best-restaurants-no-3-sotto/"],["WCPO","https://www.wcpo.com/entertainment/top-9/top-9-italian-restaurants-in-the-tri-state"]]},
+{t:1,a:"DTN",n:"Mita's",ad:"501 Race St, Cincinnati, OH 45202",cz:["US"],la:39.10114,ln:-84.51489,w:"Chef Jose Salazar's Spanish/Latin American tapas room named for his Colombian grandmother; Salazar is a James Beard nominee/finalist.",s:[["CINCYMAG","https://www.cincinnatimagazine.com/article/five-cincinnati-restaurants-are-semi-finalists-for-james-beard-award/"],["CITYBEAT","https://www.citybeat.com/food-drink/cincinnati-chef-jose-salazar-named-nominee-for-prestigious-james-beard-restaurant-and-chef-awards-17181896/"]]},
+{t:1,a:"DTN",n:"Nada",ad:"600 Walnut St, Cincinnati, OH 45202",cz:["MEX"],la:39.10291,ln:-84.51147,w:"David Falk's upscale modern-Mexican room on the Aronoff plaza — reimagined menu and one of downtown's best patios (confirmed open 2025).",s:[["CINCYMAG","https://www.cincinnatimagazine.com/article/nada-announces-reopening-plans-after-renovations-and-a-new-menu/"],["CITYBEAT","https://www.citybeat.com/food-drink/cincinnatis-nada-reopens-this-september-with-a-new-latininspired-menu-and-fresh-culinary-leadership-12158730"]]},
+{t:1,a:"OTR",n:"Pepp & Dolores",ad:"1501 Vine St, Cincinnati, OH 45202",cz:["US"],la:39.11184,ln:-84.51579,w:"Thunderdome Group's homage to founders' Italian grandparents — pasta made fresh daily; voted Best Italian by CityBeat readers 2025 and a 2026 Yelp Top-100 pick.",s:[["CINCYMAG","https://www.cincinnatimagazine.com/article/pepp-dolores-is-thunderdomes-homage-to-its-founders-italian-heritage/"],["CITYBEAT","https://www.citybeat.com/food-drink/food-news/over-the-rhine-restaurant-named-one-of-yelps-top-100-us-restaurants-for-2026/"]]},
+{t:1,a:"OTR",n:"Teak OTR",ad:"1200 Race St, Cincinnati, OH 45202",cz:["ASIAN"],la:39.10827,ln:-84.51627,w:"Longtime Cincinnati Thai favorite reopened across from Washington Park; voted CityBeat's Best Thai 2025.",s:[["CITYBEAT","https://www.citybeat.com/food-drink/cincys-beloved-thai-restaurant-teak-has-reopened-across-from-washington-park-12234520/"],["CINCYMAG","https://www.cincinnatimagazine.com/dining-reviews/teak-finds-a-new-home-in-over-the-rhine/"]]},
+{t:1,a:"OTR",n:"Rhinegeist",ad:"1910 Elm St, Cincinnati, OH 45202",cz:["BREW"],la:39.11727,ln:-84.52010,w:"The brewery that helped launch OTR's beer revival, in the 1890s Christian Moerlein bottling hall; flagship Truth IPA and a rooftop bar. CityBeat's Best Local Brewery.",s:[["CITYBEAT","https://www.citybeat.com/best-of/2023/music-and-nightlife/best-local-brewery-15002769"],["WCPO","https://www.wcpo.com/story-hold/rhinegeist-brewery-local-entrepreneurs-hope-to-revitalize-over-the-rhine-with-new-brewery"]]},
+{t:1,a:"EAST",n:"MadTree Brewing",ad:"3301 Madison Rd, Cincinnati, OH 45209",cz:["BREW"],la:39.15631,ln:-84.42401,w:"Oakley powerhouse with a 20+ tap taproom, wood-fired pizza and beer garden; repeatedly voted among Cincinnati's best breweries.",s:[["CITYBEAT","https://www.citybeat.com/cincinnati/these-are-cincinnatis-10-best-breweries-as-voted-by-citybeat-readers/Slideshow/12234188"],["OHIOMAG","https://www.ohiomagazine.com/food-drink/craft-beer/article/madtree-brewing-co.-cincinnati"]]},
+{t:1,a:"EAST",n:"Zip's Cafe",ad:"1036 Delta Ave, Cincinnati, OH 45208",cz:["BURG"],la:39.12971,ln:-84.42939,w:"Mt. Lookout neighborhood tavern, a near-century old; a perennial CityBeat Best Burger and named Ohio's best burger by Food & Wine.",s:[["CITYBEAT","https://www.citybeat.com/food-drink/mount-lookouts-zips-cafe-named-best-burger-in-ohio-by-food-wine-magazine-best-burger-in-cincinnati-burgers-near-me-12265269/"],["WCPO","https://www.wcpo.com/news/insider/zips-cafe-in-mount-lookout-celebrates-90-years-in-business"]]},
+{t:2,a:"EAST",n:"The Turf Club (Terry's Turf Club)",ad:"4618 Eastern Ave, Cincinnati, OH 45226",cz:["BURG"],la:39.11830,ln:-84.41911,w:"Neon-drenched East End icon (ex-Terry's Turf Club, on Diners, Drive-Ins and Dives) reopened under new local owners Jan 2025, still building maximalist burgers.",s:[["CITYBEAT","https://www.citybeat.com/food-drink/terry-s-turf-club-review--12226380"],["WCPO","https://www.wcpo.com/news/insider/top-9-cincinnatis-best-burgers"]]},
+{t:1,a:"NKY",n:"Braxton Brewing",ad:"27 W 7th St, Covington, KY 41011",cz:["BREW"],la:39.08289,ln:-84.51092,w:"Covington brewery that anchored 7th Street's revival — flagship Storm cream ale and one of NKY's only rooftop taprooms overlooking the river skyline.",s:[["WCPO","https://www.wcpo.com/news/local-news/kenton-county/covington/braxton-brewing-co-to-add-rooftop-taproom-with-5m-expansion"],["CITYBEAT","https://www.citybeat.com/cincinnati/the-best-breweries-and-taprooms-in-greater-cincinnati-according-to-citybeat-readers/Slideshow/15113116/15113120"]]},
+{t:1,a:"NKY",n:"Bouquet",ad:"519 Main St, Covington, KY 41011",cz:["US"],la:39.08475,ln:-84.51765,w:"Stephen Williams's pioneering NKY farm-to-table bistro sourcing 50+ local farms; Cincinnati Magazine Best Restaurants (No. 9) with a 130-bottle bourbon list.",s:[["CINCYMAG","https://www.cincinnatimagazine.com/article/best-restaurants-no-9-bouquet-restaurant-and-wine-bar-leans-into-seasonality/"],["CITYBEAT","https://www.citybeat.com/food-drink/bouquet-restaurant-and-wine-bar-review--12220719"]]},
+{t:1,a:"NKY",n:"The Baker's Table",ad:"1004 Monmouth St, Newport, KY 41071",cz:["US"],la:39.08700,ln:-84.48884,w:"Dave Willocks's tasting-menu-only Newport flagship — Greater Cincinnati's rarest fine-dining format; Willocks is a 2026 James Beard finalist for Best Chef: Southeast.",s:[["CITYBEAT","https://www.citybeat.com/food-drink/dave-willocks-is-bringing-cincinnatis-freshest-food-to-the-table/"],["WCPO","https://www.wcpo.com/entertainment/local-a-e/bites-brews/3-chefs-in-cincinnati-northern-kentucky-named-finalists-for-2026-james-beard-awards"]]},
+{t:1,a:"NKY",n:"Carabello Coffee",ad:"107 E 9th St, Newport, KY 41071",cz:["COF"],la:39.08861,ln:-84.49002,w:"Newport roaster and cafe with a barista 'chef's table' Analog Bar; ranked Kentucky's best independent coffee shop, profits funding coffee-origin philanthropy.",s:[["WCPO","https://www.wcpo.com/entertainment/cincybuzz/newports-carabello-coffee-ranks-as-kentuckys-best-independent-coffeeshop-in-miccom-list"],["CITYBEAT","https://www.citybeat.com/food-drink/coffee-cup-runneth-over-12226286/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('cin_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('cin_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('cin_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('cin_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Cincinnati OH')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {DTN:'#E8973A',OTR:'#C0504D',UPT:'#8064A2',EAST:'#4F81BD',WEST:'#9BBB59',BURB:'#4BACC6',NKY:'#7E8FC4'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.1114,-84.5099],11);
+/* ── Base layers ────────────────────────────────────────────────────────────
+   Free layers need no key. Google needs your own Maps JavaScript API key and
+   is loaded through the officially sanctioned GoogleMutant plugin, because
+   scraping Google's raster tiles directly breaks their terms. Apple Maps has
+   no equivalent: MapKit JS needs a signed developer token, which a static
+   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}},
+ {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
+ {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
+ {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+let GKEY=''; try{GKEY=localStorage.getItem('cin_gkey')||'';}catch(e){}
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  if(!b.free){ return setGoogle(b,manual); }
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+/* Google, via the official Maps JavaScript API + GoogleMutant */
+let gLoading=false;
+function setGoogle(b,manual){
+  if(!map) return;
+  if(!GKEY){ promptKey(); return; }
+  const go=()=>{
+    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
+      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
+    clearBase(); curBase=b.id;
+    document.getElementById('map').classList.remove('osmdark');
+    document.getElementById('tilewarn').style.display='none';
+    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
+    markBaseChips();
+  };
+  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
+  if(gLoading) return;
+  gLoading=true;
+  const s1=document.createElement('script');
+  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
+  s1.onload=()=>{
+    const s2=document.createElement('script');
+    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
+    s2.onload=()=>{gLoading=false;go();};
+    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
+    document.head.appendChild(s2);
+  };
+  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
+  document.head.appendChild(s1);
+}
+function promptKey(){
+  const k=prompt(
+    'Google base maps need your own Maps JavaScript API key.\n\n'+
+    'Google does not permit their map tiles to be used without going through their API, '+
+    'so there is no key-free way to do this legally.\n\n'+
+    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
+    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
+    'Paste your key here (it is stored only in this browser):', GKEY);
+  if(k==null) return;
+  GKEY=String(k).trim(); try{localStorage.setItem('cin_gkey',GKEY);}catch(e){}
+  markBaseChips();
+  if(GKEY) setBase('g_road',true);
+}
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
+  });
+  const kb=document.getElementById('keyBtn');
+  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  if(b.id==='keyBtn'){promptKey();return;}
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle municipality labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Downtown", 39.1012, -84.5122], ["Over-the-Rhine", 39.113, -84.5181], ["Uptown (Clifton", 39.1287, -84.512], ["East Side (Hyde Park", 39.1332, -84.4497], ["West Side", 39.1393, -84.5523], ["Northern Suburbs (Blue Ash", 39.2673, -84.307], ["Northern Kentucky (Covington", 39.0875, -84.5071]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'chili, goetta, ribs, Graeter\u2019s\u2026' : 'Union Terminal, the zoo, Roebling, Music Hall\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cincinnati \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('cincinnati-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('cincinnati-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('cincinnati-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
+  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
+  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
+  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
+  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
+  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
+  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
+  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
+  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
+  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
+  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
+  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. Cincinnati\u2019s signature strength is a food canon all its own: <b>Cincinnati chili</b> (Skyline, Gold Star, Camp Washington — 3-way, 4-way, 5-way and coneys), <b>goetta</b>, <b>Montgomery Inn</b> ribs, <b>Findlay Market</b>, <b>Graeter’s</b> ice cream, <b>LaRosa’s</b> pizza and the German brewing heritage of <b>Over-the-Rhine</b>, reborn at <b>Rhinegeist</b> and <b>MadTree</b>. Every food card names a specific dish, sourced to the Cincinnati Enquirer, Cincinnati Magazine, CityBeat and James Beard. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve. A cuisine tag names the kitchen\u2019s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source \u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 81 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

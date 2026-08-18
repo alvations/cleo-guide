@@ -27,3 +27,12 @@ Museum, Eden Park, American Sign Museum, Freedom Center, riverfront). Log counts
 ## Stage 3 Fact-check · 4 Re-rank · 5 Location-verify · 6 Build & gate  — PENDING
 Gates (enforced in code): `--sourcecheck` (≥2 credible or lone James Beard), `--geocheck`, `--statuscheck`,
 `--buildcheck` (map centre+labels within Cincinnati's pins), jsdom render-verify.
+
+## Stage 5/6 — Location-verify + Build & LIVE (DONE 2026-08-14)
+Geocoded 91 in 3 waves → **81 verified pins (60 high / 17 med / 1 low), 10 UNVERIFIED** (restaurant
+place-pins that didn't surface: Gold Star Mt. Washington, Montgomery Inn Original, Holtman's, Fireside,
+Salazar, Gomez Salsa, Mazunte, Quatman, Just Q'in, Kiki → docs/GEOCODE-BACKLOG.md for the browser
+helper). Data corrections captured: Salazar → 101 W 5th St (reopened Nov 2025), Kiki → 358 Ludlow Ave.
+Built cities/cincinnati.html (50 sights + 31 food). Gates: geocheck PASS · statuscheck CONSISTENT (2
+closed flagged: Carew Tower deck, EnterTRAINment Junction) · sourcecheck PASS · **buildcheck PASS**
+(centre 39.11,-84.51) · render-verify ALL PASS. index card relinked → LIVE.
