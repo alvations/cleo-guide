@@ -134,8 +134,1094 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
- "F": [],
- "S": {},
- "FS": {}
+ "P": [
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Ohio Statehouse",
+   "ad": "1 Capitol Sq, Columbus, OH 43215",
+   "w": "Ohio's 1861 Greek Revival capitol on Capitol Square — free tours, the Statehouse Museum, and grounds dotted with monuments in the heart of downtown.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.ohiostatehouse.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ohio_Statehouse"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Franklin Park Conservatory and Botanical Gardens",
+   "ad": "1777 E Broad St, Columbus, OH 43203",
+   "w": "An 1895 glasshouse built for a world's fair, with themed biomes, a permanent Chihuly glass collection and blooming seasonal gardens on the near east side.",
+   "g": [
+    "MUS",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.fpconservatory.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Franklin_Park_Conservatory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "COSI",
+   "ad": "333 W Broad St, Columbus, OH 43215",
+   "w": "The Center of Science and Industry — a top-ranked U.S. science museum in an Arata Isozaki building on the Scioto riverfront, with giant hands-on exhibits and a dinosaur gallery.",
+   "g": [
+    "MUS",
+    "FAM",
+    "ICON",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/things-to-do/attractions/cosi/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/COSI"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Columbus Museum of Art",
+   "ad": "480 E Broad St, Columbus, OH 43215",
+   "w": "Strong holdings of American and European modernism (including Columbus native George Bellows) in a 1931 Renaissance-revival building with a light-filled modern wing.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.columbusmuseum.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Columbus_Museum_of_Art"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OSU",
+   "n": "Wexner Center for the Arts",
+   "ad": "1871 N High St, Columbus, OH 43210",
+   "w": "Ohio State's contemporary-art laboratory in Peter Eisenman's landmark 1989 Deconstructivist building — galleries, avant-garde film and performance at the campus's edge.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://wexarts.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wexner_Center_for_the_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GV",
+   "n": "The Book Loft of German Village",
+   "ad": "631 S 3rd St, Columbus, OH 43206",
+   "w": "A literary labyrinth of 32 rooms of discounted books in pre-Civil War buildings — one of the largest independent bookstores in the country.",
+   "g": [
+    "SHOP",
+    "ODD",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://bookloft.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Book_Loft"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Topiary Park",
+   "ad": "480 E Town St, Columbus, OH 43215",
+   "w": "The only park based on a painting: sculpted yews recreate Seurat's 'A Sunday on La Grande Jatte' — 54 people, boats and dogs — on the Old Deaf School Park grounds. Free.",
+   "g": [
+    "PARK",
+    "ODD",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-topiary-park-columbus-ohio"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Topiary_Park"
+    ],
+    [
+     "OFFICIAL",
+     "https://topiarypark.org/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OSU",
+   "n": "Ohio Stadium (the Horseshoe)",
+   "ad": "411 Woody Hayes Dr, Columbus, OH 43210",
+   "w": "The 1922 horseshoe-shaped, 100,000-plus-seat home of Buckeyes football — an enduring icon of college-football gameday and a National Register landmark.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://ohiostatebuckeyes.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ohio_Stadium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SN",
+   "n": "Goodale Park",
+   "ad": "120 W Goodale St, Columbus, OH 43215",
+   "w": "Columbus's oldest park (donated 1851) in Victorian Village — a pond, fountain and gazebo, and host of the summer ComFest gathering.",
+   "g": [
+    "PARK",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://columbusrecparks.com/parks/goodale-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Goodale_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "Columbus Park of Roses",
+   "ad": "3901 N High St, Columbus, OH 43214",
+   "w": "A free 13-acre rose garden inside Clintonville's Whetstone Park — 11,000-plus roses across 350-plus varieties, at their peak in June.",
+   "g": [
+    "PARK",
+    "FREE",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://parkofroses.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Columbus_Park_of_Roses"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BURB",
+   "n": "Columbus Zoo and Aquarium",
+   "ad": "4850 W Powell Rd, Powell, OH 43065",
+   "w": "One of America's premier zoos (Jack Hanna's longtime home base), north of the city in Powell, with the Zoombezi Bay water park next door.",
+   "g": [
+    "FAM",
+    "ICON",
+    "ENT",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.columbuszoo.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Columbus_Zoo_and_Aquarium"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Scioto Mile and Bicentennial Park",
+   "ad": "233 Civic Center Dr, Columbus, OH 43215",
+   "w": "Downtown's riverfront promenade — a 15,000-sq-ft interactive fountain, gardens and skyline views stretching along the Scioto from the Arena District to the Whittier Peninsula.",
+   "g": [
+    "PARK",
+    "FREE",
+    "FAM",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.sciotomile.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Scioto_Mile"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "LeVeque Tower",
+   "ad": "50 W Broad St, Columbus, OH 43215",
+   "w": "The 1927 Art Deco skyscraper that has defined the skyline for a century — 555 feet, now a hotel, lit in changing colors nightly.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/LeVeque_Tower"
+    ],
+    [
+     "COLUMBUSMAKESART",
+     "https://www.columbusmakesart.com/place/10400-leveque-tower"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Grange Insurance Audubon Center and Scioto Audubon Metro Park",
+   "ad": "505 W Whittier St, Columbus, OH 43215",
+   "w": "A LEED-Platinum birding center on the restored Whittier Peninsula wetlands, plus a 35-ft outdoor climbing wall and downtown skyline views. Free.",
+   "g": [
+    "PARK",
+    "FREE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://grange.audubon.org/visit"
+    ],
+    [
+     "METROPARKS",
+     "https://www.metroparks.net/parks-and-trails/scioto-audubon/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "North Market",
+   "ad": "59 Spruce St, Columbus, OH 43215",
+   "w": "Columbus's last true public market (est. 1876) — 30-plus merchants including the original Jeni's, Momo Ghar and Hoyo's, just off the Short North and Arena District.",
+   "g": [
+    "ICON",
+    "SHOP",
+    "FAM",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://northmarket.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/North_Market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SN",
+   "n": "Short North Arts District",
+   "ad": "N High St (Goodale St to W 5th Ave), Columbus, OH 43215",
+   "w": "The gallery, restaurant and shopping spine on High Street between downtown and OSU, marked by its signature lit metal arches; monthly Gallery Hop has run since 1984.",
+   "g": [
+    "ICON",
+    "SHOP",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/neighborhoods/short-north/"
+    ],
+    [
+     "OFFICIAL",
+     "https://shortnorth.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Thurber House",
+   "ad": "77 Jefferson Ave, Columbus, OH 43215",
+   "w": "The restored home of humorist and New Yorker cartoonist James Thurber, now a literary center, museum and bookstore on a Jefferson Avenue historic row.",
+   "g": [
+    "MUS",
+    "ODD",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.thurberhouse.org/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Thurber_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GV",
+   "n": "German Village",
+   "ad": "588 S 3rd St, Columbus, OH 43206",
+   "w": "A 19th-century German immigrant neighborhood of brick-paved streets and Italianate cottages — the largest privately funded historic district on the National Register. Address is the German Village Society Meeting Haus.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "FREE",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://germanvillage.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/German_Village"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "The Oval at Ohio State",
+   "ad": "181 S Oval Dr, Columbus, OH 43210",
+   "w": "The 11-acre historic green at the heart of OSU's campus, framed by University Hall and Thompson Library and landscaped with Olmsted-brothers input — the campus 'living room.'",
+   "g": [
+    "PARK",
+    "FREE",
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://slec.osu.edu/explore-venues/outdoor-event-spaces/the-oval"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ohio_State_University"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "Olentangy Trail",
+   "ad": "311 W Long St, Columbus, OH 43215",
+   "w": "A 13-plus-mile paved riverside greenway from downtown's North Bank Park up through OSU and Clintonville to Worthington — the city's spine for cycling and running. Address is the southern North Bank Park trailhead.",
+   "g": [
+    "PARK",
+    "FREE",
+    "VIEW",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Olentangy_Trail"
+    ],
+    [
+     "OFFICIAL",
+     "https://columbusrecparks.com/facilities/trails/greenways/olentangy-trail/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SN",
+   "n": "Italian Village",
+   "ad": "224 E 1st Ave, Columbus, OH 43201",
+   "w": "The historic district just east of the Short North — brick worker cottages and the redeveloped Jeffrey Park, now home to Seventh Son and Fox in the Snow. Address is the landmark Jeffrey Manufacturing office building.",
+   "g": [
+    "ARCH",
+    "FREE",
+    "ICON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Italian_Village"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.italianvillage.org/"
+    ],
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/decade-in-development-jeffrey-park-italian-village-we1/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "Ohio History Center and Ohio Village",
+   "ad": "800 E 17th Ave, Columbus, OH 43211",
+   "w": "The state history museum in a striking 1970 Brutalist building, with the adjacent Ohio Village recreating an 1890s town. Ohio Village is under phased restoration into the mid-2020s.",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.ohiohistory.org/visit/ohio-history-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ohio_History_Center"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Jeni's Splendid Ice Creams — North Market",
+   "ad": "59 Spruce St, Columbus, OH 43215",
+   "w": "Jeni Britton Bauer launched Jeni's at the North Market in 2002; the grassy-buttermilk base and inventive flavors (Brambleberry Crisp, Brown Butter Almond Brittle) that turned a Columbus stall into a national brand.",
+   "cz": [
+    "ICE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/jenis-relocates-within-the-north-market/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jeni's_Splendid_Ice_Creams"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Momo Ghar — North Market",
+   "ad": "59 Spruce St, Columbus, OH 43215",
+   "w": "Phenomenal Himalayan dumplings that put Columbus's huge Nepali-Bhutanese community on the map; the jhol momo swim in a spiced sesame broth. Featured on Diners, Drive-Ins and Dives.",
+   "cz": [
+    "AFRICAN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2021/12/07/nepalese-restaurants-food-columbus-momo-ghar-yeti-express-himalayan-grille-namaste-indo-nepali/8842189002/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/blog/post/where-to-find-nepali-food-in-columbus/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Hoyo's Kitchen — North Market",
+   "ad": "59 Spruce St, Columbus, OH 43215",
+   "w": "The friendly gateway to Columbus's Somali food scene (one of the largest Somali communities in the US): tender suqaar, crisp sambusas and rice served the traditional way with a banana. 'Hoyo' means mother.",
+   "cz": [
+    "AFRICAN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/entertainment/dining/2015/04/01/restaurant-review-delightful-hoyo-s/23007328007/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/blog/post/get-to-know-hoyos-kitchen-at-the-north-market/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GV",
+   "n": "Schmidt's Sausage Haus",
+   "ad": "240 E Kossuth St, Columbus, OH 43206",
+   "w": "German Village institution since 1886 in a brick livery stable. The Bahama Mama smoked sausage was voted Columbus's official food; the world-famous jumbo cream puffs are the other reason to come.",
+   "cz": [
+    "GERMAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/entertainment/2017/03/29/best-german-village-restaurant-schmidt/21790668007/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Schmidt's_Sausage_Haus"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GV",
+   "n": "The Thurman Cafe — CLOSED",
+   "ad": "183 Thurman Ave, Columbus, OH 43206",
+   "w": "Family-owned since 1942 and home of the Thurmanator, a monster double burger loaded with ham, bacon and three cheeses. TEMPORARILY CLOSED after an April 2026 electrical fire; owners have vowed to rebuild — call ahead before visiting.",
+   "closed": true,
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/the-thurman-cafe-truly-the-tastiest-burgers-in-columbus-pk1/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Thurman_Cafe"
+    ],
+    [
+     "TENTV",
+     "https://www.10tv.com/article/news/local/owners-columbus-thurman-cafe-vow-to-rebuild-fire/530-41492190-19c4-4529-ac2c-7118b6edaac0"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Massey's Pizza (Whitehall)",
+   "ad": "4464 E Main St, Whitehall, OH 43213",
+   "w": "The original Massey's, which claims to have introduced the 'Massey cut' — the thin, crispy, edge-to-edge, square/party-cut Columbus-style pizza — in 1949.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "614MAG",
+     "https://614now.com/2025/explore-columbus/print-features/square-roots-the-delicious-and-surprisingly-contentious-history-of-columbus-style-pizza"
+    ],
+    [
+     "BELTMAG",
+     "https://beltmag.com/ohio-pie-columbus-style-pizza-pioneers/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Rubino's Pizza",
+   "ad": "2643 E Main St, Bexley, OH 43209",
+   "w": "A Bexley shrine since 1954: ultra-thin cracker crust, cash only, no alcohol, hand-written checks and folded paper 'tents' — Columbus-style pizza at its most austere and beloved.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/entertainment/dining/2019/09/09/restaurant-review-rubino-s-pizza/3268400007/"
+    ],
+    [
+     "614MAG",
+     "https://614now.com/2020/food-drink/columbus-classics-rubinos-pizza"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "TAT Ristorante di Famiglia",
+   "ad": "1210 S James Rd, Columbus, OH 43227",
+   "w": "Columbus's oldest Italian restaurant (est. 1929, 'Talk of the Town'), credited with serving the city's first pizza. Wood-paneled, red-sauce, old-world charm.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/aficionadough-columbus-first-pizza-old-school-charm-on-tap-at-tat-je1/"
+    ],
+    [
+     "614MAG",
+     "https://614now.com/2017/food-drink/tradish-columbus-pizza-history"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Dirty Frank's Hot Dog Palace",
+   "ad": "248 S 4th St, Columbus, OH 43215",
+   "w": "Downtown temple of the hot dog since 2009 — dozens of wildly topped dogs (vegan options included), tater tots and cheap beer in a graffiti-bright room; a late-night institution.",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/review-dirty-franks-hot-dog-palace/"
+    ],
+    [
+     "DOWNTOWNCOLUMBUS",
+     "https://downtowncolumbus.com/experiences/dirty-franks-hot-dog-palace/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "Hot Chicken Takeover — CLOSED",
+   "ad": "59 Spruce St, Columbus, OH 43215",
+   "w": "A Columbus original that launched at the North Market in 2014 and built a devoted following (and a social mission) around its Nashville hot chicken. All central-Ohio locations closed in September 2025 — kept here for the record.",
+   "closed": true,
+   "cz": [
+    "SOUL"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NBC4",
+     "https://www.nbc4i.com/news/local-news/columbus/hot-chicken-takeover-closes-final-columbus-location-at-north-market/"
+    ],
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/hot-chicken-takeover-third-location-ls1/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BURB",
+   "n": "The Refectory Restaurant",
+   "ad": "1092 Bethel Rd, Columbus, OH 43220",
+   "w": "Columbus's grande dame of French fine dining, set in an 1850s church-and-schoolhouse; a Wine Spectator Grand Award cellar of several hundred selections.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/the-refectory-restaurant-best-restaurants-in-columbus-2025/85198085007/"
+    ],
+    [
+     "WINESPECTATOR",
+     "https://www.winespectator.com/restaurants/70/the-refectory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Veritas",
+   "ad": "11 W Gay St, Columbus, OH 43215",
+   "w": "Chef Josh Dalton's glass-kitchen tasting menu, reinvented every few months — repeatedly ranked Columbus's #1 restaurant since 2012.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2026/08/12/the-best-restaurants-in-columbus-by-columbus-monthly/91196404007/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Veritas_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Wolf's Ridge Brewing",
+   "ad": "215 N 4th St, Columbus, OH 43215",
+   "w": "The rare brewery that's also one of the city's best restaurants — award-winning beers (the coffee-and-vanilla Daybreak cream ale) alongside a serious downtown dining room.",
+   "cz": [
+    "US",
+    "BREW"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/wolfs-ridge-brewing/10877/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Anthony-Thomas Candy Company",
+   "ad": "1777 Arlingate Ln, Columbus, OH 43228",
+   "w": "Columbus's family chocolatier since 1952 and maker of the definitive Ohio buckeye — peanut-butter fudge dipped in chocolate. Free factory tours on the west side.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Anthony_Thomas_Candy_Company"
+    ],
+    [
+     "SNACKANDBAKERY",
+     "https://www.snackandbakery.com/articles/106374-anthony-thomas-candy-co-marks-70-years"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GV",
+   "n": "Lindey's",
+   "ad": "169 E Beck St, Columbus, OH 43206",
+   "w": "German Village's see-and-be-seen bistro since 1981 — steaks, seafood and one of the most beloved leafy patios in America.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/lindeys-best-restaurants-in-columbus-2025/85197920007/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/lindeys/5539/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Land-Grant Brewing Company",
+   "ad": "424 W Town St, Columbus, OH 43215",
+   "w": "Franklinton's neighborhood anchor in a former elevator factory: a huge beer garden (a winter ice rink, music stage) with rotating local food trucks — a cornerstone of the Columbus beer scene.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/land-grant-brewing-company/411918/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SN",
+   "n": "Seventh Son Brewing",
+   "ad": "1101 N 4th St, Columbus, OH 43201",
+   "w": "One of Columbus's OG craft breweries (2013), a local institution in Italian Village with street-level and second-floor patios in a former auto garage.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"
+    ],
+    [
+     "SHORTNORTH",
+     "https://shortnorth.org/businesses/seventh-son-brewing/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "BrewDog DogTap",
+   "ad": "96 Gender Rd, Canal Winchester, OH 43110",
+   "w": "The Scottish brewer's flagship U.S. brewery on a 42-acre Canal Winchester campus — DogTap taproom, OverWorks sour brewery, an interactive beer museum, dog park and a beer hotel.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/brewdog-dogtap/416208/"
+    ],
+    [
+     "VISITFAIRFIELD",
+     "https://visitfairfieldcounty.org/listings/brewdog-brew-house-taproom/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GV",
+   "n": "Agni",
+   "ad": "716 S High St, Columbus, OH 43206",
+   "w": "Chef Avishar Barua — a James Beard 'Best Chef: Great Lakes' semifinalist — cooks inventive, Bangladeshi-inflected New American on the German Village edge; a recent Columbus Monthly #1.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/agni-best-restaurants-in-columbus-2025-chef-avishar-barua/85197782007/"
+    ],
+    [
+     "NBC4",
+     "https://www.nbc4i.com/news/local-news/central-ohio-news/columbus-chef-bakery-bar-among-james-beard-awards-semifinalists/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SN",
+   "n": "Katalina's",
+   "ad": "1105 Pennsylvania Ave, Columbus, OH 43201",
+   "w": "A century-old former gas station in Harrison West serving the Original Pancake Balls plus a Southern-Latin brunch — a Diners, Drive-Ins and Dives-featured Columbus signature.",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-breakfast-sammies-and-pancake-balls-at-katalinas-tres-ma1/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/katalinas/8020/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SN",
+   "n": "Fox in the Snow Cafe",
+   "ad": "1031 N 4th St, Columbus, OH 43201",
+   "w": "Italian Village's scratch bakery and hand-poured-coffee darling since 2014; the gooey cinnamon roll and egg sandwich draw morning lines.",
+   "cz": [
+    "ICE",
+    "COF"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-fox-in-the-snow-cafe-ma1/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/fox-in-the-snow-cafe/413414/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Dan the Baker",
+   "ad": "1028 Ridge St, Grandview Heights, OH 43212",
+   "w": "Grandview micro-bakery and a James Beard 'Outstanding Bakery' semifinalist two years running — double-sesame and olive-polenta loaves, almond croissants and rye-truffle cookies.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "NBC4",
+     "https://www.nbc4i.com/news/local-news/grandview-heights/grandview-heights-bakery-named-semifinalist-for-prestigious-national-award/"
+    ],
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/dan-the-baker-nominated-for-2026-james-beard-award-semifinalist-ak1/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "COLUMBUSMAKESART": {
+   "k": "COLUMBUSMAKESART",
+   "t": "Columbus Makes Art (Greater Columbus Arts Council)",
+   "u": "https://www.columbusmakesart.com",
+   "l": "Columbus Makes Art (Greater Columbus Arts Council)"
+  },
+  "COLUMBUSUNDERGROUND": {
+   "k": "COLUMBUS UNDERGROUND",
+   "t": "Columbus Underground",
+   "u": "https://columbusunderground.com",
+   "l": "Columbus Underground"
+  },
+  "EXPERIENCECBUS": {
+   "k": "EXPERIENCE COLUMBUS",
+   "t": "Experience Columbus",
+   "u": "https://www.experiencecolumbus.com",
+   "l": "Experience Columbus"
+  },
+  "METROPARKS": {
+   "k": "METROPARKS",
+   "t": "Columbus and Franklin County Metro Parks",
+   "u": "https://www.metroparks.net",
+   "l": "Columbus and Franklin County Metro Parks"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site",
+   "u": "",
+   "l": "Official site"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "614MAG": {
+   "k": "614 MAGAZINE",
+   "t": "614 MAGAZINE",
+   "u": "",
+   "l": ""
+  },
+  "BELTMAG": {
+   "k": "BELTMAG",
+   "t": "BELTMAG",
+   "u": "",
+   "l": ""
+  },
+  "COLUMBUSMONTHLY": {
+   "k": "COLUMBUS MONTHLY",
+   "t": "COLUMBUS MONTHLY",
+   "u": "",
+   "l": ""
+  },
+  "COLUMBUSUNDERGROUND": {
+   "k": "COLUMBUS UNDERGROUND",
+   "t": "Columbus Underground",
+   "u": "https://columbusunderground.com",
+   "l": "Columbus Underground"
+  },
+  "DOWNTOWNCOLUMBUS": {
+   "k": "DOWNTOWNCOLUMBUS",
+   "t": "DOWNTOWNCOLUMBUS",
+   "u": "",
+   "l": ""
+  },
+  "EXPERIENCECBUS": {
+   "k": "EXPERIENCE COLUMBUS",
+   "t": "Experience Columbus",
+   "u": "https://www.experiencecolumbus.com",
+   "l": "Experience Columbus"
+  },
+  "NBC4": {
+   "k": "NBC4",
+   "t": "NBC4",
+   "u": "",
+   "l": ""
+  },
+  "SHORTNORTH": {
+   "k": "SHORTNORTH",
+   "t": "SHORTNORTH",
+   "u": "",
+   "l": ""
+  },
+  "SNACKANDBAKERY": {
+   "k": "SNACKANDBAKERY",
+   "t": "SNACKANDBAKERY",
+   "u": "",
+   "l": ""
+  },
+  "TENTV": {
+   "k": "10TV",
+   "t": "10TV",
+   "u": "",
+   "l": ""
+  },
+  "VISITFAIRFIELD": {
+   "k": "VISITFAIRFIELD",
+   "t": "VISITFAIRFIELD",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  },
+  "WINESPECTATOR": {
+   "k": "WINESPECTATOR",
+   "t": "WINESPECTATOR",
+   "u": "",
+   "l": ""
+  }
+ }
 }
