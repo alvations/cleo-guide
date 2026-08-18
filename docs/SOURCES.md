@@ -158,6 +158,35 @@ front as the opening move for every city**. After sourcing, the full flow runs a
 region → rebuild → gate.** Signature-first discovery is applied uniformly — **make sure every city gets
 the same treatment**, and re-run it whenever a city is refreshed or extended.
 
+### Merit bar — MEASURE acclaim before adding; a mention is not merit (every category, every city)
+Being *listed* somewhere — a directory profile, a round-up, a "10 best" — is **not** a reason to add a
+place. Presence in a source only earns a place the right to be **measured**. Before any place goes in,
+grade it and keep only what is genuinely **highly rated / much-raved / popular / notable**. This applies
+to **all categories, not just food, and to every city** — and to re-audits of things already added.
+
+A place clears the bar only if it meets **at least one** of these, recorded in the audit trail:
+- **Institutional authority** — Michelin (any distinction), James Beard (win/semifinalist), NPS/UNESCO
+  or equivalent official designation. One of these is sufficient ground truth on its own.
+- **A real award or vote** — e.g. a market's "Best of <City>" category win (a popularity vote), a
+  bylined "critic's pick", a museum/landmark's official significance.
+- **A verifiable famous-creator / major-press rave** — a *named, findable* piece by a creator or outlet
+  that itself passes the vetting bar above (real following, real track record), not a passing mention.
+- **Demonstrated popularity + quality** — a genuinely high rating **with real volume**, cross-checked on
+  **≥2 platforms** (e.g. Google **≥4.4** AND a second source agreeing, with **≥150** reviews as a rough
+  floor; scale the floor to market size). Ratings from Yelp/Google/TripAdvisor **may be used here as a
+  popularity/quality *measurement*** even though they are never a *recommender source* for the ≥2-credible
+  gate — measuring acclaim and citing a recommender are different jobs.
+
+Then **rank within region** and prefer the standouts: do **not** stack several near-identical mid-tier
+places (four 4.3★ pho shops) when one clear leader + one institution already cover the niche — that is
+padding, and padding is a reason to drop, not keep. A faint or lukewarm editorial nod ("the mildest of
+the four") is evidence *against*, not for. Record the measurement (rating, volume, award/rave, keep/drop
+reason) in `AUDIT.md` so the call is auditable. When in doubt, leave it out and state the gap — a stated
+gap beats a mediocre pin (see the Middle-Eastern card on Cleveland). **Worked example:** Dayton Asian
+pass (AUDIT Stage 9→10) added 7 on mention, then re-measured and kept only 4 (Wat Da Pho G4.7/~2k,
+China Cottage Best-of-Dayton/1.3k, Kabuki G4.6/650, Little Saigon 30-yr institution) — dropping Pho
+District, Pho Mi and Ginger & Spice as respectable-but-not-standout.
+
 ## Food discovery — cuisine deep-dive & viral pop-ups (food-heavy cities)
 
 For cities with a serious food scene (NYC, LA, the Bay, Houston…), the standard "best of" round-ups

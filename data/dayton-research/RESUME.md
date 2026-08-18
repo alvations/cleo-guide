@@ -44,3 +44,10 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - Page **56 pins**; **Wat Da Pho pinned**, the other 6 UNVERIFIED (WebSearch can't read their place-pins) →
   in the 25-pin helper backlog. Excluded **Get The Pho Out** (permanently closed June 2026, flagged in AUDIT).
 - NEXT: browser-helper the 6 new Asian pins (+ the other 19 UNVERIFIED) → rebuild (page grows toward 81).
+
+---
+## State @ 2026-08-18 (merit re-audit)
+- Applied the merit bar: kept 4 Asian standouts (Wat Da Pho, China Cottage, Kabuki, Little Saigon),
+  dropped 3 as padding (Pho District, Pho Mi, Ginger and Spice). Dataset food 40. Page 56.
+- Merit bar now codified in docs/SOURCES.md — applies to ALL categories + cities + re-audits.
+- NEXT: helper-geocode the 3 UNVERIFIED keeps (Little Saigon, China Cottage, Kabuki) + existing backlog.

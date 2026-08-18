@@ -18457,30 +18457,6 @@
     "statusChecked": "2026-08-18",
     "note": "Restaurant place-pin not resolvable via WebSearch (only Apple place-id link); needs geocode-helper."
    },
-   "Pho District": {
-    "address": "4474 Glengarry Dr, Beavercreek, OH 45440",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-08-18",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Listed at The Greene Town Center (thegreene.com/stores); Yelp updated 2026",
-    "statusChecked": "2026-08-18",
-    "note": "Only Apple place-id link surfaced; needs geocode-helper."
-   },
-   "Pho Mi": {
-    "address": "8990 Kingsridge Dr, Dayton, OH 45458",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-08-18",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Yelp/Tripadvisor listings updated 2026; Dayton937 feature",
-    "statusChecked": "2026-08-18",
-    "note": "Kingsridge Dr sits in Washington Twp/Miamisburg (Dayton Mall area) though listed 'Dayton, OH'; SOUTH area. Only Apple place-id link surfaced; needs geocode-helper."
-   },
    "China Cottage": {
     "address": "6290 Far Hills Ave, Centerville, OH 45459",
     "lat": null,
@@ -18490,18 +18466,6 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "chinacottagerestaurant.com active; Destination Dayton listing; Yelp updated 2026",
-    "statusChecked": "2026-08-18",
-    "note": "Only Apple place-id link surfaced; needs geocode-helper."
-   },
-   "Ginger and Spice Asian Bistro": {
-    "address": "1105 Brown St, Dayton, OH 45409",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-08-18",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "gingerandspicedayton.com active; Destination Dayton listing; Yelp updated 2026",
     "statusChecked": "2026-08-18",
     "note": "Only Apple place-id link surfaced; needs geocode-helper."
    },

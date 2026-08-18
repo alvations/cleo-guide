@@ -137,6 +137,14 @@ Full field reference: [docs/DATA-SCHEMA.md](docs/DATA-SCHEMA.md)
   listicles and content farms — *popularity you can't verify isn't popularity.* Then the full pipeline as
   always: vet source → fact-check open/closed → geocode + location-verify → re-rank → gate. **Every city
   gets this same treatment.** Full playbook: [docs/SOURCES.md](docs/SOURCES.md#food--drink-discovery--start-with-what-the-city-is-famous-for-every-city-the-opening-move).
+- **A mention is not merit — MEASURE before adding (every category, every city).** Being listed in a
+  directory or round-up only earns a place the right to be *measured*. Add it only if it clears the merit
+  bar: institutional authority (Michelin/James Beard/NPS), a real award/vote (e.g. "Best of <City>"), a
+  verifiable famous-creator/major-press rave, **or** a genuinely high rating with real volume cross-checked
+  on ≥2 platforms. Then rank within region and keep the standouts — don't stack four near-identical mid-tier
+  places; padding is a reason to drop. Ratings (Yelp/Google/TripAdvisor) may *measure* popularity here even
+  though they're never a *recommender* for the ≥2-credible gate. Record the measurement + keep/drop reason
+  in `AUDIT.md`. Full rule: [docs/SOURCES.md](docs/SOURCES.md#merit-bar--measure-acclaim-before-adding-a-mention-is-not-merit-every-category-every-city).
 - **Tiers are graded within each region, not across the city.** Ranking globally clusters
   everything downtown and makes the filter useless elsewhere.
 - **Closed places stay**, flagged. Lolly the Trolley, Sokolowski's, Hot Sauce Williams.

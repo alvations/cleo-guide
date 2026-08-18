@@ -49,3 +49,15 @@ returned only Apple place-id links (restaurant place-pins unreadable via WebSear
 gate-held for `geocode-helper.html`. Merged (asian-only) → 81 registry entries. Rebuild: **page 56 pins**
 (food 18→19). Gates: sourcecheck (my 7 all ≥2 credible; the 2 single-source FAILs are the unrelated
 Aullwood+Third Perk, build-dropped) · geocheck exit 0 · statuscheck CONSISTENT · **buildcheck PASS**.
+
+## Stage 10 — Merit re-audit (2026-08-18): measure acclaim, prune padding
+Per the merit bar (docs/SOURCES.md "Merit bar — MEASURE acclaim before adding"), re-measured the 7 Stage-9
+Asian adds on rating + volume + award/rave and kept only standouts:
+KEEP (4): Wat Da Pho (Google 4.7 / ~1,986 reviews; Dayton937 top pho) · China Cottage (multi-yr Best of
+Dayton Best-Chinese; ~1,360 reviews; est. 1987) · Kabuki (Google 4.6; TripAdvisor #8/71 Centerville; 650+
+reviews) · Little Saigon (Google 4.5 / RestaurantGuru 4.8 across 750+; 30-yr institution + Dayton937 rave).
+DROP (3, padding — respectable but not standout): Pho District (4.4) & Pho Mi (4.3) — 3rd/4th pho, Pho Mi's
+only nod was faint ("mildest broth"); Ginger and Spice (4.3–4.5, reviews flag "Americanized"). Removed from
+FOOD_ASIAN.json + geocodes.json + geoout. Dataset food 43→40; page stays 56 (Wat Da Pho pinned; the other 3
+keeps UNVERIFIED → helper). Gates: geocheck exit 0 · statuscheck CONSISTENT · buildcheck PASS. Rule codified
+repo-wide (all categories/cities) in docs/SOURCES.md.
