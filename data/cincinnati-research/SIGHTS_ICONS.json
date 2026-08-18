@@ -1,0 +1,234 @@
+{
+  "sights": [
+    {
+      "t": 1,
+      "a": "WEST",
+      "n": "Cincinnati Museum Center at Union Terminal",
+      "address": "1301 Western Ave, Cincinnati, OH 45203",
+      "w": "One of the last grand Art Deco railroad terminals (1933), a National Historic Landmark whose half-dome rotunda now houses the History, Natural History & Science, and Children's museums plus an OMNIMAX theater.",
+      "k": "Multi-museum complex; check which museums/exhibits are open before visiting.",
+      "closed": false,
+      "g": ["ICON", "MUS", "ARCH"],
+      "sources": [["OFFICIAL", "https://www.cincymuseum.org/union-terminal/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Cincinnati_Museum_Center"]]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "John A. Roebling Suspension Bridge",
+      "address": "100 W Mehring Way, Cincinnati, OH 45202 (Covington side: 200 Riverside Dr, Covington, KY 41011)",
+      "w": "Opened 1867 as the longest suspension span in the world, John A. Roebling's Ohio River bridge was the prototype for his Brooklyn Bridge; its illuminated cables are Cincinnati's signature riverfront image.",
+      "closed": false,
+      "g": ["ICON", "RIVER", "ARCH", "FREE"],
+      "sources": [["OFFICIAL", "https://roeblingbridge.org/Bridge-History"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/John_A._Roebling_Suspension_Bridge"]]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "Fountain Square & the Tyler Davidson Fountain",
+      "address": "520 Vine St, Cincinnati, OH 45202",
+      "w": "The city's civic living room since 1871, anchored by 'The Genius of Water,' Ferdinand von Miller's bronze fountain gifted by Henry Probasco in memory of Tyler Davidson.",
+      "closed": false,
+      "g": ["ICON", "FREE"],
+      "sources": [["OFFICIAL", "https://myfountainsquare.com/history/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Tyler_Davidson_Fountain"]]
+    },
+    {
+      "t": 3,
+      "a": "DTN",
+      "n": "Carew Tower Observation Deck — CLOSED",
+      "address": "441 Vine St, Cincinnati, OH 45202",
+      "w": "The 49th-floor open-air deck atop the 1931 Art Deco Carew Tower (by the Empire State Building's architects) long gave the best downtown-and-river panorama.",
+      "k": "Deck closed as of 2026 during the tower's conversion to apartments; slated to reopen but no date announced. The building's ground-floor Art Deco arcade remains accessible.",
+      "closed": true,
+      "g": ["ICON", "VIEW", "ARCH"],
+      "sources": [["OFFICIAL", "https://carewtower.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Carew_Tower"]]
+    },
+    {
+      "t": 1,
+      "a": "OTR",
+      "n": "Cincinnati Music Hall",
+      "address": "1241 Elm St, Cincinnati, OH 45202",
+      "w": "Samuel Hannaford's 1878 High Victorian Gothic landmark facing Washington Park, home to the Cincinnati Symphony, Pops, Opera and Ballet, reopened in 2017 after a $143M restoration.",
+      "closed": false,
+      "g": ["ICON", "ARCH", "ENT"],
+      "sources": [["OFFICIAL", "https://www.cincinnatiarts.org/music-hall-home/about-music-hall"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Cincinnati_Music_Hall"]]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "National Underground Railroad Freedom Center",
+      "address": "50 E Freedom Way, Cincinnati, OH 45202",
+      "w": "Opened 2004 on the riverfront where escaping slaves crossed the Ohio, this museum tells the story of the Underground Railroad and contemporary freedom struggles, anchored by a rescued slave pen.",
+      "closed": false,
+      "g": ["ICON", "MUS", "RIVER"],
+      "sources": [["OFFICIAL", "https://freedomcenter.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/National_Underground_Railroad_Freedom_Center"]]
+    },
+    {
+      "t": 1,
+      "a": "UPT",
+      "n": "Cincinnati Zoo & Botanical Garden",
+      "address": "3400 Vine St, Cincinnati, OH 45220",
+      "w": "The nation's second-oldest zoo (1875) and an accredited botanical garden, now world-famous as the home of Fiona the hippo, born prematurely in 2017.",
+      "closed": false,
+      "g": ["ICON", "FAM", "PARK"],
+      "sources": [["OFFICIAL", "https://cincinnatizoo.org/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Cincinnati_Zoo_and_Botanical_Garden"]]
+    },
+    {
+      "t": 1,
+      "a": "OTR",
+      "n": "Findlay Market",
+      "address": "1801 Race St, Cincinnati, OH 45202",
+      "w": "Ohio's oldest continuously operated public market (1855), an iron-framed OTR institution packed with Eckerlin Meats, Pho Lang Thang and dozens of vendors plus a weekend farmers' market.",
+      "closed": false,
+      "g": ["ICON", "FREE", "FAM"],
+      "sources": [["OFFICIAL", "https://www.findlaymarket.org/history"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Findlay_Market"]]
+    },
+    {
+      "t": 2,
+      "a": "OTR",
+      "n": "Washington Park",
+      "address": "1230 Elm St, Cincinnati, OH 45202",
+      "w": "A restored 6-acre park (reopened 2012) across from Music Hall with an interactive fountain, bandstand and event lawn, the green heart of Over-the-Rhine's revival.",
+      "closed": false,
+      "g": ["PARK", "FREE", "FAM"],
+      "sources": [["OFFICIAL", "https://washingtonpark.org/history/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Washington_Park_(Cincinnati,_Ohio)"]]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "Great American Ball Park & Reds Hall of Fame",
+      "address": "100 Joe Nuxhall Way, Cincinnati, OH 45202",
+      "w": "Riverfront home of the Cincinnati Reds, baseball's oldest professional franchise, since 2003; the adjoining Reds Hall of Fame & Museum honors the Big Red Machine.",
+      "closed": false,
+      "g": ["ICON", "ENT", "RIVER"],
+      "sources": [["OFFICIAL", "https://www.mlb.com/reds/ballpark"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Great_American_Ball_Park"]]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Paycor Stadium",
+      "address": "1 Paycor Stadium, Cincinnati, OH 45202",
+      "w": "The riverfront home of the NFL's Cincinnati Bengals since 2000 (formerly Paul Brown Stadium), part of the downtown sports-and-Banks corridor.",
+      "closed": false,
+      "g": ["ICON", "ENT", "RIVER"],
+      "sources": [["OFFICIAL", "https://www.bengals.com/stadium/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Paycor_Stadium"]]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "TQL Stadium",
+      "address": "1501 Central Pkwy, Cincinnati, OH 45214",
+      "w": "FC Cincinnati's $250M soccer-specific stadium in the West End, opened 2021, known for a translucent LED-lit facade and one of MLS's loudest atmospheres.",
+      "closed": false,
+      "g": ["ENT", "ARCH"],
+      "sources": [["OFFICIAL", "https://tqlstadium.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/TQL_Stadium"]]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Smale Riverfront Park & Carol Ann's Carousel",
+      "address": "166 W Mehring Way, Cincinnati, OH 45202",
+      "w": "A landscaped riverfront park between the ballpark and stadium with swings, water features and Carol Ann's Carousel, whose 44 hand-carved animals honor Cincinnati history.",
+      "closed": false,
+      "g": ["PARK", "RIVER", "FAM", "FREE"],
+      "sources": [["VISITCINCY", "https://www.visitcincy.com/listing/smale-riverfront-park/5509/"], ["CINCYMAG", "https://www.cincinnatimagazine.com/article/smale-riverfront-park-is-good-old-fashioned-summer-fun/"]]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Sawyer Point & the Serpentine Wall",
+      "address": "705 E Pete Rose Way, Cincinnati, OH 45202",
+      "w": "A mile of riverfront park at Yeatman's Cove where the stepped Serpentine Wall (1976) descends to the Ohio, a classic spot to sit and watch the river and the Kentucky skyline.",
+      "closed": false,
+      "g": ["PARK", "RIVER", "FREE"],
+      "sources": [["OFFICIAL", "https://www.cincinnati-oh.gov/cincyparks/visit-a-park/find-a-parkfacility/sawyer-point-yeatmans-cove/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Sawyer_Point_Park_%26_Yeatman's_Cove"]]
+    },
+    {
+      "t": 2,
+      "a": "NKY",
+      "n": "Purple People Bridge",
+      "address": "1 Levee Way, Newport, KY 41071",
+      "w": "A 2,670-ft former rail bridge, restored in 2006 as a purple-painted pedestrian-only crossing linking Newport on the Levee to downtown Cincinnati with skyline views.",
+      "closed": false,
+      "g": ["RIVER", "VIEW", "FREE"],
+      "sources": [["OFFICIAL", "https://purplepeoplebridge.com/history/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Purple_People_Bridge"]]
+    },
+    {
+      "t": 1,
+      "a": "NKY",
+      "n": "Newport Aquarium",
+      "address": "1 Aquarium Way, Newport, KY 41071",
+      "w": "A riverfront aquarium at Newport on the Levee with 20,000+ animals, walk-through acrylic tunnels and a rope 'Shark Bridge' suspended over the sharks.",
+      "closed": false,
+      "g": ["FAM", "ENT"],
+      "sources": [["OFFICIAL", "https://www.newportaquarium.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Newport_Aquarium"]]
+    },
+    {
+      "t": 1,
+      "a": "NKY",
+      "n": "MainStrasse Village",
+      "address": "Main St & W 6th St, Covington, KY 41011",
+      "w": "A restored 19th-century German neighborhood in Covington with Italianate storefronts, bars and the Carroll Chimes Bell Tower's animated Pied Piper show over the Goose Girl Fountain.",
+      "closed": false,
+      "g": ["ICON", "ODD", "FREE"],
+      "sources": [["OFFICIAL", "https://www.mainstrassevillage.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Mainstrasse_Village"]]
+    },
+    {
+      "t": 1,
+      "a": "NKY",
+      "n": "Devou Park City Overlook",
+      "address": "1201 Park Dr, Covington, KY 41011",
+      "w": "The Drees Pavilion overlook in Covington's 700-acre Devou Park frames the definitive postcard view of the Cincinnati skyline across the Ohio, renovated in 2024.",
+      "closed": false,
+      "g": ["VIEW", "PARK", "FREE"],
+      "sources": [["OFFICIAL", "https://www.covingtonky.gov/government/departments/neighborhood-services/parks-recreation/parks-playgrounds/devou-park"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Devou_Park"]]
+    },
+    {
+      "t": 1,
+      "a": "OTR",
+      "n": "Over-the-Rhine Historic District",
+      "address": "Vine St & E 12th St, Cincinnati, OH 45202",
+      "w": "One of the largest, most intact urban historic districts in the U.S. (NRHP 1983, ~943 contributing buildings) with the country's largest contiguous collection of 19th-century Italianate architecture, built by German immigrants.",
+      "closed": false,
+      "g": ["ICON", "ARCH", "FREE"],
+      "sources": [["VISITCINCY", "https://www.visitcincy.com/neighborhoods/downtown/over-the-rhine/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Over-the-Rhine"]]
+    },
+    {
+      "t": 2,
+      "a": "NKY",
+      "n": "BB Riverboats",
+      "address": "101 Riverboat Row, Newport, KY 41071",
+      "w": "Long-running Ohio River sightseeing, lunch and dinner cruises departing the Newport landing on Riverboat Row, across from downtown Cincinnati.",
+      "k": "Regular sightseeing schedule runs roughly Memorial Day to Labor Day; check dates.",
+      "closed": false,
+      "g": ["RIVER", "ENT", "FAM"],
+      "sources": [["OFFICIAL", "https://bbriverboats.com/"], ["VISITCINCY", "https://www.visitcincy.com/listing/bb-riverboats/4764/"]]
+    },
+    {
+      "t": 2,
+      "a": "NKY",
+      "n": "Newport on the Levee",
+      "address": "1 Levee Way, Newport, KY 41071",
+      "w": "A multi-level riverfront dining and entertainment complex (opened 2001) housing the Newport Aquarium, a food hall, cinema and comedy club, at the foot of the Purple People Bridge.",
+      "closed": false,
+      "g": ["ENT", "FAM", "RIVER"],
+      "sources": [["OFFICIAL", "https://www.newportonthelevee.com/"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Newport_on_the_Levee"]]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "The Banks",
+      "address": "150 E Freedom Way, Cincinnati, OH 45202",
+      "w": "An 18-acre mixed-use riverfront district tucked between the ballpark and Paycor Stadium, tying together restaurants, bars and residences alongside Smale Park and the Freedom Center.",
+      "closed": false,
+      "g": ["ENT", "RIVER", "FREE"],
+      "sources": [["OFFICIAL", "https://thebankscincy.com/"], ["CITYBEAT", "https://community.citybeat.com/location/the-banks-12641594"]]
+    }
+  ],
+  "sources": [
+    {"key": "OFFICIAL", "name": "Official venue/site", "url": "", "type": "official"},
+    {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org", "type": "encyclopedia"},
+    {"key": "VISITCINCY", "name": "Cincinnati USA (Visit Cincy CVB)", "url": "https://www.visitcincy.com", "type": "cvb"},
+    {"key": "CINCYMAG", "name": "Cincinnati Magazine", "url": "https://www.cincinnatimagazine.com", "type": "citymag"},
+    {"key": "CITYBEAT", "name": "CityBeat Cincinnati", "url": "https://www.citybeat.com", "type": "altweekly"}
+  ]
+}

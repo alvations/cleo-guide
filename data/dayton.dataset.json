@@ -1,0 +1,136 @@
+{
+ "areas": [
+  {
+   "id": "DTN",
+   "n": "Downtown, Oregon District & Webster Station"
+  },
+  {
+   "id": "WD",
+   "n": "Wright-Dunbar & West Dayton"
+  },
+  {
+   "id": "SOUTH",
+   "n": "Kettering, Oakwood & Centerville"
+  },
+  {
+   "id": "NORTH",
+   "n": "Vandalia, Huber Heights & Troy"
+  },
+  {
+   "id": "EAST",
+   "n": "Beavercreek, Fairborn & Wright-Patterson"
+  },
+  {
+   "id": "YS",
+   "n": "Yellow Springs & Greene County"
+  }
+ ],
+ "ac": {
+  "DTN": "#E8973A",
+  "WD": "#C0504D",
+  "SOUTH": "#8064A2",
+  "NORTH": "#4F81BD",
+  "EAST": "#4BACC6",
+  "YS": "#9BBB59"
+ },
+ "cuisines": [
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "BURG",
+   "n": "Burgers & Diners"
+  },
+  {
+   "id": "PIZZA",
+   "n": "Dayton-Style Pizza"
+  },
+  {
+   "id": "GERMAN",
+   "n": "German"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean & Middle Eastern"
+  },
+  {
+   "id": "SOUL",
+   "n": "Soul, BBQ & Southern"
+  },
+  {
+   "id": "ICE",
+   "n": "Ice Cream, Candy & Bakeries"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries & Bars"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "AVIATION",
+   "n": "Aviation & the Wright Brothers"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & MetroParks"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Trails"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "ENT",
+   "n": "Music & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

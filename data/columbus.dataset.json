@@ -1,0 +1,141 @@
+{
+ "areas": [
+  {
+   "id": "DTN",
+   "n": "Downtown & Scioto Mile"
+  },
+  {
+   "id": "SN",
+   "n": "Short North, Victorian & Italian Village"
+  },
+  {
+   "id": "GV",
+   "n": "German Village & Brewery District"
+  },
+  {
+   "id": "OSU",
+   "n": "University District, Clintonville & OSU"
+  },
+  {
+   "id": "EAST",
+   "n": "Bexley, Olde Towne East & Whitehall"
+  },
+  {
+   "id": "WEST",
+   "n": "Franklinton, Grandview & Hilltop"
+  },
+  {
+   "id": "BURB",
+   "n": "Suburbs (Dublin, Worthington, Westerville, New Albany)"
+  }
+ ],
+ "ac": {
+  "DTN": "#E8973A",
+  "SN": "#C0504D",
+  "GV": "#8064A2",
+  "OSU": "#4F81BD",
+  "EAST": "#9BBB59",
+  "WEST": "#4BACC6",
+  "BURB": "#7E8FC4"
+ },
+ "cuisines": [
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "BURG",
+   "n": "Burgers & Diners"
+  },
+  {
+   "id": "PIZZA",
+   "n": "Columbus-Style Pizza"
+  },
+  {
+   "id": "GERMAN",
+   "n": "German"
+  },
+  {
+   "id": "AFRICAN",
+   "n": "Somali & East African"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean & Middle Eastern"
+  },
+  {
+   "id": "SOUL",
+   "n": "Soul, BBQ & Southern"
+  },
+  {
+   "id": "ICE",
+   "n": "Ice Cream & Bakeries"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries & Bars"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Trails"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "ENT",
+   "n": "Sports, Music & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

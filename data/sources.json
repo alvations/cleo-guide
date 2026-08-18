@@ -2237,6 +2237,152 @@
       "refreshLog": [
         "2026-08-14 — region scaffolded: Cincinnati OH + NKY riverfront; same pipeline + >=2-credible-source gate as SV/SF/NYC. No Michelin coverage in this market -> James Beard is the lone institutional authority."
       ]
+    },
+    "columbus-oh": {
+      "name": "Columbus OH",
+      "sources": [
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "rank": 1,
+          "verified": true,
+          "credible": "National culinary authority; the top institutional mark in a market with no Michelin/Eater edition."
+        },
+        {
+          "key": "DISPATCH",
+          "name": "The Columbus Dispatch",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "The metro daily of record; bylined dining & things-to-do coverage."
+        },
+        {
+          "key": "COLUMBUSMONTHLY",
+          "name": "Columbus Monthly",
+          "type": "city_mag",
+          "rank": 1,
+          "verified": true,
+          "credible": "The city magazine; long-running restaurant criticism and Best Of features."
+        },
+        {
+          "key": "COLUMBUSUNDERGROUND",
+          "name": "Columbus Underground",
+          "type": "local_media",
+          "rank": 1,
+          "verified": true,
+          "credible": "Independent, bylined local news with a strong food/development desk."
+        },
+        {
+          "key": "COLUMBUSALIVE",
+          "name": "Columbus Alive / 614 Magazine",
+          "type": "alt_media",
+          "rank": 2,
+          "verified": true,
+          "credible": "Alt/culture publications; local, bylined."
+        },
+        {
+          "key": "NBC4",
+          "name": "NBC4 / ABC6 / 10TV Columbus",
+          "type": "tv_news",
+          "rank": 2,
+          "verified": true,
+          "credible": "Major Columbus TV stations with reported food/culture segments."
+        },
+        {
+          "key": "EXPERIENCECBUS",
+          "name": "Experience Columbus",
+          "type": "cvb",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official visitor bureau; good for sights/hours (not a lone food recommender)."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "curated",
+          "rank": 2,
+          "verified": true,
+          "credible": "Vetted oddities / hidden gems."
+        }
+      ],
+      "creators": [],
+      "refreshLog": [
+        "2026-08-14 — region scaffolded via the codified pipeline; >=2-credible-source gate. No Michelin/Eater in this market -> James Beard is the lone institutional authority."
+      ]
+    },
+    "dayton-oh": {
+      "name": "Dayton OH (+ Miami Valley)",
+      "sources": [
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "rank": 1,
+          "verified": true,
+          "credible": "National culinary authority; top institutional mark in a market with no Michelin/Eater."
+        },
+        {
+          "key": "DAYTONDAILY",
+          "name": "Dayton Daily News / Dayton.com",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "The metro daily of record (Cox); bylined dining & things-to-do coverage."
+        },
+        {
+          "key": "DAYTONMAG",
+          "name": "Dayton Magazine",
+          "type": "city_mag",
+          "rank": 1,
+          "verified": true,
+          "credible": "The city magazine; local food & culture features."
+        },
+        {
+          "key": "WHIO",
+          "name": "WHIO 7 / WDTN 2 Dayton",
+          "type": "tv_news",
+          "rank": 2,
+          "verified": true,
+          "credible": "Major Dayton TV stations with reported food/culture segments."
+        },
+        {
+          "key": "NPS",
+          "name": "National Park Service (Dayton Aviation Heritage)",
+          "type": "official",
+          "rank": 1,
+          "verified": true,
+          "credible": "Federal authority for the Wright brothers / aviation-heritage sites."
+        },
+        {
+          "key": "OHIOHISTORY",
+          "name": "Ohio History Connection",
+          "type": "official",
+          "rank": 2,
+          "verified": true,
+          "credible": "State historical authority for landmarks."
+        },
+        {
+          "key": "GEMCITY",
+          "name": "Dayton Local / Gem City",
+          "type": "local_media",
+          "rank": 2,
+          "verified": true,
+          "credible": "Local things-to-do/food publications; corroborating source."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "curated",
+          "rank": 2,
+          "verified": true,
+          "credible": "Vetted oddities / hidden gems."
+        }
+      ],
+      "creators": [],
+      "refreshLog": [
+        "2026-08-14 — region scaffolded via the codified pipeline; >=2-credible-source gate. No Michelin/Eater in this market -> James Beard is the lone institutional authority."
+      ]
     }
   }
 }
