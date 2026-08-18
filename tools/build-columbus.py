@@ -166,29 +166,29 @@ new = new.replace("all 183 places", "all %d places" % TOTAL)
 rep("<title>Cleveland Field Guide — 130 Places, Sourced</title>",
     "<title>Columbus Field Guide — Sourced</title>")
 rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
-    '<p class="eyebrow">Field guide · Columbus &amp; the Peninsula, sourced</p>')
+    '<p class="eyebrow">Field guide · Columbus, sourced</p>')
 rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
-    '<h1>Columbus<span class="thin">the city &amp; the Peninsula &mdash; icons, neighborhoods &amp; famous food</span></h1>')
+    '<h1>Columbus<span class="thin">Ohio\u2019s capital &mdash; the Short North, German Village &amp; a great immigrant table</span></h1>')
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-    '<p class="standfirst">%d sights and %d places to eat across Columbus and the northern Peninsula down to San Mateo, each traceable to the source that named it. The city\\u2019s food canon runs from the Mission burrito and Chinatown dim sum to cioppino, Tenderloin Vietnamese and the third-wave coffee it helped invent. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
+    '<p class="standfirst">%d sights and %d places to eat across Columbus and its neighborhoods, each traceable to the source that named it. The city\\u2019s food is a sleeper great &mdash; <strong>Jeni\u2019s</strong> ice cream (born here), the North Market, Columbus-style square-cut <strong>pizza</strong>, Schmidt\u2019s German cream puffs and one of America\u2019s deepest <strong>Somali</strong> tables. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 new = re.sub(r'<meta name="description"[^>]*>',
-    '<meta name="description" content="Columbus field guide — %d sights and %d places to eat across Columbus and the Peninsula to San Mateo, each traceable to its source (Michelin, The Infatuation, KQED, the SF Standard, Mission Local, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
+    '<meta name="description" content="Columbus field guide — %d sights and %d places to eat across Columbus and its neighborhoods, each traceable to its source (the Columbus Dispatch, Columbus Monthly, Columbus Underground, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", Columbus OH")
 new = new.replace(">Cleveland \\u2014 my list<", ">Columbus \\u2014 my list<").replace(">Cleveland — my list<", ">Columbus — my list<")
-new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="dim sum, cioppino, Alcatraz, burrito…"')
+new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="North Market, Jeni\u2019s, Short North, pizza…"')
 new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'dim sum, burrito, cioppino, oysters\\u2026' : 'Golden Gate, cable car, Alcatraz, murals\\u2026'")
+                  "? 'Jeni\\u2019s, pizza, Somali, cream puff\\u2026' : 'Short North, German Village, COSI, Statehouse\\u2026'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 # footer provenance note + dates
 new = new.replace("last verified 2026-08-08", "last verified 2026-08-14")
 new = new.replace(
 '''  <span style="opacity:.8">Refresh check (Aug 2026, via the pipeline): Sokolowski's University Inn confirmed still closed (kept, flagged); West Side Market open amid a $70M renovation, produce arcade reopened Jan 2026; newly opened since build — Rock &amp; Roll Hall of Fame expansion, Cleveland Metroparks Zoo Primate Forest, Irishtown Bend Park. Findings logged in data/sources.json.</span><br><br>''',
-'''  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin (stars + Bib Gourmand), James Beard, The Infatuation, KQED, the SF Standard, Mission Local, Hoodline, 7x7, Atlas Obscura and official / national-park / state-park sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>''')
+'''  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across James Beard, the Columbus Dispatch, Columbus Monthly, Columbus Underground, Columbus Alive, NBC4, Experience Columbus, Atlas Obscura and official sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>''')
 # appendix — cuisine rules + how-sourced
 SV_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. Columbus\\u2019s signature strength is its food canon: the <b>Mission burrito</b> and taqueria belt, <b>Cantonese dim sum</b> in the oldest Chinatown in America, <b>cioppino</b> and Dungeness crab, <b>Tenderloin Vietnamese</b>, the Bay\\u2019s famous <b>Burmese</b>, <b>sourdough</b> and the <b>third-wave coffee</b> it helped invent \\u2014 each led by Michelin, The Infatuation, KQED and the SF Standard. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. Columbus\\u2019s signature strength is range: <b>Jeni\\u2019s Splendid</b> ice cream (born here), the <b>North Market</b>, <b>Columbus-style</b> square-cut <b>pizza</b>, <b>Schmidt\\u2019s</b> German sausage &amp; cream puffs, and one of the largest <b>Somali</b> tables in the US, sourced to the Columbus Dispatch, Columbus Monthly and Columbus Underground. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
  "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
