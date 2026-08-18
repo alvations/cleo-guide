@@ -129,8 +129,950 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
- "F": [],
- "S": {},
- "FS": {}
+ "P": [
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "National Museum of the U.S. Air Force",
+   "ad": "1100 Spaatz St, Wright-Patterson AFB, OH 45433",
+   "w": "The marquee: world's largest and oldest military aviation museum, 4 hangars of aircraft from the Wright 1909 Military Flyer to an SR-71, XB-70 and presidential planes. Free admission, free parking, open daily 9-5.",
+   "g": [
+    "ICON",
+    "MUS",
+    "FREE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nationalmuseum.af.mil/Visit/Hours-and-Admission/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_the_United_States_Air_Force"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Carillon Historical Park",
+   "ad": "1000 Carillon Blvd, Dayton, OH 45409",
+   "w": "65-acre Dayton History campus built around the original 1905 Wright Flyer III, the only airplane that is a National Historic Landmark, gifted by Orville Wright himself and shown in a purpose-built pit.",
+   "g": [
+    "ICON",
+    "MUS",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.daytonhistory.org/visit/general-info/hours-and-pricing/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Carillon_Historical_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WD",
+   "n": "Wright Cycle Company",
+   "ad": "16 S Williams St, Dayton, OH 45402",
+   "w": "NPS-run bike shop where the Wright brothers designed and built the machines that led to the 1903 first flight; the anchor of Dayton Aviation Heritage NHP in the Wright-Dunbar district. Free.",
+   "g": [
+    "MUS",
+    "ICON",
+    "FREE",
+    "AVIATION"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/daav/learn/historyculture/wrightcyclecompany.htm"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/places/dayton-aviation-heritage-national-historical-park.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Huffman Prairie Flying Field",
+   "ad": "2380 Memorial Rd, Wright-Patterson AFB, OH 45433",
+   "w": "The 84-acre pasture where the Wrights perfected controlled, powered flight in 1904-05 and ran the world's first flying school. NPS site on WPAFB, free, with an interpretive center at the Wright Memorial.",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/thingstodo/exploring-huffman-prairie.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Huffman_Prairie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WD",
+   "n": "Wright-Dunbar Interpretive Center",
+   "ad": "16 S Williams St, Dayton, OH 45402",
+   "w": "NPS visitor center in the Wrights' former print-shop building; tells the intertwined stories of Wilbur, Orville and their classmate, poet Paul Laurence Dunbar. Free, gateway to the Wright-Dunbar aviation trail.",
+   "g": [
+    "MUS",
+    "FREE",
+    "AVIATION",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://home.nps.gov/daav/learn/historyculture/places.htm"
+    ],
+    [
+     "NPS",
+     "https://www.nps.gov/daav/planyourvisit/hours.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Hawthorn Hill",
+   "ad": "901 Harman Ave, Oakwood, OH 45419",
+   "w": "Orville Wright's grand 1914 Oakwood mansion (a National Historic Landmark) where he lived until his death; toured by advance-reservation shuttle from Carillon Park on Wednesdays and Saturdays.",
+   "g": [
+    "ARCH",
+    "MUS",
+    "ICON",
+    "AVIATION"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hawthorn_Hill"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/8-interesting-things-to-see-at-hawthorn-hill-the-wright-family-mansion/QU3QM7YGGNGA7DTDIUGPZY2VSU/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Dayton Art Institute",
+   "ad": "456 Belmonte Park N, Dayton, OH 45405",
+   "w": "1930 Italian-Renaissance-villa art museum overlooking downtown, with 20,000+ works across 5,000 years; anchors the Grafton Hill bluff. Open Wed-Sun.",
+   "g": [
+    "MUS",
+    "ICON",
+    "ARCH",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.daytonartinstitute.org/plan-visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dayton_Art_Institute"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WD",
+   "n": "SunWatch Indian Village",
+   "ad": "2301 W River Rd, Dayton, OH 45418",
+   "w": "Reconstructed Fort Ancient (c. 1200 CE) Native American village and solar-calendar site on the Great Miami River, a National Historic Landmark now operated by Boonshoft; open seasonally.",
+   "g": [
+    "MUS",
+    "ODD",
+    "FAM",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/SunWatch_Indian_Village"
+    ],
+    [
+     "OFFICIAL",
+     "https://boonshoft.org/sunwatch/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Boonshoft Museum of Discovery",
+   "ad": "2600 Deweese Pkwy, Dayton, OH 45414",
+   "w": "Hands-on science-and-nature museum with a planetarium, small zoo and children's exhibits north of downtown; the region's top family science destination.",
+   "g": [
+    "MUS",
+    "FAM",
+    "PARK",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Boonshoft_Museum_of_Discovery"
+    ],
+    [
+     "OFFICIAL",
+     "https://boonshoft.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "RiverScape MetroPark",
+   "ad": "111 E Monument Ave, Dayton, OH 45402",
+   "w": "Downtown riverfront park at the Great Miami confluence: Five Rivers Fountain of Lights, splash pad, winter ice rink, kayak and bike rentals, and the hub of the region's paved trail network. Free.",
+   "g": [
+    "PARK",
+    "FREE",
+    "FAM",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.metroparks.org/places-to-go/riverscape/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Five_Rivers_MetroParks"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Oregon District",
+   "ad": "E Fifth St, Dayton, OH 45402",
+   "w": "Dayton's oldest neighborhood and nightlife heart: a quarter-mile of brick-lined East Fifth Street lined with bars, restaurants and shops, named an APA Great Street. Best-preserved 1820-1915 architecture in the city.",
+   "g": [
+    "ICON",
+    "ENT",
+    "ARCH",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Oregon_Historic_District"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/news/things-you-should-know-about-the-oregon-district/mMw54maGH8AKv4EGcRtDgI/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Dayton Arcade",
+   "ad": "35 W Fourth St, Dayton, OH 45402",
+   "w": "1904 Flemish-façade glass-domed arcade, a downtown landmark reborn after a $162M restoration wrapped in 2025 (Hilton Garden Inn, food hall, shops); the rotunda dome is the showpiece.",
+   "g": [
+    "ARCH",
+    "ICON",
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/dayton-arcade-retail-marketplace-to-open-in-march-marking-end-of-historic-restoration/QPA2TILQANFWRLNKVIWMPHXXKY/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.arcadedayton.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Woodland Cemetery & Arboretum",
+   "ad": "118 Woodland Ave, Dayton, OH 45409",
+   "w": "1841 garden cemetery and 200-acre arboretum on rolling hills; resting place of the Wright brothers, Paul Laurence Dunbar, Erma Bombeck and Charles Kettering, with a Tiffany-windowed Romanesque chapel. Free.",
+   "g": [
+    "PARK",
+    "ODD",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Woodland_Cemetery_and_Arboretum"
+    ],
+    [
+     "OFFICIAL",
+     "https://woodlandcemetery.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Cox Arboretum MetroPark",
+   "ad": "6733 Springboro Pike, Dayton, OH 45449",
+   "w": "189-acre MetroPark of formal gardens, a butterfly house, edible-landscape and towering observation tower south of the city. Open daily, free.",
+   "g": [
+    "PARK",
+    "FREE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cox_Arboretum_and_Gardens_MetroPark"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.metroparks.org/places-to-go/cox-arboretum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Wright Brothers Memorial",
+   "ad": "2380 Memorial Rd, Wright-Patterson AFB, OH 45433",
+   "w": "17-foot pink-granite obelisk on Wright Brothers Hill (dedicated 1940 on Orville's birthday) with an overlook across Huffman Prairie and the Mad River valley. Free.",
+   "g": [
+    "VIEW",
+    "FREE",
+    "ICON",
+    "AVIATION"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/wright-brothers-memorial.htm"
+    ],
+    [
+     "NPS",
+     "https://home.nps.gov/daav/contacts.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "America's Packard Museum",
+   "ad": "420 S Ludlow St, Dayton, OH 45402",
+   "w": "World's largest collection of Packard automobiles and memorabilia, displayed inside a beautifully restored original 1917 Packard dealership showroom downtown.",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ODD",
+    "AVIATION"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/America%27s_Packard_Museum"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.americaspackardmuseum.org/admissions-and-hours"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "Old Court House",
+   "ad": "7 N Main St, Dayton, OH 45402",
+   "w": "1850 Greek Revival courthouse modeled on the Temple of Hephaestus, on whose steps Lincoln gave an 1859 anti-slavery speech; now the Montgomery County Historical Society museum in Courthouse Square. Free.",
+   "g": [
+    "ARCH",
+    "MUS",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Montgomery_County_Courthouse_(Ohio)"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/173-years-later-the-old-montgomery-county-courthouse-is-still-the-centerpiece-of-downtown-dayton/SV6BMRP5GBESHKPI2DSWNTYG2I/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WD",
+   "n": "Paul Laurence Dunbar House Historic Site",
+   "ad": "219 Paul Laurence Dunbar St, Dayton, OH 45402",
+   "w": "1904-06 home of pioneering Black poet Paul Laurence Dunbar, preserved with his belongings; Ohio's first state memorial to an African American (1936) and part of the aviation-heritage park.",
+   "g": [
+    "MUS",
+    "ICON",
+    "AVIATION",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OHIOHISTORY",
+     "https://www.ohiohistory.org/visit/browse-historical-sites/paul-laurence-dunbar-house/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Paul_Laurence_Dunbar_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YS",
+   "n": "Glen Helen Nature Preserve",
+   "ad": "405 Corry St, Yellow Springs, OH 45387",
+   "w": "1,000-acre preserve with 25 miles of trails, cascades and the iron-orange Yellow Spring that named the village; the day-trip centerpiece. $10 parking.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Glen_Helen_Nature_Preserve"
+    ],
+    [
+     "OFFICIAL",
+     "https://glenhelen.org/plan-your-visit/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YS",
+   "n": "Clifton Gorge State Nature Preserve",
+   "ad": "2381 OH-343, Yellow Springs, OH 45387",
+   "w": "Dramatic dolomite-and-limestone gorge cut by the Little Miami River, a National Natural Landmark with cliff-edge trails; adjoins John Bryan State Park.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/parkmaps/johnbryanparkmap.pdf"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_Bryan_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YS",
+   "n": "John Bryan State Park",
+   "ad": "3790 OH-370, Yellow Springs, OH 45387",
+   "w": "752-acre park called the most scenic in western Ohio, wrapping the Little Miami gorge with hiking, camping, rock climbing and a disc-golf course.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_Bryan_State_Park"
+    ],
+    [
+     "OFFICIAL",
+     "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/parkmaps/johnbryanparkmap.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "YS",
+   "n": "Little Miami Scenic Trail",
+   "ad": "101 Dayton St, Yellow Springs, OH 45387",
+   "w": "Paved rail-trail on a National Scenic River corridor; the Yellow Springs Station (old depot, restrooms, parking) is a favorite trailhead for an easy bike ride into the village and gorge.",
+   "g": [
+    "PARK",
+    "FREE",
+    "VIEW",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Little_Miami_Scenic_Trail"
+    ],
+    [
+     "OFFICIAL",
+     "https://yellowspringsohio.org/places-to-go/parks-trails/little-miami-bike-trail/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Aullwood Audubon Center & Farm",
+   "ad": "1000 Aullwood Rd, Dayton, OH 45414",
+   "w": "National Audubon center with a working sustainable farm, prairies and woodland trails northwest of the city; a hands-on nature draw for families. Open Tue-Sun.",
+   "g": [
+    "PARK",
+    "FAM",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.audubon.org/aullwood"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.audubon.org/aullwood/visit"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Day Air Ballpark (Dayton Dragons)",
+   "ad": "220 N Patterson Blvd, Dayton, OH 45402",
+   "w": "Downtown home of the Dayton Dragons, holders of pro sports' longest consecutive sellout streak (1,600+ games); a beloved summer-evening institution on Monument Avenue.",
+   "g": [
+    "ENT",
+    "ICON",
+    "FAM",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Day_Air_Ballpark"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/dayton-dragons-unveil-new-6m-ballpark-diamond-club-addition/article_11b7da55-3d1e-50bf-9d1d-8c4d8cd85d90.html"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Marion's Piazza",
+   "ad": "3443 N Dixie Dr, Dayton, OH 45414",
+   "w": "The originator of Dayton-style pizza (est. 1965): a cracker-thin crust cut into small squares, sold by the million each year. This N. Dixie location is a longtime local flagship.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Marion's_Piazza"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/restaurants/marions-piazza/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Esther Price Candies",
+   "ad": "1709 Wayne Ave, Dayton, OH 45410",
+   "w": "Dayton's beloved chocolatier since 1926; every piece is still made by hand at the Wayne Avenue factory built around Esther's own house. The caramel creams and assorted boxes are the classics.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Esther_Price_Candies"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/retail/esther-price/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Bill's Donut Shop",
+   "ad": "268 N Main St, Centerville, OH 45459",
+   "w": "A 24/7 Centerville institution since 1979, named to national 'best donut' lists (People, USA Today) and a perennial Best of Dayton winner. The airy glazed yeast donut is the one to get.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/what-to-know/best-of-dayton-bills-donut-shop-is-legendary-for-its-treats-but-it-does-even-more-than-you-know/UVEOVBQ5KBCMJJBNIVUIW53UOQ/"
+    ],
+    [
+     "WHIO",
+     "https://www.wdtn.com/news/local-news/bills-donut-shop-to-get-owners-outside-the-founding-family/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "The Pine Club",
+   "ad": "1926 Brown St, Dayton, OH 45409",
+   "w": "Cash-friendly Dayton supper club since 1947, no reservations, pine-paneled and unchanged; the NY Times called it one of the world's 10 greatest traditional dining rooms. Steaks come with the legendary stewed tomatoes.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/news/local/pine-club-history-quirky-facts-about-dayton-iconic-steakhouse/LOLrc7OVZd2LrNvaN0FjAP/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Pine_Club"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "The Century Bar",
+   "ad": "18 S Jefferson St, Dayton, OH 45402",
+   "w": "Dayton's bourbon house since 1942: 800+ whiskeys, single-barrel pours and craft cocktails at an Edwardian hand-carved wood bar. Consistently rated among the nation's best whiskey bars.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Century_Bar"
+    ],
+    [
+     "OFFICIAL",
+     "https://centurybardayton.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "The Trolley Stop",
+   "ad": "530 E Fifth St, Dayton, OH 45402",
+   "w": "Dayton's oldest continuously operating tavern, in an 1839 Oregon District building; a patio, live music and pub plates. The history is the draw as much as the beer.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.dayton.com/local/trolley-stop-owner-says-its-time-to-move-on-puts-bar-up-for-sale/ZNP47DEVHRC7ZHZCZG7FURMN6E/"
+    ],
+    [
+     "GEMCITY",
+     "https://readthegem.com/p/dayton-s-oldest-bar-the-trolley-stop-on-5th"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Lucky's Taproom & Eatery",
+   "ad": "520 E Fifth St, Dayton, OH 45402",
+   "w": "Oregon District taproom (since 2011) with a rotating craft-beer list, pub fare and one of the city's most extensive vegan menus. Reliable pre- or post-show spot on Fifth.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/restaurants/luckys-taproom-eatery/"
+    ],
+    [
+     "OFFICIAL",
+     "https://luckystaproom.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "El Meson",
+   "ad": "903 E Dixie Dr, West Carrollton, OH 45449",
+   "w": "Family-run (Castro family) West Carrollton mainstay of 45+ years serving Spanish and Latin American tapas, paella and a deep wine list; a Dayton special-occasion favorite.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/places/restaurant/things-know-and-love-about-meson/oq9mNoMDrTKTEqmsoomrkO/"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/restaurants/el-meson-restaurant/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Salar Restaurant and Lounge",
+   "ad": "400 E Fifth St, Dayton, OH 45402",
+   "w": "Upscale-casual Oregon District kitchen of world-fusion cuisine with strong Peruvian roots — ceviche, lomo saltado — plus two patios and full bars looking onto Fifth Street.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/news/food/salar/"
+    ],
+    [
+     "OFFICIAL",
+     "https://salarrestaurant.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Lily's Bistro",
+   "ad": "329 E Fifth St, Dayton, OH 45402",
+   "w": "Chef-owner Emily Mendenhall's Oregon District bistro (since 2013) with daily-changing seasonal menus blending American Southern and tropical flavors, plus a tiki-inspired cocktail program.",
+   "cz": [
+    "US",
+    "SOUL"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/places/restaurant/innovation-and-big-ideas-mark-lily-bistro/0HX5fOhom5FVTBz4OSQNFK/"
+    ],
+    [
+     "WHIO",
+     "https://www.wdtn.com/top-stories/lilys-bistro-dealing-with-damage-following-protests/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Coco's Bistro",
+   "ad": "250 Warren St, Dayton, OH 45402",
+   "w": "Longtime South-of-downtown bistro with a lush, eclectic dining room serving Mediterranean-leaning New American plates; a Dayton date-night standby.",
+   "cz": [
+    "MED",
+    "US"
+   ],
+   "s": [
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/restaurants/cocos-bistro/"
+    ],
+    [
+     "OFFICIAL",
+     "https://228coco.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Carillon Brewing Co.",
+   "ad": "1000 Carillon Blvd, Dayton, OH 45409",
+   "w": "The nation's only production brewery inside a museum: costumed brewers make beer to mid-19th-century Dayton recipes on replica equipment at Carillon Park, paired with historic immigrant fare.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "DAYTONMAG",
+     "https://www.thedaytonmagazine.com/carillon-brewing-co-serves-up-history/"
+    ],
+    [
+     "OFFICIAL",
+     "https://daytonhistory.org/dine/carillon-brewing-co/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Warped Wing Brewing Company",
+   "ad": "26 Wyandot St, Dayton, OH 45402",
+   "w": "Dayton's flagship craft brewery (since 2014) in a downtown former foundry; Best of Dayton brewery winner. Ermal's Cream Ale honors the local inventor of the pull-tab can.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/what-to-love/best-of-dayton-2018-the-best-local-brewery-takes-hometown-pride-to-heart/JFKERYTSGHKXLNZYO6327CFPPQ/"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/events/warped-wing-anniversary-beer-bash/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YS",
+   "n": "Young's Jersey Dairy",
+   "ad": "6880 Springfield-Xenia Rd, Yellow Springs, OH 45387",
+   "w": "Working dairy farm (Young family since 1869) just north of Yellow Springs: homemade ice cream, farmstead cheese, a petting barn, mini-golf and driving range — the classic day-trip stop.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Young's_Jersey_Dairy"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/profiles/youngs-jersey-dairy/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Wheat Penny Oven and Bar",
+   "ad": "515 Wayne Ave, Dayton, OH 45410",
+   "w": "Chef Elizabeth Wiley's Oregon District spot (since 2013) for creative deck-oven pizzas (the Bright Eyes with zucchini and lemon), pastas and eggplant fries, with plenty of gluten-free and vegetarian options.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/lifestyles/food/on-the-menu-wheat-penny-s-california-style-pizza-flair/article_eddd82d8-428c-5ac3-91ad-56394d66560e.html"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/news/food/creative-pizzas-and-gluten-free-options-at-wheat-penny-oven-and-bar/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WD",
+   "n": "Mz. Jade's Soul Food",
+   "ad": "1100 W Third St, Dayton, OH 45402",
+   "w": "Popular soul-food kitchen inside West Social Tap & Table in the historic Wright-Dunbar district: oxtails, fried chicken, candied yams, mac & cheese and collard greens.",
+   "cz": [
+    "SOUL"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/mz-jades-soul-food-to-open-next-week-inside-w-social-tap-table/WHE3MM5DDNAUXG5HKRFBKTEHJE/"
+    ],
+    [
+     "WHIO",
+     "https://www.wdtn.com/news/restaurants-bars/mz-jades-soul-food-returning-to-dayton/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "DAYTONDAILY": {
+   "k": "DAYTON DAILY NEWS",
+   "t": "Dayton Daily News / Dayton.com",
+   "u": "https://www.daytondailynews.com/",
+   "l": "Dayton Daily News / Dayton.com"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service — Dayton Aviation Heritage NHP",
+   "u": "https://www.nps.gov/daav/",
+   "l": "National Park Service — Dayton Aviation Heritage NHP"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site / operator",
+   "u": "",
+   "l": "Official site / operator"
+  },
+  "OHIOHISTORY": {
+   "k": "OHIO HISTORY",
+   "t": "Ohio History Connection",
+   "u": "https://www.ohiohistory.org/",
+   "l": "Ohio History Connection"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (published coordinates)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (published coordinates)"
+  }
+ },
+ "FS": {
+  "DAYTONDAILY": {
+   "k": "DAYTON DAILY NEWS",
+   "t": "Dayton Daily News / Dayton.com",
+   "u": "https://www.daytondailynews.com/",
+   "l": "Dayton Daily News / Dayton.com"
+  },
+  "DAYTONMAG": {
+   "k": "DAYTON MAGAZINE",
+   "t": "DAYTON MAGAZINE",
+   "u": "",
+   "l": ""
+  },
+  "GEMCITY": {
+   "k": "DAYTON LOCAL",
+   "t": "DAYTON LOCAL",
+   "u": "",
+   "l": ""
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site / operator",
+   "u": "",
+   "l": "Official site / operator"
+  },
+  "WHIO": {
+   "k": "WHIO 7",
+   "t": "WHIO 7",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (published coordinates)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (published coordinates)"
+  }
+ }
 }
