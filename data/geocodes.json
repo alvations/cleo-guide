@@ -18432,6 +18432,90 @@
     "status": "open",
     "statusSource": "tendermercy.com + Yelp updated Jul 2026, hours listed; operating (underground cocktail bar)",
     "statusChecked": "2026-08-18"
+   },
+   "Wat Da Pho": {
+    "address": "3464 Pentagon Blvd Ste D, Beavercreek, OH 45431",
+    "lat": 39.77159,
+    "lng": -84.06033,
+    "source": "loc8nearme place-level 'main entry point' coord (aggregator); Beavercreek/Pentagon Blvd corridor confirmed",
+    "verified": "2026-08-18",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Official watdaphobeavercreek.com + Yelp listing updated 2026; Dayton937 current feature",
+    "statusChecked": "2026-08-18",
+    "note": "Aggregator place point, not a confirmed Google !3d!4d pin — flag for the 4b re-verify/helper pass."
+   },
+   "Little Saigon": {
+    "address": "1718 Woodman Dr, Dayton, OH 45420",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-08-18",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "littlesaigondaytonoh.com hours current; Yelp updated 2026",
+    "statusChecked": "2026-08-18",
+    "note": "Restaurant place-pin not resolvable via WebSearch (only Apple place-id link); needs geocode-helper."
+   },
+   "Pho District": {
+    "address": "4474 Glengarry Dr, Beavercreek, OH 45440",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-08-18",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Listed at The Greene Town Center (thegreene.com/stores); Yelp updated 2026",
+    "statusChecked": "2026-08-18",
+    "note": "Only Apple place-id link surfaced; needs geocode-helper."
+   },
+   "Pho Mi": {
+    "address": "8990 Kingsridge Dr, Dayton, OH 45458",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-08-18",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Yelp/Tripadvisor listings updated 2026; Dayton937 feature",
+    "statusChecked": "2026-08-18",
+    "note": "Kingsridge Dr sits in Washington Twp/Miamisburg (Dayton Mall area) though listed 'Dayton, OH'; SOUTH area. Only Apple place-id link surfaced; needs geocode-helper."
+   },
+   "China Cottage": {
+    "address": "6290 Far Hills Ave, Centerville, OH 45459",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-08-18",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "chinacottagerestaurant.com active; Destination Dayton listing; Yelp updated 2026",
+    "statusChecked": "2026-08-18",
+    "note": "Only Apple place-id link surfaced; needs geocode-helper."
+   },
+   "Ginger and Spice Asian Bistro": {
+    "address": "1105 Brown St, Dayton, OH 45409",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-08-18",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "gingerandspicedayton.com active; Destination Dayton listing; Yelp updated 2026",
+    "statusChecked": "2026-08-18",
+    "note": "Only Apple place-id link surfaced; needs geocode-helper."
+   },
+   "Kabuki Restaurant & Sushi Bar": {
+    "address": "848 S Main St, Centerville, OH 45458",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-08-18",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "eatatkabuki.com active; Dayton Local profile; Yelp updated 2026",
+    "statusChecked": "2026-08-18",
+    "note": "Only Apple place-id link surfaced; needs geocode-helper."
    }
   }
  }

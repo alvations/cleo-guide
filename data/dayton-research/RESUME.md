@@ -35,3 +35,12 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
   is permanently closed — don't conflate.
 - NEXT: browser-helper the 19 UNVERIFIED + upgrade 5 low/20 med to exact place-pins → rebuild (toward 74).
   A 2nd credible source for Aullwood + Third Perk would let both build.
+
+---
+## State @ 2026-08-18 (Asian food deep-dive)
+- Added 7 Asian places (Wat Da Pho, Little Saigon, Pho District, Pho Mi, China Cottage, Ginger and Spice,
+  Kabuki) — each ≥2 credible (Dayton937/Dayton Local/Destination Dayton/Best of Dayton/official), open-verified.
+  New source keys registered: DAYTON937, DESTDAYTON, OFFICIAL.
+- Page **56 pins**; **Wat Da Pho pinned**, the other 6 UNVERIFIED (WebSearch can't read their place-pins) →
+  in the 25-pin helper backlog. Excluded **Get The Pho Out** (permanently closed June 2026, flagged in AUDIT).
+- NEXT: browser-helper the 6 new Asian pins (+ the other 19 UNVERIFIED) → rebuild (page grows toward 81).

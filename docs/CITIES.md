@@ -17,7 +17,7 @@ _Counts are as of 2026-08-18; re-derive anytime with the commands below — neve
 | San Francisco & Peninsula CA | `cities/sanfrancisco.html` | `data/sanfrancisco.dataset.json` | `data/san-francisco-research/` | 141 | live · 7 UNVERIFIED pins pending helper |
 | Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 109 | live · 23 UNVERIFIED pins pending helper |
 | Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 62 | live · 23 UNVERIFIED pins pending helper (8 food un-geocoded) |
-| Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 55 | live · 19 UNVERIFIED pins pending helper; Aullwood + Third Perk (1-source) held |
+| Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 56 | live · +7 Asian food (Wat Da Pho pinned; 6 pending helper) · 25 UNVERIFIED pins; Aullwood + Third Perk (1-source) held |
 
 **San Francisco region scope:** SF proper + the northern Peninsula down to **San Mateo** and the **SFO
 corridor** (Daly City, Brisbane, South SF, San Bruno, Millbrae, Burlingame, San Mateo) — deliberately
