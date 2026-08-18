@@ -1,311 +1,493 @@
 [
-  {
-    "t": 1,
-    "a": "DTN",
-    "cz": ["Ice Cream"],
-    "dish": "Brambleberry Crisp; Brown Butter Almond Brittle",
-    "n": "Jeni's Splendid Ice Creams — North Market",
-    "address": "59 Spruce St, Columbus, OH 43215",
-    "w": "Jeni Britton Bauer launched Jeni's at the North Market in 2002; the grassy-buttermilk base and inventive flavors (Brambleberry Crisp, Brown Butter Almond Brittle) that turned a Columbus stall into a national brand.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/jenis-relocates-within-the-north-market/"],
-      ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Jeni's_Splendid_Ice_Creams"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "DTN",
-    "cz": ["Nepali", "Tibetan"],
-    "dish": "jhol momo (dumplings in spiced sesame broth)",
-    "n": "Momo Ghar — North Market",
-    "address": "59 Spruce St, Columbus, OH 43215",
-    "w": "Phenomenal Himalayan dumplings that put Columbus's huge Nepali-Bhutanese community on the map; the jhol momo swim in a spiced sesame broth. Featured on Diners, Drive-Ins and Dives.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/food/2021/12/07/nepalese-restaurants-food-columbus-momo-ghar-yeti-express-himalayan-grille-namaste-indo-nepali/8842189002/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/blog/post/where-to-find-nepali-food-in-columbus/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "DTN",
-    "cz": ["Somali"],
-    "dish": "chicken suqaar; sambusa; rice with banana",
-    "n": "Hoyo's Kitchen — North Market",
-    "address": "59 Spruce St, Columbus, OH 43215",
-    "w": "The friendly gateway to Columbus's Somali food scene (one of the largest Somali communities in the US): tender suqaar, crisp sambusas and rice served the traditional way with a banana. 'Hoyo' means mother.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/entertainment/dining/2015/04/01/restaurant-review-delightful-hoyo-s/23007328007/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/blog/post/get-to-know-hoyos-kitchen-at-the-north-market/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "GV",
-    "cz": ["German"],
-    "dish": "Bahama Mama sausage; jumbo cream puff",
-    "n": "Schmidt's Sausage Haus",
-    "address": "240 E Kossuth St, Columbus, OH 43206",
-    "w": "German Village institution since 1886 in a brick livery stable. The Bahama Mama smoked sausage was voted Columbus's official food; the world-famous jumbo cream puffs are the other reason to come.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/entertainment/2017/03/29/best-german-village-restaurant-schmidt/21790668007/"],
-      ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Schmidt's_Sausage_Haus"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "GV",
-    "cz": ["Burgers"],
-    "dish": "the Thurmanator double burger",
-    "n": "The Thurman Cafe — CLOSED",
-    "address": "183 Thurman Ave, Columbus, OH 43206",
-    "w": "Family-owned since 1942 and home of the Thurmanator, a monster double burger loaded with ham, bacon and three cheeses. TEMPORARILY CLOSED after an April 2026 electrical fire; owners have vowed to rebuild — call ahead before visiting.",
-    "closed": true,
-    "sources": [
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/the-thurman-cafe-truly-the-tastiest-burgers-in-columbus-pk1/"],
-      ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Thurman_Cafe"],
-      ["10TV", "https://www.10tv.com/article/news/local/owners-columbus-thurman-cafe-vow-to-rebuild-fire/530-41492190-19c4-4529-ac2c-7118b6edaac0"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "EAST",
-    "cz": ["Pizza"],
-    "dish": "Columbus-style square-cut pepperoni pizza",
-    "n": "Massey's Pizza (Whitehall)",
-    "address": "4464 E Main St, Whitehall, OH 43213",
-    "w": "The original Massey's, which claims to have introduced the 'Massey cut' — the thin, crispy, edge-to-edge, square/party-cut Columbus-style pizza — in 1949.",
-    "closed": false,
-    "sources": [
-      ["614MAG", "https://614now.com/2025/explore-columbus/print-features/square-roots-the-delicious-and-surprisingly-contentious-history-of-columbus-style-pizza"],
-      ["BELTMAG", "https://beltmag.com/ohio-pie-columbus-style-pizza-pioneers/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "EAST",
-    "cz": ["Pizza"],
-    "dish": "cracker-thin square-cut pizza",
-    "n": "Rubino's Pizza",
-    "address": "2643 E Main St, Bexley, OH 43209",
-    "w": "A Bexley shrine since 1954: ultra-thin cracker crust, cash only, no alcohol, hand-written checks and folded paper 'tents' — Columbus-style pizza at its most austere and beloved.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/entertainment/dining/2019/09/09/restaurant-review-rubino-s-pizza/3268400007/"],
-      ["614MAG", "https://614now.com/2020/food-drink/columbus-classics-rubinos-pizza"]
-    ]
-  },
-  {
-    "t": 2,
-    "a": "EAST",
-    "cz": ["Italian"],
-    "dish": "old-school Columbus pizza; spaghetti",
-    "n": "TAT Ristorante di Famiglia",
-    "address": "1210 S James Rd, Columbus, OH 43227",
-    "w": "Columbus's oldest Italian restaurant (est. 1929, 'Talk of the Town'), credited with serving the city's first pizza. Wood-paneled, red-sauce, old-world charm.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/aficionadough-columbus-first-pizza-old-school-charm-on-tap-at-tat-je1/"],
-      ["614MAG", "https://614now.com/2017/food-drink/tradish-columbus-pizza-history"]
-    ]
-  },
-  {
-    "t": 2,
-    "a": "DTN",
-    "cz": ["Hot Dogs"],
-    "dish": "the Hell Hound; loaded dogs + tots",
-    "n": "Dirty Frank's Hot Dog Palace",
-    "address": "248 S 4th St, Columbus, OH 43215",
-    "w": "Downtown temple of the hot dog since 2009 — dozens of wildly topped dogs (vegan options included), tater tots and cheap beer in a graffiti-bright room; a late-night institution.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/review-dirty-franks-hot-dog-palace/"],
-      ["DOWNTOWNCOLUMBUS", "https://downtowncolumbus.com/experiences/dirty-franks-hot-dog-palace/"]
-    ]
-  },
-  {
-    "t": 3,
-    "a": "DTN",
-    "cz": ["Southern"],
-    "dish": "Nashville hot chicken",
-    "n": "Hot Chicken Takeover — CLOSED",
-    "address": "59 Spruce St, Columbus, OH 43215",
-    "w": "A Columbus original that launched at the North Market in 2014 and built a devoted following (and a social mission) around its Nashville hot chicken. All central-Ohio locations closed in September 2025 — kept here for the record.",
-    "closed": true,
-    "sources": [
-      ["NBC4", "https://www.nbc4i.com/news/local-news/columbus/hot-chicken-takeover-closes-final-columbus-location-at-north-market/"],
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/hot-chicken-takeover-third-location-ls1/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "BURB",
-    "cz": ["French"],
-    "dish": "classic French prix fixe; Grand Award wine cellar",
-    "n": "The Refectory Restaurant",
-    "address": "1092 Bethel Rd, Columbus, OH 43220",
-    "w": "Columbus's grande dame of French fine dining, set in an 1850s church-and-schoolhouse; a Wine Spectator Grand Award cellar of several hundred selections.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/the-refectory-restaurant-best-restaurants-in-columbus-2025/85198085007/"],
-      ["WINESPECTATOR", "https://www.winespectator.com/restaurants/70/the-refectory"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "DTN",
-    "cz": ["New American"],
-    "dish": "rotating multi-course tasting menu",
-    "n": "Veritas",
-    "address": "11 W Gay St, Columbus, OH 43215",
-    "w": "Chef Josh Dalton's glass-kitchen tasting menu, reinvented every few months — repeatedly ranked Columbus's #1 restaurant since 2012.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/food/2026/08/12/the-best-restaurants-in-columbus-by-columbus-monthly/91196404007/"],
-      ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Veritas_(restaurant)"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "DTN",
-    "cz": ["New American", "Brewery"],
-    "dish": "chef-driven dinners; Daybreak cream ale",
-    "n": "Wolf's Ridge Brewing",
-    "address": "215 N 4th St, Columbus, OH 43215",
-    "w": "The rare brewery that's also one of the city's best restaurants — award-winning beers (the coffee-and-vanilla Daybreak cream ale) alongside a serious downtown dining room.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/wolfs-ridge-brewing/10877/"]
-    ]
-  },
-  {
-    "t": 2,
-    "a": "WEST",
-    "cz": ["Sweets"],
-    "dish": "buckeyes (peanut-butter fudge dipped in chocolate)",
-    "n": "Anthony-Thomas Candy Company",
-    "address": "1777 Arlingate Ln, Columbus, OH 43228",
-    "w": "Columbus's family chocolatier since 1952 and maker of the definitive Ohio buckeye — peanut-butter fudge dipped in chocolate. Free factory tours on the west side.",
-    "closed": false,
-    "sources": [
-      ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Anthony_Thomas_Candy_Company"],
-      ["SNACKANDBAKERY", "https://www.snackandbakery.com/articles/106374-anthony-thomas-candy-co-marks-70-years"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "GV",
-    "cz": ["New American"],
-    "dish": "premium steaks; seafood; the patio scene",
-    "n": "Lindey's",
-    "address": "169 E Beck St, Columbus, OH 43206",
-    "w": "German Village's see-and-be-seen bistro since 1981 — steaks, seafood and one of the most beloved leafy patios in America.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/lindeys-best-restaurants-in-columbus-2025/85197920007/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/lindeys/5539/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "WEST",
-    "cz": ["Brewery"],
-    "dish": "beer-garden pours; rotating local food trucks",
-    "n": "Land-Grant Brewing Company",
-    "address": "424 W Town St, Columbus, OH 43215",
-    "w": "Franklinton's neighborhood anchor in a former elevator factory: a huge beer garden (a winter ice rink, music stage) with rotating local food trucks — a cornerstone of the Columbus beer scene.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/land-grant-brewing-company/411918/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "SN",
-    "cz": ["Brewery"],
-    "dish": "flagship ales in a converted-garage taproom",
-    "n": "Seventh Son Brewing",
-    "address": "1101 N 4th St, Columbus, OH 43201",
-    "w": "One of Columbus's OG craft breweries (2013), a local institution in Italian Village with street-level and second-floor patios in a former auto garage.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"],
-      ["SHORTNORTH", "https://shortnorth.org/businesses/seventh-son-brewing/"]
-    ]
-  },
-  {
-    "t": 2,
-    "a": "BURB",
-    "cz": ["Brewery"],
-    "dish": "DogTap taproom; sours; beer museum",
-    "n": "BrewDog DogTap",
-    "address": "96 Gender Rd, Canal Winchester, OH 43110",
-    "w": "The Scottish brewer's flagship U.S. brewery on a 42-acre Canal Winchester campus — DogTap taproom, OverWorks sour brewery, an interactive beer museum, dog park and a beer hotel.",
-    "closed": false,
-    "sources": [
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/brewdog-dogtap/416208/"],
-      ["VISITFAIRFIELD", "https://visitfairfieldcounty.org/listings/brewdog-brew-house-taproom/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "GV",
-    "cz": ["New American"],
-    "dish": "chef Avishar Barua's global-inflected tasting",
-    "n": "Agni",
-    "address": "716 S High St, Columbus, OH 43206",
-    "w": "Chef Avishar Barua — a James Beard 'Best Chef: Great Lakes' semifinalist — cooks inventive, Bangladeshi-inflected New American on the German Village edge; a recent Columbus Monthly #1.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSMONTHLY", "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/agni-best-restaurants-in-columbus-2025-chef-avishar-barua/85197782007/"],
-      ["NBC4", "https://www.nbc4i.com/news/local-news/central-ohio-news/columbus-chef-bakery-bar-among-james-beard-awards-semifinalists/"]
-    ]
-  },
-  {
-    "t": 2,
-    "a": "SN",
-    "cz": ["Breakfast"],
-    "dish": "Original Pancake Balls (Nutella, caramel, pumpkin)",
-    "n": "Katalina's",
-    "address": "1105 Pennsylvania Ave, Columbus, OH 43201",
-    "w": "A century-old former gas station in Harrison West serving the Original Pancake Balls plus a Southern-Latin brunch — a Diners, Drive-Ins and Dives-featured Columbus signature.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/restaurant-review-breakfast-sammies-and-pancake-balls-at-katalinas-tres-ma1/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/katalinas/8020/"]
-    ]
-  },
-  {
-    "t": 2,
-    "a": "SN",
-    "cz": ["Bakery", "Cafe"],
-    "dish": "cinnamon roll; egg sandwich; hand-poured coffee",
-    "n": "Fox in the Snow Cafe",
-    "address": "1031 N 4th St, Columbus, OH 43201",
-    "w": "Italian Village's scratch bakery and hand-poured-coffee darling since 2014; the gooey cinnamon roll and egg sandwich draw morning lines.",
-    "closed": false,
-    "sources": [
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/restaurant-review-fox-in-the-snow-cafe-ma1/"],
-      ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/fox-in-the-snow-cafe/413414/"]
-    ]
-  },
-  {
-    "t": 1,
-    "a": "WEST",
-    "cz": ["Bakery"],
-    "dish": "naturally leavened loaves; almond croissant",
-    "n": "Dan the Baker",
-    "address": "1028 Ridge St, Grandview Heights, OH 43212",
-    "w": "Grandview micro-bakery and a James Beard 'Outstanding Bakery' semifinalist two years running — double-sesame and olive-polenta loaves, almond croissants and rye-truffle cookies.",
-    "closed": false,
-    "sources": [
-      ["NBC4", "https://www.nbc4i.com/news/local-news/grandview-heights/grandview-heights-bakery-named-semifinalist-for-prestigious-national-award/"],
-      ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/dan-the-baker-nominated-for-2026-james-beard-award-semifinalist-ak1/"]
-    ]
-  }
+ {
+  "t": 1,
+  "a": "DTN",
+  "cz": [
+   "Ice Cream"
+  ],
+  "dish": "Brambleberry Crisp; Brown Butter Almond Brittle",
+  "n": "Jeni's Splendid Ice Creams — North Market",
+  "address": "59 Spruce St, Columbus, OH 43215",
+  "w": "Jeni Britton Bauer launched Jeni's at the North Market in 2002; the grassy-buttermilk base and inventive flavors (Brambleberry Crisp, Brown Butter Almond Brittle) that turned a Columbus stall into a national brand.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/jenis-relocates-within-the-north-market/"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Jeni's_Splendid_Ice_Creams"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "DTN",
+  "cz": [
+   "Nepali",
+   "Tibetan"
+  ],
+  "dish": "jhol momo (dumplings in spiced sesame broth)",
+  "n": "Momo Ghar — North Market",
+  "address": "59 Spruce St, Columbus, OH 43215",
+  "w": "Phenomenal Himalayan dumplings that put Columbus's huge Nepali-Bhutanese community on the map; the jhol momo swim in a spiced sesame broth. Featured on Diners, Drive-Ins and Dives.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/food/2021/12/07/nepalese-restaurants-food-columbus-momo-ghar-yeti-express-himalayan-grille-namaste-indo-nepali/8842189002/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/blog/post/where-to-find-nepali-food-in-columbus/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "DTN",
+  "cz": [
+   "Somali"
+  ],
+  "dish": "chicken suqaar; sambusa; rice with banana",
+  "n": "Hoyo's Kitchen — North Market",
+  "address": "59 Spruce St, Columbus, OH 43215",
+  "w": "The friendly gateway to Columbus's Somali food scene (one of the largest Somali communities in the US): tender suqaar, crisp sambusas and rice served the traditional way with a banana. 'Hoyo' means mother.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/entertainment/dining/2015/04/01/restaurant-review-delightful-hoyo-s/23007328007/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/blog/post/get-to-know-hoyos-kitchen-at-the-north-market/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "GV",
+  "cz": [
+   "German"
+  ],
+  "dish": "Bahama Mama sausage; jumbo cream puff",
+  "n": "Schmidt's Sausage Haus",
+  "address": "240 E Kossuth St, Columbus, OH 43206",
+  "w": "German Village institution since 1886 in a brick livery stable. The Bahama Mama smoked sausage was voted Columbus's official food; the world-famous jumbo cream puffs are the other reason to come.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/entertainment/2017/03/29/best-german-village-restaurant-schmidt/21790668007/"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Schmidt's_Sausage_Haus"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "GV",
+  "cz": [
+   "Burgers"
+  ],
+  "dish": "the Thurmanator double burger",
+  "n": "The Thurman Cafe — CLOSED",
+  "address": "183 Thurman Ave, Columbus, OH 43206",
+  "w": "Family-owned since 1942 and home of the Thurmanator, a monster double burger loaded with ham, bacon and three cheeses. TEMPORARILY CLOSED after an April 2026 electrical fire; owners have vowed to rebuild — call ahead before visiting.",
+  "closed": true,
+  "sources": [
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/the-thurman-cafe-truly-the-tastiest-burgers-in-columbus-pk1/"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Thurman_Cafe"
+   ],
+   [
+    "10TV",
+    "https://www.10tv.com/article/news/local/owners-columbus-thurman-cafe-vow-to-rebuild-fire/530-41492190-19c4-4529-ac2c-7118b6edaac0"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "EAST",
+  "cz": [
+   "Pizza"
+  ],
+  "dish": "Columbus-style square-cut pepperoni pizza",
+  "n": "Massey's Pizza (Whitehall)",
+  "address": "4464 E Main St, Whitehall, OH 43213",
+  "w": "The original Massey's, which claims to have introduced the 'Massey cut' — the thin, crispy, edge-to-edge, square/party-cut Columbus-style pizza — in 1949.",
+  "closed": false,
+  "sources": [
+   [
+    "614MAG",
+    "https://614now.com/2025/explore-columbus/print-features/square-roots-the-delicious-and-surprisingly-contentious-history-of-columbus-style-pizza"
+   ],
+   [
+    "BELTMAG",
+    "https://beltmag.com/ohio-pie-columbus-style-pizza-pioneers/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "EAST",
+  "cz": [
+   "Pizza"
+  ],
+  "dish": "cracker-thin square-cut pizza",
+  "n": "Rubino's Pizza",
+  "address": "2643 E Main St, Bexley, OH 43209",
+  "w": "A Bexley shrine since 1954: ultra-thin cracker crust, cash only, no alcohol, hand-written checks and folded paper 'tents' — Columbus-style pizza at its most austere and beloved.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/entertainment/dining/2019/09/09/restaurant-review-rubino-s-pizza/3268400007/"
+   ],
+   [
+    "614MAG",
+    "https://614now.com/2020/food-drink/columbus-classics-rubinos-pizza"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "EAST",
+  "cz": [
+   "Italian"
+  ],
+  "dish": "old-school Columbus pizza; spaghetti",
+  "n": "TAT Ristorante di Famiglia",
+  "address": "1210 S James Rd, Columbus, OH 43227",
+  "w": "Columbus's oldest Italian restaurant (est. 1929, 'Talk of the Town'), credited with serving the city's first pizza. Wood-paneled, red-sauce, old-world charm.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/aficionadough-columbus-first-pizza-old-school-charm-on-tap-at-tat-je1/"
+   ],
+   [
+    "614MAG",
+    "https://614now.com/2017/food-drink/tradish-columbus-pizza-history"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "DTN",
+  "cz": [
+   "Hot Dogs"
+  ],
+  "dish": "the Hell Hound; loaded dogs + tots",
+  "n": "Dirty Frank's Hot Dog Palace",
+  "address": "248 S 4th St, Columbus, OH 43215",
+  "w": "Downtown temple of the hot dog since 2009 — dozens of wildly topped dogs (vegan options included), tater tots and cheap beer in a graffiti-bright room; a late-night institution.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/review-dirty-franks-hot-dog-palace/"
+   ],
+   [
+    "DOWNTOWNCOLUMBUS",
+    "https://downtowncolumbus.com/experiences/dirty-franks-hot-dog-palace/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "DTN",
+  "cz": [
+   "Southern"
+  ],
+  "dish": "Nashville hot chicken",
+  "n": "Hot Chicken Takeover — CLOSED",
+  "address": "59 Spruce St, Columbus, OH 43215",
+  "w": "A Columbus original that launched at the North Market in 2014 and built a devoted following (and a social mission) around its Nashville hot chicken. All central-Ohio locations closed in September 2025 — kept here for the record.",
+  "closed": true,
+  "sources": [
+   [
+    "NBC4",
+    "https://www.nbc4i.com/news/local-news/columbus/hot-chicken-takeover-closes-final-columbus-location-at-north-market/"
+   ],
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/hot-chicken-takeover-third-location-ls1/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "BURB",
+  "cz": [
+   "French"
+  ],
+  "dish": "classic French prix fixe; Grand Award wine cellar",
+  "n": "The Refectory Restaurant",
+  "address": "1092 Bethel Rd, Columbus, OH 43220",
+  "w": "Columbus's grande dame of French fine dining, set in an 1850s church-and-schoolhouse; a Wine Spectator Grand Award cellar of several hundred selections.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/the-refectory-restaurant-best-restaurants-in-columbus-2025/85198085007/"
+   ],
+   [
+    "WINESPECTATOR",
+    "https://www.winespectator.com/restaurants/70/the-refectory"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "DTN",
+  "cz": [
+   "New American"
+  ],
+  "dish": "rotating multi-course tasting menu",
+  "n": "Veritas",
+  "address": "11 W Gay St, Columbus, OH 43215",
+  "w": "Chef Josh Dalton's glass-kitchen tasting menu, reinvented every few months — repeatedly ranked Columbus's #1 restaurant since 2012.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/food/2026/08/12/the-best-restaurants-in-columbus-by-columbus-monthly/91196404007/"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Veritas_(restaurant)"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "DTN",
+  "cz": [
+   "New American",
+   "Brewery"
+  ],
+  "dish": "chef-driven dinners; Daybreak cream ale",
+  "n": "Wolf's Ridge Brewing",
+  "address": "215 N 4th St, Columbus, OH 43215",
+  "w": "The rare brewery that's also one of the city's best restaurants — award-winning beers (the coffee-and-vanilla Daybreak cream ale) alongside a serious downtown dining room.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/listing/wolfs-ridge-brewing/10877/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "cz": [
+   "Sweets"
+  ],
+  "dish": "buckeyes (peanut-butter fudge dipped in chocolate)",
+  "n": "Anthony-Thomas Candy Company",
+  "address": "1777 Arlingate Ln, Columbus, OH 43228",
+  "w": "Columbus's family chocolatier since 1952 and maker of the definitive Ohio buckeye — peanut-butter fudge dipped in chocolate. Free factory tours on the west side.",
+  "closed": false,
+  "sources": [
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Anthony_Thomas_Candy_Company"
+   ],
+   [
+    "SNACKANDBAKERY",
+    "https://www.snackandbakery.com/articles/106374-anthony-thomas-candy-co-marks-70-years"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "GV",
+  "cz": [
+   "New American"
+  ],
+  "dish": "premium steaks; seafood; the patio scene",
+  "n": "Lindey's",
+  "address": "169 E Beck St, Columbus, OH 43206",
+  "w": "German Village's see-and-be-seen bistro since 1981 — steaks, seafood and one of the most beloved leafy patios in America.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/lindeys-best-restaurants-in-columbus-2025/85197920007/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/listing/lindeys/5539/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "cz": [
+   "Brewery"
+  ],
+  "dish": "beer-garden pours; rotating local food trucks",
+  "n": "Land-Grant Brewing Company",
+  "address": "424 W Town St, Columbus, OH 43215",
+  "w": "Franklinton's neighborhood anchor in a former elevator factory: a huge beer garden (a winter ice rink, music stage) with rotating local food trucks — a cornerstone of the Columbus beer scene.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/listing/land-grant-brewing-company/411918/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "SN",
+  "cz": [
+   "Brewery"
+  ],
+  "dish": "flagship ales in a converted-garage taproom",
+  "n": "Seventh Son Brewing",
+  "address": "1101 N 4th St, Columbus, OH 43201",
+  "w": "One of Columbus's OG craft breweries (2013), a local institution in Italian Village with street-level and second-floor patios in a former auto garage.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"
+   ],
+   [
+    "SHORTNORTH",
+    "https://shortnorth.org/businesses/seventh-son-brewing/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "BURB",
+  "cz": [
+   "Brewery"
+  ],
+  "dish": "DogTap taproom; sours; beer museum",
+  "n": "BrewDog DogTap",
+  "address": "96 Gender Rd, Canal Winchester, OH 43110",
+  "w": "The Scottish brewer's flagship U.S. brewery on a 42-acre Canal Winchester campus — DogTap taproom, OverWorks sour brewery, an interactive beer museum, dog park and a beer hotel.",
+  "closed": false,
+  "sources": [
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/listing/brewdog-dogtap/416208/"
+   ],
+   [
+    "VISITFAIRFIELD",
+    "https://visitfairfieldcounty.org/listings/brewdog-brew-house-taproom/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "GV",
+  "cz": [
+   "New American"
+  ],
+  "dish": "chef Avishar Barua's global-inflected tasting",
+  "n": "Agni",
+  "address": "716 S High St, Columbus, OH 43206",
+  "w": "Chef Avishar Barua — a James Beard 'Best Chef: Great Lakes' semifinalist — cooks inventive, Bangladeshi-inflected New American on the German Village edge; a recent Columbus Monthly #1.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSMONTHLY",
+    "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/agni-best-restaurants-in-columbus-2025-chef-avishar-barua/85197782007/"
+   ],
+   [
+    "NBC4",
+    "https://www.nbc4i.com/news/local-news/central-ohio-news/columbus-chef-bakery-bar-among-james-beard-awards-semifinalists/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SN",
+  "cz": [
+   "Breakfast"
+  ],
+  "dish": "Original Pancake Balls (Nutella, caramel, pumpkin)",
+  "n": "Katalina's",
+  "address": "1105 Pennsylvania Ave, Columbus, OH 43201",
+  "w": "A century-old former gas station in Harrison West serving the Original Pancake Balls plus a Southern-Latin brunch — a Diners, Drive-Ins and Dives-featured Columbus signature.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/restaurant-review-breakfast-sammies-and-pancake-balls-at-katalinas-tres-ma1/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/listing/katalinas/8020/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "SN",
+  "cz": [
+   "Bakery",
+   "Cafe"
+  ],
+  "dish": "cinnamon roll; egg sandwich; hand-poured coffee",
+  "n": "Fox in the Snow Cafe",
+  "address": "1031 N 4th St, Columbus, OH 43201",
+  "w": "Italian Village's scratch bakery and hand-poured-coffee darling since 2014; the gooey cinnamon roll and egg sandwich draw morning lines.",
+  "closed": false,
+  "sources": [
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/restaurant-review-fox-in-the-snow-cafe-ma1/"
+   ],
+   [
+    "EXPERIENCECBUS",
+    "https://www.experiencecolumbus.com/listing/fox-in-the-snow-cafe/413414/"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "WEST",
+  "cz": [
+   "Bakery"
+  ],
+  "dish": "naturally leavened loaves; almond croissant",
+  "n": "Dan the Baker",
+  "address": "1028 Ridge St, Grandview Heights, OH 43212",
+  "w": "Grandview micro-bakery and a James Beard 'Outstanding Bakery' semifinalist two years running — double-sesame and olive-polenta loaves, almond croissants and rye-truffle cookies.",
+  "closed": false,
+  "sources": [
+   [
+    "NBC4",
+    "https://www.nbc4i.com/news/local-news/grandview-heights/grandview-heights-bakery-named-semifinalist-for-prestigious-national-award/"
+   ],
+   [
+    "COLUMBUSUNDERGROUND",
+    "https://columbusunderground.com/dan-the-baker-nominated-for-2026-james-beard-award-semifinalist-ak1/"
+   ]
+  ]
+ }
 ]

@@ -16,7 +16,7 @@ _Counts are as of 2026-08-14; re-derive anytime with the commands below — neve
 | Silicon Valley CA | `cities/siliconvalley.html` | `data/siliconvalley.dataset.json` | `data/silicon-valley-research/` | 152 | live · 19 UNVERIFIED pins pending helper |
 | San Francisco & Peninsula CA | `cities/sanfrancisco.html` | `data/sanfrancisco.dataset.json` | `data/san-francisco-research/` | 141 | live · 7 UNVERIFIED pins pending helper |
 | Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 81 | live · 10 UNVERIFIED pins pending helper |
-| Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 0 | **in progress** — scaffolded, discovery running |
+| Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 37 | live · 7 UNVERIFIED pins pending helper |
 | Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 39 | live · Aullwood (1-source) held for a 2nd source |
 
 **San Francisco region scope:** SF proper + the northern Peninsula down to **San Mateo** and the **SFO

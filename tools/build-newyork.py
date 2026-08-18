@@ -38,7 +38,7 @@ def rec(r):
     return "{" + ",".join(parts) + "}"
 
 def tbl(d):
-    rows = ["  %s:{k:%s,t:%s,u:%s,l:%s}" % (k, js(v["k"]), js(v["t"]), js(v["u"]), js(v["l"]))
+    rows = ["  %s:{k:%s,t:%s,u:%s,l:%s}" % (js(k), js(v["k"]), js(v["t"]), js(v["u"]), js(v["l"]))
             for k, v in d.items()]
     return "{\n" + ",\n".join(rows) + "\n}"
 
