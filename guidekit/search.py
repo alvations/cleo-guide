@@ -65,6 +65,10 @@ class SearchBackend(ABC):
     def __init__(self, min_interval: float = 1.0) -> None:
         self._rl = _RateLimiter(min_interval)
 
+    def preflight(self) -> None:
+        """Import the backend's dependency (no network). Raises if unavailable."""
+        return None
+
     @abstractmethod
     def search(self, query: str, *, max_results: int = 8, region: str = "us-en",
                safesearch: str = "moderate") -> List[SearchResult]:
@@ -91,6 +95,9 @@ class DDGSSearchBackend(SearchBackend):
     def __init__(self, min_interval: float = 1.5, **_: Any) -> None:
         super().__init__(min_interval)
         self._impl = None
+
+    def preflight(self) -> None:
+        self._client()
 
     def _client(self):
         if self._impl is None:
@@ -133,6 +140,9 @@ class SearxngSearchBackend(SearchBackend):
         super().__init__(min_interval)
         self.base_url = base_url.rstrip("/")
 
+    def preflight(self) -> None:
+        import requests  # noqa: F401
+
     def search(self, query, *, max_results=8, region="us-en", safesearch="moderate"):
         self._rl.wait()
         import requests
@@ -159,6 +169,9 @@ class TavilySearchBackend(SearchBackend):
     def __init__(self, api_key: str, min_interval: float = 0.5, **_: Any) -> None:
         super().__init__(min_interval)
         self.api_key = api_key
+
+    def preflight(self) -> None:
+        from tavily import TavilyClient  # noqa: F401
 
     def search(self, query, *, max_results=8, region="us-en", safesearch="moderate"):
         self._rl.wait()

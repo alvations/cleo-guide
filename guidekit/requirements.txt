@@ -1,0 +1,29 @@
+# guidekit dependencies.
+#
+# NOTHING here is required to *import* guidekit — every third-party import is
+# lazy and lives inside the adapter that needs it, so you install only the
+# backends you actually use. The open-source defaults (Ollama + DuckDuckGo +
+# Nominatim) need: ollama (or litellm), ddgs, geopy.
+
+# ---- core (tiny) ----
+pydantic>=2.6            # data contracts + JSON schema for structured LLM output
+# tomllib is stdlib on Python 3.11+; on 3.10 and below add:
+# tomli>=2.0 ; python_version < "3.11"
+
+# ---- LLM: open-source local models ----
+litellm>=1.40           # unified router over Ollama / vLLM / llama.cpp servers / TGI
+ollama>=0.3             # direct Ollama python client (native JSON-schema `format`)
+# llama-cpp-python>=0.2.80   # in-process GGUF inference with GBNF/JSON grammar (optional)
+# transformers>=4.40         # local HF pipelines (optional; unconstrained decoding)
+# outlines>=0.0.46           # hard schema-constrained decoding for HF/llama.cpp (optional)
+
+# ---- LLM: hosted parity (optional) ----
+anthropic>=0.39         # ClaudeBackend only; NOT needed for the OSS stack
+
+# ---- search: open source ----
+ddgs>=6.0               # DuckDuckGo search (formerly `duckduckgo-search`); no API key
+requests>=2.31          # SearXNG JSON API + Nominatim self-host calls
+# tavily-python>=0.5        # TavilySearchBackend (optional, hosted, needs a key)
+
+# ---- geocode: open source ----
+geopy>=2.4              # Nominatim / OpenStreetMap (also Photon, Pelias via geopy)

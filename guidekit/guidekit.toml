@@ -1,0 +1,48 @@
+# guidekit configuration.
+#
+# Precedence: explicit args > env vars > this file > built-in OSS defaults.
+# With this file (or nothing) you get a fully local, open-source stack.
+# Override any provider with GUIDEKIT_LLM / GUIDEKIT_SEARCH / GUIDEKIT_GEOCODE.
+#
+# Each capability gets ONE table: `provider` selects the adapter, the remaining
+# keys are that adapter's options.
+
+# ── LLM ─────────────────────────────────────────────────────────────────────
+# provider spec is "<backend>:<model>":
+#   ollama:llama3.1                 local Ollama (default)
+#   litellm:ollama/llama3.1         via LiteLLM's router (fronts many servers)
+#   litellm:openai/gpt-4o-mini      any LiteLLM-supported endpoint
+#   llamacpp:/models/qwen2.5.gguf   in-process GGUF
+#   transformers:Qwen/Qwen2.5-7B-Instruct
+#   claude:claude-opus-4-8          hosted parity (needs ANTHROPIC_API_KEY)
+[llm]
+provider = "ollama:llama3.1"
+# ollama_host = "http://localhost:11434"
+# base_url    = "http://localhost:8000/v1"   # e.g. a vLLM OpenAI-compatible server
+# api_key     = ""                            # ClaudeBackend only (or use env)
+# model_path  = ""                            # llamacpp/transformers weights path
+
+# ── search ──────────────────────────────────────────────────────────────────
+[search]
+provider = "ddgs"          # ddgs | searxng | tavily | hosted
+min_interval = 1.5         # seconds between queries (shared-budget courtesy)
+# searxng_url    = "http://localhost:8888/search"   # for provider = "searxng"
+# tavily_api_key = ""                                # for provider = "tavily"
+
+# ── geocode ─────────────────────────────────────────────────────────────────
+[geocode]
+provider = "nominatim"     # nominatim (photon/pelias documented)
+user_agent   = "guidekit-field-guide/1.0 (contact: you@example.com)"
+min_interval = 1.0         # OSM policy: >= 1 request/second on the public endpoint
+country_codes = "us"       # bias results (optional)
+# base_url   = "http://localhost:8080"    # your own Nominatim instance for bulk
+
+# ── orchestrator ────────────────────────────────────────────────────────────
+[orchestrator]
+concurrency = 3            # keep low (1 = strictly sequential) on a shared search budget
+
+# ── pipeline (deterministic tool wrappers) ──────────────────────────────────
+[pipeline]
+timeout = 600
+# python = "python3"       # interpreter used to run consolidate/sourcecheck/build
+# node   = "node"          # node used for the research.js gates

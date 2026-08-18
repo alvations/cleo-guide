@@ -131,6 +131,14 @@ class LLMBackend(ABC):
         """
         raise NotImplementedError
 
+    def preflight(self) -> None:
+        """Import this backend's client library (no network call).
+
+        Raises ImportError if the backend's dependency is not installed, so
+        callers can detect availability and fall back. Default: no-op.
+        """
+        return None
+
     # convenience -----------------------------------------------------------
     def complete_json(self, prompt: str, schema: Dict[str, Any], **kw: Any) -> Any:
         """Return just the parsed JSON (or ``None``)."""
@@ -155,6 +163,9 @@ class ClaudeBackend(LLMBackend):
         self.api_key = api_key
         self.opts = opts
         self._client = None
+
+    def preflight(self) -> None:
+        import anthropic  # noqa: F401
 
     def _client_lazy(self):
         if self._client is None:
@@ -228,6 +239,15 @@ class LocalBackend(LLMBackend):
         self._handle = None  # lazily created client / pipeline
 
     # -- public ------------------------------------------------------------
+    def preflight(self) -> None:
+        imports = {
+            "litellm": "litellm", "ollama": "ollama",
+            "llamacpp": "llama_cpp", "transformers": "transformers",
+        }
+        mod = imports.get(self.transport)
+        if mod:
+            __import__(mod)
+
     def complete(self, prompt, *, system=None, tools=None, schema=None,
                  temperature=0.2, max_tokens=2048) -> LLMResult:
         fn = getattr(self, f"_complete_{self.transport}", None)
