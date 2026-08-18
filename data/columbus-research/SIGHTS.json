@@ -1,0 +1,301 @@
+{
+  "sights": [
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "Ohio Statehouse",
+      "address": "1 Capitol Sq, Columbus, OH 43215",
+      "w": "Ohio's 1861 Greek Revival capitol on Capitol Square — free tours, the Statehouse Museum, and grounds dotted with monuments in the heart of downtown.",
+      "closed": false,
+      "g": ["ICON", "ARCH", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://www.ohiostatehouse.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Ohio_Statehouse"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "EAST",
+      "n": "Franklin Park Conservatory and Botanical Gardens",
+      "address": "1777 E Broad St, Columbus, OH 43203",
+      "w": "An 1895 glasshouse built for a world's fair, with themed biomes, a permanent Chihuly glass collection and blooming seasonal gardens on the near east side.",
+      "closed": false,
+      "g": ["MUS", "PARK", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://www.fpconservatory.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Franklin_Park_Conservatory"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "COSI",
+      "address": "333 W Broad St, Columbus, OH 43215",
+      "w": "The Center of Science and Industry — a top-ranked U.S. science museum in an Arata Isozaki building on the Scioto riverfront, with giant hands-on exhibits and a dinosaur gallery.",
+      "closed": false,
+      "g": ["MUS", "FAM", "ICON"],
+      "sources": [
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/things-to-do/attractions/cosi/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/COSI"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "Columbus Museum of Art",
+      "address": "480 E Broad St, Columbus, OH 43215",
+      "w": "Strong holdings of American and European modernism (including Columbus native George Bellows) in a 1931 Renaissance-revival building with a light-filled modern wing.",
+      "closed": false,
+      "g": ["MUS", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://www.columbusmuseum.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Columbus_Museum_of_Art"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "OSU",
+      "n": "Wexner Center for the Arts",
+      "address": "1871 N High St, Columbus, OH 43210",
+      "w": "Ohio State's contemporary-art laboratory in Peter Eisenman's landmark 1989 Deconstructivist building — galleries, avant-garde film and performance at the campus's edge.",
+      "closed": false,
+      "g": ["MUS", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://wexarts.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Wexner_Center_for_the_Arts"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "GV",
+      "n": "The Book Loft of German Village",
+      "address": "631 S 3rd St, Columbus, OH 43206",
+      "w": "A literary labyrinth of 32 rooms of discounted books in pre-Civil War buildings — one of the largest independent bookstores in the country.",
+      "closed": false,
+      "g": ["SHOP", "ODD", "ICON"],
+      "sources": [
+        ["OFFICIAL", "https://bookloft.com/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/The_Book_Loft"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Topiary Park",
+      "address": "480 E Town St, Columbus, OH 43215",
+      "w": "The only park based on a painting: sculpted yews recreate Seurat's 'A Sunday on La Grande Jatte' — 54 people, boats and dogs — on the Old Deaf School Park grounds. Free.",
+      "closed": false,
+      "g": ["PARK", "ODD", "FREE"],
+      "sources": [
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/the-topiary-park-columbus-ohio"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Topiary_Park"],
+        ["OFFICIAL", "https://topiarypark.org/"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "OSU",
+      "n": "Ohio Stadium (the Horseshoe)",
+      "address": "411 Woody Hayes Dr, Columbus, OH 43210",
+      "w": "The 1922 horseshoe-shaped, 100,000-plus-seat home of Buckeyes football — an enduring icon of college-football gameday and a National Register landmark.",
+      "closed": false,
+      "g": ["ICON", "ARCH", "ENT"],
+      "sources": [
+        ["OFFICIAL", "https://ohiostatebuckeyes.com/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Ohio_Stadium"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "SN",
+      "n": "Goodale Park",
+      "address": "120 W Goodale St, Columbus, OH 43215",
+      "w": "Columbus's oldest park (donated 1851) in Victorian Village — a pond, fountain and gazebo, and host of the summer ComFest gathering.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://columbusrecparks.com/parks/goodale-park/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Goodale_Park"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "Columbus Park of Roses",
+      "address": "3901 N High St, Columbus, OH 43214",
+      "w": "A free 13-acre rose garden inside Clintonville's Whetstone Park — 11,000-plus roses across 350-plus varieties, at their peak in June.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://parkofroses.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Columbus_Park_of_Roses"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "BURB",
+      "n": "Columbus Zoo and Aquarium",
+      "address": "4850 W Powell Rd, Powell, OH 43065",
+      "w": "One of America's premier zoos (Jack Hanna's longtime home base), north of the city in Powell, with the Zoombezi Bay water park next door.",
+      "closed": false,
+      "g": ["FAM", "ICON", "ENT"],
+      "sources": [
+        ["OFFICIAL", "https://www.columbuszoo.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Columbus_Zoo_and_Aquarium"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "Scioto Mile and Bicentennial Park",
+      "address": "233 Civic Center Dr, Columbus, OH 43215",
+      "w": "Downtown's riverfront promenade — a 15,000-sq-ft interactive fountain, gardens and skyline views stretching along the Scioto from the Arena District to the Whittier Peninsula.",
+      "closed": false,
+      "g": ["PARK", "FREE", "FAM", "VIEW"],
+      "sources": [
+        ["OFFICIAL", "https://www.sciotomile.com/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Scioto_Mile"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "LeVeque Tower",
+      "address": "50 W Broad St, Columbus, OH 43215",
+      "w": "The 1927 Art Deco skyscraper that has defined the skyline for a century — 555 feet, now a hotel, lit in changing colors nightly.",
+      "closed": false,
+      "g": ["ARCH", "ICON", "VIEW"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/LeVeque_Tower"],
+        ["COLUMBUSMAKESART", "https://www.columbusmakesart.com/place/10400-leveque-tower"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Grange Insurance Audubon Center and Scioto Audubon Metro Park",
+      "address": "505 W Whittier St, Columbus, OH 43215",
+      "w": "A LEED-Platinum birding center on the restored Whittier Peninsula wetlands, plus a 35-ft outdoor climbing wall and downtown skyline views. Free.",
+      "closed": false,
+      "g": ["PARK", "FREE", "VIEW"],
+      "sources": [
+        ["OFFICIAL", "https://grange.audubon.org/visit"],
+        ["METROPARKS", "https://www.metroparks.net/parks-and-trails/scioto-audubon/"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "North Market",
+      "address": "59 Spruce St, Columbus, OH 43215",
+      "w": "Columbus's last true public market (est. 1876) — 30-plus merchants including the original Jeni's, Momo Ghar and Hoyo's, just off the Short North and Arena District.",
+      "closed": false,
+      "g": ["ICON", "SHOP", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://northmarket.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/North_Market"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "SN",
+      "n": "Short North Arts District",
+      "address": "N High St (Goodale St to W 5th Ave), Columbus, OH 43215",
+      "w": "The gallery, restaurant and shopping spine on High Street between downtown and OSU, marked by its signature lit metal arches; monthly Gallery Hop has run since 1984.",
+      "closed": false,
+      "g": ["ICON", "SHOP", "ARCH"],
+      "sources": [
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/neighborhoods/short-north/"],
+        ["OFFICIAL", "https://shortnorth.org/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Thurber House",
+      "address": "77 Jefferson Ave, Columbus, OH 43215",
+      "w": "The restored home of humorist and New Yorker cartoonist James Thurber, now a literary center, museum and bookstore on a Jefferson Avenue historic row.",
+      "closed": false,
+      "g": ["MUS", "ODD"],
+      "sources": [
+        ["OFFICIAL", "https://www.thurberhouse.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Thurber_House"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "GV",
+      "n": "German Village",
+      "address": "588 S 3rd St, Columbus, OH 43206",
+      "w": "A 19th-century German immigrant neighborhood of brick-paved streets and Italianate cottages — the largest privately funded historic district on the National Register. Address is the German Village Society Meeting Haus.",
+      "closed": false,
+      "g": ["ICON", "ARCH", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://germanvillage.com/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/German_Village"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "The Oval at Ohio State",
+      "address": "181 S Oval Dr, Columbus, OH 43210",
+      "w": "The 11-acre historic green at the heart of OSU's campus, framed by University Hall and Thompson Library and landscaped with Olmsted-brothers input — the campus 'living room.'",
+      "closed": false,
+      "g": ["PARK", "FREE", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://slec.osu.edu/explore-venues/outdoor-event-spaces/the-oval"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Ohio_State_University"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "Olentangy Trail",
+      "address": "311 W Long St, Columbus, OH 43215",
+      "w": "A 13-plus-mile paved riverside greenway from downtown's North Bank Park up through OSU and Clintonville to Worthington — the city's spine for cycling and running. Address is the southern North Bank Park trailhead.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Olentangy_Trail"],
+        ["OFFICIAL", "https://columbusrecparks.com/facilities/trails/greenways/olentangy-trail/"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "SN",
+      "n": "Italian Village",
+      "address": "224 E 1st Ave, Columbus, OH 43201",
+      "w": "The historic district just east of the Short North — brick worker cottages and the redeveloped Jeffrey Park, now home to Seventh Son and Fox in the Snow. Address is the landmark Jeffrey Manufacturing office building.",
+      "closed": false,
+      "g": ["ARCH", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Italian_Village"],
+        ["OFFICIAL", "https://www.italianvillage.org/"],
+        ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/decade-in-development-jeffrey-park-italian-village-we1/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "Ohio History Center and Ohio Village",
+      "address": "800 E 17th Ave, Columbus, OH 43211",
+      "w": "The state history museum in a striking 1970 Brutalist building, with the adjacent Ohio Village recreating an 1890s town. Ohio Village is under phased restoration into the mid-2020s.",
+      "closed": false,
+      "g": ["MUS", "ARCH", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://www.ohiohistory.org/visit/ohio-history-center/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Ohio_History_Center"]
+      ]
+    }
+  ],
+  "sources": [
+    {"key": "OFFICIAL", "name": "Official site", "url": "", "type": "official"},
+    {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org", "type": "encyclopedia"},
+    {"key": "EXPERIENCECBUS", "name": "Experience Columbus", "url": "https://www.experiencecolumbus.com", "type": "cvb"},
+    {"key": "ATLASOBSCURA", "name": "Atlas Obscura", "url": "https://www.atlasobscura.com", "type": "editorial"},
+    {"key": "COLUMBUSMAKESART", "name": "Columbus Makes Art (Greater Columbus Arts Council)", "url": "https://www.columbusmakesart.com", "type": "arts"},
+    {"key": "METROPARKS", "name": "Columbus and Franklin County Metro Parks", "url": "https://www.metroparks.net", "type": "official"},
+    {"key": "COLUMBUSUNDERGROUND", "name": "Columbus Underground", "url": "https://columbusunderground.com", "type": "editorial"}
+  ]
+}
