@@ -21,3 +21,16 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
   placeholders, footer, appendix) with Columbus copy (Jeni's, North Market, Columbus-style pizza,
   Schmidt's, Somali table; sources = Dispatch/Columbus Monthly/Columbus Underground/James Beard). The
   build's MAP centre/labels are already derived+safe; only the prose is outstanding. Then geocode → build → gate.
+
+---
+## State @ 2026-08-18 (expansion wave complete)
+- Dataset **93 candidates** (P47/F46). Page **live @ 62 pins** (high 43 · med 18 · low 1). Gates:
+  sourcecheck PASS · geocheck exit 0 (1 low pin) · statuscheck CONSISTENT · buildcheck PASS.
+- **23 UNVERIFIED held** (browser-helper needed) **+ 8 food never geocoded** (WebSearch budget capped
+  mid-run): Lalibela Ethiopian, Stauf's (Grandview), Natalie's Coal-Fired (Grandview), Mazah Mediterranean,
+  Café Istanbul, City Barbeque (Upper Arlington), Mikey's Late Night Slice, Preston's: A Burger Joint.
+  Those 8 need a WebSearch geocode wave (resumable) THEN the helper for any still-null.
+- Closed found + flagged: **Yellow Brick Pizza (245 King Ave)** — permanently closed (relocated to
+  415 W Rich / 212 Kelton); null coords so gate-dropped.
+- Address flag: **Antiques on High** worklist 741 S High vs Yelp 714 S High — resolve at helper time.
+- NEXT: geocode the 8 remaining food → browser-helper the 23 UNVERIFIED → rebuild (toward 93).

@@ -5,7 +5,7 @@ exact commands to verify or continue it. **A different agent should be able to r
 reproduce or extend any city's pipeline.** Pair it with [PIPELINE.md](PIPELINE.md) (the fixed stage
 order + audit contract) and [RECREATE.md](RECREATE.md) (doing it for a brand-new city).
 
-_Counts are as of 2026-08-14; re-derive anytime with the commands below — never trust a stale number._
+_Counts are as of 2026-08-18; re-derive anytime with the commands below — never trust a stale number._
 
 | City / region | Page | Built dataset | Research dir (audit trail) | Places on page | State |
 |---|---|---|---|---|---|
@@ -15,9 +15,9 @@ _Counts are as of 2026-08-14; re-derive anytime with the commands below — neve
 | New York NY | `cities/newyork.html` | `data/newyork.dataset.json` | `data/newyork-research/` | 508 | live · 1 place to geocode |
 | Silicon Valley CA | `cities/siliconvalley.html` | `data/siliconvalley.dataset.json` | `data/silicon-valley-research/` | 152 | live · 19 UNVERIFIED pins pending helper |
 | San Francisco & Peninsula CA | `cities/sanfrancisco.html` | `data/sanfrancisco.dataset.json` | `data/san-francisco-research/` | 141 | live · 7 UNVERIFIED pins pending helper |
-| Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 81 | live · 10 UNVERIFIED pins pending helper |
-| Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 37 | live · 7 UNVERIFIED pins pending helper |
-| Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 39 | live · Aullwood (1-source) held for a 2nd source |
+| Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 109 | live · 23 UNVERIFIED pins pending helper |
+| Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 62 | live · 23 UNVERIFIED pins pending helper (8 food un-geocoded) |
+| Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 55 | live · 19 UNVERIFIED pins pending helper; Aullwood + Third Perk (1-source) held |
 
 **San Francisco region scope:** SF proper + the northern Peninsula down to **San Mateo** and the **SFO
 corridor** (Daly City, Brisbane, South SF, San Bruno, Millbrae, Burlingame, San Mateo) — deliberately

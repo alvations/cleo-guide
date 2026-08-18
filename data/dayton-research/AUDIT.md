@@ -19,3 +19,12 @@ dataset level = 2 single-source (Aullwood [OFFICIAL] held for a 2nd source; Thir
 3 lone-institutional (NPS Wright sites, pass via ELITE_SOLO). Build GATE 1 drops the 2 single-source, so the
 page stays clean — accepted pattern. NEXT (needs WebSearch): geocode new candidates → --geocheck/--statuscheck
 → rebuild → --buildcheck → render-verify → bump CITIES.md count. Page currently live at 39 verified pins.
+
+## Stage 8 — Location-verify + build (2026-08-18)
+Geocode agent worked all 35 new candidates: 16 resolved (6 high · 10 med), 19 UNVERIFIED (null, held —
+mostly restaurants/breweries). Closed found: Third Perk Coffeehouse (146 E 3rd, closed Dec 2023) — flagged,
+null coords → gate-dropped. Data trap recorded: Dayton Beer Co = 41 Madison (open), not the closed Kettering
+location. Read Wikipedia/Apple/Google place pins only; nulls never fabricated. Merged (new-only) → 74 registry
+entries. Rebuild: **page 55 pins**. Gates: sourcecheck FAIL at dataset (2 single-source — Aullwood, Third Perk;
+build GATE 1 drops both, page clean) · geocheck exit 0 (5 low) · statuscheck CONSISTENT · **buildcheck PASS**
+(centre 39.76,-84.18 inside Dayton pins). 19 UNVERIFIED → backlog.

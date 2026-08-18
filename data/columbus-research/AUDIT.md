@@ -30,3 +30,12 @@ FOOD_EXPAND(21) + SIGHTS_EXPAND(25) landed (≥2-credible, open-verified, no inv
 Donuts, Preston's). consolidate.py → **93 candidates** (P47/F46). `sourcecheck.py` PASS (93/93).
 NEXT (needs WebSearch): geocode the new candidates into `geocodes.json`, then --geocheck/--statuscheck →
 rebuild → --buildcheck → render-verify → bump CITIES.md count. Page currently live at 37 verified pins.
+
+## Stage 8 — Location-verify + build (2026-08-18)
+Geocode agent worked 41 of 49 new candidates (WebSearch budget capped at 200/200 mid-run): 25 resolved
+(16 high · 9 med), 16 UNVERIFIED, **8 food never attempted** (Lalibela, Stauf's-Grandview, Natalie's-Grandview,
+Mazah, Café Istanbul, City BBQ-Upper Arlington, Mikey's Late Night Slice, Preston's) — resumable next window.
+Closed found: Yellow Brick Pizza (245 King Ave, relocated) — flagged, null coords → gate-dropped. Read
+Wikipedia/Apple/Google place pins only; nulls never fabricated. Merged (new-only) → 85 registry entries.
+Rebuild: **page 62 pins**. Gates: sourcecheck PASS · geocheck exit 0 (1 low) · statuscheck CONSISTENT ·
+**buildcheck PASS** (centre 39.97,-83.00 inside Columbus pins). 23 UNVERIFIED + 8 un-geocoded → backlog.

@@ -77,3 +77,11 @@ FOOD_EXPAND(16) + SIGHTS_EXPAND(21) landed (≥2-credible, open-verified, no inv
 Adriatico's, Guardia, Taglio). consolidate.py → **132 candidates** (P71/F61). `sourcecheck.py` PASS (132/132).
 NEXT (needs WebSearch): geocode the new candidates into `geocodes.json`, then --geocheck/--statuscheck →
 rebuild → --buildcheck → render-verify → bump CITIES.md count. Page currently live at 81 verified pins.
+
+## Stage 8 — Location-verify + build (2026-08-18)
+Geocode agent worked the 41 new candidates (`geo/_worklist_new.json`): 28 resolved (16 high · 12 med),
+13 UNVERIFIED (null coords, held — restaurant place-pins unreadable via WebSearch here). 0 closed.
+Read Wikipedia coords / Apple `coordinate=` / Google `!3d!4d` place pins; never `/@` viewports; nulls
+never fabricated. Merged (new-only) into `geocodes.json` → 132 registry entries. Rebuild: **page 109 pins**.
+Gates: sourcecheck PASS · geocheck exit 0 (4 low to upgrade) · statuscheck CONSISTENT · **buildcheck PASS**
+(map centre 39.11,-84.51 inside Cincinnati pins). 23 UNVERIFIED → `docs/GEOCODE-BACKLOG.md` for the helper.

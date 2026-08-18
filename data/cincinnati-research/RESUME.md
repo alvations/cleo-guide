@@ -34,3 +34,16 @@ Region: **Cincinnati OH + the NKY riverfront (Covington/Newport/Bellevue).** 7 a
 `consolidate.py` → `cin_dataset.json` → copy to `../cincinnati.dataset.json` → `build-cincinnati.py`
 → `cities/cincinnati.html`. Gate helpers: `tools/sourcecheck.py`, `research.js
 --sourcecheck/--geocheck/--statuscheck/--buildcheck`, `tools/geocode-status.py`.
+
+---
+## State @ 2026-08-18 (expansion wave complete)
+- Dataset **132 candidates** (P71/F61). Page **live @ 109 pins** (high 76 · med 29 · low 4). Gates:
+  sourcecheck PASS · geocheck exit 0 (4 low pins to upgrade) · statuscheck CONSISTENT · buildcheck PASS.
+- **23 UNVERIFIED held by the gate** (need `tools/geocode-helper.html` — WebSearch can't surface these
+  restaurant place-pins). List in `docs/GEOCODE-BACKLOG.md`. Includes 13 from this wave (St. Francis
+  Apizza, Guardia, Quan Hapa, Sundry & Vice, Dusmesh, Sebastian's, Japp's, The Video Archive, Deeper
+  Roots Coffee, Sonder Brewing, Pendleton Art Center, Verdin Bell & Clock Museum, Cincinnati Dinner Train).
+- NEXT: browser-helper pass on the 23 UNVERIFIED → re-merge → rebuild (page will grow toward 132). Also
+  re-verify the 4 low + 29 med pins to exact place-pins (docs/SOURCES.md §re-verify).
+- Notes: World Peace Bell in storage 2024 (open, not on display); The Video Archive is OPEN (reservation
+  tiki concept), not the CLOSED Yelp listing.

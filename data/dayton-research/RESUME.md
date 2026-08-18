@@ -21,3 +21,17 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
   placeholders, footer, appendix) with Dayton copy (Jeni's, North Market, Dayton-style pizza,
   Schmidt's, Somali table; sources = Dispatch/Dayton Monthly/Dayton Underground/James Beard). The
   build's MAP centre/labels are already derived+safe; only the prose is outstanding. Then geocode → build → gate.
+
+---
+## State @ 2026-08-18 (expansion wave complete)
+- Dataset **74 candidates** (P38/F36). Page **live @ 55 pins** (high 30 · med 20 · low 5). Gates:
+  sourcecheck FAIL at dataset = 2 single-source (Aullwood [OFFICIAL] held for 2nd source; Third Perk
+  [DAYTONDAILY]) — **build GATE 1 drops both, page clean**. geocheck exit 0 (5 low pins) · statuscheck
+  CONSISTENT · buildcheck PASS.
+- **19 UNVERIFIED held** (browser-helper needed — mostly restaurants/breweries).
+- Closed found + flagged: **Third Perk Coffeehouse (146 E 3rd St)** — permanently closed Dec 2023
+  (Dayton Daily News); null coords so gate-dropped.
+- Data trap: **The Dayton Beer Company** = 41 Madison St (OPEN); the 912 E Dorothy Ln, Kettering location
+  is permanently closed — don't conflate.
+- NEXT: browser-helper the 19 UNVERIFIED + upgrade 5 low/20 med to exact place-pins → rebuild (toward 74).
+  A 2nd credible source for Aullwood + Third Perk would let both build.
