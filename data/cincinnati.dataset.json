@@ -1,0 +1,149 @@
+{
+ "areas": [
+  {
+   "id": "DTN",
+   "n": "Downtown & The Banks"
+  },
+  {
+   "id": "OTR",
+   "n": "Over-the-Rhine & Pendleton"
+  },
+  {
+   "id": "UPT",
+   "n": "Uptown (Clifton, Corryville & CUF)"
+  },
+  {
+   "id": "EAST",
+   "n": "East Side (Hyde Park, Oakley, Mt. Lookout)"
+  },
+  {
+   "id": "WEST",
+   "n": "West Side & Northside"
+  },
+  {
+   "id": "BURB",
+   "n": "Northern Suburbs (Blue Ash, Montgomery, Mason)"
+  },
+  {
+   "id": "NKY",
+   "n": "Northern Kentucky (Covington, Newport, Bellevue)"
+  }
+ ],
+ "ac": {
+  "DTN": "#E8973A",
+  "OTR": "#C0504D",
+  "UPT": "#8064A2",
+  "EAST": "#4F81BD",
+  "WEST": "#9BBB59",
+  "BURB": "#4BACC6",
+  "NKY": "#7E8FC4"
+ },
+ "cuisines": [
+  {
+   "id": "CHILI",
+   "n": "Cincinnati Chili"
+  },
+  {
+   "id": "GERMAN",
+   "n": "German & Goetta"
+  },
+  {
+   "id": "BBQ",
+   "n": "Ribs & Barbecue"
+  },
+  {
+   "id": "PIZZA",
+   "n": "Pizza"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "BURG",
+   "n": "Burgers & Diners"
+  },
+  {
+   "id": "SOUL",
+   "n": "Soul & Southern"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean & Middle Eastern"
+  },
+  {
+   "id": "ICE",
+   "n": "Ice Cream & Bakeries"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries & Beer"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Hills"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "ENT",
+   "n": "Sports, Music & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "RIVER",
+   "n": "Riverfront & Ohio River"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}
