@@ -1,0 +1,356 @@
+{
+  "sights": [
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "National Veterans Memorial and Museum",
+      "address": "300 W Broad St, Columbus, OH 43215",
+      "w": "The only congressionally designated national museum for veterans of every branch and era, in a sculptural 2018 concrete-arch building (Allied Works) on the Scioto's west bank, ringed by a memorial grove and rooftop sanctuary.",
+      "closed": false,
+      "g": ["MUS", "ARCH", "ICON"],
+      "sources": [
+        ["OFFICIAL", "https://nationalvmm.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/National_Veterans_Memorial_and_Museum"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/things-to-do/attractions/national-veterans-memorial-museum/"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "DTN",
+      "n": "Central Ohio Fire Museum",
+      "address": "260 N 4th St, Columbus, OH 43215",
+      "w": "A restored 1908 downtown engine house of hand-drawn, horse-drawn and early motorized fire apparatus, with a kids' play space and fire-safety tours.",
+      "closed": false,
+      "g": ["MUS", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://www.centralohiofiremuseum.com/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Central_Ohio_Fire_Museum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "SN",
+      "n": "Columbus Museum of Art at The Pizzuti",
+      "address": "632 N Park St, Columbus, OH 43215",
+      "w": "CMA's contemporary satellite in a restored Short North building — rotating exhibitions drawn from Ron and Ann Pizzuti's globe-spanning collection of contemporary art.",
+      "closed": false,
+      "g": ["MUS", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://www.columbusmuseum.org/the-pizzuti"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Pizzuti_Collection"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "GV",
+      "n": "Schiller Park",
+      "address": "1069 Jaeger St, Columbus, OH 43206",
+      "w": "German Village's 23-acre green heart (est. 1867) — Columbus's second-oldest park, with a lake, the Umbrella Girl fountain, a bust of poet Friedrich Schiller and summer 'Actors' Theatre' Shakespeare. Free.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://columbusrecparks.com/parks/schiller-park/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Schiller_Park_(Columbus,_Ohio)"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "OSU",
+      "n": "Billy Ireland Cartoon Library & Museum",
+      "address": "1813 N High St, Columbus, OH 43210",
+      "w": "The world's largest collection of cartoons and comics — original Calvin and Hobbes, Peanuts and Pogo art — in Ohio State's Sullivant Hall, with free rotating gallery exhibitions.",
+      "closed": false,
+      "g": ["MUS", "ODD", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://cartoons.osu.edu/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Billy_Ireland_Cartoon_Library_%26_Museum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "Jack Nicklaus Museum",
+      "address": "2355 Olentangy River Rd, Columbus, OH 43210",
+      "w": "A 24,000-sq-ft shrine to the Golden Bear — the Columbus-born golf legend — inside the OSU sports complex, tracing his record 18 major championships.",
+      "closed": false,
+      "g": ["MUS"],
+      "sources": [
+        ["OFFICIAL", "https://www.nicklausmuseum.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Jack_Nicklaus_Museum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "Orton Geological Museum",
+      "address": "155 S Oval Mall, Columbus, OH 43210",
+      "w": "Ohio State's free natural-history gem inside the 1893 Romanesque Orton Hall (a National Historic Landmark built of Ohio stone) — a full Cretodus shark, a giant ground sloth and thousands of fossils and minerals.",
+      "closed": false,
+      "g": ["MUS", "FREE", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://ortonmuseum.osu.edu/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Orton_Hall"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "OSU",
+      "n": "Chadwick Arboretum & Learning Gardens",
+      "address": "2001 Fyffe Ct, Columbus, OH 43210",
+      "w": "A 60-plus-acre living plant collection across OSU's campus — ornamental Learning Gardens, a conifer and hosta collection and a Chartres-style labyrinth. Open dawn to dusk, free.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://chadwickarboretum.osu.edu/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Chadwick_Arboretum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "EAST",
+      "n": "Kelton House Museum & Garden",
+      "address": "586 E Town St, Columbus, OH 43215",
+      "w": "An 1852 Greek Revival/Italianate home on the near east side, a documented Underground Railroad stop, preserved with original Kelton-family furnishings and a period garden.",
+      "closed": false,
+      "g": ["MUS", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://keltonhouse.com/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Kelton_House_Museum_and_Garden"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "EAST",
+      "n": "Jeffrey Mansion",
+      "address": "165 N Parkview Ave, Bexley, OH 43209",
+      "w": "A 1905 brick mansion built by Columbus mayor Robert H. Jeffrey, willed to Bexley in 1941 and now the centerpiece of a 40-acre park of woodland trails, an Alum Creek overlook and a pool.",
+      "closed": false,
+      "g": ["PARK", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://bexley.org/jeffreymansion/"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/blog/post/live-to-explore-bexley-with-jean-adkins/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "EAST",
+      "n": "Drexel Theatre",
+      "address": "2254 E Main St, Bexley, OH 43209",
+      "w": "Central Ohio's home for independent and international film — a 1937 Art Deco/Art Moderne neighborhood movie house in Bexley, on the National Register and running continuously since Christmas Day 1937.",
+      "closed": false,
+      "g": ["ENT", "ICON", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://www.drexel.net/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Drexel_Theater"],
+        ["CAPA", "https://www.capa.com/drexel-theatre/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "WEST",
+      "n": "Ohio Craft Museum",
+      "address": "1665 W 5th Ave, Columbus, OH 43212",
+      "w": "Ohio Designer Craftsmen's free Grandview museum — four major juried exhibitions a year in clay, glass, metal, wood and fiber, plus a maker-run gift shop.",
+      "closed": false,
+      "g": ["MUS", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://ohiocraft.org/"],
+        ["OHIO", "https://ohio.org/craftmuseum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "WEST",
+      "n": "Green Lawn Cemetery",
+      "address": "1000 Greenlawn Ave, Columbus, OH 43223",
+      "w": "Ohio's second-largest cemetery (est. 1848) — a 325-acre garden cemetery and registered arboretum with an old-growth oak forest, ornate mausoleums and an Audubon Important Bird Area; resting place of the Wright brothers' family and Eddie Rickenbacker.",
+      "closed": false,
+      "g": ["PARK", "ODD", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://www.greenlawncemetery.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Green_Lawn_Cemetery_(Columbus,_Ohio)"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "WEST",
+      "n": "Camp Chase Confederate Cemetery",
+      "address": "2900 Sullivant Ave, Columbus, OH 43204",
+      "w": "A National Cemetery on the Hilltop holding 2,200-plus Confederate soldiers who died at the Union's Camp Chase prison — rows of white headstones behind a boulder arch reading 'Americans.' Free.",
+      "closed": false,
+      "g": ["ODD", "FREE"],
+      "sources": [
+        ["NPS", "https://www.nps.gov/articles/not-to-be-forgotten-camp-chase-confederate-cemetery-teaching-with-historic-places.htm"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Camp_Chase"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "WEST",
+      "n": "400 West Rich",
+      "address": "400 W Rich St, Columbus, OH 43215",
+      "w": "The anchor of Franklinton's arts district — dozens of working artist studios and galleries in a repurposed warehouse, opened to the public on Franklinton Fridays.",
+      "closed": false,
+      "g": ["ARCH", "SHOP"],
+      "sources": [
+        ["OFFICIAL", "https://400westrich.com/"],
+        ["COLUMBUSMAKESART", "https://www.columbusmakesart.com/place/10481-manufacturing-warehouse"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/franklinton-arts-district/424368/"]
+      ]
+    },
+    {
+      "t": 1,
+      "a": "WEST",
+      "n": "Battelle Darby Creek Metro Park",
+      "address": "1775 Darby Creek Dr, Galloway, OH 43119",
+      "w": "A 7,000-plus-acre metro park on the state-and-national scenic Big and Little Darby Creeks — restored tallgrass prairie with a free-roaming bison herd, a nature center and miles of trail. Free.",
+      "closed": false,
+      "g": ["PARK", "FAM", "FREE"],
+      "sources": [
+        ["METROPARKS", "https://www.metroparks.net/parks-and-trails/battelle-darby-creek/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Battelle_Darby_Creek_Metro_Park"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/battelle-darby-creek-metro-park/427211/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Field of Corn (Cornhenge)",
+      "address": "4995 Rings Rd, Dublin, OH 43017",
+      "w": "Malcolm Cochran's 1994 public artwork — 109 six-foot white concrete ears of corn standing in rows in a Dublin park, a tribute to farmer Sam Frantz and the area's agricultural roots. Free.",
+      "closed": false,
+      "g": ["ODD", "ARCH", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Field_of_Corn"],
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/cornhenge"],
+        ["COLUMBUSMAKESART", "https://www.columbusmakesart.com/place/8183-field-of-corn-with-osage-orange-trees"],
+        ["WOSU", "https://www.wosu.org/news/2018-09-14/curious-cbus-whats-the-history-of-dublins-concrete-cornfield"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Dublin Link",
+      "address": "6625 Riverside Dr, Dublin, OH 43017",
+      "w": "The world's longest single-tower S-shaped suspension bridge (760 ft, opened 2020) — a curving pedestrian span whose deck threads the keyhole of a 169-ft tower, linking Historic Dublin to Riverside Crossing Park. Free.",
+      "closed": false,
+      "g": ["ARCH", "VIEW", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://dublinohiousa.gov/downtown-dublin/the-dublin-link/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Dublin_Link"],
+        ["COLUMBUSUNDERGROUND", "https://columbusunderground.com/dublin-pedestrian-bridge-we1/"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "BURB",
+      "n": "Indian Run Falls",
+      "address": "700 Shawan Falls Dr, Dublin, OH 43017",
+      "w": "A wooded ravine steps from Historic Dublin with a multi-tier waterfall dropping into Indian Run — boardwalks, viewing decks and a short trail named for its Wyandot campsite history. Free.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["VISITDUBLIN", "https://www.visitdublinohio.com/listing/indian-run-falls/382/"],
+        ["COLUMBUSNAVIGATOR", "https://www.columbusnavigator.com/indian-run-falls-dublin/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Highbanks Metro Park",
+      "address": "9466 Columbus Pike, Lewis Center, OH 43035",
+      "w": "A 1,200-acre metro park north of the city named for its 100-ft shale bluffs over the Olentangy River — ten trails, a nature center, a sledding hill and ancient Adena burial mounds. Free.",
+      "closed": false,
+      "g": ["PARK", "VIEW", "FREE"],
+      "sources": [
+        ["METROPARKS", "https://www.metroparks.net/venue/highbanks/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Highbanks_Metro_Park"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Inniswood Metro Gardens",
+      "address": "940 S Hempstead Rd, Westerville, OH 43081",
+      "w": "A 123-acre metro park of themed display gardens in Westerville — herb, rose and woodland gardens, a Sisters' Garden and boardwalk nature trails through nature preserve. Free.",
+      "closed": false,
+      "g": ["PARK", "FREE"],
+      "sources": [
+        ["METROPARKS", "https://www.metroparks.net/venue/inniswood/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Inniswood_Metro_Gardens"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/inniswood-metro-gardens/427221/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "AMA Motorcycle Hall of Fame Museum",
+      "address": "13515 Yarmouth Dr, Pickerington, OH 43147",
+      "w": "The American Motorcyclist Association's national museum in Pickerington — vintage and racing motorcycles and the Hall of Fame honoring the sport's legends.",
+      "closed": false,
+      "g": ["MUS"],
+      "sources": [
+        ["OFFICIAL", "https://americanmotorcyclist.com/visit/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Motorcycle_Hall_of_Fame"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "BURB",
+      "n": "The Wagnalls Memorial",
+      "address": "150 E Columbus St, Lithopolis, OH 43136",
+      "w": "A storybook 1925 Tudor Gothic library and cultural center in tiny Lithopolis, gifted by Mabel Wagnalls (of Funk & Wagnalls) in memory of her parents — stone, stained glass and a theater.",
+      "closed": false,
+      "g": ["ARCH", "MUS"],
+      "sources": [
+        ["OFFICIAL", "https://www.wagnalls.org/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Wagnalls_Memorial_Library"],
+        ["OHIOMAG", "https://www.ohiomagazine.com/travel/article/the-wagnalls-memorial-library-lithopolis"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "BURB",
+      "n": "Orange Johnson House",
+      "address": "956 High St, Worthington, OH 43085",
+      "w": "One of Worthington's oldest homes — an 1811 pioneer house with an 1816 Federal addition, restored by the Worthington Historical Society to show early-19th-century village life.",
+      "closed": false,
+      "g": ["MUS", "ARCH"],
+      "sources": [
+        ["OFFICIAL", "https://worthingtonhistory.org/orange-johnson-house/"],
+        ["OHIO", "https://ohio.org/things-to-do/destinations/orange-johnson-house"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "BURB",
+      "n": "Hanby House",
+      "address": "160 W Main St, Westerville, OH 43081",
+      "w": "The 1850s Westerville home of the Hanby family — Bishop William Hanby, an Underground Railroad conductor and Otterbein co-founder, and son Benjamin, composer of 'Up on the Housetop' and abolitionist ballad 'Darling Nelly Gray.'",
+      "closed": false,
+      "g": ["MUS", "ARCH"],
+      "sources": [
+        ["WESTERVILLEHIST", "https://www.westervillehistory.org/"],
+        ["VISITWESTERVILLE", "https://www.visitwesterville.org/play/history/"]
+      ]
+    }
+  ],
+  "sources": [
+    {"key": "OFFICIAL", "name": "Official site", "url": "", "type": "official"},
+    {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org", "type": "encyclopedia"},
+    {"key": "EXPERIENCECBUS", "name": "Experience Columbus", "url": "https://www.experiencecolumbus.com", "type": "cvb"},
+    {"key": "ATLASOBSCURA", "name": "Atlas Obscura", "url": "https://www.atlasobscura.com", "type": "editorial"},
+    {"key": "METROPARKS", "name": "Columbus and Franklin County Metro Parks", "url": "https://www.metroparks.net", "type": "official"},
+    {"key": "COLUMBUSUNDERGROUND", "name": "Columbus Underground", "url": "https://columbusunderground.com", "type": "editorial"},
+    {"key": "COLUMBUSMAKESART", "name": "Columbus Makes Art (Greater Columbus Arts Council)", "url": "https://www.columbusmakesart.com", "type": "arts"},
+    {"key": "OHIO", "name": "Ohio.org (Ohio state tourism)", "url": "https://ohio.org", "type": "tourism"},
+    {"key": "VISITDUBLIN", "name": "Visit Dublin Ohio (CVB)", "url": "https://www.visitdublinohio.com", "type": "cvb"},
+    {"key": "VISITWESTERVILLE", "name": "Visit Westerville (CVB)", "url": "https://www.visitwesterville.org", "type": "cvb"},
+    {"key": "WESTERVILLEHIST", "name": "Westerville Historical Society", "url": "https://www.westervillehistory.org", "type": "historical-society"},
+    {"key": "COLUMBUSNAVIGATOR", "name": "Columbus Navigator", "url": "https://www.columbusnavigator.com", "type": "editorial"},
+    {"key": "NPS", "name": "National Park Service", "url": "https://www.nps.gov", "type": "official"},
+    {"key": "CAPA", "name": "Columbus Association for the Performing Arts", "url": "https://www.capa.com", "type": "arts"},
+    {"key": "WOSU", "name": "WOSU Public Media", "url": "https://www.wosu.org", "type": "news"},
+    {"key": "OHIOMAG", "name": "Ohio Magazine", "url": "https://www.ohiomagazine.com", "type": "editorial"}
+  ]
+}
