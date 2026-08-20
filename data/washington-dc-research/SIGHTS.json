@@ -1,75 +1,1124 @@
 {
-  "sights": [
-    {"t":1,"a":"MALL","n":"Lincoln Memorial","address":"2 Lincoln Memorial Cir NW, Washington, DC 20037","w":"Henry Bacon's Doric temple (1922) housing Daniel Chester French's 19-foot seated Lincoln, the terminus of the Reflecting Pool and the spot where Dr. King delivered 'I Have a Dream.' Open 24 hours, free, ranger-staffed.","k":"memorial","sources":[["NPS","https://www.nps.gov/linc/"],["WASHINGTONORG","https://washington.org/DC-guide-to/lincoln-memorial"]]},
-    {"t":1,"a":"MALL","n":"Washington Monument","address":"2 15th St NW, Washington, DC 20024","w":"The 555-foot marble obelisk (completed 1884) honoring the first president, the tallest structure in DC. Grounds are open daily; the interior elevator to the observation deck has faced repeated closures, so check NPS for current top access before you go.","k":"monument","sources":[["NPS","https://www.nps.gov/wamo/"],["WASHINGTONORG","https://washington.org/find-dc-listings/washington-monument"]]},
-    {"t":1,"a":"MALL","n":"Thomas Jefferson Memorial","address":"16 E Basin Dr SW, Washington, DC 20242","w":"John Russell Pope's domed rotunda (1943) on the Tidal Basin, with a 19-foot bronze of Jefferson ringed by his own words. One of the finest cherry-blossom vantage points each spring.","k":"memorial","sources":[["NPS","https://www.nps.gov/thje/"],["WASHINGTONORG","https://washington.org/find-dc-listings/thomas-jefferson-memorial"]]},
-    {"t":1,"a":"MALL","n":"National World War II Memorial","address":"1750 Independence Ave SW, Washington, DC 20024","w":"A plaza of 56 granite pillars and two arches around a fountain between the Washington Monument and the Reflecting Pool, dedicated 2004 to the 16 million who served. The Freedom Wall bears 4,048 gold stars.","k":"memorial","sources":[["NPS","https://www.nps.gov/wwii/index.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/world-war-ii-memorial"]]},
-    {"t":1,"a":"MALL","n":"Vietnam Veterans Memorial","address":"5 Henry Bacon Dr NW, Washington, DC 20037","w":"Maya Lin's stark black-granite wall (1982) inscribed with the 58,000-plus names of the fallen and missing, sunk into the earth beside the Three Soldiers statue. Among the most-visited and most-moving sites on the Mall.","k":"memorial","sources":[["NPS","https://www.nps.gov/vive/"],["WASHINGTONORG","https://washington.org/find-dc-listings/vietnam-veterans-memorial"]]},
-    {"t":2,"a":"MALL","n":"Korean War Veterans Memorial","address":"10 Daniel French Dr SW, Washington, DC 20024","w":"Nineteen stainless-steel soldiers advance through juniper toward an American flag, mirrored on a granite wall to read as 38 (the 38th parallel). The 2022 Wall of Remembrance added the names of the dead.","k":"memorial","sources":[["NPS","https://www.nps.gov/kowa/"],["WASHINGTONORG","https://washington.org/find-dc-listings/korean-war-veterans-memorial"]]},
-    {"t":1,"a":"MALL","n":"Martin Luther King Jr. Memorial","address":"1964 Independence Ave SW, Washington, DC 20024","w":"A 30-foot 'Stone of Hope' likeness of Dr. King emerging from a split boulder on the Tidal Basin's northwest rim, opened 2011. A 450-foot inscription wall carries 14 of his quotations.","k":"memorial","sources":[["NPS","https://www.nps.gov/mlkm/"],["WASHINGTONORG","https://washington.org/find-dc-listings/martin-luther-king-jr-memorial"]]},
-    {"t":2,"a":"MALL","n":"Franklin Delano Roosevelt Memorial","address":"1850 West Basin Dr SW, Washington, DC 20242","w":"A 7.5-acre sequence of four granite outdoor 'rooms,' one per FDR term, threaded with waterfalls, sculpture and quotations. Opened 1997 on the Tidal Basin's Cherry Tree Walk.","k":"memorial","sources":[["NPS","https://www.nps.gov/frde/"],["WASHINGTONORG","https://washington.org/find-dc-listings/franklin-delano-roosevelt-memorial"]]},
-    {"t":2,"a":"MALL","n":"Tidal Basin & the Cherry Blossoms","address":"1501 Maine Ave SW, Washington, DC 20024","w":"The man-made inlet ringed by the Jefferson, FDR and MLK memorials and by 3,000-plus Yoshino cherry trees, a 1912 gift from Tokyo that draws peak-bloom crowds each late March. Paddleboats and a walking loop year-round.","k":"waterfront","sources":[["NPS","https://www.nps.gov/subjects/cherryblossom/index.htm"],["WASHINGTONORG","https://washington.org/DC-guide-to/national-cherry-blossom-festival"]]},
-    {"t":1,"a":"MALL","n":"National Air and Space Museum","address":"655 Jefferson Dr SW, Washington, DC 20560","w":"The Smithsonian's flagship of flight and spaceflight, home to the Wright Flyer, Spirit of St. Louis, and Apollo 11 command module. Reopened in full for its 50th anniversary in July 2026 after a multi-year renovation; free, timed passes recommended.","k":"museum","sources":[["SMITHSONIAN","https://airandspace.si.edu/"]]},
-    {"t":1,"a":"MALL","n":"National Museum of Natural History","address":"10th St & Constitution Ave NW, Washington, DC 20560","w":"The Smithsonian's natural-history giant, home to the Hope Diamond, a live butterfly pavilion, dinosaurs and the Ocean Hall. Free admission, one of the most-visited museums on earth.","k":"museum","sources":[["SMITHSONIAN","https://naturalhistory.si.edu/"]]},
-    {"t":1,"a":"MALL","n":"National Museum of American History","address":"1300 Constitution Ave NW, Washington, DC 20560","w":"Keeper of the original Star-Spangled Banner, the Ruby Slippers, Julia Child's kitchen and the First Ladies' gowns. A free Smithsonian survey of the American story.","k":"museum","sources":[["SMITHSONIAN","https://americanhistory.si.edu/"]]},
-    {"t":1,"a":"MALL","n":"National Museum of African American History and Culture","address":"1400 Constitution Ave NW, Washington, DC 20560","w":"David Adjaye's bronze-corona building (opened 2016), the Smithsonian's newest and among its most sought-after, tracing slavery through the present across culture, sport and struggle. Free, but timed passes are advised.","k":"museum","sources":[["SMITHSONIAN","https://nmaahc.si.edu/"]]},
-    {"t":2,"a":"MALL","n":"Hirshhorn Museum and Sculpture Garden","address":"Independence Ave SW & 7th St SW, Washington, DC 20560","w":"The Smithsonian's modern and contemporary art museum, a cylindrical 'donut' by Gordon Bunshaft with a sunken sculpture garden across Jefferson Drive. Free; strong in Rothko, Bourgeois and immersive installations.","k":"museum","sources":[["SMITHSONIAN","https://hirshhorn.si.edu/"]]},
-    {"t":1,"a":"MALL","n":"National Gallery of Art","address":"6th St & Constitution Ave NW, Washington, DC 20565","w":"The nation's art museum (not a Smithsonian), pairing John Russell Pope's neoclassical West Building with I.M. Pei's East Building, plus a sculpture garden. Free; home to the only Leonardo da Vinci in the Americas.","k":"museum","sources":[["OFFICIAL","https://www.nga.gov/"],["WASHINGTONORG","https://washington.org/find-dc-listings/national-gallery-art"]]},
-    {"t":2,"a":"MALL","n":"United States Botanic Garden","address":"100 Maryland Ave SW, Washington, DC 20001","w":"A living plant museum at the foot of Capitol Hill, its 1933 glass Conservatory holding a jungle, orchids and a seasonal garden-railway show. Free, and one of the oldest continually operating botanic gardens in the country.","k":"garden","sources":[["OFFICIAL","https://www.usbg.gov/"],["WASHINGTONORG","https://washington.org/find-dc-listings/united-states-botanic-garden"]]},
-    {"t":1,"a":"DTN","n":"The White House","address":"1600 Pennsylvania Ave NW, Washington, DC 20500","w":"The executive mansion and workplace of every president since John Adams, viewable from Lafayette Square and the south Ellipse. Interior tours are free but must be arranged well ahead through a member of Congress.","k":"landmark","sources":[["NPS","https://www.nps.gov/whho/"],["WASHINGTONORG","https://washington.org/find-dc-listings/white-house"]]},
-    {"t":1,"a":"DTN","n":"National Archives Museum","address":"701 Constitution Ave NW, Washington, DC 20408","w":"Home of the Declaration of Independence, the Constitution and the Bill of Rights, displayed in the Rotunda for the Charters of Freedom. Free admission.","k":"landmark","sources":[["OFFICIAL","https://www.archives.gov/museum"],["WASHINGTONORG","https://washington.org/find-dc-listings/national-archives"]]},
-    {"t":1,"a":"DTN","n":"Smithsonian American Art Museum & National Portrait Gallery","address":"800 G St NW, Washington, DC 20001","w":"Two free Smithsonian museums sharing the Greek Revival Old Patent Office Building in Penn Quarter, joined by the glass-roofed Kogod Courtyard. The Portrait Gallery's 'America's Presidents' is the only complete set outside the White House.","k":"museum","sources":[["SMITHSONIAN","https://npg.si.edu/"]]},
-    {"t":2,"a":"DTN","n":"Ford's Theatre","address":"511 10th St NW, Washington, DC 20004","w":"The still-operating 1863 theater where Lincoln was shot on April 14, 1865, now an NPS site with a museum and the Petersen House (where he died) across the street. Working stage plus historical tours.","k":"historic","sources":[["NPS","https://www.nps.gov/foth/"],["OFFICIAL","https://www.fords.org/"]]},
-    {"t":2,"a":"DTN","n":"National Building Museum","address":"401 F St NW, Washington, DC 20001","w":"A soaring 1887 Great Hall lined with 75-foot Corinthian columns, once the Pension Bureau, now devoted to architecture, design and engineering. Known for blockbuster summer installations; the Great Hall is free.","k":"museum","sources":[["OFFICIAL","https://www.nbm.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/national-building-museum"]]},
-    {"t":2,"a":"DTN","n":"International Spy Museum","address":"700 L'Enfant Plaza SW, Washington, DC 20024","w":"A privately run, glass-clad museum of espionage at L'Enfant Plaza, with one of the largest public collections of spy artifacts and interactive tradecraft exhibits. Ticketed admission.","k":"museum","sources":[["OFFICIAL","https://www.spymuseum.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/international-spy-museum"]]},
-    {"t":2,"a":"DTN","n":"Chinatown Friendship Archway","address":"610 H St NW, Washington, DC 20001","w":"A 75-foot, seven-roof gate over H Street (1986), the largest single-span Chinese archway of its kind, marking the entrance to DC's compact Chinatown near Capital One Arena.","k":"landmark","sources":[["WASHINGTONORG","https://washington.org/DC-neighborhoods/chinatown"],["ATLASOBSCURA","https://www.atlasobscura.com/places/friendship-archway"]]},
-    {"t":1,"a":"GTWN","n":"John F. Kennedy Center for the Performing Arts","address":"2700 F St NW, Washington, DC 20566","w":"The nation's living memorial to JFK and its busiest performing-arts complex, on the Potomac beside the Watergate, home to the National Symphony and Washington National Opera. Free daily performances on the Millennium Stage and a rooftop terrace with river views.","k":"entertainment","sources":[["OFFICIAL","https://www.kennedy-center.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/kennedy-center"]]},
-    {"t":1,"a":"GTWN","n":"Georgetown Waterfront & the C&O Canal","address":"3303 Water St NW, Washington, DC 20007","w":"The cobblestoned C&O Canal towpath and the Potomac-front park frame Georgetown's shops and rowing crews, with mule-drawn boat history at the NPS canal. A walkable stretch of the neighborhood's 18th-century core.","k":"waterfront","sources":[["NPS","https://www.nps.gov/choh/"],["WASHINGTONORG","https://washington.org/DC-neighborhoods/georgetown"]]},
-    {"t":2,"a":"GTWN","n":"Dumbarton Oaks","address":"1703 32nd St NW, Washington, DC 20007","w":"A Harvard-run research estate in upper Georgetown celebrated for its Byzantine and Pre-Columbian art and, above all, Beatrix Farrand's terraced formal gardens. Museum is free; the gardens are ticketed in season.","k":"garden","sources":[["OFFICIAL","https://www.doaks.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/dumbarton-oaks"]]},
-    {"t":2,"a":"GTWN","n":"Old Stone House","address":"3051 M St NW, Washington, DC 20007","w":"Built in 1765, the oldest unchanged building in DC and a rare survivor of pre-Revolutionary Georgetown, now an NPS house museum with a colonial-style garden. Free.","k":"historic","sources":[["NPS","https://www.nps.gov/places/old-stone-house.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/old-stone-house"]]},
-    {"t":2,"a":"GTWN","n":"Georgetown University & Healy Hall","address":"3700 O St NW, Washington, DC 20057","w":"The oldest Catholic and Jesuit university in the United States (founded 1789), whose Flemish-Romanesque Healy Hall and its clock-tower spires crown the campus above the Potomac. Grounds are open to visitors.","k":"landmark","sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/Healy_Hall"],["WASHINGTONORG","https://washington.org/find-dc-listings/georgetown-university"]]},
-    {"t":1,"a":"DUPONT","n":"The Phillips Collection","address":"1600 21st St NW, Washington, DC 20009","w":"America's first museum of modern art (1921), an intimate Dupont Circle mansion whose crown jewel is Renoir's 'Luncheon of the Boating Party,' plus a meditative Rothko Room. Ticketed for special exhibitions.","k":"museum","sources":[["OFFICIAL","https://www.phillipscollection.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/phillips-collection"]]},
-    {"t":2,"a":"DUPONT","n":"Embassy Row","address":"2300 Massachusetts Ave NW, Washington, DC 20008","w":"The Massachusetts Avenue stretch northwest of Dupont Circle lined with more than 50 embassies and Gilded Age mansions, marked by statues of Gandhi, Churchill and Mandela. A self-guided architectural walk.","k":"district","sources":[["WASHINGTONORG","https://washington.org/DC-neighborhoods/dupont-circle"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Embassy_Row"]]},
-    {"t":2,"a":"DUPONT","n":"Adams Morgan (18th Street)","address":"18th St NW & Columbia Rd NW, Washington, DC 20009","w":"DC's most eclectic nightlife-and-dining strip, famous for its murals, international restaurants and the late-night jumbo slice. A lively, walkable neighborhood core.","k":"district","sources":[["WASHINGTONORG","https://washington.org/DC-neighborhoods/adams-morgan"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Adams_Morgan"]]},
-    {"t":2,"a":"DUPONT","n":"Dupont Circle & Fountain","address":"1 Dupont Cir NW, Washington, DC 20036","w":"The traffic-circle park at the heart of the neighborhood, its 1921 marble fountain designed by the Lincoln Memorial's team, ringed by bookstores, cafes and a Sunday farmers market. A classic people-watching green.","k":"district","sources":[["WASHINGTONORG","https://washington.org/DC-neighborhoods/dupont-circle"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Dupont_Circle"]]},
-    {"t":1,"a":"USHAW","n":"African American Civil War Memorial & Museum","address":"1925 Vermont Ave NW, Washington, DC 20001","w":"A bronze 'Spirit of Freedom' sculpture and a wall inscribed with the 209,000-plus names of the U.S. Colored Troops, paired with a museum around the corner on U Street. Anchors the historic Black cultural heart of the city.","k":"memorial","sources":[["OFFICIAL","https://www.afroamcivilwar.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/african-american-civil-war-memorial-museum"]]},
-    {"t":2,"a":"USHAW","n":"Lincoln Theatre","address":"1215 U St NW, Washington, DC 20009","w":"A restored 1922 movie-and-vaudeville palace on 'Black Broadway,' where Duke Ellington, Ella Fitzgerald and Cab Calloway played, now a concert and event venue. A cornerstone of the U Street corridor's revival.","k":"entertainment","sources":[["OFFICIAL","https://thelincolndc.com/"],["WASHINGTONORG","https://washington.org/find-dc-listings/lincoln-theatre"]]},
-    {"t":2,"a":"USHAW","n":"Meridian Hill Park (Malcolm X Park)","address":"2400 15th St NW, Washington, DC 20009","w":"An Italianate terraced NPS park with the longest cascading fountain in North America and, on Sundays, a decades-old drum circle. Known locally as Malcolm X Park.","k":"park","sources":[["NPS","https://www.nps.gov/places/meridian-hill-park.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/meridian-hill-park"]]},
-    {"t":1,"a":"CAPHILL","n":"United States Capitol","address":"First St SE, Washington, DC 20004","w":"The seat of Congress crowned by Thomas U. Walter's cast-iron dome and the Statue of Freedom, with the frescoed Rotunda and Brumidi corridors within. Free tours start from the underground Capitol Visitor Center; passes recommended.","k":"landmark","sources":[["OFFICIAL","https://www.visitthecapitol.gov/"],["WASHINGTONORG","https://washington.org/find-dc-listings/us-capitol"]]},
-    {"t":1,"a":"CAPHILL","n":"Library of Congress","address":"10 First St SE, Washington, DC 20540","w":"The largest library in the world, whose 1897 Thomas Jefferson Building is a Gilded Age showpiece of marble, mosaic and the domed Main Reading Room. Free; home to a Gutenberg Bible and Jefferson's library.","k":"landmark","sources":[["OFFICIAL","https://www.loc.gov/visit/"],["WASHINGTONORG","https://washington.org/find-dc-listings/library-congress"]]},
-    {"t":2,"a":"CAPHILL","n":"Supreme Court of the United States","address":"1 First St NE, Washington, DC 20543","w":"Cass Gilbert's 1935 marble temple facing the Capitol, its pediment reading 'Equal Justice Under Law.' Free to enter when the court is not in session; visitors can hear argument or view the courtroom.","k":"landmark","sources":[["OFFICIAL","https://www.supremecourt.gov/visiting/visiting.aspx"],["WASHINGTONORG","https://washington.org/find-dc-listings/supreme-court-united-states"]]},
-    {"t":1,"a":"CAPHILL","n":"Eastern Market","address":"225 7th St SE, Washington, DC 20003","w":"DC's last of the great 19th-century public markets (1873), still selling produce, meat and crafts inside Adolf Cluss's South Hall, with a weekend flea market and farmers' line outside. The social heart of Capitol Hill.","k":"market","sources":[["OFFICIAL","https://easternmarket-dc.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/eastern-market"]]},
-    {"t":1,"a":"CAPHILL","n":"The Wharf","address":"760 Maine Ave SW, Washington, DC 20024","w":"A mile-long redeveloped Southwest Waterfront of restaurants, live-music halls and piers on the Washington Channel, anchored by the nation's oldest continuously operating fish market. Waterfront promenade, water taxis and boat rentals.","k":"waterfront","sources":[["OFFICIAL","https://www.wharfdc.com/"],["WASHINGTONORG","https://washington.org/find-dc-listings/wharf"]]},
-    {"t":2,"a":"CAPHILL","n":"Union Market","address":"1309 5th St NE, Washington, DC 20002","w":"A restored NoMa warehouse turned buzzy food hall with 40-plus local vendors, a rooftop, and a fast-growing district of restaurants and murals around it. Open year-round.","k":"market","sources":[["OFFICIAL","https://unionmarketdc.com/"],["WASHINGTONORG","https://washington.org/find-dc-listings/union-market"]]},
-    {"t":2,"a":"CAPHILL","n":"H Street Corridor (Atlas District)","address":"1300 H St NE, Washington, DC 20002","w":"A revived nightlife-and-arts strip northeast of Union Station, centered on the restored Atlas Performing Arts Center and a dense run of bars, small plates and live music. Served by the DC Streetcar.","k":"district","sources":[["WASHINGTONORG","https://washington.org/DC-neighborhoods/h-street"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H_Street_(Washington,_D.C.)"]]},
-    {"t":2,"a":"CAPHILL","n":"Yards Park","address":"355 Water St SE, Washington, DC 20003","w":"A design-forward riverfront park on the Anacostia in Navy Yard, with a wave-arched bridge, boardwalk and canal basin beside Nationals Park. Free summer concerts and fountains for kids.","k":"waterfront","sources":[["OFFICIAL","https://www.capitolriverfront.org/go/yards-park"],["WASHINGTONORG","https://washington.org/DC-neighborhoods/capitol-riverfront"]]},
-    {"t":1,"a":"ARL","n":"Arlington National Cemetery","address":"1 Memorial Ave, Arlington, VA 22211","w":"The nation's most hallowed military cemetery, 639 acres of some 400,000 graves, the Tomb of the Unknown Soldier with its round-the-clock changing of the guard, and President Kennedy's eternal flame. Free; open daily.","k":"memorial","sources":[["OFFICIAL","https://www.arlingtoncemetery.mil/"],["WASHINGTONORG","https://washington.org/find-dc-listings/arlington-national-cemetery"]]},
-    {"t":1,"a":"ARL","n":"U.S. Marine Corps War Memorial (Iwo Jima)","address":"1400 N Meade St, Arlington, VA 22209","w":"Felix de Weldon's 32-foot bronze of the flag-raising on Mount Suribachi, dedicated 1954 just north of Arlington Cemetery. An NPS site with sweeping views back to the Mall.","k":"memorial","sources":[["NPS","https://www.nps.gov/gwmp/planyourvisit/usmcwarmemorial.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/us-marine-corps-war-memorial-iwo-jima"]]},
-    {"t":2,"a":"ARL","n":"Air Force Memorial","address":"1 Air Force Memorial Dr, Arlington, VA 22204","w":"Three stainless-steel spires arcing 270 feet skyward in the 'bomb burst' of the Thunderbirds, on a ridge overlooking the Pentagon and the city. Free, open daily; striking at sunset.","k":"memorial","sources":[["OFFICIAL","https://www.arlingtoncemetery.mil/Expansion/US-Air-Force-Memorial"],["WASHINGTONORG","https://washington.org/find-dc-listings/us-air-force-memorial"]]},
-    {"t":2,"a":"ARL","n":"Gravelly Point Park","address":"George Washington Memorial Pkwy, Arlington, VA 22202","w":"A riverside NPS lawn at the north end of Reagan National's main runway, where jets roar overhead just above your head on final approach. Free plane-spotting, picnicking and Mount Vernon Trail access.","k":"waterfront","sources":[["NPS","https://www.nps.gov/gwmp/planyourvisit/gravelly-point.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/gravelly-point"]]},
-    {"t":2,"a":"ARL","n":"Theodore Roosevelt Island","address":"George Washington Memorial Pkwy, Arlington, VA 22209","w":"An 88-acre wooded Potomac island preserved as a living memorial to the conservationist president, laced with swampy trails and centered on a 17-foot bronze of TR. Reached by footbridge from a GW Parkway lot; free.","k":"park","sources":[["NPS","https://www.nps.gov/this/"],["WASHINGTONORG","https://washington.org/find-dc-listings/theodore-roosevelt-island"]]},
-    {"t":1,"a":"ALEX","n":"Old Town Alexandria & King Street","address":"King St, Alexandria, VA 22314","w":"A mile of preserved 18th- and 19th-century streets running from the King Street Metro down to the Potomac, packed with independent shops, taverns and George Washington history. A free trolley links the waterfront to the top of the hill.","k":"district","sources":[["VISITALEX","https://www.visitalexandria.com/things-to-do/king-street/"],["WASHINGTONORG","https://washington.org/find-dc-listings/old-town-alexandria"]]},
-    {"t":1,"a":"ALEX","n":"George Washington's Mount Vernon","address":"3200 Mount Vernon Memorial Hwy, Mount Vernon, VA 22121","w":"Washington's meticulously restored Potomac plantation home, 16 miles south of the city, with the mansion, his tomb, working farm, and museums on his life and the people he enslaved. Ticketed; a full half-day day trip.","k":"historic","sources":[["OFFICIAL","https://www.mountvernon.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/george-washingtons-mount-vernon"]]},
-    {"t":2,"a":"ALEX","n":"Torpedo Factory Art Center","address":"105 N Union St, Alexandria, VA 22314","w":"A WWII munitions plant on the Alexandria waterfront reborn as a warren of 80-plus working artist studios and galleries you can walk through. Free admission.","k":"museum","sources":[["OFFICIAL","https://torpedofactory.org/"],["VISITALEX","https://www.visitalexandria.com/listing/torpedo-factory-art-center/"]]},
-    {"t":2,"a":"ALEX","n":"Gadsby's Tavern Museum","address":"134 N Royal St, Alexandria, VA 22314","w":"A restored 1785 tavern and 1792 hotel where Washington, Jefferson and Adams dined and danced, now a city museum with a still-operating period restaurant next door. Ticketed tours.","k":"historic","sources":[["OFFICIAL","https://www.alexandriava.gov/GadsbysTavern"],["VISITALEX","https://www.visitalexandria.com/listing/gadsbys-tavern-museum/"]]},
-    {"t":2,"a":"ALEX","n":"Alexandria Waterfront & Waterfront Park","address":"1A Prince St, Alexandria, VA 22314","w":"The revitalized Potomac edge at the foot of King Street, with promenade, public art, boat tours and water-taxi service to The Wharf and National Harbor. Free to stroll.","k":"waterfront","sources":[["VISITALEX","https://www.visitalexandria.com/things-to-do/waterfront/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Alexandria,_Virginia"]]},
-    {"t":1,"a":"TYSONS","n":"Great Falls Park","address":"9200 Old Dominion Dr, McLean, VA 22102","w":"An 800-acre NPS park in McLean where the Potomac crashes through the jagged Mather Gorge in a series of dramatic falls, with three clifftop overlooks and hiking beside the 18th-century Patowmack Canal. Entrance fee; a short drive from Tysons.","k":"park","sources":[["NPS","https://www.nps.gov/grfa/"],["FXVA","https://www.fxva.com/great-falls-park/"]]},
-    {"t":1,"a":"TYSONS","n":"Wolf Trap National Park for the Performing Arts","address":"1551 Trap Rd, Vienna, VA 22182","w":"The only U.S. national park dedicated to the performing arts, whose open-air Filene Center seats 7,000 for a summer season of pop, classical and dance on 117 wooded acres. Lawn tickets and picnics are the local ritual.","k":"entertainment","sources":[["NPS","https://www.nps.gov/wotr/"],["OFFICIAL","https://www.wolftrap.org/"]]},
-    {"t":2,"a":"TYSONS","n":"Meadowlark Botanical Gardens","address":"9750 Meadowlark Gardens Ct, Vienna, VA 22182","w":"A 95-acre NOVA Parks garden in Vienna with lakes, native-plant and Korean bell gardens, an atrium conservatory, and the popular winter Walk of Lights. Ticketed; peaceful and stroller-friendly.","k":"garden","sources":[["OFFICIAL","https://www.novaparks.com/parks/meadowlark-botanical-gardens"],["FXVA","https://www.fxva.com/listing/meadowlark-botanical-gardens/"]]},
-    {"t":1,"a":"RESTON","n":"Steven F. Udvar-Hazy Center (Air & Space)","address":"14390 Air and Space Museum Pkwy, Chantilly, VA 20151","w":"The Smithsonian Air and Space Museum's cavernous companion by Dulles, hangaring the Space Shuttle Discovery, a Concorde, the SR-71 Blackbird and the Enola Gay. Free admission (paid parking); an aviation day out in the Dulles corridor.","k":"museum","sources":[["SMITHSONIAN","https://airandspace.si.edu/visit/udvar-hazy-center"]]},
-    {"t":2,"a":"RESTON","n":"Reston Town Center","address":"11900 Market St, Reston, VA 20190","w":"Reston's walkable, European-style downtown of shops, restaurants, a cinema and a central pavilion that becomes an ice rink in winter. The social hub of the Dulles Toll Road suburbs, on the Silver Line.","k":"district","sources":[["OFFICIAL","https://www.restontowncenter.com/"],["FXVA","https://www.fxva.com/listing/reston-town-center/"]]},
-    {"t":1,"a":"FCITY","n":"Eden Center","address":"6751 Wilson Blvd, Falls Church, VA 22044","w":"The largest Vietnamese American commercial center on the East Coast, a Falls Church strip of 120-plus shops, groceries, cafes and restaurants marked by a pagoda gate and clock tower. The cultural and culinary heart of NoVA's Vietnamese community.","k":"market","sources":[["ATLASOBSCURA","https://www.atlasobscura.com/places/eden-center"],["FXVA","https://www.fxva.com/listing/eden-center/"]]},
-    {"t":2,"a":"FCITY","n":"The Falls Church (Historic)","address":"115 E Fairfax St, Falls Church, VA 22046","w":"The 1769 colonial-era Episcopal church that gave the city its name, where George Washington served as a vestryman, still an active parish. A National Register landmark.","k":"historic","sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Falls_Church_(Falls_Church,_Virginia)"],["FXVA","https://www.fxva.com/listing/the-falls-church-episcopal/"]]},
-    {"t":2,"a":"FCITY","n":"Mosaic District","address":"2910 District Ave, Fairfax, VA 22031","w":"A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.","k":"district","sources":[["FXVA","https://www.fxva.com/listing/mosaic-district/"],["OFFICIAL","https://www.mosaicdistrict.com/"]]}
-  ],
-  "sources": [
-    {"key":"NPS","name":"National Park Service","url":"https://www.nps.gov/","type":"official"},
-    {"key":"SMITHSONIAN","name":"Smithsonian Institution","url":"https://www.si.edu/","type":"official"},
-    {"key":"OFFICIAL","name":"Official site / operator","url":"https://www.si.edu/","type":"official"},
-    {"key":"WASHINGTONORG","name":"Destination DC (washington.org)","url":"https://washington.org/","type":"official"},
-    {"key":"VISITALEX","name":"Visit Alexandria","url":"https://www.visitalexandria.com/","type":"official"},
-    {"key":"FXVA","name":"Visit Fairfax (FXVA)","url":"https://www.fxva.com/","type":"official"},
-    {"key":"ATLASOBSCURA","name":"Atlas Obscura","url":"https://www.atlasobscura.com/","type":"reference"},
-    {"key":"WIKIPEDIA","name":"Wikipedia","url":"https://en.wikipedia.org/","type":"reference"}
-  ]
+ "sights": [
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Lincoln Memorial",
+   "address": "2 Lincoln Memorial Cir NW, Washington, DC 20037",
+   "w": "Henry Bacon's Doric temple (1922) housing Daniel Chester French's 19-foot seated Lincoln, the terminus of the Reflecting Pool and the spot where Dr. King delivered 'I Have a Dream.' Open 24 hours, free, ranger-staffed.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/linc/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-guide-to/lincoln-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Washington Monument",
+   "address": "2 15th St NW, Washington, DC 20024",
+   "w": "The 555-foot marble obelisk (completed 1884) honoring the first president, the tallest structure in DC. Grounds are open daily; the interior elevator to the observation deck has faced repeated closures, so check NPS for current top access before you go.",
+   "k": "monument",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/wamo/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/washington-monument"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Thomas Jefferson Memorial",
+   "address": "16 E Basin Dr SW, Washington, DC 20242",
+   "w": "John Russell Pope's domed rotunda (1943) on the Tidal Basin, with a 19-foot bronze of Jefferson ringed by his own words. One of the finest cherry-blossom vantage points each spring.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/thje/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/thomas-jefferson-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National World War II Memorial",
+   "address": "1750 Independence Ave SW, Washington, DC 20024",
+   "w": "A plaza of 56 granite pillars and two arches around a fountain between the Washington Monument and the Reflecting Pool, dedicated 2004 to the 16 million who served. The Freedom Wall bears 4,048 gold stars.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/wwii/index.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/world-war-ii-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Vietnam Veterans Memorial",
+   "address": "5 Henry Bacon Dr NW, Washington, DC 20037",
+   "w": "Maya Lin's stark black-granite wall (1982) inscribed with the 58,000-plus names of the fallen and missing, sunk into the earth beside the Three Soldiers statue. Among the most-visited and most-moving sites on the Mall.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/vive/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/vietnam-veterans-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Korean War Veterans Memorial",
+   "address": "10 Daniel French Dr SW, Washington, DC 20024",
+   "w": "Nineteen stainless-steel soldiers advance through juniper toward an American flag, mirrored on a granite wall to read as 38 (the 38th parallel). The 2022 Wall of Remembrance added the names of the dead.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/kowa/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/korean-war-veterans-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Martin Luther King Jr. Memorial",
+   "address": "1964 Independence Ave SW, Washington, DC 20024",
+   "w": "A 30-foot 'Stone of Hope' likeness of Dr. King emerging from a split boulder on the Tidal Basin's northwest rim, opened 2011. A 450-foot inscription wall carries 14 of his quotations.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/mlkm/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/martin-luther-king-jr-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Franklin Delano Roosevelt Memorial",
+   "address": "1850 West Basin Dr SW, Washington, DC 20242",
+   "w": "A 7.5-acre sequence of four granite outdoor 'rooms,' one per FDR term, threaded with waterfalls, sculpture and quotations. Opened 1997 on the Tidal Basin's Cherry Tree Walk.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/frde/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/franklin-delano-roosevelt-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Tidal Basin & the Cherry Blossoms",
+   "address": "1501 Maine Ave SW, Washington, DC 20024",
+   "w": "The man-made inlet ringed by the Jefferson, FDR and MLK memorials and by 3,000-plus Yoshino cherry trees, a 1912 gift from Tokyo that draws peak-bloom crowds each late March. Paddleboats and a walking loop year-round.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/subjects/cherryblossom/index.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-guide-to/national-cherry-blossom-festival"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Air and Space Museum",
+   "address": "655 Jefferson Dr SW, Washington, DC 20560",
+   "w": "The Smithsonian's flagship of flight and spaceflight, home to the Wright Flyer, Spirit of St. Louis, and Apollo 11 command module. Reopened in full for its 50th anniversary in July 2026 after a multi-year renovation; free, timed passes recommended.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://airandspace.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Museum of Natural History",
+   "address": "10th St & Constitution Ave NW, Washington, DC 20560",
+   "w": "The Smithsonian's natural-history giant, home to the Hope Diamond, a live butterfly pavilion, dinosaurs and the Ocean Hall. Free admission, one of the most-visited museums on earth.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://naturalhistory.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Museum of American History",
+   "address": "1300 Constitution Ave NW, Washington, DC 20560",
+   "w": "Keeper of the original Star-Spangled Banner, the Ruby Slippers, Julia Child's kitchen and the First Ladies' gowns. A free Smithsonian survey of the American story.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://americanhistory.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Museum of African American History and Culture",
+   "address": "1400 Constitution Ave NW, Washington, DC 20560",
+   "w": "David Adjaye's bronze-corona building (opened 2016), the Smithsonian's newest and among its most sought-after, tracing slavery through the present across culture, sport and struggle. Free, but timed passes are advised.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://nmaahc.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Hirshhorn Museum and Sculpture Garden",
+   "address": "Independence Ave SW & 7th St SW, Washington, DC 20560",
+   "w": "The Smithsonian's modern and contemporary art museum, a cylindrical 'donut' by Gordon Bunshaft with a sunken sculpture garden across Jefferson Drive. Free; strong in Rothko, Bourgeois and immersive installations.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://hirshhorn.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Gallery of Art",
+   "address": "6th St & Constitution Ave NW, Washington, DC 20565",
+   "w": "The nation's art museum (not a Smithsonian), pairing John Russell Pope's neoclassical West Building with I.M. Pei's East Building, plus a sculpture garden. Free; home to the only Leonardo da Vinci in the Americas.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.nga.gov/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/national-gallery-art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "United States Botanic Garden",
+   "address": "100 Maryland Ave SW, Washington, DC 20001",
+   "w": "A living plant museum at the foot of Capitol Hill, its 1933 glass Conservatory holding a jungle, orchids and a seasonal garden-railway show. Free, and one of the oldest continually operating botanic gardens in the country.",
+   "k": "garden",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.usbg.gov/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/united-states-botanic-garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "The White House",
+   "address": "1600 Pennsylvania Ave NW, Washington, DC 20500",
+   "w": "The executive mansion and workplace of every president since John Adams, viewable from Lafayette Square and the south Ellipse. Interior tours are free but must be arranged well ahead through a member of Congress.",
+   "k": "landmark",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/whho/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/white-house"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "National Archives Museum",
+   "address": "701 Constitution Ave NW, Washington, DC 20408",
+   "w": "Home of the Declaration of Independence, the Constitution and the Bill of Rights, displayed in the Rotunda for the Charters of Freedom. Free admission.",
+   "k": "landmark",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.archives.gov/museum"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/national-archives"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Smithsonian American Art Museum & National Portrait Gallery",
+   "address": "800 G St NW, Washington, DC 20001",
+   "w": "Two free Smithsonian museums sharing the Greek Revival Old Patent Office Building in Penn Quarter, joined by the glass-roofed Kogod Courtyard. The Portrait Gallery's 'America's Presidents' is the only complete set outside the White House.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://npg.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Ford's Theatre",
+   "address": "511 10th St NW, Washington, DC 20004",
+   "w": "The still-operating 1863 theater where Lincoln was shot on April 14, 1865, now an NPS site with a museum and the Petersen House (where he died) across the street. Working stage plus historical tours.",
+   "k": "historic",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/foth/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.fords.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "National Building Museum",
+   "address": "401 F St NW, Washington, DC 20001",
+   "w": "A soaring 1887 Great Hall lined with 75-foot Corinthian columns, once the Pension Bureau, now devoted to architecture, design and engineering. Known for blockbuster summer installations; the Great Hall is free.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.nbm.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/national-building-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "International Spy Museum",
+   "address": "700 L'Enfant Plaza SW, Washington, DC 20024",
+   "w": "A privately run, glass-clad museum of espionage at L'Enfant Plaza, with one of the largest public collections of spy artifacts and interactive tradecraft exhibits. Ticketed admission.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.spymuseum.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/international-spy-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Chinatown Friendship Archway",
+   "address": "610 H St NW, Washington, DC 20001",
+   "w": "A 75-foot, seven-roof gate over H Street (1986), the largest single-span Chinese archway of its kind, marking the entrance to DC's compact Chinatown near Capital One Arena.",
+   "k": "landmark",
+   "sources": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/chinatown"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/friendship-archway"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "John F. Kennedy Center for the Performing Arts",
+   "address": "2700 F St NW, Washington, DC 20566",
+   "w": "The nation's living memorial to JFK and its busiest performing-arts complex, on the Potomac beside the Watergate, home to the National Symphony and Washington National Opera. Free daily performances on the Millennium Stage and a rooftop terrace with river views.",
+   "k": "entertainment",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.kennedy-center.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/kennedy-center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "Georgetown Waterfront & the C&O Canal",
+   "address": "3303 Water St NW, Washington, DC 20007",
+   "w": "The cobblestoned C&O Canal towpath and the Potomac-front park frame Georgetown's shops and rowing crews, with mule-drawn boat history at the NPS canal. A walkable stretch of the neighborhood's 18th-century core.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/choh/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/georgetown"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Dumbarton Oaks",
+   "address": "1703 32nd St NW, Washington, DC 20007",
+   "w": "A Harvard-run research estate in upper Georgetown celebrated for its Byzantine and Pre-Columbian art and, above all, Beatrix Farrand's terraced formal gardens. Museum is free; the gardens are ticketed in season.",
+   "k": "garden",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.doaks.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/dumbarton-oaks"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Old Stone House",
+   "address": "3051 M St NW, Washington, DC 20007",
+   "w": "Built in 1765, the oldest unchanged building in DC and a rare survivor of pre-Revolutionary Georgetown, now an NPS house museum with a colonial-style garden. Free.",
+   "k": "historic",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/old-stone-house.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/old-stone-house"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Georgetown University & Healy Hall",
+   "address": "3700 O St NW, Washington, DC 20057",
+   "w": "The oldest Catholic and Jesuit university in the United States (founded 1789), whose Flemish-Romanesque Healy Hall and its clock-tower spires crown the campus above the Potomac. Grounds are open to visitors.",
+   "k": "landmark",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Healy_Hall"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/georgetown-university"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUPONT",
+   "n": "The Phillips Collection",
+   "address": "1600 21st St NW, Washington, DC 20009",
+   "w": "America's first museum of modern art (1921), an intimate Dupont Circle mansion whose crown jewel is Renoir's 'Luncheon of the Boating Party,' plus a meditative Rothko Room. Ticketed for special exhibitions.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.phillipscollection.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/phillips-collection"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Embassy Row",
+   "address": "2300 Massachusetts Ave NW, Washington, DC 20008",
+   "w": "The Massachusetts Avenue stretch northwest of Dupont Circle lined with more than 50 embassies and Gilded Age mansions, marked by statues of Gandhi, Churchill and Mandela. A self-guided architectural walk.",
+   "k": "district",
+   "sources": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/dupont-circle"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Embassy_Row"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Adams Morgan (18th Street)",
+   "address": "18th St NW & Columbia Rd NW, Washington, DC 20009",
+   "w": "DC's most eclectic nightlife-and-dining strip, famous for its murals, international restaurants and the late-night jumbo slice. A lively, walkable neighborhood core.",
+   "k": "district",
+   "sources": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/adams-morgan"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adams_Morgan"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Dupont Circle & Fountain",
+   "address": "1 Dupont Cir NW, Washington, DC 20036",
+   "w": "The traffic-circle park at the heart of the neighborhood, its 1921 marble fountain designed by the Lincoln Memorial's team, ringed by bookstores, cafes and a Sunday farmers market. A classic people-watching green.",
+   "k": "district",
+   "sources": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/dupont-circle"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dupont_Circle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "African American Civil War Memorial & Museum",
+   "address": "1925 Vermont Ave NW, Washington, DC 20001",
+   "w": "A bronze 'Spirit of Freedom' sculpture and a wall inscribed with the 209,000-plus names of the U.S. Colored Troops, paired with a museum around the corner on U Street. Anchors the historic Black cultural heart of the city.",
+   "k": "memorial",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.afroamcivilwar.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/african-american-civil-war-memorial-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Lincoln Theatre",
+   "address": "1215 U St NW, Washington, DC 20009",
+   "w": "A restored 1922 movie-and-vaudeville palace on 'Black Broadway,' where Duke Ellington, Ella Fitzgerald and Cab Calloway played, now a concert and event venue. A cornerstone of the U Street corridor's revival.",
+   "k": "entertainment",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://thelincolndc.com/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/lincoln-theatre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Meridian Hill Park (Malcolm X Park)",
+   "address": "2400 15th St NW, Washington, DC 20009",
+   "w": "An Italianate terraced NPS park with the longest cascading fountain in North America and, on Sundays, a decades-old drum circle. Known locally as Malcolm X Park.",
+   "k": "park",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/meridian-hill-park.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/meridian-hill-park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "United States Capitol",
+   "address": "First St SE, Washington, DC 20004",
+   "w": "The seat of Congress crowned by Thomas U. Walter's cast-iron dome and the Statue of Freedom, with the frescoed Rotunda and Brumidi corridors within. Free tours start from the underground Capitol Visitor Center; passes recommended.",
+   "k": "landmark",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.visitthecapitol.gov/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/us-capitol"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Library of Congress",
+   "address": "10 First St SE, Washington, DC 20540",
+   "w": "The largest library in the world, whose 1897 Thomas Jefferson Building is a Gilded Age showpiece of marble, mosaic and the domed Main Reading Room. Free; home to a Gutenberg Bible and Jefferson's library.",
+   "k": "landmark",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.loc.gov/visit/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/library-congress"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Supreme Court of the United States",
+   "address": "1 First St NE, Washington, DC 20543",
+   "w": "Cass Gilbert's 1935 marble temple facing the Capitol, its pediment reading 'Equal Justice Under Law.' Free to enter when the court is not in session; visitors can hear argument or view the courtroom.",
+   "k": "landmark",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.supremecourt.gov/visiting/visiting.aspx"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/supreme-court-united-states"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Eastern Market",
+   "address": "225 7th St SE, Washington, DC 20003",
+   "w": "DC's last of the great 19th-century public markets (1873), still selling produce, meat and crafts inside Adolf Cluss's South Hall, with a weekend flea market and farmers' line outside. The social heart of Capitol Hill.",
+   "k": "market",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://easternmarket-dc.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/eastern-market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "The Wharf",
+   "address": "760 Maine Ave SW, Washington, DC 20024",
+   "w": "A mile-long redeveloped Southwest Waterfront of restaurants, live-music halls and piers on the Washington Channel, anchored by the nation's oldest continuously operating fish market. Waterfront promenade, water taxis and boat rentals.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.wharfdc.com/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/wharf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Union Market",
+   "address": "1309 5th St NE, Washington, DC 20002",
+   "w": "A restored NoMa warehouse turned buzzy food hall with 40-plus local vendors, a rooftop, and a fast-growing district of restaurants and murals around it. Open year-round.",
+   "k": "market",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://unionmarketdc.com/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/union-market"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "H Street Corridor (Atlas District)",
+   "address": "1300 H St NE, Washington, DC 20002",
+   "w": "A revived nightlife-and-arts strip northeast of Union Station, centered on the restored Atlas Performing Arts Center and a dense run of bars, small plates and live music. Served by the DC Streetcar.",
+   "k": "district",
+   "sources": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/h-street"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H_Street_(Washington,_D.C.)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Yards Park",
+   "address": "355 Water St SE, Washington, DC 20003",
+   "w": "A design-forward riverfront park on the Anacostia in Navy Yard, with a wave-arched bridge, boardwalk and canal basin beside Nationals Park. Free summer concerts and fountains for kids.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.capitolriverfront.org/go/yards-park"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/capitol-riverfront"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Arlington National Cemetery",
+   "address": "1 Memorial Ave, Arlington, VA 22211",
+   "w": "The nation's most hallowed military cemetery, 639 acres of some 400,000 graves, the Tomb of the Unknown Soldier with its round-the-clock changing of the guard, and President Kennedy's eternal flame. Free; open daily.",
+   "k": "memorial",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.arlingtoncemetery.mil/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/arlington-national-cemetery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "U.S. Marine Corps War Memorial (Iwo Jima)",
+   "address": "1400 N Meade St, Arlington, VA 22209",
+   "w": "Felix de Weldon's 32-foot bronze of the flag-raising on Mount Suribachi, dedicated 1954 just north of Arlington Cemetery. An NPS site with sweeping views back to the Mall.",
+   "k": "memorial",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/gwmp/planyourvisit/usmcwarmemorial.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/us-marine-corps-war-memorial-iwo-jima"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Air Force Memorial",
+   "address": "1 Air Force Memorial Dr, Arlington, VA 22204",
+   "w": "Three stainless-steel spires arcing 270 feet skyward in the 'bomb burst' of the Thunderbirds, on a ridge overlooking the Pentagon and the city. Free, open daily; striking at sunset.",
+   "k": "memorial",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.arlingtoncemetery.mil/Expansion/US-Air-Force-Memorial"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/us-air-force-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Gravelly Point Park",
+   "address": "George Washington Memorial Pkwy, Arlington, VA 22202",
+   "w": "A riverside NPS lawn at the north end of Reagan National's main runway, where jets roar overhead just above your head on final approach. Free plane-spotting, picnicking and Mount Vernon Trail access.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/gwmp/planyourvisit/gravelly-point.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/gravelly-point"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Theodore Roosevelt Island",
+   "address": "George Washington Memorial Pkwy, Arlington, VA 22209",
+   "w": "An 88-acre wooded Potomac island preserved as a living memorial to the conservationist president, laced with swampy trails and centered on a 17-foot bronze of TR. Reached by footbridge from a GW Parkway lot; free.",
+   "k": "park",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/this/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/theodore-roosevelt-island"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ALEX",
+   "n": "Old Town Alexandria & King Street",
+   "address": "King St, Alexandria, VA 22314",
+   "w": "A mile of preserved 18th- and 19th-century streets running from the King Street Metro down to the Potomac, packed with independent shops, taverns and George Washington history. A free trolley links the waterfront to the top of the hill.",
+   "k": "district",
+   "sources": [
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/things-to-do/king-street/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/old-town-alexandria"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ALEX",
+   "n": "George Washington's Mount Vernon",
+   "address": "3200 Mount Vernon Memorial Hwy, Mount Vernon, VA 22121",
+   "w": "Washington's meticulously restored Potomac plantation home, 16 miles south of the city, with the mansion, his tomb, working farm, and museums on his life and the people he enslaved. Ticketed; a full half-day day trip.",
+   "k": "historic",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.mountvernon.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/george-washingtons-mount-vernon"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Torpedo Factory Art Center",
+   "address": "105 N Union St, Alexandria, VA 22314",
+   "w": "A WWII munitions plant on the Alexandria waterfront reborn as a warren of 80-plus working artist studios and galleries you can walk through. Free admission.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://torpedofactory.org/"
+    ],
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/listing/torpedo-factory-art-center/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Gadsby's Tavern Museum",
+   "address": "134 N Royal St, Alexandria, VA 22314",
+   "w": "A restored 1785 tavern and 1792 hotel where Washington, Jefferson and Adams dined and danced, now a city museum with a still-operating period restaurant next door. Ticketed tours.",
+   "k": "historic",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.alexandriava.gov/GadsbysTavern"
+    ],
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/listing/gadsbys-tavern-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Alexandria Waterfront & Waterfront Park",
+   "address": "1A Prince St, Alexandria, VA 22314",
+   "w": "The revitalized Potomac edge at the foot of King Street, with promenade, public art, boat tours and water-taxi service to The Wharf and National Harbor. Free to stroll.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/things-to-do/waterfront/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alexandria,_Virginia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Great Falls Park",
+   "address": "9200 Old Dominion Dr, McLean, VA 22102",
+   "w": "An 800-acre NPS park in McLean where the Potomac crashes through the jagged Mather Gorge in a series of dramatic falls, with three clifftop overlooks and hiking beside the 18th-century Patowmack Canal. Entrance fee; a short drive from Tysons.",
+   "k": "park",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/grfa/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/great-falls-park/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Wolf Trap National Park for the Performing Arts",
+   "address": "1551 Trap Rd, Vienna, VA 22182",
+   "w": "The only U.S. national park dedicated to the performing arts, whose open-air Filene Center seats 7,000 for a summer season of pop, classical and dance on 117 wooded acres. Lawn tickets and picnics are the local ritual.",
+   "k": "entertainment",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/wotr/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.wolftrap.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Meadowlark Botanical Gardens",
+   "address": "9750 Meadowlark Gardens Ct, Vienna, VA 22182",
+   "w": "A 95-acre NOVA Parks garden in Vienna with lakes, native-plant and Korean bell gardens, an atrium conservatory, and the popular winter Walk of Lights. Ticketed; peaceful and stroller-friendly.",
+   "k": "garden",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.novaparks.com/parks/meadowlark-botanical-gardens"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/meadowlark-botanical-gardens/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RESTON",
+   "n": "Steven F. Udvar-Hazy Center (Air & Space)",
+   "address": "14390 Air and Space Museum Pkwy, Chantilly, VA 20151",
+   "w": "The Smithsonian Air and Space Museum's cavernous companion by Dulles, hangaring the Space Shuttle Discovery, a Concorde, the SR-71 Blackbird and the Enola Gay. Free admission (paid parking); an aviation day out in the Dulles corridor.",
+   "k": "museum",
+   "sources": [
+    [
+     "SMITHSONIAN",
+     "https://airandspace.si.edu/visit/udvar-hazy-center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Reston Town Center",
+   "address": "11900 Market St, Reston, VA 20190",
+   "w": "Reston's walkable, European-style downtown of shops, restaurants, a cinema and a central pavilion that becomes an ice rink in winter. The social hub of the Dulles Toll Road suburbs, on the Silver Line.",
+   "k": "district",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.restontowncenter.com/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/reston-town-center/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Eden Center",
+   "address": "6751 Wilson Blvd, Falls Church, VA 22044",
+   "w": "The largest Vietnamese American commercial center on the East Coast, a Falls Church strip of 120-plus shops, groceries, cafes and restaurants marked by a pagoda gate and clock tower. The cultural and culinary heart of NoVA's Vietnamese community.",
+   "k": "market",
+   "sources": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/eden-center"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/eden-center/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "The Falls Church (Historic)",
+   "address": "115 E Fairfax St, Falls Church, VA 22046",
+   "w": "The 1769 colonial-era Episcopal church that gave the city its name, where George Washington served as a vestryman, still an active parish. A National Register landmark.",
+   "k": "historic",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Falls_Church_(Falls_Church,_Virginia)"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/the-falls-church-episcopal/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "Mosaic District",
+   "address": "2910 District Ave, Fairfax, VA 22031",
+   "w": "A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.",
+   "k": "district",
+   "sources": [
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/mosaic-district/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.mosaicdistrict.com/"
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "key": "NPS",
+   "name": "National Park Service",
+   "url": "https://www.nps.gov/",
+   "type": "official"
+  },
+  {
+   "key": "SMITHSONIAN",
+   "name": "Smithsonian Institution",
+   "url": "https://www.si.edu/",
+   "type": "official"
+  },
+  {
+   "key": "OFFICIAL",
+   "name": "Official site / operator",
+   "url": "https://www.si.edu/",
+   "type": "official"
+  },
+  {
+   "key": "WASHINGTONORG",
+   "name": "Destination DC (washington.org)",
+   "url": "https://washington.org/",
+   "type": "official"
+  },
+  {
+   "key": "VISITALEX",
+   "name": "Visit Alexandria",
+   "url": "https://www.visitalexandria.com/",
+   "type": "official"
+  },
+  {
+   "key": "FXVA",
+   "name": "Visit Fairfax (FXVA)",
+   "url": "https://www.fxva.com/",
+   "type": "official"
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "url": "https://www.atlasobscura.com/",
+   "type": "reference"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org/",
+   "type": "reference"
+  }
+ ]
 }

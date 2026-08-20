@@ -1,0 +1,378 @@
+{
+ "_note": "NoVA corridor sights expansion (Dulles->DC). NEW area id FAIRFAX (Fairfax City / Merrifield / Chantilly / Lorton / Fort Belvoir). DEDUP WARNING: 'Mosaic District' ALREADY EXISTS in washingtondc.dataset.json P array as t2 under area FCITY. This task asks Mosaic District to be the FAIRFAX tier-1; it is included below as t1/FAIRFAX. On merge the orchestrator MUST remove the existing FCITY t2 copy, or the build's no-duplicate-names invariant will fail. Even if Mosaic stays in FCITY, FAIRFAX still has a second tier-1 (National Museum of the United States Army), so the >=1 tier-1 rule holds either way. No coordinates supplied (geocode stage is separate). All places checked OPEN/accessible as of Aug 2026.",
+ "sights": [
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "National Museum of the United States Army",
+   "address": "1775 Liberty Dr, Fort Belvoir, VA 22060",
+   "w": "The Army's national museum on the public side of Fort Belvoir (no ID or pass needed), opened 2020, telling nearly 250 years of soldiers' stories through immersive galleries, real tanks and a rooftop overlook. Free admission and free parking; timed-entry tickets recommended.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.thenmusa.org/visit/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/must-see-experiences-at-the-national-museum-of-the-us-army/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Workhouse Arts Center",
+   "address": "9518 Workhouse Way, Lorton, VA 22079",
+   "w": "A 55-acre arts campus in the repurposed Lorton Reformatory, with a dozen galleries, 65-plus resident artist studios, live theater and music, and the Lucy Burns Museum on the suffragists jailed here. Second-Saturday open houses, Brewfest and a July 4 festival draw crowds; galleries free to browse.",
+   "k": "art",
+   "sources": [
+    [
+     "FXVA",
+     "https://www.fxva.com/workhouse-arts-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Workhouse_Arts_Center"
+    ],
+    [
+     "VIRGINIA",
+     "https://www.virginia.org/listing/workhouse-arts-center/4974/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Old Town Fairfax",
+   "address": "10209 Main St, Fairfax, VA 22030",
+   "w": "The historic core of the City of Fairfax around Old Town Square and the 1900 Old Town Hall, with boutiques, sidewalk cafes, the Fairfax Museum & Visitor Center in an 1873 schoolhouse, and festivals from Chocolate Lovers to Fall for the Book. Free spring/fall walking tours cover the Civil War-era streets.",
+   "k": "district",
+   "sources": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/style/shopping/2022/02/03/old-town-fairfax/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/explore/discover-neighborhoods/fairfax/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Sully Historic Site",
+   "address": "3650 Historic Sully Way, Chantilly, VA 20151",
+   "w": "The 1794 home of Richard Bland Lee, Northern Virginia's first congressman and uncle of Robert E. Lee, preserved by the Fairfax County Park Authority beside Dulles Airport. Guided house tours plus a 'Forgotten Road' walking tour of the original outbuildings and enslaved-workers' quarters; grounds and trails are free.",
+   "k": "historic",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/sully-historic-site"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sully_Historic_Site"
+    ],
+    [
+     "VIRGINIA",
+     "https://www.virginia.org/listing/sully-historic-site/4593/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Lake Anne Plaza",
+   "address": "1609 Washington Plaza N, Reston, VA 20190",
+   "w": "Reston's original 1960s village center on the National Register of Historic Places, a modernist waterfront plaza founder Robert E. Simon designed and lived above, with a boardwalk, restaurants, a Saturday farmers market and kayak rentals on the lake. The 'Bronze Bob' bench statue honors Simon lakeside.",
+   "k": "district",
+   "sources": [
+    [
+     "FXVA",
+     "https://www.fxva.com/explore/discover-neighborhoods/reston/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lake_Anne"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Frying Pan Farm Park",
+   "address": "2709 W Ox Rd, Herndon, VA 22071",
+   "w": "A 130-acre Fairfax County working 1930s-era farm with 100-plus animals to meet, a restored 1918 Herschell carousel, wagon rides, a country store and nature trails. Free admission and parking (rides carry small fees); a favorite family day out near Herndon.",
+   "k": "family",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/frying-pan-park"
+    ],
+    [
+     "AAA",
+     "https://www.aaa.com/travelinfo/virginia/herndon/attractions/frying-pan-farm-park-543702.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Washington & Old Dominion Trail",
+   "address": "Herndon Depot, 717 Lynn St, Herndon, VA 20170",
+   "w": "A 45-mile paved rail-trail on a former railroad bed, running from Shirlington in Arlington out through Falls Church, Vienna, Reston, Herndon and Leesburg to Purcellville, and used by roughly two million walkers, cyclists and runners a year. The Herndon Depot marks a classic downtown trailhead; managed by NOVA Parks.",
+   "k": "trail",
+   "sources": [
+    [
+     "NOVAPARKS",
+     "https://www.novaparks.com/parks/washington-and-old-dominion-railroad-regional-park"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/best-stops-along-the-wod-trail/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_and_Old_Dominion_Railroad_Regional_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Clemyjontri Park",
+   "address": "6317 Georgetown Pike, McLean, VA 22101",
+   "w": "Virginia's first fully accessible playground (2006), a two-acre space where children of all abilities play side by side across four themed 'rooms,' with rubberized surfacing, a Liberty wheelchair swing and a ground-level, wheelchair-accessible carousel. Free; a trackless train runs seasonally.",
+   "k": "family",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/clemyjontri"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/clemyjontri-park/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/urban-parks-clemyjontri-park/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Tysons Corner Center",
+   "address": "1961 Chain Bridge Rd, Tysons, VA 22102",
+   "w": "One of the largest shopping malls on the East Coast, open since 1968 with 300-plus stores including Apple, Nordstrom and Bloomingdale's, plus an AMC theater and the 1.5-acre outdoor PenFed Plaza that hosts concerts, holiday light shows and family events. On the Silver Line at Tysons.",
+   "k": "district",
+   "sources": [
+    [
+     "FXVA",
+     "https://www.fxva.com/explore/discover-neighborhoods/tysons-corner/shopping/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/things-to-do/2025/11/06/6-holiday-events-coming-to-tysons-corner-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tysons_Corner_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Observatory Park at Turner Farm",
+   "address": "925 Springvale Rd, Great Falls, VA 22066",
+   "w": "A Fairfax County park in Great Falls whose observatory holds three permanent telescopes under a roll-off roof, run with the volunteer Analemma Society for free Friday-night public viewing. In 2026 it earned an International Dark Sky 'Urban Night Sky Place' designation - a rare dark sky this close to DC. Programs require advance registration.",
+   "k": "park",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/turner-farm"
+    ],
+    [
+     "FFXNOW",
+     "https://www.ffxnow.com/2026/01/22/turner-farm-earns-urban-night-sky-designation-for-efforts-to-limit-light-pollution/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Long Bridge Park",
+   "address": "333 Long Bridge Dr, Arlington, VA 22202",
+   "w": "A 36-acre Arlington County park between Crystal City and the 14th Street Bridge, with a three-quarter-mile esplanade delivering monumental Potomac and DC skyline views for walking, birdwatching and plane-spotting, plus a $60M aquatics-and-fitness center with a competition pool, lazy river and slides. Free grounds; center is ticketed.",
+   "k": "waterfront",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.arlingtonva.us/Government/Departments/Parks-Recreation/Locations/Parks/Long-Bridge-Park"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2021/08/23/long-bridge-aquatics-and-fitness-center-now-open/"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/blog/beat-the-summer-heat-in-arlington-county/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Signature Theatre",
+   "address": "4200 Campbell Ave, Arlington, VA 22206",
+   "w": "A Tony Award-winning professional theater (2009 Regional Theatre Tony) in the Village at Shirlington, called a 'musical theater powerhouse' by The Washington Post, staging Broadway-caliber musicals and premieres in two intimate spaces. Winner of 100-plus Helen Hayes Awards and the cultural anchor of Shirlington.",
+   "k": "entertainment",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Signature_Theatre_(Arlington,_Virginia)"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/directory/signature-theatre/"
+    ],
+    [
+     "VIRGINIA",
+     "https://www.virginia.org/listing/signature-theatre/14887/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "DEA Museum",
+   "address": "700 Army Navy Dr, Arlington, VA 22202",
+   "w": "The Drug Enforcement Administration's free museum by Pentagon City, reopened after a two-year renovation with the interactive 'Illegal Drugs in America: A Modern History' exhibit tracing trafficking from the 1850s opium wars to today. Open Tuesday-Saturday; steps from the Pentagon City Metro.",
+   "k": "museum",
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://museum.dea.gov/"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/blog/dea-museum-reopens/"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/dea-drug-enforcement-agency-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Dark Star Park",
+   "address": "1655 N Fort Myer Dr, Arlington, VA 22209",
+   "w": "Land-art pioneer Nancy Holt's 1984 public park in Rosslyn - Arlington's first commissioned public artwork - where concrete spheres pose as fallen stars. Once a year, at 9:32 a.m. on August 1, the sculpture's shadows align exactly with shapes set into the ground, marking the anniversary of Rosslyn's founding.",
+   "k": "art",
+   "sources": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/local/the-shadows-align-at-rosslyns-dark-star-park/2015/08/01/43f3acb2-37c3-11e5-b673-1df005a0fb28_story.html"
+    ],
+    [
+     "ARLMAG",
+     "https://www.arlingtonmagazine.com/when-stars-align-dark-star-park/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2026/07/29/art-focus-once-a-year-the-sun-completes-nancy-holts-vision-at-dark-star-park-aed1/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Ballston Quarter",
+   "address": "4238 Wilson Blvd, Arlington, VA 22203",
+   "w": "A revitalized mixed-use district on the Orange/Silver Line, centered on the Quarter Market food hall (18 globally-inspired stalls), Punch Bowl Social, and the MedStar Capitals Iceplex where the Washington Capitals practice and the public can skate. A walkable Arlington dining-and-entertainment hub.",
+   "k": "district",
+   "sources": [
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/directory/ballston-quarter/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.ballstonquarter.com/en/"
+    ]
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "key": "FXVA",
+   "name": "Visit Fairfax",
+   "url": "https://www.fxva.com/"
+  },
+  {
+   "key": "NOVAMAG",
+   "name": "Northern Virginia Magazine",
+   "url": "https://northernvirginiamag.com/"
+  },
+  {
+   "key": "OFFICIAL",
+   "name": "Official venue / park / county site",
+   "url": ""
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org/"
+  },
+  {
+   "key": "VIRGINIA",
+   "name": "Virginia.org (Virginia Tourism Corporation)",
+   "url": "https://www.virginia.org/"
+  },
+  {
+   "key": "AAA",
+   "name": "AAA Travel",
+   "url": "https://www.aaa.com/"
+  },
+  {
+   "key": "NOVAPARKS",
+   "name": "NOVA Parks (Northern Virginia Regional Park Authority)",
+   "url": "https://www.novaparks.com/"
+  },
+  {
+   "key": "FFXNOW",
+   "name": "FFXnow (Fairfax County local news)",
+   "url": "https://www.ffxnow.com/"
+  },
+  {
+   "key": "STAYARLINGTON",
+   "name": "Arlington Convention & Visitors Service (stayArlington)",
+   "url": "https://www.stayarlington.com/"
+  },
+  {
+   "key": "ARLNOW",
+   "name": "ARLnow (Arlington local news)",
+   "url": "https://www.arlnow.com/"
+  },
+  {
+   "key": "ARLMAG",
+   "name": "Arlington Magazine",
+   "url": "https://www.arlingtonmagazine.com/"
+  },
+  {
+   "key": "WAPO",
+   "name": "The Washington Post",
+   "url": "https://www.washingtonpost.com/"
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "url": "https://www.atlasobscura.com/"
+  }
+ ]
+}
