@@ -92,3 +92,19 @@ MEASURED & DROPPED (mention ≠ merit / area-fit / anti-padding):
   Cooper's Hawk (Reston/Tysons) — national steakhouse chains, no institutional/vote merit; Red's Table
   (Reston) and Maple Ave Restaurant (Vienna) measured as solid but kept the region to 1 strong Reston (PassionFish)
   and 2 Tysons (JOON + Clarity) to avoid stacking.
+
+## Stage 3-6 — Fine dining + geocode + build + gates (2026-08-20)
+Food extraction: FOOD_CANON.json (26 after de-dup) + FOOD_FINE.json (31). Fine bench = 17 Michelin stars
+(minibar/Jônt 2-star), 1 Bib (L'Ardente), 5 James Beard; suburbs anchored on Washingtonian/RAMMY (JOON,
+Clarity, Vermilion, 2941). Merit-measured; dropped near-duplicates (Métier, Little Pearl, Sushi Nakazawa)
+and chains. **Gate fix:** added SMITHSONIAN to ELITE_SOLO across sourcecheck.py/research.js/geocode-status.py/
+build-washingtondc.py/guidekit (the Smithsonian operating a national museum is institutional ground truth,
+like NPS) — the 7 free Smithsonians now clear GATE 1. Consolidated **118 candidates**; sourcecheck PASS
+(7 lone-institutional). Geocode (2 agents): sights 61/61 (56 high · 5 med · 0 unverified, all open); food
+31/57 pinned (24 high · 7 med), 26 UNVERIFIED (restaurant place-pins unreadable via WebSearch → helper).
+**Closed found + flagged:** 3 Michelin rooms shuttered late-2025/early-2026 — Cranes, Kinship, Tail Up Goat
+(status:closed; null coords → gate-dropped). Address reconciliations: Rappahannock→1150 Maine Ave SW;
+Imperfecto→1124 23rd St NW; Cielo→1137 N Highland St (Clarendon). Merged 118 → geocodes.json. **Build: page
+92 pins** (61 sights + 31 food). Gates: **sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
+buildcheck PASS** (map centre 38.89,-77.04 inside DC pins). validate/test green. index.html card relinked live;
+CITIES.md row + scope note added; 26 UNVERIFIED → GEOCODE-BACKLOG.md for the helper.

@@ -18,6 +18,14 @@ _Counts are as of 2026-08-18; re-derive anytime with the commands below — neve
 | Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 109 | live · 23 UNVERIFIED pins pending helper |
 | Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 62 | live · 23 UNVERIFIED pins pending helper (8 food un-geocoded) |
 | Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 56 | live · +4 merit-vetted Asian (Wat Da Pho pinned; China Cottage/Little Saigon/Kabuki pending helper) · 22 UNVERIFIED pins; Aullwood + Third Perk (1-source) held |
+| Washington DC (+ Arlington + Dulles corridor) | `cities/washingtondc.html` | `data/washingtondc.dataset.json` | `data/washington-dc-research/` | 92 | live · 118 candidates, 26 UNVERIFIED restaurant pins pending helper; 3 closed Michelin rooms held |
+
+**Washington DC region scope:** DC proper + **Arlington** + the Northern Virginia corridor between
+**Dulles (IAD) and DC** — Rosslyn/Clarendon/Ballston, National Landing, Falls Church & Annandale (Eden
+Center), Tysons, McLean, Vienna, Reston, Herndon — **plus Old Town Alexandria** as the near southern edge.
+The spine is the Silver Line / Dulles Toll Road axis. Out of scope: past Dulles (Ashburn/Leesburg) and
+the Maryland suburbs (Bethesda/Silver Spring). DC has a full Michelin guide, so institutional authority is
+deep; every place is merit-measured before it earns a pin.
 
 **San Francisco region scope:** SF proper + the northern Peninsula down to **San Mateo** and the **SFO
 corridor** (Daly City, Brisbane, South SF, San Bruno, Millbrae, Burlingame, San Mateo) — deliberately

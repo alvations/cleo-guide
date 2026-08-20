@@ -3,7 +3,7 @@
 Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 `cd data/washington-dc-research && python3 consolidate.py` and `cp dc_dataset.json ../washingtondc.dataset.json`.
 
-## State @ 2026-08-18 — scaffolded, discovery pending
+## State @ 2026-08-18 — scaffolded (superseded, see below)
 - Infra complete: consolidate.py, build-washingtondc.py (compiles), sources.json (20 sources),
   geocodes.json entry, geo/_merge_geo.py, research.js + geocode-status.py registration, brief/audit.
 - **No research files yet** — discovery agents next (food canon, Michelin/JB fine dining, sights + NoVA).
@@ -21,3 +21,11 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - Every place ≥2 credible (or lone Michelin/JB/NPS/Smithsonian); no Yelp-only; every place merit-measured.
 - Every area (11) has ≥1 tier-1 that survives the gates (build asserts this).
 - buildcheck PASS (centre + labels inside DC pins). validate/test green.
+
+---
+## State @ 2026-08-20 — LIVE
+- Page **live at 92 pins** (61 sights + 31 food) of 118 candidates. All gates PASS (sourcecheck/geocheck/
+  statuscheck/buildcheck); validate/test green. index.html card is live.
+- **26 UNVERIFIED restaurant pins** → browser geocode-helper (docs/GEOCODE-BACKLOG.md) will grow the page
+  toward 118. 3 closed Michelin rooms (Cranes/Kinship/Tail Up Goat) held, gate-dropped (null coords).
+- NEXT (optional): helper-geocode the 26 UNVERIFIED restaurants; upgrade the 12 med pins to exact place-pins.
