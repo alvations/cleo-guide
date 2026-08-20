@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Build cities/dayton.html from the Cleveland engine + the Dayton dataset.
-# Data comes from data/dayton.dataset.json; coordinates are injected from
+# Build cities/washingtondc.html from the Cleveland engine + the Washington DC dataset.
+# Data comes from data/washingtondc.dataset.json; coordinates are injected from
 # data/geocodes.json cities["washington-dc"] (the build FAILS on any missing/UNVERIFIED pin).
 import re, os, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -14,7 +14,7 @@ h    = open(SRC, encoding="utf-8").read()
 #    (not asserted): any under-sourced place is dropped-and-logged so the published map provably
 #    contains only corroborated places. Mirror of tools/sourcecheck.py.
 _OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
-_ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS"}
+_ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS", "SMITHSONIAN"}
 def _sourced_ok(r):
     c = {t[0] for t in r.get("s", []) if t[0] not in _OPEN_CHECK_ONLY}
     return len(c) >= 2 or bool(c & _ELITE_SOLO)   # >=2 credible, OR a lone institutional authority

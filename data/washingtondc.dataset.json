@@ -170,8 +170,2697 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
- "F": [],
- "S": {},
- "FS": {}
+ "P": [
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Lincoln Memorial",
+   "ad": "2 Lincoln Memorial Cir NW, Washington, DC 20037",
+   "w": "Henry Bacon's Doric temple (1922) housing Daniel Chester French's 19-foot seated Lincoln, the terminus of the Reflecting Pool and the spot where Dr. King delivered 'I Have a Dream.' Open 24 hours, free, ranger-staffed.",
+   "k": "memorial",
+   "g": [
+    "ICON",
+    "MON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/linc/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-guide-to/lincoln-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Washington Monument",
+   "ad": "2 15th St NW, Washington, DC 20024",
+   "w": "The 555-foot marble obelisk (completed 1884) honoring the first president, the tallest structure in DC. Grounds are open daily; the interior elevator to the observation deck has faced repeated closures, so check NPS for current top access before you go.",
+   "k": "monument",
+   "g": [
+    "ICON",
+    "MON",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/wamo/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/washington-monument"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Thomas Jefferson Memorial",
+   "ad": "16 E Basin Dr SW, Washington, DC 20242",
+   "w": "John Russell Pope's domed rotunda (1943) on the Tidal Basin, with a 19-foot bronze of Jefferson ringed by his own words. One of the finest cherry-blossom vantage points each spring.",
+   "k": "memorial",
+   "g": [
+    "ICON",
+    "MON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/thje/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/thomas-jefferson-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National World War II Memorial",
+   "ad": "1750 Independence Ave SW, Washington, DC 20024",
+   "w": "A plaza of 56 granite pillars and two arches around a fountain between the Washington Monument and the Reflecting Pool, dedicated 2004 to the 16 million who served. The Freedom Wall bears 4,048 gold stars.",
+   "k": "memorial",
+   "g": [
+    "ICON",
+    "MON",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/wwii/index.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/world-war-ii-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Vietnam Veterans Memorial",
+   "ad": "5 Henry Bacon Dr NW, Washington, DC 20037",
+   "w": "Maya Lin's stark black-granite wall (1982) inscribed with the 58,000-plus names of the fallen and missing, sunk into the earth beside the Three Soldiers statue. Among the most-visited and most-moving sites on the Mall.",
+   "k": "memorial",
+   "g": [
+    "MON"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/vive/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/vietnam-veterans-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Korean War Veterans Memorial",
+   "ad": "10 Daniel French Dr SW, Washington, DC 20024",
+   "w": "Nineteen stainless-steel soldiers advance through juniper toward an American flag, mirrored on a granite wall to read as 38 (the 38th parallel). The 2022 Wall of Remembrance added the names of the dead.",
+   "k": "memorial",
+   "g": [
+    "MON"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/kowa/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/korean-war-veterans-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "Martin Luther King Jr. Memorial",
+   "ad": "1964 Independence Ave SW, Washington, DC 20024",
+   "w": "A 30-foot 'Stone of Hope' likeness of Dr. King emerging from a split boulder on the Tidal Basin's northwest rim, opened 2011. A 450-foot inscription wall carries 14 of his quotations.",
+   "k": "memorial",
+   "g": [
+    "ICON",
+    "MON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/mlkm/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/martin-luther-king-jr-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Franklin Delano Roosevelt Memorial",
+   "ad": "1850 West Basin Dr SW, Washington, DC 20242",
+   "w": "A 7.5-acre sequence of four granite outdoor 'rooms,' one per FDR term, threaded with waterfalls, sculpture and quotations. Opened 1997 on the Tidal Basin's Cherry Tree Walk.",
+   "k": "memorial",
+   "g": [
+    "ICON",
+    "MON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/frde/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/franklin-delano-roosevelt-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Tidal Basin & the Cherry Blossoms",
+   "ad": "1501 Maine Ave SW, Washington, DC 20024",
+   "w": "The man-made inlet ringed by the Jefferson, FDR and MLK memorials and by 3,000-plus Yoshino cherry trees, a 1912 gift from Tokyo that draws peak-bloom crowds each late March. Paddleboats and a walking loop year-round.",
+   "k": "waterfront",
+   "g": [
+    "ICON",
+    "MON",
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/subjects/cherryblossom/index.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-guide-to/national-cherry-blossom-festival"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Air and Space Museum",
+   "ad": "655 Jefferson Dr SW, Washington, DC 20560",
+   "w": "The Smithsonian's flagship of flight and spaceflight, home to the Wright Flyer, Spirit of St. Louis, and Apollo 11 command module. Reopened in full for its 50th anniversary in July 2026 after a multi-year renovation; free, timed passes recommended.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://airandspace.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Museum of Natural History",
+   "ad": "10th St & Constitution Ave NW, Washington, DC 20560",
+   "w": "The Smithsonian's natural-history giant, home to the Hope Diamond, a live butterfly pavilion, dinosaurs and the Ocean Hall. Free admission, one of the most-visited museums on earth.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "HIST",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://naturalhistory.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Museum of American History",
+   "ad": "1300 Constitution Ave NW, Washington, DC 20560",
+   "w": "Keeper of the original Star-Spangled Banner, the Ruby Slippers, Julia Child's kitchen and the First Ladies' gowns. A free Smithsonian survey of the American story.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://americanhistory.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Museum of African American History and Culture",
+   "ad": "1400 Constitution Ave NW, Washington, DC 20560",
+   "w": "David Adjaye's bronze-corona building (opened 2016), the Smithsonian's newest and among its most sought-after, tracing slavery through the present across culture, sport and struggle. Free, but timed passes are advised.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://nmaahc.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "Hirshhorn Museum and Sculpture Garden",
+   "ad": "Independence Ave SW & 7th St SW, Washington, DC 20560",
+   "w": "The Smithsonian's modern and contemporary art museum, a cylindrical 'donut' by Gordon Bunshaft with a sunken sculpture garden across Jefferson Drive. Free; strong in Rothko, Bourgeois and immersive installations.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://hirshhorn.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MALL",
+   "n": "National Gallery of Art",
+   "ad": "6th St & Constitution Ave NW, Washington, DC 20565",
+   "w": "The nation's art museum (not a Smithsonian), pairing John Russell Pope's neoclassical West Building with I.M. Pei's East Building, plus a sculpture garden. Free; home to the only Leonardo da Vinci in the Americas.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nga.gov/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/national-gallery-art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MALL",
+   "n": "United States Botanic Garden",
+   "ad": "100 Maryland Ave SW, Washington, DC 20001",
+   "w": "A living plant museum at the foot of Capitol Hill, its 1933 glass Conservatory holding a jungle, orchids and a seasonal garden-railway show. Free, and one of the oldest continually operating botanic gardens in the country.",
+   "k": "garden",
+   "g": [
+    "MUS",
+    "GOV",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.usbg.gov/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/united-states-botanic-garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "The White House",
+   "ad": "1600 Pennsylvania Ave NW, Washington, DC 20500",
+   "w": "The executive mansion and workplace of every president since John Adams, viewable from Lafayette Square and the south Ellipse. Interior tours are free but must be arranged well ahead through a member of Congress.",
+   "k": "landmark",
+   "g": [
+    "ICON",
+    "GOV",
+    "HIST",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/whho/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/white-house"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "National Archives Museum",
+   "ad": "701 Constitution Ave NW, Washington, DC 20408",
+   "w": "Home of the Declaration of Independence, the Constitution and the Bill of Rights, displayed in the Rotunda for the Charters of Freedom. Free admission.",
+   "k": "landmark",
+   "g": [
+    "MUS",
+    "GOV",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.archives.gov/museum"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/national-archives"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Smithsonian American Art Museum & National Portrait Gallery",
+   "ad": "800 G St NW, Washington, DC 20001",
+   "w": "Two free Smithsonian museums sharing the Greek Revival Old Patent Office Building in Penn Quarter, joined by the glass-roofed Kogod Courtyard. The Portrait Gallery's 'America's Presidents' is the only complete set outside the White House.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS",
+    "GOV",
+    "HIST"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://npg.si.edu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Ford's Theatre",
+   "ad": "511 10th St NW, Washington, DC 20004",
+   "w": "The still-operating 1863 theater where Lincoln was shot on April 14, 1865, now an NPS site with a museum and the Petersen House (where he died) across the street. Working stage plus historical tours.",
+   "k": "historic",
+   "g": [
+    "MUS",
+    "HIST",
+    "ENT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/foth/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.fords.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "National Building Museum",
+   "ad": "401 F St NW, Washington, DC 20001",
+   "w": "A soaring 1887 Great Hall lined with 75-foot Corinthian columns, once the Pension Bureau, now devoted to architecture, design and engineering. Known for blockbuster summer installations; the Great Hall is free.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "HIST",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nbm.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/national-building-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "International Spy Museum",
+   "ad": "700 L'Enfant Plaza SW, Washington, DC 20024",
+   "w": "A privately run, glass-clad museum of espionage at L'Enfant Plaza, with one of the largest public collections of spy artifacts and interactive tradecraft exhibits. Ticketed admission.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.spymuseum.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/international-spy-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Chinatown Friendship Archway",
+   "ad": "610 H St NW, Washington, DC 20001",
+   "w": "A 75-foot, seven-roof gate over H Street (1986), the largest single-span Chinese archway of its kind, marking the entrance to DC's compact Chinatown near Capital One Arena.",
+   "k": "landmark",
+   "g": [
+    "HIST",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/chinatown"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/friendship-archway"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "John F. Kennedy Center for the Performing Arts",
+   "ad": "2700 F St NW, Washington, DC 20566",
+   "w": "The nation's living memorial to JFK and its busiest performing-arts complex, on the Potomac beside the Watergate, home to the National Symphony and Washington National Opera. Free daily performances on the Millennium Stage and a rooftop terrace with river views.",
+   "k": "entertainment",
+   "g": [
+    "MON",
+    "GOV",
+    "VIEW",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.kennedy-center.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/kennedy-center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "Georgetown Waterfront & the C&O Canal",
+   "ad": "3303 Water St NW, Washington, DC 20007",
+   "w": "The cobblestoned C&O Canal towpath and the Potomac-front park frame Georgetown's shops and rowing crews, with mule-drawn boat history at the NPS canal. A walkable stretch of the neighborhood's 18th-century core.",
+   "k": "waterfront",
+   "g": [
+    "PARK",
+    "VIEW",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/choh/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/georgetown"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Dumbarton Oaks",
+   "ad": "1703 32nd St NW, Washington, DC 20007",
+   "w": "A Harvard-run research estate in upper Georgetown celebrated for its Byzantine and Pre-Columbian art and, above all, Beatrix Farrand's terraced formal gardens. Museum is free; the gardens are ticketed in season.",
+   "k": "garden",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.doaks.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/dumbarton-oaks"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Old Stone House",
+   "ad": "3051 M St NW, Washington, DC 20007",
+   "w": "Built in 1765, the oldest unchanged building in DC and a rare survivor of pre-Revolutionary Georgetown, now an NPS house museum with a colonial-style garden. Free.",
+   "k": "historic",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/old-stone-house.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/old-stone-house"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Georgetown University & Healy Hall",
+   "ad": "3700 O St NW, Washington, DC 20057",
+   "w": "The oldest Catholic and Jesuit university in the United States (founded 1789), whose Flemish-Romanesque Healy Hall and its clock-tower spires crown the campus above the Potomac. Grounds are open to visitors.",
+   "k": "landmark",
+   "g": [
+    "HIST",
+    "VIEW",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Healy_Hall"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/georgetown-university"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUPONT",
+   "n": "The Phillips Collection",
+   "ad": "1600 21st St NW, Washington, DC 20009",
+   "w": "America's first museum of modern art (1921), an intimate Dupont Circle mansion whose crown jewel is Renoir's 'Luncheon of the Boating Party,' plus a meditative Rothko Room. Ticketed for special exhibitions.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.phillipscollection.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/phillips-collection"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Embassy Row",
+   "ad": "2300 Massachusetts Ave NW, Washington, DC 20008",
+   "w": "The Massachusetts Avenue stretch northwest of Dupont Circle lined with more than 50 embassies and Gilded Age mansions, marked by statues of Gandhi, Churchill and Mandela. A self-guided architectural walk.",
+   "k": "district",
+   "g": [
+    "MON",
+    "GOV",
+    "HIST",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/dupont-circle"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Embassy_Row"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Adams Morgan (18th Street)",
+   "ad": "18th St NW & Columbia Rd NW, Washington, DC 20009",
+   "w": "DC's most eclectic nightlife-and-dining strip, famous for its murals, international restaurants and the late-night jumbo slice. A lively, walkable neighborhood core.",
+   "k": "district",
+   "g": [
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/adams-morgan"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adams_Morgan"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Dupont Circle & Fountain",
+   "ad": "1 Dupont Cir NW, Washington, DC 20036",
+   "w": "The traffic-circle park at the heart of the neighborhood, its 1921 marble fountain designed by the Lincoln Memorial's team, ringed by bookstores, cafes and a Sunday farmers market. A classic people-watching green.",
+   "k": "district",
+   "g": [
+    "ICON",
+    "MON",
+    "PARK",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/dupont-circle"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dupont_Circle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "African American Civil War Memorial & Museum",
+   "ad": "1925 Vermont Ave NW, Washington, DC 20001",
+   "w": "A bronze 'Spirit of Freedom' sculpture and a wall inscribed with the 209,000-plus names of the U.S. Colored Troops, paired with a museum around the corner on U Street. Anchors the historic Black cultural heart of the city.",
+   "k": "memorial",
+   "g": [
+    "MON",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.afroamcivilwar.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/african-american-civil-war-memorial-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Lincoln Theatre",
+   "ad": "1215 U St NW, Washington, DC 20009",
+   "w": "A restored 1922 movie-and-vaudeville palace on 'Black Broadway,' where Duke Ellington, Ella Fitzgerald and Cab Calloway played, now a concert and event venue. A cornerstone of the U Street corridor's revival.",
+   "k": "entertainment",
+   "g": [
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://thelincolndc.com/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/lincoln-theatre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Meridian Hill Park (Malcolm X Park)",
+   "ad": "2400 15th St NW, Washington, DC 20009",
+   "w": "An Italianate terraced NPS park with the longest cascading fountain in North America and, on Sundays, a decades-old drum circle. Known locally as Malcolm X Park.",
+   "k": "park",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/meridian-hill-park.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/meridian-hill-park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "United States Capitol",
+   "ad": "First St SE, Washington, DC 20004",
+   "w": "The seat of Congress crowned by Thomas U. Walter's cast-iron dome and the Statue of Freedom, with the frescoed Rotunda and Brumidi corridors within. Free tours start from the underground Capitol Visitor Center; passes recommended.",
+   "k": "landmark",
+   "g": [
+    "MON",
+    "GOV",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.visitthecapitol.gov/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/us-capitol"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Library of Congress",
+   "ad": "10 First St SE, Washington, DC 20540",
+   "w": "The largest library in the world, whose 1897 Thomas Jefferson Building is a Gilded Age showpiece of marble, mosaic and the domed Main Reading Room. Free; home to a Gutenberg Bible and Jefferson's library.",
+   "k": "landmark",
+   "g": [
+    "GOV",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.loc.gov/visit/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/library-congress"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Supreme Court of the United States",
+   "ad": "1 First St NE, Washington, DC 20543",
+   "w": "Cass Gilbert's 1935 marble temple facing the Capitol, its pediment reading 'Equal Justice Under Law.' Free to enter when the court is not in session; visitors can hear argument or view the courtroom.",
+   "k": "landmark",
+   "g": [
+    "GOV",
+    "HIST",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.supremecourt.gov/visiting/visiting.aspx"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/supreme-court-united-states"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Eastern Market",
+   "ad": "225 7th St SE, Washington, DC 20003",
+   "w": "DC's last of the great 19th-century public markets (1873), still selling produce, meat and crafts inside Adolf Cluss's South Hall, with a weekend flea market and farmers' line outside. The social heart of Capitol Hill.",
+   "k": "market",
+   "g": [
+    "GOV",
+    "HIST",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://easternmarket-dc.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/eastern-market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "The Wharf",
+   "ad": "760 Maine Ave SW, Washington, DC 20024",
+   "w": "A mile-long redeveloped Southwest Waterfront of restaurants, live-music halls and piers on the Washington Channel, anchored by the nation's oldest continuously operating fish market. Waterfront promenade, water taxis and boat rentals.",
+   "k": "waterfront",
+   "g": [
+    "HIST",
+    "VIEW",
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.wharfdc.com/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/wharf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Union Market",
+   "ad": "1309 5th St NE, Washington, DC 20002",
+   "w": "A restored NoMa warehouse turned buzzy food hall with 40-plus local vendors, a rooftop, and a fast-growing district of restaurants and murals around it. Open year-round.",
+   "k": "market",
+   "g": [
+    "HIST",
+    "VIEW",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://unionmarketdc.com/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/union-market"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "H Street Corridor (Atlas District)",
+   "ad": "1300 H St NE, Washington, DC 20002",
+   "w": "A revived nightlife-and-arts strip northeast of Union Station, centered on the restored Atlas Performing Arts Center and a dense run of bars, small plates and live music. Served by the DC Streetcar.",
+   "k": "district",
+   "g": [
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/h-street"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H_Street_(Washington,_D.C.)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Yards Park",
+   "ad": "355 Water St SE, Washington, DC 20003",
+   "w": "A design-forward riverfront park on the Anacostia in Navy Yard, with a wave-arched bridge, boardwalk and canal basin beside Nationals Park. Free summer concerts and fountains for kids.",
+   "k": "waterfront",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.capitolriverfront.org/go/yards-park"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/DC-neighborhoods/capitol-riverfront"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Arlington National Cemetery",
+   "ad": "1 Memorial Ave, Arlington, VA 22211",
+   "w": "The nation's most hallowed military cemetery, 639 acres of some 400,000 graves, the Tomb of the Unknown Soldier with its round-the-clock changing of the guard, and President Kennedy's eternal flame. Free; open daily.",
+   "k": "memorial",
+   "g": [
+    "ICON",
+    "MON",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.arlingtoncemetery.mil/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/arlington-national-cemetery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "U.S. Marine Corps War Memorial (Iwo Jima)",
+   "ad": "1400 N Meade St, Arlington, VA 22209",
+   "w": "Felix de Weldon's 32-foot bronze of the flag-raising on Mount Suribachi, dedicated 1954 just north of Arlington Cemetery. An NPS site with sweeping views back to the Mall.",
+   "k": "memorial",
+   "g": [
+    "MON",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/gwmp/planyourvisit/usmcwarmemorial.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/us-marine-corps-war-memorial-iwo-jima"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Air Force Memorial",
+   "ad": "1 Air Force Memorial Dr, Arlington, VA 22204",
+   "w": "Three stainless-steel spires arcing 270 feet skyward in the 'bomb burst' of the Thunderbirds, on a ridge overlooking the Pentagon and the city. Free, open daily; striking at sunset.",
+   "k": "memorial",
+   "g": [
+    "MON",
+    "GOV",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.arlingtoncemetery.mil/Expansion/US-Air-Force-Memorial"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/us-air-force-memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Gravelly Point Park",
+   "ad": "George Washington Memorial Pkwy, Arlington, VA 22202",
+   "w": "A riverside NPS lawn at the north end of Reagan National's main runway, where jets roar overhead just above your head on final approach. Free plane-spotting, picnicking and Mount Vernon Trail access.",
+   "k": "waterfront",
+   "g": [
+    "ICON",
+    "HIST",
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/gwmp/planyourvisit/gravelly-point.htm"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/gravelly-point"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Theodore Roosevelt Island",
+   "ad": "George Washington Memorial Pkwy, Arlington, VA 22209",
+   "w": "An 88-acre wooded Potomac island preserved as a living memorial to the conservationist president, laced with swampy trails and centered on a 17-foot bronze of TR. Reached by footbridge from a GW Parkway lot; free.",
+   "k": "park",
+   "g": [
+    "MON",
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/this/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/theodore-roosevelt-island"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ALEX",
+   "n": "Old Town Alexandria & King Street",
+   "ad": "King St, Alexandria, VA 22314",
+   "w": "A mile of preserved 18th- and 19th-century streets running from the King Street Metro down to the Potomac, packed with independent shops, taverns and George Washington history. A free trolley links the waterfront to the top of the hill.",
+   "k": "district",
+   "g": [
+    "HIST",
+    "VIEW",
+    "SHOP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/things-to-do/king-street/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/old-town-alexandria"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ALEX",
+   "n": "George Washington's Mount Vernon",
+   "ad": "3200 Mount Vernon Memorial Hwy, Mount Vernon, VA 22121",
+   "w": "Washington's meticulously restored Potomac plantation home, 16 miles south of the city, with the mansion, his tomb, working farm, and museums on his life and the people he enslaved. Ticketed; a full half-day day trip.",
+   "k": "historic",
+   "g": [
+    "ICON",
+    "MON",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.mountvernon.org/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/george-washingtons-mount-vernon"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Torpedo Factory Art Center",
+   "ad": "105 N Union St, Alexandria, VA 22314",
+   "w": "A WWII munitions plant on the Alexandria waterfront reborn as a warren of 80-plus working artist studios and galleries you can walk through. Free admission.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://torpedofactory.org/"
+    ],
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/listing/torpedo-factory-art-center/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Gadsby's Tavern Museum",
+   "ad": "134 N Royal St, Alexandria, VA 22314",
+   "w": "A restored 1785 tavern and 1792 hotel where Washington, Jefferson and Adams dined and danced, now a city museum with a still-operating period restaurant next door. Ticketed tours.",
+   "k": "historic",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.alexandriava.gov/GadsbysTavern"
+    ],
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/listing/gadsbys-tavern-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Alexandria Waterfront & Waterfront Park",
+   "ad": "1A Prince St, Alexandria, VA 22314",
+   "w": "The revitalized Potomac edge at the foot of King Street, with promenade, public art, boat tours and water-taxi service to The Wharf and National Harbor. Free to stroll.",
+   "k": "waterfront",
+   "g": [
+    "PARK",
+    "VIEW",
+    "SHOP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITALEX",
+     "https://www.visitalexandria.com/things-to-do/waterfront/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alexandria,_Virginia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Great Falls Park",
+   "ad": "9200 Old Dominion Dr, McLean, VA 22102",
+   "w": "An 800-acre NPS park in McLean where the Potomac crashes through the jagged Mather Gorge in a series of dramatic falls, with three clifftop overlooks and hiking beside the 18th-century Patowmack Canal. Entrance fee; a short drive from Tysons.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/grfa/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/great-falls-park/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Wolf Trap National Park for the Performing Arts",
+   "ad": "1551 Trap Rd, Vienna, VA 22182",
+   "w": "The only U.S. national park dedicated to the performing arts, whose open-air Filene Center seats 7,000 for a summer season of pop, classical and dance on 117 wooded acres. Lawn tickets and picnics are the local ritual.",
+   "k": "entertainment",
+   "g": [
+    "PARK",
+    "ENT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/wotr/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.wolftrap.org/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Meadowlark Botanical Gardens",
+   "ad": "9750 Meadowlark Gardens Ct, Vienna, VA 22182",
+   "w": "A 95-acre NOVA Parks garden in Vienna with lakes, native-plant and Korean bell gardens, an atrium conservatory, and the popular winter Walk of Lights. Ticketed; peaceful and stroller-friendly.",
+   "k": "garden",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.novaparks.com/parks/meadowlark-botanical-gardens"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/meadowlark-botanical-gardens/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RESTON",
+   "n": "Steven F. Udvar-Hazy Center (Air & Space)",
+   "ad": "14390 Air and Space Museum Pkwy, Chantilly, VA 20151",
+   "w": "The Smithsonian Air and Space Museum's cavernous companion by Dulles, hangaring the Space Shuttle Discovery, a Concorde, the SR-71 Blackbird and the Enola Gay. Free admission (paid parking); an aviation day out in the Dulles corridor.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "SMITHSONIAN",
+     "https://airandspace.si.edu/visit/udvar-hazy-center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Reston Town Center",
+   "ad": "11900 Market St, Reston, VA 20190",
+   "w": "Reston's walkable, European-style downtown of shops, restaurants, a cinema and a central pavilion that becomes an ice rink in winter. The social hub of the Dulles Toll Road suburbs, on the Silver Line.",
+   "k": "district",
+   "g": [
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.restontowncenter.com/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/reston-town-center/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Eden Center",
+   "ad": "6751 Wilson Blvd, Falls Church, VA 22044",
+   "w": "The largest Vietnamese American commercial center on the East Coast, a Falls Church strip of 120-plus shops, groceries, cafes and restaurants marked by a pagoda gate and clock tower. The cultural and culinary heart of NoVA's Vietnamese community.",
+   "k": "market",
+   "g": [
+    "HIST",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/eden-center"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/eden-center/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "The Falls Church (Historic)",
+   "ad": "115 E Fairfax St, Falls Church, VA 22046",
+   "w": "The 1769 colonial-era Episcopal church that gave the city its name, where George Washington served as a vestryman, still an active parish. A National Register landmark.",
+   "k": "historic",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Falls_Church_(Falls_Church,_Virginia)"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/the-falls-church-episcopal/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Mosaic District",
+   "ad": "2910 District Ave, Fairfax, VA 22031",
+   "w": "A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.",
+   "k": "district",
+   "g": [
+    "HIST",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/mosaic-district/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.mosaicdistrict.com/"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Ben's Chili Bowl",
+   "ad": "1213 U St NW, Washington, DC 20009",
+   "w": "The definitive home of DC's signature half-smoke, a U Street institution since 1958. A James Beard Foundation \"America's Classics\" honoree (2004) and Bon Appetit \"Best Chili Spots\" pick; the half-smoke — a spicier, coarser pork-and-beef sausage smothered in Ben's chili — is the top seller and a genuine city icon.",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/awards/americas-classics"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/bens-chili-bowl"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.benschilibowl.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Chercher Ethiopian Restaurant",
+   "ad": "1334 9th St NW, Washington, DC 20001",
+   "w": "A Michelin Bib Gourmand pick in the guide's first DC edition, run by Alemayehu Abebe from the mountainous Chercher region his kitchen is named for. Widely rated the best Ethiopian in the U Street/Shaw \"Little Ethiopia\" for its kitfo and doro wat scooped up with house injera.",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/article/dining-out/chercher-washington-dc-bib-gourmand"
+    ],
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-ethiopian-restaurants-washington-dc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Dukem Ethiopian Restaurant",
+   "ad": "1114 U St NW, Washington, DC 20009",
+   "w": "One of the most recognizable Ethiopian rooms in the city and an anchor of U Street's Ethiopian community since 1997, with live music on weekends. Its house-made injera — also sold at the storefront next door — is a standout; a perennial on DC's best-Ethiopian lists.",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-ethiopian-restaurants-washington-dc"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2019/10/04/best-ethiopian-restaurants-washington-dc/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "El Rinconcito Cafe",
+   "ad": "1129 11th St NW, Washington, DC 20001",
+   "w": "A tiny Shaw/Mount Vernon Salvadoran-Mexican spot Time Out DC named the city's best budget meal, its griddled pupusas — pork, chicken and cheese, under $5 with cheese crisping at the edges — the star. Cross-checked well above the bar on volume (Google/Yelp ~4.4+).",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-pupusas-washington-dc-pupuserias"
+    ],
+    [
+     "USATODAY",
+     "https://www.timeout.com/washington-dc/restaurants/el-rinconcito-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUPONT",
+   "n": "Hank's Oyster Bar",
+   "ad": "1624 Q St NW, Washington, DC 20009",
+   "w": "Chef Jamie Leeds's Dupont original, repeatedly voted DC's best raw bar and seafood restaurant and praised by Washingtonian, Bon Appetit and Food & Wine. The seafood plateau, Maine-style lobster roll and Chesapeake crab cakes headline a menu built around East Coast oysters.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2022/03/07/100-very-best-restaurants-2022/"
+    ],
+    [
+     "OFFICIAL",
+     "https://hanksoysterbar.com/our-story/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Pizza Mart",
+   "ad": "2445 18th St NW, Washington, DC 20009",
+   "w": "The archetypal Adams Morgan \"jumbo slice\" — a plate-swallowing, foldable late-night wedge that's a bar-close ritual on 18th Street. Not fine dining but a bona fide DC institution, singled out in The Infatuation's and GW Hatchet's jumbo-slice rankings as the classic of the strip.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.theinfatuation.com/washington-dc/guides/best-adams-morgan-jumbo-slice"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://en.wikipedia.org/wiki/Jumbo_slice"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Rappahannock Oyster Bar",
+   "ad": "1050 Wharf St SW, Washington, DC 20024",
+   "w": "The Wharf outpost of Virginia's Rappahannock oyster farm, serving its own Chesapeake-raised oysters and clams alongside seafood towers, caviar and a celeriac-slaw crab cake. A Washingtonian favorite and one of the region's benchmark raw bars, right on the waterfront.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2018/12/03/rappahannock-oyster-bar-opens-a-waterfront-location-at-the-dc-wharf/"
+    ],
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-oysters-raw-bars-washington-dc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "The Salt Line",
+   "ad": "79 Potomac Ave SE, Washington, DC 20003",
+   "w": "A New England-leaning Navy Yard raw bar on the Anacostia waterfront, a Washingtonian 100 Very Best pick known for its oyster selection, lobster roll and Nashville-hot soft-shell crab. A reliable Chesapeake-and-Northeast seafood room by the ballpark.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2022/03/07/100-very-best-restaurants-2022/"
+    ],
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-oysters-raw-bars-washington-dc"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Ethiopic Restaurant",
+   "ad": "401 H St NE, Washington, DC 20002",
+   "w": "The first Ethiopian restaurant on the H Street Corridor and one of the most polished in the city, recommended by Washingtonian and consistently rated among DC's best Ethiopian tables. Bright combination platters and a strong vegetarian beyaynetu on house injera.",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2019/10/04/best-ethiopian-restaurants-washington-dc/"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/ethiopic"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Old Ebbitt Grill",
+   "ad": "675 15th St NW, Washington, DC 20005",
+   "w": "A block from the White House, DC's oldest saloon (1856) runs one of the city's busiest raw bars and its annual Oyster Riot. A tourist-and-lobbyist institution whose oysters on the half shell and crab cakes make it a dependable Chesapeake stop downtown.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "WASHINGTONORG",
+     "https://washington.org/find-dc-listings/old-ebbitt-grill"
+    ],
+    [
+     "USATODAY",
+     "https://www.10best.com/awards/travel/best-raw-bar/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Bombay Club",
+   "ad": "815 Connecticut Ave NW, Washington, DC 20006",
+   "w": "Ashok Bajaj's first DC restaurant (1989), a genteel colonial-era dining room a block from the White House long favored by presidents and cabinet secretaries. A Washingtonian mainstay whose refined North Indian cooking helped set the template for the city's upscale Indian scene.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2019/01/24/best-indian-restaurants-washington-dc/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.bombayclubdc.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Ravi Kabob House",
+   "ad": "305 N Glebe Rd, Arlington, VA 22203",
+   "w": "The benchmark Pakistani kabob house of Arlington, a beloved cash-friendly counter (now with a second location across the street) whose charred beef seekh kebab and chicken tikka draw lines. Repeatedly ranked the area's top Pakistani spot, with huge cross-platform review volume above 4.4.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food/food-news/best-pakistani-restaurants-northern-virginia/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2019/03/22/ravi-kabob/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Kabob Palace",
+   "ad": "2333 S Eads St, Arlington, VA 22202",
+   "w": "A 24-hour Crystal City Afghan institution famous with cab drivers and late-night crowds for its charcoal-grilled kabobs, fluffy rice and fresh naan. A long-running ARLnow and Washingtonian cheap-eats favorite with heavy, high-rated review volume.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2016/11/25/kabob-palace/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2019/01/24/cheap-eats-2019/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Weenie Beenie",
+   "ad": "2680 S Shirlington Rd, Arlington, VA 22206",
+   "w": "A 1950 Arlington walk-up (founded by Bill \"Weenie Beenie\" Staton) that helped popularize the half-smoke before Ben's made it a DC icon — name-checked in Wikipedia's half-smoke lore and a genuine survivor of the region's roadside-stand history. A tiny, cash-only piece of local food heritage.",
+   "cz": [
+    "BURG",
+    "US"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2013/07/12/weenie-beenie/"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://en.wikipedia.org/wiki/Weenie_Beenie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Pupatella",
+   "ad": "5104 Wilson Blvd, Arlington, VA 22205",
+   "w": "Enzo Algarme's VPN-certified Neapolitan pizzeria, grown from an Arlington food cart into a small local group and a regular on Washingtonian's best-pizza lists. Blistered, wood-fired margheritas from a Naples-built oven — the standout Neapolitan pie of the NoVA corridor.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2023/09/28/best-pizza-washington-dc/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food/best-pizza-northern-virginia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Rice Paper",
+   "ad": "6775 Wilson Blvd, Falls Church, VA 22044",
+   "w": "One of the marquee kitchens of Eden Center — the largest Vietnamese commercial center on the East Coast — best known for its table-side rice-paper summer rolls and broad regional menu. Washingtonian-recommended and an Arlington Magazine Eden Center highlight.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2018/06/28/where-to-eat-eden-center-falls-church/"
+    ],
+    [
+     "NOVAMAG",
+     "https://www.arlingtonmagazine.com/eden-center-falls-church/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Huong Viet",
+   "ad": "6785 Wilson Blvd, Falls Church, VA 22044",
+   "w": "A long-standing Eden Center favorite plating classic Vietnamese — crab-tomato vermicelli soup (bun rieu), sizzling banh xeo pancakes and clay-pot caramel fish. A perennial pick in Eden Center dining guides for its breadth and consistency.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://www.arlingtonmagazine.com/eden-center-falls-church/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2018/06/28/where-to-eat-eden-center-falls-church/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Honey Pig",
+   "ad": "7220 Columbia Pike, Annandale, VA 22003",
+   "w": "The best-known Korean BBQ house on Annandale's Koreatown strip — open 24 hours, K-pop soundtrack, domed grills for pork belly, duck, tripe and seafood. A Northern Virginia Magazine Korean-BBQ guide anchor with enormous, high-rated review volume.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/barbecue-from-another-mother/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Yechon",
+   "ad": "4121 Hummer Rd, Annandale, VA 22003",
+   "w": "A 24-hour Annandale mainstay on Hummer Road with a wider menu than most — Korean BBQ plus stews, noodles, sushi and a strong sundubu (soft-tofu casserole). A dependable late-night Koreatown room with deep, well-rated review volume.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/barbecue-from-another-mother/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Gloria's Pupuseria",
+   "ad": "3411 14th St NW, Washington, DC 20010",
+   "w": "A Columbia Heights hole-in-the-wall — Selena art on the walls, ranchera on the jukebox — turning out plump, well-stuffed pupusas with curtido for a couple dollars each. Repeatedly named among DC's best pupuserias; Salvadorans are the city's largest immigrant group and this is one of the canon rooms.",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "DCIST",
+     "https://dc.citycast.fm/food-drink/who-makes-dc-s-best-pupusas"
+    ],
+    [
+     "USATODAY",
+     "https://www.insidehook.com/food/best-pupusas-dmv"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Timber Pizza Co.",
+   "ad": "809 Upshur St NW, Washington, DC 20011",
+   "w": "A Petworth wood-fired pizzeria that Bon Appetit ranked among America's Best New Restaurants (2017) and a James Beard semifinalist for Best New Restaurant — grown from a food truck by Andrew Dana and chef Daniela Moreira. Blistered pies and Argentine empanadas make it one of DC's standout modern pizzas.",
+   "cz": [
+    "PIZZA"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2023/09/28/best-pizza-washington-dc/"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/awards/search?keyword=timber+pizza"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Keren Restaurant",
+   "ad": "1780 Florida Ave NW, Washington, DC 20009",
+   "w": "A beloved Eritrean coffee house and restaurant near Adams Morgan, an East African community anchor for decades known for morning ful, spicy tsebhi stews and traditional coffee service. A longtime Washingtonian cheap-eats favorite representing DC's deep Horn-of-Africa diaspora.",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2019/01/24/cheap-eats-2019/"
+    ],
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-ethiopian-restaurants-washington-dc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Quarterdeck Restaurant",
+   "ad": "1200 Fort Myer Dr, Arlington, VA 22209",
+   "w": "A rough-and-ready Arlington crab house since 1979 and one of the last true steamed-blue-crab feasts inside the Beltway — Old Bay-dusted Maryland blues by the dozen, hammers and paper on the table. A multi-generational local institution keeping the Chesapeake crab-feast tradition alive in NoVA.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2018/07/06/quarterdeck/"
+    ],
+    [
+     "WTOP",
+     "https://wtop.com/food-restaurant/2021/07/best-crab-houses-around-dc/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ALEX",
+   "n": "Hank's Oyster Bar, Old Town",
+   "ad": "818 N Saint Asaph St, Alexandria, VA 22314",
+   "w": "The Old Town outpost of Jamie Leeds's Hank's, named to Northern Virginia Magazine's 50 Best and a Washingtonian 100 Very Best honoree. A rotating half-dozen oysters, lobster rolls, po'boys and daily fish specials make it Alexandria's benchmark raw bar.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food/50-best-restaurants/"
+    ],
+    [
+     "VISITALEX",
+     "https://visitalexandria.com/listings/hanks-oyster-bar-2/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Pho 75",
+   "ad": "1721 Wilson Blvd, Arlington, VA 22209",
+   "w": "The no-frills, cash-only pho institution of the DC area — communal tables, one thing done superbly: deeply aromatic beef pho ladled in vast bowls. A decades-old Washingtonian and Eater DC benchmark that set the standard for the region's Vietnamese noodle soup.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-pho-washington-dc-northern-virginia"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2019/01/24/cheap-eats-2019/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Present Restaurant",
+   "ad": "6678 Arlington Blvd, Falls Church, VA 22042",
+   "w": "The area's most polished Vietnamese dining room, a step up from the Eden Center counters, plating refined versions of clay-pot catfish, bo luc lac (shaking beef) and whole fish. A longtime Washingtonian best-Vietnamese pick showing the higher end of NoVA's deep Vietnamese scene.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2016/10/28/best-vietnamese-restaurants-washington-dc/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food/best-vietnamese-restaurants-northern-virginia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "minibar by Jose Andres",
+   "ad": "855 E St NW, Washington, DC 20004",
+   "w": "Two Michelin stars — Jose Andres's flagship tasting counter and the region's most decorated fine-dining room, a rapid-fire avant-garde menu at a six-seat bar. Retained both stars in the 2025 MICHELIN Guide Washington, D.C.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Rania",
+   "ad": "427 11th St NW, Washington, DC 20004",
+   "w": "One Michelin star — chef Chetan Shetty (ex-Indian Accent) reinvents Indian fine dining in a regal Penn Quarter room; the Washington Post calls it adventurous Indian cooking in a regal setting. Starred in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2022/08/05/rania-restaurant-review-indian-dc/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Fiola",
+   "ad": "601 Pennsylvania Ave NW, Washington, DC 20004",
+   "w": "One Michelin star — Fabio Trabocchi's luxe downtown Italian, a longtime power-dining room off Pennsylvania Avenue. Holds its star in the 2025 MICHELIN Guide Washington, D.C.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Rasika",
+   "ad": "633 D St NW, Washington, DC 20004",
+   "w": "DC's most acclaimed Indian restaurant — Ashok Bajaj's Penn Quarter icon, whose crackling palak chaat is a citywide signature; a MICHELIN Guide recommended pick and a perennial Washingtonian 100 Very Best.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/specialty/100-very-best-restaurants-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Cranes",
+   "ad": "724 9th St NW, Washington, DC 20001",
+   "w": "One Michelin star — chef Pepe Moncayo's inventive Spanish-Japanese kitchen near Penn Quarter, pairing Basque technique with sushi. Retains its star in the 2025 MICHELIN Guide.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Kinship",
+   "ad": "1015 7th St NW, Washington, DC 20001",
+   "w": "One Michelin star — Eric Ziebold's (ex-CityZen, per se) elegant, menu-organized-by-theme downtown room; sibling to his tasting-only Metier. Starred in the 2025 MICHELIN Guide Washington, D.C.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "L'Ardente",
+   "ad": "200 Massachusetts Ave NW, Washington, DC 20001",
+   "w": "MICHELIN Bib Gourmand — chef John Manolatos's glam East End Italian, whose viral 40-layer lasagna became a citywide sensation. Named a Bib Gourmand in the MICHELIN Guide Washington, D.C.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants/bib-gourmand"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/L%27Ardente"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Jont",
+   "ad": "1904 14th St NW, Washington, DC 20009",
+   "w": "Two Michelin stars — Ryan Ratino's intimate upstairs tasting counter on 14th Street, DC's only two-star outside minibar and the Inn at Little Washington. Held both stars in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Bresca",
+   "ad": "1906 14th St NW, Washington, DC 20009",
+   "w": "One Michelin star — Ryan Ratino's honey-themed 14th Street bistro (below Jont), starred every year since it opened. Retains its star in the 2025 MICHELIN Guide Washington, D.C.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "The Dabney",
+   "ad": "122 Blagden Alley NW, Washington, DC 20001",
+   "w": "One Michelin star — Jeremiah Langhorne's wood-hearth Shaw restaurant championing Mid-Atlantic ingredients; starred every year since the DC guide launched in 2017 and a former Washingtonian #1.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/specialty/100-very-best-restaurants-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Oyster Oyster",
+   "ad": "1440 8th St NW, Washington, DC 20001",
+   "w": "One Michelin star and a Michelin Green Star — Rob Rubba's vegetable-forward Shaw room; Rubba won the James Beard Award for Best Chef: Mid-Atlantic (2023). Starred in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/awards/restaurant-and-chef-awards"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Causa",
+   "ad": "920 Blagden Alley NW, Washington, DC 20001",
+   "w": "One Michelin star — Carlos Delgado's upscale Peruvian in Blagden Alley (with casual Amazonia below); Delgado won the James Beard Award for Best Chef: Mid-Atlantic (2025). Starred in the 2025 MICHELIN Guide.",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/the-2025-james-beard-award-winners"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Maydan",
+   "ad": "1346 Florida Ave NW, Washington, DC 20009",
+   "w": "James Beard Award for Best New Restaurant (2018) — a soaring, live-fire Middle Eastern and North African room where everything meets an open wood fire; a Washingtonian 100 Very Best mainstay.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/awards/restaurant-and-chef-awards"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/maydan-3/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Rooster & Owl",
+   "ad": "2436 14th St NW, Washington, DC 20009",
+   "w": "One Michelin star — chef Yuan Tang's four-course, choose-your-own-adventure menu on the 14th Street corridor, drawing from the Carolinas, Thailand, France and Japan. Retains its star in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/rooster-owl"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUPONT",
+   "n": "Tail Up Goat",
+   "ad": "1827 Adams Mill Rd NW, Washington, DC 20009",
+   "w": "One Michelin star — a warm Adams Morgan room known for handmade pasta and lamb ribs with a Mediterranean lean; starred continuously in the DC guide. Retains its star in 2025.",
+   "cz": [
+    "MED",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUPONT",
+   "n": "Le Diplomate",
+   "ad": "1601 14th St NW, Washington, DC 20009",
+   "w": "Stephen Starr's landmark Logan Circle brasserie — the see-and-be-seen French cafe that anchored the 14th Street revival; a Washingtonian 100 Very Best and one of DC's hardest tables.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/specialty/100-very-best-restaurants-2025/"
+    ],
+    [
+     "OFFICIAL",
+     "https://starr-restaurants.com/restaurants/le-diplomate/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "Xiquet by Danny Lledo",
+   "ad": "2404 Wisconsin Ave NW, Washington, DC 20007",
+   "w": "One Michelin star — Danny Lledo's Valencian tasting menu built around paella and rice cooked over an open flame, just above Georgetown in Glover Park. Retains its star in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "Imperfecto",
+   "ad": "1124 24th St NW, Washington, DC 20037",
+   "w": "One Michelin star — chef Enrique Limardo's Mediterranean-meets-Latin-American cooking in the West End, a chef's-table experience of bold, cross-continental plates. Starred in the 2025 MICHELIN Guide.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GTWN",
+   "n": "Fiola Mare",
+   "ad": "3050 K St NW, Washington, DC 20007",
+   "w": "Fabio Trabocchi's glamorous Georgetown waterfront seafood room on the Potomac at Washington Harbour — a Washingtonian 100 Very Best and the marquee special-occasion table on the water.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/specialty/100-very-best-restaurants-2025/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Albi",
+   "ad": "1346 4th St SE, Washington, DC 20003",
+   "w": "One Michelin star — Michael Rafidi's live-fire Palestinian restaurant in The Yards; Rafidi won the James Beard Award for Outstanding Chef (2024). Retains its star in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/the-2024-james-beard-award-winners"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Rose's Luxury",
+   "ad": "717 8th St SE, Washington, DC 20003",
+   "w": "One Michelin star — Aaron Silverman's beloved Barracks Row room, whose lychee-and-pork-sausage salad made it a national name. Starred in the 2025 MICHELIN Guide Washington, D.C.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Pineapple and Pearls",
+   "ad": "715 8th St SE, Washington, DC 20003",
+   "w": "One Michelin star — Aaron Silverman's all-inclusive, playful fine-dining tasting menu next to Rose's Luxury on Barracks Row; one of DC's most sought-after reservations. Starred in the 2025 MICHELIN Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/pineapple-and-pearls"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Dogon",
+   "ad": "1330 Maryland Ave SW, Washington, DC 20024",
+   "w": "James Beard Award-winning chef Kwame Onwuachi's Afro-Caribbean flagship at Salamander DC near the Wharf; Washingtonian's #2 restaurant and a Conde Nast Traveler / Esquire Best New Restaurant. Opened 2024 to national acclaim.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/specialty/100-very-best-restaurants-2025/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/D%C5%8Dgon_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Ambar Clarendon",
+   "ad": "2901 Wilson Blvd, Arlington, VA 22201",
+   "w": "Arlington's standout for Balkan small plates — an all-you-can-eat spread of cevapi, ajvar and sarma that made it a Clarendon fixture and a Washingtonian/regional-award favorite; the strongest fine-casual pick in Arlington.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/specialty/100-very-best-restaurants-2025/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlingtonmagazine.com/best-restaurants-clarendon-arlington-virginia/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Cielo",
+   "ad": "2011 Crystal Dr, Arlington, VA 22202",
+   "w": "A polished Latin American supper club in National Landing from chefs Mariela Pacheco and Andres Lopez, both Pineapple and Pearls alumni; Arlington Magazine highlights it as one of Crystal City's most ambitious new rooms.",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlingtonmagazine.com/cielo/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2025/11/18/these-are-the-9-best-restaurants-in-arlington/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ALEX",
+   "n": "Vermilion",
+   "ad": "1120 King St, Alexandria, VA 22314",
+   "w": "Old Town Alexandria's #1 restaurant per Northern Virginia Magazine (Top 50) — chef Anthony Chittum's seasonal, locally sourced Modern American in a historic King Street townhouse.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/2024/08/02/vermilion-alexandria-review/"
+    ],
+    [
+     "VISITALEX",
+     "https://visitalexandria.com/listings/vermilion/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ALEX",
+   "n": "Hummingbird",
+   "ad": "220 S Union St, Alexandria, VA 22314",
+   "w": "James Beard Award-winning chef Cathal Armstrong's breezy waterfront room at Hotel Indigo; Washington Post critic Tom Sietsema has called it Old Town's most appealing place to eat.",
+   "cz": [
+    "US",
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/awards/restaurant-and-chef-awards"
+    ],
+    [
+     "WAPO",
+     "https://washingtonian.com/2017/06/28/chef-cathal-armstrong-serves-seafood-with-waterfront-views-in-alexandria/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "JOON",
+   "ad": "8045 Leesburg Pike, Vienna, VA 22182",
+   "w": "Named Best Restaurant in Virginia by Washingtonian readers and one of the New York Times' 50 favorite US restaurants — modern Persian led by James Beard semifinalist Najmieh Batmanglij, the 'grande dame of Iranian cooking.'",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2025/12/15/neighborhood-guide-things-to-do-in-tysons-and-vienna-2/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.eatjoon.com/about"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Clarity",
+   "ad": "442 Maple Ave E, Vienna, VA 22180",
+   "w": "A RAMMY Award-winning New American restaurant in Vienna from veteran chef Jonathan Krinn (formerly of 2941), blending casual and fine dining — one of Tysons/Vienna's most decorated kitchens.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "RAMW",
+     "https://www.ramw.org/rammys"
+    ],
+    [
+     "OFFICIAL",
+     "https://clarityvienna.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RESTON",
+   "n": "PassionFish",
+   "ad": "11960 Democracy Dr, Reston, VA 20190",
+   "w": "Reston Town Center's flagship seafood house from chef Christopher Clime — an ambitious raw bar and daily fresh-catch menu that is NoVA's go-to for fine seafood and sushi; a Restaurant Association Metropolitan Washington member restaurant.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "RAMW",
+     "https://www.ramw.org/restaurant/passionfish"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/passionfish/1226/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "2941 Restaurant",
+   "ad": "2941 Fairview Park Dr, Falls Church, VA 22042",
+   "w": "A longtime Northern Virginia fine-dining destination — chef Bertrand Chemel's contemporary American cooking with French and Mediterranean influences, set beside koi ponds and a lakeside view; a Falls Church special-occasion standard-bearer.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/2941_Restaurant"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/2941-restaurant/1003/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/",
+   "l": "Atlas Obscura"
+  },
+  "FXVA": {
+   "k": "FAIRFAX CVB",
+   "t": "Visit Fairfax (FXVA)",
+   "u": "https://www.fxva.com/",
+   "l": "Visit Fairfax (FXVA)"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service",
+   "u": "https://www.nps.gov/",
+   "l": "National Park Service"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site / operator",
+   "u": "https://www.si.edu/",
+   "l": "Official site / operator"
+  },
+  "SMITHSONIAN": {
+   "k": "SMITHSONIAN",
+   "t": "Smithsonian Institution",
+   "u": "https://www.si.edu/",
+   "l": "Smithsonian Institution"
+  },
+  "VISITALEX": {
+   "k": "VISIT ALEXANDRIA",
+   "t": "Visit Alexandria",
+   "u": "https://www.visitalexandria.com/",
+   "l": "Visit Alexandria"
+  },
+  "WASHINGTONORG": {
+   "k": "DESTINATION DC",
+   "t": "Destination DC (washington.org)",
+   "u": "https://washington.org/",
+   "l": "Destination DC (washington.org)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "ARLNOW": {
+   "k": "ARLNOW",
+   "t": "ARLNOW",
+   "u": "",
+   "l": ""
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/",
+   "l": "Atlas Obscura"
+  },
+  "DCIST": {
+   "k": "DCIST / WAMU",
+   "t": "DCIST / WAMU",
+   "u": "",
+   "l": ""
+  },
+  "EATERDC": {
+   "k": "EATER DC",
+   "t": "EATER DC",
+   "u": "",
+   "l": ""
+  },
+  "FXVA": {
+   "k": "FAIRFAX CVB",
+   "t": "Visit Fairfax (FXVA)",
+   "u": "https://www.fxva.com/",
+   "l": "Visit Fairfax (FXVA)"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "JAMES BEARD",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB GOURMAND",
+   "t": "MICHELIN BIB GOURMAND",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN STAR",
+   "t": "MICHELIN STAR",
+   "u": "",
+   "l": ""
+  },
+  "NOVAMAG": {
+   "k": "NORTHERN VIRGINIA MAG",
+   "t": "NORTHERN VIRGINIA MAG",
+   "u": "",
+   "l": ""
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site / operator",
+   "u": "https://www.si.edu/",
+   "l": "Official site / operator"
+  },
+  "RAMW": {
+   "k": "RAMMY AWARDS",
+   "t": "RAMMY AWARDS",
+   "u": "",
+   "l": ""
+  },
+  "USATODAY": {
+   "k": "USA TODAY 10BEST",
+   "t": "USA TODAY 10BEST",
+   "u": "",
+   "l": ""
+  },
+  "VISITALEX": {
+   "k": "VISIT ALEXANDRIA",
+   "t": "Visit Alexandria",
+   "u": "https://www.visitalexandria.com/",
+   "l": "Visit Alexandria"
+  },
+  "WAPO": {
+   "k": "WASHINGTON POST",
+   "t": "WASHINGTON POST",
+   "u": "",
+   "l": ""
+  },
+  "WASHINGTONIAN": {
+   "k": "WASHINGTONIAN",
+   "t": "WASHINGTONIAN",
+   "u": "",
+   "l": ""
+  },
+  "WASHINGTONORG": {
+   "k": "DESTINATION DC",
+   "t": "Destination DC (washington.org)",
+   "u": "https://washington.org/",
+   "l": "Destination DC (washington.org)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WTOP": {
+   "k": "WTOP",
+   "t": "WTOP",
+   "u": "",
+   "l": ""
+  }
+ }
 }

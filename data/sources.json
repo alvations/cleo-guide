@@ -2802,6 +2802,30 @@
           "rank": 4,
           "verified": true,
           "credible": "Reference for published coordinates & founding facts on landmarks/museums."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN Star (Washington DC)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "A MICHELIN star is a top institutional culinary distinction; sufficient ground truth on its own."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN Bib Gourmand (Washington DC)",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "MICHELIN's good-value distinction; vetted institutional recognition."
+        },
+        {
+          "key": "RAMW",
+          "name": "RAMMY Awards (Restaurant Association of Metropolitan Washington)",
+          "type": "award",
+          "rank": 2,
+          "verified": true,
+          "credible": "The DC region's industry awards (a real vote/award), used as corroborating acclaim, not a lone recommender."
         }
       ],
       "creators": [],

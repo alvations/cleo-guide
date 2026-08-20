@@ -44,7 +44,7 @@ from typing import Any, Dict, List, Optional
 # this preview wrongly failed a lone-NPS place — e.g. Alcatraz / Golden Gate NRA —
 # that the real gate PASSES. The five source-of-truth definitions must match.)
 OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS"}
-ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS"}
+ELITE_SOLO = {"MICHELIN", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "JAMESBEARD", "NPS", "SMITHSONIAN"}
 
 
 def credible_source_keys(sources: List[List[str]]) -> set:
