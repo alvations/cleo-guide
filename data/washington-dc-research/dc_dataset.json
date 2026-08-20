@@ -1,0 +1,177 @@
+{
+ "areas": [
+  {
+   "id": "MALL",
+   "n": "National Mall, Tidal Basin & the Monuments"
+  },
+  {
+   "id": "DTN",
+   "n": "Downtown, Penn Quarter & Chinatown"
+  },
+  {
+   "id": "GTWN",
+   "n": "Georgetown & Foggy Bottom"
+  },
+  {
+   "id": "DUPONT",
+   "n": "Dupont, Logan Circle & Adams Morgan"
+  },
+  {
+   "id": "USHAW",
+   "n": "U Street, Shaw & Columbia Heights"
+  },
+  {
+   "id": "CAPHILL",
+   "n": "Capitol Hill, H Street, Navy Yard & The Wharf"
+  },
+  {
+   "id": "ARL",
+   "n": "Arlington & National Landing"
+  },
+  {
+   "id": "ALEX",
+   "n": "Old Town Alexandria"
+  },
+  {
+   "id": "TYSONS",
+   "n": "Tysons, McLean & Vienna"
+  },
+  {
+   "id": "RESTON",
+   "n": "Reston, Herndon & the Dulles Corridor"
+  },
+  {
+   "id": "FCITY",
+   "n": "Falls Church, Annandale & Eden Center"
+  }
+ ],
+ "ac": {
+  "MALL": "#B0405A",
+  "DTN": "#E8973A",
+  "GTWN": "#8064A2",
+  "DUPONT": "#4F81BD",
+  "USHAW": "#C0504D",
+  "CAPHILL": "#4BACC6",
+  "ARL": "#9BBB59",
+  "ALEX": "#D99694",
+  "TYSONS": "#2C7FB8",
+  "RESTON": "#F2A900",
+  "FCITY": "#7BA05B"
+ },
+ "cuisines": [
+  {
+   "id": "US",
+   "n": "American, New American & Steak"
+  },
+  {
+   "id": "SEAFOOD",
+   "n": "Chesapeake Seafood & Raw Bars"
+  },
+  {
+   "id": "ETHIOPIAN",
+   "n": "Ethiopian & East African"
+  },
+  {
+   "id": "LATIN",
+   "n": "Salvadoran, Mexican & Latin"
+  },
+  {
+   "id": "SASIAN",
+   "n": "South Asian & Afghan"
+  },
+  {
+   "id": "VIET",
+   "n": "Vietnamese"
+  },
+  {
+   "id": "KOREAN",
+   "n": "Korean"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Chinese, Thai, Japanese & More"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean & Middle Eastern"
+  },
+  {
+   "id": "BURG",
+   "n": "Burgers, Half-Smokes & Diners"
+  },
+  {
+   "id": "PIZZA",
+   "n": "Pizza & Jumbo Slice"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries, Bars & Cocktails"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "ICE",
+   "n": "Bakeries, Ice Cream & Desserts"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "MON",
+   "n": "Monuments & Memorials"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "GOV",
+   "n": "Government & Landmarks"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Architecture"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Waterfront"
+  },
+  {
+   "id": "ENT",
+   "n": "Theaters & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

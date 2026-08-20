@@ -2639,6 +2639,173 @@
       "refreshLog": [
         "2026-08-14 — region scaffolded via the codified pipeline; >=2-credible-source gate. No Michelin/Eater in this market -> James Beard is the lone institutional authority."
       ]
+    },
+    "washington-dc": {
+      "name": "Washington DC + Arlington + NoVA (Dulles corridor)",
+      "sources": [
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN Guide Washington DC",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "International culinary authority; DC has a full MICHELIN guide (stars, Bib Gourmand). A single distinction is institutional ground truth."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation Awards",
+          "type": "award",
+          "rank": 1,
+          "verified": true,
+          "credible": "National culinary authority; DC/NoVA winners & semifinalists. Institutional mark."
+        },
+        {
+          "key": "WASHINGTONIAN",
+          "name": "Washingtonian (100 Very Best Restaurants)",
+          "type": "magazine",
+          "rank": 1,
+          "verified": true,
+          "credible": "The metro's magazine of record for dining & things-to-do; its annual 100 Very Best is the local benchmark."
+        },
+        {
+          "key": "WAPO",
+          "name": "The Washington Post (incl. Tom Sietsema)",
+          "type": "daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "The daily of record; nationally-regarded bylined restaurant criticism & travel coverage."
+        },
+        {
+          "key": "EATERDC",
+          "name": "Eater DC",
+          "type": "digital",
+          "rank": 2,
+          "verified": true,
+          "credible": "Bylined DC food news, heatmaps & essential-restaurant maps."
+        },
+        {
+          "key": "DCIST",
+          "name": "DCist / WAMU",
+          "type": "public-media",
+          "rank": 2,
+          "verified": true,
+          "credible": "NPR-affiliated public media; bylined local culture & food coverage."
+        },
+        {
+          "key": "NOVAMAG",
+          "name": "Northern Virginia Magazine",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "The NoVA regional magazine of record (Arlington/Fairfax/Loudoun) with a Best-of dining program."
+        },
+        {
+          "key": "ARLNOW",
+          "name": "ARLnow",
+          "type": "local-news",
+          "rank": 2,
+          "verified": true,
+          "credible": "Arlington's daily local-news site; bylined openings/closings & neighborhood coverage."
+        },
+        {
+          "key": "TYSONSREPORTER",
+          "name": "Tysons Reporter / FFXnow",
+          "type": "local-news",
+          "rank": 3,
+          "verified": true,
+          "credible": "Tysons/McLean/Vienna local news; bylined coverage of the Dulles-corridor suburbs."
+        },
+        {
+          "key": "FFXNOW",
+          "name": "FFXnow (Fairfax County)",
+          "type": "local-news",
+          "rank": 3,
+          "verified": true,
+          "credible": "Fairfax County local-news site (Reston/Herndon/Falls Church corridor)."
+        },
+        {
+          "key": "WTOP",
+          "name": "WTOP News",
+          "type": "radio-news",
+          "rank": 3,
+          "verified": true,
+          "credible": "DC-region all-news outlet; bylined local features."
+        },
+        {
+          "key": "NPS",
+          "name": "National Park Service",
+          "type": "official",
+          "rank": 1,
+          "verified": true,
+          "credible": "Federal steward of the National Mall & memorials; official designation is institutional ground truth."
+        },
+        {
+          "key": "SMITHSONIAN",
+          "name": "Smithsonian Institution",
+          "type": "official",
+          "rank": 1,
+          "verified": true,
+          "credible": "Official operator of the national museums; authoritative for the free Smithsonian museums."
+        },
+        {
+          "key": "WASHINGTONORG",
+          "name": "Destination DC (washington.org)",
+          "type": "cvb",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official DC destination marketing org; vetted listings. Corroborating, not a lone recommender."
+        },
+        {
+          "key": "VISITALEX",
+          "name": "Visit Alexandria",
+          "type": "cvb",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official Alexandria CVB; vetted Old Town listings."
+        },
+        {
+          "key": "FXVA",
+          "name": "Visit Fairfax (FXVA)",
+          "type": "cvb",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Fairfax County CVB; vetted Tysons/Reston/Great Falls listings."
+        },
+        {
+          "key": "USATODAY",
+          "name": "USA Today 10Best",
+          "type": "listicle",
+          "rank": 3,
+          "verified": true,
+          "credible": "Editor+reader awards; usable as a corroborating popularity signal, never alone."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "digital",
+          "rank": 3,
+          "verified": true,
+          "credible": "Bylined curation of oddities & hidden gems."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "Establishment / institution official site",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Primary source for address, hours & open status; corroborates, not a lone recommender."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia (published coordinates)",
+          "type": "reference",
+          "rank": 4,
+          "verified": true,
+          "credible": "Reference for published coordinates & founding facts on landmarks/museums."
+        }
+      ],
+      "creators": [],
+      "refreshLog": []
     }
   }
 }
