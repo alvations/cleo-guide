@@ -17,9 +17,11 @@ AREAS = [
  {"id":"TYSONS","n":"Tysons, McLean & Vienna"},
  {"id":"RESTON","n":"Reston, Herndon & the Dulles Corridor"},
  {"id":"FCITY","n":"Falls Church, Annandale & Eden Center"},
+ {"id":"FAIRFAX","n":"Fairfax, Merrifield (Mosaic) & Chantilly"},
 ]
 AC = {"MALL":"#B0405A","DTN":"#E8973A","GTWN":"#8064A2","DUPONT":"#4F81BD","USHAW":"#C0504D",
-      "CAPHILL":"#4BACC6","ARL":"#9BBB59","ALEX":"#D99694","TYSONS":"#2C7FB8","RESTON":"#F2A900","FCITY":"#7BA05B"}
+      "CAPHILL":"#4BACC6","ARL":"#9BBB59","ALEX":"#D99694","TYSONS":"#2C7FB8","RESTON":"#F2A900",
+      "FCITY":"#7BA05B","FAIRFAX":"#A6588C"}
 
 CUISINES = [
  {"id":"US","n":"American, New American & Steak"},
