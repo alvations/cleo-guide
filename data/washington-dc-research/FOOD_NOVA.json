@@ -1,0 +1,422 @@
+[
+ {
+  "t": 1,
+  "a": "ARL",
+  "cz": ["Peruvian"],
+  "dish": "pollo a la brasa (charcoal rotisserie chicken) with green sauce",
+  "n": "El Pollo Rico",
+  "address": "932 N Kenmore St, Arlington, VA 22201",
+  "w": "Arlington's legendary Peruvian charcoal-chicken counter in Virginia Square, a decades-old cult institution whose aroma reaches a block away; a Washingtonian award winner for Best Peruvian Chicken and a Roadfood-anointed classic.",
+  "closed": false,
+  "sources": [
+   ["ROADFOOD", "https://roadfood.com/restaurants/el-pollo-rico"],
+   ["WASHINGTONIAN", "https://elpollorico.com/press/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "ARL",
+  "cz": ["Barbecue"],
+  "dish": "Texas-style beef brisket, beef short ribs, house sausage",
+  "n": "Texas Jack's Barbecue",
+  "address": "2761 Washington Blvd, Arlington, VA 22201",
+  "w": "Lone Star-style smoked brisket and beef ribs in Lyon Park; named the No. 1 best barbecue joint in the DC area by the Washington Post multiple years running and a fixture of the Arlington dining scene since 2015.",
+  "closed": false,
+  "sources": [
+   ["WAPO", "https://www.txjacks.com/news-item/texas-jacks-named-1-best-barbecue-joint-in-the-dc-area-again/"],
+   ["STAYARLINGTON", "https://www.stayarlington.com/directory/texas-jacks-barbecue/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "ARL",
+  "cz": ["Southern", "Barbecue"],
+  "dish": "smoked brisket, sticky spare ribs, biscuit sandwiches, meat-and-three",
+  "n": "Ruthie's All-Day",
+  "address": "3411 5th St S, Arlington, VA 22204",
+  "w": "James Beard-nominated chef Matt Hill's family-friendly Southern smokehouse; a 2022 RAMMY winner and voted the No. 1 reader-favorite restaurant in Virginia by Washingtonian, with a Washington Post rave for its barbecue and brunch biscuits.",
+  "closed": false,
+  "sources": [
+   ["ARLNOW", "https://www.arlnow.com/2022/07/25/ruthies-all-day-and-owners-of-shirlingtons-chiko-were-served-up-rammy-wins-last-night/"],
+   ["WAPO", "https://www.washingtonpost.com/lifestyle/food/ruthies-all-day-restaurant-review/2021/04/29/9dfa344c-a45a-11eb-a7ee-949c574a09ac_story.html"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "ARL",
+  "cz": ["New American"],
+  "dish": "wood-smoked meats, house-made pasta, Sunday supper",
+  "n": "The Liberty Tavern",
+  "address": "3195 Wilson Blvd, Arlington, VA 22201",
+  "w": "Clarendon's benchmark neighborhood restaurant, on Washingtonian's 100 Very Best list for eight consecutive years with multiple RAMMY nominations and a Washington Post Editor's Pick; everything from bread to pasta is made in-house.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2015/01/12/100-very-best-restaurants-2015-no-86-liberty-tavern/"],
+   ["RAMW", "https://www.thelibertytavern.com/about/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "ARL",
+  "cz": ["French"],
+  "dish": "French onion soup, steak frites, French New-American bistro plates",
+  "n": "Maison Cheryl",
+  "address": "2900 Wilson Blvd, Arlington, VA 22201",
+  "w": "A chic French New-American bistro in the heart of Clarendon executing comforting classics with classic French technique; reviewed favorably by Northern Virginia Magazine and covered as a Clarendon draw by ARLnow.",
+  "closed": false,
+  "sources": [
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/reviews/2022/01/28/online-exclusive-review-maison-cheryl/"],
+   ["ARLNOW", "https://www.arlnow.com/2021/08/25/maison-cheryl-in-clarendon-promises-chic-atmosphere-for-older-millennials/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "ARL",
+  "cz": ["Uzbek", "Russian"],
+  "dish": "lamb plov, manti dumplings, samsa",
+  "n": "Rus Uz",
+  "address": "1000 N Randolph St, Arlington, VA 22201",
+  "w": "The area's only Russian-Uzbek kitchen, a family-run Ballston spot whose plov and manti dumplings drew a Washingtonian recommendation and a Northern Virginia Magazine Best Restaurants nod.",
+  "closed": false,
+  "sources": [
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/reviews/2021/11/02/best-restaurants-2021-rus-uz/"],
+   ["WASHINGTONIAN", "https://washingtonian.com/2013/09/05/rus-uz-more-piroshkas-please/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "TYSONS",
+  "cz": ["Greek"],
+  "dish": "grilled octopus, whole fish, lamb, Greek meze",
+  "n": "Nostos",
+  "address": "8100 Boone Blvd, Vienna, VA 22182",
+  "w": "The upscale modern-Greek destination of Tysons/Vienna, a repeat Washingtonian 100 Very Best and ranked No. 2 on Northern Virginia Magazine's 2025 list of the 50 Best Restaurants in Northern Virginia.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2018/02/01/100-very-best-restaurants-90-nostos/"],
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/reviews/2025/10/24/the-50-best-restaurants-in-northern-virginia-of-2025/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "TYSONS",
+  "cz": ["Afghan"],
+  "dish": "kabuli pulao, aushak dumplings, lamb-and-okra stew",
+  "n": "Aracosia McLean",
+  "address": "1381 Beverly Rd, McLean, VA 22101",
+  "w": "Upscale Afghan cooking in McLean from the acclaimed Aracosia family; a Washingtonian 100 Very Best (2025 and 2026) whose sibling rooms Tom Sietsema of the Washington Post called the area's best Afghan.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/100-very-best-restaurants-2025/aracosia-afghania-bistro-aracosia/"],
+   ["WAPO", "https://www.washingtonpost.com/food/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "TYSONS",
+  "cz": ["New American", "European"],
+  "dish": "seasonal prix-fixe with a Lithuanian twist",
+  "n": "Maple Ave Restaurant",
+  "address": "147 Maple Ave W, Vienna, VA 22180",
+  "w": "A tiny women- and Latina-owned modern-European bistro in Vienna by chef Juste; a Washingtonian 100 Very Best pick and No. 9 on Northern Virginia Magazine's 50 Best list, known for its seasonal prix-fixe.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/100-very-best-restaurants-2025/"],
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/reviews/2025/10/24/the-50-best-restaurants-in-northern-virginia-of-2025/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "TYSONS",
+  "cz": ["Persian"],
+  "dish": "kubideh kebab, salmon kabob, shirin polo",
+  "n": "Amoo's",
+  "address": "6271 Old Dominion Dr, McLean, VA 22101",
+  "w": "A 27-year family-run Persian kebab house in a McLean strip mall whose kubideh and shirin polo earned a Washingtonian Cheap Eats nod and a Northern Virginia Magazine 'latest obsession' feature; Google 4.4 across 250+ reviews.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2015/06/11/amoos-restaurant/"],
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/reviews/2020/11/10/alices-latest-obsession-amoos-restaurant/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "TYSONS",
+  "cz": ["Japanese", "Izakaya"],
+  "dish": "binchotan robata skewers, sushi, izakaya small plates",
+  "n": "Wren",
+  "address": "1825 Capital One Dr S, Tysons, VA 22102",
+  "w": "A Japanese izakaya with binchotan robata and panoramic views atop the Watermark Hotel; on Washingtonian's Best Restaurants shortlist and named to the Washington Post's 25 best new restaurants of its year.",
+  "closed": false,
+  "sources": [
+   ["WAPO", "https://www.washingtonpost.com/food/2022/01/21/wren-restaurant-review/"],
+   ["WASHINGTONIAN", "https://washingtonian.com/2025/12/15/neighborhood-guide-things-to-do-in-tysons-and-vienna-2/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "TYSONS",
+  "cz": ["Turkish"],
+  "dish": "Turkish kebabs, mezze, the orange baklava",
+  "n": "Kazan",
+  "address": "6813 Redmond Dr, McLean, VA 22101",
+  "w": "A McLean Turkish institution since 1980, reviewed repeatedly by the Washington Post; owner Zeynel Uzun's orange baklava is the same sweet Queen Elizabeth II proclaimed her favorite on a 1971 visit to Turkey.",
+  "closed": false,
+  "sources": [
+   ["WAPO", "https://www.washingtonpost.com/archive/local/1984/05/31/kazan/f66a4c1e-5c68-4129-ac9a-0b2837420728/"],
+   ["FXVA", "https://www.kazanrestaurant.com/press"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "RESTON",
+  "cz": ["American", "Farm-to-Table"],
+  "dish": "from-scratch farm-to-table plates, house-baked bread, craft cocktails",
+  "n": "Founding Farmers Reston Station",
+  "address": "1904 Reston Metro Plz, Reston, VA 20190",
+  "w": "The farmer-owned, wildly popular flagship on the Silver Line at Reston Station; a multi-year RAMMY honoree from Farmers Restaurant Group and named the best farm-to-table in DC by Travel + Leisure, everything made from scratch.",
+  "closed": false,
+  "sources": [
+   ["RAMW", "https://www.ramw.org/restaurant/founding-farmers-reston"],
+   ["WASHINGTONORG", "https://washington.org/visit-dc/farm-to-table-restaurants-in-washington-dc"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "RESTON",
+  "cz": ["Peruvian"],
+  "dish": "ceviche, lomo saltado, pisco cocktails",
+  "n": "Pisco y Nazca Ceviche Gastrobar",
+  "address": "1871 Explorer St, Reston, VA 20190",
+  "w": "A bright Peruvian ceviche gastrobar at Reston Town Center bringing inventive Latin American plates and pisco to the Dulles corridor; a Northern Virginia Magazine First Bite review pick and a Visit Fairfax listing.",
+  "closed": false,
+  "sources": [
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/reviews/2023/08/11/pisco-y-nazca-ceviche-gastrobar-reston-review/"],
+   ["FXVA", "https://www.fxva.com/listing/pisco-y-nazca-ceviche-gastrobar/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "RESTON",
+  "cz": ["Italian"],
+  "dish": "veal chop, house pastas, red-sauce Tuscan classics",
+  "n": "Zeffirelli Ristorante Italiano",
+  "address": "728 Pine St, Herndon, VA 20170",
+  "w": "An old-world, candlelit Tuscan-Italian room in a century-old Herndon building, a white-tablecloth destination since 1991 famed for its veal chop; carries a 4.6 rating across 4,000-plus reviews and a longtime GAYOT recommendation.",
+  "closed": false,
+  "sources": [
+   ["GAYOT", "https://www.gayot.com/restaurants/zeffirelli-herndon-va-20170_33vg00402.html"],
+   ["OFFICIAL", "https://www.virginia.org/listing/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FCITY",
+  "cz": ["New American"],
+  "dish": "pho-spiced French onion soup, kimchi-tofu bouillabaisse, comfort food",
+  "n": "Ellie Bird",
+  "address": "125 Founders Ave, Falls Church, VA 22046",
+  "w": "The Falls Church comfort-food restaurant from Yuan and Carey Tang of Michelin-starred Rooster & Owl; winner of the 2024 RAMMY for New Restaurant of the Year and a Washingtonian 100 Very Best, with a New York Times nod.",
+  "closed": false,
+  "sources": [
+   ["WTOP", "https://wtop.com/business-finance/2024/07/falls-church-restaurant-ellie-bird-named-rammy-best-new-restaurant/"],
+   ["WASHINGTONIAN", "https://washingtonian.com/100-very-best-restaurants-2025/ellie-bird-3/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FCITY",
+  "cz": ["Italian"],
+  "dish": "handmade pasta (pappardelle with wild-boar ragu), olive-oil cake",
+  "n": "Thompson Italian",
+  "address": "124 N Washington St, Falls Church, VA 22046",
+  "w": "A husband-and-wife pasta-and-pastry powerhouse (Gabe from Le Bernardin, Katherine from Per Se) that has landed on Washingtonian's 100 Very Best repeatedly; a beloved Falls Church neighborhood Italian.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/100-very-best-restaurants-2025/thompson-italian/"],
+   ["ARLNOW", "https://www.arlnow.com/2024/01/24/falls-church-has-twice-as-many-restaurants-as-arlington-on-new-washingtonian-100-very-best-list/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FCITY",
+  "cz": ["Mexican", "Tacos"],
+  "dish": "creative tacos, tortas, al pastor",
+  "n": "Taco Bamba",
+  "address": "2190 Pimmit Dr, Falls Church, VA 22043",
+  "w": "Chef Victor Albisu's original Falls Church taqueria (2013), the cult-following flagship of the Taco Bamba empire; the James Beard semifinalist's creative tacos were called some of the best on the East Coast by Esquire.",
+  "closed": false,
+  "sources": [
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/2025/05/09/the-surprising-success-story-behind-taco-bamba-creator-victor-albisu/"],
+   ["FXVA", "https://www.fxva.com/listing/taco-bamba-taqueria-falls-church/2911/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FCITY",
+  "cz": ["Korean"],
+  "dish": "all-you-can-eat Korean barbecue, banchan",
+  "n": "Kogiya Korean BBQ",
+  "address": "4220 Annandale Rd, Annandale, VA 22003",
+  "w": "The standout of Annandale's Koreatown for tableside grilling, a Washingtonian 100 Very Best and Cheap Eats favorite whose meat quality and banchan spread set it above the block's many barbecue rooms.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2017/02/08/kogiya-owners-have-a-new-korean-barbecue-restaurant/"],
+   ["FXVA", "https://www.fxva.com/restaurants/cuisine-types/korean/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FCITY",
+  "cz": ["Chinese"],
+  "dish": "Peking duck carved tableside",
+  "n": "Peking Gourmet Inn",
+  "address": "6029 Leesburg Pike, Falls Church, VA 22041",
+  "w": "The famous Falls Church Peking-duck house since 1978 and a Bush-family favorite (their booth got Secret Service bulletproof glass); its lacquered duck is a Washingtonian-lauded regional institution.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2015/03/01/peking-duck-at-peking-gourmet-inn/"],
+   ["FXVA", "https://patch.com/virginia/fallschurch/falls-church-eatery-favorite-president-george-h-w-bush"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FCITY",
+  "cz": ["Taiwanese"],
+  "dish": "beef noodle soup, braised pork rice, Taiwanese small plates",
+  "n": "A&J Restaurant",
+  "address": "4316 Markham St, Annandale, VA 22003",
+  "w": "A cash-friendly Annandale outpost of the Taiwanese Tang-family chain, serving authentic Taiwanese and Northern Chinese street snacks; a longtime Washingtonian Cheap Eats pick and a Tyler Cowen ethnic-dining favorite.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2016/05/12/best-cheap-vietnamese-restaurants-around-dc/"],
+   ["FXVA", "https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FCITY",
+  "cz": ["Vietnamese"],
+  "dish": "banh mi (grilled-pork and meatball), pho",
+  "n": "Song Que Cafe",
+  "address": "6773 Wilson Blvd, Falls Church, VA 22044",
+  "w": "A go-to banh mi and Vietnamese deli inside Eden Center, the largest Vietnamese commercial hub on the East Coast; a repeat pick on Arlington Magazine's best-Vietnamese roundups and the Washington Post's Eden Center guide.",
+  "closed": false,
+  "sources": [
+   ["ARLNOW", "https://www.arlingtonmagazine.com/best-vietnamese-restaurants-in-arlington-and-falls-church-va/"],
+   ["WAPO", "https://www.washingtonpost.com/food/2021/04/05/eden-center-vietnamese-dishes/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FCITY",
+  "cz": ["Korean"],
+  "dish": "soondubu (soft-tofu stew), kimchi jjigae, galbitang",
+  "n": "To Sok Jip",
+  "address": "7211 Columbia Pike, Annandale, VA 22003",
+  "w": "A homey Annandale specialist in comforting Korean soups and stews, singled out by Washingtonian among the best cheap Korean around DC and featured on Visit Fairfax's Koreatown tours.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2017/07/17/best-cheap-korean-restaurants-around-dc-maryland-virginia/"],
+   ["FXVA", "https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FCITY",
+  "cz": ["Sichuan"],
+  "dish": "Chengdu-style Sichuan, dry-fried and mala dishes",
+  "n": "Hong Kong Palace",
+  "address": "6387 Leesburg Pike, Falls Church, VA 22044",
+  "w": "Despite the Cantonese name, a Seven Corners Sichuan kitchen widely rated among the best in the area; a two-time Washingtonian Cheap Eats pick and a Tyler Cowen and Northern Virginia Magazine favorite for authentic Chengdu cooking.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2015/02/19/7-must-try-chinese-restaurants-in-washington/"],
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/2023/11/07/dumplings-northern-virginia/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FCITY",
+  "cz": ["Vietnamese"],
+  "dish": "fresh house-made tofu (lemongrass, mushroom), che",
+  "n": "Thanh Son Tofu",
+  "address": "6793 Wilson Blvd, Falls Church, VA 22044",
+  "w": "Eden Center's famous fresh-tofu shop, making silky tofu in a range of flavors plus Vietnamese desserts; a signature stop on Arlington Magazine's Eden Center guide and Vietcetera's essential Little Saigon list.",
+  "closed": false,
+  "sources": [
+   ["ARLNOW", "https://www.arlingtonmagazine.com/best-restaurants-eden-center-falls-church-virginia/"],
+   ["VIETCETERA", "https://vietcetera.com/en/little-saigon-guide-the-best-vietnamese-food-in-falls-church-virginia"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FAIRFAX",
+  "cz": ["Thai"],
+  "dish": "banana-blossom salad, khao soi duck curry, crispy pork belly",
+  "n": "Elephant Jumps Thai Restaurant",
+  "address": "8110-A Arlington Blvd, Falls Church, VA 22042",
+  "w": "Chef Songtham Pinyolaksana's Merrifield Thai kitchen turning out consistently original, refined regional dishes; ranked No. 19 on Washingtonian's 100 Very Best and a longtime Tyler Cowen ethnic-dining pick.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/2023/01/25/100-very-best-restaurants-19-elephant-jumps/"],
+   ["TYLERCOWEN", "https://tylercowensethnicdiningguide.com/index.php/elephant-jumps/"]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "FAIRFAX",
+  "cz": ["Korean", "Barbecue"],
+  "dish": "prime and aged-beef Korean barbecue 'guides' (set menus)",
+  "n": "Honest Grill",
+  "address": "14215-H Centreville Sq, Centreville, VA 20121",
+  "w": "A Centreville Korean barbecue specialist offering prime and aged beef arranged in curated set-menu 'guides'; named to Washingtonian's 100 Very Best (2025) and Northern Virginia Magazine's 50 Best.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://washingtonian.com/100-very-best-restaurants-2025/honest-grill-2/"],
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/2025/06/06/8-places-to-eat-in-centreville-and-chantilly/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FAIRFAX",
+  "cz": ["American", "Seafood"],
+  "dish": "seafood and steaks in a New England boathouse setting",
+  "n": "Artie's",
+  "address": "3260 Old Lee Hwy, Fairfax, VA 22030",
+  "w": "A Fairfax City favorite from the beloved Great American Restaurants group since 1978, called 'the very best in Fairfax' by Washingtonian; a perennially packed, no-reservations American seafood-and-steak house.",
+  "closed": false,
+  "sources": [
+   ["WASHINGTONIAN", "https://www.artiesva.com/"],
+   ["FXVA", "https://www.fxva.com/listing/arties-classic-american/287/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FAIRFAX",
+  "cz": ["Thai"],
+  "dish": "Thai curries and noodles in a whimsical living-room setting",
+  "n": "Sisters Thai",
+  "address": "2985 District Ave, Fairfax, VA 22031",
+  "w": "The viral, whimsically-decorated Thai cafe at the Mosaic District, the owner's top-selling location; a Northern Virginia Magazine and Arlington Magazine favorite whose Instagram-famous rooms and Thai comfort food draw crowds.",
+  "closed": false,
+  "sources": [
+   ["NOVAMAG", "https://northernvirginiamag.com/food-and-drink/food-news/2015/06/04/sisters-thai-opens-second-location-in-mosaic-district-with-two-more-planned/"],
+   ["ARLNOW", "https://www.arlingtonmagazine.com/the-creative-force-behind-sisters-thai/"]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "FAIRFAX",
+  "cz": ["Wine Bar", "New American"],
+  "dish": "curated wine list, charcuterie, small plates",
+  "n": "The Wine House",
+  "address": "3950 University Dr Ste 212, Fairfax, VA 22030",
+  "w": "Old Town Fairfax's standout wine bar, voted Best Wine Bar by Northern Virginia Magazine three years running and Best Wine List by Virginia Living; a convivial small-plates-and-bottles room.",
+  "closed": false,
+  "sources": [
+   ["NOVAMAG", "https://northernvirginiamag.com/best/wineries-and-wine-bars/the-wine-house/"],
+   ["VIRGINIALIVING", "https://www.fxva.com/listing/the-wine-house/961/"]
+  ]
+ }
+]

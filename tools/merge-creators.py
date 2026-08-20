@@ -13,7 +13,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 key = (sys.argv[1] if len(sys.argv) > 1 else "").strip()
 if not key:
     print("usage: python3 tools/merge-creators.py <city-key>"); sys.exit(2)
-slug = key.rsplit("-", 1)[0]                      # cincinnati-oh -> cincinnati
+# Research dir: prefer the full key (washington-dc -> washington-dc-research); fall back to the
+# state-suffix-stripped slug (cincinnati-oh -> cincinnati-research). Handles both naming styles.
+_cand_full = os.path.join(ROOT, "data", f"{key}-research")
+slug = key if os.path.isdir(_cand_full) else key.rsplit("-", 1)[0]
 rdir = os.path.join(ROOT, "data", f"{slug}-research")
 cpath = os.path.join(rdir, "CREATORS.json")
 if not os.path.exists(cpath):

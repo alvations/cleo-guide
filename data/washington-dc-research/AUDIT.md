@@ -133,3 +133,44 @@ Artifacts: CREATORS.json (creators+attach+rejected), VIRAL_NOVA.json (4 new plac
 - Maggiano's, North Italia, Luna Food Hall (Tysons) — chains / new-opening buzz, no merit or creator virality. DROP.
 
 **Notes:** No coordinates written (geocoding is a separate stage). Shared files (sources.json/geocodes.json) untouched — orchestrator merges CREATORS.json via tools/merge-creators.py. Source keys used are all in consolidate.py's SRC_LABEL (WAPO, NOVAMAG, WTOP) plus the four new creator keys. WebSearch budget: ~11 searches used.
+
+---
+
+## Stage: NoVA suburbs food deepening (ARL / TYSONS / RESTON / FCITY / FAIRFAX) — FOOD_NOVA.json
+
+**Method.** WebSearch-only (WebFetch blocked). Started from each area's editorial of record (Northern
+Virginia Magazine 50 Best + Best-of-NoVA, Washingtonian 100 Very Best / Cheap Eats, Washington Post /
+Tom Sietsema, ARLnow/Arlington Magazine, WTOP, Visit Fairfax/FXVA, RAMMY finalists) plus Tyler Cowen's
+Ethnic Dining Guide for the immigrant-food bench. Measured every candidate (award/vote, major-press or
+verifiable rave, or high rating w/ real volume) before adding; fact-checked OPEN/CLOSED; NO coordinates.
+Cross-checked all names against dataset F — zero duplicates. ~18 searches used.
+
+**Added: 30 places** — ARL 6, TYSONS 6, RESTON 3, FCITY 10, FAIRFAX 5; every area ≥1 tier-1 (14 t1 / 16 t2).
+Each carries ≥2 credible sources (Yelp/TA/Google used only to measure, never cited).
+- ARL: El Pollo Rico (t1, Peruvian chicken), Texas Jack's BBQ (t1), Ruthie's All-Day (t1, JB-nom/RAMMY),
+  The Liberty Tavern (t1, Washingtonian 8yr), Maison Cheryl (t2, French), Rus Uz (t2, Uzbek).
+- TYSONS: Nostos (t1, Greek, NoVA #2), Aracosia McLean (t1, Afghan, Washn 100VB), Maple Ave (t2),
+  Amoo's (t2, Persian), Wren (t2, Japanese izakaya, WaPo 25-best-new), Kazan (t2, Turkish institution).
+- RESTON: Founding Farmers Reston Station (t1, RAMMY/T+L), Pisco y Nazca (t2, Peruvian), Zeffirelli (t2, Italian).
+- FCITY: Ellie Bird (t1, 2024 RAMMY New Rest), Thompson Italian (t1, Washn 100VB), Taco Bamba flagship (t1),
+  Kogiya (t1, Annandale KBBQ), Peking Gourmet Inn (t1, Peking duck), A&J (t2, Taiwanese), Song Que (t2,
+  Eden banh mi), To Sok Jip (t2, Korean stews), Hong Kong Palace (t2, Sichuan), Thanh Son Tofu (t2, Eden).
+- FAIRFAX: Elephant Jumps (t1, Thai, Washn #19), Honest Grill (t1, Centreville KBBQ, Washn 100VB),
+  Artie's (t2, GAR American), Sisters Thai Mosaic (t2, viral Thai), The Wine House (t2, wine bar).
+
+**Measured & dropped:**
+- Mokomandy (Sterling) — NoVA Mag #1 2019, but PERMANENTLY CLOSED 2020 (pandemic). Too long-closed for a live guide.
+- La Caraqueña (Falls Church) — Venezuelan, Washingtonian/DDD acclaim, but CLOSED 2017.
+- Water & Wall (Arlington) — Tim Ma New American, WaPo/Washingtonian praise, but CLOSED 2017.
+- Four Sisters (Merrifield) — famous Vietnamese, but the sit-down Merrifield location shows CLOSED (now Four Sisters Grill); status ambiguous, dropped to avoid presenting a closed room.
+- Bombay Bistro (Fairfax) — Fairfax location CLOSED (Rockville still open); dropped.
+- Bazin's on Church (Vienna) — 18-yr New American, SOLD and closed under old owners, revamping; status uncertain.
+- Sabores Tapas Bar (Arlington) — NoVA Mag + Yelp Top-100 US, but Yelp counts 0 and couldn't confirm a 2nd credible recommender in budget. HELD (re-add if a 2nd editorial source surfaces).
+- Kabob Bazaar (Arlington) — Persian since 1993, but merit thin (longevity only, no award/major-press); Persian already covered by Amoo's. DROP (padding).
+- Anatolian Bistro (Herndon) — 4.7 Turkish but low review volume, no major press; Turkish covered by Kazan. DROP.
+
+**Notes:** No coordinates (geocoding is a separate stage). Shared files untouched. NoVA Sisters Thai here is
+the established Mosaic District location (NoVA Mag review + Arlington Magazine feature) — distinct from the
+Tysons/Capital One opening a prior agent dropped as padding. Two non-palette source keys used pending
+registry wiring: TYLERCOWEN (Tyler Cowen's Ethnic Dining Guide) and VIETCETERA (Vietnamese editorial);
+GAYOT/ROADFOOD/STAYARLINGTON/VIRGINIALIVING/WASHINGTONORG also referenced as corroboration.

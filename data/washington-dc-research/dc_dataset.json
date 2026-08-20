@@ -43,6 +43,10 @@
   {
    "id": "FCITY",
    "n": "Falls Church, Annandale & Eden Center"
+  },
+  {
+   "id": "FAIRFAX",
+   "n": "Fairfax, Merrifield (Mosaic) & Chantilly"
   }
  ],
  "ac": {
@@ -56,7 +60,8 @@
   "ALEX": "#D99694",
   "TYSONS": "#2C7FB8",
   "RESTON": "#F2A900",
-  "FCITY": "#7BA05B"
+  "FCITY": "#7BA05B",
+  "FAIRFAX": "#A6588C"
  },
  "cuisines": [
   {
@@ -1520,8 +1525,8 @@
    ]
   },
   {
-   "t": 2,
-   "a": "FCITY",
+   "t": 1,
+   "a": "FAIRFAX",
    "n": "Mosaic District",
    "ad": "2910 District Ave, Fairfax, VA 22031",
    "w": "A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.",
@@ -1538,6 +1543,387 @@
     [
      "OFFICIAL",
      "https://www.mosaicdistrict.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "National Museum of the United States Army",
+   "ad": "1775 Liberty Dr, Fort Belvoir, VA 22060",
+   "w": "The Army's national museum on the public side of Fort Belvoir (no ID or pass needed), opened 2020, telling nearly 250 years of soldiers' stories through immersive galleries, real tanks and a rooftop overlook. Free admission and free parking; timed-entry tickets recommended.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.thenmusa.org/visit/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/must-see-experiences-at-the-national-museum-of-the-us-army/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Workhouse Arts Center",
+   "ad": "9518 Workhouse Way, Lorton, VA 22079",
+   "w": "A 55-acre arts campus in the repurposed Lorton Reformatory, with a dozen galleries, 65-plus resident artist studios, live theater and music, and the Lucy Burns Museum on the suffragists jailed here. Second-Saturday open houses, Brewfest and a July 4 festival draw crowds; galleries free to browse.",
+   "k": "art",
+   "g": [
+    "MUS",
+    "HIST",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "FXVA",
+     "https://www.fxva.com/workhouse-arts-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Workhouse_Arts_Center"
+    ],
+    [
+     "VIRGINIA",
+     "https://www.virginia.org/listing/workhouse-arts-center/4974/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Old Town Fairfax",
+   "ad": "10209 Main St, Fairfax, VA 22030",
+   "w": "The historic core of the City of Fairfax around Old Town Square and the 1900 Old Town Hall, with boutiques, sidewalk cafes, the Fairfax Museum & Visitor Center in an 1873 schoolhouse, and festivals from Chocolate Lovers to Fall for the Book. Free spring/fall walking tours cover the Civil War-era streets.",
+   "k": "district",
+   "g": [
+    "MUS",
+    "HIST",
+    "SHOP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/style/shopping/2022/02/03/old-town-fairfax/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/explore/discover-neighborhoods/fairfax/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Sully Historic Site",
+   "ad": "3650 Historic Sully Way, Chantilly, VA 20151",
+   "w": "The 1794 home of Richard Bland Lee, Northern Virginia's first congressman and uncle of Robert E. Lee, preserved by the Fairfax County Park Authority beside Dulles Airport. Guided house tours plus a 'Forgotten Road' walking tour of the original outbuildings and enslaved-workers' quarters; grounds and trails are free.",
+   "k": "historic",
+   "g": [
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/sully-historic-site"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sully_Historic_Site"
+    ],
+    [
+     "VIRGINIA",
+     "https://www.virginia.org/listing/sully-historic-site/4593/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Lake Anne Plaza",
+   "ad": "1609 Washington Plaza N, Reston, VA 20190",
+   "w": "Reston's original 1960s village center on the National Register of Historic Places, a modernist waterfront plaza founder Robert E. Simon designed and lived above, with a boardwalk, restaurants, a Saturday farmers market and kayak rentals on the lake. The 'Bronze Bob' bench statue honors Simon lakeside.",
+   "k": "district",
+   "g": [
+    "MON",
+    "HIST",
+    "VIEW",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "FXVA",
+     "https://www.fxva.com/explore/discover-neighborhoods/reston/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lake_Anne"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Frying Pan Farm Park",
+   "ad": "2709 W Ox Rd, Herndon, VA 22071",
+   "w": "A 130-acre Fairfax County working 1930s-era farm with 100-plus animals to meet, a restored 1918 Herschell carousel, wagon rides, a country store and nature trails. Free admission and parking (rides carry small fees); a favorite family day out near Herndon.",
+   "k": "family",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/frying-pan-park"
+    ],
+    [
+     "AAA",
+     "https://www.aaa.com/travelinfo/virginia/herndon/attractions/frying-pan-farm-park-543702.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Washington & Old Dominion Trail",
+   "ad": "Herndon Depot, 717 Lynn St, Herndon, VA 20170",
+   "w": "A 45-mile paved rail-trail on a former railroad bed, running from Shirlington in Arlington out through Falls Church, Vienna, Reston, Herndon and Leesburg to Purcellville, and used by roughly two million walkers, cyclists and runners a year. The Herndon Depot marks a classic downtown trailhead; managed by NOVA Parks.",
+   "k": "trail",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NOVAPARKS",
+     "https://www.novaparks.com/parks/washington-and-old-dominion-railroad-regional-park"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/best-stops-along-the-wod-trail/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_and_Old_Dominion_Railroad_Regional_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Clemyjontri Park",
+   "ad": "6317 Georgetown Pike, McLean, VA 22101",
+   "w": "Virginia's first fully accessible playground (2006), a two-acre space where children of all abilities play side by side across four themed 'rooms,' with rubberized surfacing, a Liberty wheelchair swing and a ground-level, wheelchair-accessible carousel. Free; a trackless train runs seasonally.",
+   "k": "family",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/clemyjontri"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/clemyjontri-park/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/urban-parks-clemyjontri-park/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Tysons Corner Center",
+   "ad": "1961 Chain Bridge Rd, Tysons, VA 22102",
+   "w": "One of the largest shopping malls on the East Coast, open since 1968 with 300-plus stores including Apple, Nordstrom and Bloomingdale's, plus an AMC theater and the 1.5-acre outdoor PenFed Plaza that hosts concerts, holiday light shows and family events. On the Silver Line at Tysons.",
+   "k": "district",
+   "g": [
+    "ENT",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "FXVA",
+     "https://www.fxva.com/explore/discover-neighborhoods/tysons-corner/shopping/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/things-to-do/2025/11/06/6-holiday-events-coming-to-tysons-corner-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tysons_Corner_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Observatory Park at Turner Farm",
+   "ad": "925 Springvale Rd, Great Falls, VA 22066",
+   "w": "A Fairfax County park in Great Falls whose observatory holds three permanent telescopes under a roll-off roof, run with the volunteer Analemma Society for free Friday-night public viewing. In 2026 it earned an International Dark Sky 'Urban Night Sky Place' designation - a rare dark sky this close to DC. Programs require advance registration.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.fairfaxcounty.gov/parks/turner-farm"
+    ],
+    [
+     "FFXNOW",
+     "https://www.ffxnow.com/2026/01/22/turner-farm-earns-urban-night-sky-designation-for-efforts-to-limit-light-pollution/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Long Bridge Park",
+   "ad": "333 Long Bridge Dr, Arlington, VA 22202",
+   "w": "A 36-acre Arlington County park between Crystal City and the 14th Street Bridge, with a three-quarter-mile esplanade delivering monumental Potomac and DC skyline views for walking, birdwatching and plane-spotting, plus a $60M aquatics-and-fitness center with a competition pool, lazy river and slides. Free grounds; center is ticketed.",
+   "k": "waterfront",
+   "g": [
+    "MON",
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.arlingtonva.us/Government/Departments/Parks-Recreation/Locations/Parks/Long-Bridge-Park"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2021/08/23/long-bridge-aquatics-and-fitness-center-now-open/"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/blog/beat-the-summer-heat-in-arlington-county/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Signature Theatre",
+   "ad": "4200 Campbell Ave, Arlington, VA 22206",
+   "w": "A Tony Award-winning professional theater (2009 Regional Theatre Tony) in the Village at Shirlington, called a 'musical theater powerhouse' by The Washington Post, staging Broadway-caliber musicals and premieres in two intimate spaces. Winner of 100-plus Helen Hayes Awards and the cultural anchor of Shirlington.",
+   "k": "entertainment",
+   "g": [
+    "HIST",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Signature_Theatre_(Arlington,_Virginia)"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/directory/signature-theatre/"
+    ],
+    [
+     "VIRGINIA",
+     "https://www.virginia.org/listing/signature-theatre/14887/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "DEA Museum",
+   "ad": "700 Army Navy Dr, Arlington, VA 22202",
+   "w": "The Drug Enforcement Administration's free museum by Pentagon City, reopened after a two-year renovation with the interactive 'Illegal Drugs in America: A Modern History' exhibit tracing trafficking from the 1850s opium wars to today. Open Tuesday-Saturday; steps from the Pentagon City Metro.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "GOV",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://museum.dea.gov/"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/blog/dea-museum-reopens/"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/dea-drug-enforcement-agency-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Dark Star Park",
+   "ad": "1655 N Fort Myer Dr, Arlington, VA 22209",
+   "w": "Land-art pioneer Nancy Holt's 1984 public park in Rosslyn - Arlington's first commissioned public artwork - where concrete spheres pose as fallen stars. Once a year, at 9:32 a.m. on August 1, the sculpture's shadows align exactly with shapes set into the ground, marking the anniversary of Rosslyn's founding.",
+   "k": "art",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/local/the-shadows-align-at-rosslyns-dark-star-park/2015/08/01/43f3acb2-37c3-11e5-b673-1df005a0fb28_story.html"
+    ],
+    [
+     "ARLMAG",
+     "https://www.arlingtonmagazine.com/when-stars-align-dark-star-park/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2026/07/29/art-focus-once-a-year-the-sun-completes-nancy-holts-vision-at-dark-star-park-aed1/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Ballston Quarter",
+   "ad": "4238 Wilson Blvd, Arlington, VA 22203",
+   "w": "A revitalized mixed-use district on the Orange/Silver Line, centered on the Quarter Market food hall (18 globally-inspired stalls), Punch Bowl Social, and the MedStar Capitals Iceplex where the Washington Capitals practice and the public can skate. A walkable Arlington dining-and-entertainment hub.",
+   "k": "district",
+   "g": [
+    "HIST",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/directory/ballston-quarter/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.ballstonquarter.com/en/"
     ]
    ]
   }
@@ -2695,20 +3081,750 @@
      "https://www.fxva.com/listing/2941-restaurant/1003/"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "El Pollo Rico",
+   "ad": "932 N Kenmore St, Arlington, VA 22201",
+   "w": "Arlington's legendary Peruvian charcoal-chicken counter in Virginia Square, a decades-old cult institution whose aroma reaches a block away; a Washingtonian award winner for Best Peruvian Chicken and a Roadfood-anointed classic.",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "ROADFOOD",
+     "https://roadfood.com/restaurants/el-pollo-rico"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://elpollorico.com/press/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Texas Jack's Barbecue",
+   "ad": "2761 Washington Blvd, Arlington, VA 22201",
+   "w": "Lone Star-style smoked brisket and beef ribs in Lyon Park; named the No. 1 best barbecue joint in the DC area by the Washington Post multiple years running and a fixture of the Arlington dining scene since 2015.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.txjacks.com/news-item/texas-jacks-named-1-best-barbecue-joint-in-the-dc-area-again/"
+    ],
+    [
+     "STAYARLINGTON",
+     "https://www.stayarlington.com/directory/texas-jacks-barbecue/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Ruthie's All-Day",
+   "ad": "3411 5th St S, Arlington, VA 22204",
+   "w": "James Beard-nominated chef Matt Hill's family-friendly Southern smokehouse; a 2022 RAMMY winner and voted the No. 1 reader-favorite restaurant in Virginia by Washingtonian, with a Washington Post rave for its barbecue and brunch biscuits.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2022/07/25/ruthies-all-day-and-owners-of-shirlingtons-chiko-were-served-up-rammy-wins-last-night/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/lifestyle/food/ruthies-all-day-restaurant-review/2021/04/29/9dfa344c-a45a-11eb-a7ee-949c574a09ac_story.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "The Liberty Tavern",
+   "ad": "3195 Wilson Blvd, Arlington, VA 22201",
+   "w": "Clarendon's benchmark neighborhood restaurant, on Washingtonian's 100 Very Best list for eight consecutive years with multiple RAMMY nominations and a Washington Post Editor's Pick; everything from bread to pasta is made in-house.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2015/01/12/100-very-best-restaurants-2015-no-86-liberty-tavern/"
+    ],
+    [
+     "RAMW",
+     "https://www.thelibertytavern.com/about/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Maison Cheryl",
+   "ad": "2900 Wilson Blvd, Arlington, VA 22201",
+   "w": "A chic French New-American bistro in the heart of Clarendon executing comforting classics with classic French technique; reviewed favorably by Northern Virginia Magazine and covered as a Clarendon draw by ARLnow.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2022/01/28/online-exclusive-review-maison-cheryl/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2021/08/25/maison-cheryl-in-clarendon-promises-chic-atmosphere-for-older-millennials/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ARL",
+   "n": "Rus Uz",
+   "ad": "1000 N Randolph St, Arlington, VA 22201",
+   "w": "The area's only Russian-Uzbek kitchen, a family-run Ballston spot whose plov and manti dumplings drew a Washingtonian recommendation and a Northern Virginia Magazine Best Restaurants nod.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2021/11/02/best-restaurants-2021-rus-uz/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2013/09/05/rus-uz-more-piroshkas-please/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Nostos",
+   "ad": "8100 Boone Blvd, Vienna, VA 22182",
+   "w": "The upscale modern-Greek destination of Tysons/Vienna, a repeat Washingtonian 100 Very Best and ranked No. 2 on Northern Virginia Magazine's 2025 list of the 50 Best Restaurants in Northern Virginia.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2018/02/01/100-very-best-restaurants-90-nostos/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2025/10/24/the-50-best-restaurants-in-northern-virginia-of-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Aracosia McLean",
+   "ad": "1381 Beverly Rd, McLean, VA 22101",
+   "w": "Upscale Afghan cooking in McLean from the acclaimed Aracosia family; a Washingtonian 100 Very Best (2025 and 2026) whose sibling rooms Tom Sietsema of the Washington Post called the area's best Afghan.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/aracosia-afghania-bistro-aracosia/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Maple Ave Restaurant",
+   "ad": "147 Maple Ave W, Vienna, VA 22180",
+   "w": "A tiny women- and Latina-owned modern-European bistro in Vienna by chef Juste; a Washingtonian 100 Very Best pick and No. 9 on Northern Virginia Magazine's 50 Best list, known for its seasonal prix-fixe.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2025/10/24/the-50-best-restaurants-in-northern-virginia-of-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Amoo's",
+   "ad": "6271 Old Dominion Dr, McLean, VA 22101",
+   "w": "A 27-year family-run Persian kebab house in a McLean strip mall whose kubideh and shirin polo earned a Washingtonian Cheap Eats nod and a Northern Virginia Magazine 'latest obsession' feature; Google 4.4 across 250+ reviews.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2015/06/11/amoos-restaurant/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2020/11/10/alices-latest-obsession-amoos-restaurant/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Wren",
+   "ad": "1825 Capital One Dr S, Tysons, VA 22102",
+   "w": "A Japanese izakaya with binchotan robata and panoramic views atop the Watermark Hotel; on Washingtonian's Best Restaurants shortlist and named to the Washington Post's 25 best new restaurants of its year.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2022/01/21/wren-restaurant-review/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2025/12/15/neighborhood-guide-things-to-do-in-tysons-and-vienna-2/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Kazan",
+   "ad": "6813 Redmond Dr, McLean, VA 22101",
+   "w": "A McLean Turkish institution since 1980, reviewed repeatedly by the Washington Post; owner Zeynel Uzun's orange baklava is the same sweet Queen Elizabeth II proclaimed her favorite on a 1971 visit to Turkey.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/archive/local/1984/05/31/kazan/f66a4c1e-5c68-4129-ac9a-0b2837420728/"
+    ],
+    [
+     "FXVA",
+     "https://www.kazanrestaurant.com/press"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RESTON",
+   "n": "Founding Farmers Reston Station",
+   "ad": "1904 Reston Metro Plz, Reston, VA 20190",
+   "w": "The farmer-owned, wildly popular flagship on the Silver Line at Reston Station; a multi-year RAMMY honoree from Farmers Restaurant Group and named the best farm-to-table in DC by Travel + Leisure, everything made from scratch.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "RAMW",
+     "https://www.ramw.org/restaurant/founding-farmers-reston"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/visit-dc/farm-to-table-restaurants-in-washington-dc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Pisco y Nazca Ceviche Gastrobar",
+   "ad": "1871 Explorer St, Reston, VA 20190",
+   "w": "A bright Peruvian ceviche gastrobar at Reston Town Center bringing inventive Latin American plates and pisco to the Dulles corridor; a Northern Virginia Magazine First Bite review pick and a Visit Fairfax listing.",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2023/08/11/pisco-y-nazca-ceviche-gastrobar-reston-review/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/pisco-y-nazca-ceviche-gastrobar/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Zeffirelli Ristorante Italiano",
+   "ad": "728 Pine St, Herndon, VA 20170",
+   "w": "An old-world, candlelit Tuscan-Italian room in a century-old Herndon building, a white-tablecloth destination since 1991 famed for its veal chop; carries a 4.6 rating across 4,000-plus reviews and a longtime GAYOT recommendation.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "GAYOT",
+     "https://www.gayot.com/restaurants/zeffirelli-herndon-va-20170_33vg00402.html"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.virginia.org/listing/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Ellie Bird",
+   "ad": "125 Founders Ave, Falls Church, VA 22046",
+   "w": "The Falls Church comfort-food restaurant from Yuan and Carey Tang of Michelin-starred Rooster & Owl; winner of the 2024 RAMMY for New Restaurant of the Year and a Washingtonian 100 Very Best, with a New York Times nod.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WTOP",
+     "https://wtop.com/business-finance/2024/07/falls-church-restaurant-ellie-bird-named-rammy-best-new-restaurant/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/ellie-bird-3/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Thompson Italian",
+   "ad": "124 N Washington St, Falls Church, VA 22046",
+   "w": "A husband-and-wife pasta-and-pastry powerhouse (Gabe from Le Bernardin, Katherine from Per Se) that has landed on Washingtonian's 100 Very Best repeatedly; a beloved Falls Church neighborhood Italian.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/thompson-italian/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2024/01/24/falls-church-has-twice-as-many-restaurants-as-arlington-on-new-washingtonian-100-very-best-list/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Taco Bamba",
+   "ad": "2190 Pimmit Dr, Falls Church, VA 22043",
+   "w": "Chef Victor Albisu's original Falls Church taqueria (2013), the cult-following flagship of the Taco Bamba empire; the James Beard semifinalist's creative tacos were called some of the best on the East Coast by Esquire.",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/2025/05/09/the-surprising-success-story-behind-taco-bamba-creator-victor-albisu/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/taco-bamba-taqueria-falls-church/2911/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Kogiya Korean BBQ",
+   "ad": "4220 Annandale Rd, Annandale, VA 22003",
+   "w": "The standout of Annandale's Koreatown for tableside grilling, a Washingtonian 100 Very Best and Cheap Eats favorite whose meat quality and banchan spread set it above the block's many barbecue rooms.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2017/02/08/kogiya-owners-have-a-new-korean-barbecue-restaurant/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/restaurants/cuisine-types/korean/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Peking Gourmet Inn",
+   "ad": "6029 Leesburg Pike, Falls Church, VA 22041",
+   "w": "The famous Falls Church Peking-duck house since 1978 and a Bush-family favorite (their booth got Secret Service bulletproof glass); its lacquered duck is a Washingtonian-lauded regional institution.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2015/03/01/peking-duck-at-peking-gourmet-inn/"
+    ],
+    [
+     "FXVA",
+     "https://patch.com/virginia/fallschurch/falls-church-eatery-favorite-president-george-h-w-bush"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "A&J Restaurant",
+   "ad": "4316 Markham St, Annandale, VA 22003",
+   "w": "A cash-friendly Annandale outpost of the Taiwanese Tang-family chain, serving authentic Taiwanese and Northern Chinese street snacks; a longtime Washingtonian Cheap Eats pick and a Tyler Cowen ethnic-dining favorite.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2016/05/12/best-cheap-vietnamese-restaurants-around-dc/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Song Que Cafe",
+   "ad": "6773 Wilson Blvd, Falls Church, VA 22044",
+   "w": "A go-to banh mi and Vietnamese deli inside Eden Center, the largest Vietnamese commercial hub on the East Coast; a repeat pick on Arlington Magazine's best-Vietnamese roundups and the Washington Post's Eden Center guide.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlingtonmagazine.com/best-vietnamese-restaurants-in-arlington-and-falls-church-va/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2021/04/05/eden-center-vietnamese-dishes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "To Sok Jip",
+   "ad": "7211 Columbia Pike, Annandale, VA 22003",
+   "w": "A homey Annandale specialist in comforting Korean soups and stews, singled out by Washingtonian among the best cheap Korean around DC and featured on Visit Fairfax's Koreatown tours.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2017/07/17/best-cheap-korean-restaurants-around-dc-maryland-virginia/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Hong Kong Palace",
+   "ad": "6387 Leesburg Pike, Falls Church, VA 22044",
+   "w": "Despite the Cantonese name, a Seven Corners Sichuan kitchen widely rated among the best in the area; a two-time Washingtonian Cheap Eats pick and a Tyler Cowen and Northern Virginia Magazine favorite for authentic Chengdu cooking.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2015/02/19/7-must-try-chinese-restaurants-in-washington/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/2023/11/07/dumplings-northern-virginia/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Thanh Son Tofu",
+   "ad": "6793 Wilson Blvd, Falls Church, VA 22044",
+   "w": "Eden Center's famous fresh-tofu shop, making silky tofu in a range of flavors plus Vietnamese desserts; a signature stop on Arlington Magazine's Eden Center guide and Vietcetera's essential Little Saigon list.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "ARLNOW",
+     "https://www.arlingtonmagazine.com/best-restaurants-eden-center-falls-church-virginia/"
+    ],
+    [
+     "VIETCETERA",
+     "https://vietcetera.com/en/little-saigon-guide-the-best-vietnamese-food-in-falls-church-virginia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "Elephant Jumps Thai Restaurant",
+   "ad": "8110-A Arlington Blvd, Falls Church, VA 22042",
+   "w": "Chef Songtham Pinyolaksana's Merrifield Thai kitchen turning out consistently original, refined regional dishes; ranked No. 19 on Washingtonian's 100 Very Best and a longtime Tyler Cowen ethnic-dining pick.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2023/01/25/100-very-best-restaurants-19-elephant-jumps/"
+    ],
+    [
+     "TYLERCOWEN",
+     "https://tylercowensethnicdiningguide.com/index.php/elephant-jumps/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "Honest Grill",
+   "ad": "14215-H Centreville Sq, Centreville, VA 20121",
+   "w": "A Centreville Korean barbecue specialist offering prime and aged beef arranged in curated set-menu 'guides'; named to Washingtonian's 100 Very Best (2025) and Northern Virginia Magazine's 50 Best.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/honest-grill-2/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/2025/06/06/8-places-to-eat-in-centreville-and-chantilly/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Artie's",
+   "ad": "3260 Old Lee Hwy, Fairfax, VA 22030",
+   "w": "A Fairfax City favorite from the beloved Great American Restaurants group since 1978, called 'the very best in Fairfax' by Washingtonian; a perennially packed, no-reservations American seafood-and-steak house.",
+   "cz": [
+    "US",
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.artiesva.com/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/listing/arties-classic-american/287/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Sisters Thai",
+   "ad": "2985 District Ave, Fairfax, VA 22031",
+   "w": "The viral, whimsically-decorated Thai cafe at the Mosaic District, the owner's top-selling location; a Northern Virginia Magazine and Arlington Magazine favorite whose Instagram-famous rooms and Thai comfort food draw crowds.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/food-news/2015/06/04/sisters-thai-opens-second-location-in-mosaic-district-with-two-more-planned/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlingtonmagazine.com/the-creative-force-behind-sisters-thai/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "The Wine House",
+   "ad": "3950 University Dr Ste 212, Fairfax, VA 22030",
+   "w": "Old Town Fairfax's standout wine bar, voted Best Wine Bar by Northern Virginia Magazine three years running and Best Wine List by Virginia Living; a convivial small-plates-and-bottles room.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/best/wineries-and-wine-bars/the-wine-house/"
+    ],
+    [
+     "VIRGINIALIVING",
+     "https://www.fxva.com/listing/the-wine-house/961/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Truong Tien",
+   "ad": "6763 Wilson Blvd #6D, Falls Church, VA 22044",
+   "w": "Eden Center's Hue-royal-cuisine specialist under the clock tower, plating central-Vietnamese rarities (bun bo Hue, banh khoai) seldom found in the DC area. The Washington Post's Tim Carman reviewed it as 'Eden Center's newest jewel... fit for royalty'; NoVA food couple Hypefoodies (~120K IG) put it on the map with a viral Eden Center reel. Open (Yelp, June 2026, 4.5+ across 170+ reviews).",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2023/10/30/truong-tien-review/"
+    ],
+    [
+     "HYPEFOODIES",
+     "https://www.tiktok.com/@hypefoodies/video/7281293878265646378"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Flavor Hive",
+   "ad": "4260 John Marr Dr, Annandale, VA 22003",
+   "w": "The DMV's most viral food phenomenon of 2024-25: a halal 'bring-your-own-bag-of-chips' bowl concept from recipe creator Shihan Chowdhury (@chilipeppercooks, ~1.8M TikTok) and Amgd Gende that drew lines down the block as a food truck and opened its first brick-and-mortar here in Annandale in July 2025. Northern Virginia Magazine's First Bite review said it 'lives up to its name'; WTOP called it the area's most viral culinary sensation; Keith Lee featured it on his DMV tour. Open and expanding (NoVA Mag, March 2026).",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/food-news/2025/08/29/first-bite-review-the-first-brick-and-mortar-flavor-hive-in-annandale-lives-up-to-its-name/"
+    ],
+    [
+     "WTOP",
+     "https://wtop.com/matt-about-town/2025/08/dc-areas-most-viral-culinary-sensation-flavor-hive-opens-new-doors/"
+    ],
+    [
+     "CHILIPEPPERCOOKS",
+     "https://www.instagram.com/chilipeppercooks/"
+    ],
+    [
+     "KEITHLEE",
+     "https://wjla.com/news/local/keith-lee-125-list-restaurants-viral-tiktok-food-critic-dc-maryland-virginia-okonomi-asian-grill-flavor-hive-food-truck-dukem-ethopian-cane-carribbean-street-jerk-at-night-hong-kong-carryout-smize-dream"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "Okonomi Asian Grill",
+   "ad": "9623 Fairfax Blvd, Fairfax, VA 22031",
+   "w": "The Korean-Vietnamese build-your-own-bowl spot a local dubbed 'the Asian Chipotle,' turned a NoVA phenomenon after Keith Lee (~17M TikTok) opened his 2024 DMV tour here and rated the lemongrass chicken bowl 8.5/10 — the shop went from ~100 to nearly 1,000 orders a day. Covered by the Washington Post and WUSA9. Open (Yelp, July 2026, 160+ reviews).",
+   "cz": [
+    "KOREAN",
+    "VIET"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2024/08/22/keith-lee-tiktok-restaurant-fairfax-okonomi/"
+    ],
+    [
+     "KEITHLEE",
+     "https://www.tiktok.com/@keith_lee125/video/7405430595867692318"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Toimoi Bakery",
+   "ad": "4520 Daly Dr, Chantilly, VA 20151",
+   "w": "The viral Asian-inspired croissant bakery (cube croissants; the cream-filled 'Supreme'; cherry-blossom, pistachio-rose, ube flavors) that grew from NoVA farmers-markets to a Chantilly storefront and is opening a permanent Mosaic District space. Arlington Magazine's 'Eat This Now' spotlighted the croissants and NoVA food creator Sandie S. (@adorkandherfork, ~52K) reeled it to a wider audience. Open (Yelp, July 2026, 4.5+ across 120+ reviews).",
+   "cz": [
+    "ICE",
+    "VIET"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/food-news/2026/07/30/toimoi-bakery-to-open-permanent-space-in-mosaic/"
+    ],
+    [
+     "ADORKANDHERFORK",
+     "https://www.instagram.com/adorkandherfork/reel/C8ApnOLyd1M/"
+    ]
+   ]
   }
  ],
  "S": {
+  "AAA": {
+   "k": "AAA",
+   "t": "AAA Travel",
+   "u": "https://www.aaa.com/",
+   "l": "AAA Travel"
+  },
+  "ARLMAG": {
+   "k": "ARLMAG",
+   "t": "Arlington Magazine",
+   "u": "https://www.arlingtonmagazine.com/",
+   "l": "Arlington Magazine"
+  },
+  "ARLNOW": {
+   "k": "ARLNOW",
+   "t": "ARLnow (Arlington local news)",
+   "u": "https://www.arlnow.com/",
+   "l": "ARLnow (Arlington local news)"
+  },
   "ATLASOBSCURA": {
    "k": "ATLAS OBSCURA",
    "t": "Atlas Obscura",
    "u": "https://www.atlasobscura.com/",
    "l": "Atlas Obscura"
   },
+  "FFXNOW": {
+   "k": "FFXNOW",
+   "t": "FFXnow (Fairfax County local news)",
+   "u": "https://www.ffxnow.com/",
+   "l": "FFXnow (Fairfax County local news)"
+  },
   "FXVA": {
    "k": "FAIRFAX CVB",
    "t": "Visit Fairfax (FXVA)",
    "u": "https://www.fxva.com/",
    "l": "Visit Fairfax (FXVA)"
+  },
+  "NOVAMAG": {
+   "k": "NORTHERN VIRGINIA MAG",
+   "t": "Northern Virginia Magazine",
+   "u": "https://northernvirginiamag.com/",
+   "l": "Northern Virginia Magazine"
+  },
+  "NOVAPARKS": {
+   "k": "NOVAPARKS",
+   "t": "NOVA Parks (Northern Virginia Regional Park Authority)",
+   "u": "https://www.novaparks.com/",
+   "l": "NOVA Parks (Northern Virginia Regional Park Authority)"
   },
   "NPS": {
    "k": "NATIONAL PARK SVC",
@@ -2728,11 +3844,29 @@
    "u": "https://www.si.edu/",
    "l": "Smithsonian Institution"
   },
+  "STAYARLINGTON": {
+   "k": "STAYARLINGTON",
+   "t": "Arlington Convention & Visitors Service (stayArlington)",
+   "u": "https://www.stayarlington.com/",
+   "l": "Arlington Convention & Visitors Service (stayArlington)"
+  },
+  "VIRGINIA": {
+   "k": "VIRGINIA",
+   "t": "Virginia.org (Virginia Tourism Corporation)",
+   "u": "https://www.virginia.org/",
+   "l": "Virginia.org (Virginia Tourism Corporation)"
+  },
   "VISITALEX": {
    "k": "VISIT ALEXANDRIA",
    "t": "Visit Alexandria",
    "u": "https://www.visitalexandria.com/",
    "l": "Visit Alexandria"
+  },
+  "WAPO": {
+   "k": "WASHINGTON POST",
+   "t": "The Washington Post",
+   "u": "https://www.washingtonpost.com/",
+   "l": "The Washington Post"
   },
   "WASHINGTONORG": {
    "k": "DESTINATION DC",
@@ -2748,17 +3882,29 @@
   }
  },
  "FS": {
-  "ARLNOW": {
-   "k": "ARLNOW",
-   "t": "ARLNOW",
+  "ADORKANDHERFORK": {
+   "k": "ADORKANDHERFORK",
+   "t": "ADORKANDHERFORK",
    "u": "",
    "l": ""
+  },
+  "ARLNOW": {
+   "k": "ARLNOW",
+   "t": "ARLnow (Arlington local news)",
+   "u": "https://www.arlnow.com/",
+   "l": "ARLnow (Arlington local news)"
   },
   "ATLASOBSCURA": {
    "k": "ATLAS OBSCURA",
    "t": "Atlas Obscura",
    "u": "https://www.atlasobscura.com/",
    "l": "Atlas Obscura"
+  },
+  "CHILIPEPPERCOOKS": {
+   "k": "CHILIPEPPERCOOKS",
+   "t": "CHILIPEPPERCOOKS",
+   "u": "",
+   "l": ""
   },
   "DCIST": {
    "k": "DCIST / WAMU",
@@ -2778,9 +3924,27 @@
    "u": "https://www.fxva.com/",
    "l": "Visit Fairfax (FXVA)"
   },
+  "GAYOT": {
+   "k": "GAYOT",
+   "t": "GAYOT",
+   "u": "",
+   "l": ""
+  },
+  "HYPEFOODIES": {
+   "k": "HYPEFOODIES",
+   "t": "HYPEFOODIES",
+   "u": "",
+   "l": ""
+  },
   "JAMESBEARD": {
    "k": "JAMES BEARD",
    "t": "JAMES BEARD",
+   "u": "",
+   "l": ""
+  },
+  "KEITHLEE": {
+   "k": "KEITHLEE",
+   "t": "KEITHLEE",
    "u": "",
    "l": ""
   },
@@ -2804,9 +3968,9 @@
   },
   "NOVAMAG": {
    "k": "NORTHERN VIRGINIA MAG",
-   "t": "NORTHERN VIRGINIA MAG",
-   "u": "",
-   "l": ""
+   "t": "Northern Virginia Magazine",
+   "u": "https://northernvirginiamag.com/",
+   "l": "Northern Virginia Magazine"
   },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
@@ -2820,9 +3984,39 @@
    "u": "",
    "l": ""
   },
+  "ROADFOOD": {
+   "k": "ROADFOOD",
+   "t": "ROADFOOD",
+   "u": "",
+   "l": ""
+  },
+  "STAYARLINGTON": {
+   "k": "STAYARLINGTON",
+   "t": "Arlington Convention & Visitors Service (stayArlington)",
+   "u": "https://www.stayarlington.com/",
+   "l": "Arlington Convention & Visitors Service (stayArlington)"
+  },
+  "TYLERCOWEN": {
+   "k": "TYLERCOWEN",
+   "t": "TYLERCOWEN",
+   "u": "",
+   "l": ""
+  },
   "USATODAY": {
    "k": "USA TODAY 10BEST",
    "t": "USA TODAY 10BEST",
+   "u": "",
+   "l": ""
+  },
+  "VIETCETERA": {
+   "k": "VIETCETERA",
+   "t": "VIETCETERA",
+   "u": "",
+   "l": ""
+  },
+  "VIRGINIALIVING": {
+   "k": "VIRGINIALIVING",
+   "t": "VIRGINIALIVING",
    "u": "",
    "l": ""
   },
@@ -2834,9 +4028,9 @@
   },
   "WAPO": {
    "k": "WASHINGTON POST",
-   "t": "WASHINGTON POST",
-   "u": "",
-   "l": ""
+   "t": "The Washington Post",
+   "u": "https://www.washingtonpost.com/",
+   "l": "The Washington Post"
   },
   "WASHINGTONIAN": {
    "k": "WASHINGTONIAN",

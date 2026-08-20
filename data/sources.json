@@ -2906,9 +2906,104 @@
           "rank": 3,
           "verified": true,
           "credible": "International city-guide brand with DC coverage; corroborating popularity signal, not a lone recommender."
+        },
+        {
+          "key": "TYLERCOWEN",
+          "name": "Tyler Cowen's Ethnic Dining Guide",
+          "type": "guide",
+          "rank": 2,
+          "verified": true,
+          "credible": "Economist Tyler Cowen's long-running, widely-cited DC-area ethnic dining guide; a genuine authority on NoVA immigrant food."
+        },
+        {
+          "key": "VIETCETERA",
+          "name": "Vietcetera",
+          "type": "digital",
+          "rank": 3,
+          "verified": true,
+          "credible": "Vietnamese-diaspora media outlet; corroborating authority for Vietnamese food (Eden Center). Not a lone recommender."
+        },
+        {
+          "key": "ROADFOOD",
+          "name": "Roadfood (Jane & Michael Stern)",
+          "type": "guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established regional-food guide with named editors; corroborating."
+        },
+        {
+          "key": "VIRGINIALIVING",
+          "name": "Virginia Living (Best of Virginia)",
+          "type": "magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statewide magazine with a reader 'Best of Virginia' program; corroborating popularity vote."
+        },
+        {
+          "key": "STAYARLINGTON",
+          "name": "Arlington CVB (StayArlington)",
+          "type": "cvb",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Arlington destination org; vetted listings. Corroborating, not a lone recommender."
+        },
+        {
+          "key": "GAYOT",
+          "name": "Gayot",
+          "type": "guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established restaurant-rating guide; corroborating signal, not a lone recommender."
         }
       ],
-      "creators": [],
+      "creators": [
+        {
+          "key": "HYPEFOODIES",
+          "name": "Diana Nguyen & Cham \"CK\" Keat (@hypefoodies) — NoVA/DMV food couple who spotlight suburban mom-and-pops",
+          "type": "instagram",
+          "scope": "NoVA/DC",
+          "instagram": "https://www.instagram.com/hypefoodies/",
+          "tiktok": "https://www.tiktok.com/@hypefoodies",
+          "followers": "Instagram ~120K, TikTok ~99K",
+          "url": "https://www.tiktok.com/@hypefoodies/video/7281293878265646378",
+          "verified": true,
+          "credible": "Springfield, VA-based couple, full-time creators since 2017; beat is explicitly under-the-radar NoVA/DMV suburban mom-and-pops (they met at Eden Center's Rice Paper). Profiled by Washingtonian ('DC's Foodie TikTok Universe'), WJLA and NBC Washington; now throw the Hypefoodies Festival (WTOP-covered) drawing thousands. Findable NoVA content at a named place: Truong Tien / Eden Center, Falls Church (TikTok video 7281293878265646378)."
+        },
+        {
+          "key": "KEITHLEE",
+          "name": "Keith Lee (@keith_lee125) — viral TikTok food critic; ran a documented DMV tour",
+          "type": "tiktoker",
+          "scope": "national (DMV tour)",
+          "tiktok": "https://www.tiktok.com/@keith_lee125",
+          "followers": "TikTok ~17M",
+          "url": "https://www.tiktok.com/@keith_lee125/video/7405430595867692318",
+          "verified": true,
+          "credible": "~17M TikTok followers; the 'Keith Lee Effect' is documented by WaPo, WJLA, Axios and NBC Washington. His Aug-2024 DMV tour hit named NoVA places on the record: Okonomi Asian Grill in Fairfax (his review, TikTok video 7405430595867692318; WaPo + WUSA9 coverage) and Flavor Hive in Annandale (WJLA 'everything Keith Lee ate' list). A corroborating creator source, not an institutional authority."
+        },
+        {
+          "key": "ADORKANDHERFORK",
+          "name": "Sandie S. (@adorkandherfork) — DMV food creative covering NoVA restaurants",
+          "type": "instagram",
+          "scope": "NoVA/DC",
+          "instagram": "https://www.instagram.com/adorkandherfork/",
+          "followers": "Instagram ~52K",
+          "url": "https://www.instagram.com/adorkandherfork/reel/C8ApnOLyd1M/",
+          "verified": true,
+          "credible": "~52K Instagram; DMV food creator since 2018 with a running NoVA beat (findable reels at named NoVA places: Toimoi Bakery, Ballston Grill Kabob in Arlington, Incheon). Real track record and blog (adorkandherfork.com). Corroborating creator source."
+        },
+        {
+          "key": "CHILIPEPPERCOOKS",
+          "name": "Shihan Chowdhury (@chilipeppercooks) — DMV Thai-chili recipe creator and Flavor Hive co-founder",
+          "type": "tiktoker",
+          "scope": "NoVA/DC",
+          "tiktok": "https://www.tiktok.com/@chilipeppercooks",
+          "instagram": "https://www.instagram.com/chilipeppercooks/",
+          "followers": "TikTok ~1.8M, Instagram ~179K (~4M across platforms)",
+          "url": "https://www.instagram.com/chilipeppercooks/",
+          "verified": true,
+          "credible": "TikTok ~1.8M / IG ~179K; MD-raised, DMV-based recipe creator profiled by The Business Standard and Famous Birthdays. Co-founder of Flavor Hive, the viral Annandale halal-bowls concept (NoVA Mag, WTOP). Note: recipe creator + owner — corroborates Flavor Hive as its founder, not as an independent reviewer."
+        }
+      ],
       "refreshLog": []
     }
   }
