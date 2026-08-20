@@ -30,8 +30,12 @@ build assert fails.
   JAMESBEARD, NPS (Mall & memorials), SMITHSONIAN (the free museums).
 - **Local editorial of record (rank 1–2):** WASHINGTONIAN (100 Very Best), WAPO (Tom Sietsema), EATERDC,
   DCIST/WAMU.
-- **NoVA / suburbs (rank 2–3):** NOVAMAG, ARLNOW (Arlington), TYSONSREPORTER + FFXNOW (Tysons/Fairfax),
-  WTOP; CVBs WASHINGTONORG (Destination DC), VISITALEX (Alexandria), FXVA (Fairfax).
+- **NoVA / suburbs (rank 2–3):** NOVAMAG, ARLMAG (Arlington Magazine — "Best of Arlington"), ARLNOW
+  (Arlington), TYSONSREPORTER + FFXNOW (Tysons/Fairfax), WTOP; CVBs WASHINGTONORG (Destination DC),
+  VISITALEX (Alexandria), FXVA (Fairfax), VIRGINIATOURISM (Virginia.org, attractions).
+- **Food guides & city media (rank 2–3):** INFATUATION (DC), WCP (Washington City Paper "Best of DC"),
+  POPVILLE (openings/closings), AXIOS (Axios DC), WUSA9 / NBCWASHINGTON (local TV), and — as
+  corroborating popularity only, never a lone recommender — THRILLIST, TIMEOUT, USATODAY 10Best.
 - **Corroboration:** USATODAY 10Best, ATLASOBSCURA (oddities), OFFICIAL, WIKIPEDIA (published coords).
 - **Creators/influencers** — welcome only when verifiably popular/authoritative (real following, findable
   content, a DC beat); vet + register in `creators`, attach as a corroborating source. A lone creator

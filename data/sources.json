@@ -2826,6 +2826,86 @@
           "rank": 2,
           "verified": true,
           "credible": "The DC region's industry awards (a real vote/award), used as corroborating acclaim, not a lone recommender."
+        },
+        {
+          "key": "ARLMAG",
+          "name": "Arlington Magazine",
+          "type": "magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "Arlington's regional glossy; its reader/editor 'Best of Arlington' awards are a real local popularity vote."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "The Infatuation (DC)",
+          "type": "digital",
+          "rank": 2,
+          "verified": true,
+          "credible": "Well-known national food-review site with a bylined DC team; opinionated, independent restaurant reviews & guides."
+        },
+        {
+          "key": "WCP",
+          "name": "Washington City Paper",
+          "type": "alt-weekly",
+          "rank": 2,
+          "verified": true,
+          "credible": "DC's alt-weekly of record; bylined dining coverage and the reader 'Best of DC' poll."
+        },
+        {
+          "key": "POPVILLE",
+          "name": "PoPville",
+          "type": "blog",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running bylined DC neighborhood blog; reliable first report on openings/closings. Corroborating, not a lone recommender."
+        },
+        {
+          "key": "AXIOS",
+          "name": "Axios DC",
+          "type": "newsletter",
+          "rank": 2,
+          "verified": true,
+          "credible": "Bylined local newsletter (Axios Local); used for restaurant openings/closings with named reporters."
+        },
+        {
+          "key": "WUSA9",
+          "name": "WUSA9 (CBS Washington)",
+          "type": "tv-news",
+          "rank": 3,
+          "verified": true,
+          "credible": "DC-region CBS affiliate; bylined local news/features."
+        },
+        {
+          "key": "NBCWASHINGTON",
+          "name": "NBC4 Washington",
+          "type": "tv-news",
+          "rank": 3,
+          "verified": true,
+          "credible": "DC-region NBC affiliate; bylined local news/features."
+        },
+        {
+          "key": "VIRGINIATOURISM",
+          "name": "Virginia Tourism (Virginia.org)",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Virginia state tourism board; vetted attraction listings. Corroborating."
+        },
+        {
+          "key": "THRILLIST",
+          "name": "Thrillist",
+          "type": "digital",
+          "rank": 3,
+          "verified": true,
+          "credible": "National food/travel outlet; usable as a corroborating popularity/notability signal, never a lone recommender."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out (Washington DC)",
+          "type": "digital",
+          "rank": 3,
+          "verified": true,
+          "credible": "International city-guide brand with DC coverage; corroborating popularity signal, not a lone recommender."
         }
       ],
       "creators": [],
