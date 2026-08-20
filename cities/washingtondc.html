@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Washington DC field guide — 61 sights and 31 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Washington DC field guide — 75 sights and 41 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Washington DC Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · DC, Arlington &amp; the Dulles corridor, sourced</p>
   <h1>Washington DC<span class="thin">the monuments, the Smithsonians &amp; the Dulles-corridor food belt</span></h1>
-  <p class="standfirst">61 sights and 31 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">75 sights and 41 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -244,6 +244,7 @@
   <span><i style="background:#2C7FB8"></i>Tysons, McLean & Vienna</span>
   <span><i style="background:#F2A900"></i>Reston, Herndon & the Dulles Corridor</span>
   <span><i style="background:#7BA05B"></i>Falls Church, Annandale & Eden Center</span>
+  <span><i style="background:#A6588C"></i>Fairfax, Merrifield (Mosaic) & Chantilly</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -313,12 +314,21 @@
 <script>
 
 const S = {
+  "AAA":{k:"AAA",t:"AAA Travel",u:"https://www.aaa.com/",l:"AAA Travel"},
+  "ARLMAG":{k:"ARLMAG",t:"Arlington Magazine",u:"https://www.arlingtonmagazine.com/",l:"Arlington Magazine"},
+  "ARLNOW":{k:"ARLNOW",t:"ARLnow (Arlington local news)",u:"https://www.arlnow.com/",l:"ARLnow (Arlington local news)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "FFXNOW":{k:"FFXNOW",t:"FFXnow (Fairfax County local news)",u:"https://www.ffxnow.com/",l:"FFXnow (Fairfax County local news)"},
   "FXVA":{k:"FAIRFAX CVB",t:"Visit Fairfax (FXVA)",u:"https://www.fxva.com/",l:"Visit Fairfax (FXVA)"},
+  "NOVAMAG":{k:"NORTHERN VIRGINIA MAG",t:"Northern Virginia Magazine",u:"https://northernvirginiamag.com/",l:"Northern Virginia Magazine"},
+  "NOVAPARKS":{k:"NOVAPARKS",t:"NOVA Parks (Northern Virginia Regional Park Authority)",u:"https://www.novaparks.com/",l:"NOVA Parks (Northern Virginia Regional Park Authority)"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/",l:"National Park Service"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"https://www.si.edu/",l:"Official site / operator"},
   "SMITHSONIAN":{k:"SMITHSONIAN",t:"Smithsonian Institution",u:"https://www.si.edu/",l:"Smithsonian Institution"},
+  "STAYARLINGTON":{k:"STAYARLINGTON",t:"Arlington Convention & Visitors Service (stayArlington)",u:"https://www.stayarlington.com/",l:"Arlington Convention & Visitors Service (stayArlington)"},
+  "VIRGINIA":{k:"VIRGINIA",t:"Virginia.org (Virginia Tourism Corporation)",u:"https://www.virginia.org/",l:"Virginia.org (Virginia Tourism Corporation)"},
   "VISITALEX":{k:"VISIT ALEXANDRIA",t:"Visit Alexandria",u:"https://www.visitalexandria.com/",l:"Visit Alexandria"},
+  "WAPO":{k:"WASHINGTON POST",t:"The Washington Post",u:"https://www.washingtonpost.com/",l:"The Washington Post"},
   "WASHINGTONORG":{k:"DESTINATION DC",t:"Destination DC (washington.org)",u:"https://washington.org/",l:"Destination DC (washington.org)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
@@ -334,7 +344,8 @@ const AREAS = [
   {id:"ALEX",n:"Old Town Alexandria",c:"#D99694"},
   {id:"TYSONS",n:"Tysons, McLean & Vienna",c:"#2C7FB8"},
   {id:"RESTON",n:"Reston, Herndon & the Dulles Corridor",c:"#F2A900"},
-  {id:"FCITY",n:"Falls Church, Annandale & Eden Center",c:"#7BA05B"}
+  {id:"FCITY",n:"Falls Church, Annandale & Eden Center",c:"#7BA05B"},
+  {id:"FAIRFAX",n:"Fairfax, Merrifield (Mosaic) & Chantilly",c:"#A6588C"}
 ];
 
 const P = [
@@ -398,25 +409,49 @@ const P = [
 {t:2,a:"RESTON",n:"Reston Town Center",ad:"11900 Market St, Reston, VA 20190",la:38.95861,ln:-77.35694,w:"Reston's walkable, European-style downtown of shops, restaurants, a cinema and a central pavilion that becomes an ice rink in winter. The social hub of the Dulles Toll Road suburbs, on the Silver Line.",k:"district",g:["SHOP"],s:[["OFFICIAL","https://www.restontowncenter.com/"],["FXVA","https://www.fxva.com/listing/reston-town-center/"]]},
 {t:1,a:"FCITY",n:"Eden Center",ad:"6751 Wilson Blvd, Falls Church, VA 22044",la:38.87361,ln:-77.15389,w:"The largest Vietnamese American commercial center on the East Coast, a Falls Church strip of 120-plus shops, groceries, cafes and restaurants marked by a pagoda gate and clock tower. The cultural and culinary heart of NoVA's Vietnamese community.",k:"market",g:["HIST","SHOP"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/eden-center"],["FXVA","https://www.fxva.com/listing/eden-center/"]]},
 {t:2,a:"FCITY",n:"The Falls Church (Historic)",ad:"115 E Fairfax St, Falls Church, VA 22046",la:38.88083,ln:-77.17111,w:"The 1769 colonial-era Episcopal church that gave the city its name, where George Washington served as a vestryman, still an active parish. A National Register landmark.",k:"historic",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Falls_Church_(Falls_Church,_Virginia)"],["FXVA","https://www.fxva.com/listing/the-falls-church-episcopal/"]]},
-{t:2,a:"FCITY",n:"Mosaic District",ad:"2910 District Ave, Fairfax, VA 22031",la:38.87080,ln:-77.23050,w:"A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.",k:"district",g:["HIST","SHOP"],s:[["FXVA","https://www.fxva.com/listing/mosaic-district/"],["OFFICIAL","https://www.mosaicdistrict.com/"]]}
+{t:1,a:"FAIRFAX",n:"Mosaic District",ad:"2910 District Ave, Fairfax, VA 22031",la:38.87080,ln:-77.23050,w:"A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.",k:"district",g:["HIST","SHOP"],s:[["FXVA","https://www.fxva.com/listing/mosaic-district/"],["OFFICIAL","https://www.mosaicdistrict.com/"]]},
+{t:1,a:"FAIRFAX",n:"National Museum of the United States Army",ad:"1775 Liberty Dr, Fort Belvoir, VA 22060",la:38.72250,ln:-77.17000,w:"The Army's national museum on the public side of Fort Belvoir (no ID or pass needed), opened 2020, telling nearly 250 years of soldiers' stories through immersive galleries, real tanks and a rooftop overlook. Free admission and free parking; timed-entry tickets recommended.",k:"museum",g:["MUS","HIST","PARK","VIEW"],s:[["OFFICIAL","https://www.thenmusa.org/visit/"],["FXVA","https://www.fxva.com/blog/post/must-see-experiences-at-the-national-museum-of-the-us-army/"]]},
+{t:2,a:"FAIRFAX",n:"Workhouse Arts Center",ad:"9518 Workhouse Way, Lorton, VA 22079",la:38.69808,ln:-77.25478,w:"A 55-acre arts campus in the repurposed Lorton Reformatory, with a dozen galleries, 65-plus resident artist studios, live theater and music, and the Lucy Burns Museum on the suffragists jailed here. Second-Saturday open houses, Brewfest and a July 4 festival draw crowds; galleries free to browse.",k:"art",g:["MUS","HIST","ENT","FREE"],s:[["FXVA","https://www.fxva.com/workhouse-arts-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Workhouse_Arts_Center"],["VIRGINIA","https://www.virginia.org/listing/workhouse-arts-center/4974/"]]},
+{t:2,a:"FAIRFAX",n:"Old Town Fairfax",ad:"10209 Main St, Fairfax, VA 22030",la:38.84610,ln:-77.30517,w:"The historic core of the City of Fairfax around Old Town Square and the 1900 Old Town Hall, with boutiques, sidewalk cafes, the Fairfax Museum & Visitor Center in an 1873 schoolhouse, and festivals from Chocolate Lovers to Fall for the Book. Free spring/fall walking tours cover the Civil War-era streets.",k:"district",g:["MUS","HIST","SHOP","FREE"],s:[["NOVAMAG","https://northernvirginiamag.com/style/shopping/2022/02/03/old-town-fairfax/"],["FXVA","https://www.fxva.com/explore/discover-neighborhoods/fairfax/"]]},
+{t:2,a:"FAIRFAX",n:"Sully Historic Site",ad:"3650 Historic Sully Way, Chantilly, VA 20151",la:38.90806,ln:-77.43222,w:"The 1794 home of Richard Bland Lee, Northern Virginia's first congressman and uncle of Robert E. Lee, preserved by the Fairfax County Park Authority beside Dulles Airport. Guided house tours plus a 'Forgotten Road' walking tour of the original outbuildings and enslaved-workers' quarters; grounds and trails are free.",k:"historic",g:["HIST","PARK","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/sully-historic-site"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sully_Historic_Site"],["VIRGINIA","https://www.virginia.org/listing/sully-historic-site/4593/"]]},
+{t:2,a:"RESTON",n:"Lake Anne Plaza",ad:"1609 Washington Plaza N, Reston, VA 20190",la:38.96889,ln:-77.34083,w:"Reston's original 1960s village center on the National Register of Historic Places, a modernist waterfront plaza founder Robert E. Simon designed and lived above, with a boardwalk, restaurants, a Saturday farmers market and kayak rentals on the lake. The 'Bronze Bob' bench statue honors Simon lakeside.",k:"district",g:["MON","HIST","VIEW","SHOP"],s:[["FXVA","https://www.fxva.com/explore/discover-neighborhoods/reston/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lake_Anne"]]},
+{t:2,a:"RESTON",n:"Frying Pan Farm Park",ad:"2709 W Ox Rd, Herndon, VA 22071",la:38.93683,ln:-77.41058,w:"A 130-acre Fairfax County working 1930s-era farm with 100-plus animals to meet, a restored 1918 Herschell carousel, wagon rides, a country store and nature trails. Free admission and parking (rides carry small fees); a favorite family day out near Herndon.",k:"family",g:["PARK","FAM","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/frying-pan-park"],["AAA","https://www.aaa.com/travelinfo/virginia/herndon/attractions/frying-pan-farm-park-543702.html"]]},
+{t:2,a:"RESTON",n:"Washington & Old Dominion Trail",ad:"Herndon Depot, 717 Lynn St, Herndon, VA 20170",la:38.97019,ln:-77.38575,w:"A 45-mile paved rail-trail on a former railroad bed, running from Shirlington in Arlington out through Falls Church, Vienna, Reston, Herndon and Leesburg to Purcellville, and used by roughly two million walkers, cyclists and runners a year. The Herndon Depot marks a classic downtown trailhead; managed by NOVA Parks.",k:"trail",g:["HIST","PARK"],s:[["NOVAPARKS","https://www.novaparks.com/parks/washington-and-old-dominion-railroad-regional-park"],["FXVA","https://www.fxva.com/blog/post/best-stops-along-the-wod-trail/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Washington_and_Old_Dominion_Railroad_Regional_Park"]]},
+{t:2,a:"TYSONS",n:"Clemyjontri Park",ad:"6317 Georgetown Pike, McLean, VA 22101",la:38.94472,ln:-77.15667,w:"Virginia's first fully accessible playground (2006), a two-acre space where children of all abilities play side by side across four themed 'rooms,' with rubberized surfacing, a Liberty wheelchair swing and a ground-level, wheelchair-accessible carousel. Free; a trackless train runs seasonally.",k:"family",g:["PARK","FAM","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/clemyjontri"],["FXVA","https://www.fxva.com/clemyjontri-park/"],["NOVAMAG","https://northernvirginiamag.com/urban-parks-clemyjontri-park/"]]},
+{t:2,a:"TYSONS",n:"Tysons Corner Center",ad:"1961 Chain Bridge Rd, Tysons, VA 22102",la:38.91713,ln:-77.22224,w:"One of the largest shopping malls on the East Coast, open since 1968 with 300-plus stores including Apple, Nordstrom and Bloomingdale's, plus an AMC theater and the 1.5-acre outdoor PenFed Plaza that hosts concerts, holiday light shows and family events. On the Silver Line at Tysons.",k:"district",g:["ENT","SHOP"],s:[["FXVA","https://www.fxva.com/explore/discover-neighborhoods/tysons-corner/shopping/"],["NOVAMAG","https://northernvirginiamag.com/things-to-do/2025/11/06/6-holiday-events-coming-to-tysons-corner-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tysons_Corner_Center"]]},
+{t:2,a:"TYSONS",n:"Observatory Park at Turner Farm",ad:"925 Springvale Rd, Great Falls, VA 22066",la:38.99641,ln:-77.31124,w:"A Fairfax County park in Great Falls whose observatory holds three permanent telescopes under a roll-off roof, run with the volunteer Analemma Society for free Friday-night public viewing. In 2026 it earned an International Dark Sky 'Urban Night Sky Place' designation - a rare dark sky this close to DC. Programs require advance registration.",k:"park",g:["PARK","VIEW","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/turner-farm"],["FFXNOW","https://www.ffxnow.com/2026/01/22/turner-farm-earns-urban-night-sky-designation-for-efforts-to-limit-light-pollution/"]]},
+{t:2,a:"ARL",n:"Long Bridge Park",ad:"333 Long Bridge Dr, Arlington, VA 22202",la:38.86730,ln:-77.04600,w:"A 36-acre Arlington County park between Crystal City and the 14th Street Bridge, with a three-quarter-mile esplanade delivering monumental Potomac and DC skyline views for walking, birdwatching and plane-spotting, plus a $60M aquatics-and-fitness center with a competition pool, lazy river and slides. Free grounds; center is ticketed.",k:"waterfront",g:["MON","PARK","VIEW","FREE"],s:[["OFFICIAL","https://www.arlingtonva.us/Government/Departments/Parks-Recreation/Locations/Parks/Long-Bridge-Park"],["ARLNOW","https://www.arlnow.com/2021/08/23/long-bridge-aquatics-and-fitness-center-now-open/"],["STAYARLINGTON","https://www.stayarlington.com/blog/beat-the-summer-heat-in-arlington-county/"]]},
+{t:2,a:"ARL",n:"Signature Theatre",ad:"4200 Campbell Ave, Arlington, VA 22206",la:38.84088,ln:-77.09022,w:"A Tony Award-winning professional theater (2009 Regional Theatre Tony) in the Village at Shirlington, called a 'musical theater powerhouse' by The Washington Post, staging Broadway-caliber musicals and premieres in two intimate spaces. Winner of 100-plus Helen Hayes Awards and the cultural anchor of Shirlington.",k:"entertainment",g:["HIST","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Signature_Theatre_(Arlington,_Virginia)"],["STAYARLINGTON","https://www.stayarlington.com/directory/signature-theatre/"],["VIRGINIA","https://www.virginia.org/listing/signature-theatre/14887/"]]},
+{t:2,a:"ARL",n:"DEA Museum",ad:"700 Army Navy Dr, Arlington, VA 22202",la:38.86460,ln:-77.05780,w:"The Drug Enforcement Administration's free museum by Pentagon City, reopened after a two-year renovation with the interactive 'Illegal Drugs in America: A Modern History' exhibit tracing trafficking from the 1850s opium wars to today. Open Tuesday-Saturday; steps from the Pentagon City Metro.",k:"museum",g:["MUS","GOV","FREE"],s:[["OFFICIAL","https://museum.dea.gov/"],["STAYARLINGTON","https://www.stayarlington.com/blog/dea-museum-reopens/"],["ATLASOBSCURA","https://www.atlasobscura.com/places/dea-drug-enforcement-agency-museum"]]},
+{t:2,a:"ARL",n:"Ballston Quarter",ad:"4238 Wilson Blvd, Arlington, VA 22203",la:38.88183,ln:-77.11129,w:"A revitalized mixed-use district on the Orange/Silver Line, centered on the Quarter Market food hall (18 globally-inspired stalls), Punch Bowl Social, and the MedStar Capitals Iceplex where the Washington Capitals practice and the public can skate. A walkable Arlington dining-and-entertainment hub.",k:"district",g:["HIST","SHOP"],s:[["STAYARLINGTON","https://www.stayarlington.com/directory/ballston-quarter/"],["OFFICIAL","https://www.ballstonquarter.com/en/"]]}
 ];
 
 const FS = {
-  "ARLNOW":{k:"ARLNOW",t:"ARLNOW",u:"",l:""},
+  "ADORKANDHERFORK":{k:"ADORKANDHERFORK",t:"ADORKANDHERFORK",u:"",l:""},
+  "ARLNOW":{k:"ARLNOW",t:"ARLnow (Arlington local news)",u:"https://www.arlnow.com/",l:"ARLnow (Arlington local news)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "CHILIPEPPERCOOKS":{k:"CHILIPEPPERCOOKS",t:"CHILIPEPPERCOOKS",u:"",l:""},
   "DCIST":{k:"DCIST / WAMU",t:"DCIST / WAMU",u:"",l:""},
   "EATERDC":{k:"EATER DC",t:"EATER DC",u:"",l:""},
   "FXVA":{k:"FAIRFAX CVB",t:"Visit Fairfax (FXVA)",u:"https://www.fxva.com/",l:"Visit Fairfax (FXVA)"},
+  "GAYOT":{k:"GAYOT",t:"GAYOT",u:"",l:""},
+  "HYPEFOODIES":{k:"HYPEFOODIES",t:"HYPEFOODIES",u:"",l:""},
   "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
+  "KEITHLEE":{k:"KEITHLEE",t:"KEITHLEE",u:"",l:""},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
   "MICHELIN_BIB":{k:"MICHELIN BIB GOURMAND",t:"MICHELIN BIB GOURMAND",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN STAR",t:"MICHELIN STAR",u:"",l:""},
-  "NOVAMAG":{k:"NORTHERN VIRGINIA MAG",t:"NORTHERN VIRGINIA MAG",u:"",l:""},
+  "NOVAMAG":{k:"NORTHERN VIRGINIA MAG",t:"Northern Virginia Magazine",u:"https://northernvirginiamag.com/",l:"Northern Virginia Magazine"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"https://www.si.edu/",l:"Official site / operator"},
   "RAMW":{k:"RAMMY AWARDS",t:"RAMMY AWARDS",u:"",l:""},
+  "ROADFOOD":{k:"ROADFOOD",t:"ROADFOOD",u:"",l:""},
+  "STAYARLINGTON":{k:"STAYARLINGTON",t:"Arlington Convention & Visitors Service (stayArlington)",u:"https://www.stayarlington.com/",l:"Arlington Convention & Visitors Service (stayArlington)"},
+  "TYLERCOWEN":{k:"TYLERCOWEN",t:"TYLERCOWEN",u:"",l:""},
   "USATODAY":{k:"USA TODAY 10BEST",t:"USA TODAY 10BEST",u:"",l:""},
+  "VIETCETERA":{k:"VIETCETERA",t:"VIETCETERA",u:"",l:""},
+  "VIRGINIALIVING":{k:"VIRGINIALIVING",t:"VIRGINIALIVING",u:"",l:""},
   "VISITALEX":{k:"VISIT ALEXANDRIA",t:"Visit Alexandria",u:"https://www.visitalexandria.com/",l:"Visit Alexandria"},
-  "WAPO":{k:"WASHINGTON POST",t:"WASHINGTON POST",u:"",l:""},
+  "WAPO":{k:"WASHINGTON POST",t:"The Washington Post",u:"https://www.washingtonpost.com/",l:"The Washington Post"},
   "WASHINGTONIAN":{k:"WASHINGTONIAN",t:"WASHINGTONIAN",u:"",l:""},
   "WASHINGTONORG":{k:"DESTINATION DC",t:"Destination DC (washington.org)",u:"https://washington.org/",l:"Destination DC (washington.org)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
@@ -487,7 +522,17 @@ const F = [
 {t:1,a:"CAPHILL",n:"Dogon",ad:"1330 Maryland Ave SW, Washington, DC 20024",cz:["US"],la:38.88370,ln:-77.03020,w:"James Beard Award-winning chef Kwame Onwuachi's Afro-Caribbean flagship at Salamander DC near the Wharf; Washingtonian's #2 restaurant and a Conde Nast Traveler / Esquire Best New Restaurant. Opened 2024 to national acclaim.",g:["MKT"],s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/D%C5%8Dgon_(restaurant)"]]},
 {t:1,a:"ARL",n:"Ambar Clarendon",ad:"2901 Wilson Blvd, Arlington, VA 22201",cz:["US"],la:38.88874,ln:-77.09345,w:"Arlington's standout for Balkan small plates — an all-you-can-eat spread of cevapi, ajvar and sarma that made it a Clarendon fixture and a Washingtonian/regional-award favorite; the strongest fine-casual pick in Arlington.",s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["ARLNOW","https://www.arlingtonmagazine.com/best-restaurants-clarendon-arlington-virginia/"]]},
 {t:2,a:"ALEX",n:"Hummingbird",ad:"220 S Union St, Alexandria, VA 22314",cz:["US","SEAFOOD"],la:38.80226,ln:-77.04048,w:"James Beard Award-winning chef Cathal Armstrong's breezy waterfront room at Hotel Indigo; Washington Post critic Tom Sietsema has called it Old Town's most appealing place to eat.",s:[["JAMESBEARD","https://www.jamesbeard.org/awards/restaurant-and-chef-awards"],["WAPO","https://washingtonian.com/2017/06/28/chef-cathal-armstrong-serves-seafood-with-waterfront-views-in-alexandria/"]]},
-{t:1,a:"FCITY",n:"2941 Restaurant",ad:"2941 Fairview Park Dr, Falls Church, VA 22042",cz:["US"],la:38.86932,ln:-77.21505,w:"A longtime Northern Virginia fine-dining destination — chef Bertrand Chemel's contemporary American cooking with French and Mediterranean influences, set beside koi ponds and a lakeside view; a Falls Church special-occasion standard-bearer.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/2941_Restaurant"],["FXVA","https://www.fxva.com/listing/2941-restaurant/1003/"]]}
+{t:1,a:"FCITY",n:"2941 Restaurant",ad:"2941 Fairview Park Dr, Falls Church, VA 22042",cz:["US"],la:38.86932,ln:-77.21505,w:"A longtime Northern Virginia fine-dining destination — chef Bertrand Chemel's contemporary American cooking with French and Mediterranean influences, set beside koi ponds and a lakeside view; a Falls Church special-occasion standard-bearer.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/2941_Restaurant"],["FXVA","https://www.fxva.com/listing/2941-restaurant/1003/"]]},
+{t:1,a:"ARL",n:"El Pollo Rico",ad:"932 N Kenmore St, Arlington, VA 22201",cz:["LATIN"],la:38.88384,ln:-77.10071,w:"Arlington's legendary Peruvian charcoal-chicken counter in Virginia Square, a decades-old cult institution whose aroma reaches a block away; a Washingtonian award winner for Best Peruvian Chicken and a Roadfood-anointed classic.",s:[["ROADFOOD","https://roadfood.com/restaurants/el-pollo-rico"],["WASHINGTONIAN","https://elpollorico.com/press/"]]},
+{t:1,a:"ARL",n:"Ruthie's All-Day",ad:"3411 5th St S, Arlington, VA 22204",cz:["US"],la:38.86730,ln:-77.09532,w:"James Beard-nominated chef Matt Hill's family-friendly Southern smokehouse; a 2022 RAMMY winner and voted the No. 1 reader-favorite restaurant in Virginia by Washingtonian, with a Washington Post rave for its barbecue and brunch biscuits.",s:[["ARLNOW","https://www.arlnow.com/2022/07/25/ruthies-all-day-and-owners-of-shirlingtons-chiko-were-served-up-rammy-wins-last-night/"],["WAPO","https://www.washingtonpost.com/lifestyle/food/ruthies-all-day-restaurant-review/2021/04/29/9dfa344c-a45a-11eb-a7ee-949c574a09ac_story.html"]]},
+{t:2,a:"ARL",n:"Maison Cheryl",ad:"2900 Wilson Blvd, Arlington, VA 22201",cz:["US"],la:38.88828,ln:-77.09332,w:"A chic French New-American bistro in the heart of Clarendon executing comforting classics with classic French technique; reviewed favorably by Northern Virginia Magazine and covered as a Clarendon draw by ARLnow.",s:[["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2022/01/28/online-exclusive-review-maison-cheryl/"],["ARLNOW","https://www.arlnow.com/2021/08/25/maison-cheryl-in-clarendon-promises-chic-atmosphere-for-older-millennials/"]]},
+{t:1,a:"TYSONS",n:"Nostos",ad:"8100 Boone Blvd, Vienna, VA 22182",cz:["MED"],la:38.91369,ln:-77.22589,w:"The upscale modern-Greek destination of Tysons/Vienna, a repeat Washingtonian 100 Very Best and ranked No. 2 on Northern Virginia Magazine's 2025 list of the 50 Best Restaurants in Northern Virginia.",s:[["WASHINGTONIAN","https://washingtonian.com/2018/02/01/100-very-best-restaurants-90-nostos/"],["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2025/10/24/the-50-best-restaurants-in-northern-virginia-of-2025/"]]},
+{t:1,a:"FCITY",n:"Ellie Bird",ad:"125 Founders Ave, Falls Church, VA 22046",cz:["US"],la:38.89111,ln:-77.18361,w:"The Falls Church comfort-food restaurant from Yuan and Carey Tang of Michelin-starred Rooster & Owl; winner of the 2024 RAMMY for New Restaurant of the Year and a Washingtonian 100 Very Best, with a New York Times nod.",s:[["WTOP","https://wtop.com/business-finance/2024/07/falls-church-restaurant-ellie-bird-named-rammy-best-new-restaurant/"],["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/ellie-bird-3/"]]},
+{t:1,a:"FCITY",n:"Peking Gourmet Inn",ad:"6029 Leesburg Pike, Falls Church, VA 22041",cz:["ASIAN"],la:38.85534,ln:-77.13951,w:"The famous Falls Church Peking-duck house since 1978 and a Bush-family favorite (their booth got Secret Service bulletproof glass); its lacquered duck is a Washingtonian-lauded regional institution.",s:[["WASHINGTONIAN","https://washingtonian.com/2015/03/01/peking-duck-at-peking-gourmet-inn/"],["FXVA","https://patch.com/virginia/fallschurch/falls-church-eatery-favorite-president-george-h-w-bush"]]},
+{t:2,a:"FCITY",n:"A&J Restaurant",ad:"4316 Markham St, Annandale, VA 22003",cz:["ASIAN"],la:38.83029,ln:-77.20101,w:"A cash-friendly Annandale outpost of the Taiwanese Tang-family chain, serving authentic Taiwanese and Northern Chinese street snacks; a longtime Washingtonian Cheap Eats pick and a Tyler Cowen ethnic-dining favorite.",s:[["WASHINGTONIAN","https://washingtonian.com/2016/05/12/best-cheap-vietnamese-restaurants-around-dc/"],["FXVA","https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"]]},
+{t:2,a:"FAIRFAX",n:"Artie's",ad:"3260 Old Lee Hwy, Fairfax, VA 22030",cz:["US","SEAFOOD"],la:38.86237,ln:-77.27737,w:"A Fairfax City favorite from the beloved Great American Restaurants group since 1978, called 'the very best in Fairfax' by Washingtonian; a perennially packed, no-reservations American seafood-and-steak house.",s:[["WASHINGTONIAN","https://www.artiesva.com/"],["FXVA","https://www.fxva.com/listing/arties-classic-american/287/"]]},
+{t:1,a:"FAIRFAX",n:"Okonomi Asian Grill",ad:"9623 Fairfax Blvd, Fairfax, VA 22031",cz:["KOREAN","VIET"],la:38.85010,ln:-77.30300,w:"The Korean-Vietnamese build-your-own-bowl spot a local dubbed 'the Asian Chipotle,' turned a NoVA phenomenon after Keith Lee (~17M TikTok) opened his 2024 DMV tour here and rated the lemongrass chicken bowl 8.5/10 — the shop went from ~100 to nearly 1,000 orders a day. Covered by the Washington Post and WUSA9. Open (Yelp, July 2026, 160+ reviews).",s:[["WAPO","https://www.washingtonpost.com/food/2024/08/22/keith-lee-tiktok-restaurant-fairfax-okonomi/"],["KEITHLEE","https://www.tiktok.com/@keith_lee125/video/7405430595867692318"]]},
+{t:2,a:"FAIRFAX",n:"Toimoi Bakery",ad:"4520 Daly Dr, Chantilly, VA 20151",cz:["ICE","VIET"],la:38.89490,ln:-77.44280,w:"The viral Asian-inspired croissant bakery (cube croissants; the cream-filled 'Supreme'; cherry-blossom, pistachio-rose, ube flavors) that grew from NoVA farmers-markets to a Chantilly storefront and is opening a permanent Mosaic District space. Arlington Magazine's 'Eat This Now' spotlighted the croissants and NoVA food creator Sandie S. (@adorkandherfork, ~52K) reeled it to a wider audience. Open (Yelp, July 2026, 4.5+ across 120+ reviews).",g:["MKT"],s:[["NOVAMAG","https://northernvirginiamag.com/food-and-drink/food-news/2026/07/30/toimoi-bakery-to-open-permanent-space-in-mosaic/"],["ADORKANDHERFORK","https://www.instagram.com/adorkandherfork/reel/C8ApnOLyd1M/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -505,14 +550,14 @@ function saveSeen(){try{localStorage.setItem('dc_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Washington DC')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {MALL:'#B0405A',DTN:'#E8973A',GTWN:'#8064A2',DUPONT:'#4F81BD',USHAW:'#C0504D',CAPHILL:'#4BACC6',ARL:'#9BBB59',ALEX:'#D99694',TYSONS:'#2C7FB8',RESTON:'#F2A900',FCITY:'#7BA05B'};
+const AC = {MALL:'#B0405A',DTN:'#E8973A',GTWN:'#8064A2',DUPONT:'#4F81BD',USHAW:'#C0504D',CAPHILL:'#4BACC6',ARL:'#9BBB59',ALEX:'#D99694',TYSONS:'#2C7FB8',RESTON:'#F2A900',FCITY:'#7BA05B',FAIRFAX:'#A6588C'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([38.8939,-77.0356],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([38.8913,-77.042],11);
 /* ── Base layers ────────────────────────────────────────────────────────────
    Free layers need no key. Google needs your own Maps JavaScript API key and
    is loaded through the officially sanctioned GoogleMutant plugin, because
@@ -653,7 +698,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8961, -77.0253], ["Georgetown", 38.9044, -77.0608], ["Dupont", 38.9128, -77.0419], ["U Street", 38.9166, -77.0294], ["Capitol Hill", 38.8862, -77.0039], ["Arlington", 38.8807, -77.0681], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9574, -77.266], ["Reston", 38.935, -77.4006], ["Falls Church", 38.8736, -77.1926]];
+const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8961, -77.0253], ["Georgetown", 38.9044, -77.0608], ["Dupont", 38.9128, -77.0419], ["U Street", 38.9166, -77.0294], ["Capitol Hill", 38.8862, -77.0039], ["Arlington", 38.8763, -77.0755], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9492, -77.2449], ["Reston", 38.9492, -77.3877], ["Falls Church", 38.8667, -77.1774], ["Fairfax", 38.8316, -77.302]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1003,7 +1048,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 92 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 116 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

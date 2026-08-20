@@ -174,3 +174,26 @@ the established Mosaic District location (NoVA Mag review + Arlington Magazine f
 Tysons/Capital One opening a prior agent dropped as padding. Two non-palette source keys used pending
 registry wiring: TYLERCOWEN (Tyler Cowen's Ethnic Dining Guide) and VIETCETERA (Vietnamese editorial);
 GAYOT/ROADFOOD/STAYARLINGTON/VIRGINIALIVING/WASHINGTONORG also referenced as corroboration.
+
+## Stage 7 — NoVA corridor expansion (2026-08-20)
+Request: deepen Fairfax/Reston/Arlington/Falls Church/Tysons/McLean + everything between Dulles and DC,
+from popular travel blogs / viral creators / credible food & travel guides; merit-rank, fact-check,
+location-verify. Added **new FAIRFAX area** (Fairfax City, Merrifield/Mosaic, Chantilly). Expanded the
+source palette to **39** (added Arlington Mag, Infatuation, Washington City Paper, PoPville, Axios DC,
+WUSA9, NBC4, Virginia Tourism, Thrillist, Time Out, Tyler Cowen's guide, Vietcetera, Roadfood, Virginia
+Living, Arlington CVB, Gayot). Three discovery agents (all merit-measured, ≥2 credible, fact-checked open):
+- **FOOD_NOVA.json (30)** across ARL/TYSONS/RESTON/FCITY/FAIRFAX — El Pollo Rico, Aracosia, Nostos, Taco
+  Bamba, Peking Gourmet, Kogiya, Elephant Jumps, Founding Farmers, Ellie Bird, Thompson Italian, etc.
+  Closed dropped (Mokomandy, Water & Wall, La Caraqueña...); padding dropped (Kabob Bazaar, Anatolian).
+- **Creator/viral pass** → CREATORS.json (4 vetted: Hypefoodies, Keith Lee, Adorkandherfork, Chilipepper-
+  cooks; 4 rejected) + VIRAL_NOVA.json (Truong Tien, Flavor Hive, Okonomi, Toimoi). `merge-creators.py`
+  fixed for multi-part keys + registered the 4 creators into sources.json.
+- **SIGHTS_NOVA.json (15)** — National Museum of the US Army, Workhouse Arts, Reston Town Center/Lake Anne,
+  Turner Farm observatory (DarkSky 2026), Signature Theatre (Tony), Dark Star Park, DEA Museum. Mosaic
+  District promoted from FCITY t2 → FAIRFAX t1 (dedup).
+Consolidated **118 → 167 candidates** (76 sights + 91 food), all 12 areas, sourcecheck PASS. Geocode (2
+agents): sights 15/15 (11 high, 3 med, 1 unverified=Dark Star); food 10/34 pinned (4 high, 6 med), 24
+UNVERIFIED (Eden Center stalls + NoVA restaurants → helper). Relocation caught: To Sok Jip → 7123 Columbia
+Pike. Merged 49 → geocodes.json. **Rebuild: page 92 → 116 pins** (75 sights + 41 food). Gates:
+**sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS** (map centre still on DC,
+12 areas). validate/test green. index card 116; CITIES.md + backlog updated. 51 UNVERIFIED → helper.

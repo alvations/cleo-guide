@@ -29,3 +29,11 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - **26 UNVERIFIED restaurant pins** → browser geocode-helper (docs/GEOCODE-BACKLOG.md) will grow the page
   toward 118. 3 closed Michelin rooms (Cranes/Kinship/Tail Up Goat) held, gate-dropped (null coords).
 - NEXT (optional): helper-geocode the 26 UNVERIFIED restaurants; upgrade the 12 med pins to exact place-pins.
+
+---
+## State @ 2026-08-20 — NoVA corridor expanded
+- Page **116 pins** (75 sights + 41 food) of **167 candidates**; **12 areas** incl. new FAIRFAX.
+  All gates PASS. Sources expanded to 39. 4 vetted NoVA creators registered.
+- **51 UNVERIFIED** restaurant pins → browser geocode-helper (Eden Center stalls, NoVA restaurants,
+  Dark Star Park). Aracosia, Elephant Jumps, Truong Tien among them.
+- NEXT (optional): helper-geocode the 51 UNVERIFIED; upgrade 21 med pins to exact place-pins.
