@@ -108,3 +108,28 @@ Imperfecto→1124 23rd St NW; Cielo→1137 N Highland St (Clarendon). Merged 118
 92 pins** (61 sights + 31 food). Gates: **sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
 buildcheck PASS** (map centre 38.89,-77.04 inside DC pins). validate/test green. index.html card relinked live;
 CITIES.md row + scope note added; 26 UNVERIFIED → GEOCODE-BACKLOG.md for the helper.
+
+## Creator / viral & social-source pass — Northern Virginia (2026-08-20)
+
+Ran the creator+viral pass for the NoVA corridor (ARL/ALEX/TYSONS/RESTON/FCITY/FAIRFAX).
+Artifacts: CREATORS.json (creators+attach+rejected), VIRAL_NOVA.json (4 new places, no coords).
+
+**Creators vetted & registered (4):**
+- HYPEFOODIES — Diana Nguyen & CK Keat, Springfield VA. IG ~120K / TikTok ~99K. NoVA-suburb mom-and-pop beat; Washingtonian/WJLA/NBC features + own festival (WTOP). Findable: Truong Tien reel (TikTok 7281293878265646378).
+- KEITHLEE — ~17M TikTok. National, but documented Aug-2024 DMV tour with named NoVA stops (Okonomi Fairfax, Flavor Hive Annandale); WaPo/WJLA/Axios coverage. Corroborating creator, not institutional.
+- ADORKANDHERFORK — Sandie S., IG ~52K, DMV food creator since 2018 with NoVA beat (Toimoi, Ballston Grill Kabob, Incheon).
+- CHILIPEPPERCOOKS — Shihan Chowdhury, TikTok ~1.8M / IG ~179K. Thai-chili recipe creator + Flavor Hive co-founder (noted: owner, not independent reviewer).
+
+**Creators rejected (4):** @dcspot (promotional listicle acct, scale/beat unverifiable), Milan/Bethesda beef-Wellington creator (~700K but MD + recipe creator, not NoVA reviewer), Eniclerico mukbang (scale unsurfaced, no NoVA beat), DMV Besties (collective, no single verifiable following).
+
+**Viral places added (4)** — each ≥2 credible (creator + editorial), fact-checked OPEN, no coords, not already in dataset F:
+- Truong Tien — FCITY (Eden Center) t1. WaPo (Tim Carman) review + HYPEFOODIES. Hue royal Vietnamese.
+- Flavor Hive — FCITY (Annandale) t2. NoVA Mag First Bite + WTOP + CHILIPEPPERCOOKS (founder). Viral halal chip-bag bowls; opened 7/2025, expanding.
+- Okonomi Asian Grill — FAIRFAX (Fairfax) t1. WaPo + KEITHLEE. 'Asian Chipotle' build-your-own bowls; Keith Lee Effect (~100→~1000 orders/day).
+- Toimoi Bakery — FAIRFAX (Chantilly) t2. NoVA Mag (Mosaic opening) + ADORKANDHERFORK; Arlington Magazine 'Eat This Now'. Viral Asian cube croissants.
+
+**Measured & dropped:**
+- Sister's Thai (Tysons/Capital One Center) — coverage is opening announcements (NoVA Mag, Tysons Reporter) for an aesthetic-driven 5-location mini-chain; no creator virality/merit rave documented. Padding risk in TYSONS. DROP.
+- Maggiano's, North Italia, Luna Food Hall (Tysons) — chains / new-opening buzz, no merit or creator virality. DROP.
+
+**Notes:** No coordinates written (geocoding is a separate stage). Shared files (sources.json/geocodes.json) untouched — orchestrator merges CREATORS.json via tools/merge-creators.py. Source keys used are all in consolidate.py's SRC_LABEL (WAPO, NOVAMAG, WTOP) plus the four new creator keys. WebSearch budget: ~11 searches used.
