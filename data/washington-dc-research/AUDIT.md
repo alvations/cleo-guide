@@ -197,3 +197,40 @@ UNVERIFIED (Eden Center stalls + NoVA restaurants → helper). Relocation caught
 Pike. Merged 49 → geocodes.json. **Rebuild: page 92 → 116 pins** (75 sights + 41 food). Gates:
 **sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS** (map centre still on DC,
 12 areas). validate/test green. index card 116; CITIES.md + backlog updated. 51 UNVERIFIED → helper.
+
+## Stage 8 — Dulles→DC corridor + Eden Center food discovery (2026-08-21)
+Request: expand DC food along the corridor BETWEEN DULLES AND DC, weighted to Eden Center + the inner-NoVA
+immigrant-food corridor. Discovery pass → **FOOD_CORRIDOR.json (16 NEW, non-dup)**. Every place
+merit-measured, ≥2 credible sources (Yelp=0), open/closed fact-checked. NO coordinates (geocode is a later
+stage). Areas: FCITY 13, FAIRFAX 1, RESTON 1, TYSONS 1. Cuisines: Vietnamese 6, Chinese 3, Thai 2, +Bakery,
+Ethiopian, Bolivian, Coffee, Korean, Lao, Burmese, Persian. 2 notable-closed kept flagged.
+ADDED (with the acclaim measured):
+- **Eden Center (FCITY):** Nha Trang (WaPo $20 Diner + Vietcetera + ArlMag), Banh Cuon Thang Long (NoVA Mag
+  review + Tyler Cowen + ArlMag), Banh Cuon Saigon (ArlMag + Visit Falls Church), Huong Binh Bakery & Deli
+  (Falls Church News-Press + ArlMag). Skipped existing (Song Que, Thanh Son, Truong Tien, Huong Viet, Rice
+  Paper, Present, Pho 75) + already-added (Chả Ốc Gia Huy, Chả Lụa Ngọc Hưng).
+- **Inner-NoVA corridor (FCITY):** Meaza (Ethiopian, Bailey's — Washingtonian Cheap Eats + WaPo + NoVA Mag),
+  Luzmila's (Bolivian salteñas — Tyler Cowen + Washingtonian 2025), Mark's Duck House (Seven Corners/Willston
+  Cantonese — Washingtonian + NoVA Mag), Uncle Liu's Hot Pot (Sichuan — WaPo + Tyler Cowen), Padaek (Seng
+  Luangrath's Lao — Washingtonian 100 Very Best + WaPo), Duangrat's (Thai — Washingtonian Blue Ribbon +
+  Tyler Cowen), 9292 Korean BBQ (Annandale — Washingtonian 2023 KBBQ + City Cast), DRiP Cà Phê (Annandale
+  viral Viet coffee — Annandale Today + City Cast).
+- **Dulles corridor:** Peter Chang Herndon (RESTON — Washingtonian 100VB + WTOP; James Beard finalist 2022),
+  Shamshiry (TYSONS/Vienna Persian, koobideh — Washingtonian Cheap Eats 4yrs + WAMU Kojo Nnamdi).
+- **Notable CLOSED, kept flagged:** Myanmar Restaurant (Burmese, Tyler Cowen "best in metro" + WaPo tea-leaf
+  salad + FCNP; Yelp shows permanently closed 2026), Four Sisters (Merrifield Viet institution, WaPo +
+  Washingtonian + NoVA Mag; closed May 2023).
+MEASURED & DROPPED (mention ≠ merit / <2 credible / weak sourcing / padding):
+- VietFoods (Google/RG ~3.9 — below floor). Saigon Bakery & Deli (banh mi — padding vs Huong Binh, no 2nd
+  credible). Banh Mi Oi (Eden — genuinely viral on TikTok but only anonymous-creator sourcing, no editorial;
+  hold pending verified-creator/editorial). Viet Royale (CLOSED per Yelp, not essential). El Catrin (Seven
+  Corners — only ArlMag, 1 credible). Kalpasi (Herndon Chettinad — only NoVA Mag, 1 credible; high Yelp
+  volume but gate needs 2 credible). Cheng's Asian House (Chantilly — Google 4.4 but no credible editorial).
+  Kabobi by The Helmand (Herndon Afghan — RG 4.5/903 but no credible editorial; Helmand lineage noted).
+  Laziz Kabob (Sterling Afghan — NoVA Mag mention only). Shilla Bakery (Annandale — CVB listings only).
+  Crisp&Juicy / Spin Pollo / Sardi's (Peruvian chicken — Falls Church Times blog + Yelp only; El Pollo Rico
+  already covers). Bombay Bistro (temporarily CLOSED). Mémoire Cà Phê (that's Portland OR — not Annandale).
+  Various pupuserias (Blanca's, La Familiar — no 2-credible editorial; Salvadoran already represented).
+NOTE: FAIRFAX's only corridor add (Four Sisters) is closed, but the dataset already carries open FAIRFAX
+tier-1s (Elephant Jumps, etc.), so the per-area ≥1-tier-1 invariant is unaffected. Coordinates deferred to
+the geocode stage; WaPo Meaza + Duangrat's Washingtonian URLs corrected after an initial mis-paste.

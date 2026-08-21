@@ -37,3 +37,15 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - **51 UNVERIFIED** restaurant pins → browser geocode-helper (Eden Center stalls, NoVA restaurants,
   Dark Star Park). Aracosia, Elephant Jumps, Truong Tien among them.
 - NEXT (optional): helper-geocode the 51 UNVERIFIED; upgrade 21 med pins to exact place-pins.
+
+---
+## State @ 2026-08-21 — Dulles→DC corridor + Eden Center food discovery
+- **FOOD_CORRIDOR.json = 16 NEW food places** (0 dupes vs dataset F or FOOD_EDEN), all ≥2 credible,
+  open/closed fact-checked, NO coords yet. Areas: FCITY 13, FAIRFAX 1, RESTON 1, TYSONS 1.
+- Eden Center adds: Nha Trang, Banh Cuon Thang Long, Banh Cuon Saigon, Huong Binh Bakery & Deli.
+  Corridor adds: Meaza (Ethiopian), Luzmila's (Bolivian), Mark's Duck House, Uncle Liu's Hot Pot, Padaek
+  (Lao), Duangrat's (Thai), 9292 Korean BBQ, DRiP Cà Phê, Peter Chang Herndon, Shamshiry (Persian).
+  Notable-CLOSED flagged: Myanmar Restaurant (Burmese), Four Sisters (Merrifield Viet).
+- NEXT: consolidate FOOD_CORRIDOR into dc_dataset/dataset (consolidate.py), then run the geocode + place-pin
+  verify + status-check gates (all 16 are UNVERIFIED coords → helper). Re-check Banh Mi Oi later for a
+  verified-creator/editorial source before adding.
