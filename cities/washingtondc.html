@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Washington DC field guide — 75 sights and 41 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Washington DC field guide — 75 sights and 45 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Washington DC Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · DC, Arlington &amp; the Dulles corridor, sourced</p>
   <h1>Washington DC<span class="thin">the monuments, the Smithsonians &amp; the Dulles-corridor food belt</span></h1>
-  <p class="standfirst">75 sights and 41 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">75 sights and 45 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -428,11 +428,15 @@ const P = [
 
 const FS = {
   "ADORKANDHERFORK":{k:"ADORKANDHERFORK",t:"ADORKANDHERFORK",u:"",l:""},
+  "ANNANDALETODAY":{k:"ANNANDALETODAY",t:"ANNANDALETODAY",u:"",l:""},
+  "ARLMAG":{k:"ARLMAG",t:"Arlington Magazine",u:"https://www.arlingtonmagazine.com/",l:"Arlington Magazine"},
   "ARLNOW":{k:"ARLNOW",t:"ARLnow (Arlington local news)",u:"https://www.arlnow.com/",l:"ARLnow (Arlington local news)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
   "CHILIPEPPERCOOKS":{k:"CHILIPEPPERCOOKS",t:"CHILIPEPPERCOOKS",u:"",l:""},
+  "CITYCAST":{k:"CITYCAST",t:"CITYCAST",u:"",l:""},
   "DCIST":{k:"DCIST / WAMU",t:"DCIST / WAMU",u:"",l:""},
   "EATERDC":{k:"EATER DC",t:"EATER DC",u:"",l:""},
+  "FCNP":{k:"FCNP",t:"FCNP",u:"",l:""},
   "FXVA":{k:"FAIRFAX CVB",t:"Visit Fairfax (FXVA)",u:"https://www.fxva.com/",l:"Visit Fairfax (FXVA)"},
   "GAYOT":{k:"GAYOT",t:"GAYOT",u:"",l:""},
   "HYPEFOODIES":{k:"HYPEFOODIES",t:"HYPEFOODIES",u:"",l:""},
@@ -451,6 +455,8 @@ const FS = {
   "VIETCETERA":{k:"VIETCETERA",t:"VIETCETERA",u:"",l:""},
   "VIRGINIALIVING":{k:"VIRGINIALIVING",t:"VIRGINIALIVING",u:"",l:""},
   "VISITALEX":{k:"VISIT ALEXANDRIA",t:"Visit Alexandria",u:"https://www.visitalexandria.com/",l:"Visit Alexandria"},
+  "VISITFALLSCHURCH":{k:"VISITFALLSCHURCH",t:"VISITFALLSCHURCH",u:"",l:""},
+  "WAMU":{k:"WAMU",t:"WAMU",u:"",l:""},
   "WAPO":{k:"WASHINGTON POST",t:"The Washington Post",u:"https://www.washingtonpost.com/",l:"The Washington Post"},
   "WASHINGTONIAN":{k:"WASHINGTONIAN",t:"WASHINGTONIAN",u:"",l:""},
   "WASHINGTONORG":{k:"DESTINATION DC",t:"Destination DC (washington.org)",u:"https://washington.org/",l:"Destination DC (washington.org)"},
@@ -502,6 +508,10 @@ const F = [
 {t:2,a:"USHAW",n:"Gloria's Pupuseria",ad:"3411 14th St NW, Washington, DC 20010",cz:["LATIN"],la:38.93186,ln:-77.03242,w:"A Columbia Heights hole-in-the-wall — Selena art on the walls, ranchera on the jukebox — turning out plump, well-stuffed pupusas with curtido for a couple dollars each. Repeatedly named among DC's best pupuserias; Salvadorans are the city's largest immigrant group and this is one of the canon rooms.",s:[["DCIST","https://dc.citycast.fm/food-drink/who-makes-dc-s-best-pupusas"],["USATODAY","https://www.insidehook.com/food/best-pupusas-dmv"]]},
 {t:2,a:"ARL",n:"Quarterdeck Restaurant",ad:"1200 Fort Myer Dr, Arlington, VA 22209",cz:["SEAFOOD"],la:38.88802,ln:-77.07581,w:"A rough-and-ready Arlington crab house since 1979 and one of the last true steamed-blue-crab feasts inside the Beltway — Old Bay-dusted Maryland blues by the dozen, hammers and paper on the table. A multi-generational local institution keeping the Chesapeake crab-feast tradition alive in NoVA.",s:[["ARLNOW","https://www.arlnow.com/2018/07/06/quarterdeck/"],["WTOP","https://wtop.com/food-restaurant/2021/07/best-crab-houses-around-dc/"]]},
 {t:2,a:"ARL",n:"Pho 75",ad:"1721 Wilson Blvd, Arlington, VA 22209",cz:["VIET"],la:38.89434,ln:-77.07891,w:"The no-frills, cash-only pho institution of the DC area — communal tables, one thing done superbly: deeply aromatic beef pho ladled in vast bowls. A decades-old Washingtonian and Eater DC benchmark that set the standard for the region's Vietnamese noodle soup.",s:[["EATERDC","https://dc.eater.com/maps/best-pho-washington-dc-northern-virginia"],["WASHINGTONIAN","https://www.washingtonian.com/2019/01/24/cheap-eats-2019/"]]},
+{t:1,a:"FCITY",n:"Mark's Duck House",ad:"6184-A Arlington Blvd, Falls Church, VA 22044",cz:["ASIAN"],la:38.86989,ln:-77.14713,w:"The Seven Corners/Willston Cantonese landmark that started at Eden Center in the early '80s and has carved tableside Peking duck \"with care bordering on reverence\" ever since — long rated among the best duck and dim sum in the region. Reviewed by Washingtonian and Northern Virginia Magazine (which singled out the Peking duck, steamed spare ribs and wu gok).",s:[["WASHINGTONIAN","https://washingtonian.com/2006/10/17/marks-duck-house/"],["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2021/05/28/online-exclusive-review-marks-duck-house/"]]},
+{t:2,a:"FCITY",n:"Uncle Liu's Hot Pot — CLOSED",ad:"2972 Gallows Rd, Falls Church, VA 22042",cz:["ASIAN"],la:38.86966,ln:-77.22904,w:"A Falls Church destination for tableside Sichuan hot pot — dunk meats, seafood, tofu and noodles into a fiery Chengdu broth (mild available), open till midnight. Reviewed by the Washington Post and a standing recommendation in Tyler Cowen's Ethnic Dining Guide, which praises its classic ingredient list and fair prices. (Permanently closed 2026 — kept flagged.)",closed:1,s:[["WAPO","https://www.washingtonpost.com/archive/lifestyle/2010/07/18/hot-and-in-more-ways-than-one-uncle-lius-showcases-popular-pots/d7c1c1c9-aa5c-43eb-9335-bc8e0f9af9d0/"],["TYLERCOWEN","https://tylercowensethnicdiningguide.com/index.php/uncle-lius-hot-pot-old-lius-hotpot-city/"]]},
+{t:2,a:"FCITY",n:"Chả Ốc Gia Huy",ad:"6757 Wilson Blvd, Falls Church, VA 22044",cz:["VIET"],la:38.87361,ln:-77.15389,w:"The Eden Center specialist for chả ốc — Huế-style rolls of pork studded with snail for a clam-like snap, in a garlic-rich sauce — a dish you won't easily find elsewhere on the East Coast. Owner Huy Pham brought the Garden Grove, CA original east to the region's Little Saigon.",s:[["VIETCETERA","https://vietcetera.com/en/little-saigon-guide-the-best-vietnamese-food-in-falls-church-virginia"],["ARLMAG","https://www.arlingtonmagazine.com/eden-center-falls-church/"],["WAPO","https://www.washingtonpost.com/food/2021/04/05/eden-center-vietnamese-dishes/"],["OFFICIAL","https://edencenter.com/stores/cha-oc-gia-huy/"]]},
+{t:2,a:"FCITY",n:"Chả Lụa Ngọc Hưng",ad:"6799 Wilson Blvd #2, Falls Church, VA 22044",cz:["VIET"],la:38.87361,ln:-77.15389,w:"A take-out Eden Center institution and, per Arlington Magazine, \"best of breed\" for Vietnamese chả — house pork sausage (chả lụa), fried chả chiên and cinnamon chả quế, plus bánh bao and bánh chưng. A daily-staple counter for the local Vietnamese community.",s:[["ARLMAG","https://www.arlingtonmagazine.com/eden-center-falls-church/"],["VIETCETERA","https://vietcetera.com/en/little-saigon-guide-the-best-vietnamese-food-in-falls-church-virginia"],["OFFICIAL","https://edencenter.com/stores/cha-lua-ngoc-hung/"]]},
 {t:1,a:"DTN",n:"Rania",ad:"427 11th St NW, Washington, DC 20004",cz:["US"],la:38.89577,ln:-77.02681,w:"One Michelin star — chef Chetan Shetty (ex-Indian Accent) reinvents Indian fine dining in a regal Penn Quarter room; the Washington Post calls it adventurous Indian cooking in a regal setting. Starred in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WAPO","https://www.washingtonpost.com/food/2022/08/05/rania-restaurant-review-indian-dc/"]]},
 {t:1,a:"DTN",n:"Fiola",ad:"601 Pennsylvania Ave NW, Washington, DC 20004",cz:["US"],la:38.89391,ln:-77.02069,w:"One Michelin star — Fabio Trabocchi's luxe downtown Italian, a longtime power-dining room off Pennsylvania Avenue. Holds its star in the 2025 MICHELIN Guide Washington, D.C.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
 {t:1,a:"DTN",n:"Rasika",ad:"633 D St NW, Washington, DC 20004",cz:["US"],la:38.89495,ln:-77.02130,w:"DC's most acclaimed Indian restaurant — Ashok Bajaj's Penn Quarter icon, whose crackling palak chaat is a citywide signature; a MICHELIN Guide recommended pick and a perennial Washingtonian 100 Very Best.",s:[["MICHELIN","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"],["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"]]},
@@ -557,7 +567,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([38.8913,-77.042],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([38.8911,-77.0436],11);
 /* ── Base layers ────────────────────────────────────────────────────────────
    Free layers need no key. Google needs your own Maps JavaScript API key and
    is loaded through the officially sanctioned GoogleMutant plugin, because
@@ -698,7 +708,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8961, -77.0253], ["Georgetown", 38.9044, -77.0608], ["Dupont", 38.9128, -77.0419], ["U Street", 38.9166, -77.0294], ["Capitol Hill", 38.8862, -77.0039], ["Arlington", 38.8763, -77.0755], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9492, -77.2449], ["Reston", 38.9492, -77.3877], ["Falls Church", 38.8667, -77.1774], ["Fairfax", 38.8316, -77.302]];
+const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8961, -77.0253], ["Georgetown", 38.9044, -77.0608], ["Dupont", 38.9128, -77.0419], ["U Street", 38.9166, -77.0294], ["Capitol Hill", 38.8862, -77.0039], ["Arlington", 38.8763, -77.0755], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9492, -77.2449], ["Reston", 38.9492, -77.3877], ["Falls Church", 38.8687, -77.1748], ["Fairfax", 38.8316, -77.302]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1048,7 +1058,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 116 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 120 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

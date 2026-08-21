@@ -49,3 +49,11 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - NEXT: consolidate FOOD_CORRIDOR into dc_dataset/dataset (consolidate.py), then run the geocode + place-pin
   verify + status-check gates (all 16 are UNVERIFIED coords → helper). Re-check Banh Mi Oi later for a
   verified-creator/editorial source before adding.
+
+---
+## State @ 2026-08-20 — Eden Center + corridor expanded
+- Page **120 pins** (75 sights + 45 food) of **185 candidates**. All gates PASS. 44 sources.
+- Chả Ốc Gia Huy + Chả Lụa Ngọc Hưng ON the map (LOW-confidence Eden Center complex pins — upgrade to
+  exact unit pins with the helper). Uncle Liu's Hot Pot flagged CLOSED.
+- **65 UNVERIFIED** → browser geocode-helper (Eden Center stalls + NoVA restaurants). Banh Mi Oi held
+  (anonymous-creator only). NEXT: helper-geocode the 65; upgrade 23 med + 2 low to exact place-pins.

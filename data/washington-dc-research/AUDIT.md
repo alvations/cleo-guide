@@ -234,3 +234,16 @@ MEASURED & DROPPED (mention ≠ merit / <2 credible / weak sourcing / padding):
 NOTE: FAIRFAX's only corridor add (Four Sisters) is closed, but the dataset already carries open FAIRFAX
 tier-1s (Elephant Jumps, etc.), so the per-area ≥1-tier-1 invariant is unaffected. Coordinates deferred to
 the geocode stage; WaPo Meaza + Duangrat's Washingtonian URLs corrected after an initial mis-paste.
+
+## Stage 8b — Eden Center + corridor build (2026-08-20)
+Added FOOD_EDEN.json (2 user-requested Eden Center stalls: Chả Ốc Gia Huy, Chả Lụa Ngọc Hưng — sourced
+Vietcetera + Arlington Mag + WaPo + Eden Center official) + FOOD_CORRIDOR.json (16). Registered 5 more
+sources (Falls Church News-Press, Annandale Today, City Cast DC, Visit Falls Church, WAMU) → 44 total.
+Consolidated **185 candidates** (76 sights + 109 food; FCITY 35), sourcecheck PASS. Geocode wave: only
+Mark's Duck House (med) + Uncle Liu's (med, found CLOSED) resolved; the rest UNVERIFIED (WebSearch can't
+surface NoVA/Eden place-pins). **The 2 user-named stalls were placed at the Eden Center complex coordinate
+(38.87361,-77.15389, WIKIPEDIA) at LOW confidence + a note** (exact unit pins pending geocode-helper) so
+they appear on the map. Closed found + flagged: **Uncle Liu's Hot Pot** (renamed "— CLOSED" in name +
+registry key, shown flagged); Myanmar Restaurant + Four Sisters remain flagged-closed (UNVERIFIED, off-page).
+Rebuild: **page 116 → 120 pins** (75 sights + 45 food). Gates: sourcecheck PASS · geocheck exit 0 (NOTE: 2
+low stall pins) · statuscheck CONSISTENT · buildcheck PASS. validate/test green. 65 UNVERIFIED → helper.
