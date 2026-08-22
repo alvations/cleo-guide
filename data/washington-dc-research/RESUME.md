@@ -57,3 +57,12 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
   exact unit pins with the helper). Uncle Liu's Hot Pot flagged CLOSED.
 - **65 UNVERIFIED** → browser geocode-helper (Eden Center stalls + NoVA restaurants). Banh Mi Oi held
   (anonymous-creator only). NEXT: helper-geocode the 65; upgrade 23 med + 2 low to exact place-pins.
+
+---
+## State @ 2026-08-21 — Non-American food expanded
+- Page **133 pins** (75 sights + 58 food) of **221 candidates**; 51 sources; AFRICAN+CARIBBEAN buckets added.
+- Non-American now deep: ASIAN 31, South Asian 12, Korean 9, Ethiopian 8, Vietnamese 17, Med 10, Latin 9,
+  + African/Caribbean. Ambassador/where-X-eats series now in the palette.
+- **88 UNVERIFIED** → browser geocode-helper (Supra, Baan Siam, Kayu, Eerkin's, Lighthouse Tofu, Bamian,
+  Cha Street Food + the earlier Eden Center/NoVA sets). NEXT: helper-geocode the 88; upgrade 23 med + 2 low.
+- Closed flagged: Makan, Yeshi Kitfo, Jiwa Singapura, Uncle Liu's (all — CLOSED).

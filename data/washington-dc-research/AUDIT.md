@@ -367,3 +367,22 @@ Kitfo lean on Tyler Cowen as a rank-1 authority; each was paired with a second I
 **New sources proposed:** SOURCES_GLOBAL_NOVA.json — creator DMVEATS (dmv3ats, corroboration only) and
 outlets ASIANFORTUNE, NEWYORKER, BALTMAG (DCIST already in palette). NO coordinates written (geocoding is
 a separate stage). Shared files (geocodes.json, sources.json, dataset) untouched.
+
+## Stage 9/10 — Non-American food expansion + build (2026-08-21)
+Request: expand NON-AMERICAN food via credible/authentic/viral sources incl. Washingtonian's "Where the
+Ambassador of ___ Eats" series (which was NOT previously used). Two discovery agents (DC-core + NoVA),
+strict merit bar. Added **36 places** (FOOD_GLOBAL_DC 20 + FOOD_GLOBAL_NOVA 16 after dropping Maharani
+Palace, 1-credible): Sushi Taro (Michelin), Purple Patch (WaPo RotY), Panda Gourmet (Tyler Cowen), Supra
+(Georgian — from the ambassador series), Das/Letena (Ethiopian), Cane (Trinidadian, Michelin Bib), Daru
+(Indian), China Chilcano (Nikkei), The Continent (Nigerian), Appioo (Ghanaian), Maketto, Baan Siam, Kayu;
+China Star (Peter Chang orig), Eerkin's (Uyghur), Chef Tan (Hunan), Esaan Tumbar (Isaan), Lighthouse Tofu,
+Bamian, Cha Street Food, Fairfax Inn (Filipino), etc. **Taxonomy: added AFRICAN + CARIBBEAN cuisine buckets;
+mapped Georgian→MED, Nigerian/Ghanaian→AFRICAN, Trinidadian→CARIB, Uyghur/Hunan/Singaporean/Cambodian/Isaan/
+Nikkei→ASIAN** (no mis-fallback to US). **Sources expanded to 51**: registered NYT, Southern Foodways,
+Esquire, Resy, Asian Fortune, New Yorker, Baltimore Mag + creator DMV Eats. Merit drops (no padding): Kabob
+Bazaar/Pappe/Mala Tang/Maharani Palace/Baek Ban (1-credible), out-of-scope Celebration/Da Rae Won. Closed
+found + flagged: Makan, Yeshi Kitfo, Jiwa Singapura (+ prior Uncle Liu's/Myanmar/Four Sisters). Geocode: 13
+high pinned, 23 UNVERIFIED (WebSearch can't surface most neighborhood place-pins; refused 2 unsourced coords
++ 1 viewport — never fabricated). Consolidated **221 candidates** (76 sights + 145 food), sourcecheck PASS.
+Rebuild: **page 120 → 133 pins** (75 sights + 58 food). Gates: sourcecheck PASS · geocheck exit 0 (NOTE 2
+low) · statuscheck CONSISTENT · buildcheck PASS. validate/test green. 88 UNVERIFIED → helper.

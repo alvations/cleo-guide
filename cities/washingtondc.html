@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Washington DC field guide — 75 sights and 45 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Washington DC field guide — 75 sights and 58 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Washington DC Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · DC, Arlington &amp; the Dulles corridor, sourced</p>
   <h1>Washington DC<span class="thin">the monuments, the Smithsonians &amp; the Dulles-corridor food belt</span></h1>
-  <p class="standfirst">75 sights and 45 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">75 sights and 58 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -431,26 +431,36 @@ const FS = {
   "ANNANDALETODAY":{k:"ANNANDALETODAY",t:"ANNANDALETODAY",u:"",l:""},
   "ARLMAG":{k:"ARLMAG",t:"Arlington Magazine",u:"https://www.arlingtonmagazine.com/",l:"Arlington Magazine"},
   "ARLNOW":{k:"ARLNOW",t:"ARLnow (Arlington local news)",u:"https://www.arlnow.com/",l:"ARLnow (Arlington local news)"},
+  "ASIANFORTUNE":{k:"ASIANFORTUNE",t:"ASIANFORTUNE",u:"",l:""},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "BALTMAG":{k:"BALTMAG",t:"BALTMAG",u:"",l:""},
   "CHILIPEPPERCOOKS":{k:"CHILIPEPPERCOOKS",t:"CHILIPEPPERCOOKS",u:"",l:""},
   "CITYCAST":{k:"CITYCAST",t:"CITYCAST",u:"",l:""},
   "DCIST":{k:"DCIST / WAMU",t:"DCIST / WAMU",u:"",l:""},
+  "DMVEATS":{k:"DMVEATS",t:"DMVEATS",u:"",l:""},
   "EATERDC":{k:"EATER DC",t:"EATER DC",u:"",l:""},
   "FCNP":{k:"FCNP",t:"FCNP",u:"",l:""},
+  "FFXNOW":{k:"FFXNOW",t:"FFXnow (Fairfax County local news)",u:"https://www.ffxnow.com/",l:"FFXnow (Fairfax County local news)"},
   "FXVA":{k:"FAIRFAX CVB",t:"Visit Fairfax (FXVA)",u:"https://www.fxva.com/",l:"Visit Fairfax (FXVA)"},
   "GAYOT":{k:"GAYOT",t:"GAYOT",u:"",l:""},
   "HYPEFOODIES":{k:"HYPEFOODIES",t:"HYPEFOODIES",u:"",l:""},
+  "INFATUATION":{k:"INFATUATION",t:"INFATUATION",u:"",l:""},
   "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
   "KEITHLEE":{k:"KEITHLEE",t:"KEITHLEE",u:"",l:""},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
   "MICHELIN_BIB":{k:"MICHELIN BIB GOURMAND",t:"MICHELIN BIB GOURMAND",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN STAR",t:"MICHELIN STAR",u:"",l:""},
+  "NEWYORKER":{k:"NEWYORKER",t:"NEWYORKER",u:"",l:""},
   "NOVAMAG":{k:"NORTHERN VIRGINIA MAG",t:"Northern Virginia Magazine",u:"https://northernvirginiamag.com/",l:"Northern Virginia Magazine"},
+  "NYTIMES":{k:"NYTIMES",t:"NYTIMES",u:"",l:""},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"https://www.si.edu/",l:"Official site / operator"},
   "RAMW":{k:"RAMMY AWARDS",t:"RAMMY AWARDS",u:"",l:""},
   "ROADFOOD":{k:"ROADFOOD",t:"ROADFOOD",u:"",l:""},
+  "SOUTHERNFOODWAYS":{k:"SOUTHERNFOODWAYS",t:"SOUTHERNFOODWAYS",u:"",l:""},
   "STAYARLINGTON":{k:"STAYARLINGTON",t:"Arlington Convention & Visitors Service (stayArlington)",u:"https://www.stayarlington.com/",l:"Arlington Convention & Visitors Service (stayArlington)"},
+  "TIMEOUT":{k:"TIMEOUT",t:"TIMEOUT",u:"",l:""},
   "TYLERCOWEN":{k:"TYLERCOWEN",t:"TYLERCOWEN",u:"",l:""},
+  "TYSONSREPORTER":{k:"TYSONS REPORTER",t:"TYSONS REPORTER",u:"",l:""},
   "USATODAY":{k:"USA TODAY 10BEST",t:"USA TODAY 10BEST",u:"",l:""},
   "VIETCETERA":{k:"VIETCETERA",t:"VIETCETERA",u:"",l:""},
   "VIRGINIALIVING":{k:"VIRGINIALIVING",t:"VIRGINIALIVING",u:"",l:""},
@@ -460,6 +470,7 @@ const FS = {
   "WAPO":{k:"WASHINGTON POST",t:"The Washington Post",u:"https://www.washingtonpost.com/",l:"The Washington Post"},
   "WASHINGTONIAN":{k:"WASHINGTONIAN",t:"WASHINGTONIAN",u:"",l:""},
   "WASHINGTONORG":{k:"DESTINATION DC",t:"Destination DC (washington.org)",u:"https://washington.org/",l:"Destination DC (washington.org)"},
+  "WCP":{k:"WCP",t:"WCP",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
   "WTOP":{k:"WTOP",t:"WTOP",u:"",l:""}
 };
@@ -468,6 +479,8 @@ const CUISINES = [
   {id:"US",n:"American, New American & Steak"},
   {id:"SEAFOOD",n:"Chesapeake Seafood & Raw Bars"},
   {id:"ETHIOPIAN",n:"Ethiopian & East African"},
+  {id:"AFRICAN",n:"West & Sub-Saharan African"},
+  {id:"CARIB",n:"Caribbean"},
   {id:"LATIN",n:"Salvadoran, Mexican & Latin"},
   {id:"SASIAN",n:"South Asian & Afghan"},
   {id:"VIET",n:"Vietnamese"},
@@ -533,6 +546,19 @@ const F = [
 {t:1,a:"ARL",n:"Ambar Clarendon",ad:"2901 Wilson Blvd, Arlington, VA 22201",cz:["US"],la:38.88874,ln:-77.09345,w:"Arlington's standout for Balkan small plates — an all-you-can-eat spread of cevapi, ajvar and sarma that made it a Clarendon fixture and a Washingtonian/regional-award favorite; the strongest fine-casual pick in Arlington.",s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["ARLNOW","https://www.arlingtonmagazine.com/best-restaurants-clarendon-arlington-virginia/"]]},
 {t:2,a:"ALEX",n:"Hummingbird",ad:"220 S Union St, Alexandria, VA 22314",cz:["US","SEAFOOD"],la:38.80226,ln:-77.04048,w:"James Beard Award-winning chef Cathal Armstrong's breezy waterfront room at Hotel Indigo; Washington Post critic Tom Sietsema has called it Old Town's most appealing place to eat.",s:[["JAMESBEARD","https://www.jamesbeard.org/awards/restaurant-and-chef-awards"],["WAPO","https://washingtonian.com/2017/06/28/chef-cathal-armstrong-serves-seafood-with-waterfront-views-in-alexandria/"]]},
 {t:1,a:"FCITY",n:"2941 Restaurant",ad:"2941 Fairview Park Dr, Falls Church, VA 22042",cz:["US"],la:38.86932,ln:-77.21505,w:"A longtime Northern Virginia fine-dining destination — chef Bertrand Chemel's contemporary American cooking with French and Mediterranean influences, set beside koi ponds and a lakeside view; a Falls Church special-occasion standard-bearer.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/2941_Restaurant"],["FXVA","https://www.fxva.com/listing/2941-restaurant/1003/"]]},
+{t:1,a:"DUPONT",n:"Sushi Taro",ad:"1503 17th St NW, Washington, DC 20036",cz:["ASIAN"],la:38.90994,ln:-77.03828,w:"The city's benchmark for traditional Japanese dining: a MICHELIN-starred kaiseki-and-sushi room above a Dupont Circle CVS, run by second-generation chef Nobu Yamazaki, who reinvented the family restaurant into an upmarket kaiseki house. The MICHELIN star is a lone institutional authority; Time Out ranks it among DC's very best Japanese. Fish is flown from Toyosu.",g:["MKT"],s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"],["TIMEOUT","https://www.timeout.com/washington-dc/restaurants/best-japanese-restaurants-in-dc"]]},
+{t:1,a:"DUPONT",n:"Chang Chang",ad:"1200 19th St NW, Washington, DC 20036",cz:["ASIAN"],la:38.90640,ln:-77.04365,w:"Sichuan legend Peter Chang's polished DC flagship, where he applies precision to Sichuan and classic Chinese cooking without dialing down the heat. The Washington Post's Tom Sietsema reviewed it as \"worth the wait,\" Esquire named it a Best New Restaurant (2023), and it carries a MICHELIN Guide listing; The Infatuation is a fan. Peter Chang is a past James Beard finalist.",s:[["WAPO","https://www.washingtonpost.com/food/2022/11/11/chang-chang-restaurant-review-peter/"],["MICHELIN","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/chang-chang"],["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/chang-chang"]]},
+{t:1,a:"DTN",n:"Daikaya",ad:"705 6th St NW, Washington, DC 20001",cz:["ASIAN"],la:38.89861,ln:-77.01959,w:"The restaurant that introduced DC to serious ramen (2013): a Sapporo-style ramen bar downstairs with noodles handcrafted and imported from Japan, and a full izakaya upstairs, from chef Katsuya Fukushima. A perennial Eater essential; The Infatuation and Gayot both rate it a Chinatown/Penn Quarter must, and there's usually a line.",s:[["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/daikaya"],["GAYOT","https://www.gayot.com/restaurants/daikaya-washington-dc-20001_8dc130601.html"],["TIMEOUT","https://www.timeout.com/washington-dc/bars/daikaya-upstairs-izakaya"]]},
+{t:2,a:"DTN",n:"The Continent DC",ad:"1110 Vermont Ave NW, Washington, DC 20005",cz:["AFRICAN"],la:38.90434,ln:-77.03322,w:"DC's upscale West African flagship (opened 2024) from Nigerian-American founder Ope Amosu, a 175-seat downtown room built around a Nigerian core — egusi, bitterleaf (ofe onugbu), beef suya, Lagos snapper — that shifts to a lounge scene on weekends. Reviewed by The Infatuation and featured in Destination DC's dining coverage; fills a real West African gap for a \"Chocolate City.\"",s:[["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/the-continent"],["WASHINGTONORG","https://washington.org/visit-dc/award-winning-restaurants-washington-dc"]]},
+{t:1,a:"USHAW",n:"Purple Patch",ad:"3155 Mount Pleasant St NW, Washington, DC 20010",cz:["ASIAN"],la:38.93056,ln:-77.03767,w:"Patrice Cleary's warm Mount Pleasant Filipino restaurant (2015) was named the Washington Post's Restaurant of the Year by Tom Sietsema in 2023 — his highest annual honor. The Southern Foodways Alliance and Positively Filipino have both told its story; a diaspora home-away-from-home for kare-kare, crispy lechon kawali and lumpia.",s:[["WAPO","https://www.washingtonpost.com/food/2023/10/02/purple-patch-dc-restaurant-of-the-year/"],["SOUTHERNFOODWAYS","https://www.southernfoodways.org/purple-patch-my-home-away-from-home/"]]},
+{t:1,a:"USHAW",n:"Tiger Fork",ad:"922 N St NW Rear, Washington, DC 20001",cz:["ASIAN"],la:38.90664,ln:-77.02485,w:"A playful Hong Kong-style Cantonese spot tucked in Shaw's Blagden Alley with red lanterns and night-market energy — dim sum, cheung fun, chow fun and whole crispy fish. The Washington Post's Tom Sietsema ranked it #7 on his top-10 restaurants; Washingtonian and Time Out both praise it. Real Cantonese cooking inside the District.",g:["MKT"],s:[["WAPO","https://www.washingtonpost.com/lifestyle/food/tiger-fork-a-playful-take-on-hong-kong-style-cooking-in-shaw/2017/03/28/5e2b0e36-080a-11e7-b77c-0047d15a24e0_story.html"],["WASHINGTONIAN","https://washingtonian.com/2017/02/23/tiger-fork-brings-hong-kong-style-chinese-and-dim-sum-to-shaw/"]]},
+{t:1,a:"USHAW",n:"Letena",ad:"3100 14th St NW, Washington, DC 20010",cz:["ETHIOPIAN"],la:38.93024,ln:-77.03338,w:"Yamrot Ezineh's farm-to-table Ethiopian kitchen in Columbia Heights, spices imported from Ethiopia, standout vegetable dishes (sweet-savory carrot wat, deeply caramelized mushroom tibs) alongside berbere beef and braised-lamb yebeg wat. Named to Washingtonian's 100 Very Best Restaurants (2025) and to the Washington Post's best-Ethiopian roundup (2025).",s:[["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/letena-3/"],["WAPO","https://www.washingtonpost.com/food/2025/03/11/best-ethiopian-restaurants-dc/"]]},
+{t:2,a:"USHAW",n:"Appioo African Bar & Grill",ad:"1924 9th St NW, Washington, DC 20001",cz:["AFRICAN"],la:38.91630,ln:-77.02420,w:"Chef Prince Matey's home-cooked Ghanaian mainstay in Shaw (2015), which Eater calls \"Shaw's essential Ghanaian mainstay\" for its stellar groundnut soup, egusi and jollof; Washingtonian folded it into its guide to DC's West African cooking. Live bands on weekends and a diaspora crowd — authentic West African, not a fusion approximation.",s:[["EATERDC","https://dc.eater.com/maps/best-african-restaurants-washington-dc"],["WASHINGTONIAN","https://washingtonian.com/2023/07/18/these-dc-restaurants-will-transport-you-to-west-africa/"]]},
+{t:1,a:"CAPHILL",n:"Panda Gourmet",ad:"2700 New York Ave NE, Washington, DC 20002",cz:["ASIAN"],la:38.91784,ln:-76.97013,w:"The genuine-article Sichuan and Shaanxi kitchen hidden inside a Days Inn off New York Avenue NE. The Washington Post's $20 Diner said it \"dazzles\"; Tyler Cowen's Ethnic Dining Guide calls it the best Chinese restaurant DC has ever had, with the best dan dan noodles the area has seen; Washington City Paper chronicled its cult following.",s:[["WAPO","https://www.washingtonpost.com/goingoutguide/the-20-diner-panda-gourmet-dazzles-with-genuine-sichuan-and-shaanxi-cooking-at-a-days-inn/2013/08/28/cef3a876-0b9c-11e3-b87c-476db8ac34cd_story.html"],["TYLERCOWEN","https://tylercowensethnicdiningguide.com/index.php/panda-gourmet/"],["WCP","https://washingtoncitypaper.com/article/505272/the-past-present-and-future-of-d-c-s-panda-gourmet/"]]},
+{t:1,a:"CAPHILL",n:"Cane",ad:"403 H St NE, Washington, DC 20002",cz:["CARIB"],la:38.90002,ln:-77.00031,w:"Chef Peter Prime's small, bright H Street ode to Trinidad's Indian-African-Chinese street food — doubles, dhalpuri roti, jerk, oxtail and Caribbean rums. A MICHELIN Bib Gourmand honoree repeatedly (2020, 2024, 2025), a lone institutional authority; even Obama has been photographed eating a double there.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/cane"],["WASHINGTONIAN","https://washingtonian.com/2025/11/18/michelin-adds-no-new-starred-restaurants-to-dc-guide/"]]},
+{t:1,a:"CAPHILL",n:"Daru",ad:"1451 Maryland Ave NE, Washington, DC 20002",cz:["SASIAN"],la:38.89967,ln:-76.98392,w:"Rasika alums Suresh Sundas and Dante Datta's low-lit \"Indian-ish\" bar-restaurant off H Street — tandoori lamb chops, black dal moored with burrata, inventive cocktails. In the MICHELIN Guide (2022), on the New York Times' 50 Best New Restaurants in America, and a Washingtonian 100 Very Best pick; The Infatuation is a fan.",s:[["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/daru-3/"],["MICHELIN","https://guide.michelin.com/en/district-of-columbia/washington-dc/restaurant/daru"],["DCIST","https://dcist.com/story/21/08/17/first-look-daru-restaurant-indian-cuisine-hstreet/"]]},
+{t:2,a:"CAPHILL",n:"Maketto",ad:"1351 H St NE, Washington, DC 20002",cz:["ASIAN"],la:38.90004,ln:-76.98667,w:"Erik Bruner-Yang's genre-bending H Street Taiwanese-Cambodian restaurant, cafe and retail concept — dumplings, noodles and a cult twice-fried chicken. The Washington Post reviewed it as a party you can slurp, sip and shop through; The Infatuation calls the Taiwanese-Cambodian hybrid a standout. A rare Taiwanese anchor inside the District.",s:[["WAPO","https://www.washingtonpost.com/lifestyle/food/h-streets-maketto-looks-acts-and-tastes-like-a-party/2015/07/21/b42b4866-23fd-11e5-b77f-eb13a215f593_story.html"],["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/maketto"]]},
+{t:1,a:"GTWN",n:"Das Ethiopian Cuisine",ad:"1201 28th St NW, Washington, DC 20007",cz:["ETHIOPIAN"],la:38.90544,ln:-77.05691,w:"Ethiopian dining inside a classic Georgetown townhouse — soothing rooms, attentive service that walks newcomers through the menu, and a much-praised doro wot. A MICHELIN Bib Gourmand honoree (2021 onward), a lone institutional authority, and the rare authentic Ethiopian option west of the Little Ethiopia corridor.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/das"],["WASHINGTONIAN","https://washingtonian.com/2016/10/06/michelin-releases-bib-gourmand-list-dc/"]]},
 {t:1,a:"ARL",n:"El Pollo Rico",ad:"932 N Kenmore St, Arlington, VA 22201",cz:["LATIN"],la:38.88384,ln:-77.10071,w:"Arlington's legendary Peruvian charcoal-chicken counter in Virginia Square, a decades-old cult institution whose aroma reaches a block away; a Washingtonian award winner for Best Peruvian Chicken and a Roadfood-anointed classic.",s:[["ROADFOOD","https://roadfood.com/restaurants/el-pollo-rico"],["WASHINGTONIAN","https://elpollorico.com/press/"]]},
 {t:1,a:"ARL",n:"Ruthie's All-Day",ad:"3411 5th St S, Arlington, VA 22204",cz:["US"],la:38.86730,ln:-77.09532,w:"James Beard-nominated chef Matt Hill's family-friendly Southern smokehouse; a 2022 RAMMY winner and voted the No. 1 reader-favorite restaurant in Virginia by Washingtonian, with a Washington Post rave for its barbecue and brunch biscuits.",s:[["ARLNOW","https://www.arlnow.com/2022/07/25/ruthies-all-day-and-owners-of-shirlingtons-chiko-were-served-up-rammy-wins-last-night/"],["WAPO","https://www.washingtonpost.com/lifestyle/food/ruthies-all-day-restaurant-review/2021/04/29/9dfa344c-a45a-11eb-a7ee-949c574a09ac_story.html"]]},
 {t:2,a:"ARL",n:"Maison Cheryl",ad:"2900 Wilson Blvd, Arlington, VA 22201",cz:["US"],la:38.88828,ln:-77.09332,w:"A chic French New-American bistro in the heart of Clarendon executing comforting classics with classic French technique; reviewed favorably by Northern Virginia Magazine and covered as a Clarendon draw by ARLnow.",s:[["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2022/01/28/online-exclusive-review-maison-cheryl/"],["ARLNOW","https://www.arlnow.com/2021/08/25/maison-cheryl-in-clarendon-promises-chic-atmosphere-for-older-millennials/"]]},
@@ -567,7 +593,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([38.8911,-77.0436],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([38.8943,-77.0406],11);
 /* ── Base layers ────────────────────────────────────────────────────────────
    Free layers need no key. Google needs your own Maps JavaScript API key and
    is loaded through the officially sanctioned GoogleMutant plugin, because
@@ -708,7 +734,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8961, -77.0253], ["Georgetown", 38.9044, -77.0608], ["Dupont", 38.9128, -77.0419], ["U Street", 38.9166, -77.0294], ["Capitol Hill", 38.8862, -77.0039], ["Arlington", 38.8763, -77.0755], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9492, -77.2449], ["Reston", 38.9492, -77.3877], ["Falls Church", 38.8687, -77.1748], ["Fairfax", 38.8316, -77.302]];
+const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8968, -77.0254], ["Georgetown", 38.9045, -77.0603], ["Dupont", 38.9116, -77.0417], ["U Street", 38.9177, -77.0295], ["Capitol Hill", 38.8902, -76.9997], ["Arlington", 38.8763, -77.0755], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9492, -77.2449], ["Reston", 38.9492, -77.3877], ["Falls Church", 38.8687, -77.1748], ["Fairfax", 38.8316, -77.302]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1058,7 +1084,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 120 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 133 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
