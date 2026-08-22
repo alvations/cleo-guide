@@ -386,3 +386,53 @@ high pinned, 23 UNVERIFIED (WebSearch can't surface most neighborhood place-pins
 + 1 viewport — never fabricated). Consolidated **221 candidates** (76 sights + 145 food), sourcecheck PASS.
 Rebuild: **page 120 → 133 pins** (75 sights + 58 food). Gates: sourcecheck PASS · geocheck exit 0 (NOTE 2
 low) · statuscheck CONSISTENT · buildcheck PASS. validate/test green. 88 UNVERIFIED → helper.
+
+## Seed-place creator/viral pass — Mama Chang (2026-08-22)
+Seed: **Mama Chang**, Peter Chang family modern-Chinese/dim-sum, **3251 Blenheim Blvd, Fairfax, VA 22030**
+(FAIRFAX) — NOT the guessed Prosperity Ave; corrected via Yelp/Toast/official mamachangva.com.
+**Status: OPEN** (Yelp updated Jul-2026 ~996 reviews ~4.5; official site + Toast/Resy ordering live;
+(703) 268-5556). closed:false.
+
+**Creators vetted vs rejected (seed mode, non-clobbering — CREATORS_MAMACHANG.json):**
+- VETTED 1 → **URNOVAFOODIE** (Emily) — TikTok ~41K / IG ~44-49K (cross-checked Socialveins + TikBuddy),
+  dedicated NoVA/DMV eats beat, findable Mama Chang all-you-can-eat dim-sum reel naming dishes (TikTok
+  7492895090952752430). Counts as ONE corroborating creator source.
+- REJECTED @alwaysbemyfoodie (~10K TikTok) — has a findable Mama Chang video but follower scale marginal;
+  place already over-sourced, held out not padded.
+- REJECTED Rick Eats DC / Rick Chessen (rickeatsdc.com) — real established DC food blog + genuine Mama
+  Chang review + track record on DonRockwell, but social reach ~1K (985 IG / 255 Threads) below the
+  sizable-following bar. Logged as a lead only.
+- REJECTED tiktok.com/discover hashtag hub pages — no identifiable creator / unverifiable following.
+
+**Place added (FOOD_MAMACHANG.json):** Mama Chang — cleared the bar easily on **editorial alone**
+(≥2 credible): WaPo/Tim Carman review ("a new star powered by women"), Washingtonian 100 Very Best
+(#14 2020, list fixture through 2025 & 2026), The Infatuation ("Peter Chang's best effort yet"), Tyler
+Cowen's Ethnic Dining Guide — PLUS the URNOVAFOODIE creator corroboration. 4 sources on the record.
+Signature: Peter Chang scallion bubble pancake, dry-fried cauliflower, lychee pepper chicken, Wuhan
+sesame noodles, pork soup dumplings, cumin fried flounder. NO coordinates (geocoding is a separate stage).
+
+**Siblings — measured, NOT added (no dup, no pad):** Peter Chang Herndon (RESTON), Chang Chang (DUPONT),
+China Star (FAIRFAX) already in the F array → skipped. In-scope leads surfaced but NOT added this pass
+(not cited by the Mama Chang sources and not yet ≥2-credible-sourced): **NiHao Arlington** (Lydia Chang's
+Cantonese dim sum, opened Apr-2024, ARL) and **Peter Chang's China Café Arlington** (2015) — flagged for a
+future dedicated sourcing pass rather than added unsourced. Peter Chang Alexandria = announced/not open →
+out. All MD/Charlottesville/Richmond/Va-Beach/Stamford/Annapolis Chang outposts = out of scope.
+
+**Constraints honored:** wrote only CREATORS_MAMACHANG.json + FOOD_MAMACHANG.json in this dir; shared
+files (sources.json, geocodes.json, research.js, dataset) untouched. Run tools/merge-creators.py to wire.
+
+## Stage 11 — Seed-place creator pass: Mama Chang + source-discovery flow improvement (2026-08-21)
+FLOW IMPROVEMENTS (not ad hoc): (1) `tools/merge-creators.py` now globs ALL `CREATORS*.json` so creator
+passes accumulate without clobbering (verified: read CREATORS.json + CREATORS_MAMACHANG.json). (2) New
+reusable `tools/find-sources.py` planner emits the canonical source-discovery query set (city/--cuisine/
+--seed/--creators/--key) — critic-of-record, city-mag cuisine best-of, diaspora/community media, the
+"Where the Ambassador of X eats" series, awards, verified-creator vetting, seed-place reverse-source.
+Both codified in docs/SOURCES.md ("Food, ethnic & seed-place source discovery" + "Repeatable, non-clobbering
+passes") + DC _AGENT_BRIEF. SEED PASS (Mama Chang): cleared the bar on editorial alone (WaPo/Carman +
+Washingtonian 100VB #14 + Infatuation + Tyler Cowen) + 1 vetted creator @urnovafoodie (~41K TikTok, findable
+dim-sum reel); 3 creators REJECTED (alwaysbemyfoodie ~10K marginal, Rick Eats DC ~1K below bar, anonymous
+hubs). Address corrected to 3251 Blenheim Blvd Ste 101, Fairfax 22030 (FAIRFAX); OPEN. Geocoded med
+(38.8626,-77.27656, aggregator place point). Siblings NiHao Arlington + Peter Chang's China Café Arlington
+flagged as leads for a future dedicated pass (not added unsourced; no padding). Consolidated 222 candidates,
+sourcecheck PASS. Rebuild: **page 133 → 134** (food 59). Gates: sourcecheck/geocheck(exit0)/statuscheck/
+buildcheck all PASS. validate/test green.

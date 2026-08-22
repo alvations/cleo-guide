@@ -162,7 +162,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Vive Sol
 
 ## washington-dc
-- registry entries: **221** · verified pins: **133** (high 108 · med 23 · low 2)
+- registry entries: **222** · verified pins: **134** (high 108 · med 24 · low 2)
 - ⚠️ **UNVERIFIED** in registry (88) — held by the gate, need the helper:
     - 9292 Korean BBQ
     - Amoo's

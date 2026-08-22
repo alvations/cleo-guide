@@ -21066,6 +21066,18 @@
     "statusSource": "Yelp updated Jul 2026; chaskava.com",
     "statusChecked": "2026-08-21",
     "note": "Pakistani/Indian kabob (worklist labels Indian), 2nd floor Falke Plaza, Sterling - needs browser helper"
+   },
+   "Mama Chang": {
+    "address": "3251 Blenheim Blvd Ste 101, Fairfax, VA 22030",
+    "lat": 38.8626,
+    "lng": -77.27656,
+    "source": "corner.inc / wheree place-level decimal (Fairfax Circle Shopping Center); aggregator place point",
+    "verified": "2026-08-21",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "mamachangva.com active; Yelp updated Jul 2026 (~996 reviews); phone (703) 268-5556",
+    "statusChecked": "2026-08-21",
+    "note": "Aggregator place point (Ste 101), not a confirmed Google !3d!4d pin — flag for exact-pin re-verify."
    }
   }
  }

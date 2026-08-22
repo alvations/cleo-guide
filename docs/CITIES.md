@@ -18,7 +18,7 @@ _Counts are as of 2026-08-18; re-derive anytime with the commands below — neve
 | Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 109 | live · 23 UNVERIFIED pins pending helper |
 | Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 62 | live · 23 UNVERIFIED pins pending helper (8 food un-geocoded) |
 | Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 56 | live · +4 merit-vetted Asian (Wat Da Pho pinned; China Cottage/Little Saigon/Kabuki pending helper) · 22 UNVERIFIED pins; Aullwood + Third Perk (1-source) held |
-| Washington DC (+ Arlington + Dulles corridor) | `cities/washingtondc.html` | `data/washingtondc.dataset.json` | `data/washington-dc-research/` | 133 | live · 221 candidates (12 areas, deep non-American food), 88 UNVERIFIED restaurant pins pending helper; closed rooms held |
+| Washington DC (+ Arlington + Dulles corridor) | `cities/washingtondc.html` | `data/washingtondc.dataset.json` | `data/washington-dc-research/` | 134 | live · 222 candidates (12 areas, deep non-American food + Mama Chang), UNVERIFIED restaurant pins pending helper; closed rooms held |
 
 **Washington DC region scope:** DC proper + **Arlington** + the Northern Virginia corridor between
 **Dulles (IAD) and DC** — Rosslyn/Clarendon/Ballston, National Landing, Falls Church & Annandale (Eden
