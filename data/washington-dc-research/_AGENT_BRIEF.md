@@ -41,6 +41,13 @@ build assert fails.
   content, a DC beat); vet + register in `creators`, attach as a corroborating source. A lone creator
   corroborates but is NOT an institutional authority.
 
+**Finding MORE sources — run the planner, don't improvise.** Before a discovery wave, run
+`python3 tools/find-sources.py "Washington, DC" [--cuisine "<X>"] [--seed "<Place>"] [--creators] --key washington-dc`.
+It emits the credible source TYPES + the canonical WebSearch query set (critic of record, city-mag cuisine
+best-of, diaspora/community media, the "Where the Ambassador of <country> eats" series, awards, verified-creator
+vetting, seed-place reverse-source) and lists what's already registered so you expand the gaps. See
+docs/SOURCES.md "Food, ethnic & seed-place source discovery".
+
 ## Food — start with what the region is FAMOUS for (the opening move)
 Name the DC-unique canon first, then find the merit-worthy places that serve it:
 - **The half-smoke** (Ben's Chili Bowl and its lineage) · **mumbo sauce** (carryout classic).

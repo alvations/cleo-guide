@@ -361,6 +361,40 @@ Washington County, the Observer-Reporter, The Almanac, Rivers of Steel and PHLF,
 Pennsylvania Trolley Museum, the Whiskey-Rebellion houses, the Carrie Blast Furnaces and the whole
 South-Hills / Mon-Valley long tail. The registry grew from 12 to 45 Pittsburgh sources this way.
 
+### Food, ethnic & seed-place source discovery — run the planner, don't improvise
+
+The passes above anchor *sights*. Food — especially **non-American / immigrant food**, **creators**, and
+**seed places** — has its own seams that a "best restaurants <city>" search misses. Rather than improvise
+the queries each time, run the reusable planner and work its output:
+
+```bash
+python3 tools/find-sources.py "<City>, <ST>"                     # city-wide food+sights source sweep
+python3 tools/find-sources.py "<City>, <ST>" --cuisine "<X>"     # one cuisine's credible + community sources
+python3 tools/find-sources.py "<City>, <ST>" --seed "<Place>"    # reverse-find who credibly cites a place
+python3 tools/find-sources.py "<City>, <ST>" --creators          # verified-creator discovery + vetting
+python3 tools/find-sources.py "<City>, <ST>" --key <city-key>    # + list what's already registered (expand the gaps)
+```
+
+It prints the **credible source TYPES** to hunt for and the **canonical WebSearch query set** for each mode,
+so every agent runs the *same* systematic discovery. The seams it forces you to cover, beyond the local daily:
+- **The critic of record** — search the *named* critic (a Sietsema/Carman-type), not just the paper.
+- **City-magazine cuisine best-of** — the glossy's '100 Very Best' AND its per-cuisine guides.
+- **Diaspora / community media** — the outlet a cuisine's own diners read (Vietcetera, an Asian-American or
+  Korean community paper). Authentic and credible *for that cuisine*; often the only place a hidden gem is written up.
+- **The "Where the Ambassador of <country> eats" / "where chefs eat" series** — authentic pointers to the
+  non-touristy ethnic spots the ambassador/chef actually frequents.
+- **Awards/votes** (Michelin, James Beard, a RAMMY-type local award, reader Best-of) — measurable merit.
+- **Verified creators** (YouTube/TikTok/blog) — the planner emits the *vetting* queries too (follower scale +
+  a findable piece of content), because a creator counts only when you can verify it.
+- **Seed-place reverse-source** — given a named place, find *who credibly cites it* + its merit-worthy siblings.
+
+Register the winners in `data/sources.json` with a `credible` rationale (national food desks — NYT, Bon
+Appétit, Esquire, Thrillist, Time Out — and rating platforms are **corroboration only**, never a lone
+recommender). Then the normal flow runs unchanged. Worked example — **DC, Aug 2026**: the planner's cuisine +
+"where-X-eats" + community seams grew the palette from 20 → 51 sources (adding Vietcetera, Arlington Mag, The
+Infatuation, Tyler Cowen's guide, Asian Fortune, the ambassador series, NYT/New Yorker, Falls Church News-Press),
+which unlocked the deep non-American food (Ethiopian, Uyghur, Georgian, Nigerian, Trinidadian, Singaporean…).
+
 ## Creator, viral & social-source pass — a repeatable per-city step (run on every build + refresh)
 
 A first-class discovery + corroboration pass, run for **every** city (new build or update). It widens
