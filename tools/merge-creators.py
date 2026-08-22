@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-# Merge a city's creator/viral-source pass into the registry + research files (reusable, per
-# docs/SOURCES.md "Creator, viral & social-source pass"). Reads data/<city>-research/CREATORS.json:
+# Merge a city's creator/viral-source pass(es) into the registry + research files (reusable, per
+# docs/SOURCES.md "Creator, viral & social-source pass"). Reads EVERY data/<city>-research/CREATORS*.json:
 #   {"creators":[{key,name,type,scope,...,verified,credible}], "attach":[{place,creatorKey,url}]}
-# and (1) registers the creators under data/sources.json cities[<key>].creators[] (dedup by key),
-# (2) applies each attachment as an extra CREDIBLE source [creatorKey,url] on the matching research
-# record (dedup by key). VIRAL_EXPAND.json places are picked up by consolidate.py like any research file.
+# so a city can accumulate MULTIPLE creator passes without clobbering (name later passes CREATORS_<tag>.json,
+# e.g. CREATORS_MAMACHANG.json). The pass then (1) registers the creators under
+# data/sources.json cities[<key>].creators[] (dedup by key), (2) applies each attachment as an extra
+# CREDIBLE source [creatorKey,url] on the matching research record (dedup by key). VIRAL_*.json / seed-place
+# research files are picked up by consolidate.py like any research file.
 #
-#   python3 tools/merge-creators.py <city-key>        e.g. cincinnati-oh
+#   python3 tools/merge-creators.py <city-key>        e.g. cincinnati-oh, washington-dc
 import json, sys, os, glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,11 +20,15 @@ if not key:
 _cand_full = os.path.join(ROOT, "data", f"{key}-research")
 slug = key if os.path.isdir(_cand_full) else key.rsplit("-", 1)[0]
 rdir = os.path.join(ROOT, "data", f"{slug}-research")
-cpath = os.path.join(rdir, "CREATORS.json")
-if not os.path.exists(cpath):
-    print("no CREATORS.json for", key, "at", cpath); sys.exit(1)
-cj = json.load(open(cpath, encoding="utf-8"))
-creators = cj.get("creators", []); attach = cj.get("attach", [])
+# Aggregate across ALL CREATORS*.json passes (repeatable, non-clobbering).
+cpaths = sorted(glob.glob(os.path.join(rdir, "CREATORS*.json")))
+if not cpaths:
+    print("no CREATORS*.json for", key, "in", rdir); sys.exit(1)
+creators = []; attach = []
+for cpath in cpaths:
+    cj = json.load(open(cpath, encoding="utf-8"))
+    creators += cj.get("creators", []); attach += cj.get("attach", [])
+print(f"reading {len(cpaths)} creator pass file(s): {', '.join(os.path.basename(p) for p in cpaths)}")
 
 # 1) register creators in sources.json (dedup by key)
 sp = os.path.join(ROOT, "data", "sources.json"); s = json.load(open(sp, encoding="utf-8"))

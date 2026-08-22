@@ -392,6 +392,15 @@ city creators, and pay-to-play accounts. *Popularity you can't verify isn't popu
 log the pass (counts, who was rejected and why) in that city's `AUDIT.md`. This pass is **not optional**
 and **not one-off** — re-run it on every refresh, exactly like the geocode re-verify and status passes.
 
+**Repeatable, non-clobbering passes.** Because this pass recurs, later passes must not overwrite earlier
+ones. Name each additional pass's creator file **`CREATORS_<tag>.json`** (e.g. `CREATORS_MAMACHANG.json`)
+and its places file `VIRAL_<tag>.json` / a normal research file. `tools/merge-creators.py <city-key>`
+**globs every `CREATORS*.json`** in the dir and aggregates them (dedup by key), so passes accumulate — run
+it once after any pass and it wires them all. This is also the **seed-place mode**: when you *name a place*
+(e.g. "add Mama Chang"), find the credible creators/press/community that cite it, vet + register them in a
+`CREATORS_<seed>.json`, drop the place(s) they point to into a `FOOD_<seed>.json` research file, then the
+normal flow (≥2 credible → fact-check → geocode/location-verify → re-rank → build → gate) applies unchanged.
+
 ## Web access in this environment (read this before researching)
 
 - **`WebSearch` works.** It runs on Anthropic's server-side search backend, not through the
