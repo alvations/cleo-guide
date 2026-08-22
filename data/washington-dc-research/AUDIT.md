@@ -247,3 +247,59 @@ they appear on the map. Closed found + flagged: **Uncle Liu's Hot Pot** (renamed
 registry key, shown flagged); Myanmar Restaurant + Four Sisters remain flagged-closed (UNVERIFIED, off-page).
 Rebuild: **page 116 → 120 pins** (75 sights + 45 food). Gates: sourcecheck PASS · geocheck exit 0 (NOTE: 2
 low stall pins) · statuscheck CONSISTENT · buildcheck PASS. validate/test green. 65 UNVERIFIED → helper.
+
+## Stage 9 — Global / non-American food fill, DC proper + Arlington (2026-08-22)
+Focus: DTN/USHAW/DUPONT/GTWN/CAPHILL/ARL (the District core + Arlington), filling thin/missing non-American
+cuisines. Added **FOOD_GLOBAL_DC.json (20 places)**; proposed 4 new outlets in SOURCES_GLOBAL_DC.json
+(NYTIMES, SOUTHERNFOODWAYS, RESY, ESQUIRE) — no new creators. No coordinates (geocode stage). Method: source
+palette + Washingtonian "Where the Ambassador of ___ Eats" series (Singapore/Georgia/Indonesia) as leads,
+then vetted each against ≥2 credible sources / a lone institutional authority (Michelin), fact-checked
+OPEN/CLOSED for 2025/26. Every place cross-checked against the existing F array — zero duplicates.
+
+By area: USHAW 7 · DTN 4 · CAPHILL 4 · DUPONT 3 · GTWN 1 · ARL 1. By cuisine: Japanese 3 (Sushi Taro,
+Daikaya, Izakaya Seki) · Chinese/Sichuan 3 (Chang Chang, Panda Gourmet, Tiger Fork) · Filipino 2 (Purple
+Patch, Kayu) · Thai 2 (Baan Siam, Thai Square) · Ethiopian 2 (Letena, Das) · plus Peruvian/Nikkei (China
+Chilcano), Nigerian (The Continent), Georgian (Supra), Ghanaian (Appioo), Malaysian (Makan — CLOSED),
+Trinidadian/Caribbean (Cane), Indian (Daru), Taiwanese-Cambodian (Maketto).
+
+KEPT — merit measured (each ≥2 credible, or lone Michelin):
+- Institutional authority (lone-sufficient): Sushi Taro (MICHELIN star), Cane (Bib 2020/24/25), Supra (Bib),
+  Das Ethiopian (Bib 2021), China Chilcano (Bib 2017–20), Makan (Bib 2021, CLOSED), Chang Chang & Daru
+  (MICHELIN Guide) — all still corroborated by a 2nd credible source.
+- Award/major-press: Purple Patch (WaPo Sietsema Restaurant of the Year 2023), Izakaya Seki (WaPo first
+  4-star, 2026), Kayu (Washingtonian 100VB 2026 + WaPo review), Baan Siam (Washingtonian 100VB + NYT 25
+  Best), Letena (Washingtonian 100VB 2025 + WaPo), Tiger Fork (WaPo top-10 #7 + Washingtonian), Thai Square
+  (WaPo + Tyler Cowen + ARLnow), Daikaya (Infatuation + Gayot + TimeOut), Panda Gourmet (WaPo $20 Diner +
+  Tyler Cowen "best ever" + WCP), Maketto (WaPo + Infatuation), Appioo (Eater "essential Ghanaian" +
+  Washingtonian West African), The Continent (Infatuation + Destination DC; Nigerian gap-filler, chef Ope
+  Amosu).
+Ambassador/where-X-eats pieces used as leads: Washingtonian "Where the Ambassador of Singapore Eats" (2019),
+"…of Georgia" (2020) → Supra, "…of Indonesia" (2019). (The Singapore piece's home pick is Rasika, already
+in F; no in-scope open Singaporean restaurant met the bar.)
+
+CLOSED found:
+- **Makan** (Malaysian, Columbia Heights) — MICHELIN Bib 2021; closed Feb 2025. Kept flagged (closed:true,
+  "— CLOSED") as the notable Malaysian benchmark for a gap otherwise empty in the District.
+- **Etete** (Ethiopian, Shaw) — benchmark since 2005 but Yelp shows permanently closed by mid-2026;
+  DROPPED in favor of open Letena + Das (both stronger merit). 
+- **Little Serow** (Northern Thai, Dupont; Johnny Monis, Bon Appétit Top 10) — permanently closed Sep 2022;
+  DROPPED (open Baan Siam covers Northern Thai).
+- **Thamee** (Burmese, H St) — closed Jan 2022; DROPPED (Burmese already represented flagged-closed by
+  Myanmar Restaurant in FCITY; no open in-scope Burmese found).
+- **Bad Saint** (Filipino, Columbia Heights) — closed; DROPPED (Purple Patch + Kayu cover Filipino, open).
+
+MEASURED & DROPPED (mention ≠ merit / <2 credible-of-truth / padding):
+- **Kabob Bazaar** (Arlington Persian) — Tyler Cowen "best Persian in DC area" + Yelp 4.x/454, but only ONE
+  credible source of truth (Tyler Cowen); no 2nd editorial/institutional. Dropped; Persian stays represented
+  in the corridor (Shamshiry/Joon/Amoo's, Tysons). Persian-in-District left as a stated gap.
+- **Pappe** (Indian, Logan Circle) — Infatuation only (1 credible), no confirmed Michelin/award; Indian
+  already covered in-District (Rasika, Bombay Club, Daru). Dropped as padding.
+- **Mala Tang** (Arlington Sichuan hot pot) — "Best of Arlington" appetizer + high Yelp, but no confirmed
+  WaPo/Washingtonian/Tyler Cowen credible; only 1-ish. Dropped (measure, no 2nd credible).
+- **Agora / Ezme** (Dupont Turkish) — Greek-Turkish/Mediterranean, mixed reviews, no strong 2-credible for a
+  purely-Turkish authentic pick; Turkish left unfilled rather than padded.
+- **Q by Peter Chang** — in Bethesda MD, OUT of scope. Peter Chang Arlington — near-duplicate of existing
+  Peter Chang (Herndon) + Chang Chang; skipped to avoid brand padding.
+NOTE: additions only (no removals) — every area keeps its existing ≥1 tier-1. Coordinates + pin placement +
+final status re-verify deferred to the shared geocode/status stage. Budget: ~32 WebSearches (WebFetch is
+egress-blocked here, per project rules — all vetting done via search snippets).
