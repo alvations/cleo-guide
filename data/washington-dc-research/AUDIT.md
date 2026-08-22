@@ -303,3 +303,67 @@ MEASURED & DROPPED (mention ≠ merit / <2 credible-of-truth / padding):
 NOTE: additions only (no removals) — every area keeps its existing ≥1 tier-1. Coordinates + pin placement +
 final status re-verify deferred to the shared geocode/status stage. Budget: ~32 WebSearches (WebFetch is
 egress-blocked here, per project rules — all vetting done via search snippets).
+
+---
+
+## Global / non-American NoVA corridor food expansion — FOOD_GLOBAL_NOVA.json
+
+**Stage:** food discovery (non-American, immigrant-food gaps) across FCITY / FAIRFAX / TYSONS / RESTON.
+**Method:** WebSearch only (WebFetch blocked). ~40 searches, shared budget. Started from the DC-region
+immigrant canon + the ambassador/"where X eats"/cuisine-specific credible guides named in the brief.
+Verified OPEN/CLOSED (2025/26) and >=2 credible sources per place; Yelp/TripAdvisor/Google used only to
+measure rating/volume and confirm open status, never as a recommender.
+
+**Added: 17 places (all open, all >=2 credible sources), distributed:**
+- FCITY (5): Bamian (Afghan; Washingtonian Cheap Eats '15 + WaPo '06 + Tyler Cowen), Lighthouse Tofu
+  (Korean sundubu; WaPo review Jan-2026 + NoVA Mag), Seoul Prime (upscale Korean; Washingtonian + NoVA
+  Mag + Arlington Mag), Yeshi Kitfo (Ethiopian kitfo; Tyler Cowen "best kitfo, period" + Annandale Today),
+  Fairfax Inn (Filipino; Asian Fortune + FXVA).
+- FAIRFAX (4): China Star (Sichuan; Tyler Cowen default pick + New Yorker "Where's Chang?"), Eerkin's
+  Uyghur Cuisine (Uyghur/Central Asian, halal; Washingtonian Cheap Eats + NoVA Mag 50 Best), Wow Nepal
+  (Nepali; Tyler Cowen "the real thing" + FFXnow), Southeast Impression (Malaysian/Singaporean/Thai,
+  halal; WaPo review + NoVA Mag First Bite).
+- TYSONS (5): Jiwa Singapura (Singaporean fine dining, Tysons Galleria; WaPo "sublime" + Washingtonian),
+  Chef Tan (Hunan, Vienna; WaPo 3-star + #6 on 2026 10-Best-New list + FFXnow), Esaan Tumbar (Isaan Thai,
+  McLean; Washingtonian 100 Very Best #62 + WaPo $20 Diner), Royal Nepal Bistro (Nepali, Vienna; NoVA Mag
+  + Tysons Reporter), Cha Street Food (Pakistani, Tysons; Washingtonian modern-Pakistani + FFXnow).
+- RESTON (3): Maharani Palace (upscale Indian, Herndon; NoVA Mag 14-Best-Asian '25 + NoVA Mag First Bite),
+  Kabobi by The Helmand (Afghan fast-casual, Herndon; NoVA Mag + Baltimore Mag / Qayum Karzai Helmand
+  lineage), Chaska (Pakistani, Sterling; Washingtonian modern-Pakistani + DMV-Eats viral creator).
+
+**Ambassador / "where X eats" / cuisine-guide series used:** Washingtonian (Cheap Eats, Best Korean BBQ
+'23, 100 Very Best, "4 Modern Pakistani Restaurants in NoVA" '24, upscale-Korean/Singaporean features);
+WaPo (Tim Carman/Elazar Sontag reviews, $20 Diner, 10 Best New Restaurants '26); Northern Virginia
+Magazine (50 Best '25, 14 Best Asian '25, First Bite reviews, Korean BBQ guides); Tyler Cowen's Ethnic
+Dining Guide + Marginal Revolution; Arlington Magazine; FFXnow; Tysons Reporter; Annandale Today; Asian
+Fortune; Visit Fairfax (FXVA); The New Yorker (Trillin); Baltimore Magazine.
+
+**MEASURED & DROPPED (mention != merit / geography / closed):**
+- F&F Filipino Fusion (Chantilly) — had NoVA Mag "Alice's Latest Obsession" + PBS Signature Dish, but
+  Yelp shows PERMANENTLY CLOSED (Mar-2026); non-notable-enough to keep flagged -> dropped.
+- Bombay Bistro (Fairfax) — Washingtonian awards but CLOSED / relocating (Yelp) -> dropped.
+- Fortune Chinese Seafood (Falls Church + Reston) — NoVA Mag dim-sum rec but CLOSED (dim sum moved to
+  Saigon 1975) -> dropped.
+- La Caraquena (Falls Church, Venezuelan) — Washingtonian/WaPo raves + Diners-Drive-Ins-Dives, but CLOSED
+  since 2017; too-long-closed to carry as a live-corridor flag (Luzmila's already holds the Latin slot).
+- Da Rae Won (hand-pulled jajangmyeon) — WaPo-praised but in Beltsville MD (out of scope).
+- Celebration by Rupa Vira (modern Indian) — WaPo + NoVA Mag Best-of-NoVA, strong, but ASHBURN (Loudoun,
+  past Dulles) = out of the brief's geographic scope -> dropped.
+- Bombay Tandoor (Tysons), Toosso / Spice Circle (Pakistani), Charcoal Kabob/Chicken, Tiki Thai (Reston),
+  Peruvian/Bolivian chicken shops (Annandale/Falls Church), Baek Ban (Chantilly Korean, Washingtonian
+  solo review only) — could not clear >=2 INDEPENDENT credible sources with in-scope location; held out
+  rather than padded. Baek Ban is a strong single-source lead (Washingtonian Oct-2025) worth a re-check.
+
+**Gaps stated, not filled:** No in-scope Burmese meeting the bar since Myanmar Restaurant closed (Thamee
+is DC); no credibly-sourced in-scope Sri Lankan found; Taiwanese and Persian/Turkish/Peruvian-Bolivian
+are already represented in the dataset (A&J; Shamshiry/JOON/Amoo'/Kazan; Luzmila's) and no new place
+cleared the merit bar without padding.
+
+**Note on sourcing rigor:** Maharani Palace rests on two Northern Virginia Magazine pieces (a "best-of"
+list = a real vote, plus a review) — single outlet, flagged. Wow Nepal / China Star / Bamian / Yeshi
+Kitfo lean on Tyler Cowen as a rank-1 authority; each was paired with a second INDEPENDENT outlet
+(FFXnow / New Yorker / WaPo / Annandale Today) so none rests on Tyler Cowen alone.
+
+**New sources proposed:** SOURCES_GLOBAL_NOVA.json — creator DMVEATS (dmv3ats, corroboration only) and
+outlets ASIANFORTUNE, NEWYORKER, BALTMAG (DCIST already in palette). NO coordinates written (geocoding is
+a separate stage). Shared files (geocodes.json, sources.json, dataset) untouched.

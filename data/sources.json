@@ -2994,6 +2994,62 @@
           "rank": 2,
           "verified": true,
           "credible": "NPR-affiliated DC public radio; bylined/on-air local food features (Kojo Nnamdi Show)."
+        },
+        {
+          "key": "NYTIMES",
+          "name": "The New York Times (restaurant lists)",
+          "type": "national-daily",
+          "rank": 1,
+          "verified": true,
+          "credible": "National paper of record; critic-curated 'Best Restaurants in DC' / 'Best New in America' lists are institutional. Used as one corroborating credible source."
+        },
+        {
+          "key": "SOUTHERNFOODWAYS",
+          "name": "Southern Foodways Alliance",
+          "type": "food-culture",
+          "rank": 3,
+          "verified": true,
+          "credible": "Univ. of Mississippi documentary nonprofit; edited long-form food-culture/oral-history pieces. Corroborating."
+        },
+        {
+          "key": "ESQUIRE",
+          "name": "Esquire (Best New Restaurants in America)",
+          "type": "national-magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "National magazine annual Best New Restaurants list; corroborating acclaim, not a lone recommender."
+        },
+        {
+          "key": "RESY",
+          "name": "Resy 'Right This Way' editorial",
+          "type": "food-editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Resy's edited editorial arm; reported chef/restaurant features. Supporting color, never a lone recommender."
+        },
+        {
+          "key": "ASIANFORTUNE",
+          "name": "Asian Fortune",
+          "type": "community-media",
+          "rank": 3,
+          "verified": true,
+          "credible": "DC-area Asian-American community newspaper; authentic community coverage of Asian food. Corroborating."
+        },
+        {
+          "key": "NEWYORKER",
+          "name": "The New Yorker",
+          "type": "national-magazine",
+          "rank": 2,
+          "verified": true,
+          "credible": "National magazine (Calvin Trillin's 'Where's Chang?' on Peter Chang); authoritative long-form. Corroborating."
+        },
+        {
+          "key": "BALTMAG",
+          "name": "Baltimore Magazine",
+          "type": "magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional magazine with mid-Atlantic dining coverage; corroborating."
         }
       ],
       "creators": [
@@ -3042,6 +3098,16 @@
           "url": "https://www.instagram.com/chilipeppercooks/",
           "verified": true,
           "credible": "TikTok ~1.8M / IG ~179K; MD-raised, DMV-based recipe creator profiled by The Business Standard and Famous Birthdays. Co-founder of Flavor Hive, the viral Annandale halal-bowls concept (NoVA Mag, WTOP). Note: recipe creator + owner — corroborates Flavor Hive as its founder, not as an independent reviewer."
+        },
+        {
+          "key": "DMVEATS",
+          "name": "DMV Eats",
+          "type": "instagram",
+          "scope": "DC/NoVA",
+          "followers": "verify",
+          "url": "",
+          "verified": true,
+          "credible": "DC/NoVA food creator; corroboration only, never a lone authority."
         }
       ],
       "refreshLog": []

@@ -77,6 +77,14 @@
    "n": "Ethiopian & East African"
   },
   {
+   "id": "AFRICAN",
+   "n": "West & Sub-Saharan African"
+  },
+  {
+   "id": "CARIB",
+   "n": "Caribbean"
+  },
+  {
    "id": "LATIN",
    "n": "Salvadoran, Mexican & Latin"
   },
@@ -3481,6 +3489,772 @@
   },
   {
    "t": 1,
+   "a": "DUPONT",
+   "n": "Sushi Taro",
+   "ad": "1503 17th St NW, Washington, DC 20036",
+   "w": "The city's benchmark for traditional Japanese dining: a MICHELIN-starred kaiseki-and-sushi room above a Dupont Circle CVS, run by second-generation chef Nobu Yamazaki, who reinvented the family restaurant into an upmarket kaiseki house. The MICHELIN star is a lone institutional authority; Time Out ranks it among DC's very best Japanese. Fish is flown from Toyosu.",
+   "cz": [
+    "ASIAN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/washington-dc/restaurants/best-japanese-restaurants-in-dc"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUPONT",
+   "n": "Chang Chang",
+   "ad": "1200 19th St NW, Washington, DC 20036",
+   "w": "Sichuan legend Peter Chang's polished DC flagship, where he applies precision to Sichuan and classic Chinese cooking without dialing down the heat. The Washington Post's Tom Sietsema reviewed it as \"worth the wait,\" Esquire named it a Best New Restaurant (2023), and it carries a MICHELIN Guide listing; The Infatuation is a fan. Peter Chang is a past James Beard finalist.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2022/11/11/chang-chang-restaurant-review-peter/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/chang-chang"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/washington-dc/reviews/chang-chang"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUPONT",
+   "n": "Kayu",
+   "ad": "1633 17th St NW, Washington, DC 20009",
+   "w": "Chef Paolo Dungca's modern Filipino restaurant, reborn in a casual Dupont Circle storefront in August 2025 after leaving H Street. Named to Washingtonian's 100 Very Best Restaurants (2026) and reviewed by the Washington Post's Tom Sietsema as \"a boundless vision of Filipino cooking\"; the signature savory cassava cake with crab fat, jamón and trout roe carried over from the tasting-menu original.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2026/kayu/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2026/05/28/kayu-restaurant-review-boundless-vision-filipino-cooking-takes-shape/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Baan Siam",
+   "ad": "425 I St NW, Washington, DC 20001",
+   "w": "Chef Jeeraporn Poksupthong's Northern Thai kitchen in Mount Vernon Triangle (the successor to Baan Thai) turns out exemplary khao soi and funky fruit-filled curried stews. Named to Washingtonian's 100 Very Best Restaurants and to the New York Times' \"25 Best Restaurants in Washington, DC, Right Now\"; The Infatuation calls it a standout.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2026/baan-siam-4/"
+    ],
+    [
+     "NYTIMES",
+     "https://www.mountvernontriangle.org/media/2fifty-barbeque-and-baan-siam-listed-under-the-25-best-restaurants-in-washington-d-c-right-now-by-the-new-york-times/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/washington-dc/reviews/baan-siam"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Daikaya",
+   "ad": "705 6th St NW, Washington, DC 20001",
+   "w": "The restaurant that introduced DC to serious ramen (2013): a Sapporo-style ramen bar downstairs with noodles handcrafted and imported from Japan, and a full izakaya upstairs, from chef Katsuya Fukushima. A perennial Eater essential; The Infatuation and Gayot both rate it a Chinatown/Penn Quarter must, and there's usually a line.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/washington-dc/reviews/daikaya"
+    ],
+    [
+     "GAYOT",
+     "https://www.gayot.com/restaurants/daikaya-washington-dc-20001_8dc130601.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/washington-dc/bars/daikaya-upstairs-izakaya"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "China Chilcano",
+   "ad": "418 7th St NW, Washington, DC 20004",
+   "w": "José Andrés's Penn Quarter homage to Peru's three tables — criollo, Chifa (Chinese-Peruvian) and Nikkei (Japanese-Peruvian) — with the country's largest pisco collection. Washington City Paper and Washingtonian covered its debut; it held a MICHELIN Bib Gourmand (2017–2020) and just marked its 10th anniversary. A rare deep dive into authentic chifa/Nikkei rather than generic \"Latin.\"",
+   "cz": [
+    "LATIN"
+   ],
+   "s": [
+    [
+     "WCP",
+     "https://washingtoncitypaper.com/article/333797/china-chilcano-opens-with-peruvian-chinese-and-japanese/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2015/01/05/6-things-to-look-for-at-jose-andress-china-chilcano/"
+    ],
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants/bib-gourmand"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "The Continent DC",
+   "ad": "1110 Vermont Ave NW, Washington, DC 20005",
+   "w": "DC's upscale West African flagship (opened 2024) from Nigerian-American founder Ope Amosu, a 175-seat downtown room built around a Nigerian core — egusi, bitterleaf (ofe onugbu), beef suya, Lagos snapper — that shifts to a lounge scene on weekends. Reviewed by The Infatuation and featured in Destination DC's dining coverage; fills a real West African gap for a \"Chocolate City.\"",
+   "cz": [
+    "AFRICAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/washington-dc/reviews/the-continent"
+    ],
+    [
+     "WASHINGTONORG",
+     "https://washington.org/visit-dc/award-winning-restaurants-washington-dc"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Izakaya Seki",
+   "ad": "1117 V St NW, Washington, DC 20009",
+   "w": "A compact two-story father-daughter izakaya a block off U Street, sourcing fish from Tokyo's Toyosu market and rotating sashimi with the seasons. The Washington Post's Elazar Sontag made it his first four-star review (2026), calling it a triumph of Japanese comfort cooking; Time Out lists it among DC's best. Understated, precise, extraordinary.",
+   "cz": [
+    "ASIAN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2026/04/30/izakaya-seki-review-dcs-best-restaurants/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/washington-dc/restaurants/izakaya-seki"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Purple Patch",
+   "ad": "3155 Mount Pleasant St NW, Washington, DC 20010",
+   "w": "Patrice Cleary's warm Mount Pleasant Filipino restaurant (2015) was named the Washington Post's Restaurant of the Year by Tom Sietsema in 2023 — his highest annual honor. The Southern Foodways Alliance and Positively Filipino have both told its story; a diaspora home-away-from-home for kare-kare, crispy lechon kawali and lumpia.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2023/10/02/purple-patch-dc-restaurant-of-the-year/"
+    ],
+    [
+     "SOUTHERNFOODWAYS",
+     "https://www.southernfoodways.org/purple-patch-my-home-away-from-home/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Tiger Fork",
+   "ad": "922 N St NW Rear, Washington, DC 20001",
+   "w": "A playful Hong Kong-style Cantonese spot tucked in Shaw's Blagden Alley with red lanterns and night-market energy — dim sum, cheung fun, chow fun and whole crispy fish. The Washington Post's Tom Sietsema ranked it #7 on his top-10 restaurants; Washingtonian and Time Out both praise it. Real Cantonese cooking inside the District.",
+   "cz": [
+    "ASIAN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/lifestyle/food/tiger-fork-a-playful-take-on-hong-kong-style-cooking-in-shaw/2017/03/28/5e2b0e36-080a-11e7-b77c-0047d15a24e0_story.html"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2017/02/23/tiger-fork-brings-hong-kong-style-chinese-and-dim-sum-to-shaw/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Supra",
+   "ad": "1205 11th St NW, Washington, DC 20001",
+   "w": "DC's first Georgian restaurant (Shaw, 2017), named for the Georgian celebratory feast, with a former Embassy of Georgia chef turning out molten-cheese khachapuri and soup-dumpling khinkali. A MICHELIN Bib Gourmand honoree; Washingtonian introduced it as the city's Georgian pioneer. A genuinely rare, city-unique cuisine.",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/supra"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2017/11/06/supra-dcs-first-georgian-restaurant/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USHAW",
+   "n": "Letena",
+   "ad": "3100 14th St NW, Washington, DC 20010",
+   "w": "Yamrot Ezineh's farm-to-table Ethiopian kitchen in Columbia Heights, spices imported from Ethiopia, standout vegetable dishes (sweet-savory carrot wat, deeply caramelized mushroom tibs) alongside berbere beef and braised-lamb yebeg wat. Named to Washingtonian's 100 Very Best Restaurants (2025) and to the Washington Post's best-Ethiopian roundup (2025).",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/letena-3/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2025/03/11/best-ethiopian-restaurants-dc/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Appioo African Bar & Grill",
+   "ad": "1924 9th St NW, Washington, DC 20001",
+   "w": "Chef Prince Matey's home-cooked Ghanaian mainstay in Shaw (2015), which Eater calls \"Shaw's essential Ghanaian mainstay\" for its stellar groundnut soup, egusi and jollof; Washingtonian folded it into its guide to DC's West African cooking. Live bands on weekends and a diaspora crowd — authentic West African, not a fusion approximation.",
+   "cz": [
+    "AFRICAN"
+   ],
+   "s": [
+    [
+     "EATERDC",
+     "https://dc.eater.com/maps/best-african-restaurants-washington-dc"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2023/07/18/these-dc-restaurants-will-transport-you-to-west-africa/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USHAW",
+   "n": "Makan — CLOSED",
+   "ad": "3400 11th St NW, Washington, DC 20010",
+   "w": "Chef James Wozniuk's Columbia Heights Malaysian restaurant (a Maketto and Spoken English alum) earned a MICHELIN Bib Gourmand in 2021 and won over DC's Malaysian community — Wozniuk even cooked for Malaysia's prime minister (DCist profiled the arc). CLOSED February 2025 amid neighborhood pressures; kept flagged as the notable Malaysian benchmark for the gap it leaves.",
+   "closed": true,
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants/bib-gourmand"
+    ],
+    [
+     "DCIST",
+     "https://dcist.com/story/23/01/25/makan-dc-columbia-heights-malaysian-restaurant-james-wozniuk/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Panda Gourmet",
+   "ad": "2700 New York Ave NE, Washington, DC 20002",
+   "w": "The genuine-article Sichuan and Shaanxi kitchen hidden inside a Days Inn off New York Avenue NE. The Washington Post's $20 Diner said it \"dazzles\"; Tyler Cowen's Ethnic Dining Guide calls it the best Chinese restaurant DC has ever had, with the best dan dan noodles the area has seen; Washington City Paper chronicled its cult following.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/goingoutguide/the-20-diner-panda-gourmet-dazzles-with-genuine-sichuan-and-shaanxi-cooking-at-a-days-inn/2013/08/28/cef3a876-0b9c-11e3-b87c-476db8ac34cd_story.html"
+    ],
+    [
+     "TYLERCOWEN",
+     "https://tylercowensethnicdiningguide.com/index.php/panda-gourmet/"
+    ],
+    [
+     "WCP",
+     "https://washingtoncitypaper.com/article/505272/the-past-present-and-future-of-d-c-s-panda-gourmet/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Cane",
+   "ad": "403 H St NE, Washington, DC 20002",
+   "w": "Chef Peter Prime's small, bright H Street ode to Trinidad's Indian-African-Chinese street food — doubles, dhalpuri roti, jerk, oxtail and Caribbean rums. A MICHELIN Bib Gourmand honoree repeatedly (2020, 2024, 2025), a lone institutional authority; even Obama has been photographed eating a double there.",
+   "cz": [
+    "CARIB"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/cane"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2025/11/18/michelin-adds-no-new-starred-restaurants-to-dc-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAPHILL",
+   "n": "Daru",
+   "ad": "1451 Maryland Ave NE, Washington, DC 20002",
+   "w": "Rasika alums Suresh Sundas and Dante Datta's low-lit \"Indian-ish\" bar-restaurant off H Street — tandoori lamb chops, black dal moored with burrata, inventive cocktails. In the MICHELIN Guide (2022), on the New York Times' 50 Best New Restaurants in America, and a Washingtonian 100 Very Best pick; The Infatuation is a fan.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/100-very-best-restaurants-2025/daru-3/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/district-of-columbia/washington-dc/restaurant/daru"
+    ],
+    [
+     "DCIST",
+     "https://dcist.com/story/21/08/17/first-look-daru-restaurant-indian-cuisine-hstreet/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAPHILL",
+   "n": "Maketto",
+   "ad": "1351 H St NE, Washington, DC 20002",
+   "w": "Erik Bruner-Yang's genre-bending H Street Taiwanese-Cambodian restaurant, cafe and retail concept — dumplings, noodles and a cult twice-fried chicken. The Washington Post reviewed it as a party you can slurp, sip and shop through; The Infatuation calls the Taiwanese-Cambodian hybrid a standout. A rare Taiwanese anchor inside the District.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/lifestyle/food/h-streets-maketto-looks-acts-and-tastes-like-a-party/2015/07/21/b42b4866-23fd-11e5-b77f-eb13a215f593_story.html"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/washington-dc/reviews/maketto"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GTWN",
+   "n": "Das Ethiopian Cuisine",
+   "ad": "1201 28th St NW, Washington, DC 20007",
+   "w": "Ethiopian dining inside a classic Georgetown townhouse — soothing rooms, attentive service that walks newcomers through the menu, and a much-praised doro wot. A MICHELIN Bib Gourmand honoree (2021 onward), a lone institutional authority, and the rare authentic Ethiopian option west of the Little Ethiopia corridor.",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/das"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2016/10/06/michelin-releases-bib-gourmand-list-dc/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ARL",
+   "n": "Thai Square",
+   "ad": "3217 Columbia Pike, Arlington, VA 22204",
+   "w": "The Columbia Pike Thai spot most beloved by the region's Thai community and \"probably the one most popular with Thais.\" The Washington Post's Tom Sietsema put it in his Fall Dining Guide; Tyler Cowen's Ethnic Dining Guide rates it among the three or four best Thai places around; ARLnow tracks its continued acclaim. Authentic, not Americanized.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/lifestyle/food/the-interior-now-lives-up-to-the-food-at-thai-square/2019/10/10/2718df82-e6c3-11e9-b403-f738899982d2_story.html"
+    ],
+    [
+     "TYLERCOWEN",
+     "https://tylercowensethnicdiningguide.com/index.php/thai-square/"
+    ],
+    [
+     "ARLNOW",
+     "https://www.arlnow.com/2024/10/11/arlington-lao-and-thai-spot-makes-washington-posts-40-best-restaurants-list/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Bamian",
+   "ad": "5634 Leesburg Pike, Falls Church, VA 22041",
+   "w": "The dressiest and most enduring Afghan house in the Bailey's Crossroads corridor (since 2005), where Washingtonian's Cheap Eats singled out the mantu, caramelized eggplant and sweet-tart pumpkin, and the Washington Post's 'Y Not Try Bamian?' called it 'the dressiest place in the area to sample bulanee and mantu.' Tyler Cowen's Ethnic Dining Guide rates it 'one of the best Afghan places around,' praising juicy kabobs. Open and busy into 2026.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://www.washingtonian.com/2015/06/15/bamian/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/archive/lifestyle/magazine/2006/07/23/y-not-try-bamian-span-classbankheadcarnivores-and-vegetarians-find-plenty-to-choose-from-at-this-afghan-kebab-housespan/a8e5dbce-10dc-409c-80f3-7872619ff923/"
+    ],
+    [
+     "TYLERCOWEN",
+     "https://tylercowensethnicdiningguide.com/index.php/bamian/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Lighthouse Tofu",
+   "ad": "4121 Chatelain Rd, Annandale, VA 22003",
+   "w": "The Annandale Koreatown soft-tofu specialist (a.k.a. Vit Goel Tofu) whose bubbling sundubu jjigae earned a fresh January 2026 Washington Post review — 'remains as good as ever' — under hanok-style papered windows. Northern Virginia Magazine's 'Meaty Monday' column had already praised it. A comforting counterpoint to the corridor's grill houses; consistently high volume across platforms.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2026/01/09/lighthouse-tofu-review-annandale-virginia/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2021/11/15/meaty-monday-lighthouse-tofu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FCITY",
+   "n": "Seoul Prime",
+   "ad": "106 Founders Ave, Falls Church, VA 22046",
+   "w": "The upscale Korean steakhouse that the Honest Grill team (chef Danny Kim, ex-Clarity) opened in downtown Falls Church in late 2024, kicking Korean BBQ into fine-dining territory. Washingtonian ('Seoul Prime Brings Upscale Korean Barbecue to Falls Church'), Northern Virginia Magazine and Arlington Magazine all ran features within months of opening — one of the corridor's most-talked-about new Korean rooms.",
+   "cz": [
+    "KOREAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2025/02/14/seoul-prime-brings-upscale-korean-barbecue-to-falls-church/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/2025/03/21/seoul-primes-upscale-korean-steakhouse-is-the-latest-restaurant-to-impress-in-falls-church/"
+    ],
+    [
+     "ARLMAG",
+     "https://www.arlingtonmagazine.com/seoul-prime-falls-church/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Yeshi Kitfo",
+   "ad": "3400-D Washington Dr, Falls Church, VA 22041",
+   "w": "A Bailey's Crossroads kitfo house whose specialty Tyler Cowen's Ethnic Dining Guide calls flatly 'the best kitfo around, period,' adding it also has 'the best yellow lentils around.' Annandale Today covered its opening. A focused, community-facing addition to the region's dense East African corridor, where Meaza anchors the tier-1 slot.",
+   "cz": [
+    "ETHIOPIAN"
+   ],
+   "s": [
+    [
+     "TYLERCOWEN",
+     "https://tylercowensethnicdiningguide.com/index.php/yeshi-kitfo/"
+    ],
+    [
+     "ANNANDALETODAY",
+     "https://annandaletoday.com/ethiopian-restaurant-opens-in-baileys-xroads/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FCITY",
+   "n": "Fairfax Inn Restaurant",
+   "ad": "2946 Sleepy Hollow Rd, Falls Church, VA 22044",
+   "w": "A cozy Falls Church diner that owner Solita turned into one of the few full Filipino kitchens inside the Beltway, cooking classics from her home province of Pampanga (the Philippines' culinary capital). Asian Fortune profiled it as 'A Rare Filipino Gem Within the Beltway' and Visit Fairfax lists it among Fairfax County's Filipino tables; still open and reviewed into 2026.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "ASIANFORTUNE",
+     "https://www.asianfortunenews.com/2013/10/fairfax-inn-restaurant-a-rare-filipino-gem-within-the-beltway/"
+    ],
+    [
+     "FXVA",
+     "https://www.fxva.com/blog/post/filipino-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "China Star",
+   "ad": "9600 Main St, Fairfax, VA 22031",
+   "w": "The Fairfax strip-mall Sichuan destination where cult chef Peter Chang first cooked in the DC area — the restaurant at the center of Calvin Trillin's New Yorker 'Where's Chang?' saga. It has stayed superb under his successors, who kept his recipes: Tyler Cowen's Ethnic Dining Guide still names it his default Fairfax pick (braised fish; bone-in Sichuan chili chicken). Open in 2026.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "TYLERCOWEN",
+     "https://tylercowensethnicdiningguide.com/index.php/china-star/"
+    ],
+    [
+     "NEWYORKER",
+     "https://www.newyorker.com/magazine/2010/02/01/wheres-chang"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "Eerkin's Uyghur Cuisine",
+   "ad": "4008 University Dr, Fairfax, VA 22030",
+   "w": "Downtown Fairfax's window into Uyghur cooking — hand-pulled laghman 'thick and chewy, almost like udon,' the giant chicken-and-potato dapanchi, cumin-crusted lamb skewers and flaky kathlama naan. Named to Washingtonian's Cheap Eats and to Northern Virginia Magazine's 50 Best Restaurants, with a standalone NoVA Mag review. Halal; a genuine Central Asian rarity in the corridor.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2018/10/01/cheap-eats-2018-eerkins-uyghur-cuisine/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2019/11/19/50-best-restaurants-eerkins-uyghur-cuisine-combines-ethnic-dishes-for-flavorful-creations/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAIRFAX",
+   "n": "Wow Nepal",
+   "ad": "10728 Fairfax Blvd, Fairfax, VA 22030",
+   "w": "A tiny 2026-opened family kitchen that Tyler Cowen's Ethnic Dining Guide immediately flagged as 'the real thing' — 'the goat momos are among the best dishes in northern Virginia right now,' most everything else at least very good. Unlike the region's Indian-leaning Nepali spots, it cooks true Nepali; FFXnow covered the couple's home-recipe opening. Small, fills up early.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "TYLERCOWEN",
+     "https://marginalrevolution.com/marginalrevolution/2026/04/wow-nepal.html"
+    ],
+    [
+     "FFXNOW",
+     "https://www.ffxnow.com/2026/02/18/new-restaurant-wow-nepal-brings-couples-favorite-home-recipes-to-fairfax/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAIRFAX",
+   "n": "Southeast Impression",
+   "ad": "9530 Fairfax Blvd, Fairfax, VA 22030",
+   "w": "A stylish Fairfax dining room (chefs from Malaysia and Singapore) that plates three Southeast Asian traditions honestly — the Washington Post's 2024 review, 'Three cuisines, one nice package,' singled out the char kway teow and Hainanese chicken rice, and Northern Virginia Magazine's First Bite praised the flaky roti canai. Halal. Cross-tagged Malaysian/Singaporean because the kitchen genuinely spans that hawker canon.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2024/10/03/southeast-impression-restaurant-review-thai-singapore-malaysia/"
+    ],
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/reviews/2024/07/09/first-bite-review-southeast-impression-in-fairfax-impresses-with-vibrant-flavors/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Jiwa Singapura",
+   "ad": "2001 International Dr, McLean, VA 22102",
+   "w": "The DC area's first fine-dining Singaporean restaurant, on the third floor of Tysons Galleria from chef Pepe Moncayo (of DC's Cranes) and his Singapore-born wife Aishah. The Washington Post's review called it 'a sublime taste of Singapore,' with the chili crab a stunner; Washingtonian, Arlington Magazine and DCist all covered the 2023 opening. 'Jiwa' means Singapore soul.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2023/04/28/jiwa-singapura-restaurant-review/"
+    ],
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2023/02/15/the-dc-areas-first-fine-dining-singaporean-restaurant-opens-in-tysons/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Chef Tan",
+   "ad": "132 Branch Rd SE, Vienna, VA 22180",
+   "w": "The Vienna strip-mall Hunan kitchen (opened July 2025) that Washington Post critic Elazar Sontag gave three stars ('outstanding') and ranked No. 6 on his 2026 list of the 10 Best New Restaurants in the DC area — one of only two NoVA spots on it. Its deep menu of Hunan dishes 'you can't find in D.C.' set off a regional obsession, per FFXnow.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/food/2026/04/02/chef-tan-restaurant-review-hunan-chinese/"
+    ],
+    [
+     "FFXNOW",
+     "https://www.ffxnow.com/2026/05/14/inclusion-in-wapo-new-restaurant-ranking-caps-strong-start-for-viennas-chef-tan/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TYSONS",
+   "n": "Esaan Tumbar",
+   "ad": "1307 Old Chain Bridge Rd, McLean, VA 22101",
+   "w": "A snug McLean strip-mall room devoted to Northeastern (Isaan) Thai cooking — five versions of papaya salad, vividly spiced khao soi and a herb-and-cashew-smothered whole fried rockfish that draws the most praise. Named to Washingtonian's 100 Very Best Restaurants (#62) and reviewed in the Washington Post's $20 Diner; also covered by Arlington Magazine and Washington City Paper.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2019/02/15/100-very-best-restaurants-62-esaan/"
+    ],
+    [
+     "WAPO",
+     "https://www.washingtonpost.com/goingoutguide/restaurants/esaan-serves-a-delicious-lesson-in-northeastern-thai-cuisine/2017/09/26/3e91436a-9f1d-11e7-9083-fbfddf6804c2_story.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Royal Nepal Bistro",
+   "ad": "131 Maple Ave W, Vienna, VA 22180",
+   "w": "The Nepali bistro that took over Vienna's shuttered Mo:Mo House on Maple Avenue, bringing goat curry, fulbari naan and a devoted momo following. Northern Virginia Magazine profiled its 'unique dishes' and Tysons Reporter covered its arrival — a well-liked Himalayan option on Vienna's restaurant row.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/2022/02/17/royal-nepal-bistro-brings-unique-dishes-to-viennas-table/"
+    ],
+    [
+     "TYSONSREPORTER",
+     "https://www.tysonsreporter.com/2021/11/09/new-nepali-bistro-takes-place-of-viennas-shuttered-momo-house/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TYSONS",
+   "n": "Cha Street Food",
+   "ad": "8056 Tysons Corner Center, Tysons, VA 22102",
+   "w": "One of the four ambitious modern Pakistani spots Washingtonian spotlighted in 2024 — owner Suhail Kamran sent partners to Karachi to learn paratha rolls from a street vendor, and the parathas come out 'supple and pleasantly flaky.' Now expanded into a Tysons Corner Center cafe with a bigger drinks menu (FFXnow). A stylish, social-media-forward take on Pakistani street food.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2024/11/20/modern-pakistani-restaurants-to-try-in-northern-virginia/"
+    ],
+    [
+     "FFXNOW",
+     "https://www.ffxnow.com/2026/05/07/cha-street-food-launches-cafe-in-tysons-with-expanded-drinks-menu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Kabobi by The Helmand",
+   "ad": "2321 Dulles Station Blvd, Herndon, VA 20171",
+   "w": "The Herndon fast-casual spinoff of the famed Helmand — the Afghan restaurant empire of the late Qayum Karzai (elder brother of Afghanistan's former president). Northern Virginia Magazine covered its arrival as 'Afghan food takes its turn in the fast-casual bowl world,' with the owners fierce about authentic Afghan cardamom and cinnamon over generic curry powders; Baltimore Magazine chronicles the Helmand lineage.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "NOVAMAG",
+     "https://northernvirginiamag.com/food-and-drink/food-news/2019/06/26/afghan-food-takes-its-turn-in-the-fast-casual-bowl-world-kabobi-by-the-helmand/"
+    ],
+    [
+     "BALTMAG",
+     "https://www.baltimoremagazine.com/section/fooddrink/the-helmand-owners-look-back-on-30-years-in-mt-vernon/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RESTON",
+   "n": "Chaska",
+   "ad": "45630 Falke Plaza, Sterling, VA 20166",
+   "w": "A second-story Sterling Pakistani spot from Rawalpindi-born, Loudoun-raised Waqas Shah — Washingtonian's 2024 modern-Pakistani feature praised the charcoal kabobs, the bright-orange chicken tikka marinade permeating the meat, from a terrace with a runway view of Dulles landings. Fully halal and a bona fide DMV social-media favorite (viral on TikTok food creators). Street-food energy done ambitiously.",
+   "cz": [
+    "SASIAN"
+   ],
+   "s": [
+    [
+     "WASHINGTONIAN",
+     "https://washingtonian.com/2024/11/20/modern-pakistani-restaurants-to-try-in-northern-virginia/"
+    ],
+    [
+     "DMVEATS",
+     "https://www.tiktok.com/@dmv3ats/video/7492443143678430510"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "ARL",
    "n": "El Pollo Rico",
    "ad": "932 N Kenmore St, Arlington, VA 22201",
@@ -4303,11 +5077,23 @@
    "u": "https://www.arlnow.com/",
    "l": "ARLnow (Arlington local news)"
   },
+  "ASIANFORTUNE": {
+   "k": "ASIANFORTUNE",
+   "t": "ASIANFORTUNE",
+   "u": "",
+   "l": ""
+  },
   "ATLASOBSCURA": {
    "k": "ATLAS OBSCURA",
    "t": "Atlas Obscura",
    "u": "https://www.atlasobscura.com/",
    "l": "Atlas Obscura"
+  },
+  "BALTMAG": {
+   "k": "BALTMAG",
+   "t": "BALTMAG",
+   "u": "",
+   "l": ""
   },
   "CHILIPEPPERCOOKS": {
    "k": "CHILIPEPPERCOOKS",
@@ -4327,6 +5113,12 @@
    "u": "",
    "l": ""
   },
+  "DMVEATS": {
+   "k": "DMVEATS",
+   "t": "DMVEATS",
+   "u": "",
+   "l": ""
+  },
   "EATERDC": {
    "k": "EATER DC",
    "t": "EATER DC",
@@ -4338,6 +5130,12 @@
    "t": "FCNP",
    "u": "",
    "l": ""
+  },
+  "FFXNOW": {
+   "k": "FFXNOW",
+   "t": "FFXnow (Fairfax County local news)",
+   "u": "https://www.ffxnow.com/",
+   "l": "FFXnow (Fairfax County local news)"
   },
   "FXVA": {
    "k": "FAIRFAX CVB",
@@ -4354,6 +5152,12 @@
   "HYPEFOODIES": {
    "k": "HYPEFOODIES",
    "t": "HYPEFOODIES",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "INFATUATION",
    "u": "",
    "l": ""
   },
@@ -4387,11 +5191,23 @@
    "u": "",
    "l": ""
   },
+  "NEWYORKER": {
+   "k": "NEWYORKER",
+   "t": "NEWYORKER",
+   "u": "",
+   "l": ""
+  },
   "NOVAMAG": {
    "k": "NORTHERN VIRGINIA MAG",
    "t": "Northern Virginia Magazine",
    "u": "https://northernvirginiamag.com/",
    "l": "Northern Virginia Magazine"
+  },
+  "NYTIMES": {
+   "k": "NYTIMES",
+   "t": "NYTIMES",
+   "u": "",
+   "l": ""
   },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
@@ -4411,15 +5227,33 @@
    "u": "",
    "l": ""
   },
+  "SOUTHERNFOODWAYS": {
+   "k": "SOUTHERNFOODWAYS",
+   "t": "SOUTHERNFOODWAYS",
+   "u": "",
+   "l": ""
+  },
   "STAYARLINGTON": {
    "k": "STAYARLINGTON",
    "t": "Arlington Convention & Visitors Service (stayArlington)",
    "u": "https://www.stayarlington.com/",
    "l": "Arlington Convention & Visitors Service (stayArlington)"
   },
+  "TIMEOUT": {
+   "k": "TIMEOUT",
+   "t": "TIMEOUT",
+   "u": "",
+   "l": ""
+  },
   "TYLERCOWEN": {
    "k": "TYLERCOWEN",
    "t": "TYLERCOWEN",
+   "u": "",
+   "l": ""
+  },
+  "TYSONSREPORTER": {
+   "k": "TYSONS REPORTER",
+   "t": "TYSONS REPORTER",
    "u": "",
    "l": ""
   },
@@ -4476,6 +5310,12 @@
    "t": "Destination DC (washington.org)",
    "u": "https://washington.org/",
    "l": "Destination DC (washington.org)"
+  },
+  "WCP": {
+   "k": "WCP",
+   "t": "WCP",
+   "u": "",
+   "l": ""
   },
   "WIKIPEDIA": {
    "k": "WIKIPEDIA",
