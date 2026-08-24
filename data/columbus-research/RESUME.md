@@ -11,6 +11,17 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - [ ] index.html card relinked; docs/CITIES.md updated.
 
 ## State
+- **2026-08-24 LATEST — metro + MADISON-corridor expansion LIVE @ 86 pins** (62 sights + 24 food).
+  Processed the new geocode wave (42 candidates: 10 high · 13 med · 1 low · 18 UNVERIFIED) through the
+  codified `python3 tools/rebuild-city.py columbus-oh --build` (register-sources → merge-creators →
+  geo-merge → consolidate → build-columbus → 4 gates). **Gates: sourcecheck PASS · geocheck PASS (2
+  block-level to re-verify: Stauf's Grandview) · statuscheck CONSISTENT · buildcheck PASS.** MADISON
+  corridor area anchored by The Red Brick Tavern (geocoded, MED). Dataset now **127 candidates / 52
+  sources**; every candidate ≥2 credible (`data/columbus_needs_sources.json` empty). **41 UNVERIFIED
+  pins** held for the browser helper (mostly Northland/OSU immigrant restaurants). Bad-pin rejections
+  logged: Mikey's Late Night Slice (aggregator returned Worthington, ~12 km off), Chuan Jiang Hao Zi
+  (only a `/@` viewport). 3 closed flagged: Thurman Cafe, Hot Chicken Takeover, Yellow Brick Pizza.
+  NEXT: browser-helper the 41 UNVERIFIED → re-run `rebuild-city.py columbus-oh --build` (toward 127).
 - **2026-08-14 scaffold:** consolidate.py (7 areas + Columbus taxonomy incl. AFRICAN=Somali/East-African,
   Columbus-Style PIZZA), tools/build-columbus.py (clone — DERIVES map centre/labels; **map is safe**),
   sources.json (8 outlets), _AGENT_BRIEF.md, geocodes entry, research.js + geocode-status.py registered,

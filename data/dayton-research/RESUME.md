@@ -11,6 +11,18 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - [ ] index.html card relinked; docs/CITIES.md updated.
 
 ## State
+- **2026-08-24 LATEST — Miami-Valley + SPRINGFIELD-corridor expansion LIVE @ 74 pins** (55 sights + 19 food).
+  Processed the new geocode wave (41 candidates: 8 high · 10 med · 23 UNVERIFIED) through the codified
+  `python3 tools/rebuild-city.py dayton-oh --build`. **Gates: geocheck PASS (5 block-level to re-verify) ·
+  statuscheck CONSISTENT · buildcheck PASS. sourcecheck FAIL = the 2 single-source places (Aullwood
+  Audubon [OFFICIAL only], Third Perk — CLOSED [DAYTONDAILY only]) that build GATE 1 drops — the page
+  itself is clean** (confirmed 0 occurrences). SPRINGFIELD corridor area anchored by Westcott House +
+  Hartman Rock Garden (both high-confidence, Wikipedia/NRHP). Coordinate traps caught: George Rogers
+  Clark Park (used on-site Battle of Piqua marker, not the downtown HMDB marker); Downtown Fairborn
+  (real center Broad St, not the "1 W Main St" worklist address). **23 UNVERIFIED pins** (all 14
+  restaurants + 9 parks) held for the browser helper; worklist in `data/dayton_needs_sources.json`.
+  NEXT: browser-helper the 23 UNVERIFIED → a 2nd credible source for Aullwood would let it build →
+  re-run `rebuild-city.py dayton-oh --build` (toward 119).
 - **2026-08-14 scaffold:** consolidate.py (6 areas + Dayton taxonomy incl. AFRICAN=Somali/East-African,
   Dayton-Style PIZZA), tools/build-dayton.py (clone — DERIVES map centre/labels; **map is safe**),
   sources.json (8 outlets incl. NPS for the Wright sites), _AGENT_BRIEF.md, geocodes entry, research.js + geocode-status.py registered,
