@@ -1,0 +1,44 @@
+{
+  "Huntington Reservation & Beach": {
+    "lat": 41.4872, "lng": -81.9361, "confidence": "med",
+    "source": "https://www.wikidata.org/wiki/Q49504148 (Huntington Reservation published coord 41°29′14″N 81°56′10″W). This is the reservation anchor; Huntington Beach proper is a short distance NORTH of this point at the Lake Erie shore. Not the wider-park centroid, but flagged: upgrade to the beach/parking place-pin if the beach itself is the intended pin.",
+    "address": "Lake Rd at Wolf Rd, Bay Village, OH 44140",
+    "status": "open", "statusSource": "https://www.clevelandmetroparks.com/parks/visit/parks/huntington-reservation/huntington-beach", "statusChecked": "2026-08-24"
+  },
+  "Lake Erie Nature & Science Center": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — only Yelp/Apple place listings surfaced; no coordinate= or Google !3d!4d place-pin. City-level Bay Village coords only, not usable for the building.",
+    "address": "28728 Wolf Rd, Bay Village, OH 44140",
+    "status": "open", "statusSource": "https://www.lensc.org/visit/hours-admission/ ; https://www.yelp.com/biz/lake-erie-nature-and-science-center-bay-village (Updated July 2026)", "statusChecked": "2026-08-24"
+  },
+  "BAYarts": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — only Apple place-id (IF3CE246D69DF68E3) and Waze links surfaced; no coordinate= or Google !3d!4d place-pin. Only city-level Bay Village coords available, not usable for the campus.",
+    "address": "28795 Lake Rd, Bay Village, OH 44140",
+    "status": "open", "statusSource": "https://bayarts.net/contact/ ; https://ohio.org/things-to-do/destinations/bayarts-cultural-arts-center", "statusChecked": "2026-08-24"
+  },
+  "Cain Park": {
+    "lat": 41.507821, "lng": -81.561568, "confidence": "med",
+    "source": "Evans Amphitheater business coordinate from venue directories (wheree / vividseats listings) — directory place-pin, block-level accurate for the 14591 Superior Rd park entrance/amphitheater.",
+    "address": "14591 Superior Rd, Cleveland Heights, OH 44118",
+    "status": "open", "statusSource": "https://cainpark.com/ ; https://www.ticketmaster.com/cain-park-tickets-cleveland-heights/venue/40966 (2026-2027 schedule)", "statusChecked": "2026-08-24"
+  },
+  "Cedar Lee Theatre": {
+    "lat": 41.501023, "lng": -81.565173, "confidence": "med",
+    "source": "Business coordinate from Nextdoor business page (directory place-pin) for 2163 Lee Rd — block-level accurate.",
+    "address": "2163 Lee Rd, Cleveland Heights, OH 44118",
+    "status": "open", "statusSource": "https://www.clevelandcinemas.com/our-locations/x04q9-cedar-lee-theatre/ ; https://www.yelp.com/biz/cedar-lee-theatre-cleveland-heights (Updated July 2026)", "statusChecked": "2026-08-24"
+  },
+  "Coventry Village": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — a business district (not a single point); only city-level Cleveland Heights coords surfaced, no place-pin for the 1810 Coventry Rd anchor. Flag for browser-helper geocode to the district's central block.",
+    "address": "1810 Coventry Rd, Cleveland Heights, OH 44118",
+    "status": "open", "statusSource": "https://www.clevelandheights.gov/962/Coventry-Village", "statusChecked": "2026-08-24"
+  },
+  "Oldest Stone House Museum": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — only Yelp/Roadtrippers listings surfaced; no coordinate= or Google !3d!4d place-pin. Sits at the front of Lakewood Park on Lake Ave; needs a place-pin geocode.",
+    "address": "14710 Lake Ave, Lakewood, OH 44107",
+    "status": "open", "statusSource": "https://lakewoodhistory.org/preservation/collections-and-properties/oldest-stone-house-museum/ (open March-Oct, Wed & Sun)", "statusChecked": "2026-08-24"
+  }
+}

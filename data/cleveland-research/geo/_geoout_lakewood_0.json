@@ -1,0 +1,50 @@
+{
+  "Pier W": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — only Google CID (data=!4m2!3m1!1s0x8830f227595e40d9) and Apple place-id (IB31E0B0EC47125B2) surfaced; no !3d!4d place-pin or coordinate=",
+    "address": "12700 Lake Ave, Lakewood, OH 44107",
+    "status": "open", "statusSource": "https://m.yelp.com/biz/pier-w-lakewood (Updated June 2026); https://pierw.com/", "statusChecked": "2026-08-24"
+  },
+  "Melt Bar and Grilled — CLOSED": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin surfaced for the Lakewood building",
+    "address": "14718 Detroit Ave, Lakewood, OH 44107",
+    "status": "closed", "statusSource": "https://www.ideastream.org/economy/2025-01-02/melt-bar-and-grilled-to-close-last-location-in-lakewood ; https://www.wkyc.com/article/life/food/melt-bar-and-grilled-garage-lakewood-location-closed-permanently/95-6ac19cd8-f167-4c01-bbcd-9dbd74646230 (flagship & final location closed permanently Jan 2025)", "statusChecked": "2026-08-24"
+  },
+  "EDWINS Leadership & Restaurant Institute": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced. NOTE: EDWINS relocated its fine-dining restaurant in 2025 to the former Nighttown building; worklist address 12387 Cedar Rd, Cleveland Heights is the current location (Yelp lists 12383 Cedar Rd, same building).",
+    "address": "12387 Cedar Rd, Cleveland Heights, OH 44106",
+    "status": "open", "statusSource": "https://www.yelp.com/biz/edwins-leadership-and-restaurant-institute-cleveland-heights (Updated Aug 2026); https://edwinsrestaurant.org/about-us/", "statusChecked": "2026-08-24"
+  },
+  "Zhug": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced",
+    "address": "12413 Cedar Rd, Cleveland Heights, OH 44106",
+    "status": "open", "statusSource": "https://zhugcle.com/ (copyright 2026); https://www.yelp.com/biz/zhug-cleveland-heights (Updated June 2026)", "statusChecked": "2026-08-24"
+  },
+  "Tommy's": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced",
+    "address": "1824 Coventry Rd, Cleveland Heights, OH 44118",
+    "status": "open", "statusSource": "https://tommyscoventry.com/location-hours/ ; https://www.yelp.com/biz/tommys-cleveland-heights-3 (Updated Aug 2026)", "statusChecked": "2026-08-24"
+  },
+  "Market Garden Brewery": {
+    "lat": 41.4848992, "lng": -81.7036857, "confidence": "high",
+    "source": "https://en.wikipedia.org/wiki/Market_Garden_Brewery (published coord 41°29′06″N 81°42′13″W)",
+    "address": "1947 W 25th St, Cleveland, OH 44113",
+    "status": "open", "statusSource": "https://www.marketgardenbrewery.com/ ; https://www.yelp.com/biz/market-garden-brewery-cleveland-3 (Updated Aug 2026)", "statusChecked": "2026-08-24"
+  },
+  "Terrestrial Brewing Company": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced",
+    "address": "7524 Father Frascati Dr, Cleveland, OH 44102",
+    "status": "open", "statusSource": "https://terrestrialbrewing.com/ ; https://www.yelp.com/biz/terrestrial-brewing-cleveland-4 (Updated Aug 2026)", "statusChecked": "2026-08-24"
+  },
+  "Cleveland Vegan": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — only Apple place-id (ICBE7058F15BBFD74) surfaced; no coordinate=",
+    "address": "17112 Detroit Ave, Lakewood, OH 44107",
+    "status": "open", "statusSource": "https://www.clevelandvegan.com/ ; https://www.yelp.com/biz/cleveland-vegan-lakewood (Updated July 2026)", "statusChecked": "2026-08-24"
+  }
+}

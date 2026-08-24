@@ -11,7 +11,7 @@ _Counts are as of 2026-08-18; re-derive anytime with the commands below — neve
 
 | City / region | Page | Built dataset | Research dir (audit trail) | Places on page | State |
 |---|---|---|---|---|---|
-| Cleveland OH | `cleveland.html` (the engine) | inline in page | `data/cleveland-research/` | 188 | live |
+| Cleveland OH | `cleveland.html` (the engine) | inline in page | `data/cleveland-research/` | 194 | live · Lakewood/West-Side + Heights + Bay Village expansion spliced (6 geocoded: Beck Center, Market Garden, Huntington, Cain Park, Cedar Lee, Fort Hill Stairs); 17 UNVERIFIED held for helper; Melt + Deagan's flagged CLOSED |
 | Pittsburgh PA | `cities/pittsburgh.html` | inline | `data/pittsburgh-research/` | 212 | live · 1 low pin to re-verify |
 | Youngstown OH | `cities/youngstown.html` | inline | — | 62 | live (shortlist) |
 | New York NY | `cities/newyork.html` | `data/newyork.dataset.json` | `data/newyork-research/` | 508 | live · 1 place to geocode |

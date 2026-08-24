@@ -106,14 +106,16 @@ Each pass writes standard artifacts that `tools/rebuild-city.py <key> [--build]`
 | 2026-08-24 | Columbus | metro sights | theaters/parks/museums | 15 | Palace Theatre padding; Santa Maria gone | SIGHTS_EXPAND2.json |
 | 2026-08-24 | Columbus | metro food | immigrant/non-American | 14 | Kamil's Uyghur closed; Thai gap stated | FOOD_COLUMBUS_EXPAND2.json |
 | 2026-08-24 | Dayton+Columbus | corridor sights | Springfield/Madison | 13 | — | SIGHTS_MIDCORRIDOR.json (both) |
-| 2026-08-24 | Cleveland | region food+sights | Lakewood/West Side | 23 | Melt Lakewood closed (flagged); El Carnicero/Nighttown/Balaton dropped | FOOD/SIGHTS_LAKEWOOD.json |
+| 2026-08-24 | Cleveland | region food+sights | Lakewood/West Side | 23 (6 spliced, 17 helper) | Melt + Deagan's closed (flagged); El Carnicero/Nighttown/Balaton dropped | FOOD/SIGHTS_LAKEWOOD.json |
+| 2026-08-24 | Cleveland | geocode wave | 23 Lakewood/Heights/Bay | 6 pinned | Capitol Theatre viewport-trap → UNVERIFIED; Deagan's new closure catch | geo/_geoout_lakewood_*.json |
 | 2026-08-24 | Columbus | geocode wave | 42 metro+corridor | 24 pinned | Mikey's/Chuan Jiang bad-pin rejected → UNVERIFIED | geo/_geoout_wave_*.json |
 | 2026-08-24 | Dayton | geocode wave | 41 metro+corridor | 18 pinned | 14 restaurants + 9 parks UNVERIFIED (helper) | geo/_geoout_wave_*.json |
 
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
 Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source
-places (Aullwood, Third Perk) that build GATE 1 drops, so the page is clean. Cleveland Lakewood: researched, pending
-geocode wave + `add-to-cleveland.py` splice.
+places (Aullwood, Third Perk) that build GATE 1 drops, so the page is clean. Cleveland (engine) → Lakewood/West-Side +
+Heights + Bay Village spliced via `add-to-cleveland.py`: **+6 geocoded** (P 143→148, F 45→46 = **194 on page**),
+17 UNVERIFIED held for the helper, Melt + Deagan's flagged CLOSED; `npm run validate && npm test` green.
 
 _Update the last rows' counts/outcomes when those agents complete and after the builds land._
 
@@ -155,3 +157,7 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
 - **`sourcecheck.py` wrote its `_needs_sources.json` to a hardcoded `silicon-valley-research/`** for every city,
   clobbering that dir with other cities' data. → It now writes a per-city `data/<stem>_needs_sources.json` next to
   the dataset. Auditable, no cross-city clobber.
+- **Geocode agents emit two output shapes** — a list of `{n, …}` records, or a dict keyed by place name. A prompt
+  that asked for the keyed-dict form crashed `geo-merge.py` (which assumed a list) with `'str' object has no
+  attribute 'get'`. → `geo-merge.py` now normalizes both shapes and accepts `source` as an alias for `geoSource`,
+  so neither agent convention breaks the merge. (Pass-6 template still standardizes on the list form.)

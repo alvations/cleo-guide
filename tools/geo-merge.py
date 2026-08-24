@@ -60,7 +60,11 @@ def main():
     added = updated = unver = closed = renamed = 0
     closed_renames = []
     for f in files:
-        for r in json.load(open(f, encoding="utf-8")):
+        raw = json.load(open(f, encoding="utf-8"))
+        # accept either a LIST of {n, ...} records or a DICT keyed by place name -> {...}
+        # (geocode agents have emitted both conventions; normalize here so neither breaks the merge).
+        records = raw if isinstance(raw, list) else [dict(v, n=k) for k, v in raw.items()]
+        for r in records:
             n = r.get("n")
             if not n:
                 continue
@@ -81,7 +85,7 @@ def main():
                 "address": r.get("address", ""),
                 "lat": lat if verified else None,
                 "lng": lng if verified else None,
-                "source": r.get("geoSource", "") if verified else "UNVERIFIED",
+                "source": (r.get("geoSource") or r.get("source") or "") if verified else "UNVERIFIED",
                 "verified": a.date,
                 "confidence": conf if verified else "UNVERIFIED",
                 "status": status,

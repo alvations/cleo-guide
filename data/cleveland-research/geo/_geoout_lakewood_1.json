@@ -1,0 +1,50 @@
+{
+  "Deagan's Kitchen & Bar": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin surfaced. CLOSURE CAUGHT: worklist did not flag this closed, but it is permanently closed (Deagan's closed June 2023; the building then held Solstice, then The Arcade on Detroit which closed Jan 24 2026).",
+    "address": "14810 Detroit Ave, Lakewood, OH 44107",
+    "status": "closed", "statusSource": "https://m.yelp.com/biz/deagans-kitchen-and-bar-lakewood (listed as CLOSED); https://www.crainscleveland.com/restaurants/arcade-detroit-closes-after-less-year ; https://www.clevescene.com/food-drink/arcade-on-detroit-in-lakewood-has-closed/", "statusChecked": "2026-08-24"
+  },
+  "Georgetown": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced",
+    "address": "18515 Detroit Ave, Lakewood, OH 44107",
+    "status": "open", "statusSource": "https://www.georgetownrestaurant.net/index.asp ; https://www.yelp.com/biz/georgetown-restaurant-lakewood-2 (Updated Aug 2026)", "statusChecked": "2026-08-24"
+  },
+  "Batuqui": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced. NOTE: Batuqui moved to its new Larchmere home (12624 Larchmere Blvd, a converted church) opening Sept 2 2025; worklist address is current.",
+    "address": "12624 Larchmere Blvd, Cleveland, OH 44120",
+    "status": "open", "statusSource": "https://www.batuquicleveland.com/ ; https://clevelandmagazine.com/articles/batuqui-offering-authentic-brazilian-food-to-open-in-new-larchmere-home-first-look/ ; https://www.yelp.com/biz/batuqui-cleveland (Updated July 2026)", "statusChecked": "2026-08-24"
+  },
+  "Lucky's Cafe": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — no place-pin/coordinate surfaced",
+    "address": "777 Starkweather Ave, Cleveland, OH 44113",
+    "status": "open", "statusSource": "https://www.luckyscafe.com/hours-location ; https://www.yelp.com/biz/luckys-cafe-cleveland-3 (Updated Aug 2026)", "statusChecked": "2026-08-24"
+  },
+  "Beck Center for the Arts": {
+    "lat": 41.4846647, "lng": -81.8196461, "confidence": "high",
+    "source": "https://maps.apple.com/place?address=17801+Detroit+Ave%2C+Lakewood%2C+OH++44107&coordinate=41.4846647%2C-81.8196461&name=Beck+Center+For+the+Arts (Apple Maps place coordinate)",
+    "address": "17801 Detroit Ave, Lakewood, OH 44107",
+    "status": "open", "statusSource": "https://beckcenter.org/ ; https://www.lakewoodoh.gov/venue/beck-center-for-the-arts/", "statusChecked": "2026-08-24"
+  },
+  "Capitol Theatre": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — VIEWPORT TRAP CAUGHT: only Google URL was /@41.484375,-81.730405,17z (a map-camera viewport, not a place pin) plus a bare CID (0x8830f04a163c5949:0x8838063b032209da). The viewport lng -81.7304 is also wrong for W 65th St / Gordon Square (should be ~-81.74). No !3d!4d — rejected rather than guessed.",
+    "address": "1390 W 65th St, Cleveland, OH 44102",
+    "status": "open", "statusSource": "https://www.clevelandcinemas.com/our-locations/ ; https://www.yelp.com/biz/capitol-theatre-cleveland (Updated Aug 2026, operating cinema)", "statusChecked": "2026-08-24"
+  },
+  "Cleveland Public Theatre": {
+    "lat": null, "lng": null, "confidence": "unverified",
+    "source": "UNVERIFIED — only Apple place-id (IEC92D057CAF64475) surfaced; no coordinate= and no Google !3d!4d place-pin",
+    "address": "6415 Detroit Ave, Cleveland, OH 44102",
+    "status": "open", "statusSource": "https://www.cptonline.org/ ; https://www.yelp.com/biz/cleveland-public-theatre-cleveland-2 (Updated Aug 2026)", "statusChecked": "2026-08-24"
+  },
+  "Rocky River Reservation & Fort Hill Stairs": {
+    "lat": 41.40921, "lng": -81.88399, "confidence": "low",
+    "source": "Rocky River Nature Center building coordinate (24000 Valley Pkwy) from maps directory result — the Fort Hill Stairs sit directly behind this building, so this anchors the named feature, NOT the reservation polygon centroid. Provenance is a search-snippet number, not a clean place-pin URL; FLAG FOR RE-VERIFY to an exact place-pin on the stairs.",
+    "address": "24000 Valley Pkwy (Rocky River Nature Center / Fort Hill Stairs), North Olmsted, OH 44070",
+    "status": "open", "statusSource": "https://www.clevelandmetroparks.com/parks/visit/parks/rocky-river-reservation/fort-hill", "statusChecked": "2026-08-24"
+  }
+}
