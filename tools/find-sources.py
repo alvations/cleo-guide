@@ -64,7 +64,7 @@ def cuisine_queries(city, cuisine):
         f'best {c} restaurants {city} {city} magazine',
         f'Eater {city} best {c} essential',
         f'{c} {city} Washington Post OR critic review',
-        f'best {c} food {city} Northern Virginia OR suburbs guide',
+        f'best {c} food {city} metro OR suburbs guide',
         f'{c} community {city} where to eat authentic diaspora',
         f'{c} newspaper OR community media {city} restaurant guide',
         f'"{c}" {city} James Beard OR Michelin',
