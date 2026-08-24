@@ -61,3 +61,52 @@ only nod was faint ("mildest broth"); Ginger and Spice (4.3–4.5, reviews flag 
 FOOD_ASIAN.json + geocodes.json + geoout. Dataset food 43→40; page stays 56 (Wat Da Pho pinned; the other 3
 keeps UNVERIFIED → helper). Gates: geocheck exit 0 · statuscheck CONSISTENT · buildcheck PASS. Rule codified
 repo-wide (all categories/cities) in docs/SOURCES.md.
+
+## Stage 11 — Asian/Vietnamese food + creator/viral pass, weighted to Beavercreek/EAST (2026-08-24)
+Ran the creator/viral + food-discovery pass (docs/SOURCES.md) via WebSearch (~35 queries): Dayton937 'Quest
+for the Best Pho', Dayton Daily News food desk, WDTN/Dayton Local, plus verified-creator vetting. Every add
+carries **≥2 credible sources** (a creator = ONE corroborator, never the institutional authority),
+fact-checked OPEN 2025/2026, cuisine tagged by the kitchen's own tradition, NO coordinates.
+
+Wrote `FOOD_BEAVERCREEK_ASIAN.json` (**8 NEW places**, none duplicating Wat Da Pho / Little Saigon /
+China Cottage / Kabuki / Thai 9 / Tender Mercy) — weighted to EAST/Beavercreek (5 of 8):
+- **EAST (5):** House of Thai (Beavercreek, t1 Thai — DAYTONDAILY 'pink building… best Thai in Dayton' +
+  GEMCITY) · Linh's Bistro (Riverside/near WPAFB, t2 Vietnamese/Chinese — DAYTON937 Quest-for-Pho + OFFICIAL) ·
+  Bleu Wave Seafood Boil & Pho (Fairfield Commons, t2 Viet-Cajun/pho — DAYTONDAILY + DAYTON937) · Yumi Boba
+  Tea (The Greene, t2 Taiwanese boba + Vietnamese deli — DAYTONDAILY + OFFICIAL) · Kawa Revolving Sushi
+  (Centre Dr, t2 conveyor-belt sushi, viral — DAYTONDAILY + WDTN, CityBeat review).
+- **SOUTH (2):** Five Grains Noodle House (Kettering, t1 Chinese fish-noodle soup, Google 4.7 — DAYTON937
+  dedicated feature + OFFICIAL) · Sky Asian Cuisine (Kettering, t2 upscale sushi — DAYTONDAILY 'First Look
+  impresses' + DAYTON937 'a gem').
+- **DTN (1):** Nood Bar (The Silos, t2 Asian/Lao ramen+bao, Chef Dane Shipp's 2nd concept — WDTN Living
+  Dayton + DAYTONDAILY + creator CUTIE).
+
+`CREATORS_DAYTONASIAN.json` — **2 new vetted creators** (merge-creators.py globs CREATORS*.json):
+- **CUTIE** — Dejea Jasmeen / @foodieswithacutie, ~51.7K TikTok (461.5K likes), Cincy/Dayton beat + 'Cutie's
+  Foodie Finder' directory; findable content at Nood Bar (video 7488154756066725166). famous_creator/region.
+- **BIGRAGU** — Steve Milano 'The Big Ragu' / Food Adventures Dayton (@dayton_foodies), ~8K FB, Dayton food
+  blog since 2008; covered Little Saigon + North China. local_creator/city. Attached to Little Saigon.
+- Attach: Nood Bar←CUTIE, Little Saigon←BIGRAGU. Rejected 5 (small/unverifiable @ohiofoodie_,
+  @daytonfooddiaries; restaurant account @daytonstreeteats; out-of-area iPho; SEO listicles).
+
+**MEASURED & DROPPED (merit bar / no-padding / gate):**
+- **Yung's Cafe (ex-Myong's Cafe, Fairborn/EAST, Korean)** — authentic bulgogi, but only ratings-platform
+  coverage (TripAdvisor/Yelp = ZERO credible); FAILS ≥2-credible gate. **Korean is a stated EAST gap**, not
+  filled. (Note: the old 'Myong's' name shows CLOSED; live under Yung's Cafe, 1328 Kauffman Ave.)
+- **Izakaya (Beavercreek/EAST)** — DDN+WDTN covered it, but it's an anime-themed *pizza/bar* (Yelp category
+  'Pizza'; pizza, wagyu burgers, Korean corn dogs) — not an authentic Asian kitchen. Notable/viral but fails
+  the honest-cuisine test; dropped from an Asian-food list.
+- **North China (Washington Twp/SOUTH, est 1987)** — 2 credible (DAYTON937 10-course + DESTDAYTON) but a
+  3rd SOUTH Chinese behind China Cottage + Five Grains → padding; dropped, Five Grains is the distinctive pick.
+- **Tsao's Cuisine (Beavercreek)** — 4.1/151, buffet; not standout → drop. **Sakura Sushi & Korean
+  (Beavercreek)** — 4.5–4.6 but low volume (~45–114) and no credible editorial → fails gate. **Asia Gourmet
+  / King Garden / Royal Wok** — generic pan-Asian, no editorial → drop. **Pho District / Pho Mi** — already
+  merit-dropped Stage 10 as pho padding; not re-added. **Dak Joy Korean Fried Chicken (Huber Heights)** —
+  **permanently CLOSED (Yelp, June 2026)**, non-notable → dropped. **iPho** — Cincinnati, out of scope.
+- **NORTH (Vandalia/Huber Heights/Troy):** no Asian place clearing the ≥2-credible bar surfaced (Dragon
+  China, Fu Ying, Asian Star, Wat Da Pho Express spinoff — ratings only). **Stated NORTH gap**, not padded.
+
+Gate note: WDTN is named credible in the brief/source palette but is **not yet a key in sources.json**
+(only WHIO is). Nood Bar and Kawa each still have a registered-credible source (DAYTONDAILY) + WDTN; the
+maintainer should register a `WDTN` source key before `--sourcecheck` so both count cleanly. Did NOT edit
+shared files (sources.json, geocodes.json, research.js, dataset) — geocoding/build is a later stage.

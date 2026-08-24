@@ -1,0 +1,61 @@
+{
+  "creators": [
+    {
+      "key": "CUTIE",
+      "name": "Dejea Jasmeen (@foodieswithacutie / CutieTheFoodie) — Cincinnati/Dayton food & drink creator",
+      "type": "famous_creator",
+      "scope": "region",
+      "tiktok": "https://www.tiktok.com/@foodieswithacutie",
+      "instagram": "https://www.instagram.com/foodieswithacutie/",
+      "website": "https://www.foodieswithacutie.com/cutiesfoodiefinder",
+      "followers": "TikTok ~51.7K (461.5K likes)",
+      "verified": true,
+      "credible": "Verified Cincinnati/Dayton food creator (real name Dejea Jasmeen); ~51.7K TikTok followers, 461.5K likes; built 'Cutie's Foodie Finder', a searchable local-restaurant directory she is actively expanding into Dayton; consistent, dated Dayton food beat (Nood Bar, Dayton BBQ Co., Napoleon's Reloaded, Black-owned roundups). Findable Dayton content at a named place: Nood Bar at The Silos (video 7488154756066725166). Corroborating creator source (one of two), not an institutional authority."
+    },
+    {
+      "key": "BIGRAGU",
+      "name": "Steve Milano 'The Big Ragu' — Food Adventures Dayton (@dayton_foodies)",
+      "type": "local_creator",
+      "scope": "city",
+      "instagram": "https://www.instagram.com/dayton_foodies/",
+      "facebook": "https://www.facebook.com/foodadv",
+      "followers": "Facebook ~8K likes; running Dayton food blog since 2008",
+      "verified": true,
+      "credible": "Longest-running Dayton food-blog crew ('Food Adventures', since 2008; ~8K Facebook following); a genuine local-guide beat covering locally-owned Miami Valley restaurants, with dedicated write-ups syndicated on Dayton937/Dayton Most Metro. Track record on Dayton Asian rooms includes a full Food Adventure at Little Saigon and a 10-course banquet at North China. Not a critic; corroborating local-guide source, not an institutional authority."
+    }
+  ],
+  "attach": [
+    {
+      "place": "Nood Bar",
+      "creatorKey": "CUTIE",
+      "url": "https://www.tiktok.com/@foodieswithacutie/video/7488154756066725166"
+    },
+    {
+      "place": "Little Saigon",
+      "creatorKey": "BIGRAGU",
+      "url": "https://dayton937.com/dayton-dining/new-years-food-adventure-dinner-little-saigon.html"
+    }
+  ],
+  "rejected": [
+    {
+      "handle": "@ohiofoodie_ (Dayton Foodie / OhioFoodie)",
+      "reason": "Small following (~6,084 IG) with no verifiable Dayton/cuisine track record and no findable piece of content at a named Asian place surfaced. Popularity you can't verify isn't popularity."
+    },
+    {
+      "handle": "@daytonstreeteats",
+      "reason": "A restaurant/carryout account, not a food creator or reviewer — cannot serve as an independent corroborating source."
+    },
+    {
+      "handle": "@daytonfooddiaries",
+      "reason": "Following and Asian-place track record not verifiable via search; no findable content piece at a target place. Left unregistered rather than cite an unverifiable account."
+    },
+    {
+      "handle": "iPho Vietnamese Cuisine feature accounts / Cincinnati Bites",
+      "reason": "iPho is a Cincinnati restaurant (Montgomery Rd), outside the Dayton scope; its coverage is Cincinnati-local and not applicable to a Dayton-area place."
+    },
+    {
+      "handle": "threebestrated / phodish / bobaspots / stacker / wanderlog listicles",
+      "reason": "Anonymous/algorithmic SEO aggregators, not verifiable creators or editorial — zero toward the credibility bar; used only to fact-check existence/ratings."
+    }
+  ]
+}
