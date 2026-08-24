@@ -3,7 +3,9 @@
 The single entry point to every guide in this repo: what exists, where its artifacts live, and the
 exact commands to verify or continue it. **A different agent should be able to read this file and
 reproduce or extend any city's pipeline.** Pair it with [PIPELINE.md](PIPELINE.md) (the fixed stage
-order + audit contract) and [RECREATE.md](RECREATE.md) (doing it for a brand-new city).
+order + audit contract), [RECREATE.md](RECREATE.md) (doing it for a brand-new city), and
+[AGENT-PROMPTS.md](AGENT-PROMPTS.md) (the reusable agent prompt library, run log & lessons — read before
+launching any expansion agent).
 
 _Counts are as of 2026-08-18; re-derive anytime with the commands below — never trust a stale number._
 
