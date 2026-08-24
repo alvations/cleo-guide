@@ -1,0 +1,228 @@
+{
+  "sights": [
+    {
+      "t": 1,
+      "a": "DTN",
+      "n": "Ohio Theatre",
+      "address": "39 E State St, Columbus, OH 43215",
+      "w": "The 'Official Theatre of the State of Ohio' — a lavishly gilded 1928 Spanish-Baroque movie palace on Capitol Square, saved from the wrecking ball in 1969 and declared a National Historic Landmark in 1977. CAPA runs it today, with free summer walking tours and 'Mighty Morton' organ demos.",
+      "closed": false,
+      "k": "Free guided tours on select summer Saturdays; otherwise a ticketed performance venue.",
+      "g": ["ICON", "ARCH", "ENT"],
+      "sources": [
+        ["OFFICIAL", "https://www.capa.com/venues/ohio-theatre/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Ohio_Theatre_(Columbus,_Ohio)"],
+        ["CITYSCENE", "https://www.cityscenecolumbus.com/arts-and-entertainment/scene-online/capa-offers-free-walking-tours-throughout-all-of-their-theat/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Southern Theatre",
+      "address": "21 E Main St, Columbus, OH 43215",
+      "w": "The oldest surviving theatre in central Ohio — opened 1896 as the 'Great Southern Fireproof Hotel and Opera House' after a run of downtown theatre fires, it hosted Sarah Bernhardt, Anna Pavlova and John Philip Sousa. CAPA restored it in a 14-month, $10M rebuild reopening in 1998.",
+      "closed": false,
+      "g": ["ARCH", "ENT"],
+      "sources": [
+        ["OFFICIAL", "https://www.capa.com/southern-theatre/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Great_Southern_Hotel_%26_Theatre"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "DTN",
+      "n": "Columbus Commons",
+      "address": "160 S High St, Columbus, OH 43215",
+      "w": "A six-acre downtown green built on the footprint of the old City Center mall — a restored 1914 carousel, free summer concerts, a Thursday farmers market and 200+ free events a year. Free.",
+      "closed": false,
+      "k": "Free; carousel rides seasonal (Apr–Sep).",
+      "g": ["PARK", "FREE", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://columbuscommons.org/"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/directory/columbus-commons/"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "DTN",
+      "n": "Union Station Arch at McFerson Commons",
+      "address": "McFerson Commons, Nationwide Blvd, Arena District, Columbus, OH 43215",
+      "w": "The last surviving arch of Columbus's demolished 1897 Union Station (a Daniel Burnham design), rescued during the 1976 wrecking and re-erected as the centerpiece of the 2.2-acre McFerson Commons in the Arena District. Free.",
+      "closed": false,
+      "g": ["ARCH", "ODD", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/McFerson_Commons"],
+        ["DISPATCH", "https://www.dispatch.com/story/news/history/2021/10/22/union-station-arch-columbus-ohio-history/"]
+      ]
+    },
+    {
+      "t": 3,
+      "a": "DTN",
+      "n": "Columbus Metropolitan Library — Main Library",
+      "address": "96 S Grant Ave, Columbus, OH 43215",
+      "w": "The flagship of a system twice named National Library of the Year — its $30M 2016 daylight-flooded renovation (GUND Partnership), opening onto Topiary Park, won the Columbus Landmarks James B. Recchie Design Award. Free to wander.",
+      "closed": false,
+      "g": ["ARCH", "FREE"],
+      "sources": [
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Main_Library_(Columbus,_Ohio)"],
+        ["ARCHITECTMAG", "https://www.architectmagazine.com/project-gallery/columbus-metropolitan-library-main-library/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "OSU",
+      "n": "Studio 35 Cinema & Drafthouse",
+      "address": "3055 Indianola Ave, Columbus, OH 43202",
+      "w": "Clintonville's beloved neighborhood movie house — opened 1938 as the Indianola Theatre, it's Columbus's oldest cinema and the last independent one left, famous as the first U.S. theater licensed to serve alcohol. Two screens, 40 taps and an in-house pizza kitchen.",
+      "closed": false,
+      "g": ["ENT", "ODD"],
+      "sources": [
+        ["OFFICIAL", "https://studio35.com/about/"],
+        ["ARTHOUSE", "https://www.arthousetheaters.com/theater/studio-35-columbus"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "EAST",
+      "n": "Schumacher Gallery",
+      "address": "Blackmore Library, 4th Fl, 2199 E Main St, Bexley, OH 43209",
+      "w": "Capital University's free art museum on the top floor of its Bexley library — 3,000+ works spanning Rembrandt, Dürer, Goya, Renoir, Cassatt, Picasso, Chagall and Warhol, plus rotating exhibits of Indigenous and local artists.",
+      "closed": false,
+      "k": "Free; open during the academic year only (closed summers and university holidays).",
+      "g": ["MUS", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://www.capital.edu/student-life/arts-and-culture/schumacher-gallery/"],
+        ["COLUMBUSMAKESART", "https://www.columbusmakesart.com/organization/406-the-schumacher-gallery"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "WEST",
+      "n": "Columbus Idea Foundry",
+      "address": "421 W State St, Columbus, OH 43215",
+      "w": "A 60,000-sq-ft Franklinton makerspace billed as the physically largest in the world — welding, blacksmithing, woodshop, 3D printing and 80+ classes a month, with free RSVP evening tours and demonstrations.",
+      "closed": false,
+      "k": "Free evening tours by RSVP; workshops/membership ticketed.",
+      "g": ["ODD", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://www.ideafoundry.com/"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/blog/post/pick-up-a-new-skill-at-these-8-maker-spaces/"],
+        ["CITYSCENE", "https://www.cityscenecolumbus.com/columbus-idea-foundry/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Early Television Museum",
+      "address": "5396 Franklin St, Hilliard, OH 43026",
+      "w": "A 6,000-sq-ft Hilliard oddity holding 150+ working sets — mechanical 1920s scanning-disc TVs, prewar and early-color receivers — one of the world's deepest early-television collections. Free (donations welcome), weekends only.",
+      "closed": false,
+      "k": "Free; open Sat 10–6 and Sun 12–5.",
+      "g": ["MUS", "ODD", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://www.earlytelevision.org/museum.html"],
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/early-television-museum"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Early_Television_Museum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Anti-Saloon League Museum",
+      "address": "126 S State St, Westerville, OH 43081",
+      "w": "Inside the Westerville library, in the League's old printing-plant town — 'the dry capital of the world' — the nation's foremost temperance/Prohibition collection: propaganda, artifacts and the story of the Ohio-born movement that drove the 18th Amendment. Free.",
+      "closed": false,
+      "k": "Free; open library hours or by appointment.",
+      "g": ["MUS", "ARCH", "FREE"],
+      "sources": [
+        ["OFFICIAL", "https://westervillelibrary.org/antisaloon/"],
+        ["OHIOMAG", "https://www.ohiomagazine.com/travel/article/explore-prohibition-history-at-the-anti-saloon-league-museum"],
+        ["ATLASOBSCURA", "https://www.atlasobscura.com/places/antisaloon-league-museum"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Sharon Woods Metro Park",
+      "address": "6911 Cleveland Ave, Westerville, OH 43081",
+      "w": "A 761-acre Metro Park wrapping the 11-acre Schrock Lake and the Edward S. Thomas State Nature Preserve, with old-growth oak-hickory-beech woods and a 3.8-mile paved multipurpose loop. Free.",
+      "closed": false,
+      "g": ["PARK", "VIEW", "FREE"],
+      "sources": [
+        ["METROPARKS", "https://www.metroparks.net/parks-and-trails/sharon-woods/"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/directory/sharon-woods-metro-park/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Blendon Woods Metro Park",
+      "address": "4265 E Dublin-Granville Rd, Westerville, OH 43081",
+      "w": "A 653-acre Metro Park whose 118-acre Walden Waterfowl Refuge and 11-acre Thoreau Lake draw hundreds of birds — 220+ species logged — viewed from two elevated shelters with spotting scopes. Free.",
+      "closed": false,
+      "g": ["PARK", "VIEW", "FREE", "FAM"],
+      "sources": [
+        ["METROPARKS", "https://www.metroparks.net/parks-and-trails/blendon-woods/"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/listing/blendon-woods-metro-park/427214/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Slate Run Living Historical Farm",
+      "address": "1375 State Route 674 N, Canal Winchester, OH 43110",
+      "w": "An 1880s working farm inside Slate Run Metro Park — costumed staff tend heirloom pigs, geese, turkeys and Percheron horses and cook in an 1856 Gothic-revival farmhouse, recreating daily central-Ohio farm life. Free.",
+      "closed": false,
+      "k": "Free; seasonal hours (open Tue–Sun; closed some winter days).",
+      "g": ["FAM", "ARCH", "PARK", "FREE"],
+      "sources": [
+        ["METROPARKS", "https://www.metroparks.net/parks-and-trails/slate-run-historical-farm/"],
+        ["OHIOMAG", "https://www.ohiomagazine.com/travel/article/slate-run-living-historical-farm-canal-winchester"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Hayden Run Falls",
+      "address": "4326 Hayden Run Rd, Dublin, OH 43017",
+      "w": "A 35-foot ravine waterfall in Dublin, reached by a short wheelchair-accessible boardwalk and staircase in Columbus's two-acre Hayden Falls Nature Preserve — best after rain. Free, distinct from Dublin's Indian Run Falls.",
+      "closed": false,
+      "k": "Free; open daily 6am–10pm.",
+      "g": ["VIEW", "PARK", "FREE", "ODD"],
+      "sources": [
+        ["OFFICIAL", "https://columbusrecparks.com/parks/hayden-falls-nature-preserve/"],
+        ["VISITDUBLIN", "https://www.visitdublinohio.com/listing/hayden-run-falls/554/"],
+        ["COLUMBUSNAVIGATOR", "https://www.columbusnavigator.com/dublins-indian-hayden-run-falls-should-be-your-next-weekend-adventure/"]
+      ]
+    },
+    {
+      "t": 2,
+      "a": "BURB",
+      "n": "Easton Town Center",
+      "address": "160 Easton Town Center, Columbus, OH 43219",
+      "w": "A 30-million-visitor-a-year open-air 'town' laid out like a 1950s Main Street — 250+ shops from Nordstrom to Louis Vuitton alongside restaurants, cinemas and free public events. Repeatedly named the top retail experience in America. A tourism draw in its own right.",
+      "closed": false,
+      "g": ["SHOP", "FAM"],
+      "sources": [
+        ["OFFICIAL", "https://eastontowncenter.com/"],
+        ["EXPERIENCECBUS", "https://www.experiencecolumbus.com/neighborhoods/easton/"],
+        ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Easton_Town_Center"]
+      ]
+    }
+  ],
+  "sources": [
+    {"key": "OFFICIAL", "name": "Official site (venue/park/museum)", "url": "https://www.capa.com/"},
+    {"key": "WIKIPEDIA", "name": "Wikipedia (notability & published coords)", "url": "https://en.wikipedia.org/"},
+    {"key": "EXPERIENCECBUS", "name": "Experience Columbus (Columbus CVB)", "url": "https://www.experiencecolumbus.com/"},
+    {"key": "ATLASOBSCURA", "name": "Atlas Obscura", "url": "https://www.atlasobscura.com/"},
+    {"key": "METROPARKS", "name": "Metro Parks — Central Ohio Park System (official)", "url": "https://www.metroparks.net/"},
+    {"key": "OHIOMAG", "name": "Ohio Magazine", "url": "https://www.ohiomagazine.com/"},
+    {"key": "DISPATCH", "name": "The Columbus Dispatch", "url": "https://www.dispatch.com/"},
+    {"key": "CITYSCENE", "name": "CityScene Magazine (Columbus)", "url": "https://www.cityscenecolumbus.com/"},
+    {"key": "COLUMBUSNAVIGATOR", "name": "Columbus Navigator", "url": "https://www.columbusnavigator.com/"},
+    {"key": "VISITDUBLIN", "name": "Visit Dublin Ohio (CVB)", "url": "https://www.visitdublinohio.com/"},
+    {"key": "COLUMBUSMAKESART", "name": "Columbus Makes Art (Greater Columbus Arts Council)", "url": "https://www.columbusmakesart.com/"},
+    {"key": "ARCHITECTMAG", "name": "Architect Magazine", "url": "https://www.architectmagazine.com/"},
+    {"key": "ARTHOUSE", "name": "Art House Theaters (Art House Convergence directory)", "url": "https://www.arthousetheaters.com/"}
+  ]
+}

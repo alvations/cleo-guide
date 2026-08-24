@@ -1,0 +1,233 @@
+{
+ "sights": [
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Narrows Reserve",
+   "address": "2575 Indian Ripple Rd, Beavercreek, OH 45385",
+   "w": "Greene County Parks preserve with ~6 miles of trails winding along the Little Miami National Scenic River, a 2.3-mile River Loop, a nature center, canoe/kayak launch, primitive camping and a raptor aviary. Free, open daily.",
+   "k": "little miami river hike",
+   "sources": [
+    ["GCPARKS", "https://www.gcparkstrails.com/parks/narrows-reserve/"],
+    ["FAIRBORNHERALD", "https://www.fairborndailyherald.com/2020/08/18/narrows-reserve-a-wilderness-adventureland/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Creekside Trail",
+   "address": "1153 N Fairfield Rd, Beavercreek, OH 45324",
+   "w": "17-mile paved rail-trail linking Xenia Station to Eastwood MetroPark in Dayton, crossing over I-675; the Beavercreek Station trailhead has restrooms, parking and the city's 9/11 memorial. A backbone of the Miami Valley's 340-mile trail network. Free.",
+   "k": "bike rail trail",
+   "sources": [
+    ["MVTRAILS", "https://www.miamivalleytrails.org/trails/creekside-trail"],
+    ["BEAVERCREEK", "https://beavercreekohio.gov/facilities/facility/details/Creekside-Trail-11"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Oakes Quarry Park",
+   "address": "1267 E Xenia Dr, Fairborn, OH 45324",
+   "w": "Former limestone quarry, now Fairborn's second-largest park, exposing two of the oldest Silurian fossil coral reefs in the U.S. — one of the largest, most diverse Silurian-fauna sites in the world. Self-guided fossil trail; keep what you find in the spoil piles. Free, open daily.",
+   "k": "silurian reef fossils",
+   "sources": [
+    ["FAIRBORN", "https://fairbornoh.myrec.com/documents/13027_oakes_quarry_gen_lo_res.pdf"],
+    ["ISLANDS", "https://www.islands.com/2178913/oakes-quarry-park-ohio-near-dayton-once-thriving-now-nature-trails-fossils-wildlife/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Downtown Fairborn Historic District",
+   "address": "1 W Main St, Fairborn, OH 45324",
+   "w": "Quirky, walkable Main Street at the gates of Wright-Patterson: Foy's — five nostalgic stores including a 1929 Halloween & variety shop — the macabre Secret Chamber house of oddities, indie boutiques, and a big third-weekend-of-October Halloween Festival with a Spooktacular Parade.",
+   "k": "Foy's Halloween Main Street",
+   "sources": [
+    ["ISLANDS", "https://www.islands.com/1982442/fairborn-ohio-quirky-college-city-downtown-shops-festivals/"],
+    ["FAIRBORN", "https://www.fairbornoh.gov/visitors/index.php"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Wright State University Nutter Center",
+   "address": "3640 Colonel Glenn Hwy, Fairborn, OH 45435",
+   "w": "The region's premier 11,200-seat arena (opened 1990) on the Wright State campus by Wright-Patterson: home of Raiders basketball and a regular tour stop for national touring concerts, comedians and family shows.",
+   "k": "arena concerts basketball",
+   "sources": [
+    ["OFFICIAL", "https://www.nuttercenter.com/arena-information"],
+    ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Nutter_Center"]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Caesar Creek Vineyards",
+   "address": "962 Long Rd, Xenia, OH 45385",
+   "w": "Family-owned, award-winning estate winery on 200 acres near the headwaters of Caesar Creek in Greene County; tasting room pours estate wines and cider with a vineyard view. A member of the Ohio Wine Producers Association.",
+   "k": "estate winery tasting room",
+   "sources": [
+    ["OFFICIAL", "https://www.caesarcreekvineyards.com/"],
+    ["OHIOWINES", "https://www.ohiowines.org/caesar-creek-vineyards"],
+    ["GEMCITY", "https://www.daytonlocal.com/directory/profiles/caesar-creek-vineyards/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Rosewood Arts Center",
+   "address": "2655 Olson Dr, Kettering, OH 45420",
+   "w": "Kettering's community arts hub since 1986: the 1,800-sq-ft Kettering Health (Rosewood) Gallery shows contemporary local, regional and national artists across four exhibitions a year, plus studios, classes and the signature Art on the Commons festival each August. Free.",
+   "k": "contemporary art gallery",
+   "sources": [
+    ["OFFICIAL", "https://www.playkettering.org/gallery/"],
+    ["OHIOTOURISM", "https://ohio.org/things-to-do/destinations/rosewood-arts-centre"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Bill Yeck Park",
+   "address": "2230 E Centerville Station Rd, Centerville, OH 45459",
+   "w": "194-acre natural area along 1.75 miles of Sugar Creek, named for the founder of the Centerville-Washington Park District; color-coded trails wind past meadow, forest, an apiary and the Five-Fingered Sycamore, with Ordovician fossils in the creek. The park's master plan won a state first-place conservation award. Free.",
+   "k": "sugar creek trails fossils",
+   "sources": [
+    ["CWPD", "https://cwpd.org/parks/bill-yeck/"],
+    ["DISCOVERDAYTON", "https://www.discoverdaytonohio.com/listing/bill-yeck-park-smith-house-entrance/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Stubbs Park",
+   "address": "255 W Spring Valley Rd, Centerville, OH 45458",
+   "w": "Centerville's 60-acre flagship park, anchored by the Community Amphitheater — reopened after a 2025 renovation — that hosts a free Sunday-evening summer concert series with grass-terrace seating, food trucks and a pondside deck. Also walking trails, disc golf and a Veterans Memorial Plaza.",
+   "k": "amphitheater free summer concerts",
+   "sources": [
+    ["CENTERVILLE", "https://www.centervilleohio.gov/233/Stubbs-Park"],
+    ["WDTN", "https://www.wdtn.com/dont-miss/centerville-summer-concerts-return-to-stubbs-park-following-renovations/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Grant Park",
+   "address": "501 Normandy Ridge Rd, Centerville, OH 45459",
+   "w": "187-acre Centerville-Washington nature park of creeks, meadow, prairie and wetland habitats; the Kennard Nature Nook hosts programs and the Mark Kreusch natural playground, with trails threading the whole preserve. Free.",
+   "k": "nature preserve Kennard Nature Nook",
+   "sources": [
+    ["CWPD", "https://cwpd.org/parks/grant/"],
+    ["DAYTONDAILY", "https://www.daytondailynews.com/local/centerville-washington-park-district-starts-work-on-improved-park-entrance/3BDSA6J7EBC4VN6ETL5PDPFW6Q/"]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SOUTH",
+   "n": "Polen Farm",
+   "address": "5099 Bigger Rd, Kettering, OH 45440",
+   "w": "Historic 1854 farmhouse, barn and gazebo on 15 acres in Kettering, tracing to a Revolutionary War veteran granted the land; run by Kettering Parks and used for weddings, programs and community gatherings — a preserved slice of early Montgomery County.",
+   "k": "1854 historic farmhouse",
+   "sources": [
+    ["OFFICIAL", "https://www.playkettering.org/polen-farm/"],
+    ["DAYTONDAILY", "https://www.daytondailynews.com/local/kettering-s-polen-farm-traces-its-roots-back-to-the-1800s-and-a-revolutionary-war/article_194ac7b2-9a1d-5d7d-845a-4b577a3c26a1.html"]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Rose Music Center at The Heights",
+   "address": "6800 Executive Blvd, Huber Heights, OH 45424",
+   "w": "4,200-seat fully covered outdoor amphitheater in Huber Heights (opened 2015), the north suburbs' marquee live-music venue — a full season of national touring acts under a weatherproof shelter, with lawn, terrace and box seating.",
+   "k": "amphitheater concerts",
+   "sources": [
+    ["DESTDAYTON", "https://www.destinationdayton.org/things-to-do/concerts-music/rose-music-center/"],
+    ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Rose_Music_Center"],
+    ["OFFICIAL", "https://rosemusiccenter.com/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Taylorsville MetroPark",
+   "address": "2000 US-40, Vandalia, OH 45377",
+   "w": "Five Rivers MetroPark on the site of vanished canal town Tadmor: 8+ miles of trail with real elevation, old-growth forest and Great Miami River overlooks, remnants of the 1845 Miami-Erie Canal, and a stretch of the Buckeye and North Country national trails. Free.",
+   "k": "Tadmor canal trails overlook",
+   "sources": [
+    ["METROPARKS", "https://www.metroparks.org/places-to-go/taylorsville/"],
+    ["MCD", "https://mcdwater.org/maps/taylorsville-metropark"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Troy Historic Public Square",
+   "address": "Public Square, Troy, OH 45373",
+   "w": "The heart of Troy: a traffic-circle square with a lively fountain and gardens, ringed by Victorian storefronts, shops and restaurants — the whole square is on the National Register of Historic Places. The fountain runs red each June for the Strawberry Festival.",
+   "k": "fountain Victorian square",
+   "sources": [
+    ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Troy_Public_Square"],
+    ["HOMEGROWNGREAT", "https://www.homegrowngreat.com/attractions/troy-hayner-cultural-center/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Troy-Hayner Cultural Center",
+   "address": "301 W Main St, Troy, OH 45373",
+   "w": "1914 Romanesque mansion bequeathed to the people of Troy by Mary Jane Hayner in 1942; now the town's cultural hub with year-round exhibits, concerts and classes. Admission-free, and most events are free too.",
+   "k": "historic mansion arts center",
+   "sources": [
+    ["OFFICIAL", "https://www.troyhayner.org/"],
+    ["HOMEGROWNGREAT", "https://www.homegrowngreat.com/attractions/troy-hayner-cultural-center/"]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YS",
+   "n": "Downtown Yellow Springs",
+   "address": "Xenia Ave, Yellow Springs, OH 45387",
+   "w": "The funky, creative heart of the day trip: 75+ independent shops, galleries, pubs and eateries along Xenia Avenue — Dark Star Books, the Yellow Springs Toy Company, Village Artisans, the historic Little Art Theatre — plus Antioch College and the twice-yearly Street Fair (second Saturdays of June and October).",
+   "k": "arts village shops street fair",
+   "sources": [
+    ["YSOHIO", "https://yellowspringsohio.org/"],
+    ["ISLANDS", "https://www.islands.com/1658625/near-cinncinnati-low-key-creative-hub-america-best-small-town-art-scences-yellow-springs-ohio/"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YS",
+   "n": "Caesar Creek State Park",
+   "address": "8570 OH-73, Waynesville, OH 45068",
+   "w": "Big reservoir park spanning Warren, Clinton and Greene counties — Ohio's premier fossil-hunting site, with a permit-and-palm-size rule letting visitors keep Ordovician brachiopods and corals from the designated zone, plus a 1,200-ft swimming beach, boating and miles of trails.",
+   "k": "fossil hunting reservoir beach",
+   "sources": [
+    ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Caesar_Creek_State_Park"],
+    ["OFFICIAL", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/caesar-creek-state-park"]
+   ]
+  }
+ ],
+ "sources": [
+  {"key": "GCPARKS", "name": "Greene County Parks & Trails (official)", "url": "https://www.gcparkstrails.com/", "type": "official"},
+  {"key": "FAIRBORNHERALD", "name": "Fairborn Daily Herald", "url": "https://www.fairborndailyherald.com/", "type": "press"},
+  {"key": "MVTRAILS", "name": "Miami Valley Trails / Regional Bicycle Council", "url": "https://www.miamivalleytrails.org/", "type": "official"},
+  {"key": "BEAVERCREEK", "name": "City of Beavercreek (official)", "url": "https://beavercreekohio.gov/", "type": "official"},
+  {"key": "FAIRBORN", "name": "City of Fairborn Parks & Recreation (official)", "url": "https://www.fairbornoh.gov/", "type": "official"},
+  {"key": "ISLANDS", "name": "Islands.com (travel editorial)", "url": "https://www.islands.com/", "type": "press"},
+  {"key": "OFFICIAL", "name": "Official site / operator", "url": "", "type": "official"},
+  {"key": "WIKIPEDIA", "name": "Wikipedia (published coordinates)", "url": "https://en.wikipedia.org/", "type": "reference"},
+  {"key": "OHIOWINES", "name": "Ohio Wine Producers Association", "url": "https://www.ohiowines.org/", "type": "official"},
+  {"key": "GEMCITY", "name": "Dayton Local / Gem City things-to-do", "url": "https://www.daytonlocal.com/", "type": "press"},
+  {"key": "OHIOTOURISM", "name": "TourismOhio (Ohio.org)", "url": "https://ohio.org/", "type": "official"},
+  {"key": "CWPD", "name": "Centerville-Washington Park District (official)", "url": "https://cwpd.org/", "type": "official"},
+  {"key": "DISCOVERDAYTON", "name": "Discover Dayton Ohio", "url": "https://www.discoverdaytonohio.com/", "type": "press"},
+  {"key": "CENTERVILLE", "name": "City of Centerville (official)", "url": "https://www.centervilleohio.gov/", "type": "official"},
+  {"key": "WDTN", "name": "WDTN-TV Dayton", "url": "https://www.wdtn.com/", "type": "press"},
+  {"key": "DAYTONDAILY", "name": "Dayton Daily News / Dayton.com", "url": "https://www.daytondailynews.com/", "type": "press"},
+  {"key": "DESTDAYTON", "name": "Destination Dayton (CVB)", "url": "https://www.destinationdayton.org/", "type": "official"},
+  {"key": "METROPARKS", "name": "Five Rivers MetroParks (official)", "url": "https://www.metroparks.org/", "type": "official"},
+  {"key": "MCD", "name": "Miami Conservancy District", "url": "https://mcdwater.org/", "type": "official"},
+  {"key": "HOMEGROWNGREAT", "name": "Home Grown Great / Miami County VCB", "url": "https://www.homegrowngreat.com/", "type": "official"},
+  {"key": "YSOHIO", "name": "Yellow Springs Ohio (destination guide)", "url": "https://yellowspringsohio.org/", "type": "official"}
+ ]
+}
