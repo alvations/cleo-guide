@@ -426,6 +426,33 @@ city creators, and pay-to-play accounts. *Popularity you can't verify isn't popu
 log the pass (counts, who was rejected and why) in that city's `AUDIT.md`. This pass is **not optional**
 and **not one-off** — re-run it on every refresh, exactly like the geocode re-verify and status passes.
 
+### Processing a discovery wave — the deterministic post-discovery flow (one command, no hand-scripts)
+
+Discovery (WebSearch) is manual; **everything after it is codified** so no wave is processed with ad-hoc
+python. An agent leaves standard artifacts in `data/<city>-research/`: `FOOD_<tag>.json` / `SIGHTS_<tag>.json`
+(records, no coords), `CREATORS_<tag>.json` (vetted creators + attachments), optional `SOURCES_<tag>.json`
+(new outlets), and records may carry `"_newarea":"<Name>"` for a map area that doesn't exist yet. Then, for a
+**dataset-built city**:
+
+```bash
+python3 tools/rebuild-city.py <city-key>            # register-sources → apply-newareas → merge-creators
+                                                    # → consolidate → copy dataset → sourcecheck
+#  … geocode the new places (WebSearch waves) into data/<city>-research/geo/_geoout_*.json …
+python3 tools/rebuild-city.py <city-key> --build    # + geo-merge → build page → all 4 gates → refresh backlog
+```
+
+The steps it orchestrates are each their own reusable tool (run standalone if needed):
+- **`tools/register-sources.py <key>`** — merges every `SOURCES_*.json` into `data/sources.json` (dedup) AND
+  **auto-catches any source key used in research files but not registered** (excluding creator + open-check
+  keys), so the registry can never silently miss one; auto-added keys are flagged for a `credible` rationale.
+- **`tools/apply-newareas.py <key>`** — adds any `_newarea` a record needs to that city's `consolidate.py`
+  (AREAS + a distinct AC colour) and strips the marker. (Ensure the new area has a geocoded tier-1 before build.)
+- **`tools/merge-creators.py <key>`** — globs every `CREATORS*.json` (repeatable, non-clobbering) and wires the
+  creators into `sources.json` + attaches them as corroborating sources.
+- **`tools/geo-merge.py <key> [--only <glob>]`** — merges `_geoout_*.json` into `geocodes.json`, and enforces
+  the **`— CLOSED` marker convention in one place** (renames both the registry key and the research record when
+  a geocode pass finds a place permanently closed).
+
 **Repeatable, non-clobbering passes.** Because this pass recurs, later passes must not overwrite earlier
 ones. Name each additional pass's creator file **`CREATORS_<tag>.json`** (e.g. `CREATORS_MAMACHANG.json`)
 and its places file `VIRAL_<tag>.json` / a normal research file. `tools/merge-creators.py <city-key>`
