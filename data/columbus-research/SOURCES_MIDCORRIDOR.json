@@ -1,0 +1,8 @@
+{
+ "outlets": [
+  {"key": "SEEOHIOFIRST", "name": "See Ohio First", "type": "state_history_network", "url": "https://seeohiofirst.org", "credible": "Ohio History Connection-affiliated network of vetted history sites; corroborating for local museums."},
+  {"key": "LOC", "name": "Library of Congress (HABS)", "type": "national_archive", "url": "https://www.loc.gov", "credible": "Historic American Buildings Survey documentation — federal institutional authority for the Red Brick Tavern's architectural significance."},
+  {"key": "METROPARKS", "name": "Metro Parks (Central Ohio)", "type": "official_parks", "url": "https://www.metroparks.net", "credible": "Official regional metro parks authority operating Prairie Oaks; institutional authority for its own property."},
+  {"key": "BIRDING_HOTSPOTS", "name": "Birding in Ohio (eBird hotspot atlas)", "type": "naturalist_atlas", "url": "https://birding-in-ohio.com", "credible": "eBird-derived hotspot atlas; corroborating for the Madison County side / access of Prairie Oaks."}
+ ]
+}

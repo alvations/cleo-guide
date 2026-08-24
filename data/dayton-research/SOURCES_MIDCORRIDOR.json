@@ -1,0 +1,12 @@
+{
+ "outlets": [
+  {"key": "VISIT_SPRINGFIELD", "name": "Visit Greater Springfield (Clark County CVB)", "type": "cvb", "url": "https://www.visitgreaterspringfield.com", "credible": "Official destination marketing org / convention & visitors bureau for Springfield & Clark County; corroborating, not sole recommender."},
+  {"key": "NTPRD", "name": "National Trail Parks & Recreation District", "type": "official_parks", "url": "https://ntprd.org", "credible": "Official public parks & recreation authority operating Springfield/Clark County parks (George Rogers Clark Park, Snyder Park Gardens) — institutional authority for its own properties."},
+  {"key": "SPRINGFIELD_NEWSSUN", "name": "Springfield News-Sun", "type": "local_daily", "url": "https://www.springfieldnewssun.com", "credible": "Springfield's daily newspaper of record (Cox); local editorial authority."},
+  {"key": "ENON_HISTORICAL", "name": "Enon Community Historical Society", "type": "historical_society", "url": "https://enonhistoricalsociety.com", "credible": "Local historical society; authority on Enon-area sites incl. the Adena/Knob Prairie Mound."},
+  {"key": "KOHLER_FOUNDATION", "name": "Kohler Foundation Inc.", "type": "preservation_foundation", "url": "https://www.kohlerfoundation.org", "credible": "National arts-preservation foundation that preserved and donated the Hartman Rock Garden; institutional authority for grassroots-art sites."},
+  {"key": "FLW_TRUST", "name": "Frank Lloyd Wright Trust", "type": "institution", "url": "https://flwright.org", "credible": "Authoritative steward org for Frank Lloyd Wright architecture; institutional authority for the Westcott House."},
+  {"key": "OHIO_ORG", "name": "Ohio.org (TourismOhio)", "type": "state_tourism", "url": "https://ohio.org", "credible": "Official Ohio state tourism office."},
+  {"key": "CLIO", "name": "Clio", "type": "heritage_atlas", "url": "https://theclio.com", "credible": "Academic-affiliated heritage/history location atlas; corroborating."}
+ ]
+}

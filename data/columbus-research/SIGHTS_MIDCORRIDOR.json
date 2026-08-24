@@ -1,0 +1,55 @@
+{
+ "sights": [
+  {
+   "t": 2,
+   "a": "MADISON",
+   "_newarea": "Madison County (London, West Jefferson)",
+   "n": "Red Brick Tavern",
+   "address": "1700 Cumberland St (US-40), Lafayette, OH 43140",
+   "w": "A landmark 1836-37 National Road stagecoach inn in tiny Lafayette, said to be second only to the Golden Lamb among Ohio's oldest continuously recognized taverns; it hosted six U.S. presidents. Documented by the Library of Congress HABS survey. Closed 2020, reopened Feb 2023 and still operating as a historic tavern you can walk into.",
+   "g": ["HIST", "ARCH", "ICON"],
+   "closed": false,
+   "sources": [
+    ["LOC", "https://www.loc.gov/item/oh0150/"],
+    ["HMDB", "https://www.hmdb.org/m.asp?m=96415"],
+    ["OFFICIAL", "https://historicredbricktavern.com/about"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MADISON",
+   "_newarea": "Madison County (London, West Jefferson)",
+   "n": "Madison County Historical Society Museum",
+   "address": "260 E High St, London, OH 43140",
+   "w": "The county historical society's museum in downtown London, with local-history galleries and a relocated one-room schoolhouse (Beach School) on the grounds. A quiet hidden gem on the courthouse-square side of town.",
+   "g": ["MUS", "HIST"],
+   "closed": false,
+   "sources": [
+    ["OFFICIAL", "https://mchsohio.org/"],
+    ["SEEOHIOFIRST", "https://seeohiofirst.org/sites/239"]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MADISON",
+   "_newarea": "Madison County (London, West Jefferson)",
+   "n": "Prairie Oaks Metro Park",
+   "address": "3225 Plain City-Georgesville Rd, West Jefferson, OH 43162",
+   "w": "A 2,200-acre Metro Park straddling the Madison-Franklin line along Big Darby Creek (a state and national scenic river), with restored prairie, quarry-pond beaches and paddling, and prime birding. The Madison County side lies west of the creek. Distinct from Battelle Darby Creek downstream.",
+   "g": ["PARK", "FREE", "OUT"],
+   "closed": false,
+   "sources": [
+    ["METROPARKS", "https://www.metroparks.net/parks-and-trails/prairie-oaks/"],
+    ["BIRDING_HOTSPOTS", "https://birding-in-ohio.com/madison-county/prairie-oaks-metro-park-madison-county"]
+   ]
+  }
+ ],
+ "sources": [
+  {"key": "LOC", "name": "Library of Congress (HABS survey)", "url": "https://www.loc.gov"},
+  {"key": "HMDB", "name": "The Historical Marker Database", "url": "https://www.hmdb.org"},
+  {"key": "OFFICIAL", "name": "Official venue website", "url": ""},
+  {"key": "SEEOHIOFIRST", "name": "See Ohio First (Ohio History Connection network)", "url": "https://seeohiofirst.org"},
+  {"key": "METROPARKS", "name": "Metro Parks (Central Ohio / Columbus & Franklin County)", "url": "https://www.metroparks.net"},
+  {"key": "BIRDING_HOTSPOTS", "name": "Birding in Ohio (eBird hotspot atlas)", "url": "https://birding-in-ohio.com"}
+ ]
+}
