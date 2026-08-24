@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Dayton field guide — 37 sights and 19 places to eat across Dayton and the Miami Valley, each traceable to its source (the Dayton Daily News, Dayton Magazine, WHIO, the National Park Service, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Dayton field guide — 55 sights and 19 places to eat across Dayton and the Miami Valley, each traceable to its source (the Dayton Daily News, Dayton Magazine, WHIO, the National Park Service, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Dayton Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Dayton &amp; the Miami Valley, sourced</p>
   <h1>Dayton<span class="thin">the Gem City &mdash; birthplace of aviation on the Great Miami</span></h1>
-  <p class="standfirst">37 sights and 19 places to eat across Dayton and the Miami Valley, each traceable to the source that named it. The Gem City\u2019s food story runs local &mdash; Marion’s Dayton-style pizza, Esther Price candy, Bill’s Donuts, the Pine Club and the Oregon District &mdash; but the real draw is aviation: the National Museum of the U.S. Air Force (the world’s largest, free) and the Wright brothers’ workshops. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">55 sights and 19 places to eat across Dayton and the Miami Valley, each traceable to the source that named it. The Gem City\u2019s food story runs local &mdash; Marion’s Dayton-style pizza, Esther Price candy, Bill’s Donuts, the Pine Club and the Oregon District &mdash; but the real draw is aviation: the National Museum of the U.S. Air Force (the world’s largest, free) and the Wright brothers’ workshops. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -239,6 +239,7 @@
   <span><i style="background:#4F81BD"></i>Vandalia, Huber Heights & Troy</span>
   <span><i style="background:#4BACC6"></i>Beavercreek, Fairborn & Wright-Patterson</span>
   <span><i style="background:#9BBB59"></i>Yellow Springs & Greene County</span>
+  <span><i style="background:#A6588C"></i>Springfield, Enon & Clark County</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -308,14 +309,42 @@
 <script>
 
 const S = {
+  "ATLAS_OBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BEAVERCREEK":{k:"BEAVERCREEK",t:"City of Beavercreek (official)",u:"https://beavercreekohio.gov/",l:"City of Beavercreek (official)"},
+  "CENTERVILLE":{k:"CENTERVILLE",t:"City of Centerville (official)",u:"https://www.centervilleohio.gov/",l:"City of Centerville (official)"},
+  "CLIO":{k:"CLIO",t:"Clio (heritage / history atlas)",u:"https://theclio.com",l:"Clio (heritage / history atlas)"},
+  "CWPD":{k:"CWPD",t:"Centerville-Washington Park District (official)",u:"https://cwpd.org/",l:"Centerville-Washington Park District (official)"},
+  "DAR":{k:"DAR",t:"Daughters of the American Revolution",u:"https://www.dar.org",l:"Daughters of the American Revolution"},
   "DAYTONDAILY":{k:"DAYTON DAILY NEWS",t:"Dayton Daily News / Dayton.com",u:"https://www.daytondailynews.com/",l:"Dayton Daily News / Dayton.com"},
   "DAYTONVISTAS":{k:"DAYTONVISTAS",t:"DAYTONVISTAS",u:"",l:""},
   "DESTDAYTON":{k:"DESTDAYTON",t:"Destination Dayton (Dayton/Montgomery County CVB)",u:"https://www.destinationdayton.org/",l:"Destination Dayton (Dayton/Montgomery County CVB)"},
+  "DISCOVERDAYTON":{k:"DISCOVERDAYTON",t:"Discover Dayton Ohio",u:"https://www.discoverdaytonohio.com/",l:"Discover Dayton Ohio"},
+  "ENON_HISTORICAL":{k:"ENON HISTORICAL",t:"Enon Community Historical Society",u:"https://enonhistoricalsociety.com",l:"Enon Community Historical Society"},
+  "FAIRBORN":{k:"FAIRBORN",t:"City of Fairborn Parks & Recreation (official)",u:"https://www.fairbornoh.gov/",l:"City of Fairborn Parks & Recreation (official)"},
+  "FAIRBORNHERALD":{k:"FAIRBORNHERALD",t:"Fairborn Daily Herald",u:"https://www.fairborndailyherald.com/",l:"Fairborn Daily Herald"},
+  "FLW_TRUST":{k:"FLW TRUST",t:"Frank Lloyd Wright Trust",u:"https://flwright.org",l:"Frank Lloyd Wright Trust"},
+  "GCPARKS":{k:"GCPARKS",t:"Greene County Parks & Trails (official)",u:"https://www.gcparkstrails.com/",l:"Greene County Parks & Trails (official)"},
   "GEMCITY":{k:"DAYTON LOCAL",t:"Dayton Local",u:"https://www.daytonlocal.com/",l:"Dayton Local"},
+  "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org",l:"The Historical Marker Database"},
+  "HOMEGROWNGREAT":{k:"HOMEGROWNGREAT",t:"Home Grown Great / Miami County VCB",u:"https://www.homegrowngreat.com/",l:"Home Grown Great / Miami County VCB"},
+  "ISLANDS":{k:"ISLANDS",t:"Islands.com (travel editorial)",u:"https://www.islands.com/",l:"Islands.com (travel editorial)"},
+  "KOHLER_FOUNDATION":{k:"KOHLER FOUNDATION",t:"Kohler Foundation Inc.",u:"https://www.kohlerfoundation.org",l:"Kohler Foundation Inc."},
+  "MCD":{k:"MCD",t:"Miami Conservancy District",u:"https://mcdwater.org/",l:"Miami Conservancy District"},
+  "METROPARKS":{k:"METROPARKS",t:"Five Rivers MetroParks (official)",u:"https://www.metroparks.org/",l:"Five Rivers MetroParks (official)"},
+  "MVTRAILS":{k:"MVTRAILS",t:"Miami Valley Trails / Regional Bicycle Council",u:"https://www.miamivalleytrails.org/",l:"Miami Valley Trails / Regional Bicycle Council"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service — Dayton Aviation Heritage NHP",u:"https://www.nps.gov/daav/",l:"National Park Service — Dayton Aviation Heritage NHP"},
+  "NTPRD":{k:"NTPRD",t:"National Trail Parks & Recreation District (Clark County)",u:"https://ntprd.org",l:"National Trail Parks & Recreation District (Clark County)"},
+  "ODNR":{k:"ODNR",t:"Ohio Department of Natural Resources",u:"https://ohiodnr.gov",l:"Ohio Department of Natural Resources"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"",l:"Official site / operator"},
   "OHIOHISTORY":{k:"OHIO HISTORY",t:"Ohio History Connection",u:"https://www.ohiohistory.org/",l:"Ohio History Connection"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (published coordinates)"}
+  "OHIOTOURISM":{k:"OHIOTOURISM",t:"Ohio.org (TourismOhio, official state tourism)",u:"https://ohio.org/",l:"Ohio.org (TourismOhio, official state tourism)"},
+  "OHIOWINES":{k:"OHIOWINES",t:"Ohio Wine Producers Association",u:"https://www.ohiowines.org/",l:"Ohio Wine Producers Association"},
+  "OHIO_ORG":{k:"OHIO ORG",t:"Ohio.org (TourismOhio)",u:"https://ohio.org",l:"Ohio.org (TourismOhio)"},
+  "SPRINGFIELD_NEWSSUN":{k:"SPRINGFIELD NEWSSUN",t:"Springfield News-Sun",u:"https://www.springfieldnewssun.com",l:"Springfield News-Sun"},
+  "VISIT_SPRINGFIELD":{k:"VISIT SPRINGFIELD",t:"Visit Greater Springfield (Clark County CVB)",u:"https://www.visitgreaterspringfield.com",l:"Visit Greater Springfield (Clark County CVB)"},
+  "WDTN":{k:"WDTN 2",t:"WDTN-TV Dayton",u:"https://www.wdtn.com/",l:"WDTN-TV Dayton"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (published coordinates)"},
+  "YSOHIO":{k:"YSOHIO",t:"Yellow Springs Ohio (destination guide)",u:"https://yellowspringsohio.org/",l:"Yellow Springs Ohio (destination guide)"}
 };
 
 const AREAS = [
@@ -324,7 +353,8 @@ const AREAS = [
   {id:"SOUTH",n:"Kettering, Oakwood & Centerville",c:"#8064A2"},
   {id:"NORTH",n:"Vandalia, Huber Heights & Troy",c:"#4F81BD"},
   {id:"EAST",n:"Beavercreek, Fairborn & Wright-Patterson",c:"#4BACC6"},
-  {id:"YS",n:"Yellow Springs & Greene County",c:"#9BBB59"}
+  {id:"YS",n:"Yellow Springs & Greene County",c:"#9BBB59"},
+  {id:"SPRINGFIELD",n:"Springfield, Enon & Clark County",c:"#A6588C"}
 ];
 
 const P = [
@@ -364,21 +394,50 @@ const P = [
 {t:2,a:"NORTH",n:"Wegerzyn Gardens MetroPark",ad:"1301 E Siebenthaler Ave, Dayton, OH 45414",la:39.80732,ln:-84.20667,w:"88-acre MetroPark along the Stillwater River with formal English, Federal and Victorian gardens, a Children's Discovery Garden and woodland boardwalk.",g:["PARK","FAM"],s:[["OFFICIAL","https://www.metroparks.org/places-to-go/wegerzyn-gardens/"],["GEMCITY","https://www.daytonlocal.com/directory/parks/wegerzyn-gardens-metropark/"]]},
 {t:1,a:"WD",n:"Possum Creek MetroPark",ad:"4790 Frytown Rd, Dayton, OH 45417",la:39.70940,ln:-84.26897,w:"West Dayton MetroPark with a working educational farm, fishing at Argonne Lake and trails through the former Argonne Forest amusement park grounds.",g:["PARK","FAM","VIEW"],s:[["OFFICIAL","https://www.metroparks.org/places-to-go/possum-creek/"],["DESTDAYTON","https://www.destinationdayton.org/listing/possum-creek-metropark/416/"]]},
 {t:1,a:"YS",n:"National Afro-American Museum & Cultural Center",ad:"1350 Brush Row Rd, Wilberforce, OH 45384",la:39.71311,ln:-83.87689,w:"Ohio History Connection museum on the Wilberforce/Central State campuses documenting African American history and culture, from the Great Migration to civil-rights-era Ohio.",g:["MUS"],s:[["OHIOHISTORY","https://www.ohiohistory.org/visit/browse-historical-sites/national-afro-american-museum-cultural-center/"],["DAYTONDAILY","https://www.daytondailynews.com/lifestyles/photos-see-inside-the-national-afro-american-museum-cultural-center-in-wilberforce/5ZPXXXUWP5E6VLOD5ETAU4LGKI/"]]},
-{t:1,a:"YS",n:"Clifton Mill",ad:"75 Water St, Clifton, OH 45316",la:39.79425,ln:-83.82560,w:"One of the largest water-powered grist mills still standing (built 1802) above the Little Miami gorge in Greene County; a working mill and restaurant, and host of a 4-million-light Christmas display.",g:["ICON","FAM","VIEW"],s:[["OFFICIAL","https://cliftonmill.com/"],["GEMCITY","https://www.daytonlocal.com/christmas/clifton-mill-christmas-lights/"]]}
+{t:1,a:"YS",n:"Clifton Mill",ad:"75 Water St, Clifton, OH 45316",la:39.79425,ln:-83.82560,w:"One of the largest water-powered grist mills still standing (built 1802) above the Little Miami gorge in Greene County; a working mill and restaurant, and host of a 4-million-light Christmas display.",g:["ICON","FAM","VIEW"],s:[["OFFICIAL","https://cliftonmill.com/"],["GEMCITY","https://www.daytonlocal.com/christmas/clifton-mill-christmas-lights/"]]},
+{t:1,a:"SPRINGFIELD",n:"Frank Lloyd Wright's Westcott House",ad:"1340 E High St, Springfield, OH 45505",la:39.92149,ln:-83.78915,w:"Wright's only Prairie-style residence in Ohio (his first Ohio commission), designed 1906, built 1908, restored inch-by-inch in a $5.3M project reopened in 2005. On the National Register; hourly guided tours Tue-Sat 11-5, Sun 1-5. The marquee mid-corridor sight.",g:["ICON","MUS","ARCH","AVIATION"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Westcott_House_(Springfield,_Ohio)"],["OFFICIAL","https://www.westcotthouse.org/"],["FLW_TRUST","https://flwright.org/explore/westcott-house"],["OHIO_ORG","https://ohio.org/travel-inspiration/articles/on-the-wright-path-westcott-house-frank-lloyd-wright-springfield-ohio"]]},
+{t:1,a:"SPRINGFIELD",n:"Hartman Rock Garden",ad:"1905 Russell Ave, Springfield, OH 45506",la:39.90492,ln:-83.83264,w:"Depression-era folk-art masterpiece: unemployed molder Ben Hartman spent 1932-44 building a sprawling miniature world of hand-set stone and pebble monuments (Independence Hall, a castle, biblical and patriotic scenes) in his own yard. Preserved by the Kohler Foundation; free, open daily dawn-dusk. A nationally noted grassroots-art landmark.",g:["ICON","ODD","FREE","ART"],s:[["ATLAS_OBSCURA","https://www.atlasobscura.com/places/hartmans-rock-garden"],["KOHLER_FOUNDATION","https://www.kohlerfoundation.org/preservation/preserved-sites/hartman-rock-garden/"],["VISIT_SPRINGFIELD","https://www.visitgreaterspringfield.com/hartman-rock-garden"]]},
+{t:2,a:"SPRINGFIELD",n:"Heritage Center of Clark County",ad:"117 S Fountain Ave, Springfield, OH 45502",la:39.92284,ln:-83.81147,w:"The Clark County Historical Society's museum in Springfield's grand 1890 Romanesque former City Hall and Market House. Local history from the Ice Age through Springfield's industrial heyday (Rogers greeting cards, farm machinery), plus a cafe under the rotunda.",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Clark_County_Heritage_Center"],["OFFICIAL","https://www.visitgreaterspringfield.com/springfield-heritage-center"],["OHIO_ORG","https://ohio.org/travel-inspiration/articles/the-original-pioneer-woman-springfields-inspiring-madonna-of-the-trail-statue"]]},
+{t:2,a:"SPRINGFIELD",n:"Pennsylvania House Museum",ad:"1311 W Main St, Springfield, OH 45504",la:39.92556,ln:-83.83278,w:"A Federal-style 1839 stagecoach tavern and inn built on the National Road, once a stopover for drovers and Conestoga-wagon pioneers. Saved from demolition by the DAR's Lagonda Chapter, run as a museum since 1941; on the National Register since 1973. Open limited days.",g:["MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Pennsylvania_House_(Springfield,_Ohio)"],["DAR","https://www.dar.org/national-society/historic-sites-and-properties/pennsylvania-house-museum"],["HMDB","https://www.hmdb.org/m.asp?m=241911"]]},
+{t:2,a:"SPRINGFIELD",n:"George Rogers Clark Park & Battle of Peckuwe Site",ad:"930 S Tecumseh Rd, Springfield, OH 45506",la:39.91200,ln:-83.90400,w:"Riverside park on the site of the 1780 Battle of Peckuwe, the largest Revolutionary War engagement west of the Alleghenies, where Col. George Rogers Clark's forces met the Shawnee. Trails, monuments to Clark and Tecumseh, and the Davidson Interpretive Center (across Lower Valley Pike).",g:["PARK","HIST","FREE","VIEW"],s:[["NTPRD","https://ntprd.org/george-rogers-clark-park/"],["SPRINGFIELD_NEWSSUN","https://www.springfieldnewssun.com/local/learn-about-role-clark-county-played-in-revolutionary-war/article_c653e2c2-6506-426b-be46-89d2cdfad681.html"],["HMDB","https://www.hmdb.org/m.asp?m=13887"]]},
+{t:2,a:"SPRINGFIELD",n:"Madonna of the Trail",ad:"W Main St at Fisher St (National Road Commons), Springfield, OH 45504",la:39.92477,ln:-83.81120,w:"The first of twelve identical DAR pioneer-mother monuments placed along the National Old Trails Road from Maryland to California, dedicated July 4, 1928 (Harry Truman attended). Springfield's was the first dedicated; moved in 2011 to National Road Commons downtown.",g:["HIST","FREE","ART","VIEW"],s:[["OHIO_ORG","https://ohio.org/travel-inspiration/articles/the-original-pioneer-woman-springfields-inspiring-madonna-of-the-trail-statue"],["DAR","https://www.dar.org/national-society/historic-sites-and-properties/madonna-trail-0"],["HMDB","https://www.hmdb.org/m.asp?m=45529"]]},
+{t:2,a:"SPRINGFIELD",n:"Buck Creek State Park / C.J. Brown Reservoir",ad:"1976 Buck Creek Ln, Springfield, OH 45502",la:40.00056,ln:-83.70778,w:"1,900-acre ODNR park on the 2,120-acre C.J. Brown Reservoir just northeast of Springfield: swimming beach, marina, campground, cabins and trails, and a birding hotspot. From I-70 take Exit 59 north on SR-41.",g:["PARK","FREE","OUT","VIEW"],s:[["ODNR","https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buck-creek-state-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Buck_Creek_State_Park"]]},
+{t:2,a:"SPRINGFIELD",n:"Enon Adena Mound (Knob Prairie Mound)",ad:"Indian Dr at Mound Circle, Enon, OH 45323",la:39.87920,ln:-83.93160,w:"Ohio's second-largest conical burial mound (after Miamisburg), about 40 ft high and 574 ft around, built by the Adena culture roughly 2,000 years ago and preserved on a residential circle in Enon. Owned by the village; free to view.",g:["HIST","FREE","ODD","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Enon,_Ohio"],["HMDB","https://www.hmdb.org/m.asp?m=175284"],["CLIO","https://theclio.com/entry/190556"],["ENON_HISTORICAL","https://enonhistoricalsociety.com/historical-sites/adena-mound/"]]},
+{t:2,a:"EAST",n:"Narrows Reserve",ad:"2575 Indian Ripple Rd, Beavercreek, OH 45385",la:39.68247,ln:-84.03867,w:"Greene County Parks preserve with ~6 miles of trails winding along the Little Miami National Scenic River, a 2.3-mile River Loop, a nature center, canoe/kayak launch, primitive camping and a raptor aviary. Free, open daily.",k:"little miami river hike",g:["PARK","VIEW","FREE"],s:[["GCPARKS","https://www.gcparkstrails.com/parks/narrows-reserve/"],["FAIRBORNHERALD","https://www.fairborndailyherald.com/2020/08/18/narrows-reserve-a-wilderness-adventureland/"]]},
+{t:2,a:"EAST",n:"Oakes Quarry Park",ad:"1267 E Xenia Dr, Fairborn, OH 45324",la:39.81590,ln:-83.98990,w:"Former limestone quarry, now Fairborn's second-largest park, exposing two of the oldest Silurian fossil coral reefs in the U.S. — one of the largest, most diverse Silurian-fauna sites in the world. Self-guided fossil trail; keep what you find in the spoil piles. Free, open daily.",k:"silurian reef fossils",g:["PARK","VIEW","FREE"],s:[["FAIRBORN","https://fairbornoh.myrec.com/documents/13027_oakes_quarry_gen_lo_res.pdf"],["ISLANDS","https://www.islands.com/2178913/oakes-quarry-park-ohio-near-dayton-once-thriving-now-nature-trails-fossils-wildlife/"]]},
+{t:2,a:"EAST",n:"Downtown Fairborn Historic District",ad:"1 W Main St, Fairborn, OH 45324",la:39.81944,ln:-84.02778,w:"Quirky, walkable Main Street at the gates of Wright-Patterson: Foy's — five nostalgic stores including a 1929 Halloween & variety shop — the macabre Secret Chamber house of oddities, indie boutiques, and a big third-weekend-of-October Halloween Festival with a Spooktacular Parade.",k:"Foy's Halloween Main Street",g:["AVIATION","ARCH","SHOP","ODD"],s:[["ISLANDS","https://www.islands.com/1982442/fairborn-ohio-quirky-college-city-downtown-shops-festivals/"],["FAIRBORN","https://www.fairbornoh.gov/visitors/index.php"]]},
+{t:2,a:"EAST",n:"Wright State University Nutter Center",ad:"3640 Colonel Glenn Hwy, Fairborn, OH 45435",la:39.78194,ln:-84.05250,w:"The region's premier 11,200-seat arena (opened 1990) on the Wright State campus by Wright-Patterson: home of Raiders basketball and a regular tour stop for national touring concerts, comedians and family shows.",k:"arena concerts basketball",g:["AVIATION","ENT"],s:[["OFFICIAL","https://www.nuttercenter.com/arena-information"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nutter_Center"]]},
+{t:3,a:"EAST",n:"Caesar Creek Vineyards",ad:"962 Long Rd, Xenia, OH 45385",la:39.65052,ln:-83.82897,w:"Family-owned, award-winning estate winery on 200 acres near the headwaters of Caesar Creek in Greene County; tasting room pours estate wines and cider with a vineyard view. A member of the Ohio Wine Producers Association.",k:"estate winery tasting room",g:["VIEW"],s:[["OFFICIAL","https://www.caesarcreekvineyards.com/"],["OHIOWINES","https://www.ohiowines.org/caesar-creek-vineyards"],["GEMCITY","https://www.daytonlocal.com/directory/profiles/caesar-creek-vineyards/"]]},
+{t:1,a:"NORTH",n:"Rose Music Center at The Heights",ad:"6800 Executive Blvd, Huber Heights, OH 45424",la:39.86944,ln:-84.11094,w:"4,200-seat fully covered outdoor amphitheater in Huber Heights (opened 2015), the north suburbs' marquee live-music venue — a full season of national touring acts under a weatherproof shelter, with lawn, terrace and box seating.",k:"amphitheater concerts",g:["ENT"],s:[["DESTDAYTON","https://www.destinationdayton.org/things-to-do/concerts-music/rose-music-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rose_Music_Center"],["OFFICIAL","https://rosemusiccenter.com/"]]},
+{t:2,a:"NORTH",n:"Taylorsville MetroPark",ad:"2000 US-40, Vandalia, OH 45377",la:39.88866,ln:-84.16319,w:"Five Rivers MetroPark on the site of vanished canal town Tadmor: 8+ miles of trail with real elevation, old-growth forest and Great Miami River overlooks, remnants of the 1845 Miami-Erie Canal, and a stretch of the Buckeye and North Country national trails. Free.",k:"Tadmor canal trails overlook",g:["PARK","VIEW","FREE"],s:[["METROPARKS","https://www.metroparks.org/places-to-go/taylorsville/"],["MCD","https://mcdwater.org/maps/taylorsville-metropark"]]},
+{t:2,a:"NORTH",n:"Troy Historic Public Square",ad:"Public Square, Troy, OH 45373",la:40.03972,ln:-84.20333,w:"The heart of Troy: a traffic-circle square with a lively fountain and gardens, ringed by Victorian storefronts, shops and restaurants — the whole square is on the National Register of Historic Places. The fountain runs red each June for the Strawberry Festival.",k:"fountain Victorian square",g:["PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Troy_Public_Square"],["HOMEGROWNGREAT","https://www.homegrowngreat.com/attractions/troy-hayner-cultural-center/"]]},
+{t:1,a:"YS",n:"Downtown Yellow Springs",ad:"Xenia Ave, Yellow Springs, OH 45387",la:39.80278,ln:-83.88944,w:"The funky, creative heart of the day trip: 75+ independent shops, galleries, pubs and eateries along Xenia Avenue — Dark Star Books, the Yellow Springs Toy Company, Village Artisans, the historic Little Art Theatre — plus Antioch College and the twice-yearly Street Fair (second Saturdays of June and October).",k:"arts village shops street fair",g:["ARCH","SHOP"],s:[["YSOHIO","https://yellowspringsohio.org/"],["ISLANDS","https://www.islands.com/1658625/near-cinncinnati-low-key-creative-hub-america-best-small-town-art-scences-yellow-springs-ohio/"]]},
+{t:2,a:"YS",n:"Caesar Creek State Park",ad:"8570 OH-73, Waynesville, OH 45068",la:39.49167,ln:-84.03917,w:"Big reservoir park spanning Warren, Clinton and Greene counties — Ohio's premier fossil-hunting site, with a permit-and-palm-size rule letting visitors keep Ordovician brachiopods and corals from the designated zone, plus a 1,200-ft swimming beach, boating and miles of trails.",k:"fossil hunting reservoir beach",g:["PARK","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Caesar_Creek_State_Park"],["OFFICIAL","https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/caesar-creek-state-park"]]}
 ];
 
 const FS = {
+  "BIGRAGU":{k:"BIGRAGU",t:"BIGRAGU",u:"",l:""},
+  "BWNICK":{k:"BWNICK",t:"BWNICK",u:"",l:""},
+  "COLMONTHLY":{k:"COLMONTHLY",t:"COLMONTHLY",u:"",l:""},
+  "CUTIE":{k:"CUTIE",t:"CUTIE",u:"",l:""},
   "DAYTON937":{k:"DAYTON937",t:"DAYTON937",u:"",l:""},
   "DAYTONDAILY":{k:"DAYTON DAILY NEWS",t:"Dayton Daily News / Dayton.com",u:"https://www.daytondailynews.com/",l:"Dayton Daily News / Dayton.com"},
   "DAYTONMAG":{k:"DAYTON MAGAZINE",t:"The Dayton Magazine",u:"https://www.thedaytonmagazine.com/",l:"The Dayton Magazine"},
   "DESTDAYTON":{k:"DESTDAYTON",t:"Destination Dayton (Dayton/Montgomery County CVB)",u:"https://www.destinationdayton.org/",l:"Destination Dayton (Dayton/Montgomery County CVB)"},
   "GEMCITY":{k:"DAYTON LOCAL",t:"Dayton Local",u:"https://www.daytonlocal.com/",l:"Dayton Local"},
   "GIRLABOUTDAYTON":{k:"GIRLABOUTDAYTON",t:"GIRLABOUTDAYTON",u:"",l:""},
+  "GOTODEST":{k:"GOTODEST",t:"GOTODEST",u:"",l:""},
+  "HUBSPRINGFIELD":{k:"HUBSPRINGFIELD",t:"HUBSPRINGFIELD",u:"",l:""},
   "KAITS":{k:"KAITS",t:"KAITS",u:"",l:""},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"",l:"Official site / operator"},
   "OHIOMAG":{k:"OHIOMAG",t:"Ohio Magazine",u:"https://www.ohiomagazine.com/",l:"Ohio Magazine"},
+  "OHIOORG":{k:"OHIOORG",t:"OHIOORG",u:"",l:""},
   "OHIOTOURISM":{k:"OHIOTOURISM",t:"Ohio.org (TourismOhio, official state tourism)",u:"https://ohio.org/",l:"Ohio.org (TourismOhio, official state tourism)"},
+  "PELLICLE":{k:"PELLICLE",t:"PELLICLE",u:"",l:""},
+  "SPRINGFIELDNS":{k:"SPRINGFIELDNS",t:"SPRINGFIELDNS",u:"",l:""},
   "TIBE":{k:"TIBE",t:"TIBE",u:"",l:""},
+  "VISITSPRINGFIELD":{k:"VISITSPRINGFIELD",t:"VISITSPRINGFIELD",u:"",l:""},
+  "WDTN":{k:"WDTN 2",t:"WDTN-TV Dayton",u:"https://www.wdtn.com/",l:"WDTN-TV Dayton"},
   "WHIO":{k:"WHIO 7",t:"WHIO / WDTN (TV news)",u:"https://www.whio.com/",l:"WHIO / WDTN (TV news)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (published coordinates)"}
 };
@@ -449,14 +508,14 @@ function saveSeen(){try{localStorage.setItem('day_seen',JSON.stringify([...SEEN]
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Dayton OH')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {DTN:'#E8973A',WD:'#C0504D',SOUTH:'#8064A2',NORTH:'#4F81BD',EAST:'#4BACC6',YS:'#9BBB59'};
+const AC = {DTN:'#E8973A',WD:'#C0504D',SOUTH:'#8064A2',NORTH:'#4F81BD',EAST:'#4BACC6',YS:'#9BBB59',SPRINGFIELD:'#A6588C'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([39.759,-84.1835],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.7622,-84.1801],10);
 /* ── Base layers ────────────────────────────────────────────────────────────
    Free layers need no key. Google needs your own Maps JavaScript API key and
    is loaded through the officially sanctioned GoogleMutant plugin, because
@@ -597,7 +656,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Downtown", 39.7592, -84.186], ["Wright-Dunbar", 39.742, -84.2245], ["Kettering", 39.6872, -84.184], ["Vandalia", 39.8313, -84.2296], ["Beavercreek", 39.7873, -84.0921], ["Yellow Springs", 39.7888, -83.8635]];
+const LABELS=[["Downtown", 39.7592, -84.186], ["Wright-Dunbar", 39.742, -84.2245], ["Kettering", 39.6872, -84.184], ["Vandalia", 39.8819, -84.1944], ["Beavercreek", 39.7687, -84.0398], ["Yellow Springs", 39.7574, -83.8859], ["Springfield", 39.9239, -83.8276]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -947,7 +1006,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 56 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 74 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

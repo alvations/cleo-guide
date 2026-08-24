@@ -52,11 +52,12 @@ def main():
     print("\n>>> " + ("PASS — every place has >=2 credible sources of truth."
                       if passed else
                       f"FAIL — {len(yelp_only)} Yelp-only + {len(single)} single-source place(s) need corroboration."))
-    # write the worklist for the re-sourcing wave
-    outdir = os.path.dirname(path)
+    # write the worklist for the re-sourcing wave, per-city next to the dataset
+    # (was hardcoded to silicon-valley-research/, which clobbered that dir with every city's run).
     need = [{"n": n, "have": 0} for n in yelp_only] + [{"n": n, "have": 1, "src": k} for n, k in single]
-    wl = os.path.join(os.path.dirname(path), "silicon-valley-research", "_needs_sources.json")
-    if os.path.isdir(os.path.dirname(wl)):
+    stem = os.path.basename(path).split(".", 1)[0]
+    wl = os.path.join(os.path.dirname(path), f"{stem}_needs_sources.json")
+    if need:
         json.dump(need, open(wl, "w"), indent=1, ensure_ascii=False)
         print(f"    wrote {len(need)} places needing corroboration -> {wl}")
     sys.exit(0 if passed else 1)

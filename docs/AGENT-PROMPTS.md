@@ -105,8 +105,15 @@ Each pass writes standard artifacts that `tools/rebuild-city.py <key> [--build]`
 | 2026-08-24 | Dayton+Columbus | corridor food | Springfield/Madison Co | 8 | Fountain on Main closed | FOOD_MIDCORRIDOR.json (both) |
 | 2026-08-24 | Columbus | metro sights | theaters/parks/museums | 15 | Palace Theatre padding; Santa Maria gone | SIGHTS_EXPAND2.json |
 | 2026-08-24 | Columbus | metro food | immigrant/non-American | 14 | Kamil's Uyghur closed; Thai gap stated | FOOD_COLUMBUS_EXPAND2.json |
-| 2026-08-24 | Dayton+Columbus | corridor sights | Springfield/Madison | _running_ | — | SIGHTS_MIDCORRIDOR.json |
-| 2026-08-24 | Cleveland | region food+sights | Lakewood/West Side | _running_ | — | FOOD/SIGHTS_LAKEWOOD.json |
+| 2026-08-24 | Dayton+Columbus | corridor sights | Springfield/Madison | 13 | — | SIGHTS_MIDCORRIDOR.json (both) |
+| 2026-08-24 | Cleveland | region food+sights | Lakewood/West Side | 23 | Melt Lakewood closed (flagged); El Carnicero/Nighttown/Balaton dropped | FOOD/SIGHTS_LAKEWOOD.json |
+| 2026-08-24 | Columbus | geocode wave | 42 metro+corridor | 24 pinned | Mikey's/Chuan Jiang bad-pin rejected → UNVERIFIED | geo/_geoout_wave_*.json |
+| 2026-08-24 | Dayton | geocode wave | 41 metro+corridor | 18 pinned | 14 restaurants + 9 parks UNVERIFIED (helper) | geo/_geoout_wave_*.json |
+
+**Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
+Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source
+places (Aullwood, Third Perk) that build GATE 1 drops, so the page is clean. Cleveland Lakewood: researched, pending
+geocode wave + `add-to-cleveland.py` splice.
 
 _Update the last rows' counts/outcomes when those agents complete and after the builds land._
 
@@ -139,3 +146,12 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
   each area has a surviving tier-1 before `--build` (promote a within-region standout if needed, as for Columbus WEST).
 - **Concurrency corrupts shared appends.** → Parallel agents write distinct filenames + `_note_<tag>.md`, never
   a shared `AUDIT.md`; the orchestrator folds notes into AUDIT.md centrally after the run.
+- **`rebuild-city.py` derived the wrong build-script name** (`os.path.splitext("columbus.dataset.json")` →
+  `columbus.dataset` → `build-columbus.dataset.py`, which doesn't exist). → Derive the stem before the FIRST dot
+  (`dataset.split('.',1)[0]`); the per-city `BUILD` override map is now only for genuinely irregular names.
+- **The engine-leak guard was a bare `"Cleveland" not in …` substring test** and tripped on legitimate local
+  addresses (Columbus has a *Cleveland Ave*). → All nine `build-*.py` now strip `Cleveland Ave(nue)` before the
+  check, so it fires only on a real template-data leak (a Cleveland place name or a "Cleveland, OH" address city).
+- **`sourcecheck.py` wrote its `_needs_sources.json` to a hardcoded `silicon-valley-research/`** for every city,
+  clobbering that dir with other cities' data. → It now writes a per-city `data/<stem>_needs_sources.json` next to
+  the dataset. Auditable, no cross-city clobber.
