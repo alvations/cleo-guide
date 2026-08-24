@@ -11,8 +11,9 @@ AREAS = [
  {"id":"NORTH","n":"Vandalia, Huber Heights & Troy"},
  {"id":"EAST","n":"Beavercreek, Fairborn & Wright-Patterson"},
  {"id":"YS","n":"Yellow Springs & Greene County"},
+ {"id":"SPRINGFIELD","n":"Springfield, Enon & Clark County"},
 ]
-AC = {"DTN":"#E8973A","WD":"#C0504D","SOUTH":"#8064A2","NORTH":"#4F81BD","EAST":"#4BACC6","YS":"#9BBB59"}
+AC = {"DTN":"#E8973A","WD":"#C0504D","SOUTH":"#8064A2","NORTH":"#4F81BD","EAST":"#4BACC6","YS":"#9BBB59","SPRINGFIELD":"#A6588C"}
 
 CUISINES = [
  {"id":"US","n":"American & New American"},{"id":"BURG","n":"Burgers & Diners"},

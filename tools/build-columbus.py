@@ -196,7 +196,11 @@ new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></
 
 open(OUT, "w", encoding="utf-8").write(new)
 assert "P.forEach((p,i)=>{p.id='s'+i" in new
-assert "Cleveland" not in new[new.index("const S = {"):new.index("const AC =")], "Cleveland leaked into data"
+# "Cleveland Ave(nue)" is a real street in several of these metros; exempt it so this engine-leak
+# guard fires only on a genuine template-data leak (Cleveland place names or a "Cleveland, OH"
+# address city), never on a legitimate local address.
+_leakseg = new[new.index("const S = {"):new.index("const AC =")]
+assert "Cleveland" not in re.sub(r"Cleveland Ave(?:nue)?", "", _leakseg), "Cleveland leaked into data"
 for a in DS["areas"]:
     n1 = sum(1 for r in DS["P"]+DS["F"] if r["a"]==a["id"] and r["t"]==1)
     assert n1 >= 1, "area %s has no tier-1 must-see" % a["id"]

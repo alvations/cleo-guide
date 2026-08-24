@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Columbus field guide — 45 sights and 17 places to eat across Columbus and its neighborhoods, each traceable to its source (the Columbus Dispatch, Columbus Monthly, Columbus Underground, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Columbus field guide — 62 sights and 24 places to eat across Columbus and its neighborhoods, each traceable to its source (the Columbus Dispatch, Columbus Monthly, Columbus Underground, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Columbus Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Columbus, sourced</p>
   <h1>Columbus<span class="thin">Ohio’s capital &mdash; the Short North, German Village &amp; a great immigrant table</span></h1>
-  <p class="standfirst">45 sights and 17 places to eat across Columbus and its neighborhoods, each traceable to the source that named it. The city\u2019s food is a sleeper great &mdash; <strong>Jeni’s</strong> ice cream (born here), the North Market, Columbus-style square-cut <strong>pizza</strong>, Schmidt’s German cream puffs and one of America’s deepest <strong>Somali</strong> tables. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">62 sights and 24 places to eat across Columbus and its neighborhoods, each traceable to the source that named it. The city\u2019s food is a sleeper great &mdash; <strong>Jeni’s</strong> ice cream (born here), the North Market, Columbus-style square-cut <strong>pizza</strong>, Schmidt’s German cream puffs and one of America’s deepest <strong>Somali</strong> tables. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -240,6 +240,7 @@
   <span><i style="background:#9BBB59"></i>Bexley, Olde Towne East & Whitehall</span>
   <span><i style="background:#4BACC6"></i>Franklinton, Grandview & Hilltop</span>
   <span><i style="background:#7E8FC4"></i>Suburbs (Dublin, Worthington, Westerville, New Albany)</span>
+  <span><i style="background:#A6588C"></i>Madison County (London, West Jefferson)</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -309,17 +310,25 @@
 <script>
 
 const S = {
+  "ARCHITECTMAG":{k:"ARCHITECTMAG",t:"Architect Magazine",u:"https://www.architectmagazine.com/",l:"Architect Magazine"},
+  "ARTHOUSE":{k:"ARTHOUSE",t:"Art House Theaters (Art House Convergence directory)",u:"https://www.arthousetheaters.com/",l:"Art House Theaters (Art House Convergence directory)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BIRDING_HOTSPOTS":{k:"BIRDING HOTSPOTS",t:"Birding in Ohio (eBird hotspot atlas)",u:"https://birding-in-ohio.com",l:"Birding in Ohio (eBird hotspot atlas)"},
   "CAPA":{k:"CAPA",t:"Columbus Association for the Performing Arts",u:"https://www.capa.com",l:"Columbus Association for the Performing Arts"},
+  "CITYSCENE":{k:"CITYSCENE",t:"CityScene Magazine (Columbus)",u:"https://www.cityscenecolumbus.com/",l:"CityScene Magazine (Columbus)"},
   "COLUMBUSMAKESART":{k:"COLUMBUSMAKESART",t:"Columbus Makes Art (Greater Columbus Arts Council)",u:"https://www.columbusmakesart.com",l:"Columbus Makes Art (Greater Columbus Arts Council)"},
   "COLUMBUSNAVIGATOR":{k:"COLUMBUSNAVIGATOR",t:"Columbus Navigator",u:"https://www.columbusnavigator.com",l:"Columbus Navigator"},
   "COLUMBUSUNDERGROUND":{k:"COLUMBUS UNDERGROUND",t:"Columbus Underground",u:"https://columbusunderground.com",l:"Columbus Underground"},
+  "DISPATCH":{k:"COLUMBUS DISPATCH",t:"The Columbus Dispatch",u:"https://www.dispatch.com/",l:"The Columbus Dispatch"},
   "EXPERIENCECBUS":{k:"EXPERIENCE COLUMBUS",t:"Experience Columbus",u:"https://www.experiencecolumbus.com",l:"Experience Columbus"},
+  "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org",l:"The Historical Marker Database"},
+  "LOC":{k:"LOC",t:"Library of Congress (HABS survey)",u:"https://www.loc.gov",l:"Library of Congress (HABS survey)"},
   "METROPARKS":{k:"METROPARKS",t:"Columbus and Franklin County Metro Parks",u:"https://www.metroparks.net",l:"Columbus and Franklin County Metro Parks"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov",l:"National Park Service"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site",u:"",l:"Official site"},
   "OHIO":{k:"OHIO",t:"Ohio.org (Ohio state tourism)",u:"https://ohio.org",l:"Ohio.org (Ohio state tourism)"},
   "OHIOMAG":{k:"OHIOMAG",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
+  "SEEOHIOFIRST":{k:"SEEOHIOFIRST",t:"See Ohio First (Ohio History Connection network)",u:"https://seeohiofirst.org",l:"See Ohio First (Ohio History Connection network)"},
   "VISITDUBLIN":{k:"VISITDUBLIN",t:"Visit Dublin Ohio (CVB)",u:"https://www.visitdublinohio.com",l:"Visit Dublin Ohio (CVB)"},
   "VISITWESTERVILLE":{k:"VISITWESTERVILLE",t:"Visit Westerville (CVB)",u:"https://www.visitwesterville.org",l:"Visit Westerville (CVB)"},
   "WESTERVILLEHIST":{k:"WESTERVILLEHIST",t:"Westerville Historical Society",u:"https://www.westervillehistory.org",l:"Westerville Historical Society"},
@@ -334,7 +343,8 @@ const AREAS = [
   {id:"OSU",n:"University District, Clintonville & OSU",c:"#4F81BD"},
   {id:"EAST",n:"Bexley, Olde Towne East & Whitehall",c:"#9BBB59"},
   {id:"WEST",n:"Franklinton, Grandview & Hilltop",c:"#4BACC6"},
-  {id:"BURB",n:"Suburbs (Dublin, Worthington, Westerville, New Albany)",c:"#7E8FC4"}
+  {id:"BURB",n:"Suburbs (Dublin, Worthington, Westerville, New Albany)",c:"#7E8FC4"},
+  {id:"MADISON",n:"Madison County (London, West Jefferson)",c:"#A6588C"}
 ];
 
 const P = [
@@ -382,7 +392,24 @@ const P = [
 {t:2,a:"BURB",n:"AMA Motorcycle Hall of Fame Museum",ad:"13515 Yarmouth Dr, Pickerington, OH 43147",la:39.93380,ln:-82.78340,w:"The American Motorcyclist Association's national museum in Pickerington — vintage and racing motorcycles and the Hall of Fame honoring the sport's legends.",g:["MUS"],s:[["OFFICIAL","https://americanmotorcyclist.com/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Motorcycle_Hall_of_Fame"]]},
 {t:3,a:"BURB",n:"The Wagnalls Memorial",ad:"150 E Columbus St, Lithopolis, OH 43136",la:39.80215,ln:-82.80558,w:"A storybook 1925 Tudor Gothic library and cultural center in tiny Lithopolis, gifted by Mabel Wagnalls (of Funk & Wagnalls) in memory of her parents — stone, stained glass and a theater.",g:["ARCH","MUS"],s:[["OFFICIAL","https://www.wagnalls.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wagnalls_Memorial_Library"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/the-wagnalls-memorial-library-lithopolis"]]},
 {t:3,a:"BURB",n:"Orange Johnson House",ad:"956 High St, Worthington, OH 43085",la:40.09368,ln:-83.01762,w:"One of Worthington's oldest homes — an 1811 pioneer house with an 1816 Federal addition, restored by the Worthington Historical Society to show early-19th-century village life.",g:["MUS","ARCH"],s:[["OFFICIAL","https://worthingtonhistory.org/orange-johnson-house/"],["OHIO","https://ohio.org/things-to-do/destinations/orange-johnson-house"]]},
-{t:3,a:"BURB",n:"Hanby House",ad:"160 W Main St, Westerville, OH 43081",la:40.12642,ln:-82.93760,w:"The 1850s Westerville home of the Hanby family — Bishop William Hanby, an Underground Railroad conductor and Otterbein co-founder, and son Benjamin, composer of 'Up on the Housetop' and abolitionist ballad 'Darling Nelly Gray.'",g:["MUS","ARCH"],s:[["WESTERVILLEHIST","https://www.westervillehistory.org/"],["VISITWESTERVILLE","https://www.visitwesterville.org/play/history/"]]}
+{t:3,a:"BURB",n:"Hanby House",ad:"160 W Main St, Westerville, OH 43081",la:40.12642,ln:-82.93760,w:"The 1850s Westerville home of the Hanby family — Bishop William Hanby, an Underground Railroad conductor and Otterbein co-founder, and son Benjamin, composer of 'Up on the Housetop' and abolitionist ballad 'Darling Nelly Gray.'",g:["MUS","ARCH"],s:[["WESTERVILLEHIST","https://www.westervillehistory.org/"],["VISITWESTERVILLE","https://www.visitwesterville.org/play/history/"]]},
+{t:1,a:"DTN",n:"Ohio Theatre",ad:"39 E State St, Columbus, OH 43215",la:39.95988,ln:-82.99894,w:"The 'Official Theatre of the State of Ohio' — a lavishly gilded 1928 Spanish-Baroque movie palace on Capitol Square, saved from the wrecking ball in 1969 and declared a National Historic Landmark in 1977. CAPA runs it today, with free summer walking tours and 'Mighty Morton' organ demos.",k:"Free guided tours on select summer Saturdays; otherwise a ticketed performance venue.",g:["ICON","ARCH","ENT","FREE"],s:[["OFFICIAL","https://www.capa.com/venues/ohio-theatre/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ohio_Theatre_(Columbus,_Ohio)"],["CITYSCENE","https://www.cityscenecolumbus.com/arts-and-entertainment/scene-online/capa-offers-free-walking-tours-throughout-all-of-their-theat/"]]},
+{t:2,a:"DTN",n:"Southern Theatre",ad:"21 E Main St, Columbus, OH 43215",la:39.95606,ln:-82.99866,w:"The oldest surviving theatre in central Ohio — opened 1896 as the 'Great Southern Fireproof Hotel and Opera House' after a run of downtown theatre fires, it hosted Sarah Bernhardt, Anna Pavlova and John Philip Sousa. CAPA restored it in a 14-month, $10M rebuild reopening in 1998.",g:["ARCH","ENT"],s:[["OFFICIAL","https://www.capa.com/southern-theatre/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Great_Southern_Hotel_%26_Theatre"]]},
+{t:2,a:"DTN",n:"Columbus Commons",ad:"160 S High St, Columbus, OH 43215",la:39.95854,ln:-82.99873,w:"A six-acre downtown green built on the footprint of the old City Center mall — a restored 1914 carousel, free summer concerts, a Thursday farmers market and 200+ free events a year. Free.",k:"Free; carousel rides seasonal (Apr–Sep).",g:["PARK","FREE","FAM","SHOP"],s:[["OFFICIAL","https://columbuscommons.org/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/directory/columbus-commons/"]]},
+{t:3,a:"DTN",n:"Union Station Arch at McFerson Commons",ad:"McFerson Commons, Nationwide Blvd, Arena District, Columbus, OH 43215",la:39.96814,ln:-83.00741,w:"The last surviving arch of Columbus's demolished 1897 Union Station (a Daniel Burnham design), rescued during the 1976 wrecking and re-erected as the centerpiece of the 2.2-acre McFerson Commons in the Arena District. Free.",g:["ARCH","ODD","FREE","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/McFerson_Commons"],["DISPATCH","https://www.dispatch.com/story/news/history/2021/10/22/union-station-arch-columbus-ohio-history/"]]},
+{t:3,a:"DTN",n:"Columbus Metropolitan Library — Main Library",ad:"96 S Grant Ave, Columbus, OH 43215",la:39.96138,ln:-82.98940,w:"The flagship of a system twice named National Library of the Year — its $30M 2016 daylight-flooded renovation (GUND Partnership), opening onto Topiary Park, won the Columbus Landmarks James B. Recchie Design Award. Free to wander.",g:["ARCH","FREE","ICON","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Main_Library_(Columbus,_Ohio)"],["ARCHITECTMAG","https://www.architectmagazine.com/project-gallery/columbus-metropolitan-library-main-library/"]]},
+{t:2,a:"OSU",n:"Studio 35 Cinema & Drafthouse",ad:"3055 Indianola Ave, Columbus, OH 43202",la:40.02603,ln:-83.00182,w:"Clintonville's beloved neighborhood movie house — opened 1938 as the Indianola Theatre, it's Columbus's oldest cinema and the last independent one left, famous as the first U.S. theater licensed to serve alcohol. Two screens, 40 taps and an in-house pizza kitchen.",g:["ENT","ODD","SHOP"],s:[["OFFICIAL","https://studio35.com/about/"],["ARTHOUSE","https://www.arthousetheaters.com/theater/studio-35-columbus"]]},
+{t:2,a:"EAST",n:"Schumacher Gallery",ad:"Blackmore Library, 4th Fl, 2199 E Main St, Bexley, OH 43209",la:39.95605,ln:-82.93700,w:"Capital University's free art museum on the top floor of its Bexley library — 3,000+ works spanning Rembrandt, Dürer, Goya, Renoir, Cassatt, Picasso, Chagall and Warhol, plus rotating exhibits of Indigenous and local artists.",k:"Free; open during the academic year only (closed summers and university holidays).",g:["MUS","FREE"],s:[["OFFICIAL","https://www.capital.edu/student-life/arts-and-culture/schumacher-gallery/"],["COLUMBUSMAKESART","https://www.columbusmakesart.com/organization/406-the-schumacher-gallery"]]},
+{t:2,a:"WEST",n:"Columbus Idea Foundry",ad:"421 W State St, Columbus, OH 43215",la:39.95863,ln:-83.01203,w:"A 60,000-sq-ft Franklinton makerspace billed as the physically largest in the world — welding, blacksmithing, woodshop, 3D printing and 80+ classes a month, with free RSVP evening tours and demonstrations.",k:"Free evening tours by RSVP; workshops/membership ticketed.",g:["ODD","FAM","FREE"],s:[["OFFICIAL","https://www.ideafoundry.com/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/blog/post/pick-up-a-new-skill-at-these-8-maker-spaces/"],["CITYSCENE","https://www.cityscenecolumbus.com/columbus-idea-foundry/"]]},
+{t:2,a:"BURB",n:"Early Television Museum",ad:"5396 Franklin St, Hilliard, OH 43026",la:40.03468,ln:-83.16176,w:"A 6,000-sq-ft Hilliard oddity holding 150+ working sets — mechanical 1920s scanning-disc TVs, prewar and early-color receivers — one of the world's deepest early-television collections. Free (donations welcome), weekends only.",k:"Free; open Sat 10–6 and Sun 12–5.",g:["MUS","ODD","FREE"],s:[["OFFICIAL","https://www.earlytelevision.org/museum.html"],["ATLASOBSCURA","https://www.atlasobscura.com/places/early-television-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Early_Television_Museum"]]},
+{t:2,a:"BURB",n:"Anti-Saloon League Museum",ad:"126 S State St, Westerville, OH 43081",la:40.12278,ln:-82.92917,w:"Inside the Westerville library, in the League's old printing-plant town — 'the dry capital of the world' — the nation's foremost temperance/Prohibition collection: propaganda, artifacts and the story of the Ohio-born movement that drove the 18th Amendment. Free.",k:"Free; open library hours or by appointment.",g:["MUS","ARCH","FREE"],s:[["OFFICIAL","https://westervillelibrary.org/antisaloon/"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/explore-prohibition-history-at-the-anti-saloon-league-museum"],["ATLASOBSCURA","https://www.atlasobscura.com/places/antisaloon-league-museum"]]},
+{t:2,a:"BURB",n:"Sharon Woods Metro Park",ad:"6911 Cleveland Ave, Westerville, OH 43081",la:40.11692,ln:-82.96178,w:"A 761-acre Metro Park wrapping the 11-acre Schrock Lake and the Edward S. Thomas State Nature Preserve, with old-growth oak-hickory-beech woods and a 3.8-mile paved multipurpose loop. Free.",g:["PARK","VIEW","FREE"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/sharon-woods/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/directory/sharon-woods-metro-park/"]]},
+{t:2,a:"BURB",n:"Blendon Woods Metro Park",ad:"4265 E Dublin-Granville Rd, Westerville, OH 43081",la:40.07046,ln:-82.87306,w:"A 653-acre Metro Park whose 118-acre Walden Waterfowl Refuge and 11-acre Thoreau Lake draw hundreds of birds — 220+ species logged — viewed from two elevated shelters with spotting scopes. Free.",g:["PARK","VIEW","FREE","FAM"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/blendon-woods/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/blendon-woods-metro-park/427214/"]]},
+{t:2,a:"BURB",n:"Slate Run Living Historical Farm",ad:"1375 State Route 674 N, Canal Winchester, OH 43110",la:39.76094,ln:-82.85054,w:"An 1880s working farm inside Slate Run Metro Park — costumed staff tend heirloom pigs, geese, turkeys and Percheron horses and cook in an 1856 Gothic-revival farmhouse, recreating daily central-Ohio farm life. Free.",k:"Free; seasonal hours (open Tue–Sun; closed some winter days).",g:["FAM","ARCH","PARK","FREE"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/slate-run-historical-farm/"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/slate-run-living-historical-farm-canal-winchester"]]},
+{t:2,a:"BURB",n:"Hayden Run Falls",ad:"4326 Hayden Run Rd, Dublin, OH 43017",la:40.06731,ln:-83.11011,w:"A 35-foot ravine waterfall in Dublin, reached by a short wheelchair-accessible boardwalk and staircase in Columbus's two-acre Hayden Falls Nature Preserve — best after rain. Free, distinct from Dublin's Indian Run Falls.",k:"Free; open daily 6am–10pm.",g:["VIEW","PARK","FREE","ODD"],s:[["OFFICIAL","https://columbusrecparks.com/parks/hayden-falls-nature-preserve/"],["VISITDUBLIN","https://www.visitdublinohio.com/listing/hayden-run-falls/554/"],["COLUMBUSNAVIGATOR","https://www.columbusnavigator.com/dublins-indian-hayden-run-falls-should-be-your-next-weekend-adventure/"]]},
+{t:2,a:"BURB",n:"Easton Town Center",ad:"160 Easton Town Center, Columbus, OH 43219",la:40.05048,ln:-82.91543,w:"A 30-million-visitor-a-year open-air 'town' laid out like a 1950s Main Street — 250+ shops from Nordstrom to Louis Vuitton alongside restaurants, cinemas and free public events. Repeatedly named the top retail experience in America. A tourism draw in its own right.",g:["SHOP","FAM","FREE"],s:[["OFFICIAL","https://eastontowncenter.com/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/neighborhoods/easton/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Easton_Town_Center"]]},
+{t:2,a:"MADISON",n:"Red Brick Tavern",ad:"1700 Cumberland St (US-40), Lafayette, OH 43140",la:39.93780,ln:-83.40692,w:"A landmark 1836-37 National Road stagecoach inn in tiny Lafayette, said to be second only to the Golden Lamb among Ohio's oldest continuously recognized taverns; it hosted six U.S. presidents. Documented by the Library of Congress HABS survey. Closed 2020, reopened Feb 2023 and still operating as a historic tavern you can walk into.",g:["HIST","ARCH","ICON"],s:[["LOC","https://www.loc.gov/item/oh0150/"],["HMDB","https://www.hmdb.org/m.asp?m=96415"],["OFFICIAL","https://historicredbricktavern.com/about"]]},
+{t:2,a:"MADISON",n:"Prairie Oaks Metro Park",ad:"3225 Plain City-Georgesville Rd, West Jefferson, OH 43162",la:39.99812,ln:-83.24147,w:"A 2,200-acre Metro Park straddling the Madison-Franklin line along Big Darby Creek (a state and national scenic river), with restored prairie, quarry-pond beaches and paddling, and prime birding. The Madison County side lies west of the creek. Distinct from Battelle Darby Creek downstream.",g:["PARK","FREE","OUT","VIEW"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/prairie-oaks/"],["BIRDING_HOTSPOTS","https://birding-in-ohio.com/madison-county/prairie-oaks-metro-park-madison-county"]]}
 ];
 
 const FS = {
@@ -391,24 +418,34 @@ const FS = {
   "ABC6":{k:"ABC6",t:"ABC6",u:"",l:""},
   "AFRICANRESTWEEK":{k:"AFRICANRESTWEEK",t:"AFRICANRESTWEEK",u:"",l:""},
   "ALTEATS":{k:"ALTEATS",t:"ALTEATS",u:"",l:""},
+  "AXIOSCOLUMBUS":{k:"AXIOSCOLUMBUS",t:"AXIOSCOLUMBUS",u:"",l:""},
   "BARBECUEBROS":{k:"BARBECUEBROS",t:"BARBECUEBROS",u:"",l:""},
   "BELTMAG":{k:"BELTMAG",t:"BELTMAG",u:"",l:""},
   "BREAKFASTNICK":{k:"BREAKFASTNICK",t:"BREAKFASTNICK",u:"",l:""},
   "BWNICK":{k:"BWNICK",t:"BWNICK",u:"",l:""},
-  "CITYSCENE":{k:"CITYSCENE",t:"CITYSCENE",u:"",l:""},
+  "CFA":{k:"CFA",t:"CFA",u:"",l:""},
+  "CITYSCENE":{k:"CITYSCENE",t:"CityScene Magazine (Columbus)",u:"https://www.cityscenecolumbus.com/",l:"CityScene Magazine (Columbus)"},
+  "CMHGOURMAND":{k:"CMHGOURMAND",t:"CMHGOURMAND",u:"",l:""},
   "COLUMBUSMONTHLY":{k:"COLUMBUS MONTHLY",t:"COLUMBUS MONTHLY",u:"",l:""},
   "COLUMBUSNAVIGATOR":{k:"COLUMBUSNAVIGATOR",t:"Columbus Navigator",u:"https://www.columbusnavigator.com",l:"Columbus Navigator"},
+  "COLUMBUSUG":{k:"COLUMBUSUG",t:"COLUMBUSUG",u:"",l:""},
   "COLUMBUSUNDERGROUND":{k:"COLUMBUS UNDERGROUND",t:"Columbus Underground",u:"https://columbusunderground.com",l:"Columbus Underground"},
+  "DETROITNEWS":{k:"DETROITNEWS",t:"DETROITNEWS",u:"",l:""},
+  "DISPATCH":{k:"COLUMBUS DISPATCH",t:"The Columbus Dispatch",u:"https://www.dispatch.com/",l:"The Columbus Dispatch"},
   "DOWNTOWNCOLUMBUS":{k:"DOWNTOWNCOLUMBUS",t:"DOWNTOWNCOLUMBUS",u:"",l:""},
   "EASTONTC":{k:"EASTONTC",t:"EASTONTC",u:"",l:""},
   "EXPERIENCECBUS":{k:"EXPERIENCE COLUMBUS",t:"Experience Columbus",u:"https://www.experiencecolumbus.com",l:"Experience Columbus"},
+  "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org",l:"The Historical Marker Database"},
   "INFATUATION":{k:"INFATUATION",t:"INFATUATION",u:"",l:""},
+  "NATLROADBLOG":{k:"NATLROADBLOG",t:"NATLROADBLOG",u:"",l:""},
   "NBC4":{k:"NBC4",t:"NBC4",u:"",l:""},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site",u:"",l:"Official site"},
+  "OHIOMAGAZINE":{k:"OHIOMAGAZINE",t:"OHIOMAGAZINE",u:"",l:""},
   "SHORTNORTH":{k:"SHORTNORTH",t:"SHORTNORTH",u:"",l:""},
   "SNACKANDBAKERY":{k:"SNACKANDBAKERY",t:"SNACKANDBAKERY",u:"",l:""},
   "STEPOUTCBUS":{k:"STEPOUTCBUS",t:"STEPOUTCBUS",u:"",l:""},
   "TENTV":{k:"10TV",t:"10TV",u:"",l:""},
+  "TOURINGOHIO":{k:"TOURINGOHIO",t:"TOURINGOHIO",u:"",l:""},
   "VISITFAIRFIELD":{k:"VISITFAIRFIELD",t:"VISITFAIRFIELD",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
   "WINESPECTATOR":{k:"WINESPECTATOR",t:"WINESPECTATOR",u:"",l:""}
@@ -459,8 +496,15 @@ const F = [
 {t:1,a:"SN",n:"Seventh Son Brewing",ad:"1101 N 4th St, Columbus, OH 43201",cz:["BREW"],la:39.98537,ln:-82.99968,w:"One of Columbus's OG craft breweries (2013), a local institution in Italian Village with street-level and second-floor patios in a former auto garage.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"],["SHORTNORTH","https://shortnorth.org/businesses/seventh-son-brewing/"]]},
 {t:1,a:"GV",n:"Agni",ad:"716 S High St, Columbus, OH 43206",cz:["US"],la:39.94750,ln:-82.99750,w:"Chef Avishar Barua — a James Beard 'Best Chef: Great Lakes' semifinalist — cooks inventive, Bangladeshi-inflected New American on the German Village edge; a recent Columbus Monthly #1.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/agni-best-restaurants-in-columbus-2025-chef-avishar-barua/85197782007/"],["NBC4","https://www.nbc4i.com/news/local-news/central-ohio-news/columbus-chef-bakery-bar-among-james-beard-awards-semifinalists/"]]},
 {t:2,a:"SN",n:"Fox in the Snow Cafe",ad:"1031 N 4th St, Columbus, OH 43201",cz:["ICE","COF"],la:39.98413,ln:-82.99943,w:"Italian Village's scratch bakery and hand-poured-coffee darling since 2014; the gooey cinnamon roll and egg sandwich draw morning lines.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/restaurant-review-fox-in-the-snow-cafe-ma1/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/fox-in-the-snow-cafe/413414/"],["BWNICK","https://breakfastwithnick.com/2022/10/02/best-coffee-fox-in-the-snow-italian-village/"]]},
+{t:2,a:"EAST",n:"Huong Vietnamese Restaurant",ad:"1270 Morse Rd, Columbus, OH 43229",cz:["ASIAN"],la:40.06175,ln:-82.98502,w:"Long-running Morse Rd Vietnamese room (murals, plastic fruit trees) singled out by Columbus Underground for a super-crunchy grilled-chicken banh mi and picked as a reviewers' favorite on alt.eats.columbus (Columbus Food Adventures). Google ~4.4 with high volume.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/restaurant-review-huong-vietnamese-restaurant-morse-ma1/"],["CFA","https://alteatscolumbus.com/2010/03/12/huong/"]]},
+{t:1,a:"OSU",n:"Meshikou",ad:"1506 Bethel Rd, Columbus, OH 43220",cz:["ASIAN"],la:40.06515,ln:-83.05906,w:"Columbus' pioneering ramen shop (Bethel Centre), routinely called the best ramen in the city — and named best in Ohio by a national food guide. Columbus Monthly ran a First Look, and it's covered on alt.eats.columbus and by creator Breakfast With Nick. Yelp 587 reviews / Google high-rated.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2014/10/30/first-look-ramen-at-meshikou/22779587007/"],["CFA","https://alteatscolumbus.com/2014/10/10/meshikou/"],["BWNICK","https://breakfastwithnick.com/2014/11/18/breakfast-meshikou/"]]},
+{t:2,a:"OSU",n:"NE Chinese Restaurant",ad:"2620 N High St, Columbus, OH 43202",cz:["ASIAN"],la:40.01576,ln:-83.01148,w:"University District specialist in Dongbei (Northeastern/Manchurian) Chinese cooking — a rare regional cuisine for the city, reviewed by Columbus Underground and Columbus Monthly (\"Short Order\") and written up by creator Breakfast With Nick. Google high-rated with real volume.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/review-ne-chinese-restaurant-ma1/"],["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2018/01/08/short-order-ne-chinese-restaurant/16357209007/"],["BWNICK","https://breakfastwithnick.com/2018/06/05/breakfast-ne-chinese-restaurant/"]]},
 {t:1,a:"DTN",n:"Lan Viet Market",ad:"59 Spruce St, Columbus, OH 43215",cz:["ASIAN"],la:39.97193,ln:-83.00431,w:"North Market's Northern Vietnamese stall from Khanh Le and his mother Lan Pham (a North Market staple since 2010; earlier known as Lac Viet) — a from-scratch pho broth simmered 24 hours and crisp, balanced banh mi.",g:["MKT"],s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/2011/03/18/restaurant-review-lac-viet/23000633007/"],["OFFICIAL","https://northmarket.org/merchant/lan-viet-market/"]]},
-{t:1,a:"SN",n:"One Line Coffee — Short North",ad:"745 N High St, Columbus, OH 43215",cz:["COF"],la:39.97766,ln:-83.00383,w:"Specialty roaster's showcase Short North bar with a pour-over station and small sample-roaster; works directly with small coffee farmers and cooperatives, and among the strongest in-city options for locally roasted single-origin beans.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/one-line-coffee-opens-in-the-short-north/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/one-line-coffee-short-north/410691/"]]}
+{t:1,a:"SN",n:"One Line Coffee — Short North",ad:"745 N High St, Columbus, OH 43215",cz:["COF"],la:39.97766,ln:-83.00383,w:"Specialty roaster's showcase Short North bar with a pour-over station and small sample-roaster; works directly with small coffee farmers and cooperatives, and among the strongest in-city options for locally roasted single-origin beans.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/one-line-coffee-opens-in-the-short-north/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/one-line-coffee-short-north/410691/"]]},
+{t:1,a:"WEST",n:"Stauf's Coffee Roasters — Grandview",ad:"1277 Grandview Ave, Columbus, OH 43212",cz:["COF"],la:39.98320,ln:-83.04500,w:"Columbus's original micro-roaster and coffee house (founded 1988 in Grandview) — 60-plus small-batch coffees hand-selected from 20-plus countries, plus pastries and locally made desserts.",s:[["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/staufs-coffee-roasters-grandview/6593/"],["CITYSCENE","https://www.cityscenecolumbus.com/locations/stauf-s-coffee-roasters/"]]},
+{t:2,a:"BURB",n:"City Barbeque — Upper Arlington",ad:"2111 W Henderson Rd, Columbus, OH 43220",cz:["SOUL"],la:40.05681,ln:-83.07615,w:"The original City Barbeque, founded in Columbus in 1999 in a former doughnut shop by a team that won the American Royal Invitational for best brisket — the recipe that grew a Columbus-born pit-BBQ chain.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/columbus-born-bbq-joint-turning-25-ak1/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/City_Barbeque"]]},
+{t:1,a:"MADISON",n:"The Red Brick Tavern",ad:"1700 Cumberland St, London, OH 43140",cz:["US"],la:39.93780,ln:-83.40692,w:"A genuine National Road landmark still serving dinner — built 1836–37 in Lafayette and reputed to be Ohio's second-oldest stagecoach inn, host to six U.S. presidents (subject of an Ohio Historical Marker and National Road travel histories). Known today for prime rib and home-cooked specials. Open Tue–Sat (active listings, Aug 2026). Merit is the landmark itself; food is honest tavern fare.",s:[["HMDB","https://www.hmdb.org/m.asp?m=96415"],["TOURINGOHIO","https://touring-ohio.com/history/national-road-inns.html"],["NATLROADBLOG","https://blog.jimgrey.net/2023/03/03/the-national-road-in-ohio-the-red-brick-tavern/"]]},
+{t:1,a:"OSU",n:"Preston's: A Burger Joint",ad:"2973 N High St, Columbus, OH 43202",cz:["BURG","VIRAL"],la:40.02261,ln:-83.01413,w:"Chefs Matt Heaggans & Catie Randazzo's cult smash burger — Ohio beef, American cheese, pickles and special sauce. A James Beard Blended Burger Project entrant that graduated from pop-up to a beloved Clintonville brick-and-mortar next to Combustion Brewery.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/first-look-prestons-is-back-now-in-clintonville-sp1/"],["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2022/12/19/prestons-a-burger-joint-is-moving-to-clintonville/69740782007/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -478,7 +522,7 @@ function saveSeen(){try{localStorage.setItem('col_seen',JSON.stringify([...SEEN]
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Columbus OH')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {DTN:'#E8973A',SN:'#C0504D',GV:'#8064A2',OSU:'#4F81BD',EAST:'#9BBB59',WEST:'#4BACC6',BURB:'#7E8FC4'};
+const AC = {DTN:'#E8973A',SN:'#C0504D',GV:'#8064A2',OSU:'#4F81BD',EAST:'#9BBB59',WEST:'#4BACC6',BURB:'#7E8FC4',MADISON:'#A6588C'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
@@ -626,7 +670,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Downtown", 39.9651, -83.0006], ["Short North", 39.9796, -83.0041], ["German Village", 39.9458, -82.9937], ["University District", 40.0029, -83.0152], ["Bexley", 39.96, -82.9435], ["Franklinton", 39.9347, -83.1125], ["Suburbs (Dublin", 40.0655, -82.9945]];
+const LABELS=[["Downtown", 39.9642, -83.0002], ["Short North", 39.9796, -83.0041], ["German Village", 39.9458, -82.9937], ["University District", 40.0113, -83.0171], ["Bexley", 39.9722, -82.9479], ["Franklinton", 39.9468, -83.0845], ["Suburbs (Dublin", 40.052, -82.9902], ["Madison County (London", 39.9579, -83.3518]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -976,7 +1020,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 62 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 86 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

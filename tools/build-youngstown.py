@@ -409,7 +409,11 @@ open(OUT, "w", encoding="utf-8").write(new)
 # --- asserts ---
 assert ", Cleveland OH" not in new, "gmaps city not swapped"
 assert "P.forEach((p,i)=>{p.id='s'+i" in new, "id/kind tagging loop missing"
-assert "Cleveland" not in new[new.index("const S = {"):new.index("const ALL")], "Cleveland leaked into data"
+# "Cleveland Ave(nue)" is a real street in several of these metros; exempt it so this engine-leak
+# guard fires only on a genuine template-data leak (Cleveland place names or a "Cleveland, OH"
+# address city), never on a legitimate local address.
+_leakseg = new[new.index("const S = {"):new.index("const ALL")]
+assert "Cleveland" not in re.sub(r"Cleveland Ave(?:nue)?", "", _leakseg), "Cleveland leaked into data"
 print("sights:", nP, "food:", nF, "total:", TOTAL)
 print("remaining 'Cleveland' mentions (expect 1 parity note):", new.count("Cleveland"))
 print("OK wrote", OUT)

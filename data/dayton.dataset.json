@@ -23,6 +23,10 @@
   {
    "id": "YS",
    "n": "Yellow Springs & Greene County"
+  },
+  {
+   "id": "SPRINGFIELD",
+   "n": "Springfield, Enon & Clark County"
   }
  ],
  "ac": {
@@ -31,7 +35,8 @@
   "SOUTH": "#8064A2",
   "NORTH": "#4F81BD",
   "EAST": "#4BACC6",
-  "YS": "#9BBB59"
+  "YS": "#9BBB59",
+  "SPRINGFIELD": "#A6588C"
  },
  "cuisines": [
   {
@@ -983,6 +988,664 @@
      "https://www.daytonlocal.com/christmas/clifton-mill-christmas-lights/"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "SPRINGFIELD",
+   "n": "Frank Lloyd Wright's Westcott House",
+   "ad": "1340 E High St, Springfield, OH 45505",
+   "w": "Wright's only Prairie-style residence in Ohio (his first Ohio commission), designed 1906, built 1908, restored inch-by-inch in a $5.3M project reopened in 2005. On the National Register; hourly guided tours Tue-Sat 11-5, Sun 1-5. The marquee mid-corridor sight.",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH",
+    "AVIATION"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Westcott_House_(Springfield,_Ohio)"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.westcotthouse.org/"
+    ],
+    [
+     "FLW_TRUST",
+     "https://flwright.org/explore/westcott-house"
+    ],
+    [
+     "OHIO_ORG",
+     "https://ohio.org/travel-inspiration/articles/on-the-wright-path-westcott-house-frank-lloyd-wright-springfield-ohio"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPRINGFIELD",
+   "n": "Hartman Rock Garden",
+   "ad": "1905 Russell Ave, Springfield, OH 45506",
+   "w": "Depression-era folk-art masterpiece: unemployed molder Ben Hartman spent 1932-44 building a sprawling miniature world of hand-set stone and pebble monuments (Independence Hall, a castle, biblical and patriotic scenes) in his own yard. Preserved by the Kohler Foundation; free, open daily dawn-dusk. A nationally noted grassroots-art landmark.",
+   "g": [
+    "ICON",
+    "ODD",
+    "FREE",
+    "ART"
+   ],
+   "s": [
+    [
+     "ATLAS_OBSCURA",
+     "https://www.atlasobscura.com/places/hartmans-rock-garden"
+    ],
+    [
+     "KOHLER_FOUNDATION",
+     "https://www.kohlerfoundation.org/preservation/preserved-sites/hartman-rock-garden/"
+    ],
+    [
+     "VISIT_SPRINGFIELD",
+     "https://www.visitgreaterspringfield.com/hartman-rock-garden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Springfield Museum of Art",
+   "ad": "107 Cliff Park Rd, Springfield, OH 45504",
+   "w": "The only Smithsonian Affiliate art museum in Ohio (affiliated since 2012). Regional collection strong on American art, plus rotating exhibitions, set at the edge of Cliff Park downtown.",
+   "g": [
+    "MUS",
+    "ART",
+    "PARK",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OHIO_ORG",
+     "https://ohio.org/wps/portal/gov/tourism/things-to-do/destinations/springfield-museum-of-art-ohio-2"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.springfieldart.net/"
+    ],
+    [
+     "VISIT_SPRINGFIELD",
+     "https://www.visitgreaterspringfield.com/springfield-museum-art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Heritage Center of Clark County",
+   "ad": "117 S Fountain Ave, Springfield, OH 45502",
+   "w": "The Clark County Historical Society's museum in Springfield's grand 1890 Romanesque former City Hall and Market House. Local history from the Ice Age through Springfield's industrial heyday (Rogers greeting cards, farm machinery), plus a cafe under the rotunda.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Clark_County_Heritage_Center"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.visitgreaterspringfield.com/springfield-heritage-center"
+    ],
+    [
+     "OHIO_ORG",
+     "https://ohio.org/travel-inspiration/articles/the-original-pioneer-woman-springfields-inspiring-madonna-of-the-trail-statue"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Pennsylvania House Museum",
+   "ad": "1311 W Main St, Springfield, OH 45504",
+   "w": "A Federal-style 1839 stagecoach tavern and inn built on the National Road, once a stopover for drovers and Conestoga-wagon pioneers. Saved from demolition by the DAR's Lagonda Chapter, run as a museum since 1941; on the National Register since 1973. Open limited days.",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pennsylvania_House_(Springfield,_Ohio)"
+    ],
+    [
+     "DAR",
+     "https://www.dar.org/national-society/historic-sites-and-properties/pennsylvania-house-museum"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=241911"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "George Rogers Clark Park & Battle of Peckuwe Site",
+   "ad": "930 S Tecumseh Rd, Springfield, OH 45506",
+   "w": "Riverside park on the site of the 1780 Battle of Peckuwe, the largest Revolutionary War engagement west of the Alleghenies, where Col. George Rogers Clark's forces met the Shawnee. Trails, monuments to Clark and Tecumseh, and the Davidson Interpretive Center (across Lower Valley Pike).",
+   "g": [
+    "PARK",
+    "HIST",
+    "FREE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "NTPRD",
+     "https://ntprd.org/george-rogers-clark-park/"
+    ],
+    [
+     "SPRINGFIELD_NEWSSUN",
+     "https://www.springfieldnewssun.com/local/learn-about-role-clark-county-played-in-revolutionary-war/article_c653e2c2-6506-426b-be46-89d2cdfad681.html"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=13887"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Madonna of the Trail",
+   "ad": "W Main St at Fisher St (National Road Commons), Springfield, OH 45504",
+   "w": "The first of twelve identical DAR pioneer-mother monuments placed along the National Old Trails Road from Maryland to California, dedicated July 4, 1928 (Harry Truman attended). Springfield's was the first dedicated; moved in 2011 to National Road Commons downtown.",
+   "g": [
+    "HIST",
+    "FREE",
+    "ART",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OHIO_ORG",
+     "https://ohio.org/travel-inspiration/articles/the-original-pioneer-woman-springfields-inspiring-madonna-of-the-trail-statue"
+    ],
+    [
+     "DAR",
+     "https://www.dar.org/national-society/historic-sites-and-properties/madonna-trail-0"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=45529"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Snyder Park Gardens & Arboretum",
+   "ad": "1900 Park St, Springfield, OH 45504",
+   "w": "Restored formal gardens, arboretum and a Kiwanis children's garden within historic Snyder Park along Buck Creek, run by the National Trail Parks & Recreation District. Free public gardens, a horticulture and pollinator showcase.",
+   "g": [
+    "PARK",
+    "FREE",
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NTPRD",
+     "https://ntprd.org/snyder-park-garden-arboretum/"
+    ],
+    [
+     "VISIT_SPRINGFIELD",
+     "https://www.visitgreaterspringfield.com/snyder-park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Buck Creek State Park / C.J. Brown Reservoir",
+   "ad": "1976 Buck Creek Ln, Springfield, OH 45502",
+   "w": "1,900-acre ODNR park on the 2,120-acre C.J. Brown Reservoir just northeast of Springfield: swimming beach, marina, campground, cabins and trails, and a birding hotspot. From I-70 take Exit 59 north on SR-41.",
+   "g": [
+    "PARK",
+    "FREE",
+    "OUT",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "ODNR",
+     "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buck-creek-state-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buck_Creek_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Enon Adena Mound (Knob Prairie Mound)",
+   "ad": "Indian Dr at Mound Circle, Enon, OH 45323",
+   "w": "Ohio's second-largest conical burial mound (after Miamisburg), about 40 ft high and 574 ft around, built by the Adena culture roughly 2,000 years ago and preserved on a residential circle in Enon. Owned by the village; free to view.",
+   "g": [
+    "HIST",
+    "FREE",
+    "ODD",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Enon,_Ohio"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=175284"
+    ],
+    [
+     "CLIO",
+     "https://theclio.com/entry/190556"
+    ],
+    [
+     "ENON_HISTORICAL",
+     "https://enonhistoricalsociety.com/historical-sites/adena-mound/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Narrows Reserve",
+   "ad": "2575 Indian Ripple Rd, Beavercreek, OH 45385",
+   "w": "Greene County Parks preserve with ~6 miles of trails winding along the Little Miami National Scenic River, a 2.3-mile River Loop, a nature center, canoe/kayak launch, primitive camping and a raptor aviary. Free, open daily.",
+   "k": "little miami river hike",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "GCPARKS",
+     "https://www.gcparkstrails.com/parks/narrows-reserve/"
+    ],
+    [
+     "FAIRBORNHERALD",
+     "https://www.fairborndailyherald.com/2020/08/18/narrows-reserve-a-wilderness-adventureland/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Creekside Trail",
+   "ad": "1153 N Fairfield Rd, Beavercreek, OH 45324",
+   "w": "17-mile paved rail-trail linking Xenia Station to Eastwood MetroPark in Dayton, crossing over I-675; the Beavercreek Station trailhead has restrooms, parking and the city's 9/11 memorial. A backbone of the Miami Valley's 340-mile trail network. Free.",
+   "k": "bike rail trail",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MVTRAILS",
+     "https://www.miamivalleytrails.org/trails/creekside-trail"
+    ],
+    [
+     "BEAVERCREEK",
+     "https://beavercreekohio.gov/facilities/facility/details/Creekside-Trail-11"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Oakes Quarry Park",
+   "ad": "1267 E Xenia Dr, Fairborn, OH 45324",
+   "w": "Former limestone quarry, now Fairborn's second-largest park, exposing two of the oldest Silurian fossil coral reefs in the U.S. — one of the largest, most diverse Silurian-fauna sites in the world. Self-guided fossil trail; keep what you find in the spoil piles. Free, open daily.",
+   "k": "silurian reef fossils",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "FAIRBORN",
+     "https://fairbornoh.myrec.com/documents/13027_oakes_quarry_gen_lo_res.pdf"
+    ],
+    [
+     "ISLANDS",
+     "https://www.islands.com/2178913/oakes-quarry-park-ohio-near-dayton-once-thriving-now-nature-trails-fossils-wildlife/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Downtown Fairborn Historic District",
+   "ad": "1 W Main St, Fairborn, OH 45324",
+   "w": "Quirky, walkable Main Street at the gates of Wright-Patterson: Foy's — five nostalgic stores including a 1929 Halloween & variety shop — the macabre Secret Chamber house of oddities, indie boutiques, and a big third-weekend-of-October Halloween Festival with a Spooktacular Parade.",
+   "k": "Foy's Halloween Main Street",
+   "g": [
+    "AVIATION",
+    "ARCH",
+    "SHOP",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ISLANDS",
+     "https://www.islands.com/1982442/fairborn-ohio-quirky-college-city-downtown-shops-festivals/"
+    ],
+    [
+     "FAIRBORN",
+     "https://www.fairbornoh.gov/visitors/index.php"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Wright State University Nutter Center",
+   "ad": "3640 Colonel Glenn Hwy, Fairborn, OH 45435",
+   "w": "The region's premier 11,200-seat arena (opened 1990) on the Wright State campus by Wright-Patterson: home of Raiders basketball and a regular tour stop for national touring concerts, comedians and family shows.",
+   "k": "arena concerts basketball",
+   "g": [
+    "AVIATION",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.nuttercenter.com/arena-information"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nutter_Center"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EAST",
+   "n": "Caesar Creek Vineyards",
+   "ad": "962 Long Rd, Xenia, OH 45385",
+   "w": "Family-owned, award-winning estate winery on 200 acres near the headwaters of Caesar Creek in Greene County; tasting room pours estate wines and cider with a vineyard view. A member of the Ohio Wine Producers Association.",
+   "k": "estate winery tasting room",
+   "g": [
+    "VIEW"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.caesarcreekvineyards.com/"
+    ],
+    [
+     "OHIOWINES",
+     "https://www.ohiowines.org/caesar-creek-vineyards"
+    ],
+    [
+     "GEMCITY",
+     "https://www.daytonlocal.com/directory/profiles/caesar-creek-vineyards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Rosewood Arts Center",
+   "ad": "2655 Olson Dr, Kettering, OH 45420",
+   "w": "Kettering's community arts hub since 1986: the 1,800-sq-ft Kettering Health (Rosewood) Gallery shows contemporary local, regional and national artists across four exhibitions a year, plus studios, classes and the signature Art on the Commons festival each August. Free.",
+   "k": "contemporary art gallery",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.playkettering.org/gallery/"
+    ],
+    [
+     "OHIOTOURISM",
+     "https://ohio.org/things-to-do/destinations/rosewood-arts-centre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Bill Yeck Park",
+   "ad": "2230 E Centerville Station Rd, Centerville, OH 45459",
+   "w": "194-acre natural area along 1.75 miles of Sugar Creek, named for the founder of the Centerville-Washington Park District; color-coded trails wind past meadow, forest, an apiary and the Five-Fingered Sycamore, with Ordovician fossils in the creek. The park's master plan won a state first-place conservation award. Free.",
+   "k": "sugar creek trails fossils",
+   "g": [
+    "PARK",
+    "VIEW",
+    "SHOP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CWPD",
+     "https://cwpd.org/parks/bill-yeck/"
+    ],
+    [
+     "DISCOVERDAYTON",
+     "https://www.discoverdaytonohio.com/listing/bill-yeck-park-smith-house-entrance/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Stubbs Park",
+   "ad": "255 W Spring Valley Rd, Centerville, OH 45458",
+   "w": "Centerville's 60-acre flagship park, anchored by the Community Amphitheater — reopened after a 2025 renovation — that hosts a free Sunday-evening summer concert series with grass-terrace seating, food trucks and a pondside deck. Also walking trails, disc golf and a Veterans Memorial Plaza.",
+   "k": "amphitheater free summer concerts",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CENTERVILLE",
+     "https://www.centervilleohio.gov/233/Stubbs-Park"
+    ],
+    [
+     "WDTN",
+     "https://www.wdtn.com/dont-miss/centerville-summer-concerts-return-to-stubbs-park-following-renovations/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Grant Park",
+   "ad": "501 Normandy Ridge Rd, Centerville, OH 45459",
+   "w": "187-acre Centerville-Washington nature park of creeks, meadow, prairie and wetland habitats; the Kennard Nature Nook hosts programs and the Mark Kreusch natural playground, with trails threading the whole preserve. Free.",
+   "k": "nature preserve Kennard Nature Nook",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CWPD",
+     "https://cwpd.org/parks/grant/"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/centerville-washington-park-district-starts-work-on-improved-park-entrance/3BDSA6J7EBC4VN6ETL5PDPFW6Q/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SOUTH",
+   "n": "Polen Farm",
+   "ad": "5099 Bigger Rd, Kettering, OH 45440",
+   "w": "Historic 1854 farmhouse, barn and gazebo on 15 acres in Kettering, tracing to a Revolutionary War veteran granted the land; run by Kettering Parks and used for weddings, programs and community gatherings — a preserved slice of early Montgomery County.",
+   "k": "1854 historic farmhouse",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.playkettering.org/polen-farm/"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/kettering-s-polen-farm-traces-its-roots-back-to-the-1800s-and-a-revolutionary-war/article_194ac7b2-9a1d-5d7d-845a-4b577a3c26a1.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Rose Music Center at The Heights",
+   "ad": "6800 Executive Blvd, Huber Heights, OH 45424",
+   "w": "4,200-seat fully covered outdoor amphitheater in Huber Heights (opened 2015), the north suburbs' marquee live-music venue — a full season of national touring acts under a weatherproof shelter, with lawn, terrace and box seating.",
+   "k": "amphitheater concerts",
+   "g": [
+    "ENT"
+   ],
+   "s": [
+    [
+     "DESTDAYTON",
+     "https://www.destinationdayton.org/things-to-do/concerts-music/rose-music-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rose_Music_Center"
+    ],
+    [
+     "OFFICIAL",
+     "https://rosemusiccenter.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Taylorsville MetroPark",
+   "ad": "2000 US-40, Vandalia, OH 45377",
+   "w": "Five Rivers MetroPark on the site of vanished canal town Tadmor: 8+ miles of trail with real elevation, old-growth forest and Great Miami River overlooks, remnants of the 1845 Miami-Erie Canal, and a stretch of the Buckeye and North Country national trails. Free.",
+   "k": "Tadmor canal trails overlook",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "METROPARKS",
+     "https://www.metroparks.org/places-to-go/taylorsville/"
+    ],
+    [
+     "MCD",
+     "https://mcdwater.org/maps/taylorsville-metropark"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Troy Historic Public Square",
+   "ad": "Public Square, Troy, OH 45373",
+   "w": "The heart of Troy: a traffic-circle square with a lively fountain and gardens, ringed by Victorian storefronts, shops and restaurants — the whole square is on the National Register of Historic Places. The fountain runs red each June for the Strawberry Festival.",
+   "k": "fountain Victorian square",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Troy_Public_Square"
+    ],
+    [
+     "HOMEGROWNGREAT",
+     "https://www.homegrowngreat.com/attractions/troy-hayner-cultural-center/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Troy-Hayner Cultural Center",
+   "ad": "301 W Main St, Troy, OH 45373",
+   "w": "1914 Romanesque mansion bequeathed to the people of Troy by Mary Jane Hayner in 1942; now the town's cultural hub with year-round exhibits, concerts and classes. Admission-free, and most events are free too.",
+   "k": "historic mansion arts center",
+   "g": [
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.troyhayner.org/"
+    ],
+    [
+     "HOMEGROWNGREAT",
+     "https://www.homegrowngreat.com/attractions/troy-hayner-cultural-center/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YS",
+   "n": "Downtown Yellow Springs",
+   "ad": "Xenia Ave, Yellow Springs, OH 45387",
+   "w": "The funky, creative heart of the day trip: 75+ independent shops, galleries, pubs and eateries along Xenia Avenue — Dark Star Books, the Yellow Springs Toy Company, Village Artisans, the historic Little Art Theatre — plus Antioch College and the twice-yearly Street Fair (second Saturdays of June and October).",
+   "k": "arts village shops street fair",
+   "g": [
+    "ARCH",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "YSOHIO",
+     "https://yellowspringsohio.org/"
+    ],
+    [
+     "ISLANDS",
+     "https://www.islands.com/1658625/near-cinncinnati-low-key-creative-hub-america-best-small-town-art-scences-yellow-springs-ohio/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YS",
+   "n": "Caesar Creek State Park",
+   "ad": "8570 OH-73, Waynesville, OH 45068",
+   "w": "Big reservoir park spanning Warren, Clinton and Greene counties — Ohio's premier fossil-hunting site, with a permit-and-palm-size rule letting visitors keep Ordovician brachiopods and corals from the designated zone, plus a 1,200-ft swimming beach, boating and miles of trails.",
+   "k": "fossil hunting reservoir beach",
+   "g": [
+    "PARK",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Caesar_Creek_State_Park"
+    ],
+    [
+     "OFFICIAL",
+     "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/caesar-creek-state-park"
+    ]
+   ]
   }
  ],
  "F": [
@@ -1356,6 +2019,10 @@
     [
      "OFFICIAL",
      "https://littlesaigondaytonoh.com/"
+    ],
+    [
+     "BIGRAGU",
+     "https://dayton937.com/dayton-dining/new-years-food-adventure-dinner-little-saigon.html"
     ]
    ]
   },
@@ -1396,6 +2063,174 @@
     [
      "OFFICIAL",
      "https://eatatkabuki.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "House of Thai",
+   "ad": "3230 Seajay Dr #1355, Beavercreek, OH 45430",
+   "w": "A can't-miss Beavercreek hidden gem: the Dayton Daily News profiled this 'inconspicuous little pink building' as cranking out some of the best authentic Thai food in Dayton, singling out the tamarind-coated pad thai and the crunchy fried bananas. Family-run and generous with portions; Dayton Local (Gem City) lists it among the area's top Thai. Google/RestaurantGuru strong across 230+ reviews.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/entertainment/this-inconspicuous-little-pink-building-is-cranking-out-some-of-the-best-thai-food-in/article_f7fae9e8-3672-5c73-a3ec-8f0ac37251c4.html"
+    ],
+    [
+     "GEMCITY",
+     "https://www.greenecountyohio.org/listing/house-of-thai/468/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Linh's Bistro",
+   "ad": "5532 Airway Rd, Dayton, OH 45431",
+   "w": "A family-owned Riverside room (near Wright-Patterson) serving authentic Vietnamese and Chinese since the 1980s — about 15 pho broths including vegetarian, plus banh mi and vermicelli. Named in Dayton937's 'Quest for the Best Pho' as one of the region's genuine pho stops ($10–12 for pho, roll and tea); regulars call it the best Vietnamese in Dayton, with 400+ reviews behind it.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "DAYTON937",
+     "https://dayton937.com/dayton-dining/quest-for-the-best-pho.html"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.linhsbistroairway.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Bleu Wave Seafood Boil & Pho",
+   "ad": "2733 Fairfield Commons Unit A, Beavercreek, OH 45431",
+   "w": "A distinctive Viet-Cajun mashup at Fairfield Commons (the former Flyby BBQ space): build-your-own Cajun seafood boils — crawfish, crab, shrimp, mussels with corn and potatoes — alongside a full Vietnamese menu of pho, grilled-pork vermicelli and pork-chop rice. Both the Dayton Daily News and Dayton937 covered the opening; one Vietnamese reviewer called its pho the best in Dayton.",
+   "cz": [
+    "ASIAN",
+    "US"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/bleu-wave-seafood-pho-opens-soon-in-beavercreek/article_d7e3996e-5c19-57c2-a061-29abad11c823.html"
+    ],
+    [
+     "DAYTON937",
+     "https://dayton937.com/dayton-dining/bleu-wave-seafood-pho-announces-soft-opening.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Yumi Boba Tea",
+   "ad": "55 Chestnut St, Beavercreek, OH 45440",
+   "w": "A Taiwanese bubble-tea shop and Vietnamese deli — boba, bubble waffles, mochi donuts, Korean corn dogs and Vietnamese-style coffees and smoothies. The Dayton Daily News tracked the local mini-chain to its third location at The Greene in Beavercreek; popularity across its Riverside and Miamisburg shops carried it to the region's premier retail center.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/what-to-know/yumi-boba-tea-to-open-third-location-at-the-greene-in-beavercreek/ST5UXACJQBF3FC3ARO5X4VIQCY/"
+    ],
+    [
+     "OFFICIAL",
+     "https://thegreene.com/stores/yumi-boba-tea"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Kawa Revolving Sushi",
+   "ad": "2819 Centre Dr, Beavercreek, OH 45431",
+   "w": "Beavercreek's viral conveyor-belt sushi arrival (former Jason's Deli space): nigiri, sashimi and specialty rolls rotate past on a belt, with iPad ordering at each table. The Dayton Daily News covered its July soft opening and WDTN tracked the Cincinnati-born concept to Beavercreek; a CityBeat review praised the freshness and 'all around excellent' service. Google 4.5 out of the gate.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/kawa-revolving-sushi-kicks-off-soft-opening-in-beavercreek/article_dae03e50-fdef-59d3-8e0d-0657df811de1.html"
+    ],
+    [
+     "WDTN",
+     "https://www.wdtn.com/news/restaurants-bars/revolving-sushi-restaurant-coming-to-beavercreek/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Five Grains Noodle House",
+   "ad": "1465 E Dorothy Ln, Kettering, OH 45419",
+   "w": "A specialist Chinese noodle house in Kettering built around southern-Chinese fish-noodle soup — bouncy rice noodles, fish, fried yellow peas on the side and a build-your-own spice level via pepper oils. Owners Yaqin Jing and Zeng Siong ran four restaurants in southern China before opening here; Dayton937 gave it a dedicated feature. Google 4.7 / RestaurantGuru 4.6 across 130+ reviews — a genuine hidden gem, not a generic buffet.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "DAYTON937",
+     "https://dayton937.com/dayton-dining/five-grains-noodle-house-opens-thurs-dec-28th.html"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.fivegrainsnoodlehouse.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Sky Asian Cuisine",
+   "ad": "4090 Wilmington Pike, Kettering, OH 45440",
+   "w": "An upscale, metropolitan sushi-and-Asian room in Kettering with a bar and patio. The Dayton Daily News 'First Look' said it impresses and singled out impeccably fresh fish on rolls like the 5th Ave.; Dayton937's Jon Hung called it 'a gem you have to try.' Google 4.5 across 280–380 reviews — the area's higher-end sushi standout.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/places/restaurant/first-look-sky-asian-cuisine-kettering-impresses/El5kneCM9TqjUnpjFOE82M/"
+    ],
+    [
+     "DAYTON937",
+     "https://dayton937.com/dayton-dining/jon-hung-on-sky-asian-a-gem-that-you-have-to-try.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Nood Bar",
+   "ad": "810 E First St, Dayton, OH 45402",
+   "w": "Chef Dane Shipp's second concept (after Culture in the Oregon District), inside The Silos food hall downtown: Asian-inspired hot and cold noodles, bao and dumplings rooted in the Lao home-cooking Shipp learned from former roommates — e.g. a chicken ramen finished with collards. WDTN's Living Dayton featured its signature menu and the Dayton Daily News covered it as The Silos' debut vendor; Cincinnati/Dayton creator CutieTheFoodie (~51.7K TikTok) filmed the ramen, bao and street corn on site.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WDTN",
+     "https://www.wdtn.com/living-dayton/the-nood-bar-at-the-silos-features-signature-menu-items/"
+    ],
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/local/the-silos-daytons-new-food-hall-announces-first-vendor/UBIWERGUHVCD7I3AR374CXN32M/"
+    ],
+    [
+     "CUTIE",
+     "https://www.tiktok.com/@foodieswithacutie/video/7488154756066725166"
     ]
    ]
   },
@@ -1725,6 +2560,152 @@
   },
   {
    "t": 1,
+   "a": "YS",
+   "n": "The Winds Cafe",
+   "ad": "215 Xenia Ave, Yellow Springs, OH 45387",
+   "w": "Yellow Springs' destination restaurant and an Ohio farm-to-table pioneer — open since 1977, sourcing local before the term existed, with a seasonal menu that turns over every two months. Reviewed at length by Columbus Monthly (Jan 2025) as 'seasonal, locally sourced fare' and featured by Dayton937; reservations via Resy. The corridor's clearest sit-down gem, on the Greene County edge of the Springfield midpoint.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "COLMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2025/01/28/review-yellow-springs-the-winds-cafe-serves-seasonal-fare/77576317007/"
+    ],
+    [
+     "DAYTON937",
+     "https://dayton937.com/dayton-dining/new-seasonal-menu-at-the-winds.html"
+    ],
+    [
+     "OFFICIAL",
+     "http://www.windscafe.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPRINGFIELD",
+   "n": "Cecil and Lime",
+   "ad": "227 E Cecil St, Springfield, OH 45503",
+   "w": "Widely called the best restaurant in Springfield — a New American fine-dining room (‘clean, powerful food,’ full bar, live piano) tucked on a downtown side street. The Springfield News-Sun lists it among the city's best; the Visit Greater Springfield CVB carries it as a featured dining destination. Measured: 4.3 across ~515 RestaurantGuru reviews. Dinner Tue–Sat.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "SPRINGFIELDNS",
+     "https://www.springfieldnewssun.com/entertainment/dining/the-5-best-places-to-eat-near-springfield/article_4dca7910-cbe0-57c5-82d3-97856a04e1a2.html"
+    ],
+    [
+     "VISITSPRINGFIELD",
+     "https://www.visitgreaterspringfield.com/cecil-and-lime-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPRINGFIELD",
+   "n": "Mike & Rosy's Deli",
+   "ad": "330 W McCreight Ave, Springfield, OH 45504",
+   "w": "A Springfield institution near Wittenberg since 1977, famous for its signature STEAMED sandwiches — meat, cheese and condiments softened together in a special steamer. The Dayton Daily News profiled the method ('Deli's history is a steamy story'); the Springfield News-Sun and the Visit Greater Springfield CVB both carry it. Closed briefly, reopened under Springfield locals Eric & Tracy Mader (per News-Sun); active with 2025–26 reviews and the upstairs Press Box bar back open.",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "DAYTONDAILY",
+     "https://www.daytondailynews.com/lifestyles/deli-history-steamy-story/m38XpbJCRt1L0ZvLrMV7AJ/"
+    ],
+    [
+     "SPRINGFIELDNS",
+     "https://www.springfieldnewssun.com/news/mike-and-rosys-new-owners-work-to-reopen-springfield-restaurant/SMR5CLH74BHK3GIOCTRASALITU/"
+    ],
+    [
+     "VISITSPRINGFIELD",
+     "https://www.visitgreaterspringfield.com/mike-and-rosys-deli"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPRINGFIELD",
+   "n": "The Last Queen",
+   "ad": "210 E Main St, Enon, OH 45323",
+   "w": "An authentic English pub in the village of Enon (pop. ~3,000), opened April 2022 by Adrian & Maggie Shergill, who moved from England — shepherd's pie, fish & chips, bangers & mash and craft ale in a converted garage that opens onto a patio, plus a proper monthly high tea begun for the Platinum Jubilee. The Springfield News-Sun ran a full photo feature; Hub Springfield covered the opening. A genuine immigrant-owned gem the corridor maps miss.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "SPRINGFIELDNS",
+     "https://www.springfieldnewssun.com/local/a-royal-tradition-takes-root-in-enon-at-the-last-queen/article_f505553e-eade-41f7-b5bc-325b44bd3489.html"
+    ],
+    [
+     "HUBSPRINGFIELD",
+     "https://hubspringfield.com/last-queen-enon-042222/"
+    ],
+    [
+     "GOTODEST",
+     "https://www.gotodestinations.com/this-pub-owner-left-england-moved-to-a-village-of-3000-and-won-hearts-in-enon-oh/"
+    ],
+    [
+     "BWNICK",
+     "https://breakfastwithnick.com/2024/02/29/the-last-queen-enon-ohio/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "Mother Stewart's Brewing",
+   "ad": "102 W Columbia St, Springfield, OH 45502",
+   "w": "The social heart of downtown Springfield since 2016, in a restored 100-year-old warehouse with a 9,000 sq ft beer garden. BeerAdvocate named it one of the 34 best new U.S. breweries of its opening year (out of 861); the respected beer magazine Pellicle ran a full feature, and the Springfield News-Sun covered the national recognition. Rotating food trucks and Burgers & Brews nights.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "PELLICLE",
+     "https://www.pelliclemag.com/home/2021/4/13/mother-stewarts-brewing-in-springfield-ohio"
+    ],
+    [
+     "SPRINGFIELDNS",
+     "https://www.springfieldnewssun.com/news/local/springfield-brewery-receives-national-recognition/2TwekBKe0x5FhevKMspsTI/"
+    ],
+    [
+     "OHIOORG",
+     "https://ohio.org/wps/portal/gov/tourism/things-to-do/destinations/mother-stewarts-brewing"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRINGFIELD",
+   "n": "The Hickory Inn",
+   "ad": "652 N Limestone St, Springfield, OH 45503",
+   "w": "A log-cabin icon that started as a late-1940s drive-in (founded 1947) and has served Springfield ~79 years, best known for its pizza. The Springfield News-Sun counts it among Clark County food businesses 'with long roots in the community'; carried by the Ohio.org state tourism site and the Visit Greater Springfield CVB. Small, packed on weekends — a genuine local landmark.",
+   "cz": [
+    "PIZZA",
+    "US"
+   ],
+   "s": [
+    [
+     "SPRINGFIELDNS",
+     "https://www.springfieldnewssun.com/these-clark-county-food-business-have-long-roots-in-the-community/PKO776OCBVCV7IAQI4HE7T67RE/"
+    ],
+    [
+     "OHIOORG",
+     "https://ohio.org/things-to-do/destinations/the-hickory-inn"
+    ],
+    [
+     "VISITSPRINGFIELD",
+     "https://www.visitgreaterspringfield.com/hickory-inn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "DTN",
    "n": "Val's Bakery",
    "ad": "25 S St Clair St, Dayton, OH 45402",
@@ -1812,6 +2793,42 @@
   }
  ],
  "S": {
+  "ATLAS_OBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "BEAVERCREEK": {
+   "k": "BEAVERCREEK",
+   "t": "City of Beavercreek (official)",
+   "u": "https://beavercreekohio.gov/",
+   "l": "City of Beavercreek (official)"
+  },
+  "CENTERVILLE": {
+   "k": "CENTERVILLE",
+   "t": "City of Centerville (official)",
+   "u": "https://www.centervilleohio.gov/",
+   "l": "City of Centerville (official)"
+  },
+  "CLIO": {
+   "k": "CLIO",
+   "t": "Clio (heritage / history atlas)",
+   "u": "https://theclio.com",
+   "l": "Clio (heritage / history atlas)"
+  },
+  "CWPD": {
+   "k": "CWPD",
+   "t": "Centerville-Washington Park District (official)",
+   "u": "https://cwpd.org/",
+   "l": "Centerville-Washington Park District (official)"
+  },
+  "DAR": {
+   "k": "DAR",
+   "t": "Daughters of the American Revolution",
+   "u": "https://www.dar.org",
+   "l": "Daughters of the American Revolution"
+  },
   "DAYTONDAILY": {
    "k": "DAYTON DAILY NEWS",
    "t": "Dayton Daily News / Dayton.com",
@@ -1830,17 +2847,107 @@
    "u": "https://www.destinationdayton.org/",
    "l": "Destination Dayton (Dayton/Montgomery County CVB)"
   },
+  "DISCOVERDAYTON": {
+   "k": "DISCOVERDAYTON",
+   "t": "Discover Dayton Ohio",
+   "u": "https://www.discoverdaytonohio.com/",
+   "l": "Discover Dayton Ohio"
+  },
+  "ENON_HISTORICAL": {
+   "k": "ENON HISTORICAL",
+   "t": "Enon Community Historical Society",
+   "u": "https://enonhistoricalsociety.com",
+   "l": "Enon Community Historical Society"
+  },
+  "FAIRBORN": {
+   "k": "FAIRBORN",
+   "t": "City of Fairborn Parks & Recreation (official)",
+   "u": "https://www.fairbornoh.gov/",
+   "l": "City of Fairborn Parks & Recreation (official)"
+  },
+  "FAIRBORNHERALD": {
+   "k": "FAIRBORNHERALD",
+   "t": "Fairborn Daily Herald",
+   "u": "https://www.fairborndailyherald.com/",
+   "l": "Fairborn Daily Herald"
+  },
+  "FLW_TRUST": {
+   "k": "FLW TRUST",
+   "t": "Frank Lloyd Wright Trust",
+   "u": "https://flwright.org",
+   "l": "Frank Lloyd Wright Trust"
+  },
+  "GCPARKS": {
+   "k": "GCPARKS",
+   "t": "Greene County Parks & Trails (official)",
+   "u": "https://www.gcparkstrails.com/",
+   "l": "Greene County Parks & Trails (official)"
+  },
   "GEMCITY": {
    "k": "DAYTON LOCAL",
    "t": "Dayton Local",
    "u": "https://www.daytonlocal.com/",
    "l": "Dayton Local"
   },
+  "HMDB": {
+   "k": "HMDB",
+   "t": "The Historical Marker Database",
+   "u": "https://www.hmdb.org",
+   "l": "The Historical Marker Database"
+  },
+  "HOMEGROWNGREAT": {
+   "k": "HOMEGROWNGREAT",
+   "t": "Home Grown Great / Miami County VCB",
+   "u": "https://www.homegrowngreat.com/",
+   "l": "Home Grown Great / Miami County VCB"
+  },
+  "ISLANDS": {
+   "k": "ISLANDS",
+   "t": "Islands.com (travel editorial)",
+   "u": "https://www.islands.com/",
+   "l": "Islands.com (travel editorial)"
+  },
+  "KOHLER_FOUNDATION": {
+   "k": "KOHLER FOUNDATION",
+   "t": "Kohler Foundation Inc.",
+   "u": "https://www.kohlerfoundation.org",
+   "l": "Kohler Foundation Inc."
+  },
+  "MCD": {
+   "k": "MCD",
+   "t": "Miami Conservancy District",
+   "u": "https://mcdwater.org/",
+   "l": "Miami Conservancy District"
+  },
+  "METROPARKS": {
+   "k": "METROPARKS",
+   "t": "Five Rivers MetroParks (official)",
+   "u": "https://www.metroparks.org/",
+   "l": "Five Rivers MetroParks (official)"
+  },
+  "MVTRAILS": {
+   "k": "MVTRAILS",
+   "t": "Miami Valley Trails / Regional Bicycle Council",
+   "u": "https://www.miamivalleytrails.org/",
+   "l": "Miami Valley Trails / Regional Bicycle Council"
+  },
   "NPS": {
    "k": "NATIONAL PARK SVC",
    "t": "National Park Service — Dayton Aviation Heritage NHP",
    "u": "https://www.nps.gov/daav/",
    "l": "National Park Service — Dayton Aviation Heritage NHP"
+  },
+  "NTPRD": {
+   "k": "NTPRD",
+   "t": "National Trail Parks & Recreation District (Clark County)",
+   "u": "https://ntprd.org",
+   "l": "National Trail Parks & Recreation District (Clark County)"
+  },
+  "ODNR": {
+   "k": "ODNR",
+   "t": "Ohio Department of Natural Resources",
+   "u": "https://ohiodnr.gov",
+   "l": "Ohio Department of Natural Resources"
   },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
@@ -1854,14 +2961,80 @@
    "u": "https://www.ohiohistory.org/",
    "l": "Ohio History Connection"
   },
+  "OHIOTOURISM": {
+   "k": "OHIOTOURISM",
+   "t": "Ohio.org (TourismOhio, official state tourism)",
+   "u": "https://ohio.org/",
+   "l": "Ohio.org (TourismOhio, official state tourism)"
+  },
+  "OHIOWINES": {
+   "k": "OHIOWINES",
+   "t": "Ohio Wine Producers Association",
+   "u": "https://www.ohiowines.org/",
+   "l": "Ohio Wine Producers Association"
+  },
+  "OHIO_ORG": {
+   "k": "OHIO ORG",
+   "t": "Ohio.org (TourismOhio)",
+   "u": "https://ohio.org",
+   "l": "Ohio.org (TourismOhio)"
+  },
+  "SPRINGFIELD_NEWSSUN": {
+   "k": "SPRINGFIELD NEWSSUN",
+   "t": "Springfield News-Sun",
+   "u": "https://www.springfieldnewssun.com",
+   "l": "Springfield News-Sun"
+  },
+  "VISIT_SPRINGFIELD": {
+   "k": "VISIT SPRINGFIELD",
+   "t": "Visit Greater Springfield (Clark County CVB)",
+   "u": "https://www.visitgreaterspringfield.com",
+   "l": "Visit Greater Springfield (Clark County CVB)"
+  },
+  "WDTN": {
+   "k": "WDTN 2",
+   "t": "WDTN-TV Dayton",
+   "u": "https://www.wdtn.com/",
+   "l": "WDTN-TV Dayton"
+  },
   "WIKIPEDIA": {
    "k": "WIKIPEDIA",
    "t": "Wikipedia (published coordinates)",
    "u": "https://en.wikipedia.org/",
    "l": "Wikipedia (published coordinates)"
+  },
+  "YSOHIO": {
+   "k": "YSOHIO",
+   "t": "Yellow Springs Ohio (destination guide)",
+   "u": "https://yellowspringsohio.org/",
+   "l": "Yellow Springs Ohio (destination guide)"
   }
  },
  "FS": {
+  "BIGRAGU": {
+   "k": "BIGRAGU",
+   "t": "BIGRAGU",
+   "u": "",
+   "l": ""
+  },
+  "BWNICK": {
+   "k": "BWNICK",
+   "t": "BWNICK",
+   "u": "",
+   "l": ""
+  },
+  "COLMONTHLY": {
+   "k": "COLMONTHLY",
+   "t": "COLMONTHLY",
+   "u": "",
+   "l": ""
+  },
+  "CUTIE": {
+   "k": "CUTIE",
+   "t": "CUTIE",
+   "u": "",
+   "l": ""
+  },
   "DAYTON937": {
    "k": "DAYTON937",
    "t": "DAYTON937",
@@ -1898,6 +3071,18 @@
    "u": "",
    "l": ""
   },
+  "GOTODEST": {
+   "k": "GOTODEST",
+   "t": "GOTODEST",
+   "u": "",
+   "l": ""
+  },
+  "HUBSPRINGFIELD": {
+   "k": "HUBSPRINGFIELD",
+   "t": "HUBSPRINGFIELD",
+   "u": "",
+   "l": ""
+  },
   "KAITS": {
    "k": "KAITS",
    "t": "KAITS",
@@ -1916,17 +3101,47 @@
    "u": "https://www.ohiomagazine.com/",
    "l": "Ohio Magazine"
   },
+  "OHIOORG": {
+   "k": "OHIOORG",
+   "t": "OHIOORG",
+   "u": "",
+   "l": ""
+  },
   "OHIOTOURISM": {
    "k": "OHIOTOURISM",
    "t": "Ohio.org (TourismOhio, official state tourism)",
    "u": "https://ohio.org/",
    "l": "Ohio.org (TourismOhio, official state tourism)"
   },
+  "PELLICLE": {
+   "k": "PELLICLE",
+   "t": "PELLICLE",
+   "u": "",
+   "l": ""
+  },
+  "SPRINGFIELDNS": {
+   "k": "SPRINGFIELDNS",
+   "t": "SPRINGFIELDNS",
+   "u": "",
+   "l": ""
+  },
   "TIBE": {
    "k": "TIBE",
    "t": "TIBE",
    "u": "",
    "l": ""
+  },
+  "VISITSPRINGFIELD": {
+   "k": "VISITSPRINGFIELD",
+   "t": "VISITSPRINGFIELD",
+   "u": "",
+   "l": ""
+  },
+  "WDTN": {
+   "k": "WDTN 2",
+   "t": "WDTN-TV Dayton",
+   "u": "https://www.wdtn.com/",
+   "l": "WDTN-TV Dayton"
   },
   "WHIO": {
    "k": "WHIO 7",

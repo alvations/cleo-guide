@@ -12,8 +12,9 @@ AREAS = [
  {"id":"EAST","n":"Bexley, Olde Towne East & Whitehall"},
  {"id":"WEST","n":"Franklinton, Grandview & Hilltop"},
  {"id":"BURB","n":"Suburbs (Dublin, Worthington, Westerville, New Albany)"},
+ {"id":"MADISON","n":"Madison County (London, West Jefferson)"},
 ]
-AC = {"DTN":"#E8973A","SN":"#C0504D","GV":"#8064A2","OSU":"#4F81BD","EAST":"#9BBB59","WEST":"#4BACC6","BURB":"#7E8FC4"}
+AC = {"DTN":"#E8973A","SN":"#C0504D","GV":"#8064A2","OSU":"#4F81BD","EAST":"#9BBB59","WEST":"#4BACC6","BURB":"#7E8FC4","MADISON":"#A6588C"}
 
 # Columbus food: Jeni's (born here), North Market, Columbus-style square-cut pizza, German Village
 # sausage, and one of the largest Somali/East-African tables in the US.

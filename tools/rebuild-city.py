@@ -73,7 +73,9 @@ def main():
         return
 
     # 5) build + gates
-    build_script = BUILD.get(a.key, f"build-{os.path.splitext(dataset)[0]}.py")
+    # dataset stem is the part before the FIRST dot ("columbus.dataset.json" -> "columbus");
+    # os.path.splitext only strips ".json" and would wrongly yield "columbus.dataset".
+    build_script = BUILD.get(a.key, f"build-{dataset.split('.', 1)[0]}.py")
     run([py, os.path.join("tools", build_script)])
     for gate in ("sourcecheck", "geocheck", "statuscheck", "buildcheck"):
         run(["node", "tools/research.js", f"--{gate}", a.key], check=False)

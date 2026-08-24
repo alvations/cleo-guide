@@ -27,6 +27,10 @@
   {
    "id": "BURB",
    "n": "Suburbs (Dublin, Worthington, Westerville, New Albany)"
+  },
+  {
+   "id": "MADISON",
+   "n": "Madison County (London, West Jefferson)"
   }
  ],
  "ac": {
@@ -36,7 +40,8 @@
   "OSU": "#4F81BD",
   "EAST": "#9BBB59",
   "WEST": "#4BACC6",
-  "BURB": "#7E8FC4"
+  "BURB": "#7E8FC4",
+  "MADISON": "#A6588C"
  },
  "cuisines": [
   {
@@ -1218,6 +1223,445 @@
      "https://www.visitwesterville.org/play/history/"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Ohio Theatre",
+   "ad": "39 E State St, Columbus, OH 43215",
+   "w": "The 'Official Theatre of the State of Ohio' — a lavishly gilded 1928 Spanish-Baroque movie palace on Capitol Square, saved from the wrecking ball in 1969 and declared a National Historic Landmark in 1977. CAPA runs it today, with free summer walking tours and 'Mighty Morton' organ demos.",
+   "k": "Free guided tours on select summer Saturdays; otherwise a ticketed performance venue.",
+   "g": [
+    "ICON",
+    "ARCH",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.capa.com/venues/ohio-theatre/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ohio_Theatre_(Columbus,_Ohio)"
+    ],
+    [
+     "CITYSCENE",
+     "https://www.cityscenecolumbus.com/arts-and-entertainment/scene-online/capa-offers-free-walking-tours-throughout-all-of-their-theat/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Southern Theatre",
+   "ad": "21 E Main St, Columbus, OH 43215",
+   "w": "The oldest surviving theatre in central Ohio — opened 1896 as the 'Great Southern Fireproof Hotel and Opera House' after a run of downtown theatre fires, it hosted Sarah Bernhardt, Anna Pavlova and John Philip Sousa. CAPA restored it in a 14-month, $10M rebuild reopening in 1998.",
+   "g": [
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.capa.com/southern-theatre/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Great_Southern_Hotel_%26_Theatre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Columbus Commons",
+   "ad": "160 S High St, Columbus, OH 43215",
+   "w": "A six-acre downtown green built on the footprint of the old City Center mall — a restored 1914 carousel, free summer concerts, a Thursday farmers market and 200+ free events a year. Free.",
+   "k": "Free; carousel rides seasonal (Apr–Sep).",
+   "g": [
+    "PARK",
+    "FREE",
+    "FAM",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://columbuscommons.org/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/directory/columbus-commons/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "Union Station Arch at McFerson Commons",
+   "ad": "McFerson Commons, Nationwide Blvd, Arena District, Columbus, OH 43215",
+   "w": "The last surviving arch of Columbus's demolished 1897 Union Station (a Daniel Burnham design), rescued during the 1976 wrecking and re-erected as the centerpiece of the 2.2-acre McFerson Commons in the Arena District. Free.",
+   "g": [
+    "ARCH",
+    "ODD",
+    "FREE",
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/McFerson_Commons"
+    ],
+    [
+     "DISPATCH",
+     "https://www.dispatch.com/story/news/history/2021/10/22/union-station-arch-columbus-ohio-history/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "Columbus Metropolitan Library — Main Library",
+   "ad": "96 S Grant Ave, Columbus, OH 43215",
+   "w": "The flagship of a system twice named National Library of the Year — its $30M 2016 daylight-flooded renovation (GUND Partnership), opening onto Topiary Park, won the Columbus Landmarks James B. Recchie Design Award. Free to wander.",
+   "g": [
+    "ARCH",
+    "FREE",
+    "ICON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Main_Library_(Columbus,_Ohio)"
+    ],
+    [
+     "ARCHITECTMAG",
+     "https://www.architectmagazine.com/project-gallery/columbus-metropolitan-library-main-library/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "Studio 35 Cinema & Drafthouse",
+   "ad": "3055 Indianola Ave, Columbus, OH 43202",
+   "w": "Clintonville's beloved neighborhood movie house — opened 1938 as the Indianola Theatre, it's Columbus's oldest cinema and the last independent one left, famous as the first U.S. theater licensed to serve alcohol. Two screens, 40 taps and an in-house pizza kitchen.",
+   "g": [
+    "ENT",
+    "ODD",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://studio35.com/about/"
+    ],
+    [
+     "ARTHOUSE",
+     "https://www.arthousetheaters.com/theater/studio-35-columbus"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Schumacher Gallery",
+   "ad": "Blackmore Library, 4th Fl, 2199 E Main St, Bexley, OH 43209",
+   "w": "Capital University's free art museum on the top floor of its Bexley library — 3,000+ works spanning Rembrandt, Dürer, Goya, Renoir, Cassatt, Picasso, Chagall and Warhol, plus rotating exhibits of Indigenous and local artists.",
+   "k": "Free; open during the academic year only (closed summers and university holidays).",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.capital.edu/student-life/arts-and-culture/schumacher-gallery/"
+    ],
+    [
+     "COLUMBUSMAKESART",
+     "https://www.columbusmakesart.com/organization/406-the-schumacher-gallery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Columbus Idea Foundry",
+   "ad": "421 W State St, Columbus, OH 43215",
+   "w": "A 60,000-sq-ft Franklinton makerspace billed as the physically largest in the world — welding, blacksmithing, woodshop, 3D printing and 80+ classes a month, with free RSVP evening tours and demonstrations.",
+   "k": "Free evening tours by RSVP; workshops/membership ticketed.",
+   "g": [
+    "ODD",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.ideafoundry.com/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/blog/post/pick-up-a-new-skill-at-these-8-maker-spaces/"
+    ],
+    [
+     "CITYSCENE",
+     "https://www.cityscenecolumbus.com/columbus-idea-foundry/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Early Television Museum",
+   "ad": "5396 Franklin St, Hilliard, OH 43026",
+   "w": "A 6,000-sq-ft Hilliard oddity holding 150+ working sets — mechanical 1920s scanning-disc TVs, prewar and early-color receivers — one of the world's deepest early-television collections. Free (donations welcome), weekends only.",
+   "k": "Free; open Sat 10–6 and Sun 12–5.",
+   "g": [
+    "MUS",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.earlytelevision.org/museum.html"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/early-television-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Early_Television_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Anti-Saloon League Museum",
+   "ad": "126 S State St, Westerville, OH 43081",
+   "w": "Inside the Westerville library, in the League's old printing-plant town — 'the dry capital of the world' — the nation's foremost temperance/Prohibition collection: propaganda, artifacts and the story of the Ohio-born movement that drove the 18th Amendment. Free.",
+   "k": "Free; open library hours or by appointment.",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://westervillelibrary.org/antisaloon/"
+    ],
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/travel/article/explore-prohibition-history-at-the-anti-saloon-league-museum"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/antisaloon-league-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Sharon Woods Metro Park",
+   "ad": "6911 Cleveland Ave, Westerville, OH 43081",
+   "w": "A 761-acre Metro Park wrapping the 11-acre Schrock Lake and the Edward S. Thomas State Nature Preserve, with old-growth oak-hickory-beech woods and a 3.8-mile paved multipurpose loop. Free.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "METROPARKS",
+     "https://www.metroparks.net/parks-and-trails/sharon-woods/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/directory/sharon-woods-metro-park/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Blendon Woods Metro Park",
+   "ad": "4265 E Dublin-Granville Rd, Westerville, OH 43081",
+   "w": "A 653-acre Metro Park whose 118-acre Walden Waterfowl Refuge and 11-acre Thoreau Lake draw hundreds of birds — 220+ species logged — viewed from two elevated shelters with spotting scopes. Free.",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "METROPARKS",
+     "https://www.metroparks.net/parks-and-trails/blendon-woods/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/listing/blendon-woods-metro-park/427214/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Slate Run Living Historical Farm",
+   "ad": "1375 State Route 674 N, Canal Winchester, OH 43110",
+   "w": "An 1880s working farm inside Slate Run Metro Park — costumed staff tend heirloom pigs, geese, turkeys and Percheron horses and cook in an 1856 Gothic-revival farmhouse, recreating daily central-Ohio farm life. Free.",
+   "k": "Free; seasonal hours (open Tue–Sun; closed some winter days).",
+   "g": [
+    "FAM",
+    "ARCH",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "METROPARKS",
+     "https://www.metroparks.net/parks-and-trails/slate-run-historical-farm/"
+    ],
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/travel/article/slate-run-living-historical-farm-canal-winchester"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Hayden Run Falls",
+   "ad": "4326 Hayden Run Rd, Dublin, OH 43017",
+   "w": "A 35-foot ravine waterfall in Dublin, reached by a short wheelchair-accessible boardwalk and staircase in Columbus's two-acre Hayden Falls Nature Preserve — best after rain. Free, distinct from Dublin's Indian Run Falls.",
+   "k": "Free; open daily 6am–10pm.",
+   "g": [
+    "VIEW",
+    "PARK",
+    "FREE",
+    "ODD"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://columbusrecparks.com/parks/hayden-falls-nature-preserve/"
+    ],
+    [
+     "VISITDUBLIN",
+     "https://www.visitdublinohio.com/listing/hayden-run-falls/554/"
+    ],
+    [
+     "COLUMBUSNAVIGATOR",
+     "https://www.columbusnavigator.com/dublins-indian-hayden-run-falls-should-be-your-next-weekend-adventure/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BURB",
+   "n": "Easton Town Center",
+   "ad": "160 Easton Town Center, Columbus, OH 43219",
+   "w": "A 30-million-visitor-a-year open-air 'town' laid out like a 1950s Main Street — 250+ shops from Nordstrom to Louis Vuitton alongside restaurants, cinemas and free public events. Repeatedly named the top retail experience in America. A tourism draw in its own right.",
+   "g": [
+    "SHOP",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://eastontowncenter.com/"
+    ],
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/neighborhoods/easton/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Easton_Town_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MADISON",
+   "n": "Red Brick Tavern",
+   "ad": "1700 Cumberland St (US-40), Lafayette, OH 43140",
+   "w": "A landmark 1836-37 National Road stagecoach inn in tiny Lafayette, said to be second only to the Golden Lamb among Ohio's oldest continuously recognized taverns; it hosted six U.S. presidents. Documented by the Library of Congress HABS survey. Closed 2020, reopened Feb 2023 and still operating as a historic tavern you can walk into.",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "LOC",
+     "https://www.loc.gov/item/oh0150/"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=96415"
+    ],
+    [
+     "OFFICIAL",
+     "https://historicredbricktavern.com/about"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MADISON",
+   "n": "Madison County Historical Society Museum",
+   "ad": "260 E High St, London, OH 43140",
+   "w": "The county historical society's museum in downtown London, with local-history galleries and a relocated one-room schoolhouse (Beach School) on the grounds. A quiet hidden gem on the courthouse-square side of town.",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://mchsohio.org/"
+    ],
+    [
+     "SEEOHIOFIRST",
+     "https://seeohiofirst.org/sites/239"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MADISON",
+   "n": "Prairie Oaks Metro Park",
+   "ad": "3225 Plain City-Georgesville Rd, West Jefferson, OH 43162",
+   "w": "A 2,200-acre Metro Park straddling the Madison-Franklin line along Big Darby Creek (a state and national scenic river), with restored prairie, quarry-pond beaches and paddling, and prime birding. The Madison County side lies west of the creek. Distinct from Battelle Darby Creek downstream.",
+   "g": [
+    "PARK",
+    "FREE",
+    "OUT",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "METROPARKS",
+     "https://www.metroparks.net/parks-and-trails/prairie-oaks/"
+    ],
+    [
+     "BIRDING_HOTSPOTS",
+     "https://birding-in-ohio.com/madison-county/prairie-oaks-metro-park-madison-county"
+    ]
+   ]
   }
  ],
  "F": [
@@ -1695,6 +2139,309 @@
   },
   {
    "t": 1,
+   "a": "OSU",
+   "n": "Jiu Thai Asian Cafe",
+   "ad": "787 Bethel Rd, Columbus, OH 43214",
+   "w": "Despite the name it is Northwest Chinese: a Bethel Road strip-mall shop (since 2012) turning out fresh hand-stretched Shaanxi/Xi'an biang biang noodles slapped to order. Reviewed by Columbus Underground and named to The Infatuation's 24 Best Restaurants in Columbus guide. Google ~4.5 with high volume.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-jiu-thai-asian-cafe-ma1/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/columbus/reviews/jiu-thai-asian-cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OSU",
+   "n": "Chuan Jiang Hao Zi",
+   "ad": "496 Ackerman Rd, Columbus, OH 43202",
+   "w": "Boldly seasoned Sichuan and dim sum from Fortune's chef-owner Jiahe Weng and former Fortune staff. Named to Columbus Monthly's Best New Restaurants 2024 and reviewed by Columbus Underground (\"Dim Sum, Adventure & General Tso's\"). Yelp/Google high-rated with real volume.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2024/02/08/columbus-monthly-best-new-restaurants-2024-chuanjiang-haozi-university-city/72516957007/"
+    ],
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-dim-sum-adventure-general-tsos-at-chuan-jiang-hao-zi-ma1/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Bonifacio",
+   "ad": "1577 King Ave, Columbus, OH 43212",
+   "w": "Columbus' first full-service Filipino restaurant (Grandview/Fifth-by-Northwest), leaning into pre-colonial Filipino tradition with weekly kamayan (Boodle) nights. Reviewed by Columbus Monthly, made its 10 Best Restaurants list (No. 10, 2022), covered by The Infatuation, and its kamayan documented by creator Breakfast With Nick.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2022/12/28/columbus-monthly-10-best-restaurants-of-2022-bonifacio-makes-our-list-first-time-number-10/69752756007/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/columbus/reviews/bonifacio"
+    ],
+    [
+     "BWNICK",
+     "https://breakfastwithnick.com/2016/10/18/breakfast-kamayan-night-bonifacio/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Addis Restaurant",
+   "ad": "3750 Cleveland Ave, Columbus, OH 43224",
+   "w": "The Ethiopian anchor that filled the hole left when Blue Nile closed — northeast-Columbus (Cleveland Ave/Cooke) spot open since 2014, praised by Columbus Underground and Columbus Monthly (\"missing out on some of the best cuisine Columbus has to offer\") and covered on alt.eats.columbus. Google ~4.5, strong volume.",
+   "cz": [
+    "AFRICAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/addis-restaurant-ma1/"
+    ],
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2019/10/07/restaurant-review-addis/2552455007/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Afra Grill",
+   "ad": "1635 Morse Rd, Columbus, OH 43229",
+   "w": "A build-your-own-bowl introduction to Somali food (Columbus has among the largest Somali communities in the US), on the Morse Rd corridor. Reviewed by both Columbus Monthly (\"Somali flavors shine\") and Columbus Underground, with a creator writeup from Breakfast With Nick. Restaurant Guru 4.8/845.",
+   "cz": [
+    "AFRICAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/entertainment/dining/2020/07/20/takeout-dining-review-somali-flavors-shine-at-afra-grill/115179800/"
+    ],
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-afra-grill-ma1/"
+    ],
+    [
+     "BWNICK",
+     "https://breakfastwithnick.com/2020/08/18/beyond-breakfast-afra-grill/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Huong Vietnamese Restaurant",
+   "ad": "1270 Morse Rd, Columbus, OH 43229",
+   "w": "Long-running Morse Rd Vietnamese room (murals, plastic fruit trees) singled out by Columbus Underground for a super-crunchy grilled-chicken banh mi and picked as a reviewers' favorite on alt.eats.columbus (Columbus Food Adventures). Google ~4.4 with high volume.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-huong-vietnamese-restaurant-morse-ma1/"
+    ],
+    [
+     "CFA",
+     "https://alteatscolumbus.com/2010/03/12/huong/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OSU",
+   "n": "Meshikou",
+   "ad": "1506 Bethel Rd, Columbus, OH 43220",
+   "w": "Columbus' pioneering ramen shop (Bethel Centre), routinely called the best ramen in the city — and named best in Ohio by a national food guide. Columbus Monthly ran a First Look, and it's covered on alt.eats.columbus and by creator Breakfast With Nick. Yelp 587 reviews / Google high-rated.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2014/10/30/first-look-ramen-at-meshikou/22779587007/"
+    ],
+    [
+     "CFA",
+     "https://alteatscolumbus.com/2014/10/10/meshikou/"
+    ],
+    [
+     "BWNICK",
+     "https://breakfastwithnick.com/2014/11/18/breakfast-meshikou/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BURB",
+   "n": "Haru Omakase",
+   "ad": "2027 Polaris Pkwy, Columbus, OH 43240",
+   "w": "Columbus' first dedicated omakase counter (Polaris), from restaurateurs Jeff and Yenny Tsao — a $89+ set-menu tasting The Infatuation calls one of the most memorable dining experiences in Columbus, and named to Columbus Monthly's Best Restaurants 2025.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/columbus/reviews/haru-omakase-polaris-pkwy"
+    ],
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/haru-omakase-best-restaurants-in-columbus-2025/85194198007/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SN",
+   "n": "ROOH Columbus",
+   "ad": "685 N High St, Columbus, OH 43215",
+   "w": "\"Progressive Indian\" in the Short North — creative spins on traditional recipes with a strong bar. Reviewed by Columbus Underground (\"Traditional Indian Meets Modern Sophistication\"), featured by The Infatuation, and cited among Columbus Monthly's Best New Restaurants.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/restaurant-review-traditional-indian-meets-modern-sophistication-at-rooh-ma1/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/columbus/reviews/rooh"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "6-1-Pho",
+   "ad": "4386 N High St, Columbus, OH 43214",
+   "w": "Fast-casual, build-your-own Clintonville pho shop whose broth is brewed two days before serving, with an unusually deep vegetarian/vegan/gluten-free menu. Opening covered by Columbus Underground and a Columbus Dispatch roundup. Google ~4.5.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/6-1-pho-to-bring-vietnamese-flavor-to-clintonville-rw1/"
+    ],
+    [
+     "DISPATCH",
+     "https://www.aol.com/articles/st-patricks-day-hangover-columbus-100024800.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Los Potosinos",
+   "ad": "695 E Long St, Columbus, OH 43203",
+   "w": "A decade-plus Columbus taco-truck institution famous for smoky charcoal pollo al carbon, which opened its first King-Lincoln storefront in 2024. On Experience Columbus' best-tacos guide and documented by creator Breakfast With Nick. (The old 1500 E Long truck lot shows closed on Yelp; the 695 E Long storefront is open.)",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "EXPERIENCECBUS",
+     "https://www.experiencecolumbus.com/blog/post/where-to-find-the-best-tacos-in-columbus/"
+    ],
+    [
+     "BWNICK",
+     "https://breakfastwithnick.com/2024/05/06/los-potosinos-storefront-king-lincoln/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EAST",
+   "n": "Fork in Nigeria",
+   "ad": "3696 E Main St, Columbus, OH 43213",
+   "w": "Self-styled \"most popular African food truck in the USA,\" made TikTok-viral by the fufu challenge and expanding to a brick-and-mortar at the Historic Trolley District's East Market (2026). Local expansion covered by NBC4; the viral rise documented by The Detroit News.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NBC4",
+     "https://www.nbc4i.com/news/local-news/columbus/tiktok-famous-nigerian-food-truck-to-open-in-columbus-east-market/"
+    ],
+    [
+     "DETROITNEWS",
+     "https://www.detroitnews.com/story/entertainment/dining/2021/03/01/food-truck-fork-nigeria-preservers-during-pandemic-gets-help-tiktok-fufu-challenge/6832974002/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Drelyse African Restaurant",
+   "ad": "1911 Tamarack Cir N, Columbus, OH 43229",
+   "w": "Northland Ghanaian restaurant from chef Lisa Bannerman, reviewed by Ohio Magazine and given a fresh Axios Columbus review (2025) praising jollof \"comparable to Ghana,\" and long covered on alt.eats.columbus. Google ~4.6 with strong volume.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "OHIOMAGAZINE",
+     "https://www.ohiomagazine.com/food-drink/article/drelyse-african-restaurant-columbus"
+    ],
+    [
+     "AXIOSCOLUMBUS",
+     "https://www.axios.com/local/columbus/2025/08/04/drelyse-african-restaurant-ghanaian-food-review"
+    ],
+    [
+     "CFA",
+     "https://alteatscolumbus.com/2010/04/02/drelyse/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OSU",
+   "n": "NE Chinese Restaurant",
+   "ad": "2620 N High St, Columbus, OH 43202",
+   "w": "University District specialist in Dongbei (Northeastern/Manchurian) Chinese cooking — a rare regional cuisine for the city, reviewed by Columbus Underground and Columbus Monthly (\"Short Order\") and written up by creator Breakfast With Nick. Google high-rated with real volume.",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "COLUMBUSUNDERGROUND",
+     "https://columbusunderground.com/review-ne-chinese-restaurant-ma1/"
+    ],
+    [
+     "COLUMBUSMONTHLY",
+     "https://www.columbusmonthly.com/story/lifestyle/food/2018/01/08/short-order-ne-chinese-restaurant/16357209007/"
+    ],
+    [
+     "BWNICK",
+     "https://breakfastwithnick.com/2018/06/05/breakfast-ne-chinese-restaurant/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "DTN",
    "n": "Speck Italian Eatery",
    "ad": "89 N High St, Columbus, OH 43215",
@@ -1799,9 +2546,10 @@
   {
    "t": 2,
    "a": "SN",
-   "n": "Yellow Brick Pizza",
+   "n": "Yellow Brick Pizza — CLOSED",
    "ad": "245 King Ave, Columbus, OH 43201",
    "w": "Victorian Village pizzeria (the original Olde Towne East shop closed) known for imaginative, made-to-order wood-fired triangle-cut pies, a rockin' beer list and a big sense of humor.",
+   "closed": true,
    "cz": [
     "PIZZA"
    ],
@@ -2118,6 +2866,50 @@
   },
   {
    "t": 1,
+   "a": "MADISON",
+   "n": "Ann & Tony's Restaurant",
+   "ad": "211 E Main St, West Jefferson, OH 43162",
+   "w": "A West Jefferson institution on the old National Road since 1950 — 75-plus years of family-run Italian, pasta made in house and a red sauce simmered a minimum of six hours. The long-running Columbus food blog CMH Gourmand profiled it, and it's a perennial name on Columbus Underground's community 'great/cheap Italian' threads. Measured: #1 of 19 West Jefferson restaurants on Tripadvisor. Live music the last Tuesday of each month.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "CMHGOURMAND",
+     "https://cmhgourmand.com/2009/11/30/ann-and-tonys-west-jefferson-italian/"
+    ],
+    [
+     "COLUMBUSUG",
+     "https://www.columbusunderground.com/forums/topic/great-italian-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MADISON",
+   "n": "The Red Brick Tavern",
+   "ad": "1700 Cumberland St, London, OH 43140",
+   "w": "A genuine National Road landmark still serving dinner — built 1836–37 in Lafayette and reputed to be Ohio's second-oldest stagecoach inn, host to six U.S. presidents (subject of an Ohio Historical Marker and National Road travel histories). Known today for prime rib and home-cooked specials. Open Tue–Sat (active listings, Aug 2026). Merit is the landmark itself; food is honest tavern fare.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=96415"
+    ],
+    [
+     "TOURINGOHIO",
+     "https://touring-ohio.com/history/national-road-inns.html"
+    ],
+    [
+     "NATLROADBLOG",
+     "https://blog.jimgrey.net/2023/03/03/the-national-road-in-ohio-the-red-brick-tavern/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "SN",
    "n": "Mikey's Late Night Slice",
    "ad": "1030 N High St, Columbus, OH 43201",
@@ -2181,17 +2973,41 @@
   }
  ],
  "S": {
+  "ARCHITECTMAG": {
+   "k": "ARCHITECTMAG",
+   "t": "Architect Magazine",
+   "u": "https://www.architectmagazine.com/",
+   "l": "Architect Magazine"
+  },
+  "ARTHOUSE": {
+   "k": "ARTHOUSE",
+   "t": "Art House Theaters (Art House Convergence directory)",
+   "u": "https://www.arthousetheaters.com/",
+   "l": "Art House Theaters (Art House Convergence directory)"
+  },
   "ATLASOBSCURA": {
    "k": "ATLAS OBSCURA",
    "t": "Atlas Obscura",
    "u": "https://www.atlasobscura.com",
    "l": "Atlas Obscura"
   },
+  "BIRDING_HOTSPOTS": {
+   "k": "BIRDING HOTSPOTS",
+   "t": "Birding in Ohio (eBird hotspot atlas)",
+   "u": "https://birding-in-ohio.com",
+   "l": "Birding in Ohio (eBird hotspot atlas)"
+  },
   "CAPA": {
    "k": "CAPA",
    "t": "Columbus Association for the Performing Arts",
    "u": "https://www.capa.com",
    "l": "Columbus Association for the Performing Arts"
+  },
+  "CITYSCENE": {
+   "k": "CITYSCENE",
+   "t": "CityScene Magazine (Columbus)",
+   "u": "https://www.cityscenecolumbus.com/",
+   "l": "CityScene Magazine (Columbus)"
   },
   "COLUMBUSMAKESART": {
    "k": "COLUMBUSMAKESART",
@@ -2211,11 +3027,29 @@
    "u": "https://columbusunderground.com",
    "l": "Columbus Underground"
   },
+  "DISPATCH": {
+   "k": "COLUMBUS DISPATCH",
+   "t": "The Columbus Dispatch",
+   "u": "https://www.dispatch.com/",
+   "l": "The Columbus Dispatch"
+  },
   "EXPERIENCECBUS": {
    "k": "EXPERIENCE COLUMBUS",
    "t": "Experience Columbus",
    "u": "https://www.experiencecolumbus.com",
    "l": "Experience Columbus"
+  },
+  "HMDB": {
+   "k": "HMDB",
+   "t": "The Historical Marker Database",
+   "u": "https://www.hmdb.org",
+   "l": "The Historical Marker Database"
+  },
+  "LOC": {
+   "k": "LOC",
+   "t": "Library of Congress (HABS survey)",
+   "u": "https://www.loc.gov",
+   "l": "Library of Congress (HABS survey)"
   },
   "METROPARKS": {
    "k": "METROPARKS",
@@ -2246,6 +3080,12 @@
    "t": "Ohio Magazine",
    "u": "https://www.ohiomagazine.com",
    "l": "Ohio Magazine"
+  },
+  "SEEOHIOFIRST": {
+   "k": "SEEOHIOFIRST",
+   "t": "See Ohio First (Ohio History Connection network)",
+   "u": "https://seeohiofirst.org",
+   "l": "See Ohio First (Ohio History Connection network)"
   },
   "VISITDUBLIN": {
    "k": "VISITDUBLIN",
@@ -2309,6 +3149,12 @@
    "u": "",
    "l": ""
   },
+  "AXIOSCOLUMBUS": {
+   "k": "AXIOSCOLUMBUS",
+   "t": "AXIOSCOLUMBUS",
+   "u": "",
+   "l": ""
+  },
   "BARBECUEBROS": {
    "k": "BARBECUEBROS",
    "t": "BARBECUEBROS",
@@ -2333,9 +3179,21 @@
    "u": "",
    "l": ""
   },
+  "CFA": {
+   "k": "CFA",
+   "t": "CFA",
+   "u": "",
+   "l": ""
+  },
   "CITYSCENE": {
    "k": "CITYSCENE",
-   "t": "CITYSCENE",
+   "t": "CityScene Magazine (Columbus)",
+   "u": "https://www.cityscenecolumbus.com/",
+   "l": "CityScene Magazine (Columbus)"
+  },
+  "CMHGOURMAND": {
+   "k": "CMHGOURMAND",
+   "t": "CMHGOURMAND",
    "u": "",
    "l": ""
   },
@@ -2351,11 +3209,29 @@
    "u": "https://www.columbusnavigator.com",
    "l": "Columbus Navigator"
   },
+  "COLUMBUSUG": {
+   "k": "COLUMBUSUG",
+   "t": "COLUMBUSUG",
+   "u": "",
+   "l": ""
+  },
   "COLUMBUSUNDERGROUND": {
    "k": "COLUMBUS UNDERGROUND",
    "t": "Columbus Underground",
    "u": "https://columbusunderground.com",
    "l": "Columbus Underground"
+  },
+  "DETROITNEWS": {
+   "k": "DETROITNEWS",
+   "t": "DETROITNEWS",
+   "u": "",
+   "l": ""
+  },
+  "DISPATCH": {
+   "k": "COLUMBUS DISPATCH",
+   "t": "The Columbus Dispatch",
+   "u": "https://www.dispatch.com/",
+   "l": "The Columbus Dispatch"
   },
   "DOWNTOWNCOLUMBUS": {
    "k": "DOWNTOWNCOLUMBUS",
@@ -2375,9 +3251,21 @@
    "u": "https://www.experiencecolumbus.com",
    "l": "Experience Columbus"
   },
+  "HMDB": {
+   "k": "HMDB",
+   "t": "The Historical Marker Database",
+   "u": "https://www.hmdb.org",
+   "l": "The Historical Marker Database"
+  },
   "INFATUATION": {
    "k": "INFATUATION",
    "t": "INFATUATION",
+   "u": "",
+   "l": ""
+  },
+  "NATLROADBLOG": {
+   "k": "NATLROADBLOG",
+   "t": "NATLROADBLOG",
    "u": "",
    "l": ""
   },
@@ -2392,6 +3280,12 @@
    "t": "Official site",
    "u": "",
    "l": "Official site"
+  },
+  "OHIOMAGAZINE": {
+   "k": "OHIOMAGAZINE",
+   "t": "OHIOMAGAZINE",
+   "u": "",
+   "l": ""
   },
   "SHORTNORTH": {
    "k": "SHORTNORTH",
@@ -2414,6 +3308,12 @@
   "TENTV": {
    "k": "10TV",
    "t": "10TV",
+   "u": "",
+   "l": ""
+  },
+  "TOURINGOHIO": {
+   "k": "TOURINGOHIO",
+   "t": "TOURINGOHIO",
    "u": "",
    "l": ""
   },
