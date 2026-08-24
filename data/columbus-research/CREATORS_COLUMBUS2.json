@@ -1,0 +1,20 @@
+{
+  "creators": [],
+  "_note": "This pass added no brand-new vetted creator: the corroboration used existing, already-registered/verified creators BWNICK (Breakfast With Nick) and CFA (Columbus Food Adventures / alt.eats.columbus). merge-creators.py dedups by key, so the attach entries below wire to those existing creator records without clobbering CREATORS.json.",
+  "attach": [
+    {"place": "Bonifacio", "creatorKey": "BWNICK", "url": "https://breakfastwithnick.com/2016/10/18/breakfast-kamayan-night-bonifacio/"},
+    {"place": "Afra Grill", "creatorKey": "BWNICK", "url": "https://breakfastwithnick.com/2020/08/18/beyond-breakfast-afra-grill/"},
+    {"place": "Meshikou", "creatorKey": "BWNICK", "url": "https://breakfastwithnick.com/2014/11/18/breakfast-meshikou/"},
+    {"place": "Meshikou", "creatorKey": "CFA", "url": "https://alteatscolumbus.com/2014/10/10/meshikou/"},
+    {"place": "Huong Vietnamese Restaurant", "creatorKey": "CFA", "url": "https://alteatscolumbus.com/2010/03/12/huong/"},
+    {"place": "Drelyse African Restaurant", "creatorKey": "CFA", "url": "https://alteatscolumbus.com/2010/04/02/drelyse/"},
+    {"place": "NE Chinese Restaurant", "creatorKey": "BWNICK", "url": "https://breakfastwithnick.com/2018/06/05/breakfast-ne-chinese-restaurant/"},
+    {"place": "Los Potosinos", "creatorKey": "BWNICK", "url": "https://breakfastwithnick.com/2024/05/06/los-potosinos-storefront-king-lincoln/"}
+  ],
+  "rejected": [
+    {"name": "The Columbus Foodletter (columbusfoodletter.substack.com)", "platform": "Substack", "reason": "Surfaced repeatedly on Somali/Uyghur/dim-sum topics, but author identity and subscriber/following scale could not be verified within budget — popularity you can't verify isn't popularity. Not counted toward any place's ≥2-credible gate."},
+    {"name": "CMH Gourmand (cmhgourmand.com)", "platform": "Blog (long-running Columbus food blog)", "reason": "Real track record since 2006 with genuine Columbus/taco-truck coverage, but follower/reach scale unverified; used only as supporting color (e.g., Los Potosinos), never as a counted credible source."},
+    {"name": "The 614orty-Niner (614ortyniner.blogspot.com)", "platform": "Blogspot", "reason": "Small, dated personal blog; no verifiable sizable following. Not counted."},
+    {"name": "Columbus Navigator (columbusnavigator.com)", "platform": "SEO listicle site", "reason": "Anonymous/aggregator 'best of' listicles with no verifiable bylined authority — rejected per the SEO-content-farm rule; used only to locate candidates, never as a source."}
+  ]
+}
