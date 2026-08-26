@@ -1,0 +1,13 @@
+{
+  "outlets": [
+    {"key":"MICHELIN","name":"MICHELIN Guide Singapore (stars / Bib Gourmand)","url":"https://guide.michelin.com/sg/en","tier":"institutional"},
+    {"key":"EATBOOK","name":"Eatbook.sg","url":"https://eatbook.sg/","tier":"credible-local"},
+    {"key":"SETHLUI","name":"Seth Lui (sethlui.com)","url":"https://sethlui.com/","tier":"credible-local"},
+    {"key":"DFD","name":"Daniel Food Diary (danielfooddiary.com)","url":"https://danielfooddiary.com/","tier":"credible-local"},
+    {"key":"HERWORLD","name":"Her World Singapore (SPH Media)","url":"https://www.herworld.com/","tier":"credible-local"},
+    {"key":"TIMEOUT","name":"Time Out Singapore","url":"https://www.timeout.com/singapore","tier":"credible-local"},
+    {"key":"ASIAONE","name":"AsiaOne (SPH Media)","url":"https://www.asiaone.com/","tier":"credible-local"},
+    {"key":"SCMP","name":"South China Morning Post","url":"https://www.scmp.com/","tier":"major-press"},
+    {"key":"WIKI","name":"Wikipedia (notability / cross-check only)","url":"https://en.wikipedia.org/","tier":"cross-check"}
+  ]
+}

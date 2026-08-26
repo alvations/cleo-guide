@@ -1,0 +1,22 @@
+{
+  "outlets": [
+    {"key":"MICHELIN","name":"MICHELIN Guide Singapore (stars / Bib Gourmand)","url":"https://guide.michelin.com/sg/en","tier":"institutional","note":"Lone-authority OK. Bib Gourmand = gold for hawkers."},
+    {"key":"EATBOOK","name":"Eatbook.sg","url":"https://eatbook.sg/","tier":"credible-local","note":"Established Singapore food editorial."},
+    {"key":"SETHLUI","name":"Seth Lui (sethlui.com)","url":"https://sethlui.com/","tier":"credible-local","note":"Established Singapore food editorial."},
+    {"key":"DFD","name":"Daniel Food Diary (danielfooddiary.com)","url":"https://danielfooddiary.com/","tier":"credible-local","note":"Long-running SG food outlet, founder Daniel Ang."},
+    {"key":"MTC","name":"Miss Tam Chiak (misstamchiak.com)","url":"https://www.misstamchiak.com/","tier":"credible-local","note":"Maureen Ow; established SG food creator/outlet."},
+    {"key":"HGW","name":"HungryGoWhere","url":"https://hungrygowhere.com/","tier":"credible-local"},
+    {"key":"TIMEOUT","name":"Time Out Singapore","url":"https://www.timeout.com/singapore","tier":"credible-local"},
+    {"key":"HERWORLD","name":"Her World Singapore (SPH Media)","url":"https://www.herworld.com/","tier":"credible-local"},
+    {"key":"WOMENSWEEKLY","name":"The Singapore Women's Weekly (SPH Media)","url":"https://www.womensweekly.com.sg/","tier":"credible-local"},
+    {"key":"ASIAONE","name":"AsiaOne (SPH Media)","url":"https://www.asiaone.com/","tier":"credible-local"},
+    {"key":"HONEYCOMBERS","name":"The Honeycombers / HoneyKids Asia","url":"https://thehoneycombers.com/singapore/","tier":"credible-local"},
+    {"key":"TATLER","name":"Tatler Asia / Tatler Singapore","url":"https://www.tatlerasia.com/","tier":"credible"},
+    {"key":"SCMP","name":"South China Morning Post","url":"https://www.scmp.com/","tier":"major-press"},
+    {"key":"VICE","name":"VICE","url":"https://www.vice.com/","tier":"major-press"},
+    {"key":"IEAT","name":"ieatishootipost (Dr Leslie Tay)","url":"https://ieatishootipost.sg/","tier":"credible-creator","note":"Verified authority; see CREATORS_SGC."},
+    {"key":"CHINATOWNSG","name":"Chinatown Singapore (precinct site, STB-supported)","url":"https://chinatown.sg/","tier":"official-precinct"},
+    {"key":"VISITSG","name":"Visit Singapore (Singapore Tourism Board)","url":"https://www.visitsingapore.com/","tier":"official"},
+    {"key":"WIKI","name":"Wikipedia (notability / cross-check only)","url":"https://en.wikipedia.org/","tier":"cross-check"}
+  ]
+}

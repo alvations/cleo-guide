@@ -1,0 +1,16 @@
+{
+  "outlets": [
+    {"key":"MICHELIN","name":"MICHELIN Guide Singapore (stars / Bib Gourmand)","url":"https://guide.michelin.com/sg/en","tier":"institutional"},
+    {"key":"EATBOOK","name":"Eatbook.sg","url":"https://eatbook.sg/","tier":"credible-local"},
+    {"key":"SETHLUI","name":"Seth Lui (sethlui.com)","url":"https://sethlui.com/","tier":"credible-local"},
+    {"key":"DFD","name":"Daniel Food Diary (danielfooddiary.com)","url":"https://danielfooddiary.com/","tier":"credible-local"},
+    {"key":"MTC","name":"Miss Tam Chiak (misstamchiak.com)","url":"https://www.misstamchiak.com/","tier":"credible-local"},
+    {"key":"TIMEOUT","name":"Time Out Singapore","url":"https://www.timeout.com/singapore","tier":"credible-local"},
+    {"key":"HERWORLD","name":"Her World Singapore (SPH Media)","url":"https://www.herworld.com/","tier":"credible-local"},
+    {"key":"WOMENSWEEKLY","name":"The Singapore Women's Weekly (SPH Media)","url":"https://www.womensweekly.com.sg/","tier":"credible-local"},
+    {"key":"ASIAONE","name":"AsiaOne (SPH Media)","url":"https://www.asiaone.com/","tier":"credible-local"},
+    {"key":"ROOTS","name":"Roots.gov.sg (National Heritage Board)","url":"https://www.roots.gov.sg/","tier":"official"},
+    {"key":"WIKI","name":"Wikipedia (notability / cross-check only)","url":"https://en.wikipedia.org/","tier":"cross-check"},
+    {"key":"JOHORKAKI","name":"Johor Kaki (Tony Boey food blog)","url":"https://johorkaki.blogspot.com/","tier":"blog-supporting","note":"Used ONLY to document the Eng Seng (CLOSED) relocation; not counted toward the 2-credible bar."}
+  ]
+}

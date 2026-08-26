@@ -1,0 +1,17 @@
+{
+  "creators": [
+    {"key":"IEAT","name":"Dr Leslie Tay — ieatishootipost","platform":"Blog + FB + IG + YouTube + TikTok","followers":"FB ~399K, IG ~181K, YouTube ~69.5K, TikTok ~18.9K","url":"https://ieatishootipost.sg/about/","note":"VETTED: 15+ years, senior family physician, one of Singapore's most authoritative hawker-food chroniclers. Counts as ONE corroborating source, never an authority."},
+    {"key":"MTC","name":"Maureen Ow — Miss Tam Chiak","platform":"Blog + IG + YouTube","followers":"Established sizeable following (not re-measured this pass)","url":"https://www.misstamchiak.com/","note":"VETTED established SG food creator/outlet; findable long-form content. Corroborating source only."}
+  ],
+  "attach": [
+    {"place":"Old Amoy Chendol","creator":"IEAT","url":"https://ieatishootipost.sg/old-amoy-cendol-truly-artisanal-chendol/","note":"Full findable review; corroborates the chendol alongside the Chinatown precinct listing."},
+    {"place":"Famous Sungei Road Trishaw Laksa","creator":"MTC","url":"https://www.misstamchiak.com/famous-sungei-road-trishaw-laksa/","note":"Findable review; pairs with the MICHELIN Bib lone-authority."}
+  ],
+  "rejected": [
+    {"domain":"bestinsingapore.com / thebestsingapore.com / thebestofsingapore.com","reason":"Anonymous SEO listicle farms — unverifiable authorship/following."},
+    {"domain":"kaizenaire.com / urbanlens.com.sg / mysgmenu.com / adtocart.ai","reason":"SEO/AI content farms, no verifiable track record."},
+    {"domain":"monsterdaytours.com / singareviews.com / tallypress / foodparadise.network","reason":"Aggregator/SEO content, not credible recommenders."},
+    {"domain":"Tripadvisor / Yelp / Burpple / OpenTable / Google","reason":"Ratings platforms — may MEASURE popularity, never count toward the 2-credible bar."},
+    {"domain":"Viator / Klook / Wanderlog / Holidify / Trip.com","reason":"Booking/aggregator sites, not editorial recommenders."}
+  ]
+}

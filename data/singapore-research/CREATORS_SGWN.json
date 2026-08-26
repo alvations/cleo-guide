@@ -1,0 +1,15 @@
+{
+  "creators": [
+    {"key":"DFD","name":"Daniel Ang — Daniel Food Diary","platform":"danielfooddiary.com + IG + FB","followers":"Established sizeable following (not re-measured this pass)","url":"https://danielfooddiary.com/","note":"VETTED long-running SG food creator/outlet; findable per-place reviews. Corroborating source only."},
+    {"key":"SETHLUI","name":"Seth Lui","platform":"sethlui.com + IG","followers":"Established sizeable following (not re-measured this pass)","url":"https://sethlui.com/","note":"VETTED food creator/outlet."}
+  ],
+  "attach": [
+    {"place":"Boon Tong Kee (Balestier)","creator":"DFD","url":"https://danielfooddiary.com/2025/07/18/boontongkee/","note":"Findable review of the 2025 Michelin-Bib promotion; pairs with MICHELIN + AsiaOne."},
+    {"place":"Fu Ming Cooked Food","creator":"SETHLUI","url":"https://sethlui.com/fu-ming-cooked-food-carrot-cake-singapore/","note":"Findable review; pairs with MICHELIN Bib + Eatbook."}
+  ],
+  "rejected": [
+    {"domain":"bestinsingapore.com / thebestsingapore.com / thebestofsingapore.com","reason":"Anonymous SEO listicle farms."},
+    {"domain":"supasoya.com / neighbourhoodlife.com.sg / misslobang.com","reason":"Unverified aggregator/affiliate listicles — not counted toward the 2-credible bar."},
+    {"domain":"Tripadvisor / Yelp / Burpple","reason":"Ratings/aggregators — measure only, never a recommender."}
+  ]
+}
