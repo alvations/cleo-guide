@@ -46,7 +46,12 @@ research = [p for p in glob.glob(os.path.join(rdir, "*.json"))
            and "dataset" not in os.path.basename(p)]
 byplace = {}
 for a in attach:
-    byplace.setdefault(a["place"], []).append((a["creatorKey"], a.get("url", "")))
+    # accept both field names: `creatorKey` (canonical) and `creator` (some agents emit this); skip malformed
+    ck = a.get("creatorKey") or a.get("creator")
+    place = a.get("place")
+    if not ck or not place:
+        continue
+    byplace.setdefault(place, []).append((ck, a.get("url", "")))
 applied = 0; touched = set()
 for path in research:
     d = json.load(open(path, encoding="utf-8"))
