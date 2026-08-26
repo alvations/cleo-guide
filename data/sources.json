@@ -3807,6 +3807,754 @@
         }
       ],
       "refreshLog": []
+    },
+    "singapore": {
+      "name": "singapore",
+      "sources": [
+        {
+          "key": "INDONESIATRAVEL",
+          "name": "Wonderful Indonesia (Ministry of Tourism)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO — Cultural Landscape of Bali Province (Subak)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "FODORS",
+          "name": "Fodor's Travel",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN Guide Thailand",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BKMAG",
+          "name": "BK Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMEOUTBKK",
+          "name": "Time Out Bangkok",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EATINGTHAIFOOD",
+          "name": "Eating Thai Food (Mark Wiens)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TATNEWS",
+          "name": "Tourism Authority of Thailand",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "CHANGPUAK",
+          "name": "Chang Puak Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VNEXPRESS",
+          "name": "VnExpress International",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VIETNAMCORACLE",
+          "name": "Vietnam Coracle (Tom Divers)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "DANIELFOOD",
+          "name": "Daniel Food Diary",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VIETCETERA",
+          "name": "Vietcetera",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WANDERLUSH",
+          "name": "Wander-Lush (Emily Lush)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "AFAR",
+          "name": "AFAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "Cuisine Wat Damnak (official)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMEOUTJKT",
+          "name": "Time Out Jakarta",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ANAKJAJAN",
+          "name": "AnakJajan (Marius Tjenderasa & Julia Veronica)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "NEXCARLOS",
+          "name": "Nex Carlos",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ASIA50BEST",
+          "name": "Asia's 50 Best — Essence of Asia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EATDRINKKL",
+          "name": "Eat Drink KL (Sean Yoong)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "KLFOODIE",
+          "name": "KL Foodie",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMEOUTKL",
+          "name": "Time Out Kuala Lumpur",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TOURISMMY",
+          "name": "Tourism Malaysia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SILVERKRIS",
+          "name": "SilverKris (Singapore Airlines magazine)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MARKWIENS",
+          "name": "Mark Wiens / Migrationology",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SPOTPH",
+          "name": "Spot.ph",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "RAPPLER",
+          "name": "Rappler",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "FEATR",
+          "name": "FEATR / Erwan Heussaff",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OURAWESOMEPLANET",
+          "name": "Our Awesome Planet (Anton Diaz)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "AUTHENTICFOODQUEST",
+          "name": "Authentic Food Quest",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "GUIDETOPH",
+          "name": "Guide to the Philippines",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PENANGFOODIE",
+          "name": "Penang Foodie",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITPENANG",
+          "name": "Visit Penang (Penang Global Tourism)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "THESTAR",
+          "name": "The Star",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MALAYMAIL",
+          "name": "Malay Mail",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SETHLUI",
+          "name": "Seth Lui",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EATBOOK",
+          "name": "Eatbook.sg",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "DFD",
+          "name": "Daniel Food Diary (danielfooddiary.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MTC",
+          "name": "Miss Tam Chiak (misstamchiak.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HGW",
+          "name": "HungryGoWhere",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "Time Out Singapore",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HERWORLD",
+          "name": "Her World Singapore (SPH Media)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WOMENSWEEKLY",
+          "name": "The Singapore Women's Weekly (SPH Media)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ASIAONE",
+          "name": "AsiaOne (SPH Media)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HONEYCOMBERS",
+          "name": "The Honeycombers / HoneyKids Asia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TATLER",
+          "name": "Tatler Asia / Tatler Singapore",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SCMP",
+          "name": "South China Morning Post",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VICE",
+          "name": "VICE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "IEAT",
+          "name": "ieatishootipost (Dr Leslie Tay)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "CHINATOWNSG",
+          "name": "Chinatown Singapore (precinct site, STB-supported)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITSG",
+          "name": "Visit Singapore (Singapore Tourism Board)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKI",
+          "name": "Wikipedia (notability / cross-check only)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ROOTS",
+          "name": "Roots.gov.sg (National Heritage Board)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "JOHORKAKI",
+          "name": "Johor Kaki (Tony Boey food blog)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN Bib Gourmand (Singapore)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MISSTAMCHIAK",
+          "name": "Miss Tam Chiak",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HUNGRYGOWHERE",
+          "name": "HungryGoWhere",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MAKANSUTRA",
+          "name": "Makansutra",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MOTHERSHIP",
+          "name": "Mothership",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ROOTSSG",
+          "name": "Roots.gov.sg (NHB)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LITTLEDAYOUT",
+          "name": "Little Day Out",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMEOUTSG",
+          "name": "Time Out Singapore",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HDB",
+          "name": "HDB (MyNiceHome)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "CHANGI",
+          "name": "CHANGI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CHNC",
+          "name": "CHNC",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "EATLIKEBOURDAIN",
+          "name": "EATLIKEBOURDAIN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GOBACKPACKING",
+          "name": "GOBACKPACKING",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MANDAI",
+          "name": "MANDAI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MBS",
+          "name": "MBS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NHB",
+          "name": "NHB",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NLB",
+          "name": "NLB",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NPARKS",
+          "name": "NPARKS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": [
+        {
+          "key": "MARKWIENS",
+          "name": "Mark Wiens",
+          "platform": "YouTube/web (Migrationology, Eating Thai Food)",
+          "followers": "11.7M YouTube",
+          "url": "https://migrationology.com/street-food-bangkok/",
+          "verified": "Bangkok-based since ~2013; the single largest food-travel channel, extensive Bangkok street-food coverage incl. Jay Fai & Thip Samai."
+        },
+        {
+          "key": "DANIELFOOD",
+          "name": "Daniel Food Diary",
+          "platform": "web",
+          "followers": "established regional food blog",
+          "url": "https://danielfooddiary.com/2019/09/13/korpanich/",
+          "verified": "Named Kor Panich mango-sticky-rice piece."
+        },
+        {
+          "key": "VIETNAMCORACLE",
+          "name": "Vietnam Coracle (Tom Divers)",
+          "platform": "web",
+          "followers": "top independent Vietnam travel resource; word-of-mouth, no sponsors",
+          "url": "https://www.vietnamcoracle.com/",
+          "verified": "Resident since 2005, 400+ meticulously-researched guides incl. HCMC street food."
+        },
+        {
+          "key": "WANDERLUSH",
+          "name": "Emily Lush (Wander-Lush)",
+          "platform": "web/IG",
+          "followers": "600+ guides; contributor to National Geographic Traveller & Conde Nast Traveller",
+          "url": "https://wander-lush.org/eat-khmer-food-phnom-penh/",
+          "verified": "Lived/worked in Phnom Penh; resident-expert Cambodia & Laos food/travel guides."
+        },
+        {
+          "key": "NEXCARLOS",
+          "name": "Nex Carlos (Carolus Nogroly Limdyanto)",
+          "platform": "YouTube",
+          "followers": "5.2M subscribers (Aug 2025)",
+          "url": "https://www.youtube.com/@NexCarlos",
+          "verified": "Indonesia's best-known food vlogger; Jabodetabek focus, prioritises lesser-known quality spots."
+        },
+        {
+          "key": "ANAKJAJAN",
+          "name": "AnakJajan (Marius & Julia)",
+          "platform": "web/IG",
+          "followers": "award-winning top Indonesian food blog",
+          "url": "https://anakjajan.com/",
+          "verified": "Long-running Jakarta restaurant review pair."
+        },
+        {
+          "key": "KLFOODIE",
+          "name": "KL Foodie",
+          "platform": "Instagram/FB/web",
+          "followers": "~2M IG (@kl.foodie)",
+          "url": "https://www.instagram.com/kl.foodie/",
+          "verified": "Good Foodie Media Sdn Bhd; 1,200+ Klang Valley eateries covered since 2018."
+        },
+        {
+          "key": "SETHLUI",
+          "name": "Seth Lui",
+          "platform": "web/IG",
+          "followers": "major regional food publication",
+          "url": "https://sethlui.com/village-park-restaurant-malaysia/",
+          "verified": "Named piece on Village Park nasi lemak."
+        },
+        {
+          "key": "FEATR",
+          "name": "Erwan Heussaff (FEATR)",
+          "platform": "YouTube/IG",
+          "followers": "~4.6M IG; 2023 James Beard Media Award (Social Media)",
+          "url": "https://www.youtube.com/@FEATRmedia",
+          "verified": "Filipino-French food-media producer; documentary FEATR episodes on Manila sisig and Cebu food."
+        },
+        {
+          "key": "OURAWESOMEPLANET",
+          "name": "Anton Diaz (Our Awesome Planet)",
+          "platform": "web/IG",
+          "followers": "veteran high-following PH food blog",
+          "url": "https://awesome.blog/2016/10/ricos-lechon-in-cebu.html",
+          "verified": "Named Rico's Lechon Cebu review."
+        },
+        {
+          "key": "PENANGFOODIE",
+          "name": "Penang Foodie",
+          "platform": "web/IG/FB",
+          "followers": "large local following (Good Foodie Media)",
+          "url": "https://penangfoodie.com/",
+          "verified": "Named Line Clear nasi kandar review."
+        },
+        {
+          "key": "IEAT",
+          "name": "Dr Leslie Tay — ieatishootipost",
+          "platform": "Blog + FB + IG + YouTube + TikTok",
+          "followers": "FB ~399K, IG ~181K, YouTube ~69.5K, TikTok ~18.9K",
+          "url": "https://ieatishootipost.sg/about/",
+          "note": "VETTED: 15+ years, senior family physician, one of Singapore's most authoritative hawker-food chroniclers. Counts as ONE corroborating source, never an authority."
+        },
+        {
+          "key": "MTC",
+          "name": "Maureen Ow — Miss Tam Chiak",
+          "platform": "Blog + IG + YouTube",
+          "followers": "Established sizeable following (not re-measured this pass)",
+          "url": "https://www.misstamchiak.com/",
+          "note": "VETTED established SG food creator/outlet; findable long-form content. Corroborating source only."
+        },
+        {
+          "key": "DFD",
+          "name": "Daniel Ang — Daniel Food Diary",
+          "platform": "danielfooddiary.com + IG + FB",
+          "followers": "Established sizeable following (not re-measured this pass)",
+          "url": "https://danielfooddiary.com/",
+          "note": "VETTED long-running SG food creator/outlet; findable per-place reviews. Corroborating source only."
+        },
+        {
+          "key": "GHIBOJISAN",
+          "name": "Ghib Ojisan",
+          "platform": "YouTube",
+          "followers": "354K subscribers",
+          "url": "https://www.youtube.com/c/GhibOjisan"
+        },
+        {
+          "key": "IEATISHOOTIPOST",
+          "name": "Dr Leslie Tay (ieatishootipost)",
+          "platform": "Blog / YouTube",
+          "followers": "Award-winning food blog since 2006 + YouTube channel",
+          "url": "https://ieatishootipost.sg"
+        },
+        {
+          "key": "EXPLODINGBELLY",
+          "name": "Clara Chua (Exploding Belly)",
+          "platform": "TikTok",
+          "followers": "112K followers",
+          "url": "https://www.tiktok.com/@explodingbelly"
+        }
+      ]
     }
   }
 }

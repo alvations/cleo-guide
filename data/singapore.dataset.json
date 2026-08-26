@@ -1,0 +1,4763 @@
+{
+ "areas": [
+  {
+   "id": "TPY",
+   "n": "Toa Payoh"
+  },
+  {
+   "id": "SGC",
+   "n": "Singapore Central (Marina Bay, Chinatown, Kampong Glam, Little India, Bugis, Orchard)"
+  },
+  {
+   "id": "SGE",
+   "n": "Singapore East (Katong/Joo Chiat, Geylang, Bedok, Tampines, Changi)"
+  },
+  {
+   "id": "SGWN",
+   "n": "Singapore West & North (Jurong, Bukit Timah, Holland V, Ang Mo Kio, Bishan, Woodlands)"
+  },
+  {
+   "id": "MY",
+   "n": "Malaysia (KL, Penang, Malacca, Ipoh, JB)"
+  },
+  {
+   "id": "TH",
+   "n": "Thailand (Bangkok, Chiang Mai, Phuket)"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnam (Ho Chi Minh City, Hanoi, Hoi An)"
+  },
+  {
+   "id": "ID",
+   "n": "Indonesia (Jakarta, Bali, Yogyakarta)"
+  },
+  {
+   "id": "PH",
+   "n": "Philippines (Manila, Cebu)"
+  },
+  {
+   "id": "IC",
+   "n": "Indochina (Cambodia, Laos, Myanmar)"
+  }
+ ],
+ "ac": {
+  "TPY": "#F2A1A1",
+  "SGC": "#BCA7E6",
+  "SGE": "#84CBB9",
+  "SGWN": "#9CBEEC",
+  "MY": "#EAC57C",
+  "TH": "#EDA6C7",
+  "VN": "#A9D48E",
+  "ID": "#F1B389",
+  "PH": "#AAB6EE",
+  "IC": "#8ED0D6"
+ },
+ "cuisines": [
+  {
+   "id": "CHICKENRICE",
+   "n": "Hainanese Chicken Rice"
+  },
+  {
+   "id": "LAKSA",
+   "n": "Laksa & Curry Noodles"
+  },
+  {
+   "id": "NOODLE",
+   "n": "Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"
+  },
+  {
+   "id": "BKT",
+   "n": "Bak Kut Teh & Soups"
+  },
+  {
+   "id": "HAWKER",
+   "n": "Hawker & Zi Char"
+  },
+  {
+   "id": "MALAY",
+   "n": "Malay & Nasi Padang"
+  },
+  {
+   "id": "INDIAN",
+   "n": "Indian & Roti Prata"
+  },
+  {
+   "id": "CHINESE",
+   "n": "Chinese, Dim Sum & Teochew"
+  },
+  {
+   "id": "SEAFOOD",
+   "n": "Chilli Crab & Seafood"
+  },
+  {
+   "id": "THAI",
+   "n": "Thai"
+  },
+  {
+   "id": "VIET",
+   "n": "Vietnamese"
+  },
+  {
+   "id": "INDO",
+   "n": "Indonesian, Satay & Rendang"
+  },
+  {
+   "id": "FILIPINO",
+   "n": "Filipino"
+  },
+  {
+   "id": "KHMER",
+   "n": "Khmer (Cambodian)"
+  },
+  {
+   "id": "LAO",
+   "n": "Lao"
+  },
+  {
+   "id": "BURMESE",
+   "n": "Burmese"
+  },
+  {
+   "id": "PERANAKAN",
+   "n": "Peranakan / Nyonya"
+  },
+  {
+   "id": "KOPI",
+   "n": "Kaya Toast, Kopitiam & Breakfast"
+  },
+  {
+   "id": "DESSERT",
+   "n": "Chendol, Kueh & Durian"
+  },
+  {
+   "id": "CAFE",
+   "n": "Cafés & Modern"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "HERITAGE",
+   "n": "Heritage & Culture"
+  },
+  {
+   "id": "TEMPLE",
+   "n": "Temples, Mosques & Shrines"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Hawker Centres"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks, Gardens & Nature"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Skyline"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & Landmarks"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "Petronas Twin Towers",
+   "ad": "Kuala Lumpur City Centre (KLCC), Jalan Ampang, Kuala Lumpur, Malaysia",
+   "w": "The 452 m twin towers with the double-decker skybridge — KL's defining landmark, once the world's tallest buildings.",
+   "k": "Skyscraper & skybridge",
+   "g": [
+    "ICON",
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.petronastwintowers.com.my/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Petronas_Towers"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "Batu Caves",
+   "ad": "Gombak, Selangor (Greater Kuala Lumpur), Malaysia",
+   "w": "A limestone hill of Hindu cave temples reached by 272 rainbow steps under the giant golden Murugan statue; focus of the Thaipusam festival.",
+   "k": "Hindu cave temple",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TOURISMMY",
+     "https://www.malaysia.travel/explore/batu-caves"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Batu_Caves"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "George Town UNESCO Heritage Zone",
+   "ad": "George Town, Penang, Malaysia",
+   "w": "The UNESCO-listed old town of clan jetties, shophouses, temples and the famous street-art murals (part of 'Melaka and George Town, Historic Cities of the Straits of Malacca').",
+   "k": "UNESCO heritage city",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1223/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/George_Town,_Penang"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MY",
+   "n": "Kek Lok Si Temple",
+   "ad": "Air Itam, Penang, Malaysia",
+   "w": "Southeast Asia's largest Chinese Buddhist temple, with the Pagoda of Ten Thousand Buddhas and a 30 m bronze Kuan Yin.",
+   "k": "Buddhist temple",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "VISITPENANG",
+     "https://www.visitpenang.com/attractions/heritage"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kek_Lok_Si"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MY",
+   "n": "Cheong Fatt Tze — The Blue Mansion",
+   "ad": "14 Leith Street, George Town, Penang, Malaysia",
+   "w": "The indigo-blue Hakka merchant mansion, a multi-award-winning heritage restoration and film location ('Crazy Rich Asians').",
+   "k": "Heritage mansion",
+   "g": [
+    "HERITAGE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cheongfatttzemansion.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cheong_Fatt_Tze_Mansion"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "A Famosa & Dutch Square (Jonker Street)",
+   "ad": "Bandar Hilir, Malacca (Melaka), Malaysia",
+   "w": "The 1511 Portuguese fort gate (Porta de Santiago), the red Dutch Stadthuys/Christ Church and Jonker Street — the heart of UNESCO Malacca.",
+   "k": "UNESCO colonial heritage",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1223/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/A_Famosa"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Grand Palace & Wat Phra Kaew",
+   "ad": "Na Phra Lan Road, Phra Nakhon, Bangkok, Thailand",
+   "w": "The 1782 royal palace complex and the Temple of the Emerald Buddha — Thailand's most sacred and most-visited site.",
+   "k": "Royal palace & temple",
+   "g": [
+    "ICON",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.royalgrandpalace.th/en/home"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grand_Palace"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Wat Arun",
+   "ad": "158 Thanon Wang Doem, Bangkok Yai, Bangkok, Thailand",
+   "w": "The Temple of Dawn, its porcelain-encrusted riverside prang rising over the Chao Phraya.",
+   "k": "Buddhist temple",
+   "g": [
+    "ICON",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "TATNEWS",
+     "https://www.tourismthailand.org/Attraction/wat-arun"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wat_Arun"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Wat Pho",
+   "ad": "2 Sanam Chai Road, Phra Nakhon, Bangkok, Thailand",
+   "w": "Home of the 46 m gold-leafed Reclining Buddha and the birthplace of traditional Thai massage.",
+   "k": "Buddhist temple",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "TATNEWS",
+     "https://www.tourismthailand.org/Attraction/wat-pho"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wat_Pho"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TH",
+   "n": "Chatuchak Weekend Market",
+   "ad": "587/10 Kamphaeng Phet 2 Road, Chatuchak, Bangkok, Thailand",
+   "w": "One of the world's largest weekend markets — 15,000+ stalls of food, crafts, plants and vintage.",
+   "k": "Market",
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMEOUTBKK",
+     "https://www.timeout.com/bangkok/shopping/chatuchak-weekend-market"
+    ],
+    [
+     "TATNEWS",
+     "https://www.tourismthailand.org/Attraction/chatuchak-weekend-market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Wat Phra That Doi Suthep",
+   "ad": "Doi Suthep, Mueang Chiang Mai, Chiang Mai, Thailand",
+   "w": "The gold-chedi mountain temple above Chiang Mai, reached by a 300-step naga staircase — the city's emblem.",
+   "k": "Buddhist temple",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "TATNEWS",
+     "https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TH",
+   "n": "Chiang Mai Old City Temples (Wat Chedi Luang & Wat Phra Singh)",
+   "ad": "Old City (within the moat), Chiang Mai, Thailand",
+   "w": "The walled Old City's Lanna temples — the ruined 14th-century Chedi Luang and the revered Wat Phra Singh.",
+   "k": "Historic temples",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "TATNEWS",
+     "https://www.tourismthailand.org/Destination/Provinces/Chiang-Mai/34"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wat_Chedi_Luang"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "War Remnants Museum",
+   "ad": "28 Vo Van Tan Street, District 3, Ho Chi Minh City, Vietnam",
+   "w": "HCMC's unflinching museum of the Indochina and Vietnam wars — the city's most affecting historical site.",
+   "k": "History museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/war-remnants-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/War_Remnants_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "VN",
+   "n": "Ben Thanh Market",
+   "ad": "Le Loi, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",
+   "w": "The landmark 1914 central market — street food, textiles and souvenirs in the heart of Saigon.",
+   "k": "Market",
+   "g": [
+    "MKT",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VIETNAMCORACLE",
+     "https://www.vietnamcoracle.com/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/B%E1%BA%BFn_Th%C3%A0nh_Market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Cu Chi Tunnels",
+   "ad": "Cu Chi District (Ben Dinh / Ben Duoc), Ho Chi Minh City, Vietnam",
+   "w": "The vast wartime underground tunnel network northwest of the city — a defining day trip from Saigon.",
+   "k": "Historic site",
+   "g": [
+    "HERITAGE"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/attractions/cu-chi-tunnels"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/C%E1%BB%A7_Chi_tunnels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Hoan Kiem Lake, Ngoc Son Temple & the Old Quarter",
+   "ad": "Hoan Kiem District, Hanoi, Vietnam",
+   "w": "Hanoi's civic heart — the legendary lake and its red bridge to Ngoc Son Temple, ringed by the 36-streets Old Quarter.",
+   "k": "Lake, temple & old quarter",
+   "g": [
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/vietnam/hanoi/attractions/hoan-kiem-lake"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ho%C3%A0n_Ki%E1%BA%BFm_Lake"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Ha Long Bay",
+   "ad": "Quang Ninh Province (day trip / cruise from Hanoi), Vietnam",
+   "w": "The UNESCO seascape of thousands of limestone karst islands — Vietnam's iconic natural wonder.",
+   "k": "UNESCO natural site",
+   "g": [
+    "ICON",
+    "HERITAGE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/672/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%E1%BA%A1_Long_Bay"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Hoi An Ancient Town",
+   "ad": "Hoi An, Quang Nam Province, Vietnam",
+   "w": "The UNESCO-listed trading port of lantern-lit streets, Japanese Covered Bridge and preserved merchant houses.",
+   "k": "UNESCO heritage town",
+   "g": [
+    "HERITAGE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/948/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ho%C3%AD_An"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ID",
+   "n": "Borobudur",
+   "ad": "Magelang Regency (near Yogyakarta), Central Java, Indonesia",
+   "w": "The world's largest Buddhist temple, a 9th-century stupa-mountain of 2,600+ relief panels — UNESCO World Heritage.",
+   "k": "UNESCO Buddhist temple",
+   "g": [
+    "ICON",
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/592/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Borobudur"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ID",
+   "n": "Prambanan",
+   "ad": "Sleman (Yogyakarta–Central Java border), Indonesia",
+   "w": "Indonesia's largest Hindu temple compound, a soaring 9th-century Shiva complex — UNESCO World Heritage.",
+   "k": "UNESCO Hindu temple",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/642/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Prambanan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ID",
+   "n": "Uluwatu Temple (Pura Luhur Uluwatu)",
+   "ad": "Pecatu, South Kuta, Bali, Indonesia",
+   "w": "A sea temple perched on a 70 m cliff above the Indian Ocean, famous for sunset and the kecak fire dance.",
+   "k": "Sea temple",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/bali/uluwatu-temple"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Uluwatu_Temple"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ID",
+   "n": "Tanah Lot Temple",
+   "ad": "Beraban, Kediri, Tabanan, Bali, Indonesia",
+   "w": "The much-photographed sea temple on a tidal rock offshore — Bali's classic sunset silhouette.",
+   "k": "Sea temple",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/bali/tanah-lot"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tanah_Lot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ID",
+   "n": "Tegallalang Rice Terraces",
+   "ad": "Tegallalang, north of Ubud, Bali, Indonesia",
+   "w": "The emerald stepped paddies of the subak system — part of Bali's only UNESCO site, the Cultural Landscape of Bali Province.",
+   "k": "Rice-terrace landscape",
+   "g": [
+    "HERITAGE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1194/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tegallalang"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ID",
+   "n": "Kota Tua (Old Batavia)",
+   "ad": "West Jakarta, Jakarta, Indonesia",
+   "w": "The Dutch-colonial old town around Fatahillah Square, with the Jakarta History Museum and Cafe Batavia.",
+   "k": "Colonial old town",
+   "g": [
+    "HERITAGE",
+    "PARK",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/destinations/java/jakarta/kota-tua"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kota_Tua_Jakarta"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PH",
+   "n": "Intramuros",
+   "ad": "Intramuros, Manila, Philippines",
+   "w": "The 16th-century Spanish walled city — cobbled streets, bastions and Fort Santiago, the historic core of Manila.",
+   "k": "Walled colonial city",
+   "g": [
+    "HERITAGE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "GUIDETOPH",
+     "https://guidetothephilippines.ph/articles/history-culture/intramuros-manila-guide"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Intramuros"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PH",
+   "n": "San Agustin Church",
+   "ad": "General Luna Street, Intramuros, Manila, Philippines",
+   "w": "The oldest stone church in the Philippines (1607) and a UNESCO 'Baroque Churches of the Philippines' World Heritage site.",
+   "k": "UNESCO baroque church",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/677/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Agustin_Church_(Manila)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PH",
+   "n": "Rizal Park (Luneta)",
+   "ad": "Ermita, Manila, Philippines",
+   "w": "The historic seaside park at the site of national hero Jose Rizal's execution, marked by the Rizal Monument.",
+   "k": "Historic park",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "GUIDETOPH",
+     "https://guidetothephilippines.ph/articles/ultimate-guides/rizal-park-manila-guide"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rizal_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PH",
+   "n": "Basilica Minore del Santo Nino & Magellan's Cross",
+   "ad": "Osmena Boulevard / P. Burgos Street, Cebu City, Philippines",
+   "w": "The country's oldest Catholic relic and church, beside the 1521 cross planted at Magellan's arrival — the cradle of Philippine Christianity.",
+   "k": "Historic church",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "GUIDETOPH",
+     "https://guidetothephilippines.ph/articles/history-culture/cebu-heritage-sites"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bas%C3%ADlica_Minore_del_Santo_Ni%C3%B1o"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Angkor Wat",
+   "ad": "Angkor Archaeological Park, Siem Reap, Cambodia",
+   "w": "The largest religious monument on earth, the 12th-century Khmer temple-city and Cambodia's national symbol — UNESCO World Heritage.",
+   "k": "UNESCO temple complex",
+   "g": [
+    "ICON",
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/668/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Angkor_Wat"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IC",
+   "n": "Angkor Thom & the Bayon",
+   "ad": "Angkor Archaeological Park, Siem Reap, Cambodia",
+   "w": "The walled royal city of Angkor Thom and the Bayon's forest of giant serene stone faces.",
+   "k": "UNESCO temple city",
+   "g": [
+    "ICON",
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/668/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bayon"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Royal Palace & Silver Pagoda",
+   "ad": "Sothearos Boulevard, Phnom Penh, Cambodia",
+   "w": "The Khmer royal palace complex on the riverfront, including the Silver Pagoda with its emerald and gold Buddhas.",
+   "k": "Royal palace",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/cambodia/phnom-penh/attractions/royal-palace"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Royal_Palace,_Phnom_Penh"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Luang Prabang Old Town (Wat Xieng Thong)",
+   "ad": "Luang Prabang peninsula, Laos",
+   "w": "The UNESCO-listed royal town where Lao and French-colonial architecture meet, crowned by the 1560 Wat Xieng Thong and the dawn alms-giving.",
+   "k": "UNESCO heritage town",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/479/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Luang_Prabang"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Kuang Si Falls",
+   "ad": "~29 km south of Luang Prabang, Laos",
+   "w": "Turquoise multi-tiered travertine waterfalls in the jungle — Luang Prabang's signature natural excursion.",
+   "k": "Waterfall",
+   "g": [
+    "TEMPLE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WANDERLUSH",
+     "https://wander-lush.org/kuang-si-falls-luang-prabang/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kuang_Si_Falls"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Shwedagon Pagoda",
+   "ad": "Singuttara Hill, Yangon, Myanmar",
+   "w": "Myanmar's most sacred Buddhist site — a 112 m gold-plated stupa said to enshrine relics of the Buddha.",
+   "k": "Buddhist pagoda",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/myanmar-burma/yangon/attractions/shwedagon-paya"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shwedagon_Pagoda"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Bagan Archaeological Zone",
+   "ad": "Bagan, Mandalay Region, Myanmar",
+   "w": "A plain studded with thousands of 11th–13th-century Buddhist temples and pagodas — UNESCO World Heritage.",
+   "k": "UNESCO temple plain",
+   "g": [
+    "HERITAGE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1588/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bagan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Gardens by the Bay",
+   "ad": "18 Marina Gardens Drive, Marina Bay",
+   "w": "Waterfront nature park with the Supertree Grove, Cloud Forest & Flower Dome; over 1.5 million plants.",
+   "k": "Garden",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/gardens-by-the-bay/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Gardens_by_the_Bay"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Marina Bay Sands SkyPark Observation Deck",
+   "ad": "10 Bayfront Avenue, Marina Bay",
+   "w": "The 57th-storey deck atop Marina Bay Sands' three towers, with panoramic skyline views over the bay.",
+   "k": "Landmark",
+   "g": [
+    "ICON",
+    "PARK",
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MBS",
+     "https://www.marinabaysands.com/attractions/sands-skypark.html"
+    ],
+    [
+     "HONEYCOMBERS",
+     "https://honeykidsasia.com/explain-singapores-iconic-unusual-landmarks-marina-bay-sands-esplanade-merlion-artscience-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Merlion Park",
+   "ad": "1 Fullerton Road, Marina Bay",
+   "w": "Home of the 8.6 m Merlion, Singapore's lion-headed, fish-bodied national symbol, spouting into the bay.",
+   "k": "Landmark",
+   "g": [
+    "ICON",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/architecture/modern/merlion-park/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Merlion"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "ArtScience Museum",
+   "ad": "6 Bayfront Avenue, Marina Bay",
+   "w": "Lotus-shaped museum at Marina Bay Sands; home to the teamLab 'Future World' digital art gallery.",
+   "k": "Museum",
+   "g": [
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "MBS",
+     "https://www.marinabaysands.com/museum.html"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/ArtScience_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Singapore Flyer",
+   "ad": "30 Raffles Avenue, Marina Bay",
+   "w": "A 165 m observation wheel over Marina Bay with views to the city, the Straits and beyond.",
+   "k": "Landmark",
+   "g": [
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/recreation-leisure/viewpoints/singapore-flyer/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Singapore_Flyer"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "National Gallery Singapore",
+   "ad": "1 St Andrew's Road, Civic District",
+   "w": "World's largest public collection of Singapore & Southeast Asian art, in the former City Hall & Supreme Court.",
+   "k": "Museum",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/civic-district/national-gallery-singapore/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/National_Gallery_Singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "National Museum of Singapore",
+   "ad": "93 Stamford Road, Civic District",
+   "w": "The nation's oldest museum (est. 1849), narrating Singapore's social history.",
+   "k": "Museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Singapore"
+    ],
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/history/museums-monuments/national-museum-of-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Asian Civilisations Museum",
+   "ad": "1 Empress Place, Civic District",
+   "w": "Riverside museum devoted to the material cultures of Asia, from Chinese to West Asian civilisations.",
+   "k": "Museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Asian_Civilisations_Museum"
+    ],
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/empress-place-building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Raffles Hotel",
+   "ad": "1 Beach Road, Civic District",
+   "w": "1887 colonial-era grande dame; a National Monument and birthplace of the Singapore Sling.",
+   "k": "Heritage",
+   "g": [
+    "HERITAGE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/history/reminiscing/raffles-hotel/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Raffles_Hotel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Fort Canning Park",
+   "ad": "River Valley Road, Fort Canning",
+   "w": "Historic hilltop park with artefacts dating to the 1300s; the famous Fort Canning tree tunnel.",
+   "k": "Park",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPARKS",
+     "https://www.nparks.gov.sg/visit/parks/park-detail/fort-canning-park"
+    ],
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/fort-canning"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Esplanade – Theatres on the Bay",
+   "ad": "1 Esplanade Drive, Marina Bay",
+   "w": "The 'durian' performing-arts centre on the bayfront, a defining piece of the skyline.",
+   "k": "Landmark",
+   "g": [
+    "ICON",
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Esplanade,_Singapore"
+    ],
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/architecture/modern/esplanade/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Sri Mariamman Temple",
+   "ad": "244 South Bridge Road, Chinatown",
+   "w": "Singapore's oldest Hindu temple (1827); a National Monument with a vivid gopuram tower.",
+   "k": "Temple",
+   "g": [
+    "TEMPLE",
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sri-mariamman-temple"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Sri_Mariamman_Temple,_Singapore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Buddha Tooth Relic Temple & Museum",
+   "ad": "288 South Bridge Road, Chinatown",
+   "w": "Tang-style Buddhist temple (2007) housing a sacred tooth relic in a 3,500 kg gold stupa.",
+   "k": "Temple",
+   "g": [
+    "TEMPLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "CHINATOWNSG",
+     "https://chinatown.sg/visit/buddha-tooth-relic-temple/"
+    ],
+    [
+     "NLB",
+     "https://www.nlb.gov.sg/main/article-detail?cmsuuid=389e7067-97fb-4e1d-b7e9-688efd442319"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Thian Hock Keng Temple",
+   "ad": "158 Telok Ayer Street, Chinatown",
+   "w": "Singapore's oldest Hokkien temple (1839) dedicated to Mazu; a National Monument built without nails.",
+   "k": "Temple",
+   "g": [
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/thian-hock-keng"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Thian_Hock_Keng"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Chinatown Heritage Centre",
+   "ad": "48 Pagoda Street, Chinatown",
+   "w": "Recreated 1950s shophouse interiors telling the story of Chinatown's early immigrant tenants.",
+   "k": "Museum",
+   "g": [
+    "HERITAGE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/en/places/places-landing/Places/museums/chinatown-heritage-centre"
+    ],
+    [
+     "CHNC",
+     "https://www.chinatownheritagecentre.com.sg/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Sultan Mosque (Masjid Sultan)",
+   "ad": "3 Muscat Street, Kampong Glam",
+   "w": "Kampong Glam's golden-domed royal mosque; a National Monument and the heart of the Malay-Arab quarter.",
+   "k": "Mosque",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sultan-mosque"
+    ],
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/culture-heritage/religious/sultan-mosque/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Sri Veeramakaliamman Temple",
+   "ad": "141 Serangoon Road, Little India",
+   "w": "Little India's landmark Hindu temple to the goddess Kali, founded by Tamil lime-kiln workers (1855).",
+   "k": "Temple",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/Collection-Landing/listing/1183286"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Sri_Veeramakaliamman_Temple"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Former House of Tan Teng Niah",
+   "ad": "37 Kerbau Road, Little India",
+   "w": "The last surviving Chinese villa in Little India (1900), painted in vivid rainbow colours.",
+   "k": "Heritage",
+   "g": [
+    "HERITAGE"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/little-india/tan-teng-niah-house/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/House_of_Tan_Teng_Niah"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Koon Seng Road Peranakan Shophouses (Joo Chiat/Katong)",
+   "ad": "Koon Seng Road, Joo Chiat",
+   "w": "Singapore's most photographed row of pastel Peranakan shophouses (1920s) in the Katong-Joo Chiat conservation area.",
+   "k": "Heritage",
+   "g": [
+    "HERITAGE"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/stories-landing/stories/copy-of-street-corner-heritage-galleries-katong-joo-chiat"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Joo_Chiat_Road"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Jewel Changi Airport & HSBC Rain Vortex",
+   "ad": "78 Airport Boulevard, Changi Airport",
+   "w": "Glass-domed nature-and-retail complex housing the world's tallest indoor waterfall (40 m) and Shiseido Forest Valley.",
+   "k": "Landmark",
+   "g": [
+    "TEMPLE",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHANGI",
+     "https://www.changiairport.com/en/at-changi/jewel-changi-airport.html"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Jewel_Changi_Airport"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Changi Chapel & Museum",
+   "ad": "1000 Upper Changi Road North, Changi",
+   "w": "NHB museum commemorating WWII POWs interned at Changi, with a replica of the Changi Chapel.",
+   "k": "Museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "NHB",
+     "https://www.nhb.gov.sg/changichapelmuseum/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Changi_Chapel_and_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "East Coast Park",
+   "ad": "East Coast Park Service Road, Marine Parade",
+   "w": "Singapore's largest seaside park; 15 km of coastline for cycling, seafood and the sea breeze.",
+   "k": "Park",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPARKS",
+     "https://www.nparks.gov.sg/visit/parks/park-detail/east-coast-park"
+    ],
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/east-coast-park/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGE",
+   "n": "Geylang Serai Market & Malay Heritage",
+   "ad": "1 Geylang Serai",
+   "w": "The cultural heart of the Malay-Muslim community; a bustling wet market and Ramadan bazaar hub.",
+   "k": "Heritage",
+   "g": [
+    "HERITAGE",
+    "MKT"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/places/places-landing/trails/geylang-serai-heritage-trail"
+    ],
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/culture-heritage/ethnic-quarters/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Singapore Botanic Gardens",
+   "ad": "1 Cluny Road, Bukit Timah",
+   "w": "Singapore's first UNESCO World Heritage Site (2015); a 160-year-old tropical garden with the National Orchid Garden.",
+   "k": "Garden",
+   "g": [
+    "HERITAGE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1483/"
+    ],
+    [
+     "NPARKS",
+     "https://www.nparks.gov.sg/sbg/about/singapore-s-first-unesco-world-heritage-site"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Southern Ridges & Henderson Waves",
+   "ad": "Henderson Road, Mount Faber / Telok Blangah",
+   "w": "10 km of ridge-top trails linking Mount Faber, Telok Blangah & Kent Ridge, crossing the wave-form Henderson Waves, Singapore's highest pedestrian bridge.",
+   "k": "Nature",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPARKS",
+     "https://www.nparks.gov.sg/visit/parks/park-detail/southern-ridges"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Henderson_Waves"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Haw Par Villa",
+   "ad": "262 Pasir Panjang Road",
+   "w": "1937 cultural theme park (ex-Tiger Balm Garden) of surreal dioramas, famed for the Ten Courts of Hell.",
+   "k": "Landmark",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/culture-heritage/reminiscing/haw-par-villa/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Haw_Par_Villa"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "MacRitchie Reservoir & TreeTop Walk",
+   "ad": "MacRitchie Reservoir Park, Lornie Road",
+   "w": "Central Catchment rainforest reservoir with a 250 m suspension bridge, 25 m up in the forest canopy.",
+   "k": "Nature",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPARKS",
+     "https://www.nparks.gov.sg/visit/parks/central-catchment-nature-reserve/activities/hiking-nature-walk"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/MacRitchie_Reservoir"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Bukit Timah Nature Reserve",
+   "ad": "177 Hindhede Drive, Bukit Timah",
+   "w": "ASEAN Heritage Park protecting primary rainforest and Singapore's highest natural point (163 m).",
+   "k": "Nature",
+   "g": [
+    "HERITAGE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPARKS",
+     "https://www.nparks.gov.sg/visit/parks/park-detail/bukit-timah-nature-reserve"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Bukit_Timah_Nature_Reserve"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Singapore Zoo",
+   "ad": "80 Mandai Lake Road, Mandai",
+   "w": "World-renowned open-concept zoo of over 4,200 animals in naturalistic, cage-free habitats.",
+   "k": "Wildlife",
+   "g": [
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MANDAI",
+     "https://www.mandai.com/en/singapore-zoo.html"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Singapore_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Night Safari",
+   "ad": "80 Mandai Lake Road, Mandai",
+   "w": "The world's first nocturnal zoo (1994); tram rides through 35 hectares of after-dark habitats.",
+   "k": "Wildlife",
+   "g": [
+    "FAM"
+   ],
+   "s": [
+    [
+     "MANDAI",
+     "https://www.mandai.com/en/night-safari.html"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Night_Safari,_Singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "River Wonders",
+   "ad": "80 Mandai Lake Road, Mandai",
+   "w": "Asia's only river-themed wildlife park, home to giant pandas and a giant Amazon river tank.",
+   "k": "Wildlife",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "MANDAI",
+     "https://www.mandai.com/en/river-wonders.html"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/River_Wonders"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGWN",
+   "n": "Holland Village",
+   "ad": "Lorong Mambong, Holland Village",
+   "w": "A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",
+   "k": "Heritage",
+   "g": [
+    "HERITAGE"
+   ],
+   "s": [
+    [
+     "VISITSG",
+     "https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Holland_Village,_Singapore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "Toa Payoh Dragon Playground",
+   "ad": "Lorong 6 Toa Payoh (in front of Blk 28), Singapore",
+   "w": "Singapore's most iconic surviving 1979 mosaic 'dragon' playground, designed by HDB's Khor Ean Ghee — a terrazzo-tiled dragon head with a climbable ring body. One of only two dragon playgrounds left and a marquee stop on NHB's Toa Payoh Heritage Trail.",
+   "k": "Open 24h, free",
+   "g": [
+    "HERITAGE",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ROOTSSG",
+     "https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Toa-Payoh-Dragon-Playground"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Toa_Payoh_Dragon_Playground"
+    ],
+    [
+     "LITTLEDAYOUT",
+     "https://www.littledayout.com/toa-payoh-dragon-playground-an-icon-at-lorong-6/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "Lian Shan Shuang Lin Monastery",
+   "ad": "184 Jalan Toa Payoh, Singapore 319944",
+   "w": "Singapore's oldest Buddhist monastery — completed 1909 and gazetted a National Monument in 1980 — modelled on Fuzhou's Xi Chan Monastery, with the Hall of Celestial Kings and Mahavira Hall laid out in the classic cong lin ('layered forest') plan.",
+   "k": "Free entry",
+   "g": [
+    "TEMPLE",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ROOTSSG",
+     "https://www.roots.gov.sg/en/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Lian-Shan-Shuang-Lin-Monastery"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lian_Shan_Shuang_Lin_Monastery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Toa Payoh Town Park & Look-Out Tower",
+   "ad": "Lorong 6 Toa Payoh (beside Toa Payoh HDB Hub), Singapore",
+   "w": "The 4.8-hectare 1970s town park that pioneered greenery in HDB new towns — landscaped ponds, rustic gazebos and the conserved 25 m space-age Look-Out Tower, a favourite 1970s-80s wedding-photo backdrop.",
+   "k": "Open daily, free; tower not accessible",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ROOTSSG",
+     "https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces/Toa-Payoh-Town-Park"
+    ],
+    [
+     "TIMEOUTSG",
+     "https://www.timeout.com/singapore/attractions/toa-payoh-town-park-observation-tower"
+    ],
+    [
+     "LITTLEDAYOUT",
+     "https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Church of the Risen Christ",
+   "ad": "91 Toa Payoh Central, Singapore 319193",
+   "w": "Toa Payoh's first Catholic church (inaugurated 1971), a modernist landmark at the junction of Toa Payoh Central and Lorong 4 that has long offered Mass in English, Mandarin and Tamil — featured on the Toa Payoh Heritage Trail's 'Of Faiths & Beliefs' route.",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ROOTSSG",
+     "https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Church-of-the-Risen-Christ"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Church_of_the_Risen_Christ"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Block 53, The 'VIP Block'",
+   "ad": "53 Lorong 5 Toa Payoh, Singapore 310053",
+   "w": "The Y-shaped 1967 HDB showpiece with a rooftop viewing gallery once used to survey the young new town from above. Queen Elizabeth II visited in 1972 (as did Princess Anne, Prince Philip and other dignitaries), earning it the 'VIP Block' name.",
+   "k": "Rooftop gallery closed; view from ground level",
+   "g": [
+    "MUS",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "ROOTSSG",
+     "https://www.roots.gov.sg/en/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces/Block-53-The-VIP-Block"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/53_Lorong_5_Toa_Payoh"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Toa Payoh HDB Hub",
+   "ad": "480 Lorong 6 Toa Payoh, Singapore 310480",
+   "w": "HDB's headquarters and the civic heart of Singapore's first fully HDB-built satellite town, home to relocated public sculptures — Ng Eng Teng's 'The Climb', Chong Fah Cheong's 'Mama's Precious One' and Ju Ming's 'Tai Chi Boxing' — plus a mall, library and hawker fare.",
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "HDB",
+     "https://www.mynicehome.gov.sg/lifestyle/places/neighbourhood-nostalgia-toa-payoh/"
+    ],
+    [
+     "LITTLEDAYOUT",
+     "https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Toa Payoh Heritage Trail",
+   "ad": "Toa Payoh Central (trail starts near HDB Hub), Singapore",
+   "w": "NHB's self-guided trail through Singapore's second satellite town, linking 16-plus sites — from the Dragon Playground and Town Park to Shuang Lin Monastery — across two themed routes, 'Of Public Housing & Shared Spaces' and 'Of Faiths & Beliefs'.",
+   "k": "Free; map downloadable on Roots.gov.sg",
+   "g": [
+    "HERITAGE",
+    "TEMPLE",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "ROOTSSG",
+     "https://www.roots.gov.sg/places/places-landing/trails/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces"
+    ],
+    [
+     "LITTLEDAYOUT",
+     "https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "Penang Road Famous Jin Kor Char Kuey Teow",
+   "ad": "Lebuh Keng Kwee (off Jalan Penang), George Town, Penang, Malaysia",
+   "w": "~40-year charcoal stall in the Penang Road cendol lane; MICHELIN Guide-listed for its cockle-and-prawn char koay teow with pronounced wok hei.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/tw/zh_TW/pulau-pinang/my-george-town/restaurant/penang-road-famous-jin-kor-char-kuey-teow"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/best-penang-char-kway-teow/"
+    ],
+    [
+     "VISITPENANG",
+     "https://www.visitpenang.com/blog/penang-char-kway-teow-guide"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "Nasi Kandar Line Clear",
+   "ad": "177 Jalan Penang (alley at Lebuh Chulia junction), George Town, Penang, Malaysia",
+   "w": "Penang's most legendary 24-hour nasi kandar, cooked in a narrow lane since the 1940s; the 'flooded' curry-mix rice and fried chicken are institutions.",
+   "cz": [
+    "INDIAN"
+   ],
+   "s": [
+    [
+     "PENANGFOODIE",
+     "https://penangfoodie.com/line-clear-nasi-kandar-penang-review/"
+    ],
+    [
+     "MALAYMAIL",
+     "https://www.malaymail.com/news/eat-drink/2025/04/17/a-day-of-eating-in-george-town-penang-char-koay-teow-nasi-kandar-capati-bak-kwa-and-more/173343"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "Air Itam Laksa",
+   "ad": "Beside Air Itam Market, Jalan Pasar, Air Itam, Penang, Malaysia",
+   "w": "The definitive Air Itam asam laksa; CNN Travel ranked Penang asam laksa among the World's 50 Best Foods. Reopened after a pandemic pause; now weekends only.",
+   "cz": [
+    "LAKSA"
+   ],
+   "s": [
+    [
+     "THESTAR",
+     "https://www.thestar.com.my/lifestyle/living/2020/10/27/penang-assam-laksa-listed-among-world039s-top-10-foods"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/must-eat-foods-penang-malaysia/"
+    ],
+    [
+     "VISITPENANG",
+     "https://www.visitpenang.com/food/air-itam-laksa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MY",
+   "n": "Lou Wong Bean Sprout Chicken",
+   "ad": "Jalan Yau Tet Shin, Ipoh, Perak, Malaysia (relocating to a larger nearby space in 2026)",
+   "w": "Ipoh's iconic tauge ayam since 1957 — poached chicken, blanched bean sprouts and smooth hor fun. Anthony Bourdain ate here; still open, moving to a bigger site in 2026.",
+   "cz": [
+    "CHINESE",
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2024/10/07/louwong/"
+    ],
+    [
+     "MALAYMAIL",
+     "https://www.malaymail.com/news/eat-drink/2026/02/11/more-room-to-sprout-ipohs-iconic-lou-wong-moving-after-nearly-40-years/208889"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MY",
+   "n": "Village Park Restaurant",
+   "ad": "5 Jalan SS21/37, Damansara Utama (Uptown), Petaling Jaya, Selangor (Greater KL), Malaysia",
+   "w": "The nasi lemak many call Malaysia's best; queues since the 1980s for the ayam goreng berempah. Regulars have included prime ministers and national athletes.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/village-park-restaurant-malaysia/"
+    ],
+    [
+     "SILVERKRIS",
+     "https://krisworld.singaporeair.com/silverkris2/village-park-restaurant.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MY",
+   "n": "Chung Wah Chicken Rice Ball",
+   "ad": "18 Jalan Hang Jebat (Jonker Street), Malacca, Malaysia",
+   "w": "The long-queued Jonker Street original of Malacca's signature rice-ball chicken rice, at the entrance to Jonker Walk; documented by Mark Wiens and in the MICHELIN Guide's chicken-rice feature.",
+   "cz": [
+    "CHICKENRICE",
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "MARKWIENS",
+     "https://migrationology.com/chicken-rice-balls-melaka/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/article/features/same-same-but-different-the-different-types-of-chicken-rice-around-asia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Raan Jay Fai",
+   "ad": "327 Maha Chai Road, Phra Nakhon, Bangkok, Thailand",
+   "w": "Bangkok's one-MICHELIN-star street stall; octogenarian chef Supinya 'Jay Fai' Junsuta cooks in ski goggles over charcoal. Held its star since 2018; now open Wed–Sat.",
+   "cz": [
+    "THAI"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/en/bangkok-region/bangkok/restaurant/raan-jay-fai"
+    ],
+    [
+     "MARKWIENS",
+     "https://migrationology.com/street-food-bangkok/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Thip Samai",
+   "ad": "313-315 Maha Chai Road, Phra Nakhon, Bangkok, Thailand",
+   "w": "The 'Pad Thai Pratu Phi' institution near the Grand Palace, cooking over charcoal since 1966; MICHELIN Guide-recommended and a fixture of every Bangkok food tour.",
+   "cz": [
+    "THAI"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/th/en/bangkok-region/bangkok/restaurant/thipsamai"
+    ],
+    [
+     "EATINGTHAIFOOD",
+     "https://www.eatingthaifood.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TH",
+   "n": "Kor Panich (K. Panich)",
+   "ad": "431-433 Tanao Road, Phra Nakhon, Bangkok, Thailand",
+   "w": "An 80+-year family sticky-rice shop near the Grand Palace; MICHELIN Bib Gourmand for its mango sticky rice.",
+   "cz": [
+    "THAI"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/sg/en/bangkok-region/bangkok/restaurant/k-panich"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2019/09/13/korpanich/"
+    ],
+    [
+     "TIMEOUTBKK",
+     "https://www.timeout.com/bangkok/restaurants/kor-panich"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TH",
+   "n": "Nai Ek Roll Noodle (Nai Ek Kuay Jub)",
+   "ad": "Soi Yaowarat 9, Yaowarat (Chinatown), Bangkok, Thailand",
+   "w": "A Chinatown Bib Gourmand mainstay for aggressively peppery rolled-noodle soup and crispy pork.",
+   "cz": [
+    "CHINESE",
+    "THAI"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/th/en/bangkok-region/bangkok/restaurant/nai-ek-roll-noodle"
+    ],
+    [
+     "EATINGTHAIFOOD",
+     "https://www.eatingthaifood.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TH",
+   "n": "Khao Soi Mae Sai",
+   "ad": "29/1 Ratchaphuek Alley, Chang Phueak, Chiang Mai, Thailand",
+   "w": "One of Chiang Mai's most famous khao soi houses; MICHELIN Guide-listed, with chicken and beef versions.",
+   "cz": [
+    "THAI"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/chiang-mai-region/chiang-mai/restaurant/khao-soi-mae-sai"
+    ],
+    [
+     "EATINGTHAIFOOD",
+     "https://www.eatingthaifood.com/restaurants/best-khao-soi-in-chiang-mai/"
+    ],
+    [
+     "MARKWIENS",
+     "https://www.eatingthaifood.com/restaurants/best-khao-soi-in-chiang-mai/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TH",
+   "n": "Khao Soi Khun Yai",
+   "ad": "Near Wat Kuan Kama, Sithiwongse Road, Old City, Chiang Mai, Thailand",
+   "w": "The tiny lunch-only stall locals most often name as Chiang Mai's best khao soi; also a Mark Wiens pick.",
+   "cz": [
+    "THAI"
+   ],
+   "s": [
+    [
+     "EATINGTHAIFOOD",
+     "https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"
+    ],
+    [
+     "CHANGPUAK",
+     "https://changpuakmagazine.com/en-article/7-BEST-KHAO-SOI/308201/"
+    ],
+    [
+     "MARKWIENS",
+     "https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Pho Gia Truyen (Bat Dan)",
+   "ad": "49 Bat Dan Street, Hoan Kiem District, Hanoi, Vietnam",
+   "w": "Hanoi's most famous old-school beef pho — order at the counter and queue; MICHELIN Bib Gourmand.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/vn/en/ha-noi/ha-noi/restaurant/pho-gia-truyen"
+    ],
+    [
+     "VIETNAMCORACLE",
+     "https://www.vietnamcoracle.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Bun Cha Huong Lien",
+   "ad": "24 Le Van Huu Street, Hai Ba Trung District, Hanoi, Vietnam",
+   "w": "The 'Obama bun cha' where Barack Obama and Anthony Bourdain dined in 2016 (Parts Unknown); now in the MICHELIN Guide Vietnam.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/jp/en/ha-noi/ha-noi_2974158/restaurant/bun-cha-huong-lien"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2025/12/11/bunchahuonglien/"
+    ],
+    [
+     "VNEXPRESS",
+     "https://e.vnexpress.net/news/travel/food-recipes/hanoi-s-5-best-bun-cha-a-michelin-approved-list-4869911.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Banh Mi Huynh Hoa",
+   "ad": "26 Le Thi Rieng Street, District 1, Ho Chi Minh City, Vietnam",
+   "w": "Saigon's most famous banh mi since 1989 — permanent queues for the thap cam loaded with pate and cold cuts.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2024/02/26/banhmihuynhhoa/"
+    ],
+    [
+     "VIETNAMCORACLE",
+     "https://www.vietnamcoracle.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "VN",
+   "n": "Com Tam Ba Ghien",
+   "ad": "84 Dang Van Ngu Street, Phu Nhuan District, Ho Chi Minh City, Vietnam",
+   "w": "A Bib Gourmand com tam house famous for its thick, well-charred grilled pork chop over broken rice.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/com-tam-ba-ghien"
+    ],
+    [
+     "VIETCETERA",
+     "https://vietcetera.com/en"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Banh Mi Phuong",
+   "ad": "2B Phan Chau Trinh, Hoi An Ancient Town, Quang Nam, Vietnam",
+   "w": "Made world-famous when Anthony Bourdain filmed here and called it a 'symphony in a sandwich'; the definitive Hoi An banh mi.",
+   "cz": [
+    "VIET"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://vietnam.travel/things-to-do/eating-vietnam-anthony-bourdain"
+    ],
+    [
+     "EATLIKEBOURDAIN",
+     "https://eatlikebourdain.com/anthony-bourdain-in-hoi-an/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ID",
+   "n": "Warung Babi Guling Ibu Oka",
+   "ad": "Jl. Tegal Sari No. 2 (off Jl. Suweta, near Ubud Palace), Ubud, Bali, Indonesia",
+   "w": "Ubud's most famous babi guling, from a recipe once cooked for the royal family; made globally famous by Anthony Bourdain. Lunch only, until the pork runs out.",
+   "cz": [
+    "INDO"
+   ],
+   "s": [
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/bali"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/asia/indonesia/places/bali/ubud/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ID",
+   "n": "Sate Khas Senayan",
+   "ad": "Jl. Kebon Sirih Raya (original branch), Central Jakarta, Indonesia",
+   "w": "The original outlet of Jakarta's best-known satay house; a reliable, Lonely Planet-recommended introduction to Indonesian classics.",
+   "cz": [
+    "INDO"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/indonesia/jakarta"
+    ],
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/destinations/java/jakarta"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ID",
+   "n": "Gudeg Yu Djum",
+   "ad": "Jl. Wijilan (near the Kraton), Yogyakarta, Indonesia",
+   "w": "Yogyakarta's most famous 'dry' gudeg, run since ~1950; the benchmark for the city's signature dish.",
+   "cz": [
+    "INDO"
+   ],
+   "s": [
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/destinations/java/yogyakarta"
+    ],
+    [
+     "GOBACKPACKING",
+     "https://gobackpacking.com/gudeg-yu-djum-yogyakarta/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ID",
+   "n": "Restoran Pagi Sore",
+   "ad": "Jl. Blora, Central Jakarta, Indonesia",
+   "w": "A respected Padang restaurant since 1973; its rendang landed it on Asia's 50 Best 'Essence of Asia'.",
+   "cz": [
+    "INDO"
+   ],
+   "s": [
+    [
+     "ASIA50BEST",
+     "https://www.theworlds50best.com/asia/en/the-list/essence-of-asia.html"
+    ],
+    [
+     "INDONESIATRAVEL",
+     "https://www.indonesia.travel/gb/en/travel-ideas/gastronomy/10-most-scrumptious-padang-restaurant-in-jakarta/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PH",
+   "n": "Zubuchon",
+   "ad": "One Mango Avenue (and branches), Cebu City, Philippines",
+   "w": "The Cebu lechon Anthony Bourdain declared 'the best pig, ever' on his Philippines episode; founded by food writer Joel 'Marketman' Binamira.",
+   "cz": [
+    "FILIPINO"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "AFAR",
+     "https://www.afar.com/places/zubuchon-cebu-city"
+    ],
+    [
+     "AUTHENTICFOODQUEST",
+     "https://authenticfoodquest.com/cebu-lechon-bourdain/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PH",
+   "n": "Rico's Lechon",
+   "ad": "F. Cabahug Street, Mabolo (and branches), Cebu City, Philippines",
+   "w": "Cebu's most internationally recognised lechon brand and pioneer of the spicy style, open since 1997.",
+   "cz": [
+    "FILIPINO"
+   ],
+   "s": [
+    [
+     "AUTHENTICFOODQUEST",
+     "https://authenticfoodquest.com/ricos-lechon-best-cebu/"
+    ],
+    [
+     "OURAWESOMEPLANET",
+     "https://awesome.blog/2016/10/ricos-lechon-in-cebu.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PH",
+   "n": "The Aristocrat Restaurant",
+   "ad": "432 San Andres Street cor Roxas Boulevard, Malate, Manila, Philippines",
+   "w": "A Manila institution since 1936, 'home of the best chicken barbecue in town'; its Roxas Blvd home is a National Historical Commission-marked historic site.",
+   "cz": [
+    "FILIPINO"
+   ],
+   "s": [
+    [
+     "RAPPLER",
+     "https://www.rappler.com/life-and-style/food-drinks/aristocrat-manila-legendary-restaurants-list-taste-atlas-2023/"
+    ],
+    [
+     "OFFICIAL",
+     "https://thearistocratrestaurant.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "PH",
+   "n": "Manam Comfort Filipino",
+   "ad": "Ayala Triangle Gardens, Makati (flagship; branches across Metro Manila), Philippines",
+   "w": "The Moment Group's beloved Filipino comfort-food chain; its flagship carries a MICHELIN Bib Gourmand and its crispy sisig is a signature.",
+   "cz": [
+    "FILIPINO"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/at/en/metro-manila/makati-city_2329358/restaurant/manam-at-the-triangle"
+    ],
+    [
+     "SPOTPH",
+     "https://www.spot.ph/"
+    ],
+    [
+     "FEATR",
+     "https://www.youtube.com/@FEATRmedia"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IC",
+   "n": "Rangoon Tea House",
+   "ad": "77-79 Pansodan Street (Lower Block), Yangon, Myanmar",
+   "w": "A restored colonial-era tea house downtown, widely loved for a polished mohinga and tea-leaf salad.",
+   "cz": [
+    "BURMESE"
+   ],
+   "s": [
+    [
+     "AFAR",
+     "https://www.afar.com/places/rangoon-tea-house"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/myanmar-burma/yangon"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Cuisine Wat Damnak",
+   "ad": "Sala Kamreuk (Wat Damnak area), Siem Reap, Cambodia",
+   "w": "Cambodia's most-awarded kitchen — a seasonal Khmer degustation applying French-trained rigour to local produce (ranked in OAD's Leading Restaurants of Asia).",
+   "cz": [
+    "KHMER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.cuisinewatdamnak.com/siem-reap/"
+    ],
+    [
+     "WANDERLUSH",
+     "https://wander-lush.org/eat-khmer-food-phnom-penh/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IC",
+   "n": "Romdeng",
+   "ad": "74 Street 174, Phnom Penh, Cambodia",
+   "w": "Country-style Khmer cooking (famous fish amok) in a French-colonial villa; a Friends International social enterprise training at-risk youth.",
+   "cz": [
+    "KHMER"
+   ],
+   "s": [
+    [
+     "WANDERLUSH",
+     "https://wander-lush.org/eat-khmer-food-phnom-penh/"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/cambodia/phnom-penh"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IC",
+   "n": "Tamarind",
+   "ad": "Kingkitsarath Road (Nam Khan riverside), Luang Prabang, Laos",
+   "w": "Luang Prabang's best-known 'Lao cuisine' restaurant and cooking school; a guided introduction to laap, jeow and the Lao sampling platter.",
+   "cz": [
+    "LAO"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/laos/luang-prabang"
+    ],
+    [
+     "WANDERLUSH",
+     "https://wander-lush.org/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Tian Tian Hainanese Chicken Rice",
+   "ad": "#01-10/11 Maxwell Food Centre, 1 Kadayanallur Street",
+   "w": "Singapore's most famous chicken rice stall; Michelin Bib Gourmand, feted by Bourdain & Ramsay.",
+   "cz": [
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/jp/en/singapore-region/singapore/restaurant/tian-tian-hainanese-chicken-rice"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2017/06/28/tiantianchickenrice/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/best-chicken-rice-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Ah Tai Hainanese Chicken Rice",
+   "ad": "#01-07 Maxwell Food Centre, 1 Kadayanallur Street",
+   "w": "The rival stall a few doors from Tian Tian; ex-Tian Tian chef, legendary dark soy & chilli.",
+   "cz": [
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/best-must-try-chicken-rice-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/best-chicken-rice-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Hawker Chan (Liao Fan Hong Kong Soya Sauce Chicken Rice & Noodle)",
+   "ad": "78 Smith Street, Chinatown",
+   "w": "The world's first Michelin-starred hawker (2016); Smith St stall holds a Michelin Bib.",
+   "cz": [
+    "HAWKER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/liao-fan-hawker-chan"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/hawker-chan-soya-sauce-chicken-rice-noodle-chinatown-complex-singapore/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Hong_Kong_Soya_Sauce_Chicken_Rice_and_Noodle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Wee Nam Kee Chicken Rice",
+   "ad": "#01-08 United Square, 101 Thomson Road, Novena",
+   "w": "Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",
+   "cz": [
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/best-chicken-rice-singapore/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/best-chicken-rice-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Famous Sungei Road Trishaw Laksa",
+   "ad": "#02-66 Hong Lim Food Centre, 531A Upper Cross Street",
+   "w": "Michelin Bib Gourmand three-peat; heritage cut-noodle laksa eaten spoon-only.",
+   "cz": [
+    "LAKSA"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/article/features/behind-the-bib-famous-sungei-road-trishaw-laksa"
+    ],
+    [
+     "MTC",
+     "https://www.misstamchiak.com/famous-sungei-road-trishaw-laksa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Song Fa Bak Kut Teh",
+   "ad": "11 New Bridge Road, #01-01",
+   "w": "Peppery Teochew bak kut teh; among only 17 stalls to hold a Michelin Bib across all 10 SG editions.",
+   "cz": [
+    "BKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/song-fa-bak-kut-teh"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/04/20/bakkutteh/"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/foodanddrink/best-bak-kut-teh-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Hill Street Tai Hwa Pork Noodle",
+   "ad": "#01-12 Block 466 Crawford Lane",
+   "w": "One Michelin star since 2016; widely called Singapore's best bak chor mee, 1-2hr queues.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/hill-street-tai-hwa-pork-noodle"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/hill-street-tai-hwa-pork-noodle-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/hill-street-tai-hwa-pork-noodle/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Tai Wah Pork Noodle",
+   "ad": "#02-16 Hong Lim Food Centre, 531A Upper Cross Street",
+   "w": "The other half of the Tai Hwa/Tai Wah lineage; Michelin Bib bak chor mee at Hong Lim.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/tai-wah-pork-noodle"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/tai-wah-pork-noodle/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Ji Ji Noodle House",
+   "ad": "#02-48/49 Hong Lim Food Centre, 531A Upper Cross Street",
+   "w": "Upgraded from Selected to Michelin Bib Gourmand in the 2025 guide; old-school wanton mee.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2019/06/16/wantonnoodles/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Kok Kee Wanton Noodle",
+   "ad": "30 Foch Road, Lavender",
+   "w": "Cult wanton mee known for its near-soupy, lard-based chilli gravy.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "DFD",
+     "https://danielfooddiary.com/2019/06/16/wantonnoodles/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/wonton-mee-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Wah Kee Big Prawn Noodle",
+   "ad": "#01-15 Pek Kio Market & Food Centre, 41A Cambridge Road",
+   "w": "Michelin-listed since 1951; intense all-prawn broth, the 'auntie with attitude'.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/lv/en/singapore-region/singapore/restaurant/wah-kee-big-prawn-noodles"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2019/04/02/wahkee/"
+    ],
+    [
+     "HGW",
+     "https://hungrygowhere.com/what-to-eat/prawn-noodles-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Best Satay 7 & 8 (Lau Pa Sat Satay Street)",
+   "ad": "Boon Tat Street / Lau Pa Sat, 18 Raffles Quay",
+   "w": "The most popular stalls on Lau Pa Sat's evening Satay Street, grilled over charcoal.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "WOMENSWEEKLY",
+     "https://www.womensweekly.com.sg/food/best-satay-in-singapore-grilled"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/foodanddrink/stalls-best-satay-in-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Hjh Maimunah Restaurant",
+   "ad": "11 & 15 Jalan Pisang, Kampong Glam",
+   "w": "The benchmark nasi padang near Kampong Glam; long-time Michelin Bib Gourmand.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/hjh-maimunah-review/"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2017/06/12/hjhmaimunah/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/singapore/restaurants/hjh-maimunah-jln-pisang"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Muthu's Curry",
+   "ad": "138 Race Course Road, Little India",
+   "w": "Pioneered South-Indian fish head curry (1969); Michelin Bib Gourmand, the local go-to.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/muthu-s-curry-little-india"
+    ],
+    [
+     "HGW",
+     "https://hungrygowhere.com/what-to-eat/fish-head-curry-singapore/"
+    ],
+    [
+     "MTC",
+     "https://www.misstamchiak.com/curry-fish-head/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Allauddin's Briyani",
+   "ad": "#01-232 Tekka Centre, 665 Buffalo Road, Little India",
+   "w": "Tekka's most popular biryani stall since 1968; Michelin-recognised.",
+   "cz": [
+    "INDIAN"
+   ],
+   "s": [
+    [
+     "HONEYCOMBERS",
+     "https://thehoneycombers.com/singapore/tekka-hawker-centre-food/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/allauddin-s-briyani"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGC",
+   "n": "Komala Vilas",
+   "ad": "76-78 Serangoon Road, Little India",
+   "w": "Heritage vegetarian South Indian since 1947; the gold standard for masala thosai.",
+   "cz": [
+    "INDIAN"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/dosai-showdown-singapore/"
+    ],
+    [
+     "VISITSG",
+     "https://www.visitsingapore.org/explore-singapore/ethnic-quarters/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Zam Zam Restaurant",
+   "ad": "697-699 North Bridge Road, Kampong Glam",
+   "w": "Founded 1908 opposite Sultan Mosque; the most famous Indian-Muslim murtabak specialist.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "HGW",
+     "https://hungrygowhere.com/critics-reviews/zam-zam-restaurant-vs-victory-restaurant/"
+    ],
+    [
+     "VICE",
+     "https://www.vice.com/en/article/on-a-singapore-street-two-rival-biryani-restaurants-go-to-war/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGC",
+   "n": "Old Amoy Chendol",
+   "ad": "#02-008 Chinatown Complex Food Centre, 335 Smith Street",
+   "w": "Artisanal chendol with cold-pressed coconut milk & charcoal-brewed gula melaka, from $2.",
+   "cz": [
+    "DESSERT"
+   ],
+   "s": [
+    [
+     "IEAT",
+     "https://ieatishootipost.sg/old-amoy-cendol-truly-artisanal-chendol/"
+    ],
+    [
+     "CHINATOWNSG",
+     "https://chinatownsg.com/shop/old-amoy-chendol-main/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Ya Kun Kaya Toast (Far East Square)",
+   "ad": "#01-01 Far East Square, 18 China Street",
+   "w": "Founded 1944; the flagship still grills wafer-thin charcoal kaya toast, SG's kopitiam icon.",
+   "cz": [
+    "KOPI"
+   ],
+   "s": [
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Ya_Kun_Kaya_Toast"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2024/03/16/kayatoastsg/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGC",
+   "n": "Tong Ah Eating House",
+   "ad": "35 Keong Saik Road, Chinatown",
+   "w": "In Keong Saik since 1939; one of the very few still doing old-school thrice-toasted kaya toast.",
+   "cz": [
+    "KOPI"
+   ],
+   "s": [
+    [
+     "DFD",
+     "https://danielfooddiary.com/2024/03/16/kayatoastsg/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/singapore/restaurants/the-best-kaya-toast-in-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Beach Road Scissors Cut Curry Rice",
+   "ad": "229 Jalan Besar (Corner of Jalan Besar & Kitchener Road)",
+   "w": "Since 1930; the definitive scissor-cut Hainanese curry rice, ingredients snipped to order.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "WOMENSWEEKLY",
+     "https://www.womensweekly.com.sg/food/ranking-best-hainanese-scissor-cut-curry-rice"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/foodanddrink/best-hainanese-scissor-cut-curry-rice-review-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Loo's Hainanese Curry Rice",
+   "ad": "#02-67/68 Tiong Bahru Market, 30 Seng Poh Road",
+   "w": "Since 1946; three-day curry, one dish only, perpetual Tiong Bahru queue.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "DFD",
+     "https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"
+    ],
+    [
+     "TATLER",
+     "https://www.tatlerasia.com/dining/food/best-hainanese-curry-rice-in-singapore-local-chefs"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Jian Bo Tiong Bahru Shui Kueh",
+   "ad": "#02-05 Tiong Bahru Market, 30 Seng Poh Road",
+   "w": "Since 1958; the most renowned chwee kueh stall, Michelin-listed.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/mo/zh_HK/singapore-region/singapore/restaurant/jian-bo-shui-kueh"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/tiong-bahru-market/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Swee Choon Tim Sum Restaurant",
+   "ad": "183-191 Jalan Besar",
+   "w": "Since 1962; Singapore's beloved late-night dim sum institution (open till the small hours).",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "SCMP",
+     "https://www.scmp.com/magazines/style/leisure/article/3227711/17-best-dim-sum-restaurants-singapore-michelin-starred-tim-ho-wan-and-alan-yaus-madame-fan-wan-hao"
+    ],
+    [
+     "HONEYCOMBERS",
+     "https://honeykidsasia.com/best-dim-sum-in-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Hup Kee Fried Oyster Omelette",
+   "ad": "#01-73 Newton Food Centre, 500 Clemenceau Avenue North",
+   "w": "Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Kitchenman Nasi Lemak",
+   "ad": "#01-32 CT Hub, 2 Kallang Avenue",
+   "w": "Opened 2024, straight onto the 2025 Michelin Bib list; Malaysian-style ayam goreng berempah.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/th/en/singapore-region/singapore/restaurant/kitchenman-nasi-lemak"
+    ],
+    [
+     "HGW",
+     "https://hungrygowhere.com/food-news/kitchenman-nasi-lemak/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/kitchenman-nasi-lemak/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Song Kee Teochew Fish Porridge",
+   "ad": "#01-91 Newton Food Centre, 500 Clemenceau Avenue North",
+   "w": "Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Li Xin Teochew Fishball Noodles",
+   "ad": "#02-06 Tiong Bahru Market, 30 Seng Poh Road",
+   "w": "Michelin-approved handmade Teochew fishballs & fishcake.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/tiong-bahru-market/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGC",
+   "n": "Alliance Seafood (Newton Food Centre)",
+   "ad": "#01-27 Newton Food Centre, 500 Clemenceau Avenue North",
+   "w": "Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",
+   "cz": [
+    "MALAY"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/newton-food-centre/"
+    ],
+    [
+     "MTC",
+     "https://www.misstamchiak.com/newton-food-centre-singapore/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/newton-food-centre-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "JUMBO Seafood (Riverside Point)",
+   "ad": "#01-01/02 Riverside Point, 30 Merchant Road, Clarke Quay",
+   "w": "Singapore's most famous chilli crab name (since 1987); sweet-spicy gravy mopped up with mantou.",
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/jumbo-seafood/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Jumbo_Seafood"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/singapore/restaurants/jumbo-seafood"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGC",
+   "n": "Odette",
+   "ad": "#01-04 National Gallery Singapore, 1 St Andrew's Road",
+   "w": "Three Michelin stars; Chef Julien Royer's flagship, a perennial Asia's 50 Best fixture.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/odette"
+    ],
+    [
+     "HGW",
+     "https://hungrygowhere.com/food-news/michelin-guide-singapore-2025/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "328 Katong Laksa",
+   "ad": "51 East Coast Road, Katong",
+   "w": "The definitive Katong laksa that 'beat' Gordon Ramsay; former Michelin Bib, cut noodles eaten with a spoon.",
+   "cz": [
+    "LAKSA"
+   ],
+   "s": [
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/06/21/328katonglaksa/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/328-katong-laksa"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/singapore/restaurants/best-laksa-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Nam Sing Hokkien Fried Mee",
+   "ad": "#01-32 Old Airport Road Food Centre, 51 Old Airport Road",
+   "w": "Serving one dish since 1960; drier prawn-stock Hokkien mee with a Michelin Bib Gourmand.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/nam-sing-hokkien-fried-mee"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2022/02/08/namsing/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/old-airport-road-food/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Hill Street Fried Kway Teow",
+   "ad": "#01-41 Bedok South Market & Food Centre, 16 Bedok South Road",
+   "w": "Since 1961; full-bodied wok-hei char kway teow with cockles, a Michelin Bib and 40-min queues.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/hill-street-fried-kway-teow"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/hill-street-fried-kway-teow/"
+    ],
+    [
+     "MTC",
+     "https://www.misstamchiak.com/char-kway-teow/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Lao Fu Zi Fried Kway Teow",
+   "ad": "#01-12 Old Airport Road Food Centre, 51 Old Airport Road",
+   "w": "Smoky wok-hei CKT with blood cockles & lup cheong; a 2025 Michelin Bib Gourmand.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lao-fu-zi-fried-kway-teow"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/lao-fu-zi-fried-kway-teow-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "To-Ricos Kway Chap",
+   "ad": "#01-135/136 Old Airport Road Food Centre, 51 Old Airport Road",
+   "w": "Teochew kway chap since the 1980s; immaculately cleaned braised offal, a 2025 Michelin Bib.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/my/en/singapore-region/singapore/restaurant/to-ricos-guo-shi"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2025/07/17/toricoskwaychap/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Roast Paradise",
+   "ad": "#01-121 Old Airport Road Food Centre, 51 Old Airport Road",
+   "w": "KL-style caramelised char siew on pork belly; a modern hawker favourite.",
+   "cz": [
+    "CHINESE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/roast-paradise/"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/06/10/charsiew/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Chin Mee Chin Confectionery",
+   "ad": "204 East Coast Road, Katong/Joo Chiat",
+   "w": "101-year-old Hainanese kopitiam; iconic round charcoal kaya buns, reopened 2021.",
+   "cz": [
+    "KOPI"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/chin-mee-chin/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Chin_Mee_Chin_Confectionery"
+    ],
+    [
+     "TIMEOUT",
+     "https://timeout.com/singapore/restaurants/chin-mee-chin-confectionery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Guan Hoe Soon Restaurant",
+   "ad": "38/40 Joo Chiat Place, Joo Chiat",
+   "w": "Singapore's oldest Peranakan restaurant (1953); traditional Nonya cooking, third generation.",
+   "cz": [
+    "PERANAKAN"
+   ],
+   "s": [
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/10-traditional-and-modern-peranakan-restaurants-singapore-delicious-nonya-food"
+    ],
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/stories-landing/stories/copy-of-street-corner-heritage-galleries-katong-joo-chiat"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGE",
+   "n": "Mr & Mrs Mohgan's Super Crispy Roti Prata",
+   "ad": "300 Joo Chiat Road (Tin Yeang Coffeeshop)",
+   "w": "Cult super-crispy prata cooked to order; long morning queues, 'cult status entirely affirmed'.",
+   "cz": [
+    "INDIAN"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/mr-and-mrs-mohgan-super-crispy-roti-prata/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/mr-and-mrs-mohgans-super-crispy-prata-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Geylang Lor 9 Beef Kway Teow",
+   "ad": "237 Geylang Road (Geylang Lorong 9)",
+   "w": "Iconic Geylang beef hor fun with goopy black bean gravy; in the 2025 Michelin Guide.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/lor-9-beef-kway-teow"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/lor-9-beef-kway-teow/"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2019/10/08/lor9beefkwayteow/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Haron Satay (Haron 30)",
+   "ad": "#01-05 East Coast Lagoon Food Village, 1220 East Coast Parkway",
+   "w": "East Coast Lagoon's beloved Malay-Muslim satay, grilled seaside over charcoal.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "WOMENSWEEKLY",
+     "https://www.womensweekly.com.sg/food/best-satay-in-singapore-grilled"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/foodanddrink/stalls-best-satay-in-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Kway Guan Huat Joo Chiat Popiah",
+   "ad": "95 Joo Chiat Road, Joo Chiat",
+   "w": "Since 1938; hand-made popiah skins spun on a wooden pole, a Joo Chiat heritage name.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "ROOTS",
+     "https://www.roots.gov.sg/stories-landing/stories/Michael-Ker-Making-heritage-food-that-stands-the-test-of-time/story"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/best-singapore-food/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Sin Heng Claypot Bak Koot Teh",
+   "ad": "#01-01, 439 Joo Chiat Road, Joo Chiat",
+   "w": "40-year-old claypot bak kut teh with pepper & garlic; a 2025 Michelin Bib Gourmand.",
+   "cz": [
+    "BKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/sin-heng-claypot-bak-koot-teh"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2025/05/22/sinhengbkt/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/sin-heng-claypot-bak-koot-teh-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGE",
+   "n": "Eng Seng Restaurant — CLOSED (Joo Chiat)",
+   "ad": "247 Joo Chiat Place, Joo Chiat (original; premises sold Aug 2025)",
+   "w": "The legendary Joo Chiat/Still Road black pepper crab; original shophouse closed Aug 2025 after the premises sold (crew relocated to a Tampines industrial canteen).",
+   "closed": true,
+   "cz": [
+    "SEAFOOD"
+   ],
+   "s": [
+    [
+     "JOHORKAKI",
+     "https://johorkaki.blogspot.com/2026/03/eng-seng-famous-joo-chiat-still-road.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Selera Rasa Nasi Lemak",
+   "ad": "#01-15 Adam Road Food Centre, 2 Adam Road, Bukit Timah",
+   "w": "Michelin Bib Gourmand nasi lemak on basmati; reportedly a favourite of the Sultan of Brunei.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/selera-rasa-nasi-lemak"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2024/01/11/selerarasanasilemak/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Springleaf Prata Place",
+   "ad": "1 Thong Soon Avenue, Upper Thomson",
+   "w": "Famous Upper Thomson prata with 60+ flavours from the Murtaburger to Prata Alfredo.",
+   "cz": [
+    "INDIAN"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/best-prata-in-singapore/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/singapore/restaurants/the-best-prata-shops-in-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Candlenut",
+   "ad": "Block 17A Dempsey Road, Dempsey Hill",
+   "w": "The world's first Michelin-starred Peranakan restaurant; Chef Malcolm Lee's elevated Straits-Chinese cooking.",
+   "cz": [
+    "PERANAKAN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/candlenut"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/10-traditional-and-modern-peranakan-restaurants-singapore-delicious-nonya-food"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Burnt Ends",
+   "ad": "7 Dempsey Road, Dempsey Hill",
+   "w": "One Michelin star & Asia's 50 Best; wood-fired modern barbecue, near-impossible reservations.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/burnt-ends-1200777"
+    ],
+    [
+     "SCMP",
+     "https://www.scmp.com/lifestyle/food-drink/article/3336843/how-singapores-bbq-hotspot-burnt-ends-still-has-diners-fighting-tables-12-years"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SGWN",
+   "n": "Boon Tong Kee (Balestier)",
+   "ad": "399/401/403 Balestier Road",
+   "w": "A chicken rice institution since 1979; promoted to Michelin Bib Gourmand in 2025.",
+   "cz": [
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2025/07/18/boontongkee/"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Founder Bak Kut Teh (Balestier)",
+   "ad": "347 Balestier Road",
+   "w": "Peppery Teochew bak kut teh open late for supper; a Balestier landmark.",
+   "cz": [
+    "BKT"
+   ],
+   "s": [
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/04/20/bakkutteh/"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/foodanddrink/best-bak-kut-teh-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Margaret Drive Sin Kee Chicken Rice",
+   "ad": "#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",
+   "w": "Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",
+   "cz": [
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/best-must-try-chicken-rice-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Depot Road Zhen Shan Mei Claypot Laksa",
+   "ad": "#01-75 Alexandra Village Food Centre, 120 Bukit Merah Lane 1",
+   "w": "Multi-time award-winning laksa (Michelin Bib 2016+) rich with cockles and prawns.",
+   "cz": [
+    "LAKSA"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/article/features/behind-the-bib-depot-road-zhen-shan-mei-claypot-laksa"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/depot-road-zhen-shan-mei-claypot-laksa/"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2022/09/14/zhenshanmei/"
+    ],
+    [
+     "WIKI",
+     "https://en.wikipedia.org/wiki/Depot_Road_Zhen_Shan_Mei_Claypot_Laksa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "He Zhong Carrot Cake",
+   "ad": "#02-185 Bukit Timah Market & Food Centre, 51 Upper Bukit Timah Road",
+   "w": "Famous white chai tow kway near Beauty World; crisp, wok-fried and eggy.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/he-zhong-carrot-cake/"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/01/14/chaitowkway/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Fu Ming Cooked Food",
+   "ad": "#01-49 Redhill Food Centre, 85 Redhill Lane",
+   "w": "'Mickey Mouse' chai tow kway, radish cake made from scratch daily; Michelin Bib since 2019.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fu-ming-cooked-food"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/fu-ming-cooked-food/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/fu-ming-cooked-food-carrot-cake-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Foong Kee Traditional Charcoal Roaster",
+   "ad": "#01-06 Commonwealth Crescent Market & Food Centre, 31 Commonwealth Crescent",
+   "w": "Charcoal-roasted char siew with an ideal fat-to-meat ratio; reopened after a two-year hiatus.",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/foong-kee-traditional-charcoal-roaster/"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/06/10/charsiew/"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Fatty Cheong",
+   "ad": "#01-120 ABC Brickworks Market & Food Centre, 6 Jalan Bukit Merah",
+   "w": "34 years of sweet, succulent char siew and roast meats at ABC Brickworks.",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "DFD",
+     "https://danielfooddiary.com/2020/06/10/charsiew/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/roast-meat-stalls-food-guide-singapore/"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SGWN",
+   "n": "Fei Fei Roasted Noodle",
+   "ad": "#01-40 Yuhua Village Market & Food Centre, 254 Jurong East Street 24",
+   "w": "Charcoal-roasted meats & wanton mee in Jurong East; Michelin Bib Gourmand.",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fei-fei-roasted-noodle"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/wonton-mee-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGWN",
+   "n": "Long Kee Wanton Noodle",
+   "ad": "Block 505 Jurong West Street 52 (Jurong West 505 Market & Food Centre)",
+   "w": "Nostalgic old-school wanton mee in Jurong West; new to the 2025 Michelin Guide.",
+   "cz": [
+    "HAWKER"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/long-kee-wanton-noodle"
+    ],
+    [
+     "DFD",
+     "https://danielfooddiary.com/2025/05/24/longkeewantonnoodle/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SGWN",
+   "n": "Boon Lay Power Nasi Lemak",
+   "ad": "#01-06 Boon Lay Place Food Village, 221B Boon Lay Place",
+   "w": "A big-name Jurong nasi lemak using extra-virgin coconut oil.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/nasi-lemak-in-singapore/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/nasi-lemak-guide-singapore/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "Chey Sua Carrot Cake",
+   "ad": "Toa Payoh West Market & Food Centre, #02-30, Blk 127 Lorong 1 Toa Payoh, S310127",
+   "w": "Michelin Bib Gourmand since 2016 — two sisters fry each plate of crispy-yet-spongy white carrot cake to order, drawing long queues at the freshly renovated (reopened Aug 2025) Toa Payoh West hawker centre.",
+   "cz": [
+    "CHINESE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/chey-sua-carrot-cake"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/chey-sua-carrot-cake-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/chey-sua-carrot-cake/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2016/08/08/cheysuacarrotcake/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "Come Daily Fried Hokkien Prawn Mee",
+   "ad": "Toa Payoh West Market & Food Centre, #02-27, Blk 127 Lorong 1 Toa Payoh, S310127",
+   "w": "Michelin-listed and running since 1968, Steven Ng reduces prawn stock right in the wok for one of Toa Payoh's most famous plates of Hokkien mee — a fixture of the reopened Toa Payoh West food centre.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/come-daily-fried-hokkien-prawn-mee"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/come-daily-hokkien-mee/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2019/03/02/comedaily/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "Hai Nan Xing Zhou Beef Noodle",
+   "ad": "Kim Keat Palm Market & Food Centre, #01-06, Blk 22 Lorong 7 Toa Payoh, S310022",
+   "w": "Nearly 70 years of Hainanese beef noodles from S$5, newly awarded a Michelin Bib Gourmand — dry or soup, in a rich braise the whole hawker centre queues for.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/hai-nan-xing-zhou-beef-noodle"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2022/05/19/hainanxingzhou/"
+    ],
+    [
+     "SETHLUI",
+     "https://sethlui.com/hai-nan-xing-zhou-beef-noodle-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/hai-nan-xing-zhou-beef-noodle/"
+    ],
+    [
+     "MISSTAMCHIAK",
+     "https://www.misstamchiak.com/hai-nan-xing-zhou-beef-noodles/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "Chef Kang's Noodle House",
+   "ad": "Block A, Jackson Square, 11 Toa Payoh Lorong 3, S319579",
+   "w": "A Michelin-starred Cantonese chef sells $5 wanton mee from a warehouse-canteen stall — HK-shipped springy noodles and charred char siew that earned a Michelin Bib Gourmand within a year of opening (still listed 2025/2026).",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/chef-kang-s-noodle-house"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2018/11/04/chefkangsnoodlehouse/"
+    ],
+    [
+     "MISSTAMCHIAK",
+     "https://www.misstamchiak.com/chef-kang-wanton-noodle-house/"
+    ],
+    [
+     "IEATISHOOTIPOST",
+     "https://ieatishootipost.sg/chef-kang-noodle-house-michelin-star-chef-wanton-mee/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TPY",
+   "n": "LiXin Teochew Fishball Noodles",
+   "ad": "Kim Keat Palm Market & Food Centre, #01-20, Blk 22 Lorong 7 Toa Payoh, S310022",
+   "w": "The original stall of Singapore's 58-year-old fishball dynasty (est. 1968), Michelin Bib Gourmand for four years running since 2022 — springy, umami yellowtail fishballs made fresh daily.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2022/05/18/lixin/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Kedai Makan Muhajirin",
+   "ad": "Blk 20 Toa Payoh Lorong 7 coffeeshop, S310020",
+   "w": "A beloved $1 nasi lemak that has held its price since 1987 to stay affordable for elderly regulars — cooking starts at 4am and 300-500 plates sell out by midday; covered by every major food outlet and YouTuber Ghib Ojisan.",
+   "cz": [
+    "MALAY"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/kedai-makan-muhajirin-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/kedai-makan-muhajirin/"
+    ],
+    [
+     "MISSTAMCHIAK",
+     "https://www.misstamchiak.com/kedai-makan-muhajirin/"
+    ],
+    [
+     "MOTHERSHIP",
+     "https://mothership.sg/2023/02/nasi-lemak-kedai-makan-muhajirin/"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/food/1-toa-payoh-nasi-lemak-almost-closed-good-you-can-relax-now"
+    ],
+    [
+     "GHIBOJISAN",
+     "https://www.youtube.com/c/GhibOjisan/videos"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Da Ji Hainanese Chicken Rice",
+   "ad": "Toa Payoh Lorong 5 Food Centre, #01-31, Blk 75 Lorong 5 Toa Payoh, S310075",
+   "w": "A cult chicken rice stall that swaps roast/poached chicken for addictively marinated crispy fried wings ($3.50) with a spicy chilli dip — famously long evening queues until sold out.",
+   "cz": [
+    "CHICKENRICE"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/da-ji-hainanese-chicken-rice/"
+    ],
+    [
+     "MISSTAMCHIAK",
+     "https://www.misstamchiak.com/da-ji-hainanese-chicken-rice/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Ru Ji Kitchen (Toa Payoh)",
+   "ad": "Blk 22 Lorong 7 Toa Payoh, #01-58, S310022",
+   "w": "The Toa Payoh outlet of Uncle David Ng's famed noodle stall, where bouncy yellowtail fishballs are hand-pounded on the spot (the Holland Drive original holds the Michelin Bib Gourmand).",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/ru-ji-kitchen-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/ru-ji-kitchen/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2019/03/06/ruji/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Old Long House Popiah",
+   "ad": "Kim Keat Palm Market & Food Centre, #01-03, Blk 22 Lorong 7 Toa Payoh, S310022",
+   "w": "A 3rd-generation popiah stall with roots to 1930, hand-rolling Hokkien-style popiah (no pork, no lard, no MSG) with house-fried sole-fish crisps — one of Singapore's most heritage popiah names.",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/old-long-house-popiah-singapore/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2021/05/02/kimkeatpalm/"
+    ],
+    [
+     "HERWORLD",
+     "https://www.herworld.com/life/best-places-popiah-in-singapore"
+    ],
+    [
+     "MAKANSUTRA",
+     "https://makansutra.com/fave-5-kim-keat-palm-market-and-food-centre/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Lai Heng Mushroom Minced Meat Noodle",
+   "ad": "Blk 73 Toa Payoh Lorong 5, Toa Payoh",
+   "w": "A bak chor mee institution running since 1985 (relocated twice within Toa Payoh), still turning out a spicy dry mee kia and a standout lard-rich kway teow soup that Seth Lui rated after 24 years of visits.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/lai-heng-mushroom-minced-meat-noodle-singapore/"
+    ],
+    [
+     "HUNGRYGOWHERE",
+     "https://hungrygowhere.com/critics-reviews/lai-heng-mushroom-minced-meat-noodle/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Uggli Muffins",
+   "ad": "Toa Payoh West Market & Food Centre, #02-34, Blk 127 Lorong 1 Toa Payoh, S310127",
+   "w": "UK-trained ex-engineer Anton Tan turned his family's zi char stall into a viral $1.20 muffin institution — deliberately misshapen buns with crunchy caramelised crusts; a long-queue hawker-dessert cult reopened after the 2025 renovation.",
+   "cz": [
+    "DESSERT",
+    "VIRAL"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2025/08/06/ugglimuffinssg/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Teochew Handmade Pau",
+   "ad": "Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",
+   "w": "A 30-plus-year heritage pau stall (est. 1993, three years on the Michelin Plate) hand-making Teochew-style buns with thick, not-too-sweet lotus paste — announced closure end-2025 but reopened June 2026 after public demand.",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "MISSTAMCHIAK",
+     "https://www.misstamchiak.com/teochew-handmade-pau-toa-payoh/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2025/12/19/teochewhandmadepausg/"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/teochew-handmade-pau-reopen"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Hometaste Hakka Lei Cha",
+   "ad": "Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",
+   "w": "Two sisters plate one of Singapore's most generous $5 thunder tea rice sets — less oil, less salt, no MSG — with the fragrant bitter-green tea broth poured over brown rice and crunchy toppings.",
+   "cz": [
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/best-thunder-tea-rice-singapore/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2025/05/12/hometasteleicha/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Pure Soya Bean",
+   "ad": "Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",
+   "w": "Ex-Italian-restaurant cook Desheng makes beancurd from scratch daily with non-GMO soybeans — smooth, un-gritty tau huay you can dress with gula melaka, grass jelly or gingko.",
+   "cz": [
+    "DESSERT"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/unique-tau-huay/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Toa Payoh Scissors Cut Curry Rice",
+   "ad": "Toa Payoh Lorong 8 Market & Food Centre, 210 Lorong 8 Toa Payoh, S310210",
+   "w": "Old-school Hainanese-style curry rice from S$2.80 — a heaped plate of chopped sides flooded in three different gravies (curry, braise, pork), a comfort-food fixture of Lorong 8.",
+   "cz": [
+    "HAWKER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/best-curry-rice-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/tpy-lorong-8/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Uncle Kun's Delicacies (Kun Shu Food Stall)",
+   "ad": "Toa Payoh Vista Market, Lorong 4 Toa Payoh",
+   "w": "Ex-hotel HK chef Lam Kun serves restaurant-grade dim sum at hawker prices; his signature oblong scallop glutinous rice (S$4.80), packed with dried scallop, salted egg and lap cheong, isn't found elsewhere in Singapore.",
+   "cz": [
+    "CHINESE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/kun-shu-food-stall-singapore/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/food-places-toa-payoh/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Min Kee Tanjong Rhu Wanton Noodle",
+   "ad": "Kim Keat Palm Market & Food Centre, Blk 22 Lorong 7 Toa Payoh, S310022",
+   "w": "A decades-old wanton mee that relocated from Tanjong Rhu, still selling a substantial $3.50 bowl of springy noodles with black-chilli option, soupy and fried wantons — a Kim Keat breakfast favourite.",
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "MOTHERSHIP",
+     "https://mothership.sg/2024/08/min-kee-tanjong-rhu-wanton-noodle/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/tag/min-kee-tanjong-rhu-wanton-noodle/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TPY",
+   "n": "Hougang 6 Miles Famous Muah Chee",
+   "ad": "Gourmet Paradise Food Court, Toa Payoh HDB Hub, Blk 480 Lorong 6 Toa Payoh, #B1-01, S310480",
+   "w": "Likely the last hawker hand-making this Teochew snack from scratch — Teo Yong Joo mills flour, roasts peanuts and pinches each soft, tender muah chee ball to order at the HDB Hub food court.",
+   "cz": [
+    "DESSERT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "HUNGRYGOWHERE",
+     "https://hungrygowhere.com/critics-reviews/hougang-6-miles-famous-muah-chee/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/food-places-toa-payoh/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Kim Keat Hokkien Mee — CLOSED",
+   "ad": "Blk 92 Toa Payoh Lorong 4, #01-264, S310092",
+   "w": "Once rated among Singapore's top-five Hokkien mee — served in a heat-retaining claypot with deep-fried crispy pork belly — this 10-year Toa Payoh favourite shuttered on 28 Feb 2026. Kept here as a flagged closure.",
+   "closed": true,
+   "cz": [
+    "NOODLE"
+   ],
+   "s": [
+    [
+     "EATBOOK",
+     "https://eatbook.sg/kim-keat/"
+    ],
+    [
+     "DANIELFOOD",
+     "https://danielfooddiary.com/2015/09/15/kimkeathokkienmee/"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/kim-keat-claypot-hokkien-mee-closure"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TPY",
+   "n": "Hup Chong Hakka Yong Tau Foo — CLOSED",
+   "ad": "Blk 203 Toa Payoh (final location; earlier Blk 116/124)",
+   "w": "A four-generation Hakka yong tau foo with roots to a 1952 pushcart, famous for handmade fried meatballs and fish paste — it closed for good on 28 Jan 2026 after 70-plus years amid falling footfall. Kept here as a flagged closure.",
+   "closed": true,
+   "cz": [
+    "BKT",
+    "CHINESE"
+   ],
+   "s": [
+    [
+     "SETHLUI",
+     "https://sethlui.com/hup-chong-yong-tau-foo-singapore/"
+    ],
+    [
+     "MISSTAMCHIAK",
+     "https://www.misstamchiak.com/hup-chong-hakka-yong-tau-foo/"
+    ],
+    [
+     "EATBOOK",
+     "https://eatbook.sg/hup-chong-yong-tau-foo/"
+    ],
+    [
+     "ASIAONE",
+     "https://www.asiaone.com/lifestyle/hup-chong-yong-tau-foo-last-day"
+    ],
+    [
+     "MOTHERSHIP",
+     "https://mothership.sg/2026/01/toa-payoh-yong-tau-foo-close-down/"
+    ],
+    [
+     "IEATISHOOTIPOST",
+     "https://ieatishootipost.sg/hup-chong-yong-tau-foo-fried-pork-paradise/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "CHANGI": {
+   "k": "CHANGI",
+   "t": "Changi Airport (official)",
+   "u": "https://www.changiairport.com/",
+   "l": "Changi Airport (official)"
+  },
+  "CHINATOWNSG": {
+   "k": "CHINATOWNSG",
+   "t": "Chinatown Singapore (precinct site, STB-supported)",
+   "u": "https://chinatown.sg/",
+   "l": "Chinatown Singapore (precinct site, STB-supported)"
+  },
+  "CHNC": {
+   "k": "CHNC",
+   "t": "Chinatown Heritage Centre (official)",
+   "u": "https://www.chinatownheritagecentre.com.sg/",
+   "l": "Chinatown Heritage Centre (official)"
+  },
+  "GUIDETOPH": {
+   "k": "GUIDE TO THE PHILIPPINES",
+   "t": "Guide to the Philippines",
+   "u": "https://guidetothephilippines.ph/",
+   "l": "Guide to the Philippines"
+  },
+  "HDB": {
+   "k": "HDB",
+   "t": "HDB (MyNiceHome)",
+   "u": "https://www.mynicehome.gov.sg",
+   "l": "HDB (MyNiceHome)"
+  },
+  "HONEYCOMBERS": {
+   "k": "HONEYCOMBERS",
+   "t": "The Honeycombers / HoneyKids Asia",
+   "u": "https://thehoneycombers.com/singapore/",
+   "l": "The Honeycombers / HoneyKids Asia"
+  },
+  "INDONESIATRAVEL": {
+   "k": "WONDERFUL INDONESIA",
+   "t": "Wonderful Indonesia (Ministry of Tourism)",
+   "u": "https://www.indonesia.travel/",
+   "l": "Wonderful Indonesia (Ministry of Tourism)"
+  },
+  "LITTLEDAYOUT": {
+   "k": "LITTLEDAYOUT",
+   "t": "Little Day Out",
+   "u": "https://www.littledayout.com",
+   "l": "Little Day Out"
+  },
+  "LONELYPLANET": {
+   "k": "LONELY PLANET",
+   "t": "Lonely Planet",
+   "u": "https://www.lonelyplanet.com/indonesia/bali",
+   "l": "Lonely Planet"
+  },
+  "MANDAI": {
+   "k": "MANDAI",
+   "t": "Mandai Wildlife Reserve (official)",
+   "u": "https://www.mandai.com/",
+   "l": "Mandai Wildlife Reserve (official)"
+  },
+  "MBS": {
+   "k": "MBS",
+   "t": "Marina Bay Sands (official)",
+   "u": "https://www.marinabaysands.com/",
+   "l": "Marina Bay Sands (official)"
+  },
+  "NHB": {
+   "k": "NHB",
+   "t": "National Heritage Board (museums)",
+   "u": "https://www.nhb.gov.sg/",
+   "l": "National Heritage Board (museums)"
+  },
+  "NLB": {
+   "k": "NLB",
+   "t": "National Library Board — Singapore Infopedia",
+   "u": "https://www.nlb.gov.sg/",
+   "l": "National Library Board — Singapore Infopedia"
+  },
+  "NPARKS": {
+   "k": "NPARKS",
+   "t": "NParks (National Parks Board)",
+   "u": "https://www.nparks.gov.sg/",
+   "l": "NParks (National Parks Board)"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Cuisine Wat Damnak (official)",
+   "u": "https://www.cuisinewatdamnak.com/",
+   "l": "Cuisine Wat Damnak (official)"
+  },
+  "ROOTS": {
+   "k": "ROOTS",
+   "t": "Roots.gov.sg (National Heritage Board)",
+   "u": "https://www.roots.gov.sg/",
+   "l": "Roots.gov.sg (National Heritage Board)"
+  },
+  "ROOTSSG": {
+   "k": "ROOTS.GOV.SG (NHB)",
+   "t": "Roots.gov.sg (NHB)",
+   "u": "https://www.roots.gov.sg",
+   "l": "Roots.gov.sg (NHB)"
+  },
+  "TATNEWS": {
+   "k": "TAT (TOURISM THAILAND)",
+   "t": "Tourism Authority of Thailand",
+   "u": "https://www.tourismthailand.org/",
+   "l": "Tourism Authority of Thailand"
+  },
+  "TIMEOUTBKK": {
+   "k": "TIME OUT BANGKOK",
+   "t": "Time Out Bangkok",
+   "u": "https://www.timeout.com/bangkok",
+   "l": "Time Out Bangkok"
+  },
+  "TIMEOUTSG": {
+   "k": "TIME OUT SINGAPORE",
+   "t": "Time Out Singapore",
+   "u": "https://www.timeout.com/singapore",
+   "l": "Time Out Singapore"
+  },
+  "TOURISMMY": {
+   "k": "TOURISM MALAYSIA",
+   "t": "Tourism Malaysia",
+   "u": "https://www.malaysia.travel/",
+   "l": "Tourism Malaysia"
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO — Cultural Landscape of Bali Province (Subak)",
+   "u": "https://whc.unesco.org/en/list/1194/",
+   "l": "UNESCO — Cultural Landscape of Bali Province (Subak)"
+  },
+  "VIETNAMCORACLE": {
+   "k": "VIETNAM CORACLE",
+   "t": "Vietnam Coracle (Tom Divers)",
+   "u": "https://www.vietnamcoracle.com/",
+   "l": "Vietnam Coracle (Tom Divers)"
+  },
+  "VISITPENANG": {
+   "k": "VISITPENANG",
+   "t": "Visit Penang (Penang Global Tourism)",
+   "u": "https://www.visitpenang.com/",
+   "l": "Visit Penang (Penang Global Tourism)"
+  },
+  "VISITSG": {
+   "k": "VISIT SINGAPORE (STB)",
+   "t": "Visit Singapore (Singapore Tourism Board)",
+   "u": "https://www.visitsingapore.com/",
+   "l": "Visit Singapore (Singapore Tourism Board)"
+  },
+  "WANDERLUSH": {
+   "k": "WANDERLUSH",
+   "t": "Wander-Lush (Emily Lush)",
+   "u": "https://wander-lush.org/",
+   "l": "Wander-Lush (Emily Lush)"
+  },
+  "WIKI": {
+   "k": "WIKI",
+   "t": "Wikipedia (notability / cross-check only)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (notability / cross-check only)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "AFAR": {
+   "k": "AFAR",
+   "t": "AFAR",
+   "u": "https://www.afar.com/",
+   "l": "AFAR"
+  },
+  "ASIA50BEST": {
+   "k": "ASIA50BEST",
+   "t": "Asia's 50 Best — Essence of Asia",
+   "u": "https://www.theworlds50best.com/asia/",
+   "l": "Asia's 50 Best — Essence of Asia"
+  },
+  "ASIAONE": {
+   "k": "ASIAONE",
+   "t": "AsiaOne (SPH Media)",
+   "u": "https://www.asiaone.com/",
+   "l": "AsiaOne (SPH Media)"
+  },
+  "AUTHENTICFOODQUEST": {
+   "k": "AUTHENTICFOODQUEST",
+   "t": "Authentic Food Quest",
+   "u": "https://authenticfoodquest.com/",
+   "l": "Authentic Food Quest"
+  },
+  "CHANGPUAK": {
+   "k": "CHANGPUAK",
+   "t": "Chang Puak Magazine",
+   "u": "https://changpuakmagazine.com/",
+   "l": "Chang Puak Magazine"
+  },
+  "CHINATOWNSG": {
+   "k": "CHINATOWNSG",
+   "t": "Chinatown Singapore (precinct site, STB-supported)",
+   "u": "https://chinatown.sg/",
+   "l": "Chinatown Singapore (precinct site, STB-supported)"
+  },
+  "DANIELFOOD": {
+   "k": "DANIEL FOOD DIARY",
+   "t": "Daniel Food Diary",
+   "u": "https://danielfooddiary.com/2025/12/11/bunchahuonglien/",
+   "l": "Daniel Food Diary"
+  },
+  "DFD": {
+   "k": "DFD",
+   "t": "Daniel Food Diary (danielfooddiary.com)",
+   "u": "https://danielfooddiary.com/",
+   "l": "Daniel Food Diary (danielfooddiary.com)"
+  },
+  "EATBOOK": {
+   "k": "EATBOOK",
+   "t": "Eatbook.sg",
+   "u": "https://eatbook.sg/",
+   "l": "Eatbook.sg"
+  },
+  "EATINGTHAIFOOD": {
+   "k": "EATINGTHAIFOOD",
+   "t": "Eating Thai Food (Mark Wiens)",
+   "u": "https://www.eatingthaifood.com/",
+   "l": "Eating Thai Food (Mark Wiens)"
+  },
+  "EATLIKEBOURDAIN": {
+   "k": "EATLIKEBOURDAIN",
+   "t": "Eat Like Bourdain (Bourdain locations index)",
+   "u": "https://eatlikebourdain.com/",
+   "l": "Eat Like Bourdain (Bourdain locations index)"
+  },
+  "FEATR": {
+   "k": "FEATR",
+   "t": "FEATR / Erwan Heussaff",
+   "u": "https://www.youtube.com/@FEATRmedia",
+   "l": "FEATR / Erwan Heussaff"
+  },
+  "FODORS": {
+   "k": "FODORS",
+   "t": "Fodor's Travel",
+   "u": "https://www.fodors.com/",
+   "l": "Fodor's Travel"
+  },
+  "GHIBOJISAN": {
+   "k": "GHIBOJISAN",
+   "t": "Ghib Ojisan (YouTube)",
+   "u": "https://www.youtube.com/c/GhibOjisan",
+   "l": "Ghib Ojisan (YouTube)"
+  },
+  "GOBACKPACKING": {
+   "k": "GOBACKPACKING",
+   "t": "Go Backpacking (travel blog)",
+   "u": "https://gobackpacking.com/",
+   "l": "Go Backpacking (travel blog)"
+  },
+  "HERWORLD": {
+   "k": "HERWORLD",
+   "t": "Her World Singapore (SPH Media)",
+   "u": "https://www.herworld.com/",
+   "l": "Her World Singapore (SPH Media)"
+  },
+  "HGW": {
+   "k": "HGW",
+   "t": "HungryGoWhere",
+   "u": "https://hungrygowhere.com/",
+   "l": "HungryGoWhere"
+  },
+  "HONEYCOMBERS": {
+   "k": "HONEYCOMBERS",
+   "t": "The Honeycombers / HoneyKids Asia",
+   "u": "https://thehoneycombers.com/singapore/",
+   "l": "The Honeycombers / HoneyKids Asia"
+  },
+  "HUNGRYGOWHERE": {
+   "k": "HUNGRYGOWHERE",
+   "t": "HungryGoWhere",
+   "u": "https://hungrygowhere.com",
+   "l": "HungryGoWhere"
+  },
+  "IEAT": {
+   "k": "IEAT",
+   "t": "ieatishootipost (Dr Leslie Tay)",
+   "u": "https://ieatishootipost.sg/",
+   "l": "ieatishootipost (Dr Leslie Tay)"
+  },
+  "IEATISHOOTIPOST": {
+   "k": "IEATISHOOTIPOST",
+   "t": "Dr Leslie Tay (ieatishootipost) (Blog / YouTube)",
+   "u": "https://ieatishootipost.sg",
+   "l": "Dr Leslie Tay (ieatishootipost) (Blog / YouTube)"
+  },
+  "INDONESIATRAVEL": {
+   "k": "WONDERFUL INDONESIA",
+   "t": "Wonderful Indonesia (Ministry of Tourism)",
+   "u": "https://www.indonesia.travel/",
+   "l": "Wonderful Indonesia (Ministry of Tourism)"
+  },
+  "JOHORKAKI": {
+   "k": "JOHORKAKI",
+   "t": "Johor Kaki (Tony Boey food blog)",
+   "u": "https://johorkaki.blogspot.com/",
+   "l": "Johor Kaki (Tony Boey food blog)"
+  },
+  "LONELYPLANET": {
+   "k": "LONELY PLANET",
+   "t": "Lonely Planet",
+   "u": "https://www.lonelyplanet.com/indonesia/bali",
+   "l": "Lonely Planet"
+  },
+  "MAKANSUTRA": {
+   "k": "MAKANSUTRA",
+   "t": "Makansutra",
+   "u": "https://makansutra.com",
+   "l": "Makansutra"
+  },
+  "MALAYMAIL": {
+   "k": "MALAYMAIL",
+   "t": "Malay Mail",
+   "u": "https://www.malaymail.com/",
+   "l": "Malay Mail"
+  },
+  "MARKWIENS": {
+   "k": "MARKWIENS",
+   "t": "Mark Wiens / Migrationology",
+   "u": "https://migrationology.com/chicken-rice-balls-melaka/",
+   "l": "Mark Wiens / Migrationology"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN Guide Thailand",
+   "u": "https://guide.michelin.com/en/th/bangkok-region",
+   "l": "MICHELIN Guide Thailand"
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB",
+   "t": "MICHELIN Bib Gourmand (Singapore)",
+   "u": "https://guide.michelin.com/sg/en/singapore-region/restaurants/bib-gourmand",
+   "l": "MICHELIN Bib Gourmand (Singapore)"
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN ★",
+   "t": "MICHELIN Guide — Star",
+   "u": "https://guide.michelin.com/",
+   "l": "MICHELIN Guide — Star"
+  },
+  "MISSTAMCHIAK": {
+   "k": "MISS TAM CHIAK",
+   "t": "Miss Tam Chiak",
+   "u": "https://www.misstamchiak.com",
+   "l": "Miss Tam Chiak"
+  },
+  "MOTHERSHIP": {
+   "k": "MOTHERSHIP",
+   "t": "Mothership",
+   "u": "https://mothership.sg",
+   "l": "Mothership"
+  },
+  "MTC": {
+   "k": "MTC",
+   "t": "Miss Tam Chiak (misstamchiak.com)",
+   "u": "https://www.misstamchiak.com/",
+   "l": "Miss Tam Chiak (misstamchiak.com)"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Cuisine Wat Damnak (official)",
+   "u": "https://www.cuisinewatdamnak.com/",
+   "l": "Cuisine Wat Damnak (official)"
+  },
+  "OURAWESOMEPLANET": {
+   "k": "OURAWESOMEPLANET",
+   "t": "Our Awesome Planet (Anton Diaz)",
+   "u": "https://awesome.blog/",
+   "l": "Our Awesome Planet (Anton Diaz)"
+  },
+  "PENANGFOODIE": {
+   "k": "PENANG FOODIE",
+   "t": "Penang Foodie",
+   "u": "https://penangfoodie.com/",
+   "l": "Penang Foodie"
+  },
+  "RAPPLER": {
+   "k": "RAPPLER",
+   "t": "Rappler",
+   "u": "https://www.rappler.com/",
+   "l": "Rappler"
+  },
+  "ROOTS": {
+   "k": "ROOTS",
+   "t": "Roots.gov.sg (National Heritage Board)",
+   "u": "https://www.roots.gov.sg/",
+   "l": "Roots.gov.sg (National Heritage Board)"
+  },
+  "SCMP": {
+   "k": "SCMP",
+   "t": "South China Morning Post",
+   "u": "https://www.scmp.com/",
+   "l": "South China Morning Post"
+  },
+  "SETHLUI": {
+   "k": "SETH LUI",
+   "t": "Seth Lui",
+   "u": "https://sethlui.com/",
+   "l": "Seth Lui"
+  },
+  "SILVERKRIS": {
+   "k": "SILVERKRIS",
+   "t": "SilverKris (Singapore Airlines magazine)",
+   "u": "https://www.silverkris.com/",
+   "l": "SilverKris (Singapore Airlines magazine)"
+  },
+  "SPOTPH": {
+   "k": "SPOT.PH",
+   "t": "Spot.ph",
+   "u": "https://www.spot.ph/",
+   "l": "Spot.ph"
+  },
+  "TATLER": {
+   "k": "TATLER",
+   "t": "Tatler Asia / Tatler Singapore",
+   "u": "https://www.tatlerasia.com/",
+   "l": "Tatler Asia / Tatler Singapore"
+  },
+  "THESTAR": {
+   "k": "THESTAR",
+   "t": "The Star",
+   "u": "https://www.thestar.com.my/",
+   "l": "The Star"
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out Singapore",
+   "u": "https://www.timeout.com/singapore",
+   "l": "Time Out Singapore"
+  },
+  "TIMEOUTBKK": {
+   "k": "TIME OUT BANGKOK",
+   "t": "Time Out Bangkok",
+   "u": "https://www.timeout.com/bangkok",
+   "l": "Time Out Bangkok"
+  },
+  "VICE": {
+   "k": "VICE",
+   "t": "VICE",
+   "u": "https://www.vice.com/",
+   "l": "VICE"
+  },
+  "VIETCETERA": {
+   "k": "VIETCETERA",
+   "t": "Vietcetera",
+   "u": "https://vietcetera.com/",
+   "l": "Vietcetera"
+  },
+  "VIETNAMCORACLE": {
+   "k": "VIETNAM CORACLE",
+   "t": "Vietnam Coracle (Tom Divers)",
+   "u": "https://www.vietnamcoracle.com/",
+   "l": "Vietnam Coracle (Tom Divers)"
+  },
+  "VISITPENANG": {
+   "k": "VISITPENANG",
+   "t": "Visit Penang (Penang Global Tourism)",
+   "u": "https://www.visitpenang.com/",
+   "l": "Visit Penang (Penang Global Tourism)"
+  },
+  "VISITSG": {
+   "k": "VISIT SINGAPORE (STB)",
+   "t": "Visit Singapore (Singapore Tourism Board)",
+   "u": "https://www.visitsingapore.com/",
+   "l": "Visit Singapore (Singapore Tourism Board)"
+  },
+  "VNEXPRESS": {
+   "k": "VNEXPRESS",
+   "t": "VnExpress International",
+   "u": "https://e.vnexpress.net/",
+   "l": "VnExpress International"
+  },
+  "WANDERLUSH": {
+   "k": "WANDERLUSH",
+   "t": "Wander-Lush (Emily Lush)",
+   "u": "https://wander-lush.org/",
+   "l": "Wander-Lush (Emily Lush)"
+  },
+  "WIKI": {
+   "k": "WIKI",
+   "t": "Wikipedia (notability / cross-check only)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (notability / cross-check only)"
+  },
+  "WOMENSWEEKLY": {
+   "k": "WOMENSWEEKLY",
+   "t": "The Singapore Women's Weekly (SPH Media)",
+   "u": "https://www.womensweekly.com.sg/",
+   "l": "The Singapore Women's Weekly (SPH Media)"
+  }
+ }
+}
