@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Singapore &amp; Southeast Asia field guide — 74 sights and 89 places to eat, opening on Toa Payoh and spanning Singapore's towns plus Kuala Lumpur, Penang, Bangkok, Ho Chi Minh City, Bali, Manila and more, each traceable to its source (Michelin, The Straits Times, Seth Lui, Eatbook, CNA, Time Out and official sites). One interactive pastel map (light &amp; dark) with town/city, collection and cuisine filters, a trip builder and exports.">
+<title>Singapore &amp; Southeast Asia — Pastel Field Guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Pastel theme — LIGHT is the default :root; DARK overrides via prefers-color-scheme.
+     Both modes stay soft/pastel. Marker --c-* are overridden per-area by const AC below. */
+  :root{
+    color-scheme: light dark;
+    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
+    --patina:#3E9A88; --patina-dim:#BFE0D8;
+    --brass:#B9863A; --rust:#C56F73;
+    --bone:#2E2838; --bone-dim:#6E6480;
+    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --iron:#191521; --slab:#241E30; --hair:#382E48;
+    --patina:#93D6C6; --patina-dim:#3E5D53;
+    --brass:#E8C57C; --rust:#E4989B;
+    --bone:#ECE7F2; --bone-dim:#A79FB8;
+  }}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:none;}
+  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:var(--slab);}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Singapore towns &amp; Southeast Asian cities, sourced</p>
+  <h1>Singapore<span class="thin">&amp; Southeast Asia &mdash; hawker towns to temple cities</span></h1>
+  <p class="standfirst">74 sights and 89 places to eat &mdash; opening on <strong>Toa Payoh</strong> and reaching across Singapore\u2019s towns to the great cities of Southeast Asia. The food canon is the region\u2019s own: <strong>Hainanese chicken rice</strong>, <strong>laksa</strong>, <strong>char kway teow</strong>, <strong>bak kut teh</strong>, <strong>chilli crab</strong>, <strong>nasi lemak</strong>, roti prata, satay, pho and nasi padang &mdash; each traceable to the source that named it. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by <strong>town/city</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#F2A1A1"></i>Toa Payoh</span>
+  <span><i style="background:#BCA7E6"></i>Singapore Central</span>
+  <span><i style="background:#84CBB9"></i>Singapore East</span>
+  <span><i style="background:#9CBEEC"></i>Singapore West & North</span>
+  <span><i style="background:#EAC57C"></i>Malaysia</span>
+  <span><i style="background:#EDA6C7"></i>Thailand</span>
+  <span><i style="background:#A9D48E"></i>Vietnam</span>
+  <span><i style="background:#F1B389"></i>Indonesia</span>
+  <span><i style="background:#AAB6EE"></i>Philippines</span>
+  <span><i style="background:#8ED0D6"></i>Indochina</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="chicken rice, laksa, char kway teow, satay…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across the Michelin Guide, The Straits Times, CNA, Seth Lui, Eatbook, Miss Tam Chiak, Time Out, Visit Singapore and each city\u2019s credible outlets. Every coordinate is verified into data/geocodes.json and every place status-checked open. Some newly-added spots are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "CHANGI":{k:"CHANGI",t:"Changi Airport (official)",u:"https://www.changiairport.com/",l:"Changi Airport (official)"},
+  "CHINATOWNSG":{k:"CHINATOWNSG",t:"Chinatown Singapore (precinct site, STB-supported)",u:"https://chinatown.sg/",l:"Chinatown Singapore (precinct site, STB-supported)"},
+  "CHNC":{k:"CHNC",t:"Chinatown Heritage Centre (official)",u:"https://www.chinatownheritagecentre.com.sg/",l:"Chinatown Heritage Centre (official)"},
+  "GUIDETOPH":{k:"GUIDE TO THE PHILIPPINES",t:"Guide to the Philippines",u:"https://guidetothephilippines.ph/",l:"Guide to the Philippines"},
+  "HDB":{k:"HDB",t:"HDB (MyNiceHome)",u:"https://www.mynicehome.gov.sg",l:"HDB (MyNiceHome)"},
+  "HONEYCOMBERS":{k:"HONEYCOMBERS",t:"The Honeycombers / HoneyKids Asia",u:"https://thehoneycombers.com/singapore/",l:"The Honeycombers / HoneyKids Asia"},
+  "INDONESIATRAVEL":{k:"WONDERFUL INDONESIA",t:"Wonderful Indonesia (Ministry of Tourism)",u:"https://www.indonesia.travel/",l:"Wonderful Indonesia (Ministry of Tourism)"},
+  "LITTLEDAYOUT":{k:"LITTLEDAYOUT",t:"Little Day Out",u:"https://www.littledayout.com",l:"Little Day Out"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/indonesia/bali",l:"Lonely Planet"},
+  "MANDAI":{k:"MANDAI",t:"Mandai Wildlife Reserve (official)",u:"https://www.mandai.com/",l:"Mandai Wildlife Reserve (official)"},
+  "MBS":{k:"MBS",t:"Marina Bay Sands (official)",u:"https://www.marinabaysands.com/",l:"Marina Bay Sands (official)"},
+  "NHB":{k:"NHB",t:"National Heritage Board (museums)",u:"https://www.nhb.gov.sg/",l:"National Heritage Board (museums)"},
+  "NLB":{k:"NLB",t:"National Library Board — Singapore Infopedia",u:"https://www.nlb.gov.sg/",l:"National Library Board — Singapore Infopedia"},
+  "NPARKS":{k:"NPARKS",t:"NParks (National Parks Board)",u:"https://www.nparks.gov.sg/",l:"NParks (National Parks Board)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Cuisine Wat Damnak (official)",u:"https://www.cuisinewatdamnak.com/",l:"Cuisine Wat Damnak (official)"},
+  "ROOTS":{k:"ROOTS",t:"Roots.gov.sg (National Heritage Board)",u:"https://www.roots.gov.sg/",l:"Roots.gov.sg (National Heritage Board)"},
+  "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
+  "TATNEWS":{k:"TAT (TOURISM THAILAND)",t:"Tourism Authority of Thailand",u:"https://www.tourismthailand.org/",l:"Tourism Authority of Thailand"},
+  "TIMEOUTBKK":{k:"TIME OUT BANGKOK",t:"Time Out Bangkok",u:"https://www.timeout.com/bangkok",l:"Time Out Bangkok"},
+  "TIMEOUTSG":{k:"TIME OUT SINGAPORE",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
+  "TOURISMMY":{k:"TOURISM MALAYSIA",t:"Tourism Malaysia",u:"https://www.malaysia.travel/",l:"Tourism Malaysia"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO — Cultural Landscape of Bali Province (Subak)",u:"https://whc.unesco.org/en/list/1194/",l:"UNESCO — Cultural Landscape of Bali Province (Subak)"},
+  "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
+  "VISITPENANG":{k:"VISITPENANG",t:"Visit Penang (Penang Global Tourism)",u:"https://www.visitpenang.com/",l:"Visit Penang (Penang Global Tourism)"},
+  "VISITSG":{k:"VISIT SINGAPORE (STB)",t:"Visit Singapore (Singapore Tourism Board)",u:"https://www.visitsingapore.com/",l:"Visit Singapore (Singapore Tourism Board)"},
+  "WANDERLUSH":{k:"WANDERLUSH",t:"Wander-Lush (Emily Lush)",u:"https://wander-lush.org/",l:"Wander-Lush (Emily Lush)"},
+  "WIKI":{k:"WIKI",t:"Wikipedia (notability / cross-check only)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability / cross-check only)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"TPY",n:"Toa Payoh",c:"#F2A1A1"},
+  {id:"SGC",n:"Singapore Central (Marina Bay, Chinatown, Kampong Glam, Little India, Bugis, Orchard)",c:"#BCA7E6"},
+  {id:"SGE",n:"Singapore East (Katong/Joo Chiat, Geylang, Bedok, Tampines, Changi)",c:"#84CBB9"},
+  {id:"SGWN",n:"Singapore West & North (Jurong, Bukit Timah, Holland V, Ang Mo Kio, Bishan, Woodlands)",c:"#9CBEEC"},
+  {id:"MY",n:"Malaysia (KL, Penang, Malacca, Ipoh, JB)",c:"#EAC57C"},
+  {id:"TH",n:"Thailand (Bangkok, Chiang Mai, Phuket)",c:"#EDA6C7"},
+  {id:"VN",n:"Vietnam (Ho Chi Minh City, Hanoi, Hoi An)",c:"#A9D48E"},
+  {id:"ID",n:"Indonesia (Jakarta, Bali, Yogyakarta)",c:"#F1B389"},
+  {id:"PH",n:"Philippines (Manila, Cebu)",c:"#AAB6EE"},
+  {id:"IC",n:"Indochina (Cambodia, Laos, Myanmar)",c:"#8ED0D6"}
+];
+
+const P = [
+{t:1,a:"MY",n:"Petronas Twin Towers",ad:"Kuala Lumpur City Centre (KLCC), Jalan Ampang, Kuala Lumpur, Malaysia",la:3.15806,ln:101.71139,w:"The 452 m twin towers with the double-decker skybridge — KL's defining landmark, once the world's tallest buildings.",k:"Skyscraper & skybridge",g:["ICON","VIEW","ARCH"],s:[["OFFICIAL","https://www.petronastwintowers.com.my/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Petronas_Towers"]]},
+{t:1,a:"MY",n:"Batu Caves",ad:"Gombak, Selangor (Greater Kuala Lumpur), Malaysia",la:3.23740,ln:101.68390,w:"A limestone hill of Hindu cave temples reached by 272 rainbow steps under the giant golden Murugan statue; focus of the Thaipusam festival.",k:"Hindu cave temple",g:["ICON","TEMPLE","PARK","ARCH"],s:[["TOURISMMY","https://www.malaysia.travel/explore/batu-caves"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Batu_Caves"]]},
+{t:1,a:"MY",n:"George Town UNESCO Heritage Zone",ad:"George Town, Penang, Malaysia",la:5.42220,ln:100.34190,w:"The UNESCO-listed old town of clan jetties, shophouses, temples and the famous street-art murals (part of 'Melaka and George Town, Historic Cities of the Straits of Malacca').",k:"UNESCO heritage city",g:["HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/1223/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/George_Town,_Penang"]]},
+{t:2,a:"MY",n:"Kek Lok Si Temple",ad:"Air Itam, Penang, Malaysia",la:5.39953,ln:100.27373,w:"Southeast Asia's largest Chinese Buddhist temple, with the Pagoda of Ten Thousand Buddhas and a 30 m bronze Kuan Yin.",k:"Buddhist temple",g:["TEMPLE"],s:[["VISITPENANG","https://www.visitpenang.com/attractions/heritage"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kek_Lok_Si"]]},
+{t:2,a:"MY",n:"Cheong Fatt Tze — The Blue Mansion",ad:"14 Leith Street, George Town, Penang, Malaysia",la:5.42141,ln:100.33495,w:"The indigo-blue Hakka merchant mansion, a multi-award-winning heritage restoration and film location ('Crazy Rich Asians').",k:"Heritage mansion",g:["HERITAGE"],s:[["OFFICIAL","https://www.cheongfatttzemansion.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cheong_Fatt_Tze_Mansion"]]},
+{t:1,a:"MY",n:"A Famosa & Dutch Square (Jonker Street)",ad:"Bandar Hilir, Malacca (Melaka), Malaysia",la:2.19160,ln:102.25030,w:"The 1511 Portuguese fort gate (Porta de Santiago), the red Dutch Stadthuys/Christ Church and Jonker Street — the heart of UNESCO Malacca.",k:"UNESCO colonial heritage",g:["HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/1223/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/A_Famosa"]]},
+{t:1,a:"TH",n:"Grand Palace & Wat Phra Kaew",ad:"Na Phra Lan Road, Phra Nakhon, Bangkok, Thailand",la:13.75010,ln:100.49200,w:"The 1782 royal palace complex and the Temple of the Emerald Buddha — Thailand's most sacred and most-visited site.",k:"Royal palace & temple",g:["ICON","TEMPLE"],s:[["OFFICIAL","https://www.royalgrandpalace.th/en/home"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Grand_Palace"]]},
+{t:1,a:"TH",n:"Wat Arun",ad:"158 Thanon Wang Doem, Bangkok Yai, Bangkok, Thailand",la:13.74361,ln:100.48889,w:"The Temple of Dawn, its porcelain-encrusted riverside prang rising over the Chao Phraya.",k:"Buddhist temple",g:["ICON","TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Attraction/wat-arun"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Arun"]]},
+{t:1,a:"TH",n:"Wat Pho",ad:"2 Sanam Chai Road, Phra Nakhon, Bangkok, Thailand",la:13.74639,ln:100.49361,w:"Home of the 46 m gold-leafed Reclining Buddha and the birthplace of traditional Thai massage.",k:"Buddhist temple",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Attraction/wat-pho"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Pho"]]},
+{t:2,a:"TH",n:"Chatuchak Weekend Market",ad:"587/10 Kamphaeng Phet 2 Road, Chatuchak, Bangkok, Thailand",la:13.80080,ln:100.55140,w:"One of the world's largest weekend markets — 15,000+ stalls of food, crafts, plants and vintage.",k:"Market",g:["MKT"],s:[["TIMEOUTBKK","https://www.timeout.com/bangkok/shopping/chatuchak-weekend-market"],["TATNEWS","https://www.tourismthailand.org/Attraction/chatuchak-weekend-market"]]},
+{t:1,a:"TH",n:"Wat Phra That Doi Suthep",ad:"Doi Suthep, Mueang Chiang Mai, Chiang Mai, Thailand",la:18.80498,ln:98.92156,w:"The gold-chedi mountain temple above Chiang Mai, reached by a 300-step naga staircase — the city's emblem.",k:"Buddhist temple",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep"]]},
+{t:2,a:"TH",n:"Chiang Mai Old City Temples (Wat Chedi Luang & Wat Phra Singh)",ad:"Old City (within the moat), Chiang Mai, Thailand",la:18.78694,ln:98.98639,w:"The walled Old City's Lanna temples — the ruined 14th-century Chedi Luang and the revered Wat Phra Singh.",k:"Historic temples",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Destination/Provinces/Chiang-Mai/34"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Chedi_Luang"]]},
+{t:1,a:"VN",n:"War Remnants Museum",ad:"28 Vo Van Tan Street, District 3, Ho Chi Minh City, Vietnam",la:10.77947,ln:106.69213,w:"HCMC's unflinching museum of the Indochina and Vietnam wars — the city's most affecting historical site.",k:"History museum",g:["MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/war-remnants-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/War_Remnants_Museum"]]},
+{t:2,a:"VN",n:"Ben Thanh Market",ad:"Le Loi, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77252,ln:106.69802,w:"The landmark 1914 central market — street food, textiles and souvenirs in the heart of Saigon.",k:"Market",g:["MKT","ARCH"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%E1%BA%BFn_Th%C3%A0nh_Market"]]},
+{t:1,a:"VN",n:"Cu Chi Tunnels",ad:"Cu Chi District (Ben Dinh / Ben Duoc), Ho Chi Minh City, Vietnam",la:11.03250,ln:106.48444,w:"The vast wartime underground tunnel network northwest of the city — a defining day trip from Saigon.",k:"Historic site",g:["HERITAGE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/attractions/cu-chi-tunnels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/C%E1%BB%A7_Chi_tunnels"]]},
+{t:1,a:"VN",n:"Hoan Kiem Lake, Ngoc Son Temple & the Old Quarter",ad:"Hoan Kiem District, Hanoi, Vietnam",la:21.03056,ln:105.85250,w:"Hanoi's civic heart — the legendary lake and its red bridge to Ngoc Son Temple, ringed by the 36-streets Old Quarter.",k:"Lake, temple & old quarter",g:["TEMPLE","ARCH"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/hanoi/attractions/hoan-kiem-lake"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ho%C3%A0n_Ki%E1%BA%BFm_Lake"]]},
+{t:1,a:"VN",n:"Ha Long Bay",ad:"Quang Ninh Province (day trip / cruise from Hanoi), Vietnam",la:20.90000,ln:107.20000,w:"The UNESCO seascape of thousands of limestone karst islands — Vietnam's iconic natural wonder.",k:"UNESCO natural site",g:["ICON","HERITAGE","PARK"],s:[["UNESCO","https://whc.unesco.org/en/list/672/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H%E1%BA%A1_Long_Bay"]]},
+{t:1,a:"VN",n:"Hoi An Ancient Town",ad:"Hoi An, Quang Nam Province, Vietnam",la:15.88333,ln:108.33333,w:"The UNESCO-listed trading port of lantern-lit streets, Japanese Covered Bridge and preserved merchant houses.",k:"UNESCO heritage town",g:["HERITAGE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/948/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ho%C3%AD_An"]]},
+{t:1,a:"ID",n:"Borobudur",ad:"Magelang Regency (near Yogyakarta), Central Java, Indonesia",la:-7.60800,ln:110.20400,w:"The world's largest Buddhist temple, a 9th-century stupa-mountain of 2,600+ relief panels — UNESCO World Heritage.",k:"UNESCO Buddhist temple",g:["ICON","HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/592/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Borobudur"]]},
+{t:1,a:"ID",n:"Prambanan",ad:"Sleman (Yogyakarta–Central Java border), Indonesia",la:-7.75222,ln:110.49167,w:"Indonesia's largest Hindu temple compound, a soaring 9th-century Shiva complex — UNESCO World Heritage.",k:"UNESCO Hindu temple",g:["HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/642/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Prambanan"]]},
+{t:1,a:"ID",n:"Uluwatu Temple (Pura Luhur Uluwatu)",ad:"Pecatu, South Kuta, Bali, Indonesia",la:-8.82889,ln:115.08528,w:"A sea temple perched on a 70 m cliff above the Indian Ocean, famous for sunset and the kecak fire dance.",k:"Sea temple",g:["TEMPLE"],s:[["INDONESIATRAVEL","https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/bali/uluwatu-temple"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Uluwatu_Temple"]]},
+{t:2,a:"ID",n:"Tanah Lot Temple",ad:"Beraban, Kediri, Tabanan, Bali, Indonesia",la:-8.62107,ln:115.08716,w:"The much-photographed sea temple on a tidal rock offshore — Bali's classic sunset silhouette.",k:"Sea temple",g:["TEMPLE"],s:[["INDONESIATRAVEL","https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/bali/tanah-lot"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tanah_Lot"]]},
+{t:2,a:"ID",n:"Tegallalang Rice Terraces",ad:"Tegallalang, north of Ubud, Bali, Indonesia",la:-8.43362,ln:115.28054,w:"The emerald stepped paddies of the subak system — part of Bali's only UNESCO site, the Cultural Landscape of Bali Province.",k:"Rice-terrace landscape",g:["HERITAGE","PARK"],s:[["UNESCO","https://whc.unesco.org/en/list/1194/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tegallalang"]]},
+{t:2,a:"ID",n:"Kota Tua (Old Batavia)",ad:"West Jakarta, Jakarta, Indonesia",la:-6.13500,ln:106.81333,w:"The Dutch-colonial old town around Fatahillah Square, with the Jakarta History Museum and Cafe Batavia.",k:"Colonial old town",g:["HERITAGE","PARK","MUS","ARCH"],s:[["INDONESIATRAVEL","https://www.indonesia.travel/gb/en/destinations/java/jakarta/kota-tua"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kota_Tua_Jakarta"]]},
+{t:1,a:"PH",n:"Intramuros",ad:"Intramuros, Manila, Philippines",la:14.59147,ln:120.97356,w:"The 16th-century Spanish walled city — cobbled streets, bastions and Fort Santiago, the historic core of Manila.",k:"Walled colonial city",g:["HERITAGE","ARCH"],s:[["GUIDETOPH","https://guidetothephilippines.ph/articles/history-culture/intramuros-manila-guide"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Intramuros"]]},
+{t:1,a:"PH",n:"San Agustin Church",ad:"General Luna Street, Intramuros, Manila, Philippines",la:14.58889,ln:120.97528,w:"The oldest stone church in the Philippines (1607) and a UNESCO 'Baroque Churches of the Philippines' World Heritage site.",k:"UNESCO baroque church",g:["HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/677/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/San_Agustin_Church_(Manila)"]]},
+{t:2,a:"PH",n:"Rizal Park (Luneta)",ad:"Ermita, Manila, Philippines",la:14.58250,ln:120.97833,w:"The historic seaside park at the site of national hero Jose Rizal's execution, marked by the Rizal Monument.",k:"Historic park",g:["PARK","ARCH"],s:[["GUIDETOPH","https://guidetothephilippines.ph/articles/ultimate-guides/rizal-park-manila-guide"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rizal_Park"]]},
+{t:2,a:"PH",n:"Basilica Minore del Santo Nino & Magellan's Cross",ad:"Osmena Boulevard / P. Burgos Street, Cebu City, Philippines",la:10.29389,ln:123.90139,w:"The country's oldest Catholic relic and church, beside the 1521 cross planted at Magellan's arrival — the cradle of Philippine Christianity.",k:"Historic church",g:["TEMPLE"],s:[["GUIDETOPH","https://guidetothephilippines.ph/articles/history-culture/cebu-heritage-sites"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bas%C3%ADlica_Minore_del_Santo_Ni%C3%B1o"]]},
+{t:1,a:"IC",n:"Angkor Wat",ad:"Angkor Archaeological Park, Siem Reap, Cambodia",la:13.41250,ln:103.86667,w:"The largest religious monument on earth, the 12th-century Khmer temple-city and Cambodia's national symbol — UNESCO World Heritage.",k:"UNESCO temple complex",g:["ICON","HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/668/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Angkor_Wat"]]},
+{t:2,a:"IC",n:"Angkor Thom & the Bayon",ad:"Angkor Archaeological Park, Siem Reap, Cambodia",la:13.44111,ln:103.85861,w:"The walled royal city of Angkor Thom and the Bayon's forest of giant serene stone faces.",k:"UNESCO temple city",g:["ICON","HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/668/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bayon"]]},
+{t:1,a:"IC",n:"Royal Palace & Silver Pagoda",ad:"Sothearos Boulevard, Phnom Penh, Cambodia",la:11.56365,ln:104.93081,w:"The Khmer royal palace complex on the riverfront, including the Silver Pagoda with its emerald and gold Buddhas.",k:"Royal palace",g:["TEMPLE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/cambodia/phnom-penh/attractions/royal-palace"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Palace,_Phnom_Penh"]]},
+{t:1,a:"IC",n:"Luang Prabang Old Town (Wat Xieng Thong)",ad:"Luang Prabang peninsula, Laos",la:19.89750,ln:102.14306,w:"The UNESCO-listed royal town where Lao and French-colonial architecture meet, crowned by the 1560 Wat Xieng Thong and the dawn alms-giving.",k:"UNESCO heritage town",g:["HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/479/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Luang_Prabang"]]},
+{t:1,a:"IC",n:"Kuang Si Falls",ad:"~29 km south of Luang Prabang, Laos",la:19.74833,ln:101.99081,w:"Turquoise multi-tiered travertine waterfalls in the jungle — Luang Prabang's signature natural excursion.",k:"Waterfall",g:["TEMPLE","PARK"],s:[["WANDERLUSH","https://wander-lush.org/kuang-si-falls-luang-prabang/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kuang_Si_Falls"]]},
+{t:1,a:"IC",n:"Shwedagon Pagoda",ad:"Singuttara Hill, Yangon, Myanmar",la:16.79835,ln:96.14970,w:"Myanmar's most sacred Buddhist site — a 112 m gold-plated stupa said to enshrine relics of the Buddha.",k:"Buddhist pagoda",g:["TEMPLE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/myanmar-burma/yangon/attractions/shwedagon-paya"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Shwedagon_Pagoda"]]},
+{t:1,a:"IC",n:"Bagan Archaeological Zone",ad:"Bagan, Mandalay Region, Myanmar",la:21.17250,ln:94.86000,w:"A plain studded with thousands of 11th–13th-century Buddhist temples and pagodas — UNESCO World Heritage.",k:"UNESCO temple plain",g:["HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/1588/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bagan"]]},
+{t:1,a:"SGC",n:"Gardens by the Bay",ad:"18 Marina Gardens Drive, Marina Bay",la:1.28472,ln:103.86500,w:"Waterfront nature park with the Supertree Grove, Cloud Forest & Flower Dome; over 1.5 million plants.",k:"Garden",g:["ICON","TEMPLE","PARK","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/gardens-by-the-bay/"],["WIKI","https://en.wikipedia.org/wiki/Gardens_by_the_Bay"]]},
+{t:1,a:"SGC",n:"Marina Bay Sands SkyPark Observation Deck",ad:"10 Bayfront Avenue, Marina Bay",la:1.28250,ln:103.86000,w:"The 57th-storey deck atop Marina Bay Sands' three towers, with panoramic skyline views over the bay.",k:"Landmark",g:["ICON","PARK","VIEW","ARCH"],s:[["MBS","https://www.marinabaysands.com/attractions/sands-skypark.html"],["HONEYCOMBERS","https://honeykidsasia.com/explain-singapores-iconic-unusual-landmarks-marina-bay-sands-esplanade-merlion-artscience-museum/"]]},
+{t:1,a:"SGC",n:"Merlion Park",ad:"1 Fullerton Road, Marina Bay",la:1.28683,ln:103.85453,w:"Home of the 8.6 m Merlion, Singapore's lion-headed, fish-bodied national symbol, spouting into the bay.",k:"Landmark",g:["ICON","PARK","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/architecture/modern/merlion-park/"],["WIKI","https://en.wikipedia.org/wiki/Merlion"]]},
+{t:2,a:"SGC",n:"ArtScience Museum",ad:"6 Bayfront Avenue, Marina Bay",la:1.28611,ln:103.85917,w:"Lotus-shaped museum at Marina Bay Sands; home to the teamLab 'Future World' digital art gallery.",k:"Museum",g:["ICON","MUS"],s:[["MBS","https://www.marinabaysands.com/museum.html"],["WIKI","https://en.wikipedia.org/wiki/ArtScience_Museum"]]},
+{t:2,a:"SGC",n:"Singapore Flyer",ad:"30 Raffles Avenue, Marina Bay",la:1.28940,ln:103.86323,w:"A 165 m observation wheel over Marina Bay with views to the city, the Straits and beyond.",k:"Landmark",g:["VIEW","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/recreation-leisure/viewpoints/singapore-flyer/"],["WIKI","https://en.wikipedia.org/wiki/Singapore_Flyer"]]},
+{t:1,a:"SGC",n:"National Gallery Singapore",ad:"1 St Andrew's Road, Civic District",la:1.29049,ln:103.85186,w:"World's largest public collection of Singapore & Southeast Asian art, in the former City Hall & Supreme Court.",k:"Museum",g:["MUS","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/civic-district/national-gallery-singapore/"],["WIKI","https://en.wikipedia.org/wiki/National_Gallery_Singapore"]]},
+{t:2,a:"SGC",n:"National Museum of Singapore",ad:"93 Stamford Road, Civic District",la:1.29672,ln:103.84864,w:"The nation's oldest museum (est. 1849), narrating Singapore's social history.",k:"Museum",g:["MUS"],s:[["WIKI","https://en.wikipedia.org/wiki/National_Museum_of_Singapore"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/history/museums-monuments/national-museum-of-singapore/"]]},
+{t:2,a:"SGC",n:"Asian Civilisations Museum",ad:"1 Empress Place, Civic District",la:1.28750,ln:103.85139,w:"Riverside museum devoted to the material cultures of Asia, from Chinese to West Asian civilisations.",k:"Museum",g:["MUS"],s:[["WIKI","https://en.wikipedia.org/wiki/Asian_Civilisations_Museum"],["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/empress-place-building"]]},
+{t:2,a:"SGC",n:"Raffles Hotel",ad:"1 Beach Road, Civic District",la:1.29489,ln:103.85448,w:"1887 colonial-era grande dame; a National Monument and birthplace of the Singapore Sling.",k:"Heritage",g:["HERITAGE","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/history/reminiscing/raffles-hotel/"],["WIKI","https://en.wikipedia.org/wiki/Raffles_Hotel"]]},
+{t:2,a:"SGC",n:"Fort Canning Park",ad:"River Valley Road, Fort Canning",la:1.29444,ln:103.84694,w:"Historic hilltop park with artefacts dating to the 1300s; the famous Fort Canning tree tunnel.",k:"Park",g:["PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/fort-canning-park"],["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/fort-canning"]]},
+{t:2,a:"SGC",n:"Esplanade – Theatres on the Bay",ad:"1 Esplanade Drive, Marina Bay",la:1.28972,ln:103.85528,w:"The 'durian' performing-arts centre on the bayfront, a defining piece of the skyline.",k:"Landmark",g:["ICON","VIEW","ARCH"],s:[["WIKI","https://en.wikipedia.org/wiki/Esplanade,_Singapore"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/architecture/modern/esplanade/"]]},
+{t:1,a:"SGC",n:"Sri Mariamman Temple",ad:"244 South Bridge Road, Chinatown",la:1.28261,ln:103.84528,w:"Singapore's oldest Hindu temple (1827); a National Monument with a vivid gopuram tower.",k:"Temple",g:["TEMPLE","VIEW","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sri-mariamman-temple"],["WIKI","https://en.wikipedia.org/wiki/Sri_Mariamman_Temple,_Singapore"]]},
+{t:1,a:"SGC",n:"Buddha Tooth Relic Temple & Museum",ad:"288 South Bridge Road, Chinatown",la:1.28157,ln:103.84419,w:"Tang-style Buddhist temple (2007) housing a sacred tooth relic in a 3,500 kg gold stupa.",k:"Temple",g:["TEMPLE","MUS"],s:[["CHINATOWNSG","https://chinatown.sg/visit/buddha-tooth-relic-temple/"],["NLB","https://www.nlb.gov.sg/main/article-detail?cmsuuid=389e7067-97fb-4e1d-b7e9-688efd442319"]]},
+{t:2,a:"SGC",n:"Thian Hock Keng Temple",ad:"158 Telok Ayer Street, Chinatown",la:1.28106,ln:103.84753,w:"Singapore's oldest Hokkien temple (1839) dedicated to Mazu; a National Monument built without nails.",k:"Temple",g:["TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/thian-hock-keng"],["WIKI","https://en.wikipedia.org/wiki/Thian_Hock_Keng"]]},
+{t:2,a:"SGC",n:"Chinatown Heritage Centre",ad:"48 Pagoda Street, Chinatown",la:1.28340,ln:103.84470,w:"Recreated 1950s shophouse interiors telling the story of Chinatown's early immigrant tenants.",k:"Museum",g:["HERITAGE","MUS"],s:[["ROOTS","https://www.roots.gov.sg/en/places/places-landing/Places/museums/chinatown-heritage-centre"],["CHNC","https://www.chinatownheritagecentre.com.sg/"]]},
+{t:1,a:"SGC",n:"Sultan Mosque (Masjid Sultan)",ad:"3 Muscat Street, Kampong Glam",la:1.30222,ln:103.85889,w:"Kampong Glam's golden-domed royal mosque; a National Monument and the heart of the Malay-Arab quarter.",k:"Mosque",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sultan-mosque"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/religious/sultan-mosque/"]]},
+{t:2,a:"SGC",n:"Sri Veeramakaliamman Temple",ad:"141 Serangoon Road, Little India",la:1.30787,ln:103.85249,w:"Little India's landmark Hindu temple to the goddess Kali, founded by Tamil lime-kiln workers (1855).",k:"Temple",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/Collection-Landing/listing/1183286"],["WIKI","https://en.wikipedia.org/wiki/Sri_Veeramakaliamman_Temple"]]},
+{t:2,a:"SGC",n:"Former House of Tan Teng Niah",ad:"37 Kerbau Road, Little India",la:1.30700,ln:103.85080,w:"The last surviving Chinese villa in Little India (1900), painted in vivid rainbow colours.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/little-india/tan-teng-niah-house/"],["WIKI","https://en.wikipedia.org/wiki/House_of_Tan_Teng_Niah"]]},
+{t:1,a:"SGE",n:"Koon Seng Road Peranakan Shophouses (Joo Chiat/Katong)",ad:"Koon Seng Road, Joo Chiat",la:1.31157,ln:103.90432,w:"Singapore's most photographed row of pastel Peranakan shophouses (1920s) in the Katong-Joo Chiat conservation area.",k:"Heritage",g:["HERITAGE"],s:[["ROOTS","https://www.roots.gov.sg/stories-landing/stories/copy-of-street-corner-heritage-galleries-katong-joo-chiat"],["WIKI","https://en.wikipedia.org/wiki/Joo_Chiat_Road"]]},
+{t:1,a:"SGE",n:"Jewel Changi Airport & HSBC Rain Vortex",ad:"78 Airport Boulevard, Changi Airport",la:1.36440,ln:103.99150,w:"Glass-domed nature-and-retail complex housing the world's tallest indoor waterfall (40 m) and Shiseido Forest Valley.",k:"Landmark",g:["TEMPLE","PARK","ARCH"],s:[["CHANGI","https://www.changiairport.com/en/at-changi/jewel-changi-airport.html"],["WIKI","https://en.wikipedia.org/wiki/Jewel_Changi_Airport"]]},
+{t:2,a:"SGE",n:"Changi Chapel & Museum",ad:"1000 Upper Changi Road North, Changi",la:1.36204,ln:103.97401,w:"NHB museum commemorating WWII POWs interned at Changi, with a replica of the Changi Chapel.",k:"Museum",g:["MUS"],s:[["NHB","https://www.nhb.gov.sg/changichapelmuseum/"],["WIKI","https://en.wikipedia.org/wiki/Changi_Chapel_and_Museum"]]},
+{t:2,a:"SGE",n:"East Coast Park",ad:"East Coast Park Service Road, Marine Parade",la:1.30396,ln:103.92637,w:"Singapore's largest seaside park; 15 km of coastline for cycling, seafood and the sea breeze.",k:"Park",g:["PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/east-coast-park"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/east-coast-park/"]]},
+{t:3,a:"SGE",n:"Geylang Serai Market & Malay Heritage",ad:"1 Geylang Serai",la:1.31677,ln:103.89837,w:"The cultural heart of the Malay-Muslim community; a bustling wet market and Ramadan bazaar hub.",k:"Heritage",g:["HERITAGE","MKT"],s:[["ROOTS","https://www.roots.gov.sg/places/places-landing/trails/geylang-serai-heritage-trail"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/ethnic-quarters/"]]},
+{t:1,a:"SGWN",n:"Singapore Botanic Gardens",ad:"1 Cluny Road, Bukit Timah",la:1.31510,ln:103.81620,w:"Singapore's first UNESCO World Heritage Site (2015); a 160-year-old tropical garden with the National Orchid Garden.",k:"Garden",g:["HERITAGE","PARK"],s:[["UNESCO","https://whc.unesco.org/en/list/1483/"],["NPARKS","https://www.nparks.gov.sg/sbg/about/singapore-s-first-unesco-world-heritage-site"]]},
+{t:1,a:"SGWN",n:"Southern Ridges & Henderson Waves",ad:"Henderson Road, Mount Faber / Telok Blangah",la:1.27605,ln:103.81550,w:"10 km of ridge-top trails linking Mount Faber, Telok Blangah & Kent Ridge, crossing the wave-form Henderson Waves, Singapore's highest pedestrian bridge.",k:"Nature",g:["PARK","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/southern-ridges"],["WIKI","https://en.wikipedia.org/wiki/Henderson_Waves"]]},
+{t:1,a:"SGWN",n:"Haw Par Villa",ad:"262 Pasir Panjang Road",la:1.28417,ln:103.78222,w:"1937 cultural theme park (ex-Tiger Balm Garden) of surreal dioramas, famed for the Ten Courts of Hell.",k:"Landmark",g:["PARK","ARCH","FAM"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/reminiscing/haw-par-villa/"],["WIKI","https://en.wikipedia.org/wiki/Haw_Par_Villa"]]},
+{t:1,a:"SGWN",n:"MacRitchie Reservoir & TreeTop Walk",ad:"MacRitchie Reservoir Park, Lornie Road",la:1.34361,ln:103.83111,w:"Central Catchment rainforest reservoir with a 250 m suspension bridge, 25 m up in the forest canopy.",k:"Nature",g:["PARK","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/central-catchment-nature-reserve/activities/hiking-nature-walk"],["WIKI","https://en.wikipedia.org/wiki/MacRitchie_Reservoir"]]},
+{t:2,a:"SGWN",n:"Bukit Timah Nature Reserve",ad:"177 Hindhede Drive, Bukit Timah",la:1.35278,ln:103.77833,w:"ASEAN Heritage Park protecting primary rainforest and Singapore's highest natural point (163 m).",k:"Nature",g:["HERITAGE","PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/bukit-timah-nature-reserve"],["WIKI","https://en.wikipedia.org/wiki/Bukit_Timah_Nature_Reserve"]]},
+{t:1,a:"SGWN",n:"Singapore Zoo",ad:"80 Mandai Lake Road, Mandai",la:1.40378,ln:103.79414,w:"World-renowned open-concept zoo of over 4,200 animals in naturalistic, cage-free habitats.",k:"Wildlife",g:["FAM","FREE"],s:[["MANDAI","https://www.mandai.com/en/singapore-zoo.html"],["WIKI","https://en.wikipedia.org/wiki/Singapore_Zoo"]]},
+{t:1,a:"SGWN",n:"Night Safari",ad:"80 Mandai Lake Road, Mandai",la:1.40226,ln:103.78789,w:"The world's first nocturnal zoo (1994); tram rides through 35 hectares of after-dark habitats.",k:"Wildlife",g:["FAM"],s:[["MANDAI","https://www.mandai.com/en/night-safari.html"],["WIKI","https://en.wikipedia.org/wiki/Night_Safari,_Singapore"]]},
+{t:2,a:"SGWN",n:"River Wonders",ad:"80 Mandai Lake Road, Mandai",la:1.40387,ln:103.79074,w:"Asia's only river-themed wildlife park, home to giant pandas and a giant Amazon river tank.",k:"Wildlife",g:["PARK"],s:[["MANDAI","https://www.mandai.com/en/river-wonders.html"],["WIKI","https://en.wikipedia.org/wiki/River_Wonders"]]},
+{t:3,a:"SGWN",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]},
+{t:1,a:"TPY",n:"Toa Payoh Dragon Playground",ad:"Lorong 6 Toa Payoh (in front of Blk 28), Singapore",la:1.33457,ln:103.85716,w:"Singapore's most iconic surviving 1979 mosaic 'dragon' playground, designed by HDB's Khor Ean Ghee — a terrazzo-tiled dragon head with a climbable ring body. One of only two dragon playgrounds left and a marquee stop on NHB's Toa Payoh Heritage Trail.",k:"Open 24h, free",g:["HERITAGE","FAM","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Toa-Payoh-Dragon-Playground"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Toa_Payoh_Dragon_Playground"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-dragon-playground-an-icon-at-lorong-6/"]]},
+{t:1,a:"TPY",n:"Lian Shan Shuang Lin Monastery",ad:"184 Jalan Toa Payoh, Singapore 319944",la:1.33028,ln:103.85750,w:"Singapore's oldest Buddhist monastery — completed 1909 and gazetted a National Monument in 1980 — modelled on Fuzhou's Xi Chan Monastery, with the Hall of Celestial Kings and Mahavira Hall laid out in the classic cong lin ('layered forest') plan.",k:"Free entry",g:["TEMPLE","ARCH","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/en/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Lian-Shan-Shuang-Lin-Monastery"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lian_Shan_Shuang_Lin_Monastery"]]},
+{t:2,a:"TPY",n:"Toa Payoh Town Park & Look-Out Tower",ad:"Lorong 6 Toa Payoh (beside Toa Payoh HDB Hub), Singapore",la:1.33076,ln:103.84718,w:"The 4.8-hectare 1970s town park that pioneered greenery in HDB new towns — landscaped ponds, rustic gazebos and the conserved 25 m space-age Look-Out Tower, a favourite 1970s-80s wedding-photo backdrop.",k:"Open daily, free; tower not accessible",g:["PARK","VIEW","ARCH","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces/Toa-Payoh-Town-Park"],["TIMEOUTSG","https://www.timeout.com/singapore/attractions/toa-payoh-town-park-observation-tower"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"]]},
+{t:2,a:"TPY",n:"Church of the Risen Christ",ad:"91 Toa Payoh Central, Singapore 319193",la:1.33485,ln:103.85073,w:"Toa Payoh's first Catholic church (inaugurated 1971), a modernist landmark at the junction of Toa Payoh Central and Lorong 4 that has long offered Mass in English, Mandarin and Tamil — featured on the Toa Payoh Heritage Trail's 'Of Faiths & Beliefs' route.",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Church-of-the-Risen-Christ"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_of_the_Risen_Christ"]]},
+{t:2,a:"TPY",n:"Block 53, The 'VIP Block'",ad:"53 Lorong 5 Toa Payoh, Singapore 310053",la:1.33770,ln:103.84860,w:"The Y-shaped 1967 HDB showpiece with a rooftop viewing gallery once used to survey the young new town from above. Queen Elizabeth II visited in 1972 (as did Princess Anne, Prince Philip and other dignitaries), earning it the 'VIP Block' name.",k:"Rooftop gallery closed; view from ground level",g:["MUS","VIEW"],s:[["ROOTSSG","https://www.roots.gov.sg/en/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces/Block-53-The-VIP-Block"],["WIKIPEDIA","https://en.wikipedia.org/wiki/53_Lorong_5_Toa_Payoh"]]},
+{t:3,a:"TPY",n:"Toa Payoh HDB Hub",ad:"480 Lorong 6 Toa Payoh, Singapore 310480",la:1.33230,ln:103.84570,w:"HDB's headquarters and the civic heart of Singapore's first fully HDB-built satellite town, home to relocated public sculptures — Ng Eng Teng's 'The Climb', Chong Fah Cheong's 'Mama's Precious One' and Ju Ming's 'Tai Chi Boxing' — plus a mall, library and hawker fare.",g:["MKT"],s:[["HDB","https://www.mynicehome.gov.sg/lifestyle/places/neighbourhood-nostalgia-toa-payoh/"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"]]},
+{t:2,a:"TPY",n:"Toa Payoh Heritage Trail",ad:"Toa Payoh Central (trail starts near HDB Hub), Singapore",la:1.33230,ln:103.84570,w:"NHB's self-guided trail through Singapore's second satellite town, linking 16-plus sites — from the Dragon Playground and Town Park to Shuang Lin Monastery — across two themed routes, 'Of Public Housing & Shared Spaces' and 'Of Faiths & Beliefs'.",k:"Free; map downloadable on Roots.gov.sg",g:["HERITAGE","TEMPLE","PARK","FAM"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"]]}
+];
+
+const FS = {
+  "AFAR":{k:"AFAR",t:"AFAR",u:"https://www.afar.com/",l:"AFAR"},
+  "ASIA50BEST":{k:"ASIA50BEST",t:"Asia's 50 Best — Essence of Asia",u:"https://www.theworlds50best.com/asia/",l:"Asia's 50 Best — Essence of Asia"},
+  "ASIAONE":{k:"ASIAONE",t:"AsiaOne (SPH Media)",u:"https://www.asiaone.com/",l:"AsiaOne (SPH Media)"},
+  "AUTHENTICFOODQUEST":{k:"AUTHENTICFOODQUEST",t:"Authentic Food Quest",u:"https://authenticfoodquest.com/",l:"Authentic Food Quest"},
+  "CHANGPUAK":{k:"CHANGPUAK",t:"Chang Puak Magazine",u:"https://changpuakmagazine.com/",l:"Chang Puak Magazine"},
+  "CHINATOWNSG":{k:"CHINATOWNSG",t:"Chinatown Singapore (precinct site, STB-supported)",u:"https://chinatown.sg/",l:"Chinatown Singapore (precinct site, STB-supported)"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com/2025/12/11/bunchahuonglien/",l:"Daniel Food Diary"},
+  "DFD":{k:"DFD",t:"Daniel Food Diary (danielfooddiary.com)",u:"https://danielfooddiary.com/",l:"Daniel Food Diary (danielfooddiary.com)"},
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg/",l:"Eatbook.sg"},
+  "EATINGTHAIFOOD":{k:"EATINGTHAIFOOD",t:"Eating Thai Food (Mark Wiens)",u:"https://www.eatingthaifood.com/",l:"Eating Thai Food (Mark Wiens)"},
+  "EATLIKEBOURDAIN":{k:"EATLIKEBOURDAIN",t:"Eat Like Bourdain (Bourdain locations index)",u:"https://eatlikebourdain.com/",l:"Eat Like Bourdain (Bourdain locations index)"},
+  "FEATR":{k:"FEATR",t:"FEATR / Erwan Heussaff",u:"https://www.youtube.com/@FEATRmedia",l:"FEATR / Erwan Heussaff"},
+  "FODORS":{k:"FODORS",t:"Fodor's Travel",u:"https://www.fodors.com/",l:"Fodor's Travel"},
+  "GHIBOJISAN":{k:"GHIBOJISAN",t:"Ghib Ojisan (YouTube)",u:"https://www.youtube.com/c/GhibOjisan",l:"Ghib Ojisan (YouTube)"},
+  "GOBACKPACKING":{k:"GOBACKPACKING",t:"Go Backpacking (travel blog)",u:"https://gobackpacking.com/",l:"Go Backpacking (travel blog)"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore (SPH Media)",u:"https://www.herworld.com/",l:"Her World Singapore (SPH Media)"},
+  "HGW":{k:"HGW",t:"HungryGoWhere",u:"https://hungrygowhere.com/",l:"HungryGoWhere"},
+  "HONEYCOMBERS":{k:"HONEYCOMBERS",t:"The Honeycombers / HoneyKids Asia",u:"https://thehoneycombers.com/singapore/",l:"The Honeycombers / HoneyKids Asia"},
+  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
+  "IEAT":{k:"IEAT",t:"ieatishootipost (Dr Leslie Tay)",u:"https://ieatishootipost.sg/",l:"ieatishootipost (Dr Leslie Tay)"},
+  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost) (Blog / YouTube)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost) (Blog / YouTube)"},
+  "INDONESIATRAVEL":{k:"WONDERFUL INDONESIA",t:"Wonderful Indonesia (Ministry of Tourism)",u:"https://www.indonesia.travel/",l:"Wonderful Indonesia (Ministry of Tourism)"},
+  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey food blog)",u:"https://johorkaki.blogspot.com/",l:"Johor Kaki (Tony Boey food blog)"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/indonesia/bali",l:"Lonely Planet"},
+  "MAKANSUTRA":{k:"MAKANSUTRA",t:"Makansutra",u:"https://makansutra.com",l:"Makansutra"},
+  "MALAYMAIL":{k:"MALAYMAIL",t:"Malay Mail",u:"https://www.malaymail.com/",l:"Malay Mail"},
+  "MARKWIENS":{k:"MARKWIENS",t:"Mark Wiens / Migrationology",u:"https://migrationology.com/chicken-rice-balls-melaka/",l:"Mark Wiens / Migrationology"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Thailand",u:"https://guide.michelin.com/en/th/bangkok-region",l:"MICHELIN Guide Thailand"},
+  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Bib Gourmand (Singapore)",u:"https://guide.michelin.com/sg/en/singapore-region/restaurants/bib-gourmand",l:"MICHELIN Bib Gourmand (Singapore)"},
+  "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN Guide — Star",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Star"},
+  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
+  "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
+  "MTC":{k:"MTC",t:"Miss Tam Chiak (misstamchiak.com)",u:"https://www.misstamchiak.com/",l:"Miss Tam Chiak (misstamchiak.com)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Cuisine Wat Damnak (official)",u:"https://www.cuisinewatdamnak.com/",l:"Cuisine Wat Damnak (official)"},
+  "OURAWESOMEPLANET":{k:"OURAWESOMEPLANET",t:"Our Awesome Planet (Anton Diaz)",u:"https://awesome.blog/",l:"Our Awesome Planet (Anton Diaz)"},
+  "PENANGFOODIE":{k:"PENANG FOODIE",t:"Penang Foodie",u:"https://penangfoodie.com/",l:"Penang Foodie"},
+  "RAPPLER":{k:"RAPPLER",t:"Rappler",u:"https://www.rappler.com/",l:"Rappler"},
+  "ROOTS":{k:"ROOTS",t:"Roots.gov.sg (National Heritage Board)",u:"https://www.roots.gov.sg/",l:"Roots.gov.sg (National Heritage Board)"},
+  "SCMP":{k:"SCMP",t:"South China Morning Post",u:"https://www.scmp.com/",l:"South China Morning Post"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com/",l:"Seth Lui"},
+  "SILVERKRIS":{k:"SILVERKRIS",t:"SilverKris (Singapore Airlines magazine)",u:"https://www.silverkris.com/",l:"SilverKris (Singapore Airlines magazine)"},
+  "SPOTPH":{k:"SPOT.PH",t:"Spot.ph",u:"https://www.spot.ph/",l:"Spot.ph"},
+  "TATLER":{k:"TATLER",t:"Tatler Asia / Tatler Singapore",u:"https://www.tatlerasia.com/",l:"Tatler Asia / Tatler Singapore"},
+  "THESTAR":{k:"THESTAR",t:"The Star",u:"https://www.thestar.com.my/",l:"The Star"},
+  "TIMEOUT":{k:"TIME OUT",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
+  "TIMEOUTBKK":{k:"TIME OUT BANGKOK",t:"Time Out Bangkok",u:"https://www.timeout.com/bangkok",l:"Time Out Bangkok"},
+  "VICE":{k:"VICE",t:"VICE",u:"https://www.vice.com/",l:"VICE"},
+  "VIETCETERA":{k:"VIETCETERA",t:"Vietcetera",u:"https://vietcetera.com/",l:"Vietcetera"},
+  "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
+  "VISITPENANG":{k:"VISITPENANG",t:"Visit Penang (Penang Global Tourism)",u:"https://www.visitpenang.com/",l:"Visit Penang (Penang Global Tourism)"},
+  "VISITSG":{k:"VISIT SINGAPORE (STB)",t:"Visit Singapore (Singapore Tourism Board)",u:"https://www.visitsingapore.com/",l:"Visit Singapore (Singapore Tourism Board)"},
+  "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
+  "WANDERLUSH":{k:"WANDERLUSH",t:"Wander-Lush (Emily Lush)",u:"https://wander-lush.org/",l:"Wander-Lush (Emily Lush)"},
+  "WIKI":{k:"WIKI",t:"Wikipedia (notability / cross-check only)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability / cross-check only)"},
+  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly (SPH Media)",u:"https://www.womensweekly.com.sg/",l:"The Singapore Women's Weekly (SPH Media)"}
+};
+
+const CUISINES = [
+  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
+  {id:"LAKSA",n:"Laksa & Curry Noodles"},
+  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
+  {id:"BKT",n:"Bak Kut Teh & Soups"},
+  {id:"HAWKER",n:"Hawker & Zi Char"},
+  {id:"MALAY",n:"Malay & Nasi Padang"},
+  {id:"INDIAN",n:"Indian & Roti Prata"},
+  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
+  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
+  {id:"THAI",n:"Thai"},
+  {id:"VIET",n:"Vietnamese"},
+  {id:"INDO",n:"Indonesian, Satay & Rendang"},
+  {id:"FILIPINO",n:"Filipino"},
+  {id:"KHMER",n:"Khmer (Cambodian)"},
+  {id:"LAO",n:"Lao"},
+  {id:"BURMESE",n:"Burmese"},
+  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
+  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
+  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
+  {id:"CAFE",n:"Cafés & Modern"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"HERITAGE",n:"Heritage & Culture"},
+  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
+  {id:"MKT",n:"Markets & Hawker Centres"},
+  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"VIEW",n:"Views & Skyline"},
+  {id:"ARCH",n:"Architecture & Landmarks"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"MY",n:"Penang Road Famous Jin Kor Char Kuey Teow",ad:"Lebuh Keng Kwee (off Jalan Penang), George Town, Penang, Malaysia",cz:["NOODLE"],la:5.41711,ln:100.33072,w:"~40-year charcoal stall in the Penang Road cendol lane; MICHELIN Guide-listed for its cockle-and-prawn char koay teow with pronounced wok hei.",s:[["MICHELIN","https://guide.michelin.com/tw/zh_TW/pulau-pinang/my-george-town/restaurant/penang-road-famous-jin-kor-char-kuey-teow"],["EATBOOK","https://eatbook.sg/best-penang-char-kway-teow/"],["VISITPENANG","https://www.visitpenang.com/blog/penang-char-kway-teow-guide"]]},
+{t:1,a:"MY",n:"Nasi Kandar Line Clear",ad:"177 Jalan Penang (alley at Lebuh Chulia junction), George Town, Penang, Malaysia",cz:["INDIAN"],la:5.41965,ln:100.33253,w:"Penang's most legendary 24-hour nasi kandar, cooked in a narrow lane since the 1940s; the 'flooded' curry-mix rice and fried chicken are institutions.",s:[["PENANGFOODIE","https://penangfoodie.com/line-clear-nasi-kandar-penang-review/"],["MALAYMAIL","https://www.malaymail.com/news/eat-drink/2025/04/17/a-day-of-eating-in-george-town-penang-char-koay-teow-nasi-kandar-capati-bak-kwa-and-more/173343"]]},
+{t:1,a:"MY",n:"Air Itam Laksa",ad:"Beside Air Itam Market, Jalan Pasar, Air Itam, Penang, Malaysia",cz:["LAKSA"],la:5.40124,ln:100.27803,w:"The definitive Air Itam asam laksa; CNN Travel ranked Penang asam laksa among the World's 50 Best Foods. Reopened after a pandemic pause; now weekends only.",s:[["THESTAR","https://www.thestar.com.my/lifestyle/living/2020/10/27/penang-assam-laksa-listed-among-world039s-top-10-foods"],["SETHLUI","https://sethlui.com/must-eat-foods-penang-malaysia/"],["VISITPENANG","https://www.visitpenang.com/food/air-itam-laksa"]]},
+{t:2,a:"MY",n:"Lou Wong Bean Sprout Chicken",ad:"Jalan Yau Tet Shin, Ipoh, Perak, Malaysia (relocating to a larger nearby space in 2026)",cz:["CHINESE","CHICKENRICE"],la:4.59397,ln:101.08421,w:"Ipoh's iconic tauge ayam since 1957 — poached chicken, blanched bean sprouts and smooth hor fun. Anthony Bourdain ate here; still open, moving to a bigger site in 2026.",s:[["DANIELFOOD","https://danielfooddiary.com/2024/10/07/louwong/"],["MALAYMAIL","https://www.malaymail.com/news/eat-drink/2026/02/11/more-room-to-sprout-ipohs-iconic-lou-wong-moving-after-nearly-40-years/208889"]]},
+{t:1,a:"MY",n:"Village Park Restaurant",ad:"5 Jalan SS21/37, Damansara Utama (Uptown), Petaling Jaya, Selangor (Greater KL), Malaysia",cz:["MALAY"],la:3.13685,ln:101.62340,w:"The nasi lemak many call Malaysia's best; queues since the 1980s for the ayam goreng berempah. Regulars have included prime ministers and national athletes.",s:[["SETHLUI","https://sethlui.com/village-park-restaurant-malaysia/"],["SILVERKRIS","https://krisworld.singaporeair.com/silverkris2/village-park-restaurant.html"]]},
+{t:2,a:"MY",n:"Chung Wah Chicken Rice Ball",ad:"18 Jalan Hang Jebat (Jonker Street), Malacca, Malaysia",cz:["CHICKENRICE","CHINESE"],la:2.19497,ln:102.24858,w:"The long-queued Jonker Street original of Malacca's signature rice-ball chicken rice, at the entrance to Jonker Walk; documented by Mark Wiens and in the MICHELIN Guide's chicken-rice feature.",s:[["MARKWIENS","https://migrationology.com/chicken-rice-balls-melaka/"],["MICHELIN","https://guide.michelin.com/en/article/features/same-same-but-different-the-different-types-of-chicken-rice-around-asia"]]},
+{t:1,a:"TH",n:"Raan Jay Fai",ad:"327 Maha Chai Road, Phra Nakhon, Bangkok, Thailand",cz:["THAI"],la:13.75250,ln:100.50472,w:"Bangkok's one-MICHELIN-star street stall; octogenarian chef Supinya 'Jay Fai' Junsuta cooks in ski goggles over charcoal. Held its star since 2018; now open Wed–Sat.",s:[["MICHELIN_STAR","https://guide.michelin.com/en/bangkok-region/bangkok/restaurant/raan-jay-fai"],["MARKWIENS","https://migrationology.com/street-food-bangkok/"]]},
+{t:1,a:"TH",n:"Thip Samai",ad:"313-315 Maha Chai Road, Phra Nakhon, Bangkok, Thailand",cz:["THAI"],la:13.75289,ln:100.50476,w:"The 'Pad Thai Pratu Phi' institution near the Grand Palace, cooking over charcoal since 1966; MICHELIN Guide-recommended and a fixture of every Bangkok food tour.",s:[["MICHELIN","https://guide.michelin.com/th/en/bangkok-region/bangkok/restaurant/thipsamai"],["EATINGTHAIFOOD","https://www.eatingthaifood.com/"]]},
+{t:2,a:"TH",n:"Nai Ek Roll Noodle (Nai Ek Kuay Jub)",ad:"Soi Yaowarat 9, Yaowarat (Chinatown), Bangkok, Thailand",cz:["CHINESE","THAI"],la:13.74037,ln:100.50996,w:"A Chinatown Bib Gourmand mainstay for aggressively peppery rolled-noodle soup and crispy pork.",s:[["MICHELIN_BIB","https://guide.michelin.com/th/en/bangkok-region/bangkok/restaurant/nai-ek-roll-noodle"],["EATINGTHAIFOOD","https://www.eatingthaifood.com/"]]},
+{t:2,a:"TH",n:"Khao Soi Khun Yai",ad:"Near Wat Kuan Kama, Sithiwongse Road, Old City, Chiang Mai, Thailand",cz:["THAI"],la:18.79554,ln:98.98328,w:"The tiny lunch-only stall locals most often name as Chiang Mai's best khao soi; also a Mark Wiens pick.",s:[["EATINGTHAIFOOD","https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"],["CHANGPUAK","https://changpuakmagazine.com/en-article/7-BEST-KHAO-SOI/308201/"],["MARKWIENS","https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"]]},
+{t:1,a:"VN",n:"Pho Gia Truyen (Bat Dan)",ad:"49 Bat Dan Street, Hoan Kiem District, Hanoi, Vietnam",cz:["VIET"],la:21.03369,ln:105.84644,w:"Hanoi's most famous old-school beef pho — order at the counter and queue; MICHELIN Bib Gourmand.",s:[["MICHELIN_BIB","https://guide.michelin.com/vn/en/ha-noi/ha-noi/restaurant/pho-gia-truyen"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/"]]},
+{t:1,a:"VN",n:"Banh Mi Phuong",ad:"2B Phan Chau Trinh, Hoi An Ancient Town, Quang Nam, Vietnam",cz:["VIET"],la:15.87843,ln:108.33207,w:"Made world-famous when Anthony Bourdain filmed here and called it a 'symphony in a sandwich'; the definitive Hoi An banh mi.",s:[["OFFICIAL","https://vietnam.travel/things-to-do/eating-vietnam-anthony-bourdain"],["EATLIKEBOURDAIN","https://eatlikebourdain.com/anthony-bourdain-in-hoi-an/"]]},
+{t:2,a:"PH",n:"Rico's Lechon",ad:"F. Cabahug Street, Mabolo (and branches), Cebu City, Philippines",cz:["FILIPINO"],la:10.32514,ln:123.91924,w:"Cebu's most internationally recognised lechon brand and pioneer of the spicy style, open since 1997.",s:[["AUTHENTICFOODQUEST","https://authenticfoodquest.com/ricos-lechon-best-cebu/"],["OURAWESOMEPLANET","https://awesome.blog/2016/10/ricos-lechon-in-cebu.html"]]},
+{t:1,a:"SGC",n:"Tian Tian Hainanese Chicken Rice",ad:"#01-10/11 Maxwell Food Centre, 1 Kadayanallur Street",cz:["CHICKENRICE"],la:1.28030,ln:103.84474,w:"Singapore's most famous chicken rice stall; Michelin Bib Gourmand, feted by Bourdain & Ramsay.",s:[["MICHELIN","https://guide.michelin.com/jp/en/singapore-region/singapore/restaurant/tian-tian-hainanese-chicken-rice"],["DFD","https://danielfooddiary.com/2017/06/28/tiantianchickenrice/"],["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"]]},
+{t:2,a:"SGC",n:"Ah Tai Hainanese Chicken Rice",ad:"#01-07 Maxwell Food Centre, 1 Kadayanallur Street",cz:["CHICKENRICE"],la:1.28030,ln:103.84474,w:"The rival stall a few doors from Tian Tian; ex-Tian Tian chef, legendary dark soy & chilli.",s:[["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"],["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"]]},
+{t:2,a:"SGC",n:"Wee Nam Kee Chicken Rice",ad:"#01-08 United Square, 101 Thomson Road, Novena",cz:["CHICKENRICE"],la:1.31741,ln:103.84362,w:"Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",s:[["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"],["SETHLUI","https://sethlui.com/best-chicken-rice-singapore/"]]},
+{t:1,a:"SGC",n:"Famous Sungei Road Trishaw Laksa",ad:"#02-66 Hong Lim Food Centre, 531A Upper Cross Street",cz:["LAKSA"],la:1.28529,ln:103.84582,w:"Michelin Bib Gourmand three-peat; heritage cut-noodle laksa eaten spoon-only.",s:[["MICHELIN","https://guide.michelin.com/en/article/features/behind-the-bib-famous-sungei-road-trishaw-laksa"],["MTC","https://www.misstamchiak.com/famous-sungei-road-trishaw-laksa/"]]},
+{t:1,a:"SGC",n:"Song Fa Bak Kut Teh",ad:"11 New Bridge Road, #01-01",cz:["BKT"],la:1.28902,ln:103.84756,w:"Peppery Teochew bak kut teh; among only 17 stalls to hold a Michelin Bib across all 10 SG editions.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/song-fa-bak-kut-teh"],["DFD","https://danielfooddiary.com/2020/04/20/bakkutteh/"],["HERWORLD","https://www.herworld.com/life/foodanddrink/best-bak-kut-teh-singapore"]]},
+{t:1,a:"SGC",n:"Hill Street Tai Hwa Pork Noodle",ad:"#01-12 Block 466 Crawford Lane",cz:["NOODLE"],la:1.30478,ln:103.86293,w:"One Michelin star since 2016; widely called Singapore's best bak chor mee, 1-2hr queues.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/hill-street-tai-hwa-pork-noodle"],["SETHLUI","https://sethlui.com/hill-street-tai-hwa-pork-noodle-singapore/"],["EATBOOK","https://eatbook.sg/hill-street-tai-hwa-pork-noodle/"]]},
+{t:2,a:"SGC",n:"Tai Wah Pork Noodle",ad:"#02-16 Hong Lim Food Centre, 531A Upper Cross Street",cz:["NOODLE"],la:1.28529,ln:103.84582,w:"The other half of the Tai Hwa/Tai Wah lineage; Michelin Bib bak chor mee at Hong Lim.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/tai-wah-pork-noodle"],["EATBOOK","https://eatbook.sg/tai-wah-pork-noodle/"]]},
+{t:2,a:"SGC",n:"Ji Ji Noodle House",ad:"#02-48/49 Hong Lim Food Centre, 531A Upper Cross Street",cz:["HAWKER"],la:1.28529,ln:103.84582,w:"Upgraded from Selected to Michelin Bib Gourmand in the 2025 guide; old-school wanton mee.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["DFD","https://danielfooddiary.com/2019/06/16/wantonnoodles/"]]},
+{t:2,a:"SGC",n:"Kok Kee Wanton Noodle",ad:"30 Foch Road, Lavender",cz:["HAWKER"],la:1.31230,ln:103.86026,w:"Cult wanton mee known for its near-soupy, lard-based chilli gravy.",s:[["DFD","https://danielfooddiary.com/2019/06/16/wantonnoodles/"],["EATBOOK","https://eatbook.sg/wonton-mee-singapore/"]]},
+{t:2,a:"SGC",n:"Wah Kee Big Prawn Noodle",ad:"#01-15 Pek Kio Market & Food Centre, 41A Cambridge Road",cz:["NOODLE"],la:1.31613,ln:103.85023,w:"Michelin-listed since 1951; intense all-prawn broth, the 'auntie with attitude'.",s:[["MICHELIN","https://guide.michelin.com/lv/en/singapore-region/singapore/restaurant/wah-kee-big-prawn-noodles"],["DFD","https://danielfooddiary.com/2019/04/02/wahkee/"],["HGW","https://hungrygowhere.com/what-to-eat/prawn-noodles-singapore/"]]},
+{t:2,a:"SGC",n:"Best Satay 7 & 8 (Lau Pa Sat Satay Street)",ad:"Boon Tat Street / Lau Pa Sat, 18 Raffles Quay",cz:["MALAY"],la:1.28063,ln:103.85040,w:"The most popular stalls on Lau Pa Sat's evening Satay Street, grilled over charcoal.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/best-satay-in-singapore-grilled"],["HERWORLD","https://www.herworld.com/life/foodanddrink/stalls-best-satay-in-singapore"]]},
+{t:1,a:"SGC",n:"Hjh Maimunah Restaurant",ad:"11 & 15 Jalan Pisang, Kampong Glam",cz:["MALAY"],la:1.30311,ln:103.85858,w:"The benchmark nasi padang near Kampong Glam; long-time Michelin Bib Gourmand.",s:[["EATBOOK","https://eatbook.sg/hjh-maimunah-review/"],["DFD","https://danielfooddiary.com/2017/06/12/hjhmaimunah/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/hjh-maimunah-jln-pisang"]]},
+{t:1,a:"SGC",n:"Muthu's Curry",ad:"138 Race Course Road, Little India",cz:["SEAFOOD"],la:1.30992,ln:103.85224,w:"Pioneered South-Indian fish head curry (1969); Michelin Bib Gourmand, the local go-to.",s:[["MICHELIN","https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/muthu-s-curry-little-india"],["HGW","https://hungrygowhere.com/what-to-eat/fish-head-curry-singapore/"],["MTC","https://www.misstamchiak.com/curry-fish-head/"]]},
+{t:2,a:"SGC",n:"Allauddin's Briyani",ad:"#01-232 Tekka Centre, 665 Buffalo Road, Little India",cz:["INDIAN"],la:1.30591,ln:103.85026,w:"Tekka's most popular biryani stall since 1968; Michelin-recognised.",s:[["HONEYCOMBERS","https://thehoneycombers.com/singapore/tekka-hawker-centre-food/"],["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/allauddin-s-briyani"]]},
+{t:3,a:"SGC",n:"Komala Vilas",ad:"76-78 Serangoon Road, Little India",cz:["INDIAN"],la:1.30645,ln:103.85197,w:"Heritage vegetarian South Indian since 1947; the gold standard for masala thosai.",s:[["SETHLUI","https://sethlui.com/dosai-showdown-singapore/"],["VISITSG","https://www.visitsingapore.org/explore-singapore/ethnic-quarters/"]]},
+{t:2,a:"SGC",n:"Zam Zam Restaurant",ad:"697-699 North Bridge Road, Kampong Glam",cz:["HAWKER"],la:1.30217,ln:103.85630,w:"Founded 1908 opposite Sultan Mosque; the most famous Indian-Muslim murtabak specialist.",s:[["HGW","https://hungrygowhere.com/critics-reviews/zam-zam-restaurant-vs-victory-restaurant/"],["VICE","https://www.vice.com/en/article/on-a-singapore-street-two-rival-biryani-restaurants-go-to-war/"]]},
+{t:3,a:"SGC",n:"Old Amoy Chendol",ad:"#02-008 Chinatown Complex Food Centre, 335 Smith Street",cz:["DESSERT"],la:1.28228,ln:103.84284,w:"Artisanal chendol with cold-pressed coconut milk & charcoal-brewed gula melaka, from $2.",s:[["IEAT","https://ieatishootipost.sg/old-amoy-cendol-truly-artisanal-chendol/"],["CHINATOWNSG","https://chinatownsg.com/shop/old-amoy-chendol-main/"]]},
+{t:2,a:"SGC",n:"Ya Kun Kaya Toast (Far East Square)",ad:"#01-01 Far East Square, 18 China Street",cz:["KOPI"],la:1.28361,ln:103.84804,w:"Founded 1944; the flagship still grills wafer-thin charcoal kaya toast, SG's kopitiam icon.",s:[["WIKI","https://en.wikipedia.org/wiki/Ya_Kun_Kaya_Toast"],["DFD","https://danielfooddiary.com/2024/03/16/kayatoastsg/"]]},
+{t:3,a:"SGC",n:"Tong Ah Eating House",ad:"35 Keong Saik Road, Chinatown",cz:["KOPI"],la:1.28015,ln:103.84141,w:"In Keong Saik since 1939; one of the very few still doing old-school thrice-toasted kaya toast.",s:[["DFD","https://danielfooddiary.com/2024/03/16/kayatoastsg/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/the-best-kaya-toast-in-singapore"]]},
+{t:2,a:"SGC",n:"Beach Road Scissors Cut Curry Rice",ad:"229 Jalan Besar (Corner of Jalan Besar & Kitchener Road)",cz:["HAWKER"],la:1.30948,ln:103.85783,w:"Since 1930; the definitive scissor-cut Hainanese curry rice, ingredients snipped to order.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ranking-best-hainanese-scissor-cut-curry-rice"],["SETHLUI","https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/foodanddrink/best-hainanese-scissor-cut-curry-rice-review-singapore"]]},
+{t:2,a:"SGC",n:"Loo's Hainanese Curry Rice",ad:"#02-67/68 Tiong Bahru Market, 30 Seng Poh Road",cz:["HAWKER"],la:1.28488,ln:103.83241,w:"Since 1946; three-day curry, one dish only, perpetual Tiong Bahru queue.",s:[["DFD","https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"],["SETHLUI","https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"],["TATLER","https://www.tatlerasia.com/dining/food/best-hainanese-curry-rice-in-singapore-local-chefs"]]},
+{t:2,a:"SGC",n:"Jian Bo Tiong Bahru Shui Kueh",ad:"#02-05 Tiong Bahru Market, 30 Seng Poh Road",cz:["HAWKER"],la:1.28488,ln:103.83241,w:"Since 1958; the most renowned chwee kueh stall, Michelin-listed.",s:[["MICHELIN","https://guide.michelin.com/mo/zh_HK/singapore-region/singapore/restaurant/jian-bo-shui-kueh"],["DFD","https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"],["EATBOOK","https://eatbook.sg/tiong-bahru-market/"]]},
+{t:2,a:"SGC",n:"Swee Choon Tim Sum Restaurant",ad:"183-191 Jalan Besar",cz:["CHINESE"],la:1.30808,ln:103.85680,w:"Since 1962; Singapore's beloved late-night dim sum institution (open till the small hours).",s:[["SCMP","https://www.scmp.com/magazines/style/leisure/article/3227711/17-best-dim-sum-restaurants-singapore-michelin-starred-tim-ho-wan-and-alan-yaus-madame-fan-wan-hao"],["HONEYCOMBERS","https://honeykidsasia.com/best-dim-sum-in-singapore/"]]},
+{t:2,a:"SGC",n:"Hup Kee Fried Oyster Omelette",ad:"#01-73 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"],["DFD","https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"]]},
+{t:2,a:"SGC",n:"Kitchenman Nasi Lemak",ad:"#01-32 CT Hub, 2 Kallang Avenue",cz:["MALAY"],la:1.31158,ln:103.86338,w:"Opened 2024, straight onto the 2025 Michelin Bib list; Malaysian-style ayam goreng berempah.",s:[["MICHELIN","https://guide.michelin.com/th/en/singapore-region/singapore/restaurant/kitchenman-nasi-lemak"],["HGW","https://hungrygowhere.com/food-news/kitchenman-nasi-lemak/"],["EATBOOK","https://eatbook.sg/kitchenman-nasi-lemak/"]]},
+{t:2,a:"SGC",n:"Song Kee Teochew Fish Porridge",ad:"#01-91 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
+{t:2,a:"SGC",n:"Li Xin Teochew Fishball Noodles",ad:"#02-06 Tiong Bahru Market, 30 Seng Poh Road",cz:["NOODLE"],la:1.28488,ln:103.83241,w:"Michelin-approved handmade Teochew fishballs & fishcake.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"],["EATBOOK","https://eatbook.sg/tiong-bahru-market/"]]},
+{t:2,a:"SGC",n:"Alliance Seafood (Newton Food Centre)",ad:"#01-27 Newton Food Centre, 500 Clemenceau Avenue North",cz:["MALAY"],la:1.31199,ln:103.83957,w:"Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["MTC","https://www.misstamchiak.com/newton-food-centre-singapore/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]},
+{t:1,a:"SGC",n:"JUMBO Seafood (Riverside Point)",ad:"#01-01/02 Riverside Point, 30 Merchant Road, Clarke Quay",cz:["SEAFOOD"],la:1.28894,ln:103.84470,w:"Singapore's most famous chilli crab name (since 1987); sweet-spicy gravy mopped up with mantou.",s:[["EATBOOK","https://eatbook.sg/jumbo-seafood/"],["WIKI","https://en.wikipedia.org/wiki/Jumbo_Seafood"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/jumbo-seafood"]]},
+{t:1,a:"SGC",n:"Odette",ad:"#01-04 National Gallery Singapore, 1 St Andrew's Road",cz:["CAFE"],la:1.28971,ln:103.84925,w:"Three Michelin stars; Chef Julien Royer's flagship, a perennial Asia's 50 Best fixture.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/odette"],["HGW","https://hungrygowhere.com/food-news/michelin-guide-singapore-2025/"]]},
+{t:1,a:"SGE",n:"328 Katong Laksa",ad:"51 East Coast Road, Katong",cz:["LAKSA"],la:1.30506,ln:103.90324,w:"The definitive Katong laksa that 'beat' Gordon Ramsay; former Michelin Bib, cut noodles eaten with a spoon.",s:[["DFD","https://danielfooddiary.com/2020/06/21/328katonglaksa/"],["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/328-katong-laksa"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/best-laksa-singapore"]]},
+{t:1,a:"SGE",n:"Nam Sing Hokkien Fried Mee",ad:"#01-32 Old Airport Road Food Centre, 51 Old Airport Road",cz:["NOODLE"],la:1.30812,ln:103.88574,w:"Serving one dish since 1960; drier prawn-stock Hokkien mee with a Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/nam-sing-hokkien-fried-mee"],["DFD","https://danielfooddiary.com/2022/02/08/namsing/"],["EATBOOK","https://eatbook.sg/old-airport-road-food/"]]},
+{t:1,a:"SGE",n:"Hill Street Fried Kway Teow",ad:"#01-41 Bedok South Market & Food Centre, 16 Bedok South Road",cz:["NOODLE"],la:1.32039,ln:103.93516,w:"Since 1961; full-bodied wok-hei char kway teow with cockles, a Michelin Bib and 40-min queues.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/hill-street-fried-kway-teow"],["EATBOOK","https://eatbook.sg/hill-street-fried-kway-teow/"],["MTC","https://www.misstamchiak.com/char-kway-teow/"]]},
+{t:2,a:"SGE",n:"Lao Fu Zi Fried Kway Teow",ad:"#01-12 Old Airport Road Food Centre, 51 Old Airport Road",cz:["NOODLE"],la:1.30812,ln:103.88574,w:"Smoky wok-hei CKT with blood cockles & lup cheong; a 2025 Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lao-fu-zi-fried-kway-teow"],["SETHLUI","https://sethlui.com/lao-fu-zi-fried-kway-teow-singapore/"]]},
+{t:2,a:"SGE",n:"To-Ricos Kway Chap",ad:"#01-135/136 Old Airport Road Food Centre, 51 Old Airport Road",cz:["HAWKER"],la:1.30812,ln:103.88574,w:"Teochew kway chap since the 1980s; immaculately cleaned braised offal, a 2025 Michelin Bib.",s:[["MICHELIN","https://guide.michelin.com/my/en/singapore-region/singapore/restaurant/to-ricos-guo-shi"],["DFD","https://danielfooddiary.com/2025/07/17/toricoskwaychap/"]]},
+{t:2,a:"SGE",n:"Roast Paradise",ad:"#01-121 Old Airport Road Food Centre, 51 Old Airport Road",cz:["CHINESE"],la:1.30812,ln:103.88574,w:"KL-style caramelised char siew on pork belly; a modern hawker favourite.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/roast-paradise/"],["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"]]},
+{t:1,a:"SGE",n:"Chin Mee Chin Confectionery",ad:"204 East Coast Road, Katong/Joo Chiat",cz:["KOPI"],la:1.30724,ln:103.90714,w:"101-year-old Hainanese kopitiam; iconic round charcoal kaya buns, reopened 2021.",s:[["EATBOOK","https://eatbook.sg/chin-mee-chin/"],["WIKI","https://en.wikipedia.org/wiki/Chin_Mee_Chin_Confectionery"],["TIMEOUT","https://timeout.com/singapore/restaurants/chin-mee-chin-confectionery"]]},
+{t:1,a:"SGE",n:"Guan Hoe Soon Restaurant",ad:"38/40 Joo Chiat Place, Joo Chiat",cz:["PERANAKAN"],la:1.31219,ln:103.90024,w:"Singapore's oldest Peranakan restaurant (1953); traditional Nonya cooking, third generation.",s:[["ASIAONE","https://www.asiaone.com/lifestyle/10-traditional-and-modern-peranakan-restaurants-singapore-delicious-nonya-food"],["ROOTS","https://www.roots.gov.sg/stories-landing/stories/copy-of-street-corner-heritage-galleries-katong-joo-chiat"]]},
+{t:1,a:"SGE",n:"Mr & Mrs Mohgan's Super Crispy Roti Prata",ad:"300 Joo Chiat Road (Tin Yeang Coffeeshop)",cz:["INDIAN"],la:1.30972,ln:103.90201,w:"Cult super-crispy prata cooked to order; long morning queues, 'cult status entirely affirmed'.",s:[["EATBOOK","https://eatbook.sg/mr-and-mrs-mohgan-super-crispy-roti-prata/"],["SETHLUI","https://sethlui.com/mr-and-mrs-mohgans-super-crispy-prata-singapore/"]]},
+{t:2,a:"SGE",n:"Geylang Lor 9 Beef Kway Teow",ad:"237 Geylang Road (Geylang Lorong 9)",cz:["HAWKER"],la:1.31230,ln:103.87670,w:"Iconic Geylang beef hor fun with goopy black bean gravy; in the 2025 Michelin Guide.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/lor-9-beef-kway-teow"],["EATBOOK","https://eatbook.sg/lor-9-beef-kway-teow/"],["DFD","https://danielfooddiary.com/2019/10/08/lor9beefkwayteow/"]]},
+{t:2,a:"SGE",n:"Haron Satay (Haron 30)",ad:"#01-05 East Coast Lagoon Food Village, 1220 East Coast Parkway",cz:["MALAY"],la:1.30565,ln:103.92988,w:"East Coast Lagoon's beloved Malay-Muslim satay, grilled seaside over charcoal.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/best-satay-in-singapore-grilled"],["HERWORLD","https://www.herworld.com/life/foodanddrink/stalls-best-satay-in-singapore"]]},
+{t:2,a:"SGE",n:"Kway Guan Huat Joo Chiat Popiah",ad:"95 Joo Chiat Road, Joo Chiat",cz:["HAWKER"],la:1.31393,ln:103.89927,w:"Since 1938; hand-made popiah skins spun on a wooden pole, a Joo Chiat heritage name.",s:[["ROOTS","https://www.roots.gov.sg/stories-landing/stories/Michael-Ker-Making-heritage-food-that-stands-the-test-of-time/story"],["EATBOOK","https://eatbook.sg/best-singapore-food/"]]},
+{t:2,a:"SGE",n:"Sin Heng Claypot Bak Koot Teh",ad:"#01-01, 439 Joo Chiat Road, Joo Chiat",cz:["BKT"],la:1.30720,ln:103.90435,w:"40-year-old claypot bak kut teh with pepper & garlic; a 2025 Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/sin-heng-claypot-bak-koot-teh"],["DFD","https://danielfooddiary.com/2025/05/22/sinhengbkt/"],["SETHLUI","https://sethlui.com/sin-heng-claypot-bak-koot-teh-singapore/"]]},
+{t:1,a:"SGWN",n:"Selera Rasa Nasi Lemak",ad:"#01-15 Adam Road Food Centre, 2 Adam Road, Bukit Timah",cz:["MALAY"],la:1.32423,ln:103.81450,w:"Michelin Bib Gourmand nasi lemak on basmati; reportedly a favourite of the Sultan of Brunei.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/selera-rasa-nasi-lemak"],["DFD","https://danielfooddiary.com/2024/01/11/selerarasanasilemak/"]]},
+{t:1,a:"SGWN",n:"Springleaf Prata Place",ad:"1 Thong Soon Avenue, Upper Thomson",cz:["INDIAN"],la:1.39720,ln:103.81883,w:"Famous Upper Thomson prata with 60+ flavours from the Murtaburger to Prata Alfredo.",s:[["EATBOOK","https://eatbook.sg/best-prata-in-singapore/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/the-best-prata-shops-in-singapore"]]},
+{t:1,a:"SGWN",n:"Candlenut",ad:"Block 17A Dempsey Road, Dempsey Hill",cz:["PERANAKAN"],la:1.30572,ln:103.81020,w:"The world's first Michelin-starred Peranakan restaurant; Chef Malcolm Lee's elevated Straits-Chinese cooking.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/candlenut"],["ASIAONE","https://www.asiaone.com/lifestyle/10-traditional-and-modern-peranakan-restaurants-singapore-delicious-nonya-food"]]},
+{t:1,a:"SGWN",n:"Burnt Ends",ad:"7 Dempsey Road, Dempsey Hill",cz:["CAFE"],la:1.30456,ln:103.80890,w:"One Michelin star & Asia's 50 Best; wood-fired modern barbecue, near-impossible reservations.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/burnt-ends-1200777"],["SCMP","https://www.scmp.com/lifestyle/food-drink/article/3336843/how-singapores-bbq-hotspot-burnt-ends-still-has-diners-fighting-tables-12-years"]]},
+{t:1,a:"SGWN",n:"Boon Tong Kee (Balestier)",ad:"399/401/403 Balestier Road",cz:["CHICKENRICE"],la:1.32550,ln:103.84947,w:"A chicken rice institution since 1979; promoted to Michelin Bib Gourmand in 2025.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["DFD","https://danielfooddiary.com/2025/07/18/boontongkee/"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
+{t:2,a:"SGWN",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]},
+{t:2,a:"SGWN",n:"Depot Road Zhen Shan Mei Claypot Laksa",ad:"#01-75 Alexandra Village Food Centre, 120 Bukit Merah Lane 1",cz:["LAKSA"],la:1.28634,ln:103.80453,w:"Multi-time award-winning laksa (Michelin Bib 2016+) rich with cockles and prawns.",s:[["MICHELIN","https://guide.michelin.com/en/article/features/behind-the-bib-depot-road-zhen-shan-mei-claypot-laksa"],["EATBOOK","https://eatbook.sg/depot-road-zhen-shan-mei-claypot-laksa/"],["DFD","https://danielfooddiary.com/2022/09/14/zhenshanmei/"],["WIKI","https://en.wikipedia.org/wiki/Depot_Road_Zhen_Shan_Mei_Claypot_Laksa"]]},
+{t:2,a:"SGWN",n:"Fu Ming Cooked Food",ad:"#01-49 Redhill Food Centre, 85 Redhill Lane",cz:["HAWKER"],la:1.28733,ln:103.81834,w:"'Mickey Mouse' chai tow kway, radish cake made from scratch daily; Michelin Bib since 2019.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fu-ming-cooked-food"],["EATBOOK","https://eatbook.sg/fu-ming-cooked-food/"],["SETHLUI","https://sethlui.com/fu-ming-cooked-food-carrot-cake-singapore/"]]},
+{t:2,a:"SGWN",n:"Foong Kee Traditional Charcoal Roaster",ad:"#01-06 Commonwealth Crescent Market & Food Centre, 31 Commonwealth Crescent",cz:["CHINESE"],la:1.30690,ln:103.80037,w:"Charcoal-roasted char siew with an ideal fat-to-meat ratio; reopened after a two-year hiatus.",s:[["EATBOOK","https://eatbook.sg/foong-kee-traditional-charcoal-roaster/"],["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"],["HERWORLD","https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"]]},
+{t:2,a:"SGWN",n:"Fatty Cheong",ad:"#01-120 ABC Brickworks Market & Food Centre, 6 Jalan Bukit Merah",cz:["CHINESE"],la:1.28699,ln:103.80803,w:"34 years of sweet, succulent char siew and roast meats at ABC Brickworks.",s:[["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"],["SETHLUI","https://sethlui.com/roast-meat-stalls-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"]]},
+{t:2,a:"SGWN",n:"Fei Fei Roasted Noodle",ad:"#01-40 Yuhua Village Market & Food Centre, 254 Jurong East Street 24",cz:["CHINESE"],la:1.34349,ln:103.73774,w:"Charcoal-roasted meats & wanton mee in Jurong East; Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fei-fei-roasted-noodle"],["EATBOOK","https://eatbook.sg/wonton-mee-singapore/"]]},
+{t:3,a:"SGWN",n:"Long Kee Wanton Noodle",ad:"Block 505 Jurong West Street 52 (Jurong West 505 Market & Food Centre)",cz:["HAWKER"],la:1.34987,ln:103.71597,w:"Nostalgic old-school wanton mee in Jurong West; new to the 2025 Michelin Guide.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/long-kee-wanton-noodle"],["DFD","https://danielfooddiary.com/2025/05/24/longkeewantonnoodle/"]]},
+{t:3,a:"SGWN",n:"Boon Lay Power Nasi Lemak",ad:"#01-06 Boon Lay Place Food Village, 221B Boon Lay Place",cz:["MALAY"],la:1.34576,ln:103.71307,w:"A big-name Jurong nasi lemak using extra-virgin coconut oil.",s:[["EATBOOK","https://eatbook.sg/nasi-lemak-in-singapore/"],["SETHLUI","https://sethlui.com/nasi-lemak-guide-singapore/"]]},
+{t:1,a:"TPY",n:"Chey Sua Carrot Cake",ad:"Toa Payoh West Market & Food Centre, #02-30, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["CHINESE"],la:1.33813,ln:103.84473,w:"Michelin Bib Gourmand since 2016 — two sisters fry each plate of crispy-yet-spongy white carrot cake to order, drawing long queues at the freshly renovated (reopened Aug 2025) Toa Payoh West hawker centre.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/chey-sua-carrot-cake"],["SETHLUI","https://sethlui.com/chey-sua-carrot-cake-singapore/"],["EATBOOK","https://eatbook.sg/chey-sua-carrot-cake/"],["DANIELFOOD","https://danielfooddiary.com/2016/08/08/cheysuacarrotcake/"]]},
+{t:1,a:"TPY",n:"Come Daily Fried Hokkien Prawn Mee",ad:"Toa Payoh West Market & Food Centre, #02-27, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["NOODLE"],la:1.33813,ln:103.84473,w:"Michelin-listed and running since 1968, Steven Ng reduces prawn stock right in the wok for one of Toa Payoh's most famous plates of Hokkien mee — a fixture of the reopened Toa Payoh West food centre.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/come-daily-fried-hokkien-prawn-mee"],["EATBOOK","https://eatbook.sg/come-daily-hokkien-mee/"],["DANIELFOOD","https://danielfooddiary.com/2019/03/02/comedaily/"]]},
+{t:1,a:"TPY",n:"Hai Nan Xing Zhou Beef Noodle",ad:"Kim Keat Palm Market & Food Centre, #01-06, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"Nearly 70 years of Hainanese beef noodles from S$5, newly awarded a Michelin Bib Gourmand — dry or soup, in a rich braise the whole hawker centre queues for.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/hai-nan-xing-zhou-beef-noodle"],["DANIELFOOD","https://danielfooddiary.com/2022/05/19/hainanxingzhou/"],["SETHLUI","https://sethlui.com/hai-nan-xing-zhou-beef-noodle-singapore/"],["EATBOOK","https://eatbook.sg/hai-nan-xing-zhou-beef-noodle/"],["MISSTAMCHIAK","https://www.misstamchiak.com/hai-nan-xing-zhou-beef-noodles/"]]},
+{t:1,a:"TPY",n:"Chef Kang's Noodle House",ad:"Block A, Jackson Square, 11 Toa Payoh Lorong 3, S319579",cz:["NOODLE"],la:1.33770,ln:103.84820,w:"A Michelin-starred Cantonese chef sells $5 wanton mee from a warehouse-canteen stall — HK-shipped springy noodles and charred char siew that earned a Michelin Bib Gourmand within a year of opening (still listed 2025/2026).",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/chef-kang-s-noodle-house"],["DANIELFOOD","https://danielfooddiary.com/2018/11/04/chefkangsnoodlehouse/"],["MISSTAMCHIAK","https://www.misstamchiak.com/chef-kang-wanton-noodle-house/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/chef-kang-noodle-house-michelin-star-chef-wanton-mee/"]]},
+{t:1,a:"TPY",n:"LiXin Teochew Fishball Noodles",ad:"Kim Keat Palm Market & Food Centre, #01-20, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"The original stall of Singapore's 58-year-old fishball dynasty (est. 1968), Michelin Bib Gourmand for four years running since 2022 — springy, umami yellowtail fishballs made fresh daily.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"],["DANIELFOOD","https://danielfooddiary.com/2022/05/18/lixin/"]]},
+{t:2,a:"TPY",n:"Kedai Makan Muhajirin",ad:"Blk 20 Toa Payoh Lorong 7 coffeeshop, S310020",cz:["MALAY"],la:1.33499,ln:103.85701,w:"A beloved $1 nasi lemak that has held its price since 1987 to stay affordable for elderly regulars — cooking starts at 4am and 300-500 plates sell out by midday; covered by every major food outlet and YouTuber Ghib Ojisan.",s:[["SETHLUI","https://sethlui.com/kedai-makan-muhajirin-singapore/"],["EATBOOK","https://eatbook.sg/kedai-makan-muhajirin/"],["MISSTAMCHIAK","https://www.misstamchiak.com/kedai-makan-muhajirin/"],["MOTHERSHIP","https://mothership.sg/2023/02/nasi-lemak-kedai-makan-muhajirin/"],["ASIAONE","https://www.asiaone.com/food/1-toa-payoh-nasi-lemak-almost-closed-good-you-can-relax-now"],["GHIBOJISAN","https://www.youtube.com/c/GhibOjisan/videos"]]},
+{t:2,a:"TPY",n:"Da Ji Hainanese Chicken Rice",ad:"Toa Payoh Lorong 5 Food Centre, #01-31, Blk 75 Lorong 5 Toa Payoh, S310075",cz:["CHICKENRICE"],la:1.33620,ln:103.85282,w:"A cult chicken rice stall that swaps roast/poached chicken for addictively marinated crispy fried wings ($3.50) with a spicy chilli dip — famously long evening queues until sold out.",s:[["EATBOOK","https://eatbook.sg/da-ji-hainanese-chicken-rice/"],["MISSTAMCHIAK","https://www.misstamchiak.com/da-ji-hainanese-chicken-rice/"]]},
+{t:2,a:"TPY",n:"Ru Ji Kitchen (Toa Payoh)",ad:"Blk 22 Lorong 7 Toa Payoh, #01-58, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"The Toa Payoh outlet of Uncle David Ng's famed noodle stall, where bouncy yellowtail fishballs are hand-pounded on the spot (the Holland Drive original holds the Michelin Bib Gourmand).",s:[["SETHLUI","https://sethlui.com/ru-ji-kitchen-singapore/"],["EATBOOK","https://eatbook.sg/ru-ji-kitchen/"],["DANIELFOOD","https://danielfooddiary.com/2019/03/06/ruji/"]]},
+{t:2,a:"TPY",n:"Old Long House Popiah",ad:"Kim Keat Palm Market & Food Centre, #01-03, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["CHINESE"],la:1.33519,ln:103.85710,w:"A 3rd-generation popiah stall with roots to 1930, hand-rolling Hokkien-style popiah (no pork, no lard, no MSG) with house-fried sole-fish crisps — one of Singapore's most heritage popiah names.",s:[["SETHLUI","https://sethlui.com/old-long-house-popiah-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2021/05/02/kimkeatpalm/"],["HERWORLD","https://www.herworld.com/life/best-places-popiah-in-singapore"],["MAKANSUTRA","https://makansutra.com/fave-5-kim-keat-palm-market-and-food-centre/"]]},
+{t:2,a:"TPY",n:"Lai Heng Mushroom Minced Meat Noodle",ad:"Blk 73 Toa Payoh Lorong 5, Toa Payoh",cz:["NOODLE"],la:1.33437,ln:103.85174,w:"A bak chor mee institution running since 1985 (relocated twice within Toa Payoh), still turning out a spicy dry mee kia and a standout lard-rich kway teow soup that Seth Lui rated after 24 years of visits.",s:[["SETHLUI","https://sethlui.com/lai-heng-mushroom-minced-meat-noodle-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/critics-reviews/lai-heng-mushroom-minced-meat-noodle/"]]},
+{t:2,a:"TPY",n:"Uggli Muffins",ad:"Toa Payoh West Market & Food Centre, #02-34, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["DESSERT","VIRAL"],la:1.33813,ln:103.84473,w:"UK-trained ex-engineer Anton Tan turned his family's zi char stall into a viral $1.20 muffin institution — deliberately misshapen buns with crunchy caramelised crusts; a long-queue hawker-dessert cult reopened after the 2025 renovation.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2025/08/06/ugglimuffinssg/"]]},
+{t:2,a:"TPY",n:"Teochew Handmade Pau",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["CHINESE"],la:1.33813,ln:103.84473,w:"A 30-plus-year heritage pau stall (est. 1993, three years on the Michelin Plate) hand-making Teochew-style buns with thick, not-too-sweet lotus paste — announced closure end-2025 but reopened June 2026 after public demand.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/teochew-handmade-pau-toa-payoh/"],["DANIELFOOD","https://danielfooddiary.com/2025/12/19/teochewhandmadepausg/"],["ASIAONE","https://www.asiaone.com/lifestyle/teochew-handmade-pau-reopen"]]},
+{t:3,a:"TPY",n:"Hometaste Hakka Lei Cha",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["CHINESE"],la:1.33813,ln:103.84473,w:"Two sisters plate one of Singapore's most generous $5 thunder tea rice sets — less oil, less salt, no MSG — with the fragrant bitter-green tea broth poured over brown rice and crunchy toppings.",s:[["SETHLUI","https://sethlui.com/best-thunder-tea-rice-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2025/05/12/hometasteleicha/"]]},
+{t:3,a:"TPY",n:"Pure Soya Bean",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["DESSERT"],la:1.33813,ln:103.84473,w:"Ex-Italian-restaurant cook Desheng makes beancurd from scratch daily with non-GMO soybeans — smooth, un-gritty tau huay you can dress with gula melaka, grass jelly or gingko.",s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/unique-tau-huay/"]]},
+{t:3,a:"TPY",n:"Toa Payoh Scissors Cut Curry Rice",ad:"Toa Payoh Lorong 8 Market & Food Centre, 210 Lorong 8 Toa Payoh, S310210",cz:["HAWKER"],la:1.34022,ln:103.85487,w:"Old-school Hainanese-style curry rice from S$2.80 — a heaped plate of chopped sides flooded in three different gravies (curry, braise, pork), a comfort-food fixture of Lorong 8.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/best-curry-rice-singapore/"],["EATBOOK","https://eatbook.sg/tpy-lorong-8/"]]},
+{t:3,a:"TPY",n:"Uncle Kun's Delicacies (Kun Shu Food Stall)",ad:"Toa Payoh Vista Market, Lorong 4 Toa Payoh",cz:["CHINESE"],la:1.33465,ln:103.85218,w:"Ex-hotel HK chef Lam Kun serves restaurant-grade dim sum at hawker prices; his signature oblong scallop glutinous rice (S$4.80), packed with dried scallop, salted egg and lap cheong, isn't found elsewhere in Singapore.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/kun-shu-food-stall-singapore/"],["EATBOOK","https://eatbook.sg/food-places-toa-payoh/"]]},
+{t:3,a:"TPY",n:"Min Kee Tanjong Rhu Wanton Noodle",ad:"Kim Keat Palm Market & Food Centre, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"A decades-old wanton mee that relocated from Tanjong Rhu, still selling a substantial $3.50 bowl of springy noodles with black-chilli option, soupy and fried wantons — a Kim Keat breakfast favourite.",s:[["MOTHERSHIP","https://mothership.sg/2024/08/min-kee-tanjong-rhu-wanton-noodle/"],["DANIELFOOD","https://danielfooddiary.com/tag/min-kee-tanjong-rhu-wanton-noodle/"]]},
+{t:3,a:"TPY",n:"Hougang 6 Miles Famous Muah Chee",ad:"Gourmet Paradise Food Court, Toa Payoh HDB Hub, Blk 480 Lorong 6 Toa Payoh, #B1-01, S310480",cz:["DESSERT"],la:1.33230,ln:103.84570,w:"Likely the last hawker hand-making this Teochew snack from scratch — Teo Yong Joo mills flour, roasts peanuts and pinches each soft, tender muah chee ball to order at the HDB Hub food court.",g:["MKT"],s:[["HUNGRYGOWHERE","https://hungrygowhere.com/critics-reviews/hougang-6-miles-famous-muah-chee/"],["EATBOOK","https://eatbook.sg/food-places-toa-payoh/"]]},
+{t:2,a:"TPY",n:"Kim Keat Hokkien Mee — CLOSED",ad:"Blk 92 Toa Payoh Lorong 4, #01-264, S310092",cz:["NOODLE"],la:1.33809,ln:103.84933,w:"Once rated among Singapore's top-five Hokkien mee — served in a heat-retaining claypot with deep-fried crispy pork belly — this 10-year Toa Payoh favourite shuttered on 28 Feb 2026. Kept here as a flagged closure.",closed:1,s:[["EATBOOK","https://eatbook.sg/kim-keat/"],["DANIELFOOD","https://danielfooddiary.com/2015/09/15/kimkeathokkienmee/"],["ASIAONE","https://www.asiaone.com/lifestyle/kim-keat-claypot-hokkien-mee-closure"]]},
+{t:2,a:"TPY",n:"Hup Chong Hakka Yong Tau Foo — CLOSED",ad:"Blk 203 Toa Payoh (final location; earlier Blk 116/124)",cz:["BKT","CHINESE"],la:1.34202,ln:103.84912,w:"A four-generation Hakka yong tau foo with roots to a 1952 pushcart, famous for handmade fried meatballs and fish paste — it closed for good on 28 Jan 2026 after 70-plus years amid falling footfall. Kept here as a flagged closure.",closed:1,s:[["SETHLUI","https://sethlui.com/hup-chong-yong-tau-foo-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/hup-chong-hakka-yong-tau-foo/"],["EATBOOK","https://eatbook.sg/hup-chong-yong-tau-foo/"],["ASIAONE","https://www.asiaone.com/lifestyle/hup-chong-yong-tau-foo-last-day"],["MOTHERSHIP","https://mothership.sg/2026/01/toa-payoh-yong-tau-foo-close-down/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/hup-chong-yong-tau-foo-fried-pork-paradise/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Singapore')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {TPY:'#F2A1A1',SGC:'#BCA7E6',SGE:'#84CBB9',SGWN:'#9CBEEC',MY:'#EAC57C',TH:'#EDA6C7',VN:'#A9D48E',ID:'#F1B389',PH:'#AAB6EE',IC:'#8ED0D6'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.3343,103.8479],13);
+/* ── Base layers ────────────────────────────────────────────────────────────
+   Free layers need no key. Google needs your own Maps JavaScript API key and
+   is loaded through the officially sanctioned GoogleMutant plugin, because
+   scraping Google's raster tiles directly breaks their terms. Apple Maps has
+   no equivalent: MapKit JS needs a signed developer token, which a static
+   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}},
+ {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
+ {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
+ {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+let GKEY=''; try{GKEY=localStorage.getItem('sg_gkey')||'';}catch(e){}
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  if(!b.free){ return setGoogle(b,manual); }
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+/* Google, via the official Maps JavaScript API + GoogleMutant */
+let gLoading=false;
+function setGoogle(b,manual){
+  if(!map) return;
+  if(!GKEY){ promptKey(); return; }
+  const go=()=>{
+    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
+      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
+    clearBase(); curBase=b.id;
+    document.getElementById('map').classList.remove('osmdark');
+    document.getElementById('tilewarn').style.display='none';
+    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
+    markBaseChips();
+  };
+  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
+  if(gLoading) return;
+  gLoading=true;
+  const s1=document.createElement('script');
+  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
+  s1.onload=()=>{
+    const s2=document.createElement('script');
+    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
+    s2.onload=()=>{gLoading=false;go();};
+    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
+    document.head.appendChild(s2);
+  };
+  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
+  document.head.appendChild(s1);
+}
+function promptKey(){
+  const k=prompt(
+    'Google base maps need your own Maps JavaScript API key.\n\n'+
+    'Google does not permit their map tiles to be used without going through their API, '+
+    'so there is no key-free way to do this legally.\n\n'+
+    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
+    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
+    'Paste your key here (it is stored only in this browser):', GKEY);
+  if(k==null) return;
+  GKEY=String(k).trim(); try{localStorage.setItem('sg_gkey',GKEY);}catch(e){}
+  markBaseChips();
+  if(GKEY) setBase('g_road',true);
+}
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
+  });
+  const kb=document.getElementById('keyBtn');
+  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  if(b.id==='keyBtn'){promptKey();return;}
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle region labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Toa Payoh", 1.3359, 103.8506], ["Singapore Central", 1.2945, 103.8497], ["Singapore East", 1.3158, 103.9109], ["Singapore West", 1.3302, 103.7947], ["Malaysia", 4.2495, 101.0411], ["Thailand", 15.2674, 100.0437], ["Vietnam", 15.9138, 106.9299], ["Indonesia", -7.8965, 112.1603], ["Philippines", 12.8764, 122.1496], ["Indochina", 16.5763, 101.1142]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28),0 0 3px rgba(255,255,255,.35)">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'chicken rice, laksa, prata, bak kut teh\u2026' : 'Merlion, Gardens by the Bay, temples, hawker centres\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Singapore \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
+  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
+  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
+  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
+  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
+  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
+  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
+  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
+  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
+  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
+  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
+  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. Southeast Asia\u2019s food story is its own: <b>Hainanese chicken rice</b>, <b>laksa</b>, <b>char kway teow</b>, <b>Hokkien mee</b>, <b>bak kut teh</b>, <b>nasi lemak</b>, <b>satay</b>, <b>roti prata</b>, <b>chilli crab</b>, <b>nasi padang</b>, <b>pho</b> and <b>banh mi</b>. A cuisine tag names the KITCHEN\u2019s own tradition, never a single shared dish \u2014 chicken rice is cooked by Hainanese, Malay and Thai kitchens alike, so categorise by the kitchen\u2019s origin. Sourced to the Michelin Guide, The Straits Times, Seth Lui, Eatbook, Miss Tam Chiak and each city\u2019s outlets.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source \u2014 Michelin, The Straits Times, CNA, Seth Lui, Eatbook, Time Out, Atlas Obscura, UNESCO and official sites \u2014 recorded in data/sources.json (direct fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 163 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
