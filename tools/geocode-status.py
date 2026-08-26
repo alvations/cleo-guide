@@ -23,6 +23,7 @@ DATASETS = {
     "dayton-oh": "data/dayton.dataset.json",
     "columbus-oh": "data/columbus.dataset.json",
     "washington-dc": "data/washingtondc.dataset.json",
+    "singapore": "data/singapore.dataset.json",
 }
 
 def sourced_ok(rec):
