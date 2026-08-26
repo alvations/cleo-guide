@@ -1,0 +1,20 @@
+{
+ "creators": [
+  {"key":"GHIBOJISAN","name":"Ghib Ojisan","platform":"YouTube","followers":"354K subscribers","url":"https://www.youtube.com/c/GhibOjisan"},
+  {"key":"IEATISHOOTIPOST","name":"Dr Leslie Tay (ieatishootipost)","platform":"Blog / YouTube","followers":"Award-winning food blog since 2006 + YouTube channel","url":"https://ieatishootipost.sg"},
+  {"key":"EXPLODINGBELLY","name":"Clara Chua (Exploding Belly)","platform":"TikTok","followers":"112K followers","url":"https://www.tiktok.com/@explodingbelly"}
+ ],
+ "attach": [
+  {"place":"Kedai Makan Muhajirin","creatorKey":"GHIBOJISAN","url":"https://www.youtube.com/c/GhibOjisan","note":"Japanese-Singaporean YouTuber (354K subs, Wikipedia-notable) featured the Blk 20 Toa Payoh Lor 7 stall's $1 nasi lemak in his cheap-eats and 'best food in Toa Payoh' videos."},
+  {"place":"Chef Kang's Noodle House","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/chef-kang-noodle-house-michelin-star-chef-wanton-mee/","note":"Dr Leslie Tay, one of Singapore's most established food bloggers, reviewed the Michelin-starred chef's $5 wanton mee at Jackson Square."},
+  {"place":"Hup Chong Hakka Yong Tau Foo","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/hup-chong-yong-tau-foo-fried-pork-paradise/","note":"ieatishootipost documented the four-generation Hakka YTF stall (now closed Jan 2026)."}
+ ],
+ "rejected": [
+  {"name":"singaporehawkercentres.com / toapayohshoppingmall.com / kopitiam.com.sg","reason":"SEO listicle / directory sites with no verifiable authorship or following — mention, not merit."},
+  {"name":"kaizenaire.com","reason":"AI/SEO content-farm style listicle; unverifiable authority."},
+  {"name":"Burpple / FoodAdvisor / OpenRice / Foursquare","reason":"User-review aggregators — used only to MEASURE popularity/ratings, never counted toward the 2-credible bar."},
+  {"name":"Yelp / TripAdvisor / Google","reason":"Never a recommender per project rules; fact-check/status only, 0 toward the two."},
+  {"name":"Lemon8 / anonymous TikTok discover pages","reason":"Anonymous or unverifiable accounts with no findable track record on the specific stall."},
+  {"name":"Pelago / Eatigo blog / Wanderlog / Wheree / abillion / supasoya / jointhawker / travelopy","reason":"Aggregator or affiliate/SEO content with no editorial authority or verified creator following."}
+ ]
+}
