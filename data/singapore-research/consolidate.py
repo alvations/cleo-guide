@@ -143,9 +143,28 @@ ALIAS={"SETH_LUI":"SETHLUI","THESTRAITSTIMES":"STRAITSTIMES","STRAITS_TIMES":"ST
        "VISITSINGAPORE":"VISITSG","EAT_DRINK_KL":"EATDRINKKL","CNN_TRAVEL":"CNNTRAVEL"}
 def canon(k): return ALIAS.get(k,k)
 
+# ---- source & creator metadata from the SEPARATE per-city files ----------------------------------
+# The Asian cities keep their sources SEPARATE: each city writes its own SOURCES_<city>.json and
+# CREATORS_<city>.json. We read them ALL here (globbed) purely for on-page labels/urls — the keys stay
+# namespaced per city so they never collide, which is what "kept separate" means at the record level.
+srcmeta={}
+for path in sorted(glob.glob(os.path.join(D,"SOURCES_*.json"))):
+    try: d=json.load(open(path))
+    except Exception: continue
+    for o in d.get("outlets", d if isinstance(d,list) else []):
+        if o.get("key"): srcmeta.setdefault(canon(o["key"]), {"key":canon(o["key"]),"name":o.get("name",o["key"]),"url":o.get("url","")})
+for path in sorted(glob.glob(os.path.join(D,"CREATORS*.json"))):
+    try: d=json.load(open(path))
+    except Exception: continue
+    for c in (d.get("creators",[]) if isinstance(d,dict) else []):
+        if c.get("key"):
+            nm=c.get("name",c["key"])
+            plat=c.get("platform"); nm=f"{nm} ({plat})" if plat and plat.lower() not in nm.lower() else nm
+            srcmeta.setdefault(canon(c["key"]), {"key":canon(c["key"]),"name":nm,"url":c.get("url","")})
+
 # ---- build unified records (generic: any research file in this dir) ------------------------------
 EXCLUDE=set()
-sights=[]; food=[]; srcmeta={}; seen_names=set()
+sights=[]; food=[]; seen_names=set()
 def _take(x, bucket):
     n=x.get("n")
     if not n or n in seen_names or n in EXCLUDE: return

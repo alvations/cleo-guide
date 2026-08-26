@@ -47,6 +47,22 @@ the **kitchen's own tradition**, never a single shared dish.
 - **No duplicates** — read the built dataset's `F`/`P` first.
 - Vet every creator (real following + findable content); a creator is ONE corroborating source, never an authority.
 
+## Source policy for THIS region (user directives, 2026-08-26 — non-negotiable)
+- **Keep the Asian cities' sources SEPARATE.** Each SEA city/country writes its OWN `SOURCES_<city>.json`
+  and `CREATORS_<city>.json` (e.g. `SOURCES_KL`, `SOURCES_PENANG`, `SOURCES_BANGKOK`, `SOURCES_HCMC`,
+  `SOURCES_BALI`, `SOURCES_MANILA`, `SOURCES_IC`). **Namespace source KEYS per city** so they never collide.
+  Singapore clusters likewise keep their own (`SOURCES_TOAPAYOH`, `SOURCES_SGC/SGE/SGWN`). Do not merge into
+  one file. `consolidate.py` reads all of them for labels; `register-sources.py` registers them.
+- **Sources must be LOCAL, AUTHENTIC, CREDIBLE, VIRAL:** local food/travel **YouTubers, TikTokers, IG
+  influencers, travel bloggers** (real, sizable following + a *findable* piece of content on THAT place) +
+  **local news** + city magazines + Michelin/UNESCO. A vetted creator = ONE corroborating source, never an
+  authority. **Reject anonymous SEO farms / content mills / unverifiable followings** — popularity you can't
+  verify isn't popularity. Note follower scale in the note.
+- **EXPAND SOURCES AS MUCH AS POSSIBLE** — gather more than the bare 2 per place where you can.
+- **DENSITY: Singapore per-town rivals NYC.** A single town/estate can hold 100s of food places; the food
+  scene is enormous. Go deep — cover the full signature canon (famous AND hidden-gem) per area plus the
+  viral spots. Merit bar still applies (measure, no anonymous padding, record MEASURED & DROPPED).
+
 ## Artifacts to emit (consumed by `tools/rebuild-city.py singapore [--build]`)
 - Food: `FOOD_<tag>.json` — array of `{t,a,cz,dish,n,address,w,closed,sources}`.
 - Sights: `SIGHTS_<tag>.json` — `{"sights":[{t,a,n,address,w,k?,sources}], "sources":[{key,name,url}]}`.
