@@ -1,0 +1,13 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "NORTHERN local districts — Bình Thạnh (incl. Thị Nghè / Bạch Đằng / Văn Thánh), Gò Vấp, Tân Bình / Tân Phú (incl. Bàu Cát / Lăng Cha Cả / Phạm Văn Hai). Kept SEPARATE from SOURCES_HCMC.json, SOURCES_HCMC_CENTRAL.json and SOURCES_HCMC_OUTER.json.",
+ "outlets": [
+  {"key": "SAIGONEER", "name": "Saigoneer", "url": "https://saigoneer.com/", "tier": "credible-local", "note": "Leading Saigon English-language culture & food outlet; 'Hẻm Gems' street-food series. Dedicated feature on Gà Nướng Anh Tư (Chicken Corner), Bình Thạnh."},
+  {"key": "VIETNAMCORACLE", "name": "Vietnam Coracle (Tom Divers)", "url": "https://www.vietnamcoracle.com/", "tier": "credible-independent", "note": "Top independent Vietnam travel resource since 2005; long-form dedicated guides to Chicken Corner (Bình Thạnh) and Văn Thánh Market (Bình Thạnh Ward 25)."},
+  {"key": "VIETCETERA", "name": "Vietcetera", "url": "https://vietcetera.com/", "tier": "credible-local", "note": "Leading Vietnamese English-language media brand; stop-by-stop foodie guide to Phan Văn Hân food street on the D1/Bình Thạnh edge."},
+  {"key": "VNAIR", "name": "Vietnam Airlines Travel Guide", "url": "https://www.vietnamairlines.com/", "tier": "editorial-corporate", "note": "National-carrier editorial travel guide; runs district guides (Bình Thạnh, Tân Bình, Gò Vấp) and dish guides (bún bò Huế, phở, bún chả, bánh xèo). Corroborating source ONLY, never lone — same treatment as SOURCES_HCMC_OUTER.json."},
+  {"key": "SCOOTERSAIGON", "name": "Scooter Saigon Adventure — food-street guides", "url": "https://scootersaigonadventure.com/", "tier": "editorial-operator", "note": "Established Saigon scooter food-tour operator's editorial food-street write-ups; corroborating source only (mirrors VESPAAGOGO in the OUTER pass)."},
+  {"key": "MICHELIN", "name": "MICHELIN Guide Vietnam (Ho Chi Minh City)", "url": "https://guide.michelin.com/vn/en/ho-chi-minh/restaurants", "tier": "institutional", "note": "Lone-authority-OK. Referenced for LEADS only this pass — no Bib Gourmand / Star / Selected place was CONFIRMED (with a verified per-restaurant Michelin URL) inside Bình Thạnh, Gò Vấp or Tân Bình within budget. See _note_hcmc_north.md leads list."}
+ ]
+}

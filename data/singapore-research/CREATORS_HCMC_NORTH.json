@@ -1,0 +1,17 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "NORTHERN local districts (Bình Thạnh / Gò Vấp / Tân Bình-Tân Phú). SEPARATE from the other CREATORS_HCMC*.json files.",
+ "note": "WebSearch-only research from a US region, and the shared WebSearch budget was fully exhausted (200/200) partway through this wave. Per the honesty rule I did NOT invent any individual Vietnamese TikTok/YouTube/IG food vlogger, clip, or follower count — none could be verified with a findable clip on a specific northern-district place before budget ran out. The one vetted independent creator-authored source below counts as ONE corroborating source, never an authority. A follow-up local-language pass (Vietnamese YouTube/TikTok/VnExpress/Tuổi Trẻ) is required to (a) add named vloggers with follower scale and (b) secure the missing second credible source for the single-credible LEADS documented in _note_hcmc_north.md.",
+ "creators": [
+  {"key": "VIETNAMCORACLE", "name": "Vietnam Coracle (Tom Divers)", "platform": "web (independent)", "followers": "top independent Vietnam travel resource; word-of-mouth, no sponsors, 400+ guides since 2005 (not re-measured this pass)", "url": "https://www.vietnamcoracle.com/grilled-chicken-corner-saigon/", "verified": "First-person dedicated guides to Bình Thạnh's Chicken Corner (Gà Nướng Anh Tư) and Văn Thánh Market."}
+ ],
+ "attach": [
+  {"place": "Gà Nướng Anh Tư (Chicken Corner)", "creatorKey": "VIETNAMCORACLE", "url": "https://www.vietnamcoracle.com/grilled-chicken-corner-saigon/"},
+  {"place": "Văn Thánh Market Street Food", "creatorKey": "VIETNAMCORACLE", "url": "https://www.vietnamcoracle.com/van-thanh-market-food-guide-sai-gon/"}
+ ],
+ "rejected": [
+  {"name": "Foody.vn / Mytour.vn / Mia.vn / VinWonders / Vinpearl / Ghiền Sài Gòn / xanhsm / Culture Trip roundups", "reason": "SEO/aggregator/ratings content — allowed to MEASURE popularity only, never counted toward the ≥2-credible gate. These dominated Gò Vấp and Tân Bình results, which is why those two districts yielded no gate-passing places this pass."},
+  {"name": "TripAdvisor / Google / OpenTable ratings", "reason": "Ratings platforms — measure only, never a recommender."}
+ ]
+}
