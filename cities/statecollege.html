@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="State College &amp; Happy Valley (Penn State, PA) field guide — 34 sights and 14 places to eat across State College, the University Park campus, Bellefonte, Boalsburg and Centre County, each traceable to its source (Centre Daily Times, StateCollege.com, Onward State, Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>State College &amp; Happy Valley Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · State College &amp; Happy Valley, sourced</p>
+  <h1>State College<span class="thin">Happy Valley &mdash; Penn State, the creamery &amp; Mount Nittany</span></h1>
+  <p class="standfirst">34 sights and 14 places to eat across <strong>State College</strong>, the <strong>Penn State</strong> University Park campus and Centre County (Bellefonte, Boalsburg, Happy Valley), each traceable to the source that named it. The town\u2019s canon is its own: <strong>Berkey Creamery</strong> ice cream, the <strong>grilled sticky</strong> at Ye Olde College Diner, tavern wings, Happy Valley beer, plus Old Main, Beaver Stadium and Mount Nittany. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#C0504D"></i>Downtown State College</span>
+  <span><i style="background:#41729F"></i>Penn State — University Park campus</span>
+  <span><i style="background:#9BBB59"></i>Bellefonte & Boalsburg</span>
+  <span><i style="background:#8064A2"></i>Happy Valley & Centre County</span>
+  <span><i style="background:#E8973A"></i>Altoona & Blair County</span>
+  <span><i style="background:#4BACC6"></i>Central PA & the Alleghenies</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="grilled stickies, creamery, wings, Old Main…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-27</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across the Centre Daily Times, StateCollege.com, Onward State, the Daily Collegian, Penn State News, the Happy Valley Adventure Bureau, Uncovering PA and Atlas Obscura. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ALTOONAMIRROR":{k:"ALTOONA MIRROR",t:"Altoona Mirror (local daily)",u:"https://www.altoonamirror.com/",l:"Altoona Mirror (local daily)"},
+  "APS":{k:"APS",t:"American Philatelic Society (official)",u:"https://stamps.org/",l:"American Philatelic Society (official)"},
+  "ARBORETUM":{k:"ARBORETUM",t:"The Arboretum at Penn State (official)",u:"https://arboretum.psu.edu/",l:"The Arboretum at Penn State (official)"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "BELLEFONTE":{k:"BELLEFONTE",t:"Borough of Bellefonte (official)",u:"https://bellefonte.net/",l:"Borough of Bellefonte (official)"},
+  "BLAIRHISTORY":{k:"BLAIRHISTORY",t:"Blair County Historical Society (official)",u:"https://www.blairhistory.org/",l:"Blair County Historical Society (official)"},
+  "BOALMUSEUM":{k:"BOALMUSEUM",t:"Columbus Chapel & Boal Mansion Museum (official)",u:"https://www.boalmuseum.com/",l:"Columbus Chapel & Boal Mansion Museum (official)"},
+  "CENTREDOUTDOORS":{k:"CENTREDOUTDOORS",t:"Centred Outdoors (ClearWater Conservancy)",u:"https://www.centredoutdoors.org/",l:"Centred Outdoors (ClearWater Conservancy)"},
+  "CENTREHISTORY":{k:"CENTREHISTORY",t:"Centre County Encyclopedia of History & Culture",u:"https://centrehistory.org",l:"Centre County Encyclopedia of History & Culture"},
+  "CRPR":{k:"CRPR",t:"Centre Region Parks & Recreation (official)",u:"https://www.crpr.org/",l:"Centre Region Parks & Recreation (official)"},
+  "DCNR":{k:"PA DCNR (PARKS)",t:"PA Dept. of Conservation & Natural Resources (state parks)",u:"https://www.pa.gov/agencies/dcnr/",l:"PA Dept. of Conservation & Natural Resources (state parks)"},
+  "DTSC":{k:"DTSC",t:"Downtown State College Improvement District",u:"https://downtownstatecollege.com/",l:"Downtown State College Improvement District"},
+  "ENTO":{k:"ENTO",t:"Frost Entomological Museum, Penn State (official)",u:"https://ento.psu.edu/about/facilities/frost/visit",l:"Frost Entomological Museum, Penn State (official)"},
+  "EXPLOREALTOONA":{k:"EXPLORE ALTOONA",t:"Explore Altoona / Allegheny Mountains Convention & Visitors Bureau",u:"https://explorealtoona.com/",l:"Explore Altoona / Allegheny Mountains Convention & Visitors Bureau"},
+  "FORBES":{k:"FORBES",t:"Forbes (Chadd Scott arts coverage)",u:"https://www.forbes.com/sites/chaddscott/",l:"Forbes (Chadd Scott arts coverage)"},
+  "GOPSU":{k:"GOPSUSPORTS",t:"GoPSUsports (official Penn State Athletics)",u:"https://gopsusports.com/",l:"GoPSUsports (official Penn State Athletics)"},
+  "HISTORICBOALSBURG":{k:"HISTORICBOALSBURG",t:"Historic Boalsburg",u:"https://historicboalsburg.com/",l:"Historic Boalsburg"},
+  "HVAB":{k:"HAPPY VALLEY ADV. BUREAU",t:"Happy Valley Adventure Bureau (Adventure Bureau Dispatch)",u:"https://dispatch.happyvalley.com",l:"Happy Valley Adventure Bureau (Adventure Bureau Dispatch)"},
+  "MILB":{k:"MILB",t:"MiLB (official Minor League Baseball)",u:"https://www.milb.com/",l:"MiLB (official Minor League Baseball)"},
+  "MISHLER":{k:"MISHLER",t:"Mishler Theatre / Blair County Arts Foundation (official)",u:"https://mishlertheatre.org/",l:"Mishler Theatre / Blair County Arts Foundation (official)"},
+  "NITTANY":{k:"NITTANY",t:"Mount Nittany Conservancy (official)",u:"https://nittany.org/",l:"Mount Nittany Conservancy (official)"},
+  "NRHP":{k:"NAT'L REGISTER",t:"National Register of Historic Places / National Historic Landmark (via Wikipedia / NPS)",u:"https://www.nps.gov/subjects/nationalhistoriclandmarks/index.htm",l:"National Register of Historic Places / National Historic Landmark (via Wikipedia / NPS)"},
+  "ONWARD":{k:"ONWARD",t:"Onward State",u:"https://onwardstate.com/",l:"Onward State"},
+  "PABOOK":{k:"PABOOK",t:"Pennsylvania Center for the Book (Penn State Libraries)",u:"https://pabook.libraries.psu.edu/",l:"Pennsylvania Center for the Book (Penn State Libraries)"},
+  "PABUCKETLIST":{k:"PABUCKETLIST",t:"PA Bucket List (Rusty Glessner, PA travel writer)",u:"https://pabucketlist.com/",l:"PA Bucket List (Rusty Glessner, PA travel writer)"},
+  "PADCED":{k:"PADCED",t:"PA Dept. of Community & Economic Development",u:"https://dced.pa.gov/",l:"PA Dept. of Community & Economic Development"},
+  "PALMER":{k:"PALMER",t:"Palmer Museum of Art (official)",u:"https://palmermuseum.psu.edu/",l:"Palmer Museum of Art (official)"},
+  "PAWILDS":{k:"PAWILDS",t:"Pennsylvania Wilds",u:"https://pawilds.com/",l:"Pennsylvania Wilds"},
+  "PENNSCAVE":{k:"PENNSCAVE",t:"Penn's Cave & Wildlife Park (official)",u:"https://www.pennscave.com/",l:"Penn's Cave & Wildlife Park (official)"},
+  "PHMC":{k:"PHMC",t:"PA Historical & Museum Commission (official)",u:"https://www.pa.gov/agencies/phmc",l:"PA Historical & Museum Commission (official)"},
+  "PSUNEWS":{k:"PENN STATE NEWS",t:"Penn State News / psu.edu",u:"https://www.psu.edu/news",l:"Penn State News / psu.edu"},
+  "PSUNEWS2":{k:"PSUNEWS2",t:"Penn State News (news.psu.edu archive)",u:"https://news.psu.edu/",l:"Penn State News (news.psu.edu archive)"},
+  "RAILROADCITY":{k:"RAILROADCITY",t:"Railroaders Memorial Museum (official)",u:"https://www.railroadcity.org/",l:"Railroaders Memorial Museum (official)"},
+  "RAYSTOWN":{k:"RAYSTOWN LAKE",t:"Raystown Lake Region CVB (Huntingdon County visitors bureau)",u:"https://raystown.org/",l:"Raystown Lake Region CVB (Huntingdon County visitors bureau)"},
+  "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com/",l:"Roadside America"},
+  "SKIPA":{k:"SKIPA",t:"Ski PA (Pennsylvania Ski Areas Association)",u:"https://www.skipa.com/",l:"Ski PA (Pennsylvania Ski Areas Association)"},
+  "SPOTLIGHTPA":{k:"SPOTLIGHTPA",t:"Spotlight PA (statewide nonprofit newsroom)",u:"https://www.spotlightpa.org/",l:"Spotlight PA (statewide nonprofit newsroom)"},
+  "STATECOLLEGE":{k:"STATECOLLEGE.COM",t:"StateCollege.com",u:"https://www.statecollege.com/",l:"StateCollege.com"},
+  "TRAINSMAG":{k:"TRAINSMAG",t:"Trains Magazine / Railway Age (rail trade press)",u:"https://www.trains.com/",l:"Trains Magazine / Railway Age (rail trade press)"},
+  "TRIBLIVE":{k:"TRIBLIVE",t:"TribLIVE (Pittsburgh Tribune-Review)",u:"https://triblive.com/",l:"TribLIVE (Pittsburgh Tribune-Review)"},
+  "UNCOVERINGPA":{k:"UNCOVERING PA",t:"Uncovering PA (Jim Cheney, all-67-county PA travel writer)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney, all-67-county PA travel writer)"},
+  "VISITCENTRALPA":{k:"VISITCENTRALPA",t:"Visit Central PA (regional CVB)",u:"https://www.visitcentralpa.org/",l:"Visit Central PA (regional CVB)"},
+  "VISITCLEARFIELD":{k:"VISITCLEARFIELD",t:"Visit Clearfield County",u:"https://www.visitclearfieldcounty.org/",l:"Visit Clearfield County"},
+  "VISITPA":{k:"VISIT PA",t:"Visit PA (state tourism office)",u:"https://www.visitpa.com/",l:"Visit PA (state tourism office)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (notability + published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability + published coordinates)"},
+  "WPSU":{k:"WPSU",t:"WPSU (PBS/NPR, Penn State)",u:"https://www.wpsu.org/",l:"WPSU (PBS/NPR, Penn State)"},
+  "WTAJ":{k:"WTAJ",t:"WTAJ News",u:"https://www.wtaj.com",l:"WTAJ News"}
+};
+
+const AREAS = [
+  {id:"DT",n:"Downtown State College (College & Beaver Ave)",c:"#C0504D"},
+  {id:"PSU",n:"Penn State — University Park campus",c:"#41729F"},
+  {id:"BVL",n:"Bellefonte & Boalsburg (historic towns)",c:"#9BBB59"},
+  {id:"HV",n:"Happy Valley & Centre County (Pine Grove Mills, Lemont, Penns Valley)",c:"#8064A2"},
+  {id:"ALT",n:"Altoona & Blair County (Horseshoe Curve, Lakemont, Tyrone)",c:"#E8973A"},
+  {id:"REG",n:"Central PA & the Alleghenies (Huntingdon/Raystown, Lewistown, Clearfield)",c:"#4BACC6"}
+];
+
+const P = [
+{t:1,a:"ALT",n:"Horseshoe Curve National Historic Landmark",ad:"2400 Veterans Memorial Hwy, Altoona, PA 16601",la:40.49764,ln:-78.48417,w:"1854 engineering marvel: a three-track loop that let locomotives climb the Alleghenies for the first time, still an active Norfolk Southern main line with a train passing roughly every half hour. Funicular (when running) or 194 steps up to the trackside viewing area; small museum and gift shop. Designated a National Historic Landmark in 1966.",k:"ICON",g:["ICON","MUS","HIST"],s:[["NRHP","https://en.wikipedia.org/wiki/Horseshoe_Curve_(Pennsylvania)"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-altoona-pa"],["RAILROADCITY","https://www.railroadcity.org/horseshoecurve"]]},
+{t:1,a:"ALT",n:"Altoona Railroaders Memorial Museum",ad:"1200 9th Ave, Altoona, PA 16602",la:40.51445,ln:-78.39917,w:"Three floors in the Pennsylvania Railroad's 1882 Master Mechanics Building telling the story of the men and women of 'Railroad City,' plus the Harry Bennett Memorial Roundhouse with a working 105-ft turntable and rolling stock. Also the ticketing gateway for Horseshoe Curve.",k:"MUS",g:["ICON","MUS","HIST","FAM"],s:[["UNCOVERINGPA","https://uncoveringpa.com/railroaders-memorial-museum-altoona"],["EXPLOREALTOONA","https://explorealtoona.com/trip/railroaders-memorial-museum/"],["TRAINSMAG","https://www.trains.com/trn/railroads/tourist/railroaders-memorial-museum-profile/"]]},
+{t:2,a:"ALT",n:"Lakemont Park & Leap-the-Dips",ad:"700 Park Ave, Altoona, PA 16602",la:40.47083,ln:-78.39667,w:"Historic lakeside park, home to Leap-the-Dips (1902) — the world's oldest operating wooden roller coaster and a National Historic Landmark. Note: all rides have stayed closed since 2024 (declining attendance and insurance costs); for 2026 the park runs mini-golf, batting cages, courts, yard games and live-music events with free grounds admission.",k:"FAM",g:["PARK","HIST","FAM","FREE"],s:[["NRHP","https://en.wikipedia.org/wiki/Leap-The-Dips"],["SPOTLIGHTPA","https://www.spotlightpa.org/news/2025/08/leap-dips-roller-coaster-historic-oldest-blair-county-pennsylvania-local/"],["ALTOONAMIRROR","https://www.altoonamirror.com/life/community/2026/04/lakemont-park-season-to-open-april-17/"]]},
+{t:2,a:"ALT",n:"Baker Mansion (Blair County Historical Society)",ad:"3419 Oak Ln, Altoona, PA 16602",la:40.49056,ln:-78.40833,w:"1849 Greek Revival ironmaster's mansion built for Elias Baker, now the Blair County Historical Society museum. Original Baker family furnishings — hand-carved Belgian furniture, French mirrors — and a table linked to the 1862 Loyal War Governors' Conference. Tours Fri-Sun; NRHP-listed.",k:"HIST",g:["MUS","HIST"],s:[["NRHP","https://en.wikipedia.org/wiki/Baker_Mansion"],["ATLASOBSCURA","https://www.atlasobscura.com/places/baker-mansion"],["BLAIRHISTORY","https://www.blairhistory.org/baker-mansion.html"]]},
+{t:2,a:"ALT",n:"DelGrosso's Park & Laguna Splash",ad:"4352 E Pleasant Valley Blvd, Tipton, PA 16684",la:40.63580,ln:-78.29610,w:"Family-owned Italian-themed amusement park founded 1946 by the DelGrosso family, whose regional pasta-sauce brand is still made on-site. 30+ rides, America's only Italian-themed waterpark, free admission and parking, homemade pasta, and the annual Italian Food & Heritage Festival.",k:"FAM",g:["PARK","FAM","FREE"],s:[["TRIBLIVE","https://triblive.com/local/regional/delgrossos-amusement-park-serves-up-italian-themed-family-fun/"],["PADCED","https://dced.pa.gov/paproudblog/delgrosso-multi-generational-multi-talented-pa-legacy/"],["VISITPA","https://www.visitpa.com/region/alleghenies/altoona-curvetm-and-peoples-natural-gas-field"]]},
+{t:3,a:"ALT",n:"Fort Roberdeau Historic Site",ad:"383 Fort Roberdeau Rd, Altoona, PA 16601",la:40.58250,ln:-78.27389,w:"Reconstructed 1778 Revolutionary War 'lead mine fort' in Sinking Valley — billed as America's westernmost Rev War site — with a log stockade, restored 19th-century farmhouse and barn, hiking trails and costumed interpreters. County-run park; NRHP-listed.",k:"HIST",g:["MUS","PARK","OUTDOOR","HIST"],s:[["NRHP","https://en.wikipedia.org/wiki/Fort_Roberdeau"],["EXPLOREALTOONA","https://www.explorealtoona.com/explore/outdoor-recreation/member~detail.aspx?mcid=35"]]},
+{t:3,a:"ALT",n:"Historic Mishler Theatre",ad:"1208 12th Ave, Altoona, PA 16601",la:40.51639,ln:-78.40194,w:"1906 playhouse built by impresario I.C. Mishler and rebuilt after an early fire — one of the first U.S. buildings devoted entirely to theatre. Restored 1,900-seat, three-level venue, now home to the Altoona Community Theatre and Altoona Symphony Orchestra. NRHP-listed.",k:"HIST",g:["HIST"],s:[["NRHP","https://en.wikipedia.org/wiki/Mishler_Theatre"],["MISHLER","https://mishlertheatre.org/history/"],["PABOOK","https://pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/mishler-blair-countys-historic-playhouse"]]},
+{t:3,a:"ALT",n:"Peoples Natural Gas Field (Altoona Curve)",ad:"1000 Park Ave, Altoona, PA 16602",la:40.47361,ln:-78.39472,w:"Home of the Double-A Altoona Curve, named for the nearby Horseshoe Curve. A 1999 ballpark modeled on a railroad roundhouse, with a roller coaster beyond the outfield wall and a mountain backdrop — regularly called one of the prettiest parks in minor-league baseball.",k:"SPORT",g:["ICON","PARK","HIST","SPORT"],s:[["VISITPA","https://www.visitpa.com/region/alleghenies/altoona-curvetm-and-peoples-natural-gas-field"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Peoples_Natural_Gas_Field"],["MILB","https://www.milb.com/altoona/ballpark/png-field"]]},
+{t:1,a:"REG",n:"East Broad Top Railroad",ad:"421 Meadow St, Rockhill Furnace, PA 17249",la:40.24144,ln:-77.89899,w:"The oldest surviving narrow-gauge railroad east of the Rockies and a National Historic Landmark, revived by the EBT Foundation in 2020. Steam excursions behind restored locomotive No. 16, the original 1900-era machine shops and roundhouse, with track being rebuilt south toward Three Springs and Saltillo.",k:"HIST",g:["HIST"],s:[["NRHP","https://en.wikipedia.org/wiki/East_Broad_Top_Railroad_and_Coal_Company"],["VISITPA","https://www.visitpa.com/blog/post/all-aboard-the-east-broad-top-railroad/"],["TRAINSMAG","https://www.railwayage.com/news/east-broad-top-reopens-main-line-segment-after-69-years/"]]},
+{t:2,a:"REG",n:"Lincoln Caverns & Whisper Rocks",ad:"7703 William Penn Hwy, Huntingdon, PA 16652",la:40.50759,ln:-78.07131,w:"Two crystal caves discovered by highway blasting in 1930 and seen on a single hour-long guided tour — the only two-cave tour in Pennsylvania. Gemstone panning, nature trails and seasonal events (haunted cave, holiday tours) just west of Huntingdon on Route 22.",k:"ODD",g:["PARK","OUTDOOR"],s:[["UNCOVERINGPA","https://uncoveringpa.com/visiting-lincoln-caverns-huntingdon-pennsylvania"],["VISITCENTRALPA","https://www.visitcentralpa.org/listing/lincoln-caverns-inc-and-whisper-rocks/157/"]]},
+{t:2,a:"REG",n:"Trough Creek State Park (Balanced Rock & Rainbow Falls)",ad:"16362 Little Valley Rd, James Creek, PA 16657",la:40.31192,ln:-78.12984,w:"541-acre scenic gorge where Great Trough Creek cuts through Terrace Mountain into Raystown Lake. A short trail passes 15-20 ft Rainbow Falls to Balanced Rock, a boulder perched improbably on a ledge — the park's signature landmark.",k:"OUTDOOR",g:["ICON","PARK","OUTDOOR"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/trough-creek-state-park"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-trough-creek-state-park"]]},
+{t:2,a:"REG",n:"Greenwood Furnace State Park",ad:"15795 Greenwood Rd, Huntingdon, PA 16652",la:40.65047,ln:-77.75439,w:"423-acre park on the western edge of the Seven Mountains around a six-acre lake, wrapped in the 80,000-acre Rothrock State Forest. A preserved iron-furnace historic district recalls the charcoal-iron company town that thrived here 1834-1904; swimming, camping and trailheads for backpacking and mountain biking.",k:"PARK",g:["PARK","OUTDOOR","HIST"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/greenwood-furnace-state-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Greenwood_Furnace_State_Park"]]},
+{t:2,a:"REG",n:"Bilger's Rocks",ad:"1921 Bilgers Rocks Rd, Grampian, PA 16838",la:40.99333,ln:-78.59306,w:"A 170-acre community park near Grampian in Clearfield County built around 300-million-year-old Homewood Sandstone: house-sized outcrops rising up to 50 ft, riddled with arches, crevices and crawl-through passageways. Pavilion, camping and an open-air stage on site.",k:"OUTDOOR",g:["PARK","OUTDOOR"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Bilger's_Rocks"],["VISITCLEARFIELD","https://www.visitclearfieldcounty.org/bilgers_rock"]]},
+{t:3,a:"REG",n:"Indian Caverns — CLOSED",ad:"5374 Indian Trl, Spruce Creek, PA 16683",la:40.64541,ln:-78.08837,w:"Once Pennsylvania's second-largest commercial show cave, beneath a foothill of Tussey Mountain along Spruce Creek. Open to the public 1929-2016; permanently closed since 2016. Kept here as a flagged landmark — do not present as a live visit.",k:"ODD",closed:1,g:["OUTDOOR","SPORT","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Indian_Caverns"],["ROADSIDEAMERICA","https://www.roadsideamerica.com/tip/15190"],["ATLASOBSCURA","https://www.atlasobscura.com/places/indian-caverns"]]},
+{t:1,a:"PSU",n:"Old Main",ad:"Old Main, Pollock Rd, University Park, PA 16802",la:40.79650,ln:-77.86289,w:"The symbolic heart of Penn State, crowning the hill above the campus mall. The 1930 Georgian building sits on the site of the original 1859 College Building of the Farmers' High School and houses the Land-Grant Frescoes by Henry Varnum Poor. Grounds open daily; the lawn is the campus's ceremonial gathering place.",k:"CAMPUS",g:["ICON","CAMPUS","FAM"],s:[["HVAB","https://dispatch.happyvalley.com/blog/15-historical-places-of-interest-when-visiting-psu-for-a-day"],["PSUNEWS","https://www.psu.edu/about/nittany-lion-shrine"]]},
+{t:1,a:"PSU",n:"Nittany Lion Shrine",ad:"Nittany Lion Shrine, Curtin Rd near Rec Hall, University Park, PA 16802",la:40.79700,ln:-77.86940,w:"One of the most photographed landmarks in Pennsylvania: a crouching mountain lion carved by sculptor Heinz Warneke from a 13-ton block of Indiana limestone, given by the Class of 1940. Reopened to visitors after a 2021-2022 site renovation; free, open-air, always accessible.",k:"ICON",g:["ICON","CAMPUS","SPORT","FREE"],s:[["PSUNEWS","https://www.psu.edu/about/nittany-lion-shrine"],["CENTREHISTORY","https://centrehistory.org/article/nittany-lion-shrine/"]]},
+{t:1,a:"PSU",n:"Beaver Stadium & Penn State All-Sports Museum",ad:"Beaver Stadium, 1 Beaver Stadium, University Park, PA 16802",la:40.81220,ln:-77.85610,w:"The 106,000-seat home of Penn State football and its All-Sports Museum, whose Upper and Lower galleries trace over a century of Nittany Lion athletics. Museum open Tue-Sat 10-4, Sun 12-4 (reduced winter hours; home-game-week changes); staff take guests to the club level for a view inside the bowl. Note: the stadium itself is under a multi-year renovation (Project Surge) through 2027.",k:"SPORT",g:["ICON","CAMPUS","MUS","SPORT"],s:[["GOPSU","https://gopsusports.com/all-sports-museum-tours"],["PSUNEWS","https://www.psu.edu/news/athletics/story/all-sports-museum-offer-beaver-stadium-blue-bus-tours"]]},
+{t:1,a:"PSU",n:"Palmer Museum of Art",ad:"Palmer Museum of Art, The Arboretum at Penn State, Bigler Rd, University Park, PA 16802",la:40.80682,ln:-77.86795,w:"Penn State's art museum in a striking 73,000-sq-ft Allied Works building that opened June 1, 2024 at the edge of the Arboretum, nearly doubling exhibition space to 20 galleries with a store, cafe and sculpture path. Free admission; a genuine regional cultural destination.",k:"MUS",g:["ICON","CAMPUS","MUS","PARK"],s:[["PALMER","https://palmermuseum.psu.edu/"],["STATECOLLEGE","https://www.statecollege.com/articles/community/a-cultural-destination-for-the-entire-region-new-palmer-museum-of-art-set-to-open-at-penn-state-arboretum/"],["FORBES","https://www.forbes.com/sites/chaddscott/2024/06/01/new-palmer-museum-of-art-at-penn-state-opens-june-1-2024-amid-a-unique-setting/"]]},
+{t:1,a:"PSU",n:"The Arboretum at Penn State (H.O. Smith Botanic Gardens)",ad:"The Arboretum at Penn State, Bigler Rd & Park Ave, University Park, PA 16802",la:40.80505,ln:-77.86409,w:"370 acres of gardens, meadows and woodland walks a mile west of Beaver Stadium, centered on the 10-acre H.O. Smith Botanic Gardens with pollinator habitats, water features, an Overlook Pavilion and a children's garden. Free admission, open dawn to dusk daily.",k:"PARK",g:["ICON","CAMPUS","PARK","OUTDOOR"],s:[["ARBORETUM","https://arboretum.psu.edu/gardens/h-o-smith-botanic-gardens/"],["HVAB","https://dispatch.happyvalley.com/blog/the-arboretum-at-penn-state-1"]]},
+{t:2,a:"PSU",n:"Frost Entomological Museum",ad:"160 Curtin Rd, University Park, PA 16802",la:40.80371,ln:-77.86204,w:"A free insect museum across from the Berkey Creamery, reopened in 2022 after renovation, with a live arthropod zoo and a research collection of hundreds of thousands of specimens. Open to the public 10-4 Monday-Friday; admission free.",k:"MUS",g:["ICON","MUS","FAM","FREE"],s:[["ENTO","https://ento.psu.edu/about/facilities/frost/visit"],["PSUNEWS","https://www.psu.edu/news/research/story/frost-entomological-museum-reopens-after-renovations-renewal"]]},
+{t:1,a:"BVL",n:"Bellefonte Historic District",ad:"High St & Allegheny St, Bellefonte, PA 16823",la:40.91333,ln:-77.77861,w:"A remarkably intact Victorian county-seat downtown along Spring Creek, listed on the National Register, built during a 19th-century iron-and-industry boom and once home to seven Pennsylvania governors. Grand houses, the 1889 railroad station and a walkable core of shops and eateries. Free, self-guided.",k:"HIST",g:["PARK","HIST","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Bellefonte_Historic_District"],["PAWILDS","https://pawilds.com/asset/victorian-bellefonte/"]]},
+{t:2,a:"BVL",n:"Talleyrand Park & the Big Spring",ad:"Dunlap St, Bellefonte, PA 16823",la:40.90949,ln:-77.78167,w:"Bellefonte's 3.5-acre riverside park along Spring Creek, fed by the Big Spring that pours out 11+ million gallons a day and gave the town its name (\"la belle fonte\"). Riverwalk, the restored 1889 passenger station, gardens and an Underground Railroad history marker. Free, open daily.",k:"PARK",g:["PARK","HIST","FREE"],s:[["BELLEFONTE","https://bellefonte.net/departments/parks-rec/talleyrand-park/"],["STATECOLLEGE","https://www.statecollege.com/centre-county-gazette/explore-talleyrand-park-and-learn-about-underground-railroad-history/"]]},
+{t:2,a:"BVL",n:"Gamble Mill",ad:"160 Dunlap St, Bellefonte, PA 16823",la:40.91389,ln:-77.78361,w:"A National Register grist mill (1786/1894) on Spring Creek in Bellefonte's waterfront district, extensively restored and reopened in 2021 as a boutique hotel, restaurant and cocktail bar. A landmark on the Riverwalk; dine or stay to see the interior.",k:"HIST",g:["PARK","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Gamble_Mill"],["PAWILDS","https://pawilds.com/asset/victorian-bellefonte/"]]},
+{t:2,a:"BVL",n:"American Philatelic Center (Match Factory)",ad:"100 Match Factory Pl, Bellefonte, PA 16823",la:40.90917,ln:-77.78361,w:"The headquarters of the American Philatelic Society, the world's largest nonprofit stamp-collectors' organization, in the restored 1900 Pennsylvania Match Factory. Highlights include a fully reconstructed century-old general store and post office, a library and galleries. Open to visitors; check hours.",k:"ODD",g:["HIST"],s:[["PABUCKETLIST","https://pabucketlist.com/exploring-the-american-philatelic-center-in-bellefonte-pa/"],["APS","https://stamps.org/"]]},
+{t:1,a:"BVL",n:"Boalsburg Historic District (Birthplace of Memorial Day)",ad:"Main St, Boalsburg, PA 16827",la:40.77611,ln:-77.79389,w:"A walkable stone-and-clapboard village that claims the first Memorial Day observance, traced to an 1864 cemetery gathering; the town center is full of shops, cafes and 18th-19th-century buildings and celebrates with a large Memorial Day weekend of events. Free, self-guided.",k:"HIST",g:["HIST","FREE"],s:[["VISITPA","https://www.visitpa.com/blog/post/boalsburg-the-birthplace-of-memorial-day-in-pennsylvania/"],["HISTORICBOALSBURG","https://historicboalsburg.com/things-to-do/memorial-day/"]]},
+{t:1,a:"BVL",n:"Pennsylvania Military Museum — CLOSED",ad:"51 Boal Ave, Boalsburg, PA 16827",la:40.78194,ln:-77.79528,w:"Pennsylvania's museum of the citizen-soldier, set on the 28th Division Shrine grounds in Boalsburg. CLOSED to the public since Dec 8, 2024 for a $3.4M modernization (HVAC, geothermal, preservation systems); the reopening, once slated for Feb 2026, has slipped to 2027. The outdoor grounds and memorials remain worth a look; galleries are shut.",k:"HIST",closed:1,g:["MUS","HIST"],s:[["PHMC","https://www.pa.gov/agencies/phmc/newsroom/phmc-announces-pennsylvania-military-museum-modernization-and-ca"],["WTAJ","https://www.wtaj.com/news/local-news/pa-military-museum-construction-timeline-delayed-take-a-look-at-early-plans/"]]},
+{t:1,a:"BVL",n:"Columbus Chapel & Boal Mansion Museum",ad:"163 Boal Estate Dr, Boalsburg, PA 16827",la:40.77889,ln:-77.80028,w:"The estate of the Boal family since 1789, whose Columbus Chapel — brought from Spain in 1909 by a Columbus descendant who married into the family — holds the explorer's admiral's desk, two relics of the True Cross and centuries of European art. Guided 90-minute tours Wed-Sun at 2pm; other times by appointment.",k:"MUS",g:["MUS","HIST"],s:[["BOALMUSEUM","https://www.boalmuseum.com/plan-your-visit.html"],["PABUCKETLIST","https://pabucketlist.com/exploring-the-columbus-chapel-and-boal-mansion-in-centre-county/"]]},
+{t:2,a:"BVL",n:"Centre Furnace Mansion",ad:"1001 E College Ave, State College, PA 16801",la:40.80639,ln:-77.84250,w:"The restored ironmaster's mansion of Centre Furnace — the 18th-century iron works whose owners helped found Penn State — now the home of the Centre County Historical Society and listed on the National Register. Furnished to the Moses Thompson era (1842-1891). Guided tours on posted days; grounds and gardens open.",k:"HIST",g:["CAMPUS","PARK","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Centre_Furnace_Mansion_House"],["CENTREHISTORY","https://centrehistory.org/"]]},
+{t:1,a:"HV",n:"Mount Nittany (Mike Lynch Overlook)",ad:"Mount Nittany trailhead, 500 Mount Nittany Rd, Lemont, PA 16827",la:40.81150,ln:-77.80701,w:"The mountain that gives Happy Valley its identity, with 8 miles of trails and seven overlooks above the valley. The short climb to the Mike Lynch Overlook (marker #3, ~0.6 mi up) gives the classic view over State College and campus; the full loop is ~4.8 mi. Limited trailhead parking in Lemont; free.",k:"OUTDOOR",g:["ICON","PARK","OUTDOOR","FREE"],s:[["NITTANY","https://nittany.org/hike/"],["UNCOVERINGPA","https://uncoveringpa.com/mount-nittany-hike"]]},
+{t:1,a:"HV",n:"Penn's Cave & Wildlife Park",ad:"222 Penns Cave Rd, Centre Hall, PA 16828",la:40.88278,ln:-77.61000,w:"America's only all-water cavern, toured entirely by boat, plus a wildlife park with a bus safari and off-road mountain tours. Cavern tours run Feb-Dec (daily 9-4 hourly in summer); the farm-nature-wildlife park runs Apr 1-Nov (closed for winter through Mar 31). Paid admission; the cave boat tour is not wheelchair accessible.",k:"FAM",g:["ICON","PARK","OUTDOOR","FAM"],s:[["PENNSCAVE","https://www.pennscave.com/tours-features"],["HVAB","https://happyvalley.com/c/penn-state-attractions"]]},
+{t:1,a:"HV",n:"Black Moshannon State Park",ad:"4216 Beaver Rd, Philipsburg, PA 16866",la:40.91220,ln:-78.05690,w:"A 3,394-acre park atop the Allegheny Plateau built around a 250-acre lake and one of the state's finest bogs (1,992-acre Natural Area) with orchids and carnivorous plants. The half-mile boardwalk Bog Trail is the signature walk; 20 miles of trails, swimming and boating. Free day use; open year-round.",k:"PARK",g:["PARK","OUTDOOR","FREE"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/black-moshannon-state-park/hiking"],["UNCOVERINGPA","https://uncoveringpa.com/black-moshannon-state-park"]]},
+{t:2,a:"HV",n:"Rothrock State Forest",ad:"Rothrock State Forest, Bear Meadows Rd, Boalsburg, PA 16827",la:40.71000,ln:-77.81833,w:"A 96,000-acre forest of ridgelines, rhododendron valleys and mixed-oak woods wrapping the south side of the valley, prized for hiking, mountain biking and vistas (Bear Meadows Natural Area, the Mid State and Standing Stone trails). A multi-year purpose-built trail project is adding up to 47 miles; the first 7.5 opened in 2025. Free.",k:"OUTDOOR",g:["OUTDOOR","FREE"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-forests/find-a-forest/rothrock/hiking"],["WPSU","https://radio.wpsu.org/2025-07-27/rothrock-state-forest-new-trail-project-completes-first-phase-centre-county"]]},
+{t:2,a:"HV",n:"Millbrook Marsh Nature Center",ad:"548 Puddintown Rd, State College, PA 16801",la:40.81344,ln:-77.83437,w:"A 62-acre nature center less than two miles from campus, pairing a historic farmstead with a 50-acre limestone-fed wetland crossed by a boardwalk. Run by Centre Region Parks & Recreation; grounds free and open daily, with programs and a visitor barn. Good for families and birders.",k:"PARK",g:["PARK","HIST","FAM","FREE"],s:[["CRPR","https://www.crpr.org/millbrook-marsh-nature-center"],["CENTREDOUTDOORS","https://www.centredoutdoors.org/visit/millbrook-marsh-nature-center"]]},
+{t:2,a:"HV",n:"Tussey Mountain",ad:"301 Bear Meadows Rd, Boalsburg, PA 16827",la:40.76819,ln:-77.75200,w:"The valley's four-season recreation hill: 14 ski/snowboard trails in winter and a summer Fun Centre with go-karts, mini-golf, batting cages, a skate park and driving range, plus an outdoor amphitheater for concerts. Paid activities; hours are seasonal.",k:"FAM",g:["PARK","OUTDOOR","SPORT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Tussey_Mountain_(ski_resort)"],["SKIPA","https://www.skipa.com/play/by-name/tussey-mountain"]]}
+];
+
+const FS = {
+  "ALTOONAMIRROR":{k:"ALTOONA MIRROR",t:"Altoona Mirror (local daily)",u:"https://www.altoonamirror.com/",l:"Altoona Mirror (local daily)"},
+  "CENTREHISTORY":{k:"CENTREHISTORY",t:"Centre County Encyclopedia of History & Culture",u:"https://centrehistory.org",l:"Centre County Encyclopedia of History & Culture"},
+  "COLLEGIAN":{k:"THE DAILY COLLEGIAN",t:"The Daily Collegian",u:"https://www.psucollegian.com",l:"The Daily Collegian"},
+  "EXPLOREALTOONA":{k:"EXPLORE ALTOONA",t:"Explore Altoona / Allegheny Mountains Convention & Visitors Bureau",u:"https://explorealtoona.com/",l:"Explore Altoona / Allegheny Mountains Convention & Visitors Bureau"},
+  "EXPLOREPA":{k:"EXPLOREPA",t:"ExplorePAhistory.com (PA Historical & Museum Commission / WITF)",u:"https://explorepahistory.com",l:"ExplorePAhistory.com (PA Historical & Museum Commission / WITF)"},
+  "HVAB":{k:"HAPPY VALLEY ADV. BUREAU",t:"Happy Valley Adventure Bureau (Adventure Bureau Dispatch)",u:"https://dispatch.happyvalley.com",l:"Happy Valley Adventure Bureau (Adventure Bureau Dispatch)"},
+  "LANCFARMING":{k:"LANCFARMING",t:"Lancaster Farming (PA history & country-life features)",u:"https://www.lancasterfarming.com/",l:"Lancaster Farming (PA history & country-life features)"},
+  "NRHP":{k:"NAT'L REGISTER",t:"National Register of Historic Places / National Historic Landmark (via Wikipedia / NPS)",u:"https://www.nps.gov/subjects/nationalhistoriclandmarks/index.htm",l:"National Register of Historic Places / National Historic Landmark (via Wikipedia / NPS)"},
+  "ONWARDSTATE":{k:"ONWARD STATE",t:"Onward State",u:"https://onwardstate.com",l:"Onward State"},
+  "PGHCITYPAPER":{k:"PGHCITYPAPER",t:"Pittsburgh City Paper",u:"https://www.pghcitypaper.com/",l:"Pittsburgh City Paper"},
+  "RAYSTOWN":{k:"RAYSTOWN LAKE",t:"Raystown Lake Region CVB (Huntingdon County visitors bureau)",u:"https://raystown.org/",l:"Raystown Lake Region CVB (Huntingdon County visitors bureau)"},
+  "SCDOTCOM":{k:"SCDOTCOM",t:"StateCollege.com",u:"https://www.statecollege.com",l:"StateCollege.com"},
+  "SCMAG":{k:"SCMAG",t:"State College Magazine (Best of State College reader poll)",u:"https://www.statecollegemagazine.com",l:"State College Magazine (Best of State College reader poll)"},
+  "THETAKEOUT":{k:"THETAKEOUT",t:"The Takeout (national food outlet)",u:"https://www.thetakeout.com/",l:"The Takeout (national food outlet)"},
+  "UNCOVERINGPA":{k:"UNCOVERING PA",t:"Uncovering PA (Jim Cheney, all-67-county PA travel writer)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney, all-67-county PA travel writer)"},
+  "VISITPA":{k:"VISIT PA",t:"Visit PA (state tourism office)",u:"https://www.visitpa.com/",l:"Visit PA (state tourism office)"},
+  "WIKI":{k:"WIKI",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (notability + published coordinates)",u:"https://en.wikipedia.org/",l:"Wikipedia (notability + published coordinates)"},
+  "WTAJ":{k:"WTAJ",t:"WTAJ News",u:"https://www.wtaj.com",l:"WTAJ News"}
+};
+
+const CUISINES = [
+  {id:"CREAM",n:"Creamery & Ice Cream"},
+  {id:"STICKY",n:"Grilled Stickies & Diners"},
+  {id:"WINGS",n:"Wings & Tavern"},
+  {id:"PIZZA",n:"Pizza"},
+  {id:"BREW",n:"Breweries & Beer"},
+  {id:"US",n:"American & New American"},
+  {id:"BBQ",n:"BBQ & Smokehouse"},
+  {id:"MEX",n:"Mexican & Latin"},
+  {id:"ASIAN",n:"Asian"},
+  {id:"MED",n:"Mediterranean & Middle Eastern"},
+  {id:"BREAK",n:"Breakfast & Cafés"},
+  {id:"FARM",n:"Farms & Markets"},
+  {id:"VIRAL",n:"Viral / Student Favorite"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"CAMPUS",n:"Penn State Campus"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"OUTDOOR",n:"Hikes & Outdoors"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"SPORT",n:"Stadiums & Sports"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"ALT",n:"Tom & Joe's Restaurant",ad:"1201 13th Ave, Altoona, PA 16601",cz:["STICKY"],la:40.51681,ln:-78.40216,w:"Downtown Altoona's counter-and-booths diner since 1933, run by three generations of the Batrus/George family. Its griddle hotcakes are a local institution; a longtime stop on any Altoona diner crawl.",s:[["EXPLOREALTOONA","https://explorealtoona.com/trip/tom-joes-diner/"],["ALTOONAMIRROR","https://www.altoonamirror.com/life/area-life/2019/11/book-celebrates-roadside-eateries-includes-altoonas-tom-joes-babys-and-diner-22/"]]},
+{t:2,a:"ALT",n:"Boyer Candy Company",ad:"821 17th St, Altoona, PA 16601",cz:["US"],la:40.51013,ln:-78.40373,w:"Depression-era Altoona candy maker founded by brothers Bill and Bob Boyer, who invented the Mallo Cup in 1936 — the first cup candy in America, still made downtown along with Smoothie peanut-butter cups. Factory outlet store on-site with the collectible 'Mallo Cup points.'",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Boyer_(candy_company)"],["LANCFARMING","https://www.lancasterfarming.com/country-life/antiques-and-history/from-mallo-cups-to-clark-bars-altoona-is-a-hub-for-candy-manufacturing/article_3c85b36f-5e21-59ac-8f06-d0d1f1e709c8.html"]]},
+{t:2,a:"ALT",n:"U.S. Hotel Tavern",ad:"401 S Juniata St, Hollidaysburg, PA 16648",cz:["US","WINGS"],la:40.42703,ln:-78.39150,w:"Historic Hollidaysburg hotel dating to 1835 on the Pennsylvania Canal / Allegheny Portage route, rebuilt in 1886 by a Bavarian brewmaster with a cut-block barroom added in 1905. Now a restored tavern for American plates, craft beer and cocktails inside the NRHP-listed Hollidaysburg Historic District.",s:[["EXPLOREALTOONA","https://explorealtoona.com/trip/us-hotel-tavern/"],["NRHP","https://en.wikipedia.org/wiki/Hollidaysburg_Historic_District"]]},
+{t:1,a:"DT",n:"The Corner Room",ad:"100 W College Ave, State College, PA",cz:["US"],la:40.79445,ln:-77.86164,w:"https://www.cornerroom.com/",s:[["SCDOTCOM","https://www.statecollege.com/articles/business/corner-room-renovations-aim-to-maintain-familiar-atmosphere-while-providing-much-needed-upgrades/"],["ONWARDSTATE","https://onwardstate.com/2018/06/27/freshman-101-downtown-food-guide/"]]},
+{t:2,a:"DT",n:"Allen Street Grill",ad:"100 W College Ave (2nd floor, Hotel State College), State College, PA",cz:["US"],la:40.79445,ln:-77.86164,w:"https://www.allenstreetgrill.com/",s:[["ONWARDSTATE","https://onwardstate.com/2020/10/29/new-badass-allen-street-grill-chef-discusses-journey-to-state-college/"],["SCDOTCOM","https://www.statecollege.com/business-directory/258237/allen-street-grill/"]]},
+{t:1,a:"DT",n:"Ye Olde College Diner — CLOSED",ad:"126 W College Ave, State College, PA",cz:["US"],la:40.79381,ln:-77.86219,w:"https://grilledstickies.com/",closed:1,s:[["COLLEGIAN","https://www.psucollegian.com/news/borough/penn-state-alumni-state-college-residents-reminisce-about-ye-olde-college-diner/article_ed47647e-41d6-11ec-8ffe-735007c60d65.html"],["CENTREHISTORY","https://centrehistory.org/article/grilled-stickies/"]]},
+{t:1,a:"PSU",n:"Penn State Berkey Creamery",ad:"Food Sciences Building, Curtin Rd, University Park, PA",cz:["US"],la:40.80410,ln:-77.86220,w:"https://creamery.psu.edu/",g:["MKT"],s:[["COLLEGIAN","https://www.psucollegian.com/culture_lifestyle/a-top-10-ranking-of-penn-state-berkey-creamery-s-best-ice-cream-flavors-blog/article_89dd7a04-046e-11ec-8ca7-b7815fc1e7a3.html"],["ONWARDSTATE","https://onwardstate.com/2024/11/13/power-ranking-ice-cream-flavors-at-the-creamery/"],["WIKI","https://en.wikipedia.org/wiki/Penn_State_Berkey_Creamery"]]},
+{t:2,a:"PSU",n:"Brazilian Munchies",ad:"Pegula Ice Arena, University Park, PA",cz:["US"],la:40.80710,ln:-77.85680,w:"https://www.brazilianmunchies.net/",s:[["SCDOTCOM","https://www.statecollege.com/brazilian-munchies-takes-its-cuisine-on-the-road-2/"],["COLLEGIAN","https://www.psucollegian.com/news/campus/article_383b8d50-d8d6-11e9-9959-4bc40ce417e8.html"],["HVAB","https://dispatch.happyvalley.com/blog/hungry-for-happy-valley-try-one-of-these-9-favorite-culinary-hot-spots"]]},
+{t:1,a:"BVL",n:"Duffy's Tavern",ad:"113 E Main St, Boalsburg, PA",cz:["US"],la:40.77585,ln:-77.79230,w:"",s:[["CENTREHISTORY","https://centrehistory.org/article/duffys-tavern/"],["EXPLOREPA","https://explorepahistory.com/attraction.php%3Fid=1-B-113E.html"]]},
+{t:3,a:"BVL",n:"Creekside at the Gamble Mill — CLOSED",ad:"160 Dunlop St, Bellefonte, PA",cz:["US"],la:40.91389,ln:-77.78361,w:"https://www.gamblemillbellefonte.com/",closed:1,s:[["SCDOTCOM","https://www.statecollege.com/articles/business/gamble-mill-owners-reviewing-proposals-for-open-spaces-after-restaurant-retail-shop-depart/"],["WTAJ","https://www.wtaj.com/news/local-news/bellefontes-historic-gamble-mill-opens-doors-for-new-life/"]]},
+{t:1,a:"HV",n:"Meyer Dairy",ad:"2390 S Atherton St, State College, PA",cz:["US"],la:40.78383,ln:-77.82731,w:"https://meyerdairyfarms.com/",s:[["CENTREHISTORY","https://centrehistory.org/article/meyer-dairy/"],["HVAB","https://dispatch.happyvalley.com/blog/cool-off-with-a-cone-after-an-outdoor-adventure"]]},
+{t:1,a:"HV",n:"Faccia Luna Pizzeria",ad:"1229 S Atherton St, State College, PA",cz:["US"],la:40.78478,ln:-77.84740,w:"",s:[["SCMAG","https://www.statecollegemagazine.com/articles/best-of-state-college-2024-winners/"],["ONWARDSTATE","https://onwardstate.com/2020/02/25/re-ranking-the-best-pizza-places-in-state-college/"]]},
+{t:2,a:"HV",n:"Voodoo Brewing Co. - State College Pub",ad:"Elmwood St, Lemont, PA",cz:["US"],la:40.81074,ln:-77.82818,w:"https://statecollege.voodoobrewery.com/",s:[["SCDOTCOM","https://www.statecollege.com/town-and-gown/on-tap-voodoo-the-newest-state-college-brewpub-is-about-diversity-consistency/"],["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-state-college"]]},
+{t:2,a:"HV",n:"Maine Bay & Berry Co.",ad:"201 Elmwood St (The Barn at Lemont), Lemont, PA",cz:["US"],la:40.81074,ln:-77.82818,w:"https://www.mainebayandberry.com/",s:[["SCDOTCOM","https://www.statecollege.com/articles/local-news/newly-renovated-maine-bay-berry-cafe-features-its-well-known-fresh-seafood-and-much-more/"],["SCMAG","https://www.statecollegemagazine.com/articles/best-of-state-college-2024-winners/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sc_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sc_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sc_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sc_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', State College PA')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {DT:'#C0504D',PSU:'#41729F',BVL:'#9BBB59',HV:'#8064A2',ALT:'#E8973A',REG:'#4BACC6'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([40.7848,-77.862],10);
+/* ── Base layers ────────────────────────────────────────────────────────────
+   Free layers need no key. Google needs your own Maps JavaScript API key and
+   is loaded through the officially sanctioned GoogleMutant plugin, because
+   scraping Google's raster tiles directly breaks their terms. Apple Maps has
+   no equivalent: MapKit JS needs a signed developer token, which a static
+   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+  o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}},
+ {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
+ {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
+ {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+let GKEY=''; try{GKEY=localStorage.getItem('sc_gkey')||'';}catch(e){}
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  if(!b.free){ return setGoogle(b,manual); }
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+/* Google, via the official Maps JavaScript API + GoogleMutant */
+let gLoading=false;
+function setGoogle(b,manual){
+  if(!map) return;
+  if(!GKEY){ promptKey(); return; }
+  const go=()=>{
+    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
+      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
+    clearBase(); curBase=b.id;
+    document.getElementById('map').classList.remove('osmdark');
+    document.getElementById('tilewarn').style.display='none';
+    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
+    markBaseChips();
+  };
+  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
+  if(gLoading) return;
+  gLoading=true;
+  const s1=document.createElement('script');
+  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
+  s1.onload=()=>{
+    const s2=document.createElement('script');
+    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
+    s2.onload=()=>{gLoading=false;go();};
+    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
+    document.head.appendChild(s2);
+  };
+  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
+  document.head.appendChild(s1);
+}
+function promptKey(){
+  const k=prompt(
+    'Google base maps need your own Maps JavaScript API key.\n\n'+
+    'Google does not permit their map tiles to be used without going through their API, '+
+    'so there is no key-free way to do this legally.\n\n'+
+    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
+    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
+    'Paste your key here (it is stored only in this browser):', GKEY);
+  if(k==null) return;
+  GKEY=String(k).trim(); try{localStorage.setItem('sc_gkey',GKEY);}catch(e){}
+  markBaseChips();
+  if(GKEY) setBase('g_road',true);
+}
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
+  });
+  const kb=document.getElementById('keyBtn');
+  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  if(b.id==='keyBtn'){promptKey();return;}
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Downtown State College", 40.7942, -77.8618], ["Penn State — University Park campus", 40.8041, -77.8627], ["Bellefonte", 40.8479, -77.7935], ["Happy Valley", 40.8088, -77.821], ["Altoona", 40.5123, -78.3866], ["Central PA", 40.5584, -78.0893]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'grilled stickies, creamery, wings, pizza\u2026' : 'Old Main, Beaver Stadium, Mount Nittany, Penn\u2019s Cave\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>State College \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('statecollege-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('statecollege-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('statecollege-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
+  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
+  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
+  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
+  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
+  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
+  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
+  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
+  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
+  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
+  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
+  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. State College\u2019s canon is a college town\u2019s own: the <b>Berkey Creamery</b> (Penn State\u2019s own ice cream), the <b>grilled sticky</b> at <b>Ye Olde College Diner</b>, tavern <b>wings</b>, <b>Happy Valley</b> craft beer (<b>Otto\u2019s</b>, <b>Robin Hood</b>, <b>Elk Creek</b>), and the diner/breakfast institutions, sourced to the Centre Daily Times, StateCollege.com and Onward State. A cuisine tag names the kitchen\u2019s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source \u2014 the Centre Daily Times, StateCollege.com, Onward State, the Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura and official sites \u2014 recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 48 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
