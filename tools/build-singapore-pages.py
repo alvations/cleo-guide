@@ -51,7 +51,7 @@ PLACES = [
  ("bangkok","Bangkok","Thailand",["Bangkok"],13),
  ("chiang-mai","Chiang Mai","Thailand",["Chiang Mai"],13),
  # ---- Vietnam ----
- ("ho-chi-minh-city","Ho Chi Minh City","Vietnam",["Ho Chi Minh City"],13),
+ ("ho-chi-minh-city","Ho Chi Minh City","Vietnam",["Ho Chi Minh City","Saigon","Sài Gòn","Thao Dien","Thảo Điền","Cholon","Chợ Lớn"],13),
  ("hanoi","Hanoi","Vietnam",["Hanoi","Quang Ninh","Ha Long"],12),
  ("hoi-an","Hoi An","Vietnam",["Hoi An"],14),
  # ---- Indonesia ----
