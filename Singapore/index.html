@@ -27,6 +27,14 @@
  .regnote{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--bone-dim);text-transform:none;}
  .pn{font-family:"Archivo Black",sans-serif;font-size:15px;letter-spacing:-.01em;line-height:1.15;}
  .pc{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;color:var(--bone-dim);}
+ /* Tier badge — a CITY (HCMC, NYC-tier) is not the same tier as a Singapore neighbourhood. */
+ .ptier{align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid var(--hair);color:var(--bone-dim);}
+ .ptier-city{color:#2E2838;background:var(--patina);border-color:transparent;font-weight:600;}
+ @media (prefers-color-scheme:dark){.ptier-city{color:#191521;}}
+ /* City cards read as bigger destinations: span two columns, patina edge, larger name. */
+ .pcard-city{grid-column:span 2;border-color:var(--patina-dim,var(--patina));border-width:1.5px;}
+ .pcard-city .pn{font-size:19px;}
+ @media (max-width:520px){.pcard-city{grid-column:span 1;}}
  footer{margin-top:46px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);}
 </style></head>
 <body><div class="wrap">
@@ -38,67 +46,67 @@
 </header>
 <h2 class="reg">Singapore</h2>
 <div class="grid">
-<a class="pcard" href="toa-payoh.html"><span class="pn">Toa Payoh</span><span class="pc">14 sights · 42 food</span></a>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Chinatown &amp; CBD</span><span class="pc">4 sights · 12 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Marina Bay</span><span class="pc">6 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Civic District</span><span class="pc">5 sights · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Kampong Glam</span><span class="pc">1 sight · 2 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Little India</span><span class="pc">2 sights · 3 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Tiong Bahru</span><span class="pc">3 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Newton &amp; Novena</span><span class="pc">4 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Jalan Besar &amp; Lavender</span><span class="pc">6 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Katong &amp; Joo Chiat</span><span class="pc">1 sight · 6 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Old Airport Road</span><span class="pc">4 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Geylang</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Bedok</span><span class="pc">1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Changi</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Marine Parade &amp; East Coast</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Dempsey Hill</span><span class="pc">2 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Bukit Timah</span><span class="pc">2 sights · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Balestier</span><span class="pc">1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Mandai</span><span class="pc">3 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Holland Village</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Southern Ridges</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Queenstown &amp; Redhill</span><span class="pc">4 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Jurong</span><span class="pc">3 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Upper Thomson &amp; MacRitchie</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<a class="pcard pcard-district" href="toa-payoh.html"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Toa Payoh</span><span class="pc">14 sights · 42 food</span></a>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Chinatown &amp; CBD</span><span class="pc">4 sights · 12 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Marina Bay</span><span class="pc">6 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Civic District</span><span class="pc">5 sights · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Kampong Glam</span><span class="pc">1 sight · 2 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Little India</span><span class="pc">2 sights · 3 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Tiong Bahru</span><span class="pc">3 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Newton &amp; Novena</span><span class="pc">4 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Jalan Besar &amp; Lavender</span><span class="pc">6 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Katong &amp; Joo Chiat</span><span class="pc">1 sight · 6 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Old Airport Road</span><span class="pc">4 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Geylang</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Bedok</span><span class="pc">1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Changi</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Marine Parade &amp; East Coast</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Dempsey Hill</span><span class="pc">2 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Bukit Timah</span><span class="pc">2 sights · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Balestier</span><span class="pc">1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Mandai</span><span class="pc">3 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Holland Village</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Southern Ridges</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Queenstown &amp; Redhill</span><span class="pc">4 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Jurong</span><span class="pc">3 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-district disabled" aria-disabled="true"><span class="ptier ptier-district">NEIGHBOURHOOD</span><span class="pn">Upper Thomson &amp; MacRitchie</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
 </div>
 <h2 class="reg">Malaysia <span class="regnote">· expanding soon</span></h2>
 <div class="grid">
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Kuala Lumpur</span><span class="pc">2 sights · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Penang (George Town)</span><span class="pc">3 sights · 3 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Malacca</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Ipoh</span><span class="pc">1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Kuala Lumpur</span><span class="pc">2 sights · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Penang (George Town)</span><span class="pc">3 sights · 3 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Malacca</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Ipoh</span><span class="pc">1 food</span><span class="soon">Expanding soon</span></div>
 </div>
 <h2 class="reg">Thailand <span class="regnote">· expanding soon</span></h2>
 <div class="grid">
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Bangkok</span><span class="pc">4 sights · 2 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Chiang Mai</span><span class="pc">2 sights · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Bangkok</span><span class="pc">4 sights · 2 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Chiang Mai</span><span class="pc">2 sights · 1 food</span><span class="soon">Expanding soon</span></div>
 </div>
 <h2 class="reg">Vietnam</h2>
 <div class="grid">
-<a class="pcard" href="ho-chi-minh-city.html"><span class="pn">Ho Chi Minh City</span><span class="pc">34 sights · 29 food</span></a>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Hanoi</span><span class="pc">2 sights · 2 food</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Hoi An</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<a class="pcard pcard-city" href="ho-chi-minh-city.html"><span class="ptier ptier-city">CITY · 9 districts</span><span class="pn">Ho Chi Minh City</span><span class="pc">34 sights · 29 food</span></a>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Hanoi</span><span class="pc">2 sights · 2 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Hoi An</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
 </div>
 <h2 class="reg">Indonesia <span class="regnote">· expanding soon</span></h2>
 <div class="grid">
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Jakarta</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Bali</span><span class="pc">3 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Yogyakarta</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Jakarta</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Bali</span><span class="pc">3 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Yogyakarta</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
 </div>
 <h2 class="reg">Philippines <span class="regnote">· expanding soon</span></h2>
 <div class="grid">
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Manila</span><span class="pc">3 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Cebu</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Manila</span><span class="pc">3 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Cebu</span><span class="pc">1 sight · 1 food</span><span class="soon">Expanding soon</span></div>
 </div>
 <h2 class="reg">Cambodia, Laos &amp; Myanmar <span class="regnote">· expanding soon</span></h2>
 <div class="grid">
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Siem Reap (Angkor)</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Phnom Penh</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Luang Prabang</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Yangon</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
-<div class="pcard disabled" aria-disabled="true"><span class="pn">Bagan</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Siem Reap (Angkor)</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Phnom Penh</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Luang Prabang</span><span class="pc">2 sights</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-city disabled" aria-disabled="true"><span class="ptier ptier-city">CITY</span><span class="pn">Yangon</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
+<div class="pcard pcard-town disabled" aria-disabled="true"><span class="ptier ptier-town">TOWN</span><span class="pn">Bagan</span><span class="pc">1 sight</span><span class="soon">Expanding soon</span></div>
 </div>
 <footer>Sourced &amp; fact-checked via the pipeline · data/sources.json · last verified 2026-08-26</footer>
 </div></body></html>

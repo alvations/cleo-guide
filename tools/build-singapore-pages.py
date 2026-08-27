@@ -159,8 +159,23 @@ DISTRICTS = {
  ],
 }
 
+# ── Tier: CITY vs TOWN ────────────────────────────────────────────────────────────────────────────
+# A guide entry is not one flat kind. Toa Payoh is a *town* (a neighbourhood of the city of Singapore);
+# Ho Chi Minh City is a *whole city* (NYC-tier) that contains districts. That difference drives the page
+# framing and the hub badge, and only CITY-tier pages get district colour-coding. Singapore's own entries
+# are neighbourhoods of the one city of Singapore, so they read as "· neighbourhood of Singapore".
+CITY_TIER = {
+ "ho-chi-minh-city","hanoi","bangkok","chiang-mai","kuala-lumpur","penang",
+ "jakarta","manila","cebu","phnom-penh","yangon","siem-reap",
+}
+def kind_of(slug, region):
+    if slug in CITY_TIER: return "city"
+    if region == "Singapore": return "district"   # a neighbourhood/town of the city of Singapore
+    return "town"
+
 def build_page(slug):
     name=PLACE_META[slug][1]; region=PLACE_META[slug][2]; zoom=PLACE_META[slug][4]
+    kind=kind_of(slug,region)
     P=groups_P.get(slug,[]); F=groups_F.get(slug,[])
     if not (P or F): return None
     pins=[(GEO[r["n"]]["lat"],GEO[r["n"]]["lng"]) for r in P+F]
@@ -181,12 +196,14 @@ def build_page(slug):
         anames={aid:nm for aid,nm,_ in rules}; anames["OTHER"]="Ho Chi Minh City (other)"
         order=[aid for aid,_,_ in rules]+["OTHER"]
         present=[a for a in order if any(_area_of(r)==a for r in P+F)]
+        ndist=len(present)
         acolor={a:PASTELS[i%len(PASTELS)] for i,a in enumerate(present)}
         AREAS="[\n"+",\n".join("  {id:%s,n:%s,c:%s}"%(js(a),js(anames[a]),js(acolor[a])) for a in present)+"\n]"
         AC_JS="const AC = {%s};"%",".join("%s:'%s'"%(a,acolor[a]) for a in present)
         LEGEND="\n".join('  <span><i style="background:%s"></i>%s</span>'%(acolor[a],anames[a]) for a in present)
         def wa(r): r=dict(r); r["a"]=_area_of(r); return r
     else:
+        ndist=0
         AID=re.sub(r'[^A-Za-z0-9]','',slug).upper()
         color="#BCA7E6"
         AREAS="[\n  {id:%s,n:%s,c:%s}\n]"%(js(AID),js(name),js(color))
@@ -288,12 +305,33 @@ LABELS.forEach(''',
         rep('<button id="modeFood" class="modebtn" aria-pressed="false">','<button id="modeFood" class="modebtn" aria-pressed="true">')
     rep("<title>Cleveland Field Guide — 130 Places, Sourced</title>",
         "<title>%s — Singapore &amp; SEA field guide</title>"%name)
+    # Tier-aware framing: a CITY (HCMC, NYC-tier) reads as a city of N districts; a Singapore entry reads
+    # as a neighbourhood of the city of Singapore; other entries as a town/destination.
+    if kind=="city":
+        eyebrow="City guide · %s%s"%(region, " · %d districts"%ndist if ndist>1 else "")
+        subhead="%s — a whole city, district by district, sourced"%region
+        scope="the city of <strong>%s</strong>"%name
+        wherenav="all Singapore &amp; SEA cities"
+    elif kind=="district":
+        eyebrow="Neighbourhood guide · Singapore"
+        subhead="a town of Singapore — sights &amp; hawker food, sourced"
+        scope="<strong>%s</strong>, a town of Singapore"%name
+        wherenav="all Singapore towns &amp; SEA cities"
+    else:
+        eyebrow="Town guide · %s"%region
+        subhead="%s — sights &amp; local food, sourced"%region
+        scope="<strong>%s</strong>"%name
+        wherenav="all Singapore &amp; SEA guides"
     rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
-        '<p class="eyebrow">Field guide · %s · %s</p>'%(name,region))
+        '<p class="eyebrow">%s</p>'%eyebrow)
     rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
-        '<h1>%s<span class="thin">%s — sights &amp; hawker food, sourced</span></h1>'%(name,region))
+        '<h1>%s<span class="thin">%s</span></h1>'%(name,subhead))
     rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-        '<p class="standfirst">%d sights and %d places to eat in <strong>%s</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA towns</a></p>'%(nP,nF,name))
+        '<p class="standfirst">%d sights and %d places to eat in %s, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators)%s. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by %s, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← %s</a></p>'%(
+            nP,nF,scope,
+            (" across %d districts"%ndist if kind=="city" and ndist>1 else ""),
+            ("district" if kind=="city" and ndist>1 else "area"),
+            wherenav))
     new=re.sub(r'<meta name="description"[^>]*>',
         '<meta name="description" content="%s (%s) field guide — %d sights and %d places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">'%(name,region,nP,nF), new)
     new=new.replace(", Cleveland OH", ", %s"%name)
@@ -330,7 +368,7 @@ LABELS.forEach(''',
     hit=[t for t in forbidden if t in new]
     assert not hit, "Google base-map surface survived in %s: %s — the strip in build-singapore-pages.py no longer matches the engine; fix it (see the 'Strip ALL Google base-map machinery' block)."%(slug,hit)
     open(os.path.join(OUTDIR,slug+".html"),"w",encoding="utf-8").write(new)
-    return {"slug":slug,"name":name,"region":region,"nP":nP,"nF":nF,"total":nP+nF}
+    return {"slug":slug,"name":name,"region":region,"nP":nP,"nF":nF,"total":nP+nF,"kind":kind,"ndist":ndist}
 
 built=[]
 for slug in SLUG_ORDER:
@@ -366,14 +404,23 @@ for reg in REGION_ORDER:
         if b["nF"]: bits.append("%d food"%b["nF"])
         meta=" · ".join(bits)
         live = (b["slug"] in LIVE_SLUGS)
-        if live:
-            cards.append('<a class="pcard" href="%s.html"><span class="pn">%s</span>'
-                         '<span class="pc">%s</span></a>'%(b["slug"],esc(b["name"]),meta))
+        # tier badge — a city is NOT the same tier as a Singapore town. Cities show their district count.
+        kind=b.get("kind","town"); nd=b.get("ndist",0)
+        if kind=="city":
+            tier='CITY%s'%(' · %d districts'%nd if live and nd>1 else '')
+        elif kind=="district":
+            tier='NEIGHBOURHOOD'
         else:
-            # non-Singapore regions are not yet well populated — greyed out + unclickable for now
-            cards.append('<div class="pcard disabled" aria-disabled="true"><span class="pn">%s</span>'
+            tier='TOWN'
+        badge='<span class="ptier ptier-%s">%s</span>'%(kind,tier)
+        if live:
+            cards.append('<a class="pcard pcard-%s" href="%s.html">%s<span class="pn">%s</span>'
+                         '<span class="pc">%s</span></a>'%(kind,b["slug"],badge,esc(b["name"]),meta))
+        else:
+            # not yet populated — greyed out + unclickable for now
+            cards.append('<div class="pcard pcard-%s disabled" aria-disabled="true">%s<span class="pn">%s</span>'
                          '<span class="pc">%s</span><span class="soon">Expanding soon</span></div>'
-                         %(esc(b["name"]),meta))
+                         %(kind,badge,esc(b["name"]),meta))
     cards.append("</div>")
 HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -404,6 +451,14 @@ HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
  .regnote{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--bone-dim);text-transform:none;}
  .pn{font-family:"Archivo Black",sans-serif;font-size:15px;letter-spacing:-.01em;line-height:1.15;}
  .pc{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;color:var(--bone-dim);}
+ /* Tier badge — a CITY (HCMC, NYC-tier) is not the same tier as a Singapore neighbourhood. */
+ .ptier{align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid var(--hair);color:var(--bone-dim);}
+ .ptier-city{color:#2E2838;background:var(--patina);border-color:transparent;font-weight:600;}
+ @media (prefers-color-scheme:dark){.ptier-city{color:#191521;}}
+ /* City cards read as bigger destinations: span two columns, patina edge, larger name. */
+ .pcard-city{grid-column:span 2;border-color:var(--patina-dim,var(--patina));border-width:1.5px;}
+ .pcard-city .pn{font-size:19px;}
+ @media (max-width:520px){.pcard-city{grid-column:span 1;}}
  footer{margin-top:46px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);}
 </style></head>
 <body><div class="wrap">
