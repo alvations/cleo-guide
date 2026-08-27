@@ -166,13 +166,45 @@ def build_page(slug):
     rep(".osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}",
         ".osmdark .leaflet-tile-pane{filter:none;}\n  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}")
     rep("setBase('dark'); markBaseChips();","setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();")
-    # Remove the Google (key-required) base layers + the "ADD GOOGLE API KEY" button — these pastel
-    # place pages use only free, no-key tiles, so "API key required" can never appear.
+    # ── Strip ALL Google base-map machinery ──────────────────────────────────────────────────
+    # These pastel place pages use only free, no-key tiles (CARTO / OSM / Esri). The Cleveland engine
+    # ships a full Google base-layer system (key-required g_* layers, an "ADD GOOGLE API KEY" button,
+    # setGoogle()/promptKey()/GoogleMutant loader, and a mountMap comment) — every piece carries the
+    # words "API key", and a stale saved base id can still route into it. So we remove the whole thing,
+    # not just the visible buttons, and the assert below FAILS the build if any Google surface survives
+    # (so a future engine edit can never silently re-introduce "API key required").
+    # 1) the three key-required base layer entries
     rep("""\n {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
  {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
  {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}""", "")
+    # 2) the "ADD GOOGLE API KEY" chip appended to the base filter
     rep("""').join('')
  +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';""", "').join('');")
+    # 3) the gchip class marker on the chip builder (no non-free bases remain)
+    rep("'<button class=\"chip'+(b.free?'':' gchip')+'\" data-v=\"'", "'<button class=\"chip\" data-v=\"'")
+    # 4) the mountMap base-layers comment (mentions the API key)
+    rep("""/* ── Base layers ────────────────────────────────────────────────────────────
+   Free layers need no key. Google needs your own Maps JavaScript API key and
+   is loaded through the officially sanctioned GoogleMutant plugin, because
+   scraping Google's raster tiles directly breaks their terms. Apple Maps has
+   no equivalent: MapKit JS needs a signed developer token, which a static
+   file cannot produce. The per-place \"Apple Maps\" links handle Apple instead. */""",
+        "/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */")
+    # 5) the GKEY localStorage read (only Google code used it)
+    new = re.sub(r"let GKEY=''; try\{GKEY=localStorage\.getItem\('[a-z]+_gkey'\)\|\|'';\}catch\(e\)\{\}\n", "", new)
+    # 6) the setBase() branch that hands non-free bases to Google
+    rep("  if(!b.free){ return setGoogle(b,manual); }\n", "")
+    # 7) the entire Google loader: setGoogle() + promptKey() (comment through promptKey's close)
+    new = re.sub(r"/\* Google, via the official Maps JavaScript API \+ GoogleMutant \*/\n"
+                 r".*?function promptKey\(\)\{.*?\n\}\n", "", new, flags=re.S)
+    # 8) the keyBtn click branch in the base-filter handler
+    rep("  if(b.id==='keyBtn'){promptKey();return;}\n", "")
+    # 9) simplify markBaseChips to the aria-pressed loop (drop g_/keyBtn logic)
+    new = re.sub(r"function markBaseChips\(\)\{.*?\n\}\n",
+                 "function markBaseChips(){\n"
+                 "  document.querySelectorAll('#baseFilter .chip').forEach(c=>{\n"
+                 "    c.setAttribute('aria-pressed', c.dataset.v===curBase);\n"
+                 "  });\n}\n", new, flags=re.S, count=1)
     rep("color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A","color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)")
     rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};","const AC = {%s:'%s'};"%(AID,color))
     rep("setView([41.4993,-81.6944],11)","setView([%s,%s],%d)"%(clat,clng,zoom))
@@ -246,6 +278,11 @@ LABELS.forEach(''',
     lo=min(x[0] for x in pins); hi=max(x[0] for x in pins); lo2=min(x[1] for x in pins); hi2=max(x[1] for x in pins)
     assert lo-0.001<=clat<=hi+0.001 and lo2-0.001<=clng<=hi2+0.001, "centre outside pins for %s"%slug
     assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>","",new)), "literal \\uXXXX escape leaked into visible HTML of "+slug
+    # No Google base-map surface may survive — a stray one means "API key required" can reappear.
+    # (fonts.googleapis.com stylesheet links are allowed; the Maps *tile* API and its key UI are not.)
+    forbidden=["API key","maps.googleapis.com","GoogleMutant","googleMutant","promptKey","setGoogle","g_road","ADD GOOGLE"]
+    hit=[t for t in forbidden if t in new]
+    assert not hit, "Google base-map surface survived in %s: %s — the strip in build-singapore-pages.py no longer matches the engine; fix it (see the 'Strip ALL Google base-map machinery' block)."%(slug,hit)
     open(os.path.join(OUTDIR,slug+".html"),"w",encoding="utf-8").write(new)
     return {"slug":slug,"name":name,"region":region,"nP":nP,"nF":nF,"total":nP+nF}
 

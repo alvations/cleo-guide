@@ -405,12 +405,7 @@ function mountMap(){
   mapMounted=true;
   document.getElementById('map').innerHTML='';
   map = L.map('map',{scrollWheelZoom:false}).setView([1.30972,103.90324],16);
-/* ── Base layers ────────────────────────────────────────────────────────────
-   Free layers need no key. Google needs your own Maps JavaScript API key and
-   is loaded through the officially sanctioned GoogleMutant plugin, because
-   scraping Google's raster tiles directly breaks their terms. Apple Maps has
-   no equivalent: MapKit JS needs a signed developer token, which a static
-   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
   o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
@@ -427,7 +422,6 @@ const BASES=[
 const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
 
 let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
-let GKEY=''; try{GKEY=localStorage.getItem('sg_gkey')||'';}catch(e){}
 
 function clearBase(){
   if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
@@ -437,7 +431,6 @@ function clearBase(){
 function setBase(id,manual){
   if(!map) return;
   const b=BASES.find(x=>x.id===id); if(!b) return;
-  if(!b.free){ return setGoogle(b,manual); }
   clearBase(); curBase=id; tileOK=false; tileErrors=0;
   document.getElementById('map').classList.toggle('osmdark',!!b.dark);
   document.getElementById('tilewarn').style.display='none';
@@ -458,64 +451,18 @@ function autoFallback(){
   setBase(FALLBACK[fbIdx]);
 }
 
-/* Google, via the official Maps JavaScript API + GoogleMutant */
-let gLoading=false;
-function setGoogle(b,manual){
-  if(!map) return;
-  if(!GKEY){ promptKey(); return; }
-  const go=()=>{
-    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
-      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
-    clearBase(); curBase=b.id;
-    document.getElementById('map').classList.remove('osmdark');
-    document.getElementById('tilewarn').style.display='none';
-    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
-    markBaseChips();
-  };
-  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
-  if(gLoading) return;
-  gLoading=true;
-  const s1=document.createElement('script');
-  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
-  s1.onload=()=>{
-    const s2=document.createElement('script');
-    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
-    s2.onload=()=>{gLoading=false;go();};
-    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
-    document.head.appendChild(s2);
-  };
-  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
-  document.head.appendChild(s1);
-}
-function promptKey(){
-  const k=prompt(
-    'Google base maps need your own Maps JavaScript API key.\n\n'+
-    'Google does not permit their map tiles to be used without going through their API, '+
-    'so there is no key-free way to do this legally.\n\n'+
-    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
-    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
-    'Paste your key here (it is stored only in this browser):', GKEY);
-  if(k==null) return;
-  GKEY=String(k).trim(); try{localStorage.setItem('sg_gkey',GKEY);}catch(e){}
-  markBaseChips();
-  if(GKEY) setBase('g_road',true);
-}
 
 function markBaseChips(){
   document.querySelectorAll('#baseFilter .chip').forEach(c=>{
     c.setAttribute('aria-pressed', c.dataset.v===curBase);
-    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
   });
-  const kb=document.getElementById('keyBtn');
-  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
 }
 
 document.getElementById('baseFilter').innerHTML =
-  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
+  BASES.map(b=>'<button class="chip" data-v="'+b.id+'"'
     +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
 document.getElementById('baseFilter').addEventListener('click',e=>{
   const b=e.target.closest('.chip'); if(!b) return;
-  if(b.id==='keyBtn'){promptKey();return;}
   setBase(b.dataset.v,true);
 });
 document.getElementById('tileRetry').onclick=()=>{

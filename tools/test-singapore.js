@@ -91,6 +91,13 @@ for (const f of pages) {
   // no literal \uXXXX / <\/ escape leaked into the VISIBLE HTML (outside <script>)
   const visible = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
   ok &= chk(f, 'no literal \\uXXXX escape in visible HTML', !/\\u[0-9a-fA-F]{4}|<\\\//.test(visible), (visible.match(/\\u[0-9a-fA-F]{4}/) || [''])[0]);
+  // SOURCE-LEVEL guard: no Google base-map machinery may survive anywhere in the file (not just the
+  // rendered DOM). The DOM-only checks above missed dormant setGoogle()/promptKey()/mountMap-comment
+  // code that still carried "API key" and could resurface — this is what let "API key required" ship.
+  // (fonts.googleapis.com stylesheet links are the only allowed google reference.)
+  const noFonts = html.replace(/https:\/\/fonts\.googleapis\.com/g, '');
+  const gTokens = ['API key', 'maps.googleapis.com', 'GoogleMutant', 'googleMutant', 'promptKey', 'setGoogle', 'g_road', 'ADD GOOGLE'].filter(t => noFonts.includes(t));
+  ok &= chk(f, 'no Google base-map surface anywhere in file', gTokens.length === 0, gTokens);
 
   if (ok) { pagesOK++; console.log(`  PASS  ${f.padEnd(24)} P${P} F${F}  markers=${markers}`); }
 }
