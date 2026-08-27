@@ -9,6 +9,8 @@ Penns Valley, Rothrock/Black Moshannon). Standard engine theme. Same pipeline + 
 - `PSU` — Penn State University Park campus (Old Main, Beaver Stadium, HUB, Pattee/Paterno, Palmer Museum, Arboretum, Berkey Creamery)
 - `BVL` — Bellefonte & Boalsburg (historic towns; Bellefonte Victorian district, Boalsburg = "birthplace of Memorial Day")
 - `HV` — Happy Valley & Centre County (Pine Grove Mills, Lemont, Penns Valley/Millheim, Rothrock SF, Black Moshannon SP, Penn's Cave)
+- `ALT` — Altoona & Blair County (Horseshoe Curve, Railroaders Memorial Museum, Lakemont Park/Leap-the-Dips, Baker Mansion, DelGrosso's, Tyrone; food: Tom & Joe's, Texas hot dogs, Original Italian Pizza, Boyer/Mallo Cup, DelGrosso's sauce)
+- `REG` — Central PA & the Alleghenies day trips (Huntingdon & Raystown Lake, Lincoln Caverns, Indian Caverns, Lewistown, Clearfield/Bilger's Rocks, Philipsburg, Tussey Mountain)
 
 Every area needs **≥1 tier-1 must-see** or the build asserts.
 

@@ -13,8 +13,10 @@ AREAS = [
  {"id":"PSU","n":"Penn State — University Park campus"},
  {"id":"BVL","n":"Bellefonte & Boalsburg (historic towns)"},
  {"id":"HV","n":"Happy Valley & Centre County (Pine Grove Mills, Lemont, Penns Valley)"},
+ {"id":"ALT","n":"Altoona & Blair County (Horseshoe Curve, Lakemont, Tyrone)"},
+ {"id":"REG","n":"Central PA & the Alleghenies (Huntingdon/Raystown, Lewistown, Clearfield)"},
 ]
-AC = {"DT":"#C0504D","PSU":"#41729F","BVL":"#9BBB59","HV":"#8064A2"}
+AC = {"DT":"#C0504D","PSU":"#41729F","BVL":"#9BBB59","HV":"#8064A2","ALT":"#E8973A","REG":"#4BACC6"}
 
 # ---- cuisine taxonomy — a college town's own canon ----
 # Penn State's signature strengths: the Berkey Creamery (its own ice cream), the grilled sticky at
@@ -58,14 +60,14 @@ CATS=[{"id":"ICON","n":"Iconic & Must-See"},{"id":"CAMPUS","n":"Penn State Campu
       {"id":"SPORT","n":"Stadiums & Sports"},{"id":"FAM","n":"Family & Kids"},
       {"id":"ODD","n":"Oddities & Hidden Gems"},{"id":"FREE","n":"Free to Visit"}]
 KW={
- "ICON":["old main","beaver stadium","nittany lion shrine","mount nittany","penn's cave","berkey creamery","the arboretum","happy valley"],
- "CAMPUS":["penn state","old main","hub","pattee","paterno library","palmer museum","all-sports museum","nittany lion","university park","willard","schwab","stuckeman"],
- "MUS":["museum","gallery","palmer museum","all-sports museum","frost entomological","pasto agricultural","boal mansion","columbus chapel","military museum","art museum","discovery space"],
- "PARK":["arboretum","garden","park","millbrook marsh","spring creek","duck pond","tudek","walnut springs","nature","marsh","botanic"],
- "OUTDOOR":["mount nittany","rothrock","black moshannon","whipple dam","penn's cave","woodward","trail","hike","state forest","state park","overlook","waterfall","bald eagle","greenwood furnace"],
- "HIST":["bellefonte","boalsburg","memorial day","historic","victorian","talleyrand","gamble mill","curtin","centre furnace","military museum","columbus chapel","national register","1800s","historic district"],
- "SPORT":["beaver stadium","bryce jordan","pegula","medlar field","sports","stadium","arena","nittany lion","white out"],
- "FAM":["penn's cave","creamery","discovery space","zoo","wildlife","arboretum children","carousel","farm","duck pond"],
+ "ICON":["old main","beaver stadium","nittany lion shrine","mount nittany","penn's cave","berkey creamery","the arboretum","happy valley","horseshoe curve","raystown lake"],
+ "CAMPUS":["penn state","old main","hub","pattee","paterno library","palmer museum","all-sports museum","nittany lion","university park","willard","schwab","stuckeman","penn state altoona","ivyside"],
+ "MUS":["museum","gallery","palmer museum","all-sports museum","frost entomological","pasto agricultural","boal mansion","columbus chapel","military museum","art museum","discovery space","railroaders memorial","baker mansion","fort roberdeau","swigart"],
+ "PARK":["arboretum","garden","park","millbrook marsh","spring creek","duck pond","tudek","walnut springs","nature","marsh","botanic","canoe creek","prince gallitzin"],
+ "OUTDOOR":["mount nittany","rothrock","black moshannon","whipple dam","penn's cave","woodward","trail","hike","state forest","state park","overlook","waterfall","bald eagle","greenwood furnace","raystown lake","lincoln caverns","indian caverns","bilger's rocks","trough creek","tussey"],
+ "HIST":["bellefonte","boalsburg","memorial day","historic","victorian","talleyrand","gamble mill","curtin","centre furnace","military museum","columbus chapel","national register","1800s","historic district","horseshoe curve","railroaders","baker mansion","u.s. hotel","fort roberdeau"],
+ "SPORT":["beaver stadium","bryce jordan","pegula","medlar field","sports","stadium","arena","nittany lion","white out","altoona curve","peoples natural gas field","tussey mountain"],
+ "FAM":["penn's cave","creamery","discovery space","zoo","wildlife","arboretum children","carousel","farm","duck pond","lakemont park","leap-the-dips","delgrosso","railroaders","swigart"],
 }
 ODD_SRC={"ATLASOBSCURA"}
 def collections(x, is_food):
@@ -92,6 +94,7 @@ SRC_LABEL={
  "COLLEGIAN":"THE DAILY COLLEGIAN","PSUNEWS":"PENN STATE NEWS","HVAB":"HAPPY VALLEY ADV. BUREAU",
  "VISITPA":"VISIT PA","UNCOVERINGPA":"UNCOVERING PA","PAEATS":"PA EATS","WTAJ":"WTAJ","WPSU":"WPSU",
  "GOPSU":"GOPSUSPORTS","ATLASOBSCURA":"ATLAS OBSCURA","WIKIPEDIA":"WIKIPEDIA","OFFICIAL":"OFFICIAL SITE",
+ "ALTOONAMIRROR":"ALTOONA MIRROR","ALLEGHENYMTS":"ALLEGHENY MTS CVB","EXPLOREALTOONA":"EXPLORE ALTOONA","RAYSTOWN":"RAYSTOWN LAKE",
  "NRHP":"NAT'L REGISTER","DCNR":"PA DCNR (PARKS)","JAMESBEARD":"JAMES BEARD","USATODAY":"USA TODAY 10BEST",
  "YELP":"YELP","TRIPADVISOR":"TRIPADVISOR","GOOGLE":"GOOGLE","OPENTABLE":"OPENTABLE",
 }
