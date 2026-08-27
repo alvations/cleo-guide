@@ -218,9 +218,25 @@ for x in food:
     for t in r["s"]: used_keys_F.add(t[0])
     F.append(r)
 
+# Shared institutional/brand sources: ONE canonical label + url, NEVER overridden by a per-city
+# SOURCES_*.json. Without this, a per-city outlet name bleeds across pages via the global srcmeta table
+# (e.g. a HCMC file relabelled the global "MICHELIN ★" entry "…Vietnam (HCMC)…", which then showed on the
+# Bangkok/Penang/KL pages too). The city-specific guide link stays per-place (the record's [key,url] pair).
+SHARED_SRC={
+ "MICHELIN":("MICHELIN Guide","https://guide.michelin.com/"),
+ "MICHELIN_BIB":("MICHELIN Guide — Bib Gourmand","https://guide.michelin.com/"),
+ "MICHELIN_STAR":("MICHELIN Guide — Star","https://guide.michelin.com/"),
+ "MICHELIN_GREEN":("MICHELIN Guide — Green Star","https://guide.michelin.com/"),
+ "UNESCO":("UNESCO World Heritage","https://whc.unesco.org/"),
+ "WIKIPEDIA":("Wikipedia","https://www.wikipedia.org/"),
+}
 def mk_table(keys):
     tbl={}
     for k in sorted(keys):
+        if k in SHARED_SRC:
+            nm,u=SHARED_SRC[k]
+            tbl[k]={"k":SRC_LABEL.get(k,k),"t":nm,"u":u,"l":nm}
+            continue
         m=srcmeta.get(k) or {}
         tbl[k]={"k":SRC_LABEL.get(k,k.replace('_',' ').upper()),
                 "t":m.get("name",SRC_LABEL.get(k,k)),

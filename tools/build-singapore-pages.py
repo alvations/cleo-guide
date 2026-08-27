@@ -262,7 +262,7 @@ for b in built: print("  %-22s %-26s S%d F%d"%(b["slug"],b["region"],b["nP"],b["
 
 # ── Singapore/index.html — the pastel hub ──
 # Only these slugs are clickable for now; everything else is greyed while we populate it.
-LIVE_SLUGS={"toa-payoh"}
+LIVE_SLUGS={"toa-payoh","ho-chi-minh-city"}
 LIVE_SLUG="toa-payoh"   # back-compat single check
 REGION_ORDER=["Singapore","Malaysia","Thailand","Vietnam","Indonesia","Philippines","Cambodia, Laos & Myanmar"]
 byreg=defaultdict(list)
