@@ -269,14 +269,22 @@ cards=[]
 for reg in REGION_ORDER:
     items=byreg.get(reg,[])
     if not items: continue
-    cards.append('<h2 class="reg">%s</h2>\n<div class="grid">'%esc(reg))
+    live = (reg=="Singapore")
+    hdr = esc(reg) if live else esc(reg)+' <span class="regnote">· expanding soon</span>'
+    cards.append('<h2 class="reg">%s</h2>\n<div class="grid">'%hdr)
     for b in items:
         bits=[]
         if b["nP"]: bits.append("%d sight%s"%(b["nP"],"" if b["nP"]==1 else "s"))
         if b["nF"]: bits.append("%d food"%b["nF"])
-        cards.append(
-          '<a class="pcard" href="%s.html"><span class="pn">%s</span>'
-          '<span class="pc">%s</span></a>'%(b["slug"],esc(b["name"])," · ".join(bits)))
+        meta=" · ".join(bits)
+        if live:
+            cards.append('<a class="pcard" href="%s.html"><span class="pn">%s</span>'
+                         '<span class="pc">%s</span></a>'%(b["slug"],esc(b["name"]),meta))
+        else:
+            # non-Singapore regions are not yet well populated — greyed out + unclickable for now
+            cards.append('<div class="pcard disabled" aria-disabled="true"><span class="pn">%s</span>'
+                         '<span class="pc">%s</span><span class="soon">Expanding soon</span></div>'
+                         %(esc(b["name"]),meta))
     cards.append("</div>")
 HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -301,6 +309,10 @@ HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
  .pcard{display:flex;flex-direction:column;gap:6px;padding:16px 16px 15px;background:var(--slab);border:1px solid var(--hair);border-radius:12px;text-decoration:none;color:var(--bone);transition:transform .12s,border-color .12s;}
  .pcard:hover{transform:translateY(-2px);border-color:var(--patina);}
+ .pcard.disabled{opacity:.5;filter:grayscale(.85);cursor:not-allowed;pointer-events:none;}
+ .pcard.disabled:hover{transform:none;border-color:var(--hair);}
+ .soon{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--rust);margin-top:3px;}
+ .regnote{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--bone-dim);text-transform:none;}
  .pn{font-family:"Archivo Black",sans-serif;font-size:15px;letter-spacing:-.01em;line-height:1.15;}
  .pc{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.04em;color:var(--bone-dim);}
  footer{margin-top:46px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);}

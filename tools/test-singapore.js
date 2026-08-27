@@ -96,12 +96,19 @@ for (const f of pages) {
 {
   const html = fs.readFileSync(path.join(DIR, 'index.html'), 'utf8');
   const { d, errs } = boot(html, false);
+  const allCards = [...d.querySelectorAll('.pcard')];
   const links = [...d.querySelectorAll('a.pcard')].map(a => a.getAttribute('href'));
-  chk('index.html', 'hub loads with no js errors', errs.length === 0, errs.slice(0, 2));
-  chk('index.html', 'hub links to place pages', links.length === pages.length, links.length);
+  const disabled = [...d.querySelectorAll('.pcard.disabled')];
   const missing = links.filter(h => !fs.existsSync(path.join(DIR, h)));
-  chk('index.html', 'every hub link resolves to a file', missing.length === 0, missing);
-  if (!missing.length && errs.length === 0 && links.length === pages.length) console.log(`  PASS  index.html (hub)     ${links.length} place links`);
+  // disabled (greyed) cards must NOT be links and must be non-interactive
+  const disabledAreLinks = disabled.filter(c => c.tagName === 'A' || c.getAttribute('href'));
+  let ok = true;
+  ok &= chk('index.html', 'hub loads with no js errors', errs.length === 0, errs.slice(0, 2));
+  ok &= chk('index.html', 'every place represented (link or greyed)', allCards.length === pages.length, allCards.length);
+  ok &= chk('index.html', 'every hub link resolves to a file', missing.length === 0, missing);
+  ok &= chk('index.html', 'greyed cards are not clickable links', disabledAreLinks.length === 0, disabledAreLinks.length);
+  ok &= chk('index.html', 'greyed cards exist (non-Singapore not yet live)', disabled.length > 0, disabled.length);
+  if (ok) console.log(`  PASS  index.html (hub)     ${links.length} live links, ${disabled.length} greyed`);
 }
 
 console.log(`\n${pagesOK}/${pages.length} place pages passed` + (failures ? `  —  >>> ${failures} FAILURES` : '  —  >>> ALL PASS'));
