@@ -1,0 +1,9 @@
+{"city":"Ho Chi Minh City","country":"Vietnam","scope":"Definitive Saigon street-food canon (dedupe wave)",
+"creators":[],
+"attach":[],
+"note":"No NEW verifiable famous-creator attributions were locked in during this wave: the shared session WebSearch budget (200/200) was exhausted before the creator/clip-verification searches could run. Mark Wiens (MIGRATIONOLOGY) and Daniel Food Diary (DFD) are already defined and attached in CREATORS_HCMC_CENTRAL.json; do not duplicate them here. Candidate creator leads to verify next wave: Mark Wiens has findable Saigon videos on bot chien (a market stall) and bun bo Hue - confirm whether either maps to Bot Chien Dat Thanh or Bun Bo Hue Dong Ba before attaching. Every place in this wave already clears the bar on editorial sources alone; creators would only be supplementary.",
+"rejected":[
+ {"name":"gtrip.vn / saigonvibes / mytour.vn / helpall247 / housingsgn 'best of' listicles","reason":"Anonymous SEO/content-mill roundups; popularity cannot be verified - measure-only at best, never a recommender."},
+ {"name":"Foody.vn / ShopeeFood / riviu.vn / wanderlog aggregations","reason":"User-generated aggregators, no authored editorial or verifiable creator following."},
+ {"name":"TripAdvisor / Trip.com / Google review counts","reason":"Ratings platforms - zero toward the >=2 credible bar; usable only to measure popularity."}
+]}
