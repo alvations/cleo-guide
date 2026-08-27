@@ -13,7 +13,13 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - [ ] index.html card relinked to the live page; docs/CITIES.md updated.
 
 ## State
-- **2026-08-26 LIVE @ 163 pins** (74 sights + 89 food) — `cities/singapore.html`, index card relinked.
+- **2026-08-26 RESTRUCTURED to ONE PAGE PER PLACE** (per user): `Singapore/` holds **43 town/city pages**
+  + a pastel hub `Singapore/index.html`. `Singapore/toa-payoh.html` = just Toa Payoh (opens on it). Built by
+  `tools/build-singapore-pages.py` (assigns each record to a town/city by address, injects only that place's
+  records, pastel theme, centres on the place's pins). The repo-root `index.html` stays **US cities only**.
+  The old single combined `cities/singapore.html` + `tools/build-singapore.py` were removed. `rebuild-city.py
+  singapore --build` now runs the per-place builder. Gates green (buildcheck on toa-payoh.html ✓).
+- **2026-08-26 LIVE @ 163 pins** (74 sights + 89 food) — data unchanged; now surfaced as per-place pages.
   183 candidates across 10 areas; opens on Toa Payoh (buildcheck ✓). Gates: geocheck PASS · statuscheck
   CONSISTENT · buildcheck PASS · sourcecheck's 1 single-source place dropped by GATE 1. Pastel light/dark
   theme verified. Sources kept separate per city (11 SOURCES_ + 9 CREATORS_ for SEA; per-cluster for SG).

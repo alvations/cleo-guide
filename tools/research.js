@@ -54,7 +54,7 @@ const PAGE_FOR = {
   'dayton-oh': path.join(__dirname, '..', 'cities', 'dayton.html'),
   'columbus-oh': path.join(__dirname, '..', 'cities', 'columbus.html'),
   'washington-dc': path.join(__dirname, '..', 'cities', 'washingtondc.html'),
-  'singapore': path.join(__dirname, '..', 'cities', 'singapore.html'),
+  'singapore': path.join(__dirname, '..', 'Singapore', 'toa-payoh.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {

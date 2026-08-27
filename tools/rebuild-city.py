@@ -27,6 +27,7 @@ CITY = {
 }
 BUILD = {  # city-key -> build script (defaults to build-<datasetstem>.py)
     "washington-dc": "build-washingtondc.py",
+    "singapore": "build-singapore-pages.py",   # per-place pages under Singapore/, not one combined page
 }
 
 def run(cmd, cwd=ROOT, check=True):
