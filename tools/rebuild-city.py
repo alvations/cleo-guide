@@ -24,6 +24,7 @@ CITY = {
     "san-francisco-ca":  ("san-francisco", "sanfrancisco.dataset.json"),
     "washington-dc": ("washington-dc", "washingtondc.dataset.json"),
     "singapore":     ("singapore",     "singapore.dataset.json"),
+    "state-college-pa": ("state-college", "statecollege.dataset.json"),
 }
 BUILD = {  # city-key -> build script (defaults to build-<datasetstem>.py)
     "washington-dc": "build-washingtondc.py",

@@ -55,6 +55,7 @@ const PAGE_FOR = {
   'columbus-oh': path.join(__dirname, '..', 'cities', 'columbus.html'),
   'washington-dc': path.join(__dirname, '..', 'cities', 'washingtondc.html'),
   'singapore': path.join(__dirname, '..', 'Singapore', 'toa-payoh.html'),
+  'state-college-pa': path.join(__dirname, '..', 'cities', 'statecollege.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -66,6 +67,7 @@ const DATASET_FOR = {
   'columbus-oh': path.join(__dirname, '..', 'data', 'columbus.dataset.json'),
   'washington-dc': path.join(__dirname, '..', 'data', 'washingtondc.dataset.json'),
   'singapore': path.join(__dirname, '..', 'data', 'singapore.dataset.json'),
+  'state-college-pa': path.join(__dirname, '..', 'data', 'statecollege.dataset.json'),
 };
 
 function loadGeocodes() {
