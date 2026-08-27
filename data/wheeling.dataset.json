@@ -1,0 +1,1816 @@
+{
+ "areas": [
+  {
+   "id": "WHL",
+   "n": "Wheeling, WV (downtown, Centre Market, Oglebay, Wheeling Island)"
+  },
+  {
+   "id": "WASH",
+   "n": "Washington, PA (Washington & Jefferson, LeMoyne House)"
+  },
+  {
+   "id": "OHV",
+   "n": "Ohio Valley — St. Clairsville & Belmont County OH"
+  },
+  {
+   "id": "CAM",
+   "n": "Cambridge & Guernsey County (Dickens Village, Salt Fork)"
+  },
+  {
+   "id": "ZAN",
+   "n": "Zanesville & the National Road to the Columbus edge (Muskingum, New Concord, Norwich)"
+  }
+ ],
+ "ac": {
+  "WHL": "#C0504D",
+  "WASH": "#8064A2",
+  "OHV": "#4BACC6",
+  "CAM": "#9BBB59",
+  "ZAN": "#E8973A"
+ },
+ "cuisines": [
+  {
+   "id": "ITAL",
+   "n": "Italian & Pizza"
+  },
+  {
+   "id": "FISH",
+   "n": "Fish & Seafood"
+  },
+  {
+   "id": "WVAPP",
+   "n": "WV / Appalachian (Pepperoni Rolls)"
+  },
+  {
+   "id": "DINER",
+   "n": "Diners & Breakfast"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "BBQ",
+   "n": "BBQ & Smokehouse"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "ICE",
+   "n": "Ice Cream & Sweets"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries & Beer"
+  },
+  {
+   "id": "CAFE",
+   "n": "Cafés & Coffee"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Local Favorite"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "HIST",
+   "n": "History & National Road"
+  },
+  {
+   "id": "ARCH",
+   "n": "Bridges & Architecture"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "GLASS",
+   "n": "Glass, Pottery & Craft"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Outdoors"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "Wheeling Suspension Bridge",
+   "ad": "1010 Main St over the Ohio River (US-40), Wheeling, WV 26003",
+   "w": "The oldest major long-span suspension bridge in the world still carrying traffic. Built by Charles Ellet Jr. in 1849 (1010 ft, then the world's longest); rebuilt 1856 after a tornado, stay cables later added to a Washington Roebling design. NRHP 1970, ASCE National Historic Civil Engineering Landmark, National Historic Landmark 1976.",
+   "k": "ARCH",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WVENCYCLOPEDIA",
+     "https://www.wvencyclopedia.org/entries/1183"
+    ],
+    [
+     "ASCE",
+     "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/wheeling-suspension-bridge"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wheeling_Suspension_Bridge"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "West Virginia Independence Hall",
+   "ad": "1528 Market St, Wheeling, WV 26003",
+   "w": "The birthplace of West Virginia and a National Historic Landmark. Built 1859-60 as a federal custom house; site of the Wheeling Conventions and first WV Constitutional Convention that made the state during the Civil War. Restored museum, free tours Tue-Sat.",
+   "k": "HIST",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WVCULTURE",
+     "https://wvculture.org/explore/wv-independence-hall/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/company/west-virginia-independence-hall-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/West_Virginia_Independence_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "Oglebay Resort & Park",
+   "ad": "465 Lodge Dr, Wheeling, WV 26003",
+   "w": "1,700-acre municipal resort on industrialist Earl Oglebay's former estate. Home to the Good Zoo (WV's only AZA-accredited zoo), the Carriage House Glass Museum (3,000+ pieces of Wheeling glass incl. the 5-ft Sweeney Punch Bowl), the Mansion Museum, gardens, golf, and the winter Festival of Lights (300+ acres, 1M+ lights).",
+   "k": "PARK",
+   "g": [
+    "ICON",
+    "MUS",
+    "GLASS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OGLEBAY",
+     "https://oglebay.com/explore/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/wheeling/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "Centre Market Historic District",
+   "ad": "2200 Market St, Wheeling, WV 26003",
+   "w": "Historic market district anchored by the 1853 Centre Market house, the oldest cast-iron market house in the country (older than the state itself). Two market buildings plus a walkable block of antique shops, eateries and salons; monthly First Friday events. NRHP historic district.",
+   "k": "MKT",
+   "g": [
+    "ICON",
+    "HIST",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/company/centre-market-historic-district/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Centre_Market_Square_Historic_District"
+    ],
+    [
+     "VISITWHEELING",
+     "https://wheelingcvb.com/shopping/centre-market/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Capitol Theatre",
+   "ad": "1928 Market St, Wheeling, WV 26003",
+   "w": "Restored 1928 downtown theatre and full entertainment complex; home of the Wheeling Symphony Orchestra and host to touring Broadway, comedy and concert acts (Jerry Seinfeld, Willie Nelson).",
+   "k": "MUS",
+   "g": [
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITWHEELING",
+     "https://wheelingcvb.com/attractions/the-kruger-street-toy-train-museum/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/town-guide-wheeling/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Kruger Street Toy & Train Museum",
+   "ad": "144 Kruger St, Wheeling, WV 26003",
+   "w": "Tens of thousands of toys and trains housed in a restored 1906 Victorian schoolhouse, with a 2,000+ sq ft operating model-train layout, rotating exhibits and guided tours. A family favorite.",
+   "k": "FAM",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITWHEELING",
+     "https://wheelingcvb.com/attractions/the-kruger-street-toy-train-museum/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/town-guide-wheeling/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Wheeling Heritage Trail",
+   "ad": "Riverfront trailheads along the Ohio River, Wheeling, WV 26003",
+   "w": "About 13.5 miles of paved rail-trail on former railroad beds, looping through the city and along the Ohio River for walking and cycling.",
+   "k": "PARK",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/wheeling/"
+    ],
+    [
+     "VISITWHEELING",
+     "https://wheelingcvb.com/attractions/the-kruger-street-toy-train-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WHL",
+   "n": "Oglebay Institute's Stifel Fine Arts Center",
+   "ad": "1330 National Rd, Wheeling, WV 26003",
+   "w": "\"Edemar,\" a 1910-14 Classical Revival mansion given to the Oglebay Institute in 1976 and run as an arts center with galleries, exhibitions and classes. Listed on the National Register of Historic Places (1992).",
+   "k": "MUS",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/company/oglebay-institutes-stifel-fine-arts-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Edemar"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WHL",
+   "n": "Monument Place (Shepherd Hall)",
+   "ad": "91 Kruger St, Elm Grove, Wheeling, WV 26003",
+   "w": "Stone plantation house built 1798 by Moses Shepherd on the old National Road, later renamed Monument Place. NRHP-listed. Owned by the Osiris Shrine Temple; interior access is limited (events/appointment) rather than a regular public museum.",
+   "k": "HIST",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shepherd_Hall"
+    ],
+    [
+     "WEELUNK",
+     "https://weelunk.com/osiris-shriners-monument-place-storied-saga-service/"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/buildings/WV-01-WH73"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WHL",
+   "n": "Wheeling Island Historic District",
+   "ad": "Wheeling Island (across the Suspension Bridge), Wheeling, WV 26003",
+   "w": "A large residential island in the Ohio River with 1,110+ contributing buildings in Italianate, Queen Anne and Craftsman styles; NRHP historic district (1992). Also home to the Wheeling Island racetrack and casino.",
+   "k": "MKT",
+   "g": [
+    "HIST",
+    "PARK",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wheeling_Island_Historic_District"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/wheeling/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WASH",
+   "n": "Meadowcroft Rockshelter & Historic Village",
+   "ad": "401 Meadowcroft Rd, Avella, PA 15312",
+   "w": "A National Historic Landmark rock overhang holding evidence of human habitation ~16,000-19,000 years ago — the oldest known site of human habitation in North America. Operated by the Heinz History Center; interpretive villages (16th-c. Indian village, 18th-c. trading post, 19th-c. village). Seasonal (roughly May-Oct).",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "HEINZHISTORY",
+     "https://www.heinzhistorycenter.org/visit/meadowcroft/"
+    ],
+    [
+     "NATIONALTRUST",
+     "https://savingplaces.org/distinctive-destinations/meadowcroft-rockshelter-and-historic-village"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/visiting-meadowcroft-rockshelter"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WASH",
+   "n": "LeMoyne House",
+   "ad": "49 E Maiden St, Washington, PA 15301",
+   "w": "1812 home of abolitionist Dr. F. Julius LeMoyne — Pennsylvania's first National Historic Landmark of the Underground Railroad. LeMoyne also built the Western Hemisphere's first crematory (tourable). Run by the Washington County Historical Society.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITWASHCOPA",
+     "https://www.visitwashingtoncountypa.com/blog/post/museum-historical-site-openings/"
+    ],
+    [
+     "WCHSPA",
+     "https://wchspa.org/2025/03/03/top-10-must-visit-history-museums-in-washington-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WASH",
+   "n": "Pennsylvania Trolley Museum",
+   "ad": "1 Museum Rd, Washington, PA 15301",
+   "w": "A ~4-mile scenic round-trip aboard restored streetcars from a collection of nearly 50 cars (PA, WV, OH and beyond), plus a Visitor Education Center with a trolley simulator, exhibits and film. A top family stop.",
+   "k": "FAM",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITWASHCOPA",
+     "https://www.visitwashingtoncountypa.com/blog/post/museum-historical-site-openings/"
+    ],
+    [
+     "WCHSPA",
+     "https://wchspa.org/2025/03/03/top-10-must-visit-history-museums-in-washington-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WASH",
+   "n": "David Bradford House",
+   "ad": "175 S Main St, Washington, PA 15301",
+   "w": "1788 stone townhouse of David Bradford, a leader of the 1794 Whiskey Rebellion. Restored house museum with period furnishings, hand-embroidered wainscot (1773) and a children's room.",
+   "k": "HIST",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/David_Bradford_House"
+    ],
+    [
+     "VISITWASHCOPA",
+     "https://www.visitwashingtoncountypa.com/blog/post/museum-historical-site-openings/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WASH",
+   "n": "Washington County Courthouse",
+   "ad": "1 S Main St, Washington, PA 15301",
+   "w": "A 1900 Beaux-Arts courthouse by architect Frederick J. Osterling, crowned by a 150-ft dome topped with a statue of George Washington, with a grand central stairway and 40-ft stained-glass ceiling. NRHP 1974; still in use.",
+   "k": "ARCH",
+   "g": [
+    "ARCH",
+    "GLASS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_County_Courthouse_(Pennsylvania)"
+    ],
+    [
+     "OBSERVERREPORTER",
+     "https://www.observer-reporter.com/liwc/2016/oct/19/the-washington-county-courthouse-has-a-decorated-history-and-a-decorated-interior/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OHV",
+   "n": "Great Stone Viaduct",
+   "ad": "34th St, Bellaire, OH 43906",
+   "w": "A monumental sandstone railroad viaduct (1871) with 43 stone arches — the 37 ring stones symbolize the 37 states of the reunited Union. Built by the B&O/Central Ohio Railroads as the \"Great Shortline to the West.\" NRHP 1976; walking trail opened to the public 2022.",
+   "k": "ARCH",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITBELMONT",
+     "https://www.visitbelmontcounty.com/visit/great-stone-viaduct/"
+    ],
+    [
+     "OHIOORG",
+     "https://ohio.org/wps/portal/gov/tourism/things-to-do/destinations/great-stone-viaduct-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OHV",
+   "n": "Blaine Hill \"S\" Bridge",
+   "ad": "Historic National Rd (US-40), Blaine, OH 43909",
+   "w": "Built 1828, the oldest bridge in Ohio and the longest (345 ft) surviving three-arch sandstone \"S\" bridge on the National Road — the first federally funded highway. Named Ohio's official Bicentennial Bridge in 2003.",
+   "k": "HIST",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "FHWA",
+     "https://highways.dot.gov/highway-history/general-highway-history/back-time/ohios-historic-blaine-hill-bridge"
+    ],
+    [
+     "VISITBELMONT",
+     "https://www.visitbelmontcounty.com/visit/1828-blaine-bridge/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Blaine_Hill_%22S%22_Bridge"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OHV",
+   "n": "Belmont County Victorian Mansion Museum",
+   "ad": "532 N Chestnut St, Barnesville, OH 43713",
+   "w": "A 26-room Romanesque Revival mansion (1888-93, the Bradfield house), formerly the \"Gay '90s\" museum, filled with period decoration. Open year-round by appointment; especially popular as a holiday destination.",
+   "k": "MUS",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BELMONTMUSEUM",
+     "https://belmontcountymuseum.com/"
+    ],
+    [
+     "WTRF",
+     "https://www.wtrf.com/barnesville/belmont-county-victorian-mansion-museum-is-a-holiday-destination/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "OHV",
+   "n": "Dysart Woods",
+   "ad": "State Route 147, Belmont, OH 43718",
+   "w": "The largest remaining old-growth forest tract in southeastern Ohio — a 50-acre core of 300-400-year-old oaks (some over 4 ft around) within a 455-acre preserve, the only known remnant mixed-mesophytic forest in Ohio. Hiking trails; part of the Old-Growth Forest Network.",
+   "k": "PARK",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dysart_Woods"
+    ],
+    [
+     "OLDGROWTH",
+     "https://www.oldgrowthforest.net/oh-dysart-woods"
+    ],
+    [
+     "VISITBELMONT",
+     "https://www.visitbelmontcounty.com/visit/dysart-woods-park/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAM",
+   "n": "Dickens Victorian Village",
+   "ad": "708 Wheeling Ave, Cambridge, OH 43725",
+   "w": "Each holiday season downtown Cambridge is transformed into a Dickens-era streetscape of life-size Victorian character scenes, capped by the Guernsey County Courthouse light-and-music show (85,000+ lights). Seasonal: Nov 1 - Jan 1.",
+   "k": "ICON",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "DICKENSVILLAGE",
+     "https://dickensvictorianvillage.com/"
+    ],
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/blog/guernsey-county-an-ohio-road-trip-full-of-surprises/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAM",
+   "n": "Salt Fork State Park",
+   "ad": "14755 Cadiz Rd, Lore City, OH 43755",
+   "w": "Ohio's largest state park — 17,229 acres of land and 2,952 of water, with a lodge, an 18-hole golf course, a 2,500-ft swimming beach, marinas, a nature center and extensive hiking/equestrian trails.",
+   "k": "PARK",
+   "g": [
+    "ICON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OHIODNR",
+     "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/salt-fork-state-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Salt_Fork_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAM",
+   "n": "Mosser Glass",
+   "ad": "9279 Cadiz Rd, Cambridge, OH 43725",
+   "w": "A working handcrafted-pressed-glass factory (40+ years) offering weekday factory-floor tours where you watch artisans press glass, plus a showroom. Factory tours Mon-Fri (morning/early-afternoon windows); showroom Mon-Fri.",
+   "k": "GLASS",
+   "g": [
+    "GLASS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/blog/guernsey-county-an-ohio-road-trip-full-of-surprises/"
+    ],
+    [
+     "OHIOHEALTH",
+     "https://blog.ohiohealth.com/fun-things-to-do-in-cambridge-ohio/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAM",
+   "n": "National Museum of Cambridge Glass",
+   "ad": "136 S 9th St, Cambridge, OH 43725",
+   "w": "Home of the National Cambridge Collectors, with 10,000+ pieces of the world-famous Cambridge Glass Company's elegant glassware and interactive exhibits. Seasonal: Apr-Oct (Wed-Sun), limited winter hours.",
+   "k": "GLASS",
+   "g": [
+    "ARCH",
+    "MUS",
+    "GLASS"
+   ],
+   "s": [
+    [
+     "CAMBRIDGEGLASS",
+     "https://cambridgeglass.org/"
+    ],
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/blog/guernsey-county-an-ohio-road-trip-full-of-surprises/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAM",
+   "n": "Hopalong Cassidy Museum",
+   "ad": "627 Wheeling Ave, Cambridge, OH 43725",
+   "w": "Cambridge was the birthplace of William Boyd, the actor who played cowboy hero Hopalong Cassidy. A downtown Hopalong Cassidy trail of memorabilia, a mural and a statue, with an exhibit at the county tourist information center.",
+   "k": "MUS",
+   "g": [
+    "ARCH",
+    "MUS",
+    "PARK",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/site-map"
+    ],
+    [
+     "OHIOHEALTH",
+     "https://blog.ohiohealth.com/fun-things-to-do-in-cambridge-ohio/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CAM",
+   "n": "Great Guernsey Trail",
+   "ad": "Trailhead near Cambridge / Old Washington, Cambridge, OH 43725",
+   "w": "A ~15-mile multi-use rail-trail for hiking, biking and horseback riding through forests and rolling countryside between Cambridge and Old Washington.",
+   "k": "PARK",
+   "g": [
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/blog/guernsey-county-an-ohio-road-trip-full-of-surprises/"
+    ],
+    [
+     "OHIOHEALTH",
+     "https://blog.ohiohealth.com/fun-things-to-do-in-cambridge-ohio/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ZAN",
+   "n": "Zanesville Y-Bridge",
+   "ad": "Linden Ave at the Muskingum & Licking Rivers (US-40), Zanesville, OH 43701",
+   "w": "A rare Y-shaped, three-way bridge at the confluence of the Licking and Muskingum Rivers — you can drive onto it and change direction mid-span. Carries US-40 (the National Road); the current span dates to 1902 and is famous enough that pilots recognize it from the air.",
+   "k": "ICON",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Y-Bridge_(Zanesville,_Ohio)"
+    ],
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Explore/Destinations/105/Alan-Cottrill-Sculpture-Studio--Gallery/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ZAN",
+   "n": "The Wilds",
+   "ad": "14000 International Rd, Cumberland, OH 43732",
+   "w": "A ~10,000-acre wildlife conservation center on reclaimed strip-mine land, run by the Columbus Zoo — rhinos, giraffes, cheetahs and 25+ rare/endangered species roaming in mixed-species pastures. Open-air safaris, zipline, horseback and fishing tours. Seasonal (open daily May-Sept, weekends Oct); reservations required.",
+   "k": "PARK",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "THEWILDS",
+     "https://www.thewilds.org/safaris-and-tours"
+    ],
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Explore/Destinations/303/The-Wilds/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ZAN",
+   "n": "National Road & Zane Grey Museum",
+   "ad": "8850 East Pike, Norwich, OH 43767",
+   "w": "An Ohio History Connection museum with three galleries: the National Road (America's first federally funded highway), Western novelist Zane Grey (a Zanesville native descended from National Road builder Ebenezer Zane), and Ohio art pottery.",
+   "k": "HIST",
+   "g": [
+    "HIST",
+    "MUS",
+    "GLASS"
+   ],
+   "s": [
+    [
+     "OHIOHISTORY",
+     "https://www.ohiohistory.org/visit/browse-historical-sites/national-road-zane-grey-museum/"
+    ],
+    [
+     "NSBF",
+     "https://nsbfoundation.com/nb/historic-national-road-oh/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ZAN",
+   "n": "John & Annie Glenn Museum",
+   "ad": "72 W Main St, New Concord, OH 43762",
+   "w": "The boyhood home of astronaut and senator John Glenn — the first American to orbit Earth — presented as a costumed living-history tour of 1930s New Concord. Part of the Ohio History Connection system.",
+   "k": "HIST",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "OHIOHISTORY",
+     "https://www.ohiohistory.org/road-trippin-with-truda-national-road-zane-grey-museum-and-the-john-annie-glenn-museum/"
+    ],
+    [
+     "WHIZ",
+     "https://whiznews.com/2016/08/27/john-glenn-museum-joins-states-historical-system/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ZAN",
+   "n": "Zanesville Museum of Art",
+   "ad": "620 Military Rd, Zanesville, OH 43701",
+   "w": "A NARM-affiliated art museum with American and European collections and, above all, 700+ examples of Zanesville-area art pottery — Weller, Roseville, Rookwood, J.B. Owens — celebrating the region's \"Clay City\" heritage.",
+   "k": "MUS",
+   "g": [
+    "HIST",
+    "MUS",
+    "GLASS"
+   ],
+   "s": [
+    [
+     "OHIOORG",
+     "https://ohio.org/things-to-do/destinations/zanesville-museum-of-art"
+    ],
+    [
+     "CERAMICS",
+     "https://ceramics.org/ceramic-tech-today/ohio-creativity-trail-zanesville-pottery-and-zanesville-museum-of-art/"
+    ],
+    [
+     "OHIOTRAVELER",
+     "https://www.ohiotraveler.com/zanesville-museum-of-art/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ZAN",
+   "n": "Alan Cottrill Sculpture Studio & Gallery",
+   "ad": "110 S 6th St, Zanesville, OH 43701",
+   "w": "The world's largest bronze-sculpture exhibition of any living sculptor — 300+ works in a 17,000 sq ft downtown studio/gallery where you can watch Cottrill (sculptor of Columbus's Brutus Buckeye) at work. Open Mon-Sat, suggested donation.",
+   "k": "MUS",
+   "g": [
+    "MUS",
+    "GLASS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Explore/Destinations/105/Alan-Cottrill-Sculpture-Studio--Gallery/"
+    ],
+    [
+     "OHIOMAGAZINE",
+     "https://www.ohiomagazine.com/ohio-life/article/how-sculptor-alan-cottrill-shaped-his-own-path"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alan_Cottrill"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ZAN",
+   "n": "Lorena Sternwheeler",
+   "ad": "Zane's Landing Park, N 5th St, Zanesville, OH 43701",
+   "w": "A replica sternwheel riverboat offering sightseeing and dinner excursions on the Muskingum River from Zane's Landing Park at the west end of Market Street. Seasonal cruises.",
+   "k": "FAM",
+   "g": [
+    "PARK",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Itineraries/Making-Memories-With-Families/"
+    ],
+    [
+     "OHIOTRAVELER",
+     "https://www.ohiotraveler.com/the-wilds/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ZAN",
+   "n": "Blue Rock State Park",
+   "ad": "7924 Cutler Lake Rd, Blue Rock, OH 43720",
+   "w": "A quiet 322-acre state park around Cutler Lake, surrounded by 4,573 acres of Blue Rock State Forest, ~11 miles southeast of Zanesville — swimming, fishing, camping and hiking.",
+   "k": "PARK",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "OHIODNR",
+     "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/blue-rock-state-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Blue_Rock_State_Park"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "DiCarlo's Pizza",
+   "ad": "1311 Main St, Wheeling, WV 26003",
+   "w": "The original Wheeling home of Ohio Valley-style pizza: the DiCarlo brothers opened here in 1949 and the cold-cheese-on-hot-crust method became a regional icon.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/dicarlos-icon/"
+    ],
+    [
+     "INTELLIGENCER",
+     "https://www.theintelligencer.net/life/features/2017/06/dicarlos-pizza-offers-iconic-taste-for-more-than-70-years/"
+    ],
+    [
+     "WVPUBLIC",
+     "https://wvpublic.org/story/arts-culture/wheeling-is-crazy-for-cold-cheese-pizza-but-which-restaurant-serves-the-best-slice/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "Coleman's Fish Market",
+   "ad": "2226 Market St (Centre Market), Wheeling, WV 26003",
+   "w": "A Centre Market institution since 1914 turning out 1,000+ fish sandwiches a day (2,500 on Fridays); called the country's best fish sandwich by Gourmet and featured on Food Network.",
+   "cz": [
+    "FISH"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/colemans-still-fresh-100-years/"
+    ],
+    [
+     "VISITWHEELING",
+     "https://wheelingcvb.com/dining/colemans-fish-market/"
+    ],
+    [
+     "FOODNETWORK",
+     "https://www.foodnetwork.com/restaurants/wv/wheeling/colemans-fish-market-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "Figaretti's Restaurant",
+   "ad": "1035 Mount de Chantal Rd, Wheeling, WV 26003",
+   "w": "A 2026 James Beard America's Classics winner; family-run since 1948 from Anna Figaretti's garage-made sauce, and previously named the best Italian restaurant in West Virginia.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/james-beard-americas-classics-award-winners-2026"
+    ],
+    [
+     "INTELLIGENCER",
+     "https://www.theintelligencer.net/news/community/2017/11/figarettis-named-best-italian-eatery-in-west-virginia/"
+    ],
+    [
+     "WVPUBLIC",
+     "https://wvpublic.org/story/arts-culture/wheeling-restaurant-recognized-as-american-classic/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WHL",
+   "n": "Vagabond Kitchen",
+   "ad": "1201 Market St, Wheeling, WV 26003",
+   "w": "Downtown gastropub from chef Matt Welsch — one of WV's inaugural Chef Ambassadors and a Food Network competition winner — serving locally sourced New American takes on Appalachian comfort food.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/vagabond-chef-wins-food-network/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/west-virginia-chef-ambassadors/"
+    ],
+    [
+     "LEDENEWS",
+     "https://ledenews.com/vagabond-kitchen-return-trip-just-as-good/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Later Alligator",
+   "ad": "2145 Market St, Wheeling, WV 26003",
+   "w": "A cornerstone of Center Wheeling's revival since 2006, set in an 1860 building that won a $50,000 National Trust Backing Historic Small Restaurants grant; known for its wide crepe menu.",
+   "cz": [
+    "CAFE"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/holy-crepes-lady-gaga-in-the-house/"
+    ],
+    [
+     "INTELLIGENCER",
+     "https://www.theintelligencer.net/news/community/2025/08/later-alligator-receives-50000-historic-preservation-grant-for-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Sarah's on Main",
+   "ad": "2122 Main St, Wheeling, WV 26003",
+   "w": "Chef Sarah Lydick's downtown bakery-cafe (opened 2018 in the former Lebanon Bakery) that won the Show of Hands pitch contest and quickly became one of Wheeling's most beloved spots.",
+   "cz": [
+    "ICE",
+    "CAFE"
+   ],
+   "s": [
+    [
+     "INTELLIGENCER",
+     "https://www.theintelligencer.net/the-ohio-valleys-women-of-progress/2024/02/sarah-lydick-rises-to-occasion-with-sarahs-on-main/"
+    ],
+    [
+     "WTRF",
+     "https://www.wtrf.com/community/new-restaurant-in-wheeling-sarahs-on-main-getting-rave-reviews-loyal-customers/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Avenue Eats",
+   "ad": "1230 Water St, Wheeling, WV 26003",
+   "w": "Locally sourced American fare in the restored Waterfront Hall on the Wheeling riverfront, known for its burgers, fries and a menu that shifts with the seasons.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/avenue-eats-celebrates-second-anniversary/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/company/avenue-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "Greco's",
+   "ad": "45 Washington Ave, Wheeling, WV 26003",
+   "w": "A longtime Wheeling neighborhood Italian spot whose 'world famous' GrecoRoni pepperoni rolls are a local tradition — Weelunk's pick in the best-pepperoni-roll conversation.",
+   "cz": [
+    "WVAPP",
+    "ITAL"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/the-best-pepperoni-roll-in-the-ohio-valley/"
+    ],
+    [
+     "WVLIVING",
+     "https://wvliving.com/ultimate-pepperoni-roll-road-trip/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WHL",
+   "n": "The Alpha Tavern (formerly Ye Olde Alpha)",
+   "ad": "50 Carmel Rd, Wheeling, WV 26003",
+   "w": "The Edgwood site that was Ye Olde Alpha for nearly 90 years (est. 1932); after the old building came down it was rebuilt and revived by the Sparachanes as The Alpha Tavern in 2020.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INTELLIGENCER",
+     "https://www.theintelligencer.net/news/top-headlines/2020/10/undos-boys-revive-wheeling-landmark/"
+    ],
+    [
+     "WVPRESS",
+     "https://wvpress.org/wvpa-sharing/ye-olde-alpha-historic-wheeling-restaurant-to-reopen-after-revitalization/"
+    ],
+    [
+     "WEELUNK",
+     "https://weelunk.com/the-alpha-ye-olde-memories/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "WHL",
+   "n": "Wheeling Brewing Company — CLOSED",
+   "ad": "2247 Market St (Centre Market), Wheeling, WV 26003",
+   "w": "Centre Market brewpub founded 2014 that helped resurrect Wheeling's brewing heritage and anchor downtown revival; now permanently closed but a notable chapter of the district's comeback.",
+   "closed": true,
+   "cz": [
+    "BREW"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "WEELUNK",
+     "https://weelunk.com/partnership-a-boon-for-wheeling-craft-brewer/"
+    ],
+    [
+     "LEDENEWS",
+     "https://ledenews.com/wheeling-brewing-co-hoping-to-survive/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/company/wheeling-brewing-company/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WASH",
+   "n": "Shorty's Lunch",
+   "ad": "34 W Chestnut St, Washington, PA 15301",
+   "w": "A Washington, PA hot-dog lunch counter since the early 1930s, run by the Alexas family; its chili-topped 'everything' dog commands the kind of loyalty most brands only dream of.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "OBSERVERREPORTER",
+     "https://www.observer-reporter.com/liwc/2022/jun/03/lunch-is-served-at-shortys-for-years-and-counting/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shorty's_Lunch"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WASH",
+   "n": "Angelo's Restaurant",
+   "ad": "2109 N Franklin Dr, Washington, PA 15301",
+   "w": "Founded 1939 as the West Chestnut Spaghetti Inn by Palermo immigrants Angelo and Giacomina Passalacqua, it grew into Washington's most beloved Italian institution — 8+ decades and still family-run.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "PITTSBURGHMAG",
+     "https://www.pittsburghmagazine.com/after-8-decades-angelos-restaurant-in-washington-is-still-a-family-affair/"
+    ],
+    [
+     "OBSERVERREPORTER",
+     "https://www.observer-reporter.com/business/2014/mar/16/truly-tasteful-after-years-and-two-locations-angelos-restaurant-still-pleasing-customers/"
+    ],
+    [
+     "WASHINGTONCOUNTY",
+     "https://www.visitwashingtoncountypa.com/listing/angelo%E2%80%99s-restaurant/280/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WASH",
+   "n": "Century Inn",
+   "ad": "2175 E National Pike (US-40), Scenery Hill, PA 15360",
+   "w": "Built 1794 as Hill's Tavern, the oldest continuously operating inn on the National Road; on the National Register, it sheltered Presidents Washington, Jackson and Polk and reopened after a 2015 fire.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hill's_Tavern"
+    ],
+    [
+     "EXPLOREPAHISTORY",
+     "https://explorepahistory.com/attraction.php?id=1-B-219A.html"
+    ],
+    [
+     "WASHINGTONCOUNTY",
+     "https://www.visitwashingtoncountypa.com/listing/century-inn/361/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WASH",
+   "n": "The Union Grill",
+   "ad": "13 E Wheeling St, Washington, PA 15301",
+   "w": "Opened 1967 and named for the stonemasons and union workers who filled its tavern; a downtown Washington fixture for Italian-American cooking and an Observer-Reporter Best-of-the-Best regular.",
+   "cz": [
+    "US",
+    "ITAL"
+   ],
+   "s": [
+    [
+     "OBSERVERREPORTER",
+     "https://www.observer-reporter.com/sponsored/2020/mar/01/business-profiles-union-grill/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Union_Grill"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WASH",
+   "n": "Sarris Candies",
+   "ad": "511 Adams Ave, Canonsburg, PA 15317",
+   "w": "Frank Sarris started making chocolate in his Canonsburg basement in 1960; the block-long factory store and Ice Cream Parlour is a Washington County landmark that draws visitors from across the region.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sarris_Candies"
+    ],
+    [
+     "PABUCKETLIST",
+     "https://pabucketlist.com/exploring-sarris-candies-in-washington-county-pa/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OHV",
+   "n": "Mehlman's Cafeteria",
+   "ad": "51800 National Rd E, St. Clairsville, OH 43950",
+   "w": "A fourth-generation Ohio Valley staple on the National Road since 1961, serving Mary Mehlman's scratch-made favorites; WTRF and others have called it among the best cafeterias in Ohio.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "WTRF",
+     "https://www.wtrf.com/belmont-county/this-local-ohio-cafeteria-was-called-the-best-in-the-state/"
+    ],
+    [
+     "OHIOORG",
+     "https://ohio.org/things-to-do/destinations/mehlmans-cafeteria-2"
+    ],
+    [
+     "LEDENEWS",
+     "https://ledenews.com/mehlmans-cafeteria-an-upper-ohio-valley-staple/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OHV",
+   "n": "Undo's West",
+   "ad": "51130 National Rd, St. Clairsville, OH 43950",
+   "w": "The St. Clairsville outpost of the Undo's family (original in Benwood, WV, since 1953), a Belmont County local favorite for Italian cooking with a valley view and a sports bar.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "VISITBELMONT",
+     "https://www.visitbelmontcounty.com/where-the-locals-eat/"
+    ],
+    [
+     "WVTOURISM",
+     "https://wvtourism.com/company/undos/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OHV",
+   "n": "Gulla's Lunch",
+   "ad": "3073 Belmont St, Bellaire, OH 43906",
+   "w": "An 85-year Bellaire hot-dog institution now in its fourth Gulla generation, built on a great-grandmother's Sicilian chili-sauce recipe brought over from the old country.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "VISITBELMONT",
+     "https://www.visitbelmontcounty.com/ba_type/local-favorites/"
+    ],
+    [
+     "OHIOTRAVELER",
+     "https://www.ohiotraveler.com/the-gulla-dog/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAM",
+   "n": "Theo's Restaurant",
+   "ad": "632 Wheeling Ave, Cambridge, OH 43725",
+   "w": "Downtown Cambridge on the National Road since 1931 (as Coney Island Lunch), family-run by the Theodosopoulos family since 1963; its coney dogs have been a mainstay for over 90 years.",
+   "cz": [
+    "DINER"
+   ],
+   "s": [
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/things-to-do/theos-restaurant/"
+    ],
+    [
+     "EXPLOREROUTE40",
+     "https://exploreroute40.wordpress.com/2013/01/08/mile-180-theos-restaurant-cambridge-ohio/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAM",
+   "n": "Kennedy's Bakery",
+   "ad": "1025 Wheeling Ave, Cambridge, OH 43725",
+   "w": "A from-scratch Cambridge bakery running on the same family recipes since 1925; its Chinese tea cookies are so beloved that fans have them shipped as far as Germany.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "VISITGUERNSEY",
+     "https://visitguernseycounty.com/things-to-do/kennedys-bakery-the-original/"
+    ],
+    [
+     "BILLONTHEROAD",
+     "https://billontheroad.com/cambridge-oh-kennedys-bakery-mosser-glass/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ZAN",
+   "n": "Tom's Ice Cream Bowl",
+   "ad": "532 McIntire Ave, Zanesville, OH 43701",
+   "w": "A Zanesville institution since 1948, named after a customer who demanded his sundae be served in a soup bowl; a USA Today-recognized ice-cream stop known for its Tin Roof sundaes.",
+   "cz": [
+    "ICE"
+   ],
+   "s": [
+    [
+     "OHIOORG",
+     "https://ohio.org/travel-inspiration/articles/heres-the-scoop-on-toms-ice-cream-bowl"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tom's_Ice_Cream_Bowl"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ZAN",
+   "n": "Adornetto's Pizzeria",
+   "ad": "2224 Maple Ave, Zanesville, OH 43701",
+   "w": "On Zanesville's Maple Avenue since 1958 and still family-run; Pizza Today has ranked it among the top 100 independently owned pizzerias in the nation.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Explore/Destinations/55/Adornettos'-Pizzeria/"
+    ],
+    [
+     "PIZZATODAY",
+     "https://www.pizzatoday.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ZAN",
+   "n": "Weasel Boy Brewing Company",
+   "ad": "126 Muskingum Ave, Zanesville, OH 43701",
+   "w": "The first brewery to operate in Zanesville since Prohibition (opened 2007 by Jay and Lori Wince) in a riverside brick building; an Ohio Magazine-featured craft brewpub known for its imperial stout.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "OHIOMAG",
+     "https://www.ohiomagazine.com/travel/article/craft-masters"
+    ],
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Explore/Destinations/165/Weasel-Boy-Brewing-Company/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ZAN",
+   "n": "Old Market House Inn — CLOSED",
+   "ad": "424 Market St, Zanesville, OH 43701",
+   "w": "A downtown Zanesville steak-and-Italian mainstay for 51 years; it closed in May 2025 and the Market Street space is being reborn under new ownership as the upscale Market Street Prime.",
+   "closed": true,
+   "cz": [
+    "ITAL",
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMESRECORDER",
+     "https://x.com/TimesRecorder/status/1925884588695425306"
+    ],
+    [
+     "WHIZNEWS",
+     "https://www.whiznews.com/market-street-prime-set-to-bring-upscale-dining-to-downtown-zanesville/"
+    ],
+    [
+     "VISITZANESVILLE",
+     "https://www.visitzanesville.com/Explore/Destinations/142/Old-Market-House-Inn/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ASCE": {
+   "k": "ASCE",
+   "t": "American Society of Civil Engineers (Historic Landmarks)",
+   "u": "https://www.asce.org",
+   "l": "American Society of Civil Engineers (Historic Landmarks)"
+  },
+  "BELMONTMUSEUM": {
+   "k": "BELMONTMUSEUM",
+   "t": "Belmont County Victorian Mansion Museum (official)",
+   "u": "https://belmontcountymuseum.com",
+   "l": "Belmont County Victorian Mansion Museum (official)"
+  },
+  "CAMBRIDGEGLASS": {
+   "k": "CAMBRIDGEGLASS",
+   "t": "National Museum of Cambridge Glass / National Cambridge Collectors",
+   "u": "https://cambridgeglass.org",
+   "l": "National Museum of Cambridge Glass / National Cambridge Collectors"
+  },
+  "CERAMICS": {
+   "k": "CERAMICS",
+   "t": "The American Ceramic Society",
+   "u": "https://ceramics.org",
+   "l": "The American Ceramic Society"
+  },
+  "DICKENSVILLAGE": {
+   "k": "DICKENSVILLAGE",
+   "t": "Dickens Victorian Village (official)",
+   "u": "https://dickensvictorianvillage.com",
+   "l": "Dickens Victorian Village (official)"
+  },
+  "FHWA": {
+   "k": "FHWA",
+   "t": "Federal Highway Administration (Highway History)",
+   "u": "https://highways.dot.gov",
+   "l": "Federal Highway Administration (Highway History)"
+  },
+  "HEINZHISTORY": {
+   "k": "HEINZHISTORY",
+   "t": "Sen. John Heinz History Center (operator of Meadowcroft)",
+   "u": "https://www.heinzhistorycenter.org",
+   "l": "Sen. John Heinz History Center (operator of Meadowcroft)"
+  },
+  "NATIONALTRUST": {
+   "k": "NATIONALTRUST",
+   "t": "National Trust for Historic Preservation",
+   "u": "https://savingplaces.org",
+   "l": "National Trust for Historic Preservation"
+  },
+  "NSBF": {
+   "k": "NSBF",
+   "t": "National Scenic Byway Foundation (Historic National Road)",
+   "u": "https://nsbfoundation.com",
+   "l": "National Scenic Byway Foundation (Historic National Road)"
+  },
+  "OBSERVERREPORTER": {
+   "k": "OBSERVER-REPORTER",
+   "t": "Observer-Reporter (Washington, PA)",
+   "u": "https://www.observer-reporter.com/",
+   "l": "Observer-Reporter (Washington, PA)"
+  },
+  "OGLEBAY": {
+   "k": "OGLEBAY",
+   "t": "Oglebay Resort & Park (official)",
+   "u": "https://oglebay.com",
+   "l": "Oglebay Resort & Park (official)"
+  },
+  "OHIODNR": {
+   "k": "OHIODNR",
+   "t": "Ohio Department of Natural Resources (State Parks)",
+   "u": "https://ohiodnr.gov",
+   "l": "Ohio Department of Natural Resources (State Parks)"
+  },
+  "OHIOHEALTH": {
+   "k": "OHIOHEALTH",
+   "t": "OhioHealth (regional travel blog)",
+   "u": "https://blog.ohiohealth.com",
+   "l": "OhioHealth (regional travel blog)"
+  },
+  "OHIOHISTORY": {
+   "k": "OHIOHISTORY",
+   "t": "Ohio History Connection",
+   "u": "https://www.ohiohistory.org",
+   "l": "Ohio History Connection"
+  },
+  "OHIOMAGAZINE": {
+   "k": "OHIOMAGAZINE",
+   "t": "Ohio Magazine",
+   "u": "https://www.ohiomagazine.com",
+   "l": "Ohio Magazine"
+  },
+  "OHIOORG": {
+   "k": "OHIO.ORG",
+   "t": "Ohio.org (TourismOhio)",
+   "u": "https://ohio.org/",
+   "l": "Ohio.org (TourismOhio)"
+  },
+  "OHIOTRAVELER": {
+   "k": "OHIOTRAVELER",
+   "t": "Ohio Traveler",
+   "u": "https://www.ohiotraveler.com/",
+   "l": "Ohio Traveler"
+  },
+  "OLDGROWTH": {
+   "k": "OLDGROWTH",
+   "t": "Old-Growth Forest Network",
+   "u": "https://www.oldgrowthforest.net",
+   "l": "Old-Growth Forest Network"
+  },
+  "SAHARCHIPEDIA": {
+   "k": "SAHARCHIPEDIA",
+   "t": "SAH Archipedia (Society of Architectural Historians)",
+   "u": "https://sah-archipedia.org",
+   "l": "SAH Archipedia (Society of Architectural Historians)"
+  },
+  "THEWILDS": {
+   "k": "THEWILDS",
+   "t": "The Wilds (official, Columbus Zoo)",
+   "u": "https://www.thewilds.org",
+   "l": "The Wilds (official, Columbus Zoo)"
+  },
+  "UNCOVERINGPA": {
+   "k": "UNCOVERING PA",
+   "t": "Uncovering PA",
+   "u": "https://uncoveringpa.com",
+   "l": "Uncovering PA"
+  },
+  "VISITBELMONT": {
+   "k": "VISITBELMONT",
+   "t": "Visit Belmont County (Ohio)",
+   "u": "https://www.visitbelmontcounty.com/",
+   "l": "Visit Belmont County (Ohio)"
+  },
+  "VISITGUERNSEY": {
+   "k": "VISIT GUERNSEY COUNTY",
+   "t": "Visit Guernsey County / Cambridge OH",
+   "u": "https://visitguernseycounty.com/",
+   "l": "Visit Guernsey County / Cambridge OH"
+  },
+  "VISITWASHCOPA": {
+   "k": "VISITWASHCOPA",
+   "t": "Visit Washington County PA",
+   "u": "https://www.visitwashingtoncountypa.com",
+   "l": "Visit Washington County PA"
+  },
+  "VISITWHEELING": {
+   "k": "VISIT WHEELING WV",
+   "t": "Visit Wheeling WV (CVB)",
+   "u": "https://wheelingcvb.com/",
+   "l": "Visit Wheeling WV (CVB)"
+  },
+  "VISITZANESVILLE": {
+   "k": "VISIT ZANESVILLE-MUSKINGUM",
+   "t": "Visit Zanesville-Muskingum County",
+   "u": "https://www.visitzanesville.com/",
+   "l": "Visit Zanesville-Muskingum County"
+  },
+  "WCHSPA": {
+   "k": "WCHSPA",
+   "t": "Washington County Historical Society (PA)",
+   "u": "https://wchspa.org",
+   "l": "Washington County Historical Society (PA)"
+  },
+  "WEELUNK": {
+   "k": "WEELUNK",
+   "t": "Weelunk (Wheeling culture site)",
+   "u": "https://weelunk.com/",
+   "l": "Weelunk (Wheeling culture site)"
+  },
+  "WHIZ": {
+   "k": "WHIZ",
+   "t": "WHIZ News (Zanesville)",
+   "u": "https://whiznews.com",
+   "l": "WHIZ News (Zanesville)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (notability / history)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (notability / history)"
+  },
+  "WTRF": {
+   "k": "WTRF 7",
+   "t": "WTRF 7 News",
+   "u": "https://www.wtrf.com/",
+   "l": "WTRF 7 News"
+  },
+  "WVCULTURE": {
+   "k": "WVCULTURE",
+   "t": "WV Dept. of Arts, Culture & History",
+   "u": "https://wvculture.org",
+   "l": "WV Dept. of Arts, Culture & History"
+  },
+  "WVENCYCLOPEDIA": {
+   "k": "WVENCYCLOPEDIA",
+   "t": "e-WV: The West Virginia Encyclopedia",
+   "u": "https://www.wvencyclopedia.org",
+   "l": "e-WV: The West Virginia Encyclopedia"
+  },
+  "WVTOURISM": {
+   "k": "WV TOURISM",
+   "t": "WV Tourism (Almost Heaven)",
+   "u": "https://wvtourism.com/",
+   "l": "WV Tourism (Almost Heaven)"
+  }
+ },
+ "FS": {
+  "BILLONTHEROAD": {
+   "k": "BILLONTHEROAD",
+   "t": "Bill On The Road (Ohio travel creator, verifiable YouTube/blog track record)",
+   "u": "https://billontheroad.com/",
+   "l": "Bill On The Road (Ohio travel creator, verifiable YouTube/blog track record)"
+  },
+  "EXPLOREPAHISTORY": {
+   "k": "EXPLOREPAHISTORY",
+   "t": "ExplorePAHistory (WITF)",
+   "u": "https://explorepahistory.com/",
+   "l": "ExplorePAHistory (WITF)"
+  },
+  "EXPLOREROUTE40": {
+   "k": "EXPLOREROUTE40",
+   "t": "Explore U.S. 40 (National Road heritage project)",
+   "u": "https://exploreroute40.wordpress.com/",
+   "l": "Explore U.S. 40 (National Road heritage project)"
+  },
+  "FOODNETWORK": {
+   "k": "FOODNETWORK",
+   "t": "Food Network",
+   "u": "https://www.foodnetwork.com/",
+   "l": "Food Network"
+  },
+  "INTELLIGENCER": {
+   "k": "WHEELING INTELLIGENCER",
+   "t": "The Intelligencer / Wheeling News-Register",
+   "u": "https://www.theintelligencer.net/",
+   "l": "The Intelligencer / Wheeling News-Register"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "James Beard Foundation (America's Classics)",
+   "u": "https://www.jamesbeard.org/",
+   "l": "James Beard Foundation (America's Classics)"
+  },
+  "LEDENEWS": {
+   "k": "LEDENEWS",
+   "t": "Lede News (Ohio Valley)",
+   "u": "https://ledenews.com/",
+   "l": "Lede News (Ohio Valley)"
+  },
+  "OBSERVERREPORTER": {
+   "k": "OBSERVER-REPORTER",
+   "t": "Observer-Reporter (Washington, PA)",
+   "u": "https://www.observer-reporter.com/",
+   "l": "Observer-Reporter (Washington, PA)"
+  },
+  "OHIOMAG": {
+   "k": "OHIO MAGAZINE",
+   "t": "Ohio Magazine",
+   "u": "https://www.ohiomagazine.com/",
+   "l": "Ohio Magazine"
+  },
+  "OHIOORG": {
+   "k": "OHIO.ORG",
+   "t": "Ohio.org (TourismOhio)",
+   "u": "https://ohio.org/",
+   "l": "Ohio.org (TourismOhio)"
+  },
+  "OHIOTRAVELER": {
+   "k": "OHIOTRAVELER",
+   "t": "Ohio Traveler",
+   "u": "https://www.ohiotraveler.com/",
+   "l": "Ohio Traveler"
+  },
+  "PABUCKETLIST": {
+   "k": "PABUCKETLIST",
+   "t": "PA Bucket List",
+   "u": "https://pabucketlist.com/",
+   "l": "PA Bucket List"
+  },
+  "PITTSBURGHMAG": {
+   "k": "PITTSBURGHMAG",
+   "t": "Pittsburgh Magazine",
+   "u": "https://www.pittsburghmagazine.com/",
+   "l": "Pittsburgh Magazine"
+  },
+  "PIZZATODAY": {
+   "k": "PIZZATODAY",
+   "t": "Pizza Today (national Top-100 Pizzerias)",
+   "u": "https://www.pizzatoday.com/",
+   "l": "Pizza Today (national Top-100 Pizzerias)"
+  },
+  "TIMESRECORDER": {
+   "k": "ZANESVILLE TIMES RECORDER",
+   "t": "Zanesville Times Recorder",
+   "u": "https://www.zanesvilletimesrecorder.com/",
+   "l": "Zanesville Times Recorder"
+  },
+  "VISITBELMONT": {
+   "k": "VISITBELMONT",
+   "t": "Visit Belmont County (Ohio)",
+   "u": "https://www.visitbelmontcounty.com/",
+   "l": "Visit Belmont County (Ohio)"
+  },
+  "VISITGUERNSEY": {
+   "k": "VISIT GUERNSEY COUNTY",
+   "t": "Visit Guernsey County / Cambridge OH",
+   "u": "https://visitguernseycounty.com/",
+   "l": "Visit Guernsey County / Cambridge OH"
+  },
+  "VISITWHEELING": {
+   "k": "VISIT WHEELING WV",
+   "t": "Visit Wheeling WV (CVB)",
+   "u": "https://wheelingcvb.com/",
+   "l": "Visit Wheeling WV (CVB)"
+  },
+  "VISITZANESVILLE": {
+   "k": "VISIT ZANESVILLE-MUSKINGUM",
+   "t": "Visit Zanesville-Muskingum County",
+   "u": "https://www.visitzanesville.com/",
+   "l": "Visit Zanesville-Muskingum County"
+  },
+  "WASHINGTONCOUNTY": {
+   "k": "WASHINGTON CO. PA TOURISM",
+   "t": "Visit Washington County PA (tourism)",
+   "u": "https://www.visitwashingtoncountypa.com/",
+   "l": "Visit Washington County PA (tourism)"
+  },
+  "WEELUNK": {
+   "k": "WEELUNK",
+   "t": "Weelunk (Wheeling culture site)",
+   "u": "https://weelunk.com/",
+   "l": "Weelunk (Wheeling culture site)"
+  },
+  "WHIZNEWS": {
+   "k": "WHIZNEWS",
+   "t": "WHIZ News (Fox Zanesville)",
+   "u": "https://www.whiznews.com/",
+   "l": "WHIZ News (Fox Zanesville)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (notability / history)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (notability / history)"
+  },
+  "WTRF": {
+   "k": "WTRF 7",
+   "t": "WTRF 7 News",
+   "u": "https://www.wtrf.com/",
+   "l": "WTRF 7 News"
+  },
+  "WVLIVING": {
+   "k": "WVLIVING",
+   "t": "WV Living Magazine",
+   "u": "https://wvliving.com/",
+   "l": "WV Living Magazine"
+  },
+  "WVPRESS": {
+   "k": "WVPRESS",
+   "t": "West Virginia Press Association",
+   "u": "https://wvpress.org/",
+   "l": "West Virginia Press Association"
+  },
+  "WVPUBLIC": {
+   "k": "WVPUBLIC",
+   "t": "West Virginia Public Broadcasting",
+   "u": "https://wvpublic.org/",
+   "l": "West Virginia Public Broadcasting"
+  },
+  "WVTOURISM": {
+   "k": "WV TOURISM",
+   "t": "WV Tourism (Almost Heaven)",
+   "u": "https://wvtourism.com/",
+   "l": "WV Tourism (Almost Heaven)"
+  }
+ }
+}

@@ -5118,6 +5118,418 @@
         }
       ],
       "creators": []
+    },
+    "wheeling-wv": {
+      "name": "wheeling-wv",
+      "sources": [
+        {
+          "key": "WEELUNK",
+          "name": "Weelunk (Wheeling culture site)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "INTELLIGENCER",
+          "name": "The Intelligencer / Wheeling News-Register",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WVPUBLIC",
+          "name": "West Virginia Public Broadcasting",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITWHEELING",
+          "name": "Visit Wheeling WV (CVB)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "FOODNETWORK",
+          "name": "Food Network",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation (America's Classics)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WVTOURISM",
+          "name": "WV Tourism (Almost Heaven)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LEDENEWS",
+          "name": "Lede News (Ohio Valley)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WTRF",
+          "name": "WTRF 7 News",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WVLIVING",
+          "name": "WV Living Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WVPRESS",
+          "name": "West Virginia Press Association",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OBSERVERREPORTER",
+          "name": "Observer-Reporter (Washington, PA)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PITTSBURGHMAG",
+          "name": "Pittsburgh Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WASHINGTONCOUNTY",
+          "name": "Visit Washington County PA (tourism)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EXPLOREPAHISTORY",
+          "name": "ExplorePAHistory (WITF)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PABUCKETLIST",
+          "name": "PA Bucket List",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia (notability / history)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OHIOORG",
+          "name": "Ohio.org (TourismOhio)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OHIOMAG",
+          "name": "Ohio Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OHIOTRAVELER",
+          "name": "Ohio Traveler",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITBELMONT",
+          "name": "Visit Belmont County (Ohio)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITGUERNSEY",
+          "name": "Visit Guernsey County / Cambridge OH",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EXPLOREROUTE40",
+          "name": "Explore U.S. 40 (National Road heritage project)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITZANESVILLE",
+          "name": "Visit Zanesville-Muskingum County",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMESRECORDER",
+          "name": "Zanesville Times Recorder",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WHIZNEWS",
+          "name": "WHIZ News (Fox Zanesville)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PIZZATODAY",
+          "name": "Pizza Today (national Top-100 Pizzerias)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ASCE",
+          "name": "ASCE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "BELMONTMUSEUM",
+          "name": "BELMONTMUSEUM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CAMBRIDGEGLASS",
+          "name": "CAMBRIDGEGLASS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CERAMICS",
+          "name": "CERAMICS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "DICKENSVILLAGE",
+          "name": "DICKENSVILLAGE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FHWA",
+          "name": "FHWA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "HEINZHISTORY",
+          "name": "HEINZHISTORY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NATIONALTRUST",
+          "name": "NATIONALTRUST",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NSBF",
+          "name": "NSBF",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OGLEBAY",
+          "name": "OGLEBAY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OHIODNR",
+          "name": "OHIODNR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OHIOHEALTH",
+          "name": "OHIOHEALTH",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OHIOHISTORY",
+          "name": "OHIOHISTORY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OHIOMAGAZINE",
+          "name": "OHIOMAGAZINE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OLDGROWTH",
+          "name": "OLDGROWTH",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SAHARCHIPEDIA",
+          "name": "SAHARCHIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "THEWILDS",
+          "name": "THEWILDS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNCOVERINGPA",
+          "name": "UNCOVERINGPA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "VISITWASHCOPA",
+          "name": "VISITWASHCOPA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WCHSPA",
+          "name": "WCHSPA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WHIZ",
+          "name": "WHIZ",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WVCULTURE",
+          "name": "WVCULTURE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WVENCYCLOPEDIA",
+          "name": "WVENCYCLOPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": [
+        {
+          "key": "BILLONTHEROAD",
+          "name": "Bill On The Road (Ohio travel creator, verifiable YouTube/blog track record)",
+          "url": "https://billontheroad.com/"
+        }
+      ]
     }
   }
 }
