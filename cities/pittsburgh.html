@@ -1317,7 +1317,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'pierogi, soup dumplings, burnt almond torte, apples\u2026' : 'incline, furnaces, warhol, trolley\u2026';
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -1459,7 +1459,7 @@ document.getElementById('tripGoogle').onclick=()=>{
 document.getElementById('tripKml').onclick=()=>{
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>Pittsburgh \u2014 my list</name>'
+    +'<name>Cleveland \u2014 my list</name>'
     +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
@@ -1493,11 +1493,11 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the food, markets & farms list works'
-  + '<span>Pittsburgh classics anchor it \u2014 the Primanti\u2019s sandwich, pierogi, the burnt almond torte, soup dumplings. A cuisine tag needs a named dish; markets and farms must be genuinely visit-worthy and publicly open (see docs/SOURCES.md); anything tagged ADDED is general knowledge, verify it.</span></div></div>'
+  + '<span>Pittsburgh classics anchor it — the Primanti’s sandwich, pierogi, the burnt almond torte, soup dumplings. A cuisine tag needs a named dish; markets and farms must be genuinely visit-worthy and publicly open (see docs/SOURCES.md); anything tagged ADDED is general knowledge, verify it.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
-  + '<span>Found and cross-checked with web search across aggregator/guidebook rankings, the official institution sites, university visitor guides and the city\u2019s local media (direct page fetches are blocked in the build environment). Ranked sources live in data/sources.json; the local-news map is data/local-media.json.</span></div></div>'
+  + '<span>Found and cross-checked with web search across aggregator/guidebook rankings, the official institution sites, university visitor guides and the city’s local media (direct page fetches are blocked in the build environment). Ranked sources live in data/sources.json; the local-news map is data/local-media.json.</span></div></div>'
   + '<div class="srcrow"><span class="k">COVERED BY</span><div class="t">YouTube &amp; creators'
-  + '<span>Pittsburgh gets heavy travel-vlog coverage \u2014 e.g. a \u201cBritish Guy in Pittsburgh\u201d tour of Mt Washington, Randyland and the museums, and 4K city tours. See the national creators catalogue in data/sources.json.</span></div></div>';
+  + '<span>Pittsburgh gets heavy travel-vlog coverage — e.g. a \u201cBritish Guy in Pittsburgh\u201d tour of Mt Washington, Randyland and the museums, and 4K city tours. See the national creators catalogue in data/sources.json.</span></div></div>';
 
 setMode('sights');
 

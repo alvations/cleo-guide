@@ -174,10 +174,10 @@ rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to th
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="Washington DC field guide \u2014 %d sights and %d places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", Washington DC")
-new = new.replace(">Cleveland \\u2014 my list<", ">Washington DC \\u2014 my list<").replace(">Cleveland — my list<", ">Washington DC — my list<")
+new = new.replace(">Cleveland — my list<", ">Washington DC — my list<").replace(">Cleveland — my list<", ">Washington DC — my list<")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="Lincoln Memorial, Smithsonian, half-smoke…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'pupusas, injera, blue crab, pho\\u2026' : 'Lincoln Memorial, Smithsonian, Georgetown, Arlington\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'pupusas, injera, blue crab, pho…' : 'Lincoln Memorial, Smithsonian, Georgetown, Arlington…'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 # footer provenance note + dates
@@ -188,9 +188,9 @@ new = new.replace(
 # appendix — cuisine rules + how-sourced
 SV_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. The region\\u2019s signature strengths are the <b>half-smoke</b> (Ben\\u2019s Chili Bowl), DC\\u2019s <b>Ethiopian</b> corridor along U Street, the area\\u2019s <b>Salvadoran</b> pupuserias, <b>Chesapeake</b> blue crab and oysters, the <b>jumbo slice</b>, and the Vietnamese sprawl of <b>Eden Center</b> \\u2014 alongside a deep Michelin and James Beard fine-dining bench. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The region’s signature strengths are the <b>half-smoke</b> (Ben’s Chili Bowl), DC’s <b>Ethiopian</b> corridor along U Street, the area’s <b>Salvadoran</b> pupuserias, <b>Chesapeake</b> blue crab and oysters, the <b>jumbo slice</b>, and the Vietnamese sprawl of <b>Eden Center</b> — alongside a deep Michelin and James Beard fine-dining bench. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched, merit-measured and fact-checked'\n"
- "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, Northern Virginia Magazine, ARLnow, the National Park Service and the Smithsonian \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). A mention is not merit: each place is measured for acclaim (award, rave, or a high rating with real volume) before it earns a pin. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
+ "  + '<span>Every place is traceable to a credible source — Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, Northern Virginia Magazine, ARLnow, the National Park Service and the Smithsonian — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). A mention is not merit: each place is measured for acclaim (award, rave, or a high rating with real volume) before it earns a pin. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: SV_APPENDIX, new, flags=re.S)
 

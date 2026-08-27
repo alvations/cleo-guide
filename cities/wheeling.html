@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Wheeling &amp; the National Road, sourced</p>
   <h1>Wheeling<span class="thin">the Ohio Valley &amp; the National Road &mdash; Washington PA to Zanesville</span></h1>
-  <p class="standfirst">28 sights and 7 places to eat across <strong>Wheeling, WV</strong>, nearby <strong>Washington, PA</strong>, and the <strong>National Road (I-70) corridor</strong> west through eastern Ohio &mdash; St. Clairsville, Cambridge and Zanesville &mdash; to where the Columbus guide begins. Each is traceable to the source that named it. The valley\u2019s canon is its own: <strong>DiCarlo\u2019s</strong> Wheeling-style pizza, <strong>Coleman\u2019s</strong> fish sandwich, WV pepperoni rolls, Zanesville\u2019s <strong>Tom\u2019s Ice Cream Bowl</strong>, plus the Suspension Bridge, Oglebay, the Y-Bridge and Dickens Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">28 sights and 7 places to eat across <strong>Wheeling, WV</strong>, nearby <strong>Washington, PA</strong>, and the <strong>National Road (I-70) corridor</strong> west through eastern Ohio &mdash; St. Clairsville, Cambridge and Zanesville &mdash; to where the Columbus guide begins. Each is traceable to the source that named it. The valley’s canon is its own: <strong>DiCarlo’s</strong> Wheeling-style pizza, <strong>Coleman’s</strong> fish sandwich, WV pepperoni rolls, Zanesville’s <strong>Tom’s Ice Cream Bowl</strong>, plus the Suspension Bridge, Oglebay, the Y-Bridge and Dickens Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -252,7 +252,7 @@
     <div class="chips" id="cuisineFilter"></div>
   </div>
   <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="DiCarlo\u2019s, fish sandwich, Y-Bridge, Oglebay…" autocomplete="off">
+  <input id="search" type="search" placeholder="DiCarlo’s, fish sandwich, Y-Bridge, Oglebay…" autocomplete="off">
   <p class="ctrl-label">Filter by source</p>
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
@@ -779,7 +779,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'DiCarlo\u2019s, fish sandwich, pepperoni rolls, Tom\u2019s\u2026' : 'Suspension Bridge, Oglebay, Y-Bridge, Dickens Village\u2026';
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -921,7 +921,7 @@ document.getElementById('tripGoogle').onclick=()=>{
 document.getElementById('tripKml').onclick=()=>{
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>Wheeling \u2014 my list</name>'
+    +'<name>Cleveland \u2014 my list</name>'
     +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
@@ -955,9 +955,9 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
-  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. The Ohio Valley\u2019s canon is its own: <b>DiCarlo\u2019s</b> Wheeling-style pizza (cold cheese on a square), the <b>Coleman\u2019s</b> fish sandwich, WV <b>pepperoni rolls</b>, the valley\u2019s deep <b>Italian</b> heritage (Undo\u2019s, Figaretti\u2019s, Ye Olde Alpha), and Zanesville\u2019s <b>Tom\u2019s Ice Cream Bowl</b> &amp; <b>Adornetto\u2019s</b>, sourced to the Wheeling Intelligencer, Weelunk and the Zanesville Times Recorder. A cuisine tag names the kitchen\u2019s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The Ohio Valley’s canon is its own: <b>DiCarlo’s</b> Wheeling-style pizza (cold cheese on a square), the <b>Coleman’s</b> fish sandwich, WV <b>pepperoni rolls</b>, the valley’s deep <b>Italian</b> heritage (Undo’s, Figaretti’s, Ye Olde Alpha), and Zanesville’s <b>Tom’s Ice Cream Bowl</b> &amp; <b>Adornetto’s</b>, sourced to the Wheeling Intelligencer, Weelunk and the Zanesville Times Recorder. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
-  + '<span>Every place is traceable to a credible source \u2014 the Wheeling Intelligencer/News-Register, Weelunk, the Observer-Reporter, the Zanesville Times Recorder, Visit Wheeling WV, Uncovering PA, Atlas Obscura and official sites \u2014 recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+  + '<span>Every place is traceable to a credible source — the Wheeling Intelligencer/News-Register, Weelunk, the Observer-Reporter, the Zanesville Times Recorder, Visit Wheeling WV, Uncovering PA, Atlas Obscura and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');
 

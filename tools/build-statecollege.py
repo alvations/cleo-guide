@@ -152,14 +152,14 @@ rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
 rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
     '<h1>State College<span class="thin">Happy Valley &mdash; Penn State, the creamery &amp; Mount Nittany</span></h1>')
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-    '<p class="standfirst">%d sights and %d places to eat across <strong>State College</strong>, the <strong>Penn State</strong> University Park campus and Centre County (Bellefonte, Boalsburg, Happy Valley), each traceable to the source that named it. The town\\u2019s canon is its own: <strong>Berkey Creamery</strong> ice cream, the <strong>grilled sticky</strong> at Ye Olde College Diner, tavern wings, Happy Valley beer, plus Old Main, Beaver Stadium and Mount Nittany. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
+    '<p class="standfirst">%d sights and %d places to eat across <strong>State College</strong>, the <strong>Penn State</strong> University Park campus and Centre County (Bellefonte, Boalsburg, Happy Valley), each traceable to the source that named it. The town’s canon is its own: <strong>Berkey Creamery</strong> ice cream, the <strong>grilled sticky</strong> at Ye Olde College Diner, tavern wings, Happy Valley beer, plus Old Main, Beaver Stadium and Mount Nittany. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="State College &amp; Happy Valley (Penn State, PA) field guide — %d sights and %d places to eat across State College, the University Park campus, Bellefonte, Boalsburg and Centre County, each traceable to its source (Centre Daily Times, StateCollege.com, Onward State, Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", State College PA")
-new = new.replace(">Cleveland \\u2014 my list<", ">State College \\u2014 my list<").replace(">Cleveland — my list<", ">State College — my list<")
+new = new.replace(">Cleveland — my list<", ">State College — my list<").replace(">Cleveland — my list<", ">State College — my list<")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="grilled stickies, creamery, wings, Old Main…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'grilled stickies, creamery, wings, pizza\\u2026' : 'Old Main, Beaver Stadium, Mount Nittany, Penn\\u2019s Cave\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'grilled stickies, creamery, wings, pizza…' : 'Old Main, Beaver Stadium, Mount Nittany, Penn’s Cave…'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 new = new.replace("last verified 2026-08-08", "last verified 2026-08-27")
@@ -169,9 +169,9 @@ new = new.replace(
 
 SC_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. State College\\u2019s canon is a college town\\u2019s own: the <b>Berkey Creamery</b> (Penn State\\u2019s own ice cream), the <b>grilled sticky</b> at <b>Ye Olde College Diner</b>, tavern <b>wings</b>, <b>Happy Valley</b> craft beer (<b>Otto\\u2019s</b>, <b>Robin Hood</b>, <b>Elk Creek</b>), and the diner/breakfast institutions, sourced to the Centre Daily Times, StateCollege.com and Onward State. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. State College’s canon is a college town’s own: the <b>Berkey Creamery</b> (Penn State’s own ice cream), the <b>grilled sticky</b> at <b>Ye Olde College Diner</b>, tavern <b>wings</b>, <b>Happy Valley</b> craft beer (<b>Otto’s</b>, <b>Robin Hood</b>, <b>Elk Creek</b>), and the diner/breakfast institutions, sourced to the Centre Daily Times, StateCollege.com and Onward State. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
- "  + '<span>Every place is traceable to a credible source \\u2014 the Centre Daily Times, StateCollege.com, Onward State, the Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura and official sites \\u2014 recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';"
+ "  + '<span>Every place is traceable to a credible source — the Centre Daily Times, StateCollege.com, Onward State, the Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: SC_APPENDIX, new, flags=re.S)
 

@@ -256,6 +256,10 @@
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
   <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
   <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
   <div class="chips" id="rankFilter"></div>
   <p class="ctrl-label">Sort</p>
@@ -803,9 +807,10 @@ function tag(t,tbl){
 
 const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
 const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
 function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
 
-let MODE='sights', fCz='all';
+let MODE='sights', fCz='all', fCat='all';
 
 function match(p){
   if(seenMode==='hide' && SEEN.has(p.id)) return false;
@@ -816,6 +821,7 @@ function match(p){
   if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
   if(fRank!=='all' && String(p.t)!==fRank) return false;
   if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
   if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
   return true;
 }
@@ -824,7 +830,8 @@ function card(p,n){
   const tbl=SRCOF(p), nc=cites(p), seen=new Set();
   const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
                 .map(t=>tag(t,tbl)).join('');
-  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
   const isSeen=SEEN.has(p.id);
   return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
     +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
@@ -886,7 +893,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'brier hill, corned beef, wild ale, cider\u2026' : 'iron lung, planetarium, brier hill, mill\u2026';
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -916,6 +923,13 @@ document.getElementById('sortFilter').innerHTML =
 document.getElementById('dayFilter').innerHTML =
   ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
   .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
 
 function wire(id,set){
   document.getElementById(id).addEventListener('click',e=>{
@@ -929,6 +943,7 @@ wire('dayFilter',v=>fArea=v);
 wire('rankFilter',v=>fRank=v);
 wire('sortFilter',v=>fSort=v);
 wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
 document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
 
 /* ── scoring: drives the "top N" presets ── */
@@ -1020,7 +1035,7 @@ document.getElementById('tripGoogle').onclick=()=>{
 document.getElementById('tripKml').onclick=()=>{
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>Youngstown \u2014 my list</name>'
+    +'<name>Cleveland \u2014 my list</name>'
     +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
@@ -1054,11 +1069,11 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the food list works'
-  + '<span>Youngstown&#39;s signature is Brier Hill pizza \u2014 a pepper-and-romano pie with little or no mozzarella. A cuisine tag needs a named dish, not a label. Anything tagged ADDED is from general knowledge and should be verified before a visit.</span></div></div>'
+  + '<span>Youngstown&#39;s signature is Brier Hill pizza — a pepper-and-romano pie with little or no mozzarella. A cuisine tag needs a named dish, not a label. Anything tagged ADDED is from general knowledge and should be verified before a visit.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
   + '<span>Sources were found and cross-checked with web search. Direct page fetches are blocked in the build environment, so sourcing relied on search results, not full-page reads. The ranked sources for this city live in data/sources.json; the process is documented in docs/SOURCES.md.</span></div></div>'
   + '<div class="srcrow"><span class="k">COVERED BY</span><div class="t">YouTube &amp; creators'
-  + '<span>Peter Santenello (4.2M) covered next-door East Palestine \u2014 regional, not the city itself; Phil Kidd walks downtown Youngstown; Explore Mahoning covers the Valley. The Google-Maps beta page carries the full creator panel.</span></div></div>';
+  + '<span>Peter Santenello (4.2M) covered next-door East Palestine — regional, not the city itself; Phil Kidd walks downtown Youngstown; Explore Mahoning covers the Valley. The Google-Maps beta page carries the full creator panel.</span></div></div>';
 
 setMode('sights');
 

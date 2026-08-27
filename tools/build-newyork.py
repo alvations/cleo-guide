@@ -140,10 +140,10 @@ rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to th
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="New York City field guide — %d sights and %d places to eat across the five boroughs plus day trips, each traceable to its source (Michelin, Eater, Infatuation, Atlas Obscura, NYC Parks), on one interactive map with borough, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", New York NY")
-new = new.replace(">Cleveland \\u2014 my list<", ">New York \\u2014 my list<").replace(">Cleveland — my list<", ">New York — my list<")
+new = new.replace(">Cleveland — my list<", ">New York — my list<").replace(">Cleveland — my list<", ">New York — my list<")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="tenement, skyline, jazz, dumplings…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'pastrami, dim sum, birria, cannoli\\u2026' : 'tenement, skyline, ferry, brownstone\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'pastrami, dim sum, birria, cannoli…' : 'tenement, skyline, ferry, brownstone…'")
 # "all cities" back-link is relative from cities/
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
@@ -155,9 +155,9 @@ new = new.replace(
 # appendix — cuisine rules + how-sourced (replace the Cleveland block)
 NYC_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. <b>Vietnamese, Chinese / Cantonese (dim sum), Sichuan, Thai (incl. Isan), Malaysian, Singaporean, wider Southeast Asian (Indonesian, Filipino, Burmese)</b> and <b>Persian</b> each got a dedicated search led by Michelin (stars + Bib Gourmand), Eater, The Infatuation and NYT. <b>Singaporean</b> and <b>Burmese</b> are genuinely thin in NYC, so they are labelled as such rather than padded, and closed spots (Urban Hawker, Rangoon) were excluded. A <b>Viral</b> tag marks TikTok/Instagram-famous places whose virality is sourced to food media \\u2014 not hype.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. <b>Vietnamese, Chinese / Cantonese (dim sum), Sichuan, Thai (incl. Isan), Malaysian, Singaporean, wider Southeast Asian (Indonesian, Filipino, Burmese)</b> and <b>Persian</b> each got a dedicated search led by Michelin (stars + Bib Gourmand), Eater, The Infatuation and NYT. <b>Singaporean</b> and <b>Burmese</b> are genuinely thin in NYC, so they are labelled as such rather than padded, and closed spots (Urban Hawker, Rangoon) were excluded. A <b>Viral</b> tag marks TikTok/Instagram-famous places whose virality is sourced to food media — not hype.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
- "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater, The Infatuation, NYT, Time Out, Atlas Obscura, Untapped New York, NYC Parks / NYC Tourism and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
+ "  + '<span>Every place is traceable to a credible source — Michelin, Eater, The Infatuation, NYT, Time Out, Atlas Obscura, Untapped New York, NYC Parks / NYC Tourism and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: NYC_APPENDIX, new, flags=re.S)
 

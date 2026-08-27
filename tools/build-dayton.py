@@ -170,14 +170,14 @@ rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
 rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
     '<h1>Dayton<span class="thin">the Gem City &mdash; birthplace of aviation on the Great Miami</span></h1>')
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-    '<p class="standfirst">%d sights and %d places to eat across Dayton and the Miami Valley, each traceable to the source that named it. The Gem City\\u2019s food story runs local &mdash; Marion\u2019s Dayton-style pizza, Esther Price candy, Bill\u2019s Donuts, the Pine Club and the Oregon District &mdash; but the real draw is aviation: the National Museum of the U.S. Air Force (the world\u2019s largest, free) and the Wright brothers\u2019 workshops. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
+    '<p class="standfirst">%d sights and %d places to eat across Dayton and the Miami Valley, each traceable to the source that named it. The Gem City’s food story runs local &mdash; Marion\u2019s Dayton-style pizza, Esther Price candy, Bill\u2019s Donuts, the Pine Club and the Oregon District &mdash; but the real draw is aviation: the National Museum of the U.S. Air Force (the world\u2019s largest, free) and the Wright brothers\u2019 workshops. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="Dayton field guide — %d sights and %d places to eat across Dayton and the Miami Valley, each traceable to its source (the Dayton Daily News, Dayton Magazine, WHIO, the National Park Service, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", Dayton OH")
-new = new.replace(">Cleveland \\u2014 my list<", ">Dayton \\u2014 my list<").replace(">Cleveland — my list<", ">Dayton — my list<")
+new = new.replace(">Cleveland — my list<", ">Dayton — my list<").replace(">Cleveland — my list<", ">Dayton — my list<")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="Air Force Museum, Oregon District, pizza…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'Dayton pizza, donuts, Pine Club, candy\\u2026' : 'Air Force Museum, Carillon, Wright, RiverScape\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'Dayton pizza, donuts, Pine Club, candy…' : 'Air Force Museum, Carillon, Wright, RiverScape…'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 # footer provenance note + dates
@@ -188,9 +188,9 @@ new = new.replace(
 # appendix — cuisine rules + how-sourced
 SV_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. Dayton\\u2019s signature strength is aviation and hometown classics: the <b>National Museum of the U.S. Air Force</b> (the world\\u2019s largest, free), the Wright brothers\\u2019 <b>Carillon</b> Flyer III, <b>Marion\\u2019s</b> Dayton-style pizza, <b>Esther Price</b> candy and <b>Bill\\u2019s</b> Donuts, sourced to the Dayton Daily News, Dayton Magazine, WHIO and the National Park Service. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Dayton’s signature strength is aviation and hometown classics: the <b>National Museum of the U.S. Air Force</b> (the world’s largest, free), the Wright brothers’ <b>Carillon</b> Flyer III, <b>Marion’s</b> Dayton-style pizza, <b>Esther Price</b> candy and <b>Bill’s</b> Donuts, sourced to the Dayton Daily News, Dayton Magazine, WHIO and the National Park Service. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
- "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
+ "  + '<span>Every place is traceable to a credible source — Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: SV_APPENDIX, new, flags=re.S)
 

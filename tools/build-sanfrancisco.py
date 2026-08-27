@@ -170,14 +170,14 @@ rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
 rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
     '<h1>San Francisco<span class="thin">the city &amp; the Peninsula &mdash; icons, neighborhoods &amp; famous food</span></h1>')
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-    '<p class="standfirst">%d sights and %d places to eat across San Francisco and the northern Peninsula down to San Mateo, each traceable to the source that named it. The city\\u2019s food canon runs from the Mission burrito and Chinatown dim sum to cioppino, Tenderloin Vietnamese and the third-wave coffee it helped invent. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
+    '<p class="standfirst">%d sights and %d places to eat across San Francisco and the northern Peninsula down to San Mateo, each traceable to the source that named it. The city’s food canon runs from the Mission burrito and Chinatown dim sum to cioppino, Tenderloin Vietnamese and the third-wave coffee it helped invent. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="San Francisco field guide — %d sights and %d places to eat across San Francisco and the Peninsula to San Mateo, each traceable to its source (Michelin, The Infatuation, KQED, the SF Standard, Mission Local, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", San Francisco CA")
-new = new.replace(">Cleveland \\u2014 my list<", ">San Francisco \\u2014 my list<").replace(">Cleveland — my list<", ">San Francisco — my list<")
+new = new.replace(">Cleveland — my list<", ">San Francisco — my list<").replace(">Cleveland — my list<", ">San Francisco — my list<")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="dim sum, cioppino, Alcatraz, burrito…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'dim sum, burrito, cioppino, oysters\\u2026' : 'Golden Gate, cable car, Alcatraz, murals\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'dim sum, burrito, cioppino, oysters…' : 'Golden Gate, cable car, Alcatraz, murals…'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 # footer provenance note + dates
@@ -188,9 +188,9 @@ new = new.replace(
 # appendix — cuisine rules + how-sourced
 SV_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. San Francisco\\u2019s signature strength is its food canon: the <b>Mission burrito</b> and taqueria belt, <b>Cantonese dim sum</b> in the oldest Chinatown in America, <b>cioppino</b> and Dungeness crab, <b>Tenderloin Vietnamese</b>, the Bay\\u2019s famous <b>Burmese</b>, <b>sourdough</b> and the <b>third-wave coffee</b> it helped invent \\u2014 each led by Michelin, The Infatuation, KQED and the SF Standard. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. San Francisco’s signature strength is its food canon: the <b>Mission burrito</b> and taqueria belt, <b>Cantonese dim sum</b> in the oldest Chinatown in America, <b>cioppino</b> and Dungeness crab, <b>Tenderloin Vietnamese</b>, the Bay’s famous <b>Burmese</b>, <b>sourdough</b> and the <b>third-wave coffee</b> it helped invent — each led by Michelin, The Infatuation, KQED and the SF Standard. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
- "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
+ "  + '<span>Every place is traceable to a credible source — Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: SV_APPENDIX, new, flags=re.S)
 

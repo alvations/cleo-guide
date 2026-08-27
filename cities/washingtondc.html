@@ -901,7 +901,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'pupusas, injera, blue crab, pho\u2026' : 'Lincoln Memorial, Smithsonian, Georgetown, Arlington\u2026';
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -1043,7 +1043,7 @@ document.getElementById('tripGoogle').onclick=()=>{
 document.getElementById('tripKml').onclick=()=>{
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>Washington DC \u2014 my list</name>'
+    +'<name>Cleveland \u2014 my list</name>'
     +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
@@ -1077,9 +1077,9 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
-  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. The region\u2019s signature strengths are the <b>half-smoke</b> (Ben\u2019s Chili Bowl), DC\u2019s <b>Ethiopian</b> corridor along U Street, the area\u2019s <b>Salvadoran</b> pupuserias, <b>Chesapeake</b> blue crab and oysters, the <b>jumbo slice</b>, and the Vietnamese sprawl of <b>Eden Center</b> \u2014 alongside a deep Michelin and James Beard fine-dining bench. A cuisine tag names the kitchen\u2019s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The region’s signature strengths are the <b>half-smoke</b> (Ben’s Chili Bowl), DC’s <b>Ethiopian</b> corridor along U Street, the area’s <b>Salvadoran</b> pupuserias, <b>Chesapeake</b> blue crab and oysters, the <b>jumbo slice</b>, and the Vietnamese sprawl of <b>Eden Center</b> — alongside a deep Michelin and James Beard fine-dining bench. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched, merit-measured and fact-checked'
-  + '<span>Every place is traceable to a credible source \u2014 Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, Northern Virginia Magazine, ARLnow, the National Park Service and the Smithsonian \u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). A mention is not merit: each place is measured for acclaim (award, rave, or a high rating with real volume) before it earns a pin. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
+  + '<span>Every place is traceable to a credible source — Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, Northern Virginia Magazine, ARLnow, the National Park Service and the Smithsonian — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). A mention is not merit: each place is measured for acclaim (award, rave, or a high rating with real volume) before it earns a pin. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
 
 setMode('sights');
 

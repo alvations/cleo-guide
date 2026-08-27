@@ -358,8 +358,8 @@ new = new.replace("so the map still shows Lake Erie, the\n   Cuyahoga and the ma
 # search placeholders
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"',
                   'placeholder="iron lung, planetarium, brier hill, mill…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'brier hill, corned beef, wild ale, cider\\u2026' : 'iron lung, planetarium, brier hill, mill\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'brier hill, corned beef, wild ale, cider…' : 'iron lung, planetarium, brier hill, mill…'")
 # dynamic must-see count
 new = new.replace("'Every must-see (33)'", "'Every must-see ('+P.filter(p=>p.t===1).length+')'")
 
@@ -368,7 +368,7 @@ new = new.replace("Food, drink &amp; desserts", "Food, drink, markets &amp; farm
 
 # gmaps() city string + KML list name
 new = new.replace(", Cleveland OH", ", Youngstown OH")
-new = new.replace(">Cleveland \\u2014 my list<", ">Youngstown \\u2014 my list<")
+new = new.replace(">Cleveland — my list<", ">Youngstown — my list<")
 new = new.replace(">Cleveland — my list<", ">Youngstown — my list<")
 
 # meta description
@@ -395,11 +395,11 @@ rep('Compiled August 2026 · <strong>last verified 2026-08-08</strong>. Map tile
 # Cleveland-specific sources appendix -> Youngstown
 YT_APPENDIX = (
     "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the food list works'\n"
-    "  + '<span>Youngstown&#39;s signature is Brier Hill pizza \\u2014 a pepper-and-romano pie with little or no mozzarella. A cuisine tag needs a named dish, not a label. Anything tagged ADDED is from general knowledge and should be verified before a visit.</span></div></div>'\n"
+    "  + '<span>Youngstown&#39;s signature is Brier Hill pizza — a pepper-and-romano pie with little or no mozzarella. A cuisine tag needs a named dish, not a label. Anything tagged ADDED is from general knowledge and should be verified before a visit.</span></div></div>'\n"
     "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
     "  + '<span>Sources were found and cross-checked with web search. Direct page fetches are blocked in the build environment, so sourcing relied on search results, not full-page reads. The ranked sources for this city live in data/sources.json; the process is documented in docs/SOURCES.md.</span></div></div>'\n"
     "  + '<div class=\"srcrow\"><span class=\"k\">COVERED BY</span><div class=\"t\">YouTube &amp; creators'\n"
-    "  + '<span>Peter Santenello (4.2M) covered next-door East Palestine \\u2014 regional, not the city itself; Phil Kidd walks downtown Youngstown; Explore Mahoning covers the Valley. The Google-Maps beta page carries the full creator panel.</span></div></div>';"
+    "  + '<span>Peter Santenello (4.2M) covered next-door East Palestine — regional, not the city itself; Phil Kidd walks downtown Youngstown; Explore Mahoning covers the Valley. The Google-Maps beta page carries the full creator panel.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';",
              lambda m: YT_APPENDIX, new, flags=re.S)

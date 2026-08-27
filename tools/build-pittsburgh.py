@@ -774,12 +774,12 @@ new = new.replace("so the map still shows Lake Erie, the\n   Cuyahoga and the ma
                   "so subtle neighbourhood labels still show even if every tile server is unreachable.")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"',
                   'placeholder="incline, dinosaurs, relics, pierogi…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'pierogi, soup dumplings, burnt almond torte, apples\\u2026' : 'incline, furnaces, warhol, trolley\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'pierogi, soup dumplings, burnt almond torte, apples…' : 'incline, furnaces, warhol, trolley…'")
 new = new.replace("'Every must-see (33)'", "'Every must-see ('+P.filter(p=>p.t===1).length+')'")
 new = new.replace("Food, drink &amp; desserts", "Food, drink, markets &amp; farms")
 new = new.replace(", Cleveland OH", ", Pittsburgh PA")
-new = new.replace(">Cleveland \\u2014 my list<", ">Pittsburgh \\u2014 my list<")
+new = new.replace(">Cleveland — my list<", ">Pittsburgh — my list<")
 new = new.replace(">Cleveland — my list<", ">Pittsburgh — my list<")
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="Pittsburgh, PA field guide — %d sights and %d places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">' % (nP, nF),
@@ -798,11 +798,11 @@ rep('Compiled August 2026 · <strong>last verified 2026-08-08</strong>. Map tile
     'Compiled August 2026 · <strong>last verified 2026-08-09</strong>. Map tiles © OpenStreetMap contributors.<br>\n  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md). Sourced across aggregator and guidebook rankings (Tripadvisor, U.S. News, PlanetWare, Lonely Planet, Britannica), the official institutions (Carnegie Museums, the Zoo, the National Aviary), university visitor guides (Pitt, CMU, Duquesne), regional heritage bodies (Rivers of Steel) and local news / CVBs recorded in data/local-media.json. Coordinates are approximate pending a places-API pass; confirm hours before a drive.</span><br><br>')
 YT_APPENDIX = (
     "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the food, markets & farms list works'\n"
-    "  + '<span>Pittsburgh classics anchor it \\u2014 the Primanti\\u2019s sandwich, pierogi, the burnt almond torte, soup dumplings. A cuisine tag needs a named dish; markets and farms must be genuinely visit-worthy and publicly open (see docs/SOURCES.md); anything tagged ADDED is general knowledge, verify it.</span></div></div>'\n"
+    "  + '<span>Pittsburgh classics anchor it — the Primanti’s sandwich, pierogi, the burnt almond torte, soup dumplings. A cuisine tag needs a named dish; markets and farms must be genuinely visit-worthy and publicly open (see docs/SOURCES.md); anything tagged ADDED is general knowledge, verify it.</span></div></div>'\n"
     "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
-    "  + '<span>Found and cross-checked with web search across aggregator/guidebook rankings, the official institution sites, university visitor guides and the city\\u2019s local media (direct page fetches are blocked in the build environment). Ranked sources live in data/sources.json; the local-news map is data/local-media.json.</span></div></div>'\n"
+    "  + '<span>Found and cross-checked with web search across aggregator/guidebook rankings, the official institution sites, university visitor guides and the city’s local media (direct page fetches are blocked in the build environment). Ranked sources live in data/sources.json; the local-news map is data/local-media.json.</span></div></div>'\n"
     "  + '<div class=\"srcrow\"><span class=\"k\">COVERED BY</span><div class=\"t\">YouTube &amp; creators'\n"
-    "  + '<span>Pittsburgh gets heavy travel-vlog coverage \\u2014 e.g. a \\u201cBritish Guy in Pittsburgh\\u201d tour of Mt Washington, Randyland and the museums, and 4K city tours. See the national creators catalogue in data/sources.json.</span></div></div>';"
+    "  + '<span>Pittsburgh gets heavy travel-vlog coverage — e.g. a \\u201cBritish Guy in Pittsburgh\\u201d tour of Mt Washington, Randyland and the museums, and 4K city tours. See the national creators catalogue in data/sources.json.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';",
              lambda m: YT_APPENDIX, new, flags=re.S)

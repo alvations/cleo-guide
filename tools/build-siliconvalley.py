@@ -170,14 +170,14 @@ rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
 rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
     '<h1>Silicon Valley<span class="thin">the South Bay &mdash; tech, trails &amp; the best Asian tables in America</span></h1>')
 rep('<p class="standfirst">143 sights and 40 places to eat, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; food lives on its own map so it never clutters the sightseeing one. Tick the box on anything to build your own list, then export it to Google or Apple Maps.</p>',
-    '<p class="standfirst">%d sights and %d places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to the source that named it. The Valley\\u2019s food is its immigrant density &mdash; arguably the best Taiwanese, Vietnamese and South Indian eating in the country. <strong>Switch modes below</strong>, filter by <strong>city</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
+    '<p class="standfirst">%d sights and %d places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to the source that named it. The Valley’s food is its immigrant density &mdash; arguably the best Taiwanese, Vietnamese and South Indian eating in the country. <strong>Switch modes below</strong>, filter by <strong>city</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>' % (nP, nF))
 new = re.sub(r'<meta name="description"[^>]*>',
     '<meta name="description" content="Silicon Valley field guide — %d sights and %d places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to its source (Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura), on one interactive map with city, collection and cuisine filters, a trip builder and exports.">' % (nP, nF), new)
 new = new.replace(", Cleveland OH", ", San Jose CA")
-new = new.replace(">Cleveland \\u2014 my list<", ">Silicon Valley \\u2014 my list<").replace(">Cleveland — my list<", ">Silicon Valley — my list<")
+new = new.replace(">Cleveland — my list<", ">Silicon Valley — my list<").replace(">Cleveland — my list<", ">Silicon Valley — my list<")
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="dosa, boba, Stanford, dim sum…"')
-new = new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                  "? 'beef noodle, dosa, dim sum, boba\\u2026' : 'Apple Park, mission, redwoods, HP garage\\u2026'")
+new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                  "? 'beef noodle, dosa, dim sum, boba…' : 'Apple Park, mission, redwoods, HP garage…'")
 new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
 
 # footer provenance note + dates
@@ -188,9 +188,9 @@ new = new.replace(
 # appendix — cuisine rules + how-sourced
 SV_APPENDIX = (
  "+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES</span><div class=\"t\">How the cuisine filters were policed'\n"
- "  + '<span>Every food card names a specific dish \\u2014 a cuisine label alone doesn\\u2019t qualify. The Valley\\u2019s signature strength is immigrant density: <b>Taiwanese</b> (Cupertino/Sunnyvale), <b>Vietnamese</b> (San Jose\\u2019s Little Saigon, the largest outside Vietnam), <b>South Indian</b> (Sunnyvale/Milpitas) and the American <b>boba</b> scene the region invented each got a dedicated search led by Michelin, Eater SF, The Infatuation and the SF Chronicle. A cuisine tag names the kitchen\\u2019s own tradition, never one dish it happens to serve.</span></div></div>'\n"
+ "  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The Valley’s signature strength is immigrant density: <b>Taiwanese</b> (Cupertino/Sunnyvale), <b>Vietnamese</b> (San Jose’s Little Saigon, the largest outside Vietnam), <b>South Indian</b> (Sunnyvale/Milpitas) and the American <b>boba</b> scene the region invented each got a dedicated search led by Michelin, Eater SF, The Infatuation and the SF Chronicle. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'\n"
  "  + '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched and fact-checked'\n"
- "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \\u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
+ "  + '<span>Every place is traceable to a credible source — Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';"
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: SV_APPENDIX, new, flags=re.S)
 

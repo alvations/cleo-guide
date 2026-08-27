@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · State College &amp; Happy Valley, sourced</p>
   <h1>State College<span class="thin">Happy Valley &mdash; Penn State, the creamery &amp; Mount Nittany</span></h1>
-  <p class="standfirst">34 sights and 14 places to eat across <strong>State College</strong>, the <strong>Penn State</strong> University Park campus and Centre County (Bellefonte, Boalsburg, Happy Valley), each traceable to the source that named it. The town\u2019s canon is its own: <strong>Berkey Creamery</strong> ice cream, the <strong>grilled sticky</strong> at Ye Olde College Diner, tavern wings, Happy Valley beer, plus Old Main, Beaver Stadium and Mount Nittany. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">34 sights and 14 places to eat across <strong>State College</strong>, the <strong>Penn State</strong> University Park campus and Centre County (Bellefonte, Boalsburg, Happy Valley), each traceable to the source that named it. The town’s canon is its own: <strong>Berkey Creamery</strong> ice cream, the <strong>grilled sticky</strong> at Ye Olde College Diner, tavern wings, Happy Valley beer, plus Old Main, Beaver Stadium and Mount Nittany. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -799,7 +799,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'grilled stickies, creamery, wings, pizza\u2026' : 'Old Main, Beaver Stadium, Mount Nittany, Penn\u2019s Cave\u2026';
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -941,7 +941,7 @@ document.getElementById('tripGoogle').onclick=()=>{
 document.getElementById('tripKml').onclick=()=>{
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>State College \u2014 my list</name>'
+    +'<name>Cleveland \u2014 my list</name>'
     +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
@@ -975,9 +975,9 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
-  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. State College\u2019s canon is a college town\u2019s own: the <b>Berkey Creamery</b> (Penn State\u2019s own ice cream), the <b>grilled sticky</b> at <b>Ye Olde College Diner</b>, tavern <b>wings</b>, <b>Happy Valley</b> craft beer (<b>Otto\u2019s</b>, <b>Robin Hood</b>, <b>Elk Creek</b>), and the diner/breakfast institutions, sourced to the Centre Daily Times, StateCollege.com and Onward State. A cuisine tag names the kitchen\u2019s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. State College’s canon is a college town’s own: the <b>Berkey Creamery</b> (Penn State’s own ice cream), the <b>grilled sticky</b> at <b>Ye Olde College Diner</b>, tavern <b>wings</b>, <b>Happy Valley</b> craft beer (<b>Otto’s</b>, <b>Robin Hood</b>, <b>Elk Creek</b>), and the diner/breakfast institutions, sourced to the Centre Daily Times, StateCollege.com and Onward State. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
-  + '<span>Every place is traceable to a credible source \u2014 the Centre Daily Times, StateCollege.com, Onward State, the Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura and official sites \u2014 recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+  + '<span>Every place is traceable to a credible source — the Centre Daily Times, StateCollege.com, Onward State, the Happy Valley Adventure Bureau, Uncovering PA, Atlas Obscura and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');
 

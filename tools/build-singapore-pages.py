@@ -219,10 +219,10 @@ LABELS.forEach(''',
     new=re.sub(r'<meta name="description"[^>]*>',
         '<meta name="description" content="%s (%s) field guide — %d sights and %d places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">'%(name,region,nP,nF), new)
     new=new.replace(", Cleveland OH", ", %s"%name)
-    new=new.replace(">Cleveland \\u2014 my list<",">%s \\u2014 my list<"%name).replace(">Cleveland — my list<",">%s — my list<"%name)
+    new=new.replace(">Cleveland — my list<",">%s — my list<"%name).replace(">Cleveland — my list<",">%s — my list<"%name)
     new=new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"','placeholder="chicken rice, laksa, temple, market…"')
-    new=new.replace("? 'laksa, dim sum, pastrami, cannoli\\u2026' : 'witchcraft, waterfall, chess, kielbasa\\u2026'",
-                    "? 'chicken rice, laksa, satay, prata\\u2026' : 'temples, markets, museums, parks\\u2026'")
+    new=new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
+                    "? 'chicken rice, laksa, satay, prata…' : 'temples, markets, museums, parks…'")
     new=new.replace('href="index.html" style="color:var(--bone-dim)','href="../index.html" style="color:var(--bone-dim)')
     new=new.replace("last verified 2026-08-08","last verified 2026-08-26")
     new=new.replace(
@@ -238,7 +238,7 @@ LABELS.forEach(''',
     # appendix trimmed to a generic note
     new=re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';",
         lambda m: "+ '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched &amp; fact-checked'"
-                  "  + '<span>Every place is traceable to a credible source \\u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \\u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';",
+                  "  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';",
         new, flags=re.S)
     # guards
     assert "P.forEach((p,i)=>{p.id='s'+i" in new

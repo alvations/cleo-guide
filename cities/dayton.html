@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Dayton &amp; the Miami Valley, sourced</p>
   <h1>Dayton<span class="thin">the Gem City &mdash; birthplace of aviation on the Great Miami</span></h1>
-  <p class="standfirst">55 sights and 19 places to eat across Dayton and the Miami Valley, each traceable to the source that named it. The Gem City\u2019s food story runs local &mdash; Marion’s Dayton-style pizza, Esther Price candy, Bill’s Donuts, the Pine Club and the Oregon District &mdash; but the real draw is aviation: the National Museum of the U.S. Air Force (the world’s largest, free) and the Wright brothers’ workshops. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">55 sights and 19 places to eat across Dayton and the Miami Valley, each traceable to the source that named it. The Gem City’s food story runs local &mdash; Marion’s Dayton-style pizza, Esther Price candy, Bill’s Donuts, the Pine Club and the Oregon District &mdash; but the real draw is aviation: the National Museum of the U.S. Air Force (the world’s largest, free) and the Wright brothers’ workshops. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -821,7 +821,7 @@ function setMode(m){
   document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
   document.getElementById('cuisineWrap').hidden = (m!=='food');
   document.getElementById('search').placeholder = m==='food'
-    ? 'Dayton pizza, donuts, Pine Club, candy\u2026' : 'Air Force Museum, Carillon, Wright, RiverScape\u2026';
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
   buildSrcChips(); render();
 }
 document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
@@ -963,7 +963,7 @@ document.getElementById('tripGoogle').onclick=()=>{
 document.getElementById('tripKml').onclick=()=>{
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
-    +'<name>Dayton \u2014 my list</name>'
+    +'<name>Cleveland \u2014 my list</name>'
     +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
@@ -997,9 +997,9 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
-  + '<span>Every food card names a specific dish \u2014 a cuisine label alone doesn\u2019t qualify. Dayton\u2019s signature strength is aviation and hometown classics: the <b>National Museum of the U.S. Air Force</b> (the world\u2019s largest, free), the Wright brothers\u2019 <b>Carillon</b> Flyer III, <b>Marion\u2019s</b> Dayton-style pizza, <b>Esther Price</b> candy and <b>Bill\u2019s</b> Donuts, sourced to the Dayton Daily News, Dayton Magazine, WHIO and the National Park Service. A cuisine tag names the kitchen\u2019s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Dayton’s signature strength is aviation and hometown classics: the <b>National Museum of the U.S. Air Force</b> (the world’s largest, free), the Wright brothers’ <b>Carillon</b> Flyer III, <b>Marion’s</b> Dayton-style pizza, <b>Esther Price</b> candy and <b>Bill’s</b> Donuts, sourced to the Dayton Daily News, Dayton Magazine, WHIO and the National Park Service. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
-  + '<span>Every place is traceable to a credible source \u2014 Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites \u2014 recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
+  + '<span>Every place is traceable to a credible source — Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
 
 setMode('sights');
 
