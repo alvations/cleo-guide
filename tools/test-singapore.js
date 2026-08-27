@@ -107,7 +107,8 @@ for (const f of pages) {
   ok &= chk('index.html', 'every place represented (link or greyed)', allCards.length === pages.length, allCards.length);
   ok &= chk('index.html', 'every hub link resolves to a file', missing.length === 0, missing);
   ok &= chk('index.html', 'greyed cards are not clickable links', disabledAreLinks.length === 0, disabledAreLinks.length);
-  ok &= chk('index.html', 'greyed cards exist (non-Singapore not yet live)', disabled.length > 0, disabled.length);
+  ok &= chk('index.html', 'greyed cards exist (others not yet live)', disabled.length > 0, disabled.length);
+  ok &= chk('index.html', 'Toa Payoh is a live clickable link', links.includes('toa-payoh.html'), links);
   if (ok) console.log(`  PASS  index.html (hub)     ${links.length} live links, ${disabled.length} greyed`);
 }
 

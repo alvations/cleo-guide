@@ -260,6 +260,9 @@ json.dump(built, open(os.path.join(OUTDIR,"_pages.json"),"w"), indent=1, ensure_
 for b in built: print("  %-22s %-26s S%d F%d"%(b["slug"],b["region"],b["nP"],b["nF"]))
 
 # ── Singapore/index.html — the pastel hub ──
+# Only these slugs are clickable for now; everything else is greyed while we populate it.
+LIVE_SLUGS={"toa-payoh"}
+LIVE_SLUG="toa-payoh"   # back-compat single check
 REGION_ORDER=["Singapore","Malaysia","Thailand","Vietnam","Indonesia","Philippines","Cambodia, Laos & Myanmar"]
 byreg=defaultdict(list)
 for b in built: byreg[b["region"]].append(b)
@@ -269,14 +272,16 @@ cards=[]
 for reg in REGION_ORDER:
     items=byreg.get(reg,[])
     if not items: continue
-    live = (reg=="Singapore")
-    hdr = esc(reg) if live else esc(reg)+' <span class="regnote">· expanding soon</span>'
+    # For now ONLY Toa Payoh is live/clickable; everything else is greyed while we populate it.
+    region_has_live = any(b["slug"] in LIVE_SLUGS for b in items)
+    hdr = esc(reg) if region_has_live else esc(reg)+' <span class="regnote">· expanding soon</span>'
     cards.append('<h2 class="reg">%s</h2>\n<div class="grid">'%hdr)
     for b in items:
         bits=[]
         if b["nP"]: bits.append("%d sight%s"%(b["nP"],"" if b["nP"]==1 else "s"))
         if b["nF"]: bits.append("%d food"%b["nF"])
         meta=" · ".join(bits)
+        live = (b["slug"] in LIVE_SLUGS)
         if live:
             cards.append('<a class="pcard" href="%s.html"><span class="pn">%s</span>'
                          '<span class="pc">%s</span></a>'%(b["slug"],esc(b["name"]),meta))
