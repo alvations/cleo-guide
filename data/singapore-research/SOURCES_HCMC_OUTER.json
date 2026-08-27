@@ -1,0 +1,27 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "Outer districts (Cholon D5/D6, D4 seafood, Bình Thạnh, Thảo Điền D2) + coffee culture + cocktail bars + dessert. Kept SEPARATE from SOURCES_HCMC.json (central street-food slice).",
+ "outlets": [
+  {"key": "MICHELIN", "name": "MICHELIN Guide Vietnam (Ho Chi Minh City) — Stars / Bib Gourmand / Selected", "url": "https://guide.michelin.com/en/vn/ho-chi-minh-city", "tier": "institutional", "note": "Lone-authority-OK. Bib Gourmand + the city's sole 1-star (Anan)."},
+  {"key": "VIETCETERA", "name": "Vietcetera", "url": "https://vietcetera.com/", "tier": "credible-local", "note": "Leading Vietnamese English-language media brand; food/coffee/bar guides."},
+  {"key": "VIETNAMCORACLE", "name": "Vietnam Coracle (Tom Divers)", "url": "https://www.vietnamcoracle.com/", "tier": "credible-independent", "note": "Independent, meticulously-researched top Vietnam travel resource since 2005; used here for the Saigon chè guide."},
+  {"key": "SAIGONEER", "name": "Saigoneer", "url": "https://saigoneer.com/", "tier": "credible-local", "note": "Leading Saigon English-language culture & food outlet; 'Hẻm Gems' street-food series."},
+  {"key": "SPRUDGE", "name": "Sprudge", "url": "https://sprudge.com/", "tier": "credible-trade", "note": "The leading global specialty-coffee publication; authoritative for the HCMC coffee scene."},
+  {"key": "THEDOT", "name": "The Dot Magazine (Saigon)", "url": "https://thedotmagazine.com/", "tier": "credible-local", "note": "Saigon insider city guide — coffee & cocktail-bar editorial."},
+  {"key": "TATLER", "name": "Tatler Asia", "url": "https://www.tatlerasia.com/", "tier": "credible", "note": "Regional dining/nightlife authority; named Enigma Mansion Vietnam Bar of the Year 2025."},
+  {"key": "RUSTYCOMPASS", "name": "Rusty Compass (Mark Bowyer)", "url": "https://www.rustycompass.com/", "tier": "credible-independent", "note": "Long-running independent Vietnam travel guide with detailed HCMC district/coffee/nightlife reviews."},
+  {"key": "WORLDS50", "name": "World's 50 Best — Discovery", "url": "https://www.theworlds50best.com/discovery/", "tier": "institutional", "note": "50 Best editorial local recommendation (Layla)."},
+  {"key": "ASIA50BARS", "name": "Asia's 50 Best Bars", "url": "https://www.theworlds50best.com/", "tier": "institutional", "note": "Lone-authority-OK for bars. Stir, Summer Experiment, Drinking & Healing, Hudson Rooms, The Enigma Mansion all ranked in the 51-100 lists."},
+  {"key": "THESMARTLOCAL", "name": "TheSmartLocal Vietnam", "url": "https://thesmartlocal.com/vietnam/", "tier": "credible-regional", "note": "Regional lifestyle/food media; 'Chợ Lớn 17 must-try foods' feature."},
+  {"key": "WILLFLY", "name": "Will Fly for Food (JB & Renée Macatulad)", "url": "https://www.willflyforfood.net/", "tier": "credible-blog", "note": "Established travel-food blog; dedicated Vĩnh Khánh District 4 seafood guide."},
+  {"key": "HIVELIFE", "name": "Hive Life Magazine", "url": "https://hivelife.com/", "tier": "credible", "note": "Asia lifestyle magazine; Saigon specialty-coffee feature."},
+  {"key": "DANIELFOOD", "name": "Daniel Food Diary", "url": "https://danielfooddiary.com/", "tier": "credible-blog", "note": "Established regional food blog with HCMC coverage."},
+  {"key": "ASIABARS", "name": "Asia Bars & Restaurants (asia-bars.com)", "url": "https://www.asia-bars.com/", "tier": "credible-trade", "note": "Regional bar/restaurant trade site; opening & ranking coverage."},
+  {"key": "FILTERNOTES", "name": "Filter Notes", "url": "https://www.filternotes.com/", "tier": "credible-blog", "note": "Specialty-coffee review site; The Workshop review."},
+  {"key": "LUXUO", "name": "LUXUO", "url": "https://www.luxuo.com/", "tier": "credible", "note": "Luxury lifestyle/travel magazine; Saigon nightlife & Enigma Mansion feature."},
+  {"key": "VNAIR", "name": "Vietnam Airlines Travel Guide", "url": "https://www.vietnamairlines.com/", "tier": "editorial-corporate", "note": "National-carrier editorial travel guide; used only as a corroborating (never lone) source for the Bình Thạnh bún bò Huế pick."},
+  {"key": "VESPAAGOGO", "name": "Vespa Adventures — Saigon food guide", "url": "https://vespaagogo.com/", "tier": "editorial-operator", "note": "Established Saigon food-tour operator's editorial district guides; corroborating source only."},
+  {"key": "WIKI", "name": "Wikipedia", "url": "https://en.wikipedia.org/", "tier": "notability", "note": "Used for notability/heritage corroboration only (Cộng Cà Phê, net-filter/cà phê vợt), never as a lone recommender."}
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "Outer districts + coffee + bars + dessert. SEPARATE from CREATORS_HCMC.json.",
+ "note": "WebSearch-only research from a US region: I could not reliably surface individual Vietnamese TikTok/YouTube/IG food vloggers with a *findable* verified clip on each specific place, so — per the honesty rule — I did NOT invent creator attributions or follower counts. The vetted independent creator-authored sources below each count as ONE corroborating source (never an authority); institutional gates (MICHELIN, Asia's 50 Best Bars, World's 50 Best) carry the lone-authority entries. A follow-up local-language pass (YouTube/TikTok in Vietnamese) is the way to add named vloggers with follower scale.",
+ "creators": [
+  {"key": "VIETNAMCORACLE", "name": "Vietnam Coracle (Tom Divers)", "platform": "web (independent)", "followers": "top independent Vietnam travel resource; word-of-mouth, no sponsors, 400+ guides since 2005", "url": "https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/", "verified": "Named, long-form Saigon chè guide covering Chè Hà Ký & Chè Kỳ Đồng."},
+  {"key": "WILLFLY", "name": "Will Fly for Food (JB & Renée Macatulad)", "platform": "blog + IG", "followers": "established travel-food blog with sizeable audience (not re-measured this pass)", "url": "https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/", "verified": "First-person Vĩnh Khánh (District 4) seafood-street guide naming Ốc Oanh / Ốc Đào."},
+  {"key": "RUSTYCOMPASS", "name": "Rusty Compass (Mark Bowyer)", "platform": "web (independent)", "followers": "long-running independent Vietnam travel publication", "url": "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/coffee-the-best-of-saigons-cafes-1316", "verified": "Authored district, coffee and nightlife reviews (Cholon, District 2, Vĩnh Khánh, Layla, cafes)."},
+  {"key": "DANIELFOOD", "name": "Daniel Food Diary", "platform": "blog + social", "followers": "established regional food blog", "url": "https://danielfooddiary.com/2024/02/20/congcaphe/", "verified": "Named Cộng Cà Phê / coconut-coffee piece."}
+ ],
+ "attach": [
+  {"place": "Chè Hà Ký", "creatorKey": "VIETNAMCORACLE", "url": "https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"},
+  {"place": "Chè Kỳ Đồng", "creatorKey": "VIETNAMCORACLE", "url": "https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"},
+  {"place": "Ốc Oanh", "creatorKey": "WILLFLY", "url": "https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"},
+  {"place": "Ốc Đào", "creatorKey": "WILLFLY", "url": "https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"},
+  {"place": "Cộng Cà Phê", "creatorKey": "DANIELFOOD", "url": "https://danielfooddiary.com/2024/02/20/congcaphe/"}
+ ],
+ "rejected": [
+  {"name": "Lemon8 / Trip.com Moments / Wanderlog HCMC roundups", "reason": "Aggregated UGC with no verifiable authoritative creator or findable following."},
+  {"name": "Mytour.vn / VinWonders / gtrip / kimtravel / bestpricetravel listicles", "reason": "SEO travel-agency content mills, not editorial or creator sources — measure/fact-check only, never a recommender."},
+  {"name": "TripAdvisor / Yelp / Foody.vn / Google ratings", "reason": "Ratings platforms — allowed to MEASURE popularity, never counted toward the ≥2-credible gate."}
+ ]
+}
