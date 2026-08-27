@@ -88,6 +88,9 @@ for (const f of pages) {
   const qb = s => b.d.querySelectorAll(s).length;
   ok &= chk(f, 'entry cards render (leaflet blocked)', qb('.entry') > 0, qb('.entry'));
   ok &= chk(f, 'no js errors (leaflet blocked)', b.errs.length === 0, b.errs.slice(0, 2));
+  // no literal \uXXXX / <\/ escape leaked into the VISIBLE HTML (outside <script>)
+  const visible = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
+  ok &= chk(f, 'no literal \\uXXXX escape in visible HTML', !/\\u[0-9a-fA-F]{4}|<\\\//.test(visible), (visible.match(/\\u[0-9a-fA-F]{4}/) || [''])[0]);
 
   if (ok) { pagesOK++; console.log(`  PASS  ${f.padEnd(24)} P${P} F${F}  markers=${markers}`); }
 }

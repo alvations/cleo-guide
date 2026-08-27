@@ -148,6 +148,12 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
   each area has a surviving tier-1 before `--build` (promote a within-region standout if needed, as for Columbus WEST).
 - **Concurrency corrupts shared appends.** → Parallel agents write distinct filenames + `_note_<tag>.md`, never
   a shared `AUDIT.md`; the orchestrator folds notes into AUDIT.md centrally after the run.
+- **`’`/`—` escapes leaked into page prose.** Build scripts wrote escaped `’` into HTML text
+  (standfirst/meta/placeholders) where — unlike inside a `<script>` — it renders as the literal string
+  `’`. → Use the real characters (`'` `—` `…`) in prose, never `\u` escapes. Guarded THREE ways so it
+  can't regress: (1) every `build-*.py` asserts no literal `\uXXXX` in its visible HTML before writing;
+  (2) `tools/check-escapes.py` scans all built pages (wired into `rebuild-city.py` and `npm test`);
+  (3) `test-singapore.js` asserts it per page. `npm run check:escapes` runs it standalone.
 - **`rebuild-city.py` derived the wrong build-script name** (`os.path.splitext("columbus.dataset.json")` →
   `columbus.dataset` → `build-columbus.dataset.py`, which doesn't exist). → Derive the stem before the FIRST dot
   (`dataset.split('.',1)[0]`); the per-city `BUILD` override map is now only for genuinely irregular names.

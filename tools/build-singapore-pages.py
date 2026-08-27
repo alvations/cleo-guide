@@ -245,6 +245,7 @@ LABELS.forEach(''',
     assert "Cleveland" not in new[new.index("const S = {"):new.index("const AC =")], "Cleveland leaked into %s"%slug
     lo=min(x[0] for x in pins); hi=max(x[0] for x in pins); lo2=min(x[1] for x in pins); hi2=max(x[1] for x in pins)
     assert lo-0.001<=clat<=hi+0.001 and lo2-0.001<=clng<=hi2+0.001, "centre outside pins for %s"%slug
+    assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>","",new)), "literal \\uXXXX escape leaked into visible HTML of "+slug
     open(os.path.join(OUTDIR,slug+".html"),"w",encoding="utf-8").write(new)
     return {"slug":slug,"name":name,"region":region,"nP":nP,"nF":nF,"total":nP+nF}
 
@@ -332,5 +333,6 @@ HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
 %s
 <footer>Sourced &amp; fact-checked via the pipeline · data/sources.json · last verified 2026-08-26</footer>
 </div></body></html>"""%(TOTAL,TOTAL,"\n".join(cards))
+assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>","",HUB)), "literal \\uXXXX escape leaked into the Singapore hub"
 open(os.path.join(OUTDIR,"index.html"),"w",encoding="utf-8").write(HUB)
 print("wrote Singapore/index.html hub (%d places across %d pages)"%(TOTAL,len(built)))

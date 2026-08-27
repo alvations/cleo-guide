@@ -81,6 +81,7 @@ def main():
     # os.path.splitext only strips ".json" and would wrongly yield "columbus.dataset".
     build_script = BUILD.get(a.key, f"build-{dataset.split('.', 1)[0]}.py")
     run([py, os.path.join("tools", build_script)])
+    run([py, "tools/check-escapes.py"], check=False)   # no literal \uXXXX may leak into page prose
     for gate in ("sourcecheck", "geocheck", "statuscheck", "buildcheck"):
         run(["node", "tools/research.js", f"--{gate}", a.key], check=False)
     run([py, "tools/geocode-status.py"], check=False)

@@ -175,6 +175,7 @@ SC_APPENDIX = (
 )
 new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';", lambda m: SC_APPENDIX, new, flags=re.S)
 
+assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>", "", new)), "literal \\uXXXX escape leaked into visible HTML \u2014 use real characters in page prose, not \\u escapes"
 open(OUT, "w", encoding="utf-8").write(new)
 assert "P.forEach((p,i)=>{p.id='s'+i" in new
 _leakseg = new[new.index("const S = {"):new.index("const AC =")]
