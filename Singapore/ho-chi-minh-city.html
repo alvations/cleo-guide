@@ -412,9 +412,6 @@ const BASES=[
   overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
  {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
   o:{attribution:'&copy; Esri',maxZoom:19}},
- {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
- {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
- {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
 ];
 const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
 
@@ -504,8 +501,7 @@ function markBaseChips(){
 
 document.getElementById('baseFilter').innerHTML =
   BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
-    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
- +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
 document.getElementById('baseFilter').addEventListener('click',e=>{
   const b=e.target.closest('.chip'); if(!b) return;
   if(b.id==='keyBtn'){promptKey();return;}
@@ -861,18 +857,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
   +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
   +'<span>'+s.l+'</span></div></div>').join('')
-  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
-  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
-  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
-  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
-  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
-  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
-  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
-  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
-  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
-  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
-  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
-  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>This edition uses only free base layers that need no key &mdash; OpenStreetMap for streets, CARTO for the pastel light &amp; dark maps, and Esri for satellite &amp; terrain. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');

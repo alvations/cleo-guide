@@ -68,6 +68,21 @@ for (const f of pages) {
     ok &= chk(f, 'markers redraw after mode switch', m2 > 0, m2);
   }
 
+  // NO Google / API-key surface — assert on what the VIEWER actually sees + the network, not dead
+  // <script> strings. No key button, no google chips, base controls show no "API"/"KEY", the active
+  // default base is a FREE no-key layer, no google tiles/script at init, no key-required base in data,
+  // and the rendered methodology text never says "API key".
+  const baseText = (a.d.getElementById('baseFilter') || {}).textContent || '';
+  ok &= chk(f, 'base controls show no API/KEY text', !/api|key/i.test(baseText), baseText.slice(0, 50));
+  ok &= chk(f, 'no keyBtn element', !a.d.getElementById('keyBtn'));
+  ok &= chk(f, 'no google (g_) base chips', a.d.querySelectorAll('#baseFilter .chip[data-v^="g_"]').length === 0, a.d.querySelectorAll('#baseFilter .chip[data-v^="g_"]').length);
+  ok &= chk(f, 'no key-required (free:0) base in BASES data', !/free:0/.test(html));
+  ok &= chk(f, 'no google tiles requested', ![...a.d.querySelectorAll('#map img')].some(i => /googleapis|google\.com|gstatic\.com\/mapfiles|khms|mts\d/.test(i.src)));
+  ok &= chk(f, 'no googleapis script injected', !a.d.querySelector('script[src*="googleapis"]'));
+  ok &= chk(f, 'rendered methodology has no "API key"', !/api key/i.test((a.d.querySelector('.appendix') || {}).textContent || ''));
+  const activeChip = [...a.d.querySelectorAll('#baseFilter .chip')].find(c => c.getAttribute('aria-pressed') === 'true');
+  ok &= chk(f, 'active base is a free no-key layer', !!activeChip && !/^g_/.test(activeChip.dataset.v || ''), activeChip && activeChip.dataset.v);
+
   // Scenario 2: Leaflet blocked — content must still render
   const b = boot(html, false);
   const qb = s => b.d.querySelectorAll(s).length;

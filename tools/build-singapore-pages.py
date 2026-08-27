@@ -166,6 +166,13 @@ def build_page(slug):
     rep(".osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}",
         ".osmdark .leaflet-tile-pane{filter:none;}\n  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}")
     rep("setBase('dark'); markBaseChips();","setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();")
+    # Remove the Google (key-required) base layers + the "ADD GOOGLE API KEY" button — these pastel
+    # place pages use only free, no-key tiles, so "API key required" can never appear.
+    rep("""\n {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
+ {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
+ {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}""", "")
+    rep("""').join('')
+ +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';""", "').join('');")
     rep("color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A","color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)")
     rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};","const AC = {%s:'%s'};"%(AID,color))
     rep("setView([41.4993,-81.6944],11)","setView([%s,%s],%d)"%(clat,clng,zoom))
@@ -221,6 +228,13 @@ LABELS.forEach(''',
     new=new.replace(
 '''  <span style="opacity:.8">Refresh check (Aug 2026, via the pipeline): Sokolowski's University Inn confirmed still closed (kept, flagged); West Side Market open amid a $70M renovation, produce arcade reopened Jan 2026; newly opened since build — Rock &amp; Roll Hall of Fame expansion, Cleveland Metroparks Zoo Primate Forest, Irishtown Bend Park. Findings logged in data/sources.json.</span><br><br>''',
 '''  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>''')
+    # scrub the "BASE MAPS / why not Google" methodology prose (now false — the Google buttons are gone)
+    base_note=("+ '<div class=\"srcrow\"><span class=\"k\">BASE MAPS</span><div class=\"t\">Free, no-key tiles'"
+               "  + '<span>This edition uses only free base layers that need no key &mdash; OpenStreetMap for streets, "
+               "CARTO for the pastel light &amp; dark maps, and Esri for satellite &amp; terrain. Every place also carries "
+               "its own Google Maps and Apple Maps links for directions.</span></div></div>'")
+    new=re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">BASE MAPS</span>.*?All are licensed for this use\.</span></div></div>'",
+        lambda m: base_note, new, flags=re.S)   # lambda repl -> no escape processing on the replacement
     # appendix trimmed to a generic note
     new=re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></div>';",
         lambda m: "+ '<div class=\"srcrow\"><span class=\"k\">HOW SOURCED</span><div class=\"t\">Web-searched &amp; fact-checked'"
