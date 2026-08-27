@@ -1,254 +1,640 @@
 [
  {
-  "t": 1, "a": "VN", "cz": ["Chinese-Vietnamese"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Chinese-Vietnamese"
+  ],
   "dish": "mì vịt tiềm (braised duck & egg-noodle soup)",
   "n": "Huê Ký Mì Gia",
   "address": "59C Thuận Kiều, Ward 12, District 5 (Cholon), Ho Chi Minh City, Vietnam",
   "w": "Cholon's beloved Cantonese duck-noodle house — cinnamon-scented broth, lightly seasoned juicy braised duck, house-made egg noodles. A Saigoneer Hẻm Gems feature.",
   "closed": false,
-  "sources": [["SAIGONEER","https://saigoneer.com/saigon-street-food-restaurants/17597-h%E1%BA%BBm-gems-hu%C3%AA-k%C3%BD-m%C3%AC-v%E1%BB%8Bt-ti%E1%BB%81m-the-crispy-duck-noodles-for-when-you-re-feeling-fancy"],["THESMARTLOCAL","https://thesmartlocal.com/vietnam/cho-lon-foods/"]]
+  "sources": [
+   [
+    "SAIGONEER",
+    "https://saigoneer.com/saigon-street-food-restaurants/17597-h%E1%BA%BBm-gems-hu%C3%AA-k%C3%BD-m%C3%AC-v%E1%BB%8Bt-ti%E1%BB%81m-the-crispy-duck-noodles-for-when-you-re-feeling-fancy"
+   ],
+   [
+    "THESMARTLOCAL",
+    "https://thesmartlocal.com/vietnam/cho-lon-foods/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Chinese-Vietnamese"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Chinese-Vietnamese"
+  ],
   "dish": "hủ tiếu sa tế (Teochew satay noodle soup)",
   "n": "Hủ Tiếu Sa Tế Quảng Ký",
   "address": "117 Triệu Quang Phục, Ward 11, District 5 (Cholon), Ho Chi Minh City, Vietnam",
   "w": "Teochew satay-noodle specialist in Cholon — a spicy-savoury broth built from 30+ condiments, a signature Chợ Lớn dish brought by 19th-century Teochew migrants.",
   "closed": false,
-  "sources": [["THESMARTLOCAL","https://thesmartlocal.com/vietnam/cho-lon-foods/"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/see-and-do-14/cholon-saigons-chinatown-210"]]
+  "sources": [
+   [
+    "THESMARTLOCAL",
+    "https://thesmartlocal.com/vietnam/cho-lon-foods/"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/see-and-do-14/cholon-saigons-chinatown-210"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Cantonese", "Chinese-Vietnamese"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Cantonese",
+   "Chinese-Vietnamese"
+  ],
   "dish": "dim sum (har gow, char siu bao, chicken wing stuffed with glutinous rice)",
   "n": "Dim Tu Tac",
   "address": "District 5 (Cholon), Ho Chi Minh City, Vietnam",
   "w": "Cantonese dim-sum house awarded the MICHELIN Bib Gourmand (2023 & 2024); known for dishes found nowhere else in Saigon's Chinatown.",
   "closed": false,
-  "sources": [["MICHELIN","https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-vietnam-2024"],["VIETCETERA","https://vietcetera.com/en/top-dim-sum-places-in-ho-chi-minh-city"]]
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-vietnam-2024"
+   ],
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/top-dim-sum-places-in-ho-chi-minh-city"
+   ],
+   [
+    "DFD",
+    "https://danielfooddiary.com/2024/03/16/dimtutac/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Chinese-Vietnamese", "Dessert"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Chinese-Vietnamese",
+   "Dessert"
+  ],
   "dish": "chè (chè hột gà trà, chè hạnh nhân and other Cantonese sweet soups)",
   "n": "Chè Hà Ký",
   "address": "District 5 (Cholon), Ho Chi Minh City, Vietnam",
   "w": "A 30-year Cholon institution that grew from a single chè stall into a symbol of Chinese-Vietnamese sweets — egg-in-tea chè and almond chè among the classics.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/for-those-having-a-sweet-tooth-che-spots-you-must-try-in-saigon"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/for-those-having-a-sweet-tooth-che-spots-you-must-try-in-saigon"
+   ],
+   [
+    "VIETNAMCORACLE",
+    "https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Vietnamese"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Vietnamese"
+  ],
   "dish": "ốc (assorted snails) & salt-roasted crab claws",
   "n": "Ốc Oanh",
   "address": "534 Vĩnh Khánh, District 4, Ho Chi Minh City, Vietnam",
   "w": "The most famous ốc house on District 4's Vĩnh Khánh seafood strip (~20 years); a MICHELIN Bib Gourmand 2024 pick, signature salt-roasted crab claws, plastic-stool buzz.",
   "closed": false,
-  "sources": [["MICHELIN","https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-vietnam-2024"],["WILLFLY","https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/vinh-khanh-local-seafood-strip-saigon-1457"]]
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-vietnam-2024"
+   ],
+   [
+    "WILLFLY",
+    "https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/vinh-khanh-local-seafood-strip-saigon-1457"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Vietnamese"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Vietnamese"
+  ],
   "dish": "ốc (snails), grilled scallops & sò huyết (blood cockles)",
   "n": "Ốc Đào",
   "address": "Vĩnh Khánh, District 4, Ho Chi Minh City, Vietnam",
   "w": "A long-loved Saigon ốc name known for fresh, well-seasoned snails and grilled shellfish; a fixture of the District 4 Vĩnh Khánh seafood-street scene.",
   "closed": false,
-  "sources": [["WILLFLY","https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/vinh-khanh-local-seafood-strip-saigon-1457"]]
+  "sources": [
+   [
+    "WILLFLY",
+    "https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/vinh-khanh-local-seafood-strip-saigon-1457"
+   ]
+  ]
  },
  {
-  "t": 3, "a": "VN", "cz": ["Vietnamese"],
+  "t": 3,
+  "a": "VN",
+  "cz": [
+   "Vietnamese"
+  ],
   "dish": "bún bò Huế (Hue-style beef & tendon noodle soup)",
   "n": "Bún Bò Huế Ngự Bình",
   "address": "Bình Thạnh District, Ho Chi Minh City, Vietnam",
   "w": "One of Bình Thạnh's best-known bún bò Huế houses, styled like a countryside home — a beloved local institution in one of Saigon's most underrated street-food districts.",
   "closed": false,
-  "sources": [["VNAIR","https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/best-bun-bo-hue-in-sai-gon"],["VESPAAGOGO","https://vespaagogo.com/blog/post/saigon-travel/binh-thanh-district"]]
+  "sources": [
+   [
+    "VNAIR",
+    "https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/best-bun-bo-hue-in-sai-gon"
+   ],
+   [
+    "VESPAAGOGO",
+    "https://vespaagogo.com/blog/post/saigon-travel/binh-thanh-district"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Vietnamese"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Vietnamese"
+  ],
   "dish": "elevated Vietnamese street food (Đông Hồ caviar, luxe phở, foie-gras bánh mì)",
   "n": "Anan Saigon",
   "address": "89 Tôn Thất Đạm, Bến Nghé Ward, District 1, Ho Chi Minh City, Vietnam",
   "w": "Chef Peter Cường Franklin's tube-house restaurant that turns Saigon street food into fine dining — Ho Chi Minh City's first and enduring 1-MICHELIN-Star (2023-2025).",
   "closed": false,
-  "sources": [["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/full-list-michelin-stars-michelin-guide-vietnam-2025"]]
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/full-list-michelin-stars-michelin-guide-vietnam-2025"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Vietnamese", "Modern"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Vietnamese",
+   "Modern"
+  ],
   "dish": "modern Vietnamese (clay-pot & charcoal-grilled dishes)",
   "n": "TRE Dining",
   "address": "35 Xuân Thủy, Thảo Điền, District 2 (Thủ Đức City), Ho Chi Minh City, Vietnam",
   "w": "A reinvented modern-Vietnamese space in Thảo Điền; a MICHELIN Selected restaurant (2023) spotlighted in Saigon's 'new Vietnamese' wave.",
   "closed": false,
-  "sources": [["MICHELIN","https://guide.michelin.com/en/vn/ho-chi-minh-city"],["VIETCETERA","https://vietcetera.com/en/eight-authentic-vietnamese-restaurants-in-saigon"]]
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/en/vn/ho-chi-minh-city"
+   ],
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/eight-authentic-vietnamese-restaurants-in-saigon"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Vietnamese", "Modern"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Vietnamese",
+   "Modern"
+  ],
   "dish": "modern Vietnamese & Asian-inspired dishes (cá kho tộ, garden dining)",
   "n": "Laang",
   "address": "22 Đặng Hữu Phổ, Thảo Điền, District 2 (Thủ Đức City), Ho Chi Minh City, Vietnam",
   "w": "A tranquil green villa in Thảo Điền serving authentic Vietnamese with a gentle modern twist and vegetarian focus — a District 2 expat favourite.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/eight-authentic-vietnamese-restaurants-in-saigon"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/eight-authentic-vietnamese-restaurants-in-saigon"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"
+   ]
+  ]
  },
  {
-  "t": 3, "a": "VN", "cz": ["Cafe", "Western"],
+  "t": 3,
+  "a": "VN",
+  "cz": [
+   "Cafe",
+   "Western"
+  ],
   "dish": "all-day brunch (big breakfast, house-baked goods)",
   "n": "The Vintage Emporium",
   "address": "Thảo Điền, District 2 (Thủ Đức City), Ho Chi Minh City, Vietnam",
   "w": "A health-leaning all-day brunch villa in a spacious Thảo Điền garden — a mainstay of District 2's expat brunch scene.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/where-to-eat-brunch-in-ho-chi-minh-city"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/where-to-eat-brunch-in-ho-chi-minh-city"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"
+   ]
+  ]
  },
  {
-  "t": 3, "a": "VN", "cz": ["Cafe", "Western"],
+  "t": 3,
+  "a": "VN",
+  "cz": [
+   "Cafe",
+   "Western"
+  ],
   "dish": "concept-store brunch & pastries (local-ingredient dishes)",
   "n": "L'Usine",
   "address": "Thảo Điền, District 2, Ho Chi Minh City, Vietnam (also Lê Lợi & Đồng Khởi, District 1)",
   "w": "A pioneering concept-store cafe-bistro brand that keeps innovating brunch with Vietnamese ingredients; the Thảo Điền outlet anchors District 2.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/where-to-eat-brunch-in-ho-chi-minh-city"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/where-to-eat-brunch-in-ho-chi-minh-city"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Coffee"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "single-origin pour-over & espresso (no condensed milk)",
   "n": "The Workshop Coffee",
   "address": "3rd floor, 27 Ngô Đức Kế, District 1, Ho Chi Minh City, Vietnam",
   "w": "Saigon's first specialty roaster (2014) and unofficial HQ of Vietnamese specialty coffee — transparency-first, long shared tables, pour-over and cold brew.",
   "closed": false,
-  "sources": [["SPRUDGE","https://sprudge.com/hcmc-guide-109366.html"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/coffee-the-best-of-saigons-cafes-1316"],["FILTERNOTES","https://www.filternotes.com/ho-chi-minh-city/the-workshop-coffee"]]
+  "sources": [
+   [
+    "SPRUDGE",
+    "https://sprudge.com/hcmc-guide-109366.html"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/coffee-the-best-of-saigons-cafes-1316"
+   ],
+   [
+    "FILTERNOTES",
+    "https://www.filternotes.com/ho-chi-minh-city/the-workshop-coffee"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Coffee"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "Vietnamese single-origin specialty coffee & filter flights",
   "n": "Every Half Coffee Roasters",
   "address": "6E Tú Xương, Võ Thị Sáu Ward, District 3, Ho Chi Minh City, Vietnam (flagship roastery in Thảo Điền, District 2)",
   "w": "Called 'the specialty coffee of the moment' — a sustainability-minded Vietnamese roaster championing single origins from Buôn Ma Thuột and beyond.",
   "closed": false,
-  "sources": [["SAIGONEER","https://saigoneer.com/sponsored-listings/244-eat-drink/26331-every-half-vietnam-specialty-coffee-roasters-exemplifies-vietnam%E2%80%99s-evolving-coffee-industry"],["THEDOT","https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"]]
+  "sources": [
+   [
+    "SAIGONEER",
+    "https://saigoneer.com/sponsored-listings/244-eat-drink/26331-every-half-vietnam-specialty-coffee-roasters-exemplifies-vietnam%E2%80%99s-evolving-coffee-industry"
+   ],
+   [
+    "THEDOT",
+    "https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Coffee"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "specialty & egg coffee, siphon/theatrical brews",
   "n": "Shin Coffee",
   "address": "27 Lưu Văn Lang, District 1, Ho Chi Minh City, Vietnam",
   "w": "Widely regarded as one of the city's best practitioners of specialty coffee — serious brew hardware, Vietnamese and international beans, standout egg coffee.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/vietceteras-go-to-coffee-shops-in-saigon"],["HIVELIFE","https://hivelife.com/specialty-coffee-shops-saigon/"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/vietceteras-go-to-coffee-shops-in-saigon"
+   ],
+   [
+    "HIVELIFE",
+    "https://hivelife.com/specialty-coffee-shops-saigon/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Coffee"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "Dalat farm-to-cup single-origin coffee",
   "n": "Là Việt Coffee",
   "address": "193 Hai Bà Trưng, District 3, Ho Chi Minh City, Vietnam",
   "w": "A true farm-to-cup Vietnamese roaster growing its beans in Dalat's Central Highlands — one of the country's defining specialty brands.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/7-vietnamese-coffee-brands-you-should-know"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/coffee-the-best-of-saigons-cafes-1316"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/7-vietnamese-coffee-brands-you-should-know"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/coffee-the-best-of-saigons-cafes-1316"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Coffee"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "cà phê vợt (cloth-sock filter coffee) & cà phê sữa đá",
   "n": "Cheo Leo Cafe",
   "address": "109/36 Nguyễn Thiện Thuật, District 3, Ho Chi Minh City, Vietnam",
   "w": "Opened 1938 — Saigon's oldest cafe and last cà phê vợt (cloth-sock filter) shop, coffee still brewed in batches over charcoal the pre-phin way. A family heirloom.",
   "closed": false,
-  "sources": [["SAIGONEER","https://www.saigoneer.com/saigon-street-food-restaurants/13232-video-h%E1%BA%BBm-gems-80-years-of-c%C3%A0-ph%C3%AA-v%E1%BB%A3t-in-saigon-s-oldest-cafe"],["WIKI","https://en.wikipedia.org/wiki/Net-filter_coffee"]]
+  "sources": [
+   [
+    "SAIGONEER",
+    "https://www.saigoneer.com/saigon-street-food-restaurants/13232-video-h%E1%BA%BBm-gems-80-years-of-c%C3%A0-ph%C3%AA-v%E1%BB%A3t-in-saigon-s-oldest-cafe"
+   ],
+   [
+    "WIKI",
+    "https://en.wikipedia.org/wiki/Net-filter_coffee"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Coffee"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "cà phê cốt dừa (coconut-coffee smoothie)",
   "n": "Cộng Cà Phê",
   "address": "26 Lý Tự Trọng & Nguyễn Huệ, District 1, Ho Chi Minh City, Vietnam (multiple branches)",
   "w": "The retro, olive-green subsidy-era chain that made cà phê cốt dừa (coconut coffee) a Saigon signature — a near-obligatory coconut-coffee stop.",
   "closed": false,
-  "sources": [["DANIELFOOD","https://danielfooddiary.com/2024/02/20/congcaphe/"],["WIKI","https://en.wikipedia.org/wiki/C%E1%BB%99ng_C%C3%A0_Ph%C3%AA"]]
+  "sources": [
+   [
+    "DANIELFOOD",
+    "https://danielfooddiary.com/2024/02/20/congcaphe/"
+   ],
+   [
+    "WIKI",
+    "https://en.wikipedia.org/wiki/C%E1%BB%99ng_C%C3%A0_Ph%C3%AA"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Coffee"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "small-batch roasted cà phê sữa đá & specialty coffee",
   "n": "Okkio Caffe",
   "address": "22 Lê Lợi, District 1, Ho Chi Minh City, Vietnam (branches incl. Thảo Điền, District 2)",
   "w": "A sleek retro-Saigon small-batch roaster near Bến Thành that blends traditional Vietnamese coffee with modern specialty craft across its city outlets.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/vietceteras-go-to-coffee-shops-in-saigon"],["THEDOT","https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/vietceteras-go-to-coffee-shops-in-saigon"
+   ],
+   [
+    "THEDOT",
+    "https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Coffee"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Coffee"
+  ],
   "dish": "Arabica single-origin specialty coffee in a riverside mansion",
   "n": "Bosgaurus Coffee Roasters",
   "address": "Saigon Pearl, Nguyễn Hữu Cảnh, Bình Thạnh District, Ho Chi Minh City, Vietnam",
   "w": "A multi-storey riverside coffee mansion (opened 2016) that helped awaken Vietnam's Arabica specialty scene and trained national barista champions.",
   "closed": false,
-  "sources": [["SPRUDGE","https://sprudge.com/inside-bosgaurus-ho-chi-minh-citys-stunning-multi-story-cafe-140778.html"],["SAIGONEER","https://saigoneer.com/sponsored-listings/11457-bosgaurus-awakens-vietnam%E2%80%99s-coffee-culture-with-arabica-beans"],["THEDOT","https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"]]
+  "sources": [
+   [
+    "SPRUDGE",
+    "https://sprudge.com/inside-bosgaurus-ho-chi-minh-citys-stunning-multi-story-cafe-140778.html"
+   ],
+   [
+    "SAIGONEER",
+    "https://saigoneer.com/sponsored-listings/11457-bosgaurus-awakens-vietnam%E2%80%99s-coffee-culture-with-arabica-beans"
+   ],
+   [
+    "THEDOT",
+    "https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "modern-classic cocktails (jazz speakeasy)",
   "n": "Stir - Modern Classic Cocktail",
   "address": "1st floor, 136 Lê Thánh Tôn, District 1, Ho Chi Minh City, Vietnam",
   "w": "Saigon's highest-placed bar on Asia's 50 Best Bars (ranked 2022-2025, No. 61 in 2025) — a speakeasy-jazz room of precise modern-classic drinks.",
   "closed": false,
-  "sources": [["ASIA50BARS","https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"],["THEDOT","https://thedotmagazine.com/the-best-cocktail-bars-in-ho-chi-minh-city/"]]
+  "sources": [
+   [
+    "ASIA50BARS",
+    "https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"
+   ],
+   [
+    "THEDOT",
+    "https://thedotmagazine.com/the-best-cocktail-bars-in-ho-chi-minh-city/"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "craft cocktails in a colonial apartment block",
   "n": "Layla - Eatery & Bar",
   "address": "2nd floor, 63 Đồng Du, Bến Nghé Ward, District 1, Ho Chi Minh City, Vietnam",
   "w": "An artful cocktail bar in an old colonial apartment — bar director Jay Moir's spirited, botanical-and-spice list; featured on World's 50 Best Discovery.",
   "closed": false,
-  "sources": [["WORLDS50","https://www.theworlds50best.com/discovery/Establishments/Vietnam/Ho-Chi-Minh-City/Layla-Eatery-and-Bar.html"],["TATLER","https://www.tatlerasia.com/dining/layla-eatery-bar-vn-en"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/nightlife-17/layla-eatery-and-bar-saigon-1279"]]
+  "sources": [
+   [
+    "WORLDS50",
+    "https://www.theworlds50best.com/discovery/Establishments/Vietnam/Ho-Chi-Minh-City/Layla-Eatery-and-Bar.html"
+   ],
+   [
+    "TATLER",
+    "https://www.tatlerasia.com/dining/layla-eatery-bar-vn-en"
+   ],
+   [
+    "RUSTYCOMPASS",
+    "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/nightlife-17/layla-eatery-and-bar-saigon-1279"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "seasonal sustainable cocktails (locally-grown botanicals)",
   "n": "Summer Experiment",
   "address": "District 1, Ho Chi Minh City, Vietnam",
   "w": "Layla's experimental sibling and a sustainability-driven cocktail lab — Saigon's sole entrant on Asia's 50 Best Bars 51-100 in 2021 (No. 77).",
   "closed": false,
-  "sources": [["ASIA50BARS","https://vietcetera.com/en/asias-50-best-reveals-51-100-ranked-bars-2021-summer-experiment-is-saigons-sole-winner-at-77"],["ASIABARS","https://www.asia-bars.com/2021/01/summer-experiment-craft-cocktail-bar-in-ho-chi-minh-city/"]]
+  "sources": [
+   [
+    "ASIA50BARS",
+    "https://vietcetera.com/en/asias-50-best-reveals-51-100-ranked-bars-2021-summer-experiment-is-saigons-sole-winner-at-77"
+   ],
+   [
+    "ASIABARS",
+    "https://www.asia-bars.com/2021/01/summer-experiment-craft-cocktail-bar-in-ho-chi-minh-city/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "hidden speakeasy craft cocktails",
   "n": "Drinking & Healing",
   "address": "2nd floor, 25 Hồ Tùng Mậu, Nguyễn Thái Bình Ward, District 1, Ho Chi Minh City, Vietnam",
   "w": "A reliably lively hidden speakeasy that made Asia's 50 Best Bars (51-100, 2024) — one of Saigon's defining craft-cocktail rooms.",
   "closed": false,
-  "sources": [["ASIA50BARS","https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"],["VIETCETERA","https://vietcetera.com/en/saigon-speakeasy-drinking-healings-team-make-us-their-favorite-drinks"]]
+  "sources": [
+   [
+    "ASIA50BARS",
+    "https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"
+   ],
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/saigon-speakeasy-drinking-healings-team-make-us-their-favorite-drinks"
+   ]
+  ]
  },
  {
-  "t": 1, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 1,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "Vietnamese-ingredient cocktails in a century-old colonial mansion",
   "n": "The Enigma Mansion",
   "address": "Tôn Đức Thắng, District 1, Ho Chi Minh City, Vietnam",
   "w": "A renovated century-old colonial mansion pairing local Vietnamese ingredients with modern technique — Asia's 50 Best Bars No. 93 (2025) and Tatler's Vietnam Bar of the Year 2025.",
   "closed": false,
-  "sources": [["ASIA50BARS","https://wink-hotels.com/asias-50-best-bars-2025-51-100-list/"],["LUXUO","https://www.luxuo.com/lifestyle/travel/saigons-contemporary-renaissance-hotels-nightlife-and-creative-infrastructure.html"]]
+  "sources": [
+   [
+    "ASIA50BARS",
+    "https://wink-hotels.com/asias-50-best-bars-2025-51-100-list/"
+   ],
+   [
+    "LUXUO",
+    "https://www.luxuo.com/lifestyle/travel/saigons-contemporary-renaissance-hotels-nightlife-and-creative-infrastructure.html"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "1920s New York-themed speakeasy classic cocktails",
   "n": "Snuffbox",
   "address": "1st floor, 14 Tôn Thất Đạm, District 1, Ho Chi Minh City, Vietnam",
   "w": "A 1920s New York-styled speakeasy specialising in classic cocktails and mixology — one of the bars that seeded Saigon's speakeasy wave.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/where-to-find-the-best-cocktail-bars-in-ho-chi-minh-city"],["ASIABARS","https://www.asia-bars.com/2017/07/snuffbox-speakeasy-bar-in-saigon/"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/where-to-find-the-best-cocktail-bars-in-ho-chi-minh-city"
+   ],
+   [
+    "ASIABARS",
+    "https://www.asia-bars.com/2017/07/snuffbox-speakeasy-bar-in-saigon/"
+   ]
+  ]
  },
  {
-  "t": 3, "a": "VN", "cz": ["Cocktail Bar"],
+  "t": 3,
+  "a": "VN",
+  "cz": [
+   "Cocktail Bar"
+  ],
   "dish": "craft cocktails",
   "n": "Hudson Rooms",
   "address": "District 1, Ho Chi Minh City, Vietnam",
   "w": "A Saigon craft-cocktail bar recognised on Asia's 50 Best Bars 51-100 (2024), alongside Stir and Drinking & Healing.",
   "closed": false,
-  "sources": [["ASIA50BARS","https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"],["ASIABARS","https://www.asia-bars.com/2026/03/top-12-highly-rated-cocktail-bars-hcmc-vietnam-2026/"]]
+  "sources": [
+   [
+    "ASIA50BARS",
+    "https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"
+   ],
+   [
+    "ASIABARS",
+    "https://www.asia-bars.com/2026/03/top-12-highly-rated-cocktail-bars-hcmc-vietnam-2026/"
+   ]
+  ]
  },
  {
-  "t": 2, "a": "VN", "cz": ["Dessert"],
+  "t": 2,
+  "a": "VN",
+  "cz": [
+   "Dessert"
+  ],
   "dish": "chè (30+ Vietnamese sweet soups)",
   "n": "Chè Kỳ Đồng",
   "address": "Kỳ Đồng, District 3, Ho Chi Minh City, Vietnam",
   "w": "A 40-year Saigon chè institution on Kỳ Đồng street — a wide spread of sweet soups and the authentic ambience of a street-side dessert shop.",
   "closed": false,
-  "sources": [["VIETCETERA","https://vietcetera.com/en/for-those-having-a-sweet-tooth-che-spots-you-must-try-in-saigon"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"]]
+  "sources": [
+   [
+    "VIETCETERA",
+    "https://vietcetera.com/en/for-those-having-a-sweet-tooth-che-spots-you-must-try-in-saigon"
+   ],
+   [
+    "VIETNAMCORACLE",
+    "https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"
+   ]
+  ]
  }
 ]

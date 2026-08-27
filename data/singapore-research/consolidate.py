@@ -65,7 +65,7 @@ CMAP = {
  "Hawker":"HAWKER","Zi Char":"HAWKER","Cai Fan":"HAWKER","Economy Rice":"HAWKER","Tze Char":"HAWKER",
  "Malay":"MALAY","Nasi Lemak":"MALAY","Nasi Padang":"MALAY","Mee Rebus":"MALAY","Mee Siam":"MALAY","Satay":"MALAY","Nasi Goreng":"MALAY",
  "Indian":"INDIAN","Roti Prata":"INDIAN","Prata":"INDIAN","Biryani":"INDIAN","Banana Leaf":"INDIAN","Nasi Biryani":"INDIAN","South Indian":"INDIAN","North Indian":"INDIAN","Indian-Muslim":"INDIAN","Mamak":"INDIAN","Thosai":"INDIAN","Dosa":"INDIAN",
- "Chinese":"CHINESE","Dim Sum":"CHINESE","Cantonese":"CHINESE","Teochew":"CHINESE","Hokkien":"CHINESE","Hakka":"CHINESE","Roast Meats":"CHINESE","Char Siew":"CHINESE","Congee":"CHINESE","Fishball":"CHINESE",
+ "Chinese":"CHINESE","Dim Sum":"CHINESE","Cantonese":"CHINESE","Teochew":"CHINESE","Hokkien":"CHINESE","Hakka":"CHINESE","Roast Meats":"CHINESE","Char Siew":"CHINESE","Congee":"CHINESE","Fishball":"CHINESE","Chinese-Vietnamese":"CHINESE",
  "Seafood":"SEAFOOD","Chilli Crab":"SEAFOOD","Chili Crab":"SEAFOOD","Black Pepper Crab":"SEAFOOD","Crab":"SEAFOOD","Fish Head Curry":"SEAFOOD",
  "Thai":"THAI","Boat Noodles":"THAI","Tom Yum":"THAI","Isaan":"THAI","Pad Thai":"THAI","Mango Sticky Rice":"THAI",
  "Vietnamese":"VIET","Pho":"VIET","Banh Mi":"VIET","Bun Cha":"VIET","Vermicelli":"VIET",
@@ -77,7 +77,7 @@ CMAP = {
  "Peranakan":"PERANAKAN","Nyonya":"PERANAKAN","Baba":"PERANAKAN",
  "Kaya Toast":"KOPI","Kopitiam":"KOPI","Kopi":"KOPI","Breakfast":"KOPI","Toast":"KOPI","Soft-boiled Eggs":"KOPI",
  "Dessert":"DESSERT","Chendol":"DESSERT","Cendol":"DESSERT","Ice Kacang":"DESSERT","Kueh":"DESSERT","Durian":"DESSERT","Ice Cream":"DESSERT","Tau Huay":"DESSERT","Bakery":"DESSERT","Pastry":"DESSERT",
- "Cafe":"CAFE","Café":"CAFE","Coffee":"CAFE","Modern":"CAFE","Brunch":"CAFE","Fusion":"CAFE","Bar":"CAFE","Cocktails":"CAFE",
+ "Cafe":"CAFE","Café":"CAFE","Coffee":"CAFE","Modern":"CAFE","Brunch":"CAFE","Fusion":"CAFE","Bar":"CAFE","Cocktails":"CAFE","Cocktail Bar":"CAFE","Western":"CAFE",
  "Viral":"VIRAL",
 }
 def map_cz(raw):
