@@ -4656,6 +4656,468 @@
           "url": "https://www.sgfoodonfoot.com"
         }
       ]
+    },
+    "state-college-pa": {
+      "name": "state-college-pa",
+      "sources": [
+        {
+          "key": "ALTOONAMIRROR",
+          "name": "Altoona Mirror (local daily)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EXPLOREALTOONA",
+          "name": "Explore Altoona / Allegheny Mountains Convention & Visitors Bureau",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "UNCOVERINGPA",
+          "name": "Uncovering PA (Jim Cheney, all-67-county PA travel writer)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SPOTLIGHTPA",
+          "name": "Spotlight PA (statewide nonprofit newsroom)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITPA",
+          "name": "Visit PA (state tourism office)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "RAYSTOWN",
+          "name": "Raystown Lake Region CVB (Huntingdon County visitors bureau)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITCENTRALPA",
+          "name": "Visit Central PA (regional CVB)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITCLEARFIELD",
+          "name": "Visit Clearfield County",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "DCNR",
+          "name": "PA Dept. of Conservation & Natural Resources (state parks)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "NRHP",
+          "name": "National Register of Historic Places / National Historic Landmark (via Wikipedia / NPS)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia (notability + published coordinates)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TRAINSMAG",
+          "name": "Trains Magazine / Railway Age (rail trade press)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TRIBLIVE",
+          "name": "TribLIVE (Pittsburgh Tribune-Review)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PADCED",
+          "name": "PA Dept. of Community & Economic Development",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PGHCITYPAPER",
+          "name": "Pittsburgh City Paper",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "THETAKEOUT",
+          "name": "The Takeout (national food outlet)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LANCFARMING",
+          "name": "Lancaster Farming (PA history & country-life features)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PABOOK",
+          "name": "Pennsylvania Center for the Book (Penn State Libraries)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ROADSIDEAMERICA",
+          "name": "Roadside America",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "RAILROADCITY",
+          "name": "Railroaders Memorial Museum (official)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MISHLER",
+          "name": "Mishler Theatre / Blair County Arts Foundation (official)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BLAIRHISTORY",
+          "name": "Blair County Historical Society (official)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MILB",
+          "name": "MiLB (official Minor League Baseball)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "CDT",
+          "name": "Centre Daily Times",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SCDOTCOM",
+          "name": "StateCollege.com",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SCMAG",
+          "name": "State College Magazine (Best of State College reader poll)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ONWARDSTATE",
+          "name": "Onward State",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "COLLEGIAN",
+          "name": "The Daily Collegian",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HVAB",
+          "name": "Happy Valley Adventure Bureau (Adventure Bureau Dispatch)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WTAJ",
+          "name": "WTAJ News",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "CENTREHISTORY",
+          "name": "Centre County Encyclopedia of History & Culture",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EXPLOREPA",
+          "name": "ExplorePAhistory.com (PA Historical & Museum Commission / WITF)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKI",
+          "name": "Wikipedia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "APS",
+          "name": "APS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ARBORETUM",
+          "name": "ARBORETUM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "BELLEFONTE",
+          "name": "BELLEFONTE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "BOALMUSEUM",
+          "name": "BOALMUSEUM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CENTREDOUTDOORS",
+          "name": "CENTREDOUTDOORS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CRPR",
+          "name": "CRPR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "DTSC",
+          "name": "DTSC",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ENTO",
+          "name": "ENTO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FORBES",
+          "name": "FORBES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GOPSU",
+          "name": "GOPSU",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "HISTORICBOALSBURG",
+          "name": "HISTORICBOALSBURG",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NITTANY",
+          "name": "NITTANY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ONWARD",
+          "name": "ONWARD",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PABUCKETLIST",
+          "name": "PABUCKETLIST",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PALMER",
+          "name": "PALMER",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PAWILDS",
+          "name": "PAWILDS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PENNSCAVE",
+          "name": "PENNSCAVE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PHMC",
+          "name": "PHMC",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PSUNEWS",
+          "name": "PSUNEWS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PSUNEWS2",
+          "name": "PSUNEWS2",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SKIPA",
+          "name": "SKIPA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "STATECOLLEGE",
+          "name": "STATECOLLEGE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WPSU",
+          "name": "WPSU",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": []
     }
   }
 }
