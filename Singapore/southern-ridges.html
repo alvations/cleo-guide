@@ -318,12 +318,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"SOUTHERN-RIDGES",n:"Southern Ridges",c:"#BCA7E6"}
+  {id:"SOUTHERNRIDGES",n:"Southern Ridges",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"SGWN",n:"Southern Ridges & Henderson Waves",ad:"Henderson Road, Mount Faber / Telok Blangah",la:1.27605,ln:103.81550,w:"10 km of ridge-top trails linking Mount Faber, Telok Blangah & Kent Ridge, crossing the wave-form Henderson Waves, Singapore's highest pedestrian bridge.",k:"Nature",g:["PARK","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/southern-ridges"],["WIKI","https://en.wikipedia.org/wiki/Henderson_Waves"]]},
-{t:1,a:"SGWN",n:"Haw Par Villa",ad:"262 Pasir Panjang Road",la:1.28417,ln:103.78222,w:"1937 cultural theme park (ex-Tiger Balm Garden) of surreal dioramas, famed for the Ten Courts of Hell.",k:"Landmark",g:["PARK","ARCH","FAM"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/reminiscing/haw-par-villa/"],["WIKI","https://en.wikipedia.org/wiki/Haw_Par_Villa"]]}
+{t:1,a:"SOUTHERNRIDGES",n:"Southern Ridges & Henderson Waves",ad:"Henderson Road, Mount Faber / Telok Blangah",la:1.27605,ln:103.81550,w:"10 km of ridge-top trails linking Mount Faber, Telok Blangah & Kent Ridge, crossing the wave-form Henderson Waves, Singapore's highest pedestrian bridge.",k:"Nature",g:["PARK","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/southern-ridges"],["WIKI","https://en.wikipedia.org/wiki/Henderson_Waves"]]},
+{t:1,a:"SOUTHERNRIDGES",n:"Haw Par Villa",ad:"262 Pasir Panjang Road",la:1.28417,ln:103.78222,w:"1937 cultural theme park (ex-Tiger Balm Garden) of surreal dioramas, famed for the Ten Courts of Hell.",k:"Landmark",g:["PARK","ARCH","FAM"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/reminiscing/haw-par-villa/"],["WIKI","https://en.wikipedia.org/wiki/Haw_Par_Villa"]]}
 ];
 
 const FS = {
@@ -385,7 +385,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Southern Ridges')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {SOUTHERN-RIDGES:'#BCA7E6'};
+const AC = {SOUTHERNRIDGES:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -316,7 +316,7 @@ const S = {
 };
 
 const AREAS = [
-  {id:"OLD-AIRPORT-ROAD",n:"Old Airport Road",c:"#BCA7E6"}
+  {id:"OLDAIRPORTROAD",n:"Old Airport Road",c:"#BCA7E6"}
 ];
 
 const P = [];
@@ -367,10 +367,10 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGE",n:"Nam Sing Hokkien Fried Mee",ad:"#01-32 Old Airport Road Food Centre, 51 Old Airport Road",cz:["NOODLE"],la:1.30812,ln:103.88574,w:"Serving one dish since 1960; drier prawn-stock Hokkien mee with a Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/nam-sing-hokkien-fried-mee"],["DFD","https://danielfooddiary.com/2022/02/08/namsing/"],["EATBOOK","https://eatbook.sg/old-airport-road-food/"]]},
-{t:2,a:"SGE",n:"Lao Fu Zi Fried Kway Teow",ad:"#01-12 Old Airport Road Food Centre, 51 Old Airport Road",cz:["NOODLE"],la:1.30812,ln:103.88574,w:"Smoky wok-hei CKT with blood cockles & lup cheong; a 2025 Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lao-fu-zi-fried-kway-teow"],["SETHLUI","https://sethlui.com/lao-fu-zi-fried-kway-teow-singapore/"]]},
-{t:2,a:"SGE",n:"To-Ricos Kway Chap",ad:"#01-135/136 Old Airport Road Food Centre, 51 Old Airport Road",cz:["HAWKER"],la:1.30812,ln:103.88574,w:"Teochew kway chap since the 1980s; immaculately cleaned braised offal, a 2025 Michelin Bib.",s:[["MICHELIN","https://guide.michelin.com/my/en/singapore-region/singapore/restaurant/to-ricos-guo-shi"],["DFD","https://danielfooddiary.com/2025/07/17/toricoskwaychap/"]]},
-{t:2,a:"SGE",n:"Roast Paradise",ad:"#01-121 Old Airport Road Food Centre, 51 Old Airport Road",cz:["CHINESE"],la:1.30812,ln:103.88574,w:"KL-style caramelised char siew on pork belly; a modern hawker favourite.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/roast-paradise/"],["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"]]}
+{t:1,a:"OLDAIRPORTROAD",n:"Nam Sing Hokkien Fried Mee",ad:"#01-32 Old Airport Road Food Centre, 51 Old Airport Road",cz:["NOODLE"],la:1.30812,ln:103.88574,w:"Serving one dish since 1960; drier prawn-stock Hokkien mee with a Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/nam-sing-hokkien-fried-mee"],["DFD","https://danielfooddiary.com/2022/02/08/namsing/"],["EATBOOK","https://eatbook.sg/old-airport-road-food/"]]},
+{t:2,a:"OLDAIRPORTROAD",n:"Lao Fu Zi Fried Kway Teow",ad:"#01-12 Old Airport Road Food Centre, 51 Old Airport Road",cz:["NOODLE"],la:1.30812,ln:103.88574,w:"Smoky wok-hei CKT with blood cockles & lup cheong; a 2025 Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lao-fu-zi-fried-kway-teow"],["SETHLUI","https://sethlui.com/lao-fu-zi-fried-kway-teow-singapore/"]]},
+{t:2,a:"OLDAIRPORTROAD",n:"To-Ricos Kway Chap",ad:"#01-135/136 Old Airport Road Food Centre, 51 Old Airport Road",cz:["HAWKER"],la:1.30812,ln:103.88574,w:"Teochew kway chap since the 1980s; immaculately cleaned braised offal, a 2025 Michelin Bib.",s:[["MICHELIN","https://guide.michelin.com/my/en/singapore-region/singapore/restaurant/to-ricos-guo-shi"],["DFD","https://danielfooddiary.com/2025/07/17/toricoskwaychap/"]]},
+{t:2,a:"OLDAIRPORTROAD",n:"Roast Paradise",ad:"#01-121 Old Airport Road Food Centre, 51 Old Airport Road",cz:["CHINESE"],la:1.30812,ln:103.88574,w:"KL-style caramelised char siew on pork belly; a modern hawker favourite.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/roast-paradise/"],["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -388,7 +388,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Old Airport Road')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {OLD-AIRPORT-ROAD:'#BCA7E6'};
+const AC = {OLDAIRPORTROAD:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
@@ -877,7 +877,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

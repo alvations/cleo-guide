@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -366,7 +366,7 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGE",n:"Hill Street Fried Kway Teow",ad:"#01-41 Bedok South Market & Food Centre, 16 Bedok South Road",cz:["NOODLE"],la:1.32039,ln:103.93516,w:"Since 1961; full-bodied wok-hei char kway teow with cockles, a Michelin Bib and 40-min queues.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/hill-street-fried-kway-teow"],["EATBOOK","https://eatbook.sg/hill-street-fried-kway-teow/"],["MTC","https://www.misstamchiak.com/char-kway-teow/"]]}
+{t:1,a:"BEDOK",n:"Hill Street Fried Kway Teow",ad:"#01-41 Bedok South Market & Food Centre, 16 Bedok South Road",cz:["NOODLE"],la:1.32039,ln:103.93516,w:"Since 1961; full-bodied wok-hei char kway teow with cockles, a Michelin Bib and 40-min queues.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/hill-street-fried-kway-teow"],["EATBOOK","https://eatbook.sg/hill-street-fried-kway-teow/"],["MTC","https://www.misstamchiak.com/char-kway-teow/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -873,7 +873,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

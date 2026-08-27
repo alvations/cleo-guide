@@ -140,14 +140,17 @@ def build_page(slug):
     if not (P or F): return None
     pins=[(GEO[r["n"]]["lat"],GEO[r["n"]]["lng"]) for r in P+F]
     clat=round(sorted(x[0] for x in pins)[len(pins)//2],5); clng=round(sorted(x[1] for x in pins)[len(pins)//2],5)
-    # single area = this place
+    # single area = this place. AID must be a VALID bare JS object key (alnum only) — a hyphen in the
+    # slug (toa-payoh, chiang-mai, …) would make `const AC = {TOA-PAYOH:..}` a syntax error and blank
+    # the whole page. Every record's `a` is rewritten to AID so AC[p.a] resolves.
+    AID=re.sub(r'[^A-Za-z0-9]','',slug).upper()
     color="#BCA7E6"
-    AREAS="[\n  {id:%s,n:%s,c:%s}\n]"%(js(slug.upper()),js(name),js(color))
-    for r in P+F: r=r  # area id stays as-is; page shows all under one filter
+    AREAS="[\n  {id:%s,n:%s,c:%s}\n]"%(js(AID),js(name),js(color))
+    def wa(r): r=dict(r); r["a"]=AID; return r
     used_S=set(t[0] for r in P for t in r["s"]); used_F=set(t[0] for r in F for t in r["s"])
     S={k:DS["S"][k] for k in DS["S"] if k in used_S}; FS={k:DS["FS"][k] for k in DS["FS"] if k in used_F}
-    Pjs="[\n"+",\n".join(rec(r,GEO[r["n"]]) for r in P)+"\n]" if P else "[]"
-    Fjs="[\n"+",\n".join(rec(r,GEO[r["n"]]) for r in F)+"\n]" if F else "[]"
+    Pjs="[\n"+",\n".join(rec(wa(r),GEO[r["n"]]) for r in P)+"\n]" if P else "[]"
+    Fjs="[\n"+",\n".join(rec(wa(r),GEO[r["n"]]) for r in F)+"\n]" if F else "[]"
     CUIS="[\n"+",\n".join("  {id:%s,n:%s}"%(js(c["id"]),js(c["n"])) for c in DS["cuisines"])+"\n]"
     CATS="[\n"+",\n".join("  {id:%s,n:%s}"%(js(c["id"]),js(c["n"])) for c in DS["cats"])+"\n]"
     DATA=("const S = %s;\n\nconst AREAS = %s;\n\nconst P = %s;\n\nconst FS = %s;\n\nconst CUISINES = %s;\n\nconst CATS = %s;\n\nconst F = %s;"
@@ -164,7 +167,7 @@ def build_page(slug):
         ".osmdark .leaflet-tile-pane{filter:none;}\n  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}")
     rep("setBase('dark'); markBaseChips();","setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();")
     rep("color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A","color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)")
-    rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};","const AC = {%s:'%s'};"%(slug.upper(),color))
+    rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};","const AC = {%s:'%s'};"%(AID,color))
     rep("setView([41.4993,-81.6944],11)","setView([%s,%s],%d)"%(clat,clng,zoom))
     for a,b in [("cle_trip","sg_trip"),("cle_seen","sg_seen"),("cle_gkey","sg_gkey"),
                 ("cleveland-my-list","singapore-my-list"),("cleveland-field-guide","singapore-field-guide")]:
@@ -191,6 +194,13 @@ LABELS.forEach(''',
                     "so the guide still reads even if every tile server is unreachable.")
     # prose
     nP=len(P); nF=len(F)
+    # a page with NO sights must open in FOOD mode, or the default sights view is blank on load.
+    # The engine calls setMode('sights') at init (line ~1527) which overrides `let MODE=`, so retarget
+    # THAT standalone init call (newline-prefixed to avoid touching the button onclick handlers).
+    if nP==0 and nF>0:
+        new=new.replace("\nsetMode('sights');","\nsetMode('food');")
+        rep('<button id="modeSights" class="modebtn" aria-pressed="true">','<button id="modeSights" class="modebtn" aria-pressed="false">')
+        rep('<button id="modeFood" class="modebtn" aria-pressed="false">','<button id="modeFood" class="modebtn" aria-pressed="true">')
     rep("<title>Cleveland Field Guide — 130 Places, Sourced</title>",
         "<title>%s — Singapore &amp; SEA field guide</title>"%name)
     rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',

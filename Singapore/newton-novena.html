@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -316,7 +316,7 @@ const S = {
 };
 
 const AREAS = [
-  {id:"NEWTON-NOVENA",n:"Newton & Novena",c:"#BCA7E6"}
+  {id:"NEWTONNOVENA",n:"Newton & Novena",c:"#BCA7E6"}
 ];
 
 const P = [];
@@ -369,10 +369,10 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"SGC",n:"Wee Nam Kee Chicken Rice",ad:"#01-08 United Square, 101 Thomson Road, Novena",cz:["CHICKENRICE"],la:1.31741,ln:103.84362,w:"Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",s:[["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"],["SETHLUI","https://sethlui.com/best-chicken-rice-singapore/"]]},
-{t:2,a:"SGC",n:"Hup Kee Fried Oyster Omelette",ad:"#01-73 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"],["DFD","https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"]]},
-{t:2,a:"SGC",n:"Song Kee Teochew Fish Porridge",ad:"#01-91 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
-{t:2,a:"SGC",n:"Alliance Seafood (Newton Food Centre)",ad:"#01-27 Newton Food Centre, 500 Clemenceau Avenue North",cz:["MALAY"],la:1.31199,ln:103.83957,w:"Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["MTC","https://www.misstamchiak.com/newton-food-centre-singapore/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]}
+{t:2,a:"NEWTONNOVENA",n:"Wee Nam Kee Chicken Rice",ad:"#01-08 United Square, 101 Thomson Road, Novena",cz:["CHICKENRICE"],la:1.31741,ln:103.84362,w:"Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",s:[["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"],["SETHLUI","https://sethlui.com/best-chicken-rice-singapore/"]]},
+{t:2,a:"NEWTONNOVENA",n:"Hup Kee Fried Oyster Omelette",ad:"#01-73 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"],["DFD","https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"]]},
+{t:2,a:"NEWTONNOVENA",n:"Song Kee Teochew Fish Porridge",ad:"#01-91 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
+{t:2,a:"NEWTONNOVENA",n:"Alliance Seafood (Newton Food Centre)",ad:"#01-27 Newton Food Centre, 500 Clemenceau Avenue North",cz:["MALAY"],la:1.31199,ln:103.83957,w:"Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["MTC","https://www.misstamchiak.com/newton-food-centre-singapore/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -390,7 +390,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Newton & Novena')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {NEWTON-NOVENA:'#BCA7E6'};
+const AC = {NEWTONNOVENA:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
@@ -879,7 +879,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

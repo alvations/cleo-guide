@@ -318,13 +318,13 @@ const S = {
 };
 
 const AREAS = [
-  {id:"HO-CHI-MINH-CITY",n:"Ho Chi Minh City",c:"#BCA7E6"}
+  {id:"HOCHIMINHCITY",n:"Ho Chi Minh City",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"VN",n:"War Remnants Museum",ad:"28 Vo Van Tan Street, District 3, Ho Chi Minh City, Vietnam",la:10.77947,ln:106.69213,w:"HCMC's unflinching museum of the Indochina and Vietnam wars — the city's most affecting historical site.",k:"History museum",g:["MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/war-remnants-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/War_Remnants_Museum"]]},
-{t:2,a:"VN",n:"Ben Thanh Market",ad:"Le Loi, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77252,ln:106.69802,w:"The landmark 1914 central market — street food, textiles and souvenirs in the heart of Saigon.",k:"Market",g:["MKT","ARCH"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%E1%BA%BFn_Th%C3%A0nh_Market"]]},
-{t:1,a:"VN",n:"Cu Chi Tunnels",ad:"Cu Chi District (Ben Dinh / Ben Duoc), Ho Chi Minh City, Vietnam",la:11.03250,ln:106.48444,w:"The vast wartime underground tunnel network northwest of the city — a defining day trip from Saigon.",k:"Historic site",g:["HERITAGE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/attractions/cu-chi-tunnels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/C%E1%BB%A7_Chi_tunnels"]]}
+{t:1,a:"HOCHIMINHCITY",n:"War Remnants Museum",ad:"28 Vo Van Tan Street, District 3, Ho Chi Minh City, Vietnam",la:10.77947,ln:106.69213,w:"HCMC's unflinching museum of the Indochina and Vietnam wars — the city's most affecting historical site.",k:"History museum",g:["MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/war-remnants-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/War_Remnants_Museum"]]},
+{t:2,a:"HOCHIMINHCITY",n:"Ben Thanh Market",ad:"Le Loi, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77252,ln:106.69802,w:"The landmark 1914 central market — street food, textiles and souvenirs in the heart of Saigon.",k:"Market",g:["MKT","ARCH"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%E1%BA%BFn_Th%C3%A0nh_Market"]]},
+{t:1,a:"HOCHIMINHCITY",n:"Cu Chi Tunnels",ad:"Cu Chi District (Ben Dinh / Ben Duoc), Ho Chi Minh City, Vietnam",la:11.03250,ln:106.48444,w:"The vast wartime underground tunnel network northwest of the city — a defining day trip from Saigon.",k:"Historic site",g:["HERITAGE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/attractions/cu-chi-tunnels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/C%E1%BB%A7_Chi_tunnels"]]}
 ];
 
 const FS = {
@@ -386,7 +386,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Ho Chi Minh City')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {HO-CHI-MINH-CITY:'#BCA7E6'};
+const AC = {HOCHIMINHCITY:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

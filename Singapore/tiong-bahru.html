@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -316,7 +316,7 @@ const S = {
 };
 
 const AREAS = [
-  {id:"TIONG-BAHRU",n:"Tiong Bahru",c:"#BCA7E6"}
+  {id:"TIONGBAHRU",n:"Tiong Bahru",c:"#BCA7E6"}
 ];
 
 const P = [];
@@ -368,9 +368,9 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"SGC",n:"Loo's Hainanese Curry Rice",ad:"#02-67/68 Tiong Bahru Market, 30 Seng Poh Road",cz:["HAWKER"],la:1.28488,ln:103.83241,w:"Since 1946; three-day curry, one dish only, perpetual Tiong Bahru queue.",s:[["DFD","https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"],["SETHLUI","https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"],["TATLER","https://www.tatlerasia.com/dining/food/best-hainanese-curry-rice-in-singapore-local-chefs"]]},
-{t:2,a:"SGC",n:"Jian Bo Tiong Bahru Shui Kueh",ad:"#02-05 Tiong Bahru Market, 30 Seng Poh Road",cz:["HAWKER"],la:1.28488,ln:103.83241,w:"Since 1958; the most renowned chwee kueh stall, Michelin-listed.",s:[["MICHELIN","https://guide.michelin.com/mo/zh_HK/singapore-region/singapore/restaurant/jian-bo-shui-kueh"],["DFD","https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"],["EATBOOK","https://eatbook.sg/tiong-bahru-market/"]]},
-{t:2,a:"SGC",n:"Li Xin Teochew Fishball Noodles",ad:"#02-06 Tiong Bahru Market, 30 Seng Poh Road",cz:["NOODLE"],la:1.28488,ln:103.83241,w:"Michelin-approved handmade Teochew fishballs & fishcake.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"],["EATBOOK","https://eatbook.sg/tiong-bahru-market/"]]}
+{t:2,a:"TIONGBAHRU",n:"Loo's Hainanese Curry Rice",ad:"#02-67/68 Tiong Bahru Market, 30 Seng Poh Road",cz:["HAWKER"],la:1.28488,ln:103.83241,w:"Since 1946; three-day curry, one dish only, perpetual Tiong Bahru queue.",s:[["DFD","https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"],["SETHLUI","https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"],["TATLER","https://www.tatlerasia.com/dining/food/best-hainanese-curry-rice-in-singapore-local-chefs"]]},
+{t:2,a:"TIONGBAHRU",n:"Jian Bo Tiong Bahru Shui Kueh",ad:"#02-05 Tiong Bahru Market, 30 Seng Poh Road",cz:["HAWKER"],la:1.28488,ln:103.83241,w:"Since 1958; the most renowned chwee kueh stall, Michelin-listed.",s:[["MICHELIN","https://guide.michelin.com/mo/zh_HK/singapore-region/singapore/restaurant/jian-bo-shui-kueh"],["DFD","https://danielfooddiary.com/2022/08/23/tiongbahrufoodcentre/"],["EATBOOK","https://eatbook.sg/tiong-bahru-market/"]]},
+{t:2,a:"TIONGBAHRU",n:"Li Xin Teochew Fishball Noodles",ad:"#02-06 Tiong Bahru Market, 30 Seng Poh Road",cz:["NOODLE"],la:1.28488,ln:103.83241,w:"Michelin-approved handmade Teochew fishballs & fishcake.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"],["EATBOOK","https://eatbook.sg/tiong-bahru-market/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -388,7 +388,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Tiong Bahru')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {TIONG-BAHRU:'#BCA7E6'};
+const AC = {TIONGBAHRU:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
@@ -877,7 +877,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

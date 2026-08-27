@@ -317,11 +317,11 @@ const S = {
 };
 
 const AREAS = [
-  {id:"MARINE-PARADE",n:"Marine Parade & East Coast",c:"#BCA7E6"}
+  {id:"MARINEPARADE",n:"Marine Parade & East Coast",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:2,a:"SGE",n:"East Coast Park",ad:"East Coast Park Service Road, Marine Parade",la:1.30396,ln:103.92637,w:"Singapore's largest seaside park; 15 km of coastline for cycling, seafood and the sea breeze.",k:"Park",g:["PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/east-coast-park"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/east-coast-park/"]]}
+{t:2,a:"MARINEPARADE",n:"East Coast Park",ad:"East Coast Park Service Road, Marine Parade",la:1.30396,ln:103.92637,w:"Singapore's largest seaside park; 15 km of coastline for cycling, seafood and the sea breeze.",k:"Park",g:["PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/east-coast-park"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/east-coast-park/"]]}
 ];
 
 const FS = {
@@ -368,7 +368,7 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"SGE",n:"Haron Satay (Haron 30)",ad:"#01-05 East Coast Lagoon Food Village, 1220 East Coast Parkway",cz:["MALAY"],la:1.30565,ln:103.92988,w:"East Coast Lagoon's beloved Malay-Muslim satay, grilled seaside over charcoal.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/best-satay-in-singapore-grilled"],["HERWORLD","https://www.herworld.com/life/foodanddrink/stalls-best-satay-in-singapore"]]}
+{t:2,a:"MARINEPARADE",n:"Haron Satay (Haron 30)",ad:"#01-05 East Coast Lagoon Food Village, 1220 East Coast Parkway",cz:["MALAY"],la:1.30565,ln:103.92988,w:"East Coast Lagoon's beloved Malay-Muslim satay, grilled seaside over charcoal.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/best-satay-in-singapore-grilled"],["HERWORLD","https://www.herworld.com/life/foodanddrink/stalls-best-satay-in-singapore"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -386,7 +386,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Marine Parade & East Coast')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {MARINE-PARADE:'#BCA7E6'};
+const AC = {MARINEPARADE:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

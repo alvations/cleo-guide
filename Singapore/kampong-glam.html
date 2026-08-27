@@ -317,11 +317,11 @@ const S = {
 };
 
 const AREAS = [
-  {id:"KAMPONG-GLAM",n:"Kampong Glam",c:"#BCA7E6"}
+  {id:"KAMPONGGLAM",n:"Kampong Glam",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"SGC",n:"Sultan Mosque (Masjid Sultan)",ad:"3 Muscat Street, Kampong Glam",la:1.30222,ln:103.85889,w:"Kampong Glam's golden-domed royal mosque; a National Monument and the heart of the Malay-Arab quarter.",k:"Mosque",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sultan-mosque"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/religious/sultan-mosque/"]]}
+{t:1,a:"KAMPONGGLAM",n:"Sultan Mosque (Masjid Sultan)",ad:"3 Muscat Street, Kampong Glam",la:1.30222,ln:103.85889,w:"Kampong Glam's golden-domed royal mosque; a National Monument and the heart of the Malay-Arab quarter.",k:"Mosque",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/sultan-mosque"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/culture-heritage/religious/sultan-mosque/"]]}
 ];
 
 const FS = {
@@ -371,8 +371,8 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGC",n:"Hjh Maimunah Restaurant",ad:"11 & 15 Jalan Pisang, Kampong Glam",cz:["MALAY"],la:1.30311,ln:103.85858,w:"The benchmark nasi padang near Kampong Glam; long-time Michelin Bib Gourmand.",s:[["EATBOOK","https://eatbook.sg/hjh-maimunah-review/"],["DFD","https://danielfooddiary.com/2017/06/12/hjhmaimunah/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/hjh-maimunah-jln-pisang"]]},
-{t:2,a:"SGC",n:"Zam Zam Restaurant",ad:"697-699 North Bridge Road, Kampong Glam",cz:["HAWKER"],la:1.30217,ln:103.85630,w:"Founded 1908 opposite Sultan Mosque; the most famous Indian-Muslim murtabak specialist.",s:[["HGW","https://hungrygowhere.com/critics-reviews/zam-zam-restaurant-vs-victory-restaurant/"],["VICE","https://www.vice.com/en/article/on-a-singapore-street-two-rival-biryani-restaurants-go-to-war/"]]}
+{t:1,a:"KAMPONGGLAM",n:"Hjh Maimunah Restaurant",ad:"11 & 15 Jalan Pisang, Kampong Glam",cz:["MALAY"],la:1.30311,ln:103.85858,w:"The benchmark nasi padang near Kampong Glam; long-time Michelin Bib Gourmand.",s:[["EATBOOK","https://eatbook.sg/hjh-maimunah-review/"],["DFD","https://danielfooddiary.com/2017/06/12/hjhmaimunah/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/hjh-maimunah-jln-pisang"]]},
+{t:2,a:"KAMPONGGLAM",n:"Zam Zam Restaurant",ad:"697-699 North Bridge Road, Kampong Glam",cz:["HAWKER"],la:1.30217,ln:103.85630,w:"Founded 1908 opposite Sultan Mosque; the most famous Indian-Muslim murtabak specialist.",s:[["HGW","https://hungrygowhere.com/critics-reviews/zam-zam-restaurant-vs-victory-restaurant/"],["VICE","https://www.vice.com/en/article/on-a-singapore-street-two-rival-biryani-restaurants-go-to-war/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -390,7 +390,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Kampong Glam')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {KAMPONG-GLAM:'#BCA7E6'};
+const AC = {KAMPONGGLAM:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

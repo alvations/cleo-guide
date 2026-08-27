@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -367,9 +367,9 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"SGWN",n:"Fei Fei Roasted Noodle",ad:"#01-40 Yuhua Village Market & Food Centre, 254 Jurong East Street 24",cz:["CHINESE"],la:1.34349,ln:103.73774,w:"Charcoal-roasted meats & wanton mee in Jurong East; Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fei-fei-roasted-noodle"],["EATBOOK","https://eatbook.sg/wonton-mee-singapore/"]]},
-{t:3,a:"SGWN",n:"Long Kee Wanton Noodle",ad:"Block 505 Jurong West Street 52 (Jurong West 505 Market & Food Centre)",cz:["HAWKER"],la:1.34987,ln:103.71597,w:"Nostalgic old-school wanton mee in Jurong West; new to the 2025 Michelin Guide.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/long-kee-wanton-noodle"],["DFD","https://danielfooddiary.com/2025/05/24/longkeewantonnoodle/"]]},
-{t:3,a:"SGWN",n:"Boon Lay Power Nasi Lemak",ad:"#01-06 Boon Lay Place Food Village, 221B Boon Lay Place",cz:["MALAY"],la:1.34576,ln:103.71307,w:"A big-name Jurong nasi lemak using extra-virgin coconut oil.",s:[["EATBOOK","https://eatbook.sg/nasi-lemak-in-singapore/"],["SETHLUI","https://sethlui.com/nasi-lemak-guide-singapore/"]]}
+{t:2,a:"JURONG",n:"Fei Fei Roasted Noodle",ad:"#01-40 Yuhua Village Market & Food Centre, 254 Jurong East Street 24",cz:["CHINESE"],la:1.34349,ln:103.73774,w:"Charcoal-roasted meats & wanton mee in Jurong East; Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fei-fei-roasted-noodle"],["EATBOOK","https://eatbook.sg/wonton-mee-singapore/"]]},
+{t:3,a:"JURONG",n:"Long Kee Wanton Noodle",ad:"Block 505 Jurong West Street 52 (Jurong West 505 Market & Food Centre)",cz:["HAWKER"],la:1.34987,ln:103.71597,w:"Nostalgic old-school wanton mee in Jurong West; new to the 2025 Michelin Guide.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/long-kee-wanton-noodle"],["DFD","https://danielfooddiary.com/2025/05/24/longkeewantonnoodle/"]]},
+{t:3,a:"JURONG",n:"Boon Lay Power Nasi Lemak",ad:"#01-06 Boon Lay Place Food Village, 221B Boon Lay Place",cz:["MALAY"],la:1.34576,ln:103.71307,w:"A big-name Jurong nasi lemak using extra-virgin coconut oil.",s:[["EATBOOK","https://eatbook.sg/nasi-lemak-in-singapore/"],["SETHLUI","https://sethlui.com/nasi-lemak-guide-singapore/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -876,7 +876,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

@@ -317,12 +317,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"CHIANG-MAI",n:"Chiang Mai",c:"#BCA7E6"}
+  {id:"CHIANGMAI",n:"Chiang Mai",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"TH",n:"Wat Phra That Doi Suthep",ad:"Doi Suthep, Mueang Chiang Mai, Chiang Mai, Thailand",la:18.80498,ln:98.92156,w:"The gold-chedi mountain temple above Chiang Mai, reached by a 300-step naga staircase — the city's emblem.",k:"Buddhist temple",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep"]]},
-{t:2,a:"TH",n:"Chiang Mai Old City Temples (Wat Chedi Luang & Wat Phra Singh)",ad:"Old City (within the moat), Chiang Mai, Thailand",la:18.78694,ln:98.98639,w:"The walled Old City's Lanna temples — the ruined 14th-century Chedi Luang and the revered Wat Phra Singh.",k:"Historic temples",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Destination/Provinces/Chiang-Mai/34"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Chedi_Luang"]]}
+{t:1,a:"CHIANGMAI",n:"Wat Phra That Doi Suthep",ad:"Doi Suthep, Mueang Chiang Mai, Chiang Mai, Thailand",la:18.80498,ln:98.92156,w:"The gold-chedi mountain temple above Chiang Mai, reached by a 300-step naga staircase — the city's emblem.",k:"Buddhist temple",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Attraction/wat-phra-that-doi-suthep"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Phra_That_Doi_Suthep"]]},
+{t:2,a:"CHIANGMAI",n:"Chiang Mai Old City Temples (Wat Chedi Luang & Wat Phra Singh)",ad:"Old City (within the moat), Chiang Mai, Thailand",la:18.78694,ln:98.98639,w:"The walled Old City's Lanna temples — the ruined 14th-century Chedi Luang and the revered Wat Phra Singh.",k:"Historic temples",g:["TEMPLE"],s:[["TATNEWS","https://www.tourismthailand.org/Destination/Provinces/Chiang-Mai/34"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wat_Chedi_Luang"]]}
 ];
 
 const FS = {
@@ -370,7 +370,7 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"TH",n:"Khao Soi Khun Yai",ad:"Near Wat Kuan Kama, Sithiwongse Road, Old City, Chiang Mai, Thailand",cz:["THAI"],la:18.79554,ln:98.98328,w:"The tiny lunch-only stall locals most often name as Chiang Mai's best khao soi; also a Mark Wiens pick.",s:[["EATINGTHAIFOOD","https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"],["CHANGPUAK","https://changpuakmagazine.com/en-article/7-BEST-KHAO-SOI/308201/"],["MARKWIENS","https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"]]}
+{t:2,a:"CHIANGMAI",n:"Khao Soi Khun Yai",ad:"Near Wat Kuan Kama, Sithiwongse Road, Old City, Chiang Mai, Thailand",cz:["THAI"],la:18.79554,ln:98.98328,w:"The tiny lunch-only stall locals most often name as Chiang Mai's best khao soi; also a Mark Wiens pick.",s:[["EATINGTHAIFOOD","https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"],["CHANGPUAK","https://changpuakmagazine.com/en-article/7-BEST-KHAO-SOI/308201/"],["MARKWIENS","https://www.eatingthaifood.com/restaurants/khao-soi-khun-yai-chiang-mai/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -388,7 +388,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Chiang Mai')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {CHIANG-MAI:'#BCA7E6'};
+const AC = {CHIANGMAI:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

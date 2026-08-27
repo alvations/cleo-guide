@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -316,7 +316,7 @@ const S = {
 };
 
 const AREAS = [
-  {id:"JALAN-BESAR",n:"Jalan Besar & Lavender",c:"#BCA7E6"}
+  {id:"JALANBESAR",n:"Jalan Besar & Lavender",c:"#BCA7E6"}
 ];
 
 const P = [];
@@ -372,12 +372,12 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGC",n:"Hill Street Tai Hwa Pork Noodle",ad:"#01-12 Block 466 Crawford Lane",cz:["NOODLE"],la:1.30478,ln:103.86293,w:"One Michelin star since 2016; widely called Singapore's best bak chor mee, 1-2hr queues.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/hill-street-tai-hwa-pork-noodle"],["SETHLUI","https://sethlui.com/hill-street-tai-hwa-pork-noodle-singapore/"],["EATBOOK","https://eatbook.sg/hill-street-tai-hwa-pork-noodle/"]]},
-{t:2,a:"SGC",n:"Kok Kee Wanton Noodle",ad:"30 Foch Road, Lavender",cz:["HAWKER"],la:1.31230,ln:103.86026,w:"Cult wanton mee known for its near-soupy, lard-based chilli gravy.",s:[["DFD","https://danielfooddiary.com/2019/06/16/wantonnoodles/"],["EATBOOK","https://eatbook.sg/wonton-mee-singapore/"]]},
-{t:2,a:"SGC",n:"Wah Kee Big Prawn Noodle",ad:"#01-15 Pek Kio Market & Food Centre, 41A Cambridge Road",cz:["NOODLE"],la:1.31613,ln:103.85023,w:"Michelin-listed since 1951; intense all-prawn broth, the 'auntie with attitude'.",s:[["MICHELIN","https://guide.michelin.com/lv/en/singapore-region/singapore/restaurant/wah-kee-big-prawn-noodles"],["DFD","https://danielfooddiary.com/2019/04/02/wahkee/"],["HGW","https://hungrygowhere.com/what-to-eat/prawn-noodles-singapore/"]]},
-{t:2,a:"SGC",n:"Beach Road Scissors Cut Curry Rice",ad:"229 Jalan Besar (Corner of Jalan Besar & Kitchener Road)",cz:["HAWKER"],la:1.30948,ln:103.85783,w:"Since 1930; the definitive scissor-cut Hainanese curry rice, ingredients snipped to order.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ranking-best-hainanese-scissor-cut-curry-rice"],["SETHLUI","https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/foodanddrink/best-hainanese-scissor-cut-curry-rice-review-singapore"]]},
-{t:2,a:"SGC",n:"Swee Choon Tim Sum Restaurant",ad:"183-191 Jalan Besar",cz:["CHINESE"],la:1.30808,ln:103.85680,w:"Since 1962; Singapore's beloved late-night dim sum institution (open till the small hours).",s:[["SCMP","https://www.scmp.com/magazines/style/leisure/article/3227711/17-best-dim-sum-restaurants-singapore-michelin-starred-tim-ho-wan-and-alan-yaus-madame-fan-wan-hao"],["HONEYCOMBERS","https://honeykidsasia.com/best-dim-sum-in-singapore/"]]},
-{t:2,a:"SGC",n:"Kitchenman Nasi Lemak",ad:"#01-32 CT Hub, 2 Kallang Avenue",cz:["MALAY"],la:1.31158,ln:103.86338,w:"Opened 2024, straight onto the 2025 Michelin Bib list; Malaysian-style ayam goreng berempah.",s:[["MICHELIN","https://guide.michelin.com/th/en/singapore-region/singapore/restaurant/kitchenman-nasi-lemak"],["HGW","https://hungrygowhere.com/food-news/kitchenman-nasi-lemak/"],["EATBOOK","https://eatbook.sg/kitchenman-nasi-lemak/"]]}
+{t:1,a:"JALANBESAR",n:"Hill Street Tai Hwa Pork Noodle",ad:"#01-12 Block 466 Crawford Lane",cz:["NOODLE"],la:1.30478,ln:103.86293,w:"One Michelin star since 2016; widely called Singapore's best bak chor mee, 1-2hr queues.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/hill-street-tai-hwa-pork-noodle"],["SETHLUI","https://sethlui.com/hill-street-tai-hwa-pork-noodle-singapore/"],["EATBOOK","https://eatbook.sg/hill-street-tai-hwa-pork-noodle/"]]},
+{t:2,a:"JALANBESAR",n:"Kok Kee Wanton Noodle",ad:"30 Foch Road, Lavender",cz:["HAWKER"],la:1.31230,ln:103.86026,w:"Cult wanton mee known for its near-soupy, lard-based chilli gravy.",s:[["DFD","https://danielfooddiary.com/2019/06/16/wantonnoodles/"],["EATBOOK","https://eatbook.sg/wonton-mee-singapore/"]]},
+{t:2,a:"JALANBESAR",n:"Wah Kee Big Prawn Noodle",ad:"#01-15 Pek Kio Market & Food Centre, 41A Cambridge Road",cz:["NOODLE"],la:1.31613,ln:103.85023,w:"Michelin-listed since 1951; intense all-prawn broth, the 'auntie with attitude'.",s:[["MICHELIN","https://guide.michelin.com/lv/en/singapore-region/singapore/restaurant/wah-kee-big-prawn-noodles"],["DFD","https://danielfooddiary.com/2019/04/02/wahkee/"],["HGW","https://hungrygowhere.com/what-to-eat/prawn-noodles-singapore/"]]},
+{t:2,a:"JALANBESAR",n:"Beach Road Scissors Cut Curry Rice",ad:"229 Jalan Besar (Corner of Jalan Besar & Kitchener Road)",cz:["HAWKER"],la:1.30948,ln:103.85783,w:"Since 1930; the definitive scissor-cut Hainanese curry rice, ingredients snipped to order.",s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ranking-best-hainanese-scissor-cut-curry-rice"],["SETHLUI","https://sethlui.com/hainanese-curry-rice-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/foodanddrink/best-hainanese-scissor-cut-curry-rice-review-singapore"]]},
+{t:2,a:"JALANBESAR",n:"Swee Choon Tim Sum Restaurant",ad:"183-191 Jalan Besar",cz:["CHINESE"],la:1.30808,ln:103.85680,w:"Since 1962; Singapore's beloved late-night dim sum institution (open till the small hours).",s:[["SCMP","https://www.scmp.com/magazines/style/leisure/article/3227711/17-best-dim-sum-restaurants-singapore-michelin-starred-tim-ho-wan-and-alan-yaus-madame-fan-wan-hao"],["HONEYCOMBERS","https://honeykidsasia.com/best-dim-sum-in-singapore/"]]},
+{t:2,a:"JALANBESAR",n:"Kitchenman Nasi Lemak",ad:"#01-32 CT Hub, 2 Kallang Avenue",cz:["MALAY"],la:1.31158,ln:103.86338,w:"Opened 2024, straight onto the 2025 Michelin Bib list; Malaysian-style ayam goreng berempah.",s:[["MICHELIN","https://guide.michelin.com/th/en/singapore-region/singapore/restaurant/kitchenman-nasi-lemak"],["HGW","https://hungrygowhere.com/food-news/kitchenman-nasi-lemak/"],["EATBOOK","https://eatbook.sg/kitchenman-nasi-lemak/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -395,7 +395,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Jalan Besar & Lavender')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {JALAN-BESAR:'#BCA7E6'};
+const AC = {JALANBESAR:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
@@ -884,7 +884,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

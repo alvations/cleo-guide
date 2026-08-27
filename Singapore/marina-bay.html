@@ -319,16 +319,16 @@ const S = {
 };
 
 const AREAS = [
-  {id:"MARINA-BAY",n:"Marina Bay",c:"#BCA7E6"}
+  {id:"MARINABAY",n:"Marina Bay",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"SGC",n:"Gardens by the Bay",ad:"18 Marina Gardens Drive, Marina Bay",la:1.28472,ln:103.86500,w:"Waterfront nature park with the Supertree Grove, Cloud Forest & Flower Dome; over 1.5 million plants.",k:"Garden",g:["ICON","TEMPLE","PARK","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/gardens-by-the-bay/"],["WIKI","https://en.wikipedia.org/wiki/Gardens_by_the_Bay"]]},
-{t:1,a:"SGC",n:"Marina Bay Sands SkyPark Observation Deck",ad:"10 Bayfront Avenue, Marina Bay",la:1.28250,ln:103.86000,w:"The 57th-storey deck atop Marina Bay Sands' three towers, with panoramic skyline views over the bay.",k:"Landmark",g:["ICON","PARK","VIEW","ARCH"],s:[["MBS","https://www.marinabaysands.com/attractions/sands-skypark.html"],["HONEYCOMBERS","https://honeykidsasia.com/explain-singapores-iconic-unusual-landmarks-marina-bay-sands-esplanade-merlion-artscience-museum/"]]},
-{t:1,a:"SGC",n:"Merlion Park",ad:"1 Fullerton Road, Marina Bay",la:1.28683,ln:103.85453,w:"Home of the 8.6 m Merlion, Singapore's lion-headed, fish-bodied national symbol, spouting into the bay.",k:"Landmark",g:["ICON","PARK","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/architecture/modern/merlion-park/"],["WIKI","https://en.wikipedia.org/wiki/Merlion"]]},
-{t:2,a:"SGC",n:"ArtScience Museum",ad:"6 Bayfront Avenue, Marina Bay",la:1.28611,ln:103.85917,w:"Lotus-shaped museum at Marina Bay Sands; home to the teamLab 'Future World' digital art gallery.",k:"Museum",g:["ICON","MUS"],s:[["MBS","https://www.marinabaysands.com/museum.html"],["WIKI","https://en.wikipedia.org/wiki/ArtScience_Museum"]]},
-{t:2,a:"SGC",n:"Singapore Flyer",ad:"30 Raffles Avenue, Marina Bay",la:1.28940,ln:103.86323,w:"A 165 m observation wheel over Marina Bay with views to the city, the Straits and beyond.",k:"Landmark",g:["VIEW","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/recreation-leisure/viewpoints/singapore-flyer/"],["WIKI","https://en.wikipedia.org/wiki/Singapore_Flyer"]]},
-{t:2,a:"SGC",n:"Esplanade – Theatres on the Bay",ad:"1 Esplanade Drive, Marina Bay",la:1.28972,ln:103.85528,w:"The 'durian' performing-arts centre on the bayfront, a defining piece of the skyline.",k:"Landmark",g:["ICON","VIEW","ARCH"],s:[["WIKI","https://en.wikipedia.org/wiki/Esplanade,_Singapore"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/architecture/modern/esplanade/"]]}
+{t:1,a:"MARINABAY",n:"Gardens by the Bay",ad:"18 Marina Gardens Drive, Marina Bay",la:1.28472,ln:103.86500,w:"Waterfront nature park with the Supertree Grove, Cloud Forest & Flower Dome; over 1.5 million plants.",k:"Garden",g:["ICON","TEMPLE","PARK","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/nature-wildlife/parks-gardens/gardens-by-the-bay/"],["WIKI","https://en.wikipedia.org/wiki/Gardens_by_the_Bay"]]},
+{t:1,a:"MARINABAY",n:"Marina Bay Sands SkyPark Observation Deck",ad:"10 Bayfront Avenue, Marina Bay",la:1.28250,ln:103.86000,w:"The 57th-storey deck atop Marina Bay Sands' three towers, with panoramic skyline views over the bay.",k:"Landmark",g:["ICON","PARK","VIEW","ARCH"],s:[["MBS","https://www.marinabaysands.com/attractions/sands-skypark.html"],["HONEYCOMBERS","https://honeykidsasia.com/explain-singapores-iconic-unusual-landmarks-marina-bay-sands-esplanade-merlion-artscience-museum/"]]},
+{t:1,a:"MARINABAY",n:"Merlion Park",ad:"1 Fullerton Road, Marina Bay",la:1.28683,ln:103.85453,w:"Home of the 8.6 m Merlion, Singapore's lion-headed, fish-bodied national symbol, spouting into the bay.",k:"Landmark",g:["ICON","PARK","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/architecture/modern/merlion-park/"],["WIKI","https://en.wikipedia.org/wiki/Merlion"]]},
+{t:2,a:"MARINABAY",n:"ArtScience Museum",ad:"6 Bayfront Avenue, Marina Bay",la:1.28611,ln:103.85917,w:"Lotus-shaped museum at Marina Bay Sands; home to the teamLab 'Future World' digital art gallery.",k:"Museum",g:["ICON","MUS"],s:[["MBS","https://www.marinabaysands.com/museum.html"],["WIKI","https://en.wikipedia.org/wiki/ArtScience_Museum"]]},
+{t:2,a:"MARINABAY",n:"Singapore Flyer",ad:"30 Raffles Avenue, Marina Bay",la:1.28940,ln:103.86323,w:"A 165 m observation wheel over Marina Bay with views to the city, the Straits and beyond.",k:"Landmark",g:["VIEW","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/recreation-leisure/viewpoints/singapore-flyer/"],["WIKI","https://en.wikipedia.org/wiki/Singapore_Flyer"]]},
+{t:2,a:"MARINABAY",n:"Esplanade – Theatres on the Bay",ad:"1 Esplanade Drive, Marina Bay",la:1.28972,ln:103.85528,w:"The 'durian' performing-arts centre on the bayfront, a defining piece of the skyline.",k:"Landmark",g:["ICON","VIEW","ARCH"],s:[["WIKI","https://en.wikipedia.org/wiki/Esplanade,_Singapore"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/architecture/modern/esplanade/"]]}
 ];
 
 const FS = {
@@ -390,7 +390,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Marina Bay')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {MARINA-BAY:'#BCA7E6'};
+const AC = {MARINABAY:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

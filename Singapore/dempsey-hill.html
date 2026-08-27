@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -316,7 +316,7 @@ const S = {
 };
 
 const AREAS = [
-  {id:"DEMPSEY-HILL",n:"Dempsey Hill",c:"#BCA7E6"}
+  {id:"DEMPSEYHILL",n:"Dempsey Hill",c:"#BCA7E6"}
 ];
 
 const P = [];
@@ -366,8 +366,8 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGWN",n:"Candlenut",ad:"Block 17A Dempsey Road, Dempsey Hill",cz:["PERANAKAN"],la:1.30572,ln:103.81020,w:"The world's first Michelin-starred Peranakan restaurant; Chef Malcolm Lee's elevated Straits-Chinese cooking.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/candlenut"],["ASIAONE","https://www.asiaone.com/lifestyle/10-traditional-and-modern-peranakan-restaurants-singapore-delicious-nonya-food"]]},
-{t:1,a:"SGWN",n:"Burnt Ends",ad:"7 Dempsey Road, Dempsey Hill",cz:["CAFE"],la:1.30456,ln:103.80890,w:"One Michelin star & Asia's 50 Best; wood-fired modern barbecue, near-impossible reservations.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/burnt-ends-1200777"],["SCMP","https://www.scmp.com/lifestyle/food-drink/article/3336843/how-singapores-bbq-hotspot-burnt-ends-still-has-diners-fighting-tables-12-years"]]}
+{t:1,a:"DEMPSEYHILL",n:"Candlenut",ad:"Block 17A Dempsey Road, Dempsey Hill",cz:["PERANAKAN"],la:1.30572,ln:103.81020,w:"The world's first Michelin-starred Peranakan restaurant; Chef Malcolm Lee's elevated Straits-Chinese cooking.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/candlenut"],["ASIAONE","https://www.asiaone.com/lifestyle/10-traditional-and-modern-peranakan-restaurants-singapore-delicious-nonya-food"]]},
+{t:1,a:"DEMPSEYHILL",n:"Burnt Ends",ad:"7 Dempsey Road, Dempsey Hill",cz:["CAFE"],la:1.30456,ln:103.80890,w:"One Michelin star & Asia's 50 Best; wood-fired modern barbecue, near-impossible reservations.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/burnt-ends-1200777"],["SCMP","https://www.scmp.com/lifestyle/food-drink/article/3336843/how-singapores-bbq-hotspot-burnt-ends-still-has-diners-fighting-tables-12-years"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -385,7 +385,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Dempsey Hill')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {DEMPSEY-HILL:'#BCA7E6'};
+const AC = {DEMPSEYHILL:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
@@ -874,7 +874,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

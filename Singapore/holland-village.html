@@ -317,11 +317,11 @@ const S = {
 };
 
 const AREAS = [
-  {id:"HOLLAND-VILLAGE",n:"Holland Village",c:"#BCA7E6"}
+  {id:"HOLLANDVILLAGE",n:"Holland Village",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:3,a:"SGWN",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]}
+{t:3,a:"HOLLANDVILLAGE",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]}
 ];
 
 const FS = {
@@ -368,7 +368,7 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"SGWN",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]}
+{t:2,a:"HOLLANDVILLAGE",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -386,7 +386,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Holland Village')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {HOLLAND-VILLAGE:'#BCA7E6'};
+const AC = {HOLLANDVILLAGE:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

@@ -318,12 +318,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"LUANG-PRABANG",n:"Luang Prabang",c:"#BCA7E6"}
+  {id:"LUANGPRABANG",n:"Luang Prabang",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"IC",n:"Luang Prabang Old Town (Wat Xieng Thong)",ad:"Luang Prabang peninsula, Laos",la:19.89750,ln:102.14306,w:"The UNESCO-listed royal town where Lao and French-colonial architecture meet, crowned by the 1560 Wat Xieng Thong and the dawn alms-giving.",k:"UNESCO heritage town",g:["HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/479/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Luang_Prabang"]]},
-{t:1,a:"IC",n:"Kuang Si Falls",ad:"~29 km south of Luang Prabang, Laos",la:19.74833,ln:101.99081,w:"Turquoise multi-tiered travertine waterfalls in the jungle — Luang Prabang's signature natural excursion.",k:"Waterfall",g:["TEMPLE","PARK"],s:[["WANDERLUSH","https://wander-lush.org/kuang-si-falls-luang-prabang/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kuang_Si_Falls"]]}
+{t:1,a:"LUANGPRABANG",n:"Luang Prabang Old Town (Wat Xieng Thong)",ad:"Luang Prabang peninsula, Laos",la:19.89750,ln:102.14306,w:"The UNESCO-listed royal town where Lao and French-colonial architecture meet, crowned by the 1560 Wat Xieng Thong and the dawn alms-giving.",k:"UNESCO heritage town",g:["HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/479/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Luang_Prabang"]]},
+{t:1,a:"LUANGPRABANG",n:"Kuang Si Falls",ad:"~29 km south of Luang Prabang, Laos",la:19.74833,ln:101.99081,w:"Turquoise multi-tiered travertine waterfalls in the jungle — Luang Prabang's signature natural excursion.",k:"Waterfall",g:["TEMPLE","PARK"],s:[["WANDERLUSH","https://wander-lush.org/kuang-si-falls-luang-prabang/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kuang_Si_Falls"]]}
 ];
 
 const FS = {
@@ -385,7 +385,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Luang Prabang')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {LUANG-PRABANG:'#BCA7E6'};
+const AC = {LUANGPRABANG:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

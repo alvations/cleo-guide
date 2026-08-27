@@ -318,12 +318,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"LITTLE-INDIA",n:"Little India",c:"#BCA7E6"}
+  {id:"LITTLEINDIA",n:"Little India",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:2,a:"SGC",n:"Sri Veeramakaliamman Temple",ad:"141 Serangoon Road, Little India",la:1.30787,ln:103.85249,w:"Little India's landmark Hindu temple to the goddess Kali, founded by Tamil lime-kiln workers (1855).",k:"Temple",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/Collection-Landing/listing/1183286"],["WIKI","https://en.wikipedia.org/wiki/Sri_Veeramakaliamman_Temple"]]},
-{t:2,a:"SGC",n:"Former House of Tan Teng Niah",ad:"37 Kerbau Road, Little India",la:1.30700,ln:103.85080,w:"The last surviving Chinese villa in Little India (1900), painted in vivid rainbow colours.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/little-india/tan-teng-niah-house/"],["WIKI","https://en.wikipedia.org/wiki/House_of_Tan_Teng_Niah"]]}
+{t:2,a:"LITTLEINDIA",n:"Sri Veeramakaliamman Temple",ad:"141 Serangoon Road, Little India",la:1.30787,ln:103.85249,w:"Little India's landmark Hindu temple to the goddess Kali, founded by Tamil lime-kiln workers (1855).",k:"Temple",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTS","https://www.roots.gov.sg/Collection-Landing/listing/1183286"],["WIKI","https://en.wikipedia.org/wiki/Sri_Veeramakaliamman_Temple"]]},
+{t:2,a:"LITTLEINDIA",n:"Former House of Tan Teng Niah",ad:"37 Kerbau Road, Little India",la:1.30700,ln:103.85080,w:"The last surviving Chinese villa in Little India (1900), painted in vivid rainbow colours.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/little-india/tan-teng-niah-house/"],["WIKI","https://en.wikipedia.org/wiki/House_of_Tan_Teng_Niah"]]}
 ];
 
 const FS = {
@@ -374,9 +374,9 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGC",n:"Muthu's Curry",ad:"138 Race Course Road, Little India",cz:["SEAFOOD"],la:1.30992,ln:103.85224,w:"Pioneered South-Indian fish head curry (1969); Michelin Bib Gourmand, the local go-to.",s:[["MICHELIN","https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/muthu-s-curry-little-india"],["HGW","https://hungrygowhere.com/what-to-eat/fish-head-curry-singapore/"],["MTC","https://www.misstamchiak.com/curry-fish-head/"]]},
-{t:2,a:"SGC",n:"Allauddin's Briyani",ad:"#01-232 Tekka Centre, 665 Buffalo Road, Little India",cz:["INDIAN"],la:1.30591,ln:103.85026,w:"Tekka's most popular biryani stall since 1968; Michelin-recognised.",s:[["HONEYCOMBERS","https://thehoneycombers.com/singapore/tekka-hawker-centre-food/"],["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/allauddin-s-briyani"]]},
-{t:3,a:"SGC",n:"Komala Vilas",ad:"76-78 Serangoon Road, Little India",cz:["INDIAN"],la:1.30645,ln:103.85197,w:"Heritage vegetarian South Indian since 1947; the gold standard for masala thosai.",s:[["SETHLUI","https://sethlui.com/dosai-showdown-singapore/"],["VISITSG","https://www.visitsingapore.org/explore-singapore/ethnic-quarters/"]]}
+{t:1,a:"LITTLEINDIA",n:"Muthu's Curry",ad:"138 Race Course Road, Little India",cz:["SEAFOOD"],la:1.30992,ln:103.85224,w:"Pioneered South-Indian fish head curry (1969); Michelin Bib Gourmand, the local go-to.",s:[["MICHELIN","https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/muthu-s-curry-little-india"],["HGW","https://hungrygowhere.com/what-to-eat/fish-head-curry-singapore/"],["MTC","https://www.misstamchiak.com/curry-fish-head/"]]},
+{t:2,a:"LITTLEINDIA",n:"Allauddin's Briyani",ad:"#01-232 Tekka Centre, 665 Buffalo Road, Little India",cz:["INDIAN"],la:1.30591,ln:103.85026,w:"Tekka's most popular biryani stall since 1968; Michelin-recognised.",s:[["HONEYCOMBERS","https://thehoneycombers.com/singapore/tekka-hawker-centre-food/"],["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/allauddin-s-briyani"]]},
+{t:3,a:"LITTLEINDIA",n:"Komala Vilas",ad:"76-78 Serangoon Road, Little India",cz:["INDIAN"],la:1.30645,ln:103.85197,w:"Heritage vegetarian South Indian since 1947; the gold standard for masala thosai.",s:[["SETHLUI","https://sethlui.com/dosai-showdown-singapore/"],["VISITSG","https://www.visitsingapore.org/explore-singapore/ethnic-quarters/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -394,7 +394,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Little India')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {LITTLE-INDIA:'#BCA7E6'};
+const AC = {LITTLEINDIA:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

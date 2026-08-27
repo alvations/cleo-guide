@@ -318,12 +318,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"BUKIT-TIMAH",n:"Bukit Timah",c:"#BCA7E6"}
+  {id:"BUKITTIMAH",n:"Bukit Timah",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"SGWN",n:"Singapore Botanic Gardens",ad:"1 Cluny Road, Bukit Timah",la:1.31510,ln:103.81620,w:"Singapore's first UNESCO World Heritage Site (2015); a 160-year-old tropical garden with the National Orchid Garden.",k:"Garden",g:["HERITAGE","PARK"],s:[["UNESCO","https://whc.unesco.org/en/list/1483/"],["NPARKS","https://www.nparks.gov.sg/sbg/about/singapore-s-first-unesco-world-heritage-site"]]},
-{t:2,a:"SGWN",n:"Bukit Timah Nature Reserve",ad:"177 Hindhede Drive, Bukit Timah",la:1.35278,ln:103.77833,w:"ASEAN Heritage Park protecting primary rainforest and Singapore's highest natural point (163 m).",k:"Nature",g:["HERITAGE","PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/bukit-timah-nature-reserve"],["WIKI","https://en.wikipedia.org/wiki/Bukit_Timah_Nature_Reserve"]]}
+{t:1,a:"BUKITTIMAH",n:"Singapore Botanic Gardens",ad:"1 Cluny Road, Bukit Timah",la:1.31510,ln:103.81620,w:"Singapore's first UNESCO World Heritage Site (2015); a 160-year-old tropical garden with the National Orchid Garden.",k:"Garden",g:["HERITAGE","PARK"],s:[["UNESCO","https://whc.unesco.org/en/list/1483/"],["NPARKS","https://www.nparks.gov.sg/sbg/about/singapore-s-first-unesco-world-heritage-site"]]},
+{t:2,a:"BUKITTIMAH",n:"Bukit Timah Nature Reserve",ad:"177 Hindhede Drive, Bukit Timah",la:1.35278,ln:103.77833,w:"ASEAN Heritage Park protecting primary rainforest and Singapore's highest natural point (163 m).",k:"Nature",g:["HERITAGE","PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/bukit-timah-nature-reserve"],["WIKI","https://en.wikipedia.org/wiki/Bukit_Timah_Nature_Reserve"]]}
 ];
 
 const FS = {
@@ -370,7 +370,7 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGWN",n:"Selera Rasa Nasi Lemak",ad:"#01-15 Adam Road Food Centre, 2 Adam Road, Bukit Timah",cz:["MALAY"],la:1.32423,ln:103.81450,w:"Michelin Bib Gourmand nasi lemak on basmati; reportedly a favourite of the Sultan of Brunei.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/selera-rasa-nasi-lemak"],["DFD","https://danielfooddiary.com/2024/01/11/selerarasanasilemak/"]]}
+{t:1,a:"BUKITTIMAH",n:"Selera Rasa Nasi Lemak",ad:"#01-15 Adam Road Food Centre, 2 Adam Road, Bukit Timah",cz:["MALAY"],la:1.32423,ln:103.81450,w:"Michelin Bib Gourmand nasi lemak on basmati; reportedly a favourite of the Sultan of Brunei.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/selera-rasa-nasi-lemak"],["DFD","https://danielfooddiary.com/2024/01/11/selerarasanasilemak/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -388,7 +388,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Bukit Timah')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {BUKIT-TIMAH:'#BCA7E6'};
+const AC = {BUKITTIMAH:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

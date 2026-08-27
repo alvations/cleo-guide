@@ -317,11 +317,11 @@ const S = {
 };
 
 const AREAS = [
-  {id:"PHNOM-PENH",n:"Phnom Penh",c:"#BCA7E6"}
+  {id:"PHNOMPENH",n:"Phnom Penh",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"IC",n:"Royal Palace & Silver Pagoda",ad:"Sothearos Boulevard, Phnom Penh, Cambodia",la:11.56365,ln:104.93081,w:"The Khmer royal palace complex on the riverfront, including the Silver Pagoda with its emerald and gold Buddhas.",k:"Royal palace",g:["TEMPLE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/cambodia/phnom-penh/attractions/royal-palace"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Palace,_Phnom_Penh"]]}
+{t:1,a:"PHNOMPENH",n:"Royal Palace & Silver Pagoda",ad:"Sothearos Boulevard, Phnom Penh, Cambodia",la:11.56365,ln:104.93081,w:"The Khmer royal palace complex on the riverfront, including the Silver Pagoda with its emerald and gold Buddhas.",k:"Royal palace",g:["TEMPLE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/cambodia/phnom-penh/attractions/royal-palace"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Palace,_Phnom_Penh"]]}
 ];
 
 const FS = {
@@ -383,7 +383,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Phnom Penh')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {PHNOM-PENH:'#BCA7E6'};
+const AC = {PHNOMPENH:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

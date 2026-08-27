@@ -317,11 +317,11 @@ const S = {
 };
 
 const AREAS = [
-  {id:"UPPER-THOMSON",n:"Upper Thomson & MacRitchie",c:"#BCA7E6"}
+  {id:"UPPERTHOMSON",n:"Upper Thomson & MacRitchie",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"SGWN",n:"MacRitchie Reservoir & TreeTop Walk",ad:"MacRitchie Reservoir Park, Lornie Road",la:1.34361,ln:103.83111,w:"Central Catchment rainforest reservoir with a 250 m suspension bridge, 25 m up in the forest canopy.",k:"Nature",g:["PARK","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/central-catchment-nature-reserve/activities/hiking-nature-walk"],["WIKI","https://en.wikipedia.org/wiki/MacRitchie_Reservoir"]]}
+{t:1,a:"UPPERTHOMSON",n:"MacRitchie Reservoir & TreeTop Walk",ad:"MacRitchie Reservoir Park, Lornie Road",la:1.34361,ln:103.83111,w:"Central Catchment rainforest reservoir with a 250 m suspension bridge, 25 m up in the forest canopy.",k:"Nature",g:["PARK","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/central-catchment-nature-reserve/activities/hiking-nature-walk"],["WIKI","https://en.wikipedia.org/wiki/MacRitchie_Reservoir"]]}
 ];
 
 const FS = {
@@ -368,7 +368,7 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGWN",n:"Springleaf Prata Place",ad:"1 Thong Soon Avenue, Upper Thomson",cz:["INDIAN"],la:1.39720,ln:103.81883,w:"Famous Upper Thomson prata with 60+ flavours from the Murtaburger to Prata Alfredo.",s:[["EATBOOK","https://eatbook.sg/best-prata-in-singapore/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/the-best-prata-shops-in-singapore"]]}
+{t:1,a:"UPPERTHOMSON",n:"Springleaf Prata Place",ad:"1 Thong Soon Avenue, Upper Thomson",cz:["INDIAN"],la:1.39720,ln:103.81883,w:"Famous Upper Thomson prata with 60+ flavours from the Murtaburger to Prata Alfredo.",s:[["EATBOOK","https://eatbook.sg/best-prata-in-singapore/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/the-best-prata-shops-in-singapore"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -386,7 +386,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Upper Thomson & MacRitchie')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {UPPER-THOMSON:'#BCA7E6'};
+const AC = {UPPERTHOMSON:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

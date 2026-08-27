@@ -317,12 +317,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"SIEM-REAP",n:"Siem Reap (Angkor)",c:"#BCA7E6"}
+  {id:"SIEMREAP",n:"Siem Reap (Angkor)",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"IC",n:"Angkor Wat",ad:"Angkor Archaeological Park, Siem Reap, Cambodia",la:13.41250,ln:103.86667,w:"The largest religious monument on earth, the 12th-century Khmer temple-city and Cambodia's national symbol — UNESCO World Heritage.",k:"UNESCO temple complex",g:["ICON","HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/668/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Angkor_Wat"]]},
-{t:2,a:"IC",n:"Angkor Thom & the Bayon",ad:"Angkor Archaeological Park, Siem Reap, Cambodia",la:13.44111,ln:103.85861,w:"The walled royal city of Angkor Thom and the Bayon's forest of giant serene stone faces.",k:"UNESCO temple city",g:["ICON","HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/668/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bayon"]]}
+{t:1,a:"SIEMREAP",n:"Angkor Wat",ad:"Angkor Archaeological Park, Siem Reap, Cambodia",la:13.41250,ln:103.86667,w:"The largest religious monument on earth, the 12th-century Khmer temple-city and Cambodia's national symbol — UNESCO World Heritage.",k:"UNESCO temple complex",g:["ICON","HERITAGE","TEMPLE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/668/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Angkor_Wat"]]},
+{t:2,a:"SIEMREAP",n:"Angkor Thom & the Bayon",ad:"Angkor Archaeological Park, Siem Reap, Cambodia",la:13.44111,ln:103.85861,w:"The walled royal city of Angkor Thom and the Bayon's forest of giant serene stone faces.",k:"UNESCO temple city",g:["ICON","HERITAGE","TEMPLE"],s:[["UNESCO","https://whc.unesco.org/en/list/668/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bayon"]]}
 ];
 
 const FS = {
@@ -384,7 +384,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Siem Reap (Angkor)')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {SIEM-REAP:'#BCA7E6'};
+const AC = {SIEMREAP:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

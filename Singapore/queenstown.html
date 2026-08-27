@@ -247,8 +247,8 @@
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -369,10 +369,10 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"SGWN",n:"Depot Road Zhen Shan Mei Claypot Laksa",ad:"#01-75 Alexandra Village Food Centre, 120 Bukit Merah Lane 1",cz:["LAKSA"],la:1.28634,ln:103.80453,w:"Multi-time award-winning laksa (Michelin Bib 2016+) rich with cockles and prawns.",s:[["MICHELIN","https://guide.michelin.com/en/article/features/behind-the-bib-depot-road-zhen-shan-mei-claypot-laksa"],["EATBOOK","https://eatbook.sg/depot-road-zhen-shan-mei-claypot-laksa/"],["DFD","https://danielfooddiary.com/2022/09/14/zhenshanmei/"],["WIKI","https://en.wikipedia.org/wiki/Depot_Road_Zhen_Shan_Mei_Claypot_Laksa"]]},
-{t:2,a:"SGWN",n:"Fu Ming Cooked Food",ad:"#01-49 Redhill Food Centre, 85 Redhill Lane",cz:["HAWKER"],la:1.28733,ln:103.81834,w:"'Mickey Mouse' chai tow kway, radish cake made from scratch daily; Michelin Bib since 2019.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fu-ming-cooked-food"],["EATBOOK","https://eatbook.sg/fu-ming-cooked-food/"],["SETHLUI","https://sethlui.com/fu-ming-cooked-food-carrot-cake-singapore/"]]},
-{t:2,a:"SGWN",n:"Foong Kee Traditional Charcoal Roaster",ad:"#01-06 Commonwealth Crescent Market & Food Centre, 31 Commonwealth Crescent",cz:["CHINESE"],la:1.30690,ln:103.80037,w:"Charcoal-roasted char siew with an ideal fat-to-meat ratio; reopened after a two-year hiatus.",s:[["EATBOOK","https://eatbook.sg/foong-kee-traditional-charcoal-roaster/"],["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"],["HERWORLD","https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"]]},
-{t:2,a:"SGWN",n:"Fatty Cheong",ad:"#01-120 ABC Brickworks Market & Food Centre, 6 Jalan Bukit Merah",cz:["CHINESE"],la:1.28699,ln:103.80803,w:"34 years of sweet, succulent char siew and roast meats at ABC Brickworks.",s:[["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"],["SETHLUI","https://sethlui.com/roast-meat-stalls-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"]]}
+{t:2,a:"QUEENSTOWN",n:"Depot Road Zhen Shan Mei Claypot Laksa",ad:"#01-75 Alexandra Village Food Centre, 120 Bukit Merah Lane 1",cz:["LAKSA"],la:1.28634,ln:103.80453,w:"Multi-time award-winning laksa (Michelin Bib 2016+) rich with cockles and prawns.",s:[["MICHELIN","https://guide.michelin.com/en/article/features/behind-the-bib-depot-road-zhen-shan-mei-claypot-laksa"],["EATBOOK","https://eatbook.sg/depot-road-zhen-shan-mei-claypot-laksa/"],["DFD","https://danielfooddiary.com/2022/09/14/zhenshanmei/"],["WIKI","https://en.wikipedia.org/wiki/Depot_Road_Zhen_Shan_Mei_Claypot_Laksa"]]},
+{t:2,a:"QUEENSTOWN",n:"Fu Ming Cooked Food",ad:"#01-49 Redhill Food Centre, 85 Redhill Lane",cz:["HAWKER"],la:1.28733,ln:103.81834,w:"'Mickey Mouse' chai tow kway, radish cake made from scratch daily; Michelin Bib since 2019.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/fu-ming-cooked-food"],["EATBOOK","https://eatbook.sg/fu-ming-cooked-food/"],["SETHLUI","https://sethlui.com/fu-ming-cooked-food-carrot-cake-singapore/"]]},
+{t:2,a:"QUEENSTOWN",n:"Foong Kee Traditional Charcoal Roaster",ad:"#01-06 Commonwealth Crescent Market & Food Centre, 31 Commonwealth Crescent",cz:["CHINESE"],la:1.30690,ln:103.80037,w:"Charcoal-roasted char siew with an ideal fat-to-meat ratio; reopened after a two-year hiatus.",s:[["EATBOOK","https://eatbook.sg/foong-kee-traditional-charcoal-roaster/"],["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"],["HERWORLD","https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"]]},
+{t:2,a:"QUEENSTOWN",n:"Fatty Cheong",ad:"#01-120 ABC Brickworks Market & Food Centre, 6 Jalan Bukit Merah",cz:["CHINESE"],la:1.28699,ln:103.80803,w:"34 years of sweet, succulent char siew and roast meats at ABC Brickworks.",s:[["DFD","https://danielfooddiary.com/2020/06/10/charsiew/"],["SETHLUI","https://sethlui.com/roast-meat-stalls-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/eateries-for-the-best-roast-meats-in-singapore"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -879,7 +879,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source \u2014 Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators \u2014 in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

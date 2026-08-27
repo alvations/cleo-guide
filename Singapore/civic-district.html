@@ -319,15 +319,15 @@ const S = {
 };
 
 const AREAS = [
-  {id:"CIVIC-DISTRICT",n:"Civic District",c:"#BCA7E6"}
+  {id:"CIVICDISTRICT",n:"Civic District",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"SGC",n:"National Gallery Singapore",ad:"1 St Andrew's Road, Civic District",la:1.29049,ln:103.85186,w:"World's largest public collection of Singapore & Southeast Asian art, in the former City Hall & Supreme Court.",k:"Museum",g:["MUS","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/civic-district/national-gallery-singapore/"],["WIKI","https://en.wikipedia.org/wiki/National_Gallery_Singapore"]]},
-{t:2,a:"SGC",n:"National Museum of Singapore",ad:"93 Stamford Road, Civic District",la:1.29672,ln:103.84864,w:"The nation's oldest museum (est. 1849), narrating Singapore's social history.",k:"Museum",g:["MUS"],s:[["WIKI","https://en.wikipedia.org/wiki/National_Museum_of_Singapore"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/history/museums-monuments/national-museum-of-singapore/"]]},
-{t:2,a:"SGC",n:"Asian Civilisations Museum",ad:"1 Empress Place, Civic District",la:1.28750,ln:103.85139,w:"Riverside museum devoted to the material cultures of Asia, from Chinese to West Asian civilisations.",k:"Museum",g:["MUS"],s:[["WIKI","https://en.wikipedia.org/wiki/Asian_Civilisations_Museum"],["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/empress-place-building"]]},
-{t:2,a:"SGC",n:"Raffles Hotel",ad:"1 Beach Road, Civic District",la:1.29489,ln:103.85448,w:"1887 colonial-era grande dame; a National Monument and birthplace of the Singapore Sling.",k:"Heritage",g:["HERITAGE","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/history/reminiscing/raffles-hotel/"],["WIKI","https://en.wikipedia.org/wiki/Raffles_Hotel"]]},
-{t:2,a:"SGC",n:"Fort Canning Park",ad:"River Valley Road, Fort Canning",la:1.29444,ln:103.84694,w:"Historic hilltop park with artefacts dating to the 1300s; the famous Fort Canning tree tunnel.",k:"Park",g:["PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/fort-canning-park"],["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/fort-canning"]]}
+{t:1,a:"CIVICDISTRICT",n:"National Gallery Singapore",ad:"1 St Andrew's Road, Civic District",la:1.29049,ln:103.85186,w:"World's largest public collection of Singapore & Southeast Asian art, in the former City Hall & Supreme Court.",k:"Museum",g:["MUS","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/neighbourhood/featured-neighbourhood/civic-district/national-gallery-singapore/"],["WIKI","https://en.wikipedia.org/wiki/National_Gallery_Singapore"]]},
+{t:2,a:"CIVICDISTRICT",n:"National Museum of Singapore",ad:"93 Stamford Road, Civic District",la:1.29672,ln:103.84864,w:"The nation's oldest museum (est. 1849), narrating Singapore's social history.",k:"Museum",g:["MUS"],s:[["WIKI","https://en.wikipedia.org/wiki/National_Museum_of_Singapore"],["VISITSG","https://www.visitsingapore.com/see-do-singapore/history/museums-monuments/national-museum-of-singapore/"]]},
+{t:2,a:"CIVICDISTRICT",n:"Asian Civilisations Museum",ad:"1 Empress Place, Civic District",la:1.28750,ln:103.85139,w:"Riverside museum devoted to the material cultures of Asia, from Chinese to West Asian civilisations.",k:"Museum",g:["MUS"],s:[["WIKI","https://en.wikipedia.org/wiki/Asian_Civilisations_Museum"],["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/empress-place-building"]]},
+{t:2,a:"CIVICDISTRICT",n:"Raffles Hotel",ad:"1 Beach Road, Civic District",la:1.29489,ln:103.85448,w:"1887 colonial-era grande dame; a National Monument and birthplace of the Singapore Sling.",k:"Heritage",g:["HERITAGE","ARCH"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/history/reminiscing/raffles-hotel/"],["WIKI","https://en.wikipedia.org/wiki/Raffles_Hotel"]]},
+{t:2,a:"CIVICDISTRICT",n:"Fort Canning Park",ad:"River Valley Road, Fort Canning",la:1.29444,ln:103.84694,w:"Historic hilltop park with artefacts dating to the 1300s; the famous Fort Canning tree tunnel.",k:"Park",g:["PARK"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/fort-canning-park"],["ROOTS","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/fort-canning"]]}
 ];
 
 const FS = {
@@ -374,7 +374,7 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"SGC",n:"Odette",ad:"#01-04 National Gallery Singapore, 1 St Andrew's Road",cz:["CAFE"],la:1.28971,ln:103.84925,w:"Three Michelin stars; Chef Julien Royer's flagship, a perennial Asia's 50 Best fixture.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/odette"],["HGW","https://hungrygowhere.com/food-news/michelin-guide-singapore-2025/"]]}
+{t:1,a:"CIVICDISTRICT",n:"Odette",ad:"#01-04 National Gallery Singapore, 1 St Andrew's Road",cz:["CAFE"],la:1.28971,ln:103.84925,w:"Three Michelin stars; Chef Julien Royer's flagship, a perennial Asia's 50 Best fixture.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/odette"],["HGW","https://hungrygowhere.com/food-news/michelin-guide-singapore-2025/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -392,7 +392,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Civic District')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {CIVIC-DISTRICT:'#BCA7E6'};
+const AC = {CIVICDISTRICT:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){

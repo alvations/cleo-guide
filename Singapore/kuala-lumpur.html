@@ -318,12 +318,12 @@ const S = {
 };
 
 const AREAS = [
-  {id:"KUALA-LUMPUR",n:"Kuala Lumpur",c:"#BCA7E6"}
+  {id:"KUALALUMPUR",n:"Kuala Lumpur",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"MY",n:"Petronas Twin Towers",ad:"Kuala Lumpur City Centre (KLCC), Jalan Ampang, Kuala Lumpur, Malaysia",la:3.15806,ln:101.71139,w:"The 452 m twin towers with the double-decker skybridge — KL's defining landmark, once the world's tallest buildings.",k:"Skyscraper & skybridge",g:["ICON","VIEW","ARCH"],s:[["OFFICIAL","https://www.petronastwintowers.com.my/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Petronas_Towers"]]},
-{t:1,a:"MY",n:"Batu Caves",ad:"Gombak, Selangor (Greater Kuala Lumpur), Malaysia",la:3.23740,ln:101.68390,w:"A limestone hill of Hindu cave temples reached by 272 rainbow steps under the giant golden Murugan statue; focus of the Thaipusam festival.",k:"Hindu cave temple",g:["ICON","TEMPLE","PARK","ARCH"],s:[["TOURISMMY","https://www.malaysia.travel/explore/batu-caves"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Batu_Caves"]]}
+{t:1,a:"KUALALUMPUR",n:"Petronas Twin Towers",ad:"Kuala Lumpur City Centre (KLCC), Jalan Ampang, Kuala Lumpur, Malaysia",la:3.15806,ln:101.71139,w:"The 452 m twin towers with the double-decker skybridge — KL's defining landmark, once the world's tallest buildings.",k:"Skyscraper & skybridge",g:["ICON","VIEW","ARCH"],s:[["OFFICIAL","https://www.petronastwintowers.com.my/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Petronas_Towers"]]},
+{t:1,a:"KUALALUMPUR",n:"Batu Caves",ad:"Gombak, Selangor (Greater Kuala Lumpur), Malaysia",la:3.23740,ln:101.68390,w:"A limestone hill of Hindu cave temples reached by 272 rainbow steps under the giant golden Murugan statue; focus of the Thaipusam festival.",k:"Hindu cave temple",g:["ICON","TEMPLE","PARK","ARCH"],s:[["TOURISMMY","https://www.malaysia.travel/explore/batu-caves"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Batu_Caves"]]}
 ];
 
 const FS = {
@@ -370,7 +370,7 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"MY",n:"Village Park Restaurant",ad:"5 Jalan SS21/37, Damansara Utama (Uptown), Petaling Jaya, Selangor (Greater KL), Malaysia",cz:["MALAY"],la:3.13685,ln:101.62340,w:"The nasi lemak many call Malaysia's best; queues since the 1980s for the ayam goreng berempah. Regulars have included prime ministers and national athletes.",s:[["SETHLUI","https://sethlui.com/village-park-restaurant-malaysia/"],["SILVERKRIS","https://krisworld.singaporeair.com/silverkris2/village-park-restaurant.html"]]}
+{t:1,a:"KUALALUMPUR",n:"Village Park Restaurant",ad:"5 Jalan SS21/37, Damansara Utama (Uptown), Petaling Jaya, Selangor (Greater KL), Malaysia",cz:["MALAY"],la:3.13685,ln:101.62340,w:"The nasi lemak many call Malaysia's best; queues since the 1980s for the ayam goreng berempah. Regulars have included prime ministers and national athletes.",s:[["SETHLUI","https://sethlui.com/village-park-restaurant-malaysia/"],["SILVERKRIS","https://krisworld.singaporeair.com/silverkris2/village-park-restaurant.html"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -388,7 +388,7 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Kuala Lumpur')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {KUALA-LUMPUR:'#BCA7E6'};
+const AC = {KUALALUMPUR:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
