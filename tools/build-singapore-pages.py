@@ -134,19 +134,65 @@ THEME_NEW_ROOT = """  /* Pastel theme — LIGHT default :root; DARK via prefers-
     --bone:#ECE7F2; --bone-dim:#A79FB8;
   }}"""
 
+# Pastel marker palette for colour-coded districts (NYC-style). Distinct hues, all light enough to read
+# on the pastel light theme and bright enough on dark. Assigned to a page's districts in order.
+PASTELS = ["#F2A1A1","#BCA7E6","#84CBB9","#9CBEEC","#E8C57C","#E4989B",
+           "#8FD0A0","#C9A9D6","#7FC7D9","#F0B48A","#A9C48A","#D9A6C2"]
+
+# Pages that are big enough to colour-code by sub-area (like NYC's boroughs/neighbourhoods). Each entry
+# is an ORDERED list of (area-id, display-name, [address/name keywords]); a record is binned into the
+# first district whose keyword it matches, else the page's "OTHER" bucket (named for the city). Area ids
+# must be alnum (valid bare JS object keys). Reusable — add a page here to split it into coloured areas.
+DISTRICTS = {
+ "ho-chi-minh-city": [
+  ("D1","District 1 (Bến Nghé · Bến Thành)",["district 1","quan 1","quận 1","ben nghe","bến nghé","ben thanh","bến thành","da kao","đa kao","pham ngu lao","phạm ngũ lão","dakao"]),
+  ("D3","District 3 (Võ Thị Sáu)",["district 3","quan 3","quận 3"]),
+  ("D4","District 4 (Vĩnh Khánh)",["district 4","quan 4","quận 4","vinh khanh","vĩnh khánh","xom chieu","xóm chiếu"]),
+  ("CHOLON","Chợ Lớn (D5–6)",["district 5","district 6","quan 5","quận 5","quan 6","quận 6","cho lon","chợ lớn","cholon","an dong","an đông"]),
+  ("THAODIEN","Thảo Điền / D2",["thao dien","thảo điền","district 2","quan 2","quận 2","an phu","an phú","thu duc","thủ đức"]),
+  ("BINHTHANH","Bình Thạnh",["binh thanh","bình thạnh"]),
+  ("PHUNHUAN","Phú Nhuận",["phu nhuan","phú nhuận"]),
+  ("TANBINH","Tân Bình / Tân Phú",["tan binh","tân bình","tan phu","tân phú"]),
+  ("D7","District 7 (Phú Mỹ Hưng)",["district 7","quan 7","quận 7","phu my hung","phú mỹ hưng"]),
+  ("D10","District 10 / 11",["district 10","quan 10","quận 10","district 11","quan 11","quận 11"]),
+  ("DAYTRIP","Day trips (Mekong · Tây Ninh · Vũng Tàu)",["tay ninh","tây ninh","tien giang","tiền giang","my tho","mỹ tho","ben tre","bến tre","can tho","cần thơ","vung tau","vũng tàu","ba ria","bà rịa","can gio","cần giờ","cai rang","cái răng","mekong","cu chi","củ chi"]),
+ ],
+}
+
 def build_page(slug):
     name=PLACE_META[slug][1]; region=PLACE_META[slug][2]; zoom=PLACE_META[slug][4]
     P=groups_P.get(slug,[]); F=groups_F.get(slug,[])
     if not (P or F): return None
     pins=[(GEO[r["n"]]["lat"],GEO[r["n"]]["lng"]) for r in P+F]
     clat=round(sorted(x[0] for x in pins)[len(pins)//2],5); clng=round(sorted(x[1] for x in pins)[len(pins)//2],5)
-    # single area = this place. AID must be a VALID bare JS object key (alnum only) — a hyphen in the
-    # slug (toa-payoh, chiang-mai, …) would make `const AC = {TOA-PAYOH:..}` a syntax error and blank
-    # the whole page. Every record's `a` is rewritten to AID so AC[p.a] resolves.
-    AID=re.sub(r'[^A-Za-z0-9]','',slug).upper()
-    color="#BCA7E6"
-    AREAS="[\n  {id:%s,n:%s,c:%s}\n]"%(js(AID),js(name),js(color))
-    def wa(r): r=dict(r); r["a"]=AID; return r
+    # ── Area colouring ──────────────────────────────────────────────────────────────────────────
+    # Most pages are a single place = one area, one colour. A page listed in DISTRICTS is split into
+    # colour-coded sub-areas (NYC-style): each record is binned by address/name keyword into a district,
+    # each present district gets its own pastel + legend swatch + area-filter chip. Area ids must be a
+    # VALID bare JS object key (alnum only) — a hyphen would make `const AC = {TOA-PAYOH:..}` a syntax
+    # error and blank the whole page. Every record's `a` is rewritten to its area id so AC[p.a] resolves.
+    rules=DISTRICTS.get(slug)
+    if rules:
+        def _area_of(r):
+            hay=(r["n"]+" "+r["ad"]).lower()
+            for aid,nm,kws in rules:
+                if any(k in hay for k in kws): return aid
+            return "OTHER"
+        anames={aid:nm for aid,nm,_ in rules}; anames["OTHER"]="Ho Chi Minh City (other)"
+        order=[aid for aid,_,_ in rules]+["OTHER"]
+        present=[a for a in order if any(_area_of(r)==a for r in P+F)]
+        acolor={a:PASTELS[i%len(PASTELS)] for i,a in enumerate(present)}
+        AREAS="[\n"+",\n".join("  {id:%s,n:%s,c:%s}"%(js(a),js(anames[a]),js(acolor[a])) for a in present)+"\n]"
+        AC_JS="const AC = {%s};"%",".join("%s:'%s'"%(a,acolor[a]) for a in present)
+        LEGEND="\n".join('  <span><i style="background:%s"></i>%s</span>'%(acolor[a],anames[a]) for a in present)
+        def wa(r): r=dict(r); r["a"]=_area_of(r); return r
+    else:
+        AID=re.sub(r'[^A-Za-z0-9]','',slug).upper()
+        color="#BCA7E6"
+        AREAS="[\n  {id:%s,n:%s,c:%s}\n]"%(js(AID),js(name),js(color))
+        AC_JS="const AC = {%s:'%s'};"%(AID,color)
+        LEGEND='  <span><i style="background:%s"></i>%s</span>'%(color,name)
+        def wa(r): r=dict(r); r["a"]=AID; return r
     used_S=set(t[0] for r in P for t in r["s"]); used_F=set(t[0] for r in F for t in r["s"])
     S={k:DS["S"][k] for k in DS["S"] if k in used_S}; FS={k:DS["FS"][k] for k in DS["FS"] if k in used_F}
     Pjs="[\n"+",\n".join(rec(wa(r),GEO[r["n"]]) for r in P)+"\n]" if P else "[]"
@@ -206,7 +252,7 @@ def build_page(slug):
                  "    c.setAttribute('aria-pressed', c.dataset.v===curBase);\n"
                  "  });\n}\n", new, flags=re.S, count=1)
     rep("color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A","color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)")
-    rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};","const AC = {%s:'%s'};"%(AID,color))
+    rep("const AC = {DT:'#74AE99',UC:'#C89B4A',WS:'#B45B3E',SUB:'#7E8FC4'};",AC_JS)
     rep("setView([41.4993,-81.6944],11)","setView([%s,%s],%d)"%(clat,clng,zoom))
     for a,b in [("cle_trip","sg_trip"),("cle_seen","sg_seen"),("cle_gkey","sg_gkey"),
                 ("cleveland-my-list","singapore-my-list"),("cleveland-field-guide","singapore-field-guide")]:
@@ -215,7 +261,7 @@ def build_page(slug):
   <span><i style="background:var(--c-uc)"></i>University Circle &amp; East</span>
   <span><i style="background:var(--c-ws)"></i>West Side &amp; Tremont</span>
   <span><i style="background:var(--c-sub)"></i>Suburbs &amp; day trips</span>''',
-        '  <span><i style="background:%s"></i>%s</span>'%(color,name))
+        LEGEND)
     # backdrop → no vector geography, no labels (tiles carry it)
     rep('''const LABELS=[["Lake Erie",41.5600,-81.7400],["Downtown",41.4985,-81.6880],
  ["Ohio City",41.4845,-81.7080],["Tremont",41.4790,-81.6890],["Asiatown",41.5100,-81.6660],
