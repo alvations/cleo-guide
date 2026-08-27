@@ -1,0 +1,30 @@
+{
+ "creators": [
+  {"key":"DANIELFOOD","name":"Daniel Ang (Daniel Food Diary)","platform":"Food blog + IG/FB/YouTube","followers":"~200k+ across IG/FB; long-running SG food authority","url":"https://danielfooddiary.com"},
+  {"key":"MISSTAMCHIAK","name":"Maureen Ow (Miss Tam Chiak)","platform":"Food blog + IG/FB/TikTok/YouTube","followers":"~100k+ IG, active TikTok/FB; veteran SG hawker chronicler","url":"https://www.misstamchiak.com"},
+  {"key":"IEATISHOOTIPOST","name":"Dr Leslie Tay (ieatishootipost)","platform":"Food blog + IG","followers":"~80k+ IG; Singapore's best-known hawker documentarian","url":"https://ieatishootipost.sg"},
+  {"key":"JOHORKAKI","name":"Tony Boey (Johor Kaki)","platform":"Food blog + FB/YouTube","followers":"FB group/page in the tens of thousands; heritage-hawker specialist","url":"https://johorkaki.blogspot.com"},
+  {"key":"SGFOODONFOOT","name":"SG Food on Foot","platform":"Food blog + FB","followers":"long-running SG hawker review blog with sizeable FB following","url":"https://www.sgfoodonfoot.com"},
+  {"key":"SETHLUI","name":"Seth Lui (sethlui.com team)","platform":"Food/travel publication + IG/TikTok/YouTube","followers":"one of SG's largest food media brands; hundreds of thousands across socials","url":"https://sethlui.com"}
+ ],
+ "attach": [
+  {"place":"Guan Kee Kway Chap","creatorKey":"MISSTAMCHIAK","url":"https://www.misstamchiak.com/guan-kee-kway-chap/"},
+  {"place":"Ah Chuan Fried Oyster Omelette","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2017/09/ah-chuan-toa-payoh-fried-oyster.html"},
+  {"place":"Seletar Sheng Mian Mee Hoon Kway","creatorKey":"SGFOODONFOOT","url":"https://www.sgfoodonfoot.com/2017/05/seletar-sheng-mian-mee-hoon-kway-toa.html"},
+  {"place":"Palm Spring Kway Chap","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2018/07/singapore-toa-payoh-lor-4-kuey-chap.html"},
+  {"place":"Cai Ji Fishball Noodle","creatorKey":"MISSTAMCHIAK","url":"https://www.misstamchiak.com/cai-ji-fishball-noodle/"},
+  {"place":"Song Kee Kway Teow Noodle Soup","creatorKey":"DANIELFOOD","url":"https://danielfooddiary.com/2017/08/08/songkeefishballnoodles/"},
+  {"place":"Soon Heng Rojak","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2023/01/soon-heng-famous-toa-payoh-hdb-hub.html"},
+  {"place":"Allauddin's Briyani (Toa Payoh Lor 8)","creatorKey":"DANIELFOOD","url":"https://danielfooddiary.com/2020/06/06/allauddinbriyani/"},
+  {"place":"The Twisted Trio","creatorKey":"MISSTAMCHIAK","url":"https://www.misstamchiak.com/the-twisted-trio/"},
+  {"place":"2612 Little Vietnam Cuisine","creatorKey":"MISSTAMCHIAK","url":"https://www.misstamchiak.com/2612-little-vietnam-cuisine/"}
+ ],
+ "rejected": [
+  {"name":"singaporehawkercentres.com","reason":"anonymous SEO listicle farm, no verifiable authorship"},
+  {"name":"toapayohshoppingmall.com","reason":"SEO/marketing site, not editorial"},
+  {"name":"kopitiam.com.sg (blog)","reason":"content-mill listicles, unverifiable authorship"},
+  {"name":"foodadvisor.com.sg / jiak.co / entersingapore.com / kaizenaire.com","reason":"aggregator/SEO farms"},
+  {"name":"cravefixer / tringapore / wherecrowded / trustthecrowd","reason":"low-authority SEO/AI-aggregated content"},
+  {"name":"Yelp / TripAdvisor / Burpple / OpenRice / Wanderlog / Foursquare","reason":"rating aggregators — used only to MEASURE popularity, count ZERO toward the >=2 credible-source gate"}
+ ]
+}
