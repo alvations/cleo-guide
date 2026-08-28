@@ -1,0 +1,20 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "South-west working-class districts — DISTRICT 8 (canals: Kênh Tàu Hủ / Kênh Đôi / Rạch Ông / Chánh Hưng), BÌNH TÂN, and DISTRICT 6 (Chợ Lớn west) deepening. Chinese-Vietnamese (Hoa/Teochew) + canal heritage. Namespaced SEPARATE from SOURCES_HCMC.json / _CENTRAL / _OUTER / _CHOLON2 / etc.",
+ "outlets": [
+  {"key": "VNEXPRESS", "name": "VnExpress (Du lịch / Ngôi Sao)", "url": "https://vnexpress.net/", "tier": "credible-national", "note": "Vietnam's largest online newspaper. Food-heritage reporting on District 8's hủ tiếu hồ shop and the Bến Bình Đông wharf; Ngôi Sao edition on Chùa An Phú and AEON Mall Bình Tân."},
+  {"key": "THANHNIEN", "name": "Thanh Niên", "url": "https://thanhnien.vn/", "tier": "credible-national", "note": "Major national daily. Features on the Teochew hủ tiếu hồ (Q8), the 180-year miểng-sành pagoda, District 6's most-famous chè shop, the Lê Quang Sung bánh hẹ stall, the 2026 Bến Bình Đông Tết flower market, and Chùa Huệ Nghiêm as Bình Tân's signature sight."},
+  {"key": "TUOITRE", "name": "Tuổi Trẻ", "url": "https://tuoitre.vn/", "tier": "credible-national", "note": "Major Ho Chi Minh City daily; 'Lạc giữa thiên đường chè người Hoa - Chợ Lớn' feature on the Hoa dessert quarter."},
+  {"key": "SAIGONEER", "name": "Saigoneer", "url": "https://saigoneer.com/", "tier": "credible-local", "note": "Leading English-language Saigon culture/street-food outlet; 'Hẻm Gems' feature on the Bửu Đình (D6) suan la fen stall (published in EN and VN)."},
+  {"key": "PHUNU", "name": "Báo Phụ Nữ TP.HCM (Phụ Nữ Online)", "url": "https://www.phunuonline.com.vn/", "tier": "credible-local", "note": "Official Ho Chi Minh City Women's Union daily; corroborating feature on the Macao-style bún chua cay in Chợ Lớn."},
+  {"key": "ZNEWS", "name": "Znews (formerly Zing News)", "url": "https://znews.vn/", "tier": "credible-national", "note": "Established national news/lifestyle outlet; feature on beloved snack stalls of the Hoa quarter (corroborates the Lê Quang Sung bánh hẹ)."},
+  {"key": "NGUOIDOTHI", "name": "Người Đô Thị", "url": "https://nguoidothi.net.vn/", "tier": "credible-magazine", "note": "Credible urban-affairs magazine; feature on the 150-year Đình Bình Đông marooned on a Kênh Đôi islet."},
+  {"key": "ASHUI", "name": "Ashui.com", "url": "https://ashui.com/", "tier": "credible-independent", "note": "Established Vietnamese architecture & urbanism portal; heritage piece on Bến Bình Đông / Đình Bình Đông."},
+  {"key": "KENH14", "name": "Kenh14", "url": "https://kenh14.vn/", "tier": "credible-national", "note": "Major Vietnamese lifestyle/news outlet; feature on six historic Saigon bridges including Cầu Nhị Thiên Đường / Cầu Chữ Y."},
+  {"key": "CAFEBIZ", "name": "CafeBiz", "url": "https://cafebiz.vn/", "tier": "credible-national", "note": "Established business/news outlet (VCCorp); history of the Chinese-Vietnamese magnate behind Cầu Nhị Thiên Đường, 'the first cement bridge in Indochina'."},
+  {"key": "BAODAUTU", "name": "Báo Đầu Tư (Vietnam Investment Review)", "url": "https://baodautu.vn/", "tier": "credible-national", "note": "Ministry of Planning & Investment newspaper; report on the opening of AEON Mall Bình Tân."},
+  {"key": "WIKIPEDIA", "name": "Wikipedia (Vietnamese)", "url": "https://vi.wikipedia.org/", "tier": "institutional-reference", "note": "Full articles used as lone institutional authority for sights: Chợ đầu mối Bình Điền, Chùa Huệ Nghiêm, Xóm Củi."},
+  {"key": "PLO", "name": "Pháp Luật TP.HCM", "url": "https://plo.vn/", "tier": "credible-national", "note": "Major Ho Chi Minh City daily; feature on the origins of the Xóm Củi / Hưng Phú / Rạch Ông place-names in District 8."}
+ ]
+}
