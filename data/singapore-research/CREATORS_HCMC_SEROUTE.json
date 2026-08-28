@@ -1,0 +1,47 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "SE route corridor (Long Thành/Nhơn Trạch → Bà Rịa → Vũng Tàu → Long Hải/Hồ Tràm/Xuyên Mộc). SEPARATE from other CREATORS_HCMC_*.json.",
+ "note": "WebSearch-only research from a US region. Per the honesty rule I did NOT invent Vietnamese TikTok/YouTube food-vloggers or follower counts — I could not surface an individual VN creator with a findable clip tied to a specific corridor place this pass. The one vetted independent creator below (Vietnam Coracle) counts as ONE corroborating source, never a lone authority; institutional/national gates (Wikipedia full articles, VNAT, VnExpress, Tuổi Trẻ, VietnamNews, provincial govs) carry the authority. A follow-up Vietnamese-language YouTube/TikTok pass is the way to add named vloggers with reach for the Vũng Tàu bánh khọt / lẩu cá đuối / Hồ Tràm scenes.",
+ "creators": [
+  {
+   "key": "VIETNAMCORACLE",
+   "name": "Vietnam Coracle (Tom Divers)",
+   "platform": "web (independent)",
+   "followers": "top independent Vietnam travel resource; 400+ meticulously-researched guides since 2005, word-of-mouth, no sponsors",
+   "url": "https://www.vietnamcoracle.com/ho-tram-ho-coc-beaches/",
+   "verified": "Named, long-form guides: 'Ho Tram & Ho Coc Beaches' and 'Eating Bánh Khọt in Vũng Tàu | 7 Places'."
+  }
+ ],
+ "attach": [
+  {
+   "place": "Hồ Tràm Beach",
+   "creatorKey": "VIETNAMCORACLE",
+   "url": "https://www.vietnamcoracle.com/ho-tram-ho-coc-beaches/"
+  },
+  {
+   "place": "Hồ Cốc Beach",
+   "creatorKey": "VIETNAMCORACLE",
+   "url": "https://www.vietnamcoracle.com/ho-tram-ho-coc-beaches/"
+  },
+  {
+   "place": "Bình Châu Hot Springs (Suối khoáng nóng Bình Châu)",
+   "creatorKey": "VIETNAMCORACLE",
+   "url": "https://www.vietnamcoracle.com/ho-tram-ho-coc-beaches/"
+  }
+ ],
+ "rejected": [
+  {
+   "name": "Wanderlog / Mindtrip / Lemon8 / Trip.com Moments stingray-hotpot & bánh khọt roundups",
+   "reason": "Aggregated UGC / AI listings with no verifiable authoritative creator or findable following."
+  },
+  {
+   "name": "Mytour.vn / VinWonders / Traveloka / Green SM (Xanh SM) / bazantravel / dulichvietnam listicles",
+   "reason": "SEO travel-agency/OTA content mills — allowed to MEASURE popularity, never a recommender toward the ≥2-credible gate."
+  },
+  {
+   "name": "TripAdvisor / Foody.vn / Google ratings",
+   "reason": "Ratings platforms — measure only, zero toward the gate."
+  }
+ ]
+}

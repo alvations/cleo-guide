@@ -1,0 +1,175 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "SE ROUTE CORRIDOR — the stops BETWEEN central Saigon and Vũng Tàu: Long Thành/Nhơn Trạch (Đồng Nai) → Bà Rịa/Long Điền → Vũng Tàu → the coastal extension Long Hải → Hồ Tràm → Hồ Cốc/Bình Châu (Xuyên Mộc). Kept SEPARATE from all other *_HCMC_*.json source files.",
+ "outlets": [
+  {
+   "key": "VNEXPRESS",
+   "name": "VnExpress (Du lịch)",
+   "url": "https://vnexpress.net/",
+   "tier": "credible-national",
+   "note": "Vietnam's largest online newspaper; dedicated features on lẩu cá đuối and bánh canh Long Hương."
+  },
+  {
+   "key": "VIETNAMNEWS",
+   "name": "Viet Nam News (VNA English daily)",
+   "url": "https://vietnamnews.vn/",
+   "tier": "credible-national",
+   "note": "National English-language daily; 'Stingray hotpot – Vũng Tàu's popular specialty'."
+  },
+  {
+   "key": "TUOITRE",
+   "name": "Tuổi Trẻ",
+   "url": "https://tuoitre.vn/",
+   "tier": "credible-national",
+   "note": "Major national daily; salted-egg sponge cake feature."
+  },
+  {
+   "key": "VIETCETERA",
+   "name": "Vietcetera",
+   "url": "https://vietcetera.com/",
+   "tier": "credible-local",
+   "note": "Leading VN English media; 'Vung Tau – A Magnet For The Weekend Crowd'."
+  },
+  {
+   "key": "TRAVELFISH",
+   "name": "Travelfish",
+   "url": "https://www.travelfish.org/",
+   "tier": "credible-independent",
+   "note": "Long-running independent SE-Asia travel guide; Vũng Tàu eat listings."
+  },
+  {
+   "key": "SGTT",
+   "name": "Sài Gòn Tiếp Thị (The Saigon Times)",
+   "url": "https://sgtt.thesaigontimes.vn/",
+   "tier": "credible-local",
+   "note": "Established Saigon lifestyle/business outlet; 'Bản đồ ẩm thực' bánh hỏi An Nhứt."
+  },
+  {
+   "key": "BRVTTOURISM",
+   "name": "Bà Rịa–Vũng Tàu Tourism (bariavungtautourism.com.vn)",
+   "url": "https://bariavungtautourism.com.vn/",
+   "tier": "credible-regional",
+   "note": "Regional tourism editorial; corroborating source for BRVT specialties (never lone)."
+  },
+  {
+   "key": "NHACHANNUOI",
+   "name": "Chăn nuôi Việt Nam (Vietnam Animal Husbandry)",
+   "url": "https://nhachannuoi.vn/",
+   "tier": "credible-trade",
+   "note": "Trade/industry publication of the Vietnam Animal Husbandry Association; Long Thành dairy brand-development piece."
+  },
+  {
+   "key": "VIETNAMPLUS",
+   "name": "VietnamPlus (Vietnam News Agency)",
+   "url": "https://en.vietnamplus.vn/",
+   "tier": "credible-national",
+   "note": "VNA English service; Bạch Dinh / White Palace history."
+  },
+  {
+   "key": "VNANET",
+   "name": "Vietnam News Agency (vnanet.vn)",
+   "url": "https://vietnam.vnanet.vn/",
+   "tier": "credible-national",
+   "note": "State news agency photo/feature service; White Palace & Bình Châu–Phước Bửu."
+  },
+  {
+   "key": "WIKI",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org/",
+   "tier": "notability",
+   "note": "Lone-authority-OK for a sight with a full article: Hòn Bà, Thích Ca Phật Đài, Bình Châu–Phước Bửu Nature Reserve."
+  },
+  {
+   "key": "ORIGINVIETNAM",
+   "name": "Origin Vietnam",
+   "url": "https://www.originvietnam.com/",
+   "tier": "editorial-operator",
+   "note": "Tour-operator destination guides; corroborating source only (Front Beach, Hòn Bà)."
+  },
+  {
+   "key": "MIA",
+   "name": "Mia.vn",
+   "url": "https://mia.vn/",
+   "tier": "editorial-travel",
+   "note": "VN travel content site; corroborating only — Wikipedia carries the authority for Thích Ca Phật Đài."
+  },
+  {
+   "key": "THANHNIEN",
+   "name": "Thanh Niên",
+   "url": "https://thanhnien.vn/",
+   "tier": "credible-national",
+   "note": "Major national daily; Nhà Lớn Long Sơn features."
+  },
+  {
+   "key": "DANTRI",
+   "name": "Dân Trí",
+   "url": "https://dantri.com.vn/",
+   "tier": "credible-national",
+   "note": "Major national online daily; Nhà Lớn Long Sơn architecture."
+  },
+  {
+   "key": "VNTOURISM",
+   "name": "Vietnam National Authority of Tourism",
+   "url": "https://vietnamtourism.vn/",
+   "tier": "institutional",
+   "note": "National tourism authority; Nhà Lớn (Đền Ông Trần) heritage listing."
+  },
+  {
+   "key": "NHANDAN",
+   "name": "Nhân Dân",
+   "url": "https://nhandan.vn/",
+   "tier": "credible-national",
+   "note": "Communist Party daily of record; Dinh Cô festival."
+  },
+  {
+   "key": "VOV",
+   "name": "VOV World (Voice of Vietnam)",
+   "url": "https://vovworld.vn/",
+   "tier": "credible-national",
+   "note": "National broadcaster; Dinh Cô–Long Hải festival."
+  },
+  {
+   "key": "ITTPA",
+   "name": "BRVT Investment, Trade & Tourism Promotion Center",
+   "url": "https://en-ittpa.baria-vungtau.gov.vn/",
+   "tier": "institutional",
+   "note": "Provincial government tourism body; Dinh Cô festival, BRVT cuisine."
+  },
+  {
+   "key": "VIETNAMCORACLE",
+   "name": "Vietnam Coracle (Tom Divers)",
+   "url": "https://www.vietnamcoracle.com/",
+   "tier": "credible-independent",
+   "note": "Top independent Vietnam travel resource; dedicated Hồ Tràm/Hồ Cốc guide and the '7 Places to Eat Bánh Khọt in Vũng Tàu' feature."
+  },
+  {
+   "key": "XUYENMOC",
+   "name": "Xuyên Mộc District Portal",
+   "url": "https://xuyenmoc.baria-vungtau.gov.vn/",
+   "tier": "institutional",
+   "note": "District government portal; Bình Châu hot springs / Hồ Cốc."
+  },
+  {
+   "key": "VNAIR",
+   "name": "Vietnam Airlines Travel Guide",
+   "url": "https://www.vietnamairlines.com/",
+   "tier": "editorial-corporate",
+   "note": "National-carrier editorial guide; Hồ Tràm beach (corroborating)."
+  },
+  {
+   "key": "BAODONGNAI",
+   "name": "Báo Đồng Nai",
+   "url": "https://baodongnai.com.vn/",
+   "tier": "credible-provincial",
+   "note": "Đồng Nai provincial daily of record; Bò Cạp Vàng top-7 eco nomination."
+  },
+  {
+   "key": "VIETNAMVN",
+   "name": "vietnam.vn (national information portal)",
+   "url": "https://www.vietnam.vn/",
+   "tier": "credible-institutional",
+   "note": "National multi-provincial information portal; Bò Cạp Vàng eco nomination."
+  }
+ ]
+}
