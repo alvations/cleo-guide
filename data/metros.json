@@ -1,0 +1,34 @@
+{
+  "_doc": "Reusable METRO registry for the Singapore/SEA multi-page build (tools/build-singapore-pages.py). One entry per page slug gives that place the 'full city' treatment — NYC-style boroughs/districts plus its outskirts — WITHOUT touching the build code. Fields: tier ('city' = a whole metropolis with districts, badge + district colour-coding; 'town'/absent = a single neighbourhood/town). zoom (optional map-zoom override, lower = wider metro view). page_keywords (extra address keywords that assign outer/outskirt/day-trip records to this page, on top of the core keywords in PLACES). districts = ORDERED list of colour-coded sub-areas {id (alnum, a valid JS key), name (shown in legend + area filter), keywords (address/name substrings, lowercased; first match wins; a record matching none lands in the page's 'OTHER' bucket)}. To give the NEXT city the same metro+outskirts treatment: add its slug here with tier 'city', its districts (core → inner ring → outskirts → day trips), and any province/day-trip page_keywords — no code change. See docs/METROS.md.",
+  "ho-chi-minh-city": {
+    "tier": "city",
+    "zoom": 11,
+    "page_keywords": ["Thu Duc","Thủ Đức","Biên Hòa","Bien Hoa","Đồng Nai","Dong Nai","Bình Dương","Binh Duong","Đại Nam","Dai Nam","Cu Chi","Củ Chi","Can Gio","Cần Giờ","Can Tho","Cần Thơ","Vung Tau","Vũng Tàu","Tay Ninh","Tây Ninh","My Tho","Mỹ Tho","Ben Tre","Bến Tre"],
+    "districts": [
+      {"id": "D1", "name": "District 1 (Bến Nghé · Bến Thành)", "keywords": ["district 1","quan 1","quận 1","ben nghe","bến nghé","ben thanh","bến thành","da kao","đa kao","pham ngu lao","phạm ngũ lão","dakao"]},
+      {"id": "D3", "name": "District 3 (Võ Thị Sáu)", "keywords": ["district 3","quan 3","quận 3"]},
+      {"id": "D4", "name": "District 4 (Vĩnh Khánh)", "keywords": ["district 4","quan 4","quận 4","vinh khanh","vĩnh khánh","xom chieu","xóm chiếu"]},
+      {"id": "CHOLON", "name": "Chợ Lớn (D5–6)", "keywords": ["district 5","district 6","quan 5","quận 5","quan 6","quận 6","cho lon","chợ lớn","cholon","an dong","an đông"]},
+      {"id": "D10", "name": "District 10 / 11", "keywords": ["district 10","quan 10","quận 10","district 11","quan 11","quận 11"]},
+      {"id": "PHUNHUAN", "name": "Phú Nhuận", "keywords": ["phu nhuan","phú nhuận"]},
+      {"id": "BINHTHANH", "name": "Bình Thạnh · Gò Vấp", "keywords": ["binh thanh","bình thạnh","go vap","gò vấp"]},
+      {"id": "TANBINH", "name": "Tân Bình · Airport (Tân Sơn Nhất)", "keywords": ["tan binh","tân bình","tan phu","tân phú","tan son nhat","tân sơn nhất","airport"]},
+      {"id": "THUDUC", "name": "Thủ Đức City (D2 · Thảo Điền · D9)", "keywords": ["thao dien","thảo điền","district 2","quan 2","quận 2","an phu","an phú","thu duc","thủ đức","district 9","quan 9","quận 9"]},
+      {"id": "D7", "name": "District 7 · Nhà Bè", "keywords": ["district 7","quan 7","quận 7","phu my hung","phú mỹ hưng","nha be","nhà bè"]},
+      {"id": "BIENHOA", "name": "Biên Hòa (Đồng Nai)", "keywords": ["bien hoa","biên hòa","dong nai","đồng nai"]},
+      {"id": "BINHDUONG", "name": "Bình Dương (Đại Nam · Thuận An)", "keywords": ["binh duong","bình dương","dai nam","đại nam","thuan an","thuận an","di an","dĩ an","ben cat","bến cát"]},
+      {"id": "DAYTRIP", "name": "Day trips (Củ Chi · Cần Giờ · Mekong · Vũng Tàu)", "keywords": ["tay ninh","tây ninh","tien giang","tiền giang","my tho","mỹ tho","ben tre","bến tre","can tho","cần thơ","vung tau","vũng tàu","ba ria","bà rịa","can gio","cần giờ","cai rang","cái răng","mekong","cu chi","củ chi"]}
+    ]
+  },
+  "bangkok": {"tier": "city", "districts": []},
+  "hanoi": {"tier": "city", "districts": []},
+  "chiang-mai": {"tier": "city", "districts": []},
+  "kuala-lumpur": {"tier": "city", "districts": []},
+  "penang": {"tier": "city", "districts": []},
+  "jakarta": {"tier": "city", "districts": []},
+  "manila": {"tier": "city", "districts": []},
+  "cebu": {"tier": "city", "districts": []},
+  "phnom-penh": {"tier": "city", "districts": []},
+  "yangon": {"tier": "city", "districts": []},
+  "siem-reap": {"tier": "city", "districts": []}
+}
