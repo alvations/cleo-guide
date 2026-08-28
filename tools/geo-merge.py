@@ -17,6 +17,12 @@ import json, sys, os, glob, argparse, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLOSED_SUFFIX = " — CLOSED"
 
+def entry_is_verified(entry):
+    """True iff a registry entry already holds a real, sourced coordinate. An UNVERIFIED incoming
+    record must never overwrite one of these (see the merge guard + tools/test-geo-merge.py)."""
+    return bool(entry and entry.get("lat") is not None and entry.get("lng") is not None
+                and str(entry.get("source", "")).upper() != "UNVERIFIED")
+
 def research_dir(key):
     full = os.path.join(ROOT, "data", f"{key}-research")
     slug = key if os.path.isdir(full) else key.rsplit("-", 1)[0]
@@ -57,7 +63,7 @@ def main():
     GEOP = os.path.join(ROOT, "data", "geocodes.json")
     g = json.load(open(GEOP, encoding="utf-8"))
     city = g.setdefault("cities", {}).setdefault(a.key, {})
-    added = updated = unver = closed = renamed = 0
+    added = updated = unver = closed = renamed = protected = 0
     closed_renames = []
     for f in files:
         raw = json.load(open(f, encoding="utf-8"))
@@ -83,6 +89,22 @@ def main():
                 # drop any stale un-marked registry entry so we don't leave a duplicate
                 city.pop(n, None)
                 n = marked
+            # NEVER let an UNVERIFIED record clobber an already-VERIFIED coordinate. geo-merge runs over
+            # ALL _geoout_*.json (rebuild-city --build re-merges the whole geo/ dir, sorted, last-write-
+            # wins), so without this guard a stale/failed wave that lists a place as low/null can null out
+            # a fresh verified pin merely because its filename sorts later. A verified pin is only ever
+            # replaced by another VERIFIED record (a real re-verify/upgrade). An unverified record may
+            # still refresh the STATUS of an existing verified entry, but must not touch its coordinate.
+            existing = city.get(n)
+            if not verified and entry_is_verified(existing):
+                protected += 1
+                if r.get("statusSource") or status != existing.get("status", "open"):
+                    existing["status"] = status
+                    existing["statusSource"] = r.get("statusSource", existing.get("statusSource", ""))
+                    existing["statusChecked"] = a.date
+                if status == "closed":
+                    closed += 1
+                continue
             entry = {
                 "address": r.get("address", ""),
                 "lat": lat if verified else None,
@@ -104,7 +126,8 @@ def main():
 
     json.dump(g, open(GEOP, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     print(f"{a.key}: merged {len(files)} file(s) — +{added} new / {updated} updated | "
-          f"UNVERIFIED (gate holds): {unver} | CLOSED: {closed} | registry now {len(city)}")
+          f"UNVERIFIED (gate holds): {unver} | protected (kept verified vs stale unverified): {protected} | "
+          f"CLOSED: {closed} | registry now {len(city)}")
     if closed_renames:
         print("  closed-marker applied (registry key + research record renamed):")
         for base, mk in closed_renames:

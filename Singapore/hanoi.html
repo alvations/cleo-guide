@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Hanoi (Vietnam) field guide — 2 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="description" content="Hanoi (Vietnam) field guide — 2 sights and 2 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
 <title>Hanoi — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -231,7 +231,7 @@
 <header>
   <p class="eyebrow">City guide · Vietnam</p>
   <h1>Hanoi<span class="thin">Vietnam — a whole city, district by district, sourced</span></h1>
-  <p class="standfirst">2 sights and 1 places to eat in the city of <strong>Hanoi</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA cities</a></p>
+  <p class="standfirst">2 sights and 2 places to eat in the city of <strong>Hanoi</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA cities</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -327,8 +327,11 @@ const P = [
 ];
 
 const FS = {
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com/2025/12/11/bunchahuonglien/",l:"Daniel Food Diary"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
-  "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"}
+  "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
+  "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"}
 };
 
 const CUISINES = [
@@ -370,7 +373,8 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"HANOI",n:"Pho Gia Truyen (Bat Dan)",ad:"49 Bat Dan Street, Hoan Kiem District, Hanoi, Vietnam",cz:["VIET"],la:21.03369,ln:105.84644,w:"Hanoi's most famous old-school beef pho — order at the counter and queue; MICHELIN Bib Gourmand.",s:[["MICHELIN_BIB","https://guide.michelin.com/vn/en/ha-noi/ha-noi/restaurant/pho-gia-truyen"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/"]]}
+{t:1,a:"HANOI",n:"Pho Gia Truyen (Bat Dan)",ad:"49 Bat Dan Street, Hoan Kiem District, Hanoi, Vietnam",cz:["VIET"],la:21.03369,ln:105.84644,w:"Hanoi's most famous old-school beef pho — order at the counter and queue; MICHELIN Bib Gourmand.",s:[["MICHELIN_BIB","https://guide.michelin.com/vn/en/ha-noi/ha-noi/restaurant/pho-gia-truyen"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/"]]},
+{t:1,a:"HANOI",n:"Bun Cha Huong Lien",ad:"24 Le Van Huu Street, Hai Ba Trung District, Hanoi, Vietnam",cz:["VIET"],la:21.01814,ln:105.85389,w:"The 'Obama bun cha' where Barack Obama and Anthony Bourdain dined in 2016 (Parts Unknown); now in the MICHELIN Guide Vietnam.",s:[["MICHELIN","https://guide.michelin.com/jp/en/ha-noi/ha-noi_2974158/restaurant/bun-cha-huong-lien"],["DANIELFOOD","https://danielfooddiary.com/2025/12/11/bunchahuonglien/"],["VNEXPRESS","https://e.vnexpress.net/news/travel/food-recipes/hanoi-s-5-best-bun-cha-a-michelin-approved-list-4869911.html"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -395,7 +399,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([21.03056,105.8525],12);
+  map = L.map('map',{scrollWheelZoom:false}).setView([21.03056,105.85389],12);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
