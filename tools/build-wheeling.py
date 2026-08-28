@@ -176,7 +176,7 @@ new = re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">FOOD RULES.*?</div></
 
 assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>", "", new)), "literal \\uXXXX escape leaked into visible HTML \u2014 use real characters in page prose, not \\u escapes"
 import engine_guard  # no map may ship the Google "API key" base-map surface
-new = engine_guard.strip_google(new); engine_guard.assert_no_google(new, OUT)
+new = engine_guard.fix_basemap_tiles(engine_guard.strip_google(new)); engine_guard.assert_no_google(new, OUT)
 open(OUT, "w", encoding="utf-8").write(new)
 assert "P.forEach((p,i)=>{p.id='s'+i" in new
 _leakseg = new[new.index("const S = {"):new.index("const AC =")]

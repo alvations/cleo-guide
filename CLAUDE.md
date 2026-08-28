@@ -59,19 +59,24 @@ Append a script element and use `onload` / `onerror`.
 separately via `mountMap()` if Leaflet arrives. A blocked CDN costs a map, not a page.
 `npm test` covers this explicitly — do not weaken it.
 
-**4-ai. No map may carry the Google base-map "API key" surface — a wired guard, not a manual check.**
-The engine once shipped an optional Google base-layer system (key-required `g_*` layers, an "ADD GOOGLE
-API KEY" button, `setGoogle()`/`promptKey()`/GoogleMutant loader). Every page cloned from the engine
-inherited it and put **"API key required"** in front of viewers. Maps use only free CARTO/OSM/Esri tiles.
-This is enforced at three gates, all sharing one module `tools/engine_guard.py` (`strip_google()` +
-`assert_no_google()` + the `FORBIDDEN` token list) — never re-implement the list or paste a one-off fix:
-1. **Build time** — every `tools/build-*.py` runs `engine_guard.strip_google(new)` then
-   `assert_no_google(new, OUT)` before writing, so a page with the surface cannot be built.
+**4-ai. No map may show "API key required" — a wired guard, not a manual check.** This has TWO causes,
+both guarded: (a) the Google base-layer code the engine once shipped (key-required `g_*` layers, an "ADD
+GOOGLE API KEY" button, `setGoogle()`/`promptKey()`/GoogleMutant loader), and (b) a **key-required base-map
+TILE host** — CARTO (`basemaps.cartocdn.com`) moved its basemaps behind a key and now renders an "API key
+required" watermark **tiled across the whole map**, reloading on every zoom. Maps use only genuinely no-key
+tiles: **OpenStreetMap** (`tile.openstreetmap.org`) + **Esri** (`server.arcgisonline.com` — gray canvas for
+light/dark, imagery/topo for sat/terrain). Enforced at three gates, all sharing one module
+`tools/engine_guard.py` — `strip_google()` (removes the Google code), `fix_basemap_tiles()` (swaps CARTO→Esri),
+`assert_no_google()`, and the `FORBIDDEN` + `TILE_FORBIDDEN` lists. Never re-implement the lists or paste a
+one-off fix:
+1. **Build time** — every `tools/build-*.py` runs `engine_guard.fix_basemap_tiles(strip_google(new))` then
+   `assert_no_google(new, OUT)` before writing, so a page with either surface cannot be built.
 2. **Test time** — `npm test` runs `tools/check-google.py` (scans every map: engine, cities, Singapore,
-   index) alongside `test.js`/`test-singapore.js`/`check-escapes.py`. `test.js` also asserts no Google chip.
+   index — for both the Google surface AND key-required tile hosts) alongside
+   `test.js`/`test-singapore.js`/`check-escapes.py`.
 3. **Commit time** — a tracked pre-commit hook (`tools/hooks/pre-commit`) runs `check-google.py` +
    `check-escapes.py` and blocks the commit. Activate it once per clone: `git config core.hooksPath tools/hooks`.
-To scrub a page by hand: `python3 tools/strip-google-basemap.py <file>`. Do not weaken any of these.
+To scrub a page by hand: `python3 tools/strip-google-basemap.py <file>` (Google). Do not weaken any of these.
 
 **4a. Every address and map coordinate MUST be fact-checked against a real source — never from
 memory or estimation.** This is a hard rule, no exceptions. Verify each place's street address and

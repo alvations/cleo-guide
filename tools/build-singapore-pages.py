@@ -339,7 +339,7 @@ LABELS.forEach(''',
     # scrub the "BASE MAPS / why not Google" methodology prose (now false — the Google buttons are gone)
     base_note=("+ '<div class=\"srcrow\"><span class=\"k\">BASE MAPS</span><div class=\"t\">Free, no-key tiles'"
                "  + '<span>This edition uses only free base layers that need no key &mdash; OpenStreetMap for streets, "
-               "CARTO for the pastel light &amp; dark maps, and Esri for satellite &amp; terrain. Every place also carries "
+               "Esri gray canvas for the light &amp; dark maps, and Esri for satellite &amp; terrain. Every place also carries "
                "its own Google Maps and Apple Maps links for directions.</span></div></div>'")
     new=re.sub(r"\+ '<div class=\"srcrow\"><span class=\"k\">BASE MAPS</span>.*?All are licensed for this use\.</span></div></div>'",
         lambda m: base_note, new, flags=re.S)   # lambda repl -> no escape processing on the replacement
@@ -354,11 +354,12 @@ LABELS.forEach(''',
     lo=min(x[0] for x in pins); hi=max(x[0] for x in pins); lo2=min(x[1] for x in pins); hi2=max(x[1] for x in pins)
     assert lo-0.001<=clat<=hi+0.001 and lo2-0.001<=clng<=hi2+0.001, "centre outside pins for %s"%slug
     assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>","",new)), "literal \\uXXXX escape leaked into visible HTML of "+slug
-    # No Google base-map surface may survive — a stray one means "API key required" can reappear.
-    # (fonts.googleapis.com stylesheet links are allowed; the Maps *tile* API and its key UI are not.)
-    forbidden=["API key","maps.googleapis.com","GoogleMutant","googleMutant","promptKey","setGoogle","g_road","ADD GOOGLE"]
-    hit=[t for t in forbidden if t in new]
-    assert not hit, "Google base-map surface survived in %s: %s — the strip in build-singapore-pages.py no longer matches the engine; fix it (see the 'Strip ALL Google base-map machinery' block)."%(slug,hit)
+    # No "API key required" surface may reach viewers — neither the Google base-layer code nor a
+    # key-required base-map TILE host (CARTO). Swap CARTO->free Esri gray canvas, then assert clean.
+    # One shared guard (tools/engine_guard.py); wired identically into every build. (docs: CLAUDE.md 4-ai)
+    import engine_guard
+    new=engine_guard.fix_basemap_tiles(new)
+    engine_guard.assert_no_google(new, slug)
     open(os.path.join(OUTDIR,slug+".html"),"w",encoding="utf-8").write(new)
     return {"slug":slug,"name":name,"region":region,"nP":nP,"nF":nF,"total":nP+nF,"kind":kind,"ndist":ndist}
 
