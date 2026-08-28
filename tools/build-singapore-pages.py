@@ -51,7 +51,7 @@ PLACES = [
  ("bangkok","Bangkok","Thailand",["Bangkok"],13),
  ("chiang-mai","Chiang Mai","Thailand",["Chiang Mai"],13),
  # ---- Vietnam ----
- ("ho-chi-minh-city","Ho Chi Minh City","Vietnam",["Ho Chi Minh City","Saigon","Sài Gòn","Thao Dien","Thảo Điền","Cholon","Chợ Lớn"],13),
+ ("ho-chi-minh-city","Ho Chi Minh City","Vietnam",["Ho Chi Minh City","Saigon","Sài Gòn","Thao Dien","Thảo Điền","Thu Duc","Thủ Đức","Cholon","Chợ Lớn","Biên Hòa","Bien Hoa","Đồng Nai","Dong Nai","Bình Dương","Binh Duong","Đại Nam","Dai Nam","Cu Chi","Củ Chi","Can Gio","Cần Giờ","Can Tho","Cần Thơ","Vung Tau","Vũng Tàu","Tay Ninh","Tây Ninh","My Tho","Mỹ Tho","Ben Tre","Bến Tre"],11),
  ("hanoi","Hanoi","Vietnam",["Hanoi","Quang Ninh","Ha Long"],12),
  ("hoi-an","Hoi An","Vietnam",["Hoi An"],14),
  # ---- Indonesia ----
@@ -137,25 +137,31 @@ THEME_NEW_ROOT = """  /* Pastel theme — LIGHT default :root; DARK via prefers-
 # Pastel marker palette for colour-coded districts (NYC-style). Distinct hues, all light enough to read
 # on the pastel light theme and bright enough on dark. Assigned to a page's districts in order.
 PASTELS = ["#F2A1A1","#BCA7E6","#84CBB9","#9CBEEC","#E8C57C","#E4989B",
-           "#8FD0A0","#C9A9D6","#7FC7D9","#F0B48A","#A9C48A","#D9A6C2"]
+           "#8FD0A0","#C9A9D6","#7FC7D9","#F0B48A","#A9C48A","#D9A6C2",
+           "#C7B37F","#93C6C0","#E0A8C0"]
 
 # Pages that are big enough to colour-code by sub-area (like NYC's boroughs/neighbourhoods). Each entry
 # is an ORDERED list of (area-id, display-name, [address/name keywords]); a record is binned into the
 # first district whose keyword it matches, else the page's "OTHER" bucket (named for the city). Area ids
 # must be alnum (valid bare JS object keys). Reusable — add a page here to split it into coloured areas.
 DISTRICTS = {
+ # Greater Ho Chi Minh City — core districts, the inner ring, Thủ Đức City, District 7/south, the airport
+ # belt, the adjacent provincial cities (Biên Hòa/Đồng Nai, Bình Dương/Đại Nam) and the day-trip ring
+ # (Củ Chi, Cần Giờ, the Mekong, Tây Ninh, Vũng Tàu). A metro map like NYC's, not just the centre.
  "ho-chi-minh-city": [
   ("D1","District 1 (Bến Nghé · Bến Thành)",["district 1","quan 1","quận 1","ben nghe","bến nghé","ben thanh","bến thành","da kao","đa kao","pham ngu lao","phạm ngũ lão","dakao"]),
   ("D3","District 3 (Võ Thị Sáu)",["district 3","quan 3","quận 3"]),
   ("D4","District 4 (Vĩnh Khánh)",["district 4","quan 4","quận 4","vinh khanh","vĩnh khánh","xom chieu","xóm chiếu"]),
   ("CHOLON","Chợ Lớn (D5–6)",["district 5","district 6","quan 5","quận 5","quan 6","quận 6","cho lon","chợ lớn","cholon","an dong","an đông"]),
-  ("THAODIEN","Thảo Điền / D2",["thao dien","thảo điền","district 2","quan 2","quận 2","an phu","an phú","thu duc","thủ đức"]),
-  ("BINHTHANH","Bình Thạnh",["binh thanh","bình thạnh"]),
-  ("PHUNHUAN","Phú Nhuận",["phu nhuan","phú nhuận"]),
-  ("TANBINH","Tân Bình / Tân Phú",["tan binh","tân bình","tan phu","tân phú"]),
-  ("D7","District 7 (Phú Mỹ Hưng)",["district 7","quan 7","quận 7","phu my hung","phú mỹ hưng"]),
   ("D10","District 10 / 11",["district 10","quan 10","quận 10","district 11","quan 11","quận 11"]),
-  ("DAYTRIP","Day trips (Mekong · Tây Ninh · Vũng Tàu)",["tay ninh","tây ninh","tien giang","tiền giang","my tho","mỹ tho","ben tre","bến tre","can tho","cần thơ","vung tau","vũng tàu","ba ria","bà rịa","can gio","cần giờ","cai rang","cái răng","mekong","cu chi","củ chi"]),
+  ("PHUNHUAN","Phú Nhuận",["phu nhuan","phú nhuận"]),
+  ("BINHTHANH","Bình Thạnh · Gò Vấp",["binh thanh","bình thạnh","go vap","gò vấp"]),
+  ("TANBINH","Tân Bình · Airport (Tân Sơn Nhất)",["tan binh","tân bình","tan phu","tân phú","tan son nhat","tân sơn nhất","airport"]),
+  ("THUDUC","Thủ Đức City (D2 · Thảo Điền · D9)",["thao dien","thảo điền","district 2","quan 2","quận 2","an phu","an phú","thu duc","thủ đức","district 9","quan 9","quận 9"]),
+  ("D7","District 7 · Nhà Bè",["district 7","quan 7","quận 7","phu my hung","phú mỹ hưng","nha be","nhà bè"]),
+  ("BIENHOA","Biên Hòa (Đồng Nai)",["bien hoa","biên hòa","dong nai","đồng nai"]),
+  ("BINHDUONG","Bình Dương (Đại Nam · Thuận An)",["binh duong","bình dương","dai nam","đại nam","thuan an","thuận an","di an","dĩ an","ben cat","bến cát"]),
+  ("DAYTRIP","Day trips (Củ Chi · Cần Giờ · Mekong · Vũng Tàu)",["tay ninh","tây ninh","tien giang","tiền giang","my tho","mỹ tho","ben tre","bến tre","can tho","cần thơ","vung tau","vũng tàu","ba ria","bà rịa","can gio","cần giờ","cai rang","cái răng","mekong","cu chi","củ chi"]),
  ],
 }
 
