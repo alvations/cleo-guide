@@ -403,7 +403,7 @@ const BASES=[
   o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
   overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
  {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
-  o:{attribution:'&copy; Esri',maxZoom:19}},
+  o:{attribution:'&copy; Esri',maxZoom:19}}
 ];
 const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
 
@@ -445,7 +445,7 @@ function markBaseChips(){
 }
 
 document.getElementById('baseFilter').innerHTML =
-  BASES.map(b=>'<button class="chip" data-v="'+b.id+'"'
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
     +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
 document.getElementById('baseFilter').addEventListener('click',e=>{
   const b=e.target.closest('.chip'); if(!b) return;
@@ -801,7 +801,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
   +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
   +'<span>'+s.l+'</span></div></div>').join('')
-  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>This edition uses only free base layers that need no key &mdash; OpenStreetMap for streets, CARTO for the pastel light &amp; dark maps, and Esri for satellite &amp; terrain. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
 setMode('food');
