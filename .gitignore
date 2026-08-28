@@ -53,3 +53,6 @@ data/wheeling-research/geo/_*.json
 
 # Erie PA geocode intermediates (registry lives in data/geocodes.json)
 data/erie-research/geo/_*.json
+
+# transient agent worklists (repo-root scratch)
+scratch_*.json
