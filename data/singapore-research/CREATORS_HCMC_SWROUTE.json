@@ -1,0 +1,12 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "SW ROUTE CORRIDOR (Bình Chánh → Bến Lức / Tân An → Cai Lậy / Cái Bè → Mỹ Tho → Bến Tre → Vĩnh Long → Sa Đéc → Cần Thơ). SEPARATE from the other CREATORS_HCMC files.",
+ "note": "WebSearch-only research from a US region could not surface individual Vietnamese TikTok / YouTube / food-vlogger clips on these specific delta-corridor stops with a *findable* URL and a verifiable follower scale. Per the honesty rule I did NOT invent any creator or follower count. The corridor's places are instead carried by national press (VnExpress, Tuổi Trẻ, Thanh Niên, VietnamNet, Dân trí, Znews, SGGP, PLO), provincial papers of record (Báo Ấp Bắc — Tiền Giang; Báo Đồng Khởi — Bến Tre; Báo Cần Thơ), official tourism authorities (vietnamtourism.gov.vn, canthotourism.vn) and Wikipedia full articles. A follow-up local-language pass (Vietnamese YouTube/TikTok — e.g. 'hủ tiếu Mỹ Tho 44 review', 'kẹo dừa Bến Tre', 'nem nướng Thanh Vân Cần Thơ', 'làng gạch Mang Thít', 'chợ nổi Cái Bè') is the way to attach named vloggers with follower counts.",
+ "creators": [],
+ "attach": [],
+ "rejected": [
+  {"name": "Foody.vn / TripAdvisor / Google / Yelp ratings", "reason": "Ratings platforms — allowed to MEASURE popularity, never counted toward the >=2-credible gate and never a recommender."},
+  {"name": "Mia.vn / Mytour.vn / Klook Blog / Traveloka / Vntrip / luhanhvietnam / nucuoimekong etc.", "reason": "SEO/OTA travel-listicle content; used at most as address/measurement cross-checks, not as credible recommenders. iVIVU kept only as a single secondary corroboration for a Wikipedia-carried sight."}
+ ]
+}

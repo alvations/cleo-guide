@@ -1,0 +1,24 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "SW ROUTE CORRIDOR — the stops BETWEEN central Saigon and Cần Thơ / the Mekong Delta: Bình Chánh → Bến Lức / Tân An (Long An) → Cai Lậy / Cái Bè → Mỹ Tho (Tiền Giang) → Bến Tre → Vĩnh Long → Sa Đéc (Đồng Tháp) → Cần Thơ. Kept SEPARATE from SOURCES_HCMC.json and every other HCMC slice.",
+ "outlets": [
+  {"key": "WIKIVI", "name": "Wikipedia tiếng Việt", "url": "https://vi.wikipedia.org/", "tier": "reference", "note": "Lone-authority-OK for a sight (full article). Carries Rừng tràm / Làng nổi Tân Lập, Chợ nổi Cái Bè, Nhà cổ Bình Thủy, Cầu Cần Thơ, and Hội quán Quảng Triệu (Chùa Ông Cần Thơ)."},
+  {"key": "VNEXPRESS", "name": "VnExpress", "url": "https://vnexpress.net/", "tier": "credible-national", "note": "Major national daily. Anchors Làng gạch gốm Mang Thít, the Làng hoa Sa Đéc travel guide, nem nướng Cái Răng (Thanh Vân), bánh cống, and the Bến Tre coconut-land guide."},
+  {"key": "TUOITRE", "name": "Tuổi Trẻ", "url": "https://tuoitre.vn/", "tier": "credible-national", "note": "Leading national daily (incl. muctim.tuoitre.vn). Hủ tiếu Mỹ Tho certified-list, hủ tiếu / làng bột Sa Đéc, nem nướng Cái Răng, and the 4-generation bánh tét lá cẩm lò."},
+  {"key": "THANHNIEN", "name": "Thanh Niên", "url": "https://thanhnien.vn/", "tier": "credible-national", "note": "National daily. Nhà cổ Huỳnh Thủy Lê, hủ tiếu Sa Đéc (where-to-eat + Bà Sẩm), and the làng bột Sa Đéc dish feature."},
+  {"key": "VIETNAMNET", "name": "VietnamNet", "url": "https://vietnamnet.vn/", "tier": "credible-national", "note": "Major national news portal. Century-old Chùa Ông (Quảng Triệu Hội Quán) by Ninh Kiều."},
+  {"key": "DANTRI", "name": "Báo Dân trí", "url": "https://dantri.com.vn/", "tier": "credible-national", "note": "Major national news portal. Cồn Sơn community-tourism / flying-snakehead-fish feature (2025)."},
+  {"key": "ZNEWS", "name": "Znews (formerly Zing News)", "url": "https://znews.vn/", "tier": "credible-national", "note": "National outlet. The Huỳnh family who 'invented' bánh tét lá cẩm."},
+  {"key": "SGGP", "name": "Sài Gòn Giải Phóng", "url": "https://www.sggp.org.vn/", "tier": "credible-national", "note": "HCMC party daily. Corroborates the 5 province-certified Mỹ Tho hủ tiếu houses (incl. Hủ Tiếu 44, Hủ Tiếu Cá Thảo)."},
+  {"key": "PLO", "name": "Pháp Luật TP.HCM", "url": "https://plo.vn/", "tier": "credible-national", "note": "HCMC legal-affairs daily. Mang Thít brick-kiln 'contemporary heritage' feature."},
+  {"key": "BAOAPBAC", "name": "Báo Ấp Bắc (Tiền Giang provincial paper)", "url": "https://baoapbac.vn/", "tier": "credible-provincial", "note": "Official Tiền Giang provincial newspaper. Certified list 'Quán hủ tiếu Mỹ Tho uy tín, chất lượng 2024'."},
+  {"key": "BAODONGKHOI", "name": "Báo Đồng Khởi (Bến Tre provincial paper)", "url": "https://baodongkhoi.vn/", "tier": "credible-provincial", "note": "Official Bến Tre provincial newspaper. The Bến Tre coconut-candy brand/heritage piece (article hosted on dongkhoi.baovinhlong.vn)."},
+  {"key": "BAOCANTHO", "name": "Báo Cần Thơ Online", "url": "https://baocantho.com.vn/", "tier": "credible-provincial", "note": "Official Cần Thơ city newspaper. Bánh tét lá cẩm in Vietnam's Top-100 dishes/specialties."},
+  {"key": "VIETNAMTOURISM", "name": "Vietnam National Administration of Tourism (official)", "url": "https://vietnamtourism.gov.vn/", "tier": "official-gov", "note": "Lone-authority-OK. National tourism authority — Mang Thít conservation + the Cồn Phụng / Đạo Dừa relic (nongthon.vietnamtourism.gov.vn)."},
+  {"key": "CANTHOTOURISM", "name": "Cần Thơ Tourism (official municipal)", "url": "https://canthotourism.vn/", "tier": "official-gov", "note": "Official Cần Thơ tourism portal. Names Bánh Cống Cô Út; documents Cồn Sơn community tourism."},
+  {"key": "VNAIRLINES", "name": "Vietnam Airlines Travel Guide", "url": "https://www.vietnamairlines.com/", "tier": "brand-travel", "note": "National-carrier destination guide. Secondary corroboration for Nhà cổ Huỳnh Thủy Lê. Not a lone recommender."},
+  {"key": "IVIVU", "name": "iVIVU.com Cẩm nang du lịch", "url": "https://www.ivivu.com/", "tier": "listicle-travel", "note": "Popular VN OTA travel blog. Secondary corroboration for Làng nổi Tân Lập (the sight is Wikipedia-carried). Never a lone recommender."}
+ ],
+ "note": "Yelp / TripAdvisor / Google / Foody.vn were excluded from the credible bar throughout (measure only, never a recommender). Sights lean on Wikipedia full articles + official tourism authorities; foods lean on national dailies + Tiền Giang/Bến Tre/Cần Thơ provincial papers. See _note_hcmc_swroute.md for the per-place sourcing grade and the dropped/deferred items (Long An restaurant food, Cù lao Thới Sơn, bánh phồng)."
+}
