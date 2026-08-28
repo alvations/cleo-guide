@@ -1,0 +1,19 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "NORTH-WEST outer districts — Gò Vấp, District 12 (Quận 12), Tân Phú, Hóc Môn. Kept SEPARATE from SOURCES_HCMC.json, SOURCES_HCMC_NORTH.json, SOURCES_HCMC_OUTER.json and the other HCMC source files.",
+ "outlets": [
+  {"key": "SAIGONEER", "name": "Saigoneer", "url": "https://saigoneer.com/", "tier": "credible-local", "note": "Leading Saigon English-language culture & food outlet. Used here for the Gò Vấp 'floating temple' travel feature and TWO Hẻm Gems features on Baby African (Nigerian), Gò Vấp."},
+  {"key": "VNEXPRESS", "name": "VnExpress", "url": "https://vnexpress.net/", "tier": "credible-major-press", "note": "Vietnam's largest online newspaper. Dedicated pieces: Phù Châu Temple ('Miếu nổi 300 tuổi'), the two Gò Vấp runway-view cafés ('Hai quán cà phê ngắm máy bay hạ cánh'), and the 38-year Hoa noodle shop on Phan Huy Ích (dedicated profile + citywide hủ tiếu round-up)."},
+  {"key": "DANTRI", "name": "Dân Trí", "url": "https://dantri.com.vn/", "tier": "credible-major-press", "note": "Major national online newspaper; corroborating feature on the two Gò Vấp plane-spotting cafés (Phen's / Landing)."},
+  {"key": "KENH14", "name": "Kenh14 (VCCorp)", "url": "https://kenh14.vn/", "tier": "credible-youth-media", "note": "Major Vietnamese youth news/entertainment outlet. Dedicated report on Mê Coffee's viral (and controversial) 700-teddy-bear build in Gò Vấp. Measures/reports virality; used with a second source."},
+  {"key": "VIORY", "name": "Viory (video news wire)", "url": "https://www.viory.video/", "tier": "editorial-video-wire", "note": "International short-video news wire; English clip on Gò Vấp's 700-teddy-bear café. Corroborating source only."},
+  {"key": "VIETNAMVN", "name": "vietnam.vn (national information portal)", "url": "https://www.vietnam.vn/", "tier": "credible-state-portal", "note": "National information portal; English feature on Saigon's only Nigerian restaurant (Baby African), Gò Vấp, drawing African diners for ~20 years. Corroborates the Saigoneer Hẻm Gems coverage."},
+  {"key": "CAND", "name": "Công an Nhân dân (CAND Online)", "url": "https://cand.com.vn/", "tier": "credible-major-press", "note": "National daily; feature on the Ngã Ba Giồng national historical site, Hóc Môn."},
+  {"key": "BAOVANHOA", "name": "Báo Văn Hóa", "url": "https://baovanhoa.vn/", "tier": "credible-state-press", "note": "Ministry of Culture newspaper; feature on the 18 thôn vườn trầu cultural heritage, Bà Điểm / Hóc Môn."},
+  {"key": "VIR", "name": "Vietnam Investment Review", "url": "https://vir.com.vn/", "tier": "credible-major-press", "note": "English business daily; AEON's first Vietnam shopping-centre launch (Tân Phú Celadon)."},
+  {"key": "AEON", "name": "AEON Vietnam (corporate newsroom)", "url": "https://corp.aeon.com.vn/", "tier": "official-corporate", "note": "Operator newsroom; opening record/specs for AEON MALL Tân Phú Celadon. Corroborating official source, never a lone recommender."},
+  {"key": "WIKIPEDIA", "name": "Wikipedia (Vietnamese)", "url": "https://vi.wikipedia.org/", "tier": "institutional", "note": "Lone-authority-OK for sights with a full article: Miếu Nổi, Ngã ba Giồng, 18 thôn vườn trầu."},
+  {"key": "MICHELIN", "name": "MICHELIN Guide Vietnam (Ho Chi Minh City)", "url": "https://guide.michelin.com/vn/en/ho-chi-minh/restaurants", "tier": "institutional", "note": "Lone-authority-OK. Checked this pass — NO Star / Bib Gourmand / Selected restaurant is listed inside Gò Vấp, District 12, Tân Phú or Hóc Môn (the HCMC selection clusters in D1/D3/D5/D10/Bình Thạnh/Phú Nhuận). No Michelin place shipped from these four districts."}
+ ]
+}

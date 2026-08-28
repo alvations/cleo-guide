@@ -1,0 +1,13 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "NORTH-WEST outer districts (Gò Vấp / District 12 / Tân Phú / Hóc Môn). SEPARATE from the other CREATORS_HCMC*.json files.",
+ "note": "WebSearch-only research from a US region (WebFetch blocked by org egress). Per the honesty rule I did NOT invent any individual Vietnamese TikTok/YouTube/IG food vlogger, clip, or follower count — none could be verified with a specific findable clip + a real follower scale on a specific north-west-district place. Mê Coffee (700 teddy bears) is genuinely viral on TikTok, but rather than name an unverified creator I anchored it on the Kenh14 report of that virality plus a Viory video-wire clip. A follow-up local-language pass (Vietnamese TikTok/YouTube with named handles + follower counts) is the honest way to add creators for this slice.",
+ "creators": [],
+ "attach": [],
+ "rejected": [
+  {"name": "Foody.vn / Mytour.vn / Mia.vn / Toplist / Tripi / Vntrip / Vuanem / Bazantravel / Ghiền Sài Gòn / Bách Hóa Xanh / Vincom / PasGo / Xanh SM(GreenSM) / VinWonders / Vinpearl", "reason": "SEO/aggregator/ratings/booking content — allowed to MEASURE popularity only, never counted toward the ≥2-credible gate. These dominated nearly every Gò Vấp / D12 / Tân Phú / Hóc Môn food query (bún bò, ốc, phá lấu, bánh canh, cơm tấm, lẩu/nhậu, chè), which is why individual local eateries there mostly could not be shipped this pass."},
+  {"name": "TripAdvisor / Google / Foody / OpenTable ratings", "reason": "Ratings platforms — measure only, never a recommender."},
+  {"name": "Unverified TikTok food-review handles surfacing on Gò Vấp queries (e.g. generic 'naudicaphe', discovery pages)", "reason": "Could not verify a specific creator identity + real follower scale + a durable clip tied to a named place within budget; not cited rather than fabricated. Note: Kenh14/ZNews also reported a 2025–2026 backlash against paid TikTok food-review clips in HCMC, so unverifiable 'viral' claims were treated with extra caution."}
+ ]
+}

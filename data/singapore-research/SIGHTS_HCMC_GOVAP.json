@@ -1,0 +1,69 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "NORTH-WEST outer districts — Gò Vấp, District 12 (Quận 12), Tân Phú, Hóc Môn. Kept SEPARATE from the other SIGHTS_HCMC*.json files.",
+ "sights": [
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Phù Châu Temple (Miếu Nổi)",
+   "address": "Islet in the Vàm Thuật River, ferry from end of Trần Bá Giao St, Ward 5, Gò Vấp, Ho Chi Minh City, Vietnam",
+   "w": "A ~300-year-old 'floating temple' on a 2,500 m² islet in the middle of the Vàm Thuật River, reached only by a short ferry (~10k VND). More than 100 colourful ceramic-mosaic dragons cover the roofs and columns of the Buddhist-Taoist shrine, a city-recognised architectural-artistic heritage site since 2010. One of Gò Vấp's few genuine landmarks.",
+   "k": "temple",
+   "sources": [
+    ["SAIGONEER", "https://saigoneer.com/vietnam-travel/26528-in-g%C3%B2-v%E1%BA%A5p,-a-floating-temple-stands-the-test-of-time-and-river-currents"],
+    ["VNEXPRESS", "https://vnexpress.net/mieu-noi-300-tuoi-o-sai-gon-4108640.html"],
+    ["WIKIPEDIA", "https://vi.wikipedia.org/wiki/Mi%E1%BA%BFu_N%E1%BB%95i"]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "VN",
+   "n": "Ngã Ba Giồng Martyrs Memorial",
+   "address": "1460 Phan Văn Hớn, Xuân Thới Thượng Commune, Hóc Môn, Ho Chi Minh City, Vietnam",
+   "w": "A 73,000 m² national historical monument (ranked 2002) on the site where French colonial authorities executed revolutionary leaders after the failed 1940 Nam Kỳ (Southern) Uprising. A memorial temple, exhibition house and monuments sit among bamboo, lotus ponds and areca palms — the anchor heritage site of rural Hóc Môn.",
+   "k": "historical site",
+   "sources": [
+    ["WIKIPEDIA", "https://vi.wikipedia.org/wiki/Ng%C3%A3_ba_Gi%E1%BB%93ng"],
+    ["CAND", "https://cand.com.vn/Tieu-diem-van-hoa/Nga-Ba-Giong-noi-ghi-dau-lich-su-oai-hung-i509576/"]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "VN",
+   "n": "Bà Điểm & the Eighteen Betel Garden Villages (18 Thôn Vườn Trầu)",
+   "address": "Bà Điểm Commune, Hóc Môn, Ho Chi Minh City, Vietnam",
+   "w": "The historic areca-and-betel-growing belt around Bà Điểm, famed since the 18th century and a cradle of the 1940 Southern Uprising — the Southern Party Committee sheltered in its gardens. Today a living cultural-heritage landscape of remnant trầu (betel) gardens and revolutionary memory rather than a ticketed attraction.",
+   "k": "heritage district",
+   "sources": [
+    ["WIKIPEDIA", "https://vi.wikipedia.org/wiki/18_th%C3%B4n_v%C6%B0%E1%BB%9Dn_tr%E1%BA%A7u"],
+    ["BAOVANHOA", "https://baovanhoa.vn/doi-song-van-hoa/phat-huy-gia-tri-van-hoa%C2%A018-thon-vuon-trau-49748.html"]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "VN",
+   "n": "AEON Mall Tân Phú Celadon",
+   "address": "30 Bờ Bao Tân Thắng, Sơn Kỳ Ward, Tân Phú, Ho Chi Minh City, Vietnam",
+   "w": "AEON's first shopping mall in Vietnam, opened 11 Jan 2014 — a ~70,000 m² Japanese-anchored complex in the Celadon City estate that made Vietnam the third country (after Malaysia and China) with a large-scale AEON MALL. A CGV cinema, food court, indoor playground and 200+ brands make it the western suburbs' main weekend gathering place.",
+   "k": "landmark",
+   "sources": [
+    ["VIR", "https://vir.com.vn/aeons-first-vietnam-shopping-centre-launch-packs-them-in-24967.html"],
+    ["AEON", "https://corp.aeon.com.vn/en/aeon-vietnam-news/aeon-first-presenting-in-vietnam-aeon-mall-tan-phu-celadon-opening-on-january-11-2014/"]
+   ],
+   "closed": false
+  }
+ ],
+ "sources": [
+  {"key": "SAIGONEER", "name": "Saigoneer", "url": "https://saigoneer.com/", "tier": "credible-local", "note": "Leading Saigon English-language culture/food outlet; dedicated travel feature on the Gò Vấp 'floating temple' (Phù Châu / Miếu Nổi)."},
+  {"key": "VNEXPRESS", "name": "VnExpress (Du lịch)", "url": "https://vnexpress.net/", "tier": "credible-major-press", "note": "Vietnam's largest online newspaper; dedicated Du lịch feature 'Miếu nổi 300 tuổi ở Sài Gòn' on Phù Châu Temple, Gò Vấp."},
+  {"key": "WIKIPEDIA", "name": "Wikipedia (Vietnamese)", "url": "https://vi.wikipedia.org/", "tier": "institutional", "note": "Lone-authority-OK for a sight with a full article. Full vi.wikipedia articles for Miếu Nổi, Ngã ba Giồng and 18 thôn vườn trầu."},
+  {"key": "CAND", "name": "Công an Nhân dân (CAND Online)", "url": "https://cand.com.vn/", "tier": "credible-major-press", "note": "National daily; feature on the Ngã Ba Giồng national historical site, Hóc Môn."},
+  {"key": "BAOVANHOA", "name": "Báo Văn Hóa (Ministry of Culture newspaper)", "url": "https://baovanhoa.vn/", "tier": "credible-state-press", "note": "Culture-ministry newspaper; feature on preserving the cultural value of the 18 thôn vườn trầu, Bà Điểm / Hóc Môn."},
+  {"key": "VIR", "name": "Vietnam Investment Review", "url": "https://vir.com.vn/", "tier": "credible-major-press", "note": "English-language business daily; reported AEON's first Vietnam shopping-centre launch (Tân Phú Celadon)."},
+  {"key": "AEON", "name": "AEON Vietnam (corporate newsroom)", "url": "https://corp.aeon.com.vn/", "tier": "official-corporate", "note": "Operator's own newsroom; opening record + specs for AEON MALL Tân Phú Celadon (11 Jan 2014). Corroborating official source, not a lone recommender."}
+ ]
+}
