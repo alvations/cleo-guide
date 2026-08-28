@@ -1,0 +1,31 @@
+{
+ "city": "Ho Chi Minh City (Saigon)",
+ "country": "Vietnam",
+ "slice": "NW ROUTE CORRIDOR — the stops BETWEEN central Saigon and Tây Ninh: Củ Chi town → Trảng Bàng → Gò Dầu/Hậu Nghĩa → Tây Ninh city / Núi Bà Đen / Dầu Tiếng. Kept SEPARATE from SOURCES_HCMC.json and the other HCMC slices.",
+ "outlets": [
+  {"key": "VNS", "name": "Việt Nam News (VNS)", "url": "https://vietnamnews.vn/", "tier": "credible-national", "note": "English daily of the Vietnam News Agency. Anchors Bò Tơ Củ Chi (restaurant review), the Bà Đen cable car, Ma Thiên Lãnh and Dầu Tiếng Reservoir."},
+  {"key": "VNP", "name": "VietnamPlus (Vietnam News Agency, English)", "url": "https://en.vietnamplus.vn/", "tier": "credible-national", "note": "Official VNA multilingual outlet. Bánh tráng phơi sương heritage + the Tây Bổ Đà Sơn Buddha statue."},
+  {"key": "VNP2", "name": "VietnamPlus (second article)", "url": "https://en.vietnamplus.vn/", "tier": "credible-national", "note": "Second VNP piece corroborating the Lady-Buddha statue (records/dimensions)."},
+  {"key": "VNN", "name": "VietnamNet", "url": "https://vietnamnet.vn/", "tier": "credible-national", "note": "Major national news portal; Tây Ninh đặc sản coverage (bánh canh Trảng Bàng, muối tôm)."},
+  {"key": "NHANDAN", "name": "Nhân Dân Online (English)", "url": "https://en.nhandan.vn/", "tier": "credible-national", "note": "Communist Party daily, English edition; corroborates the Guinness cable-car-station record."},
+  {"key": "SGGP", "name": "Sài Gòn Giải Phóng (SGGP English Edition)", "url": "https://en.sggp.org.vn/", "tier": "credible-national", "note": "HCMC party daily English edition; orchard-tourism feature covering Trung An/Củ Chi."},
+  {"key": "NLD", "name": "Người Lao Động (nld.com.vn)", "url": "https://nld.com.vn/", "tier": "credible-national", "note": "Major HCMC daily; khoai mì Củ Chi feature."},
+  {"key": "DNSG", "name": "Doanh Nhân Sài Gòn", "url": "https://doanhnhansaigon.vn/", "tier": "credible-national", "note": "HCMC business daily; khoai mì Củ Chi cultural piece."},
+  {"key": "SAIGONEER", "name": "Saigoneer", "url": "https://saigoneer.com/", "tier": "credible-local", "note": "Leading Saigon English-language culture/food outlet; bánh tráng artisan mini-doc used for the Trảng Bàng dew-paper craft."},
+  {"key": "GUINNESS", "name": "Guinness World Records", "url": "https://www.guinnessworldrecords.com/", "tier": "institutional", "note": "Lone-authority-OK. Certifies the largest cable-car station (Ba Den) and is cited for the bronze-Buddha record."},
+  {"key": "WIKI", "name": "Wikipedia (English)", "url": "https://en.wikipedia.org/", "tier": "reference", "note": "Full articles used for Dầu Tiếng Lake and Cu Chi Wildlife Rescue Station."},
+  {"key": "TNTOUR", "name": "Tây Ninh Provincial Tourism (official)", "url": "https://dulich.tayninh.gov.vn/", "tier": "official-gov", "note": "Provincial tourism authority; Ma Thiên Lãnh listing."},
+  {"key": "LP", "name": "Lonely Planet", "url": "https://www.lonelyplanet.com/", "tier": "credible-guidebook", "note": "Cu Chi Wildlife Rescue Station listing."},
+  {"key": "VNAIR", "name": "Vietnam Airlines Travel Guide", "url": "https://www.vietnamairlines.com/", "tier": "brand-travel", "note": "National-carrier destination guide; secondary corroboration for Tây Ninh specialties (muối tôm, ốc núi). Not a lone recommender."},
+  {"key": "VINWONDERS", "name": "VinWonders (Vingroup) Wonderpedia", "url": "https://vinwonders.com/", "tier": "brand-travel", "note": "Vingroup travel content; lists the named bánh canh Trảng Bàng houses and Củ Chi orchards. Corroborating, not a lone recommender."},
+  {"key": "SUNWORLD", "name": "Sun World Ba Den Mountain (official)", "url": "https://sunworldnuibaden.com/", "tier": "brand-operator", "note": "Operator of the Bà Đen complex; used only as corroboration for the local food canon it documents, never as the recommender."},
+  {"key": "SUNPARADISE", "name": "Sun Paradise Land (Tây Ninh)", "url": "https://sunparadiseland.com/", "tier": "brand-travel", "note": "Tây Ninh travel content; vegetarian-cluster corroboration near Bà Đen."},
+  {"key": "MYTOUR", "name": "Mytour.vn", "url": "https://mytour.vn/", "tier": "listicle-travel", "note": "Travel listing site; Long Hoa Market / Cao Đài culture. Secondary only."},
+  {"key": "VIETBAO", "name": "Viet Bao (English)", "url": "https://vietbao.vn/en/", "tier": "credible-local", "note": "Vietnamese news portal English edition; Tây Ninh vegetarian-cuisine feature."},
+  {"key": "MIA", "name": "Mia.vn Cẩm nang du lịch", "url": "https://mia.vn/", "tier": "listicle-travel", "note": "Popular VN travel-guide site; names the specific bánh canh Trảng Bàng and bò tơ Củ Chi houses. Secondary, corroborating."},
+  {"key": "CRYSTALBAY", "name": "Crystal Bay", "url": "https://crystalbay.com/", "tier": "listicle-travel", "note": "Travel operator listicle; corroborates the ranked bánh canh Trảng Bàng shops. Secondary."},
+  {"key": "TRAVELOKA", "name": "Traveloka Explore (Culinary)", "url": "https://www.traveloka.com/", "tier": "brand-travel", "note": "OTA content; bánh tráng phơi sương process. Secondary."},
+  {"key": "PASGO", "name": "Pasgo Blog", "url": "https://pasgo.vn/", "tier": "listicle-travel", "note": "Restaurant-booking blog; Tây Ninh specialties incl. ốc núi. Secondary."},
+  {"key": "LUHANH", "name": "Lữ Hành Việt Nam", "url": "https://luhanhvietnam.com.vn/", "tier": "listicle-travel", "note": "VN travel blog; bánh tráng muối ớt/tôm Tây Ninh. Secondary."}
+ ]
+}
