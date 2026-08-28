@@ -24724,13 +24724,13 @@
    },
    "Pho Hoang": {
     "address": "460 Nguyen Tri Phuong, Ward 9, District 10, Ho Chi Minh City, Vietnam",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 10.761046,
+    "lng": 106.668846,
+    "source": "Google Maps daddr geocode of '460 Nguyen Tri Phuong, District 10' -> nearest resolved '212 Nguyen Tri Phuong Ward 4' @10.761046,106.668846 (same street, District 10, in-district). APPROXIMATE: target #460 is further north on the street (~500-700m); tighten in re-verify.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "2026 MICHELIN Guide Bib Gourmand (guide.michelin.com/.../restaurant/pho-hoang); operating",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Pho Huong Binh": {
@@ -24767,14 +24767,14 @@
     "statusChecked": "2026-08-27"
    },
    "Banh Mi 37 Nguyen Trai": {
-    "address": "37-39 Nguyen Trai, Ben Thanh/Pham Ngu Lao Ward, District 1, Ho Chi Minh City, Vietnam",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "37-39 Nguyen Trai, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",
+    "lat": 10.77079,
+    "lng": 106.69248,
+    "source": "Google Maps daddr geocode of '37 Nguyen Trai, Ben Thanh, District 1' -> @10.77079,106.69248 (returned house number 37 matches target); Ben Thanh Ward, District 1, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "2024/2026 coverage (Conde Nast Traveler, vibrantlyvietnam, tripadvisor #177); open ~4h/day (evenings)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Bun Bo Hue 14B": {
@@ -24785,7 +24785,7 @@
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "2026 MICHELIN Guide Bib Gourmand (guide.michelin.com/.../restaurant/bun-bo-hue-14b); open since Jun 2018",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Hu Tieu Hong Phat": {
@@ -24800,14 +24800,14 @@
     "statusChecked": "2026-08-27"
    },
    "Banh Xeo 46A": {
-    "address": "46A Dinh Cong Trang, Tan Dinh Ward, District 1, Ho Chi Minh City",
+    "address": "46A Dinh Cong Trang, Tan Dinh Ward, District 1, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam 2026 (Bib Gourmand, page updated Jun 2025); wheree/Trip.com listings updated 12/2025",
+    "statusSource": "MICHELIN Guide Vietnam 2025 (Bib Gourmand) active restaurant listing; multiple 2025 sources confirm operating 9am-9pm daily",
     "statusChecked": "2026-08-28"
    },
    "Anan Saigon": {
@@ -24833,25 +24833,25 @@
     "statusChecked": "2026-08-27"
    },
    "Banh Cuon Tay Ho 127": {
-    "address": "127 Dinh Tien Hoang, Da Kao Ward, District 1, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "127 Dinh Tien Hoang, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",
+    "lat": 10.788421,
+    "lng": 106.69985,
+    "source": "Google Maps daddr geocode of '127 Dinh Tien Hoang, Da Kao, District 1' -> nearest resolved '12Bis Dinh Tien Hoang Dakao' @10.788421,106.69985 (same street, Da Kao Ward District 1, in-district). APPROXIMATE: returned a different house number on the same street; tighten in re-verify.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam 2026 (Bib Gourmand); Foody/ShopeeFood current listings",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Bun Thit Nuong Chi Tuyen": {
-    "address": "175C Co Giang, Co Giang Ward, District 1, Ho Chi Minh City",
+    "address": "175C Co Giang, Co Giang Ward, District 1, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Tripadvisor (Updated 2025); Saigoneer Hem Gems feature; corner.inc listing",
+    "statusSource": "Google Maps active place listing (cid 12111440309967601679), no permanent-closure marker as of 2026-08-28",
     "statusChecked": "2026-08-28"
    },
    "Banh Canh Cua 87 Tran Khac Chan": {
@@ -24866,14 +24866,14 @@
     "statusChecked": "2026-08-28"
    },
    "Oc Dao": {
-    "address": "212B/D48 Nguyen Trai (alley), Nguyen Cu Trinh Ward, District 1, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "212B Alley, Nguyen Trai, District 1, Ho Chi Minh City, Vietnam",
+    "lat": 10.764845,
+    "lng": 106.685,
+    "source": "Google Maps daddr geocode of '212B Nguyen Trai, District 1' -> resolved '212/C79 Nguyen Trai, Nguyen Cu Trinh Ward' @10.764845,106.685 (house number 212 matches target 212B alley); Nguyen Cu Trinh Ward, District 1, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam listing; Trip.com moment updated Nov 2025; Foody current",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "The Cafe Apartment": {
@@ -24921,14 +24921,14 @@
     "statusChecked": "2026-08-28"
    },
    "Che Hien Khanh": {
-    "address": "718 Nguyen Dinh Chieu, Ward 1, District 3, Ho Chi Minh City",
+    "address": "718 Nguyen Dinh Chieu, Ward 1, District 3, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Foody / riviu / Mytour current listings (est. 1959, delivery apps active)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Cuc Gach Quan": {
@@ -24943,14 +24943,14 @@
     "statusChecked": "2026-08-27"
    },
    "Tiem Com Tho Chuyen Ky": {
-    "address": "65-67 Ton That Dam, Ben Nghe Ward, District 1, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "67 Ton That Dam, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",
+    "lat": 10.77207,
+    "lng": 106.70378,
+    "source": "Google Maps daddr geocode of '67 Ton That Dam, Ben Nghe, District 1' -> resolved to adjacent corner '75-77 Ho Tung Mau, Ben Nghe Ward' @10.77207,106.70378 (Ho Tung Mau intersects the short Ton That Dam street ~100m from #67); Ben Nghe Ward, District 1, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam listing; Corner/Instagram active 2025 (est. 1948)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Nha Tu": {
@@ -24976,58 +24976,58 @@
     "statusChecked": "2026-08-27"
    },
    "Dim Tu Tac": {
-    "address": "55 Dong Du, Ben Nghe Ward, District 1, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "55 Dong Du, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",
+    "lat": 10.774743,
+    "lng": 106.70457,
+    "source": "Google Maps daddr geocode of '55 Dong Du, Ben Nghe, District 1' -> resolved to adjacent corner '52-54-56 Dong Khoi, Ben Nghe Ward' @10.774743,106.70457 (Dong Du is a short street meeting Dong Khoi ~50m from #55); Ben Nghe Ward, District 1, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MICHELIN Guide (Bib Gourmand 2023/2024); dimtutac.com 2025; Backpack Beyond Borders Feb 2026",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Bo Kho Ganh": {
-    "address": "029 Lo H, Ngo Gia Tu apartment, Su Van Hanh, Ward 2, District 10, Ho Chi Minh City",
+    "address": "Lot H, Ngo Gia Tu Apartment, Su Van Hanh, Ward 2, District 10, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam Bib Gourmand 2024-2025-2026; bokhoganhsaigon.com; Facebook active",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Com Tam Bai Rac": {
-    "address": "Ton Dan, Xom Chieu Market, District 4 (now Xom Chieu Ward), Ho Chi Minh City",
+    "address": "Xom Chieu Market, Ton Dan, District 4, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Tripadvisor reviews; Vespa Agogo District 4 guide 2025",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Bun Rieu Ganh": {
-    "address": "163 Le Thanh Ton, Ben Thanh Ward, District 1, Ho Chi Minh City",
+    "address": "163 Le Thanh Ton, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Foody current listing; vietnam.vn 2025 coverage; Facebook @bunrieuchiemluom active",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Bo La Lot Co Lieng": {
-    "address": "121 Co Giang, District 1 (CLOSED at this address; relocated to ~321 Vo Van Tan, Ward 5, District 3), Ho Chi Minh City",
+    "address": "121 Co Giang, District 1, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam 2025 ('Co Lieng', new District 3 address); Facebook @quanancolieng; Saigoneer Hem Gems",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Com Nieu Sai Gon": {
@@ -25108,14 +25108,14 @@
     "statusChecked": "2026-08-27"
    },
    "Vi Que Kitchen": {
-    "address": "110 Suong Nguyet Anh, Ben Thanh Ward, District 1, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "110 Suong Nguyet Anh, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",
+    "lat": 10.771813,
+    "lng": 106.68857,
+    "source": "Google Maps daddr geocode of '110 Suong Nguyet Anh, Ben Thanh, District 1' -> @10.771813,106.68857 (returned house number 110 matches target); Ben Thanh Ward, District 1, in-district (on the District 1/District 3 edge).",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam (recommended, vegan); Tripadvisor 2025; viquekitchen.com active",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Huê Ký Mì Gia": {
@@ -25934,13 +25934,13 @@
    },
    "Che Thai Y Phuong": {
     "address": "380 Nguyen Tri Phuong, Ward 6, District 10, Ho Chi Minh City, Vietnam",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 10.764203,
+    "lng": 106.6679,
+    "source": "Google Maps daddr geocode of '380 Nguyen Tri Phuong, District 10' -> @10.764203,106.6679 (returned house number 380 matches target); District 10, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "No closure found (2026); Foody listing active. Status not independently re-confirmed — flag.",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Hu Tieu Ty Lum": {
@@ -25951,7 +25951,7 @@
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Presumed open (discovered open); no 2025/2026 source located to confirm — flag for re-check",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Hu Tieu Lien Hua": {
@@ -25978,13 +25978,13 @@
    },
    "Bun Bo Hue Dong Ba": {
     "address": "207B Nguyen Van Thu, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 10.774335,
+    "lng": 106.69534,
+    "source": "Google Maps daddr geocode of '207B Nguyen Van Thu, Da Kao, District 1' -> @10.774335,106.69534 (returned house number 207B matches target); Da Kao Ward, District 1, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Foody listing active ('Since 1998'); open daily 07:00-21:00",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Banh Khot Co Ba Vung Tau": {
@@ -26000,13 +26000,13 @@
    },
    "Bot Chien Dat Thanh": {
     "address": "277 Vo Van Tan, Ward 5, District 3, Ho Chi Minh City, Vietnam",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 10.771829,
+    "lng": 106.68593,
+    "source": "Google Maps daddr geocode of '277 Vo Van Tan, Ward 5, District 3' -> nearest resolved '303-305 Vo Van Tan Ward 5' @10.771829,106.68593 (same street, ~26 house numbers away, ~100m); District 3, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "2025/2026 coverage (BAB Local, eatingsaigon, YouTube); 40+ yr, corner packed in afternoons",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Hải Ký Mì Gia": {
@@ -26021,25 +26021,25 @@
     "statusChecked": "2026-08-28"
    },
    "Hủ Tiếu Sa Tế Tô Ký": {
-    "address": "156 Gia Phu, Ward 1, District 6, Ho Chi Minh City",
+    "address": "Gia Phú, Ward 1, District 6, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Foody.vn / riviu / Tuoi Tre listings; Facebook @sgondiscovery post (sells 4pm-10:30pm)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Dimsum Tiến Phát": {
-    "address": "18 Ky Hoa, Ward 11, District 5, Ho Chi Minh City (input '18 Cao Dat Ward 1' appears mistaken)",
+    "address": "18 Cao Đạt, Ward 1, District 5, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Facebook @mythuctienphat18 announcement Jan 2025 (Tet normal operation); TikTok reviews 2024-2025",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Sủi Cảo Hà Tôn Quyền (Thiên Thiên)": {
@@ -26054,102 +26054,102 @@
     "statusChecked": "2026-08-28"
    },
    "Cà Phê Ba Lù": {
-    "address": "193 Phung Hung (inside Cho Phung Hung market), Ward 14, District 5, Ho Chi Minh City",
+    "address": "Chợ Phùng Hưng, Phùng Hưng, Ward 14, District 5, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "TheSmartLocal / Jackfruit Adventure features; vietnam.vn 2026 (original 70-yr stall operating; new branch opened at Nguyen Trai/Chau Van Liem)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Chè Châu Giang": {
-    "address": "450-476 Tran Hung Dao (Tran Hung Dao B), Ward 14, District 5, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Trần Hưng Đạo B, Ward 11, District 5, Ho Chi Minh City, Vietnam",
+    "lat": 10.752061,
+    "lng": 106.6597,
+    "source": "Google Maps daddr geocode of 'Tran Hung Dao B, Ward 11, District 5' -> resolved '412-418 Tran Hung Dao Street, Ward 11, District 5' @10.752061,106.6597 (street-level; input gives no house number); Ward 11, District 5, in-district (Cho Lon).",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "CocCoc Map / FoodRiviu listings (open 17:00-22:30)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Sủi Cảo Đại Nương": {
-    "address": "125 Chau Van Liem, Ward 14, District 5, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Châu Văn Liêm, Ward 11, District 5, Ho Chi Minh City, Vietnam",
+    "lat": 10.754205,
+    "lng": 106.65852,
+    "source": "Google Maps daddr geocode of 'Chau Van Liem, Ward 11, District 5' -> resolved '138 Chau Van Liem, Ward 11, District 5' @10.754205,106.65852 (street-level; input gives no house number); Ward 11, District 5, in-district (Cho Lon).",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Foody.vn / riviu / YouTube 2025 listings",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Phá Lấu Tám Ký (Tiều)": {
-    "address": "823 Nguyen Trai, Ward 14, District 5, Ho Chi Minh City",
+    "address": "823 Nguyễn Trãi, Ward 14, District 5, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Foody.vn / riviu / CocCoc Map / diachiso listings (open ~10:00/15:00-22:00)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Chè Tường Phong": {
-    "address": "83 An Diem, Ward 10, District 5, Ho Chi Minh City",
+    "address": "83 An Điềm, Ward 11, District 5, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "riviu / CocCoc Map / Clingme / Instagram listings (est. ~60 yrs, 3 generations)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Khổ Qua Cà Ớt": {
-    "address": "Cho Phung Hung, Phung Hung, Ward 14, District 5, Ho Chi Minh City",
+    "address": "Chợ Phùng Hưng, Phùng Hưng, Ward 14, District 5, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "DiaDiemAnUong Facebook / TikTok features 2024; topsaigon listing",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Va Thanh": {
-    "address": "40 Huynh Man Dat, Ward 2, District 5, Ho Chi Minh City",
+    "address": "District 5, Ho Chi Minh City, Vietnam",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-08-28",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Saigoneer Hem Gems feature (Taiwanese home cooking; relocated to D5)",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Bún Bò Huế Cô Như": {
-    "address": "274/29 Vo Van Tan, Ward 5, District 3, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "274/29 Võ Văn Tần, Ward 5, District 3, Ho Chi Minh City, Vietnam",
+    "lat": 10.771625,
+    "lng": 106.685745,
+    "source": "Google Maps daddr geocode of '274 Vo Van Tan, Ward 5, District 3' -> nearest resolved '321 Vo Van Tan Ward 5' @10.771625,106.685745 (same street & ward; target 274/29 is an alley off Vo Van Tan Ward 5, consistent with nearby #277 at ~10.7718,106.6859); District 3, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "MICHELIN Guide Vietnam listing (current hours); hochiminhgourmet / Mytour features",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Nguyễn Thượng Hiền Food Street": {
-    "address": "Nguyen Thuong Hien (Dien Bien Phu to Nguyen Dinh Chieu), Ban Co Ward, District 3, Ho Chi Minh City",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Nguyễn Thượng Hiền (Điện Biên Phủ to Nguyễn Đình Chiểu), Bàn Cờ Ward, District 3, Ho Chi Minh City, Vietnam",
+    "lat": 10.77624,
+    "lng": 106.68267,
+    "source": "Google Maps daddr geocode of 'Nguyen Thuong Hien, District 3' -> resolved '237-239 Nguyen Thuong Hien Street, Ward 4, District 3' @10.77624,106.68267 (street-level representative point for the food-street strip); Ban Co/Ward 4 area, District 3, in-district.",
     "verified": "2026-08-28",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Vietnamnet / SGGP / VnExpress — official night food street inaugurated Dec 2022, operating nightly 19:00-23:00",
+    "statusSource": "WebSearch 2026-08-28: no permanent-closure indication found (not independently confirmed via own listing)",
     "statusChecked": "2026-08-28"
    },
    "Hồ Thị Kỷ Food Street": {
