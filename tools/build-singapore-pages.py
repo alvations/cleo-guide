@@ -162,7 +162,8 @@ THEME_NEW_ROOT = """  /* Pastel theme — LIGHT default :root; DARK via prefers-
 # on the pastel light theme and bright enough on dark. Assigned to a page's districts in order.
 PASTELS = ["#F2A1A1","#BCA7E6","#84CBB9","#9CBEEC","#E8C57C","#E4989B",
            "#8FD0A0","#C9A9D6","#7FC7D9","#F0B48A","#A9C48A","#D9A6C2",
-           "#C7B37F","#93C6C0","#E0A8C0","#A6B8E0","#D3C08A","#8FBFA8"]
+           "#C7B37F","#93C6C0","#E0A8C0","#A6B8E0","#D3C08A","#8FBFA8",
+           "#E6A6A6","#A8D0C4","#CDB0E0"]
 
 
 def build_page(slug):

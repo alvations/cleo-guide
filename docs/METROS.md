@@ -44,7 +44,28 @@ legend tells the story of the metro:
 3. **Outer city** (Thủ Đức City, District 7 · Nhà Bè).
 4. **Adjacent provincial cities** the metro spills into (Biên Hòa/Đồng Nai, Bình Dương/Đại Nam) — NYC's
    NJ/Westchester/Long Island equivalent.
-5. **Day-trip ring** (Củ Chi, Cần Giờ, the Mekong, Tây Ninh, Vũng Tàu).
+5. **Directional route corridors** (see below) — not one flat "day trips" bucket.
+
+## Corridors — the in-between stops, not just the endpoints
+
+A far day-trip point is the *end* of a route, and the stops **between** the centre and that point are real
+places a traveller passes (and eats at). Don't collapse them into a single "Day trips" bucket — that hides
+everything between the city and the edge. Instead split the far ring into **directional route corridors**,
+each a district bucket whose keywords include the **in-between towns along that route**:
+
+- **HCMC** → `NW route · Củ Chi → Trảng Bàng → Tây Ninh` · `SW route · Long An → Mekong Delta` ·
+  `SE route · Long Thành → Bà Rịa → Vũng Tàu` · `S route · Nhà Bè → Cần Giờ`.
+
+So Trảng Bàng (bánh canh, on the way to Tây Ninh), Bến Lức / Tân An (Long An, on the way to the Mekong),
+and Long Thành / Bà Rịa (bánh khọt, on the way to Vũng Tàu) each get a coloured pin in the corridor they
+belong to — the map shows the *route*, not just its endpoint.
+
+**To discover a corridor** (reusable for any metro): name the routes from the centre to each far point, then
+run one discovery pass per route for the notable **food, drinks and things-to-do at the towns along it** —
+same bar as everything else (≥2 credible / lone-institutional, fact-checked, ranked within the corridor). Add
+the corridor's in-between town names to the page's `page_keywords` (so records there assign to the page) and to
+the corridor bucket's `keywords` (so they colour into the right route). No build-code change — it's all the
+`data/metros.json` entry.
 
 ## Full procedure for a new metro city
 
