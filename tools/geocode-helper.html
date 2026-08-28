@@ -3,570 +3,94 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Geocode helper — resolve the map-access-blocked pins</title>
+<title>Geocode helper — resolve the pins this sandbox can't</title>
 <style>
   :root{color-scheme:light dark}
-  body{font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:900px;margin:24px auto;padding:0 16px}
+  body{font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:960px;margin:24px auto;padding:0 16px}
   h1{font-size:20px} p.sub{color:#666;margin-top:-6px}
-  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13.5px}
   th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;vertical-align:top}
-  th{background:#f2f2f2}
+  th{background:#f2f2f2;position:sticky;top:0}
   .ok{color:#137333;font-weight:600}.bad{color:#c5221f;font-weight:600}.wait{color:#a56a00}
   code,textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-  textarea{width:100%;height:180px;margin-top:8px;font-size:12px;padding:8px}
-  button{font-size:14px;padding:8px 14px;cursor:pointer;margin:4px 0}
+  textarea{width:100%;height:200px;margin-top:8px;font-size:12px;padding:8px}
+  button{font-size:14px;padding:8px 14px;cursor:pointer;margin:4px 6px 4px 0}
+  input[type=text]{font-size:14px;padding:6px 8px;width:200px}
   .match{font-size:12px;color:#555}
+  .controls{background:#f7f7f7;padding:12px;border:1px solid #ddd;border-radius:8px}
   a{color:#1a73e8}
+  @media (prefers-color-scheme:dark){.controls{background:#222;border-color:#444}th{background:#333}}
 </style>
 </head>
 <body>
 <h1>Geocode helper — pins this sandbox can't resolve (map hosts blocked)</h1>
-<p class="sub">Runs in <strong>your</strong> browser (which can reach the map servers). It geocodes each
-address against <strong>OpenStreetMap / Nominatim</strong> — no API key.
-Check each result's "OSM matched" text is the right place, then copy the JSON at the bottom back to the chat
-and I'll merge it into <code>data/geocodes.json</code> (address + coordinate + source), then rebuild.</p>
+<p class="sub">Runs in <strong>your</strong> browser (which can reach the map servers). It geocodes each place
+against <strong>OpenStreetMap / Nominatim</strong> — no API key. Review each "OSM matched" text, then copy the
+JSON at the bottom back to the chat and I'll merge it with <code>tools/geo-merge.py</code> and rebuild.</p>
 
-<button id="run">▶ Geocode all</button> <span id="status"></span>
+<div class="controls">
+  <p style="margin:0 0 8px"><strong>1.</strong> Load a backlog worklist (a JSON array of <code>{n, addr, kind}</code>,
+  e.g. <code>data/singapore-research/_vn_helper_backlog.json</code>), or leave it and paste JSON into the box below and press <em>Use pasted</em>.</p>
+  <input type="file" id="file" accept=".json,application/json">
+  <label style="margin-left:12px">city key <input type="text" id="cityKey" value="singapore" style="width:140px"></label>
+  <br>
+  <button id="run" disabled>▶ Geocode all</button>
+  <button id="usePaste">Use pasted JSON below as the worklist</button>
+  <span id="status"></span>
+  <p class="sub" style="margin:8px 0 0">Nominatim allows ~1 request/sec, so a 200-place list takes a few minutes. Leave the tab open.</p>
+</div>
+
 <table id="tbl">
-  <thead><tr><th>#</th><th>Place</th><th>Address queried</th><th>lat, lng</th><th>OSM matched</th></tr></thead>
+  <thead><tr><th>#</th><th>Place</th><th>Query used</th><th>lat, lng</th><th>OSM matched (verify!)</th></tr></thead>
   <tbody></tbody>
 </table>
 
-<h3>Copy this back to the chat</h3>
-<textarea id="out" readonly placeholder="Run the geocoder, then copy this JSON."></textarea>
+<h3>1) Paste a worklist here (optional) &nbsp; 2) Copy the RESULT from here after running</h3>
+<textarea id="io" placeholder='Paste a worklist JSON here and press "Use pasted", OR after geocoding copy the result JSON that appears here.'></textarea>
 
 <script>
-// Places whose exact pin the locked-down build environment could not resolve (map hosts blocked).
-// city keys match data/geocodes.json. Each has a primary address and optional fallbacks.
-// When resolved, the "address" is also updated to the primary query below (relocations included).
-const PLACES = [
-  // Relocated to 100 Ridge Ave (from 525 Jefferson Ave); needs the new pin.
-  {city:"pittsburgh-pa", n:"Duncan & Miller Glass Museum", newAddress:"100 Ridge Ave, Washington, PA 15301",
-     q:["100 Ridge Ave, Washington, PA 15301","Duncan & Miller Glass Museum, Washington, PA"]},
-  {city:"pittsburgh-pa", n:"Duo's Taqueria",                 q:["5906 Penn Ave, Pittsburgh, PA 15206","Duo's Taqueria, East Liberty, Pittsburgh, PA"]},
-  {city:"pittsburgh-pa", n:"ippa",                           q:["5241 Butler St, Pittsburgh, PA 15201","ippa, Lawrenceville, Pittsburgh, PA"]},
-  // Classic-Pittsburgh Mode C — WebSearch could not surface a place pin; addresses confirmed.
-  {city:"pittsburgh-pa", n:"Ritter's Diner",                 q:["5221 Baum Blvd, Pittsburgh, PA 15224","Ritter's Diner, Bloomfield, Pittsburgh, PA"]},
-  {city:"pittsburgh-pa", n:"Triangle Bar & Grill",           q:["2122 Monongahela Ave, Swissvale, PA 15218","Triangle Bar and Grill, Swissvale, PA"]},
-  {city:"pittsburgh-pa", n:"Peppi's Old Tyme Sandwich Shop", q:["1721 Penn Ave, Pittsburgh, PA 15222","Peppi's Old Tyme Sandwich Shop, Strip District, Pittsburgh, PA"]},
-  {city:"pittsburgh-pa", n:"Kelly O's Diner",                q:["100 24th St, Pittsburgh, PA 15222","Kelly O's Diner, Strip District, Pittsburgh, PA"]},
-  // Cleveland signature-food gap (Barberton chicken) — the 1933 original; WebSearch found only
-  // city-center coords, not the place pin. Address confirmed; open (Yelp Aug 2026 + own site).
-  {city:"cleveland-oh", n:"Belgrade Gardens",                q:["401 E State St, Barberton, OH 44203","Belgrade Gardens, Barberton, OH"]},
-  {city:"youngstown-oh", n:"Idora Park Experience",          q:["4450 S Turner Rd, Canfield, OH 44406","Idora Park Experience, Canfield, OH"]},
-  {city:"youngstown-oh", n:"Past Times Arcade",              q:["419 N State St, Girard, OH 44420","Past Times Arcade, Girard, OH"]},
-  {city:"youngstown-oh", n:"Mahoning County Courthouse",     q:["120 Market St, Youngstown, OH 44503","Mahoning County Courthouse, Youngstown, OH"]},
-  {city:"youngstown-oh", n:"Penguin City Brewing Company",   q:["460 E Federal St, Youngstown, OH 44502","Penguin City Brewing, Youngstown, OH"]},
-  {city:"youngstown-oh", n:"Casa Di Canzonetta",             q:["44 E Federal St, Youngstown, OH 44503","44 Federal Plaza East, Youngstown, OH"]},
-  {city:"youngstown-oh", n:"Northside Farmers Market",       q:["901 Elm St, Youngstown, OH 44505","Northside Farmers Market, Youngstown, OH"]},
-  // New York — remaining pins (mostly restaurants); Nominatim resolves these by address:
-  {city:"new-york-ny", n:"Sanctum Sanctorum Corner (177A Bleecker)", q:["177A Bleecker St, New York, NY 10012", "Sanctum Sanctorum Corner (177A Bleecker), New York, NY"]},
-  {city:"new-york-ny", n:"The Cosby Show House", q:["10 St. Luke's Place, New York, NY 10014", "The Cosby Show House, New York, NY"]},
-  {city:"new-york-ny", n:"The Moonstruck House", q:["19 Cranberry St, Brooklyn, NY 11201", "The Moonstruck House, New York, NY"]},
-  {city:"new-york-ny", n:"Do the Right Thing Way", q:["Stuyvesant Ave btwn Lexington & Quincy, Brooklyn, NY 11221", "Do the Right Thing Way, New York, NY"]},
-  {city:"new-york-ny", n:"Postcards: Staten Island 9/11 Memorial", q:["North Shore Waterfront Esplanade, Bank Street, St. George, Staten Island, NY 10301", "Postcards: Staten Island 9/11 Memorial, New York, NY"]},
-  {city:"new-york-ny", n:"High Rock Park", q:["200 Nevada Avenue, Staten Island, NY 10306", "High Rock Park, New York, NY"]},
-  {city:"new-york-ny", n:"Junior's Restaurant", q:["386 Flatbush Ave Ext, Brooklyn, NY 11201", "Junior's Restaurant, New York, NY"]},
-  {city:"new-york-ny", n:"East Harbor Seafood Palace", q:["714 65th St, Brooklyn, NY 11220", "East Harbor Seafood Palace, New York, NY"]},
-  {city:"new-york-ny", n:"Ayat", q:["8504 3rd Ave, Brooklyn NY 11209", "Ayat, New York, NY"]},
-  {city:"new-york-ny", n:"Nargis Cafe", q:["1655 Sheepshead Bay Rd, Brooklyn NY 11235", "Nargis Cafe, New York, NY"]},
-  {city:"new-york-ny", n:"Gloria's West Indian Food", q:["987 Nostrand Ave, Brooklyn NY 11225", "Gloria's West Indian Food, New York, NY"]},
-  {city:"new-york-ny", n:"Yun Nan Flavour Garden", q:["5121 8th Ave, Brooklyn NY 11220", "Yun Nan Flavour Garden, New York, NY"]},
-  // Signature halal carts — addresses confirmed; WebSearch couldn't surface the exact cart pin.
-  {city:"new-york-ny", n:"King of Falafel & Shawarma", q:["30-15 Broadway, Astoria, NY 11106", "King of Falafel & Shawarma, Astoria, Queens, NY"]},
-  {city:"new-york-ny", n:"Sammy's Halal", q:["73-01 37th Rd, Jackson Heights, NY 11372", "Sammy's Halal, 73rd St & Broadway, Jackson Heights, Queens, NY"]},
-  {city:"new-york-ny", n:"Peter Pan Donut & Pastry Shop", q:["727 Manhattan Ave, Brooklyn NY 11222", "Peter Pan Donut & Pastry Shop, New York, NY"]},
-  {city:"new-york-ny", n:"Chuko", q:["565 Vanderbilt Ave, Brooklyn NY 11238", "Chuko, New York, NY"]},
-  {city:"new-york-ny", n:"Roberto's", q:["603 Crescent Ave, Bronx, NY 10458", "Roberto's, New York, NY"]},
-  {city:"new-york-ny", n:"La Morada", q:["308 Willis Ave, Bronx, NY 10454", "La Morada, New York, NY"]},
-  {city:"new-york-ny", n:"Mike's Deli", q:["2344 Arthur Ave, Bronx, NY 10458", "Mike's Deli, New York, NY"]},
-  {city:"new-york-ny", n:"Zero Otto Nove", q:["2357 Arthur Ave, Bronx, NY 10458", "Zero Otto Nove, New York, NY"]},
-  {city:"new-york-ny", n:"Dominick's", q:["2335 Arthur Ave, Bronx, NY 10458", "Dominick's, New York, NY"]},
-  {city:"new-york-ny", n:"City Island Lobster House", q:["691 Bridge St, Bronx, NY 10464", "City Island Lobster House, New York, NY"]},
-  {city:"new-york-ny", n:"Full Moon Pizzeria", q:["600 E 187th St, Bronx, NY 10458", "Full Moon Pizzeria, New York, NY"]},
-  {city:"new-york-ny", n:"El Nuevo Bohio Lechonera", q:["791 E Tremont Ave, Bronx, NY 10460", "El Nuevo Bohio Lechonera, New York, NY"]},
-  {city:"new-york-ny", n:"Johnny's Reef Restaurant", q:["2 City Island Ave, Bronx, NY 10464", "Johnny's Reef Restaurant, New York, NY"]},
-  {city:"new-york-ny", n:"Madonia Brothers Bakery", q:["2348 Arthur Ave, Bronx, NY 10458", "Madonia Brothers Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"Egidio Pastry Shop", q:["622 E 187th St, Bronx, NY 10458", "Egidio Pastry Shop, New York, NY"]},
-  {city:"new-york-ny", n:"Papaye", q:["2300 Grand Concourse, Bronx, NY 10458", "Papaye, New York, NY"]},
-  {city:"new-york-ny", n:"Havana Cafe", q:["3151 E Tremont Ave, Bronx, NY 10461", "Havana Cafe, New York, NY"]},
-  {city:"new-york-ny", n:"Native Noodles", q:["2129 Amsterdam Ave, New York, NY 10032", "Native Noodles, New York, NY"]},
-  {city:"new-york-ny", n:"Banh Anh Em", q:["99 Third Ave, New York, NY 10003", "Banh Anh Em, New York, NY"]},
-  {city:"new-york-ny", n:"La Dong", q:["11 E 17th St, New York, NY 10003", "La Dong, New York, NY"]},
-  {city:"new-york-ny", n:"House of Joy", q:["28 Pell St, New York, NY 10013", "House of Joy, New York, NY"]},
-  {city:"new-york-ny", n:"Sumatera Restaurant", q:["8620 Whitney Ave, Elmhurst, NY 11373", "Sumatera Restaurant, New York, NY"]},
-  {city:"new-york-ny", n:"Naks", q:["201 1st Ave, New York, NY 10003", "Naks, New York, NY"]},
-  {city:"new-york-ny", n:"Little Myanmar", q:["150 E 2nd St, New York, NY 10009", "Little Myanmar, New York, NY"]},
-  {city:"new-york-ny", n:"Sofreh", q:["75 St Marks Ave, Brooklyn, NY 11217", "Sofreh, New York, NY"]},
-  {city:"new-york-ny", n:"Chuan Tian Xia", q:["5502 7th Ave, Brooklyn, NY 11220", "Chuan Tian Xia, New York, NY"]},
-  {city:"new-york-ny", n:"Jiang Nan", q:["133-42 39th Ave, Flushing, NY 11354", "Jiang Nan, New York, NY"]},
-  {city:"new-york-ny", n:"Legend of Taste", q:["20-02 Utopia Pkwy, Whitestone, NY 11357", "Legend of Taste, New York, NY"]},
-  {city:"new-york-ny", n:"Nuts Factory", q:["100 Smith St, Brooklyn, NY 11201", "Nuts Factory, New York, NY"]},
-  {city:"new-york-ny", n:"Supermoon Bakehouse", q:["120 Rivington St, New York, NY 10002", "Supermoon Bakehouse, New York, NY"]},
-  {city:"new-york-ny", n:"L'Appartement 4F", q:["115 Montague St, Brooklyn, NY 11201", "L'Appartement 4F, New York, NY"]},
-  {city:"new-york-ny", n:"Taiyaki NYC", q:["119 Baxter St, New York, NY 10013", "Taiyaki NYC, New York, NY"]},
-  {city:"new-york-ny", n:"Joe's Steam Rice Roll", q:["136-20 Roosevelt Ave, Flushing, NY 11354", "Joe's Steam Rice Roll, New York, NY"]},
-  {city:"new-york-ny", n:"7th Street Burger", q:["91 E 7th St, New York, NY 10009", "7th Street Burger, New York, NY"]},
-  {city:"new-york-ny", n:"Radio Bakery", q:["135 India St, Brooklyn, NY 11222", "Radio Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"Xing Fu Tang", q:["133 2nd Ave, New York, NY 10003", "Xing Fu Tang, New York, NY"]},
-  {city:"new-york-ny", n:"Tiger Sugar", q:["197 Canal St, New York, NY 10013", "Tiger Sugar, New York, NY"]},
-  {city:"new-york-ny", n:"Machi Machi", q:["33 W 32nd St, New York, NY 10001", "Machi Machi, New York, NY"]},
-  {city:"new-york-ny", n:"Moge Tee", q:["971 Amsterdam Ave, New York, NY 10025", "Moge Tee, New York, NY"]},
-  {city:"new-york-ny", n:"Vivi Bubble Tea", q:["49 Bayard St, New York, NY 10013", "Vivi Bubble Tea, New York, NY"]},
-  {city:"new-york-ny", n:"Yi Fang Taiwan Fruit Tea", q:["44-68 21st St, Long Island City, NY 11101", "Yi Fang Taiwan Fruit Tea, New York, NY"]},
-  {city:"new-york-ny", n:"Gong Cha", q:["75 W 38th St, New York, NY 10018", "Gong Cha, New York, NY"]},
-  {city:"new-york-ny", n:"Kinokuniya Cafe", q:["1073 Avenue of the Americas, New York, NY 10018", "Kinokuniya Cafe, New York, NY"]},
-  {city:"new-york-ny", n:"Devocion", q:["69 Grand St, Brooklyn, NY 11249", "Devocion, New York, NY"]},
-  {city:"new-york-ny", n:"Sey Coffee", q:["18 Grattan St, Brooklyn, NY 11206", "Sey Coffee, New York, NY"]},
-  {city:"new-york-ny", n:"Felix Roasting Co.", q:["450 Park Ave S, New York, NY 10016", "Felix Roasting Co., New York, NY"]},
-  {city:"new-york-ny", n:"Ralph's Coffee", q:["160 5th Ave, New York, NY 10010", "Ralph's Coffee, New York, NY"]},
-  {city:"new-york-ny", n:"Abraco", q:["81 E 7th St, New York, NY 10003", "Abraco, New York, NY"]},
-  {city:"new-york-ny", n:"Partners Coffee", q:["125 N 6th St, Brooklyn, NY 11249", "Partners Coffee, New York, NY"]},
-  {city:"new-york-ny", n:"Maman", q:["239 Centre St, New York, NY 10013", "Maman, New York, NY"]},
-  {city:"new-york-ny", n:"Fabrique Bakery", q:["348 W 14th St, New York, NY 10014", "Fabrique Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"Bibble & Sip", q:["253 W 51st St, New York, NY 10019", "Bibble & Sip, New York, NY"]},
-  {city:"new-york-ny", n:"Lady M Cake Boutique", q:["36 W 40th St, New York, NY 10018", "Lady M Cake Boutique, New York, NY"]},
-  {city:"new-york-ny", n:"Spot Dessert Bar", q:["13 St Marks Pl, New York, NY 10003", "Spot Dessert Bar, New York, NY"]},
-  {city:"new-york-ny", n:"Fan-Fan Doughnuts", q:["448 Lafayette Ave, Brooklyn, NY 11205", "Fan-Fan Doughnuts, New York, NY"]},
-  {city:"new-york-ny", n:"Lysee", q:["44 E 21st St, New York, NY 10010", "Lysee, New York, NY"]},
-  {city:"new-york-ny", n:"Soft Swerve", q:["85B Allen St, New York, NY 10002", "Soft Swerve, New York, NY"]},
-  {city:"new-york-ny", n:"Milk Bar", q:["1196 Broadway, New York, NY 10001", "Milk Bar, New York, NY"]},
-  {city:"new-york-ny", n:"Cha Cha Matcha", q:["327 Lafayette St, New York, NY 10012", "Cha Cha Matcha, New York, NY"]},
-  {city:"new-york-ny", n:"Meet Fresh", q:["133-36 37th Ave, Flushing, NY 11354", "Meet Fresh, New York, NY"]},
-  {city:"new-york-ny", n:"Tao Uptown", q:["42 E 58th St, Manhattan, NY 10022", "Tao Uptown, New York, NY"]},
-  {city:"new-york-ny", n:"Tao Downtown", q:["92 Ninth Ave, Manhattan, NY 10011", "Tao Downtown, New York, NY"]},
-  {city:"new-york-ny", n:"Beauty & Essex", q:["146 Essex St, Manhattan, NY 10002", "Beauty & Essex, New York, NY"]},
-  {city:"new-york-ny", n:"The Odeon", q:["145 W Broadway, Manhattan, NY 10013", "The Odeon, New York, NY"]},
-  {city:"new-york-ny", n:"Buddakan", q:["75 Ninth Ave, Manhattan, NY 10011", "Buddakan, New York, NY"]},
-  {city:"new-york-ny", n:"Tavern on the Green", q:["67 Central Park W, Manhattan, NY 10023", "Tavern on the Green, New York, NY"]},
-  {city:"new-york-ny", n:"The Polo Bar", q:["1 E 55th St, Manhattan, NY 10022", "The Polo Bar, New York, NY"]},
-  {city:"new-york-ny", n:"Sadelle's", q:["463 W Broadway, Manhattan, NY 10012", "Sadelle's, New York, NY"]},
-  {city:"new-york-ny", n:"Jean-Georges", q:["1 Central Park W, Manhattan, NY 10023", "Jean-Georges, New York, NY"]},
-  {city:"new-york-ny", n:"Peak", q:["30 Hudson Yards, Manhattan, NY 10001", "Peak, New York, NY"]},
-  {city:"new-york-ny", n:"Carbone", q:["181 Thompson St, Manhattan, NY 10012", "Carbone, New York, NY"]},
-  {city:"new-york-ny", n:"Minetta Tavern", q:["113 MacDougal St, Manhattan, NY 10012", "Minetta Tavern, New York, NY"]},
-  {city:"new-york-ny", n:"McSorley's Old Ale House", q:["15 E 7th St, Manhattan, NY 10003", "McSorley's Old Ale House, New York, NY"]},
-  {city:"new-york-ny", n:"Ear Inn", q:["326 Spring St, Manhattan, NY 10013", "Ear Inn, New York, NY"]},
-  {city:"new-york-ny", n:"Old Town Bar", q:["45 E 18th St, Manhattan, NY 10003", "Old Town Bar, New York, NY"]},
-  {city:"new-york-ny", n:"The Dead Rabbit", q:["30 Water St, Manhattan, NY 10004", "The Dead Rabbit, New York, NY"]},
-  {city:"new-york-ny", n:"Bemelmans Bar", q:["35 E 76th St, Manhattan, NY 10021", "Bemelmans Bar, New York, NY"]},
-  {city:"new-york-ny", n:"King Cole Bar", q:["2 E 55th St, Manhattan, NY 10022", "King Cole Bar, New York, NY"]},
-  {city:"new-york-ny", n:"The Campbell", q:["15 Vanderbilt Ave, Manhattan, NY 10017", "The Campbell, New York, NY"]},
-  {city:"new-york-ny", n:"Julius' Bar", q:["159 W 10th St, Manhattan, NY 10014", "Julius' Bar, New York, NY"]},
-  {city:"new-york-ny", n:"White Horse Tavern", q:["567 Hudson St, Manhattan, NY 10014", "White Horse Tavern, New York, NY"]},
-  {city:"new-york-ny", n:"KGB Bar", q:["85 E 4th St, Manhattan, NY 10003", "KGB Bar, New York, NY"]},
-  {city:"new-york-ny", n:"Serra by Birreria", q:["200 Fifth Ave, Manhattan, NY 10010", "Serra by Birreria, New York, NY"]},
-  {city:"new-york-ny", n:"Kopitiam", q:["151 E Broadway, New York, NY 10002", "Kopitiam, New York, NY"]},
-  {city:"new-york-ny", n:"Hainan Chicken House", q:["4807 8th Ave, Brooklyn, NY 11220", "Hainan Chicken House, New York, NY"]},
-  {city:"new-york-ny", n:"Wenwen", q:["1025 Manhattan Ave, Brooklyn, NY 11222", "Wenwen, New York, NY"]},
-  {city:"new-york-ny", n:"Eim Khao Mun Kai", q:["81-32 Broadway, Elmhurst, NY 11373", "Eim Khao Mun Kai, New York, NY"]},
-  {city:"new-york-ny", n:"Gai Kitchen", q:["51 Mott St, New York, NY 10013", "Gai Kitchen, New York, NY"]},
-  {city:"new-york-ny", n:"Noodle Village", q:["70 Mott St, New York, NY 10013", "Noodle Village, New York, NY"]},
-  {city:"new-york-ny", n:"Tasty Hand-Pulled Noodles", q:["1 Doyers St, New York, NY 10013", "Tasty Hand-Pulled Noodles, New York, NY"]},
-  {city:"new-york-ny", n:"Deluxe Green Bo", q:["66 Bayard St, New York, NY 10013", "Deluxe Green Bo, New York, NY"]},
-  {city:"new-york-ny", n:"Super Taste", q:["26 Eldridge St, New York, NY 10002", "Super Taste, New York, NY"]},
-  {city:"new-york-ny", n:"Sifu Chio", q:["251-28 Northern Blvd, Little Neck, NY 11362", "Sifu Chio, New York, NY"]},
-  {city:"new-york-ny", n:"Maxi's Noodle", q:["135-11 38th Ave, Flushing, NY 11354", "Maxi's Noodle, New York, NY"]},
-  {city:"new-york-ny", n:"Please Don't Tell", q:["113 St Marks Pl, Manhattan, NY 10009", "Please Don't Tell, New York, NY"]},
-  {city:"new-york-ny", n:"Attaboy", q:["134 Eldridge St, Manhattan, NY 10002", "Attaboy, New York, NY"]},
-  {city:"new-york-ny", n:"Employees Only", q:["510 Hudson St, Manhattan, NY 10014", "Employees Only, New York, NY"]},
-  {city:"new-york-ny", n:"Bathtub Gin", q:["132 Ninth Ave, Manhattan, NY 10011", "Bathtub Gin, New York, NY"]},
-  {city:"new-york-ny", n:"The Back Room", q:["102 Norfolk St, Manhattan, NY 10002", "The Back Room, New York, NY"]},
-  {city:"new-york-ny", n:"Little Branch", q:["20 Seventh Ave S, Manhattan, NY 10014", "Little Branch, New York, NY"]},
-  {city:"new-york-ny", n:"Death & Co", q:["433 E 6th St, Manhattan, NY 10009", "Death & Co, New York, NY"]},
-  {city:"new-york-ny", n:"Angel's Share", q:["45 Grove St, Manhattan, NY 10014", "Angel's Share, New York, NY"]},
-  {city:"new-york-ny", n:"Apotheke", q:["9 Doyers St, Manhattan, NY 10013", "Apotheke, New York, NY"]},
-  {city:"new-york-ny", n:"Raines Law Room at The William", q:["24 E 39th St, Manhattan, NY 10016", "Raines Law Room at The William, New York, NY"]},
-  {city:"new-york-ny", n:"Westlight", q:["111 N 12th St, Brooklyn, NY 11249", "Westlight, New York, NY"]},
-  {city:"new-york-ny", n:"Overstory", q:["70 Pine St, Manhattan, NY 10005", "Overstory, New York, NY"]},
-  {city:"new-york-ny", n:"230 Fifth", q:["230 Fifth Ave, Manhattan, NY 10001", "230 Fifth, New York, NY"]},
-  {city:"new-york-ny", n:"The Skylark", q:["200 W 39th St, Manhattan, NY 10018", "The Skylark, New York, NY"]},
-  {city:"new-york-ny", n:"Refinery Rooftop", q:["63 W 38th St, Manhattan, NY 10018", "Refinery Rooftop, New York, NY"]},
-  {city:"new-york-ny", n:"The Crown", q:["50 Bowery, Manhattan, NY 10013", "The Crown, New York, NY"]},
-  {city:"new-york-ny", n:"Magic Hour", q:["485 Seventh Ave, Manhattan, NY 10018", "Magic Hour, New York, NY"]},
-  {city:"new-york-ny", n:"Ophelia", q:["3 Mitchell Pl, Manhattan, NY 10017", "Ophelia, New York, NY"]},
-  {city:"new-york-ny", n:"Le Bain", q:["444 W 13th St, Manhattan, NY 10014", "Le Bain, New York, NY"]},
-  {city:"new-york-ny", n:"Nubeluz", q:["25 W 28th St, Manhattan, NY 10001", "Nubeluz, New York, NY"]},
-  {city:"new-york-ny", n:"Harriet's Rooftop", q:["60 Furman St, Brooklyn, NY 11201", "Harriet's Rooftop, New York, NY"]},
-  {city:"new-york-ny", n:"Manhatta", q:["28 Liberty St, Manhattan, NY 10005", "Manhatta, New York, NY"]},
-  {city:"new-york-ny", n:"The Modern", q:["9 W 53rd St, Manhattan, NY 10019", "The Modern, New York, NY"]},
-  {city:"new-york-ny", n:"The River Cafe", q:["1 Water St, Brooklyn, NY 11201", "The River Cafe, New York, NY"]},
-  {city:"new-york-ny", n:"Robert", q:["2 Columbus Circle, Manhattan, NY 10019", "Robert, New York, NY"]},
-  {city:"new-york-ny", n:"Bar SixtyFive at Rainbow Room", q:["30 Rockefeller Plaza, Manhattan, NY 10112", "Bar SixtyFive at Rainbow Room, New York, NY"]},
-  {city:"new-york-ny", n:"Crown Shy", q:["70 Pine St, New York NY 10005", "Crown Shy, New York, NY"]},
-  {city:"new-york-ny", n:"Le Coucou", q:["138 Lafayette St, New York NY 10013", "Le Coucou, New York, NY"]},
-  {city:"new-york-ny", n:"Nom Wah Tea Parlor", q:["13 Doyers St, New York NY 10013", "Nom Wah Tea Parlor, New York, NY"]},
-  {city:"new-york-ny", n:"Joe's Shanghai", q:["46 Bowery, New York NY 10013", "Joe's Shanghai, New York, NY"]},
-  {city:"new-york-ny", n:"Dim Sum Go Go", q:["5 E Broadway, New York NY 10038", "Dim Sum Go Go, New York, NY"]},
-  {city:"new-york-ny", n:"Hwa Yuan", q:["42 E Broadway, New York NY 10002", "Hwa Yuan, New York, NY"]},
-  {city:"new-york-ny", n:"Great NY Noodletown", q:["28 Bowery, New York NY 10013", "Great NY Noodletown, New York, NY"]},
-  {city:"new-york-ny", n:"Wah Fung No. 1 Fast Food", q:["79 Chrystie St, New York NY 10002", "Wah Fung No. 1 Fast Food, New York, NY"]},
-  {city:"new-york-ny", n:"Golden Diner", q:["123 Madison St, New York NY 10002", "Golden Diner, New York, NY"]},
-  {city:"new-york-ny", n:"Wo Hop", q:["17 Mott St, New York NY 10013", "Wo Hop, New York, NY"]},
-  {city:"new-york-ny", n:"Peking Duck House", q:["28 Mott St, New York NY 10013", "Peking Duck House, New York, NY"]},
-  {city:"new-york-ny", n:"Lombardi's Pizza", q:["32 Spring St, New York NY 10012", "Lombardi's Pizza, New York, NY"]},
-  {city:"new-york-ny", n:"Prince Street Pizza", q:["27 Prince St, New York NY 10012", "Prince Street Pizza, New York, NY"]},
-  {city:"new-york-ny", n:"Rubirosa", q:["235 Mulberry St, New York NY 10012", "Rubirosa, New York, NY"]},
-  {city:"new-york-ny", n:"Scarr's Pizza", q:["35 Orchard St, New York NY 10002", "Scarr's Pizza, New York, NY"]},
-  {city:"new-york-ny", n:"Balthazar", q:["80 Spring St, New York NY 10012", "Balthazar, New York, NY"]},
-  {city:"new-york-ny", n:"Clinton St. Baking Company", q:["4 Clinton St, New York NY 10002", "Clinton St. Baking Company, New York, NY"]},
-  {city:"new-york-ny", n:"Ferrara Bakery", q:["195 Grand St, New York NY 10013", "Ferrara Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"Di Palo's Fine Foods", q:["200 Grand St, New York NY 10013", "Di Palo's Fine Foods, New York, NY"]},
-  {city:"new-york-ny", n:"Kossar's Bialys", q:["367 Grand St, New York NY 10002", "Kossar's Bialys, New York, NY"]},
-  {city:"new-york-ny", n:"Yonah Schimmel Knish Bakery", q:["137 E Houston St, New York NY 10002", "Yonah Schimmel Knish Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"Kiki's", q:["130 Division St, New York NY 10002", "Kiki's, New York, NY"]},
-  {city:"new-york-ny", n:"Cervo's", q:["43 Canal St, New York NY 10002", "Cervo's, New York, NY"]},
-  {city:"new-york-ny", n:"Cote", q:["16 W 22nd St, New York, NY 10010", "Cote, New York, NY"]},
-  {city:"new-york-ny", n:"Via Carota", q:["51 Grove St, New York, NY 10014", "Via Carota, New York, NY"]},
-  {city:"new-york-ny", n:"Gramercy Tavern", q:["42 E 20th St, New York, NY 10003", "Gramercy Tavern, New York, NY"]},
-  {city:"new-york-ny", n:"Veselka", q:["144 Second Ave, New York, NY 10003", "Veselka, New York, NY"]},
-  {city:"new-york-ny", n:"John's of Bleecker Street", q:["278 Bleecker St, New York, NY 10014", "John's of Bleecker Street, New York, NY"]},
-  {city:"new-york-ny", n:"BCD Tofu House", q:["5 W 32nd St, New York, NY 10001", "BCD Tofu House, New York, NY"]},
-  {city:"new-york-ny", n:"Ippudo NY", q:["65 4th Ave, New York, NY 10003", "Ippudo NY, New York, NY"]},
-  {city:"new-york-ny", n:"Superiority Burger", q:["119 Avenue A, New York, NY 10009", "Superiority Burger, New York, NY"]},
-  {city:"new-york-ny", n:"Jua", q:["36 E 22nd St, New York, NY 10010", "Jua, New York, NY"]},
-  {city:"new-york-ny", n:"Casa Mono", q:["52 Irving Pl, New York, NY 10003", "Casa Mono, New York, NY"]},
-  {city:"new-york-ny", n:"Raku", q:["342 E 6th St, New York, NY 10003", "Raku, New York, NY"]},
-  {city:"new-york-ny", n:"Ruffian", q:["125 E 7th St, New York, NY 10009", "Ruffian, New York, NY"]},
-  {city:"new-york-ny", n:"Miznon", q:["75 Ninth Ave, New York, NY 10011", "Miznon, New York, NY"]},
-  {city:"new-york-ny", n:"Barney Greengrass", q:["541 Amsterdam Ave, New York NY 10024", "Barney Greengrass, New York, NY"]},
-  {city:"new-york-ny", n:"Tatiana by Kwame Onwuachi", q:["10 Lincoln Center Plaza, New York NY 10023", "Tatiana by Kwame Onwuachi, New York, NY"]},
-  {city:"new-york-ny", n:"Red Rooster Harlem", q:["310 Lenox Ave, New York NY 10027", "Red Rooster Harlem, New York, NY"]},
-  {city:"new-york-ny", n:"Amy Ruth's", q:["113 W 116th St, New York NY 10026", "Amy Ruth's, New York, NY"]},
-  {city:"new-york-ny", n:"Melba's", q:["300 W 114th St, New York NY 10026", "Melba's, New York, NY"]},
-  {city:"new-york-ny", n:"Le Baobab Gouygui", q:["120 W 116th St, New York NY 10026", "Le Baobab Gouygui, New York, NY"]},
-  {city:"new-york-ny", n:"Dinosaur Bar-B-Que", q:["700 W 125th St, New York NY 10027", "Dinosaur Bar-B-Que, New York, NY"]},
-  {city:"new-york-ny", n:"Malecon", q:["4141 Broadway, New York NY 10033", "Malecon, New York, NY"]},
-  {city:"new-york-ny", n:"Rao's", q:["455 E 114th St, New York NY 10029", "Rao's, New York, NY"]},
-  {city:"new-york-ny", n:"Patsy's Pizzeria", q:["2287 First Ave, New York NY 10035", "Patsy's Pizzeria, New York, NY"]},
-  {city:"new-york-ny", n:"Cafe Sabarsky", q:["1048 Fifth Ave, New York NY 10028", "Cafe Sabarsky, New York, NY"]},
-  {city:"new-york-ny", n:"J.G. Melon", q:["1291 Third Ave, New York NY 10021", "J.G. Melon, New York, NY"]},
-  {city:"new-york-ny", n:"Jacob's Pickles", q:["680 Columbus Ave, New York NY 10025", "Jacob's Pickles, New York, NY"]},
-  {city:"new-york-ny", n:"Tom's Restaurant", q:["2880 Broadway, New York NY 10025", "Tom's Restaurant, New York, NY"]},
-  {city:"new-york-ny", n:"Gray's Papaya", q:["2090 Broadway, New York NY 10023", "Gray's Papaya, New York, NY"]},
-  {city:"new-york-ny", n:"Serendipity 3", q:["225 E 60th St, New York, NY 10022", "Serendipity 3, New York, NY"]},
-  {city:"new-york-ny", n:"McGee's Pub", q:["240 W 55th St, New York, NY 10019", "McGee's Pub, New York, NY"]},
-  {city:"new-york-ny", n:"Empire Diner", q:["210 Tenth Ave, New York, NY 10011", "Empire Diner, New York, NY"]},
-  {city:"new-york-ny", n:"Ayada Thai", q:["77-08 Woodside Ave, Elmhurst, NY 11373", "Ayada Thai, New York, NY"]},
-  {city:"new-york-ny", n:"White Bear", q:["135-02 Roosevelt Ave, Flushing, NY 11354", "White Bear, New York, NY"]},
-  {city:"new-york-ny", n:"Casa Enrique", q:["5-48 49th Ave, Long Island City, NY 11101", "Casa Enrique, New York, NY"]},
-  {city:"new-york-ny", n:"Lhasa Fast Food", q:["37-50 74th St, Jackson Heights, NY 11372", "Lhasa Fast Food, New York, NY"]},
-  {city:"new-york-ny", n:"Ganesh Temple Canteen", q:["143-09 Holly Ave, Flushing, NY 11355", "Ganesh Temple Canteen, New York, NY"]},
-  {city:"new-york-ny", n:"Sripraphai", q:["64-13 39th Ave, Woodside, NY 11377", "Sripraphai, New York, NY"]},
-  {city:"new-york-ny", n:"Lemon Ice King of Corona", q:["52-02 108th St, Corona, NY 11368", "Lemon Ice King of Corona, New York, NY"]},
-  {city:"new-york-ny", n:"Little Pepper", q:["18-24 College Point Blvd, College Point, NY 11356", "Little Pepper, New York, NY"]},
-  {city:"new-york-ny", n:"Hunan Kitchen of Grand Sichuan", q:["42-47 Main St, Flushing, NY 11355", "Hunan Kitchen of Grand Sichuan, New York, NY"]},
-  {city:"new-york-ny", n:"SGD Tofu House & BBQ", q:["156-16A Northern Blvd, Flushing, NY 11354", "SGD Tofu House & BBQ, New York, NY"]},
-  {city:"new-york-ny", n:"Nepali Bhanchha Ghar", q:["74-15 Roosevelt Ave, Jackson Heights, NY 11372", "Nepali Bhanchha Ghar, New York, NY"]},
-  {city:"new-york-ny", n:"Amdo Kitchen", q:["37-57 74th St, Jackson Heights, NY 11372", "Amdo Kitchen, New York, NY"]},
-  {city:"new-york-ny", n:"Jackson Diner", q:["37-47 74th St, Jackson Heights, NY 11372", "Jackson Diner, New York, NY"]},
-  {city:"new-york-ny", n:"Pollos a la Brasa Mario", q:["81-01 Roosevelt Ave, Jackson Heights, NY 11372", "Pollos a la Brasa Mario, New York, NY"]},
-  {city:"new-york-ny", n:"Telly's Taverna", q:["28-13 23rd Ave, Astoria, NY 11105", "Telly's Taverna, New York, NY"]},
-  {city:"new-york-ny", n:"Kabab Cafe", q:["25-12 Steinway St, Astoria, NY 11103", "Kabab Cafe, New York, NY"]},
-  {city:"new-york-ny", n:"Djerdan Burek", q:["34-04 31st Ave, Astoria, NY 11106", "Djerdan Burek, New York, NY"]},
-  {city:"new-york-ny", n:"Cheburechnaya", q:["92-09 63rd Dr, Rego Park, NY 11374", "Cheburechnaya, New York, NY"]},
-  {city:"new-york-ny", n:"Ihawan", q:["40-06 70th St, Woodside, NY 11377", "Ihawan, New York, NY"]},
-  {city:"new-york-ny", n:"Chao Thai", q:["85-03 Whitney Ave, Elmhurst, NY 11373", "Chao Thai, New York, NY"]},
-  {city:"new-york-ny", n:"John Brown BBQ", q:["27-20 40th Ave, Long Island City, NY 11101", "John Brown BBQ, New York, NY"]},
-  {city:"new-york-ny", n:"Leo's Latticini", q:["46-02 104th St, Corona, NY 11368", "Leo's Latticini, New York, NY"]},
-  {city:"new-york-ny", n:"Eddie's Sweet Shop", q:["105-29 Metropolitan Ave, Forest Hills, NY 11375", "Eddie's Sweet Shop, New York, NY"]},
-  {city:"new-york-ny", n:"I Love Paraguay", q:["43-16 Greenpoint Ave, Sunnyside, NY 11104", "I Love Paraguay, New York, NY"]},
-  {city:"new-york-ny", n:"Tacoway Beach", q:["302 Beach 87th St, Rockaway, NY 11693", "Tacoway Beach, New York, NY"]},
-  {city:"new-york-ny", n:"Brother's Pizzeria", q:["750 Port Richmond Ave, Staten Island, NY 10302", "Brother's Pizzeria, New York, NY"]},
-  {city:"new-york-ny", n:"Randiwa", q:["1405 Richmond Ave, Staten Island, NY 10314", "Randiwa, New York, NY"]},
-  {city:"new-york-ny", n:"Killmeyer's Old Bavaria Inn", q:["4254 Arthur Kill Rd, Staten Island, NY 10309", "Killmeyer's Old Bavaria Inn, New York, NY"]},
-  {city:"new-york-ny", n:"Royal Crown Bakery", q:["1350 Hylan Blvd, Staten Island, NY 10305", "Royal Crown Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"San Jeronimo Restaurant & Bakery", q:["461 Port Richmond Ave, Staten Island, NY 10302", "San Jeronimo Restaurant & Bakery, New York, NY"]},
-  {city:"new-york-ny", n:"Abey African & Mediterranean Restaurant", q:["58 Richmond Terrace, Staten Island, NY 10301", "Abey African & Mediterranean Restaurant, New York, NY"]},
-  // ── Silicon Valley (silicon-valley-ca) — awaiting place pins ──
-  {city:"silicon-valley-ca", n:"Apple Park Visitor Center", q:["10600 N Tantau Ave, Cupertino, CA 95014","Apple Park Visitor Center, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Steve Jobs' Childhood Home & Apple Garage", q:["2066 Crist Dr, Los Altos, CA 94024","Steve Jobs' Childhood Home & Apple Garage, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Google Visitor Experience", q:["2000 N Shoreline Blvd, Mountain View, CA 94043","Google Visitor Experience, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Android Lawn Statues", q:["Charleston Rd & Huff Ave, Mountain View, CA 94043","Android Lawn Statues, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Computer History Museum", q:["1401 N Shoreline Blvd, Mountain View, CA 94043","Computer History Museum, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Intel Museum", q:["2200 Mission College Blvd, Santa Clara, CA 95054","Intel Museum, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"NVIDIA HQ - Voyager & Endeavor", q:["2788 San Tomas Expy, Santa Clara, CA 95051","NVIDIA HQ - Voyager & Endeavor, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"HP Garage - Birthplace of Silicon Valley", q:["367 Addison Ave, Palo Alto, CA 94301","HP Garage - Birthplace of Silicon Valley, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Xerox PARC", q:["3333 Coyote Hill Rd, Palo Alto, CA 94304","Xerox PARC, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"NASA Ames Exploration Center & Hangar One", q:["Moffett Blvd, Mountain View, CA 94035","NASA Ames Exploration Center & Hangar One, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Meta 'Like' Sign, 1 Hacker Way", q:["1 Hacker Way, Menlo Park, CA 94025","Meta 'Like' Sign, 1 Hacker Way, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Adobe HQ & San Jose Semaphore", q:["151 S Almaden Blvd, San Jose, CA 95113","Adobe HQ & San Jose Semaphore, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"eBay Main Campus", q:["2025 Hamilton Ave, San Jose, CA 95125","eBay Main Campus, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Samsung Semiconductor 'Samsung@First'", q:["3655 N First St, San Jose, CA 95134","Samsung Semiconductor 'Samsung@First', San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Elizabeth F. Gamble Garden", q:["1431 Waverley St, Palo Alto, CA 94301","Elizabeth F. Gamble Garden, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Foothills Nature Preserve", q:["3300 Page Mill Rd, Los Altos Hills, CA 94022","Foothills Nature Preserve, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Los Altos History Museum", q:["51 S San Antonio Rd, Los Altos, CA 94022","Los Altos History Museum, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Cuesta Park", q:["615 Cuesta Dr, Mountain View, CA 94040","Cuesta Park, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Historic Murphy Avenue", q:["S Murphy Ave, Sunnyvale, CA 94086","Historic Murphy Avenue, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Sunnyvale Baylands Park", q:["999 E Caribbean Dr, Sunnyvale, CA 94089","Sunnyvale Baylands Park, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Sunnyvale Heritage Park Museum", q:["570 E Remington Dr, Sunnyvale, CA 94087","Sunnyvale Heritage Park Museum, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Las Palmas Park", q:["850 Russet Dr, Sunnyvale, CA 94087","Las Palmas Park, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Historic Saratoga Village", q:["14503 Big Basin Way, Saratoga, CA 95070","Historic Saratoga Village, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"McClellan Ranch Preserve", q:["22221 McClellan Rd, Cupertino, CA 95014","McClellan Ranch Preserve, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Triton Museum of Art", q:["1505 Warburton Ave, Santa Clara, CA 95050","Triton Museum of Art, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"de Saisset Museum", q:["500 El Camino Real, Santa Clara, CA 95053","de Saisset Museum, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Almaden Quicksilver County Park", q:["21785 Almaden Rd, San Jose, CA 95120","Almaden Quicksilver County Park, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Pulgas Water Temple", q:["80 Cañada Rd, Redwood City, CA 94062","Pulgas Water Temple, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Natural Bridges State Beach", q:["2531 W Cliff Dr, Santa Cruz, CA 95060","Natural Bridges State Beach, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"West Cliff Drive", q:["701 W Cliff Dr, Santa Cruz, CA 95060","West Cliff Drive, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Mystery Spot", q:["465 Mystery Spot Rd, Santa Cruz, CA 95065","Mystery Spot, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Wilder Ranch State Park", q:["1401 Coast Rd, Santa Cruz, CA 95060","Wilder Ranch State Park, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Roaring Camp Railroads", q:["5401 Graham Hill Rd, Felton, CA 95018","Roaring Camp Railroads, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Pigeon Point Lighthouse", q:["210 Pigeon Point Rd, Pescadero, CA 94060","Pigeon Point Lighthouse, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Mount Umunhum Summit", q:["Mount Umunhum Rd, Los Gatos, CA 95033","Mount Umunhum Summit, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Pillar Point Harbor & Mavericks", q:["1 Johnson Pier, Half Moon Bay, CA 94019","Pillar Point Harbor & Mavericks, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Pinnacles National Park", q:["5000 East Entrance Rd, Paicines, CA 95043","Pinnacles National Park, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Stanford Dish Loop", q:["Stanford Ave & Junipero Serra Blvd, Stanford, CA 94305","Stanford Dish Loop, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Baylands Nature Preserve", q:["2500 Embarcadero Rd, Palo Alto, CA 94303","Baylands Nature Preserve, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Shoreline Park & Lake", q:["3160 N Shoreline Blvd, Mountain View, CA 94043","Shoreline Park & Lake, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Rancho San Antonio Preserve", q:["22500 Cristo Rey Dr, Cupertino, CA 95014","Rancho San Antonio Preserve, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Fremont Older Open Space Preserve", q:["22898 Prospect Rd, Saratoga, CA 95070","Fremont Older Open Space Preserve, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Stevens Creek County Park", q:["11401 Stevens Canyon Rd, Cupertino, CA 95014","Stevens Creek County Park, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Hakone Estate & Gardens", q:["21000 Big Basin Way, Saratoga, CA 95070","Hakone Estate & Gardens, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Japanese Friendship Garden", q:["1300 Senter Rd, San Jose, CA 95112","Japanese Friendship Garden, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Municipal Rose Garden", q:["Naglee Ave & Dana Ave, San Jose, CA 95126","Municipal Rose Garden, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Overfelt Gardens & Chinese Cultural Garden", q:["368 Educational Park Dr, San Jose, CA 95133","Overfelt Gardens & Chinese Cultural Garden, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Alum Rock Park", q:["15350 Penitencia Creek Rd, San Jose, CA 95127","Alum Rock Park, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Mission Peak (Fremont)", q:["680 Stanford Ave, Fremont, CA 94539","Mission Peak (Fremont), Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Lick Observatory (Mt Hamilton)", q:["7281 Mt Hamilton Rd, Mount Hamilton, CA 95140","Lick Observatory (Mt Hamilton), Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Filoli Historic House & Garden", q:["86 Canada Rd, Woodside, CA 94062","Filoli Historic House & Garden, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Big Basin Redwoods State Park", q:["21600 Big Basin Way, Boulder Creek, CA 95006","Big Basin Redwoods State Park, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Henry Cowell Redwoods State Park", q:["101 Big Trees Park Rd, Felton, CA 95018","Henry Cowell Redwoods State Park, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Santa Cruz Beach Boardwalk", q:["400 Beach St, Santa Cruz, CA 95060","Santa Cruz Beach Boardwalk, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Half Moon Bay State Beach", q:["95 Kelly Ave, Half Moon Bay, CA 94019","Half Moon Bay State Beach, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Gilroy Gardens Family Theme Park", q:["3050 Hecker Pass Hwy, Gilroy, CA 95020","Gilroy Gardens Family Theme Park, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Levi's Stadium & 49ers Museum", q:["4900 Marie P DeBartolo Way, Santa Clara, CA 95054","Levi's Stadium & 49ers Museum, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"SAP Center at San Jose (The Shark Tank)", q:["525 W Santa Clara St, San Jose, CA 95113","SAP Center at San Jose (The Shark Tank), San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"PayPal Park", q:["1123 Coleman Ave, San Jose, CA 95110","PayPal Park, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Shoreline Amphitheatre", q:["1 Amphitheatre Pkwy, Mountain View, CA 94043","Shoreline Amphitheatre, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"The Mountain Winery", q:["14831 Pierce Rd, Saratoga, CA 95070","The Mountain Winery, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"California's Great America", q:["4701 Great America Pkwy, Santa Clara, CA 95054","California's Great America, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"The Ritz", q:["400 S First St, San Jose, CA 95113","The Ritz, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Santana Row", q:["377 Santana Row, San Jose, CA 95128","Santana Row, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Stanford Shopping Center", q:["660 Stanford Shopping Center, Palo Alto, CA 94304","Stanford Shopping Center, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"University Avenue (Downtown Palo Alto)", q:["University Ave, Palo Alto, CA 94301","University Avenue (Downtown Palo Alto), Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Castro Street (Downtown Mountain View)", q:["Castro St, Mountain View, CA 94041","Castro Street (Downtown Mountain View), Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Downtown Los Gatos (Santa Cruz Avenue)", q:["N Santa Cruz Ave, Los Gatos, CA 95030","Downtown Los Gatos (Santa Cruz Avenue), Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"The Pruneyard Shopping Center", q:["1875 S Bascom Ave, Campbell, CA 95008","The Pruneyard Shopping Center, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"SoFA District & SoFA Market", q:["387 S First St, San Jose, CA 95113","SoFA District & SoFA Market, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Japantown San Jose", q:["N 5th St & Jackson St, San Jose, CA 95112","Japantown San Jose, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Children's Discovery Museum of San Jose", q:["180 Woz Way, San Jose, CA 95110","Children's Discovery Museum of San Jose, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Happy Hollow Park & Zoo", q:["748 Story Rd, San Jose, CA 95112","Happy Hollow Park & Zoo, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Downtown San Jose Murals & Public Art", q:["396 S First St, San Jose, CA 95113","Downtown San Jose Murals & Public Art, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"St. James Park", q:["N 2nd St & E St James St, San Jose, CA 95112","St. James Park, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"San Jose Museum of Art", q:["110 S Market St, San Jose, CA 95113","San Jose Museum of Art, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"MACLA (Movimiento de Arte y Cultura Latino Americana)", q:["510 S 1st St, San Jose, CA 95113","MACLA (Movimiento de Arte y Cultura Latino Americana), San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"San Jose Museum of Quilts & Textiles", q:["520 S 1st St, San Jose, CA 95113","San Jose Museum of Quilts & Textiles, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Institute of Contemporary Art San Jose", q:["560 S 1st St, San Jose, CA 95113","Institute of Contemporary Art San Jose, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Peralta Adobe & Fallon House Historic Site", q:["175 W St John St, San Jose, CA 95110","Peralta Adobe & Fallon House Historic Site, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Japanese American Museum of San Jose", q:["535 N 5th St, San Jose, CA 95112","Japanese American Museum of San Jose, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Viet Museum (Museum of the Boat People & the Republic of Vietnam)", q:["1650 Senter Rd, San Jose, CA 95112","Viet Museum (Museum of the Boat People & the Republic of Vietnam), San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Emma Prusch Farm Park", q:["647 S King Rd, San Jose, CA 95116","Emma Prusch Farm Park, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"San Jose Heritage Rose Garden", q:["399 W Taylor St, San Jose, CA 95110","San Jose Heritage Rose Garden, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Plaza de Cesar Chavez", q:["170 S Market St, San Jose, CA 95113","Plaza de Cesar Chavez, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Mexican Heritage Plaza", q:["1700 Alum Rock Ave, San Jose, CA 95116","Mexican Heritage Plaza, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Five Wounds Portuguese National Church", q:["1375 E Santa Clara St, San Jose, CA 95116","Five Wounds Portuguese National Church, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"SoFA District", q:["420 S 1st St, San Jose, CA 95113","SoFA District, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Japantown Historic District", q:["Jackson St & N 5th St, San Jose, CA 95112","Japantown Historic District, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Downtown Willow Glen (Lincoln Avenue)", q:["1261 Lincoln Ave, San Jose, CA 95125","Downtown Willow Glen (Lincoln Avenue), San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Don Edwards San Francisco Bay National Wildlife Refuge - Environmental Education Center", q:["1751 Grand Blvd, Alviso, CA 95002","Don Edwards San Francisco Bay National Wildlife Refuge - Environmental Education Center, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Cantor Arts Center", q:["328 Lomita Dr, Stanford, CA 94305","Cantor Arts Center, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Anderson Collection at Stanford University", q:["314 Lomita Dr, Stanford, CA 94305","Anderson Collection at Stanford University, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Hoover Tower", q:["550 Serra Mall, Stanford, CA 94305","Hoover Tower, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Palo Alto Junior Museum & Zoo", q:["1451 Middlefield Rd, Palo Alto, CA 94301","Palo Alto Junior Museum & Zoo, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Barron Park Donkeys (Bol Park)", q:["3590 Laguna Ave, Palo Alto, CA 94306","Barron Park Donkeys (Bol Park), Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Montalvo Arts Center (Villa Montalvo)", q:["15400 Montalvo Rd, Saratoga, CA 95070","Montalvo Arts Center (Villa Montalvo), Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"New Museum Los Gatos (NUMU)", q:["106 E Main St, Los Gatos, CA 95030","New Museum Los Gatos (NUMU), Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"The Tech Interactive", q:["201 S Market St, San Jose, CA 95113","The Tech Interactive, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Google Android Lawn Statues & Visitor Experience", q:["Charleston Rd & Huff Ave, Mountain View, CA 94043","Google Android Lawn Statues & Visitor Experience, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"NASA Ames Exploration Center", q:["NASA Ames Research Center, Moffett Field, Mountain View, CA 94035","NASA Ames Exploration Center, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Stanford Main Quad & Memorial Church", q:["450 Jane Stanford Way, Stanford, CA 94305","Stanford Main Quad & Memorial Church, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Cantor Arts Center & Rodin Sculpture Garden", q:["328 Lomita Dr, Stanford, CA 94305","Cantor Arts Center & Rodin Sculpture Garden, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Anderson Collection at Stanford", q:["314 Lomita Dr, Stanford, CA 94305","Anderson Collection at Stanford, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Bing Concert Hall", q:["327 Lasuen St, Stanford, CA 94305","Bing Concert Hall, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Winchester Mystery House", q:["525 S Winchester Blvd, San Jose, CA 95128","Winchester Mystery House, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Rosicrucian Egyptian Museum", q:["1660 Park Ave, San Jose, CA 95191","Rosicrucian Egyptian Museum, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Mission Santa Clara de Asis", q:["500 El Camino Real, Santa Clara, CA 95053","Mission Santa Clara de Asis, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Cathedral Basilica of St. Joseph", q:["80 S Market St, San Jose, CA 95113","Cathedral Basilica of St. Joseph, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"History Park San Jose", q:["635 Phelan Ave, San Jose, CA 95112","History Park San Jose, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Smoking Pig BBQ", q:["1144 N 4th St, San Jose, CA 95112","Smoking Pig BBQ, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Back A Yard Caribbean Grill", q:["457 E San Carlos St, San Jose, CA 95112","Back A Yard Caribbean Grill, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"The Table", q:["1110 Willow St, San Jose, CA 95125","The Table, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"John's of Willow Glen", q:["1238 Lincoln Ave, San Jose, CA 95125","John's of Willow Glen, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Alexander's Steakhouse", q:["19379 Stevens Creek Blvd, Cupertino, CA 95014","Alexander's Steakhouse, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"LB Steak", q:["334 Santana Row #1000, San Jose, CA 95128","LB Steak, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Scott's Seafood San Jose", q:["200 S First St, San Jose, CA 95113","Scott's Seafood San Jose, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Pacific Catch", q:["1875 S Bascom Ave #550, Campbell, CA 95008","Pacific Catch, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Stacks", q:["139 E Campbell Ave, Campbell, CA 95008","Stacks, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Los Gatos Cafe", q:["340 N Santa Cruz Ave, Los Gatos, CA 95030","Los Gatos Cafe, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Hobee's", q:["800 W Ahwanee Ave, Sunnyvale, CA 94086","Hobee's, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"St. John's Bar & Grill", q:["510 Lawrence Expy, Sunnyvale, CA 94085","St. John's Bar & Grill, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Crepevine", q:["367 University Ave, Palo Alto, CA 94301","Crepevine, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Sam's Chowder House", q:["4210 N Cabrillo Hwy, Half Moon Bay, CA 94019","Sam's Chowder House, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Barbara's Fishtrap", q:["281 Capistrano Rd, Half Moon Bay, CA 94019","Barbara's Fishtrap, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Cook's Seafood", q:["751 El Camino Real, Menlo Park, CA 94025","Cook's Seafood, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Boba Guys", q:["855 El Camino Real #120, Palo Alto, CA 94301","Boba Guys, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"85C Bakery Cafe", q:["19459 Stevens Creek Blvd #100, Cupertino, CA 95014","85C Bakery Cafe, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Meet Fresh", q:["19449 Stevens Creek Blvd Ste 120, Cupertino, CA 95014","Meet Fresh, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Tpumps", q:["7290 Bollinger Rd, San Jose, CA 95129","Tpumps, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"TP Tea", q:["10787 S Blaney Ave, Cupertino, CA 95014","TP Tea, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Ume Tea", q:["4750 Almaden Expy Ste 136, San Jose, CA 95118","Ume Tea, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Tea Top", q:["6158 Bollinger Rd, San Jose, CA 95129","Tea Top, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"iTea", q:["2936 Aborn Square Rd, San Jose, CA 95121","iTea, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Sharetea", q:["1728 Hostetter Rd Ste 30, San Jose, CA 95131","Sharetea, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Red Rock Coffee", q:["201 Castro St, Mountain View, CA 94041","Red Rock Coffee, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Chromatic Coffee", q:["5237 Stevens Creek Blvd, Santa Clara, CA 95051","Chromatic Coffee, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Academic Coffee", q:["499 S 2nd St, San Jose, CA 95113","Academic Coffee, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Nirvana Soul", q:["315 S 1st St, San Jose, CA 95113","Nirvana Soul, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Coffee & Water Lab", q:["603 Saratoga Ave #40, San Jose, CA 95129","Coffee & Water Lab, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Roy's Station Coffee & Tea", q:["197 Jackson St, San Jose, CA 95112","Roy's Station Coffee & Tea, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Crema Coffee Roasting", q:["1202 The Alameda, San Jose, CA 95126","Crema Coffee Roasting, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Icing on the Cake", q:["50 W Main St, Los Gatos, CA 95030","Icing on the Cake, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Cocola Bakery", q:["333 Santana Row #1045, San Jose, CA 95128","Cocola Bakery, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Sheng Kee Bakery", q:["10961 N Wolfe Rd, Cupertino, CA 95014","Sheng Kee Bakery, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Paris Baguette", q:["3159 Mission College Blvd, Santa Clara, CA 95054","Paris Baguette, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Matcha Cafe Maiko", q:["2855 Stevens Creek Blvd Ste 9254, Santa Clara, CA 95050","Matcha Cafe Maiko, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Din Tai Fung", q:["2855 Stevens Creek Blvd, Santa Clara, CA 95050","Din Tai Fung, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Tai Er Sichuan Cuisine", q:["2855 Stevens Creek Blvd, Unit A268, Santa Clara, CA 95050","Tai Er Sichuan Cuisine, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Chef Chu's", q:["1067 N San Antonio Rd, Los Altos, CA 94022","Chef Chu's, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Dynasty Chinese Seafood Restaurant", q:["1001 Story Rd, San Jose, CA 95122","Dynasty Chinese Seafood Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Boiling Point", q:["1698 Hostetter Rd, Ste E, San Jose, CA 95131","Boiling Point, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Happy Lamb Hot Pot", q:["19062 Stevens Creek Blvd, Cupertino, CA 95014","Happy Lamb Hot Pot, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Mian Sichuan Noodles & Dumplings", q:["19389 Stevens Creek Blvd, Cupertino, CA 95014","Mian Sichuan Noodles & Dumplings, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Liang's Village", q:["20530 Stevens Creek Blvd, Cupertino, CA 95014","Liang's Village, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Yummy Kitchen (Wen Xiang Ju)", q:["1711 Branham Ln, San Jose, CA 95118","Yummy Kitchen (Wen Xiang Ju), San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Shanghai Delight", q:["218 Barber Ct, Milpitas, CA 95035","Shanghai Delight, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Mr. Bao Kitchen", q:["357 Castro St, Mountain View, CA 94041","Mr. Bao Kitchen, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Shang Cafe", q:["6154 Bollinger Rd, San Jose, CA 95129","Shang Cafe, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Changsha Rice Noodles", q:["10911 N Wolfe Rd, Ste B, Cupertino, CA 95014","Changsha Rice Noodles, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Xian Kitchen", q:["300 Barber Ct, Milpitas, CA 95035","Xian Kitchen, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Xiang Xiang Noodle", q:["1115 Tasman Dr, Ste 2228, Sunnyvale, CA 94089","Xiang Xiang Noodle, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Hunan Impression", q:["5152 Moorpark Ave, Ste 30, San Jose, CA 95129","Hunan Impression, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Haidilao Hot Pot", q:["19409 Stevens Creek Blvd, Ste 100, Cupertino, CA 95014","Haidilao Hot Pot, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Tasty Pot", q:["222 Barber Ct, Milpitas, CA 95035","Tasty Pot, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Cheung Hing (Milpitas)", q:["1235 E Calaveras Blvd, Milpitas, CA 95035","Cheung Hing (Milpitas), Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Hunan House", q:["122 S Sunnyvale Ave, Sunnyvale, CA 94086","Hunan House, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Koi Palace (Milpitas)", q:["768 Barber Ln, Milpitas, CA 95035","Koi Palace (Milpitas), San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Fu Lam Mum", q:["153 Castro St, Mountain View, CA 94041","Fu Lam Mum, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Ox 9 Lanzhou Handpulled Noodles", q:["10745 S De Anza Blvd, Cupertino, CA 95014","Ox 9 Lanzhou Handpulled Noodles, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Jang Su Jang", q:["3561 El Camino Real #10, Santa Clara, CA 95051","Jang Su Jang, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Ramen Nagi", q:["541 Bryant St, Palo Alto, CA 94301","Ramen Nagi, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Gombei", q:["193 Jackson St, San Jose, CA 95112","Gombei, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Falafel's Drive-In", q:["2301 Stevens Creek Blvd, San Jose, CA 95128","Falafel's Drive-In, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Original Joe's", q:["301 S 1st St, San Jose, CA 95113","Original Joe's, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"La Victoria Taqueria", q:["140 E San Carlos St, San Jose, CA 95112","La Victoria Taqueria, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Bill's Cafe", q:["1115 Willow St, San Jose, CA 95125","Bill's Cafe, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Nick the Greek", q:["143 W Santa Clara St, San Jose, CA 95113","Nick the Greek, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Adega", q:["1614 Alum Rock Ave, San Jose, CA 95116","Adega, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Smitten Ice Cream", q:["3055 Olin Ave, Suite 1055, San Jose, CA 95128","Smitten Ice Cream, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Philz Coffee", q:["101 Forest Ave, Palo Alto, CA 94301","Philz Coffee, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Zareen's (Palo Alto)", q:["365 S California Ave, Palo Alto, CA 94306","Zareen's (Palo Alto), Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Protégé", q:["250 S California Ave, Palo Alto, CA 94306","Protégé, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Steins Beer Garden", q:["895 Villa St, Mountain View, CA 94041","Steins Beer Garden, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Voyager Craft Coffee", q:["3985 Stevens Creek Blvd, Santa Clara, CA 95051","Voyager Craft Coffee, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Manresa Bread", q:["40 N Santa Cruz Ave, Los Gatos, CA 95030","Manresa Bread, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Plumed Horse", q:["14555 Big Basin Way, Saratoga, CA 95070","Plumed Horse, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Dutch Goose", q:["3567 Alameda de las Pulgas, Menlo Park, CA 94025","Dutch Goose, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Ettan", q:["518 Bryant St, Palo Alto, CA 94301","Ettan, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Eylan", q:["500 El Camino Real, Suite 101, Menlo Park, CA 94025","Eylan, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Zareen's (Mountain View)", q:["1477 Plymouth St, Mountain View, CA 94043","Zareen's (Mountain View), Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Fitoor", q:["377 Santana Row, Suite 1140, San Jose, CA 95128","Fitoor, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Chaat Bhavan", q:["165 E El Camino Real, Mountain View, CA 94040","Chaat Bhavan, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Aurum", q:["132 State St, Los Altos, CA 94022","Aurum, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Sakoon", q:["357 Castro St, Mountain View, CA 94041","Sakoon, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Saravanaa Bhavan", q:["1305 S Mary Ave, Sunnyvale, CA 94087","Saravanaa Bhavan, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Anjappar Chettinad (Milpitas)", q:["458 Barber Ln, Milpitas, CA 95035","Anjappar Chettinad (Milpitas), Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"UlavacharU", q:["685 E El Camino Real, Sunnyvale, CA 94087","UlavacharU, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Saapaaduu", q:["5968 Silver Creek Valley Rd, Ste 20, San Jose, CA 95138","Saapaaduu, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Naan-N-Masala", q:["94 S Dempsey Rd, Milpitas, CA 95035","Naan-N-Masala, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Madras Cafe", q:["1177 W El Camino Real, Sunnyvale, CA 94087","Madras Cafe, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Sri Ananda Bhavan (Sunnyvale)", q:["920 E Arques Ave, Sunnyvale, CA 94085","Sri Ananda Bhavan (Sunnyvale), Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Bagara's", q:["594 E El Camino Real, Sunnyvale, CA 94087","Bagara's, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Kovai Cafe", q:["1136 S De Anza Blvd, Ste B, San Jose, CA 95129","Kovai Cafe, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Tirupathi Bhimas (Milpitas)", q:["1208 S Abel St, Milpitas, CA 95035","Tirupathi Bhimas (Milpitas), Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Komala Vilas", q:["1020 E El Camino Real, Sunnyvale, CA 94087","Komala Vilas, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Arka", q:["725 S Fair Oaks Ave, Sunnyvale, CA 94086","Arka, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Paradise Biryani Pointe (Santa Clara)", q:["2961 El Camino Real, Santa Clara, CA 95051","Paradise Biryani Pointe (Santa Clara), Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Kabab and Curry's", q:["1498 Isabella St, Santa Clara, CA 95050","Kabab and Curry's, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Little India Cafe", q:["415 N Mary Ave, Ste 101, Sunnyvale, CA 94085","Little India Cafe, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Surya Darshini Dosa Cafe", q:["691 S Milpitas Blvd, Ste 131, Milpitas, CA 95035","Surya Darshini Dosa Cafe, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Inchin's Bamboo Garden (Sunnyvale)", q:["151 W Washington Ave, Sunnyvale, CA 94086","Inchin's Bamboo Garden (Sunnyvale), Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Avachi Biryani House", q:["10251 S De Anza Blvd, Cupertino, CA 95014","Avachi Biryani House, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Chaat House", q:["939 W El Camino Real, Sunnyvale, CA 94086","Chaat House, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Delhiwala Chaat", q:["590 Old San Francisco Rd, Sunnyvale, CA 94086","Delhiwala Chaat, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"SGD Tofu House (So Gong Dong)", q:["3450 El Camino Real #105, Santa Clara, CA 95051","SGD Tofu House (So Gong Dong), Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Minato Japanese Restaurant", q:["617 N 6th St, San Jose, CA 95112","Minato Japanese Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Burma Ruby", q:["445 Emerson St, Palo Alto, CA 94301","Burma Ruby, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Gochi Japanese Fusion Tapas", q:["19980 Homestead Rd, Cupertino, CA 95014","Gochi Japanese Fusion Tapas, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Orenchi Ramen", q:["170 State St #107, Los Altos, CA 94022","Orenchi Ramen, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Seorai Korean BBQ", q:["3044 El Camino Real, Santa Clara, CA 95051","Seorai Korean BBQ, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Tapsilog Bistro", q:["819 W Hamilton Ave, Campbell, CA 95008","Tapsilog Bistro, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Sushi Confidential", q:["26 N San Pedro St, San Jose, CA 95113","Sushi Confidential, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Thaibodia Bistro", q:["2200 S Bascom Ave, Campbell, CA 95008","Thaibodia Bistro, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Hokkaido Ramen Santouka", q:["675 Saratoga Ave #103, San Jose, CA 95129","Hokkaido Ramen Santouka, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Kunjip", q:["1066 Kiely Blvd, Santa Clara, CA 95051","Kunjip, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"The Original Krung Thai Restaurant", q:["642 S Winchester Blvd, San Jose, CA 95128","The Original Krung Thai Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Green Elephant Gourmet", q:["3950 Middlefield Rd, Palo Alto, CA 94303","Green Elephant Gourmet, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Iki Omakase", q:["460 Ramona St, Palo Alto, CA 94301","Iki Omakase, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Rene-Rose Island Cuisine", q:["621 Caliente Dr, Sunnyvale, CA 94085","Rene-Rose Island Cuisine, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Gen Korean BBQ House", q:["1554 Saratoga Ave, San Jose, CA 95129","Gen Korean BBQ House, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Amarin Thai Cuisine", q:["147 Castro St, Mountain View, CA 94041","Amarin Thai Cuisine, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Kaita Restaurant", q:["215 Jackson St, San Jose, CA 95112","Kaita Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"LUNA Mexican Kitchen", q:["1495 The Alameda, San Jose, CA 95126","LUNA Mexican Kitchen, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Taqueria El Grullense", q:["1175 E Julian St Ste 5, San Jose, CA 95116","Taqueria El Grullense, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Super Taqueria", q:["480 S 10th St, San Jose, CA 95112","Super Taqueria, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Taqueria Eduardo", q:["3123 Williamsburg Dr, San Jose, CA 95117","Taqueria Eduardo, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Zona Rosa", q:["1411 The Alameda, San Jose, CA 95126","Zona Rosa, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Acopio", q:["399 S 24th St, San Jose, CA 95116","Acopio, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"La Chingada Taqueria", q:["3281 Sierra Rd, San Jose, CA 95132","La Chingada Taqueria, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Jalisco Taqueria", q:["401 S King Rd, San Jose, CA 95116","Jalisco Taqueria, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"El Camaron de Sinaloa", q:["245 Willow St, San Jose, CA 95110","El Camaron de Sinaloa, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"La Costa", q:["1805 Alum Rock Ave, San Jose, CA 95116","La Costa, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Mariscos Costa Alegre", q:["855 N 13th St, San Jose, CA 95112","Mariscos Costa Alegre, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"La Costeña", q:["235 E Middlefield Rd Ste 1A, Mountain View, CA 94043","La Costeña, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Vive Sol", q:["2020 W El Camino Real, Mountain View, CA 94040","Vive Sol, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Taqueria El Grullense M&G", q:["3636 El Camino Real, Palo Alto, CA 94306","Taqueria El Grullense M&G, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Speedy's Tacos", q:["929 E Duane Ave, Sunnyvale, CA 94085","Speedy's Tacos, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Chavez Supermarket & Taqueria", q:["666 N Fairoaks Ave, Sunnyvale, CA 94085","Chavez Supermarket & Taqueria, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Inka's Restaurant", q:["700 S Winchester Blvd Ste 25, San Jose, CA 95128","Inka's Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Pupuseria Delmy", q:["3039 Monterey Rd, San Jose, CA 95111","Pupuseria Delmy, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Fonda Colombiana", q:["1442 S White Rd, San Jose, CA 95127","Fonda Colombiana, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Chelokababi Persian Cuisine", q:["1236 S Wolfe Rd, Sunnyvale, CA 94086","Chelokababi Persian Cuisine, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Shalizaar", q:["300 El Camino Real, Belmont, CA 94002","Shalizaar, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"DishDash", q:["190 S Murphy Ave, Sunnyvale, CA 94086","DishDash, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Oren's Hummus", q:["261 University Ave, Palo Alto, CA 94301","Oren's Hummus, Palo Alto, CA"]},
-  {city:"silicon-valley-ca", n:"Kabul Afghan Cuisine", q:["135 El Camino Real, San Carlos, CA 94070","Kabul Afghan Cuisine, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Falafel STOP", q:["1325 Sunnyvale Saratoga Rd, Sunnyvale, CA 94087","Falafel STOP, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Zeni Ethiopian Restaurant", q:["1320 Saratoga Ave, San Jose, CA 95129","Zeni Ethiopian Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Rose International Market", q:["801 W El Camino Real, Ste B, Mountain View, CA 94040","Rose International Market, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"Caspian Restaurant", q:["1910 W El Camino Real, Ste D, Mountain View, CA 94040","Caspian Restaurant, Mountain View, CA"]},
-  {city:"silicon-valley-ca", n:"De Afghanan Kabob House", q:["37405 Fremont Blvd, Fremont, CA 94536","De Afghanan Kabob House, Bay Area, CA"]},
-  {city:"silicon-valley-ca", n:"Da Vien Coffee", q:["279 W Calaveras Blvd, Milpitas, CA 95035","Da Vien Coffee, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Banh Cuon Tay Ho", q:["2047 El Camino Real, Santa Clara, CA 95050","Banh Cuon Tay Ho, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Pho Nguyen", q:["275 W Calaveras Blvd, Milpitas, CA 95035","Pho Nguyen, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Bambu Dessert & Drinks", q:["89 S Park Victoria Dr, Milpitas, CA 95035","Bambu Dessert & Drinks, Santa Clara, CA"]},
-  {city:"silicon-valley-ca", n:"Thien Long", q:["3005 Silver Creek Rd, Ste 138, San Jose, CA 95121","Thien Long, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Cam Hung Sandwich and Coffee", q:["903 Reed Ave, Sunnyvale, CA 94086","Cam Hung Sandwich and Coffee, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Taiwan Bento", q:["587 E El Camino Real, Sunnyvale, CA 94087","Taiwan Bento, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"O2 Valley", q:["19058 Stevens Creek Blvd, Cupertino, CA 95014","O2 Valley, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Red Hot Wok", q:["10074 E Estates Dr, Cupertino, CA 95014","Red Hot Wok, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Taiwan Porridge Kingdom", q:["20956 Homestead Rd, Cupertino, CA 95014","Taiwan Porridge Kingdom, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Sunright Tea Studio", q:["795 E El Camino Real, Sunnyvale, CA 94087","Sunright Tea Studio, Sunnyvale, CA"]},
-  {city:"silicon-valley-ca", n:"Fantasia Coffee & Tea", q:["10933 N Wolfe Rd, Cupertino, CA 95014","Fantasia Coffee & Tea, Cupertino, CA"]},
-  {city:"silicon-valley-ca", n:"Pho Ha Noi", q:["969 Story Rd, San Jose, CA 95122","Pho Ha Noi, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Pho Ga Nha", q:["930 Story Rd, San Jose, CA 95122","Pho Ga Nha, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Hue Restaurant", q:["3005 Silver Creek Rd, Ste 190, San Jose, CA 95121","Hue Restaurant, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Duc Huong Sandwiches", q:["1020 Story Rd, Ste C, San Jose, CA 95122","Duc Huong Sandwiches, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Com Tam Thien Huong", q:["909 Story Rd, Unit 100, San Jose, CA 95122","Com Tam Thien Huong, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Bo Ne Phu Yen", q:["1818 Tully Rd, San Jose, CA 95122","Bo Ne Phu Yen, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Green Lotus", q:["1143 Story Rd, #180, San Jose, CA 95122","Green Lotus, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Bun Bo Hue An Nam", q:["740 Story Rd, Ste 3, San Jose, CA 95122","Bun Bo Hue An Nam, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Banh Xeo Ngon", q:["3005 Silver Creek Rd, Ste 176, San Jose, CA 95121","Banh Xeo Ngon, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Anh Hong", q:["1818 Tully Rd, Ste 150, San Jose, CA 95122","Anh Hong, San Jose, CA"]},
-  {city:"silicon-valley-ca", n:"Nem Nuong Nha Trang", q:["919 Story Rd, Ste 1100, San Jose, CA 95122","Nem Nuong Nha Trang, San Jose, CA"]},
-];
+// The helper is city-agnostic: it takes a worklist [{n, addr, kind}] and a city key, geocodes each place
+// with OpenStreetMap/Nominatim in the browser, and emits geo-merge-ready records
+// [{n, address, lat, lng, confidence, geoSource, status}] — paste back to the chat, I run geo-merge.
+let PLACES = [];      // {n, addr, kind}
 const results = [];
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
+const $ = id => document.getElementById(id);
+
+// Build the ordered queries for a place: full address first (most precise), then name + the tail of the
+// address (city/province) as a fallback so a named OSM feature (temple, market, park) can still match.
+function queriesFor(p){
+  const qs = [];
+  if(p.addr) qs.push(p.addr);
+  if(p.n){
+    const tail = (p.addr||"").split(",").slice(-2).join(",").trim();   // e.g. "Ho Chi Minh City, Vietnam"
+    qs.push(tail ? (p.n + ", " + tail) : p.n);
+  }
+  return qs.length ? qs : [p.n || ""];
+}
+
+function loadWorklist(arr){
+  if(!Array.isArray(arr)) { alert("Worklist must be a JSON array of {n, addr, kind}."); return; }
+  PLACES = arr.filter(x => x && x.n).map(x => ({n:x.n, addr:x.addr||x.address||"", kind:x.kind||""}));
+  $("status").textContent = `loaded ${PLACES.length} places`;
+  $("run").disabled = PLACES.length === 0;
+  const tb = document.querySelector("#tbl tbody"); tb.innerHTML="";
+  PLACES.forEach((p,i)=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${i+1}</td><td>${p.n}</td><td>${queriesFor(p)[0]}</td><td class="wait">…</td><td class="match"></td>`;
+    tb.appendChild(tr);
+  });
+}
+
+$("file").addEventListener("change", e => {
+  const f = e.target.files[0]; if(!f) return;
+  const fr = new FileReader();
+  fr.onload = () => { try{ loadWorklist(JSON.parse(fr.result)); }catch(err){ alert("Could not parse JSON: "+err.message); } };
+  fr.readAsText(f);
+});
+$("usePaste").addEventListener("click", () => {
+  try{ loadWorklist(JSON.parse($("io").value)); }catch(err){ alert("Could not parse the pasted JSON: "+err.message); }
+});
 
 async function nominatim(query){
   const url = "https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=1&q=" + encodeURIComponent(query);
@@ -575,22 +99,16 @@ async function nominatim(query){
   const j = await r.json();
   return (j && j[0]) || null;
 }
-
-function row(i){ return document.querySelector("#tbl tbody").children[i]; }
+const row = i => document.querySelector("#tbl tbody").children[i];
 
 async function run(){
-  const btn=document.getElementById("run"); btn.disabled=true;
-  const tb=document.querySelector("#tbl tbody"); tb.innerHTML="";
-  PLACES.forEach((p,i)=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${i+1}</td><td>${p.n}</td><td>${p.q[0]}</td><td class="wait">…</td><td class="match"></td>`;
-    tb.appendChild(tr);
-  });
+  const btn=$("run"); btn.disabled=true;
+  const cityKey = ($("cityKey").value||"singapore").trim();
   results.length=0;
   for(let i=0;i<PLACES.length;i++){
     const p=PLACES[i]; let hit=null, used="";
-    document.getElementById("status").textContent = `geocoding ${i+1}/${PLACES.length}…`;
-    for(const q of p.q){
+    $("status").textContent = `geocoding ${i+1}/${PLACES.length}…`;
+    for(const q of queriesFor(p)){
       try{ hit = await nominatim(q); used=q; }catch(e){ hit=null; }
       if(hit) break;
       await sleep(1100); // Nominatim: max ~1 req/sec
@@ -598,20 +116,26 @@ async function run(){
     const cell=row(i).children[3], mcell=row(i).children[4];
     if(hit){
       const lat=+(+hit.lat).toFixed(5), lng=+(+hit.lon).toFixed(5);
+      // exact named feature (temple/market/park/etc.) => high; a street/road match => med (approximate).
+      const cat=(hit.category||hit.class||""), typ=(hit.type||"");
+      const approx = ["highway","place","boundary"].includes(cat) || ["road","residential","neighbourhood","suburb","city","town","administrative"].includes(typ);
+      const conf = approx ? "med" : "high";
       cell.textContent=`${lat}, ${lng}`; cell.className="ok";
-      mcell.innerHTML=(hit.display_name||"").slice(0,90)+` <a target="_blank" href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}&zoom=19">verify on OSM ↗</a>`;
-      results.push(Object.assign({city:p.city,n:p.n,lat,lng,source:`OpenStreetMap/Nominatim (browser geocode of "${used}")`,conf:"high"}, p.newAddress?{address:p.newAddress}:{}));
+      mcell.innerHTML=`[${conf}] `+(hit.display_name||"").slice(0,100)+` <a target="_blank" href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}&zoom=19">verify ↗</a>`;
+      results.push({n:p.n, address:used, lat, lng, confidence:conf,
+                    geoSource:`OpenStreetMap/Nominatim (browser geocode of "${used}"; ${hit.display_name||""})`,
+                    status:"open"});
     } else {
       cell.textContent="not found"; cell.className="bad";
-      mcell.textContent="No OSM match — tweak the address and re-run.";
+      mcell.textContent="No OSM match — edit the address in the worklist and re-run.";
     }
     await sleep(1100);
   }
-  document.getElementById("status").textContent = `done — ${results.length}/${PLACES.length} resolved.`;
-  document.getElementById("out").value = JSON.stringify(results,null,1);
+  $("status").textContent = `done — ${results.length}/${PLACES.length} resolved (city key: "${cityKey}").`;
+  $("io").value = JSON.stringify(results,null,1);
   btn.disabled=false;
 }
-document.getElementById("run").addEventListener("click", run);
+$("run").addEventListener("click", run);
 </script>
 </body>
 </html>
