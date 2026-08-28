@@ -59,6 +59,20 @@ Append a script element and use `onload` / `onerror`.
 separately via `mountMap()` if Leaflet arrives. A blocked CDN costs a map, not a page.
 `npm test` covers this explicitly — do not weaken it.
 
+**4-ai. No map may carry the Google base-map "API key" surface — a wired guard, not a manual check.**
+The engine once shipped an optional Google base-layer system (key-required `g_*` layers, an "ADD GOOGLE
+API KEY" button, `setGoogle()`/`promptKey()`/GoogleMutant loader). Every page cloned from the engine
+inherited it and put **"API key required"** in front of viewers. Maps use only free CARTO/OSM/Esri tiles.
+This is enforced at three gates, all sharing one module `tools/engine_guard.py` (`strip_google()` +
+`assert_no_google()` + the `FORBIDDEN` token list) — never re-implement the list or paste a one-off fix:
+1. **Build time** — every `tools/build-*.py` runs `engine_guard.strip_google(new)` then
+   `assert_no_google(new, OUT)` before writing, so a page with the surface cannot be built.
+2. **Test time** — `npm test` runs `tools/check-google.py` (scans every map: engine, cities, Singapore,
+   index) alongside `test.js`/`test-singapore.js`/`check-escapes.py`. `test.js` also asserts no Google chip.
+3. **Commit time** — a tracked pre-commit hook (`tools/hooks/pre-commit`) runs `check-google.py` +
+   `check-escapes.py` and blocks the commit. Activate it once per clone: `git config core.hooksPath tools/hooks`.
+To scrub a page by hand: `python3 tools/strip-google-basemap.py <file>`. Do not weaken any of these.
+
 **4a. Every address and map coordinate MUST be fact-checked against a real source — never from
 memory or estimation.** This is a hard rule, no exceptions. Verify each place's street address and
 its exact lat/lng against the place's **official site**, **Google/Apple/OpenStreetMap**, or

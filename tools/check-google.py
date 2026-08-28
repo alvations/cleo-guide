@@ -8,10 +8,9 @@
 # tiles. This scans EVERY map HTML in the repo for the forbidden tokens so it can never come back — wired
 # into `npm test`. (fonts.googleapis.com stylesheet links are allowed; the Maps tile API + key UI are not.)
 import glob, os, sys
+from engine_guard import FORBIDDEN
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FORBIDDEN = ["API key", "maps.googleapis.com", "GoogleMutant", "googleMutant",
-             "promptKey", "setGoogle", "g_road", "ADD GOOGLE", "GKEY", "cle_gkey"]
 
 def maps():
     fs = [os.path.join(ROOT, "cleveland.html"), os.path.join(ROOT, "index.html")]
