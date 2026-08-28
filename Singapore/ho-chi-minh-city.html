@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Ho Chi Minh City (Vietnam) field guide — 48 sights and 63 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="description" content="Ho Chi Minh City (Vietnam) field guide — 53 sights and 63 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
 <title>Ho Chi Minh City — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -229,9 +229,9 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">City guide · Vietnam · 12 districts</p>
+  <p class="eyebrow">City guide · Vietnam · 14 districts</p>
   <h1>Ho Chi Minh City<span class="thin">Vietnam — a whole city, district by district, sourced</span></h1>
-  <p class="standfirst">48 sights and 63 places to eat in the city of <strong>Ho Chi Minh City</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators) across 12 districts. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by district, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA cities</a></p>
+  <p class="standfirst">53 sights and 63 places to eat in the city of <strong>Ho Chi Minh City</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators) across 14 districts. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by district, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA cities</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -246,14 +246,16 @@
   <span><i style="background:#BCA7E6"></i>District 3 (Võ Thị Sáu)</span>
   <span><i style="background:#84CBB9"></i>District 4 (Vĩnh Khánh)</span>
   <span><i style="background:#9CBEEC"></i>Chợ Lớn (D5–6)</span>
-  <span><i style="background:#E8C57C"></i>Phú Nhuận</span>
-  <span><i style="background:#E4989B"></i>Bình Thạnh</span>
-  <span><i style="background:#8FD0A0"></i>Tân Bình · Airport (Tân Sơn Nhất)</span>
-  <span><i style="background:#C9A9D6"></i>Thủ Đức City (D2 · Thảo Điền · D9)</span>
-  <span><i style="background:#7FC7D9"></i>District 7 · Nhà Bè</span>
-  <span><i style="background:#F0B48A"></i>Biên Hòa (Đồng Nai)</span>
-  <span><i style="background:#A9C48A"></i>Bình Dương (Đại Nam · Thuận An)</span>
-  <span><i style="background:#D9A6C2"></i>Day trips (Củ Chi · Cần Giờ · Mekong · Vũng Tàu)</span>
+  <span><i style="background:#E8C57C"></i>District 8 · Bình Tân</span>
+  <span><i style="background:#E4989B"></i>Phú Nhuận</span>
+  <span><i style="background:#8FD0A0"></i>Bình Thạnh</span>
+  <span><i style="background:#C9A9D6"></i>Gò Vấp · District 12</span>
+  <span><i style="background:#7FC7D9"></i>Tân Bình · Airport (Tân Sơn Nhất)</span>
+  <span><i style="background:#F0B48A"></i>Thủ Đức City (D2 · Thảo Điền · D9)</span>
+  <span><i style="background:#A9C48A"></i>District 7 · Nhà Bè</span>
+  <span><i style="background:#D9A6C2"></i>Biên Hòa (Đồng Nai)</span>
+  <span><i style="background:#C7B37F"></i>Bình Dương (Đại Nam · Thuận An)</span>
+  <span><i style="background:#93C6C0"></i>Day trips (Củ Chi · Cần Giờ · Mekong · Vũng Tàu)</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -323,11 +325,16 @@
 <script>
 
 const S = {
+  "AEON":{k:"AEON",t:"AEON Vietnam (corporate newsroom)",u:"https://corp.aeon.com.vn/",l:"AEON Vietnam (corporate newsroom)"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BAODAUTU":{k:"BAODAUTU",t:"Báo Đầu Tư (Vietnam Investment Review)",u:"https://baodautu.vn/",l:"Báo Đầu Tư (Vietnam Investment Review)"},
+  "BAOVANHOA":{k:"BAOVANHOA",t:"Báo Văn Hóa",u:"https://baovanhoa.vn/",l:"Báo Văn Hóa"},
   "BECAMEX":{k:"BECAMEX",t:"Explore Binh Duong (Becamex)",u:"https://becamexhotels.com/en/explore-binh-duong/",l:"Explore Binh Duong (Becamex)"},
+  "CAFEBIZ":{k:"CAFEBIZ",t:"CafeBiz",u:"https://cafebiz.vn/",l:"CafeBiz"},
   "CNNTRAVEL":{k:"CNN TRAVEL",t:"CNN Travel",u:"https://www.cnn.com/travel",l:"CNN Travel"},
   "CULTURETRIP":{k:"CULTURETRIP",t:"The Culture Trip",u:"https://theculturetrip.com/",l:"The Culture Trip"},
   "DONGNAIGOV":{k:"DONGNAIGOV",t:"Dong Nai Provincial Government",u:"https://dongnai.gov.vn",l:"Dong Nai Provincial Government"},
+  "KENH14":{k:"KENH14",t:"Kenh14",u:"https://kenh14.vn/",l:"Kenh14"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/indonesia/bali",l:"Lonely Planet"},
   "LUNEPRODUCTION":{k:"LUNEPRODUCTION",t:"Lune Production (official Saigon Opera House A O Show operator)",u:"https://www.luneproduction.com/",l:"Lune Production (official Saigon Opera House A O Show operator)"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Cuisine Wat Damnak (official)",u:"https://www.cuisinewatdamnak.com/",l:"Cuisine Wat Damnak (official)"},
@@ -345,7 +352,9 @@ const S = {
   "VIETNAMNET":{k:"VIETNAMNET",t:"VietnamNet",u:"https://vietnamnet.vn/en/",l:"VietnamNet"},
   "VIETNAMPLUS":{k:"VIETNAMPLUS",t:"VietnamPlus (Vietnam News Agency)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (Vietnam News Agency)"},
   "VIETNAMTOURISM":{k:"VIETNAMTOURISM",t:"Vietnam National Tourism (vietnam.travel)",u:"https://vietnam.travel/",l:"Vietnam National Tourism (vietnam.travel)"},
+  "VIR":{k:"VIR",t:"Vietnam Investment Review",u:"https://vir.com.vn/",l:"Vietnam Investment Review"},
   "VNAT_ORG":{k:"VNAT ORG",t:"Vietnam Tourism Info (vietnamtourism.org.vn)",u:"https://www.vietnamtourism.org.vn",l:"Vietnam Tourism Info (vietnamtourism.org.vn)"},
+  "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
   "VNTRAVEL":{k:"VNTRAVEL",t:"Vietnam Tourism (vietnam.travel)",u:"https://vietnam.travel",l:"Vietnam Tourism (vietnam.travel)"},
   "VOVWORLD":{k:"VOVWORLD",t:"VOV World (Voice of Vietnam)",u:"https://vovworld.vn/en-US",l:"VOV World (Voice of Vietnam)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
@@ -356,14 +365,16 @@ const AREAS = [
   {id:"D3",n:"District 3 (Võ Thị Sáu)",c:"#BCA7E6"},
   {id:"D4",n:"District 4 (Vĩnh Khánh)",c:"#84CBB9"},
   {id:"CHOLON",n:"Chợ Lớn (D5–6)",c:"#9CBEEC"},
-  {id:"PHUNHUAN",n:"Phú Nhuận",c:"#E8C57C"},
-  {id:"BINHTHANH",n:"Bình Thạnh",c:"#E4989B"},
-  {id:"TANBINH",n:"Tân Bình · Airport (Tân Sơn Nhất)",c:"#8FD0A0"},
-  {id:"THUDUC",n:"Thủ Đức City (D2 · Thảo Điền · D9)",c:"#C9A9D6"},
-  {id:"D7",n:"District 7 · Nhà Bè",c:"#7FC7D9"},
-  {id:"BIENHOA",n:"Biên Hòa (Đồng Nai)",c:"#F0B48A"},
-  {id:"BINHDUONG",n:"Bình Dương (Đại Nam · Thuận An)",c:"#A9C48A"},
-  {id:"DAYTRIP",n:"Day trips (Củ Chi · Cần Giờ · Mekong · Vũng Tàu)",c:"#D9A6C2"}
+  {id:"D8",n:"District 8 · Bình Tân",c:"#E8C57C"},
+  {id:"PHUNHUAN",n:"Phú Nhuận",c:"#E4989B"},
+  {id:"BINHTHANH",n:"Bình Thạnh",c:"#8FD0A0"},
+  {id:"GOVAP",n:"Gò Vấp · District 12",c:"#C9A9D6"},
+  {id:"TANBINH",n:"Tân Bình · Airport (Tân Sơn Nhất)",c:"#7FC7D9"},
+  {id:"THUDUC",n:"Thủ Đức City (D2 · Thảo Điền · D9)",c:"#F0B48A"},
+  {id:"D7",n:"District 7 · Nhà Bè",c:"#A9C48A"},
+  {id:"BIENHOA",n:"Biên Hòa (Đồng Nai)",c:"#D9A6C2"},
+  {id:"BINHDUONG",n:"Bình Dương (Đại Nam · Thuận An)",c:"#C7B37F"},
+  {id:"DAYTRIP",n:"Day trips (Củ Chi · Cần Giờ · Mekong · Vũng Tàu)",c:"#93C6C0"}
 ];
 
 const P = [
@@ -404,6 +415,11 @@ const P = [
 {t:2,a:"D1",n:"Tao Dan Park",ad:"Truong Dinh Street, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77472,ln:106.69306,w:"One of central Saigon's largest green spaces (a former French garden), with a Cham-style shrine, a Hung Kings temple and a famous early-morning 'bird cafe' where locals hang songbird cages (~06:00-09:00; disrupted in recent years by Metro works). Free.",k:"Park & nature",g:["TEMPLE","PARK","FAM","FREE"],s:[["SAIGONEER","https://saigoneer.com/in-plain-sight/27856-to-appreciate-tao-%C4%91%C3%A0n-more,-study-the-park-s-past,-present,-and-future"],["VIETNAMNET","https://vietnamnet.vn/en/saigon-mornings-are-for-the-beautiful-birds-E190530.html"]]},
 {t:1,a:"THUDUC",n:"Buu Long Pagoda (Gotama Cetiya)",ad:"81 Nguyen Xien, Long Binh Ward, Thu Duc City, Ho Chi Minh City, Vietnam",la:10.87878,ln:106.83598,w:"A gleaming white Thai/Indian-style Theravada temple and 56 m Gotama Cetiya stupa on a hill above the Dong Nai River in Thu Duc, named by National Geographic (2019) among the world's 10 most beautiful Buddhist sites. Free; incense-free grounds.",k:"Buddhist pagoda",g:["TEMPLE","PARK","FREE"],s:[["SAIGONEER","https://saigoneer.com/vietnam-travel/14019-photos-in-saigon-s-buu-long-pagoda,-a-meditative-escape-and-pan-southeast-asian-architecture"],["VIETNAMNET","https://vietnamnet.vn/en/national-geographic-s-pick-a-closer-look-at-buu-long-pagoda-2346410.html"]]},
 {t:2,a:"BINHTHANH",n:"Binh Quoi Tourist Village",ad:"1147 Binh Quoi, Ward 28 (Thanh Da Peninsula), Binh Thanh District, Ho Chi Minh City, Vietnam",la:10.82750,ln:106.73694,w:"A riverside 'traditional-village' recreation park on the Thanh Da peninsula run by Saigontourist, known for its weekend Southern-style buffets, folk games and thatched-hut gardens along the Saigon River. Free entry; paid activities and buffet.",k:"Riverside park & village",g:["PARK","FREE"],s:[["SAIGONTOURIST","https://saigontourist.com.vn/en/service/cuisine/35-binh-quoi-tourist-village-1"],["OFFICIAL","https://binhquoi.vn/en/"]]},
+{t:2,a:"D1",n:"Việt Nam Quốc Tự",ad:"244 Ba Tháng Hai, Ward 12, District 10, Ho Chi Minh City, Vietnam",la:10.77115,ln:106.67322,w:"A landmark District 10 Buddhist temple on Ba Tháng Hai (3/2) Boulevard, originally built in 1964 and rebuilt 2014–2017 around a soaring 13-storey stupa (Tháp Đa Bảo). A historically significant seat of Vietnamese Buddhism and a striking, uncrowded stop; upper floors open on the 1st and 15th of the lunar month.",k:"Buddhist temple",g:["TEMPLE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Vi%E1%BB%87t_Nam_Qu%E1%BB%91c_T%E1%BB%B1"],["VIETNAMPLUS","https://en.vietnamplus.vn/hcm-city-vietnam-quoc-tu-pagoda-rebuilt-post66804.vnp"]]},
+{t:3,a:"D8",n:"Cầu Nhị Thiên Đường",ad:"Cầu Nhị Thiên Đường (over Kênh Đôi), Ward 5, District 8, Ho Chi Minh City, Vietnam",la:10.74168,ln:106.65598,w:"A 1925 bridge over the Kênh Đôi, said to be the first reinforced-concrete bridge in Indochina, built by the Chinese-Vietnamese magnate behind the Nhị Thiên Đường medicated-oil empire. A row of arches beneath it evokes an old Roman viaduct; a District 8 landmark and marker of the Nam Bộ resistance era.",k:"Historic bridge",g:["ARCH"],s:[["KENH14","https://kenh14.vn/xa-hoi/6-cay-cau-gan-lien-voi-lich-su-hon-300-nam-o-sai-gon-20151102091315112.chn"],["CAFEBIZ","https://cafebiz.vn/ong-chu-nguoi-hoa-nuc-tieng-sai-gon-va-di-tich-ky-la-tren-cay-cau-xi-mang-dau-tien-o-dong-duong-20210525104208647.chn"]]},
+{t:3,a:"D8",n:"AEON Mall Bình Tân",ad:"1 Đường số 17A, Bình Trị Đông B Ward, Bình Tân, Ho Chi Minh City, Vietnam",la:10.74326,ln:106.61303,w:"The 114,000 sqm Japanese-run mall that anchors Bình Tân, opened 2016 as one of the largest in Ho Chi Minh City — cinema, a huge food street, and the everyday air-conditioned pull for the district's working-class west. The practical family day-out landmark out here.",k:"Shopping mall",g:["ARCH"],s:[["VNEXPRESS","https://ngoisao.vnexpress.net/aeon-mall-binh-tan-diem-dung-chan-thu-vi-cho-gia-dinh-3413897.html"],["BAODAUTU","https://baodautu.vn/aeon-khai-truong-trung-tam-thuong-mai-aeon-binh-tan-d46845.html"]]},
+{t:2,a:"GOVAP",n:"Bà Điểm & the Eighteen Betel Garden Villages (18 Thôn Vườn Trầu)",ad:"Bà Điểm Commune, Hóc Môn, Ho Chi Minh City, Vietnam",la:10.83944,ln:106.59944,w:"The historic areca-and-betel-growing belt around Bà Điểm, famed since the 18th century and a cradle of the 1940 Southern Uprising — the Southern Party Committee sheltered in its gardens. Today a living cultural-heritage landscape of remnant trầu (betel) gardens and revolutionary memory rather than a ticketed attraction.",k:"heritage district",g:["HERITAGE","PARK"],s:[["WIKIPEDIA","https://vi.wikipedia.org/wiki/18_th%C3%B4n_v%C6%B0%E1%BB%9Dn_tr%E1%BA%A7u"],["BAOVANHOA","https://baovanhoa.vn/doi-song-van-hoa/phat-huy-gia-tri-van-hoa%C2%A018-thon-vuon-trau-49748.html"]]},
+{t:2,a:"TANBINH",n:"AEON Mall Tân Phú Celadon",ad:"30 Bờ Bao Tân Thắng, Sơn Kỳ Ward, Tân Phú, Ho Chi Minh City, Vietnam",la:10.79222,ln:106.62528,w:"AEON's first shopping mall in Vietnam, opened 11 Jan 2014 — a ~70,000 m² Japanese-anchored complex in the Celadon City estate that made Vietnam the third country (after Malaysia and China) with a large-scale AEON MALL. A CGV cinema, food court, indoor playground and 200+ brands make it the western suburbs' main weekend gathering place.",k:"landmark",g:["MKT","ARCH","FAM"],s:[["VIR","https://vir.com.vn/aeons-first-vietnam-shopping-centre-launch-packs-them-in-24967.html"],["AEON","https://corp.aeon.com.vn/en/aeon-vietnam-news/aeon-first-presenting-in-vietnam-aeon-mall-tan-phu-celadon-opening-on-january-11-2014/"]]},
 {t:1,a:"TANBINH",n:"Suoi Tien Theme Park",ad:"120 Hanoi Highway, Tan Phu Ward, Thu Duc City, Ho Chi Minh City, Vietnam",la:10.86389,ln:106.80217,w:"The world's first Buddhism-themed amusement/water park (opened 1995), a surreal 200-ha spread of giant dragons, a neon-haloed Buddha shrine, a 'Buddhist Hell' walkthrough and waterslides pouring from sages' beards. ~1.5-2M visitors/year; daily ~07:30-17:00. Reachable on Metro Line 1.",k:"theme park",g:["TEMPLE","PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Su%E1%BB%91i_Ti%C3%AAn_Theme_Park"],["ATLASOBSCURA","https://www.atlasobscura.com/places/suoi-tien-cultural-theme-park"]]},
 {t:3,a:"THUDUC",n:"Vietnam National Historical Culture Park (Cong vien Lich su Van hoa Dan toc)",ad:"Long Binh Ward, Thu Duc (District 9), Ho Chi Minh City, Vietnam",la:10.86583,ln:106.83250,w:"A ~400-ha state park recreating Vietnam's history in themed zones, anchored by the grand Hung Kings temple complex where the city holds its official Hung Kings' Death Anniversary rites. Long-running build-out; the ancient/Hung-Kings zone is the finished, visit-worthy core.",k:"park",g:["TEMPLE","PARK"],s:[["WIKIPEDIA","https://vi.wikipedia.org/wiki/C%C3%B4ng_vi%C3%AAn_L%E1%BB%8Bch_s%E1%BB%AD_%E2%80%93_V%C4%83n_h%C3%B3a_D%C3%A2n_t%E1%BB%99c"],["THUDUCGOV","https://dulich-tpthuduc.hochiminhcity.gov.vn/diem-den/diem-den-mo-phong-3d/"]]},
 {t:2,a:"D7",n:"Crescent Mall & Starlight Bridge (Cau Anh Sao)",ad:"Ton Dat Tien, Phu My Hung, District 7, Ho Chi Minh City, Vietnam",la:10.72872,ln:106.71685,w:"The centrepiece of planned Phu My Hung: a 170 m LED-lit pedestrian bridge over crescent-shaped Ho Ban Nguyet lake, glowing like a starry sky at night, beside the riverfront Crescent Mall. The go-to evening promenade of Saigon's affluent south.",k:"landmark",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Crescent_Mall"],["SAIGONEER","https://saigoneer.com/saigon-food-culture/27006-evening-stroll-phu-my-hung-d7-korea-town-saigon-south"]]},
@@ -458,7 +474,7 @@ const FS = {
   "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
   "WIKI":{k:"WIKI",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
   "WILLFLY":{k:"WILLFLY",t:"Will Fly for Food (JB & Renée Macatulad)",u:"https://www.willflyforfood.net/",l:"Will Fly for Food (JB & Renée Macatulad)"},
-  "WILLFLYFORFOOD":{k:"WILLFLYFORFOOD",t:"Will Fly for Food (JB & Renee Macatulad) (blog + IG)",u:"https://www.willflyforfood.net/saigon-food-guide-25-must-eat-restaurants-street-food-stalls-in-ho-chi-minh-city-vietnam/",l:"Will Fly for Food (JB & Renee Macatulad) (blog + IG)"},
+  "WILLFLYFORFOOD":{k:"WILLFLYFORFOOD",t:"Will Fly for Food (JB & Renée Macatulad)",u:"https://www.willflyforfood.net/",l:"Will Fly for Food (JB & Renée Macatulad)"},
   "WORDVIETNAM":{k:"WORDVIETNAM",t:"The Word Vietnam",u:"https://wordhanoi.com/",l:"The Word Vietnam"},
   "WORLDS50BESTBARS":{k:"WORLDS50BESTBARS",t:"Asia's 50 Best Bars (World's 50 Best)",u:"https://www.theworlds50best.com/",l:"Asia's 50 Best Bars (World's 50 Best)"}
 };
@@ -582,14 +598,14 @@ function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN])
 
 function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Ho Chi Minh City')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {D1:'#F2A1A1',D3:'#BCA7E6',D4:'#84CBB9',CHOLON:'#9CBEEC',PHUNHUAN:'#E8C57C',BINHTHANH:'#E4989B',TANBINH:'#8FD0A0',THUDUC:'#C9A9D6',D7:'#7FC7D9',BIENHOA:'#F0B48A',BINHDUONG:'#A9C48A',DAYTRIP:'#D9A6C2'};
+const AC = {D1:'#F2A1A1',D3:'#BCA7E6',D4:'#84CBB9',CHOLON:'#9CBEEC',D8:'#E8C57C',PHUNHUAN:'#E4989B',BINHTHANH:'#8FD0A0',GOVAP:'#C9A9D6',TANBINH:'#7FC7D9',THUDUC:'#F0B48A',D7:'#A9C48A',BIENHOA:'#D9A6C2',BINHDUONG:'#C7B37F',DAYTRIP:'#93C6C0'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([10.77466,106.69668],11);
+  map = L.map('map',{scrollWheelZoom:false}).setView([10.77466,106.69556],11);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
