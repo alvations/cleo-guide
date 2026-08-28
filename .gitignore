@@ -50,3 +50,6 @@ data/state-college-research/geo/_*.json
 data/wheeling-research/wh_dataset.json
 data/wheeling-research/wh_worklist.json
 data/wheeling-research/geo/_*.json
+
+# Erie PA geocode intermediates (registry lives in data/geocodes.json)
+data/erie-research/geo/_*.json
