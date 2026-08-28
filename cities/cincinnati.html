@@ -518,12 +518,7 @@ function mountMap(){
   mapMounted=true;
   document.getElementById('map').innerHTML='';
   map = L.map('map',{scrollWheelZoom:false}).setView([39.1131,-84.5097],11);
-/* ── Base layers ────────────────────────────────────────────────────────────
-   Free layers need no key. Google needs your own Maps JavaScript API key and
-   is loaded through the officially sanctioned GoogleMutant plugin, because
-   scraping Google's raster tiles directly breaks their terms. Apple Maps has
-   no equivalent: MapKit JS needs a signed developer token, which a static
-   file cannot produce. The per-place "Apple Maps" links handle Apple instead. */
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
   o:{attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}},
@@ -535,15 +530,11 @@ const BASES=[
   o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
   overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
  {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
-  o:{attribution:'&copy; Esri',maxZoom:19}},
- {id:'g_road',l:'Google Roads',    free:0, gtype:'roadmap'},
- {id:'g_sat', l:'Google Satellite',free:0, gtype:'hybrid'},
- {id:'g_ter', l:'Google Terrain',  free:0, gtype:'terrain'}
+  o:{attribution:'&copy; Esri',maxZoom:19}}
 ];
 const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
 
 let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
-let GKEY=''; try{GKEY=localStorage.getItem('cin_gkey')||'';}catch(e){}
 
 function clearBase(){
   if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
@@ -553,7 +544,6 @@ function clearBase(){
 function setBase(id,manual){
   if(!map) return;
   const b=BASES.find(x=>x.id===id); if(!b) return;
-  if(!b.free){ return setGoogle(b,manual); }
   clearBase(); curBase=id; tileOK=false; tileErrors=0;
   document.getElementById('map').classList.toggle('osmdark',!!b.dark);
   document.getElementById('tilewarn').style.display='none';
@@ -574,65 +564,18 @@ function autoFallback(){
   setBase(FALLBACK[fbIdx]);
 }
 
-/* Google, via the official Maps JavaScript API + GoogleMutant */
-let gLoading=false;
-function setGoogle(b,manual){
-  if(!map) return;
-  if(!GKEY){ promptKey(); return; }
-  const go=()=>{
-    if(typeof L.gridLayer==='undefined'||!L.gridLayer.googleMutant){
-      alert('The Google layer plugin could not load. Check your connection, or use a free layer.');return;}
-    clearBase(); curBase=b.id;
-    document.getElementById('map').classList.remove('osmdark');
-    document.getElementById('tilewarn').style.display='none';
-    baseLayer=L.gridLayer.googleMutant({type:b.gtype}).addTo(map);
-    markBaseChips();
-  };
-  if(window.google&&window.google.maps&&L.gridLayer&&L.gridLayer.googleMutant) return go();
-  if(gLoading) return;
-  gLoading=true;
-  const s1=document.createElement('script');
-  s1.src='https://unpkg.com/leaflet.gridlayer.googlemutant@0.14.1/dist/Leaflet.GoogleMutant.js';
-  s1.onload=()=>{
-    const s2=document.createElement('script');
-    s2.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(GKEY)+'&v=weekly';
-    s2.onload=()=>{gLoading=false;go();};
-    s2.onerror=()=>{gLoading=false;alert('Google Maps refused that API key. Check the key, and that Maps JavaScript API is enabled with billing on.');};
-    document.head.appendChild(s2);
-  };
-  s1.onerror=()=>{gLoading=false;alert('Could not load the Google layer plugin.');};
-  document.head.appendChild(s1);
-}
-function promptKey(){
-  const k=prompt(
-    'Google base maps need your own Maps JavaScript API key.\n\n'+
-    'Google does not permit their map tiles to be used without going through their API, '+
-    'so there is no key-free way to do this legally.\n\n'+
-    'Get one free at console.cloud.google.com \u2192 enable "Maps JavaScript API". '+
-    'Google gives $200 of free usage a month, which is far more than personal use needs.\n\n'+
-    'Paste your key here (it is stored only in this browser):', GKEY);
-  if(k==null) return;
-  GKEY=String(k).trim(); try{localStorage.setItem('cin_gkey',GKEY);}catch(e){}
-  markBaseChips();
-  if(GKEY) setBase('g_road',true);
-}
 
 function markBaseChips(){
   document.querySelectorAll('#baseFilter .chip').forEach(c=>{
     c.setAttribute('aria-pressed', c.dataset.v===curBase);
-    if(c.dataset.v && c.dataset.v.startsWith('g_')) c.classList.toggle('needkey',!GKEY);
   });
-  const kb=document.getElementById('keyBtn');
-  if(kb) kb.textContent = GKEY? 'GOOGLE KEY SAVED \u2014 CHANGE' : 'ADD GOOGLE API KEY';
 }
 
 document.getElementById('baseFilter').innerHTML =
-  BASES.map(b=>'<button class="chip'+(b.free?'':' gchip')+'" data-v="'+b.id+'"'
-    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('')
- +'<button class="chip warnchip" id="keyBtn">ADD GOOGLE API KEY</button>';
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
 document.getElementById('baseFilter').addEventListener('click',e=>{
   const b=e.target.closest('.chip'); if(!b) return;
-  if(b.id==='keyBtn'){promptKey();return;}
   setBase(b.dataset.v,true);
 });
 document.getElementById('tileRetry').onclick=()=>{
@@ -986,18 +929,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
   +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
   +'<span>'+s.l+'</span></div></div>').join('')
-  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Why the default is not Google'
-  + '<span>Google does not let anyone use their map tiles outside the Google Maps JavaScript API, '
-  + 'and that API needs your own billed key \u2014 so no static page can ship Google as a default. '
-  + 'The Google buttons above are real and use the official GoogleMutant plugin: add a key once and '
-  + 'roads, hybrid satellite and terrain all switch on. Google gives $200 of free usage a month, '
-  + 'which personal use will never touch, and the key is stored only in your own browser.<br><br>'
-  + '<b>Apple is different.</b> Apple Maps has no tile service at all. MapKit JS needs a JWT signed '
-  + 'with a private key from a paid Apple Developer account, refreshed server-side \u2014 impossible '
-  + 'from a single HTML file, and it would leak your key if attempted. That is why every place here '
-  + 'has its own <b>Apple Maps</b> link instead, which opens the real app on iPhone and iPad.<br><br>'
-  + 'The five free layers need nothing: OpenStreetMap for streets, CARTO for dark and light, and '
-  + 'Esri for satellite and terrain. All are licensed for this use.</span></div></div>'
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
   + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
   + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Cincinnati’s signature strength is a food canon all its own: <b>Cincinnati chili</b> (Skyline, Gold Star, Camp Washington — 3-way, 4-way, 5-way and coneys), <b>goetta</b>, <b>Montgomery Inn</b> ribs, <b>Findlay Market</b>, <b>Graeter’s</b> ice cream, <b>LaRosa’s</b> pizza and the German brewing heritage of <b>Over-the-Rhine</b>, reborn at <b>Rhinegeist</b> and <b>MadTree</b>. Every food card names a specific dish, sourced to the Cincinnati Enquirer, Cincinnati Magazine, CityBeat and James Beard. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'

@@ -73,7 +73,7 @@ for (const withL of [true, false]) {
   chk('no js errors', errs.length, 0);
   if (errs.length) console.log('        ', errs.slice(0, 3));
   if (withL) {
-    chk('base layer chips', q('#baseFilter .chip'), n => n >= 9);
+    chk('base layer chips (5 free, no Google)', q('#baseFilter .chip'), 5);
     chk('leaflet panes built', !!d.querySelector('#map .leaflet-pane'), true);
     chk('markers drawn', q('#map .leaflet-overlay-pane path'), n => n > 50);
   } else {
@@ -122,8 +122,14 @@ for (const withL of [true, false]) {
 
   ['dark', 'street', 'light', 'sat', 'terrain'].forEach(b => click(`#baseFilter .chip[data-v=${b}]`));
   chk('all free base layers switch', true, true);
-  click('#baseFilter .chip[data-v=g_road]');
-  chk('google without key does not crash', true, true);
+  // No Google base-map surface may exist — a key-required layer/button is what put "API key required"
+  // in front of viewers (on click and on the dead code paths). The pastel/US maps use only free tiles.
+  chk('no Google base chip', q('#baseFilter .chip[data-v^=g_]'), 0);
+  chk('no keyBtn element', d.getElementById('keyBtn') ? 1 : 0, 0);
+  chk('no key-required (free:0) base in data', /free:0/.test(HTML) ? 1 : 0, 0);
+  const gTokens = ['API key', 'maps.googleapis.com', 'GoogleMutant', 'promptKey', 'setGoogle', 'g_road', 'ADD GOOGLE', 'GKEY']
+    .filter(t => HTML.replace(/https:\/\/fonts\.googleapis\.com/g, '').includes(t));
+  chk('no Google base-map surface anywhere in file', gTokens.length, 0);
 
   click('#sortFilter .chip[data-v=cited]');
   click('#sortFilter .chip[data-v=rank]');

@@ -1,0 +1,22 @@
+{
+ "city": "Ho Chi Minh City",
+ "country": "Vietnam",
+ "scope": "HCMC greater-metro outer belt & day-trip ring",
+ "creators": [],
+ "attach": [],
+ "note": "No individual creator/influencer attributions were established for this outer-belt wave. Every place is carried by institutional authority (Wikipedia + full article; UNESCO/Ramsar; national heritage relic) or by named credible outlets (Saigoneer, Rusty Compass, Atlas Obscura, Travelfish, official VNAT vietnam.travel / vietnamtourism.gov.vn / vietnamtourism.org.vn, Dong Nai & Binh Duong provincial government/press, Vietnam News, Tuoi Tre) recorded in SOURCES_HCMC_METRO.json. Per the no-fabrication rule, no creators, clips or follower counts were invented; a verifiable-creator pass can be layered later.",
+ "rejected": [
+  {
+   "name": "vinpearl / vinwonders / origin vietnam / uncover vietnam / mytour / holidify listicles",
+   "reason": "SEO/aggregator or tour-operator round-ups; not authored editorial recommenders, popularity unverifiable."
+  },
+  {
+   "name": "TripAdvisor / Foody / Google / Klook / Wanderlog ratings for Banh Khot Goc Vu Sua, Hu Tieu Tuyet Ngan, Ninh Kieu, etc.",
+   "reason": "Ratings measure popularity only; never count toward the >=2-credible recommender bar."
+  },
+  {
+   "name": "Long Dien Son water park (Tay Ninh)",
+   "reason": "DROPPED - only tour-operator/SEO sources (mytour, originvietnam, Sun World operator page); no >=2 credible or institutional authority. Minor water park next to already-included Ba Den Mountain."
+  }
+ ]
+}
