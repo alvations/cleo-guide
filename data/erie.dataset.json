@@ -1,0 +1,1290 @@
+{
+ "areas": [
+  {
+   "id": "ERIE",
+   "n": "Erie, PA (Bayfront, Presque Isle, downtown, Millcreek)"
+  },
+  {
+   "id": "NORTHEAST",
+   "n": "North East & the Lake Erie wine belt"
+  },
+  {
+   "id": "MEADVILLE",
+   "n": "Meadville & Crawford County (Allegheny College, Market House)"
+  },
+  {
+   "id": "EDINBORO",
+   "n": "Edinboro & Cambridge Springs"
+  },
+  {
+   "id": "GROVECITY",
+   "n": "Grove City, Mercer & Slippery Rock"
+  },
+  {
+   "id": "CORRIDOR",
+   "n": "I-79 corridor south to Pittsburgh (Conneaut Lake, Zelienople, Harmony, Cranberry)"
+  }
+ ],
+ "ac": {
+  "ERIE": "#2E6DA4",
+  "NORTHEAST": "#8E44AD",
+  "MEADVILLE": "#16A085",
+  "EDINBORO": "#C0504D",
+  "GROVECITY": "#E8973A",
+  "CORRIDOR": "#6C7A89"
+ },
+ "cuisines": [
+  {
+   "id": "ITAL",
+   "n": "Italian & Pizza"
+  },
+  {
+   "id": "GREEK",
+   "n": "Greek Dogs & Diners"
+  },
+  {
+   "id": "FISH",
+   "n": "Great-Lakes Fish (Perch & Walleye)"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "BBQ",
+   "n": "BBQ & Smokehouse"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries, Wineries & Beer"
+  },
+  {
+   "id": "DESSERT",
+   "n": "Sponge Candy & Sweets"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "CAFE",
+   "n": "Cafés & Coffee"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Local Favorite"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "MARITIME",
+   "n": "Bayfront & Maritime"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "CRAFT",
+   "n": "Wine, Glass & Craft"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Outdoors"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Amusement"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Shopping"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Presque Isle State Park",
+   "ad": "301 Peninsula Dr, Erie, PA 16505",
+   "w": "A 3,200-acre sandy peninsula arcing into Lake Erie — Pennsylvania's only 'seashore,' with 13 beaches, lagoons, a 13.5-mile multi-use trail and some of the best migratory birding in the state. Erie's single most-visited attraction and the geographic heart of the guide.",
+   "k": "NATURE",
+   "g": [
+    "ICON",
+    "MARITIME",
+    "PARK"
+   ],
+   "s": [
+    [
+     "DCNR",
+     "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/presque-isle-state-park"
+    ],
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/blog/presque-isle-state-park-with-kids-a-three-day-family-guide"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Presque_Isle_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Erie Maritime Museum & U.S. Brig Niagara",
+   "ad": "150 E Front St, Erie, PA 16507",
+   "w": "Bayfront museum and homeport of the U.S. Brig Niagara, a sailing reconstruction of Commodore Oliver Hazard Perry's relief flagship from the 1813 Battle of Lake Erie ('We have met the enemy and they are ours'). Exhibits on the battle and Great Lakes sail; the ship sails in season.",
+   "k": "MARITIME",
+   "g": [
+    "ICON",
+    "MARITIME",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "ERIEMARITIME",
+     "https://www.eriemaritimemuseum.org/us-brig-niagara"
+    ],
+    [
+     "SEAHISTORY",
+     "https://seahistory.org/museums-sites/erie-maritime-museum-u-s-brig-niagara/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Erie_Maritime_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Tom Ridge Environmental Center",
+   "ad": "301 Peninsula Dr, Erie, PA 16505",
+   "w": "The free year-round gateway to Presque Isle — interactive exhibits on the peninsula's ecology, a big-screen orientation film and a glass-enclosed 75-foot observation tower over Lake Erie and Waldameer. Named for the Erie-raised former PA governor and Homeland Security secretary.",
+   "k": "NATURE",
+   "g": [
+    "ICON",
+    "MARITIME",
+    "CRAFT",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tom_Ridge_Environmental_Center"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/tom-ridge-environmental-center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Waldameer Park & Water World",
+   "ad": "220 Peninsula Dr, Erie, PA 16505",
+   "w": "A family-owned amusement park at the doorstep of Presque Isle, open since 1896 and billed as the sixth-oldest continuously operating park in the U.S. Its wooden coaster Ravine Flyer II is a perennial Golden Ticket top-ten pick; free admission and parking, pay per ride.",
+   "k": "AMUSEMENT",
+   "g": [
+    "ICON",
+    "MARITIME",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/arts-and-culture/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Waldameer_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Bicentennial Tower",
+   "ad": "1 State St, Erie, PA 16507",
+   "w": "A 187-foot observation tower at Dobbins Landing on the bayfront, built in 1995–96 for Erie's bicentennial, with two decks giving panoramic views of Presque Isle Bay, the peninsula and downtown.",
+   "k": "VIEW",
+   "g": [
+    "ICON",
+    "MARITIME",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bicentennial_Tower"
+    ],
+    [
+     "GOERIE",
+     "https://www.yahoo.com/news/articles/bicentennial-tower-erie-land-lighthouse-090859966.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Erie Art Museum",
+   "ad": "20 E 5th St, Erie, PA 16501",
+   "w": "Downtown museum (rooted in the 1898 Art Club of Erie) holding 8,000-plus objects with notable strengths in American ceramics, Tibetan paintings, Indian bronzes, photography and comic art — the leading visual-arts institution in northwest PA.",
+   "k": "MUSEUM",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Erie_Art_Museum"
+    ],
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/arts-and-culture/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Warner Theatre",
+   "ad": "811 State St, Erie, PA 16501",
+   "w": "A 1931 Art Deco / French Renaissance movie palace by Rapp & Rapp, saved by the city and reborn as a performing-arts center — home to the Erie Philharmonic and Lake Erie Ballet and a linchpin of the downtown revival.",
+   "k": "ARCH",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Warner_Theatre_(Erie,_Pennsylvania)"
+    ],
+    [
+     "EXPLOREPAHISTORY",
+     "https://explorepahistory.com/attraction.php%3Fid=1-B-1DBA.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Presque Isle Lighthouse",
+   "ad": "301 Peninsula Dr (Presque Isle), Erie, PA 16505",
+   "w": "An 1872 lighthouse on the sandy north shore of Presque Isle, still an active aid to navigation; in season visitors tour the keeper's house and climb 78 steps to the lantern for a sweeping Lake Erie view.",
+   "k": "LANDMARK",
+   "g": [
+    "ICON",
+    "MARITIME",
+    "PARK"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/lighthouses-erie-pa"
+    ],
+    [
+     "PRESQUEISLELH",
+     "https://www.presqueislelighthouse.org/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ERIE",
+   "n": "Erie Land Lighthouse",
+   "ad": "2 Lighthouse St, Erie, PA 16507",
+   "w": "One of the first two lighthouses on the Great Lakes (first tower 1818), the present stone tower crowns a bluff east of downtown — the second of Erie's three historic lights (with Presque Isle and the North Pier Light).",
+   "k": "LANDMARK",
+   "g": [
+    "ICON",
+    "HIST",
+    "MARITIME",
+    "PARK"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/lighthouses-erie-pa"
+    ],
+    [
+     "PAROUTE6",
+     "https://paroute6.com/attractions/presque-isle-lighthouse-erie-land-lighthouse/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ERIE",
+   "n": "Erie Zoo",
+   "ad": "423 W 38th St, Erie, PA 16508",
+   "w": "A compact, well-regarded zoo along Mill Creek with some 400 animals and a kiddieland train — a longtime family staple in the city's south side.",
+   "k": "ZOO",
+   "g": [
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/arts-and-culture/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/tom-ridge-environmental-center"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ERIE",
+   "n": "Erie Playhouse",
+   "ad": "13 W 10th St, Erie, PA 16501",
+   "w": "One of the oldest and largest community theaters in the country (founded 1916), staging a full season of musicals and plays downtown — a cornerstone of Erie's grassroots arts life.",
+   "k": "ARCH",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Erie_Playhouse"
+    ],
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/arts-and-culture/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTHEAST",
+   "n": "Lake Erie Wine Country (Concord Grape Belt)",
+   "ad": "North East, PA 16428",
+   "w": "The 20-plus-winery belt straddling Erie County, PA and Chautauqua County, NY — one of the world's largest concentrations of Concord vineyards and the heart of Welch's grape production, best toured as a scenic drive of tasting rooms around North East.",
+   "k": "SCENIC",
+   "g": [
+    "CRAFT",
+    "PARK"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/lake-erie-ava/"
+    ],
+    [
+     "TRAVELADDICTS",
+     "https://traveladdicts.net/weekend-in-lake-erie-wine-country/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MEADVILLE",
+   "n": "Meadville Market House",
+   "ad": "910 Market St, Meadville, PA 16335",
+   "w": "Built in 1870 and community-rescued in 1970, the oldest continuously operating public market structure in Pennsylvania — 50-plus vendors selling produce, meats, baked goods and crafts, and the civic heart of this Allegheny College town.",
+   "k": "MARKET",
+   "g": [
+    "ICON",
+    "HIST",
+    "MKT"
+   ],
+   "s": [
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2016/07/meadville-market-house.html"
+    ],
+    [
+     "VISITCRAWFORD",
+     "https://visitcrawford.org/listing/meadville-market-house/"
+    ],
+    [
+     "HMDB",
+     "https://www.hmdb.org/m.asp?m=85233"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MEADVILLE",
+   "n": "Allegheny College",
+   "ad": "520 N Main St, Meadville, PA 16335",
+   "w": "Founded in 1815, the oldest college west of the Allegheny Mountains — a leafy liberal-arts campus (Bentley Hall, Bousson) that gives Meadville its college-town energy and cultural programming.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "ALLEGHENY",
+     "https://allegheny.edu/about/sustainability/food-choices/"
+    ],
+    [
+     "VISITCRAWFORD",
+     "https://visitcrawford.org/meadville-pennsylvania-a-town-built-on-history-community-and-innovation/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CORRIDOR",
+   "n": "Conneaut Lake Park",
+   "ad": "12382 Center St, Conneaut Lake, PA 16316",
+   "w": "A trolley-era lakeside amusement park dating to 1892 on Pennsylvania's largest natural lake, home to the 1938 Blue Streak wooden coaster and the world's oldest Tumble Bug ride. Beloved and much-imperiled — its operating season has run hot and cold under successive owners, so check ahead.",
+   "k": "AMUSEMENT",
+   "g": [
+    "ICON",
+    "HIST",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITCRAWFORD",
+     "https://visitcrawford.org/regions/conneaut-lake/"
+    ],
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2016/07/meadville-market-house.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CORRIDOR",
+   "n": "McConnells Mill State Park",
+   "ad": "McConnells Mill Rd, Portersville, PA 16051",
+   "w": "2,546 acres of the Slippery Rock Creek Gorge — a National Natural Landmark of whitewater, boulders and hemlock — with a restored 1800s gristmill and a covered bridge; hiking, climbing and kayaking about 40 miles north of Pittsburgh off I-79.",
+   "k": "NATURE",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "DCNR",
+     "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/mcconnells-mill-state-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/McConnells_Mill_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CORRIDOR",
+   "n": "Moraine State Park",
+   "ad": "225 Pleasant Valley Rd, Portersville, PA 16051",
+   "w": "A reclaimed strip-mine and oil-field turned 3,225-acre Lake Arthur, with two swimming beaches, sailing, and a paved lakeside bike trail — two miles from McConnells Mill along the I-79 corridor.",
+   "k": "NATURE",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "DCNR",
+     "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/moraine-state-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Moraine_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GROVECITY",
+   "n": "Grove City Premium Outlets",
+   "ad": "1911 Leesburg Grove City Rd, Grove City, PA 16127",
+   "w": "One of Pennsylvania's biggest outlet destinations — 100-plus open-air brand stores (Coach, Michael Kors, The North Face, Columbia) with tax-free clothing, right off I-79 exit 113.",
+   "k": "SHOPPING",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITMERCER",
+     "https://www.visitmercercountypa.com/insiders-guide-to-shopping-at-grove-city-premium-outlets/"
+    ],
+    [
+     "PREMIUMOUTLETS",
+     "https://www.premiumoutlets.com/outlet/grove-city"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GROVECITY",
+   "n": "Wendell August Forge",
+   "ad": "620 Madison Ave, Grove City, PA 16127",
+   "w": "America's oldest and largest working forge (since 1932), part artisan workshop and part gallery — watch smiths hand-hammer aluminum, bronze and pewter giftware, trays and ornaments on the factory floor.",
+   "k": "CRAFT",
+   "g": [
+    "MUS",
+    "CRAFT"
+   ],
+   "s": [
+    [
+     "VISITMERCER",
+     "https://www.visitmercercountypa.com/a-few-great-ways-to-spend-the-day-in-grove-city-while-your-college-student-settles-in/"
+    ],
+    [
+     "WENDELLAUGUST",
+     "https://www.wendellaugust.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GROVECITY",
+   "n": "Grove City College",
+   "ad": "100 Campus Dr, Grove City, PA 16127",
+   "w": "A handsome Gothic-collegiate campus (founded 1876) known for its independence from federal funding; the Harbison Chapel and the college's grounds are the centerpiece of this Mercer County town.",
+   "k": "CAMPUS",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITMERCER",
+     "https://www.visitmercercountypa.com/communities/grove-city-pa/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grove_City_College"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CORRIDOR",
+   "n": "Harmony Historic District",
+   "ad": "Main St, Harmony, PA 16037",
+   "w": "A National Historic Landmark district (designated 1974) preserving the old-world German village founded in 1804 by the Harmony Society — 50-plus early buildings, the Harmony Museum and a Harmonist cemetery, half an hour north of Pittsburgh near Zelienople.",
+   "k": "HIST",
+   "g": [
+    "HIST",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Harmony_Historic_District"
+    ],
+    [
+     "EXPERIENCEBUTLER",
+     "https://www.experiencebutler.com/cities-and-towns/harmony/"
+    ],
+    [
+     "PITTSBURGHMAG",
+     "https://www.pittsburghmagazine.com/in-harmony-pa-youll-find-peace-love-and-of-course-harmony/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CORRIDOR",
+   "n": "Riverside Inn — CLOSED",
+   "ad": "1 Fountain Ave, Cambridge Springs, PA 16403",
+   "w": "The grand 1885 mineral-springs resort and dinner theater that made Cambridge Springs a Gilded-Age destination (NRHP 1978) was destroyed by fire on May 2, 2017. Kept flagged: the site now hosts the Riverside Brewing Company, but the historic inn itself is gone.",
+   "k": "HIST",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Riverside_Inn_(Cambridge_Springs,_Pennsylvania)"
+    ],
+    [
+     "ERIENEWSNOW",
+     "https://www.erienewsnow.com/story/42081849/three-years-since-fire-destroyed-cambridge-springs-historic-riverside-inn"
+    ],
+    [
+     "MEADVILLETRIBUNE",
+     "https://www.meadvilletribune.com/news/riverside-inn-lost-to-fire-five-years-ago/article_9673c130-c7d5-11ec-8a70-03418341df7a.html"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "New York Lunch (The Original)",
+   "ad": "East Ave, Erie, PA 16504",
+   "w": "Opened 1927 and claims to be the first place to serve Erie's signature Greek dog; the Greek sauce is a spiced-up Greek pasta-sauce recipe brought by the city's early Greek restaurateurs, and it's the defining Erie street food.",
+   "cz": [
+    "US",
+    "GREEK"
+   ],
+   "s": [
+    [
+     "ERIEREADER",
+     "https://www.eriereader.com/article/eries-greek-dogs-a-slowcooked-history"
+    ],
+    [
+     "YOURERIE",
+     "https://www.yourerie.com/digital-first/digital-exclusive/greek-dog-coney-dog-what-is-it-called-and-who-can-claim-it/"
+    ],
+    [
+     "NATIONALHERALD",
+     "https://www.thenationalherald.com/new-york-lunch-in-erie-pa-has-real-coney-greek-dogs-too/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Sara's Restaurant",
+   "ad": "25 Peninsula Dr, Erie, PA 16505",
+   "w": "The seasonal 1950s-themed drive-in guarding the entrance to Presque Isle since 1980 — vintage gas pumps, red picnic tables, char-grilled Smith's dogs and orange-vanilla twist; lines can run an hour at peak.",
+   "cz": [
+    "US",
+    "DESSERT"
+   ],
+   "s": [
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2023/04/saras-restaurant-yummy-americana-at.html"
+    ],
+    [
+     "TOURERIEPA",
+     "https://www.toureriepa.com/post/sara-s-a-presque-isle-staple"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Stanganelli's Italian Foods",
+   "ad": "602 E 25th St, Erie, PA 16503",
+   "w": "Making Erie's deep-fried pepperoni balls since 1961; so central to the city's identity that the Erie SeaWolves rebranded as the 'Pepperoni Balls' and QVC sold out 18,000 of Stanganelli's frozen ones in 2020.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "ERIEREADER",
+     "https://www.eriereader.com/article/pepperoni-balls-the-lifebread-of-erie"
+    ],
+    [
+     "YOURERIE",
+     "https://www.yourerie.com/news/local-news/the-history-of-eries-famous-pepperoni-balls/"
+    ],
+    [
+     "NWIRC",
+     "https://nwirc.org/manufacturing-the-taste-of-home-for-the-holidays/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Romolo Chocolates",
+   "ad": "1525 W 8th St, Erie, PA 16505",
+   "w": "A four-generation Erie chocolatier whose sponge candy (and sponge-candy truffles) is a benchmark for the regional treat that can only be made in cool, dry weather; Erie sits in the heart of the 'Sponge Candy Crescent.'",
+   "cz": [
+    "DESSERT"
+   ],
+   "s": [
+    [
+     "NPR",
+     "https://www.npr.org/2012/07/01/156031130/in-sponge-candy-crescent-addicts-hoard-heaven"
+    ],
+    [
+     "WANDERINGEDU",
+     "https://www.wanderingeducators.com/best/traveling/unexpected-chocolate-haven-erie-pennsylvania.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Pulakos Chocolates",
+   "ad": "2530 Parade St, Erie, PA 16503",
+   "w": "Erie chocolatier tracing to Greek immigrant George Pulakos in 1889; known for sponge taffy, French truffles and a 25-minute factory tour with samples — the old-guard counterpart to Romolo in Erie's chocolate scene.",
+   "cz": [
+    "DESSERT"
+   ],
+   "s": [
+    [
+     "PBS",
+     "https://www.pbs.org/video/pulakos-ezjutq"
+    ],
+    [
+     "WANDERINGEDU",
+     "https://www.wanderingeducators.com/best/traveling/unexpected-chocolate-haven-erie-pennsylvania.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "Lavery Brewing Co.",
+   "ad": "128 W 12th St, Erie, PA 16501",
+   "w": "A cornerstone of the Lake Erie Ale Trail — a downtown Erie brewery whose taproom is among the city's busiest, pouring a wide range of styles alongside a well-reviewed kitchen.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-in-erie-pa"
+    ],
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/breweries-and-distilleries/"
+    ],
+    [
+     "LIVINGDREAM",
+     "https://www.livingthedreamrtw.com/erie-breweries"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ERIE",
+   "n": "The Brewerie at Union Station",
+   "ad": "123 W 14th St, Erie, PA 16501",
+   "w": "A brewpub set in Erie's historic Union Station — trains still stop upstairs — pairing fresh house ales with a scratch menu; consistently rated among the best restaurants in the city.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-in-erie-pa"
+    ],
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/breweries-and-distilleries/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Erie Brewing Company",
+   "ad": "Erie, PA 16501",
+   "w": "Founded as a brewpub in 1993 and a full brewery since 1999, Erie Brewing has taken three Great American Beer Festival medals and distributes across more than a dozen states — the veteran of the local scene.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Erie_Brewing_Company"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/breweries-in-erie-pa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "1201 Kitchen",
+   "ad": "1201 State St, Erie, PA 16501",
+   "w": "Chef Dan Kern's small downtown room built around an open chef's counter and inventive Asian-leaning tasting plates; a repeat Erie Reader 'Best of Erie' honoree (Best Chef runner-up, 2018).",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "ERIEREADER",
+     "https://www.eriereader.com/article/-the-2018-best-of-erie-winners"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Colao's Ristorante",
+   "ad": "2826 Plum St, Erie, PA 16508",
+   "w": "Family-owned since 1999, cooking authentic Italian from recipes passed down for generations — a locals' pick for Erie's Italian dining rooted in the city's deep Italian community.",
+   "cz": [
+    "ITAL"
+   ],
+   "s": [
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/eat-drink/"
+    ],
+    [
+     "KEYSTONE",
+     "https://keystonenewsroom.com/food-guide/eries-5-best-restaurants-according-to-locals/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ERIE",
+   "n": "Federal Hill Smokehouse",
+   "ad": "W 26th St & Peach St, Erie, PA 16508",
+   "w": "Bringing slow-smoked Texas barbecue to far-northern PA near Erie's Little Italy at 26th and Peach; a frequently top-cited Erie meat destination.",
+   "cz": [
+    "BBQ"
+   ],
+   "s": [
+    [
+     "VISITERIE",
+     "https://www.visiterie.com/things-to-do/eat-drink/"
+    ],
+    [
+     "KEYSTONE",
+     "https://keystonenewsroom.com/local/food-drink/eries-5-best-restaurants-according-to-locals/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTHEAST",
+   "n": "Mazza Vineyards",
+   "ad": "11815 East Lake Rd, North East, PA 16428",
+   "w": "Built in 1972 by brothers Robert and Frank Mazza in Mediterranean style, the flagship of Lake Erie Wine Country and the family's North East operations (which include the historic South Shore Wine Company) — the anchor of the PA grape belt's wine scene.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/lake-erie-ava/"
+    ],
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"
+    ],
+    [
+     "TRAVELADDICTS",
+     "https://traveladdicts.net/weekend-in-lake-erie-wine-country/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTHEAST",
+   "n": "Penn Shore Winery",
+   "ad": "10225 East Lake Rd, North East, PA 16428",
+   "w": "One of the first two wineries in Pennsylvania to get a limited-winery license after Prohibition (1968), crushing its first grapes in 1969 — a foundational stop on the Lake Erie Wine Country trail.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "PAEATS",
+     "https://www.paeats.org/feature/lake-erie-ava/"
+    ],
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTHEAST",
+   "n": "Arrowhead Wine Cellars",
+   "ad": "12073 East Main Rd, North East, PA 16428",
+   "w": "Nick and Kathy Mobilia's farm winery since 1998, making wine from grapes and fruit grown on their own 250 acres — European varietals (Pinot Grigio, Riesling) alongside native Niagara, Catawba and Concord.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "TRAVELADDICTS",
+     "https://traveladdicts.net/weekend-in-lake-erie-wine-country/"
+    ],
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MEADVILLE",
+   "n": "Voodoo Brewery (The Compound)",
+   "ad": "215 Arch St, Meadville, PA 16335",
+   "w": "The original home of Voodoo Brewing Co., founded in Meadville in 2005 with its first taproom opening here in 2012 before the brand grew into 20-plus locations nationwide — the corridor's most consequential craft-beer origin story.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "VOODOO",
+     "https://www.voodoobrewery.com/about"
+    ],
+    [
+     "DISCOVERBURGH",
+     "https://www.discovertheburgh.com/north-country-brewing-review/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CORRIDOR",
+   "n": "North Country Brewing Company",
+   "ad": "141 S Main St, Slippery Rock, PA 16057",
+   "w": "An early western-PA craft adopter (2005), North Country's Slippery Rock brewpub ranks #1 in town, pairing house beers with farm-to-table fare from wings and burgers to salmon and crab cakes; it also runs the historic Harmony Inn.",
+   "cz": [
+    "BREW",
+    "US"
+   ],
+   "s": [
+    [
+     "DISCOVERBURGH",
+     "https://www.discovertheburgh.com/north-country-brewing-review/"
+    ],
+    [
+     "NORTHCOUNTRY",
+     "https://northcountrybrewing.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CORRIDOR",
+   "n": "Harmony Inn",
+   "ad": "230 Mercer St, Harmony, PA 16037",
+   "w": "A historic tavern in the heart of Harmony's National Historic Landmark district, now run by North Country Brewing, serving German-inflected comfort food in a storied (and reputedly haunted) old building.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "EXPERIENCEBUTLER",
+     "https://www.experiencebutler.com/cities-and-towns/harmony/"
+    ],
+    [
+     "PITTSBURGHMAG",
+     "https://www.pittsburghmagazine.com/in-harmony-pa-youll-find-peace-love-and-of-course-harmony/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CORRIDOR",
+   "n": "Conneaut Cellars Winery & Distillery",
+   "ad": "Conneaut Lake, PA 16316",
+   "w": "A lakeside winery and distillery beside Conneaut Lake that hosts summer live-music and outdoor tasting series — the drinks anchor of the Conneaut Lake resort area on the corridor.",
+   "cz": [
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITCRAWFORD",
+     "https://visitcrawford.org/regions/conneaut-lake/"
+    ],
+    [
+     "INTERESTINGPA",
+     "https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ALLEGHENY": {
+   "k": "ALLEGHENY",
+   "t": "Allegheny College (official)",
+   "u": "https://allegheny.edu/",
+   "l": "Allegheny College (official)"
+  },
+  "DCNR": {
+   "k": "PA DCNR (STATE PARKS)",
+   "t": "PA DCNR — Pennsylvania State Parks",
+   "u": "https://www.pa.gov/agencies/dcnr/",
+   "l": "PA DCNR — Pennsylvania State Parks"
+  },
+  "ERIEMARITIME": {
+   "k": "ERIEMARITIME",
+   "t": "Erie Maritime Museum (official)",
+   "u": "https://www.eriemaritimemuseum.org/",
+   "l": "Erie Maritime Museum (official)"
+  },
+  "ERIENEWSNOW": {
+   "k": "ERIENEWSNOW",
+   "t": "Erie News Now — WICU/WSEE",
+   "u": "https://www.erienewsnow.com/",
+   "l": "Erie News Now — WICU/WSEE"
+  },
+  "EXPERIENCEBUTLER": {
+   "k": "EXPERIENCEBUTLER",
+   "t": "Experience Butler County PA (CVB)",
+   "u": "https://www.experiencebutler.com/",
+   "l": "Experience Butler County PA (CVB)"
+  },
+  "EXPLOREPAHISTORY": {
+   "k": "EXPLOREPAHISTORY",
+   "t": "ExplorePAHistory (WITF)",
+   "u": "https://explorepahistory.com/",
+   "l": "ExplorePAHistory (WITF)"
+  },
+  "GOERIE": {
+   "k": "ERIE TIMES-NEWS",
+   "t": "Erie Times-News / GoErie",
+   "u": "https://www.goerie.com/",
+   "l": "Erie Times-News / GoErie"
+  },
+  "HMDB": {
+   "k": "HMDB",
+   "t": "The Historical Marker Database",
+   "u": "https://www.hmdb.org/",
+   "l": "The Historical Marker Database"
+  },
+  "INTERESTINGPA": {
+   "k": "INTERESTINGPA",
+   "t": "Interesting Pennsylvania and Beyond (PA travel writer)",
+   "u": "https://www.interestingpennsylvania.com/",
+   "l": "Interesting Pennsylvania and Beyond (PA travel writer)"
+  },
+  "MEADVILLETRIBUNE": {
+   "k": "MEADVILLE TRIBUNE",
+   "t": "Meadville Tribune",
+   "u": "https://www.meadvilletribune.com/",
+   "l": "Meadville Tribune"
+  },
+  "PAEATS": {
+   "k": "PAEATS",
+   "t": "PA Eats (Pennsylvania food/drink editorial)",
+   "u": "https://www.paeats.org/",
+   "l": "PA Eats (Pennsylvania food/drink editorial)"
+  },
+  "PAROUTE6": {
+   "k": "PAROUTE6",
+   "t": "PA Route 6 Alliance",
+   "u": "https://paroute6.com/",
+   "l": "PA Route 6 Alliance"
+  },
+  "PITTSBURGHMAG": {
+   "k": "PITTSBURGHMAG",
+   "t": "Pittsburgh Magazine",
+   "u": "https://www.pittsburghmagazine.com/",
+   "l": "Pittsburgh Magazine"
+  },
+  "PREMIUMOUTLETS": {
+   "k": "PREMIUMOUTLETS",
+   "t": "Simon / Grove City Premium Outlets (official)",
+   "u": "https://www.premiumoutlets.com/",
+   "l": "Simon / Grove City Premium Outlets (official)"
+  },
+  "PRESQUEISLELH": {
+   "k": "PRESQUEISLELH",
+   "t": "Presque Isle Lighthouse (official)",
+   "u": "https://www.presqueislelighthouse.org/",
+   "l": "Presque Isle Lighthouse (official)"
+  },
+  "SEAHISTORY": {
+   "k": "SEAHISTORY",
+   "t": "National Maritime Historical Society",
+   "u": "https://seahistory.org/",
+   "l": "National Maritime Historical Society"
+  },
+  "TRAVELADDICTS": {
+   "k": "TRAVELADDICTS",
+   "t": "Travel Addicts (travel blog, real track record)",
+   "u": "https://traveladdicts.net/",
+   "l": "Travel Addicts (travel blog, real track record)"
+  },
+  "UNCOVERINGPA": {
+   "k": "UNCOVERING PA",
+   "t": "Uncovering PA (Jim Cheney — established PA travel writer, real track record)",
+   "u": "https://uncoveringpa.com/",
+   "l": "Uncovering PA (Jim Cheney — established PA travel writer, real track record)"
+  },
+  "VISITCRAWFORD": {
+   "k": "VISIT CRAWFORD COUNTY",
+   "t": "Visit Crawford County PA",
+   "u": "https://visitcrawford.org/",
+   "l": "Visit Crawford County PA"
+  },
+  "VISITERIE": {
+   "k": "VISIT ERIE",
+   "t": "VisitErie (Erie County CVB)",
+   "u": "https://www.visiterie.com/",
+   "l": "VisitErie (Erie County CVB)"
+  },
+  "VISITMERCER": {
+   "k": "VISITMERCER",
+   "t": "Visit Mercer County PA",
+   "u": "https://www.visitmercercountypa.com/",
+   "l": "Visit Mercer County PA"
+  },
+  "WENDELLAUGUST": {
+   "k": "WENDELLAUGUST",
+   "t": "Wendell August Forge (official)",
+   "u": "https://www.wendellaugust.com/",
+   "l": "Wendell August Forge (official)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (sights / institutional facts)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (sights / institutional facts)"
+  }
+ },
+ "FS": {
+  "DISCOVERBURGH": {
+   "k": "DISCOVERBURGH",
+   "t": "Discover the Burgh (Pittsburgh travel writers, real track record)",
+   "u": "https://www.discovertheburgh.com/",
+   "l": "Discover the Burgh (Pittsburgh travel writers, real track record)"
+  },
+  "ERIEREADER": {
+   "k": "ERIE READER",
+   "t": "Erie Reader (Erie's alt-weekly / Best of Erie awards)",
+   "u": "https://www.eriereader.com/",
+   "l": "Erie Reader (Erie's alt-weekly / Best of Erie awards)"
+  },
+  "EXPERIENCEBUTLER": {
+   "k": "EXPERIENCEBUTLER",
+   "t": "Experience Butler County PA (CVB)",
+   "u": "https://www.experiencebutler.com/",
+   "l": "Experience Butler County PA (CVB)"
+  },
+  "INTERESTINGPA": {
+   "k": "INTERESTINGPA",
+   "t": "Interesting Pennsylvania and Beyond (PA travel writer)",
+   "u": "https://www.interestingpennsylvania.com/",
+   "l": "Interesting Pennsylvania and Beyond (PA travel writer)"
+  },
+  "KEYSTONE": {
+   "k": "KEYSTONE",
+   "t": "Keystone Newsroom (PA local news/food guides)",
+   "u": "https://keystonenewsroom.com/",
+   "l": "Keystone Newsroom (PA local news/food guides)"
+  },
+  "LIVINGDREAM": {
+   "k": "LIVINGDREAM",
+   "t": "Living the Dream (Lake Erie Ale Trail feature)",
+   "u": "https://www.livingthedreamrtw.com/",
+   "l": "Living the Dream (Lake Erie Ale Trail feature)"
+  },
+  "NATIONALHERALD": {
+   "k": "NATIONALHERALD",
+   "t": "The National Herald (Greek-American national paper)",
+   "u": "https://www.thenationalherald.com/",
+   "l": "The National Herald (Greek-American national paper)"
+  },
+  "NORTHCOUNTRY": {
+   "k": "NORTHCOUNTRY",
+   "t": "North Country Brewing Company (official)",
+   "u": "https://northcountrybrewing.com/",
+   "l": "North Country Brewing Company (official)"
+  },
+  "NPR": {
+   "k": "NPR",
+   "t": "NPR",
+   "u": "https://www.npr.org/",
+   "l": "NPR"
+  },
+  "NWIRC": {
+   "k": "NWIRC",
+   "t": "Northwest Industrial Resource Center",
+   "u": "https://nwirc.org/",
+   "l": "Northwest Industrial Resource Center"
+  },
+  "PAEATS": {
+   "k": "PAEATS",
+   "t": "PA Eats (Pennsylvania food/drink editorial)",
+   "u": "https://www.paeats.org/",
+   "l": "PA Eats (Pennsylvania food/drink editorial)"
+  },
+  "PBS": {
+   "k": "PBS",
+   "t": "PBS",
+   "u": "https://www.pbs.org/",
+   "l": "PBS"
+  },
+  "PITTSBURGHMAG": {
+   "k": "PITTSBURGHMAG",
+   "t": "Pittsburgh Magazine",
+   "u": "https://www.pittsburghmagazine.com/",
+   "l": "Pittsburgh Magazine"
+  },
+  "TOURERIEPA": {
+   "k": "TOURERIEPA",
+   "t": "Tour Erie PA / Erie Insider",
+   "u": "https://www.toureriepa.com/",
+   "l": "Tour Erie PA / Erie Insider"
+  },
+  "TRAVELADDICTS": {
+   "k": "TRAVELADDICTS",
+   "t": "Travel Addicts (travel blog, real track record)",
+   "u": "https://traveladdicts.net/",
+   "l": "Travel Addicts (travel blog, real track record)"
+  },
+  "UNCOVERINGPA": {
+   "k": "UNCOVERING PA",
+   "t": "Uncovering PA (Jim Cheney — established PA travel writer, real track record)",
+   "u": "https://uncoveringpa.com/",
+   "l": "Uncovering PA (Jim Cheney — established PA travel writer, real track record)"
+  },
+  "VISITCRAWFORD": {
+   "k": "VISIT CRAWFORD COUNTY",
+   "t": "Visit Crawford County PA",
+   "u": "https://visitcrawford.org/",
+   "l": "Visit Crawford County PA"
+  },
+  "VISITERIE": {
+   "k": "VISIT ERIE",
+   "t": "VisitErie (Erie County CVB)",
+   "u": "https://www.visiterie.com/",
+   "l": "VisitErie (Erie County CVB)"
+  },
+  "VOODOO": {
+   "k": "VOODOO",
+   "t": "Voodoo Brewing Co. (official — founding history)",
+   "u": "https://www.voodoobrewery.com/",
+   "l": "Voodoo Brewing Co. (official — founding history)"
+  },
+  "WANDERINGEDU": {
+   "k": "WANDERINGEDU",
+   "t": "Wandering Educators (travel writers' network)",
+   "u": "https://www.wanderingeducators.com/",
+   "l": "Wandering Educators (travel writers' network)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (sights / institutional facts)",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia (sights / institutional facts)"
+  },
+  "YOURERIE": {
+   "k": "YOURERIE",
+   "t": "YourErie — WJET/WFXP (Erie local TV news)",
+   "u": "https://www.yourerie.com/",
+   "l": "YourErie — WJET/WFXP (Erie local TV news)"
+  }
+ }
+}
