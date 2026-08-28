@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Ho Chi Minh City (Vietnam) field guide — 53 sights and 63 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="description" content="Ho Chi Minh City (Vietnam) field guide — 59 sights and 63 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
 <title>Ho Chi Minh City — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -231,7 +231,7 @@
 <header>
   <p class="eyebrow">City guide · Vietnam · 17 districts</p>
   <h1>Ho Chi Minh City<span class="thin">Vietnam — a whole city, district by district, sourced</span></h1>
-  <p class="standfirst">53 sights and 63 places to eat in the city of <strong>Ho Chi Minh City</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators) across 17 districts. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by district, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA cities</a></p>
+  <p class="standfirst">59 sights and 63 places to eat in the city of <strong>Ho Chi Minh City</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators) across 17 districts. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by district, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore &amp; SEA cities</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -336,15 +336,20 @@ const S = {
   "CAFEBIZ":{k:"CAFEBIZ",t:"CafeBiz",u:"https://cafebiz.vn/",l:"CafeBiz"},
   "CNNTRAVEL":{k:"CNN TRAVEL",t:"CNN Travel",u:"https://www.cnn.com/travel",l:"CNN Travel"},
   "CULTURETRIP":{k:"CULTURETRIP",t:"The Culture Trip",u:"https://theculturetrip.com/",l:"The Culture Trip"},
+  "DANTRI":{k:"DANTRI",t:"Dân Trí",u:"https://dantri.com.vn/",l:"Dân Trí"},
   "DONGNAIGOV":{k:"DONGNAIGOV",t:"Dong Nai Provincial Government",u:"https://dongnai.gov.vn",l:"Dong Nai Provincial Government"},
+  "GUINNESS":{k:"GUINNESS",t:"Guinness World Records",u:"https://www.guinnessworldrecords.com/",l:"Guinness World Records"},
   "KENH14":{k:"KENH14",t:"Kenh14",u:"https://kenh14.vn/",l:"Kenh14"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/indonesia/bali",l:"Lonely Planet"},
   "LUNEPRODUCTION":{k:"LUNEPRODUCTION",t:"Lune Production (official Saigon Opera House A O Show operator)",u:"https://www.luneproduction.com/",l:"Lune Production (official Saigon Opera House A O Show operator)"},
+  "NHANDAN":{k:"NHANDAN",t:"Nhân Dân Online (English)",u:"https://en.nhandan.vn/",l:"Nhân Dân Online (English)"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Cuisine Wat Damnak (official)",u:"https://www.cuisinewatdamnak.com/",l:"Cuisine Wat Damnak (official)"},
+  "ORIGINVIETNAM":{k:"ORIGINVIETNAM",t:"Origin Vietnam",u:"https://www.originvietnam.com/",l:"Origin Vietnam"},
   "RUSTYCOMPASS":{k:"RUSTYCOMPASS",t:"Rusty Compass",u:"https://www.rustycompass.com/",l:"Rusty Compass"},
   "SAIGONEER":{k:"SAIGONEER",t:"Saigoneer",u:"https://saigoneer.com/",l:"Saigoneer"},
   "SAIGONTOURIST":{k:"SAIGONTOURIST",t:"Saigontourist Group (official)",u:"https://saigontourist.com.vn",l:"Saigontourist Group (official)"},
   "SPECTRALCODEX":{k:"SPECTRALCODEX",t:"Spectral Codex (independent Asia architecture/temple research)",u:"https://spectralcodex.com/",l:"Spectral Codex (independent Asia architecture/temple research)"},
+  "THANHNIEN":{k:"THANHNIEN",t:"Thanh Nien",u:"https://thanhnien.vn/",l:"Thanh Nien"},
   "THERESHEGOES":{k:"THERESHEGOES",t:"There She Goes Again (travel blogger)",u:"https://thereshegoesagain.org/",l:"There She Goes Again (travel blogger)"},
   "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal Vietnam",u:"https://thesmartlocal.com/vietnam/",l:"TheSmartLocal Vietnam"},
   "THUDUCGOV":{k:"THUDUCGOV",t:"Thu Duc City Tourism (official)",u:"https://dulich-tpthuduc.hochiminhcity.gov.vn",l:"Thu Duc City Tourism (official)"},
@@ -354,12 +359,18 @@ const S = {
   "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
   "VIETNAMNET":{k:"VIETNAMNET",t:"VietnamNet",u:"https://vietnamnet.vn/en/",l:"VietnamNet"},
   "VIETNAMPLUS":{k:"VIETNAMPLUS",t:"VietnamPlus (Vietnam News Agency)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (Vietnam News Agency)"},
-  "VIETNAMTOURISM":{k:"VIETNAMTOURISM",t:"Vietnam National Tourism (vietnam.travel)",u:"https://vietnam.travel/",l:"Vietnam National Tourism (vietnam.travel)"},
+  "VIETNAMTOURISM":{k:"VIETNAMTOURISM",t:"Vietnam National Administration of Tourism (official)",u:"https://vietnamtourism.gov.vn/",l:"Vietnam National Administration of Tourism (official)"},
   "VIR":{k:"VIR",t:"Vietnam Investment Review",u:"https://vir.com.vn/",l:"Vietnam Investment Review"},
+  "VNANET":{k:"VNANET",t:"Vietnam News Agency (vnanet.vn)",u:"https://vietnam.vnanet.vn/",l:"Vietnam News Agency (vnanet.vn)"},
   "VNAT_ORG":{k:"VNAT ORG",t:"Vietnam Tourism Info (vietnamtourism.org.vn)",u:"https://www.vietnamtourism.org.vn",l:"Vietnam Tourism Info (vietnamtourism.org.vn)"},
   "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
+  "VNP":{k:"VNP",t:"VietnamPlus (Vietnam News Agency, English)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (Vietnam News Agency, English)"},
+  "VNP2":{k:"VNP2",t:"VietnamPlus (second article)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (second article)"},
+  "VNS":{k:"VNS",t:"Việt Nam News (VNS)",u:"https://vietnamnews.vn/",l:"Việt Nam News (VNS)"},
+  "VNTOURISM":{k:"VNTOURISM",t:"Vietnam National Authority of Tourism",u:"https://vietnamtourism.vn/",l:"Vietnam National Authority of Tourism"},
   "VNTRAVEL":{k:"VNTRAVEL",t:"Vietnam Tourism (vietnam.travel)",u:"https://vietnam.travel",l:"Vietnam Tourism (vietnam.travel)"},
   "VOVWORLD":{k:"VOVWORLD",t:"VOV World (Voice of Vietnam)",u:"https://vovworld.vn/en-US",l:"VOV World (Voice of Vietnam)"},
+  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
 };
 
@@ -434,6 +445,12 @@ const P = [
 {t:2,a:"VUNGTAURT",n:"Vung Tau Lighthouse (Hai Dang)",ad:"Hai Dang, Ward 2 (Nui Nho), Vung Tau, Vietnam",la:10.33411,ln:107.07766,w:"Built by the French in 1862, the oldest of Vietnam's ~79 lighthouses, perched atop Nui Nho (Small Mountain); a short climb up 55 steps delivers a 360-degree view over the city, harbour and the Christ statue on the opposite hill.",k:"landmark",g:["PARK","VIEW","ARCH"],s:[["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/vung-tau-45/see-and-do-14/lighthouse-vung-tau-868"],["VNTRAVEL","https://vietnam.travel/things-to-do/vung-tau-sightseeing-wonderland"]]},
 {t:2,a:"VUNGTAURT",n:"Back Beach (Bai Sau)",ad:"Thuy Van, Bai Sau, Vung Tau, Vietnam",la:10.33487,ln:107.09148,w:"Vung Tau's main swimming beach, a ~10 km southeast-facing strand lined with loungers, seafood shacks and water sports (surf, SUP, kite-surf); the Saigonese weekend seaside default, two hours from the city.",k:"beach",g:["TEMPLE","PARK"],s:[["VNTRAVEL","https://vietnam.travel/things-to-do/essential-vung-tau-guide"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/vung-tau-45"]]},
 {t:1,a:"MEKONGRT",n:"Vinh Trang Pagoda",ad:"Nguyen Trung Truc, My Phong, My Tho, Tien Giang, Vietnam",la:10.36281,ln:106.37375,w:"The largest and most famous pagoda in Tien Giang (completed 1850), a national heritage site blending Vietnamese, Khmer, Chinese and European arches, set in gardens with giant Buddha statues; the standout stop on any My Tho / Mekong day trip.",k:"temple",g:["HERITAGE","TEMPLE","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/V%C4%A9nh_Tr%C3%A0ng_Temple"],["TRAVELFISH","https://www.travelfish.org/sight_profile/vietnam/mekong_delta/tien_giang/my_tho/658"]]},
+{t:1,a:"TAYNINHRT",n:"Sun World Ba Đen Mountain Cable Car",ad:"Sun World Ba Den Mountain, Núi Bà Đen, Tây Ninh, Vietnam",la:11.36700,ln:106.16700,w:"The Doppelmayr cable-car complex that lifts you up the 986 m 'Roof of the South' in minutes instead of a three-hour climb. Its Ba Den departure station holds the Guinness World Record for the largest cable-car station (10,959 sqm), moving 4,400 passengers an hour to the spiritual complex on top.",k:"Cable car / Things to do",g:["HERITAGE"],s:[["VNS","https://vietnamnews.vn/society/571411/new-cable-car-at-ba-den-mountain-opens-in-tay-ninh.html"],["GUINNESS","https://www.guinnessworldrecords.com/world-records/604248-largest-cable-car-station"],["NHANDAN","https://en.nhandan.vn/tay-ninh-provinces-cable-car-station-sets-guinness-world-record-post82477.html"]]},
+{t:1,a:"TAYNINHRT",n:"Tây Bổ Đà Sơn Buddha Statue",ad:"Summit of Núi Bà Đen, Tây Ninh, Vietnam",la:11.36700,ln:106.16700,w:"A 72 m bronze Bodhisattva cast from 170+ tonnes of red copper on the 986 m summit — recognised by Guinness as Asia's tallest bronze Lady-Buddha statue on a mountain peak. Ringed by terraced gardens and often wrapped in cloud, it is the visual icon of the Bà Đen complex.",k:"Temple / Monument",g:["TEMPLE","PARK","VIEW","ARCH"],s:[["VNP","https://en.vietnamplus.vn/bodhisattva-statue-on-mountain-makes-tay-ninh-worth-to-visit-destination-post233692.vnp"],["VNP2","https://en.vietnamplus.vn/lady-buddha-statue-of-black-virgin-mountain-post224400.vnp"]]},
+{t:2,a:"TAYNINHRT",n:"Dầu Tiếng Lake (Reservoir)",ad:"Dầu Tiếng, Tây Ninh, Vietnam",la:11.38419,ln:106.36361,w:"Vietnam and Southeast Asia's largest artificial lake — 270 sqkm damming the upper Saigon River, completed 1985 — now an ecotourism draw of forested islets and hill-fringed water. A go-to for camping, fishing and sunset-watching on the far side of Bà Đen.",k:"Nature / Lake",g:["TEMPLE","PARK"],s:[["WIKI","https://en.wikipedia.org/wiki/D%E1%BA%A7u_Ti%E1%BA%BFng_Lake"],["VNS","https://vietnamnews.vn/life-style/1797137/tay-ninh-taps-dau-tieng-reservoir-s-dual-roles-in-ecotourism-water-security.html"]]},
+{t:2,a:"VUNGTAURT",n:"Hòn Bà",ad:"off Mũi Nghinh Phong / Bãi Sau, Phường 2, Vũng Tàu, Bà Rịa–Vũng Tàu, Vietnam",la:10.32389,ln:107.08917,w:"A tiny rocky islet crowned by a small temple locals hold sacred; at low tide a natural stone causeway surfaces so you can walk out from the shore. A quiet sunrise and spiritual spot — time it carefully or the rising tide strands you.",k:"Islet / temple",g:["TEMPLE"],s:[["WIKI","https://en.wikipedia.org/wiki/Hon_Ba"],["ORIGINVIETNAM","https://www.originvietnam.com/destinations/front-beach/"]]},
+{t:1,a:"VUNGTAURT",n:"Nhà Lớn Long Sơn (Đền Ông Trần)",ad:"Long Sơn commune (Núi Nứa island), Vũng Tàu, Bà Rịa–Vũng Tàu, Vietnam",la:10.45000,ln:107.05000,w:"A one-of-a-kind 2-hectare wood-and-tile temple compound on Long Sơn island, built 1910–1929 by Lê Văn Mưu ('Ông Trần'), founder of a local folk faith blending Confucianism and Taoism. Temple, mausoleum and communal halls with a century-old tamarind tree; a national relic and the island's living heritage site.",k:"Heritage house / temple",g:["HERITAGE","TEMPLE","PARK","ARCH"],s:[["THANHNIEN","https://thanhnien.vn/kham-pha-nha-lon-long-son-cay-me-tram-tuoi-long-liet-gan-voi-dao-ong-tran-185251016111551621.htm"],["DANTRI","https://dantri.com.vn/du-lich/kham-pha-kien-truc-co-mot-khong-hai-cua-nha-lon-long-son-o-vung-tau-20200728002516646.htm"],["VNTOURISM","https://vietnamtourism.vn/index.php/tourism/items/2628"]]},
+{t:3,a:"VUNGTAURT",n:"Bình Châu–Phước Bửu Nature Reserve",ad:"Bình Châu / Bưng Riềng, Xuyên Mộc, Bà Rịa–Vũng Tàu, Vietnam",la:10.55000,ln:107.50500,w:"An 11,293-hectare protected coastal rainforest — the region's only surviving lowland dipterocarp forest — wrapping the Hồ Tràm and Hồ Cốc beaches and the Bình Châu hot springs. Home to the 136m Núi Hồ Linh hill and endangered species; hiking trails through a rare intact ecosystem.",k:"Nature reserve",g:["PARK"],s:[["WIKI","https://en.wikipedia.org/wiki/B%C3%ACnh_Ch%C3%A2u%E2%80%93Ph%C6%B0%E1%BB%9Bc_B%E1%BB%ADu_Nature_Reserve"],["VNANET","https://vietnam.vnanet.vn/vietnamese/tin-tuc/kham-pha-khu-bao-ton-thien-nhien-binh-chau-%E2%80%93-phuoc-buu-351483.html"]]},
 {t:1,a:"D3",n:"War Remnants Museum",ad:"28 Vo Van Tan Street, District 3, Ho Chi Minh City, Vietnam",la:10.77947,ln:106.69213,w:"HCMC's unflinching museum of the Indochina and Vietnam wars — the city's most affecting historical site.",k:"History museum",g:["MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/war-remnants-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/War_Remnants_Museum"]]},
 {t:2,a:"D1",n:"Ben Thanh Market",ad:"Le Loi, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77252,ln:106.69802,w:"The landmark 1914 central market — street food, textiles and souvenirs in the heart of Saigon.",k:"Market",g:["MKT","ARCH"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%E1%BA%BFn_Th%C3%A0nh_Market"]]},
 {t:1,a:"TAYNINHRT",n:"Cu Chi Tunnels",ad:"Cu Chi District (Ben Dinh / Ben Duoc), Ho Chi Minh City, Vietnam",la:11.03250,ln:106.48444,w:"The vast wartime underground tunnel network northwest of the city — a defining day trip from Saigon.",k:"Historic site",g:["HERITAGE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/attractions/cu-chi-tunnels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/C%E1%BB%A7_Chi_tunnels"]]}
@@ -478,7 +495,7 @@ const FS = {
   "VIETNAM_COM":{k:"VIETNAM COM",t:"Vietnam.com",u:"https://www.vietnam.com/",l:"Vietnam.com"},
   "VIETNAM_VN":{k:"VIETNAM VN",t:"Vietnam.vn",u:"https://www.vietnam.vn/en/",l:"Vietnam.vn"},
   "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
-  "WIKI":{k:"WIKI",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
+  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
   "WILLFLY":{k:"WILLFLY",t:"Will Fly for Food (JB & Renée Macatulad)",u:"https://www.willflyforfood.net/",l:"Will Fly for Food (JB & Renée Macatulad)"},
   "WILLFLYFORFOOD":{k:"WILLFLYFORFOOD",t:"Will Fly for Food (JB & Renée Macatulad)",u:"https://www.willflyforfood.net/",l:"Will Fly for Food (JB & Renée Macatulad)"},
   "WORDVIETNAM":{k:"WORDVIETNAM",t:"The Word Vietnam",u:"https://wordhanoi.com/",l:"The Word Vietnam"},
