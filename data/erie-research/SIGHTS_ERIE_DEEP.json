@@ -1,0 +1,58 @@
+{
+ "sources": [
+  {"key": "UNCOVERINGPA", "name": "Uncovering PA (Jim Cheney, PA travel writer)", "url": "https://uncoveringpa.com/"},
+  {"key": "PAROUTE6", "name": "PA Route 6 Alliance", "url": "https://paroute6.com/"},
+  {"key": "VISITPA", "name": "VisitPA (Pennsylvania Tourism Office)", "url": "https://www.visitpa.com/"},
+  {"key": "VISITERIE", "name": "VisitErie (Erie County CVB)", "url": "https://www.visiterie.com/"},
+  {"key": "DCNR", "name": "PA DCNR — Pennsylvania State Parks", "url": "https://www.pa.gov/agencies/dcnr/"},
+  {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org/"},
+  {"key": "HMDB", "name": "The Historical Marker Database", "url": "https://www.hmdb.org/"},
+  {"key": "ERIEREADER", "name": "Erie Reader (Erie alt-weekly)", "url": "https://www.eriereader.com/"},
+  {"key": "ERIENEWSNOW", "name": "Erie News Now (WICU/WSEE)", "url": "https://www.erienewsnow.com/"},
+  {"key": "ERIECEMETERY", "name": "Erie Cemetery Association (official)", "url": "https://www.eriecemeteryassoc.com/"}
+ ],
+ "sights": [
+  {
+   "t": 1, "a": "ERIE", "n": "Hagen History Center",
+   "address": "356 W 6th St, Erie, PA 16507",
+   "w": "Erie County's history campus across four buildings, anchored by the 1891 Richardsonian-Romanesque Watson-Curtze Mansion (24 rooms, period interiors, exhibits on Erie's brewing and sporting heritage). Its grounds now also hold Frank Lloyd Wright's relocated original San Francisco office — a marquee addition making it one of northwest PA's top museums.",
+   "k": "MUSEUM", "g": ["MUS", "HIST"],
+   "sources": [["UNCOVERINGPA", "https://uncoveringpa.com/hagen-history-center-erie"], ["PAROUTE6", "https://paroute6.com/attractions/hagen-history-center-museum/"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "n": "expERIEnce Children's Museum",
+   "address": "420 French St, Erie, PA 16507",
+   "w": "A three-story downtown children's museum with Erie-themed play: 'Lake Life,' a big water table dotted with mini city landmarks (Bicentennial Tower, North Pier Light); a 'My Town' miniature community; a explorable cave; and tech, art and dinosaur rooms — the city's top rainy-day family stop.",
+   "k": "MUSEUM", "g": ["MUS", "FAM"],
+   "sources": [["UNCOVERINGPA", "https://uncoveringpa.com/experience-childrens-museum-in-erie"], ["VISITPA", "https://www.visitpa.com/listing/experience-children%E2%80%99s-museum/2055/"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "n": "Perry Monument",
+   "address": "Crystal Point, Presque Isle State Park, Erie, PA 16505",
+   "w": "An 80-foot limestone obelisk on Crystal Point at Presque Isle, dedicated 1926 on the 113th anniversary of the Battle of Lake Erie, honoring Commodore Oliver Hazard Perry and the sailors who built and sailed his fleet from Erie's harbor in 1813. Sited to be visible from the mainland across Misery Bay.",
+   "k": "MONUMENT", "g": ["MARITIME", "HIST", "ICON"],
+   "sources": [["DCNR", "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/presque-isle-state-park/history"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Perry_Monument"], ["HMDB", "https://www.hmdb.org/m.asp?m=129899"]]
+  },
+  {
+   "t": 3, "a": "ERIE", "n": "Erie Cemetery",
+   "address": "2116 Chestnut St, Erie, PA 16502",
+   "w": "A 75-acre garden cemetery laid out in 1851 between Chestnut and Cherry, a leafy walk of Victorian monuments and a Civil War veterans' section. Among its famous residents are composer Harry T. Burleigh and many of the industrialists who built Erie — the city's outdoor history book.",
+   "k": "CEMETERY", "g": ["HIST", "ODD", "FREE"],
+   "sources": [["WIKIPEDIA", "https://en.wikipedia.org/wiki/Erie_Cemetery"], ["ERIECEMETERY", "https://www.eriecemeteryassoc.com/famous-residents"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "n": "Dobbins Landing",
+   "address": "1 State St, Erie, PA 16507",
+   "w": "The public wharf at the foot of State Street where the city meets Presque Isle Bay — the waterfront hub holding the Bicentennial Tower, boat-tour and fishing-charter docks and the seasonal water taxi across to Presque Isle. Named for Daniel Dobbins, the Erie sailing master who helped build Perry's fleet.",
+   "k": "LANDMARK", "g": ["MARITIME", "ICON", "FREE"],
+   "sources": [["WIKIPEDIA", "https://en.wikipedia.org/wiki/Dobbins_Landing"], ["UNCOVERINGPA", "https://uncoveringpa.com/things-to-do-in-erie-pa"]]
+  },
+  {
+   "t": 3, "a": "ERIE", "n": "Frontier Park",
+   "address": "1501 W 6th St, Erie, PA 16505",
+   "w": "A shaded west-side greenspace along Cascade Creek with an outdoor amphitheater — home each summer to free Frontier Friday concerts and, on the first weekend of August, the 30-plus-year-old Erie Blues & Jazz Festival that draws thousands.",
+   "k": "PARK", "g": ["PARK", "FREE"],
+   "sources": [["ERIEREADER", "https://www.eriereader.com/article/31st-annual-blues-and-jazz-fest-returns-to-frontier-park"], ["ERIENEWSNOW", "https://www.erienewsnow.com/news/summer-2026-festivals-and-fairs-in-erie-pennsylvania/article_8a92440a-184c-49f1-bf11-5bed225fce9f.html"]]
+  }
+ ]
+}
