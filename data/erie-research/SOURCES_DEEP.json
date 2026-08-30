@@ -1,10 +1,60 @@
-[
- {"key": "KEYSTONE", "name": "Keystone Newsroom (PA statewide news/food readers' polls)", "type": "news", "url": "https://keystonenewsroom.com/", "credible": "PA statewide newsroom running crowd-sourced Best-of food guides; used to measure/cite Erie reader consensus (sushi, coffee)."},
- {"key": "BREWERSPA", "name": "Brewers of Pennsylvania (state craft-brewers guild)", "type": "trade/nonprofit", "url": "https://www.brewersofpa.org/", "credible": "Statewide craft-beer trade association; its editorial brewer features are authoritative on PA breweries."},
- {"key": "WINETRAVELER", "name": "Winetraveler (wine-travel editorial)", "type": "editorial", "url": "https://www.winetraveler.com/", "credible": "Established wine-travel publication with a researched Lake Erie wineries guide; credible for wine-region coverage (paired with Pittsburgh Magazine)."},
- {"key": "VISITPA", "name": "VisitPA (Pennsylvania Tourism Office)", "type": "official/DMO", "url": "https://www.visitpa.com/", "credible": "Official Pennsylvania state tourism office listings — vetted attraction/venue info."},
- {"key": "ERIEREADER", "name": "Erie Reader (Erie alt-weekly)", "type": "news", "url": "https://www.eriereader.com/", "credible": "Erie's alt-weekly of record; its crowd-voted Best of Erie awards and food features are the local editorial benchmark."},
- {"key": "YOURERIE", "name": "YourErie / WJET-WFXP (Erie ABC/Fox affiliate)", "type": "news", "url": "https://www.yourerie.com/", "credible": "Local TV news; on the Erie credible-source list."},
- {"key": "GOERIE", "name": "Erie Times-News / GoErie", "type": "news", "url": "https://www.goerie.com/", "credible": "Erie's daily newspaper of record; top-tier local credible source."},
- {"key": "ERIECEMETERY", "name": "Erie Cemetery Association (official)", "type": "official", "url": "https://www.eriecemeteryassoc.com/", "credible": "Primary/authoritative source for the historic cemetery's history and famous residents (paired with Wikipedia)."}
-]
+{
+ "outlets": [
+  {
+   "key": "KEYSTONE",
+   "name": "Keystone Newsroom (PA statewide news/food readers' polls)",
+   "type": "news",
+   "url": "https://keystonenewsroom.com/",
+   "credible": "PA statewide newsroom running crowd-sourced Best-of food guides; used to measure/cite Erie reader consensus (sushi, coffee)."
+  },
+  {
+   "key": "BREWERSPA",
+   "name": "Brewers of Pennsylvania (state craft-brewers guild)",
+   "type": "trade/nonprofit",
+   "url": "https://www.brewersofpa.org/",
+   "credible": "Statewide craft-beer trade association; its editorial brewer features are authoritative on PA breweries."
+  },
+  {
+   "key": "WINETRAVELER",
+   "name": "Winetraveler (wine-travel editorial)",
+   "type": "editorial",
+   "url": "https://www.winetraveler.com/",
+   "credible": "Established wine-travel publication with a researched Lake Erie wineries guide; credible for wine-region coverage (paired with Pittsburgh Magazine)."
+  },
+  {
+   "key": "VISITPA",
+   "name": "VisitPA (Pennsylvania Tourism Office)",
+   "type": "official/DMO",
+   "url": "https://www.visitpa.com/",
+   "credible": "Official Pennsylvania state tourism office listings — vetted attraction/venue info."
+  },
+  {
+   "key": "ERIEREADER",
+   "name": "Erie Reader (Erie alt-weekly)",
+   "type": "news",
+   "url": "https://www.eriereader.com/",
+   "credible": "Erie's alt-weekly of record; its crowd-voted Best of Erie awards and food features are the local editorial benchmark."
+  },
+  {
+   "key": "YOURERIE",
+   "name": "YourErie / WJET-WFXP (Erie ABC/Fox affiliate)",
+   "type": "news",
+   "url": "https://www.yourerie.com/",
+   "credible": "Local TV news; on the Erie credible-source list."
+  },
+  {
+   "key": "GOERIE",
+   "name": "Erie Times-News / GoErie",
+   "type": "news",
+   "url": "https://www.goerie.com/",
+   "credible": "Erie's daily newspaper of record; top-tier local credible source."
+  },
+  {
+   "key": "ERIECEMETERY",
+   "name": "Erie Cemetery Association (official)",
+   "type": "official",
+   "url": "https://www.eriecemeteryassoc.com/",
+   "credible": "Primary/authoritative source for the historic cemetery's history and famous residents (paired with Wikipedia)."
+  }
+ ]
+}

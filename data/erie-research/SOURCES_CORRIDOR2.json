@@ -1,0 +1,81 @@
+{
+ "outlets": [
+  {
+   "key": "VISITPA",
+   "name": "VisitPA (Pennsylvania Tourism Office)",
+   "type": "state tourism (official)",
+   "url": "https://www.visitpa.com/",
+   "credible": "Official Pennsylvania state tourism office; fact-checked destination listings."
+  },
+  {
+   "key": "ECED",
+   "name": "Visit Edinboro / Edinboro Community Economic Development (ECED)",
+   "type": "local tourism/econ-dev body",
+   "url": "https://www.visitedinboropa.com/",
+   "credible": "Edinboro's community economic-development and tourism body; local business directory of record for the town."
+  },
+  {
+   "key": "BUSINESSJOURNAL",
+   "name": "The Business Journal (Youngstown / Mahoning Valley)",
+   "type": "regional news outlet",
+   "url": "https://businessjournaldaily.com/",
+   "credible": "Long-running regional business-news publication covering NW PA / NE Ohio; original reported feature on Big Rail Brewing."
+  },
+  {
+   "key": "WPC",
+   "name": "Western Pennsylvania Conservancy",
+   "type": "conservation nonprofit (land manager)",
+   "url": "https://waterlandlife.org/",
+   "credible": "Owner/manager of the Wolf Creek Narrows preserve (and historic steward of McConnells Mill, Moraine, Ohiopyle); authoritative on its own natural areas."
+  },
+  {
+   "key": "PGHPG",
+   "name": "Pittsburgh Post-Gazette",
+   "type": "major daily newspaper",
+   "url": "https://www.post-gazette.com/",
+   "credible": "Pittsburgh's paper of record; original recreation feature on Wolf Creek Narrows."
+  },
+  {
+   "key": "ROADSIDEAMERICA",
+   "name": "Roadside America",
+   "type": "roadside-attraction guide (editorial)",
+   "url": "https://www.roadsideamerica.com/",
+   "credible": "Long-established editorial catalog of American roadside attractions; used only as a secondary source alongside UncoveringPA + VisitCrawford for the Linesville Spillway."
+  },
+  {
+   "key": "NEXTPGH",
+   "name": "NextPittsburgh",
+   "type": "regional news/features outlet",
+   "url": "https://nextpittsburgh.com/",
+   "credible": "Established Pittsburgh-region news and features site; Butler County brewery roundup."
+  },
+  {
+   "key": "CLIO",
+   "name": "The Clio",
+   "type": "historical-sites reference (curated)",
+   "url": "https://theclio.com/",
+   "credible": "Curated, sourced encyclopedia of historic/cultural sites; used as a secondary source alongside SRU + Experience Butler for the Old Stone House."
+  },
+  {
+   "key": "SRU",
+   "name": "Slippery Rock University (official)",
+   "type": "university (official)",
+   "url": "https://www.sru.edu/",
+   "credible": "Owner and operator of the Old Stone House museum; primary institutional source."
+  },
+  {
+   "key": "ARBNET",
+   "name": "ArbNet / Morton Register of Arboreta",
+   "type": "accreditation body",
+   "url": "https://arbnet.org/",
+   "credible": "Morton Arboretum's arboretum-accreditation program; authoritative record that Goodell Gardens is an accredited arboretum."
+  },
+  {
+   "key": "BUTLEREAGLE",
+   "name": "Butler Eagle",
+   "type": "county daily newspaper",
+   "url": "https://www.butlereagle.com/",
+   "credible": "Butler County's daily newspaper of record; local reporting on the Passavant House."
+  }
+ ]
+}

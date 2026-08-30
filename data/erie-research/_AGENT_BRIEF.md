@@ -48,8 +48,9 @@ earns a pin. Record keep/drop in AUDIT.md.
   `{"sources":[{"key":"KEY","name":"…","url":"…"}...],
     "sights":[{"t":..,"a":"..","n":"..","address":"..","w":"..","k":"<kind>","g":["ICON","PARK"...],
                "sources":[["KEY","url"]...]}]}`
-- **New outlets** → add to `SOURCES_ERIE.json` (or a new `SOURCES_<scope>.json`) as
-  `{"key","name","type","url","credible":"<why credible>"}`.
+- **New outlets** → a `SOURCES_<scope>.json` in the **dict** form `{"outlets":[{"key","name","type","url",
+  "credible":"<why credible>"}, ...]}` (matching `SOURCES_ERIE.json`; register-sources.py + consolidate.py
+  read `.outlets`).
 - Cuisine strings map via consolidate.py CMAP (Thai/Chinese/Vietnamese/Indian/Japanese/Sushi/Korean/Pho →
   ASIAN; Mexican/Tacos → MEX; Italian/Pizza → ITAL; etc.). Name a **specific dish**, never a bare label.
 - `t` = tier WITHIN the area (1 = must-eat/see, 2 = strong, 3 = worth it). Rank within area, not city.

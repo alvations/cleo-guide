@@ -103,8 +103,9 @@ srcmeta={}
 for path in sorted(glob.glob(os.path.join(D,"SOURCES_*.json"))):
     try: d=json.load(open(path))
     except Exception: continue
-    for o in d.get("outlets", d if isinstance(d,list) else []):
-        if o.get("key"): srcmeta.setdefault(canon(o["key"]), {"key":canon(o["key"]),"name":o.get("name",o["key"]),"url":o.get("url","")})
+    _outlets = (d.get("outlets", []) if isinstance(d, dict) else d) if d else []
+    for o in _outlets:
+        if isinstance(o, dict) and o.get("key"): srcmeta.setdefault(canon(o["key"]), {"key":canon(o["key"]),"name":o.get("name",o["key"]),"url":o.get("url","")})
 for path in sorted(glob.glob(os.path.join(D,"CREATORS*.json"))):
     try: d=json.load(open(path))
     except Exception: continue
