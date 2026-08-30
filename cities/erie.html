@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Erie PA &amp; the Lake Erie / I-79 corridor field guide — 35 sights and 17 places to eat across Erie, North East wine country, Meadville, Edinboro and Grove City, each traceable to its source (Erie Times-News, Erie Reader, Visit Erie, PA DCNR, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Erie PA &amp; the Lake Erie / I-79 corridor field guide — 41 sights and 18 places to eat across Erie, North East wine country, Meadville, Edinboro and Grove City, each traceable to its source (Erie Times-News, Erie Reader, Visit Erie, PA DCNR, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Erie, PA &amp; the Lake Erie Corridor Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Erie &amp; the Lake Erie corridor, sourced</p>
   <h1>Erie<span class="thin">the Bayfront, the wine belt &amp; the I-79 corridor to Pittsburgh</span></h1>
-  <p class="standfirst">35 sights and 17 places to eat across <strong>Erie, PA</strong> &mdash; the Bayfront and Presque Isle &mdash; the <strong>Lake Erie wine belt</strong> at North East, and the <strong>I-79/US-19 corridor</strong> south toward Pittsburgh through Meadville, Edinboro and Grove City. Each is traceable to the source that named it. Erie’s canon is its own: the <strong>Greek-sauce hot dog</strong>, <strong>Stanganelli’s</strong> pepperoni balls, <strong>sponge candy</strong>, Great-Lakes perch, and the wineries &amp; breweries — plus Presque Isle, the U.S. Brig Niagara and the Bicentennial Tower. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">41 sights and 18 places to eat across <strong>Erie, PA</strong> &mdash; the Bayfront and Presque Isle &mdash; the <strong>Lake Erie wine belt</strong> at North East, and the <strong>I-79/US-19 corridor</strong> south toward Pittsburgh through Meadville, Edinboro and Grove City. Each is traceable to the source that named it. Erie’s canon is its own: the <strong>Greek-sauce hot dog</strong>, <strong>Stanganelli’s</strong> pepperoni balls, <strong>sponge candy</strong>, Great-Lakes perch, and the wineries &amp; breweries — plus Presque Isle, the U.S. Brig Niagara and the Bicentennial Tower. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -310,6 +310,7 @@
 const S = {
   "ALLEGHENY":{k:"ALLEGHENY",t:"Allegheny College (official)",u:"https://allegheny.edu/",l:"Allegheny College (official)"},
   "ARBNET":{k:"ARBNET",t:"ArbNet / Morton Register of Arboreta",u:"https://arbnet.org/",l:"ArbNet / Morton Register of Arboreta"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
   "BUTLEREAGLE":{k:"BUTLEREAGLE",t:"Butler Eagle",u:"https://www.butlereagle.com/",l:"Butler Eagle"},
   "CLIO":{k:"CLIO",t:"The Clio",u:"https://theclio.com/",l:"The Clio"},
   "DCNR":{k:"PA DCNR (STATE PARKS)",t:"PA DCNR — Pennsylvania State Parks",u:"https://www.pa.gov/agencies/dcnr/",l:"PA DCNR — Pennsylvania State Parks"},
@@ -317,16 +318,20 @@ const S = {
   "ERIEMARITIME":{k:"ERIEMARITIME",t:"Erie Maritime Museum (official)",u:"https://www.eriemaritimemuseum.org/",l:"Erie Maritime Museum (official)"},
   "ERIENEWSNOW":{k:"ERIENEWSNOW",t:"Erie News Now — WICU/WSEE",u:"https://www.erienewsnow.com/",l:"Erie News Now — WICU/WSEE"},
   "ERIEREADER":{k:"ERIE READER",t:"Erie Reader (Erie alt-weekly)",u:"https://www.eriereader.com/",l:"Erie Reader (Erie alt-weekly)"},
+  "ERIEYESTERDAY":{k:"ERIEYESTERDAY",t:"Erie Yesterday",u:"https://www.erieyesterday.org/",l:"Erie Yesterday"},
   "EXPERIENCEBUTLER":{k:"EXPERIENCEBUTLER",t:"Experience Butler County PA (CVB)",u:"https://www.experiencebutler.com/",l:"Experience Butler County PA (CVB)"},
   "EXPLOREPAHISTORY":{k:"EXPLOREPAHISTORY",t:"ExplorePAHistory (WITF)",u:"https://explorepahistory.com/",l:"ExplorePAHistory (WITF)"},
   "GOERIE":{k:"ERIE TIMES-NEWS",t:"Erie Times-News / GoErie",u:"https://www.goerie.com/",l:"Erie Times-News / GoErie"},
+  "HAGENHISTORY":{k:"HAGENHISTORY",t:"Hagen History Center (Erie County Historical Society)",u:"https://www.hagenhistory.org/",l:"Hagen History Center (Erie County Historical Society)"},
   "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org/",l:"The Historical Marker Database"},
   "INTERESTINGPA":{k:"INTERESTINGPA",t:"Interesting Pennsylvania and Beyond (PA travel writer)",u:"https://www.interestingpennsylvania.com/",l:"Interesting Pennsylvania and Beyond (PA travel writer)"},
   "MEADVILLETRIBUNE":{k:"MEADVILLE TRIBUNE",t:"Meadville Tribune",u:"https://www.meadvilletribune.com/",l:"Meadville Tribune"},
+  "PABUCKETLIST":{k:"PA BUCKET LIST",t:"PA Bucket List",u:"https://pabucketlist.com/",l:"PA Bucket List"},
   "PAEATS":{k:"PAEATS",t:"PA Eats (Pennsylvania food/drink editorial)",u:"https://www.paeats.org/",l:"PA Eats (Pennsylvania food/drink editorial)"},
   "PAROUTE6":{k:"PAROUTE6",t:"PA Route 6 Alliance",u:"https://paroute6.com/",l:"PA Route 6 Alliance"},
   "PGHPG":{k:"PGHPG",t:"Pittsburgh Post-Gazette",u:"https://www.post-gazette.com/",l:"Pittsburgh Post-Gazette"},
   "PITTSBURGHMAG":{k:"PITTSBURGHMAG",t:"Pittsburgh Magazine",u:"https://www.pittsburghmagazine.com/",l:"Pittsburgh Magazine"},
+  "PITTSBURGHMUSEUMS":{k:"PITTSBURGHMUSEUMS",t:"Pittsburgh & Western PA Museum Council",u:"https://pittsburghmuseums.org/",l:"Pittsburgh & Western PA Museum Council"},
   "PREMIUMOUTLETS":{k:"PREMIUMOUTLETS",t:"Simon / Grove City Premium Outlets (official)",u:"https://www.premiumoutlets.com/",l:"Simon / Grove City Premium Outlets (official)"},
   "PRESQUEISLELH":{k:"PRESQUEISLELH",t:"Presque Isle Lighthouse (official)",u:"https://www.presqueislelighthouse.org/",l:"Presque Isle Lighthouse (official)"},
   "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com/",l:"Roadside America"},
@@ -387,13 +392,21 @@ const P = [
 {t:2,a:"ERIE",n:"Perry Monument",ad:"Crystal Point, Presque Isle State Park, Erie, PA 16505",la:42.15478,ln:-80.08978,w:"An 80-foot limestone obelisk on Crystal Point at Presque Isle, dedicated 1926 on the 113th anniversary of the Battle of Lake Erie, honoring Commodore Oliver Hazard Perry and the sailors who built and sailed his fleet from Erie's harbor in 1813. Sited to be visible from the mainland across Misery Bay.",k:"MONUMENT",g:["MARITIME","HIST","ICON","PARK"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/presque-isle-state-park/history"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Perry_Monument"],["HMDB","https://www.hmdb.org/m.asp?m=129899"]]},
 {t:3,a:"ERIE",n:"Erie Cemetery",ad:"2116 Chestnut St, Erie, PA 16502",la:42.11139,ln:-80.08472,w:"A 75-acre garden cemetery laid out in 1851 between Chestnut and Cherry, a leafy walk of Victorian monuments and a Civil War veterans' section. Among its famous residents are composer Harry T. Burleigh and many of the industrialists who built Erie — the city's outdoor history book.",k:"CEMETERY",g:["HIST","ODD","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Cemetery"],["ERIECEMETERY","https://www.eriecemeteryassoc.com/famous-residents"]]},
 {t:2,a:"ERIE",n:"Dobbins Landing",ad:"1 State St, Erie, PA 16507",la:42.13763,ln:-80.09064,w:"The public wharf at the foot of State Street where the city meets Presque Isle Bay — the waterfront hub holding the Bicentennial Tower, boat-tour and fishing-charter docks and the seasonal water taxi across to Presque Isle. Named for Daniel Dobbins, the Erie sailing master who helped build Perry's fleet.",k:"LANDMARK",g:["MARITIME","ICON","FREE","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dobbins_Landing"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-erie-pa"]]},
-{t:3,a:"ERIE",n:"Frontier Park",ad:"1501 W 6th St, Erie, PA 16505",la:42.11672,ln:-80.11700,w:"A shaded west-side greenspace along Cascade Creek with an outdoor amphitheater — home each summer to free Frontier Friday concerts and, on the first weekend of August, the 30-plus-year-old Erie Blues & Jazz Festival that draws thousands.",k:"PARK",g:["PARK","FREE"],s:[["ERIEREADER","https://www.eriereader.com/article/31st-annual-blues-and-jazz-fest-returns-to-frontier-park"],["ERIENEWSNOW","https://www.erienewsnow.com/news/summer-2026-festivals-and-fairs-in-erie-pennsylvania/article_8a92440a-184c-49f1-bf11-5bed225fce9f.html"]]}
+{t:3,a:"ERIE",n:"Frontier Park",ad:"1501 W 6th St, Erie, PA 16505",la:42.11672,ln:-80.11700,w:"A shaded west-side greenspace along Cascade Creek with an outdoor amphitheater — home each summer to free Frontier Friday concerts and, on the first weekend of August, the 30-plus-year-old Erie Blues & Jazz Festival that draws thousands.",k:"PARK",g:["PARK","FREE"],s:[["ERIEREADER","https://www.eriereader.com/article/31st-annual-blues-and-jazz-fest-returns-to-frontier-park"],["ERIENEWSNOW","https://www.erienewsnow.com/news/summer-2026-festivals-and-fairs-in-erie-pennsylvania/article_8a92440a-184c-49f1-bf11-5bed225fce9f.html"]]},
+{t:1,a:"ERIE",n:"Schaefer's Auto Art",ad:"3705 Hershey Rd, Erie, PA 16506",la:42.04365,ln:-80.13418,w:"A free roadside sculpture garden of larger-than-life outsider art welded from old car and truck parts — a spider built from a whole VW Beetle, a bumblebee from a cement truck. One of northwest PA's most-photographed oddities; park in the gravel lot along Hershey Road.",k:"ART",g:["ODD","ICON","FREE","PARK"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/schaefer-s-auto-art"],["UNCOVERINGPA","https://uncoveringpa.com/schaefers-auto-art"],["PABUCKETLIST","https://pabucketlist.com/exploring-schaefers-auto-art-in-erie-pa/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2021/07/schaefers-auto-art-erie-awesome.html"]]},
+{t:2,a:"ERIE",n:"Erie Bluffs State Park",ad:"11122 West Lake Rd, Girard, PA 16417",la:42.01640,ln:-80.37190,w:"A 587-acre undeveloped stretch of Lake Erie shoreline twelve miles west of the city, where trails run through oak savanna and along 90-foot bluffs to a wild, uncrowded beach and the mouth of Elk Creek — the quiet, rugged counterpart to Presque Isle.",k:"NATURE",g:["PARK","FREE","ICON","MARITIME"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/erie-bluffs-state-park"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-erie-pa"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Bluffs_State_Park"]]},
+{t:2,a:"ERIE",n:"Splash Lagoon Indoor Water Park Resort",ad:"8091 Peach St, Erie, PA 16509",la:42.04800,ln:-80.07800,w:"A Polynesian-themed indoor water park kept at 84 degrees year-round — nine slides, a 30,000-square-foot wave pool, a FlowRider and a five-story treehouse — attached to several hotels off Peach Street. One of Erie's top family attractions, rain or snow.",k:"AMUSEMENT",g:["FAM","PARK"],s:[["VISITPA","https://www.visitpa.com/listing/splash-lagoon-indoor-water-park-resort/1128/"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-erie-pa"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Splash_Lagoon"]]},
+{t:2,a:"ERIE",n:"Asbury Woods",ad:"4105 Asbury Rd, Erie, PA 16506",la:42.06092,ln:-80.17621,w:"A free 234-acre Millcreek nature preserve with five miles of trails, a boardwalk through a wooded wetland and a year-round nature center — a beloved local spot for birding, maple-sugaring programs and easy family walks.",k:"NATURE",g:["PARK","FREE","FAM"],s:[["UNCOVERINGPA","https://uncoveringpa.com/asbury-woods"],["PABUCKETLIST","https://pabucketlist.com/exploring-asbury-woods-in-erie-county-pa/"],["EXPLOREPAHISTORY","https://explorepahistory.com/attraction.php?id=1-B-F9C"]]},
+{t:3,a:"ERIE",n:"Wayne Blockhouse",ad:"Soldiers & Sailors Home grounds, 560 E 3rd St, Erie, PA 16507",la:42.13978,ln:-80.07423,w:"An 1880 state-built replica of the Fort Presque Isle blockhouse marking where General 'Mad' Anthony Wayne died in 1796 — and the site of one of early America's strangest burials: his flesh was boiled from his bones in 1809 so the skeleton could be carried to eastern PA, and the boiled remains reburied here.",k:"HIST",g:["HIST","ODD","FREE","ICON"],s:[["HMDB","https://www.hmdb.org/m.asp?m=21420"],["ROADSIDEAMERICA","https://www.roadsideamerica.com/story/17318"],["HAGENHISTORY","https://www.hagenhistory.org/blog/a-halloween-story-the-death-of-anthony-wayne"]]},
+{t:2,a:"ERIE",n:"North Pier Lighthouse",ad:"North Pier, Presque Isle State Park, Erie, PA 16505",la:42.15670,ln:-80.07060,w:"The shortest of Erie's three lighthouses at 34 feet, standing at the tip of Presque Isle where the bay meets the lake — and the last square, pyramidal-style light tower left in the United States. A 20-minute drive from the park entrance and a favorite sunset perch.",k:"LANDMARK",g:["MARITIME","ICON","FREE","PARK"],s:[["UNCOVERINGPA","https://uncoveringpa.com/lighthouses-erie-pa"],["PABUCKETLIST","https://pabucketlist.com/exploring-the-historic-lighthouses-of-erie/"],["VISITPA","https://www.visitpa.com/blog/post/your-guide-lighthouses-erie/"]]}
 ];
 
 const FS = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
   "BREWERSPA":{k:"BREWERSPA",t:"Brewers of Pennsylvania (state craft-brewers guild)",u:"https://www.brewersofpa.org/",l:"Brewers of Pennsylvania (state craft-brewers guild)"},
   "BUSINESSJOURNAL":{k:"BUSINESSJOURNAL",t:"The Business Journal (Youngstown / Mahoning Valley)",u:"https://businessjournaldaily.com/",l:"The Business Journal (Youngstown / Mahoning Valley)"},
   "CUCUMBERCHEF":{k:"CUCUMBERCHEF",t:"Cucumber Chef — Jennie Geisler's food blog",u:"https://cucumber-chef.org/",l:"Cucumber Chef — Jennie Geisler's food blog"},
+  "CUMBERLINK":{k:"CUMBERLINK",t:"The Sentinel / Cumberlink (Lee Enterprises PA regional news)",u:"https://cumberlink.com/",l:"The Sentinel / Cumberlink (Lee Enterprises PA regional news)"},
   "DISCOVERBURGH":{k:"DISCOVERBURGH",t:"Discover the Burgh (Pittsburgh travel writers, real track record)",u:"https://www.discovertheburgh.com/",l:"Discover the Burgh (Pittsburgh travel writers, real track record)"},
   "ECED":{k:"ECED",t:"Visit Edinboro / Edinboro Community Economic Development (ECED)",u:"https://www.visitedinboropa.com/",l:"Visit Edinboro / Edinboro Community Economic Development (ECED)"},
   "EDIBLEWNY":{k:"EDIBLEWNY",t:"Edible Western New York (Edible Communities regional food magazine)",u:"https://ediblewesternny.ediblecommunities.com/",l:"Edible Western New York (Edible Communities regional food magazine)"},
@@ -402,9 +415,12 @@ const FS = {
   "ERIEREADER":{k:"ERIE READER",t:"Erie Reader (Erie alt-weekly)",u:"https://www.eriereader.com/",l:"Erie Reader (Erie alt-weekly)"},
   "EXPERIENCEBUTLER":{k:"EXPERIENCEBUTLER",t:"Experience Butler County PA (CVB)",u:"https://www.experiencebutler.com/",l:"Experience Butler County PA (CVB)"},
   "EXPLOREPAHISTORY":{k:"EXPLOREPAHISTORY",t:"ExplorePAHistory (WITF)",u:"https://explorepahistory.com/",l:"ExplorePAHistory (WITF)"},
+  "FLAGSHIPDISTRICT":{k:"FLAGSHIPDISTRICT",t:"Flagship City District (Erie Downtown Development Corp. — official)",u:"https://www.flagshipcitydistrict.com/",l:"Flagship City District (Erie Downtown Development Corp. — official)"},
   "GOERIE":{k:"ERIE TIMES-NEWS",t:"Erie Times-News / GoErie",u:"https://www.goerie.com/",l:"Erie Times-News / GoErie"},
   "INTERESTINGPA":{k:"INTERESTINGPA",t:"Interesting Pennsylvania and Beyond (PA travel writer)",u:"https://www.interestingpennsylvania.com/",l:"Interesting Pennsylvania and Beyond (PA travel writer)"},
+  "ISLANDS":{k:"ISLANDS",t:"Islands.com",u:"https://www.islands.com/",l:"Islands.com"},
   "KEYSTONE":{k:"KEYSTONE",t:"Keystone Newsroom (PA statewide news/food readers' polls)",u:"https://keystonenewsroom.com/",l:"Keystone Newsroom (PA statewide news/food readers' polls)"},
+  "LAKEERIELIVING":{k:"LAKEERIELIVING",t:"Lake Erie Living",u:"https://lakeerieliving.com/",l:"Lake Erie Living"},
   "LIVINGDREAM":{k:"LIVINGDREAM",t:"Living the Dream (Lake Erie Ale Trail feature)",u:"https://www.livingthedreamrtw.com/",l:"Living the Dream (Lake Erie Ale Trail feature)"},
   "MEADVILLETRIBUNE":{k:"MEADVILLE TRIBUNE",t:"Meadville Tribune",u:"https://www.meadvilletribune.com/",l:"Meadville Tribune"},
   "NATIONALHERALD":{k:"NATIONALHERALD",t:"The National Herald (Greek-American national paper)",u:"https://www.thenationalherald.com/",l:"The National Herald (Greek-American national paper)"},
@@ -412,14 +428,18 @@ const FS = {
   "NORTHCOUNTRY":{k:"NORTHCOUNTRY",t:"North Country Brewing Company (official)",u:"https://northcountrybrewing.com/",l:"North Country Brewing Company (official)"},
   "NPR":{k:"NPR",t:"NPR",u:"https://www.npr.org/",l:"NPR"},
   "NWIRC":{k:"NWIRC",t:"Northwest Industrial Resource Center",u:"https://nwirc.org/",l:"Northwest Industrial Resource Center"},
+  "ONLYINYOURSTATE":{k:"ONLYINYOURSTATE",t:"Only In Your State — Pennsylvania",u:"https://www.onlyinyourstate.com/",l:"Only In Your State — Pennsylvania"},
   "PAEATS":{k:"PAEATS",t:"PA Eats (Pennsylvania food/drink editorial)",u:"https://www.paeats.org/",l:"PA Eats (Pennsylvania food/drink editorial)"},
   "PAROUTE6":{k:"PAROUTE6",t:"PA Route 6 Alliance",u:"https://paroute6.com/",l:"PA Route 6 Alliance"},
   "PBS":{k:"PBS",t:"PBS",u:"https://www.pbs.org/",l:"PBS"},
+  "PENNSYLVANIAWINE":{k:"PENNSYLVANIAWINE",t:"Pennsylvania Wines (PA Winery Association)",u:"https://pennsylvaniawine.com/",l:"Pennsylvania Wines (PA Winery Association)"},
   "PITTSBURGHMAG":{k:"PITTSBURGHMAG",t:"Pittsburgh Magazine",u:"https://www.pittsburghmagazine.com/",l:"Pittsburgh Magazine"},
+  "TALKERIE":{k:"TALKERIE",t:"TalkErie.com (Erie local news/radio site)",u:"https://talkerie.com/",l:"TalkErie.com (Erie local news/radio site)"},
   "TOURERIEPA":{k:"TOURERIEPA",t:"Tour Erie PA / Erie Insider",u:"https://www.toureriepa.com/",l:"Tour Erie PA / Erie Insider"},
   "TRAVELADDICTS":{k:"TRAVELADDICTS",t:"Travel Addicts (travel blog, real track record)",u:"https://traveladdicts.net/",l:"Travel Addicts (travel blog, real track record)"},
   "UNCOVERINGPA":{k:"UNCOVERING PA",t:"Uncovering PA (Jim Cheney — established PA travel writer, real track record)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney — established PA travel writer, real track record)"},
   "VISITCRAWFORD":{k:"VISIT CRAWFORD COUNTY",t:"Visit Crawford County PA",u:"https://visitcrawford.org/",l:"Visit Crawford County PA"},
+  "VISITEDINBORO":{k:"VISITEDINBORO",t:"Visit Edinboro PA (Edinboro tourism)",u:"https://www.visitedinboropa.com/",l:"Visit Edinboro PA (Edinboro tourism)"},
   "VISITERIE":{k:"VISIT ERIE",t:"VisitErie (Erie County CVB)",u:"https://www.visiterie.com/",l:"VisitErie (Erie County CVB)"},
   "VISITMERCER":{k:"VISITMERCER",t:"Visit Mercer County PA",u:"https://www.visitmercercountypa.com/",l:"Visit Mercer County PA"},
   "VISITPA":{k:"VISIT PA",t:"VisitPA (Pennsylvania Tourism Office)",u:"https://www.visitpa.com/",l:"VisitPA (Pennsylvania Tourism Office)"},
@@ -475,7 +495,8 @@ const F = [
 {t:3,a:"CORRIDOR",n:"Conneaut Cellars Winery & Distillery",ad:"Conneaut Lake, PA 16316",cz:["BREW"],la:41.60189,ln:-80.29733,w:"A lakeside winery and distillery beside Conneaut Lake that hosts summer live-music and outdoor tasting series — the drinks anchor of the Conneaut Lake resort area on the corridor.",s:[["VISITCRAWFORD","https://visitcrawford.org/regions/conneaut-lake/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"]]},
 {t:1,a:"EDINBORO",n:"Riverside Brewing Co.",ad:"1 Fountain Ave, Cambridge Springs, PA 16403",cz:["BREW","US"],la:41.80575,ln:-80.05333,w:"Opened 2019 in a refurbished 19th-century barn along French Creek on the grounds of the lost Riverside Inn, this farm-to-table brewpub is an outgrowth of the four-generation Howles Maple Farm and folds its own maple into beer and food; live music and outdoor summer series.",s:[["VISITCRAWFORD","https://visitcrawford.org/listing/riverside-brewing-company/"],["VISITPA","https://www.visitpa.com/listing/riverside-brewing-company/989/"]]},
 {t:2,a:"EDINBORO",n:"Edinboro Chocolaterie",ad:"114 Erie St, Edinboro, PA 16412",cz:["DESSERT"],la:41.87492,ln:-80.13175,w:"A downtown Edinboro chocolatier opened in 2019 by the family behind Butler's long-running Peter's Chocolate Shoppe; small-batch fillings made on site, hand-dipped nuts and clusters, and chocolate-covered raspberries, strawberries and Granny Smith apples.",s:[["ERIENEWSNOW","https://www.erienewsnow.com/archive/edinboro-chocolaterie-creates-chocolate-dipped-creations-for-all-occasions-community-gems/article_9a30ac67-c2b7-56c0-92e8-056322d7a7a3.html"],["ECED","https://www.visitedinboropa.com/shopping/edinboro-chocolaterie"]]},
-{t:2,a:"ERIE",n:"Black Monk Brewery",ad:"3721 W 12th St, Erie, PA 16505",cz:["BREW"],la:42.09201,ln:-80.16552,w:"A small west-side brewery on the Lake Erie Ale Trail devoted to Belgian styles (dubbels, tripels, quads) with 16-plus taps and rotating food trucks — a distinctive specialist among Erie's breweries.",s:[["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-erie-pa"],["BREWERSPA","https://www.brewersofpa.org/news/tom-morris-of-black-monk-brewery-on-belgian-style-beers-and-the-erie-craft-beer-community"]]}
+{t:2,a:"ERIE",n:"Black Monk Brewery",ad:"3721 W 12th St, Erie, PA 16505",cz:["BREW"],la:42.09201,ln:-80.16552,w:"A small west-side brewery on the Lake Erie Ale Trail devoted to Belgian styles (dubbels, tripels, quads) with 16-plus taps and rotating food trucks — a distinctive specialist among Erie's breweries.",s:[["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-erie-pa"],["BREWERSPA","https://www.brewersofpa.org/news/tom-morris-of-black-monk-brewery-on-belgian-style-beers-and-the-erie-craft-beer-community"]]},
+{t:1,a:"ERIE",n:"Lawrence Park Dinor",ad:"4019 Main St, Erie, PA 16511",cz:["US","GREEK"],la:42.15028,ln:-80.01444,w:"A 1948 Silk City diner in Lawrence Park and the only 'dinor' — the northwest-PA spelling — on the National Register of Historic Places (2004). Seventy-five-plus years of counter-service classics, most famously the Greek omelet drowned in Erie's signature Greek sauce.",s:[["ATLASOBSCURA","https://www.atlasobscura.com/itineraries/pennsylvania-erie"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lawrence_Park_Dinor"],["LAKEERIELIVING","https://lakeerieliving.com/articles/2025-best-of-lake-erie/best-dinor-lawrence-park-dinor/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -500,7 +521,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([41.5093,-80.081],8);
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.5093,-80.0898],8);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -584,7 +605,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Erie", 42.1219, -80.0955], ["North East", 42.2247, -79.829], ["Meadville", 41.6415, -80.2229], ["Edinboro", 41.8606, -80.1111], ["Grove City", 41.0846, -80.103], ["I-79 corridor south to Pittsburgh", 41.1667, -80.1654]];
+const LABELS=[["Erie", 42.1149, -80.1029], ["North East", 42.2247, -79.829], ["Meadville", 41.6415, -80.2229], ["Edinboro", 41.8606, -80.1111], ["Grove City", 41.0846, -80.103], ["I-79 corridor south to Pittsburgh", 41.1667, -80.1654]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -923,7 +944,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 52 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 59 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
