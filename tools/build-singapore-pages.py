@@ -94,6 +94,22 @@ def kind_of(slug, region):
     if region == "Singapore": return "district"   # a neighbourhood/town of the city of Singapore
     return "town"
 
+# ── COUNTRY registry (data-driven, reusable) ───────────────────────────────────────────────────────
+# The guide is multi-country. Each engine country (Singapore, Vietnam, …) maps its region to an output
+# FOLDER and gets its own hub (folder/index.html); the root index.html is the country hub. Which
+# countries are LIVE, their folder, flag and order live in data/countries.json, NOT inline here, so the
+# NEXT country is a config edit (add its entry, set live:true) with no code change. Today only Vietnam
+# has its own folder; Singapore and the not-yet-live SEA countries share Singapore/ so the archived
+# all-SEA hub Singapore/singapore-old.html keeps resolving. See docs/COUNTRIES.md.
+COUNTRIES = json.load(open(os.path.join(ROOT, "data", "countries.json"), encoding="utf-8"))["countries"]
+ENGINE_COUNTRIES = [c for c in COUNTRIES if c.get("kind") == "engine"]
+COUNTRY_BY_REGION = {c["region"]: c for c in ENGINE_COUNTRIES}
+def folder_for(region):
+    return COUNTRY_BY_REGION.get(region, {}).get("folder", "Singapore")
+# every folder a live/engine country writes into must exist
+for c in ENGINE_COUNTRIES:
+    os.makedirs(os.path.join(ROOT, c.get("folder", "Singapore")), exist_ok=True)
+
 # ── GATES (same as every build) ──
 _OPEN = {"YELP","TRIPADVISOR","OPENTABLE","GOOGLE","GOOGLEMAPS"}
 _ELITE = {"MICHELIN","MICHELIN_BIB","MICHELIN_STAR","MICHELIN_GREEN","JAMESBEARD","NPS","SMITHSONIAN","UNESCO"}
@@ -300,21 +316,23 @@ LABELS.forEach(''',
         "<title>%s — Singapore &amp; SEA field guide</title>"%name)
     # Tier-aware framing: a CITY (HCMC, NYC-tier) reads as a city of N districts; a Singapore entry reads
     # as a neighbourhood of the city of Singapore; other entries as a town/destination.
+    # back-nav points at THIS country's own hub (folder/index.html, i.e. relative "index.html").
+    cname = COUNTRY_BY_REGION.get(region, {}).get("name", region)
     if kind=="city":
         eyebrow="City guide · %s%s"%(region, " · %d districts"%ndist if ndist>1 else "")
         subhead="%s — a whole city, district by district, sourced"%region
         scope="the city of <strong>%s</strong>"%name
-        wherenav="all Singapore &amp; SEA cities"
+        wherenav="all %s guides"%cname
     elif kind=="district":
         eyebrow="Neighbourhood guide · Singapore"
         subhead="a town of Singapore — sights &amp; hawker food, sourced"
         scope="<strong>%s</strong>, a town of Singapore"%name
-        wherenav="all Singapore towns &amp; SEA cities"
+        wherenav="all Singapore towns"
     else:
         eyebrow="Town guide · %s"%region
         subhead="%s — sights &amp; local food, sourced"%region
         scope="<strong>%s</strong>"%name
-        wherenav="all Singapore &amp; SEA guides"
+        wherenav="all %s guides"%cname
     rep('<p class="eyebrow">Field guide · every place from all seven sources</p>',
         '<p class="eyebrow">%s</p>'%eyebrow)
     rep('<h1>Cleveland<span class="thin">the complete odd &amp; overlooked</span></h1>',
@@ -361,8 +379,9 @@ LABELS.forEach(''',
     import engine_guard
     new=engine_guard.fix_basemap_tiles(new)
     engine_guard.assert_no_google(new, slug)
-    open(os.path.join(OUTDIR,slug+".html"),"w",encoding="utf-8").write(new)
-    return {"slug":slug,"name":name,"region":region,"nP":nP,"nF":nF,"total":nP+nF,"kind":kind,"ndist":ndist}
+    folder=folder_for(region)
+    open(os.path.join(ROOT,folder,slug+".html"),"w",encoding="utf-8").write(new)
+    return {"slug":slug,"name":name,"region":region,"folder":folder,"nP":nP,"nF":nF,"total":nP+nF,"kind":kind,"ndist":ndist}
 
 built=[]
 for slug in SLUG_ORDER:
@@ -371,55 +390,25 @@ for slug in SLUG_ORDER:
 
 print("built %d place pages, %d total places"%(len(built),sum(b["total"] for b in built)))
 if unassigned: print("UNASSIGNED (no place matched):", ", ".join(unassigned))
-# emit a manifest for the hub builder
+# emit a manifest (folder-aware) for any downstream consumer
 json.dump(built, open(os.path.join(OUTDIR,"_pages.json"),"w"), indent=1, ensure_ascii=False)
-for b in built: print("  %-22s %-26s S%d F%d"%(b["slug"],b["region"],b["nP"],b["nF"]))
+for b in built: print("  %-22s %-14s %-26s S%d F%d"%(b["slug"],b["folder"],b["region"],b["nP"],b["nF"]))
 
-# ── Singapore/index.html — the pastel hub ──
-# Only these slugs are clickable for now; everything else is greyed while we populate it.
+# ── Per-country pastel hub (folder/index.html) ──────────────────────────────────────────────────────
+# One hub per LIVE engine country (Singapore, Vietnam, …), listing ONLY that country's places. Which
+# individual place pages are clickable is LIVE_SLUGS; the rest are greyed "expanding soon". The root
+# index.html is the COUNTRY hub (hand-authored, US default). Adding a country = a data/countries.json
+# entry + set live:true; no code change here. See docs/COUNTRIES.md.
 LIVE_SLUGS={"toa-payoh","ho-chi-minh-city"}
 LIVE_SLUG="toa-payoh"   # back-compat single check
-REGION_ORDER=["Singapore","Malaysia","Thailand","Vietnam","Indonesia","Philippines","Cambodia, Laos & Myanmar"]
+def esc(s): return s.replace("&","&amp;").replace("<","&lt;")
 byreg=defaultdict(list)
 for b in built: byreg[b["region"]].append(b)
-TOTAL=sum(b["total"] for b in built)
-def esc(s): return s.replace("&","&amp;").replace("<","&lt;")
-cards=[]
-for reg in REGION_ORDER:
-    items=byreg.get(reg,[])
-    if not items: continue
-    # For now ONLY Toa Payoh is live/clickable; everything else is greyed while we populate it.
-    region_has_live = any(b["slug"] in LIVE_SLUGS for b in items)
-    hdr = esc(reg) if region_has_live else esc(reg)+' <span class="regnote">· expanding soon</span>'
-    cards.append('<h2 class="reg">%s</h2>\n<div class="grid">'%hdr)
-    for b in items:
-        bits=[]
-        if b["nP"]: bits.append("%d sight%s"%(b["nP"],"" if b["nP"]==1 else "s"))
-        if b["nF"]: bits.append("%d food"%b["nF"])
-        meta=" · ".join(bits)
-        live = (b["slug"] in LIVE_SLUGS)
-        # tier badge — a city is NOT the same tier as a Singapore town. Cities show their district count.
-        kind=b.get("kind","town"); nd=b.get("ndist",0)
-        if kind=="city":
-            tier='CITY%s'%(' · %d districts'%nd if live and nd>1 else '')
-        elif kind=="district":
-            tier='NEIGHBOURHOOD'
-        else:
-            tier='TOWN'
-        badge='<span class="ptier ptier-%s">%s</span>'%(kind,tier)
-        if live:
-            cards.append('<a class="pcard pcard-%s" href="%s.html">%s<span class="pn">%s</span>'
-                         '<span class="pc">%s</span></a>'%(kind,b["slug"],badge,esc(b["name"]),meta))
-        else:
-            # not yet populated — greyed out + unclickable for now
-            cards.append('<div class="pcard pcard-%s disabled" aria-disabled="true">%s<span class="pn">%s</span>'
-                         '<span class="pc">%s</span><span class="soon">Expanding soon</span></div>'
-                         %(kind,badge,esc(b["name"]),meta))
-    cards.append("</div>")
-HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
+
+HUB_HEAD="""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Singapore &amp; Southeast Asia — Pastel Field Guide</title>
-<meta name="description" content="A pastel field guide (light &amp; dark) to Singapore's towns and the great cities of Southeast Asia — one page per place, opening on Toa Payoh. %d places, each sourced to Michelin, local news, UNESCO and vetted local/viral creators.">
+<title>%(title)s</title>
+<meta name="description" content="%(desc)s">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;600&family=Newsreader:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -457,14 +446,56 @@ HUB="""<!doctype html><html lang="en"><head><meta charset="utf-8">
 </style></head>
 <body><div class="wrap">
 <header>
- <p class="eyebrow">Pastel field guide · light &amp; dark · %d places</p>
- <h1>Singapore<span class="thin">&amp; Southeast Asia — one page per town &amp; city</span></h1>
- <p class="lead">Opening on <strong>Toa Payoh</strong> and reaching across Singapore's towns to the great cities of Southeast Asia. Each place is its own page — the region's food canon (<strong>chicken rice, laksa, char kway teow, bak kut teh, chilli crab, nasi lemak, prata, pho</strong>) and its landmarks — each traceable to the source that named it: Michelin, UNESCO, local news and vetted local/viral creators. Yelp/TripAdvisor never count.</p>
- <p><a class="back" href="../index.html">← all cities (US)</a></p>
+ <p class="eyebrow">%(eyebrow)s</p>
+ <h1>%(h1)s<span class="thin">%(h1thin)s</span></h1>
+ <p class="lead">%(lead)s</p>
+ <p><a class="back" href="../index.html">← all countries</a>%(oldlink)s</p>
 </header>
-%s
-<footer>Sourced &amp; fact-checked via the pipeline · data/sources.json · last verified 2026-08-26</footer>
-</div></body></html>"""%(TOTAL,TOTAL,"\n".join(cards))
-assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>","",HUB)), "literal \\uXXXX escape leaked into the Singapore hub"
-open(os.path.join(OUTDIR,"index.html"),"w",encoding="utf-8").write(HUB)
-print("wrote Singapore/index.html hub (%d places across %d pages)"%(TOTAL,len(built)))
+"""
+HUB_FOOT="""%s
+<footer>Sourced &amp; fact-checked via the pipeline · data/sources.json · last verified 2026-08-30</footer>
+</div></body></html>"""
+
+def place_card(b):
+    bits=[]
+    if b["nP"]: bits.append("%d sight%s"%(b["nP"],"" if b["nP"]==1 else "s"))
+    if b["nF"]: bits.append("%d food"%b["nF"])
+    meta=" · ".join(bits)
+    live=(b["slug"] in LIVE_SLUGS)
+    kind=b.get("kind","town"); nd=b.get("ndist",0)
+    tier=('CITY%s'%(' · %d districts'%nd if live and nd>1 else '')) if kind=="city" else ("NEIGHBOURHOOD" if kind=="district" else "TOWN")
+    badge='<span class="ptier ptier-%s">%s</span>'%(kind,tier)
+    if live:
+        return ('<a class="pcard pcard-%s" href="%s.html">%s<span class="pn">%s</span>'
+                '<span class="pc">%s</span></a>'%(kind,b["slug"],badge,esc(b["name"]),meta))
+    return ('<div class="pcard pcard-%s disabled" aria-disabled="true">%s<span class="pn">%s</span>'
+            '<span class="pc">%s</span><span class="soon">Expanding soon</span></div>'
+            %(kind,badge,esc(b["name"]),meta))
+
+LEAD={
+ "Singapore":"Opening on <strong>Toa Payoh</strong> and reaching across Singapore's towns — the hawker canon (<strong>chicken rice, laksa, char kway teow, bak kut teh, chilli crab, nasi lemak, prata</strong>) and the island's landmarks — each traceable to the source that named it: Michelin, local news and vetted local/viral creators. Yelp/TripAdvisor never count.",
+ "Vietnam":"Opening on <strong>Ho Chi Minh City</strong> — district by district and out along the corridors to <strong>Củ Chi, Tây Ninh, the Mekong Delta and Vũng Tàu</strong>. The city's food canon (<strong>phở, bún bò Huế, cơm tấm, bánh mì, bánh xèo, cà phê sữa đá</strong>) and its landmarks — each traceable to the source that named it: Michelin, local Vietnamese news (VnExpress, Tuổi Trẻ) and vetted local/viral creators. Yelp/TripAdvisor never count.",
+}
+hubs_written=[]
+for c in ENGINE_COUNTRIES:
+    if not c.get("live"): continue
+    region=c["region"]; items=byreg.get(region,[])
+    if not items: continue
+    total=sum(b["total"] for b in items)
+    cards=['<div class="grid">']+[place_card(b) for b in items]+["</div>"]
+    oldlink=('  <a class="back" href="singapore-old.html" style="margin-left:16px">↧ archived all-SEA index</a>'
+             if region=="Singapore" else "")
+    head=HUB_HEAD % {
+        "title": "%s — Pastel Field Guide"%esc(c["name"]),
+        "desc": "A pastel field guide (light &amp; dark) to %s — one page per place, each sourced to Michelin, local news and vetted local/viral creators. %d places."%(esc(c["name"]),total),
+        "eyebrow": "Pastel field guide · light &amp; dark · %d places"%total,
+        "h1": esc(c["name"]), "h1thin": "one page per %s"%("city &amp; district" if region=="Vietnam" else "town"),
+        "lead": LEAD.get(region, esc(c.get("blurb",""))),
+        "oldlink": oldlink,
+    }
+    html=head+HUB_FOOT%("\n".join(cards))
+    assert not re.search(r"\\u[0-9a-fA-F]{4}", re.sub(r"<script[\s\S]*?</script>","",html)), "literal escape leaked into %s hub"%region
+    open(os.path.join(ROOT,c["folder"],"index.html"),"w",encoding="utf-8").write(html)
+    hubs_written.append((c["folder"],region,len(items),total))
+    print("wrote %s/index.html hub (%s: %d places across %d pages)"%(c["folder"],region,total,len(items)))
+

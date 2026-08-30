@@ -12,7 +12,13 @@ const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
-const DIR = path.join(__dirname, '..', 'Singapore');
+const ROOT = path.join(__dirname, '..');
+// Live engine countries → their folders (data-driven, from data/countries.json). Each folder holds its
+// place pages + its own hub (index.html). Today: Singapore/ (Singapore towns + not-yet-live SEA pages)
+// and Vietnam/ (HCMC + VN cities). singapore-old.html is the archived all-SEA hub, tested as a hub too.
+const COUNTRIES = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'countries.json'), 'utf8')).countries;
+const LIVE_FOLDERS = [...new Set(COUNTRIES.filter(c => c.kind === 'engine' && c.live).map(c => c.folder))];
+const HUB_FILES = new Set(['index.html', 'singapore-old.html']);   // hubs, not place pages
 const LEAF = fs.readFileSync(require.resolve('leaflet/dist/leaflet.js'), 'utf8').replace(/<\/script/gi, '<\\/script');
 const CDN = /<script src="https:\/\/cdnjs[^"]*"><\/script>/;
 
@@ -43,11 +49,18 @@ function counts(html) {
   return { P: grab('const P = ['), F: grab('const F = ['), foodDefault: /\nsetMode\('food'\)/.test(html) };
 }
 
-const pages = fs.readdirSync(DIR).filter(f => f.endsWith('.html') && f !== 'index.html').sort();
-console.log(`Testing ${pages.length} place pages + hub ...\n`);
+// every place page across every live country folder (exclude the hub files)
+const pages = [];
+for (const folder of LIVE_FOLDERS) {
+  const dir = path.join(ROOT, folder);
+  for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.html') && !HUB_FILES.has(f)).sort())
+    pages.push({ folder, file: f, rel: `${folder}/${f}` });
+}
+console.log(`Testing ${pages.length} place pages across [${LIVE_FOLDERS.join(', ')}] + hubs ...\n`);
 
-for (const f of pages) {
-  const html = fs.readFileSync(path.join(DIR, f), 'utf8');
+for (const pg of pages) {
+  const f = pg.rel;
+  const html = fs.readFileSync(path.join(ROOT, pg.folder, pg.file), 'utf8');
   const { P, F, foodDefault } = counts(html);
   const total = P + F;
   const defaultMarkers = foodDefault ? F : P;    // markers shown on load = default mode's records
@@ -102,24 +115,33 @@ for (const f of pages) {
   if (ok) { pagesOK++; console.log(`  PASS  ${f.padEnd(24)} P${P} F${F}  markers=${markers}`); }
 }
 
-// Hub
-{
-  const html = fs.readFileSync(path.join(DIR, 'index.html'), 'utf8');
+// Per-country hubs — one per live engine folder, listing ONLY that country's places.
+const EXPECT_LIVE = { 'Singapore': 'toa-payoh.html', 'Vietnam': 'ho-chi-minh-city.html' };
+for (const folder of LIVE_FOLDERS) {
+  const hub = path.join(ROOT, folder, 'index.html');
+  const html = fs.readFileSync(hub, 'utf8');
   const { d, errs } = boot(html, false);
-  const allCards = [...d.querySelectorAll('.pcard')];
   const links = [...d.querySelectorAll('a.pcard')].map(a => a.getAttribute('href'));
   const disabled = [...d.querySelectorAll('.pcard.disabled')];
-  const missing = links.filter(h => !fs.existsSync(path.join(DIR, h)));
-  // disabled (greyed) cards must NOT be links and must be non-interactive
+  const missing = links.filter(h => !fs.existsSync(path.join(ROOT, folder, h)));
   const disabledAreLinks = disabled.filter(c => c.tagName === 'A' || c.getAttribute('href'));
+  const id = `${folder}/index.html`;
   let ok = true;
-  ok &= chk('index.html', 'hub loads with no js errors', errs.length === 0, errs.slice(0, 2));
-  ok &= chk('index.html', 'every place represented (link or greyed)', allCards.length === pages.length, allCards.length);
-  ok &= chk('index.html', 'every hub link resolves to a file', missing.length === 0, missing);
-  ok &= chk('index.html', 'greyed cards are not clickable links', disabledAreLinks.length === 0, disabledAreLinks.length);
-  ok &= chk('index.html', 'greyed cards exist (others not yet live)', disabled.length > 0, disabled.length);
-  ok &= chk('index.html', 'Toa Payoh is a live clickable link', links.includes('toa-payoh.html'), links);
-  if (ok) console.log(`  PASS  index.html (hub)     ${links.length} live links, ${disabled.length} greyed`);
+  ok &= chk(id, 'hub loads with no js errors', errs.length === 0, errs.slice(0, 2));
+  ok &= chk(id, 'has at least one live place link', links.length > 0, links.length);
+  ok &= chk(id, 'every hub link resolves to a file', missing.length === 0, missing);
+  ok &= chk(id, 'greyed cards are not clickable links', disabledAreLinks.length === 0, disabledAreLinks.length);
+  if (EXPECT_LIVE[folder]) ok &= chk(id, `${EXPECT_LIVE[folder]} is a live link`, links.includes(EXPECT_LIVE[folder]), links);
+  if (ok) console.log(`  PASS  ${id.padEnd(24)} ${links.length} live links, ${disabled.length} greyed`);
+}
+
+// Root country hub — links to each live country's hub, and those hubs exist.
+{
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const hubs = COUNTRIES.filter(c => c.kind === 'engine' && c.live).map(c => c.hub);
+  const missing = hubs.filter(h => !fs.existsSync(path.join(ROOT, h)) || !html.includes(h));
+  const ok = chk('index.html (country hub)', 'links to every live country hub, and each exists', missing.length === 0, missing);
+  if (ok) console.log(`  PASS  index.html (country hub)  links ${hubs.join(', ')}`);
 }
 
 console.log(`\n${pagesOK}/${pages.length} place pages passed` + (failures ? `  —  >>> ${failures} FAILURES` : '  —  >>> ALL PASS'));

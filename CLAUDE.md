@@ -5,7 +5,13 @@ maps. No build step, no framework, no backend.
 
 ## Repository layout (multi-city)
 
-- `index.html` — the **city chooser** hub + "suggest a city" feedback box (files GitHub issues).
+- `index.html` — the **country hub** (US city list is the default view; switcher to 🇸🇬 Singapore &amp;
+  🇻🇳 Vietnam) + "suggest a city" feedback box (files GitHub issues). Country nav is data-driven from
+  `data/countries.json` — see [`docs/COUNTRIES.md`](docs/COUNTRIES.md).
+- **International (pastel, one page per place)** — `Singapore/` (Singapore towns + `singapore-old.html`,
+  the archived all-SEA index) and `Vietnam/` (Ho Chi Minh City + VN cities), both built by
+  `tools/build-singapore-pages.py` from `data/countries.json` (region→folder). To bring the next country
+  live: add/enable its `data/countries.json` entry — no restructure. See [`docs/COUNTRIES.md`](docs/COUNTRIES.md).
 - `cleveland.html` — the complete **Cleveland** guide (143 sights + 40 food) and the shared **engine**
   every dataset-built city clones. **The validator and tests read this file**, not `index.html`.
 - `cities/youngstown.html` — the **Youngstown** shortlist, rendered on Google Maps.

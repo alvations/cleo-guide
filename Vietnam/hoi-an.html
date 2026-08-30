@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Holland Village (Singapore) field guide — 1 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
-<title>Holland Village — Singapore &amp; SEA field guide</title>
+<meta name="description" content="Hoi An (Vietnam) field guide — 1 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Hoi An — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -229,9 +229,9 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Neighbourhood guide · Singapore</p>
-  <h1>Holland Village<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">1 sights and 1 places to eat in <strong>Holland Village</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p class="eyebrow">Town guide · Vietnam</p>
+  <h1>Hoi An<span class="thin">Vietnam — sights &amp; local food, sourced</span></h1>
+  <p class="standfirst">1 sights and 1 places to eat in <strong>Hoi An</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Vietnam guides</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -242,7 +242,7 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#BCA7E6"></i>Holland Village</span>
+  <span><i style="background:#BCA7E6"></i>Hoi An</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -312,21 +312,21 @@
 <script>
 
 const S = {
-  "VISITSG":{k:"VISIT SINGAPORE (STB)",t:"Visit Singapore (Singapore Tourism Board)",u:"https://www.visitsingapore.com/",l:"Visit Singapore (Singapore Tourism Board)"},
-  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"}
+  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage",u:"https://whc.unesco.org/",l:"UNESCO World Heritage"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
 };
 
 const AREAS = [
-  {id:"HOLLANDVILLAGE",n:"Holland Village",c:"#BCA7E6"}
+  {id:"HOIAN",n:"Hoi An",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:3,a:"HOLLANDVILLAGE",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]}
+{t:1,a:"HOIAN",n:"Hoi An Ancient Town",ad:"Hoi An, Quang Nam Province, Vietnam",la:15.88333,ln:108.33333,w:"The UNESCO-listed trading port of lantern-lit streets, Japanese Covered Bridge and preserved merchant houses.",k:"UNESCO heritage town",g:["HERITAGE","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/948/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ho%C3%AD_An"]]}
 ];
 
 const FS = {
-  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com/",l:"Seth Lui"}
+  "EATLIKEBOURDAIN":{k:"EATLIKEBOURDAIN",t:"Eat Like Bourdain (Bourdain locations index)",u:"https://eatlikebourdain.com/",l:"Eat Like Bourdain (Bourdain locations index)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Cuisine Wat Damnak (official)",u:"https://www.cuisinewatdamnak.com/",l:"Cuisine Wat Damnak (official)"}
 };
 
 const CUISINES = [
@@ -368,7 +368,7 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"HOLLANDVILLAGE",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]}
+{t:1,a:"HOIAN",n:"Banh Mi Phuong",ad:"2B Phan Chau Trinh, Hoi An Ancient Town, Quang Nam, Vietnam",cz:["VIET"],la:15.87843,ln:108.33207,w:"Made world-famous when Anthony Bourdain filmed here and called it a 'symphony in a sandwich'; the definitive Hoi An banh mi.",s:[["OFFICIAL","https://vietnam.travel/things-to-do/eating-vietnam-anthony-bourdain"],["EATLIKEBOURDAIN","https://eatlikebourdain.com/anthony-bourdain-in-hoi-an/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -384,16 +384,16 @@ try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}
 function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
 function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Holland Village')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Hoi An')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {HOLLANDVILLAGE:'#BCA7E6'};
+const AC = {HOIAN:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.31111,103.795],16);
+  map = L.map('map',{scrollWheelZoom:false}).setView([15.88333,108.33333],14);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',

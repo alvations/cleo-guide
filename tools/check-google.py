@@ -16,6 +16,7 @@ def maps():
     fs = [os.path.join(ROOT, "cleveland.html"), os.path.join(ROOT, "index.html")]
     fs += sorted(glob.glob(os.path.join(ROOT, "cities", "*.html")))
     fs += sorted(glob.glob(os.path.join(ROOT, "Singapore", "*.html")))
+    fs += sorted(glob.glob(os.path.join(ROOT, "Vietnam", "*.html")))
     return [f for f in fs if os.path.exists(f)]
 
 def main():

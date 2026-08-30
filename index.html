@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Field Guides — Choose a City</title>
-<meta name="description" content="Source-traceable travel field guides on interactive maps. Choose Cleveland or Youngstown, or suggest the next city.">
+<title>Field Guides — Choose a Country</title>
+<meta name="description" content="Source-traceable travel field guides on interactive maps. Choose a country — the United States, Singapore or Vietnam — then a city, or suggest the next one.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -42,6 +42,17 @@
   .subrow a{color:var(--bone-dim);} .subrow a:hover{color:var(--patina);} .subrow span{color:var(--hair);padding:0 4px;}
   .city.soon{opacity:.6;cursor:default;} .city.soon:hover{border-color:var(--hair);transform:none;}
 
+  /* Country switcher — this page is the country hub; the US city list is the default view below. */
+  .countries{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .country{display:block;background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:22px 22px 20px;color:var(--bone);transition:border-color .15s,transform .15s;}
+  .country:hover{border-color:var(--patina);text-decoration:none;transform:translateY(-2px);}
+  .country .flag{font-size:30px;line-height:1;}
+  .country .cn{font-family:"Archivo Black",sans-serif;font-size:22px;letter-spacing:-.01em;text-transform:uppercase;margin:10px 0 6px;}
+  .country .cd{color:var(--bone-dim);font-size:14.5px;margin:0 0 12px;}
+  .country .cgo{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--patina);}
+  .country.here{border-color:var(--patina-dim);}
+  .country.soon{opacity:.6;cursor:default;} .country.soon:hover{border-color:var(--hair);transform:none;}
+
   .panel{background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:24px 26px;margin:8px 0 12px;}
   .panel p{color:var(--bone-dim);font-size:15px;max-width:78ch;margin:0 0 14px;}
   textarea{width:100%;min-height:110px;resize:vertical;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:9px;padding:13px 14px;font-family:"Newsreader",serif;font-size:16px;line-height:1.5;}
@@ -69,16 +80,47 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">Field Guides · Sourced · On a map</p>
-    <h1>Where to<span class="thin">Choose a city</span></h1>
+    <h1>Where to<span class="thin">Choose a country, then a city</span></h1>
     <p class="standfirst">Travel field guides where every place is traceable to the source that
-      recommended it, on an interactive map with filters, a trip builder and exports. Pick a city —
-      or suggest the next one at the bottom.</p>
-    <p class="standfirst">For <strong>Singapore and Southeast Asian cities</strong>, click
-      <a href="Singapore/index.html">here</a> — a pastel edition (light &amp; dark), one page per town
-      &amp; city, opening on Toa Payoh.</p>
+      recommended it, on an interactive map with filters, a trip builder and exports. The
+      <strong>United States</strong> is below by default — or cross to <strong>Singapore</strong> or
+      <strong>Vietnam</strong>. Suggest the next place at the bottom.</p>
   </header>
 
-  <h2 class="sec">Cities</h2>
+  <h2 class="sec">Countries</h2>
+  <div class="countries">
+    <a class="country here" href="#us">
+      <div class="flag">🇺🇸</div>
+      <p class="cn">United States</p>
+      <p class="cd">14 city &amp; regional guides — Cleveland, Pittsburgh, New York, the Bay Area, the
+        Ohio cities, DC and the corridors. Listed below.</p>
+      <span class="cgo">See the US cities ↓</span>
+    </a>
+    <a class="country" href="Singapore/index.html">
+      <div class="flag">🇸🇬</div>
+      <p class="cn">Singapore</p>
+      <p class="cd">The city-state, town by town — hawker food and landmarks, opening on Toa Payoh. A
+        pastel edition, light &amp; dark.</p>
+      <span class="cgo">Open Singapore →</span>
+    </a>
+    <a class="country" href="Vietnam/index.html">
+      <div class="flag">🇻🇳</div>
+      <p class="cn">Vietnam</p>
+      <p class="cd">Ho Chi Minh City — district by district and out to the Mekong, Củ Chi, Tây Ninh and
+        Vũng Tàu corridors. Pastel, light &amp; dark.</p>
+      <span class="cgo">Open Vietnam →</span>
+    </a>
+    <div class="country soon">
+      <div class="flag">🌏</div>
+      <p class="cn">More soon</p>
+      <p class="cd">Malaysia, Thailand, Indonesia, the Philippines and more — each populated through the
+        full pipeline (sources → fact-check → re-rank → location-verify) before it goes live. The
+        archived all-SEA index is <a href="Singapore/singapore-old.html">here</a>.</p>
+      <span class="cgo">In the backlog</span>
+    </div>
+  </div>
+
+  <h2 class="sec" id="us">United States · cities</h2>
   <div class="cities">
     <div class="city">
       <a class="cardmain" href="cleveland.html">

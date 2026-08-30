@@ -8,6 +8,7 @@ import re, os, glob, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGES = (glob.glob(os.path.join(ROOT, "cities", "*.html"))
          + glob.glob(os.path.join(ROOT, "Singapore", "*.html"))
+         + glob.glob(os.path.join(ROOT, "Vietnam", "*.html"))
          + [os.path.join(ROOT, "cleveland.html"), os.path.join(ROOT, "index.html")])
 # literal backslash-escapes that should never appear in rendered text
 LEAK = re.compile(r'\\u[0-9a-fA-F]{4}|\\x[0-9a-fA-F]{2}|\\[ntr]\b|<\\/')
