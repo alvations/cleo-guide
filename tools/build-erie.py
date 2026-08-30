@@ -101,8 +101,16 @@ _lats = [p[0] for p in _pins.values()]; _lngs = [p[1] for p in _pins.values()]
 def _pct(vals, q):
     s = sorted(vals); return s[min(len(s) - 1, int(q * len(s)))]
 if _lats:
-    _clat = round(_pct(_lats, 0.5), 4); _clng = round(_pct(_lngs, 0.5), 4)
-    _span = max(_pct(_lats, 0.95) - _pct(_lats, 0.05), (_pct(_lngs, 0.95) - _pct(_lngs, 0.05)) * 0.7)
+    # Centre on the MIDPOINT of the (outlier-trimmed P05..P95) pin bounds, NOT the median. Erie is a
+    # CORRIDOR: a dense lakefront cluster at the north end (Erie/Presque Isle, ~42.1) with a long tail
+    # south down the I-79 corridor (Meadville, Grove City, Moraine, ~40.9). A median centre lands inside
+    # the northern cluster, which frames the map on the lakeshore — half the screen becomes open Lake
+    # Erie/Canada while the corridor is crammed at the bottom. The trimmed-bounds midpoint centres on the
+    # geographic middle of the spread so both ends fit and the frame isn't dominated by water.
+    _lo_la, _hi_la = _pct(_lats, 0.05), _pct(_lats, 0.95)
+    _lo_ln, _hi_ln = _pct(_lngs, 0.05), _pct(_lngs, 0.95)
+    _clat = round((_lo_la + _hi_la) / 2, 4); _clng = round((_lo_ln + _hi_ln) / 2, 4)
+    _span = max(_hi_la - _lo_la, (_hi_ln - _lo_ln) * 0.7)
     _zoom = 13 if _span < 0.05 else 12 if _span < 0.11 else 11 if _span < 0.26 else 10 if _span < 0.55 else 9 if _span < 1.1 else 8
 else:
     _clat, _clng, _zoom = 42.1292, -80.0851, 9
