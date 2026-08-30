@@ -1,0 +1,75 @@
+{
+ "sights": [
+  {
+   "t": 1, "a": "ERIE", "k": "ART",
+   "n": "Schaefer's Auto Art",
+   "address": "3705 Hershey Rd, Erie, PA 16506",
+   "w": "A free roadside sculpture garden of larger-than-life outsider art welded from old car and truck parts — a spider built from a whole VW Beetle, a bumblebee from a cement truck. One of northwest PA's most-photographed oddities; park in the gravel lot along Hershey Road.",
+   "g": ["ODD", "ICON", "FREE"],
+   "sources": [["ATLASOBSCURA", "https://www.atlasobscura.com/places/schaefer-s-auto-art"], ["UNCOVERINGPA", "https://uncoveringpa.com/schaefers-auto-art"], ["PABUCKETLIST", "https://pabucketlist.com/exploring-schaefers-auto-art-in-erie-pa/"], ["INTERESTINGPA", "https://www.interestingpennsylvania.com/2021/07/schaefers-auto-art-erie-awesome.html"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "k": "NATURE",
+   "n": "Erie Bluffs State Park",
+   "address": "11122 West Lake Rd, Girard, PA 16417",
+   "w": "A 587-acre undeveloped stretch of Lake Erie shoreline twelve miles west of the city, where trails run through oak savanna and along 90-foot bluffs to a wild, uncrowded beach and the mouth of Elk Creek — the quiet, rugged counterpart to Presque Isle.",
+   "g": ["PARK", "FREE"],
+   "sources": [["DCNR", "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/erie-bluffs-state-park"], ["UNCOVERINGPA", "https://uncoveringpa.com/things-to-do-in-erie-pa"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Erie_Bluffs_State_Park"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "k": "AMUSEMENT",
+   "n": "Splash Lagoon Indoor Water Park Resort",
+   "address": "8091 Peach St, Erie, PA 16509",
+   "w": "A Polynesian-themed indoor water park kept at 84 degrees year-round — nine slides, a 30,000-square-foot wave pool, a FlowRider and a five-story treehouse — attached to several hotels off Peach Street. One of Erie's top family attractions, rain or snow.",
+   "g": ["FAM"],
+   "sources": [["VISITPA", "https://www.visitpa.com/listing/splash-lagoon-indoor-water-park-resort/1128/"], ["UNCOVERINGPA", "https://uncoveringpa.com/things-to-do-in-erie-pa"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Splash_Lagoon"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "k": "NATURE",
+   "n": "Asbury Woods",
+   "address": "4105 Asbury Rd, Erie, PA 16506",
+   "w": "A free 234-acre Millcreek nature preserve with five miles of trails, a boardwalk through a wooded wetland and a year-round nature center — a beloved local spot for birding, maple-sugaring programs and easy family walks.",
+   "g": ["PARK", "FREE", "FAM"],
+   "sources": [["UNCOVERINGPA", "https://uncoveringpa.com/asbury-woods"], ["PABUCKETLIST", "https://pabucketlist.com/exploring-asbury-woods-in-erie-county-pa/"], ["EXPLOREPAHISTORY", "https://explorepahistory.com/attraction.php?id=1-B-F9C"]]
+  },
+  {
+   "t": 3, "a": "ERIE", "k": "HIST",
+   "n": "Wayne Blockhouse",
+   "address": "Soldiers & Sailors Home grounds, 560 E 3rd St, Erie, PA 16507",
+   "w": "An 1880 state-built replica of the Fort Presque Isle blockhouse marking where General 'Mad' Anthony Wayne died in 1796 — and the site of one of early America's strangest burials: his flesh was boiled from his bones in 1809 so the skeleton could be carried to eastern PA, and the boiled remains reburied here.",
+   "g": ["HIST", "ODD", "FREE"],
+   "sources": [["HMDB", "https://www.hmdb.org/m.asp?m=21420"], ["ROADSIDEAMERICA", "https://www.roadsideamerica.com/story/17318"], ["HAGENHISTORY", "https://www.hagenhistory.org/blog/a-halloween-story-the-death-of-anthony-wayne"]]
+  },
+  {
+   "t": 3, "a": "ERIE", "k": "MUSEUM",
+   "n": "Firefighters Historical Museum",
+   "address": "428 Chestnut St, Erie, PA 16507",
+   "w": "Housed in Erie's old Fire Station No. 4 (active 1903–1974), a two-floor collection of 1,500-plus artifacts — antique pumps, alarm systems, helmets and uniforms — tracing the history of American firefighting, run by retired Erie firefighters.",
+   "g": ["MUS", "HIST", "FAM"],
+   "sources": [["ERIEYESTERDAY", "https://www.erieyesterday.org/museums-historical-sites/firefighters-historical-museum/"], ["EXPLOREPAHISTORY", "https://explorepahistory.com/attraction.php?id=1-B-5F0"], ["PITTSBURGHMUSEUMS", "https://pittsburghmuseums.org/northwestern-pennsylvania/erie/erie/firefighters-historical-museum"]]
+  },
+  {
+   "t": 2, "a": "ERIE", "k": "LANDMARK",
+   "n": "North Pier Lighthouse",
+   "address": "North Pier, Presque Isle State Park, Erie, PA 16505",
+   "w": "The shortest of Erie's three lighthouses at 34 feet, standing at the tip of Presque Isle where the bay meets the lake — and the last square, pyramidal-style light tower left in the United States. A 20-minute drive from the park entrance and a favorite sunset perch.",
+   "g": ["MARITIME", "ICON", "FREE"],
+   "sources": [["UNCOVERINGPA", "https://uncoveringpa.com/lighthouses-erie-pa"], ["PABUCKETLIST", "https://pabucketlist.com/exploring-the-historic-lighthouses-of-erie/"], ["VISITPA", "https://www.visitpa.com/blog/post/your-guide-lighthouses-erie/"]]
+  }
+ ],
+ "sources": [
+  {"key": "ATLASOBSCURA", "name": "Atlas Obscura", "url": "https://www.atlasobscura.com/"},
+  {"key": "UNCOVERINGPA", "name": "Uncovering PA (Jim Cheney, PA travel writer)", "url": "https://uncoveringpa.com/"},
+  {"key": "PABUCKETLIST", "name": "PA Bucket List", "url": "https://pabucketlist.com/"},
+  {"key": "INTERESTINGPA", "name": "Interesting Pennsylvania and Beyond", "url": "https://www.interestingpennsylvania.com/"},
+  {"key": "DCNR", "name": "PA DCNR — Pennsylvania State Parks", "url": "https://www.pa.gov/agencies/dcnr/"},
+  {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://en.wikipedia.org/"},
+  {"key": "VISITPA", "name": "VisitPA (Pennsylvania Tourism Office)", "url": "https://www.visitpa.com/"},
+  {"key": "EXPLOREPAHISTORY", "name": "ExplorePAHistory (WITF)", "url": "https://explorepahistory.com/"},
+  {"key": "HMDB", "name": "The Historical Marker Database", "url": "https://www.hmdb.org/"},
+  {"key": "ROADSIDEAMERICA", "name": "Roadside America", "url": "https://www.roadsideamerica.com/"},
+  {"key": "HAGENHISTORY", "name": "Hagen History Center (Erie County Historical Society)", "url": "https://www.hagenhistory.org/"},
+  {"key": "ERIEYESTERDAY", "name": "Erie Yesterday (Erie-area historical sites consortium)", "url": "https://www.erieyesterday.org/"},
+  {"key": "PITTSBURGHMUSEUMS", "name": "Pittsburgh & Western PA Museum Council", "url": "https://pittsburghmuseums.org/"}
+ ]
+}
