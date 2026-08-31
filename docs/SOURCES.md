@@ -166,6 +166,24 @@ entry's `credible` field:
   astroturfed/unverifiable social hype. *Virality or popularity you cannot verify is not virality* — drop
   it. Everything social still runs the full flow: **fact-check → re-rank within region → location-verify.**
 
+### Source-corroboration / citation-chaining — expand outward from the places you already have
+A reusable expansion move, run after (or between) discovery waves: **take the places already in the guide
+and hunt for OTHER credible sources that cite or refer to them.** Two payoffs, both on the same searches:
+1. **Corroborate** — a place carried by only one credible source (held out by GATE 1) often *is* named by
+   others; find the second credible voice and it clears the ≥2 bar and renders. Prioritise the guide's
+   single-source list for this.
+2. **Chain to new places** — the round-up / "best of" / creator video / TikTok/YouTube that names *your*
+   place almost always names its neighbours too; harvest the NEW ones that clear the bar.
+
+How: search the place by name for who else covers it — `"<place>" <city> Michelin OR Rick Steves OR
+<local paper>`, `"<place>" best restaurants <city>`, `<place> <city> review`, and the same on the social
+layer — `<place> TikTok`, `<place> YouTube`, `<local food YouTuber> <city>` — following the **same vetted
+palette**: credible local/national editorial, institutional authority, and **verifiably-popular
+influencers / TikTokers / YouTubers / travel vloggers** (real following + a findable piece), plus local
+subreddits as a corroborating vote. **Yelp/TripAdvisor/Google ratings still count as ZERO.** Everything
+found still runs the full flow — fact-check open/closed → re-rank within region → **location-verify** —
+and unverifiable hype is dropped. Register the new outlets/creators so they're reusable for the next city.
+
 This is the same credibility bar the cuisine deep-dive and viral-popup passes use — now stated **up
 front as the opening move for every city**. After sourcing, the full flow runs as always:
 **source (vet credibility) → fact-check open/closed → add → geocode + location-verify → re-rank within
