@@ -38,10 +38,22 @@ Gault&Millau, a national monument/museum). Credible, native-language, for this r
 - **FR:** Le Républicain Lorrain, France Bleu (Lorraine/Moselle), Guide Michelin, Petit Futé, tourisme
   Moselle / Inspire Metz / Moselle Tourisme.
 - **LU:** Luxembourg Times, RTL Lëtzebuerg, Le Quotidien, Visit Luxembourg, Michelin Luxembourg.
-- **Cross-border:** Grande Région / Greater Region tourism, ARTE, DW.
+- **Cross-border / European broadcast:** Grande Région / Greater Region tourism, **DW Travel (Deutsche
+  Welle)**, **ARTE**, **SWR / SR Fernsehen**, 3sat, euronews.
+- **Local university & campus sources (authentic student-local recommendations):** **Universität des
+  Saarlandes** & **htw saar** (Saarbrücken), **Universität / Hochschule Trier**, **University of
+  Luxembourg**, **Université de Lorraine (Metz)** — their student-life pages, "was tun in Saarbrücken /
+  que faire à Metz" city guides, **Studierendenwerk** tips, and **ESN (Erasmus Student Network)** local
+  guides. These count as credible local recommendations.
+- **Luxembourg press:** **Luxemburger Wort (wort.lu)**, **Tageblatt**, Le Quotidien, RTL Lëtzebuerg.
+- **Local bloggers & travel vloggers (viral/authentic):** verifiably-popular German/French/Luxembourgish
+  food & travel bloggers, YouTubers and TikTokers who cover the region (e.g. Saarland/Mosel/Metz/Luxembourg
+  food & travel creators, Reisereporter, regional food vloggers) — count only with a **real, findable
+  following and a specific piece naming the place**; record the creator in `CREATORS_*.json`.
 - A **verifiably-popular** food/travel creator (real following + a findable piece) may count as a strong
   source. **Yelp/TripAdvisor/Google/OpenTable/Tripadvisor-style ratings count as ZERO** toward the bar
   (they may only *measure* popularity — merit bar below). Reject anonymous SEO listicles / content farms.
+  Prefer **German- (and French-/Luxembourgish-) language** sources; search in-language.
 Merit bar: a mention is not merit — an award (Michelin/Gault&Millau/regional prize), a real rave, or a
 high rating with real cross-platform volume before a place earns a pin. Record keep/drop in AUDIT.md.
 
