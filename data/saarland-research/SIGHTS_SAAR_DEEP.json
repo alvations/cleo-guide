@@ -1,55 +1,802 @@
 {
-  "sources": [
-    {"key":"URLAUBSAARLAND","name":"Urlaub im Saarland / Tourismus Zentrale Saarland","url":"https://www.urlaub.saarland"},
-    {"key":"TOURISMUSSB","name":"Tourismus Saarbrücken","url":"https://tourismus.saarbruecken.de"},
-    {"key":"SAARBRUECKENDE","name":"Landeshauptstadt Saarbrücken","url":"https://www.saarbruecken.de"},
-    {"key":"SAARLANDDE","name":"Saarland.de (Landesregierung / Staatskanzlei)","url":"https://www.saarland.de"},
-    {"key":"KULTURBESITZ","name":"Stiftung Saarländischer Kulturbesitz","url":"https://www.kulturbesitz.de"},
-    {"key":"MUSEUMSVERBANDSAAR","name":"Museumsverband Saarland","url":"https://www.museumsverband-saarland.de"},
-    {"key":"SAARLANDLESE","name":"Saarland-Lese","url":"https://www.saarland-lese.de"},
-    {"key":"REGIONALGESCHICHTE","name":"regionalgeschichte.net (Institut für Geschichtliche Landeskunde, Mainz)","url":"https://www.regionalgeschichte.net"},
-    {"key":"SAARPFALZ","name":"Saarpfalz-Touristik / Biosphäre Bliesgau","url":"https://www.saarpfalz-touristik.de"},
-    {"key":"HOMBURGDE","name":"Kreis- und Universitätsstadt Homburg","url":"https://www.homburg.de"},
-    {"key":"MERZIGWADERN","name":"Landkreis Merzig-Wadern","url":"https://www.merzig-wadern.de"},
-    {"key":"MERZIGDE","name":"Kreisstadt Merzig","url":"https://www.merzig.de"},
-    {"key":"NEUNKIRCHENDE","name":"Kreisstadt Neunkirchen","url":"https://www.neunkirchen.de"},
-    {"key":"ENSDORF","name":"Gemeinde Ensdorf","url":"https://www.gemeinde-ensdorf.de"},
-    {"key":"OTTWEILERDE","name":"Stadt Ottweiler","url":"https://www.ottweiler.de"},
-    {"key":"REGIONNEUNKIRCHEN","name":"Region Neunkirchen Tourismus","url":"https://www.regionneunkirchen.de"},
-    {"key":"SAARLOUISDE","name":"Kreisstadt Saarlouis","url":"https://www.saarlouis.de"},
-    {"key":"TOURENSAARLAND","name":"Saarland erleben! (touren.saarland)","url":"https://www.touren.saarland"},
-    {"key":"KULADIG","name":"KuLaDig — Kultur.Landschaft.Digital (LVR)","url":"https://www.kuladig.de"},
-    {"key":"WIKIPEDIA","name":"Wikipedia","url":"https://www.wikipedia.org"},
-    {"key":"OFFICIAL","name":"Official venue website","url":""}
-  ],
-  "sights": [
-    {"t":1,"a":"SAAR","n":"Stiftskirche St. Arnual","address":"Stiftskirche St. Arnual, 66119 Saarbrücken, Germany","w":"A completed-around-1390 Gothic three-aisled basilica ranked among the most important architectural monuments of the German southwest, holding the carved gravestones of the Counts of Nassau-Saarbrücken and crowned by a Stengel cupola of 1746. It anchors St. Arnual, the medieval 'village within the city' with its own market square.","k":"church","g":["HIST","FREE"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/stiftskirche-st.-arnual-275394d847"],["TOURISMUSSB","https://tourismus.saarbruecken.de/besuchen/sehenswuerdigkeiten/stiftskirche_st_arnual"],["SAARLANDLESE","https://www.saarland-lese.de/sehenswuerdigkeiten/gebaeude/stiftskirche-st-arnual/"]]},
-    {"t":2,"a":"SAAR","n":"Basilika St. Johann","address":"Katholisch-Kirch-Straße, 66111 Saarbrücken, Germany","w":"The Catholic parish church of the old St. Johann quarter, a 1754-58 baroque work by Friedrich Joachim Stengel just off the market square. A quieter Stengel counterpart to the Ludwigskirche, elevated to a minor basilica for its architectural and historical rank.","k":"basilica","g":["HIST","FREE"],"closed":false,"sources":[["REGIONALGESCHICHTE","https://www.regionalgeschichte.net/saarland/saarbruecken/kulturdenkmaeler/zur-geschichte-der-pfarrkirche-st-johann.html"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Basilika_St._Johann_(Saarbr%C3%BCcken)"]]},
-    {"t":2,"a":"SAAR","n":"Alte Brücke Saarbrücken","address":"Alte Brücke, 66117 Saarbrücken, Germany","w":"The oldest surviving bridge in all of Saarland, a ~200 m stone arch bridge of 1546/47 spanning the Saar between the baroque castle and the St. Johanner Markt. A free, central walk with the castle rock on one bank and the old town on the other.","k":"bridge","g":["HIST","FREE"],"closed":false,"sources":[["REGIONALGESCHICHTE","https://www.regionalgeschichte.net/saarland/saarbruecken/kulturdenkmaeler/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Alte_Br%C3%BCcke_(Saarbr%C3%BCcken)"]]},
-    {"t":1,"a":"SAAR","n":"Saarlandmuseum – Moderne Galerie","address":"Bismarckstraße 11-19, 66111 Saarbrücken, Germany","w":"One of the leading art museums of southwest Germany, its holdings running from Impressionism and the Berlin Secession through German Expressionism, the École de Paris and Informel to the present, with a sculpture garden. The modern wing of the Saarlandmuseum, recently enlarged by a new pavilion.","k":"museum","g":["ICON","MUS"],"closed":false,"sources":[["KULTURBESITZ","https://www.kulturbesitz.de/de/museen/moderne-galerie"],["TOURISMUSSB","https://tourismus.saarbruecken.de/besuchen/museen_galerien/moderne_galerie"],["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/saarlandmuseum-moderne-galerie-8cffd473c7"]]},
-    {"t":2,"a":"SAAR","n":"Saarländisches Staatstheater","address":"Schillerplatz 1, 66111 Saarbrücken, Germany","w":"Saarland's four-division state theatre (opera, drama, dance, concert), mounting around 30 new productions a year in some 700 performances for more than 200,000 visitors. Its monumental 1938 house on Schillerplatz overlooking the Saar is a landmark in its own right.","k":"theatre","g":["ICON","HIST"],"closed":false,"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/Theater_Saarbr%C3%BCcken"],["SAARBRUECKENDE","https://www.saarbruecken.de/kultur"]]},
-    {"t":1,"a":"SAAR","n":"Homburger Schlossberghöhlen","address":"Schlossberg-Höhen-Straße 1, 66424 Homburg, Germany","w":"Europe's largest man-made red-sandstone caves, twelve storeys of vaulted halls and kilometres of galleries dug from the 11th to 17th centuries beneath the ruins of Hohenburg fortress. About 800 m across the top three walkable levels are open, glowing in bands of ochre and red.","k":"caves","g":["ICON","HIST","ODD"],"closed":false,"sources":[["HOMBURGDE","https://www.homburg.de/leben-in-homburg/touristisches/sehenswertes/schlossberghohlen/"],["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/schlossberghoehlen-homburg-7477005a77"],["SAARPFALZ","https://www.saarpfalz-touristik.de/en/poi/detail/castle-mountain-caves-in-homburg-1484364d87"]]},
-    {"t":2,"a":"SAAR","n":"Römermuseum Schwarzenacker","address":"Homburger Straße 38, 66424 Homburg, Germany","w":"An open-air archaeological museum on the excavated Roman vicus of Schwarzenacker, a country town of some 2,000 people that lived from about the birth of Christ until its destruction by the Alemanni in 275 AD. Reconstructed streets and houses, plus a baroque garden, bring the Roman Saar to life; combine it with the Homburg caves.","k":"archaeological museum","g":["HIST","MUS"],"closed":false,"sources":[["OFFICIAL","https://www.roemermuseum-schwarzenacker.de/"],["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/roemermuseum-schwarzenacker-52dc1b0448"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Schwarzenacker_Roman_Museum"]]},
-    {"t":1,"a":"SAAR","n":"Saarpolygon (Bergehalde Ensdorf)","address":"Bergehalde Ensdorf, 66802 Ensdorf, Germany","w":"A 30 m walkable steel landmark crowning the ~150 m mining dump above Ensdorf, opened in 2016 to commemorate the end of Saar coal mining (the last pit closed here in 2012). 132 steps climb through its two pylons to a free viewing platform that seems to change shape as you move — a symbol of the region's transformation.","k":"landmark","g":["ICON","FREE","ODD"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/bergehalde-ensdorf-mit-saarpolygon-54eb7e6dbb"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Saarpolygon"],["ENSDORF","https://www.gemeinde-ensdorf.de/Freizeit-Tourismus/Saarpolygon-auf-der-Bergehalde/"]]},
-    {"t":1,"a":"SAAR","n":"Wolfspark Werner Freund","address":"Waldstraße 204, 66663 Merzig, Germany","w":"The 8-hectare wolf park that made Merzig the 'city of wolves', home to around 20 European grey, polar, Canadian timber and Mongolian wolves in wide open enclosures. Founded by behavioural researcher Werner Freund, who lived for decades 'as a wolf among wolves'; free to walk through, with a monthly public feeding and talk.","k":"wildlife park","g":["PARK","FAM","FREE"],"closed":false,"sources":[["MERZIGDE","https://www.merzig.de/tourismus-kultur/sehenswuerdigkeiten/wolfspark-werner-freund/"],["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/wolfspark-werner-freund-60baac9407"]]},
-    {"t":1,"a":"SAAR","n":"Römische Villa Nennig","address":"Römerstraße 11, 66706 Perl-Nennig, Germany","w":"A luxurious Roman villa whose entrance hall keeps the largest and best-preserved mosaic floor north of the Alps — over 160 m² of some three million stones showing gladiators, beast-hunts and musicians of the amphitheatre, found by a farmer in 1852. One of the outstanding works of Roman mosaic art anywhere.","k":"archaeological site","g":["ICON","HIST","MUS"],"closed":false,"sources":[["KULTURBESITZ","https://www.kulturbesitz.de/de/museen/roemische-villa-nennig"],["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/roemische-villa-nennig-16825de067"],["TOURISMUSSB","https://tourismus.saarbruecken.de/besuchen/weitere_ausflugstipps/mosaikfussboden_nennig"]]},
-    {"t":2,"a":"SAAR","n":"Bostalsee","address":"Bostalsee, 66625 Nohfelden, Germany","w":"At 120 hectares the largest recreational lake in southwest Germany, in the wooded St. Wendel uplands, with free bathing beaches, sailing and surfing, a lakeside path and the Bosaarium wave pool. Opened 1979 and now flanked by a Center Parcs holiday village — the state's summer playground.","k":"lake","g":["PARK","FAM","FREE"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/bostalsee-01e37fd1f9"],["SAARLANDLESE","https://www.saarland-lese.de/sehenswuerdigkeiten/oertlichkeiten/bostalsee/"]]},
-    {"t":2,"a":"SAAR","n":"Barockstadt Blieskastel","address":"Paradeplatz, 66440 Blieskastel, Germany","w":"Reckoned the most beautiful baroque town in Saarland, built up under Countess Marianne von der Leyen in the heart of the UNESCO Bliesgau Biosphere Reserve — a fine ensemble of the Schlosskirche, town hall, Paradeplatz and burgher houses. A compact, walkable old town with Kneipp-spa calm.","k":"baroque town","g":["ICON","HIST","FREE"],"closed":false,"sources":[["SAARPFALZ","https://www.saarpfalz-touristik.de/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Blieskastel"]]},
-    {"t":2,"a":"SAAR","n":"Gollenstein","address":"Gollenstein, Blieskastel-Berg, 66440 Blieskastel, Germany","w":"A roughly 4,000-year-old menhir standing 6.58 m tall on the hill above Blieskastel — the largest menhir in Central Europe and the landmark of the baroque town. Re-erected after wartime damage, it is the goal of the panoramic Mariannenweg walk.","k":"menhir","g":["HIST","ODD","FREE"],"closed":false,"sources":[["WIKIPEDIA","https://de.wikipedia.org/wiki/Gollenstein"],["SAARPFALZ","https://www.saarpfalz-touristik.de/"]]},
-    {"t":2,"a":"SAAR","n":"Saarbrücker Zoo","address":"Graf-Stauffenberg-Straße, 66121 Saarbrücken, Germany","w":"A leafy hillside zoo above the city with around 1,000 animals of 100 species, from big cats and primates to a walk-through aviary — a long-standing family outing on the St. Arnual side of Saarbrücken.","k":"zoo","g":["FAM","PARK"],"closed":false,"sources":[["OFFICIAL","https://zoo.saarbruecken.de/"],["TOURISMUSSB","https://tourismus.saarbruecken.de/"]]},
-    {"t":2,"a":"SAAR","n":"Rathaus St. Johann","address":"Rathausplatz 1, 66111 Saarbrücken, Germany","w":"Saarbrücken's neo-Gothic town hall of 1897-1900 by Georg von Hauberrisser (architect of Munich's town hall), with a 54 m tower, festive hall and richly ornamented façade. The square in front and the building's Von-Uexküll murals reward a look inside.","k":"town hall","g":["HIST","ICON"],"closed":false,"sources":[["WIKIPEDIA","https://de.wikipedia.org/wiki/Rathaus_St._Johann"],["TOURISMUSSB","https://tourismus.saarbruecken.de/besuchen/sehenswuerdigkeiten"]]},
-    {"t":2,"a":"SAAR","n":"GONDWANA – Das Praehistorium","address":"Alexander-von-Humboldt-Straße 8-10, 66578 Schiffweiler, Germany","w":"A prehistory theme-museum on the grounds of the former Reden colliery, staging 4.5 billion years of Earth history across 5,000 m² with animatronic dinosaurs and immersive audio-visual scenes, plus an outdoor dig where you can excavate a T. rex. A crowd-pleaser paired with the Reden mining heritage site.","k":"science museum","g":["FAM","MUS","ODD"],"closed":false,"sources":[["TOURISMUSSB","https://tourismus.saarbruecken.de/besuchen/weitere_ausflugstipps/gondwana_das_praehistorium"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Grube_Reden"]]},
-    {"t":2,"a":"SAAR","n":"Museum in der Schlosskirche","address":"Am Schlossberg 6, 66119 Saarbrücken, Germany","w":"Inside the Gothic castle church below Saarbrücker Schloss: a collection of religious art from the Middle Ages to the 19th century, with the baroque princely tombs of Nassau-Saarbrücken and vivid modern stained glass by Georg Meistermann. The third site of the Saarlandmuseum.","k":"museum","g":["HIST","MUS","FREE"],"closed":false,"sources":[["KULTURBESITZ","https://www.kulturbesitz.de/de/museen/museum-in-der-schlosskirche"],["TOURISMUSSB","https://tourismus.saarbruecken.de/besuchen/museen_galerien"]]},
-    {"t":3,"a":"SAAR","n":"Botanischer Garten der Universität des Saarlandes","address":"Universität des Saarlandes Campus, 66123 Saarbrücken, Germany","w":"A 25,000 m² botanical garden on the western edge of the university campus with five greenhouses of plants from different climate zones and an attached medicinal-plant museum. A free, quiet green detour when visiting the Saarbrücken campus.","k":"botanical garden","g":["PARK","FREE"],"closed":false,"sources":[["WIKIPEDIA","https://en.wikipedia.org/wiki/Botanischer_Garten_der_Universit%C3%A4t_des_Saarlandes"],["OFFICIAL","https://www.uni-saarland.de/einrichtung/botanischer-garten.html"]]},
-    {"t":2,"a":"SAAR","n":"Museum Schloss Fellenberg","address":"Torstraße 45, 66663 Merzig, Germany","w":"A fairy-tale red-sandstone villa of 1858 in central Merzig, its asymmetrical turrets and bay windows housing a cultural-history museum and set in the Paul-Schneider sculpture park. A relaxed cultural stop in the Saarschleifenland.","k":"castle museum","g":["HIST","MUS","PARK"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/museum-schloss-fellenberg-bb85631d61"],["MERZIGWADERN","https://www.merzig-wadern.de/Kurzmen%C3%BC/Startseite/index.php?object=tx,2875.1&ModID=9&FID=697.758.1"]]},
-    {"t":3,"a":"SAAR","n":"Stausee Losheim","address":"Stausee Losheim, 66679 Losheim am See, Germany","w":"A 1974 reservoir ringed by beaches, a lakeside promenade and the start of premium 'Traumschleifen' hiking loops in the Saar-Hunsrück nature park; a heritage steam railway runs to Merzig. An easy nature-and-swimming day out in the northwest of the state.","k":"reservoir","g":["PARK","FAM","FREE"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/stausee-losheim-fe2e7ff688"],["MERZIGWADERN","https://www.merzig-wadern.de/Region-Freizeit/St%C3%A4dte-Gemeinden/Losheim-am-See/"]]},
-    {"t":2,"a":"SAAR","n":"Ludwigsplatz (Stengel-Ensemble)","address":"Ludwigsplatz, 66117 Saarbrücken, Germany","w":"One of Germany's most important baroque square ensembles, laid out from 1762 by Friedrich Joachim Stengel around the Ludwigskirche — church and surrounding palais planned as a single stage set. It was on Germany's UNESCO tentative list and appears on the Saarland 2-euro coin.","k":"square","g":["ICON","HIST","FREE"],"closed":false,"sources":[["SAARLANDDE","https://www.saarland.de/stk/DE/institution/entstehungsgeschichte/ensemble_ludwigsplatz_node.html"],["SAARBRUECKENDE","https://www.saarbruecken.de/kultur/stadtgeschichte/stengelarchitektur"]]},
-    {"t":2,"a":"SAAR","n":"Neunkircher Zoo","address":"Zoostraße 25, 66538 Neunkirchen, Germany","w":"A woodland zoo near the centre of Neunkirchen with over 600 animals of around 120 species, a well-regarded family destination on the eastern side of the Saarland.","k":"zoo","g":["FAM","PARK"],"closed":false,"sources":[["NEUNKIRCHENDE","https://www.neunkirchen.de/index.php?id=322"],["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/neunkircher-zoo-599a65bdb2"]]},
-    {"t":3,"a":"SAAR","n":"Blumengarten Bexbach","address":"Blumengarten, 66450 Bexbach, Germany","w":"A model-garden park created in 1951 (during Saarland's post-war French-protectorate years) with a rose garden, alpine and heather gardens, ponds and a museum-and-observation tower. A gentle, nostalgic place for a stroll, and the new home of the old Saarbrücken 'Gulliver World' miniatures.","k":"garden","g":["PARK","FAM","FREE"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/blumengarten-bexbach-bb57c8f8c6"],["SAARPFALZ","https://www.saarpfalz-touristik.de/en/poi/detail/flower-garden-bexbach-39cf8466d9"]]},
-    {"t":2,"a":"SAAR","n":"Saarländisches Bergbaumuseum Bexbach","address":"Saarländisches Bergbaumuseum, 66450 Bexbach, Germany","w":"The state's mining museum, founded 1934, telling the whole story of Saar hard-coal mining from a 40 m panorama tower down into an extensive walk-through demonstration mine with machines and support types from different eras. The definitive place to grasp the industry that shaped the region.","k":"mining museum","g":["HIST","MUS"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/saarlaendisches-bergbaumuseum-2544cbdbcc"],["OFFICIAL","https://www.bbm-bexbach.de/"]]},
-    {"t":3,"a":"SAAR","n":"Deutsches Zeitungsmuseum Wadgassen","address":"Deutsches Zeitungsmuseum, 66787 Wadgassen, Germany","w":"Germany's newspaper museum, opened 2004 in a former economic building of Wadgassen Abbey, with some 4,000 objects on the history, technology and distribution of the press and a large specialist library. A niche but well-made museum on the story of print.","k":"museum","g":["HIST","MUS"],"closed":false,"sources":[["WIKIPEDIA","https://de.wikipedia.org/wiki/Deutsches_Zeitungsmuseum"],["URLAUBSAARLAND","https://www.urlaub.saarland/"]]},
-    {"t":1,"a":"SAAR","n":"Benediktinerabtei St. Mauritius Tholey","address":"Benediktinerabtei St. Mauritius, 66636 Tholey, Germany","w":"Reckoned the oldest monastery on German soil, with roots in the 7th century on a Roman villa site and an early-Gothic abbey church of 1230-60. Newly fitted with 30 luminous windows by Mahbuba Maqsoodi and three towering choir windows by Gerhard Richter — a pilgrimage for lovers of contemporary church art, with abbey beer, wine and honey to take home.","k":"abbey","g":["ICON","HIST","FREE"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/benediktinerabtei-st.-mauritius-tholey-87020bb7f8"],["TOURENSAARLAND","https://www.touren.saarland/de/punkt/kloster/benediktinerabtei-st.-mauritius-tholey/64720265/"]]},
-    {"t":2,"a":"SAAR","n":"Historische Altstadt Ottweiler","address":"Schlossplatz, 66564 Ottweiler, Germany","w":"A remarkably intact small old town of Renaissance and baroque houses in the former residence of the Counts of Nassau-Saarbrücken, marked by the 15th-century Zibbelkapp tower and Stengel's pavilion and widow's palace. Best explored on one of the costumed night-watchman tours.","k":"old town","g":["HIST","ICON","FREE"],"closed":false,"sources":[["URLAUBSAARLAND","https://www.urlaub.saarland/attraktion/historische-altstadt-von-ottweiler-0d9f3cfbe0"],["OTTWEILERDE","https://www.ottweiler.de/tourismus/sehenswertes/altstadt-geschichte/"],["REGIONNEUNKIRCHEN","https://www.regionneunkirchen.de/erleben/sehenswertes/altstadt-ottweiler"]]},
-    {"t":2,"a":"SAAR","n":"Deutsches Tor & Kasematten (Saarlouis)","address":"Deutsches Tor, 66740 Saarlouis, Germany","w":"The German Gate of Vauban's fortress city, flanked by Prussian casemates of 1824-29 that once quartered soldiers and horses and today house a row of restaurants locals call 'Saarland's longest bar', with 1870-war cannons on the walls. The atmospheric fortified edge of French-flavoured Saarlouis.","k":"city gate","g":["HIST","FREE"],"closed":false,"sources":[["SAARLOUISDE","https://www.saarlouis.de/leben-in-saarlouis/touristisches/sehenswurdigkeiten/"],["KULADIG","https://www.kuladig.de/Objektansicht/KLD-354059"]]}
-  ]
+ "sources": [
+  {
+   "key": "URLAUBSAARLAND",
+   "name": "Urlaub im Saarland / Tourismus Zentrale Saarland",
+   "url": "https://www.urlaub.saarland"
+  },
+  {
+   "key": "TOURISMUSSB",
+   "name": "Tourismus Saarbrücken",
+   "url": "https://tourismus.saarbruecken.de"
+  },
+  {
+   "key": "SAARBRUECKENDE",
+   "name": "Landeshauptstadt Saarbrücken",
+   "url": "https://www.saarbruecken.de"
+  },
+  {
+   "key": "SAARLANDDE",
+   "name": "Saarland.de (Landesregierung / Staatskanzlei)",
+   "url": "https://www.saarland.de"
+  },
+  {
+   "key": "KULTURBESITZ",
+   "name": "Stiftung Saarländischer Kulturbesitz",
+   "url": "https://www.kulturbesitz.de"
+  },
+  {
+   "key": "MUSEUMSVERBANDSAAR",
+   "name": "Museumsverband Saarland",
+   "url": "https://www.museumsverband-saarland.de"
+  },
+  {
+   "key": "SAARLANDLESE",
+   "name": "Saarland-Lese",
+   "url": "https://www.saarland-lese.de"
+  },
+  {
+   "key": "REGIONALGESCHICHTE",
+   "name": "regionalgeschichte.net (Institut für Geschichtliche Landeskunde, Mainz)",
+   "url": "https://www.regionalgeschichte.net"
+  },
+  {
+   "key": "SAARPFALZ",
+   "name": "Saarpfalz-Touristik / Biosphäre Bliesgau",
+   "url": "https://www.saarpfalz-touristik.de"
+  },
+  {
+   "key": "HOMBURGDE",
+   "name": "Kreis- und Universitätsstadt Homburg",
+   "url": "https://www.homburg.de"
+  },
+  {
+   "key": "MERZIGWADERN",
+   "name": "Landkreis Merzig-Wadern",
+   "url": "https://www.merzig-wadern.de"
+  },
+  {
+   "key": "MERZIGDE",
+   "name": "Kreisstadt Merzig",
+   "url": "https://www.merzig.de"
+  },
+  {
+   "key": "NEUNKIRCHENDE",
+   "name": "Kreisstadt Neunkirchen",
+   "url": "https://www.neunkirchen.de"
+  },
+  {
+   "key": "ENSDORF",
+   "name": "Gemeinde Ensdorf",
+   "url": "https://www.gemeinde-ensdorf.de"
+  },
+  {
+   "key": "OTTWEILERDE",
+   "name": "Stadt Ottweiler",
+   "url": "https://www.ottweiler.de"
+  },
+  {
+   "key": "REGIONNEUNKIRCHEN",
+   "name": "Region Neunkirchen Tourismus",
+   "url": "https://www.regionneunkirchen.de"
+  },
+  {
+   "key": "SAARLOUISDE",
+   "name": "Kreisstadt Saarlouis",
+   "url": "https://www.saarlouis.de"
+  },
+  {
+   "key": "TOURENSAARLAND",
+   "name": "Saarland erleben! (touren.saarland)",
+   "url": "https://www.touren.saarland"
+  },
+  {
+   "key": "KULADIG",
+   "name": "KuLaDig — Kultur.Landschaft.Digital (LVR)",
+   "url": "https://www.kuladig.de"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://www.wikipedia.org"
+  },
+  {
+   "key": "OFFICIAL",
+   "name": "Official venue website",
+   "url": ""
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Stiftskirche St. Arnual",
+   "address": "Stiftskirche St. Arnual, 66119 Saarbrücken, Germany",
+   "w": "A completed-around-1390 Gothic three-aisled basilica ranked among the most important architectural monuments of the German southwest, holding the carved gravestones of the Counts of Nassau-Saarbrücken and crowned by a Stengel cupola of 1746. It anchors St. Arnual, the medieval 'village within the city' with its own market square.",
+   "k": "church",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/stiftskirche-st.-arnual-275394d847"
+    ],
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/besuchen/sehenswuerdigkeiten/stiftskirche_st_arnual"
+    ],
+    [
+     "SAARLANDLESE",
+     "https://www.saarland-lese.de/sehenswuerdigkeiten/gebaeude/stiftskirche-st-arnual/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Basilika St. Johann",
+   "address": "Katholisch-Kirch-Straße, 66111 Saarbrücken, Germany",
+   "w": "The Catholic parish church of the old St. Johann quarter, a 1754-58 baroque work by Friedrich Joachim Stengel just off the market square. A quieter Stengel counterpart to the Ludwigskirche, elevated to a minor basilica for its architectural and historical rank.",
+   "k": "basilica",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "REGIONALGESCHICHTE",
+     "https://www.regionalgeschichte.net/saarland/saarbruecken/kulturdenkmaeler/zur-geschichte-der-pfarrkirche-st-johann.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Basilika_St._Johann_(Saarbr%C3%BCcken)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Alte Brücke Saarbrücken",
+   "address": "Alte Brücke, 66117 Saarbrücken, Germany",
+   "w": "The oldest surviving bridge in all of Saarland, a ~200 m stone arch bridge of 1546/47 spanning the Saar between the baroque castle and the St. Johanner Markt. A free, central walk with the castle rock on one bank and the old town on the other.",
+   "k": "bridge",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "REGIONALGESCHICHTE",
+     "https://www.regionalgeschichte.net/saarland/saarbruecken/kulturdenkmaeler/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Alte_Br%C3%BCcke_(Saarbr%C3%BCcken)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Saarlandmuseum – Moderne Galerie",
+   "address": "Bismarckstraße 11-19, 66111 Saarbrücken, Germany",
+   "w": "One of the leading art museums of southwest Germany, its holdings running from Impressionism and the Berlin Secession through German Expressionism, the École de Paris and Informel to the present, with a sculpture garden. The modern wing of the Saarlandmuseum, recently enlarged by a new pavilion.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "KULTURBESITZ",
+     "https://www.kulturbesitz.de/de/museen/moderne-galerie"
+    ],
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/besuchen/museen_galerien/moderne_galerie"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/saarlandmuseum-moderne-galerie-8cffd473c7"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Saarländisches Staatstheater",
+   "address": "Schillerplatz 1, 66111 Saarbrücken, Germany",
+   "w": "Saarland's four-division state theatre (opera, drama, dance, concert), mounting around 30 new productions a year in some 700 performances for more than 200,000 visitors. Its monumental 1938 house on Schillerplatz overlooking the Saar is a landmark in its own right.",
+   "k": "theatre",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Theater_Saarbr%C3%BCcken"
+    ],
+    [
+     "SAARBRUECKENDE",
+     "https://www.saarbruecken.de/kultur"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Homburger Schlossberghöhlen",
+   "address": "Schlossberg-Höhen-Straße 1, 66424 Homburg, Germany",
+   "w": "Europe's largest man-made red-sandstone caves, twelve storeys of vaulted halls and kilometres of galleries dug from the 11th to 17th centuries beneath the ruins of Hohenburg fortress. About 800 m across the top three walkable levels are open, glowing in bands of ochre and red.",
+   "k": "caves",
+   "g": [
+    "ICON",
+    "HIST",
+    "ODD"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "HOMBURGDE",
+     "https://www.homburg.de/leben-in-homburg/touristisches/sehenswertes/schlossberghohlen/"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/schlossberghoehlen-homburg-7477005a77"
+    ],
+    [
+     "SAARPFALZ",
+     "https://www.saarpfalz-touristik.de/en/poi/detail/castle-mountain-caves-in-homburg-1484364d87"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Römermuseum Schwarzenacker",
+   "address": "Homburger Straße 38, 66424 Homburg, Germany",
+   "w": "An open-air archaeological museum on the excavated Roman vicus of Schwarzenacker, a country town of some 2,000 people that lived from about the birth of Christ until its destruction by the Alemanni in 275 AD. Reconstructed streets and houses, plus a baroque garden, bring the Roman Saar to life; combine it with the Homburg caves.",
+   "k": "archaeological museum",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://www.roemermuseum-schwarzenacker.de/"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/roemermuseum-schwarzenacker-52dc1b0448"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Schwarzenacker_Roman_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Saarpolygon (Bergehalde Ensdorf)",
+   "address": "Bergehalde Ensdorf, 66802 Ensdorf, Germany",
+   "w": "A 30 m walkable steel landmark crowning the ~150 m mining dump above Ensdorf, opened in 2016 to commemorate the end of Saar coal mining (the last pit closed here in 2012). 132 steps climb through its two pylons to a free viewing platform that seems to change shape as you move — a symbol of the region's transformation.",
+   "k": "landmark",
+   "g": [
+    "ICON",
+    "FREE",
+    "ODD"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/bergehalde-ensdorf-mit-saarpolygon-54eb7e6dbb"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Saarpolygon"
+    ],
+    [
+     "ENSDORF",
+     "https://www.gemeinde-ensdorf.de/Freizeit-Tourismus/Saarpolygon-auf-der-Bergehalde/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Wolfspark Werner Freund",
+   "address": "Waldstraße 204, 66663 Merzig, Germany",
+   "w": "The 8-hectare wolf park that made Merzig the 'city of wolves', home to around 20 European grey, polar, Canadian timber and Mongolian wolves in wide open enclosures. Founded by behavioural researcher Werner Freund, who lived for decades 'as a wolf among wolves'; free to walk through, with a monthly public feeding and talk.",
+   "k": "wildlife park",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "MERZIGDE",
+     "https://www.merzig.de/tourismus-kultur/sehenswuerdigkeiten/wolfspark-werner-freund/"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/wolfspark-werner-freund-60baac9407"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Römische Villa Nennig",
+   "address": "Römerstraße 11, 66706 Perl-Nennig, Germany",
+   "w": "A luxurious Roman villa whose entrance hall keeps the largest and best-preserved mosaic floor north of the Alps — over 160 m² of some three million stones showing gladiators, beast-hunts and musicians of the amphitheatre, found by a farmer in 1852. One of the outstanding works of Roman mosaic art anywhere.",
+   "k": "archaeological site",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "KULTURBESITZ",
+     "https://www.kulturbesitz.de/de/museen/roemische-villa-nennig"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/roemische-villa-nennig-16825de067"
+    ],
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/besuchen/weitere_ausflugstipps/mosaikfussboden_nennig"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Bostalsee",
+   "address": "Bostalsee, 66625 Nohfelden, Germany",
+   "w": "At 120 hectares the largest recreational lake in southwest Germany, in the wooded St. Wendel uplands, with free bathing beaches, sailing and surfing, a lakeside path and the Bosaarium wave pool. Opened 1979 and now flanked by a Center Parcs holiday village — the state's summer playground.",
+   "k": "lake",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/bostalsee-01e37fd1f9"
+    ],
+    [
+     "SAARLANDLESE",
+     "https://www.saarland-lese.de/sehenswuerdigkeiten/oertlichkeiten/bostalsee/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Barockstadt Blieskastel",
+   "address": "Paradeplatz, 66440 Blieskastel, Germany",
+   "w": "Reckoned the most beautiful baroque town in Saarland, built up under Countess Marianne von der Leyen in the heart of the UNESCO Bliesgau Biosphere Reserve — a fine ensemble of the Schlosskirche, town hall, Paradeplatz and burgher houses. A compact, walkable old town with Kneipp-spa calm.",
+   "k": "baroque town",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "SAARPFALZ",
+     "https://www.saarpfalz-touristik.de/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Blieskastel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Gollenstein",
+   "address": "Gollenstein, Blieskastel-Berg, 66440 Blieskastel, Germany",
+   "w": "A roughly 4,000-year-old menhir standing 6.58 m tall on the hill above Blieskastel — the largest menhir in Central Europe and the landmark of the baroque town. Re-erected after wartime damage, it is the goal of the panoramic Mariannenweg walk.",
+   "k": "menhir",
+   "g": [
+    "HIST",
+    "ODD",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Gollenstein"
+    ],
+    [
+     "SAARPFALZ",
+     "https://www.saarpfalz-touristik.de/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Saarbrücker Zoo",
+   "address": "Graf-Stauffenberg-Straße, 66121 Saarbrücken, Germany",
+   "w": "A leafy hillside zoo above the city with around 1,000 animals of 100 species, from big cats and primates to a walk-through aviary — a long-standing family outing on the St. Arnual side of Saarbrücken.",
+   "k": "zoo",
+   "g": [
+    "FAM",
+    "PARK"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://zoo.saarbruecken.de/"
+    ],
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Rathaus St. Johann",
+   "address": "Rathausplatz 1, 66111 Saarbrücken, Germany",
+   "w": "Saarbrücken's neo-Gothic town hall of 1897-1900 by Georg von Hauberrisser (architect of Munich's town hall), with a 54 m tower, festive hall and richly ornamented façade. The square in front and the building's Von-Uexküll murals reward a look inside.",
+   "k": "town hall",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Rathaus_St._Johann"
+    ],
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/besuchen/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "GONDWANA – Das Praehistorium",
+   "address": "Alexander-von-Humboldt-Straße 8-10, 66578 Schiffweiler, Germany",
+   "w": "A prehistory theme-museum on the grounds of the former Reden colliery, staging 4.5 billion years of Earth history across 5,000 m² with animatronic dinosaurs and immersive audio-visual scenes, plus an outdoor dig where you can excavate a T. rex. A crowd-pleaser paired with the Reden mining heritage site.",
+   "k": "science museum",
+   "g": [
+    "FAM",
+    "MUS",
+    "ODD"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/besuchen/weitere_ausflugstipps/gondwana_das_praehistorium"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Grube_Reden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Museum in der Schlosskirche",
+   "address": "Am Schlossberg 6, 66119 Saarbrücken, Germany",
+   "w": "Inside the Gothic castle church below Saarbrücker Schloss: a collection of religious art from the Middle Ages to the 19th century, with the baroque princely tombs of Nassau-Saarbrücken and vivid modern stained glass by Georg Meistermann. The third site of the Saarlandmuseum.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "KULTURBESITZ",
+     "https://www.kulturbesitz.de/de/museen/museum-in-der-schlosskirche"
+    ],
+    [
+     "TOURISMUSSB",
+     "https://tourismus.saarbruecken.de/besuchen/museen_galerien"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SAAR",
+   "n": "Botanischer Garten der Universität des Saarlandes — CLOSED",
+   "address": "Universität des Saarlandes Campus, 66123 Saarbrücken, Germany",
+   "w": "A 25,000 m² botanical garden on the western edge of the university campus with five greenhouses of plants from different climate zones and an attached medicinal-plant museum. A free, quiet green detour when visiting the Saarbrücken campus.",
+   "k": "botanical garden",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "closed": true,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Botanischer_Garten_der_Universit%C3%A4t_des_Saarlandes"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.uni-saarland.de/einrichtung/botanischer-garten.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Botanical_Garden_of_Saarland_University"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Museum Schloss Fellenberg",
+   "address": "Torstraße 45, 66663 Merzig, Germany",
+   "w": "A fairy-tale red-sandstone villa of 1858 in central Merzig, its asymmetrical turrets and bay windows housing a cultural-history museum and set in the Paul-Schneider sculpture park. A relaxed cultural stop in the Saarschleifenland.",
+   "k": "castle museum",
+   "g": [
+    "HIST",
+    "MUS",
+    "PARK"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/museum-schloss-fellenberg-bb85631d61"
+    ],
+    [
+     "MERZIGWADERN",
+     "https://www.merzig-wadern.de/Kurzmen%C3%BC/Startseite/index.php?object=tx,2875.1&ModID=9&FID=697.758.1"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SAAR",
+   "n": "Stausee Losheim",
+   "address": "Stausee Losheim, 66679 Losheim am See, Germany",
+   "w": "A 1974 reservoir ringed by beaches, a lakeside promenade and the start of premium 'Traumschleifen' hiking loops in the Saar-Hunsrück nature park; a heritage steam railway runs to Merzig. An easy nature-and-swimming day out in the northwest of the state.",
+   "k": "reservoir",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/stausee-losheim-fe2e7ff688"
+    ],
+    [
+     "MERZIGWADERN",
+     "https://www.merzig-wadern.de/Region-Freizeit/St%C3%A4dte-Gemeinden/Losheim-am-See/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Ludwigsplatz (Stengel-Ensemble)",
+   "address": "Ludwigsplatz, 66117 Saarbrücken, Germany",
+   "w": "One of Germany's most important baroque square ensembles, laid out from 1762 by Friedrich Joachim Stengel around the Ludwigskirche — church and surrounding palais planned as a single stage set. It was on Germany's UNESCO tentative list and appears on the Saarland 2-euro coin.",
+   "k": "square",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "SAARLANDDE",
+     "https://www.saarland.de/stk/DE/institution/entstehungsgeschichte/ensemble_ludwigsplatz_node.html"
+    ],
+    [
+     "SAARBRUECKENDE",
+     "https://www.saarbruecken.de/kultur/stadtgeschichte/stengelarchitektur"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Neunkircher Zoo",
+   "address": "Zoostraße 25, 66538 Neunkirchen, Germany",
+   "w": "A woodland zoo near the centre of Neunkirchen with over 600 animals of around 120 species, a well-regarded family destination on the eastern side of the Saarland.",
+   "k": "zoo",
+   "g": [
+    "FAM",
+    "PARK"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "NEUNKIRCHENDE",
+     "https://www.neunkirchen.de/index.php?id=322"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/neunkircher-zoo-599a65bdb2"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SAAR",
+   "n": "Blumengarten Bexbach",
+   "address": "Blumengarten, 66450 Bexbach, Germany",
+   "w": "A model-garden park created in 1951 (during Saarland's post-war French-protectorate years) with a rose garden, alpine and heather gardens, ponds and a museum-and-observation tower. A gentle, nostalgic place for a stroll, and the new home of the old Saarbrücken 'Gulliver World' miniatures.",
+   "k": "garden",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/blumengarten-bexbach-bb57c8f8c6"
+    ],
+    [
+     "SAARPFALZ",
+     "https://www.saarpfalz-touristik.de/en/poi/detail/flower-garden-bexbach-39cf8466d9"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Saarländisches Bergbaumuseum Bexbach",
+   "address": "Saarländisches Bergbaumuseum, 66450 Bexbach, Germany",
+   "w": "The state's mining museum, founded 1934, telling the whole story of Saar hard-coal mining from a 40 m panorama tower down into an extensive walk-through demonstration mine with machines and support types from different eras. The definitive place to grasp the industry that shaped the region.",
+   "k": "mining museum",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/saarlaendisches-bergbaumuseum-2544cbdbcc"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.bbm-bexbach.de/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SAAR",
+   "n": "Deutsches Zeitungsmuseum Wadgassen",
+   "address": "Deutsches Zeitungsmuseum, 66787 Wadgassen, Germany",
+   "w": "Germany's newspaper museum, opened 2004 in a former economic building of Wadgassen Abbey, with some 4,000 objects on the history, technology and distribution of the press and a large specialist library. A niche but well-made museum on the story of print.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Deutsches_Zeitungsmuseum"
+    ],
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAAR",
+   "n": "Benediktinerabtei St. Mauritius Tholey",
+   "address": "Benediktinerabtei St. Mauritius, 66636 Tholey, Germany",
+   "w": "Reckoned the oldest monastery on German soil, with roots in the 7th century on a Roman villa site and an early-Gothic abbey church of 1230-60. Newly fitted with 30 luminous windows by Mahbuba Maqsoodi and three towering choir windows by Gerhard Richter — a pilgrimage for lovers of contemporary church art, with abbey beer, wine and honey to take home.",
+   "k": "abbey",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/benediktinerabtei-st.-mauritius-tholey-87020bb7f8"
+    ],
+    [
+     "TOURENSAARLAND",
+     "https://www.touren.saarland/de/punkt/kloster/benediktinerabtei-st.-mauritius-tholey/64720265/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Historische Altstadt Ottweiler",
+   "address": "Schlossplatz, 66564 Ottweiler, Germany",
+   "w": "A remarkably intact small old town of Renaissance and baroque houses in the former residence of the Counts of Nassau-Saarbrücken, marked by the 15th-century Zibbelkapp tower and Stengel's pavilion and widow's palace. Best explored on one of the costumed night-watchman tours.",
+   "k": "old town",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "URLAUBSAARLAND",
+     "https://www.urlaub.saarland/attraktion/historische-altstadt-von-ottweiler-0d9f3cfbe0"
+    ],
+    [
+     "OTTWEILERDE",
+     "https://www.ottweiler.de/tourismus/sehenswertes/altstadt-geschichte/"
+    ],
+    [
+     "REGIONNEUNKIRCHEN",
+     "https://www.regionneunkirchen.de/erleben/sehenswertes/altstadt-ottweiler"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAAR",
+   "n": "Deutsches Tor & Kasematten (Saarlouis)",
+   "address": "Deutsches Tor, 66740 Saarlouis, Germany",
+   "w": "The German Gate of Vauban's fortress city, flanked by Prussian casemates of 1824-29 that once quartered soldiers and horses and today house a row of restaurants locals call 'Saarland's longest bar', with 1870-war cannons on the walls. The atmospheric fortified edge of French-flavoured Saarlouis.",
+   "k": "city gate",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "SAARLOUISDE",
+     "https://www.saarlouis.de/leben-in-saarlouis/touristisches/sehenswurdigkeiten/"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/KLD-354059"
+    ]
+   ]
+  }
+ ]
 }

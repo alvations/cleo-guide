@@ -4379,10 +4379,11 @@
   {
    "t": 3,
    "a": "SAAR",
-   "n": "Botanischer Garten der Universität des Saarlandes",
+   "n": "Botanischer Garten der Universität des Saarlandes — CLOSED",
    "ad": "Universität des Saarlandes Campus, 66123 Saarbrücken, Germany",
    "w": "A 25,000 m² botanical garden on the western edge of the university campus with five greenhouses of plants from different climate zones and an attached medicinal-plant museum. A free, quiet green detour when visiting the Saarbrücken campus.",
    "k": "botanical garden",
+   "closed": true,
    "g": [
     "PARK",
     "FREE",
@@ -4396,6 +4397,10 @@
     [
      "OFFICIAL",
      "https://www.uni-saarland.de/einrichtung/botanischer-garten.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Botanical_Garden_of_Saarland_University"
     ]
    ]
   },
