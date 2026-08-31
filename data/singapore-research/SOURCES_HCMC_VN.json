@@ -1,0 +1,11 @@
+{
+  "outlets": [
+    {"key":"VNEXPRESS","name":"VnExpress (Du lich / Doi song)","type":"newspaper","url":"https://vnexpress.net/","credible":"Vietnamese-language; Vietnam's most-read online newspaper. Its Du lich and Doi song desks run reported, bylined food features on named HCMC eateries (history, address, owner). Includes the Ngoi sao sub-site (ngoisao.vnexpress.net)."},
+    {"key":"NGOISAO","name":"Ngoi Sao (ngoisao.vnexpress.net)","type":"newspaper","url":"https://ngoisao.vnexpress.net/","credible":"Vietnamese-language lifestyle title within the VnExpress group; editorial food roundups and single-shop features on Saigon institutions."},
+    {"key":"THANHNIEN","name":"Thanh Nien (Am thuc)","type":"newspaper","url":"https://thanhnien.vn/","credible":"Vietnamese-language; major national daily. Its Am thuc / Sai Gon tiem xua quan cu series does deep, reported profiles of decades-old Saigon street-food institutions with owner interviews and addresses."},
+    {"key":"NLD","name":"Nguoi Lao Dong","type":"newspaper","url":"https://nld.com.vn/","credible":"Vietnamese-language; established HCMC daily (Nguoi Lao Dong). Food and travel desks cover long-standing local eateries; used only for editorial articles, never listings."},
+    {"key":"ZNEWS","name":"ZNews / Zing (Lifestyle - Dia diem an uong)","type":"news_site","url":"https://znews.vn/","credible":"Vietnamese-language; licensed news site (formerly Zing). Its Lifestyle food desk publishes curated, reported HCMC eatery features and named-shop roundups (lifestyle.znews.vn)."},
+    {"key":"KENH14","name":"Kenh14","type":"news_site","url":"https://kenh14.vn/","credible":"Vietnamese-language youth news/culture site with very large reach; reported street-food features naming specific Saigon stalls, their history and owners. Editorial articles only."},
+    {"key":"MICHELIN","name":"Michelin Guide Vietnam (Ho Chi Minh City)","type":"institutional_authority","url":"https://guide.michelin.com/en/vn/ho-chi-minh-city/restaurants","credible":"Institutional authority. Michelin Guide has covered HCMC since 2023 (Bib Gourmand / Selected / Stars); a lone Bib/Selected/Star listing satisfies the merit bar on its own. Referenced via credible outlets' coverage in this pass."}
+  ]
+}
