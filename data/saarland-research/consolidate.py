@@ -102,11 +102,37 @@ for path in sorted(glob.glob(os.path.join(D,"CREATORS*.json"))):
         if isinstance(c,dict) and c.get("key"): srcmeta.setdefault(canon(c["key"]), {"key":canon(c["key"]),"name":c.get("name",c["key"]),"url":c.get("url","")})
 
 # ---- build unified records ----
-sights=[]; food=[]; seen_names=set()
+# Dedup is two-layer: exact name, then a normalized key that collapses the same place written
+# two ways across waves (e.g. "Brasserie Excelsior" vs "Brasserie L'Excelsior", "Villa Majorelle"
+# vs "Villa Majorelle (Nancy)", "Lefèvre-Lemoine" vs "Lefèvre-Lemoine (Au Duché de Lorraine)").
+# Near-dupes MERGE: sources union into the first-seen record and the shorter (cleaner) name wins,
+# so a place discovered twice is never double-counted or stacked on one pin.
+_DEDUP_STOP={'le','la','les','l','the','der','die','das','restaurant','ristorante','brasserie',
+             'cafe','au','aux','and','of','a','d'}
+def _norm_name(n):
+    s=n.lower()
+    s=re.sub(r'\(.*?\)','',s)                       # drop trailing (Nancy) / (Au Duché…) parentheticals
+    s=s.replace('’',' ').replace("'",' ').replace('`',' ')  # L'Excelsior -> l excelsior -> excelsior
+    s=re.sub(r'[^a-z0-9]+',' ',s)
+    return ' '.join(t for t in s.split() if t and t not in _DEDUP_STOP)
+sights=[]; food=[]; seen_names=set(); seen_norm={}
+def _merge_sources(dst, src):
+    have={(t[0], t[1] if len(t)>1 else '') for t in dst.get('sources',[])}
+    for t in src.get('sources',[]):
+        k=(t[0], t[1] if len(t)>1 else '')
+        if k not in have: dst.setdefault('sources',[]).append(t); have.add(k)
 def _take(x, bucket):
     n=x.get("n")
     if not n or n in seen_names: return
-    seen_names.add(n); bucket.append(x)
+    key=_norm_name(n)
+    if key and key in seen_norm:                    # near-duplicate of an already-taken place
+        kept=seen_norm[key]
+        _merge_sources(kept, x)
+        if len(n) < len(kept["n"]): kept["n"]=n     # keep the shorter, cleaner name
+        return
+    seen_names.add(n)
+    if key: seen_norm[key]=x
+    bucket.append(x)
 for path in sorted(glob.glob(os.path.join(D,"*.json"))):
     base=os.path.basename(path)
     if base.startswith(("_","out_","sr_","geo_","CREATORS","SOURCES_")) or "dataset" in base: continue

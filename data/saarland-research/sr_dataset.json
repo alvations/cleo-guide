@@ -174,6 +174,14 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Villa_Majorelle"
+    ],
+    [
+     "MUSEEECOLENANCY",
+     "https://musee-ecole-de-nancy.nancy.fr/en/the-villa-majorelle"
+    ],
+    [
+     "DESTINATIONNANCY",
+     "https://www.destination-nancy.com/en/patrimoine-culturel/villa-majorelle/"
     ]
    ]
   },
@@ -198,6 +206,14 @@
     [
      "WIKIPEDIA",
      "https://fr.wikipedia.org/wiki/Mus%C3%A9e_lorrain"
+    ],
+    [
+     "MUSEESGRANDEST",
+     "https://www.museesgrandest.org/les-musees/musee-lorrain-palais-des-ducs-de-lorraine/"
+    ],
+    [
+     "NANCYVILLE",
+     "https://www.nancy.fr/nancy-la-ville/grands-projets/musee-lorrain"
     ]
    ]
   },
@@ -244,6 +260,10 @@
     [
      "WIKIPEDIA",
      "https://fr.wikipedia.org/wiki/Porte_de_la_Craffe"
+    ],
+    [
+     "DESTINATIONNANCY",
+     "https://www.destination-nancy.com/en/tourisme/decouvrir-nancy/quartier-ville-vieille/"
     ]
    ]
   },
@@ -292,6 +312,14 @@
     [
      "NANCYVILLE",
      "https://www.nancy.fr"
+    ],
+    [
+     "DESTINATIONNANCY",
+     "https://www.destination-nancy.com/en/patrimoine-naturel/parc-de-la-pepiniere/"
+    ],
+    [
+     "NANCYVILLE",
+     "https://www.nancy.fr/"
     ]
    ]
   },
@@ -2110,30 +2138,6 @@
   {
    "t": 2,
    "a": "MOSELLE",
-   "n": "Villa Majorelle (Nancy)",
-   "ad": "1 Rue Louis Majorelle, 54000 Nancy, France",
-   "w": "Built 1901-02 by architect Henri Sauvage for cabinetmaker Louis Majorelle, one of the very few Art Nouveau houses still standing in France and a total work of the École de Nancy — staircase and stained glass by Jacques Gruber, ironwork, fireplaces and furniture in flowing plant motifs. Visited on reservation.",
-   "k": "Art Nouveau house",
-   "g": [
-    "ICON",
-    "HIST",
-    "MUS",
-    "CRAFT"
-   ],
-   "s": [
-    [
-     "MUSEEECOLENANCY",
-     "https://musee-ecole-de-nancy.nancy.fr/en/the-villa-majorelle"
-    ],
-    [
-     "DESTINATIONNANCY",
-     "https://www.destination-nancy.com/en/patrimoine-culturel/villa-majorelle/"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "MOSELLE",
    "n": "Basilique Saint-Epvre & Ville Vieille (Nancy)",
    "ad": "Place Saint-Epvre, 54000 Nancy, France",
    "w": "The soaring neo-Gothic basilica of 1864-71 by Prosper Morey anchors Nancy's compact Ville Vieille — a medieval quarter of the Palais Ducal, Porte de la Craffe and cobbled lanes running between the old gate and the Arc Héré.",
@@ -2152,75 +2156,6 @@
     [
      "VISITGRANDEST",
      "https://visitgrandest.com/basilique-saint-epvre"
-    ]
-   ]
-  },
-  {
-   "t": 3,
-   "a": "MOSELLE",
-   "n": "Porte de la Craffe (Nancy)",
-   "ad": "Grande Rue, 54000 Nancy, France",
-   "w": "A 14th-century fortified gate closing the north end of the Ville Vieille, one of Nancy's oldest monuments and a vivid witness to the medieval city's military past.",
-   "k": "medieval gate",
-   "g": [
-    "HIST",
-    "FREE"
-   ],
-   "s": [
-    [
-     "DESTINATIONNANCY",
-     "https://www.destination-nancy.com/en/tourisme/decouvrir-nancy/quartier-ville-vieille/"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://fr.wikipedia.org/wiki/Porte_de_la_Craffe"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "MOSELLE",
-   "n": "Palais des ducs de Lorraine – Musée Lorrain (Nancy)",
-   "ad": "64 Grande Rue, 54000 Nancy, France",
-   "w": "The ducal palace of Lorraine with its flamboyant portal and the Cordeliers church-convent, holding 155,000 works on the region's history from prehistory to today. A major renovation runs to 2027 (the Cordeliers church, with the dukes' tombs, stays open during works).",
-   "k": "palace & museum",
-   "g": [
-    "MUS",
-    "HIST",
-    "ARCH"
-   ],
-   "s": [
-    [
-     "MUSEESGRANDEST",
-     "https://www.museesgrandest.org/les-musees/musee-lorrain-palais-des-ducs-de-lorraine/"
-    ],
-    [
-     "NANCYVILLE",
-     "https://www.nancy.fr/nancy-la-ville/grands-projets/musee-lorrain"
-    ]
-   ]
-  },
-  {
-   "t": 3,
-   "a": "MOSELLE",
-   "n": "Parc de la Pépinière (Nancy)",
-   "ad": "Rue Sainte-Catherine, 54000 Nancy, France",
-   "w": "Twenty-one hectares of wooded promenade and a celebrated rose garden right beside Place Stanislas — a former royal nursery laid out by Stanislas on the old ducal gardens and opened to the public in 1835, now with an animal park, playgrounds and terraces.",
-   "k": "park",
-   "g": [
-    "PARK",
-    "FREE",
-    "FAM",
-    "MKT"
-   ],
-   "s": [
-    [
-     "DESTINATIONNANCY",
-     "https://www.destination-nancy.com/en/patrimoine-naturel/parc-de-la-pepiniere/"
-    ],
-    [
-     "NANCYVILLE",
-     "https://www.nancy.fr/"
     ]
    ]
   },
@@ -4664,6 +4599,14 @@
     [
      "OFFICIAL",
      "https://www.excelsior-nancy.fr/histoire"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://fr.wikipedia.org/wiki/Brasserie_Excelsior"
+    ],
+    [
+     "BOUCLEMOSELLE",
+     "https://www.boucledelamoselle.fr/en/fiche-sit/F737000045_brasserie-l-excelsior-nancy-en/"
     ]
    ]
   },
@@ -4748,6 +4691,10 @@
     [
      "OFFICIAL",
      "https://lefevre-lemoine.fr/"
+    ],
+    [
+     "PETITFUTE",
+     "https://www.petitfute.co.uk/v20962-nancy-54000/c650-produits-gourmands-vins/c1107-pains-gateaux-chocolats-glaces/c669-confiserie-dragees/418249-biscuiterie-lefevre-lemoine.html"
     ]
    ]
   },
@@ -7684,53 +7631,6 @@
     [
      "METZMETRO",
      "https://www.metz-metropolitain.fr/meilleures-adresses-deguster-macarons-messins.html"
-    ]
-   ]
-  },
-  {
-   "t": 1,
-   "a": "MOSELLE",
-   "n": "Brasserie L'Excelsior",
-   "ad": "50 Rue Henri Poincaré, 54000 Nancy, France",
-   "w": "Opened in 1911 and classified a Monument Historique since 1976, the 'Excel' is a jewel of Art Nouveau — interiors by Gruber, Majorelle and Daum, a living tribute to the École de Nancy — and a great French brasserie of choucroute and seafood platters near Nancy station.",
-   "cz": [
-    "FR"
-   ],
-   "g": [],
-   "s": [
-    [
-     "OFFICIAL",
-     "https://www.excelsior-nancy.fr/histoire"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://fr.wikipedia.org/wiki/Brasserie_Excelsior"
-    ],
-    [
-     "BOUCLEMOSELLE",
-     "https://www.boucledelamoselle.fr/en/fiche-sit/F737000045_brasserie-l-excelsior-nancy-en/"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "MOSELLE",
-   "n": "Lefèvre-Lemoine (Au Duché de Lorraine)",
-   "ad": "47 Rue Henri-Poincaré, 54000 Nancy, France",
-   "w": "Founded in 1840, the oldest confectioner in Lorraine and Alsace — 'Au Duché de Lorraine' — keeper of the bergamote de Nancy, the hard bergamot-scented sweet, alongside macarons de Nancy and regional specialities, in a beautifully preserved 19th-century shop near the station.",
-   "cz": [
-    "SWEET",
-    "FR"
-   ],
-   "g": [],
-   "s": [
-    [
-     "OFFICIAL",
-     "https://lefevre-lemoine.fr/"
-    ],
-    [
-     "PETITFUTE",
-     "https://www.petitfute.co.uk/v20962-nancy-54000/c650-produits-gourmands-vins/c1107-pains-gateaux-chocolats-glaces/c669-confiserie-dragees/418249-biscuiterie-lefevre-lemoine.html"
     ]
    ]
   },
