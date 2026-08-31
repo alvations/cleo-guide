@@ -1,0 +1,450 @@
+{
+  "sources": [
+    { "key": "WIKIVI", "name": "Wikipedia tiếng Việt", "url": "https://vi.wikipedia.org/" },
+    { "key": "ENWIKI", "name": "Wikipedia (English)", "url": "https://en.wikipedia.org/" },
+    { "key": "VNEXPRESS", "name": "VnExpress", "url": "https://vnexpress.net/" },
+    { "key": "TUOITRE", "name": "Tuổi Trẻ", "url": "https://tuoitre.vn/" },
+    { "key": "THANHNIEN", "name": "Thanh Niên", "url": "https://thanhnien.vn/" },
+    { "key": "VIETNAMNET", "name": "VietnamNet", "url": "https://vietnamnet.vn/" },
+    { "key": "PLO", "name": "Pháp Luật TP.HCM", "url": "https://plo.vn/" },
+    { "key": "NLD", "name": "Người Lao Động", "url": "https://nld.com.vn/" },
+    { "key": "TIENPHONG", "name": "Tiền Phong", "url": "https://tienphong.vn/" },
+    { "key": "ZNEWS", "name": "ZNews (Zing)", "url": "https://znews.vn/" },
+    { "key": "VNANET", "name": "Thông tấn xã Việt Nam (VNA/vnanet)", "url": "https://vietnam.vnanet.vn/" },
+    { "key": "NHANDAN", "name": "Báo Nhân Dân", "url": "https://nhandan.vn/" },
+    { "key": "SGGP", "name": "Báo Sài Gòn Giải Phóng", "url": "https://www.sggp.org.vn/" },
+    { "key": "DSVH", "name": "Cục Di sản Văn hóa (official)", "url": "https://dsvh.gov.vn/" },
+    { "key": "THANHUYTPHCM", "name": "Trang tin điện tử Đảng bộ TP.HCM (official)", "url": "https://thanhuytphcm.vn/" },
+    { "key": "HCMCGOV", "name": "Cổng thông tin điện tử chính quyền TP.HCM & quận/huyện (official)", "url": "https://hochiminhcity.gov.vn/" },
+    { "key": "DULICHTAYNINH", "name": "Cổng du lịch Tây Ninh (official)", "url": "https://dulich.tayninh.gov.vn/" },
+    { "key": "BAOQUANKHU7", "name": "Báo Quân khu 7", "url": "https://baoquankhu7.vn/" }
+  ],
+  "sights": [
+    {
+      "n": "Tòa án Nhân dân TP.HCM (Palais de Justice)",
+      "t": 1,
+      "a": "VN",
+      "address": "131 Nam Kỳ Khởi Nghĩa, phường Bến Thành, Quận 1, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "Saigon's grand French courthouse — the 'Palais de Justice de Saigon' designed by Jules Bourard, built 1881–85 and the oldest courthouse in Vietnam. Ranked a National Architectural-Art Monument in 2012; its H-plan Beaux-Arts façade with the statue of Justice and allegorical reliefs was fully restored (2016–2027). Admired from the street on the Lý Tự Trọng heritage axis near Reunification Palace.",
+      "k": "Colonial architecture",
+      "g": ["ICON", "HIST", "FREE"],
+      "sources": [
+        ["PLO", "https://plo.vn/tru-so-tand-tphcm-sau-trung-tu-dien-mao-moi-cua-di-tich-hon-140-nam-post900429.html"],
+        ["VNEXPRESS", "https://vnexpress.net/dien-mao-moi-cua-toa-an-co-nhat-viet-nam-tai-tp-hcm-5038043.html"]
+      ]
+    },
+    {
+      "n": "Trụ sở Ngân hàng Nhà nước - Chi nhánh TP.HCM (Banque de l'Indochine)",
+      "t": 2,
+      "a": "VN",
+      "address": "17 Bến Chương Dương (nay Võ Văn Kiệt), Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "The former Banque de l'Indochine Saigon branch, designed by Félix Dumail and built 1928–30 beside the Bến Nghé canal — a masterwork of Indochine style that fuses European massing with Cham/Khmer decorative motifs on its columns, ironwork and roof corners. Nearly a century old and considered worthy of national-monument rank; a striking, little-noticed façade to view from the riverfront.",
+      "k": "Colonial architecture",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["TUOITRE", "https://tuoitre.vn/tru-so-ngan-hang-nha-nuoc-o-tphcm-xung-tam-di-tich-quoc-gia-1114075.htm"],
+        ["THANHNIEN", "https://thanhnien.vn/ben-trong-tru-so-ngan-hang-nha-nuoc-tphcm-kien-truc-art-deco-it-nguoi-biet-18526012416114879.htm"]
+      ]
+    },
+    {
+      "n": "Trụ sở Cục Hải quan TP.HCM (Hôtel des Douanes)",
+      "t": 2,
+      "a": "VN",
+      "address": "2 Hàm Nghi, phường Bến Nghé, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "The old Customs House — a French colonial landmark designed by Alfred Foulhoux (architect of the Post Office and the old City Museum) and built 1885–87 on the site of Chinese magnate Wang Tai's mansion. One of the most elegant surviving 19th-century public buildings on the Hàm Nghi–Bạch Đằng axis; admired from the street.",
+      "k": "Colonial architecture",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["TUOITRE", "https://tuoitre.vn/plo/di-san-vat-the-sai-gon-300-nam-dau-an-toa-nha-hai-quan-post358541.htm"]
+      ]
+    },
+    {
+      "n": "Dinh Thượng Thơ (Office of the Interior)",
+      "t": 2,
+      "a": "VN",
+      "address": "59-61 Lý Tự Trọng, Quận 1, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "A ~160-year-old French colonial block (completed 1864 as the Direction de l'Intérieur), a U-shaped range of buildings around a courtyard opposite the People's Committee. After a public campaign the city decided in 2019 to preserve it as a 'traditional house' rather than demolish it; a landmark of the debate over old-Saigon heritage.",
+      "k": "Colonial architecture",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Dinh_Th%C6%B0%E1%BB%A3ng_th%C6%A1"],
+        ["VNEXPRESS", "https://vnexpress.net/tp-hcm-bao-ton-dinh-thuong-tho-4025749.html"]
+      ]
+    },
+    {
+      "n": "Khách sạn Grand Sài Gòn (Hotel Grand Saigon)",
+      "t": 2,
+      "a": "VN",
+      "address": "8 Đồng Khởi, Quận 1, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "One of Saigon's three great heritage hotels (with the Continental and Majestic), opened 1930 at 8 rue Catinat with classical French lines — and still running its original 1930 cage elevator. A near-century of Đồng Khởi history preserved in the 'ancient wing'; step into the lobby or the rooftop bar to feel old Saigon.",
+      "k": "Historic hotel",
+      "g": ["HIST", "ICON"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Kh%C3%A1ch_s%E1%BA%A1n_Grand_S%C3%A0i_G%C3%B2n"],
+        ["NHANDAN", "https://nhandan.vn/hotel-grand-saigon-gan-mot-the-ky-khang-dinh-gia-tri-di-san-post917812.html"]
+      ]
+    },
+    {
+      "n": "Trường THPT chuyên Lê Hồng Phong (Lycée Petrus Ký)",
+      "t": 2,
+      "a": "VN",
+      "address": "235 Nguyễn Văn Cừ, Quận 5, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "The former Lycée Petrus Trương Vĩnh Ký, built 1927 on an 8-ha campus in classical French style — the leading boys' lycée of the colonial south and still an elite specialist school. Ranked among the city's top-10 architectural-art heritage sites (2015); its ochre halls and old courtyards are a quiet architecture stop in Chợ Lớn's fringe.",
+      "k": "Historic school",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_Trung_h%E1%BB%8Dc_ph%E1%BB%95_th%C3%B4ng_chuy%C3%AAn_L%C3%AA_H%E1%BB%93ng_Phong,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh"],
+        ["VNANET", "https://vietnam.vnanet.vn/vietnamese/tin-tuc/le-hong-phong-ngoi-truong-cua-nhung-tri-thuc-lon-78148.html"]
+      ]
+    },
+    {
+      "n": "Trường THPT Nguyễn Thị Minh Khai (Trường Áo Tím / Gia Long)",
+      "t": 2,
+      "a": "VN",
+      "address": "275 Điện Biên Phủ, Quận 3, Ho Chi Minh City, Vietnam",
+      "w": "The 1913 Collège des Jeunes Filles Indigènes — the storied girls' school known first as the 'Purple Áo Dài School', then Gia Long — a Gothic-influenced early-20th-century complex on a 23,000 m² block. A century of southern women's education; ranked a city Architectural-Art Monument in 2012.",
+      "k": "Historic school",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["PLO", "https://plo.vn/mot-the-ky-tu-hao-nu-sinh-ao-tim-gia-long-minh-khai-post348077.html"],
+        ["HCMCGOV", "https://quan3.hochiminhcity.gov.vn/van-hoa-the-thao-du-lich/truong-thpt-nguyen-thi-minh-khai-257.html"]
+      ]
+    },
+    {
+      "n": "Trường THPT Marie Curie",
+      "t": 3,
+      "a": "VN",
+      "address": "159 Nam Kỳ Khởi Nghĩa, Quận 3, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "A 1918 girls' lycée on a rare four-frontage block, built in Indochine style (yellow walls, red tile, high arched gates) and one of the very few century-old schools in Vietnam still under its original name. Ranked a city heritage site (2015); it still keeps 100-year-old xà cừ trees, a wooden staircase and water tank.",
+      "k": "Historic school",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_Trung_h%E1%BB%8Dc_ph%E1%BB%95_th%C3%B4ng_Marie_Curie"],
+        ["VNEXPRESS", "https://vnexpress.net/truong-nu-sinh-lon-nhat-sai-gon-100-nam-truoc-3582866.html"]
+      ]
+    },
+    {
+      "n": "Cầu Phú Mỹ (Phu My Bridge)",
+      "t": 3,
+      "a": "VN",
+      "address": "Nối Quận 7 với TP. Thủ Đức (sông Sài Gòn), Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "The largest cable-stayed bridge in the city — a 2,000 m span (705 m cable-stayed) opened September 2009 on the Ring Road 2, linking Phú Mỹ Hưng in District 7 to the Thủ Thiêm side. A modern engineering icon of Saigon, photogenic from the riverside at dusk.",
+      "k": "Bridge / landmark",
+      "g": ["ICON", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/C%E1%BA%A7u_Ph%C3%BA_M%E1%BB%B9"],
+        ["VNEXPRESS", "https://vnexpress.net/noi-nao-o-sai-gon-co-song-rach-nhieu-nhat-3618900-p8.html"]
+      ]
+    },
+    {
+      "n": "Hầm Thủ Thiêm / Đường hầm sông Sài Gòn (Saigon River Tunnel)",
+      "t": 2,
+      "a": "VN",
+      "address": "Nối đường Võ Văn Kiệt (Quận 1) với Mai Chí Thọ (TP. Thủ Đức), Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "Vietnam's first and only under-river road tunnel — a six-lane, ~1,490 m immersed-tube crossing of the Saigon River, built with Japanese finance/technology and opened November 2011 as part of the East-West Boulevard. A landmark 'công trình thế kỷ' of the city; the riverside park atop its Thủ Thiêm portal ('nóc hầm') is a popular local hangout.",
+      "k": "Engineering landmark",
+      "g": ["ICON", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%C6%B0%E1%BB%9Dng_h%E1%BA%A7m_s%C3%B4ng_S%C3%A0i_G%C3%B2n"],
+        ["SGGP", "https://www.sggp.org.vn/ham-vuot-song-sai-gon-cong-trinh-the-ky-post779226.html"]
+      ]
+    },
+    {
+      "n": "Kênh Nhiêu Lộc - Thị Nghè (Nhieu Loc Canal)",
+      "t": 2,
+      "a": "VN",
+      "address": "Chạy qua Quận 1, Quận 3, Phú Nhuận, Bình Thạnh, Tân Bình, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "A nearly 10 km 'green ribbon' through the inner city — once a dead, polluted canal, reborn after a decade-long clean-up into landscaped embankments and a signature of Saigon's revival. Since 2015 a 4.5 km guided boat tour (covered wooden boats and hand-rowed phụng boats) runs it with đờn ca tài tử music; the multi-coloured bridge lighting is a night check-in.",
+      "k": "Canal / waterfront",
+      "g": ["PARK", "MARITIME", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/K%C3%AAnh_Nhi%C3%AAu_L%E1%BB%99c_%E2%80%93_Th%E1%BB%8B_Ngh%C3%A8"],
+        ["VNEXPRESS", "https://vnexpress.net/kenh-nhieu-loc-thi-nghe-sau-10-nam-cai-tao-4269716.html"]
+      ]
+    },
+    {
+      "n": "Bảo tàng Nghệ thuật Quang San (Quang San Art Museum)",
+      "t": 2,
+      "a": "VN",
+      "address": "189B/3 Nguyễn Văn Hưởng, phường Thảo Điền, TP. Thủ Đức, Ho Chi Minh City, Vietnam",
+      "w": "The first private art museum in Ho Chi Minh City, opened June 2023 in a 2,000 m² riverside villa in Thảo Điền. Built on Nguyễn Thiều Quang's 20-year, 1,000+ work collection of Vietnamese painting, it rotates ~300 pieces spanning the Indochine art school to the present — a serious, uncrowded art stop away from downtown.",
+      "k": "Art museum",
+      "g": ["MUS"],
+      "sources": [
+        ["THANHNIEN", "https://thanhnien.vn/quang-san-art-museum-bao-tang-nghe-thuat-tu-nhan-doc-dao-o-tphcm-185250413161950109.htm"],
+        ["SGGP", "https://www.sggp.org.vn/ra-mat-bao-tang-nghe-thuat-dau-tien-tai-tphcm-post693093.html"]
+      ]
+    },
+    {
+      "n": "Bảo tàng Địa chất TP.HCM (Geological Museum)",
+      "t": 3,
+      "a": "VN",
+      "address": "2 Nguyễn Bỉnh Khiêm, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "A small, free geology museum next to the Botanical Gardens, rooted in the French Service Géologique de l'Indochine (founded 1898) — rocks, minerals, fossils and the story of the earth for a niche, quiet visit paired with the zoo and the History Museum.",
+      "k": "Museum",
+      "g": ["MUS", "FAM", "FREE"],
+      "sources": [
+        ["THANHNIEN", "https://thanhnien.vn/bao-tang-o-tphcm-bao-tang-dia-chat-doc-vi-trai-dat-18525040712390276.htm"]
+      ]
+    },
+    {
+      "n": "Bảo tàng Không quân phía Nam (Southern Air Force Museum)",
+      "t": 2,
+      "a": "VN",
+      "address": "87 Thăng Long, Quận Tân Bình, Ho Chi Minh City, Vietnam",
+      "w": "An air-force museum near Tân Sơn Nhất (opened 1995) with an outdoor park of fighter jets and helicopters — MiGs, an Mi-24 gunship and other aircraft that flew historic missions — plus ~40 indoor artefacts. A little-known counterpart to the War Remnants Museum, good for plane-spotting families.",
+      "k": "Museum",
+      "g": ["MUS", "HIST", "FAM"],
+      "sources": [
+        ["THANHNIEN", "https://thanhnien.vn/bao-tang-o-tphcm-nhung-chien-dau-co-gan-tan-son-nhat-it-nguoi-biet-185250402192614215.htm"]
+      ]
+    },
+    {
+      "n": "Đình Thông Tây Hội (Thong Tay Hoi Communal House)",
+      "t": 1,
+      "a": "VN",
+      "address": "Đường Thống Nhất, phường 11, Quận Gò Vấp, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "The oldest surviving đình (village communal house) in all of southern Vietnam — first raised in 1679 by Nghệ An migrants and rebuilt in 1883 in the layered 'trùng thiềm điệp ốc' style, honouring two 11th-century Lý princes. A national Architectural-Art-Historical Monument since 1998, prized for its intricate dragon-phoenix woodcarving.",
+      "k": "Communal house",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%C3%ACnh_Th%C3%B4ng_T%C3%A2y_H%E1%BB%99i"],
+        ["PLO", "https://plo.vn/kham-pha-dinh-thong-tay-hoi-co-so-tuoi-hon-300-nam-o-tphcm-post785634.html"]
+      ]
+    },
+    {
+      "n": "Đình Phú Nhuận (Phu Nhuan Communal House)",
+      "t": 3,
+      "a": "VN",
+      "address": "18 Mai Văn Ngọc, phường Phú Nhuận, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "A village communal house founded around 1818 beside the Nhiêu Lộc canal and rebuilt on its present site in 1852, its Thành Hoàng deity given an imperial edict by Emperor Tự Đức in 1853. A ranked heritage relic (1997) with classic southern đình woodwork — a calm neighbourhood stop in Phú Nhuận.",
+      "k": "Communal house",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%C3%ACnh_Ph%C3%BA_Nhu%E1%BA%ADn"]
+      ]
+    },
+    {
+      "n": "Chùa Ấn Quang (Tổ đình Ấn Quang)",
+      "t": 2,
+      "a": "VN",
+      "address": "243 Sư Vạn Hạnh, phường 9, Quận 10, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "A patriarchal temple founded around 1948–50 and rebuilt in the Từ Đàm (Huế) style — long the 'Buddhist school' of the south and once home to the headquarters of the Vietnam Buddhist Church. A pivotal site of the 1960s Buddhist civil-rights movement; ranked a city historical-cultural monument in 2005.",
+      "k": "Temple",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_%E1%BA%A4n_Quang"]
+      ]
+    },
+    {
+      "n": "Chùa Vạn Phật (Van Phat Temple, 10,000 Buddhas)",
+      "t": 2,
+      "a": "VN",
+      "address": "Hẻm 66/14 Nghĩa Thục, phường 5, Quận 5, Ho Chi Minh City, Vietnam",
+      "w": "A Chinese-Vietnamese temple tucked in an alley off Nghĩa Thục, founded 1959 and holding more than 10,000 large and small Buddha statues across five floors — a Vietnam Record. The main Phổ Quang Minh hall on the 4th floor glitters with rows of gilded figures; a dense, atmospheric Hoa-community temple in Chợ Lớn.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["THANHNIEN", "https://thanhnien.vn/ngoi-chua-co-hon-10000-tuong-phat-o-tphcm-185230216142615866.htm"],
+        ["NLD", "https://nld.com.vn/doc-dao-ngoi-chua-co-hon-10000-tuong-phat-o-tp-hcm-196240211103038385.htm"]
+      ]
+    },
+    {
+      "n": "Chùa Chantarangsay (Candaransi, Khmer Temple)",
+      "t": 2,
+      "a": "VN",
+      "address": "164 Trần Quốc Thảo, phường Võ Thị Sáu, Quận 3, Ho Chi Minh City, Vietnam",
+      "w": "The first Khmer Theravada Buddhist temple built in old Saigon-Gia Định (founded 1946, inaugurated 1949), on the bank of the Nhiêu Lộc canal — its name means 'Moonlight'. A blaze of golden stupas, naga rooflines and an east-facing main hall, and for 70+ years the cultural-religious centre of the city's Khmer community.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["HCMCGOV", "https://quan3.hochiminhcity.gov.vn/van-hoa-the-thao-du-lich/chua-chantarangsay-chua-khmer-256.html"],
+        ["VIETNAMNET", "https://vietnamnet.vn/chua-chantarangsay-tag336263.html"]
+      ]
+    },
+    {
+      "n": "Chùa Pothiwong (Khmer Temple)",
+      "t": 2,
+      "a": "VN",
+      "address": "21/2 Bùi Thế Mỹ, phường 10, Quận Tân Bình, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "The second of the city's two Khmer Theravada temples — founded 1960 (renamed Pothiwong in 1993) on a small alley plot in Tân Bình, its gilded, tiered Khmer architecture a typical heritage of the community. Beyond worship it runs free evening classes where Khmer children learn to read and write their mother tongue.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Pothiwong"],
+        ["THANHNIEN", "https://thanhnien.vn/chua-trong-hem-o-tphcm-giu-truyen-thong-khmer-nam-bo-hon-nua-the-ky-185260518195151096.htm"]
+      ]
+    },
+    {
+      "n": "Chùa Nghệ Sĩ (Artists' Temple & Cemetery)",
+      "t": 2,
+      "a": "VN",
+      "address": "116/6 Thống Nhất, phường 11, Quận Gò Vấp, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "Vietnam's only temple-cemetery dedicated to cải lương (traditional opera) artists — its land bought in 1958 by the diva Phùng Há and the Artists' Mutual-Aid Association, later built into a temple. Hundreds of graves and ash urns of beloved performers (Phùng Há, Thanh Nga, Út Trà Ôn, Năm Châu) make it a moving, offbeat Gò Vấp stop and a ranked cultural relic.",
+      "k": "Temple / cemetery",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Ngh%E1%BB%87_S%C4%A9"],
+        ["THANHNIEN", "https://thanhnien.vn/chua-nghe-si-doi-ten-thanh-nghia-trang-nghe-si-1851470286.htm"]
+      ]
+    },
+    {
+      "n": "Nhà thờ & Tu viện Dòng Mến Thánh Giá Thủ Thiêm",
+      "t": 2,
+      "a": "VN",
+      "address": "Khu đô thị Thủ Thiêm, TP. Thủ Đức, Ho Chi Minh City, Vietnam",
+      "w": "A ~180-year-old religious ensemble on the Thủ Thiêm peninsula — the Lovers of the Holy Cross convent founded 1840 (nuns fleeing Minh Mạng-era persecution) and the church of 1859, among the oldest Catholic sites in the south. The convent keeps its original 19th-century architecture; the complex was ranked an Architectural-Art relic as the new district rose around it.",
+      "k": "Church / convent",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["PLO", "https://plo.vn/can-canh-nha-tho-nha-dong-thu-thiem-gan-180-tuoi-post480878.html"],
+        ["THANHNIEN", "https://thanhnien.vn/can-canh-nha-tho-thu-thiem-ton-tai-gan-hai-the-ky-185872382.htm"]
+      ]
+    },
+    {
+      "n": "Địa đạo Phú Thọ Hòa (Phu Tho Hoa Tunnels)",
+      "t": 2,
+      "a": "VN",
+      "address": "139 Phú Thọ Hòa, phường Phú Thọ Hòa, Quận Tân Phú, Ho Chi Minh City, Vietnam",
+      "wiki": true,
+      "w": "A resistance-era tunnel network right inside the city — dug from the 1940s and used to stage raids on Tân Sơn Nhất airfield and the Bảy Hiền/Phú Thọ Hòa depots. Recognised a national historical site in 1996 and the only one in Tân Phú District; a compact, little-visited alternative to the Củ Chi tunnels.",
+      "k": "Historic site",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_Ph%C3%BA_Th%E1%BB%8D_H%C3%B2a"],
+        ["SGGP", "https://www.sggp.org.vn/phu-tho-hoa-dia-dao-trong-long-thanh-pho-post475847.html"]
+      ]
+    },
+    {
+      "n": "Khu lưu niệm cụ Phan Châu Trinh (Phan Chau Trinh Memorial)",
+      "t": 3,
+      "a": "VN",
+      "address": "9 Phan Thúc Duyện, phường 4, Quận Tân Bình, Ho Chi Minh City, Vietnam",
+      "w": "The tomb and memorial temple of the reformist patriot Phan Châu Trinh (1872–1926), whose 1926 funeral drew huge crowds across the country. The memorial, moved beside the tomb in 1993, displays photos and relics of his life and his motto 'Enlighten the people, strengthen the people, secure the people's livelihood'. A national historical monument (1994).",
+      "k": "Memorial / tomb",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/lang-mo-gan-tram-tuoi-cua-phan-chau-trinh-4131030.html"],
+        ["HCMCGOV", "https://tanbinh.hochiminhcity.gov.vn/web/neoportal/tin-tuc/-/asset_publisher/Jitbh7hDr5UU/content/khu-luu-niem-mo-cu-phan-chau-trinh/normal"]
+      ]
+    },
+    {
+      "n": "Khu di tích Láng Le - Bàu Cò",
+      "t": 3,
+      "a": "VN",
+      "address": "Xã Tân Nhựt, huyện Bình Chánh, Ho Chi Minh City, Vietnam",
+      "w": "A wartime 'red address' at the south-western gateway of Saigon-Chợ Lớn, site of the fierce 15 April 1948 Battle of Láng Le - Bàu Cò against the French and later fighting against US forces. A memorial was built in 1988 and expanded (with a memorial pavilion) after 2013; a city historical monument in Bình Chánh.",
+      "k": "Historic site",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["THANHUYTPHCM", "https://thanhuytphcm.vn/tin-tuc/-video-di-tich-lich-su-lang-le-%E2%80%93-bau-co-dia-chi-do-trong-2-cuoc-khang-chien-chong-phap-va-chong-my-1491906739"]
+      ]
+    },
+    {
+      "n": "Bát Bửu Phật Đài (Chùa Phật Cô Đơn / Chùa Thanh Tâm)",
+      "t": 2,
+      "a": "VN",
+      "address": "22 Mai Bá Hương, xã Lê Minh Xuân, huyện Bình Chánh, Ho Chi Minh City, Vietnam",
+      "w": "The 'Lonely Buddha' — a 7 m, ~4-ton open-air standing Sakyamuni on an octagonal lotus dais (built 1959–61) that once stood alone in empty fields, giving it its name. Set in a ~10-ha green compound off An Hạ canal ~30 km south-west of downtown; a major pilgrimage temple that in 2025 hosted Buddha relics for public veneration.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["TUOITRE", "https://muctim.tuoitre.vn/duong-den-chua-thanh-tam-chua-phat-co-don-chiem-bai-xa-loi-phat-101250503185607354.htm"],
+        ["TIENPHONG", "https://tienphong.vn/chuyen-ve-tuong-phat-co-don-toa-thien-giua-canh-dong-hoang-tan-post1517788.tpo"]
+      ]
+    },
+    {
+      "n": "Văn miếu Trấn Biên (Tran Bien Temple of Literature)",
+      "t": 1,
+      "a": "VN",
+      "address": "Phường Bửu Long, TP. Biên Hòa, Đồng Nai, Vietnam",
+      "w": "The Temple of Literature of the southern frontier — first built in 1715 under Lord Nguyễn Phúc Chu, destroyed in war and rebuilt on 15 ha from 2001 as the region's foremost monument to Confucian learning. A national historical monument (2016) ~33 km from the city that draws 300,000+ visitors a year; a graceful Huế-style complex of gates, lake and shrine.",
+      "k": "Temple of Literature",
+      "g": ["HIST", "ICON", "FREE"],
+      "sources": [
+        ["BAOQUANKHU7", "https://baoquankhu7.vn/van-mieu-tran-bien--1433512786-004335s37510gs"]
+      ]
+    },
+    {
+      "n": "Thác Giang Điền (Giang Dien Waterfall)",
+      "t": 2,
+      "a": "VN",
+      "address": "Phường Trảng Bom, Đồng Nai, Vietnam",
+      "wiki": true,
+      "w": "A 67-ha eco-resort around the three-fall Giang Điền waterfall on the Buông River ~45 km from the city — nicknamed the 'Đà Lạt of the southeast' for its greenery and cascades (Chàng, Nàng and the main fall). One of the region's most popular day-trip nature spots, with lawns, camping and picnic grounds.",
+      "k": "Waterfall / nature",
+      "g": ["PARK", "FAM"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Th%C3%A1c_Giang_%C4%90i%E1%BB%81n"]
+      ]
+    },
+    {
+      "n": "Núi Dinh (Dinh Mountain)",
+      "t": 2,
+      "a": "VN",
+      "address": "Phường Phú Mỹ, Bà Rịa - Vũng Tàu, Vietnam",
+      "wiki": true,
+      "w": "A ~500 m pilgrimage mountain on the way to Vũng Tàu, threaded with over 100 temples and cave-hermitages hidden in its granite — Tổ Đình Linh Sơn, Hang Tổ, Hang Mai, Chùa Diệu Linh and more — plus streams and viewpoints. A national historical site (1993) and a favourite spiritual-and-adventure day hike east of the city.",
+      "k": "Mountain / temples",
+      "g": ["PARK", "HIST", "ODD"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/N%C3%BAi_Dinh"],
+        ["VNANET", "https://vietnam.vnanet.vn/vietnamese/tin-van/nui-dinh-diem-den-hap-dan-tai-vung-tau-351301.html"]
+      ]
+    },
+    {
+      "n": "Đình thần Thắng Tam (Thang Tam Shrine complex)",
+      "t": 2,
+      "a": "VN",
+      "address": "77A Hoàng Hoa Thám, phường Thắng Tam, TP. Vũng Tàu, Bà Rịa - Vũng Tàu, Vietnam",
+      "wiki": true,
+      "w": "A national heritage cluster in the heart of Vũng Tàu — the Thắng Tam communal house (from 1820, Minh Mạng era), the Lăng Ông Nam Hải whale-lord tomb (with sets of whale bones) and the Miếu Bà Ngũ Hành, arranged 'gather-mountain, guard-water'. Three big lunar-calendar festivals a year make it the fishing town's spiritual centre.",
+      "k": "Shrine / heritage",
+      "g": ["HIST", "MARITIME", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%C3%ACnh_th%E1%BA%A7n_Th%E1%BA%AFng_Tam"],
+        ["VIETNAMNET", "https://vietnamnet.vn/kham-pha-dinh-than-thang-tam-di-tich-lich-su-cap-quoc-gia-o-pho-bien-vung-tau-2441432.html"]
+      ]
+    },
+    {
+      "n": "Khu di tích Căn cứ Trung ương Cục miền Nam",
+      "t": 1,
+      "a": "VN",
+      "address": "Xã Tân Lập, huyện Tân Biên (rừng Chàng Riệc, VQG Lò Gò - Xa Mát), Tây Ninh, Vietnam",
+      "wiki": true,
+      "w": "The jungle headquarters of the southern revolution — established 1951 and the top command directing the Nam Bộ front from 1962–75, hidden in the Chàng Riệc forest of Lò Gò - Xa Mát National Park near the Cambodian border. A Special National Monument (2012) with reconstructed leaders' huts, bunkers and forest trails; a serious history-and-nature day trip beyond Tây Ninh's Cao Đài temple.",
+      "k": "Historic base / forest",
+      "g": ["HIST", "PARK", "ODD"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Khu_di_t%C3%ADch_C%C4%83n_c%E1%BB%A9_Trung_%C6%B0%C6%A1ng_C%E1%BB%A5c_mi%E1%BB%81n_Nam"],
+        ["DULICHTAYNINH", "https://dulich.tayninh.gov.vn/tin-tuc/di-tich-quoc-gia-dac-biet-can-cu-trung-uong-cuc-mien-nam-1469"]
+      ]
+    },
+    {
+      "n": "Nhà tù Côn Đảo & Nghĩa trang Hàng Dương",
+      "t": 1,
+      "a": "VN",
+      "address": "Đặc khu Côn Đảo, Bà Rịa - Vũng Tàu, Vietnam",
+      "w": "The 'hell on earth' prison archipelago — 113 years of French and American incarceration of Vietnamese patriots, its tiger cages, cell blocks and the Côn Đảo Museum ranked a Special National Monument (2012, 17 component sites). Hàng Dương cemetery (20 ha, 1,900+ graves incl. heroine Võ Thị Sáu) is a candle-lit pilgrimage. An overnight boat/flight trip; also known for pristine beaches and sea-turtle nesting.",
+      "k": "Historic prison / island",
+      "g": ["HIST", "MARITIME", "ICON"],
+      "sources": [
+        ["DSVH", "https://dsvh.gov.vn/di-tich-lich-su-nha-tu-con-dao-2956"],
+        ["ZNEWS", "https://znews.vn/noi-yen-nghi-cua-hang-nghin-chien-si-o-con-dao-post1670997.html"]
+      ]
+    }
+  ]
+}
