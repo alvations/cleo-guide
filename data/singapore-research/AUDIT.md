@@ -47,3 +47,28 @@ Cleveland engine like every dataset city; the only visual departure is a **paste
   `geo-merge.py` detects the `— CLOSED` marker anywhere in a name (not just as a suffix) to avoid double-marking.
 - **NEXT (extension):** browser-helper the 20 UNVERIFIED restaurant pins → deeper per-town food expansion
   toward NYC-level density → re-run `rebuild-city.py singapore --build`.
+
+## Stage 3 — HCMC Vietnamese-language expansion (DONE 2026-08-31)
+Goal: HCMC toward NYC density, sourced from **Vietnamese-language** media + Vietnamese KOLs (per user
+directive). Three parallel discovery waves, all issuing WebSearch queries IN VIETNAMESE; Foody/Riviu/
+Google/TripAdvisor counted as **0** (rating aggregators), editorial articles only.
+- **Street food / quán vỉa hè (+35):** FOOD_HCMC_VN_STREET.json. 11 districts. Decades-old institutions
+  (Cháo Tiều 1942, Cơm Gà Đông Nguyên 1945, Phở 29 1948, Như Lan 1968, Xôi Tám Cẩu, Bánh Cuốn Hai Tần) +
+  viral spots (Súp Cua Nhà Thờ Đức Bà, Hột Vịt Lộn Cô Vân, Lẩu Bò Giáo Toàn); strong Chợ Lớn/người Hoa
+  (cz Vietnamese+Hoa). Sources: VnExpress/Ngôi Sao, Thanh Niên ("tiệm xưa quán cũ"), Người Lao Động, ZNews,
+  Kênh14. Dropped: Bò Kho Gánh (dup of existing), single-source & unconfirmed-open leads.
+- **Cà phê / drinks / dessert (+16):** FOOD_HCMC_VN_CAFE.json. Heritage cafés (Vợt Chú Thanh 2am, Trên Tầng
+  Thượng), kem (Bạch Đằng 1983, Bố Già 1975), Chợ Lớn Hoa herbal-tea cluster (Vạn Tế Đường, Nước Sâm Bà
+  Bình, Triệu Minh Hiệp), Givral, rooftop bars. Sources: VnExpress, Tuổi Trẻ, Người Đô Thị, ZNews, Kênh14,
+  ELLE/Bazaar VN, Vietcetera. KOLs vetted: Khoai Lang Thang, Ninh TiTo. Single-credible leads logged for
+  next pass (About Life, Saigon Coffee Roastery, Nomad, etc.).
+- **Sights / culture / check-in (+34):** SIGHTS_HCMC_VN.json. Temples (Hoằng Pháp, Vạn Đức, Nam Thiên Nhất
+  Trụ), Chợ Lớn national-relic halls (Đình Minh Hương Gia Thạnh 1789, Chùa Bà Hải Nam), Bảo tàng Biệt Động
+  Sài Gòn + its 1968 arms bunker, Metro Line 1 (viral), markets (Kim Biên, Thiếc, Bà Hoa), historic bridges,
+  craft villages (Tương Bình Hiệp, Tân Triều) out to Bình Dương/Đồng Nai. ~18 have published coords. Sources:
+  VnExpress, Tuổi Trẻ, Thanh Niên, Dân trí, ZNews, Kênh14, VietnamNet + official + Wikipedia VI.
+- **Consolidated:** VN 367 -> 452 (SEA total 654: 254 sights + 400 food); 619 clear >=2-credible; sources
+  -> 247, creators -> 27. New Vietnamese outlets/KOLs registered in SOURCES_HCMC_VN*.json / CREATORS_HCMC_VN*.
+- **Location-verify:** geocode wave over the 85 new (Vietnamese sights with Wikipedia/official coords pin;
+  small eateries return address-only and are HELD for the browser helper — no fabricated/ZIP pins). Then
+  geo-merge -> rebuild-city singapore --build -> gates.
