@@ -27,6 +27,7 @@ DATASETS = {
     "state-college-pa": "data/statecollege.dataset.json",
     "wheeling-wv": "data/wheeling.dataset.json",
     "erie-pa": "data/erie.dataset.json",
+    "saarland": "data/saarland.dataset.json",
 }
 
 def sourced_ok(rec):

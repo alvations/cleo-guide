@@ -58,6 +58,7 @@ const PAGE_FOR = {
   'state-college-pa': path.join(__dirname, '..', 'cities', 'statecollege.html'),
   'wheeling-wv': path.join(__dirname, '..', 'cities', 'wheeling.html'),
   'erie-pa': path.join(__dirname, '..', 'cities', 'erie.html'),
+  'saarland': path.join(__dirname, '..', 'cities', 'saarland.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -72,6 +73,7 @@ const DATASET_FOR = {
   'state-college-pa': path.join(__dirname, '..', 'data', 'statecollege.dataset.json'),
   'wheeling-wv': path.join(__dirname, '..', 'data', 'wheeling.dataset.json'),
   'erie-pa': path.join(__dirname, '..', 'data', 'erie.dataset.json'),
+  'saarland': path.join(__dirname, '..', 'data', 'saarland.dataset.json'),
 };
 
 function loadGeocodes() {
@@ -546,9 +548,10 @@ function sourcecheck(key) {
   }
   if (!fs.existsSync(ds)) { console.log('No dataset at ' + ds); return; }
   const OPEN_ONLY = new Set(['YELP', 'TRIPADVISOR', 'OPENTABLE', 'GOOGLE', 'GOOGLEMAPS']);
-  // A lone institutional authority (Michelin / James Beard) is sufficient on its own; a lone
-  // editorial source still needs a 2nd. Keep in sync with tools/sourcecheck.py + build-*.py.
-  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD', 'NPS', 'SMITHSONIAN']);
+  // A lone institutional authority (Michelin / James Beard / Gault&Millau / UNESCO / NPS / Smithsonian)
+  // is sufficient on its own; a lone editorial source still needs a 2nd. Keep in sync with
+  // tools/sourcecheck.py + build-*.py (build-saarland.py counts GAULTMILLAU + UNESCO as lone authorities).
+  const ELITE_SOLO = new Set(['MICHELIN', 'MICHELIN_BIB', 'MICHELIN_STAR', 'MICHELIN_GREEN', 'JAMESBEARD', 'GAULTMILLAU', 'UNESCO', 'NPS', 'SMITHSONIAN']);
   const data = JSON.parse(fs.readFileSync(ds, 'utf8'));
   const recs = (data.P || []).concat(data.F || []);
   const credSet = r => new Set((r.s || []).map(t => t[0]).filter(k => !OPEN_ONLY.has(k)));

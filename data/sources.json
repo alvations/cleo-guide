@@ -7485,6 +7485,1643 @@
         }
       ],
       "creators": []
+    },
+    "saarland": {
+      "name": "saarland",
+      "sources": [
+        {
+          "key": "NANCYVILLE",
+          "name": "Ville de Nancy (nancy.fr + musées municipaux)",
+          "type": "municipal/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Nancy site and its municipal museum sites (Musée Lorrain, Musée des Beaux-Arts, Musée de l'École de Nancy). French. Primary authority on the city's heritage and collections."
+        },
+        {
+          "key": "DESTINATIONNANCY",
+          "name": "Destination Nancy – Office de Tourisme métropolitain",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official metropolitan tourist office for Greater Nancy. French. Curated, verified listings of sights, producers and restaurants."
+        },
+        {
+          "key": "NANCYTOURISME",
+          "name": "Nancy Tourisme",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Nancy tourist-information site. French. Verified heritage and gastronomy listings."
+        },
+        {
+          "key": "TOURISMEMM",
+          "name": "Tourisme Meurthe-et-Moselle (Département 54)",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Departmental tourism authority for Meurthe-et-Moselle. French. Curated 'pépites' (highlights) listings."
+        },
+        {
+          "key": "VISITGRANDEST",
+          "name": "Visit Grand Est (CRT Grand Est)",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional tourism board for the Grand Est (covers Lorraine and Alsace). French. Official curated attraction pages."
+        },
+        {
+          "key": "STRASBOURGEU",
+          "name": "Ville & Eurométropole de Strasbourg (strasbourg.eu)",
+          "type": "municipal/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city/metropolitan site of Strasbourg, incl. the UNESCO World Heritage pages. French. Primary authority."
+        },
+        {
+          "key": "VISITSTRASBOURG",
+          "name": "Strasbourg Tourisme – Office de Tourisme",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Strasbourg tourist office. French. Verified 'must-see' and venue fiches."
+        },
+        {
+          "key": "STRASUNESCO",
+          "name": "Strasbourg patrimoine mondial UNESCO (unesco.strasbourg.eu)",
+          "type": "official/heritage",
+          "rank": 3,
+          "verified": true,
+          "credible": "City-run UNESCO World Heritage information portal for the Grande Île and Neustadt. French. Authoritative on the inscribed sites."
+        },
+        {
+          "key": "VISITALSACE",
+          "name": "Visit Alsace – Alsace Destination Tourisme",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional tourism agency for Alsace. French/multilingual. Verified sight and venue listings across the wine road and corridor towns."
+        },
+        {
+          "key": "MUSEESSTRASBOURG",
+          "name": "Musées de la Ville de Strasbourg",
+          "type": "museum/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official portal of Strasbourg's municipal museums (MAMCS, Musée Alsacien, Tomi Ungerer, Aubette 1928). French. Primary source."
+        },
+        {
+          "key": "STRASBOURGEUROPE",
+          "name": "Strasbourg-Europe (mission des institutions européennes)",
+          "type": "official/institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official mission promoting Strasbourg's European institutions and the European quarter. French/English. Authoritative on the Parliament and Council of Europe."
+        },
+        {
+          "key": "TOURISMESAVERNE",
+          "name": "Office de Tourisme du Pays de Saverne",
+          "type": "tourist board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourist office for the Saverne area on the corridor. French. Verified local listings."
+        },
+        {
+          "key": "MONGRANDEST",
+          "name": "Mon Grand Est",
+          "type": "regional media/travel",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established regional travel-and-culture magazine covering Alsace-Lorraine, with a real following and named, researched pieces on heritage venues. French."
+        },
+        {
+          "key": "POKAA",
+          "name": "Pokaa",
+          "type": "local media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Popular Strasbourg city-culture media (large local following) covering food, bars and local life; used as authentic-local lead paired with a second credible source. French."
+        },
+        {
+          "key": "ZUT",
+          "name": "Zut Magazine",
+          "type": "cultural media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Grand Est cultural/lifestyle magazine (print + web) with editorial restaurant coverage. French."
+        },
+        {
+          "key": "GAULTMILLAU",
+          "name": "Gault&Millau",
+          "type": "gastronomic guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major independent French gastronomic guide; a listing is an institutional acclaim signal (counts toward the merit bar; a lone Gault&Millau qualifies)."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "Guide Michelin",
+          "type": "gastronomic guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "The reference French gastronomic authority; a star or Guide listing is institutional acclaim (a lone Michelin qualifies)."
+        },
+        {
+          "key": "PETITFUTE",
+          "name": "Le Petit Futé",
+          "type": "travel guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established French travel/dining guide with editorial listings; French."
+        },
+        {
+          "key": "GILLESPUDLOWSKI",
+          "name": "Gilles Pudlowski – Les Pieds dans le Plat",
+          "type": "food critic (creator)",
+          "rank": 3,
+          "verified": true,
+          "credible": "One of France's best-known food critics (Gault&Millau contributor, author of the Pudlo guides), with a long-running, widely-read blog. A verifiably-authoritative creator; also listed in CREATORS_ALSACE_DEEP.json."
+        },
+        {
+          "key": "RELAISCHATEAUX",
+          "name": "Relais & Chateaux",
+          "type": "hospitality-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "International curated fine-dining/hotel association; member restaurants are vetted (EN/FR)."
+        },
+        {
+          "key": "STRASSBURGEU",
+          "name": "Strasbourg.eu / Strassburg.eu (Ville de Strasbourg)",
+          "type": "official-city",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official City of Strasbourg site; curated food/artisan recommendations (FR/DE)."
+        },
+        {
+          "key": "ROUTEDESVINS",
+          "name": "Route des Vins d'Alsace / Alsace Wine Route",
+          "type": "official-tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Alsace Wine Route tourism board listing of estates and winstubs (FR/EN)."
+        },
+        {
+          "key": "IDEALWINE",
+          "name": "iDealwine (Le journal)",
+          "type": "wine-press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Reference French wine marketplace and editorial journal; producer profiles (FR)."
+        },
+        {
+          "key": "HACHETTEVINS",
+          "name": "Guide Hachette des Vins",
+          "type": "wine-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "The benchmark French wine guide with blind-tasting jury (FR)."
+        },
+        {
+          "key": "ETOILESALSACE",
+          "name": "Etoiles d'Alsace",
+          "type": "chefs-association",
+          "rank": 3,
+          "verified": true,
+          "credible": "Association of leading Alsace chefs/establishments; curated membership (FR)."
+        },
+        {
+          "key": "SELESTATTOURISME",
+          "name": "Office de Tourisme Selestat Haut-Koenigsbourg",
+          "type": "official-tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Selestat area tourist office (FR)."
+        },
+        {
+          "key": "ALSACEVERTE",
+          "name": "Office de Tourisme de l'Alsace Verte",
+          "type": "official-tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourist board for northern Alsace / Wissembourg-Sauer valley (FR/EN)."
+        },
+        {
+          "key": "EXPLOREGRANDEST",
+          "name": "Explore Grand Est (Agence regionale du tourisme)",
+          "type": "official-tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Grand Est regional tourism agency, cross-border with the Greater Region (FR/EN)."
+        },
+        {
+          "key": "NOUVELLESGASTRO",
+          "name": "Les Nouvelles Gastronomiques",
+          "type": "food-press",
+          "rank": 3,
+          "verified": true,
+          "credible": "French gastronomy trade/news outlet with restaurant coverage (FR)."
+        },
+        {
+          "key": "LEBONBON",
+          "name": "Le Bonbon (Strasbourg)",
+          "type": "city-media",
+          "rank": 3,
+          "verified": true,
+          "credible": "City-lifestyle media with a Strasbourg edition; local food coverage (FR)."
+        },
+        {
+          "key": "VITRINESSTRASBOURG",
+          "name": "Les Vitrines de Strasbourg",
+          "type": "merchants-association",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Strasbourg city-centre merchants' association directory (FR)."
+        },
+        {
+          "key": "TOURISMENORDALSACE",
+          "name": "Tourisme Nord Alsace",
+          "type": "official-tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official northern-Alsace tourist office; regional food guides e.g. best bretzels (FR)."
+        },
+        {
+          "key": "JEVISITEALSACE",
+          "name": "Je Visite Alsace",
+          "type": "regional-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Alsace travel/gastronomy guide site; corroborating local recommendations (FR)."
+        },
+        {
+          "key": "CHAMPUS",
+          "name": "Champus – AStA der Universität des Saarlandes (student magazine)",
+          "type": "university/student media (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official student-union magazine of Saarland University; its 'ultimativer Saarbrücker Bar und Café Guide' is an authentic student-local recommendation source (German)."
+        },
+        {
+          "key": "TOURENSAAR",
+          "name": "Touren Saarland / Saarland erleben (Tourismus Zentrale Saarland)",
+          "type": "regional tourism portal (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Touring/POI portal of the Tourismus Zentrale Saarland; official regional tourism listings (German)."
+        },
+        {
+          "key": "JRE",
+          "name": "Jeunes Restaurateurs d'Europe",
+          "type": "culinary association (DE/EU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Curated European association of young chef-patrons; membership is a peer-vetted merit signal."
+        },
+        {
+          "key": "FEINSCHMECKER",
+          "name": "DER FEINSCHMECKER",
+          "type": "national food magazine (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Germany's leading gourmet magazine; authoritative restaurant and chef coverage (German)."
+        },
+        {
+          "key": "SR",
+          "name": "Saarländischer Rundfunk / regional press (syndicated)",
+          "type": "public broadcaster / regional press (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarland's public broadcaster and regional news; used here for a Saarbrücken restaurant reopening report (German)."
+        },
+        {
+          "key": "ELLELU",
+          "name": "ELLE Luxembourg (elle.lu)",
+          "type": "lifestyle magazine (FR/LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg edition of ELLE; editorial food features on authentic Luxembourgish restaurants (French)."
+        },
+        {
+          "key": "PAPERJAM",
+          "name": "Paperjam",
+          "type": "news & lifestyle magazine (LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major Luxembourg business-and-lifestyle title; its recurring 'où manger luxembourgeois' guides are credible local editorial (French/English)."
+        },
+        {
+          "key": "VISITREMICH",
+          "name": "Visit Remich (office de tourisme)",
+          "type": "local tourism office (LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourist office of Remich on the Luxembourg Moselle (French/English)."
+        },
+        {
+          "key": "TOURISMELORRAINE",
+          "name": "Lorraine Tourisme",
+          "type": "regional tourism board (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional tourism board for Lorraine; curated restaurant listings (French/English)."
+        },
+        {
+          "key": "METZFR",
+          "name": "Ville de Metz (official city site)",
+          "type": "municipal (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "City of Metz official site; authoritative on Metz monuments and squares (French)."
+        },
+        {
+          "key": "VOLKSFREUND",
+          "name": "Trierischer Volksfreund (volksfreund.de)",
+          "type": "regional daily (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Trier's regional newspaper of record; local restaurant and city coverage (German)."
+        },
+        {
+          "key": "RHEINISCHERSPIEGEL",
+          "name": "Rheinischer Spiegel",
+          "type": "regional online magazine (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional Rhineland-Palatinate online magazine; food and culture features (German)."
+        },
+        {
+          "key": "TRIERINFO",
+          "name": "Tourist-Information Trier (trier-info.de)",
+          "type": "city tourism office (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Trier tourist information; authoritative on Trier sights, wine and gastronomy (German/English)."
+        },
+        {
+          "key": "TOPTRIER",
+          "name": "Top Magazin Trier",
+          "type": "regional city magazine (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional lifestyle city magazine for Trier and the region; local restaurant features (German)."
+        },
+        {
+          "key": "PUDLOWSKI",
+          "name": "Gilles Pudlowski – Les Pieds dans le Plat",
+          "type": "food critic blog (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "One of France's best-known food critics (ex-Le Point, Gault&Millau), Metz-born; his blog carries findable, authoritative reviews of Metz/Lorraine addresses (French). Also listed in CREATORS_ENRICH."
+        },
+        {
+          "key": "DELANO",
+          "name": "Delano",
+          "type": "press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg English-language news magazine (Maison Moderne); strong food/culture desk. EN."
+        },
+        {
+          "key": "EUROPEANCOFFEETRIP",
+          "name": "European Coffee Trip",
+          "type": "specialist media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Pan-European specialty-coffee guide with editorial city guides; niche authority for third-wave cafés. EN."
+        },
+        {
+          "key": "FRANCEBLEU",
+          "name": "France Bleu (Lorraine)",
+          "type": "public broadcaster",
+          "rank": 3,
+          "verified": true,
+          "credible": "French regional public radio covering the cross-border Lorraine/Luxembourg gastronomy scene. FR."
+        },
+        {
+          "key": "MONARCHIE",
+          "name": "Cour grand-ducale",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official website of the Grand-Ducal Court; authoritative for the Grand Ducal Palace. EN/FR/DE/LB."
+        },
+        {
+          "key": "MNAHA",
+          "name": "Musée national d'archéologie, d'histoire et d'art",
+          "type": "official museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "National State museum's own site. FR/EN/DE."
+        },
+        {
+          "key": "ICOM",
+          "name": "ICOM Luxembourg",
+          "type": "institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "National committee of the International Council of Museums; museum directory. EN/FR."
+        },
+        {
+          "key": "FONDSBELVAL",
+          "name": "Fonds Belval",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official body charged with preserving the Belval blast furnaces. EN/FR/DE."
+        },
+        {
+          "key": "MINETTTRAIL",
+          "name": "Minett Trail / UNESCO Minett Biosphere",
+          "type": "official regional",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official trail body for the UNESCO Man-and-Biosphere Minett region (south Luxembourg). EN/FR/DE."
+        },
+        {
+          "key": "CNA",
+          "name": "Centre national de l'audiovisuel",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg State audiovisual institute; steward of the Steichen Collections. EN/FR."
+        },
+        {
+          "key": "VISITCLERVAUX",
+          "name": "Visit Clervaux",
+          "type": "official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Clervaux tourist office. EN/FR/DE."
+        },
+        {
+          "key": "VISITEISLEK",
+          "name": "Visit Éislek",
+          "type": "official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism board for the Luxembourg Ardennes (Éislek). EN/FR/DE/LB."
+        },
+        {
+          "key": "VISITARDENNE",
+          "name": "Tourism in the Ardennes",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Cross-border Ardennes tourism portal. EN/FR/NL."
+        },
+        {
+          "key": "VISITVIANDEN",
+          "name": "Visit Vianden",
+          "type": "official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Vianden tourist office. EN/FR/DE."
+        },
+        {
+          "key": "VINSCREMANTS",
+          "name": "Vins & Crémants de Luxembourg",
+          "type": "official trade body",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official promotion body of the Luxembourg Moselle appellation. EN/FR/DE."
+        },
+        {
+          "key": "MONDORF",
+          "name": "MONDORF Domaine Thermal",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the state thermal spa. EN/FR/DE."
+        },
+        {
+          "key": "FESTIVALWILTZ",
+          "name": "Festival de Wiltz",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the Wiltz open-air festival (since 1953). FR/DE/EN."
+        },
+        {
+          "key": "LUGA",
+          "name": "LUGA – Luxembourg Urban Garden",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official national garden/horticulture event; lists the Grevenmacher butterfly garden. EN/FR/DE/LB."
+        },
+        {
+          "key": "PAPILLONS",
+          "name": "Jardin des Papillons Grevenmacher",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the Grevenmacher butterfly garden. EN/FR/DE."
+        },
+        {
+          "key": "DEZEEN",
+          "name": "Dezeen",
+          "type": "press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Leading international architecture & design magazine; source for the Pont Adolphe Passerelle. EN."
+        },
+        {
+          "key": "FODORS",
+          "name": "Fodor's Travel",
+          "type": "travel press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established international travel guidebook publisher. EN."
+        },
+        {
+          "key": "VISITLUX",
+          "name": "Visit Luxembourg",
+          "type": "official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "National tourism board (LFT) official directory of restaurants, domaines & attractions. FR/EN/DE."
+        },
+        {
+          "key": "LUXPUBLIC",
+          "name": "luxembourg.public.lu",
+          "type": "official (state portal)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official State of Luxembourg portal; publishes the annual Michelin & Gault&Millau Luxembourg round-ups. FR/EN/DE."
+        },
+        {
+          "key": "KACHEN",
+          "name": "KACHEN",
+          "type": "culinary magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg's flagship culinary magazine & guide; editorial 'best of' food/bakery/coffee features. EN/FR/DE."
+        },
+        {
+          "key": "ELLE_LU",
+          "name": "ELLE Luxembourg",
+          "type": "press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg edition of ELLE; curated dining and wine-domaine features. FR."
+        },
+        {
+          "key": "LEQUOTIDIEN",
+          "name": "Le Quotidien",
+          "type": "newspaper",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg French-language daily; national news incl. Michelin coverage. FR."
+        },
+        {
+          "key": "LESFRONTALIERS",
+          "name": "Les Frontaliers",
+          "type": "press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established cross-border (Greater Region) news/lifestyle outlet covering Luxembourg dining. FR."
+        },
+        {
+          "key": "VISITMOSELLE",
+          "name": "Visit Moselle",
+          "type": "official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism board for the Luxembourg Moselle wine region; domaine & tasting directory. FR/EN/DE."
+        },
+        {
+          "key": "MULLERTHAL",
+          "name": "Mullerthal Region – Luxembourg's Little Switzerland",
+          "type": "official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional tourism board for the Mullerthal/Petite Suisse; eat & stay directory. EN/FR/DE."
+        },
+        {
+          "key": "GUIDEHACHETTE",
+          "name": "Guide Hachette des Vins",
+          "type": "wine authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "France's reference blind-tasting wine guide; institutional authority that reviews Luxembourg Moselle domaines. FR."
+        },
+        {
+          "key": "FALSTAFF",
+          "name": "Falstaff",
+          "type": "wine & food media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major European wine & gastronomy magazine with rated winery/wine profiles; corroborating authority for domaines. EN/DE."
+        },
+        {
+          "key": "ROASTERSAPP",
+          "name": "Roasters.app City Guides",
+          "type": "specialty-coffee guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Specialist third-wave-coffee directory with editorial city guides; niche authority for specialty cafes/roasters. EN."
+        },
+        {
+          "key": "EUROMETROPOLEMETZ",
+          "name": "Eurométropole de Metz (official)",
+          "type": "gov",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official metropolitan authority of Metz; culture/opera/museum pages. FR."
+        },
+        {
+          "key": "METZVILLE",
+          "name": "Ville de Metz (metz.fr)",
+          "type": "gov",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal site of Metz; monuments, quarters, forts, cultural venues. FR."
+        },
+        {
+          "key": "MOSELLECULTURE",
+          "name": "Moselle Culture / Département de la Moselle",
+          "type": "gov",
+          "rank": 3,
+          "verified": true,
+          "credible": "Departmental cultural-sites authority (Malbrouck, Marsal, Vic-sur-Seille etc.). FR."
+        },
+        {
+          "key": "BLELORRAINE",
+          "name": "BLE Lorraine",
+          "type": "association",
+          "rank": 3,
+          "verified": true,
+          "credible": "Lorraine heritage/culture association publishing researched articles on regional monuments. FR."
+        },
+        {
+          "key": "CITEMUSICALE",
+          "name": "Cité musicale-Metz",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official operator of Metz's Arsenal and Trinitaires venues. FR."
+        },
+        {
+          "key": "SUPERMIRO",
+          "name": "Supermiro",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Grand Est / SaarLorLux editorial 'good-address' guide with a real curatorial line; used as a credible local recommender (not a rating aggregator). FR."
+        },
+        {
+          "key": "METZMETRO",
+          "name": "Metz Métropolitain",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Local Metz online magazine with editorial food/heritage coverage; credible local layer. FR."
+        },
+        {
+          "key": "YONDER",
+          "name": "Yonder",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "French travel & gastronomy magazine; editorial restaurant reviews. FR."
+        },
+        {
+          "key": "MUSEEECOLENANCY",
+          "name": "Musée de l'École de Nancy (Ville de Nancy)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal museum site (École de Nancy & Villa Majorelle). FR/EN."
+        },
+        {
+          "key": "MUSEEBEAUXARTSNANCY",
+          "name": "Musée des Beaux-Arts de Nancy (Ville de Nancy)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal fine-arts museum site (Daum collection). FR/EN."
+        },
+        {
+          "key": "CHEMINSMEMOIRE",
+          "name": "Chemins de mémoire (Ministère des Armées)",
+          "type": "gov",
+          "rank": 3,
+          "verified": true,
+          "credible": "French Ministry of the Armed Forces memory-sites portal; institutional. FR."
+        },
+        {
+          "key": "NAPOLEON",
+          "name": "Fondation Napoléon (napoleon.org)",
+          "type": "foundation",
+          "rank": 3,
+          "verified": true,
+          "credible": "Scholarly historical foundation; institutional authority on 19th-c. war heritage. FR/EN."
+        },
+        {
+          "key": "VERDUNDOUAUMONT",
+          "name": "Ossuaire de Douaumont (official)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the Douaumont ossuary and memorial. FR."
+        },
+        {
+          "key": "MEMORIALVERDUN",
+          "name": "Mémorial de Verdun (official)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Verdun battle museum. FR."
+        },
+        {
+          "key": "CITADELLEVERDUN",
+          "name": "Citadelle souterraine de Verdun (official)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official operator of the underground citadel visit. FR."
+        },
+        {
+          "key": "MAGINOTHACKENBERG",
+          "name": "Ligne Maginot – Fort du Hackenberg (official)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Association-run official site of the Hackenberg Maginot fort. FR."
+        },
+        {
+          "key": "PLUSBEAUXVILLAGES",
+          "name": "Les Plus Beaux Villages de France",
+          "type": "institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "National quality label / institutional authority for classified villages. FR."
+        },
+        {
+          "key": "THIONVILLETOURISME",
+          "name": "Pays Thionvillois Tourisme",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Thionville-area tourist office. FR/EN."
+        },
+        {
+          "key": "MAIRIELONGWY",
+          "name": "Ville de Longwy (official)",
+          "type": "gov",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal site of Longwy; municipal enamel/faience museum. FR."
+        },
+        {
+          "key": "BOUCLEMOSELLE",
+          "name": "La Boucle de la Moselle (tourism)",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Nancy-area intercommunal tourism office. FR/EN."
+        },
+        {
+          "key": "LEFOODING",
+          "name": "Le Fooding",
+          "type": "guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Influential French independent restaurant guide with a strong editorial line. FR."
+        },
+        {
+          "key": "LHOTELLERIE",
+          "name": "L'Hôtellerie-Restauration",
+          "type": "trade",
+          "rank": 3,
+          "verified": true,
+          "credible": "France's reference trade newspaper for the hospitality industry; chef/restaurant reporting. FR."
+        },
+        {
+          "key": "FOODANDSENS",
+          "name": "Food & Sens",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "French professional gastronomy news site (chefs, artisans, fine dining). FR."
+        },
+        {
+          "key": "PLACESDUCAFE",
+          "name": "Les Places du Café",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "French specialty-coffee media covering roasters and coffee shops; credible third-wave-coffee editorial. FR."
+        },
+        {
+          "key": "LAGAZETTE",
+          "name": "La Gazette France",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "French regional news/features outlet; artisan & heritage profiles. FR."
+        },
+        {
+          "key": "LORRAINEMAG",
+          "name": "Lorraine Magazine",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional Lorraine lifestyle & gastronomy magazine with editorial coverage. FR."
+        },
+        {
+          "key": "NANCYBUZZ",
+          "name": "NancyBuzz",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Nancy local online magazine with editorial food/city coverage; credible local layer. FR."
+        },
+        {
+          "key": "COMPLETEMENTBABA",
+          "name": "Complètement Baba",
+          "type": "media",
+          "rank": 3,
+          "verified": true,
+          "credible": "Nancy city guide / local media with a curated good-address editorial line. FR."
+        },
+        {
+          "key": "MEURTHEMOSELLETOURISME",
+          "name": "Meurthe-et-Moselle Tourisme",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official departmental tourist board of Meurthe-et-Moselle. FR."
+        },
+        {
+          "key": "BIENVENUEFERME",
+          "name": "Bienvenue à la Ferme",
+          "type": "institutional",
+          "rank": 3,
+          "verified": true,
+          "credible": "National farm/producer network of the Chambres d'agriculture; vetted producer listings. FR."
+        },
+        {
+          "key": "MEUSEATTRACTIVITE",
+          "name": "Meuse Attractivité (lameuse.fr)",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Meuse departmental tourism agency; gastronomy/producer features. FR."
+        },
+        {
+          "key": "COMMERCYTOURISME",
+          "name": "Office de Tourisme Commercy Void Vaucouleurs",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourist office of the Commercy area; madeleine-de-Commercy heritage. FR."
+        },
+        {
+          "key": "MOSL",
+          "name": "MOSL / Moselle Attractivité",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Moselle departmental tourism & quality-label authority (MOSL Qualité). FR/EN."
+        },
+        {
+          "key": "VISITMOSEL",
+          "name": "Visit Mosel / Mosellandtouristik (visitmosel.de, moselregion.com)",
+          "type": "tourism-board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional tourism organisation for the German Mosel (Mosellandtouristik), German/English. Authoritative for wine towns, vinotheques and attractions valley-wide."
+        },
+        {
+          "key": "COCHEMDE",
+          "name": "Stadt Cochem an der Mosel",
+          "type": "municipal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal site of Cochem (German/English). Primary source for Cochem attractions incl. the Bundesbank bunker."
+        },
+        {
+          "key": "COCHEMSESSELBAHN",
+          "name": "Cochemer Sesselbahn / Pinnerkreuzbahn GmbH",
+          "type": "official-operator",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official operator of Cochem's chairlift to the Pinnerkreuz viewpoint (German/English)."
+        },
+        {
+          "key": "TRABENTRARBACH",
+          "name": "Stadt / Tourist-Info Traben-Trarbach",
+          "type": "municipal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official town/tourist information for Traben-Trarbach (German). Primary for the Buddha-Museum, Grevenburg, Jugendstil quarter."
+        },
+        {
+          "key": "NEUMAGENDHRON",
+          "name": "Ortsgemeinde / Tourist-Info Neumagen-Dhron",
+          "type": "municipal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of 'Germany's oldest wine village' (German). Primary for the Roman wine ship Stella Noviomagi."
+        },
+        {
+          "key": "ZELLMOSEL",
+          "name": "Stadt Zell (Mosel) / Zellerland",
+          "type": "municipal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal / tourism site for Zell (German). Primary for the Zeller Schwarze Katz wine and Collis-Turm."
+        },
+        {
+          "key": "SAAROBERMOSEL",
+          "name": "Saar-Obermosel Touristik",
+          "type": "tourism-board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional tourism board for the Saar–Upper-Mosel corner incl. Saarburg (German/English)."
+        },
+        {
+          "key": "SAARBURGDE",
+          "name": "Stadt Saarburg",
+          "type": "municipal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal site of Saarburg (German). Primary for the town-centre waterfall, castle and Staden quarter."
+        },
+        {
+          "key": "URLAUBRLP",
+          "name": "Rheinland-Pfalz Tourismus (urlaub-in-rheinland-pfalz.de)",
+          "type": "tourism-board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official state tourism portal for Rhineland-Palatinate (German). Broad, editorially maintained coverage of Mosel attractions."
+        },
+        {
+          "key": "RLPTOURISMUS",
+          "name": "Rheinland-Pfalz Tourismus GmbH (rlp-tourismus.com)",
+          "type": "tourism-board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official state tourism marketing organisation for Rhineland-Palatinate (German), curated POI/gastronomy listings."
+        },
+        {
+          "key": "LANDESMUSEUMTRIER",
+          "name": "Rheinisches Landesmuseum Trier / Zentrum der Antike",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the state archaeological museum of Trier (GDKE Rheinland-Pfalz), German/English. Institutional authority."
+        },
+        {
+          "key": "MUSEUMTRIER",
+          "name": "Stadtmuseum Simeonstift Trier",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of Trier's municipal museum in the Simeonstift (German/English)."
+        },
+        {
+          "key": "MUSEUMAMDOM",
+          "name": "Museum am Dom Trier (Bischöfliches Dom- und Diözesanmuseum)",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official diocesan museum of Trier (German/English). Institutional authority for the Roman ceiling fresco and Christian art."
+        },
+        {
+          "key": "BUDDHAMUSEUM",
+          "name": "Buddha-Museum Traben-Trarbach",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the Buddha-Museum in the Jugendstil Kayser cellar (German/English)."
+        },
+        {
+          "key": "BUNDESBANKBUNKER",
+          "name": "Bundesbank-Bunker Cochem (Dokumentationsstätte)",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official museum operating the former Bundesbank Cold-War bunker (German/English). Primary source."
+        },
+        {
+          "key": "DENKMALSCHUTZ",
+          "name": "Deutsche Stiftung Denkmalschutz",
+          "type": "heritage-foundation",
+          "rank": 3,
+          "verified": true,
+          "credible": "Germany's private monument-protection foundation (German). Authoritative heritage documentation, e.g. Burgruine Landshut."
+        },
+        {
+          "key": "DEUTSCHEWEINE",
+          "name": "Deutsches Weininstitut (deutscheweine.de)",
+          "type": "wine-authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "The German Wine Institute, the national marketing/authority body for German wine (German/English). Authoritative on vineyards incl. the Calmont and estates."
+        },
+        {
+          "key": "WEINPLUS",
+          "name": "wein.plus Wine Guide",
+          "type": "wine-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established independent German-language wine guide/lexicon; producer descriptions used as a credible measure for estates (e.g. Reuscher-Haart, Piesport)."
+        },
+        {
+          "key": "MEININGER",
+          "name": "Meininger Verlag (meininger.de)",
+          "type": "wine-trade-press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Leading German wine and drinks trade publisher; producer profiles used as credible corroboration."
+        },
+        {
+          "key": "RICKSTEVES",
+          "name": "Rick Steves' Europe",
+          "type": "travel-authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "The definitive US-authored Europe travel authority; his Mosel Valley guide names Beilstein as his favourite village and the St.-Nikolaus-Hospital vinotheque as the place to taste Mosel wine."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "travel-editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Editorial travel outlet for unusual places; lists the Cochem Bundesbank bunker among things to do in Cochem."
+        },
+        {
+          "key": "SCHLEMMERATLAS",
+          "name": "Schlemmer Atlas",
+          "type": "restaurant-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running German restaurant guide with editorial reviews; used as a credible corroborator for regional restaurants."
+        },
+        {
+          "key": "EINKAUFSTRIER",
+          "name": "EinkaufsErlebnis Trier",
+          "type": "city-portal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Curated Trier city gastronomy/retail portal (German); corroborating listing for old-town restaurants."
+        },
+        {
+          "key": "DEUTSCHLANDGOURMET",
+          "name": "DeutschlandGourmet",
+          "type": "restaurant-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "German-language restaurant directory with editorial descriptions; corroborating source."
+        },
+        {
+          "key": "MOSELINSIDE",
+          "name": "Mosel-Inside – Mosel Valley Travel Guide",
+          "type": "regional-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Detailed German/English Mosel-valley travel guide; corroborating source for vinotheques and towns."
+        },
+        {
+          "key": "ONEMILLIONPLACES",
+          "name": "One Million Places",
+          "type": "travel-editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established German travel-editorial site; corroborating coverage of Beilstein/Bernkastel."
+        },
+        {
+          "key": "GORUMA",
+          "name": "Goruma Städte- & Länderportal",
+          "type": "reference-portal",
+          "rank": 3,
+          "verified": true,
+          "credible": "German geography/city reference portal; corroborating factual source for Trier landmarks."
+        },
+        {
+          "key": "TRIERERLEBEN",
+          "name": "Trier erleben",
+          "type": "regional-blog",
+          "rank": 3,
+          "verified": true,
+          "credible": "Trier city guide/blog; corroborating local source for viewpoints (Mariensäule, Petrisberg)."
+        },
+        {
+          "key": "VDP",
+          "name": "VDP – Verband Deutscher Prädikatsweingüter",
+          "type": "institutional-authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "Germany's association of top Prädikat wine estates and its vineyard classification (German/English); an institutional wine authority. Used for Van Volxem (Wiltingen) and Grans-Fassian (Leiwen)."
+        },
+        {
+          "key": "WOCHENSPIEGEL",
+          "name": "Wochenspiegel (wochenspiegellive.de)",
+          "type": "regional-press",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional German newspaper/portal for the Trier area; local press coverage (reported Bagatelle defending Trier's only Michelin star)."
+        },
+        {
+          "key": "GUSTO",
+          "name": "GUSTO – Der kulinarische Reiseführer",
+          "type": "restaurant-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established German fine-dining rating guide; a credible corroborator for gourmet restaurants (Rüssels Landhaus)."
+        },
+        {
+          "key": "RESTAURANTRANGLISTEN",
+          "name": "Restaurant-Ranglisten.de",
+          "type": "restaurant-guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "German restaurant-guide aggregator collating Michelin/Gault&Millau/Feinschmecker/Gusto ratings; a credible measure of standing. Used for Rôtisserie Royale."
+        },
+        {
+          "key": "WEINLANDMOSEL",
+          "name": "Weinland Mosel (Moselwein e.V.)",
+          "type": "wine-authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official marketing body of the Mosel wine-growing region (Moselwein e.V.), German; authoritative registry of Mosel estates. Used for Weingut Schleimer (Trier-Olewig)."
+        },
+        {
+          "key": "BERNKASTELDE",
+          "name": "Bernkastel-Kues Tourist-Information (bernkastel.de)",
+          "type": "tourism-board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official DMO/tourist information of Bernkastel-Kues (German/English); authoritative local gastronomy source. Used for Ratskeller Bernkastel."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "Frommer's",
+          "type": "travel-authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established US-authored travel guide covering the Mosel; names the Lohspeicher/L'Auberge du Vin as the best table in Cochem (candidate held pending a second source)."
+        },
+        {
+          "key": "URLAUBSAARLAND",
+          "name": "Urlaub im Saarland / Tourismus Zentrale Saarland",
+          "type": "regional tourism board (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official state tourism board of Saarland; German-language authority for Saarland sights, food specialities (Schwenker, Dibbelabbes) and gastronomy listings."
+        },
+        {
+          "key": "TOURISMUSSB",
+          "name": "Tourismus Saarbrücken (tourismus.saarbruecken.de)",
+          "type": "city tourism office (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Saarbrücken city tourism office; German (and EN) authority for the capital's landmarks."
+        },
+        {
+          "key": "SAARBRUECKENDE",
+          "name": "Landeshauptstadt Saarbrücken (saarbruecken.de)",
+          "type": "municipal government (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Saarbrücken; runs the 'star-awarded cuisine in Saarbrücken' pages covering Erfort."
+        },
+        {
+          "key": "EINKAUFENSB",
+          "name": "einkaufen.saarbruecken (city genuss/gastronomy portal)",
+          "type": "municipal portal (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Saarbrücken city shopping & dining portal; German-language editorial listings."
+        },
+        {
+          "key": "SAARLANDLESE",
+          "name": "Saarland-Lese",
+          "type": "regional culture publication (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarland cultural/heritage editorial project; German-language reference for regional monuments and specialities."
+        },
+        {
+          "key": "MUSEUMSVERBANDSAAR",
+          "name": "Museumsverband Saarland",
+          "type": "museum association (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarland museum association; authoritative for the Schloss / Historisches Museum Saar and Saarlandmuseum."
+        },
+        {
+          "key": "VOELKLINGERHUETTE",
+          "name": "Weltkulturerbe Völklinger Hütte (official)",
+          "type": "UNESCO site operator (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official operator of the Völklingen Ironworks UNESCO World Heritage Site."
+        },
+        {
+          "key": "VILLEROYBOCH",
+          "name": "Villeroy & Boch (official)",
+          "type": "manufacturer/visitor site (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Villeroy & Boch group visitor information for the Alte Abtei Erlebniszentrum in Mettlach."
+        },
+        {
+          "key": "MERZIGWADERN",
+          "name": "Landkreis Merzig-Wadern",
+          "type": "county government (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official county covering the Saarschleife/Mettlach; German-language authority for the region's landmarks."
+        },
+        {
+          "key": "METTLACHSAAR",
+          "name": "Mettlach / Saarschleifenland Tourismus",
+          "type": "local tourism (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Mettlach & Saarschleifenland tourism office."
+        },
+        {
+          "key": "SAARLOUISDE",
+          "name": "Kreisstadt Saarlouis (official)",
+          "type": "municipal government (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Saarlouis; authority for the Vauban fortress town."
+        },
+        {
+          "key": "SAARBRKOMPASS",
+          "name": "Saarbrücker Kompass",
+          "type": "local city magazine (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarbrücken local editorial city magazine; German-language dining features."
+        },
+        {
+          "key": "QUATTROPOLE",
+          "name": "QuattroPole (Saarbrücken-Metz-Luxembourg-Trier city network)",
+          "type": "cross-border city network (DE/FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official cross-border network of the four Greater-Region capitals; multilingual gourmet/sights editorial (incl. the QuattroPole food blog and Gourmetstraße/Route des Gourmets)."
+        },
+        {
+          "key": "TRIERDE",
+          "name": "Stadt Trier (trier.de)",
+          "type": "municipal government (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Trier; authority for the Roman UNESCO monuments."
+        },
+        {
+          "key": "MOSELLANDTOURISTIK",
+          "name": "Mosellandtouristik / Mosel-Touristinformation (mosel.de)",
+          "type": "regional tourism board (DE)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Mosel valley tourism board; German-language authority for Mosel wine villages and castles."
+        },
+        {
+          "key": "TOURISMEMETZ",
+          "name": "Inspire Metz / Office de Tourisme (tourisme-metz.com)",
+          "type": "city tourism office (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Metz tourist office; French-language authority for Metz monuments and gastronomy."
+        },
+        {
+          "key": "SARREGUEMINESTOURISME",
+          "name": "Sarreguemines Tourisme",
+          "type": "city tourism office (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Sarreguemines tourist office; authority on the faience heritage and Musée de la Faïence."
+        },
+        {
+          "key": "MUSEESGRANDEST",
+          "name": "Musées Grand-Est",
+          "type": "regional museum network (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Grand-Est regional museum network; French-language reference for accredited museums (Musée de France label)."
+        },
+        {
+          "key": "PETITSCITES",
+          "name": "Petites Cités de Caractère",
+          "type": "heritage-town label (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "National French heritage-town label; French-language authority for Bitche's citadelle and old town."
+        },
+        {
+          "key": "ROUTARD",
+          "name": "Le Routard",
+          "type": "national travel guide (FR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-established French travel guide of record; editorial city guides for Metz."
+        },
+        {
+          "key": "VISITLUXEMBOURG",
+          "name": "Visit Luxembourg (national tourism)",
+          "type": "national tourism board (LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official national tourism board of Luxembourg; multilingual authority for Grand Duchy sights and gastronomy."
+        },
+        {
+          "key": "LUXEMBOURGCITY",
+          "name": "Luxembourg City Tourist Office (LCTO)",
+          "type": "city tourism office (LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Luxembourg City tourist office; authority for the UNESCO old town, casemates and Corniche."
+        },
+        {
+          "key": "VINSMOSELLE",
+          "name": "Domaines Vinsmoselle (official)",
+          "type": "wine cooperative (LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg's largest wine & crémant cooperative; official operator of the Grevenmacher caves (visitor cellars)."
+        },
+        {
+          "key": "LUXTODAY",
+          "name": "Luxtoday.lu",
+          "type": "news/lifestyle outlet (LU)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Luxembourg English-language news & knowledge outlet; national-cuisine and Michelin explainers."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "international travel guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "Global travel guide of record; used only as one corroborating source alongside native outlets."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage Centre",
+          "type": "institutional authority (heritage)",
+          "rank": 3,
+          "verified": true,
+          "credible": "UNESCO World Heritage listing — a lone institutional authority sufficient on its own for a sight entry."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia",
+          "type": "general reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "General encyclopaedic reference; used only as one corroborating source alongside a native/institutional outlet."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "Official venue / restaurant website",
+          "type": "primary source",
+          "rank": 3,
+          "verified": true,
+          "credible": "The place's own official website — used for address/menu confirmation alongside an independent credible source."
+        },
+        {
+          "key": "REGIOSAARLAND",
+          "name": "regio-saarland.com",
+          "type": "regional lifestyle/travel portal",
+          "rank": 3,
+          "verified": true,
+          "credible": "German-language Saarland regional magazine/portal with editorial food and travel round-ups (ice-cream cafés, Italian restaurants, Veganuary guides); corroborating local source, not a rating aggregator."
+        },
+        {
+          "key": "SAARBRUECKENGUIDE",
+          "name": "Saarbrücken Guide",
+          "type": "independent city guide",
+          "rank": 3,
+          "verified": true,
+          "credible": "German-language independent Saarbrücken city guide with a curated insider restaurant/sights list written like a local; editorial (not user-rating) content."
+        },
+        {
+          "key": "SAARPFALZ",
+          "name": "Saarpfalz-Touristik / Biosphäre Bliesgau",
+          "type": "district tourism board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism authority for the Saarpfalz-Kreis and the UNESCO Bliesgau Biosphere Reserve (Blieskastel, Homburg, Bexbach); German-language."
+        },
+        {
+          "key": "HOMBURGDE",
+          "name": "Kreis- und Universitätsstadt Homburg",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Homburg tourism pages (Schlossberghöhlen); German-language municipal source."
+        },
+        {
+          "key": "MERZIGDE",
+          "name": "Kreisstadt Merzig",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Merzig tourism pages (Wolfspark Werner Freund); German-language municipal source."
+        },
+        {
+          "key": "NEUNKIRCHENDE",
+          "name": "Kreisstadt Neunkirchen",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Neunkirchen pages (Neunkircher Zoo); German-language municipal source."
+        },
+        {
+          "key": "ENSDORF",
+          "name": "Gemeinde Ensdorf",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipality of Ensdorf pages (Bergehalde & Saarpolygon); German-language municipal source."
+        },
+        {
+          "key": "OTTWEILERDE",
+          "name": "Stadt Ottweiler",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city of Ottweiler tourism/heritage pages (historic old town); German-language municipal source."
+        },
+        {
+          "key": "REGIONNEUNKIRCHEN",
+          "name": "Region Neunkirchen Tourismus",
+          "type": "regional tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Regional tourism site for the Neunkirchen area; German-language."
+        },
+        {
+          "key": "REGIONALGESCHICHTE",
+          "name": "regionalgeschichte.net",
+          "type": "academic regional history",
+          "rank": 3,
+          "verified": true,
+          "credible": "Scholarly regional-history portal of the Institut für Geschichtliche Landeskunde (Mainz); authoritative German-language source on Saar monuments (Basilika St. Johann, Alte Brücke)."
+        },
+        {
+          "key": "SAARLANDDE",
+          "name": "Saarland.de (Staatskanzlei)",
+          "type": "state government / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Saarland state government pages (Ludwigsplatz ensemble history); German-language."
+        },
+        {
+          "key": "KULTURBESITZ",
+          "name": "Stiftung Saarländischer Kulturbesitz",
+          "type": "state cultural foundation",
+          "rank": 3,
+          "verified": true,
+          "credible": "State cultural-heritage foundation running the Saarlandmuseum and Roman Villa Nennig; authoritative German-language institutional source."
+        },
+        {
+          "key": "TOURENSAARLAND",
+          "name": "Saarland erleben! (touren.saarland)",
+          "type": "regional tourism / tours portal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarland tourism tours-and-points portal (Abtei Tholey, Ristorante Roma); German-language, run alongside the state tourism authority."
+        },
+        {
+          "key": "KULADIG",
+          "name": "KuLaDig — Kultur.Landschaft.Digital",
+          "type": "cultural-heritage database (LVR)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Scholarly cultural-landscape heritage database (LVR/partners) documenting monuments such as the Saarlouis Deutsches Tor & casemates; German-language."
+        },
+        {
+          "key": "RESTRANGLISTEN",
+          "name": "Restaurant-Ranglisten.de",
+          "type": "guide-of-guides aggregator",
+          "rank": 3,
+          "verified": true,
+          "credible": "German meta-guide consolidating the Michelin/Gault&Millau/Gusto/Varta/Feinschmecker ratings into a single ranking; used only as a corroborating measure alongside a primary guide. German-language."
+        },
+        {
+          "key": "SAARSCHLEIFENLAND",
+          "name": "Saarschleifenland Tourismus (Merzig-Wadern)",
+          "type": "official regional tourism board",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official destination-marketing authority for the Merzig-Wadern district and the Saarschleife; German-language editorial gastronomy listings."
+        },
+        {
+          "key": "MERZIGSAARSCHLEIFEN",
+          "name": "Merzig SaarSchleifenLand (Kreisstadt Merzig tourism)",
+          "type": "municipal / official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism portal of the city of Merzig within the Saarschleifenland; German-/English-language."
+        },
+        {
+          "key": "METTLACHSAARSCHLEIFEN",
+          "name": "Mettlach SaarSchleifenLand",
+          "type": "municipal / official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism portal of the municipality of Mettlach (Saarschleife, Villeroy & Boch); German-/English-language."
+        },
+        {
+          "key": "PERLSAARSCHLEIFEN",
+          "name": "Perl SaarSchleifenLand",
+          "type": "municipal / official tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism portal of the wine municipality of Perl (Saar-Obermosel); German-language."
+        },
+        {
+          "key": "PERLMOSEL",
+          "name": "Perl an der Mosel / Saarländischer Weinsommer",
+          "type": "municipal / official (wine)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Perl wine-culture site and the state Saarländischer Weinsommer programme; authoritative on Perl wineries and Straußwirtschaften. German-language."
+        },
+        {
+          "key": "WERTVOLLESNK",
+          "name": "Wertvolles Neunkirchen (Regionalmarke)",
+          "type": "official regional brand / city initiative",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional-quality brand of the city of Neunkirchen vetting partner producers and gastronomy; German-language."
+        },
+        {
+          "key": "SRMEDIATHEK",
+          "name": "SR Mediathek / SR Fernsehen ('Im Südwesten kocht die Welt')",
+          "type": "public broadcaster",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarländischer Rundfunk, the ARD public broadcaster for Saarland; its food series profiling immigrant kitchens is authoritative local coverage. German-language."
+        },
+        {
+          "key": "VIEZSTRASSE",
+          "name": "Viezstraße / Route du Cidre",
+          "type": "official regional route / tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official cross-border cider-route (Viez) tourism site for the Saar-Obermosel; German-/French-language, vets member establishments."
+        },
+        {
+          "key": "LAMAISON",
+          "name": "LA MAISON hotel & spa Saarlouis",
+          "type": "venue primary source",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the LA MAISON hotel; used only as a factual primary source for its restaurants (LOUIS, PASTIS) alongside the Michelin/Gault&Millau institutional ratings, never as the sole recommender."
+        },
+        {
+          "key": "FEELGOOD",
+          "name": "Feelgood Magazin",
+          "type": "regional lifestyle magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Saarland/Greater-Region lifestyle magazine reporting on the LOUIS second Michelin star; German-language regional press."
+        },
+        {
+          "key": "MAERCHENHOTEL",
+          "name": "MAERCHENHOTEL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "THEMANFROMMOSEL",
+          "name": "THEMANFROMMOSEL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": [
+        {
+          "key": "GILLESPUDLOWSKI",
+          "name": "Gilles Pudlowski",
+          "platform": "blog / press (Les Pieds dans le Plat; Pudlo guides; Le Point)",
+          "url": "https://www.gillespudlowski.com",
+          "why": "One of France's most established and widely-read food critics — long-time Gault&Millau and Le Point contributor, author of the Pudlo city guides, Alsace/Lorraine native. Real, verifiable track record and following; cited here with a specific named review for Brasserie Excelsior, S'Muensterstuewel and Le Grand Café Foy. Counts as an authoritative creator paired with a second credible source."
+        },
+        {
+          "key": "PUDLOWSKI",
+          "name": "Gilles Pudlowski",
+          "platform": "blog (Les Pieds dans le Plat, gillespudlowski.com)",
+          "url": "https://www.gillespudlowski.com",
+          "credible": "One of France's most prominent gastronomic critics — decades at Le Point, former Gault&Millau, author of many food guides, born in Metz. Large, long-standing readership and a searchable blog. Findable place-naming pieces used here: 'Metz : les délices sucrés de Bourguignon' (Pâtisserie Claude Bourguignon) and 'Chez Mauricette, épicerie Metz — les bons casse-croûte de Mauricette' (Chez Mauricette, Marché Couvert de Metz)."
+        }
+      ]
     }
   }
 }
