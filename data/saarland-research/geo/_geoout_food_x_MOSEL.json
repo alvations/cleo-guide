@@ -1,0 +1,182 @@
+[
+ {
+  "n": "Gourmetrestaurant anno 1640 (Märchenhotel)",
+  "address": "Kallenfelsstraße 25-27, 54470 Bernkastel-Kues, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "WebSearch could not surface a venue-precise coordinate; only town centroid was findable, not used per rule 4b (no fabricated centroid). Address only confirmed indirectly.",
+  "status": "open"
+ },
+ {
+  "n": "Weinwirtschaft Friedrich-Wilhelm",
+  "address": "Weberbach 75, 54290 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (trier-info.de, Falstaff, onlinestreet.de) but no venue-precise lat/lng surfaced via WebSearch; only Trier city centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Terges",
+  "address": "Olewiger Straße 145, 54295 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Das Oertliche, Gelbe Seiten, golocal) but WebSearch surfaced no venue coordinate; only Trier-Olewig centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Café & Konditorei Razen",
+  "address": "Sichelstraße 26, 54290 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Tripadvisor, Yelp, cafe-razen.de) but no venue-precise lat/lng surfaced via WebSearch; only Trier centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Rebenhof (Rieslingmanufaktur)",
+  "address": "Hüwel 3a, 54539 Ürzig, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Falstaff, visitmosel, winesofgermany) but WebSearch surfaced no venue coordinate; only Ürzig centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Reuscher-Haart",
+  "address": "St.-Michael-Straße 22, 54498 Piesport, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (visitmosel, bernkastel.de, wein.plus) but no venue-precise lat/lng surfaced via WebSearch; only Piesport centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Rainer's Restaurant Alte Thorschenke",
+  "address": "Brückenstraße, 56812 Cochem, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Heritage building (Kulturdenkmal, Brückenstraße 3 Cochem) confirmed via Wikipedia Kulturdenkmäler list + kulturdb, but WebSearch summarizer would not surface the per-monument coordinate; only Cochem centroid / adjacency to Reichsburg (50.1422,7.1669) findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Vinothek Zeller Schwarze Katz",
+  "address": "Balduinstraße 44, 56856 Zell (Mosel), Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (stadt-zell-mosel.de, mosel-inside) but WebSearch surfaced no venue coordinate; only Zell centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Bagatelle",
+  "address": "Zurlaubener Ufer 78, 54292 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Michelin/Falstaff-listed, address confirmed, but no venue-precise lat/lng surfaced via WebSearch across multiple attempts; only Trier centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Rüssels Landhaus St. Urban",
+  "address": "Büdlicherbrück 1, 54426 Naurath/Wald, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Michelin-listed, address confirmed (Michelin, restaurant-ranglisten, own site) but WebSearch surfaced only Naurath (Wald) village centroid (49.76105,6.88262), not the venue at Büdlicherbrück; left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Belle Epoque (Hotel Bellevue)",
+  "address": "An der Mosel 11, 56841 Traben-Trarbach, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Jugendstil-Hotel Bellevue is a Kulturdenkmal (Möhring, 1903); address confirmed via Wikipedia Kulturdenkmäler list + kulturdb.de, but WebSearch summarizer would not surface the per-monument coordinate; only Traben-Trarbach centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Rôtisserie Royale",
+  "address": "Burgstraße 19, 54470 Bernkastel-Kues, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Falstaff, bernkastel.de POI, Tripadvisor) but no venue-precise lat/lng surfaced via WebSearch; only Bernkastel-Kues centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Blesius Garten (Kraft Bräu)",
+  "address": "Olewiger Straße 135, 54295 Trier, Germany",
+  "lat": 49.743367,
+  "lng": 6.6598923,
+  "confidence": "high",
+  "geoSource": "Google Maps place pin !3d49.743367!4d6.6598923 for 'Hotel Restaurant Hausbrauerei Blesius Garten, Olewiger Str. 135, 54295 Trier' surfaced in search results.",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Vinum (Hotel Weingut Weis)",
+  "address": "Eitelsbacher Straße 4, 54318 Mertesdorf, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (visitmosel, Falstaff, hotel-weis.de) but no venue-precise lat/lng surfaced via WebSearch; only Mertesdorf centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut St. Urbans-Hof",
+  "address": "Urbanusstraße 16, 54340 Leiwen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "VDP estate, address confirmed (Falstaff, visitmosel, Yelp) but WebSearch surfaced no venue coordinate; only Leiwen centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Van Volxem",
+  "address": "Zum Schlossberg 347, 54459 Wiltingen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "OSM way exists (mapcarta W510216096) and address confirmed (Falstaff, VDP, own site) but WebSearch summarizer would not surface the coordinate across 5 attempts; only Wiltingen centroid (49.65889,6.59) findable, not the hilltop winery building, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Ratskeller Bernkastel",
+  "address": "Am Markt, 54470 Bernkastel-Kues, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "At Markt 30 (Michelin, Yelp, bernkastel.de POI); WebSearch surfaced only Bernkastel-Kues centroid (49.91611,7.06944), not the market-square venue, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Café Konditorei Raab",
+  "address": "Karl-Marx-Straße 14, 54290 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Falstaff, Yelp, konditorei-raab.de) but no venue-precise lat/lng surfaced via WebSearch; only Trier centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut & Weinstube Schleimer",
+  "address": "Hunsrückstraße 90, 54296 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue-precise coordinate surfaced via WebSearch; only Trier centroid findable, left null per rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Grans-Fassian",
+  "address": "Römerstraße 28, 54340 Leiwen, Germany",
+  "lat": 49.81877,
+  "lng": 6.88273,
+  "confidence": "high",
+  "geoSource": "Falstaff winery listing (falstaff.com/ld/w/weingut-grans-fassian) structured coordinates for Weingut Grans-Fassian, Römerstraße 28, Leiwen.",
+  "status": "open"
+ }
+]

@@ -1,0 +1,200 @@
+[
+ {
+  "n": "La Bastille",
+  "address": "Kronenstraße 1b, 66119 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Kronenstraße 1b, St. Johann) across TripAdvisor/speisekarte.de but no venue-precise decimal exposed to WebSearch; would only be a town/street guess, left null per hard rule 4b.",
+  "status": "open"
+ },
+ {
+  "n": "Henry's Eismanufaktur",
+  "address": "Kappengasse 1, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Confirmed at Kappengasse 1 by St. Johanner Markt (gastroguide, foursquare), but no venue decimal surfaced; not faking a market-square centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Quack in der Villa Weismüller",
+  "address": "Gersweiler Straße 43a, 66117 Saarbrücken, Germany",
+  "lat": 49.23232,
+  "lng": 6.96623,
+  "confidence": "high",
+  "geoSource": "Wikidata Q99978065 (Villa Weismüller heritage building) coordinate 49°13'56.35\"N 6°57'58.43\"E; the restaurant occupies this exact villa.",
+  "status": "open"
+ },
+ {
+  "n": "LUUC Café Deli Wein",
+  "address": "Türkenstraße 17, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Türkenstraße 17) via TripTap/OpenTable, but no venue-precise decimal exposed to WebSearch; left null rather than a street centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Pizza Gotti",
+  "address": "Mainzer Straße 8, 66111 Saarbrücken, Germany",
+  "lat": 49.2318023,
+  "lng": 6.9995368,
+  "confidence": "high",
+  "geoSource": "Google Maps place pin (!3d49.2318023!4d6.9995368) for Gotti Pizza, Mainzer Str. 8 — read from place-pin, not viewport.",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Ökonomierat Petgen-Dahm",
+  "address": "Winzerstraße 3-7, 66706 Perl-Sehndorf, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Winery confirmed at Winzerstraße 3-7, Perl-Sehndorf (proplanta, wine.plus), but no venue decimal surfaced to WebSearch; not faking a village centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Unter der Linde",
+  "address": "St. Arnualer Markt 8, 66119 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (St. Arnualer Markt 8, St. Arnual) via speisekarte/urlaub.saarland, but no venue decimal exposed; left null rather than a market-square centroid.",
+  "status": "open"
+ },
+ {
+  "n": "LOUIS restaurant",
+  "address": "Prälat-Subtil-Ring 22, 66740 Saarlouis, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "2-Michelin-star restaurant inside LA MAISON hotel, Prälat-Subtil-Ring 22, confirmed; WebSearch produced only a fabricated centroid guess (6.44°E, wrong for Saarlouis) which was discarded. Left null.",
+  "status": "open"
+ },
+ {
+  "n": "Hämmerle's Restaurant",
+  "address": "Bliestalstraße 110a, 66440 Blieskastel-Webenheim, Germany",
+  "lat": 49.236408,
+  "lng": 7.268689,
+  "confidence": "high",
+  "geoSource": "Venue geocode from das-oertliche.de / gastroguide.de for Hämmerle's Restaurant, Bliestalstr. 110a, Blieskastel-Webenheim.",
+  "status": "open"
+ },
+ {
+  "n": "Die Alte Brauerei",
+  "address": "Kaiserstraße 101, 66386 St. Ingbert, Germany",
+  "lat": 49.28152296,
+  "lng": 7.11931084,
+  "confidence": "high",
+  "geoSource": "Venue GPS geocode (cityseeker/novacircle listing) for Die Alte Brauerei, Kaiserstraße 101, St. Ingbert; matches main-street location north of centre.",
+  "status": "open"
+ },
+ {
+  "n": "Buchnas Landhotel Saarschleife",
+  "address": "Cloefstraße 44, 66693 Mettlach-Orscholz, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Hotel confirmed at Cloefstr. 44, Orscholz (~10 min from the Cloef/Saarschleife). Two WebSearch attempts hit search errors and returned only hallucinated coords (49.62/6.45), discarded. Left null.",
+  "status": "open"
+ },
+ {
+  "n": "PASTIS Bistro",
+  "address": "Prälat-Subtil-Ring 22, 66740 Saarlouis, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Shares the LA MAISON address (Prälat-Subtil-Ring 22, Saarlouis) with LOUIS; no venue-precise decimal found for that address, only a fabricated guess which was discarded. Left null.",
+  "status": "open"
+ },
+ {
+  "n": "Schlossberg Hotel Restaurant",
+  "address": "Am Schlossberg 1, 66424 Homburg, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Hotel/restaurant confirmed atop the Schlossberg (Schlossberg-Höhen-Str. 1, Homburg), but no venue decimal surfaced to WebSearch; left null rather than a hilltop guess.",
+  "status": "open"
+ },
+ {
+  "n": "La Bécasse",
+  "address": "Berckheimstraße 1, 66763 Dillingen, Germany",
+  "lat": 49.35263228,
+  "lng": 6.7225787,
+  "confidence": "med",
+  "geoSource": "Berckheimstraße 1 = the Dillingen (Saar) station/Stadthalle complex; Wikipedia station coordinate 49°21'09\"N 6°43'21\"E. Restaurant is in this building, so within ~150 m.",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Indochine",
+  "address": "Klausenerstraße 23, 66115 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Klausenerstraße 23, Saarbrücken-Malstatt) via onlinestreet/OpenTable/Wanderlog, but no venue decimal exposed to WebSearch; left null.",
+  "status": "open"
+ },
+ {
+  "n": "Mangal Mezze & Grill",
+  "address": "Berliner Promenade 1-2, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Berliner Promenade 1-2, on the Saar) via TheFork/TripAdvisor, but no venue decimal surfaced; left null rather than a promenade guess.",
+  "status": "open"
+ },
+ {
+  "n": "Saarfürst Merziger Brauhaus am Yachthafen",
+  "address": "Saarwiesenring 6, 66663 Merzig, Germany",
+  "lat": 49.443,
+  "lng": 6.628,
+  "confidence": "med",
+  "geoSource": "Approx. coordinate from geocaching.com listing GC203EF 'Saarfürst-Brauerei Merzig' (49°26.550'N 6°38.210'E) at the Merzig marina; brewery is at Saarwiesenring 6 by the yacht harbour SW of centre — within a few hundred m.",
+  "status": "open"
+ },
+ {
+  "n": "Stumm's Brauhaus",
+  "address": "Saarbrücker Straße 16, 66538 Neunkirchen, Germany",
+  "lat": 49.347548,
+  "lng": 7.171928,
+  "confidence": "high",
+  "geoSource": "Venue coordinate 49.347548, 7.171928 (DMS-consistent 49°20'51.2\"N 7°10'18.9\"E) for Stumm's Brauhaus in the historic Wasserturm, Saarbrücker Str. 16, Neunkirchen.",
+  "status": "open"
+ },
+ {
+  "n": "Mettlacher Abtei-Bräu",
+  "address": "Bahnhofstraße 32, 66693 Mettlach, Germany",
+  "lat": 49.4983,
+  "lng": 6.5961,
+  "confidence": "med",
+  "geoSource": "Coordinate from venue listing (TripAdvisor/Wanderlog) 49°29'54\"N 6°35'46\" for Mettlacher Abtei-Bräu, Bahnhofstr. 32; near Mettlach station area, matches town — graded med (single listing, not cross-checked to rooftop).",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Hofküche Wendelinushof",
+  "address": "Wendelinushof, Ostertalstraße, 66606 St. Wendel, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Restaurant confirmed on the Wendelinushof estate, Ostertalstraße 307, St. Wendel (TripAdvisor/speisekarte), but no venue decimal surfaced to WebSearch; left null.",
+  "status": "open"
+ },
+ {
+  "n": "Heidi's Landstube",
+  "address": "Am Domperberg 3, 66663 Merzig, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Confirmed at Am Domperberg 3 (Merzig-Silwingen district) via onlinestreet/viezstrasse, but no venue decimal exposed; left null rather than a Merzig-town centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Sekthaus Gerd Petgen — Straußwirtschaft",
+  "address": "Marienstraße 22, 66706 Perl, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Sekthaus/Straußwirtschaft confirmed at Marienstraße 22, Perl (perl-saarschleifenland, petgen.de), but no venue decimal surfaced to WebSearch; left null.",
+  "status": "open"
+ }
+]
