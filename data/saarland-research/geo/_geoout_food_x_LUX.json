@@ -1,0 +1,290 @@
+[
+ {
+  "n": "Sieweburen",
+  "address": "36 Rue des Septfontaines, 2534 Luxembourg, Luxembourg",
+  "lat": 49.62556,
+  "lng": 6.105,
+  "confidence": "med",
+  "geoSource": "Wikidata Q2970684 (Chateau de Septfontaines / Schlass Siwebueren), 49°37'32\"N 6°6'18\"E; the Hotel-Restaurant Sieweburen sits on the same Rue des Septfontaines directly beside the chateau. Chateau anchor, restaurant within ~150m on same street. No venue-precise pin obtainable via WebSearch.",
+  "status": "open"
+ },
+ {
+  "n": "Fields by René Mathieu",
+  "address": "AIRFIELD, Findel (near Luxembourg Airport), Findel, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "STALE/IMPRECISE ADDRESS: worklist address is a placeholder. Actual location is Airfield, 6 Rue de Treves, L-2632 Findel/Sandweiler (confirmed via Gault&Millau, Tripadvisor, editus.lu). No venue-precise decimal obtainable via WebSearch (WebFetch blocked; geocode.xyz lacks the address). Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Guillou Campagne",
+  "address": "17 Rue de la Résistance, L-4996 Schouweiler, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Michelin, Waze place, OSM node 4250666792). Venue decimal not surfaceable: WebSearch summariser will not read the OSM node coordinate and geocode.xyz has no cached page for this house number. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Parc Le'h",
+  "address": "Parc Le'h, Dudelange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Only Dudelange town centroid findable (49.48,6.09); the park itself has no Wikidata/plain-text coordinate that WebSearch surfaces. Not fabricating a centroid (rule 4b).",
+  "status": "open"
+ },
+ {
+  "n": "La Rameaudière",
+  "address": "10 Rue de la Gare, L-5690 Ellange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Michelin, Gault&Millau, own site) - the former Ellange-Gare railway station. No venue-precise decimal obtainable via WebSearch; ViaMichelin embeds coords but summariser will not surface them. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Koeppchen",
+  "address": "9 Berreggaass, L-5485 Wormeldange-Haut, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Visit Luxembourg, editus.lu, Google place ChIJ... / mapcarta N3997601045). Venue decimal not surfaceable via WebSearch; geocode.xyz has no cached page for Berreggaass. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Knopes Coffee Roasters",
+  "address": "Hollerich, Luxembourg City, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street address in worklist (Hollerich district only). No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "De Feierwon",
+  "address": "Sofitel Luxembourg Europe, 6 rue du Fort Niedergrünewald, L-2226 Luxembourg (Kirchberg), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Restaurant is inside the Sofitel Luxembourg Europe (round-tower hotel, Kirchberg). No Wikidata coordinate for the Sofitel building surfaced and no other plain-text decimal available. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Ristorante Fani",
+  "address": "51 Grand-Rue, L-3394 Roeser, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Michelin, Gault&Millau, Waze place, mapcarta N2562766664). Venue decimal not surfaceable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Caves Bernard-Massard",
+  "address": "8 Rue du Pont, L-6773 Grevenmacher, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Historic sparkling-wine cellars at the Grevenmacher bridgehead. Rue du Pont leads onto the Moselbruecke Wellen-Grevenmacher (Wikidata Q13101819, 49.6758,6.4436) but that anchor is the mid-river bridge point, not the on-land venue, so not used. (Note address variant: some sources list 22 Route du Vin for the estate offices.) No on-land venue decimal sourceable. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Domaine Alice Hartmann",
+  "address": "72-74 Rue Principale, L-5480 Wormeldange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Falstaff, Visit Luxembourg, own site). No venue-precise decimal obtainable via WebSearch; only Wormeldange town centroid findable. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "K restaurant",
+  "address": "2 Stawelerstrooss, L-9964 Huldange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue-precise decimal obtainable via WebSearch; geocode.xyz lacks the address and Huldange has no usable landmark anchor. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Cornelyshaff",
+  "address": "Cornelyshaff, L-9753 Heinerscheid (Clervaux), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Tourism/hotel complex at 83 Haaptstrooss, Heinerscheid (surfaced in search). Only Heinerscheid village coordinate findable (~50.096,6.088); no venue-precise decimal. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Beim Schlass",
+  "address": "Beim Schlass, Wiltz, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street number in worklist; only Wiltz town findable. No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Ristorante Roma",
+  "address": "5 Rue Louvigny, L-1946 Luxembourg (Ville Haute), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Ville Haute, short street off Place d'Armes). No Wikidata anchor for Rue Louvigny and no venue decimal surfaceable via WebSearch; Place d'Armes anchor would exceed the ~150m med bar. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Trattoria Da Gino",
+  "address": "Luxembourg City, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street address in worklist (Luxembourg City only). No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Postkutsch",
+  "address": "8 Rue Xavier Brasseur, L-4040 Esch-sur-Alzette, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Gault&Millau, editus.lu, own site). Venue decimal not surfaceable via WebSearch; geocode.xyz has no cached page for this house number. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "La Maison Lefèvre",
+  "address": "138 Boulevard J.-F. Kennedy, L-4171 Esch-sur-Alzette (Belval), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Belval address; no venue-precise decimal obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "POP Grubers Belval",
+  "address": "10 Avenue du Rock'n'Roll, L-4361 Esch-sur-Alzette (Belval), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Belval address; no venue-precise decimal obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Brimer",
+  "address": "Grundhof (Beaufort), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Hotel-restaurant at 1 Route de Beaufort, L-6360 Grundhof (Michelin). Only the Grundhof hamlet is locatable; no venue-precise decimal surfaceable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Victoria Vum Berdorfer Eck",
+  "address": "Berdorf, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street address in worklist (Berdorf village only). No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Les Jardins Gourmands",
+  "address": "Hôtel Bel Air, Route de Berdorf, Echternach, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Restaurant of Hotel Bel Air on Route de Berdorf, Echternach. No venue-precise decimal surfaceable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Wäinstuff",
+  "address": "Dudelange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street address in worklist (Dudelange only). No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Château Clervaux (restaurant)",
+  "address": "Château de Clervaux, Clervaux, Luxembourg",
+  "lat": 50.05441,
+  "lng": 6.03009,
+  "confidence": "med",
+  "geoSource": "Wikidata Q5131949 (Clervaux Castle), 50°3'15.876\"N 6°1'48.324\"E. The restaurant is housed within the castle, so the castle coordinate places it within the venue complex (med, not house-precise).",
+  "status": "open"
+ },
+ {
+  "n": "Beim Bertchen",
+  "address": "Wahlhausen (near Vianden), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street address in worklist (Wahlhausen hamlet only). No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Domaine Sunnen-Hoffmann",
+  "address": "6 Rue des Prés, L-5441 Remerschen (Schengen), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "A decimal (49.488242,6.351972) surfaced once from a WebSearch summary but could NOT be tied to any named source page on re-check (summariser confirmed the results do not display it) - treating as unverified per the no-fabrication rule. Address confirmed (Falstaff, Visit Luxembourg, own site). Not writing the unattributed coordinate.",
+  "status": "open"
+ },
+ {
+  "n": "Domaine Häremillen",
+  "address": "29 Am Schank, L-5419 Ehnen (Wormeldange), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Wine estate in Ehnen; no venue-precise decimal surfaceable via WebSearch; only Ehnen village locatable. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Maison Santos",
+  "address": "55 Grand-Rue, L-1661 Luxembourg (Ville Haute), Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address on Grand-Rue (Ville Haute) confirmed. Grand-Rue is a long street with no usable point anchor within the ~150m med bar, and no venue decimal surfaceable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Cereal Lovers",
+  "address": "11 Place du Théâtre, L-2613 Luxembourg (Ville Haute), Luxembourg",
+  "lat": 49.61289,
+  "lng": 6.13089,
+  "confidence": "med",
+  "geoSource": "Wikidata Q15925751 (Place du Theatre, Ville Haute), 49°36'46.4\"N 6°7'51.2\"E. Venue is at 11 Place du Theatre, i.e. on this small square, so the square centroid places it within ~50m (med).",
+  "status": "open"
+ },
+ {
+  "n": "Ancien Cinéma Café-Club",
+  "address": "23 Grand-Rue, L-9410 Vianden, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Visit Luxembourg/Visit Eislek, Google place cid 10073667171332453784, outdooractive). Venue decimal not surfaceable via WebSearch and geocode.xyz has no cached page for Grand-Rue Vianden. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Intense",
+  "address": "Avenue Pasteur, Limpertsberg, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No house number in worklist (Avenue Pasteur, Limpertsberg). No venue-precise decimal surfaceable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ },
+ {
+  "n": "Jolt Coffee Roasters",
+  "address": "Belval, Esch-sur-Alzette, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No street address in worklist (Belval district only). No venue-precise coordinate obtainable via WebSearch. Not fabricating a centroid.",
+  "status": "open"
+ }
+]
