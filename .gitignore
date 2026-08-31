@@ -56,3 +56,6 @@ data/erie-research/geo/_*.json
 
 # transient agent worklists (repo-root scratch)
 scratch*
+
+# Saarland/Greater Region geocode intermediates (registry lives in data/geocodes.json)
+data/saarland-research/geo/_*.json
