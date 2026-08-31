@@ -149,8 +149,22 @@ entry's `credible` field:
   track record on *this* city or cuisine; a **findable piece of content** (the actual video/post/story),
   not trend hearsay. Note the follower scale / beat / notable coverage in `credible`, exactly like any
   other source. Register them in `data/sources.json` creators lists so they're reusable.
-- **Reject** anonymous aggregators, SEO "10 best" listicles with no byline, and AI content farms.
-  *Virality or popularity you cannot verify is not virality* — drop it.
+- **TikTok & the younger-generation social layer** — actively mine it for what's popular with a younger,
+  local crowd (search the city's food/travel hashtags, in-language). A TikTok/Reels/Shorts counts as a
+  source **only** when it's a *specific, findable* video from a **verifiably-popular** account (real
+  follower scale) that names the place — then it's a viral/creator source like any other. Tag such places
+  `"Viral"` alongside their real cuisine and name the viral item. Passing trend hearsay or an unfindable
+  clip is **not** a source.
+- **Reddit (local-subreddit "where do locals actually go")** — the city/region subreddit (r/<city>,
+  r/<country>, r/askculinary-style threads) is a genuine **authentic-local signal** for younger, on-the-
+  ground recommendations. Use it as a **discovery lead and a corroborating local vote** — a place that a
+  well-upvoted local-sub thread repeatedly names is worth measuring — **but never pin on a lone anonymous
+  Reddit comment**: pair it with ≥1 credible editorial/institutional source, and **fact-check the place
+  itself** (it exists, it's open, the address is real). Record the thread URL in `credible`. A brigaded,
+  low-signal, or unverifiable thread is dropped.
+- **Reject** anonymous aggregators, SEO "10 best" listicles with no byline, AI content farms, and
+  astroturfed/unverifiable social hype. *Virality or popularity you cannot verify is not virality* — drop
+  it. Everything social still runs the full flow: **fact-check → re-rank within region → location-verify.**
 
 This is the same credibility bar the cuisine deep-dive and viral-popup passes use — now stated **up
 front as the opening move for every city**. After sourcing, the full flow runs as always:

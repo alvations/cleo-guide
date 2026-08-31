@@ -54,6 +54,13 @@ Gault&Millau, a national monument/museum). Credible, native-language, for this r
   source. **Yelp/TripAdvisor/Google/OpenTable/Tripadvisor-style ratings count as ZERO** toward the bar
   (they may only *measure* popularity — merit bar below). Reject anonymous SEO listicles / content farms.
   Prefer **German- (and French-/Luxembourgish-) language** sources; search in-language.
+- **TikTok & Reddit (younger-generation / local layer)** — mine both for what's popular with a younger,
+  local crowd: TikTok/Reels food & travel hashtags (in-language) and the **local subreddits** (r/saarland,
+  r/Luxembourg, r/Metz, r/germany, r/Trier). A **TikTok** counts only as a *specific findable video from a
+  verifiably-popular account* naming the place (tag `"Viral"`); **Reddit** is an authentic-local **lead +
+  corroborating vote**, never a lone-comment pin — pair it with ≥1 credible source and fact-check the
+  place. See the Reddit/TikTok rules in [docs/SOURCES.md](../../docs/SOURCES.md). Always fact-check →
+  re-rank → location-verify.
 Merit bar: a mention is not merit — an award (Michelin/Gault&Millau/regional prize), a real rave, or a
 high rating with real cross-platform volume before a place earns a pin. Record keep/drop in AUDIT.md.
 
