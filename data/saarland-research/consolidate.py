@@ -12,8 +12,9 @@ AREAS = [
  {"id":"MOSELLE","n":"Moselle & Lorraine, FR (Metz · Sarreguemines)"},
  {"id":"LUX","n":"Luxembourg (Luxembourg City · Moselle · Vianden)"},
  {"id":"MOSEL","n":"Mosel & Trier, DE (Roman Trier · Riesling villages)"},
+ {"id":"ALSACE","n":"Alsace, FR (Strasbourg · the Rhine)"},
 ]
-AC = {"SAAR":"#2E6DA4","MOSELLE":"#C0504D","LUX":"#16A085","MOSEL":"#8E44AD"}
+AC = {"SAAR":"#2E6DA4","MOSELLE":"#C0504D","LUX":"#16A085","MOSEL":"#8E44AD","ALSACE":"#E8973A"}
 
 # ---- cuisine taxonomy — the Greater-Region canon ----
 CUISINES = [

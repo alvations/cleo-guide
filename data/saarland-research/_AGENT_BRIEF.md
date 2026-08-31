@@ -17,6 +17,14 @@ AND French** (and Luxembourgish/English where natural), and cite native-language
   Grund), Vianden, Echternach, Mullerthal, and the **Luxembourg Moselle** wine towns (Remich, Grevenmacher).
 - `MOSEL` — **German Mosel & Trier (DE):** Trier (Porta Nigra + the Roman UNESCO monuments, oldest city in
   Germany), Bernkastel-Kues, Cochem, Traben-Trarbach, and the Mosel Riesling wine villages.
+- `ALSACE` — **Alsace, FR (Strasbourg & the Rhine):** the French side reaches east to **Nancy** (Lorraine,
+  area `MOSELLE`) and on to **Strasbourg** (area `ALSACE`) — Strasbourg's UNESCO Grande Île, the Cathédrale
+  Notre-Dame, Petite France, the European Parliament/Council of Europe, plus the Nancy→Strasbourg corridor
+  (Saverne, Sarrebourg, Phalsbourg, Molsheim, Obernai). Alsace food canon: **choucroute**, **tarte
+  flambée / flammekueche**, **baeckeoffe**, **kougelhopf**, **bretzel**, winstubs and Alsace Riesling /
+  Gewürztraminer / Crémant d'Alsace. Credible FR/Alsace outlets: **Dernières Nouvelles d'Alsace (DNA)**,
+  **France Bleu Alsace**, **Visit Strasbourg / Strasbourg.eu**, **Visit Alsace**, Pokaa (Strasbourg local),
+  Michelin/Gault&Millau.
 
 ## The food & drink canon — signature FIRST, then depth (name the dish)
 - **Saarland (DE):** Schwenkbraten/**Schwenker** (marinated grill), **Dibbelabbes** & **Gefillde** (potato),
