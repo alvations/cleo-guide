@@ -5658,6 +5658,134 @@
           "rank": 3,
           "verified": true,
           "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MUCTIM",
+          "name": "Muc Tim (Tuoi Tre youth magazine)",
+          "type": "magazine (Tuoi Tre group)",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "SGGP_DTTC",
+          "name": "Sai Gon Giai Phong - Dau Tu Tai Chinh",
+          "type": "news",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "MOTHEGIOI",
+          "name": "Mot The Gioi (1thegioi)",
+          "type": "news",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "AFAMILY",
+          "name": "aFamily",
+          "type": "lifestyle news (VCCorp)",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "ELLE_VN",
+          "name": "ELLE Vietnam",
+          "type": "lifestyle magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "BAZAARVN",
+          "name": "Harper's Bazaar Vietnam",
+          "type": "lifestyle magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "TATLERASIA",
+          "name": "Tatler Asia (Vietnam)",
+          "type": "lifestyle magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "TIENPHONG",
+          "name": "Tiền Phong",
+          "type": "news",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "DANGCONGSAN",
+          "name": "Báo điện tử Đảng Cộng sản Việt Nam",
+          "type": "state-news",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "BAOXAYDUNG",
+          "name": "Báo Xây Dựng",
+          "type": "news",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "HCMCPV",
+          "name": "Thành ủy TP.HCM (Đảng bộ TP.HCM)",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "TTBCHCM",
+          "name": "Trung tâm Báo chí TP.HCM",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "SCOV",
+          "name": "Ủy ban Nhà nước về người Việt Nam ở nước ngoài",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "DULICHBINHDUONG",
+          "name": "Sở Văn hóa, Thể thao và Du lịch Bình Dương",
+          "type": "official",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "ENWIKI",
+          "name": "Wikipedia (English)",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": true
+        },
+        {
+          "key": "VNEXPRESS2",
+          "name": "VNEXPRESS2",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [
@@ -5846,6 +5974,27 @@
           "followers": "long-running independent Vietnam travel publication",
           "url": "https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/coffee-the-best-of-saigons-cafes-1316",
           "verified": "Authored district, coffee and nightlife reviews (Cholon, District 2, Vĩnh Khánh, Layla, cafes)."
+        },
+        {
+          "key": "KHOAILANGTHANG",
+          "name": "Khoai Lang Thang (Dinh Vo Hoai Phuong)",
+          "platform": "YouTube (Food & Travel)",
+          "url": "https://www.youtube.com/@KhoaiLangThang",
+          "credible": true
+        },
+        {
+          "key": "NINHTITO",
+          "name": "Ninh TiTo",
+          "platform": "YouTube (food review, ~832k subs; 2017 SE-Asia influencer food-category nominee)",
+          "url": "https://www.youtube.com/@NinhTitoOfficial",
+          "credible": true
+        },
+        {
+          "key": "NINH_TITO",
+          "name": "Ninh Tito (Ninh eating)",
+          "platform": "YouTube / Instagram / Facebook",
+          "url": "https://www.youtube.com/NinhTito",
+          "credible": "Verifiably popular Vietnamese food vlogger: YouTube ~394K subscribers, Instagram @ninheating ~140K followers with strong engagement; a real 'food storyteller' with a long track record of street-food videos. CAVEAT: his content is predominantly Hanoi-focused, so he was NOT used as a source for any HCMC place in this pass; listed only as a vetted, real Vietnamese food KOL for future cross-city use."
         }
       ]
     },
