@@ -1,0 +1,863 @@
+{
+ "sources": [
+  {
+   "key": "VISITLUXEMBOURG",
+   "name": "Visit Luxembourg (national tourism)",
+   "url": "https://www.visitluxembourg.com"
+  },
+  {
+   "key": "LUXEMBOURGCITY",
+   "name": "Luxembourg City Tourist Office (LCTO)",
+   "url": "https://www.luxembourg-city.com"
+  },
+  {
+   "key": "LUXPUBLIC",
+   "name": "luxembourg.public.lu (official State portal)",
+   "url": "https://luxembourg.public.lu"
+  },
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "url": "https://whc.unesco.org"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://en.wikipedia.org"
+  },
+  {
+   "key": "MONARCHIE",
+   "name": "Cour grand-ducale (official court of Luxembourg)",
+   "url": "https://monarchie.lu"
+  },
+  {
+   "key": "MNAHA",
+   "name": "Musée national d'archéologie, d'histoire et d'art (official)",
+   "url": "https://www.mnaha.lu"
+  },
+  {
+   "key": "ICOM",
+   "name": "ICOM Luxembourg (International Council of Museums)",
+   "url": "https://icom-luxembourg.lu"
+  },
+  {
+   "key": "FONDSBELVAL",
+   "name": "Fonds Belval (official industrial-heritage body)",
+   "url": "https://www.fonds-belval.lu"
+  },
+  {
+   "key": "MINETTTRAIL",
+   "name": "Minett Trail / UNESCO Minett Biosphere",
+   "url": "https://www.minetttrail.lu"
+  },
+  {
+   "key": "CNA",
+   "name": "Centre national de l'audiovisuel (CNA, official)",
+   "url": "https://cna.public.lu"
+  },
+  {
+   "key": "VISITCLERVAUX",
+   "name": "Visit Clervaux (official regional tourism)",
+   "url": "https://www.visit-clervaux.lu"
+  },
+  {
+   "key": "VISITEISLEK",
+   "name": "Visit Éislek (official Ardennes tourism)",
+   "url": "https://www.visit-eislek.lu"
+  },
+  {
+   "key": "VISITARDENNE",
+   "name": "Tourism in the Ardennes (cross-border)",
+   "url": "https://www.visitardenne.com"
+  },
+  {
+   "key": "VISITVIANDEN",
+   "name": "Visit Vianden (official)",
+   "url": "https://www.visit-vianden.lu"
+  },
+  {
+   "key": "VISITMOSELLE",
+   "name": "Visit Moselle (official Luxembourg Moselle tourism)",
+   "url": "https://www.visitmoselle.lu"
+  },
+  {
+   "key": "VINSMOSELLE",
+   "name": "Domaines Vinsmoselle (official cooperative)",
+   "url": "https://www.vinsmoselle.lu"
+  },
+  {
+   "key": "VINSCREMANTS",
+   "name": "Vins & Crémants de Luxembourg (official trade body)",
+   "url": "https://vins-cremants.lu"
+  },
+  {
+   "key": "MONDORF",
+   "name": "MONDORF Domaine Thermal (official)",
+   "url": "https://www.mondorf.lu"
+  },
+  {
+   "key": "FESTIVALWILTZ",
+   "name": "Festival de Wiltz (official)",
+   "url": "https://www.festivalwiltz.lu"
+  },
+  {
+   "key": "LUGA",
+   "name": "LUGA – Luxembourg Urban Garden (official)",
+   "url": "https://luga.lu"
+  },
+  {
+   "key": "PAPILLONS",
+   "name": "Jardin des Papillons Grevenmacher (official)",
+   "url": "https://www.papillons.lu"
+  },
+  {
+   "key": "DEZEEN",
+   "name": "Dezeen (architecture & design press)",
+   "url": "https://www.dezeen.com"
+  },
+  {
+   "key": "FODORS",
+   "name": "Fodor's Travel",
+   "url": "https://www.fodors.com"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Grand Ducal Palace (Palais Grand-Ducal)",
+   "address": "Rue du Marché-aux-Herbes, L-1728 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The official city residence of the Grand-Ducal family, with one of the finest façades in the country (Flemish Renaissance, 16th century). Guided tours run in summer, taking visitors into the Grand Duke's office, the dining room and the Salon des Rois.",
+   "k": "royal palace",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/iconic-buildings/grand-ducal-palace"
+    ],
+    [
+     "MONARCHIE",
+     "https://monarchie.lu/en/visit-grand-ducal-palace"
+    ],
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/palace-of-the-grand-dukes"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Gëlle Fra (Monument of Remembrance)",
+   "address": "Place de la Constitution, L-1468 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The 'Golden Lady', a gilded Victory atop an obelisk on Place de la Constitution — a war memorial to Luxembourgers who served in the two World Wars and Korea, and one of the nation's most potent symbols, overlooking the Pétrusse valley.",
+   "k": "war memorial",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/tours-activities/sights/map"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/G%C3%ABlle_Fra"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Musée National d'Histoire et d'Art (MNHA)",
+   "address": "Marché-aux-Poissons, L-2345 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The national museum of archaeology, history and art (Nationalmusée um Fëschmaart), on the old fish market. A rich sweep from prehistory to contemporary art, and the flagship of a State institute that also runs the Musée Dräi Eechelen.",
+   "k": "national museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "MNAHA",
+     "https://www.mnaha.lu/fr/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Archaeology,_History_and_Art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Villa Vauban – Musée d'Art de la Ville de Luxembourg",
+   "address": "18 Avenue Émile Reuter, L-2420 Luxembourg (Parc Municipal), Luxembourg",
+   "w": "The city's art museum in an 1873 villa set in the municipal park — named for a Vauban fort once on the site. Dutch, French and Italian painting and sculpture (17th–19th c.) plus Luxembourg art from the 19th century on.",
+   "k": "art museum",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/museum/villa-vauban-luxembourg-city-art-museum-luxembourg"
+    ],
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/fr/attraction/musee-d-art-ville-de-luxembourg"
+    ],
+    [
+     "ICOM",
+     "https://icom-luxembourg.lu/en/museums/villa-vauban-luxembourg-city-art-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Lëtzebuerg City Museum",
+   "address": "14 Rue du Saint-Esprit, L-1475 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The city history museum, threading a thousand years of Luxembourg's story through converted historic houses on the Rham escarpment, with a glass panoramic lift and views over the Grund.",
+   "k": "history museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/tours-activities/sights/map"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/L%C3%ABtzebuerg_City_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Musée Dräi Eechelen (Fort Thüngen)",
+   "address": "5 Park Dräi Eechelen, L-1499 Luxembourg (Kirchberg), Luxembourg",
+   "w": "A fortress-and-history museum in the restored 18th-century Fort Thüngen on Kirchberg, its three rounded turrets — the 'Three Acorns' — surviving the 1867 demolition of the fortress. Traces the story of the fortress city from 1443 to 1903; faces Mudam across the moat.",
+   "k": "fortress museum",
+   "g": [
+    "MUS",
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/museum-drai-eechelen"
+    ],
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/museum/musee-drai-eechelen-luxembourg"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mus%C3%A9e_Dr%C3%A4i_Eechelen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Neumünster Abbey (neimënster)",
+   "address": "28 Rue Münster, L-2160 Luxembourg (Grund), Luxembourg",
+   "w": "A former Benedictine abbey in the Grund, begun 1606, restored and reopened in 2004 as neimënster — a cultural and conference centre with exhibitions, concerts and a riverside courtyard beneath the Bock cliffs.",
+   "k": "cultural centre / former abbey",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/museum/neimenster"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Neum%C3%BCnster_Abbey"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Pfaffenthal Panoramic Elevator",
+   "address": "Parc Pescatore / Pfaffenthal, Luxembourg City, Luxembourg",
+   "w": "A free glass lift dropping 71 m in 30 seconds between the Ville Haute (by the Pescatore park) and the Pfaffenthal in the Alzette valley below, with sweeping views over the valley and viaducts. Open early morning to the small hours.",
+   "k": "panoramic lift",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/monument/panoramic-elevator-of-the-pfaffenthal"
+    ],
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/panoramic-elevator-of-the-pfaffenthal"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pfaffenthal_Panoramic_Elevator"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Casemates de la Pétrusse",
+   "address": "Place de la Constitution, L-1468 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The other great tunnel network of the UNESCO fortress (World Heritage since 1994), dug from 1644 under the Pétrusse valley and entered from Place de la Constitution. A 45-minute guided 'exploration' with immersive light-and-sound retraces four centuries of the fortress.",
+   "k": "UNESCO underground casemates",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/699/"
+    ],
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/tours-activities/underground/petrusse-casemates"
+    ],
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/petrusse-casemates"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Pont Adolphe & Passerelle",
+   "address": "Boulevard Roosevelt / Avenue de la Liberté, Luxembourg City, Luxembourg",
+   "w": "A double-arched sandstone bridge of 1900–03 that once carried the largest stone arch in the world, spanning the Pétrusse between the Ville Haute and the Gare — an unofficial national symbol. A four-metre pedestrian-and-cycle 'Passerelle' now hangs beneath the deck.",
+   "k": "landmark bridge",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adolphe_Bridge"
+    ],
+    [
+     "DEZEEN",
+     "https://www.dezeen.com/2019/05/24/passerelle-pont-adolphe-cycle-path-luxembourg-christian-bauer/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Parc Municipal & Kinnekswiss",
+   "address": "Avenue Émile Reuter, Luxembourg City (Ville Haute/Limpertsberg), Luxembourg",
+   "w": "The city's central English-style park, laid out by Édouard André on the old fortress glacis. Its great lawn, the Kinnekswiss ('king's meadow'), is the city's warm-weather gathering place and an open-air stage for summer concerts and the Winterlights market.",
+   "k": "city park",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/parc/kinnekswiss-edouard-andre-municipal-park"
+    ],
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/fr/attraction/park-kinnekswiss"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Kirchberg Plateau (European Quarter & architecture)",
+   "address": "Kirchberg, Luxembourg City, Luxembourg",
+   "w": "A farm plateau 60 years ago, now a showcase of contemporary architecture and seat of EU institutions — the European Court of Justice, Investment Bank and Court of Auditors — clustered with Mudam, the Philharmonie and public art around Place de l'Europe.",
+   "k": "modern-architecture district",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/about-luxembourg-city/districts/kirchberg-district"
+    ],
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/fr/attraction/parc-public-du-kirchberg"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Casino Luxembourg – Forum d'art contemporain",
+   "address": "41 Rue Notre-Dame, L-2240 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The country's leading contemporary-art centre since 1996, in a former bourgeois casino in the heart of the capital. An international programme leaning to younger artists, plus an art library, bookshop and café.",
+   "k": "contemporary art centre",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/casino-luxembourg-forum-of-contemporary-art-luxembourg"
+    ],
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/museum/casino-luxembourg-forum-d-art-contemporain"
+    ],
+    [
+     "ICOM",
+     "https://icom-luxembourg.lu/en/museums/casino-luxembourg-forum-dart-contemporain/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Place Guillaume II (Knuedler) & City Hall",
+   "address": "Place Guillaume II, L-1648 Luxembourg (Ville Haute), Luxembourg",
+   "w": "The great civic square of the Ville Haute, colloquially the 'Knuedler' after the knotted belt of the Franciscan friars whose monastery stood here. Dominated by the 1838 City Hall with its Trémont lions and the equestrian statue of Grand Duke William II; hosts the twice-weekly market.",
+   "k": "historic town square",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Place_Guillaume_II"
+    ],
+    [
+     "LUXEMBOURGCITY",
+     "https://www.luxembourg-city.com/en/place/monument/william-square"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Wenzel Circular Walk",
+   "address": "Bock / Montée de Clausen, Luxembourg City, Luxembourg",
+   "w": "A signposted heritage trail — '1000 years of history in 180 minutes' — linking the Bock casemates, the Wenzel wall, the Alzette valley, the Grund and the Rham plateau, threading the UNESCO fortifications from the upper town down into the valley and back.",
+   "k": "UNESCO heritage walking trail",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/tour/wenzel-circular-walk-1000-years-of-history-in-180-minutes"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/699/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Belval Blast Furnaces",
+   "address": "Avenue des Hauts Fourneaux, L-4362 Esch-sur-Alzette (Belval), Luxembourg",
+   "w": "Two preserved blast furnaces of the former Esch-Belval steelworks (shut 1997), now the emblem of Luxembourg's Minett south and its 'Cité des Sciences'. Furnace A opens to a 40 m viewing platform; the Möllerei ore-storage hall is walkable. A hub of Esch2022, European Capital of Culture.",
+   "k": "industrial heritage site",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/blast-furnace-belval"
+    ],
+    [
+     "FONDSBELVAL",
+     "https://www.fonds-belval.lu/index.php?lang=en&page=3&sub=28"
+    ],
+    [
+     "MINETTTRAIL",
+     "https://www.minetttrail.lu/place/blast-furnace-belval"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "The Family of Man (Clervaux Castle)",
+   "address": "Montée du Château, L-9710 Clervaux, Luxembourg",
+   "w": "Edward Steichen's landmark 1955 photo exhibition — 503 images by 273 photographers from 68 countries, a post-war manifesto for peace — permanently installed in Clervaux Castle since 1994 and inscribed on UNESCO's Memory of the World register. Steichen was Luxembourg-born and wanted it to remain here.",
+   "k": "UNESCO photography exhibition / castle",
+   "g": [
+    "MUS",
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/the-family-of-man"
+    ],
+    [
+     "CNA",
+     "https://cna.public.lu/en/events/2026/fom.html"
+    ],
+    [
+     "VISITCLERVAUX",
+     "https://www.visit-clervaux.lu/en/art/the-family-of-man"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Bourscheid Castle",
+   "address": "Schlass, L-9140 Bourscheid, Luxembourg",
+   "w": "The largest castle in Luxembourg, a triangular fortress with an eleven-tower curtain wall standing 150 m above the Sûre in the Ardennes. Probably 10th-century, later Gothic-fortified; audio-guided in seven languages with panoramic valley views from the walls.",
+   "k": "medieval castle",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/bourscheid-castle"
+    ],
+    [
+     "LUXPUBLIC",
+     "https://luxembourg.public.lu/en/visit/arts-and-culture/castles.html"
+    ],
+    [
+     "VISITARDENNE",
+     "https://www.visitardenne.com/en/adventures-ardennes/historical-adventures/bourscheid-castle-victor-hugo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Beaufort Castle",
+   "address": "24 Rue du Château, L-6310 Beaufort, Luxembourg",
+   "w": "Two castles in one wooded valley on the edge of the Mullerthal — the moated medieval ruins beside a Renaissance château — famous too for its home-made Cassero blackcurrant liqueur.",
+   "k": "castle ruins & Renaissance château",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/experience-luxembourg/castles-fortresses"
+    ],
+    [
+     "LUXPUBLIC",
+     "https://luxembourg.public.lu/en/visit/arts-and-culture/castles.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Larochette Castle",
+   "address": "Rue de Medernach, L-7620 Larochette, Luxembourg",
+   "w": "An 11th-century castle on a crag above the little town of Larochette, home to several noble families. Large sections are restored, with exhibitions and reconstructed rooms and views over the Ernz Blanche valley.",
+   "k": "medieval castle",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/experience-luxembourg/castles-fortresses"
+    ],
+    [
+     "LUXPUBLIC",
+     "https://luxembourg.public.lu/en/visit/arts-and-culture/castles.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "European Museum Schengen",
+   "address": "Rue Robert Goebbels, L-5444 Schengen, Luxembourg",
+   "w": "On the tri-border Moselle where the 1985 Schengen Agreement was signed aboard the ship Princess Marie-Astrid, this museum (reopened 2025) tells the story of borderless Europe in a multilingual, interactive way — you can even print your own 'Schengen passport'.",
+   "k": "museum (European history)",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/schengen-museum"
+    ],
+    [
+     "VISITMOSELLE",
+     "https://www.visitmoselle.lu"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "National Museum of Military History (Diekirch)",
+   "address": "Bamertal, L-9209 Diekirch, Luxembourg",
+   "w": "An internationally respected museum in Diekirch, built around the Battle of the Bulge (winter 1944–45) fought in Luxembourg. Over 3,000 m² of vehicles, weaponry and life-size dioramas told even-handedly from American, German and civilian viewpoints.",
+   "k": "military history museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/national-museum-of-military-history-diekirch"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Military_History_(Luxembourg)"
+    ],
+    [
+     "ICOM",
+     "https://icom-luxembourg.lu/en/museums/national-museum-of-military-history/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Caves St Martin (Remich)",
+   "address": "53 Route de Stadtbredimus, L-5570 Remich, Luxembourg",
+   "w": "A sparkling-wine house just outside Remich, the 'Pearl of the Moselle', founded 1919. Guided tours walk nearly a kilometre of tunnels carved in the limestone (a constant, damp 12°C) and end with a tasting of Crémant de Luxembourg and Grand Premier Cru wines.",
+   "k": "crémant cellar / winery tour",
+   "g": [
+    "CRAFT",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/caves-st-martin"
+    ],
+    [
+     "VINSCREMANTS",
+     "https://vins-cremants.lu/en/vigneron/cavesstmartin-en/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LUX",
+   "n": "Esch-sur-Sûre (village & castle)",
+   "address": "L-9650 Esch-sur-Sûre, Luxembourg",
+   "w": "A slate-roofed village wrapped in a near-complete loop of the Sûre, below the ruins of one of the oldest castles in the country (first mentioned 927). In the heart of the Upper Sûre Nature Park by the Grand Duchy's largest lake; the castle is free to climb for valley views.",
+   "k": "medieval village & castle",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/esch-sur-sure"
+    ],
+    [
+     "VISITEISLEK",
+     "https://www.visit-eislek.lu/place/esch-sur-sure"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "MONDORF Domaine Thermal",
+   "address": "Avenue des Bains, L-5601 Mondorf-les-Bains, Luxembourg",
+   "w": "Luxembourg's thermal spa, an oasis of thermal baths, saunas and treatments in a 45-hectare wooded park near the Moselle. Its springs were discovered in 1841 and recognised for their health virtues from 1847.",
+   "k": "thermal spa & park",
+   "g": [
+    "PARK"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/mondorf-les-bains-spa-park"
+    ],
+    [
+     "VISITMOSELLE",
+     "https://www.visitmoselle.lu/place/mondorf-le-domaine-thermal"
+    ],
+    [
+     "MONDORF",
+     "https://www.mondorf.lu/en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Musée du Vin (Ehnen)",
+   "address": "115 Route du Vin, L-5416 Ehnen, Luxembourg",
+   "w": "A wine museum in a typical group of pink-stucco Luxembourgish farm buildings in the round village of Ehnen, filled with old tools, presses and photographs of the Moselle wine trade, with a demonstration vineyard of the local grape varieties.",
+   "k": "wine museum",
+   "g": [
+    "MUS",
+    "CRAFT"
+   ],
+   "sources": [
+    [
+     "VISITMOSELLE",
+     "https://www.visitmoselle.lu"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/europe/luxembourg/the-moselle-valley/things-to-do/sights"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Victor Hugo House (Vianden)",
+   "address": "37 Rue de la Gare, L-9420 Vianden, Luxembourg",
+   "w": "The riverside house where Victor Hugo lived during his 1871 exile and kept writing and sketching Vianden. A literary museum with his room, original artefacts, 70 information panels and hologram projections that bring the writer to life.",
+   "k": "literary museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/victor-hugo-house-literary-museum"
+    ],
+    [
+     "VISITEISLEK",
+     "https://www.visit-eislek.lu/place/victor-hugo-house-literary-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Vianden Chairlift (Télésiège)",
+   "address": "Rue du Sanatorium, L-9425 Vianden, Luxembourg",
+   "w": "Luxembourg's only chairlift, running since 1958, floating 440 m above the Our valley in about ten minutes for magnificent views over the town and its great castle, with a café at the top station.",
+   "k": "chairlift / viewpoint",
+   "g": [
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/get-to-know-luxembourg/the-good-life/an-uplifting-experience-in-vianden"
+    ],
+    [
+     "VISITVIANDEN",
+     "https://www.visit-vianden.lu/en/faq/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Wiltz Castle & Festival",
+   "address": "Château de Wiltz, L-9516 Wiltz, Luxembourg",
+   "w": "A castle town in the Ardennes whose grand staircase becomes an open-air amphitheatre each June–July for the Festival de Wiltz (since 1953) — classical music, jazz, rock and theatre. The stables hold the National Museum of Brewing.",
+   "k": "castle & open-air festival",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/place/wiltz-castle"
+    ],
+    [
+     "FESTIVALWILTZ",
+     "https://www.festivalwiltz.lu/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wiltz_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Jardin des Papillons (Grevenmacher)",
+   "address": "Route de Trèves, L-6793 Grevenmacher, Luxembourg",
+   "w": "A tropical butterfly garden on the Moselle bank at Grevenmacher — hundreds of exotic butterflies of 40+ species flying free in a 28°C greenhouse, alongside quail, chameleons and turtles. Open April–October.",
+   "k": "tropical butterfly garden",
+   "g": [
+    "PARK",
+    "ODD"
+   ],
+   "sources": [
+    [
+     "LUGA",
+     "https://luga.lu/en/experience/le-jardin-des-papillons/"
+    ],
+    [
+     "PAPILLONS",
+     "https://www.papillons.lu/en/butterfly-garden/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Butterfly_Garden,_Grevenmacher"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LUX",
+   "n": "Caves de Wellenstein (Domaines Vinsmoselle)",
+   "address": "Rue des Caves, L-5471 Wellenstein, Luxembourg",
+   "w": "Founded 1930, the largest single site of the Domaines Vinsmoselle cooperative and the biggest cellar in the Grand Duchy, the hub for shipping Vinsmoselle wines and crémant worldwide. Cellar tours and tastings year-round (except harvest), with a wine tavern and banqueting hall.",
+   "k": "cooperative wine cellar / crémant",
+   "g": [
+    "CRAFT"
+   ],
+   "sources": [
+    [
+     "VISITLUXEMBOURG",
+     "https://www.visitluxembourg.com/domaines-vinsmoselle-caves-de-wellenstein"
+    ],
+    [
+     "VINSMOSELLE",
+     "https://www.vinsmoselle.lu/en/visit-us/wine-shops/escale-wellenstein"
+    ]
+   ]
+  }
+ ]
+}
