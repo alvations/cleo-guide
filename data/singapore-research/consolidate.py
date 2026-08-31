@@ -200,7 +200,7 @@ def norm_sources(x):
 
 P=[]; F=[]; used_keys_S=set(); used_keys_F=set()
 for x in sights:
-    r={"t":int(x["t"]),"a":x["a"],"n":x["n"],"ad":x["address"],"w":x["w"]}
+    r={"t":int(x.get("t",2)),"a":x["a"],"n":x["n"],"ad":x["address"],"w":x["w"]}
     if x.get("k"): r["k"]=x["k"]
     if x.get("closed"): r["closed"]=True
     r["g"]=collections(x,False)
@@ -208,7 +208,7 @@ for x in sights:
     for t in r["s"]: used_keys_S.add(t[0])
     P.append(r)
 for x in food:
-    r={"t":int(x["t"]),"a":x["a"],"n":x["n"],"ad":x["address"],"w":x["w"]}
+    r={"t":int(x.get("t",2)),"a":x["a"],"n":x["n"],"ad":x["address"],"w":x["w"]}
     if x.get("k"): r["k"]=x["k"]
     if x.get("closed"): r["closed"]=True
     r["cz"]=map_cz(x.get("cz",[]))
