@@ -1,0 +1,317 @@
+[
+ {
+  "n": "Sieweburen",
+  "address": "36 Rue des Septfontaines, 2534 Luxembourg, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "geoportail.lu address page exists for 36 Rue des Sept-Fontaines (L-2534) and a Google place_id is indexed, but no venue decimal was extractable; only Rollingergrund/Septfontaines area anchors (not venue-precise)",
+  "status": "open"
+ },
+ {
+  "n": "Juegdschlass",
+  "address": "400 Rue des Sept Arpents, 1149 Luxembourg, Luxembourg",
+  "lat": 49.649025,
+  "lng": 6.111453,
+  "confidence": "high",
+  "geoSource": "Waze place pin (Juegdschlass restaurant-cafe, 400 Rue des Sept Arpents); cross-checked to Beggen/Dommeldange corridor",
+  "status": "open"
+ },
+ {
+  "n": "Confiserie Namur",
+  "address": "27 Rue des Capucins, 1313 Luxembourg, Luxembourg",
+  "lat": 49.611899,
+  "lng": 6.129582,
+  "confidence": "med",
+  "geoSource": "Rue des Capucins street-level coordinate (Google Maps street pin); house #27 on this short Ville-Haute street",
+  "status": "open"
+ },
+ {
+  "n": "Maison Oberweis",
+  "address": "16 Grand-Rue, 1660 Luxembourg, Luxembourg",
+  "lat": 49.612015,
+  "lng": 6.131261,
+  "confidence": "high",
+  "geoSource": "venue coordinate (Grand-Rue 16, Oberweis) via Waze/maps directory; cross-checked to Grand-Rue, Ville Haute",
+  "status": "open"
+ },
+ {
+  "n": "Louis Linster",
+  "address": "17 Route de Luxembourg, L-5752 Frisange, Luxembourg",
+  "lat": 49.51812,
+  "lng": 6.1873007,
+  "confidence": "high",
+  "geoSource": "venue coordinate (Route de Luxembourg/Letzebuergerstrooss 17, Frisange) via Waze/maps; cross-checked to Frisange",
+  "status": "open"
+ },
+ {
+  "n": "Fields by René Mathieu",
+  "address": "AIRFIELD, Findel (near Luxembourg Airport), Findel, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "venue is 6 Rue de Trèves, L-2632 Findel; geoportail.lu address page for #6 exists but no venue decimal was extractable; only airport/Findel area (not venue-precise)",
+  "status": "open"
+ },
+ {
+  "n": "Clairefontaine",
+  "address": "9 Place de Clairefontaine, L-1341 Luxembourg (Ville Haute), Luxembourg",
+  "lat": 49.60992,
+  "lng": 6.1324797,
+  "confidence": "high",
+  "geoSource": "venue GPS (Restaurant Clairefontaine, 9 Place de Clairefontaine) via maps/outdooractive listing",
+  "status": "open"
+ },
+ {
+  "n": "La Cristallerie",
+  "address": "Hôtel Le Place d'Armes, Place d'Armes, L-1136 Luxembourg (Ville Haute), Luxembourg",
+  "lat": 49.611372,
+  "lng": 6.128958,
+  "confidence": "med",
+  "geoSource": "Place d'Armes square coordinate (Wikidata Q1414793); venue is inside Hotel Le Place d'Armes at #18 on this square",
+  "status": "open"
+ },
+ {
+  "n": "Le Lys",
+  "address": "Villa Pétrusse, Luxembourg City (Ville Haute), Luxembourg",
+  "lat": 49.6086,
+  "lng": 6.1211,
+  "confidence": "med",
+  "geoSource": "Avenue Marie-Thérèse area coordinate (geocode.xyz); venue is Villa Pétrusse, 1 Avenue Marie-Thérèse L-2132 (street-level)",
+  "status": "open"
+ },
+ {
+  "n": "Aké by Kamakura",
+  "address": "Rue Münster, L-2160 Luxembourg (Grund), Luxembourg",
+  "lat": 49.60895,
+  "lng": 6.136,
+  "confidence": "high",
+  "geoSource": "geocode.xyz address geocode (4 Rue Munster, Grund); cross-checked to Grund/Alzette",
+  "status": "open"
+ },
+ {
+  "n": "Bazaar",
+  "address": "46 Place Guillaume II, L-1648 Luxembourg (Ville Haute), Luxembourg",
+  "lat": 49.6106,
+  "lng": 6.13077,
+  "confidence": "med",
+  "geoSource": "Place Guillaume II square coordinate (Wikidata Q359872); venue #46 on this square (latitude.to satellite value was wrong and discarded)",
+  "status": "open"
+ },
+ {
+  "n": "Les Roses – Casino 2000",
+  "address": "Rue Théodore Flammang, L-5618 Mondorf-les-Bains, Luxembourg",
+  "lat": 49.5076,
+  "lng": 6.2793,
+  "confidence": "med",
+  "geoSource": "Casino 2000 building coordinate (Google Maps cid / virtualglobetrotting), value flagged approximate; restaurant Les Roses is inside the casino (5 Rue Flammang)",
+  "status": "open"
+ },
+ {
+  "n": "Les Jardins d'Anaïs",
+  "address": "Place Sainte-Cunégonde, Luxembourg City (Clausen), Luxembourg",
+  "lat": 49.61569,
+  "lng": 6.14321,
+  "confidence": "med",
+  "geoSource": "Place Sainte-Cunégonde coordinate (geocode.xyz, #21 on square); venue at 2 Place Sainte-Cunégonde, Clausen",
+  "status": "open"
+ },
+ {
+  "n": "La Villa de Camille et Julien",
+  "address": "Belair, Luxembourg City, Luxembourg",
+  "lat": 49.608705,
+  "lng": 6.151096,
+  "confidence": "high",
+  "geoSource": "official site lavilla.lu 'getting here' page — venue is now 5 Rue de Pulvermuehl L-2356 (Pulvermühl), NOT Belair; worklist address is stale",
+  "status": "open"
+ },
+ {
+  "n": "Guillou Campagne",
+  "address": "17 Rue de la Résistance, L-4996 Schouweiler, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "geoportail.lu address page for 17 Rue de la Résistance, Schouweiler exists but no venue decimal was extractable; only Schouweiler village (not venue-precise)",
+  "status": "open"
+ },
+ {
+  "n": "Parc Le'h",
+  "address": "Parc Le'h, Dudelange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "venue is 1 Rue de la Forêt, L-3471 Dudelange (Waze/geoportail confirm address) but no venue decimal was extractable; only Dudelange town (not venue-precise)",
+  "status": "open"
+ },
+ {
+  "n": "TWO6TWO",
+  "address": "Route d'Arlon, L-8010 Strassen, Luxembourg",
+  "lat": 49.622616,
+  "lng": 6.056442,
+  "confidence": "high",
+  "geoSource": "venue coordinate — TWO6TWO is inside the Smets store, 262 Route d'Arlon (Smets store-locator/yellow directory); TripAdvisor flags 'temporarily closed'",
+  "status": "open"
+ },
+ {
+  "n": "La Rameaudière",
+  "address": "10 Rue de la Gare, L-5690 Ellange, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address 10 Rue de la Gare (former Ellange-Gare station) confirmed, but no venue decimal was extractable; only Ellange village (not venue-precise)",
+  "status": "open"
+ },
+ {
+  "n": "Um Plateau",
+  "address": "6 Plateau Altmünster, L-1123 Luxembourg (Clausen), Luxembourg",
+  "lat": 49.6121,
+  "lng": 6.13836,
+  "confidence": "med",
+  "geoSource": "Montée de Clausen OSM coordinate (geoview.info), immediately adjacent to Plateau Altmünster #6; geoportail address page for #6 exists",
+  "status": "open"
+ },
+ {
+  "n": "Brasserie du Cercle",
+  "address": "Place d'Armes, L-1136 Luxembourg (Ville Haute), Luxembourg",
+  "lat": 49.611372,
+  "lng": 6.128958,
+  "confidence": "med",
+  "geoSource": "Place d'Armes square coordinate (Wikidata Q1414793); Brasserie/Cercle Cité fronts this square",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Koeppchen",
+  "address": "9 Berreggaass, L-5485 Wormeldange-Haut, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address 9 Berreggaass, Wormeldange-Haut confirmed (Google place indexed) but no venue decimal extractable; only Wormeldange town centroid (49.6111,6.4056) — venue sits on the Wormerberg hill above, so centroid rejected",
+  "status": "open"
+ },
+ {
+  "n": "Radici",
+  "address": "6 Rue du Fort Niedergrünewald, L-2226 Luxembourg (Kirchberg), Luxembourg",
+  "lat": 49.62059,
+  "lng": 6.144171,
+  "confidence": "high",
+  "geoSource": "address coordinate for 6 Rue du Fort Niedergruenewald = Sofitel Luxembourg Europe (Radici is the Sofitel's restaurant), Kirchberg",
+  "status": "open"
+ },
+ {
+  "n": "Bloom Specialty Coffee",
+  "address": "101 Rue Adolphe Fischer, L-1521 Luxembourg (Gare), Luxembourg",
+  "lat": 49.600624,
+  "lng": 6.128178,
+  "confidence": "high",
+  "geoSource": "maps.me cafe pin (Bloom, 101 Rue Adolphe Fischer, Place de la Gare); cross-checked to Gare district",
+  "status": "open"
+ },
+ {
+  "n": "Knopes Coffee Roasters",
+  "address": "Hollerich, Luxembourg City, Luxembourg",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "venue is Café Knopes, 70 Route d'Esch, L-1470 Hollerich (geoportail address page exists) but no venue decimal was extractable; only Hollerich district (not venue-precise)",
+  "status": "open"
+ },
+ {
+  "n": "Vins Fins",
+  "address": "Grund, Luxembourg City, Luxembourg",
+  "lat": 49.60905,
+  "lng": 6.1361,
+  "confidence": "med",
+  "geoSource": "Rue Münster, Grund — bracketed by adjacent sourced house pins (Mosconi #13 = 49.608972,6.135806; Aké #4 = 49.60895,6.136); venue is 18 Rue Münster",
+  "status": "open"
+ },
+ {
+  "n": "Lisboa II",
+  "address": "90 Dernier Sol, L-2543 Luxembourg (Bonnevoie), Luxembourg",
+  "lat": 49.595238,
+  "lng": 6.1366477,
+  "confidence": "high",
+  "geoSource": "venue coordinate (90 Dernier Sol, Bonnevoie) via findlatitudeandlongitude/maps; cross-checked to south Bonnevoie",
+  "status": "open"
+ },
+ {
+  "n": "Madeira Stuff",
+  "address": "Ville Haute, Luxembourg City, Luxembourg",
+  "lat": 49.61554,
+  "lng": 6.13056,
+  "confidence": "med",
+  "geoSource": "venue is 2-4 Rue du Pont, Pfaffenthal; coordinate is the Pfaffenthal panoramic elevator at 2 Rue du Pont (adjacent landmark, same address block). NB: actual district is Pfaffenthal, not Ville Haute",
+  "status": "open"
+ },
+ {
+  "n": "Genaveh",
+  "address": "Luxembourg City, Luxembourg",
+  "lat": 49.61108,
+  "lng": 6.12807,
+  "confidence": "med",
+  "geoSource": "Chocolaterie Genaveh, 1 Rue Philippe II, L-2340 (Ville Haute); Rue Philippe-II street coordinate (Wikidata Q61123310), venue #1",
+  "status": "open"
+ },
+ {
+  "n": "Chocolate House Nathalie Bonn",
+  "address": "Rue du Marché-aux-Herbes, L-1728 Luxembourg (Ville Haute), Luxembourg",
+  "lat": 49.61056,
+  "lng": 6.1325,
+  "confidence": "med",
+  "geoSource": "Rue du Marché-aux-Herbes / Krautmaart street coordinate; venue is #20, directly opposite the Grand Ducal Palace",
+  "status": "open"
+ },
+ {
+  "n": "Nanban",
+  "address": "Rue Sainte-Zithe, L-2763 Luxembourg (Gare), Luxembourg",
+  "lat": 49.604735,
+  "lng": 6.127877,
+  "confidence": "med",
+  "geoSource": "Rue Sainte-Zithe street coordinate (Google Maps /@ pin, 49.604735,6.127877); venue is 29 Rue Sainte-Zithe",
+  "status": "open"
+ },
+ {
+  "n": "Kaito",
+  "address": "Place de Paris, L-2314 Luxembourg (Gare), Luxembourg",
+  "lat": 49.6042,
+  "lng": 6.1322,
+  "confidence": "med",
+  "geoSource": "Rue du Fort Elisabeth street coordinate (Gare, off Place de Paris); venue is Kaito ramen, 29 Rue du Fort Elisabeth",
+  "status": "open"
+ },
+ {
+  "n": "Munchies Burger",
+  "address": "Luxembourg City, Luxembourg",
+  "lat": 49.611,
+  "lng": 6.1286,
+  "confidence": "med",
+  "geoSource": "venue is 12 Rue Chimay, L-1333 Ville-Haute (geoportail #12 confirmed); point bracketed by adjacent sourced anchors Place d'Armes (49.6114,6.1290) and Rue Philippe II (49.6111,6.1281)",
+  "status": "open"
+ },
+ {
+  "n": "Kicheneck",
+  "address": "Limpertsberg, Luxembourg City, Luxembourg",
+  "lat": 49.62038,
+  "lng": 6.11935,
+  "confidence": "med",
+  "geoSource": "venue is 66 Avenue Pasteur, Limpertsberg; geocode.xyz #64 Avenue Pasteur = 49.62038,6.11935 (adjacent house to #66)",
+  "status": "open"
+ },
+ {
+  "n": "Mr Mai",
+  "address": "2 Place Léon XIII, L-1929 Luxembourg (Bonnevoie), Luxembourg",
+  "lat": 49.59681,
+  "lng": 6.13754,
+  "confidence": "high",
+  "geoSource": "venue coordinate (2 Place Léon XIII, Bonnevoie) via maps/tripexpress; cross-checked to Bonnevoie (Place Léon XIII)",
+  "status": "open"
+ },
+ {
+  "n": "Um Dierfgen",
+  "address": "4-6 Côte d'Eich, 1450 Luxembourg, Luxembourg",
+  "lat": 49.62286,
+  "lng": 6.13036,
+  "confidence": "med",
+  "geoSource": "maps.me-derived venue coordinate for 4-6 Côte d'Eich; grade capped at med because placement could not be independently cross-checked (possible northward offset along Côte d'Eich)",
+  "status": "open"
+ }
+]

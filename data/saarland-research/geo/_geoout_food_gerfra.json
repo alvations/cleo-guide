@@ -1,0 +1,353 @@
+[
+ {
+  "n": "Waldhotel Sonnora",
+  "address": "Auf'm Eichelfeld 1, 54518 Dreis, Germany",
+  "lat": 49.93788,
+  "lng": 6.81117,
+  "confidence": "high",
+  "geoSource": "WorldPlaces venue page (germany.worldplaces.me/places-in-dreis/3770566-waldhotel-sonnora) - OSM-derived venue coordinate stated in page text",
+  "status": "open"
+ },
+ {
+  "n": "Gourmetrestaurant anno 1640 (Märchenhotel)",
+  "address": "Kallenfelsstraße 25-27, 54470 Bernkastel-Kues, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Märchenhotel, Kallenfelsstraße 25-27) via rlp-tourismus / maerchenhotel.com, but no venue-level coordinate surfaced; only Bernkastel-Kues town centroid available - not accepted",
+  "status": "open"
+ },
+ {
+  "n": "Weinwirtschaft Friedrich-Wilhelm",
+  "address": "Weberbach 75, 54290 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue-level coordinate surfaced (WebSearch snippet-only; no mapcarta/OSM/WorldPlaces node returned)",
+  "status": "open"
+ },
+ {
+  "n": "Weingut & Weinstube Deutschherrenhof",
+  "address": "Olewiger Straße 181, 54295 Trier, Germany",
+  "lat": 49.74354,
+  "lng": 6.6656,
+  "confidence": "high",
+  "geoSource": "Mapcarta OSM node (way W549313820, 'Weingut Deutschherrenhof', Trier-Olewig) - coordinate read from mapcarta page",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Terges",
+  "address": "Olewiger Straße 145, 54295 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No own venue node surfaced; only nearby-anchor estimates in Trier-Olewig (~49.743, 6.663 near Deutschherrenhof/Entfaltungsraum) - too imprecise to record",
+  "status": "open"
+ },
+ {
+  "n": "Café & Konditorei Razen",
+  "address": "Sichelstraße 26, 54290 Trier, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Sichelstraße 26, cafe-razen.de) but no venue-level coordinate surfaced",
+  "status": "open"
+ },
+ {
+  "n": "Mosel-Vinothek im St.-Nikolaus-Hospital",
+  "address": "Cusanusstraße 2, 54470 Bernkastel-Kues, Germany",
+  "lat": 49.916231,
+  "lng": 7.071113,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'St. Nikolaus-Hospital / Cusanusstift' (the venue building at Cusanusstraße 2) - published WGS84 coordinate",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Rebenhof (Rieslingmanufaktur)",
+  "address": "Hüwel 3a, 54539 Ürzig, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (Hüwel 2-3/3a Ürzig, rebenhof.de) but no venue-level coordinate surfaced; only Ürzig town centroid - not accepted",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Reuscher-Haart",
+  "address": "St.-Michael-Straße 22, 54498 Piesport, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Located ~210 m E of St. Michael church Piesport per mapcarta, but no own venue coordinate surfaced - too imprecise to record",
+  "status": "open"
+ },
+ {
+  "n": "Rainer's Restaurant Alte Thorschenke",
+  "address": "Brückenstraße, 56812 Cochem, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Historic hotel confirmed at Brückenstraße 3, Cochem (Wikipedia file/Kulturdenkmal list) but no venue-level coordinate surfaced in snippets",
+  "status": "open"
+ },
+ {
+  "n": "Vinothek Zeller Schwarze Katz",
+  "address": "Balduinstraße 44, 56856 Zell (Mosel), Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced (mapcarta returned only Zell town/fountain 'Schwarze Katz Brunnen', not the vinothek)",
+  "status": "open"
+ },
+ {
+  "n": "Saarburger Hof Weinstube",
+  "address": "Graf-Siegfried-Straße 28, 54439 Saarburg, Germany",
+  "lat": 49.60832,
+  "lng": 6.54917,
+  "confidence": "high",
+  "geoSource": "Mapcarta OSM node (way W194174992, 'Saarburger Hof' hotel, Saarburg) - coordinate read from mapcarta page",
+  "status": "open"
+ },
+ {
+  "n": "La Bastille",
+  "address": "Kronenstraße 1b, 66119 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced on mapcarta/WorldPlaces",
+  "status": "open"
+ },
+ {
+  "n": "Kalinski Wurstwirtschaft & Gin Bar",
+  "address": "Kaltenbachstraße 4, 66111 Saarbrücken, Germany",
+  "lat": 49.23329,
+  "lng": 6.99624,
+  "confidence": "med",
+  "geoSource": "Mapcarta Kaltenbachstraße street node (W67711898) - coordinate of the short street the venue (No. 4) sits on; not the exact house pin",
+  "status": "open"
+ },
+ {
+  "n": "Henry's Eismanufaktur",
+  "address": "Kappengasse 1, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced (mapcarta/WorldPlaces returned no coordinate for the venue)",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Quack in der Villa Weismüller",
+  "address": "Gersweiler Straße 43a, 66117 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue-level coordinate surfaced",
+  "status": "open"
+ },
+ {
+  "n": "Ratskeller Saarbrücken",
+  "address": "Rathausplatz 1, 66111 Saarbrücken, Germany",
+  "lat": 49.2344,
+  "lng": 6.9955,
+  "confidence": "high",
+  "geoSource": "Wikidata Q2132615 'Rathaus St. Johann' (Rathausplatz 1) - the town-hall building housing the Ratskeller; published coordinate 49.23443, 6.99553",
+  "status": "open"
+ },
+ {
+  "n": "Café Kostbar",
+  "address": "Nauwieserstraße 19, 66111 Saarbrücken, Germany",
+  "lat": 49.23586,
+  "lng": 7.00095,
+  "confidence": "high",
+  "geoSource": "Mapcarta OSM node (way W338070457, 'Kultur- und Werkhof Nauwieser 19') = the Nauwieserstraße 19 building the cafe occupies - coordinate read from mapcarta page",
+  "status": "open"
+ },
+ {
+  "n": "LUUC Café Deli Wein",
+  "address": "Türkenstraße 17, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Not searched successfully before WebSearch budget exhausted; no coordinate on hand",
+  "status": "open"
+ },
+ {
+  "n": "Ristorante Roma",
+  "address": "Hafenstraße 12, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced (mapcarta/WorldPlaces returned no coordinate for the venue; only nearby Congresshalle/Hafenstraße hotels)",
+  "status": "open"
+ },
+ {
+  "n": "Pizza Gotti",
+  "address": "Mainzer Straße 8, 66111 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced",
+  "status": "open"
+ },
+ {
+  "n": "Weingut Ökonomierat Petgen-Dahm",
+  "address": "Winzerstraße 3-7, 66706 Perl-Sehndorf, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Mapcarta has a different winery ('Weingut Karl Petgen' W673560370) at Sehndorf, not Petgen-Dahm; no coordinate for this specific estate surfaced",
+  "status": "open"
+ },
+ {
+  "n": "Unter der Linde",
+  "address": "St. Arnualer Markt 8, 66119 Saarbrücken, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Venue is on St. Arnualer Markt (near Stiftskirche St. Arnual), but no own venue coordinate surfaced - too imprecise to record",
+  "status": "open"
+ },
+ {
+  "n": "La Maison dans le Parc",
+  "address": "3 Rue Sainte-Catherine, 54000 Nancy, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (3 rue Sainte-Catherine, Michelin/mappy POI) but coordinate not exposed in snippet text; mappy/BAN coords are in JS map only",
+  "status": "open"
+ },
+ {
+  "n": "Maison des Sœurs Macarons",
+  "address": "21 Rue Gambetta, 54000 Nancy, France",
+  "lat": 48.69246,
+  "lng": 6.18146,
+  "confidence": "high",
+  "geoSource": "mappy POI (fr.mappy.com/poi/4d6c96d1fc692507e11611d7) / pagesjaunes for 21 rue Gambetta - coordinate stated in result text",
+  "status": "open"
+ },
+ {
+  "n": "Lefèvre-Lemoine",
+  "address": "47 Rue Henri Poincaré, 54000 Nancy, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed and present in BAN (adresse.data.gouv.fr id 54395_2640_00047) but coordinate not exposed in snippet text (BAN coord is in interactive map only)",
+  "status": "open"
+ },
+ {
+  "n": "Bistrot Gros",
+  "address": "18 Rue de la Source, 54000 Nancy, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (18 rue de la Source, Michelin/mappy POI) but coordinate not exposed in snippet text",
+  "status": "open"
+ },
+ {
+  "n": "Cave Historique des Hospices de Strasbourg",
+  "address": "1 Place de l'Hôpital, 67000 Strasbourg, France",
+  "lat": 48.576822,
+  "lng": 7.748626,
+  "confidence": "high",
+  "geoSource": "mappy POI (fr.mappy.com/poi/512ec73784aee927f3e3f076) + fr.wikipedia 'Cave historique des hospices de Strasbourg' (1 place de l'Hôpital) - coordinate stated in result text",
+  "status": "open"
+ },
+ {
+  "n": "Brasserie des Arts et Métiers",
+  "address": "2 bis Rue Gambetta, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (2 bis rue Gambetta, mappy POI/tourisme-metz) but coordinate not exposed in snippet text",
+  "status": "open"
+ },
+ {
+  "n": "Pâtisserie Claude Bourguignon",
+  "address": "31 Rue de la Tête d'Or, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue-level coordinate surfaced",
+  "status": "open"
+ },
+ {
+  "n": "Yozora",
+  "address": "1 Parvis des Droits de l'Homme, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Venue is inside Centre Pompidou-Metz (parvis des Droits-de-l'Homme; Centre Pompidou-Metz ~49.1082, 6.18158) but no own venue coordinate surfaced - not recorded as an estimate",
+  "status": "open"
+ },
+ {
+  "n": "83 Restaurant",
+  "address": "83 Rue Mazelle, 57000 Metz, France",
+  "lat": 49.11518,
+  "lng": 6.18390,
+  "confidence": "high",
+  "geoSource": "aroundus.com venue page 'Le 83' (Outre-Seille, Metz; 83 rue Mazelle) - coordinate stated in result text",
+  "status": "open"
+ },
+ {
+  "n": "La Quille",
+  "address": "27 Place de Chambre, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Place de Chambre is beside Metz Cathedral (~49.1202, 6.1756) but no own venue coordinate surfaced - not recorded as an estimate",
+  "status": "open"
+ },
+ {
+  "n": "Trattoria La Cantinetta",
+  "address": "3 Rue du Champé, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced on mapcarta for rue du Champé, Metz",
+  "status": "open"
+ },
+ {
+  "n": "Osteria dei Sapori",
+  "address": "19 Rue Dupont des Loges, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (19 rue Dupont des Loges, mappy POI/pagesjaunes) but coordinate not exposed in snippet text",
+  "status": "open"
+ },
+ {
+  "n": "Ar Preti",
+  "address": "2 Rue du Moyen Pont, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Address confirmed (2 rue du Moyen Pont, mappy POI/Tripadvisor) but coordinate not exposed in snippet text",
+  "status": "open"
+ },
+ {
+  "n": "Chocolaterie Pâtisserie Maison Caffet",
+  "address": "17 Rue du Grand Cerf, 57000 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue node surfaced on mapcarta for rue du Grand Cerf, Metz",
+  "status": "open"
+ },
+ {
+  "n": "Chocolaterie Fabrice Dumay",
+  "address": "138 Rue de Vallières, 57070 Metz, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "No venue-level coordinate surfaced",
+  "status": "open"
+ },
+ {
+  "n": "Lefèvre-Lemoine (Au Duché de Lorraine)",
+  "address": "47 Rue Henri-Poincaré, 54000 Nancy, France",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Same venue/address as 'Lefèvre-Lemoine' (47 rue Henri Poincaré); address in BAN (54395_2640_00047) but coordinate not exposed in snippet text",
+  "status": "open"
+ }
+]
