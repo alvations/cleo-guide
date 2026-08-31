@@ -48,6 +48,13 @@ Gault&Millau, a national monument/museum). Credible, native-language, for this r
 - **LU:** Luxembourg Times, RTL Lëtzebuerg, Le Quotidien, Visit Luxembourg, Michelin Luxembourg.
 - **Cross-border / European broadcast:** Grande Région / Greater Region tourism, **DW Travel (Deutsche
   Welle)**, **ARTE**, **SWR / SR Fernsehen**, 3sat, euronews.
+- **US/international travel sources that genuinely cover THIS region (reuse them — some are the same
+  outlets vetted for the US cities):** **Rick Steves** (the definitive US-authored Europe authority —
+  Alsace/Mosel/Luxembourg/Trier), **Atlas Obscura**, **Lonely Planet**, **Time Out** (it runs city
+  editions — check for Strasbourg/Luxembourg/Metz), **Culture Trip**, **Fodor's**, **Frommer's**,
+  **National Geographic**, **CNN Travel**, **Condé Nast Traveler**, **US News Travel**, **The Points Guy**
+  (destination pieces). Use one where it names a specific place; it counts as a credible source toward the
+  ≥2 bar (still not a lone recommender unless it's Michelin/UNESCO/Gault&Millau). Register any you use.
 - **Local university & campus sources (authentic student-local recommendations):** **Universität des
   Saarlandes** & **htw saar** (Saarbrücken), **Universität / Hochschule Trier**, **University of
   Luxembourg**, **Université de Lorraine (Metz)** — their student-life pages, "was tun in Saarbrücken /
