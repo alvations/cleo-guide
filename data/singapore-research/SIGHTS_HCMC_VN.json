@@ -1,0 +1,476 @@
+{
+  "sources": [
+    { "key": "WIKIVI", "name": "Wikipedia tiếng Việt", "url": "https://vi.wikipedia.org/" },
+    { "key": "ENWIKI", "name": "Wikipedia (English)", "url": "https://en.wikipedia.org/" },
+    { "key": "BAOXAYDUNG", "name": "Báo Xây Dựng", "url": "https://baoxaydung.vn/" },
+    { "key": "VNEXPRESS", "name": "VnExpress", "url": "https://vnexpress.net/" },
+    { "key": "TUOITRE", "name": "Tuổi Trẻ", "url": "https://tuoitre.vn/" },
+    { "key": "THANHNIEN", "name": "Thanh Niên", "url": "https://thanhnien.vn/" },
+    { "key": "VIETNAMNET", "name": "VietnamNet", "url": "https://vietnamnet.vn/" },
+    { "key": "DANTRI", "name": "Báo Dân trí", "url": "https://dantri.com.vn/" },
+    { "key": "PLO", "name": "Pháp Luật TP.HCM", "url": "https://plo.vn/" },
+    { "key": "NLD", "name": "Người Lao Động", "url": "https://nld.com.vn/" },
+    { "key": "TIENPHONG", "name": "Tiền Phong", "url": "https://tienphong.vn/" },
+    { "key": "ZNEWS", "name": "ZNews (Zing)", "url": "https://znews.vn/" },
+    { "key": "VOV", "name": "Đài Tiếng nói Việt Nam (VOV)", "url": "https://vov.vn/" },
+    { "key": "VNANET", "name": "Thông tấn xã Việt Nam (VNA/vnanet)", "url": "https://vietnam.vnanet.vn/" },
+    { "key": "NHANDAN", "name": "Báo Nhân Dân", "url": "https://nhandan.vn/" },
+    { "key": "KENH14", "name": "Kênh14", "url": "https://kenh14.vn/" },
+    { "key": "VIETNAMPLUS", "name": "VietnamPlus (TTXVN)", "url": "https://www.vietnamplus.vn/" },
+    { "key": "CAND", "name": "Công an Nhân dân", "url": "https://cand.com.vn/" },
+    { "key": "DANGCONGSAN", "name": "Báo điện tử Đảng Cộng sản Việt Nam", "url": "https://dangcongsan.vn/" },
+    { "key": "DANVIET", "name": "Báo Dân Việt", "url": "https://danviet.vn/" },
+    { "key": "VIETNAMTOURISM", "name": "Cục Du lịch Quốc gia Việt Nam (official)", "url": "https://vietnamtourism.gov.vn/" },
+    { "key": "HCMCPV", "name": "Thành ủy TP.HCM (official)", "url": "https://hcmcpv.org.vn/" },
+    { "key": "TTBCHCM", "name": "Trung tâm Báo chí TP.HCM (official)", "url": "https://ttbc-hcm.gov.vn/" },
+    { "key": "SCOV", "name": "Ủy ban Nhà nước về người VN ở nước ngoài (official)", "url": "https://scov.gov.vn/" },
+    { "key": "DULICHBINHDUONG", "name": "Sở Du lịch Bình Dương (official)", "url": "https://dulichbinhduong.org.vn/" },
+    { "key": "THUDUCGOV", "name": "Cổng du lịch TP. Thủ Đức (official)", "url": "https://dulich-tpthuduc.hochiminhcity.gov.vn/" }
+  ],
+  "sights": [
+    {
+      "n": "Đảo Thạnh An (Thanh An Island)",
+      "t": 2,
+      "a": "VN",
+      "address": "Xã Thạnh An, huyện Cần Giờ, Ho Chi Minh City, Vietnam",
+      "w": "The city's only island commune — a ~5,000-person fishing settlement over 70 km east of downtown, reached only by boat from Cần Thạnh pier (10,000đ). No marquee sights, and that is the appeal: sea-breeze kè walks, kayaking the mangroves, salt fields, night squid-fishing and cheap seafood make it the closest thing HCMC has to a slow coastal getaway.",
+      "k": "Island / getaway",
+      "g": ["MARITIME", "ODD"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/du-lich/thanh-an-dao-nho-yen-binh-o-tp-hcm-3295243.html"],
+        ["VNEXPRESS", "https://vnexpress.net/cam-nang-du-lich-can-gio-4673430.html"]
+      ]
+    },
+    {
+      "n": "Chùa Hoằng Pháp (Hoang Phap Temple)",
+      "t": 1,
+      "a": "VN",
+      "address": "Xã Tân Hiệp, huyện Hóc Môn, Ho Chi Minh City, Vietnam",
+      "w": "Founded 1957 on ~6 ha in suburban Hóc Môn, this is regarded as the largest Buddhist practice-and-teaching center in Vietnam, with 50+ affiliated branches. Famous for its mass seven-day meditation retreats and student/summer courses; on Vu Lan and Tết it draws enormous crowds. Northern-Buddhist double-tiered tile roofs and a serene bougainvillea-lined forecourt.",
+      "k": "Temple",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Ho%E1%BA%B1ng_Ph%C3%A1p"],
+        ["ENWIKI", "https://en.wikipedia.org/wiki/Ho%E1%BA%B1ng_Ph%C3%A1p_Temple"]
+      ]
+    },
+    {
+      "n": "Chùa núi Châu Thới (Chau Thoi Mountain Temple)",
+      "t": 1,
+      "a": "VN",
+      "address": "Phường Bình An, TP. Dĩ An, Bình Dương, Vietnam",
+      "w": "The oldest temple in Bình Dương (founded 1612) and one of the earliest in the whole south, perched atop an 82 m granite hill reached by a 220-step stone stair. A national scenic-landmark since 1989, with a 'sacred rock', panoramic views over the Đồng Nai plain and coiled-dragon rooflines — an easy ~40-minute pilgrimage day-trip from the city.",
+      "k": "Temple / mountain",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/N%C3%BAi_Ch%C3%A2u_Th%E1%BB%9Bi"],
+        ["THANHNIEN", "https://thanhnien.vn/binh-duong-doc-dao-ngoi-chua-400-nam-tuoi-tren-dinh-nui-185241208104511153.htm"],
+        ["VIETNAMNET", "https://vietnamnet.vn/ngoi-chua-chau-thoi-400-nam-tuoi-co-hon-da-than-tren-dinh-nui-o-binh-duong-2215451.html"]
+      ]
+    },
+    {
+      "n": "Chùa Hội Khánh (Hoi Khanh Temple)",
+      "t": 2,
+      "a": "VN",
+      "address": "Phường Phú Cường, TP. Thủ Dầu Một, Bình Dương, Vietnam",
+      "w": "A near-300-year-old temple (founded 1741) in Thủ Dầu Một crowned by a 52 m-long, 12 m-high reclining Buddha completed in 2013 and recognized by Asia Records as the longest rooftop nirvana Buddha in Asia — set 23 m up on the roof, with 20 relief panels of the Buddha's life below. A serene old-Bình Dương compound of carved wood and lacquer.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/ngoi-chua-gan-300-tuoi-co-tuong-phat-nam-dai-nhat-viet-nam-3754188.html"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_H%E1%BB%99i_Kh%C3%A1nh"]
+      ]
+    },
+    {
+      "n": "Phố lồng đèn Lương Nhữ Học (Lantern Street)",
+      "t": 1,
+      "a": "VN",
+      "address": "Đường Lương Nhữ Học, Quận 5, Ho Chi Minh City, Vietnam",
+      "w": "The largest lantern street in the city — a few hundred metres of Lương Nhữ Học between Nguyễn Trãi and Trần Hưng Đạo in Chợ Lớn that erupts into a wall of colour every Mid-Autumn. From late in the seventh lunar month, hundreds of stalls hang paper and LED lanterns; from about 7pm it's the single most-photographed check-in spot of the Trung Thu season.",
+      "k": "Street / seasonal check-in",
+      "g": ["ICON", "FREE"],
+      "sources": [
+        ["DANTRI", "https://dantri.com.vn/van-hoa/gioi-tre-do-xo-check-in-pho-long-den-lon-nhat-tphcm-dip-trung-thu-20240827213239707.htm"],
+        ["TIENPHONG", "https://tienphong.vn/gioi-tre-ru-nhau-check-in-tai-pho-long-den-o-tphcm-post1667062.tpo"]
+      ]
+    },
+    {
+      "n": "Cầu Ba Son (Thu Thiem 2 Bridge)",
+      "t": 1,
+      "a": "VN",
+      "address": "Nối Quận 1 với TP. Thủ Đức (sông Sài Gòn), Ho Chi Minh City, Vietnam",
+      "w": "The city's newest icon — a cable-stayed bridge with a single soaring pylon, opened April 2022, linking central District 1 (Mê Linh Square) to the Thủ Thiêm new-urban area. Its artistic night lighting and the riverside park beneath it have made it one of Saigon's most popular sunset and check-in spots on the water.",
+      "k": "Bridge / landmark",
+      "g": ["ICON", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/chu-de/cau-thu-thiem-2-5336"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/C%E1%BA%A7u_Th%E1%BB%A7_Thi%C3%AAm_2"]
+      ]
+    },
+    {
+      "n": "Cầu Mống (Mong Bridge)",
+      "t": 2,
+      "a": "VN",
+      "address": "Nối Quận 1 với Quận 4 (kênh Bến Nghé), Ho Chi Minh City, Vietnam",
+      "w": "One of Saigon's oldest surviving bridges — a 128 m green iron arch built 1893–94 by Levallois-Perret (the old Eiffel firm) over the Bến Nghé canal, sibling in age to Hanoi's Long Biên. The French called it 'Arc-en-ciel' (rainbow); locals named it Cầu Mống for its arch. Ranked among the city's 10 heritage sites in 2015; a quiet evening photo spot.",
+      "k": "Historic bridge",
+      "g": ["HIST", "MARITIME", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/nhung-cay-cau-hon-nua-the-ky-o-sai-gon-3557329.html"],
+        ["VOV", "https://vovgiaothong.vn/newsaudio/cau-mong-di-san-tram-nam-giua-long-pho-thi-d50814.html"]
+      ]
+    },
+    {
+      "n": "Chùa Nam Thiên Nhất Trụ (One Pillar Pagoda of the South)",
+      "t": 2,
+      "a": "VN",
+      "address": "100 Đặng Văn Bi, phường Bình Thọ, TP. Thủ Đức, Ho Chi Minh City, Vietnam",
+      "w": "A 1958-founded southern replica of Hanoi's famous One Pillar Pagoda, rising from a lotus pond on a single reinforced-concrete column with the same curved tiled roof — built so southerners could pay respects to the northern original. Set in a leafy 1-ha compound in Thủ Đức, it is a well-loved pilgrimage and photo stop.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_Nam_Thi%C3%AAn_Nh%E1%BA%A5t_Tr%E1%BB%A5"],
+        ["THUDUCGOV", "https://dulich-tpthuduc.hochiminhcity.gov.vn/"]
+      ]
+    },
+    {
+      "n": "Vườn quốc gia Cát Tiên (Cat Tien National Park)",
+      "t": 1,
+      "a": "VN",
+      "address": "Huyện Tân Phú, Đồng Nai, Vietnam",
+      "w": "A 70,000+ ha tropical-forest reserve and UNESCO World Biosphere ~150 km from the city — the region's marquee nature trip. The Nam Cát Tiên sector holds the trekking trails, Crocodile Lake (Bàu Sấu), the 400-year Tung tree, night wildlife spotting, gibbons and the Dao Tien primate centre. Best in the December–May dry season.",
+      "k": "National park",
+      "g": ["PARK", "ODD"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/V%C6%B0%E1%BB%9Dn_qu%E1%BB%91c_gia_C%C3%A1t_Ti%C3%AAn"],
+        ["VNEXPRESS", "https://vnexpress.net/cam-nang-du-lich-vuon-quoc-gia-cat-tien-4775984.html"]
+      ]
+    },
+    {
+      "n": "Đền thờ Trần Hưng Đạo (Tran Hung Dao Temple)",
+      "t": 2,
+      "a": "VN",
+      "address": "36 Võ Thị Sáu, phường Tân Định, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "A dignified 1932/1958 temple to the national hero Trần Hưng Đạo on a quiet Tân Định block, built by the Bắc Việt mutual-aid society. Curved-tile roofs with dragon-and-phoenix motifs and a triple gate; ranked a city relic, and busiest around the eighth-lunar-month death anniversary of Đức Thánh Trần.",
+      "k": "Temple / historic",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/den-tho-tran-hung-dao-90-nam-tuoi-o-sai-gon-4440770.html"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%81n_th%E1%BB%9D_Tr%E1%BA%A7n_H%C6%B0ng_%C4%90%E1%BA%A1o_(Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh)"]
+      ]
+    },
+    {
+      "n": "Chùa Vạn Đức (Van Duc Temple)",
+      "t": 2,
+      "a": "VN",
+      "address": "234 Tô Ngọc Vân, phường Tam Phú, TP. Thủ Đức, Ho Chi Minh City, Vietnam",
+      "w": "Founded 1954 in Thủ Đức and rebuilt 2004–06 with a main hall soaring 43.5 m — recognized by Vietnam Records as the tallest chánh điện in the country, its interior a single towering vault behind a lotus-and-Bodhi mural. A striking blend of classical and modern Vietnamese Buddhist design ~15 km from downtown.",
+      "k": "Temple",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["THUDUCGOV", "https://dulich-tpthuduc.hochiminhcity.gov.vn/diem-den/diem-vui-choi-giai-tri/ch%C3%B9a-v%E1%BA%A1n-%C4%91%E1%BB%A9c/"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%C3%B9a_V%E1%BA%A1n_%C4%90%E1%BB%A9c"]
+      ]
+    },
+    {
+      "n": "Tu viện Khánh An (Khanh An Monastery)",
+      "t": 2,
+      "a": "VN",
+      "address": "1055/3D Quốc lộ 1A, phường An Phú Đông, Quận 12, Ho Chi Minh City, Vietnam",
+      "w": "A century-old monastery rebuilt over ~10 years (reopened 2016) in a serene Japanese-influenced style — timber and wood-grained structures in white, ochre and red-brown among green courtyards, earning it the nickname 'little Japan' of Saigon. A calm, camera-ready riverside retreat in District 12, busiest on weekends and full-moon days.",
+      "k": "Temple / check-in",
+      "g": ["ICON", "ODD", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/tag/tu-vien-khanh-an-994598"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Tu_vi%E1%BB%87n_Kh%C3%A1nh_An"]
+      ]
+    },
+    {
+      "n": "Nhà thờ Hạnh Thông Tây (Hanh Thong Tay Church)",
+      "t": 2,
+      "a": "VN",
+      "address": "53-55 Quang Trung, Quận Gò Vấp, Ho Chi Minh City, Vietnam",
+      "w": "One of the oldest churches in the city and a rarity in Vietnam — built in Byzantine style (modeled on the Basilica of San Vitale in Ravenna) rather than the usual Gothic, with barrel vaults, a hemispherical dome and mosaic-rich interior. The Gò Vấp parish dates to 1861; the church is a quietly spectacular architecture stop off the tourist trail.",
+      "k": "Church",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["SCOV", "https://scov.gov.vn/dat-nuoc-con-nguoi/dat-nuoc-viet-nam/nha-tho-hanh-thong-tay.html"]
+      ]
+    },
+    {
+      "n": "Công viên Lê Thị Riêng (Le Thi Rieng Park)",
+      "t": 3,
+      "a": "VN",
+      "address": "875 Cách Mạng Tháng Tám, Quận 10, Ho Chi Minh City, Vietnam",
+      "w": "A green, lake-dotted culture park on Cách Mạng Tháng Tám — built in 1983 on the cleared Chí Hòa cemetery — that doubles as a family playground with the 'Thỏ Trắng' rides, pool, weekend magic shows and street-food stalls. Free entry; a local weekend hangout rather than a headline sight.",
+      "k": "Park",
+      "g": ["PARK", "FAM", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/C%C3%B4ng_vi%C3%AAn_V%C4%83n_h%C3%B3a_L%C3%AA_Th%E1%BB%8B_Ri%C3%AAng"],
+        ["TTBCHCM", "https://ttbc-hcm.gov.vn/"]
+      ]
+    },
+    {
+      "n": "Bảo tàng Chiến dịch Hồ Chí Minh (Ho Chi Minh Campaign Museum)",
+      "t": 2,
+      "a": "VN",
+      "address": "2 Lê Duẩn, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "A free military museum set in an early-20th-century French building beside Reunification Palace, opened 1987, devoted to the 1975 Spring Offensive that ended in the fall of Saigon. Maps, sand-table dioramas, weapons and photographs trace the final campaign; a focused complement to the nearby palace and War Remnants Museum.",
+      "k": "Museum",
+      "g": ["MUS", "HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_Chi%E1%BA%BFn_d%E1%BB%8Bch_H%E1%BB%93_Ch%C3%AD_Minh"],
+        ["VIETNAMTOURISM", "https://vietnamtourism.vn/index.php/tourism/items/1892/3"]
+      ]
+    },
+    {
+      "n": "Công viên Gia Định (Gia Dinh Park)",
+      "t": 2,
+      "a": "VN",
+      "address": "Đường Hoàng Minh Giám, Quận Gò Vấp, Ho Chi Minh City, Vietnam",
+      "w": "The largest green space in the city — a ~32 ha park at the meeting point of Gò Vấp, Tân Bình and Phú Nhuận with ~1,000 trees, 63,000 m² of lawn and a big children's play zone, split into Gia Định 1 and 2. The 'green lung' of Saigon: shaded jogging paths, picnics and early-morning tai chi.",
+      "k": "Park",
+      "g": ["PARK", "FAM", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/tp-hcm-chi-hon-74-ty-dong-chinh-trang-cong-vien-gia-dinh-3301111.html"],
+        ["PLO", "https://plo.vn/cong-vien-gia-dinh-tro-thanh-mang-xanh-lon-nhat-tphcm-post450295.html"]
+      ]
+    },
+    {
+      "n": "Bảo tàng Biệt động Sài Gòn - Gia Định (Saigon Special Forces Museum)",
+      "t": 1,
+      "a": "VN",
+      "address": "145 Trần Quang Khải, phường Tân Định, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "Vietnam's only museum dedicated to the Biệt động Sài Gòn (urban commandos), opened August 2023 in a 1963 building that was itself a real commando safehouse run by agent Trần Văn Lai. 300+ artefacts — weapons, letters, vehicles — plus 3D/VR recreations, in a warren of hidden compartments. One of the city's most compelling new small museums.",
+      "k": "Museum",
+      "g": ["MUS", "HIST", "ODD"],
+      "sources": [
+        ["TUOITRE", "https://tuoitre.vn/thanh-lap-bao-tang-biet-dong-sai-gon-gia-dinh-20230827121645044.htm"],
+        ["THANHNIEN", "https://thanhnien.vn/kham-pha-bao-tang-biet-dong-sai-gon-gia-dinh-truoc-ngay-mo-cua-chinh-thuc-185230824104448617.htm"],
+        ["VNEXPRESS", "https://vnexpress.net/bao-tang-biet-dong-sai-gon-ngay-dau-hoat-dong-4646544.html"]
+      ]
+    },
+    {
+      "n": "Hầm vũ khí bí mật Biệt động Sài Gòn (Secret Weapons Bunker)",
+      "t": 1,
+      "a": "VN",
+      "address": "287/70 Nguyễn Đình Chiểu, Quận 3, Ho Chi Minh City, Vietnam",
+      "w": "A narrow alley house where commando Trần Văn Lai secretly dug a bunker that hid ~2 tons of weapons — the cache used to attack Reunification Palace in the 1968 Tết Offensive. A national historical-cultural relic since 1988, now open free: lift the tiled floor hatch to descend into the actual arms cellar. A remarkable, little-known 'red address'.",
+      "k": "Historic site",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["TUOITRE", "https://tuoitre.vn/plo/can-ham-bi-mat-cua-biet-dong-sai-gon-thu-hut-khach-tham-quan-dip-le-30-4-109906561.htm"],
+        ["VIETNAMNET", "https://vietnamnet.vn/can-ham-bi-mat-chua-gan-2-tan-vu-khi-giua-long-tp-hcm-2136280.html"]
+      ]
+    },
+    {
+      "n": "Bảo tàng Lực lượng vũ trang miền Đông Nam Bộ (Southeast Armed Forces Museum)",
+      "t": 2,
+      "a": "VN",
+      "address": "247 Hoàng Văn Thụ, Quận Tân Bình, Ho Chi Minh City, Vietnam",
+      "w": "A 22,000 m² war museum on a former US field-hospital site in Tân Bình, established 1988, with 5,000+ artefacts and a big outdoor park of tanks, aircraft and artillery spanning the French, American and Cambodian-border wars. Vietnam's only member of the International Network of Peace Museums; free and popular with school groups.",
+      "k": "Museum",
+      "g": ["MUS", "HIST", "FAM", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_L%E1%BB%B1c_l%C6%B0%E1%BB%A3ng_V%C5%A9_trang_mi%E1%BB%81n_%C4%90%C3%B4ng_Nam_B%E1%BB%99"],
+        ["VIETNAMTOURISM", "https://vietnamtourism.gov.vn/"]
+      ]
+    },
+    {
+      "n": "Làng sơn mài Tương Bình Hiệp (Tuong Binh Hiep Lacquer Village)",
+      "t": 2,
+      "a": "VN",
+      "address": "Phường Tương Bình Hiệp, TP. Thủ Dầu Một, Bình Dương, Vietnam",
+      "w": "The near-300-year cradle of Bình Dương's fine-art lacquerware, recognized in 2016 as a National Intangible Cultural Heritage. Family workshops still build up gold-leaf and inlay lacquer over many painstaking layers; a living craft-village visit ~30 km from the city, best paired with Thủ Dầu Một's temples.",
+      "k": "Craft village",
+      "g": ["CRAFT", "HIST"],
+      "sources": [
+        ["NHANDAN", "https://nhandan.vn/bao-ton-lang-nghe-son-mai-truyen-thong-o-binh-duong-post782943.html"],
+        ["DULICHBINHDUONG", "https://dulichbinhduong.org.vn/du-lich/nghe-son-mai-tuong-binh-hiep-tpthu-dau-mot-di-san-van-hoa-phi-vat-the-quoc-gia/ct"],
+        ["VNANET", "https://vietnam.vnanet.vn/vietnamese/long-form/lang-tuong-binh-hiep-%E2%80%93-cai-noi-nghe-son-mai-binh-duong-316334.html"]
+      ]
+    },
+    {
+      "n": "Làng bưởi Tân Triều (Tan Trieu Pomelo Village)",
+      "t": 2,
+      "a": "VN",
+      "address": "Cù lao Tân Triều, xã Tân Bình, huyện Vĩnh Cửu, Đồng Nai, Vietnam",
+      "w": "A river islet ~40 km from the city famed for its 'orange-leaf' pomelos — thin-skinned, sweet, faintly bitter aftertaste. A model community farm-tourism village where you pick fruit in the orchards and eat a whole pomelo-themed menu (pomelo salad, pomelo wine); Đồng Nai is developing it as a signature agri-tourism destination.",
+      "k": "Craft / eco village",
+      "g": ["CRAFT", "FAM"],
+      "sources": [
+        ["VIETNAMNET", "https://vietnamnet.vn/dong-nai-sap-bien-cu-lao-buoi-tan-trieu-thanh-diem-du-lich-hap-dan-2258195.html"],
+        ["VNANET", "https://vietnam.vnanet.vn/vietnamese/long-form/vang-danh-buoi-tan-trieu-353832.html"]
+      ]
+    },
+    {
+      "n": "Chợ Kim Biên (Kim Bien Market)",
+      "t": 3,
+      "a": "VN",
+      "address": "37 Vạn Tượng, Quận 5, Ho Chi Minh City, Vietnam",
+      "w": "The city's notorious 'chemical market' in Chợ Lớn — a 525-stall wholesale hub famous for solvents, fragrances, food flavourings and cleaning agents, alongside electronics and cosmetics. Founded in the 1960s and largely Chinese-run, it's a raw slice of working Saigon commerce rather than a pretty stop; go to observe, not to shop.",
+      "k": "Market",
+      "g": ["MKT", "ODD"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/Ch%E1%BB%A3_Kim_Bi%C3%AAn"],
+        ["TIENPHONG", "https://tienphong.vn/cho-tu-than-kim-bien-nhon-nhip-giua-sai-gon-post892532.tpo"]
+      ]
+    },
+    {
+      "n": "Tuyến Metro số 1 Bến Thành - Suối Tiên (Metro Line 1)",
+      "t": 1,
+      "a": "VN",
+      "address": "Tuyến Bến Thành (Quận 1) – Suối Tiên (TP. Thủ Đức), Ho Chi Minh City, Vietnam",
+      "w": "The city's first metro, opened 22 December 2024 after more than a decade of building — and an instant 'triệu-like' check-in phenomenon in its own right. The Bến Thành underground hall's lotus-shaped skylight and the elevated An Phú and Thảo Điền stations (sunset views over Thủ Đức) are the most-photographed spots; ride it as an attraction, not just transport.",
+      "k": "Metro / check-in",
+      "g": ["ICON", "FREE"],
+      "sources": [
+        ["VIETNAMNET", "https://vietnamnet.vn/metro-ben-thanh-suoi-tien-ram-rap-chay-thu-thieu-nu-hao-hung-check-in-2351594.html"],
+        ["TUOITRE", "https://tuoitre.vn/nld/video-ga-metro-so-1-tro-thanh-diem-check-in-trieu-like-cua-gioi-tre-196241227143259305.htm"]
+      ]
+    },
+    {
+      "n": "Cột cờ Thủ Ngữ (Thu Ngu Flagpole)",
+      "t": 2,
+      "a": "VN",
+      "address": "Đường Tôn Đức Thắng (bến Bạch Đằng), Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "A 160-year-old signal mast ('Mât des Signaux', 1865) at the meeting of the Saigon River and Bến Nghé canal, once used to signal ships in and out of the port. Restored and reopened in 2021 and ranked a city relic (2016), it anchors a riverfront heritage cluster with Bến Nhà Rồng and Cầu Mống on the Bạch Đằng promenade.",
+      "k": "Historic landmark",
+      "g": ["HIST", "MARITIME", "FREE"],
+      "sources": [
+        ["VOV", "https://vov.vn/du-lich/tphcm-hoan-tat-trung-tu-di-tich-cot-co-thu-ngu-828574.vov"],
+        ["DANTRI", "https://dantri.com.vn/du-lich/dien-mao-moi-cua-cot-co-thu-ngu-tren-ben-bach-dang-20210109023929819.htm"]
+      ]
+    },
+    {
+      "n": "Chợ Bà Hoa (Ba Hoa Market)",
+      "t": 3,
+      "a": "VN",
+      "address": "Đường Trần Mai Ninh, Quận Tân Bình, Ho Chi Minh City, Vietnam",
+      "w": "A tiny 'central-Vietnam in miniature' market on Trần Mai Ninh in the old Bảy Hiền weaving quarter, founded in the 1960s by Quảng Nam migrants. Stalls sell mì Quảng, bánh đập, bánh tráng and pungent mắm nêm — the flavours of Quảng Nam transplanted to Saigon. A cultural-food detour rather than a big sight.",
+      "k": "Market",
+      "g": ["MKT", "ODD"],
+      "sources": [
+        ["KENH14", "https://kenh14.vn/ca-mien-trung-thu-be-lai-chi-bang-mot-ngoi-cho-binh-di-giua-long-sai-gon-20181015151602139.chn"],
+        ["DANVIET", "https://thegioitiepthi.danviet.vn/cho-ba-hoa-o-tphcm-thien-duong-dac-san-mien-trung-20231128102744984-d24897.html"]
+      ]
+    },
+    {
+      "n": "Chung cư 26 Lý Tự Trọng (Ly Tu Trong Apartment)",
+      "t": 2,
+      "a": "VN",
+      "address": "26 Lý Tự Trọng, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "A weathered French-era apartment block in the heart of District 1 turned vintage 'mini-mall' — brick-and-cement stairwells and solid iron railings wrapped around a warren of indie cafés (Cộng, The Loft), boutiques, bars and galleries. A less-crowded alternative to the famous 42 Nguyễn Huệ café apartment, popular for retro-toned check-ins.",
+      "k": "Check-in / architecture",
+      "g": ["ICON", "ODD"],
+      "sources": [
+        ["ZNEWS", "https://znews.vn/4-chung-cu-cu-len-hinh-dep-o-tphcm-post1127226.html"],
+        ["BAOXAYDUNG", "https://baoxaydung.vn/4-chung-cu-cu-len-hinh-dep-o-tphcm-1926868288108.htm"]
+      ]
+    },
+    {
+      "n": "Núi Chứa Chan & Chùa Gia Lào (Chua Chan Mountain)",
+      "t": 1,
+      "a": "VN",
+      "address": "Huyện Xuân Lộc, Đồng Nai, Vietnam",
+      "w": "At 837 m the second-highest peak in the south after Bà Đen — a national historical-scenic site (2012) and Đồng Nai's premier day-hike. Trek or take the cable car up through cloud-hunting viewpoints to the cliff-set Chùa Gia Lào (Bửu Quang) tucked under a giant three-trunk fig; camping on the summit is popular with young hikers ~110 km from the city.",
+      "k": "Mountain / temple",
+      "g": ["PARK", "ODD"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/N%C3%BAi_Ch%E1%BB%A9a_Chan"],
+        ["VNANET", "https://vietnam.vnanet.vn/vietnamese/tin-tuc/nui-chua-chan-%E2%80%93-diem-den-hap-dan-tai-dong-nai-352565.html"]
+      ]
+    },
+    {
+      "n": "Chợ Thiếc (Thiec Market)",
+      "t": 3,
+      "a": "VN",
+      "address": "Đường Phó Cơ Điều, Quận 11, Ho Chi Minh City, Vietnam",
+      "w": "A gritty, atmospheric old Chinese market in Quận 11 — one of the city's biggest for gold/silver and votive 'spirit-world' paper offerings, and a training ground for young jewellers. Foodies come for its dense cluster of Teochew-Cantonese eats (crab soup, bánh cuốn, wontons, chè) that come alive in the morning; a photogenic slice of a different Chợ Lớn.",
+      "k": "Market",
+      "g": ["MKT", "ODD"],
+      "sources": [
+        ["TUOITRE", "https://tuoitre.vn/dulichtphcm/kham-pha-mot-cho-lon-rat-khac-o-quan-11-10740156.htm"],
+        ["KENH14", "https://kenh14.vn/khu-cho-thiec-o-tphcm-co-vo-van-mon-la-mieng-tham-nien-hon-chuc-nam-cho-gioi-tre-kham-pha-20221027145436128.chn"]
+      ]
+    },
+    {
+      "n": "Nhà thờ Đa Minh - Ba Chuông (Ba Chuong Church)",
+      "t": 2,
+      "a": "VN",
+      "address": "190 Lê Văn Sỹ, Quận Phú Nhuận, Ho Chi Minh City, Vietnam",
+      "w": "A remarkable 1962 Catholic church on Lê Văn Sỹ that fuses East-Asian temple form with Christian meaning — its three-tiered bell tower and roofline echo a southern Vietnamese communal house (đình), with dragons turned to face the cross, and a square-nave/round-sanctuary plan symbolizing earth and heaven. One of the most architecturally distinctive churches in the city.",
+      "k": "Church",
+      "g": ["HIST", "ODD", "FREE"],
+      "sources": [
+        ["THANHNIEN", "https://thanhnien.vn/doc-dao-nha-tho-ba-chuong-co-kien-truc-giong-dinh-lang-o-tphcm-185250610210028157.htm"],
+        ["TUOITRE", "https://tuoitre.vn/nha-tho-ba-chuong-giua-long-thanh-pho-585592.htm"]
+      ]
+    },
+    {
+      "n": "Chùa Bà Hải Nam - Hội quán Quỳnh Phủ (Quynh Phu Assembly Hall)",
+      "t": 2,
+      "a": "VN",
+      "address": "276 Trần Hưng Đạo B, Quận 5, Ho Chi Minh City, Vietnam",
+      "w": "The Hainanese community's assembly hall in Chợ Lớn, dedicated to the goddess Thiên Hậu and the '108 brethren'. Recognized as a national architectural relic in 2001, its incense-hazed hall, carved screens and coiled roof-dragons make it one of the finest — and least-visited — of Cholon's Chinese guild temples, a step beyond the busy Thiên Hậu and Nghĩa An halls.",
+      "k": "Temple / assembly hall",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/H%E1%BB%99i_qu%C3%A1n_Qu%E1%BB%B3nh_Ph%E1%BB%A7_(Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh)"],
+        ["THANHNIEN", "https://thanhnien.vn/giai-ma-hoi-quan-nguoi-hoa-cho-lon-chua-ong-bon-va-dau-tich-nguoi-phuc-kien-185260311011631788.htm"]
+      ]
+    },
+    {
+      "n": "Đình Minh Hương Gia Thạnh (Minh Huong Gia Thanh Communal House)",
+      "t": 2,
+      "a": "VN",
+      "address": "380 Trần Hưng Đạo B, Quận 5, Ho Chi Minh City, Vietnam",
+      "w": "The first communal house of the Chinese-Vietnamese (Minh Hương) community in Saigon-Chợ Lớn, built 1789 and named 'Gia Thạnh đường' by Emperor Gia Long in 1808. A national architectural-art relic (1993): a five-bay timber-frame đình with tube-tiled roof, 'two dragons contesting the pearl' friezes and Ông Nhật–Bà Nguyệt statuary — a rare monument to how the Minh Hương wove into Vietnamese culture.",
+      "k": "Historic communal house",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/ngoi-dinh-dau-tien-cua-nguoi-hoa-o-sai-gon-3960268.html"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%C3%ACnh_Minh_H%C6%B0%C6%A1ng_Gia_Th%E1%BA%A1nh"]
+      ]
+    },
+    {
+      "n": "Đền thờ Vua Hùng (Hung Kings Temple, Thao Cam Vien)",
+      "t": 2,
+      "a": "VN",
+      "address": "2 Nguyễn Bình Khiêm, Quận 1, Ho Chi Minh City, Vietnam",
+      "w": "A near-century-old temple inside the Botanical Gardens, built by the French in 1926 as a 'Temple du souvenir' and rededicated after 1954 to the Hùng Kings and other national heroes. Modeled on Huế imperial-palace architecture with a 3-ton bronze elephant in the forecourt; the focal point of Saigon's Giỗ Tổ Hùng Vương observances each third lunar month.",
+      "k": "Temple / historic",
+      "g": ["HIST", "FREE"],
+      "sources": [
+        ["VNEXPRESS", "https://vnexpress.net/den-tho-vua-hung-gan-tram-tuoi-o-trung-tam-sai-gon-3908054.html"],
+        ["WIKIVI", "https://vi.wikipedia.org/wiki/%C4%90%E1%BB%81n_th%E1%BB%9D_Vua_H%C3%B9ng_(Th%E1%BA%A3o_C%E1%BA%A7m_Vi%C3%AAn)"]
+      ]
+    },
+    {
+      "n": "Lăng Ông Thủy Tướng Cần Giờ (Whale Lord Shrine)",
+      "t": 2,
+      "a": "VN",
+      "address": "Thị trấn Cần Thạnh, huyện Cần Giờ, Ho Chi Minh City, Vietnam",
+      "w": "A Nguyễn-era coastal shrine to Cá Ông (the whale deity revered by fishermen), at the end of Duyên Hải road in Cần Thạnh — and home to a 12 m whale skeleton. Its Nghinh Ông 'Sea Tết' festival, held since 1913 on the 15th of the eighth lunar month, is one of only three National Intangible Cultural Heritages of Ho Chi Minh City.",
+      "k": "Shrine / heritage",
+      "g": ["HIST", "MARITIME", "ODD", "FREE"],
+      "sources": [
+        ["DANVIET", "https://danviet.vn/lang-ong-thuy-tuong-can-gio-tho-bo-xuong-ca-ong-dai-12m-20221124232853373.htm"],
+        ["TIENPHONG", "https://tienphong.vn/noi-co-bo-xuong-ca-voi-dai-12m-va-le-hoi-ton-tai-hon-100-nam-o-tphcm-post1564003.tpo"]
+      ]
+    },
+    {
+      "n": "Nhà cổ Vương Hồng Sển - Vân Đường phủ (Vuong Hong Sen Ancient House)",
+      "t": 3,
+      "a": "VN",
+      "address": "11 Nguyễn Thiện Thuật, Quận Bình Thạnh, Ho Chi Minh City, Vietnam",
+      "w": "The Vân Đường phủ — the ~170-year-old five-bay timber house that antiquarian-scholar Vương Hồng Sển bought and re-erected near Chợ Bà Chiểu in 1952, ranked a city architectural relic in 2003. Long a cautionary tale of neglect and encroachment; the city cleared and began reviving it in 2025. Worth knowing and viewing from outside as a fragile piece of old-Saigon heritage.",
+      "k": "Historic house",
+      "g": ["HIST", "ODD"],
+      "sources": [
+        ["TUOITRE", "https://tuoitre.vn/nha-co-vuong-hong-sen-di-san-thoi-thop-giua-sai-gon-1132744.htm"],
+        ["NLD", "https://nld.com.vn/nha-co-vuong-hong-sen-cuong-che-xong-mo-duong-hoi-sinh-di-tich-196250327173747838.htm"]
+      ]
+    }
+  ]
+}

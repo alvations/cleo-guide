@@ -1,0 +1,30 @@
+{
+  "outlets": [
+    { "key": "VNEXPRESS", "name": "VnExpress (esp. vnexpress.net/du-lich)", "type": "news", "url": "https://vnexpress.net/", "credible": true },
+    { "key": "TUOITRE", "name": "Tuổi Trẻ", "type": "news", "url": "https://tuoitre.vn/", "credible": true },
+    { "key": "THANHNIEN", "name": "Thanh Niên", "type": "news", "url": "https://thanhnien.vn/", "credible": true },
+    { "key": "VIETNAMNET", "name": "VietnamNet", "type": "news", "url": "https://vietnamnet.vn/", "credible": true },
+    { "key": "DANTRI", "name": "Báo Dân trí", "type": "news", "url": "https://dantri.com.vn/", "credible": true },
+    { "key": "PLO", "name": "Pháp Luật TP.HCM", "type": "news", "url": "https://plo.vn/", "credible": true },
+    { "key": "NLD", "name": "Người Lao Động", "type": "news", "url": "https://nld.com.vn/", "credible": true },
+    { "key": "TIENPHONG", "name": "Tiền Phong", "type": "news", "url": "https://tienphong.vn/", "credible": true },
+    { "key": "ZNEWS", "name": "ZNews (formerly Zing)", "type": "news", "url": "https://znews.vn/", "credible": true },
+    { "key": "VOV", "name": "Đài Tiếng nói Việt Nam (VOV / VOV Giao Thông)", "type": "state-broadcaster", "url": "https://vov.vn/", "credible": true },
+    { "key": "VNANET", "name": "Thông tấn xã Việt Nam (VNA / vnanet.vn)", "type": "state-news-agency", "url": "https://vietnam.vnanet.vn/", "credible": true },
+    { "key": "VIETNAMPLUS", "name": "VietnamPlus (TTXVN)", "type": "state-news-agency", "url": "https://www.vietnamplus.vn/", "credible": true },
+    { "key": "NHANDAN", "name": "Báo Nhân Dân", "type": "news", "url": "https://nhandan.vn/", "credible": true },
+    { "key": "KENH14", "name": "Kênh14", "type": "youth-lifestyle", "url": "https://kenh14.vn/", "credible": true },
+    { "key": "DANVIET", "name": "Báo Dân Việt (thegioitiepthi.danviet.vn)", "type": "news", "url": "https://danviet.vn/", "credible": true },
+    { "key": "CAND", "name": "Công an Nhân dân", "type": "news", "url": "https://cand.com.vn/", "credible": true },
+    { "key": "DANGCONGSAN", "name": "Báo điện tử Đảng Cộng sản Việt Nam", "type": "state-news", "url": "https://dangcongsan.vn/", "credible": true },
+    { "key": "BAOXAYDUNG", "name": "Báo Xây Dựng", "type": "news", "url": "https://baoxaydung.vn/", "credible": true },
+    { "key": "VIETNAMTOURISM", "name": "Cục Du lịch Quốc gia Việt Nam", "type": "official", "url": "https://vietnamtourism.gov.vn/", "credible": true },
+    { "key": "HCMCPV", "name": "Thành ủy TP.HCM (Đảng bộ TP.HCM)", "type": "official", "url": "https://hcmcpv.org.vn/", "credible": true },
+    { "key": "TTBCHCM", "name": "Trung tâm Báo chí TP.HCM", "type": "official", "url": "https://ttbc-hcm.gov.vn/", "credible": true },
+    { "key": "SCOV", "name": "Ủy ban Nhà nước về người Việt Nam ở nước ngoài", "type": "official", "url": "https://scov.gov.vn/", "credible": true },
+    { "key": "DULICHBINHDUONG", "name": "Sở Văn hóa, Thể thao và Du lịch Bình Dương", "type": "official", "url": "https://dulichbinhduong.org.vn/", "credible": true },
+    { "key": "THUDUCGOV", "name": "Cổng thông tin du lịch TP. Thủ Đức", "type": "official", "url": "https://dulich-tpthuduc.hochiminhcity.gov.vn/", "credible": true },
+    { "key": "WIKIVI", "name": "Wikipedia tiếng Việt", "type": "reference", "url": "https://vi.wikipedia.org/", "credible": true },
+    { "key": "ENWIKI", "name": "Wikipedia (English)", "type": "reference", "url": "https://en.wikipedia.org/", "credible": true }
+  ]
+}
