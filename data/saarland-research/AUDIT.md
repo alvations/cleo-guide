@@ -102,3 +102,71 @@ are open leads for a follow-up run. Target was 25–35; 12 delivered rather than
 **NOTE for later stages:** no coordinates emitted (geocoding is the next stage); every record carries a full
 street address naming town + Germany (Ratskeller uses street-only "Am Markt" — the town-hall building on the
 market square — pending a house number). All closed:false.
+
+---
+
+## LUX food & drink — X2 pass (2026-08-31)
+
+**Scope:** 25 NEW food/drink places across the whole Grand Duchy, dedup'd against the in-guide LUX list AND the 31-record `FOOD_LUX_DEEP.json` (0 name collisions). Output: `FOOD_LUX_X2.json` (list), `SOURCES_LUX_X2.json` (13 new outlets), `CREATORS_LUX_X2.json` (empty — no individual creator cleared the "verifiably-popular + specific findable piece" bar within budget). Searched in FR/DE/LB; cited native/official + institutional sources only.
+
+**By tier:** t1 = 7 · t2 = 16 · t3 = 2 · total 25. **Closures flagged:** none (all `closed:false`). One notable institution, **Am Tiirmschen** (32 rue de l'Eau, Luxembourg), was found **permanently closed (28 Oct 2023)** but DROPPED, not added — it also could not clear the ≥2-credible bar (Visit Luxembourg only). Recorded here so it isn't re-surfaced as live.
+
+**Geographic spread (beyond the capital, as briefed):** Luxembourg City/agglo — De Feierwon (Kirchberg), Roma & Trattoria Da Gino (Ville Haute), Maison Santos & Cereal Lovers (Ville Haute coffee), Intense (Limpertsberg), Fani (Roeser). South/Minett — Postkutsch, La Maison Lefèvre, POP Grubers (Esch/Belval), Jolt (Belval), Wäinstuff (Dudelange). North/Éislek — K restaurant (Huldange, Michelin Bib), Cornelyshaff (Heinerscheid), Beim Bertchen (Wahlhausen), Château Clervaux, Beim Schlass (Wiltz), Ancien Cinéma (Vianden). Mullerthal — Brimer (Grundhof), Victoria vum Berdorfer Eck (Berdorf), Les Jardins Gourmands (Echternach). Moselle wine towns — Caves Bernard-Massard (Grevenmacher), Domaine Alice Hartmann (Wormeldange), Domaine Sunnen-Hoffmann (Remerschen/Schengen), Domaine Häremillen (Ehnen).
+
+**Signature-canon coverage:** Judd mat Gaardebounen / Luxembourgish terroir (De Feierwon, Cornelyshaff, Beim Bertchen, Beim Schlass, Wäinstuff, Château Clervaux); crémant & Luxembourg Moselle wine — Riesling/Pinot/Auxerrois (Bernard-Massard, Alice Hartmann, Sunnen-Hoffmann, Häremillen); Michelin/Gault&Millau depth (Fani ★, K restaurant Bib, Postkutsch, Lefèvre, Brimer, Les Jardins Gourmands); specialty coffee (Maison Santos, Cereal Lovers, Intense, Jolt); the country's international dining (Roma, Da Gino — Italian).
+
+**Merit measured, not just mentioned:** Fani = 1 Michelin star (Le Quotidien "twelve starred tables"); K restaurant = Michelin Bib Gourmand 2026; Beim Schlass = Gault&Millau "Meilleur restaurant de terroir 2024" (13.5/20); Alice Hartmann = Meiningers Best-of-Riesling "best European Riesling"; Bernard-Massard = Falstaff-rated flagship crémant house. Pure-Gault&Millau listings (Da Gino, Postkutsch, Lefèvre, POP Grubers, Brimer, Les Jardins Gourmands, Beim Bertchen, Château Clervaux) carried on the lone-institutional-authority clause (single source, by design).
+
+**Address caveats for the geocode stage (town+country present for binning; street to resolve):** Trattoria Da Gino (city only), Victoria vum Berdorfer Eck (Berdorf), Wäinstuff (Dudelange), Beim Bertchen (Wahlhausen), Brimer (Grundhof), Beim Schlass (Wiltz), Château Clervaux (castle+town), Cornelyshaff (named estate+town), Les Jardins Gourmands (hotel+road), Intense (Av. Pasteur, no number), Jolt (Belval). All others carry a full street address.
+
+**Dropped / did not clear the bar (leads for a follow-up if budget allows):** Brasserie Guillaume (Place Guillaume II — famous seafood institution, but only Visit Luxembourg in-hand, needs a 2nd credible); Au Pain de Mary (Gasperich bakery — KACHEN only); Chez Bacano & Restaurante Beirão (Portuguese — Yelp/Petit Futé/rating sites only); Auberge de l'Our (Vianden — directory/booking sites only); Balkan spots (Gurman/Balkan Kitchen — no ≥2 credible). Les Roses (Casino 2000, Mondorf) and Domaine la Forêt (Remich) skipped as already in-guide. WebSearch budget hit 200/200 mid-pass, cutting a Differdange/Diekirch and a bakery/pâtisserie sweep short.
+
+**NOTE for later stages:** no coordinates emitted (geocoding is next); every record names town + Luxembourg so the map can bin it. All `closed:false`.
+
+---
+
+## FOOD — MOSELLE (French Moselle & Lorraine: Metz + Nancy + corridor) — X2 pass (2026-08-31)
+
+**Output:** `FOOD_MOSELLE_X2.json` — 18 NEW places (t1: 6, t2: 8, t3: 4). No closures (all `closed:false`).
+Sources → `SOURCES_MOSELLE_X2.json` (18 outlets, incl. new keys PUDLOWSKI, NANCYTOURISME, LEFOODING, ZUT,
+LHOTELLERIE, FOODANDSENS, PLACESDUCAFE, LAGAZETTE, LORRAINEMAG, NANCYBUZZ, COMPLETEMENTBABA,
+MEURTHEMOSELLETOURISME, BIENVENUEFERME, MEUSEATTRACTIVITE, COMMERCYTOURISME, PETITFUTE, MOSL,
+THIONVILLETOURISME). Creators → `CREATORS_MOSELLE_X2.json` (Gilles Pudlowski, verifiably-prominent national critic).
+
+**Signature canon covered (named dish):** quiche/Lorraine tables, macarons de Nancy + the Saint-Epvre
+(Pâtisserie Adam), mirabelle eau-de-vie (Maison de la Mirabelle / Distillerie Grallet-Dupic, Rozelieures),
+madeleines de Commercy (La Boîte à Madeleines / Madeleines Zins), cave-aged Lorraine cheese (Les Frères
+Marchand), Metz/Nancy bistros & brasseries (Brasserie Le 11, Racine, La Réserve, Chez Tanesy, À la Table du
+Bon Roi Stanislas), award boulangerie (Dudot), specialty coffee (FOX), plus Michelin/G&M depth across the
+corridor (Le Strasbourg/Bitche, Dimofski/Wœlfling, Le Manoir du Soldat ex-An II/Phalsbourg, B-W/Thionville,
+Transparence & Racine/Nancy).
+
+**Merit bar:** every entry cleared ≥2 credible sources OR one lone institutional authority. Lone-authority
+entries: Bazaar Sainte-Marie (Metz) — named in Gault&Millau's editorial "10 addresses that make Metz". All
+Michelin/G&M entries are direct guide listings (URLs captured). Pudlowski counts as a strong authored-critic
+source (paired). Yelp/TripAdvisor/Google used for ZERO recommending weight.
+
+**Dedup:** verified against all 25 already-in-guide MOSELLE names; no collisions. (Note: a Nancy branch of
+Maison Caffet exists but was excluded to avoid a name clash with the guide's Metz "Chocolaterie Pâtisserie
+Maison Caffet".)
+
+**Target shortfall (25–35 requested; 18 delivered) — cause + open leads.** The session's shared WebSearch
+budget (200/200) was exhausted mid-pass, before I could confirm STREET ADDRESSES / a 2nd credible source for
+several already-vetted candidates. Rather than pad below the bar or fabricate addresses, they are left as
+open leads for a follow-up run (each needs the noted item, WebSearch in FR):
+- **Umberto's** (Forbach) — Gault&Millau Franco-Italian + MOSL; needs street no.
+- **L'Épicurien** (Sarrebourg) — Gault&Millau + MOSL bistronomie; needs street no.
+- **Le Carpe Diem** (Thionville) — G&M + MOSL Qualité; needs street no. + a direct G&M/MOSL URL.
+- **Restaurant du Vieux Moulin** (Sarreguemines, 135 Rue France) — reportedly in G&M/Michelin/Routard;
+  address confirmed but needs a captured credible URL (only aggregators captured).
+- **Le V-Four** (Nancy, 10 Rue Saint-Michel) — reportedly Michelin/G&M; needs a captured guide URL.
+- **Le Bistrot des Sommeliers** (Metz, ~10 Rue Pasteur) — needs a captured credible source.
+- **La Migaine** (Metz, 1 Place Saint-Louis) — salon de thé/quiche institution; only Petit Futé captured (1).
+- **Le Schlossberg** (Forbach, 13 Rue du Parc) — address confirmed; only Petit Futé captured (1).
+- **Charcuterie Weissenbach** (Nancy, 9 Rue de la Salle) — pâté/fuseau lorrain; only Bienvenue Saveurs 54 (1).
+- Ethnic/immigrant kitchens in Metz/Nancy (Moroccan Le Marrakech, Vietnamese, etc.) mostly cleared only 1
+  credible (Petit Futé) here — the ≥2 bar was not met, so per house rules the gap is stated, not padded.
+
+**NOTE for later stages:** no coordinates emitted (geocoding is next). Every record carries a full address
+naming town + France (Brasserie Le 11 = "Place du Roi George"; La Boîte à Madeleines = "ZAE La Louvière" —
+named locations pending house numbers). All `closed:false`.
