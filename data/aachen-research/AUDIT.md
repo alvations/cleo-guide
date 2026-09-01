@@ -110,3 +110,58 @@ coverage — most restaurants appear only on rating aggregators, so the food lis
 (merit bar). Food density (7) is below the ~20 aim for this reason; the signature-first Monschau/Kornelimünster
 core is well-sourced. r/Aachen and DE food TikTok/YouTube were not reachable as findable named-place videos
 within budget; CREATORS_STADT is empty. NO coordinates emitted — geocoding + placement re-verify are later gates.
+
+## Discovery Wave 1 — AACHEN city (2026-09-01, anchor area)
+
+**Output:** `SIGHTS_AACHEN.json` (29 sights), `FOOD_AACHEN.json` (12 food), `SOURCES_AACHEN.json`
+(24 outlets), `CREATORS_AACHEN.json` (1 creator, LINHÉ). All four validate with `python3 -c json.load`.
+Searched **in German**. Every record clears **≥2 credible** or a lone institutional (Michelin/UNESCO);
+automated check found **0 under-bar** records. No coordinates (address-only, per pipeline).
+
+**Sights (29): tiers t1=10 / t2=16 / t3=3.** All 10 t1 must-sees satisfy the ≥1-per-area rule.
+- t1 anchors: Aachener Dom (UNESCO, 1st German WHS 1978), Domschatzkammer, Rathaus & Krönungssaal,
+  Elisenbrunnen, Carolus Thermen, Centre Charlemagne, Suermondt-Ludwig-Museum, Ludwig Forum,
+  Weihnachtsmarkt, Pontstraße/Pontviertel.
+- t2: Katschhof, Couven-Museum, Internationales Zeitungsmuseum, Ponttor, Marschiertor, Grashaus,
+  Lousberg, Burg Frankenberg, Kurpark Burtscheid, Burtscheid-Bäderviertel, Euregiozoo, Theater Aachen,
+  St. Foillan, Markt & Karlsbrunnen, Puppenbrunnen, Öcher Bend.
+- t3: Fischmarkt, Elisengarten (archäolog. Vitrine), RWTH Hauptgebäude & Reiff-Museum.
+- Sourcing spine: UNESCO + aachen-tourismus (official) + Wikipedia for the monuments; official museum
+  sites (Centre Charlemagne, Suermondt, Ludwig Forum, Couven, Euregiozoo); NRW-Tourismus; KuLaDig (LVR)
+  for RWTH/Frankenberg; AZ for the Weihnachtsmarkt; top-aachen + Ruhr Nachrichten for the Öcher Bend.
+
+**Food (12): tiers t1=5 / t2=5 / t3=2.** Signature-first, dish named on every record. 0 closures.
+- Canon covered: **Aachener Printen** across four producers (Nobis, Lambertz, Klein, Van den Daele),
+  **Reisfladen** (Van den Daele/Nobis), **Aachener Sauerbraten rheinischer Art + Himmel un Ääd**
+  (Postwagen, Am Knipp — oldest inn 1698), the **Michelin bench** (La Bécasse, 1★, MICHELIN+AZ),
+  **specialty coffee** (MAQII AZ+EuropeanCoffeeTrip; Baristinho; Rösterei Mundus), **gelato** (Del Negro,
+  Klenkes+AZ), and one AVPN-certified Neapolitan pizza (Gold of Naples) for the Pontstraße/student layer.
+
+**MEASURE — merit-bar keep/drop notes:**
+- KEPT with a flag: **Printenbäckerei Klein** — famous (1912 + Printen-Museum) but the clearest credible
+  hits were Schwarzaufweiss (Printen feature) + gut-wirtz (niche Printen catalogue); flagged niche, keep
+  because the place itself is institutionally notable. **Gold of Naples** — aachen-tourismus official
+  listing + AVPN certification (an institutional Neapolitan-pizza authority) + LINHÉ creator; kept t2.
+  **Rösterei Mundus** — Aachen-Altstadt editorial + Kaffee-Netz community thread; kept t3 as corroborated.
+- **DROPPED (mention ≠ merit / failed ≥2-credible with the web budget spent):** Sauerbratenpalast,
+  Gaffel Wirtshaus am Hühnerdieb, Restaurant Palladion, Restaurant Macaroni, AKL (Lebanese), Café Egmont,
+  Sowieso/Oceans, Ghorban Wine Bar, Elysée, Magellan, Café Middelberg, Hanswurst, Café Kittel,
+  Café Juli, Pfannenzauber — each surfaced only via rating aggregators (Yelp/TripAdvisor/TheFork/
+  OpenTable = ZERO) or a single credible source; left out rather than padded.
+- **Bushmans Kitchen** (named in the task brief): no credible evidence found under that name in current
+  Aachen listings — NOT fabricated, left out. Re-check in the enrich wave.
+- **Aachener Brauhaus Degraa** (local beer + Öcher Kaviar/Puttes): has 2 credible sources (aachen-tourismus
+  + Wikipedia) but I could not verify its exact street address from search results, so it was held rather
+  than shipped with a guessed house number. High-priority add for the enrich wave (verify address, then
+  it carries the Öcher-Kaviar/Puttes and local-beer canon).
+
+**GAP — stated, not filled (per project rules):** the WebSearch budget was exhausted (200/200, shared
+session-wide) mid-discovery, so the casual/international/beer layer (Turkish, Vietnamese/Asian, Lebanese,
+Italian beyond pizza, Öcher Kaviar/Weckmann butchers, breweries, Pontstraße nightlife food) is
+under-represented — these places exist but are dominated online by rating aggregators that count ZERO,
+and confirming a second credible German-language source for each needs more searches. Food count is 12,
+below the ~30 target; sights 29, near the ~35 target. **Enrich wave to-do (needs web budget):** Degraa
+(address), Öcher Kaviar/Puttes + Weckmann sources, 8–12 more Pontviertel/international tables each with
+≥2 credible DE sources, plus Haus Löwenstein, the Bahkauv & 'Kreislauf des Geldes' fountains, and the
+SuperC as additional sights once sourced. No coordinates added; all addresses name town + country for the
+geocode stage.
