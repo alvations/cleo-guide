@@ -1,0 +1,32 @@
+{
+  "outlets": [
+    {"key": "EIFEL_INFO", "name": "Eifel Tourismus (eifel.info / eifel.de)", "type": "tourism-official", "url": "https://www.eifel.info", "credible": "Official regional tourism board for the Eifel (DE); curated POI + gastronomy database, German-language."},
+    {"key": "NRW_TOUR", "name": "NRW-Tourismus (Tourismus NRW e.V.)", "type": "tourism-official", "url": "https://www.nrw-tourismus.de", "credible": "Official state tourism marketing organisation for North Rhine-Westphalia (DE); editorial POI + Genuss features, German-language."},
+    {"key": "RUREIFEL", "name": "Rureifel-Tourismus", "type": "tourism-official", "url": "https://www.rureifel-tourismus.de", "credible": "Official regional tourism association for the Rureifel/Nordeifel (DE); named in the brief source bar."},
+    {"key": "STR_AACHEN", "name": "StädteRegion Aachen (Freizeit-/Tourenportal)", "type": "gov-official", "url": "https://www.freizeitportal.staedteregion-aachen.de", "credible": "Official regional authority (StädteRegion Aachen) leisure/POI portal; named in the brief source bar."},
+    {"key": "MONSCHAU", "name": "Monschau-Touristik / Stadt Monschau", "type": "tourism-official", "url": "https://www.monschau.de", "credible": "Official municipal tourism office for Monschau (DE); named in the brief source bar."},
+    {"key": "HERZOGENRATH", "name": "Stadt Herzogenrath", "type": "gov-official", "url": "https://www.herzogenrath.de", "credible": "Official municipal site of the city of Herzogenrath (DE)."},
+    {"key": "ROETGEN", "name": "Gemeinde Roetgen", "type": "gov-official", "url": "https://www.roetgen.de", "credible": "Official municipal site of the Roetgen community (DE), the Eifel gateway town."},
+    {"key": "AACHEN_DE", "name": "Stadt Aachen", "type": "gov-official", "url": "https://www.aachen.de", "credible": "Official municipal site of the city of Aachen (DE); Kornelimünster/Walheim district pages."},
+    {"key": "EIFELSTEIG", "name": "Eifelsteig (offizieller Wanderweg)", "type": "tourism-official", "url": "https://www.eifelsteig.de", "credible": "Official site of the Eifelsteig premium hiking trail; curated POI descriptions along the Aachen–Trier route."},
+    {"key": "ERLEBNIS_REGION", "name": "Erlebnis-Region (Euregio Maas-Rhein)", "type": "tourism", "url": "https://www.erlebnis-region.de", "credible": "Cross-border Euregio Maas-Rhein tourism portal; curated POI + gastronomy entries."},
+    {"key": "HSO_NRW", "name": "AG Historische Stadt- und Ortskerne in NRW", "type": "heritage-official", "url": "https://www.hso-nrw.de", "credible": "Official working group of historic town centres in NRW (state heritage programme); authoritative on Fachwerk old towns."},
+    {"key": "BAUKUNST_NRW", "name": "Baukunst NRW (Architektenkammer NRW)", "type": "heritage-official", "url": "https://www.baukunst-nrw.de", "credible": "Architecture register of the Chamber of Architects NRW; authoritative on buildings/monuments."},
+    {"key": "KULADIG", "name": "KuLaDig (LVR – Kultur.Landschaft.Digital)", "type": "heritage-official", "url": "https://www.kuladig.de", "credible": "Official heritage register of the Landschaftsverband Rheinland; scholarly monument descriptions."},
+    {"key": "KUNSTHAUS_NRW", "name": "Kunsthaus NRW Kornelimünster", "type": "museum-official", "url": "https://www.kunsthaus.nrw", "credible": "Official site of the NRW state art museum housed in the former Reichsabtei Kornelimünster."},
+    {"key": "MUSEEN_DE", "name": "museen.de", "type": "reference", "url": "https://museen.de", "credible": "German museum directory with curated institutional entries (addresses, hours, collections)."},
+    {"key": "RHEIN_MUSEEN", "name": "Rheinische Museen", "type": "reference", "url": "http://www.rheinischemuseen.de", "credible": "Official register of museums in the Rhineland region."},
+    {"key": "BURGEN_DE", "name": "Burgen.de", "type": "reference", "url": "https://www.burgen.de", "credible": "German reference on castles/palaces with historical detail."},
+    {"key": "EIFELFUEHRER", "name": "Eifelführer", "type": "reference", "url": "https://eifelfuehrer.de", "credible": "German-language Eifel travel reference; curated churches/monasteries and sights."},
+    {"key": "LEB_AACHEN", "name": "Lebendiges Aachen", "type": "local-heritage", "url": "https://www.lebendiges-aachen.de", "credible": "Local Aachen history/heritage encyclopedia (A–Z of the region)."},
+    {"key": "ISG_MONSCHAU", "name": "ISG Monschau (Interessengemeinschaft Stadtbild)", "type": "local-heritage", "url": "https://www.isgmonschau.de", "credible": "Monschau townscape heritage society; scholarly building-by-building monument descriptions of the Altstadt."},
+    {"key": "IND_EMR", "name": "Industriemuseen Euregio Maas-Rhein", "type": "heritage-official", "url": "https://industriemuseen-emr.de", "credible": "Cross-border network of industrial-heritage museums in the Euregio Maas-Rhein."},
+    {"key": "BRF", "name": "BRF (Belgischer Rundfunk)", "type": "broadcaster", "url": "https://brf.be", "credible": "German-language public broadcaster of Belgium; named in the brief source bar (covers the Euregio incl. Monschau)."},
+    {"key": "MICHELIN", "name": "Guide MICHELIN", "type": "institutional-award", "url": "https://guide.michelin.com", "credible": "Institutional fine-dining authority; a lone Michelin star satisfies the source bar."},
+    {"key": "FEINSCHMECKER", "name": "Der Feinschmecker", "type": "food-guide", "url": "https://www.feinschmecker.de", "credible": "Established German gourmet magazine/guide with rated restaurant listings."},
+    {"key": "FALSTAFF", "name": "Falstaff", "type": "food-guide", "url": "https://www.falstaff.com", "credible": "Established German-language food & wine guide with editorial restaurant/café listings."},
+    {"key": "GUSTO", "name": "Gusto (Gusto-online)", "type": "food-guide", "url": "https://www.gusto-online.de", "credible": "German fine-dining guide (Der Gusto) with rated kitchen reviews."},
+    {"key": "SCHLEMMER", "name": "Schlemmer Atlas", "type": "food-guide", "url": "https://www.schlemmer-atlas.de", "credible": "Long-established German restaurant guide with editorial ratings (not a user-review aggregator)."},
+    {"key": "DUMONT", "name": "DuMont Reise", "type": "travel-guide", "url": "https://www.dumontreise.de", "credible": "Major German travel-guide publisher; editorial sight recommendations."}
+  ]
+}

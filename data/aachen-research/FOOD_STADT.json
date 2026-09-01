@@ -1,0 +1,65 @@
+[
+  {
+    "t": 1, "a": "STADT", "cz": ["FINE", "GER"],
+    "dish": "Signature-Stör (sturgeon) im Michelin-Menü",
+    "n": "Restaurant Sankt Benedikt",
+    "address": "Benediktusplatz 12, 52076 Aachen-Kornelimünster, Germany",
+    "w": "The area's Michelin-starred anchor since 1979, family-run in a listed dark-red house on the Benediktusplatz; Maximilian Kreus cooks a precise, classically-rooted menu whose signature dish is sturgeon (Stör). Rebuilt after the 2021 flood and starred again.",
+    "closed": false,
+    "sources": [["MICHELIN", "https://guide.michelin.com/us/en/nordrhein-westfalen/aachen/restaurant/sankt-benedikt"], ["GUSTO", "https://www.gusto-online.de/st.-benedikt.html"], ["FEINSCHMECKER", "https://www.feinschmecker.de/restaurant/de/aachen/st.-benedikt-28"]]
+  },
+  {
+    "t": 1, "a": "STADT", "cz": ["GER", "FINE"],
+    "dish": "Gerichte mit Moutarde de Montjoie (Monschauer Senf)",
+    "n": "Schnabuleum (Historische Senfmühle)",
+    "address": "Laufenstraße 118, 52156 Monschau, Germany",
+    "w": "The restaurant of the historic Monschau mustard mill, where every dish is refined with the house's own hand-milled Moutarde de Montjoie — a Senfbraten (mustard pot roast) and mustard-sauce plates are the signature. In the restored listed mill building.",
+    "closed": false,
+    "sources": [["FALSTAFF", "https://www.falstaff.com/en/restaurants/schnabuleum-monschau"], ["NRW_TOUR", "https://www.nrw-tourismus.de/genuss/historische-senfmuehle-monschau-ruth-breuer"]]
+  },
+  {
+    "t": 1, "a": "STADT", "cz": ["CAFE", "SWEET"],
+    "dish": "Monschauer Dütchen & Aachener/Monschauer Printen",
+    "n": "Café Kaulard",
+    "address": "Markt 8, 52156 Monschau, Germany",
+    "w": "A traditional café on Monschau's historic market square, run in the second generation since 1958, known for the local Monschauer Dütchen (thin cream-filled sponge horns) and Printen alongside cakes and coffee.",
+    "closed": false,
+    "sources": [["EIFEL_INFO", "https://www.eifel.de/go/gastronomie-detail/cafe_kaulard.html"], ["FALSTAFF", "https://www.falstaff.com/en/cafes/cafe-kaulard"], ["FEINSCHMECKER", "https://www.feinschmecker.de/coffeeShop/de/monschau/caf%C3%A9-kaulard-72"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["CAFE", "SWEET"],
+    "dish": "Monschauer Vennbrocken & Dütchen",
+    "n": "Konditorei-Café am Roten Haus",
+    "address": "Laufenstraße 11, 52156 Monschau, Germany",
+    "w": "A patisserie-café in a listed former cloth-merchant's house opposite the Rotes Haus, making Monschau's own specialties — Vennbrocken and Dütchen, truffles and cakes — to family recipes, with a sunny terrace over the Rur.",
+    "closed": false,
+    "sources": [["ERLEBNIS_REGION", "https://www.erlebnis-region.de/en/a-konditorei-cafe-am-roten-haus"], ["ISG_MONSCHAU", "https://www.isgmonschau.de/denkmaeler/laufenstrasse-11-grobe-gewandschaft-heute-cafe-am-roten-haus.html"]]
+  },
+  {
+    "t": 1, "a": "STADT", "cz": ["FINE", "INT"],
+    "dish": "gehobene französische Menüküche",
+    "n": "Alte Feuerwache – Podobnik's Restaurant",
+    "address": "Oppener Straße 115, 52146 Würselen, Germany",
+    "w": "In a 1923 former fire station, Kurt Podobnik has cooked refined French menus for half a century — a former Michelin-starred kitchen still rated by Feinschmecker and Gusto, sitting between elevated bistro and gourmet.",
+    "closed": false,
+    "sources": [["FALSTAFF", "https://www.falstaff.com/en/restaurants/alte-feuerwache-podobniks-restaurant-wuerselen"], ["GUSTO", "https://www.gusto-online.de/alte-feuerwache-podobniks-bistro.html"], ["FEINSCHMECKER", "https://www.feinschmecker.de/restaurant/de/w%C3%BCrselen/alte-feuerwache-f4"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["GER", "INT"],
+    "dish": "regionale Landgut-Küche (deutsch-mediterran)",
+    "n": "Restaurant Gut Schwarzenbruch",
+    "address": "Gut Schwarzenbruch 2, 52222 Stolberg (Rheinland), Germany",
+    "w": "German and Mediterranean cooking served in a historic country estate with an ornate dining hall on Stolberg's edge — a long-standing regional address for a special-occasion meal.",
+    "closed": false,
+    "sources": [["SCHLEMMER", "https://www.schlemmer-atlas.de/restaurants/deutschland/stolberg/restaurant-gut-schwarzenbruch/"], ["EIFEL_INFO", "https://www.outdooractive.com/en/gastro/eifel/restaurant-gut-schwarzenbruch/9589385/"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["GER"],
+    "dish": "Eifeler Wild & regionale Landgasthof-Küche",
+    "n": "Landgasthof Gut Marienbildchen",
+    "address": "Münsterbildchen 3, 52159 Roetgen, Germany",
+    "w": "A country inn in an early-19th-century manor on the edge of Roetgen, surrounded by meadows on the Eifelsteig — regional Eifel cooking with game (Wild) in season, a classic stop at the gateway to the Eifel.",
+    "closed": false,
+    "sources": [["EIFEL_INFO", "https://www.eifel.de/go/gastronomie-detail/gut_marienbildchen.html"], ["EIFELSTEIG", "https://www.eifelsteig.de/en/a-landgasthof-gut-marienbildchen-1"]]
+  }
+]

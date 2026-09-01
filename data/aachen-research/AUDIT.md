@@ -58,3 +58,55 @@ Status / closure findings (verify at build):
 Note: Gemünd/Schleiden/Vogelsang/Wolfgarten/Wollseifen sit in Kreis Euskirchen but are core Nationalpark
 Eifel and explicitly in the EIFEL brief; binned as EIFEL. Perlenbach-Fuhrtsbachtal (Monschau-Höfen) placed
 under EIFEL as the Hohes-Venn German edge per the brief (Monschau town itself belongs to STADT).
+
+## Discovery — STADT (StädteRegion Aachen towns) — 2026-09-01
+
+Agent: STADT discovery. Search in German only; WebSearch only (WebFetch blocked). Shared WebSearch budget
+was exhausted during this wave (hit the 200-call session cap), so a few last food-corroboration queries
+could not run — noted below.
+
+**Output: 21 sights (SIGHTS_STADT.json, dict), 7 food (FOOD_STADT.json, list), 28 outlets registered
+(SOURCES_STADT.json), 0 creators (CREATORS_STADT.json — none met the verifiable-following bar).** No
+coordinates (geocoding is a later stage) — full addresses only, each naming Town + Germany. All `"a":"STADT"`.
+
+Sights by tier: t1 = 7 (Historische Altstadt Monschau, Rotes Haus/Scheibler-Museum, Burg Monschau,
+Historischer Ortskern Kornelimünster, Burg Stolberg, Burg Rode Herzogenrath, ENERGETICON Alsdorf,
+Dreilägerbachtalsperre Roetgen — note: 8 listed here, ENERGETICON+Dreilägerbach both t1). t2 = 10
+(Historische Senfmühle Monschau, Kunsthaus NRW/ehem. Reichsabtei, Propsteikirche St. Kornelius,
+Historischer Altstadtkern Stolberg, Kupferhof Rosenthal, Museum Zinkhütter Hof, Wurmtal, Burg Wilhelmstein
+Würselen, Carl-Alexander-Park Baesweiler, NSG Struffelt Roetgen). t3 = 3 (Monschauer Glashütte, Felsenkeller
+Brauhaus & Museum [CLOSED], Kupferhof Grünenthal). Towns covered: Monschau (6), Kornelimünster (3), Stolberg
+(5), Herzogenrath (2), Alsdorf (1), Würselen (1), Baesweiler (1), Roetgen (2).
+
+Food by tier: t1 = 3 (Restaurant Sankt Benedikt — Michelin 1★ Kornelimünster; Schnabuleum/Historische
+Senfmühle Monschau — Moutarde de Montjoie dishes; Café Kaulard Monschau — Dütchen/Printen). Plus Alte
+Feuerwache Podobnik Würselen (t1, ex-Michelin French, Feinschmecker/Gusto/Falstaff). t2 = 3 (Konditorei-Café
+am Roten Haus Monschau — Vennbrocken; Gut Schwarzenbruch Stolberg; Landgasthof Gut Marienbildchen Roetgen —
+Eifeler Wild). Signature dishes covered: Monschauer Senf/Moutarde de Montjoie, Monschauer Dütchen &
+Vennbrocken, Printen, Michelin-Menü (Stör), Eifeler Wild/game, gehobene französische Küche.
+
+Closure findings (verify at build):
+- **Felsenkeller Brauhaus & Museum (Monschau)** — brewery from 1847; the brewery-museum CLOSED 2019 (BRF +
+  Industriemuseen EMR). Kept as a sight, flagged `closed:true` + " — CLOSED" per the closed-places-stay rule.
+- **Landhaus/Restaurant Solchbachtal (Stolberg-Zweifall)** — DROPPED: permanently closed (Das Örtliche /
+  onlinestreet). Not carried as food.
+
+Merit-bar drops (a mention is not merit; only rating aggregators = 0 toward the ≥2-credible bar):
+- **Zum Haller** and **Eifelstübchen** (Monschau) — TripAdvisor/speisekarte only; no credible editorial found.
+- **Bäckerei Hensch** (Monschau, Printen since 1770) — genuinely notable heritage but only TripAdvisor + a
+  blog surfaced; Printen/Dütchen already covered credibly by Café Kaulard + Café am Roten Haus. Left out.
+- **Brauhaus Peltzer** (Eschweiler), **Restaurant Eduard** (Alsdorf, in the Energeticon), **Vichter Landhaus**
+  and **Schwarzmüller Stubn** (Stolberg/Roetgen), **Zur Abtei / Bahnhofsvision** (Kornelimünster) — aggregators
+  only (or ≤1 credible); did not clear ≥2. Candidates for a later wave if editorial coverage is found.
+- **Blausteinsee (Eschweiler)** — likely a valid StädteRegion recreation-lake sight but only 1 credible source
+  surfaced before the budget cap; left out pending corroboration (revisit in extension).
+
+Sourcing notes: credible channels used are the brief's DE tourism/heritage authorities (eifel.info/eifel.de,
+nrw-tourismus, rureifel-tourismus, StädteRegion Aachen Freizeit-/Tourenportal, Monschau/Herzogenrath/Roetgen
+municipal sites, Eifelsteig, HSO-NRW, Baukunst NRW, KuLaDig/LVR, Kunsthaus NRW, museen.de) plus the food
+guides Michelin/Feinschmecker/Falstaff/Gusto/Schlemmer-Atlas, BRF (Ostbelgien/Euregio broadcaster) and DuMont.
+Reality of the eastern industrial towns (Eschweiler, Herzogenrath, Alsdorf, Baesweiler): thin editorial food
+coverage — most restaurants appear only on rating aggregators, so the food list is deliberately not padded
+(merit bar). Food density (7) is below the ~20 aim for this reason; the signature-first Monschau/Kornelimünster
+core is well-sourced. r/Aachen and DE food TikTok/YouTube were not reachable as findable named-place videos
+within budget; CREATORS_STADT is empty. NO coordinates emitted — geocoding + placement re-verify are later gates.

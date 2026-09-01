@@ -1,0 +1,174 @@
+{
+  "sources": [
+    {"key": "EIFEL_INFO", "name": "Eifel Tourismus (eifel.info / eifel.de)", "url": "https://www.eifel.info"},
+    {"key": "NRW_TOUR", "name": "NRW-Tourismus", "url": "https://www.nrw-tourismus.de"},
+    {"key": "RUREIFEL", "name": "Rureifel-Tourismus", "url": "https://www.rureifel-tourismus.de"},
+    {"key": "STR_AACHEN", "name": "StädteRegion Aachen (Freizeit-/Tourenportal)", "url": "https://www.freizeitportal.staedteregion-aachen.de"},
+    {"key": "MONSCHAU", "name": "Monschau-Touristik / Stadt Monschau", "url": "https://www.monschau.de"},
+    {"key": "HERZOGENRATH", "name": "Stadt Herzogenrath", "url": "https://www.herzogenrath.de"},
+    {"key": "ROETGEN", "name": "Gemeinde Roetgen", "url": "https://www.roetgen.de"},
+    {"key": "AACHEN_DE", "name": "Stadt Aachen", "url": "https://www.aachen.de"},
+    {"key": "EIFELSTEIG", "name": "Eifelsteig", "url": "https://www.eifelsteig.de"},
+    {"key": "HSO_NRW", "name": "AG Historische Stadt- und Ortskerne in NRW", "url": "https://www.hso-nrw.de"},
+    {"key": "BAUKUNST_NRW", "name": "Baukunst NRW", "url": "https://www.baukunst-nrw.de"},
+    {"key": "KULADIG", "name": "KuLaDig (LVR)", "url": "https://www.kuladig.de"},
+    {"key": "KUNSTHAUS_NRW", "name": "Kunsthaus NRW Kornelimünster", "url": "https://www.kunsthaus.nrw"},
+    {"key": "MUSEEN_DE", "name": "museen.de", "url": "https://museen.de"},
+    {"key": "BURGEN_DE", "name": "Burgen.de", "url": "https://www.burgen.de"},
+    {"key": "EIFELFUEHRER", "name": "Eifelführer", "url": "https://eifelfuehrer.de"},
+    {"key": "LEB_AACHEN", "name": "Lebendiges Aachen", "url": "https://www.lebendiges-aachen.de"},
+    {"key": "IND_EMR", "name": "Industriemuseen Euregio Maas-Rhein", "url": "https://industriemuseen-emr.de"},
+    {"key": "BRF", "name": "BRF (Belgischer Rundfunk)", "url": "https://brf.be"},
+    {"key": "DUMONT", "name": "DuMont Reise", "url": "https://www.dumontreise.de"},
+    {"key": "WIKIPEDIA", "name": "Wikipedia", "url": "https://de.wikipedia.org"}
+  ],
+  "sights": [
+    {
+      "t": 1, "a": "STADT", "n": "Historische Altstadt Monschau",
+      "address": "Altstadt / Am Markt, 52156 Monschau, Germany",
+      "w": "Around 300 listed slate-and-timber Fachwerk houses crowd the narrow lanes of the Rur valley, the best-preserved cloth-makers' town in the Eifel and the postcard image of Monschau. Its Blütezeit came from 18th-century wool-cloth (Monschauer Tuch), prized across Europe.",
+      "k": "old town", "g": ["ICON", "HIST", "ARCH", "FREE"],
+      "sources": [["EIFEL_INFO", "https://www.eifel.info/en/pois/historische-altstadt-monschau"], ["HSO_NRW", "https://www.hso-nrw.de/historische-stadt-und-ortskerne/monschau/"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "Rotes Haus (Scheibler-Museum)",
+      "address": "Laufenstraße 10, 52156 Monschau, Germany",
+      "w": "The Red House was built around 1760 as home and counting-house of cloth merchant Johann Heinrich Scheibler; today it is a museum of 18th–19th-century bourgeois living, famous for its carved free-standing oak staircase and original furnishings.",
+      "k": "historic house museum", "g": ["HIST", "MUS", "ARCH"],
+      "sources": [["STR_AACHEN", "https://www.freizeitportal.staedteregion-aachen.de/pois/das-rote-haus-in-monschau-1"], ["EIFEL_INFO", "https://www.eifel.info/en/pois/das-rote-haus-in-monschau-1"], ["MUSEEN_DE", "https://museen.de/scheibler-museum-rotes-haus-monschau.html"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Historische Senfmühle Monschau",
+      "address": "Laufenstraße 118, 52156 Monschau, Germany",
+      "w": "A working mustard mill grinding by hand since 1882, now in the 4th–5th generation, producing the celebrated Moutarde de Montjoie (Monschauer Senf) in over twenty varieties. Mill tours, a shop and the adjoining Schnabuleum restaurant occupy the restored listed building.",
+      "k": "mustard mill", "g": ["HIST", "MUS", "ICON"],
+      "sources": [["NRW_TOUR", "https://www.nrw-tourismus.de/genuss/historische-senfmuehle-monschau-ruth-breuer"], ["DUMONT", "https://www.dumontreise.de/magazin/empfehlungen/sehenswert-13/historische-senfmuehle-monschau-115005861"]]
+    },
+    {
+      "t": 3, "a": "STADT", "n": "Monschauer Glashütte",
+      "address": "Burgau 15, 52156 Monschau, Germany",
+      "w": "A glassblowing workshop below the castle where you can watch a Glasbläser at work — a nod to the town's second historic craft alongside cloth-making — with a shop and demonstrations.",
+      "k": "glassworks", "g": ["HIST", "MUS"],
+      "sources": [["EIFEL_INFO", "https://www.eifel.de/go/sehenswertes-detail/glashuette_monschau.html"], ["EIFELSTEIG", "https://www.eifelsteig.de/en/pois/glashuette-monschau"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "Burg Monschau",
+      "address": "Auf dem Schloß 4, 52156 Monschau, Germany",
+      "w": "A well-preserved 13th-century hilltop castle above the Altstadt with a commanding view over the slate roofs of Monschau; today an event venue and youth hostel, and the stage of the summer Monschau Klassik open-air concerts.",
+      "k": "castle", "g": ["ICON", "HIST", "ARCH"],
+      "sources": [["BURGEN_DE", "https://www.burgen.de/burgen-und-schloesser/deutschland/burg-monschau/"], ["NRW_TOUR", "https://www.nrw-tourismus.de/schloesser-burgen/burg-monschau"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Monschau_Castle"]]
+    },
+    {
+      "t": 3, "a": "STADT", "n": "Felsenkeller Brauhaus & Museum — CLOSED",
+      "address": "Laufenstraße, 52156 Monschau, Germany",
+      "w": "Founded in 1847, the Felsenkeller was a four-generation Monschau brewery (Felsquell Pils, naturally cloudy Zwickelbier) that later became the Eifel's first brewery museum. The brewery museum closed in 2019; it remains a landmark of the region's brewing heritage.",
+      "k": "brewery museum", "g": ["HIST", "MUS"], "closed": true,
+      "sources": [["BRF", "https://brf.be/regional/471550/"], ["IND_EMR", "https://industriemuseen-emr.de/de_DE/felsenkeller-brauerei-museum"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "Historischer Ortskern Kornelimünster",
+      "address": "Benediktusplatz / Korneliusmarkt, 52076 Aachen-Kornelimünster, Germany",
+      "w": "One of Germany's most complete pre-industrial townscapes: 17th–18th-century slate-timber and quarry-stone houses ring the Korneliusmarkt and Benediktusplatz around the former abbey church. The abbey village grew from the 'Monasterium ad Indam' founded in 814 by Benedict of Aniane.",
+      "k": "old town", "g": ["HIST", "ARCH", "ICON", "FREE"],
+      "sources": [["BAUKUNST_NRW", "https://www.baukunst-nrw.de/objekte/Historischer-Ortskern-Kornelimuenster--664.htm"], ["EIFELSTEIG", "https://www.eifelsteig.de/en/a-historischer-ortskern-kornelimuenster"], ["AACHEN_DE", "https://www.aachen.de/in-aachen-leben/stadtbezirke-und-viertel/kornelimuenster-walheim/sehenswuerdigkeiten/"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Kunsthaus NRW / ehem. Reichsabtei Kornelimünster",
+      "address": "Abteigarten 6, 52076 Aachen-Kornelimünster, Germany",
+      "w": "The former Imperial Abbey, rebuilt in 1721 as a late-baroque palace, houses the Kunsthaus NRW — the state of North Rhine-Westphalia's art collection of over 5,000 works from Rhenish Expressionism to the present, shown in the abbey's grand halls and garden.",
+      "k": "art museum", "g": ["MUS", "HIST", "ARCH"],
+      "sources": [["KUNSTHAUS_NRW", "https://www.kunsthaus.nrw/besuch/klosteranlage/"], ["WIKIPEDIA", "https://de.wikipedia.org/wiki/Kunsthaus_Nordrhein-Westfalen_Kornelim%C3%BCnster"], ["MUSEEN_DE", "https://museen.de/kunst-aus-nordrhein-westfalen-aachen.html"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Propsteikirche St. Kornelius",
+      "address": "Korneliusmarkt, 52076 Aachen-Kornelimünster, Germany",
+      "w": "The former abbey church and today's parish church, a landmark of Rhenish architecture whose 814–817 founding core hides beneath a seemingly Gothic five-aisled body — over 1,000 years of building history. A pilgrimage site for its Corneliusreliquien (Cornelius relics).",
+      "k": "pilgrimage church", "g": ["HIST", "ARCH", "FREE"],
+      "sources": [["BAUKUNST_NRW", "https://www.baukunst-nrw.de/objekte/St.-Kornelius-Aachen--669.htm"], ["EIFELFUEHRER", "https://eifelfuehrer.de/index.php/touristische-ziele/kirchenkloester/abtei-kornelimuenster"], ["KULADIG", "https://www.kuladig.de/Objektansicht/O-55084-20121005-3"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "Burg Stolberg",
+      "address": "Burgstraße, 52222 Stolberg (Rheinland), Germany",
+      "w": "The stone landmark of the Kupferstadt, rising on a limestone crag above the old town and the Vichtbach. The medieval-to-Renaissance castle now hosts events and a Burggastronomie, with wide views over Stolberg's copper-town roofscape.",
+      "k": "castle", "g": ["ICON", "HIST", "ARCH"],
+      "sources": [["NRW_TOUR", "https://www.nrw-tourismus.de/schloesser-burgen/burg-stolberg"], ["EIFEL_INFO", "https://www.eifel.info/en/pois/burg-stolberg"], ["WIKIPEDIA", "https://en.wikipedia.org/wiki/Stolberg_(Rhineland)"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Historischer Altstadtkern Stolberg",
+      "address": "Altstadt / Burgstraße, 52222 Stolberg (Rheinland), Germany",
+      "w": "Narrow stepped lanes and small squares of half-timbered and local-limestone houses with hewn bluestone (Blaustein) trim, climbing beneath Burg Stolberg — a townscape shaped by the 17th–18th-century copper and brass boom.",
+      "k": "old town", "g": ["HIST", "ARCH", "FREE"],
+      "sources": [["RUREIFEL", "https://www.rureifel-tourismus.de/pois/historischer-altstadtkern"], ["STR_AACHEN", "https://www.freizeitportal.staedteregion-aachen.de/pois/historischer-altstadtkern"], ["HSO_NRW", "https://www.hso-nrw.de/historische-stadt-und-ortskerne/stolberg/"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Kupferhof Rosenthal",
+      "address": "Rathausstraße 67, 52222 Stolberg (Rheinland), Germany",
+      "w": "A baroque copper-master's courtyard house built in 1724 by Tillmann Roland, monument-protected since 1986 — one of the finest of Stolberg's Kupferhöfe, the fortified merchant-workshop yards found nowhere else in Germany.",
+      "k": "copper courtyard house", "g": ["HIST", "ARCH"],
+      "sources": [["EIFELSTEIG", "https://www.eifelsteig.de/en/pois/kupferhof-rosenthal"], ["RUREIFEL", "https://www.rureifel-tourismus.de/en/a-kupferhof-rosenthal"], ["WIKIPEDIA", "https://de.wikipedia.org/wiki/Kupferhof_Rosenthal"]]
+    },
+    {
+      "t": 3, "a": "STADT", "n": "Kupferhof Grünenthal",
+      "address": "Steinfeldstraße, 52222 Stolberg (Rheinland), Germany",
+      "w": "A historic Stolberg copper yard and the founding seat of the Grünenthal pharmaceutical company, still held by the Wirtz family — another of the town's more-than-ten Kupferhöfe that trace its industrial golden age.",
+      "k": "copper courtyard house", "g": ["HIST", "ARCH"],
+      "sources": [["STR_AACHEN", "https://www.freizeitportal.staedteregion-aachen.de/pois/kupferhof-gruenenthal"], ["WIKIPEDIA", "https://de.wikipedia.org/wiki/Kupferhof_Gr%C3%BCnenthal"], ["KULADIG", "https://www.kuladig.de/Objektansicht/O-110578-20141222-5"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Museum Zinkhütter Hof",
+      "address": "Cockerillstraße 90, 52222 Stolberg (Rheinland), Germany",
+      "w": "A museum of the Aachen region's industrial, economic and social history in a former 19th-century glassworks — 'Stolberger Zink', 'Aachener Nadel' (needle-making) and brass, one of the best-preserved examples of the historic industrial belt from Aachen through Stolberg to Eschweiler.",
+      "k": "industrial museum", "g": ["MUS", "HIST", "ARCH"],
+      "sources": [["MUSEEN_DE", "https://museen.de/museum-zinkhuetter-hof-stolberg.html"], ["WIKIPEDIA", "https://de.wikipedia.org/wiki/Museum_Zinkh%C3%BCtter_Hof"], ["RUREIFEL", "https://www.rureifel-tourismus.de/pois/museum-zinkhuetter-hof-1"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "Burg Rode",
+      "address": "Burg Rode, 52134 Herzogenrath, Germany",
+      "w": "First documented in 1104 as 'castrum Rodense', Herzogenrath's best-known landmark stands above the Wurm with a 14th-century tower reshaped in the 19th century. Now a cultural venue with exhibitions on the castle's history and the 18th-century Bockreiter robber band.",
+      "k": "castle", "g": ["ICON", "HIST", "ARCH"],
+      "sources": [["KULADIG", "https://www.kuladig.de/Objektansicht/O-14859-20110817-2"], ["HERZOGENRATH", "https://www.herzogenrath.de/freizeit-tourismus/tourismus/erlebnisraum-roemerstrasse/ausstellung-burg-rode/"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Wurmtal (Naturschutzgebiet)",
+      "address": "Wurmtal, 52134 Herzogenrath, Germany",
+      "w": "A green regional recreation corridor along the Wurm river between Aachen and Herzogenrath — meadow, wetland and forest with small lakes and the old mine dumps (Halden) of the Aachen coal district, laced with cycle and hiking paths.",
+      "k": "nature reserve / river valley", "g": ["PARK", "FREE"],
+      "sources": [["HERZOGENRATH", "https://www.herzogenrath.de/freizeit-tourismus/im-gruenen/fahrradrouten/radtour-entlang-der-halden-ins-wurmtal/"], ["KULADIG", "https://www.kuladig.de/Objektansicht/KLD-252079"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "ENERGETICON",
+      "address": "Konrad-Adenauer-Allee 7, 52477 Alsdorf, Germany",
+      "w": "An energy-and-mining experience museum opened in 2014 on the grounds of the former Grube Anna II colliery — from coal and the Aachen mining district to the future of energy, with preserved pit buildings and hands-on exhibits.",
+      "k": "energy & mining museum", "g": ["MUS", "HIST"],
+      "sources": [["WIKIPEDIA", "https://de.wikipedia.org/wiki/Energeticon"], ["NRW_TOUR", "https://www.nrw-tourismus.de/museen/energeticon-alsdorf"], ["MUSEEN_DE", "https://museen.de/energeticon-alsdorf.html"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Burg Wilhelmstein",
+      "address": "Burg Wilhelmstein, 52146 Würselen-Bardenberg, Germany",
+      "w": "A castle ruin on the eastern bank of the Wurm near Würselen-Bardenberg, set directly in the Wurmtal; for over twenty summers its open-air stage has hosted the city's popular Freiluft programme of concerts, cabaret and film.",
+      "k": "castle ruin", "g": ["HIST", "ARCH", "PARK", "FREE"],
+      "sources": [["STR_AACHEN", "https://tourenportal.staedteregion-aachen.de/de/poi/burg/burg-wilhelmstein/3032207/"], ["LEB_AACHEN", "https://www.lebendiges-aachen.de/modules.php?name=Aachen&act=page&id=377"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Carl-Alexander-Park (Grube Carl-Alexander)",
+      "address": "Carl-Alexander-Park, 52499 Baesweiler, Germany",
+      "w": "The ~80 m mining spoil heap of the former Grube Carl-Alexander colliery, greened and opened for EuRegionale 2008 — a suspension bridge climbs to a viewpoint high above the treetops with a panorama over Baesweiler and the surrounding towns.",
+      "k": "mining heap park / viewpoint", "g": ["PARK", "HIST", "FREE"],
+      "sources": [["WIKIPEDIA", "https://de.wikipedia.org/wiki/Grube_Carl_Alexander"], ["KULADIG", "https://www.kuladig.de/Objektansicht/KLD-343846"]]
+    },
+    {
+      "t": 1, "a": "STADT", "n": "Dreilägerbachtalsperre",
+      "address": "Dreilägerbachtalsperre, 52159 Roetgen, Germany",
+      "w": "A drinking-water reservoir of 1909–1911 behind a 38 m-high, 240 m-long dam wall between Roetgen and Rott, in the northern Eifel. A scenic lakeside walk and a section of the Eifelsteig through the Struffelt make it the classic Eifel-gateway outing from Roetgen.",
+      "k": "reservoir / dam", "g": ["PARK", "HIST", "FREE"],
+      "sources": [["EIFELSTEIG", "https://www.eifelsteig.de/pois/dreilaegerbachtalsperre"], ["STR_AACHEN", "https://tourenportal.staedteregion-aachen.de/de/poi/staumauer-wehr/dreilaegerbachtalsperre/20249494/"], ["RUREIFEL", "https://www.rureifel-tourismus.de/pois/dreilaegerbachtalsperre"]]
+    },
+    {
+      "t": 2, "a": "STADT", "n": "Naturschutzgebiet Struffelt",
+      "address": "Struffelt, 52159 Roetgen, Germany",
+      "w": "A heath-and-moor nature reserve on the Eifelsteig above Roetgen — 'the gateway to the Eifel' — with a circular premium trail (Roetgener Schleife) linking the ridge to the Dreilägerbachtalsperre.",
+      "k": "heath nature reserve", "g": ["PARK", "FREE"],
+      "sources": [["ROETGEN", "https://www.roetgen.de/unsere-gemeinde/wanderrouten/"], ["EIFELSTEIG", "https://www.eifelsteig.de/pois/dreilaegerbachtalsperre"]]
+    }
+  ]
+}
