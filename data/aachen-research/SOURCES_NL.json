@@ -1,0 +1,284 @@
+{
+ "outlets": [
+  {
+   "key": "VISITMAASTRICHT",
+   "name": "Visit Maastricht",
+   "type": "tourism",
+   "url": "https://www.visitmaastricht.com",
+   "credible": "Official Maastricht DMO/VVV tourism site (Dutch/English)."
+  },
+  {
+   "key": "VISITZUIDLIMBURG",
+   "name": "Visit Zuid-Limburg",
+   "type": "tourism",
+   "url": "https://www.visitzuidlimburg.nl",
+   "credible": "Official South Limburg regional tourism board (Dutch)."
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "type": "reference",
+   "url": "https://nl.wikipedia.org",
+   "credible": "Encyclopedic reference with sourced history/coordinates (NL/EN)."
+  },
+  {
+   "key": "MICHELIN",
+   "name": "MICHELIN Guide Nederland",
+   "type": "institutional",
+   "url": "https://guide.michelin.com/nl",
+   "credible": "Institutional culinary authority (stars, Bib Gourmand)."
+  },
+  {
+   "key": "GAULTMILLAU",
+   "name": "Gault&Millau Nederland",
+   "type": "institutional",
+   "url": "https://www.gault-millau.nl",
+   "credible": "Institutional restaurant guide (Netherlands)."
+  },
+  {
+   "key": "RIJKSMONUMENTEN",
+   "name": "Rijksmonumenten.nl",
+   "type": "heritage",
+   "url": "https://rijksmonumenten.nl",
+   "credible": "Dutch national-monument register (official listings)."
+  },
+  {
+   "key": "CULTUREELERFGOED",
+   "name": "Rijksdienst voor het Cultureel Erfgoed",
+   "type": "heritage",
+   "url": "https://kennis.cultureelerfgoed.nl",
+   "credible": "Dutch government heritage agency monument database."
+  },
+  {
+   "key": "NATUURMONUMENTEN",
+   "name": "Natuurmonumenten",
+   "type": "heritage",
+   "url": "https://www.natuurmonumenten.nl",
+   "credible": "National nature-conservation body; manages the Sint-Pietersberg reserve."
+  },
+  {
+   "key": "EXPLOREMAASTRICHT",
+   "name": "Explore Maastricht (Maastricht Underground)",
+   "type": "official-operator",
+   "url": "https://www.exploremaastricht.nl",
+   "credible": "Official operator of the caves, Fort Sint Pieter and casemate tours."
+  },
+  {
+   "key": "FORTEN",
+   "name": "Forten.nl (Stichting Menno van Coehoorn)",
+   "type": "heritage",
+   "url": "https://forten.nl",
+   "credible": "Dutch fortification-heritage foundation."
+  },
+  {
+   "key": "VIABELGICA",
+   "name": "Via Belgica",
+   "type": "heritage",
+   "url": "https://www.viabelgica.nl",
+   "credible": "Official Roman-road heritage route programme, Limburg."
+  },
+  {
+   "key": "WNL",
+   "name": "WNL",
+   "type": "news",
+   "url": "https://wnl.tv",
+   "credible": "Dutch national public broadcaster (news)."
+  },
+  {
+   "key": "NLTIMES",
+   "name": "NL Times",
+   "type": "news",
+   "url": "https://nltimes.nl",
+   "credible": "English-language Netherlands news outlet."
+  },
+  {
+   "key": "RTVMAASTRICHT",
+   "name": "RTV Maastricht",
+   "type": "news",
+   "url": "https://rtvmaastricht.nl",
+   "credible": "Maastricht local public broadcaster."
+  },
+  {
+   "key": "ONEZUID",
+   "name": "1Zuid",
+   "type": "news",
+   "url": "https://1zuid.nl",
+   "credible": "South-Limburg regional news outlet."
+  },
+  {
+   "key": "FOODIES",
+   "name": "Foodies Magazine",
+   "type": "food-media",
+   "url": "https://www.foodiesmagazine.nl",
+   "credible": "National Dutch culinary magazine."
+  },
+  {
+   "key": "CHAPEAU",
+   "name": "Chapeau Magazine",
+   "type": "food-media",
+   "url": "https://www.chapeaumagazine.com",
+   "credible": "Dutch fine-dining / culinary magazine."
+  },
+  {
+   "key": "INLIMBURG",
+   "name": "inLimburg",
+   "type": "tourism",
+   "url": "https://www.inlimburg.com",
+   "credible": "Province-of-Limburg official tourism platform."
+  },
+  {
+   "key": "PUURZUIDLIMBURG",
+   "name": "Puur Zuid-Limburg",
+   "type": "tourism",
+   "url": "https://www.puurzuidlimburg.nl",
+   "credible": "South-Limburg regional food/tourism platform."
+  },
+  {
+   "key": "TIMETOMOMO",
+   "name": "Time to Momo",
+   "type": "travel-guide",
+   "url": "https://www.timetomomo.com",
+   "credible": "Established Dutch city-guide brand (curated local tips)."
+  },
+  {
+   "key": "GRACHTENBEANS",
+   "name": "Grachten Beans Coffee Guide",
+   "type": "food-media",
+   "url": "https://grachtenbeans.nl",
+   "credible": "Dutch specialty-coffee guide with city roaster maps."
+  },
+  {
+   "key": "KOFFIETJE",
+   "name": "Koffietje.nl",
+   "type": "food-media",
+   "url": "https://www.koffietje.nl",
+   "credible": "Dutch specialty-coffee-bar guide."
+  },
+  {
+   "key": "SUSA",
+   "name": "SUSA (Maastricht student platform)",
+   "type": "student",
+   "url": "https://www.susa.nl",
+   "credible": "Maastricht student-life platform (authentic local student layer)."
+  },
+  {
+   "key": "YOURLITTLEBLACKBOOK",
+   "name": "Your Little Black Book",
+   "type": "blog",
+   "url": "https://www.yourlittleblackbook.me",
+   "credible": "Popular Dutch travel/lifestyle blog with a real following."
+  },
+  {
+   "key": "TRAVELLUST",
+   "name": "Travellust",
+   "type": "blog",
+   "url": "https://www.travellust.nl",
+   "credible": "Dutch travel blog (hotspot coverage)."
+  },
+  {
+   "key": "WEARETRAVELLERS",
+   "name": "We Are Travellers",
+   "type": "blog",
+   "url": "https://www.wearetravellers.nl",
+   "credible": "Dutch travel blog with local-tips restaurant lists."
+  },
+  {
+   "key": "STAYOKAY",
+   "name": "Stayokay City Tips",
+   "type": "travel-guide",
+   "url": "https://www.stayokay.com",
+   "credible": "National hostel chain's curated city-tip editorial."
+  },
+  {
+   "key": "BONNEFANTEN",
+   "name": "Bonnefanten (official)",
+   "type": "official",
+   "url": "https://www.bonnefanten.nl",
+   "credible": "Provincial fine-art museum's own site."
+  },
+  {
+   "key": "TOERISMEVAALS",
+   "name": "Toerisme Vaals (VVV Vaals)",
+   "type": "tourism",
+   "url": "https://www.toerismevaals.nl",
+   "credible": "Official Vaals tourism/VVV site."
+  },
+  {
+   "key": "DRIELANDENPUNT",
+   "name": "Het Drielandenpunt (official)",
+   "type": "official",
+   "url": "https://hetdrielandenpunt.nl",
+   "credible": "Official Drielandenpunt / Vaalserberg attraction site."
+  },
+  {
+   "key": "KASTEELVALKENBURG",
+   "name": "Kasteelruïne & Fluweelengrot (official)",
+   "type": "official",
+   "url": "https://www.kasteelvalkenburg.nl",
+   "credible": "Official castle-ruin & Fluweelengrot cave operator."
+  },
+  {
+   "key": "KERSTSTADVALKENBURG",
+   "name": "Kerststad Valkenburg (official)",
+   "type": "official",
+   "url": "https://www.kerststadvalkenburg.nl",
+   "credible": "Official Valkenburg Christmas-city / cave-market organisation."
+  },
+  {
+   "key": "THERMAE",
+   "name": "Thermae 2000 (official)",
+   "type": "official",
+   "url": "https://www.thermae.nl",
+   "credible": "Thermal-spa resort's own site."
+  },
+  {
+   "key": "HETROMEINSMUSEUM",
+   "name": "Het Romeins Museum (Thermenmuseum)",
+   "type": "official-museum",
+   "url": "https://www.hetromeinsmuseum.nl",
+   "credible": "Heerlen Roman museum's official site (successor of the Thermenmuseum)."
+  },
+  {
+   "key": "ABMC",
+   "name": "American Battle Monuments Commission",
+   "type": "official",
+   "url": "https://www.abmc.gov/Netherlands",
+   "credible": "US federal agency operating the Netherlands American Cemetery, Margraten."
+  },
+  {
+   "key": "GULPENER",
+   "name": "Gulpener Bierbrouwerij (official)",
+   "type": "official",
+   "url": "https://gulpener.nl",
+   "credible": "Historic Gulpen brewery's own visitor/BrouwLokaal site."
+  },
+  {
+   "key": "BELUGA",
+   "name": "Beluga Loves You (official)",
+   "type": "official",
+   "url": "https://belugalovesyou.com",
+   "credible": "Restaurant's own site (address/reservations)."
+  },
+  {
+   "key": "OOSTWEGEL",
+   "name": "Oostwegel Collection",
+   "type": "official",
+   "url": "https://www.oostwegelcollection.nl",
+   "credible": "Operator of Château Neercanne & Château St. Gerlach (official)."
+  },
+  {
+   "key": "RELAISCHATEAUX",
+   "name": "Relais & Châteaux",
+   "type": "institutional",
+   "url": "https://www.relaischateaux.com",
+   "credible": "International fine-hospitality association (curated membership)."
+  },
+  {
+   "key": "TRAPPISTBIER",
+   "name": "Trappistbier.wordpress",
+   "type": "blog",
+   "url": "https://trappistbier.wordpress.com",
+   "credible": "Dutch beer-culture blog profiling specialty/trappist cafes (used only to corroborate a now-closed landmark)."
+  }
+ ]
+}

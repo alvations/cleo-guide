@@ -1,0 +1,634 @@
+{
+ "sources": [
+  {
+   "key": "ABMC",
+   "name": "American Battle Monuments Commission",
+   "url": "https://www.abmc.gov/Netherlands"
+  },
+  {
+   "key": "BONNEFANTEN",
+   "name": "Bonnefanten (official)",
+   "url": "https://www.bonnefanten.nl"
+  },
+  {
+   "key": "CULTUREELERFGOED",
+   "name": "Rijksdienst voor het Cultureel Erfgoed",
+   "url": "https://kennis.cultureelerfgoed.nl"
+  },
+  {
+   "key": "DRIELANDENPUNT",
+   "name": "Het Drielandenpunt (official)",
+   "url": "https://hetdrielandenpunt.nl"
+  },
+  {
+   "key": "EXPLOREMAASTRICHT",
+   "name": "Explore Maastricht (Maastricht Underground)",
+   "url": "https://www.exploremaastricht.nl"
+  },
+  {
+   "key": "FORTEN",
+   "name": "Forten.nl (Stichting Menno van Coehoorn)",
+   "url": "https://forten.nl"
+  },
+  {
+   "key": "HETROMEINSMUSEUM",
+   "name": "Het Romeins Museum (Thermenmuseum)",
+   "url": "https://www.hetromeinsmuseum.nl"
+  },
+  {
+   "key": "KASTEELVALKENBURG",
+   "name": "Kasteelruïne & Fluweelengrot (official)",
+   "url": "https://www.kasteelvalkenburg.nl"
+  },
+  {
+   "key": "KERSTSTADVALKENBURG",
+   "name": "Kerststad Valkenburg (official)",
+   "url": "https://www.kerststadvalkenburg.nl"
+  },
+  {
+   "key": "NATUURMONUMENTEN",
+   "name": "Natuurmonumenten",
+   "url": "https://www.natuurmonumenten.nl"
+  },
+  {
+   "key": "RIJKSMONUMENTEN",
+   "name": "Rijksmonumenten.nl",
+   "url": "https://rijksmonumenten.nl"
+  },
+  {
+   "key": "THERMAE",
+   "name": "Thermae 2000 (official)",
+   "url": "https://www.thermae.nl"
+  },
+  {
+   "key": "TOERISMEVAALS",
+   "name": "Toerisme Vaals (VVV Vaals)",
+   "url": "https://www.toerismevaals.nl"
+  },
+  {
+   "key": "VIABELGICA",
+   "name": "Via Belgica",
+   "url": "https://www.viabelgica.nl"
+  },
+  {
+   "key": "VISITMAASTRICHT",
+   "name": "Visit Maastricht",
+   "url": "https://www.visitmaastricht.com"
+  },
+  {
+   "key": "VISITZUIDLIMBURG",
+   "name": "Visit Zuid-Limburg",
+   "url": "https://www.visitzuidlimburg.nl"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "WNL",
+   "name": "WNL",
+   "url": "https://wnl.tv"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Sint-Servaasbasiliek",
+   "address": "Keizer Karelplein 3, Maastricht, Netherlands",
+   "k": "Basilica & treasury",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "MUS"
+   ],
+   "w": "The Netherlands' oldest church, over the tomb of St Servatius, set between the Vrijthof and Keizer Karelplein. Its Schatkamer (treasury) holds the jewelled Noodkist reliquary and one of Europe's great collections of early-medieval Oriental silks.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/locaties/2059606782/sint-servaasbasiliek-1"
+    ],
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/basiliek-van-st-servaas/59336/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Onze-Lieve-Vrouwebasiliek",
+   "address": "Onze Lieve Vrouweplein 7, Maastricht, Netherlands",
+   "k": "Romanesque basilica",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "w": "A powerful Romanesque basilica (the fortress-like Westwerk is its signature) on Maastricht's most atmospheric square. Pilgrims still light candles at the 15th-century 'Sterre der Zee' (Star of the Sea) image of the Virgin.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Basilica_of_Our_Lady,_Maastricht"
+    ],
+    [
+     "RIJKSMONUMENTEN",
+     "https://rijksmonumenten.nl/monument/27454/onze-lieve-vrouwebasiliek/maastricht/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Boekhandel Dominicanen",
+   "address": "Dominicanerkerkstraat 1, Maastricht, Netherlands",
+   "k": "Bookshop in a Gothic church",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "w": "A 13th-century Dominican church, the first Gothic church of the Low Countries, reborn as a bookshop under towering vaults and a monumental steel bookcase. Voted the world's most beautiful bookstore (2025), it draws roughly a million visitors a year.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/locaties/30386516/boekhandel-dominicanen"
+    ],
+    [
+     "WNL",
+     "https://wnl.tv/2025/08/07/boekhandel-dominicanen-in-maastricht-mooiste-ter-wereld"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Bonnefantenmuseum",
+   "address": "Avenue Céramique 250, Maastricht, Netherlands",
+   "k": "Art museum",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "w": "Limburg's leading art museum, from old masters to contemporary, in Aldo Rossi's landmark E-shaped building with a rocket-shaped cupola on the Maas. The brick 'Treppestraat' staircase is a destination in itself.",
+   "sources": [
+    [
+     "BONNEFANTEN",
+     "https://www.bonnefanten.nl/en/art-artists/explore-the-building"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bonnefantenmuseum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Grotten Noord (Sint-Pietersberg)",
+   "address": "Luikerweg 80, 6212 NH Maastricht, Netherlands",
+   "k": "Marl cave labyrinth",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "w": "A guided descent ~30 m into the Sint-Pietersberg marl, through part of a labyrinth of once 20,000+ passages carved over centuries by block-cutters, walls covered in charcoal drawings and names. Cool year-round; wartime hiding place.",
+   "sources": [
+    [
+     "EXPLOREMAASTRICHT",
+     "https://www.exploremaastricht.nl/en/caves-sint-pietersberg-hill"
+    ],
+    [
+     "NATUURMONUMENTEN",
+     "https://www.natuurmonumenten.nl/natuurgebieden/sint-pietersberg"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Fort Sint Pieter",
+   "address": "Luikerweg 80, 6212 NH Maastricht, Netherlands",
+   "k": "18th-century fort",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "w": "A pentagonal 1701-02 fort on the Sint-Pietersberg guarding the Maas approach, restored and toured by guides who re-tell its sieges among casemates, loopholes and cannon, with a sweeping view over Maastricht.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/uitagenda/3594467358/rondleiding-combi-fort-en-grotten-noord-maastricht-underground"
+    ],
+    [
+     "EXPLOREMAASTRICHT",
+     "https://www.exploremaastricht.nl/rondleidingen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Kazematten (Maastricht Underground)",
+   "address": "Waldeckpark 11, 6214 BH Maastricht, Netherlands",
+   "k": "Casemate tunnels",
+   "g": [
+    "HIST"
+   ],
+   "w": "A guided hour underground in the western defence tunnels dug between 1575 and 1825 - kilometres of mine galleries used to attack besiegers and, in WWII, to shelter residents from bombing. Departs from the Waldeck bastion in the city park.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/locaties/3486023688/kazematten-maastricht-underground"
+    ],
+    [
+     "FORTEN",
+     "https://forten.nl/activiteit/rondleidingen-kazematten/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Vrijthof",
+   "address": "Vrijthof, Maastricht, Netherlands",
+   "k": "Grand square",
+   "g": [
+    "MKT",
+    "ICON",
+    "FREE"
+   ],
+   "w": "Maastricht's grand stage - terraces, the basilica and the red-towered Sint-Janskerk framing a square often called the finest in the Netherlands, and home to Andre Rieu's summer concerts and the Vrijthof museum.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/dit-is-maastricht/bouwen-op-het-verleden/monumentenstad"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maastricht"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Sint-Janskerk",
+   "address": "Vrijthof 24, Maastricht, Netherlands",
+   "k": "Gothic church tower",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "w": "The Gothic Protestant church on the Vrijthof whose bright-red, ~80 m marl tower is a symbol of Maastricht; climb it for a rooftop view across the old city.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/dit-is-maastricht/bouwen-op-het-verleden/monumentenstad"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maastricht"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Helpoort",
+   "address": "Sint Bernardusstraat, Maastricht, Netherlands",
+   "k": "Medieval city gate",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "w": "The oldest surviving city gate in the Netherlands (1229) and the only one left in Maastricht - twin towers of the first medieval wall, beside a preserved stretch of ramparts along the Jeker.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/locaties/906385495/helpoort"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maastricht"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Stadhuis op de Markt",
+   "address": "Markt 78, Maastricht, Netherlands",
+   "k": "Town hall & market",
+   "g": [
+    "ARCH",
+    "MKT",
+    "HIST"
+   ],
+   "w": "Pieter Post's Dutch-Classicist town hall (1659-64) commands the Markt, its 1684 tower ringing a 49-bell carillon over the Wednesday and Friday markets; inside are tapestries, stucco and painted ceilings.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/locaties/592754364/stadhuis-op-de-markt"
+    ],
+    [
+     "CULTUREELERFGOED",
+     "https://kennis.cultureelerfgoed.nl/index.php/Monumenten/27382"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Sint Servaasbrug",
+   "address": "Sint Servaasbrug, Maasboulevard, Maastricht, Netherlands",
+   "k": "Medieval stone bridge",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "w": "The oldest bridge in the Netherlands - a seven-arch limestone span built around 1280-1298 that has linked the old town to Wyck across the Maas for seven centuries; now a pedestrian icon of the city.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/locaties/1335944557/sint-servaasbrug"
+    ],
+    [
+     "VIABELGICA",
+     "https://www.viabelgica.nl/plek/sint-servaasbrug/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Jekerkwartier",
+   "address": "Jekerkwartier, Maastricht, Netherlands",
+   "k": "Historic quarter",
+   "g": [
+    "HIST",
+    "NIGHT",
+    "FREE"
+   ],
+   "w": "One of Maastricht's oldest quarters, threaded by the little Jeker river that once formed the city's defence; today a village-in-the-city of makers, delis, galleries and terraces below the old ramparts.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/doen/stadsdelen/jekerkwartier"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Jekerkwartier"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Stokstraatkwartier",
+   "address": "Stokstraat, Maastricht, Netherlands",
+   "k": "Historic shopping quarter",
+   "g": [
+    "HIST",
+    "MKT",
+    "FREE"
+   ],
+   "w": "A tightly restored quarter of national monuments around the Stokstraat - the city's smartest shopping lane - built over the streets of the Roman castellum.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/doen/shoppen/winkelen-in-het-stokstraatkwartier"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Stokstraat_(Maastricht)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NL",
+   "n": "Sphinxkwartier",
+   "address": "Sphinxkwartier, Boschstraat, Maastricht, Netherlands",
+   "k": "Former-factory district",
+   "g": [
+    "HIST",
+    "NIGHT"
+   ],
+   "w": "The old Sphinx ceramics works reborn as a creative quarter - the landmark Eiffelgebouw, an arthouse cinema, food halls, hotels and design studios north of the centre.",
+   "sources": [
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/nl/doen/stadsdelen/sphinxkwartier"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Sphinxkwartier"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Drielandenpunt / Vaalserberg",
+   "address": "Viergrenzenweg, Vaalserberg, Vaals, Netherlands",
+   "k": "Tri-border summit",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "w": "The highest point of the mainland Netherlands (322.5 m) where the borders of the Netherlands, Germany and Belgium meet. Straddle three countries at once, climb the Wilhelmina and Boudewijn observation towers, and lose the kids in one of Europe's largest hedge mazes.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Drielandenpunt_(Vaals)"
+    ],
+    [
+     "DRIELANDENPUNT",
+     "https://hetdrielandenpunt.nl/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Kasteel Vaalsbroek",
+   "address": "Vaalsbroek 1, 6291 NH Vaals, Netherlands",
+   "k": "Country estate",
+   "g": [
+    "ARCH",
+    "PARK",
+    "HIST"
+   ],
+   "w": "An estate first named in 1420 and given its stately look by Aachen cloth-baron Von Clermont, with a landscape park, ponds, a water mill, an 18th-century ice-cellar and the family mausoleum near the tri-border point; now a Bilderberg hotel whose grounds you can walk.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Kasteel_Vaalsbroek"
+    ],
+    [
+     "RIJKSMONUMENTEN",
+     "https://rijksmonumenten.nl/monument/519852/vaalsbroek/vaals/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Kasteelruine & Fluweelengrot Valkenburg",
+   "address": "Grendelplein, Valkenburg aan de Geul, Netherlands",
+   "k": "Hilltop castle ruin & cave",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST"
+   ],
+   "w": "The only true hilltop castle in the Netherlands - a beacon over Valkenburg since around 1050 - and, beneath it, the Fluweelengrot, a museum marl cave linked to the ruin by centuries-old secret escape passages rediscovered in 1937.",
+   "sources": [
+    [
+     "KASTEELVALKENBURG",
+     "https://www.kasteelvalkenburg.nl/"
+    ],
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/kasteelruine-en-fluweelengrot/9431/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Gemeentegrot Valkenburg",
+   "address": "Cauberg 4, 6301 BT Valkenburg aan de Geul, Netherlands",
+   "k": "Marl cave & Christmas market",
+   "g": [
+    "HIST",
+    "MKT"
+   ],
+   "w": "A kilometre-long marl cave toured year-round by foot or by little train past charcoal murals and sculptures - and, each winter, the largest underground Christmas market in Europe, part of Kerststad Valkenburg.",
+   "sources": [
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/mergel-grotten/kerstmarkten-in-de-grotten/"
+    ],
+    [
+     "KERSTSTADVALKENBURG",
+     "https://www.kerststadvalkenburg.nl/te-doen/kerstmarkt-gemeentegrot/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Thermae 2000",
+   "address": "Cauberg 27, 6301 BT Valkenburg aan de Geul, Netherlands",
+   "k": "Thermal spa",
+   "g": [
+    "SPA"
+   ],
+   "w": "A thermal-water wellness resort of pyramided pools, saunas and a rooftop bath high on the Cauberg, fed by a natural spring drawn from deep under the Limburg hills.",
+   "sources": [
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/thermae-2000/9390/"
+    ],
+    [
+     "THERMAE",
+     "https://en.thermae.nl/hotel/surroundings/cauberg/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NL",
+   "n": "Cauberg",
+   "address": "Cauberg, Valkenburg aan de Geul, Netherlands",
+   "k": "Cycling climb",
+   "g": [
+    "PARK",
+    "ICON"
+   ],
+   "w": "The Netherlands' most famous hill: a short, steep marl climb through Valkenburg that has hosted the road World Championships and is the traditional finale of the Amstel Gold Race every April.",
+   "sources": [
+    [
+     "THERMAE",
+     "https://www.thermae.nl/blog-en-nieuws/amstel-gold-race-op-de-cauberg/"
+    ],
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/thermae-2000/9390/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Het Romeins Museum (Thermenmuseum) - CLOSED",
+   "address": "Coriovallumstraat 9, 6411 CA Heerlen, Netherlands",
+   "closed": true,
+   "k": "Roman bath museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "w": "Heerlen's museum built over the excavated Roman bathhouse of Coriovallum - the oldest stone building in the Netherlands. The old Thermenmuseum closed in September 2024; a new Romeins Museum on the site is due to open in 2028.",
+   "sources": [
+    [
+     "HETROMEINSMUSEUM",
+     "https://www.hetromeinsmuseum.nl/geschiedenis"
+    ],
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/thermenmuseum/9371/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NL",
+   "n": "Netherlands American Cemetery",
+   "address": "Amerikaanse Begraafplaats 1, 6269 NA Margraten, Netherlands",
+   "k": "WWII war cemetery",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "w": "The only American military cemetery in the Netherlands: 8,000+ US war dead beneath white marble crosses at Margraten, with a visitor centre and free guided tours. Adopted graves are tended by local families to this day. Free, open daily.",
+   "sources": [
+    [
+     "ABMC",
+     "https://www.abmc.gov/Netherlands"
+    ],
+    [
+     "VISITMAASTRICHT",
+     "https://www.visitmaastricht.com/en/locations/401408597/netherlands-american-cemetary"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NL",
+   "n": "Heuvelland: Vijlenerbos & Epen",
+   "address": "Vijlenerbos, Epen, Netherlands",
+   "k": "Hill-country walking",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "w": "The rolling green heart of the Dutch 'mountains' around Epen, Gulpen and Vijlen - hollow lanes, the Geul valley and the long Vijlenerbos ridge with the country's most southern panoramas, some of the best walking in the Netherlands.",
+   "sources": [
+    [
+     "VISITZUIDLIMBURG",
+     "https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/wandelen-in-zuid-limburg/"
+    ],
+    [
+     "TOERISMEVAALS",
+     "https://www.toerismevaals.nl/te-doen-in-zuid-limburg/routes-in-vaals/detail/vaalsbroek-route-v3-vaals/59969/"
+    ]
+   ]
+  }
+ ]
+}
