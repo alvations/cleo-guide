@@ -1,0 +1,25 @@
+{
+ "outlets": [
+  {"key":"UNESCO","name":"Deutsche UNESCO-Kommission","type":"institutional","url":"https://www.unesco.de/kultur-und-natur/welterbe","credible":"Official German commission for UNESCO; sole recommender is sufficient for World Heritage sites (Kölner Dom, 1996)."},
+  {"key":"KOELNTOURISMUS","name":"KölnTourismus / cologne-tourism.com","type":"cvb","url":"https://www.koelntourismus.de","credible":"Cologne's official convention & visitors bureau; authoritative on sights and gastronomy."},
+  {"key":"KOELNDE","name":"koeln.de (Stadtportal)","type":"city_portal","url":"https://www.koeln.de","credible":"Long-established Cologne city portal with editorial tourism, Brauhaus and restaurant coverage."},
+  {"key":"STADTKOELN","name":"Stadt Köln (offiziell)","type":"official","url":"https://www.stadt-koeln.de","credible":"Official municipal site; authoritative for civic monuments, museums and parks."},
+  {"key":"ROMANISCHEKIRCHEN","name":"Förderverein Romanische Kirchen Köln","type":"institutional","url":"https://www.romanische-kirchen-koeln.de","credible":"Official heritage association for Cologne's twelve great Romanesque churches; the authority on them."},
+  {"key":"MUSEENKOELN","name":"Museen der Stadt Köln","type":"institutional","url":"https://www.museenkoeln.de","credible":"Official umbrella of the City of Cologne's museums (Ludwig, Wallraf, RGM, Schnütgen, RJM, Stadtmuseum, NS-Dok)."},
+  {"key":"WALLRAF","name":"Wallraf-Richartz-Museum & Fondation Corboud","type":"institutional","url":"https://www.wallraf.museum","credible":"Official site of Cologne's oldest museum."},
+  {"key":"KOLUMBA","name":"Kolumba – Kunstmuseum des Erzbistums Köln","type":"institutional","url":"https://www.kolumba.de","credible":"Official archdiocesan art museum in the Zumthor building."},
+  {"key":"MAKK","name":"Museum für Angewandte Kunst Köln","type":"institutional","url":"https://makk.de","credible":"Official site of Cologne's applied-arts museum."},
+  {"key":"KOLLWITZ","name":"Käthe Kollwitz Museum Köln","type":"institutional","url":"https://www.kollwitz.de","credible":"Official museum holding the world's largest Kollwitz collection."},
+  {"key":"MELATEN","name":"Melatenfriedhof.de","type":"institutional","url":"https://melatenfriedhof.de","credible":"Reference site for Cologne's historic Melaten cemetery (hours, information)."},
+  {"key":"MICHELIN","name":"Guide MICHELIN Deutschland","type":"institutional","url":"https://guide.michelin.com","credible":"Michelin Guide; a single starred/listed entry is sufficient ground truth for a restaurant."},
+  {"key":"FALSTAFF","name":"Falstaff","type":"food_media","url":"https://www.falstaff.com","credible":"Major German-language food & wine guide/magazine with a Cologne restaurant coverage."},
+  {"key":"FEINSCHMECKER","name":"Der Feinschmecker","type":"food_media","url":"https://www.feinschmecker.de","credible":"National German gourmet magazine; publishes Cologne best-restaurants lists."},
+  {"key":"MITVERGNUEGEN","name":"Mit Vergnügen Köln","type":"city_media","url":"https://koeln.mitvergnuegen.com","credible":"Popular Cologne city-lifestyle editorial with widely-read curated food & bar guides."},
+  {"key":"GEHEIMTIPP","name":"Geheimtipp Köln","type":"city_media","url":"https://geheimtipp-koeln.de","credible":"Widely-followed Cologne food & city editorial (Instagram + site)."},
+  {"key":"KOELNMAG","name":"Köln-Magazin","type":"city_media","url":"https://koeln-magazin.de","credible":"Cologne city magazine with restaurant and Kneipe features."},
+  {"key":"KOELNER","name":"koelner.de","type":"city_portal","url":"https://www.koelner.de","credible":"Cologne locations/venue directory with editorial descriptions."},
+  {"key":"TONLINE","name":"t-online Köln","type":"news","url":"https://koeln.t-online.de","credible":"Regional edition of the national news portal t-online; ran the readers' favourite-Brauhaus poll."},
+  {"key":"KOELN0221","name":"koeln0221.de","type":"city_media","url":"https://koeln0221.de","credible":"Cologne local news/lifestyle site; documented the Emeka Iwueze food-influencer Cologne feature."},
+  {"key":"WIKIPEDIA","name":"Wikipedia","type":"reference","url":"https://de.wikipedia.org","credible":"Cross-referenced encyclopedic corroboration for monuments and addresses; used only as a second source, never a lone recommender."}
+ ]
+}
