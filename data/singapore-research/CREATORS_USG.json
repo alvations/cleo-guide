@@ -1,0 +1,19 @@
+{
+ "creators": [
+  {"key":"IEATISHOOTIPOST","name":"Dr Leslie Tay (ieatishootipost)","platform":"Blog / YouTube","followers":"Award-winning Singapore food blog since 2006 + YouTube channel","url":"https://ieatishootipost.sg"},
+  {"key":"JOHORKAKI","name":"Tony Boey (Johor Kaki)","platform":"Blog","followers":"Long-running, widely-cited SG/Malaysia heritage-food blog","url":"https://johorkaki.blogspot.com"}
+ ],
+ "attach": [
+  {"place":"Serangoon Garden Bakery & Confectionery","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/serangoon-gardens-bakery-and-confectionary-good-old-curry-buns/","note":"Dr Leslie Tay, one of Singapore's most established food bloggers, documented the 40-year Serangoon Garden Market bakery and its old-school curry buns."},
+  {"place":"Tian Wai Tian Fish Head Steamboat","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/tian-wai-tian-fish-head-steamboat-why-fish-head-steamboat-always-have-to-wait-so-long/","note":"ieatishootipost reviewed the tiny Kovan Teochew charcoal fish-head-steamboat streetside zi char (203 Hougang St 21)."},
+  {"place":"Ah Seng Braised Duck Rice","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2023/10/ah-seng-teochew-braised-duck-rice.html","note":"Johor Kaki (Tony Boey) rated Ah Seng at Serangoon Garden Market among Singapore's best Teochew braised duck rice."},
+  {"place":"Fatt Soon Kueh","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2022/07/best-of-kovan-209-food-centre-heartland.html","note":"Johor Kaki's Kovan 209 heartland guide flags Fatt Soon Kueh's handmade Teochew kueh among the centre's veteran stalls."}
+ ],
+ "rejected": [
+  {"name":"Yelp / TripAdvisor / Google","reason":"Never a recommender per project rules; used only to fact-check existence/status, 0 toward the two-credible bar."},
+  {"name":"Burpple / FoodAdvisor / OpenRice / Foursquare","reason":"User-review aggregators — used only to MEASURE popularity, never counted as a credible source."},
+  {"name":"Lemon8 / anonymous TikTok discover pages","reason":"Anonymous or unverifiable accounts with no findable track record on the specific stall."},
+  {"name":"thebestsingapore.com / kaizenaire / hawkerpedia / eatshopplay / sengkangtopunggol / jointhawker / eaten.io / atmosfy / wanderlog / mindtrip","reason":"SEO/directory/aggregator listings with no verifiable editorial authorship or creator following — mention, not merit."},
+  {"name":"sgfoodonfoot / therantingpanda / chubbybotakkoala / ordinarypatrons / burgernbacon (personal blogs)","reason":"Used only as corroborating leads; not counted toward the credible bar without an editorial-of-record or verified-creator source alongside."}
+ ]
+}

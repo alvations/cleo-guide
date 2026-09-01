@@ -152,3 +152,46 @@ capped further 2nd-source verification (see NEXT).
 - **NEXT:** resume discovery to lift food→~50+ and sights→~18 once the WebSearch budget resets (many
   single-credible leads above await a 2nd source); then geocode + location-verify (Google !3d!4d / Apple /
   OneMap / Wikipedia coords) → statuscheck → geo-merge → rebuild-city singapore --build → gates.
+
+## Stage 4 — Upper Serangoon (Kovan / Serangoon Gardens / Hougang edge), area code USG (DONE 2026-09-01)
+Goal: a new Upper Serangoon town guide as comprehensive as Toa Payoh, mirroring the Toa Payoh JSON
+format exactly (FOOD list, SIGHTS dict, SOURCES outlets, CREATORS). WebSearch-only discovery; no
+coordinates (full SG address + postal per place); ≥2 credible sources per place (or lone Michelin).
+- **FOOD (34):** FOOD_USG.json — T1 3, T2 17, T3 14, 1 flagged closure. Anchored on the area's three
+  hawker landmarks:
+  - **Chomp Chomp Food Centre** (20 Kensington Park Road, S557269) — 7 stalls: Ah Hock Fried Hokkien Mee
+    (Michelin Plate) + Chomp Chomp Satay (Michelin Plate) T1; Chomp Chomp Fried Oyster, Good Luck BBQ
+    Chicken Wings, Hai Wei Yuan BBQ (sambal stingray), Ang Sar Lee Satay Bee Hoon, Chia Keng Hokkien Mee.
+  - **Serangoon Garden Market & Food Centre** (49A Serangoon Garden Way, S555945) — 10: Aliff Nasi Lemak
+    (T1), Ah Seng Braised Duck Rice, Garden Street Kway Chap, Poh Poh Roasted Chicken Rice, Serangoon
+    Garden Bakery & Confectionery, Hock Kee Fried Oyster, Lao Song Fa Fishball Noodle, Bee Heng Prawn
+    Noodle, Fong Kee Delicacies, Pancake King.
+  - **Kovan 209 Market & Food Centre** (209 Hougang Street 21, S530209) — 6: Fatt Soon Kueh, Hougang
+    Hainanese Curry Rice, Bedok North 85 Fried Oyster, Yi Shi Jia Wanton Mee, 51 Ming Fa Wanton, Yam Mee
+    Teochew Fishball.
+  - **Serangoon Gardens / Kovan / Hougang-edge eateries (11):** Pow Sing (chicken rice, since 1983),
+    R.K. Eating House (24h prata), Srisun Express (24h prata), Apollo Coffee Bar (cafe), Tian Wai Tian
+    Fish Head Steamboat (Kovan Teochew zi char), Ponggol Nasi Lemak (iconic since 1979), Yaowarat Thai
+    Kway Chap, Naked Ice Cream (till 2am), Al-Falah (24/7 mamak, Hougang Village), BakeOpedia/The Bread
+    Rack (Space@Kovan), Amber Ember (— CLOSED 19 Jan 2025, flagged).
+- **SIGHTS (12):** SIGHTS_USG.json — T1 3, T2 3, T3 6. Two National Monuments lead: **Church of the
+  Nativity of the Blessed Virgin Mary** (1259 Upper Serangoon Rd, gazetted 2005, Teochew Catholic, Gothic
+  1901) and **Hougang Tou Mu Kung / Kew Ong Yah** (779A Upper Serangoon Rd, oldest Nine Emperor Gods
+  temple, 2005). Plus Chomp Chomp (landmark), Serangoon Garden Estate & Circus (1950s British/RAF landed
+  estate, British street names), Hougang Heritage Trail (NHB, first heartland trail with 2 monuments),
+  Punggol Park (16 ha, 5-ha lake), Serangoon Park Connector, myVillage (ex-Paramount Theatre site),
+  Montfort Schools (est. 1916 as Holy Innocents'), Lim Tua Tow Market heritage marker, Serangoon
+  Stadium & Sport Centre, Nex (NE regional mall / Serangoon MRT).
+- **Source bar:** credible SG editorial only — Michelin, SethLui, Eatbook, Daniel Food Diary, Miss Tam
+  Chiak, HungryGoWhere, Her World, ladyironchef, City Nomads, The Honeycombers, Mothership; NHB/Roots,
+  NLB, NParks, Wikipedia, Remember Singapore for sights. **Creators (2):** ieatishootipost (Dr Leslie
+  Tay) and Johor Kaki (Tony Boey) — both verifiable, long-running SG food blogs; attach notes in
+  CREATORS_USG.json. Yelp/TripAdvisor/Google = 0. Rejected SEO/directory/aggregator + anonymous social
+  logged in CREATORS_USG.json rejected[].
+- **Validation:** all four JSON files parse (python3); every food place carries ≥2 credible sources (or a
+  lone Michelin Plate), every sight ≥2. NO coordinates recorded (address + postal only, per brief).
+- **NEXT:** geocode + location-verify each place (Google !3d!4d / Apple / OneMap / Wikipedia coords) →
+  statuscheck (re-confirm the Amber Ember closure + spot-check others) → geo-merge → register USG as a
+  Singapore town (region→folder) → rebuild-city singapore --build → gates. Extension leads for a 2nd
+  wave: Tom's Palette (Kovan), Lickers, The Larder, Tracy's Sarawak Kitchen, Breakfast Club, Ding Te Le,
+  Qi Wei Chicken Claypot — held pending a confirmed 2nd credible source and/or exact address.
