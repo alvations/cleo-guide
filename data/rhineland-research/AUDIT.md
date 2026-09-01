@@ -55,3 +55,57 @@ Merit/source notes:
   Bunte Burger (vegan) DROPPED — sources indicate permanent closure; not presented as live.
 - All addresses are street + Köln + PLZ + Germany, fact-checked via search; NO coordinates emitted
   (per region pipeline — geocode/location-verify happens at build stage from data/geocodes.json).
+
+---
+
+## BONN — discovery pass (agent)
+
+Files: `SIGHTS_BONN.json` (34 sights, DICT with sources[]), `FOOD_BONN.json` (19 food/drink, LIST),
+`SOURCES_BONN.json` (14 outlets), `CREATORS_BONN.json` (empty — see note). All parse; `consolidate.py`
+runs clean (BONN contributes 52 records after cross-area dedup). Searched IN GERMAN; NO coordinates emitted.
+
+SIGHTS (34): tiers t1=13, t2=13, t3=8. Coverage of the brief's canon —
+- Beethoven: Beethoven-Haus (birthplace), Beethoven-Denkmal (Münsterplatz, 1845, oldest in DE), Redoute
+  (Beethoven played before Haydn), Beethovenhalle.
+- Museumsmeile: Haus der Geschichte (free), Museum Koenig (Grundgesetz birthplace), Kunstmuseum Bonn,
+  Bundeskunsthalle, Deutsches Museum Bonn; plus LVR-LandesMuseum, August Macke Haus, Arithmeum, Frauenmuseum.
+- Core: Bonner Münster, Altes Rathaus & Markt, Poppelsdorfer Schloss & Botanischer Garten, Freizeitpark
+  Rheinaue, Alter Zoll, Kurfürstliches Schloss & Hofgarten, Bonner Kirschblüte (Heerstraße), Rheinuferpromenade,
+  Kreuzbergkirche, Doppelkirche Schwarzrheindorf, Sterntor, Namen-Jesu-Kirche, Alter Friedhof (Schumann),
+  Post Tower.
+- Government/UN quarter: UN Campus & Langer Eugen, Kanzlerbungalow & Palais Schaumburg, Villa Hammerschmidt.
+- Bad Godesberg: Godesburg, Stadtpark & Kurpark; edge day-trip across the Rhine: Drachenfels & Drachenfelsbahn,
+  Schloss Drachenburg.
+- `g` uses HIST/ARCH/MUS/RIVER/PARK/MKT/ICON/FREE (no UNESCO in Bonn, per brief).
+
+FOOD (19): tiers t1=5, t2=10, t3=4; closures=1.
+- Signature/Rheinisch: Brauhaus Bönnsch (Bönnsch, the city's own beer + Halve Hahn), Em Höttche (Rheinischer
+  Sauerbraten; Bonn's oldest gasthaus, 1389), Im Sudhaus (Reibekuchen), Maternus (Bonn-Republic institution).
+- Michelin bench (lone-institutional): halbedel's Gasthaus (1*), Yunico (1*, Japanese omakase), Strandhaus
+  (Guide, Mediterranean), Redüttchen (Guide/2 Hauben), Oliveto (Guide, Italian), Konrad's (Michelin Plate).
+- Castle/historic dining: Restaurant Godesburg (Böhm building), Rheinhotel Dreesen (1894 Art-Nouveau Rhine terrace).
+- Veg/Levantine/café/sweet: Cassius Garten (wholefood-veg institution), Mr. and Mrs. Humus (Levantine),
+  Café Blau (brunch in a former pool), Café Spitz, Der Kaffeeladen (specialty roastery), Café Profittlich
+  (Konditorei, Herrentorte — at the foot of the Drachenfels, on the day-trip).
+
+Merit/source notes:
+- Every sight carries ≥2 credible (official site + BONNDE/BONNTOURISMUS/KULADIG/BAUKUNSTNRW/NRWTOURISMUS/
+  Wikipedia). Museums/monuments lean on official + regional authority (LVR KuLaDig, Architektenkammer NRW).
+- Michelin food cleared on lone-institutional (guide.michelin.com) + a 2nd guide (Falstaff/Feinschmecker/Gusto).
+- Kaspars: Michelin star holder that CLOSED permanently (staff shortage, trade-press Tageskarte). Kept flagged
+  `closed:true` + " — CLOSED"; not presented as live.
+- SINGLE-CREDIBLE-SOURCE flags (GA is the credible editorial recommender; merit met by institution/rating
+  volume, but a 2nd independent credible outlet was NOT confirmed in this pass — verify before build):
+  Maternus (GA; historic institution), Cassius Garten (GA; 30-yr institution), Mr. and Mrs. Humus (GA veg
+  feature; #5/603 rating volume), Café Blau (GA cafés feature), Café Spitz (GA cafés feature),
+  Im Sudhaus (BONNTOURISMUS only), Der Kaffeeladen (Bonner Kaffeeschule/official only). Sudhaus/Kaffeeladen
+  are tourism/own-site only — treat as provisional.
+- CREATORS: none emitted. No German food/travel creator with a verifiable following AND a specific findable
+  piece naming a Bonn place surfaced in this pass — none fabricated. (r/bonn not used as a lone pin.)
+- HELD candidates (unresolved / single-source, not pinned): Äll Inn (named in brief but did not resolve in
+  search — no address/sources found), Nees (Poppelsdorf; Falstaff only), NeuN (Bad Godesberg; Falstaff only +
+  possible closure — needs status check), a dedicated ice-cream pin (GA "beste Eisdielen" exists but no place
+  cleared ≥2 credible — EisLabor/San Marco held). Under the ~30 food target: this pass prioritised the
+  ≥2-credible bar over padding; the held list is the fastest route to extend.
+- All addresses = street + Bonn/Königswinter/Bad Honnef + PLZ + Germany, fact-checked via German-language
+  search; NO coordinates (geocode/location-verify happen at build from data/geocodes.json).
