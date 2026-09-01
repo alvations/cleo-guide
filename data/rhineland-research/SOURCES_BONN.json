@@ -1,0 +1,18 @@
+{
+ "outlets": [
+  {"key":"GA","name":"General-Anzeiger Bonn","type":"newspaper","url":"https://www.general-anzeiger-bonn.de/","credible":"Bonn's daily newspaper of record; local editorial gastro/culture features (not SEO listicles)."},
+  {"key":"BONNTOURISMUS","name":"Bonn Tourismus / visit-bonn-region","type":"tourism-board","url":"https://www.visit-bonn-region.de/","credible":"Official Bonn regional tourism board; vetted POI and gastro directory."},
+  {"key":"BONNDE","name":"Stadt Bonn (bonn.de)","type":"official-municipal","url":"https://www.bonn.de/","credible":"Official City of Bonn site; authoritative for civic sights, parks and history."},
+  {"key":"KULADIG","name":"KuLaDig (LVR Kultur.Landschaft.Digital)","type":"heritage-database","url":"https://www.kuladig.de/","credible":"Rhineland regional-authority (LVR) cultural-heritage database; scholarly monument records."},
+  {"key":"BAUKUNSTNRW","name":"baukunst-nrw","type":"architecture-database","url":"https://www.baukunst-nrw.de/","credible":"Architektenkammer NRW architecture database; authoritative building/architecture records."},
+  {"key":"NRWTOURISMUS","name":"NRW Tourismus (Tourismus NRW e.V.)","type":"tourism-board","url":"https://www.nrw-tourismus.de/","credible":"Official North Rhine-Westphalia state tourism board."},
+  {"key":"WIKIPEDIA","name":"Wikipedia","type":"reference","url":"https://de.wikipedia.org/","credible":"Corroborating reference for dates, addresses and history; paired with a primary source."},
+  {"key":"OFFICIAL","name":"Official site of the place","type":"official","url":"","credible":"The venue/institution's own website — authoritative for address, hours and remit."},
+  {"key":"MICHELIN","name":"Guide Michelin Deutschland","type":"guide","url":"https://guide.michelin.com/de/de/","credible":"Institutional culinary authority; counts as a lone recommender (star / plate / Guide listing)."},
+  {"key":"FALSTAFF","name":"Falstaff","type":"guide","url":"https://www.falstaff.com/","credible":"Established German-language gourmet guide and magazine."},
+  {"key":"FEINSCHMECKER","name":"Der Feinschmecker","type":"guide","url":"https://www.feinschmecker.de/","credible":"National German fine-dining magazine and restaurant guide."},
+  {"key":"GUSTO","name":"Gusto Deutschland","type":"guide","url":"https://www.gusto-online.de/","credible":"Independent German restaurant guide."},
+  {"key":"SCHLEMMERATLAS","name":"Schlemmer Atlas","type":"guide","url":"https://www.schlemmer-atlas.de/","credible":"Long-running German restaurant guide."},
+  {"key":"TAGESKARTE","name":"Tageskarte (gastro trade press)","type":"trade-press","url":"https://www.tageskarte.io/","credible":"German hospitality-industry trade publication; used for the Kaspars closure report."}
+ ]
+}
