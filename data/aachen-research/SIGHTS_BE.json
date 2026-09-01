@@ -1,0 +1,517 @@
+{
+ "sources": [
+  {
+   "key": "OSTBELGIEN",
+   "name": "Ostbelgien.eu (official DG tourism)",
+   "url": "https://www.ostbelgien.eu"
+  },
+  {
+   "key": "VISITWALLONIA",
+   "name": "Visit Wallonia (official regional tourism)",
+   "url": "https://visitwallonia.be"
+  },
+  {
+   "key": "GRENZECHO",
+   "name": "Grenz-Echo (German-language Belgian daily)",
+   "url": "https://www.grenzecho.net"
+  },
+  {
+   "key": "BRF",
+   "name": "BRF — Belgischer Rundfunk (DG public broadcaster)",
+   "url": "https://brf.be"
+  },
+  {
+   "key": "OSTBELGIENDIREKT",
+   "name": "Ostbelgien Direkt (regional news)",
+   "url": "https://ostbelgiendirekt.be"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia",
+   "url": "https://de.wikipedia.org"
+  },
+  {
+   "key": "WIKIVOYAGE",
+   "name": "Wikivoyage (de)",
+   "url": "https://de.wikivoyage.org"
+  },
+  {
+   "key": "EIFELDE",
+   "name": "Eifel.de (Eifel Tourismus)",
+   "url": "https://www.eifel.de"
+  },
+  {
+   "key": "NATURPARKEIFEL",
+   "name": "Naturpark Hohes Venn-Eifel",
+   "url": "https://www.naturpark-eifel.de"
+  },
+  {
+   "key": "BOTRANGE",
+   "name": "Maison du Parc / Naturparkzentrum Botrange",
+   "url": "https://botrange.be"
+  },
+  {
+   "key": "MVMKELMIS",
+   "name": "Museum Vieille Montagne, Kelmis",
+   "url": "https://www.mvm-kelmis.be"
+  },
+  {
+   "key": "TOEPFEREIMUSEUM",
+   "name": "Töpfereimuseum Raeren",
+   "url": "https://www.toepfereimuseum.org"
+  },
+  {
+   "key": "RAERENTOURISMUS",
+   "name": "Raeren Tourismus",
+   "url": "https://www.raeren-tourismus.be"
+  },
+  {
+   "key": "WORRIKEN",
+   "name": "Worriken (Bütgenbach)",
+   "url": "https://www.worriken.be"
+  },
+  {
+   "key": "TERNELL",
+   "name": "Naturzentrum Haus Ternell",
+   "url": "https://www.ternell.be"
+  },
+  {
+   "key": "IKOB",
+   "name": "IKOB Museum, Eupen",
+   "url": "https://www.ikob.be"
+  },
+  {
+   "key": "BURGENWELT",
+   "name": "Burgenwelt.org",
+   "url": "https://www.burgenwelt.org"
+  },
+  {
+   "key": "VARTA",
+   "name": "Varta-Guide",
+   "url": "https://www.varta-guide.de"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS (de)",
+   "url": "https://www.vrt.be/vrtnws/de/"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Signal de Botrange",
+   "address": "Route de Botrange 133, 4950 Waimes (Botrange), Belgium",
+   "w": "At 694 m this is the highest point in Belgium and the roof of the Hohes Venn / Hautes Fagnes. A short flight of steps up the artificial Baltia mound (raised after WWI, named for General Herman Baltia) reaches the exact summit; beside it stand a 24 m viewing tower and a restaurant overlooking the moor.",
+   "k": "highest point & viewing tower",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.de/de/produit/botrangesignal/11105"
+    ],
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/media/3985ba5f-d49e-46b3-873e-84958b5e0556.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Hohes Venn / Hautes Fagnes — moorland reserve & boardwalks",
+   "address": "Hohes Venn – Hautes Fagnes, 4845 Jalhay / 4950 Waimes, Belgium",
+   "w": "Belgium's most famous nature reserve: a ~5,000-hectare high plateau of raised peat bog, heath and beech, protected since 1957 (the oldest reserve in Wallonia). Wooden caillebotis boardwalks let walkers cross the fragile Fagne Wallonne and Fagne de la Poleur without damaging the moor.",
+   "k": "high moor nature reserve",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://fr.wikipedia.org/wiki/Hautes_Fagnes"
+    ],
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.be/fr-be/produit/attractions/activites/reserve/espace-naturel/signal-de-botrange/11105"
+    ],
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/media/3985ba5f-d49e-46b3-873e-84958b5e0556.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BE",
+   "n": "Naturparkzentrum Botrange (Maison du Parc)",
+   "address": "Route de Botrange 131, 4950 Waimes (Robertville), Belgium",
+   "w": "The visitor centre of the Hautes Fagnes-Eifel nature park at the foot of the Signal de Botrange — exhibitions on the moor's formation, ecology and history, guided walks, and the trailhead for the reserve's marked boardwalk routes.",
+   "k": "nature-park visitor centre",
+   "g": [
+    "PARK",
+    "MUS",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "BOTRANGE",
+     "https://botrange.be/?id_menu=29&id_menu2=201&id_menu3=240&surf_lang=fr"
+    ],
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/touristinfo/tourist-info-signal-de-botrange"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BE",
+   "n": "Baraque Michel",
+   "address": "Baraque Michel, 4845 Jalhay, Belgium",
+   "w": "A lonely chapel and historic inn on the moor at 674 m, built by Michel-Henri Schmitz in 1811-12 as a refuge for travellers lost in the fog — long the second-highest landmark of the Fagnes and a classic starting point for walks into the reserve.",
+   "k": "historic moor chapel & inn",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Baraque_Michel"
+    ],
+    [
+     "BRF",
+     "https://brf.be/tag/baraque-michel/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BE",
+   "n": "Naturzentrum Haus Ternell",
+   "address": "Ternell 2-3, 4700 Eupen, Belgium",
+   "w": "A nature-and-environment education centre of the German-speaking Community set in the Hertogenwald forest near the Weser dam, with a small fen-and-forest natural-history museum and guided hikes (in German, French and Dutch) into the northern Hohes Venn.",
+   "k": "nature centre & forest museum",
+   "g": [
+    "PARK",
+    "MUS",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/virtualtour/nature-centre-haus-ternell"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Haus_Ternell"
+    ],
+    [
+     "NATURPARKEIFEL",
+     "https://www.naturpark-eifel.de/de/naturpark-erleben/Naturerlebniszentren/detail/Naturzentrum-Haus-Ternell--12X/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "St.-Nikolaus-Kirche Eupen",
+   "address": "Marktplatz, 4700 Eupen, Belgium",
+   "w": "Eupen's landmark parish church, a twin-towered baroque hall built 1720-26 to plans by Aachen architect Laurenz Mefferdatis; the lower south tower survives from a 12th-century predecessor and the high altar (1740-44) is the work of Johann Joseph Couven. It gives the capital of the DG its skyline.",
+   "k": "baroque parish church",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/St._Nikolaus_(Eupen)"
+    ],
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/virtualtour/st-nicholas-church"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Eupener Marktplatz & Werthplatz",
+   "address": "Marktplatz & Werthplatz, 4700 Eupen, Belgium",
+   "w": "The heart of Eupen's Oberstadt: around the Marktplatz and the Werthplatz stand the tall brick-and-limestone houses the town's 18th-century cloth merchants built themselves, many with classicist gables — the architectural record of Eupen's golden age as a cloth-weaving town.",
+   "k": "historic town squares",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/de/erleben/entdecken/panoramatafeln/fiche/eupen-blick-auf-sieben-kirchturme"
+    ],
+    [
+     "WIKIVOYAGE",
+     "https://de.wikivoyage.org/wiki/Eupen"
+    ],
+    [
+     "EIFELDE",
+     "https://www.eifel.de/go/sehenswertes-detail/eupener_marktplatz.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Wesertalsperre (Weser dam & visitor centre)",
+   "address": "Langesthal 164, 4700 Eupen, Belgium",
+   "w": "Belgium's most important drinking-water reservoir, holding ~25 million m³ behind a dam begun in 1936 and inaugurated in 1950; it supplies the Eupen and Herve country, the Liège suburbs and Spa. From the visitor centre you can take a guided tour that starts on the crest and descends deep inside the dam wall and waterworks.",
+   "k": "reservoir & dam (guided tours)",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Wesertalsperre"
+    ],
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.de/de/content/eupener-wesertalsperre"
+    ],
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/leisurecenters/wesertalsperre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BE",
+   "n": "IKOB — Museum für Zeitgenössische Kunst",
+   "address": "Rotenberg 12B, 4700 Eupen, Belgium",
+   "w": "Eupen's contemporary-art museum, founded in 1993 as the International Art Centre of East Belgium. Changing exhibitions of international artists and a collection that ranges from Günther Förg to Yves Zurstrassen make it the modern-art anchor of the German-speaking Community.",
+   "k": "contemporary-art museum",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.de/de/content/ikob-museum-fur-zeitgenossische-kunst-eupen"
+    ],
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/museum/ikob"
+    ],
+    [
+     "IKOB",
+     "https://www.ikob.be/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BE",
+   "n": "Eupener Rosenmontagszug (carnival)",
+   "address": "Oberstadt / Marktplatz, 4700 Eupen, Belgium",
+   "w": "The biggest carnival parade in Ostbelgien: on Rose Monday dozens of floats and foot-groups wind through Eupen's old town (in its heyday over 120), one of the two great East-Belgian carnival strongholds alongside Kelmis. A free, city-filling street spectacle each February/March.",
+   "k": "carnival parade (Feb/Mar)",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "BRF",
+     "https://brf.be/regional/1802832/"
+    ],
+    [
+     "OSTBELGIENDIREKT",
+     "https://ostbelgiendirekt.be/rosenmontagszug-eupen-2026-436487"
+    ],
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.de/de/content/der-eupener-karneval-und-sein-beruhmter-rosenmontag"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BE",
+   "n": "Schokoladenmuseum Chocolaterie Jacques — CLOSED",
+   "address": "Industriegebiet, 4700 Eupen, Belgium",
+   "w": "For a quarter-century (1993-2019) Eupen's glass-domed chocolate museum let visitors watch Chocolaterie Jacques — founded 1896, based in Eupen from 1923 — make its bars beneath the roof and taste them at the end. The Eupen factory and museum closed in 2019; the Jacques brand lives on, but the visit no longer exists. Kept for the story (canon: Eupen chocolate).",
+   "k": "chocolate museum (closed 2019)",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "closed": true,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Chocolaterie_Jacques"
+    ],
+    [
+     "BRF",
+     "https://brf.be/regional/1222825/"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/de/2018/11/03/die-traditionsreiche-eupener-chocolaterie-jacques-wird-geschloss/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Museum Vieille Montagne (MVM), Kelmis",
+   "address": "Lütticher Straße, 4720 Kelmis (La Calamine), Belgium",
+   "w": "Housed in the 1910 administrative building of the Vieille-Montagne zinc company, the MVM (successor of the Göhltalmuseum) tells the political, industrial and social story of Neutral-Moresnet — the tiny neutral territory that existed from 1816 to 1919 because of the calamine (zinc) ore mined at Kelmis for centuries.",
+   "k": "industrial-history museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "MVMKELMIS",
+     "https://www.mvm-kelmis.be/de/das-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Museum_Vieille_Montagne"
+    ],
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.de/de/content/museum-vieille-montagne-la-calamine"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Töpfereimuseum in der Burg Raeren",
+   "address": "Burgstraße, 4730 Raeren, Belgium",
+   "w": "Inside the mid-14th-century Burg Raeren, the world's only museum devoted to Raeren stoneware — over 2,000 pieces spanning 500 years of Rhenish and contemporary ceramics, including work by masters like Jan Emens Mennicken. The Raeren reference collection was awarded the European Cultural Heritage Seal in 2007.",
+   "k": "pottery museum in a castle",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "TOEPFEREIMUSEUM",
+     "https://www.toepfereimuseum.org/Raerener-Steinzeug"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/T%C3%B6pferei_von_Raeren"
+    ],
+    [
+     "RAERENTOURISMUS",
+     "https://www.raeren-tourismus.be/angebot/toepfereimuseum-raeren/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BE",
+   "n": "Büchelturm St. Vith",
+   "address": "Büchelstraße, 4780 Sankt Vith, Belgium",
+   "w": "The 14th-century Büchelturm is the surviving landmark of St. Vith's medieval fortifications — once a town wall with seven towers and a castle, destroyed in the 17th century. Its platform gives a panorama over St. Vith and the Eifel; the key is available at the tourist information.",
+   "k": "medieval town tower",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/virtualtour/b-chelturm"
+    ],
+    [
+     "VARTA",
+     "https://www.varta-guide.de/freizeit-guide/ostbelgien/st-vith-kulturzentrum-in-ostbelgien/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Burg Reinhardstein (Château de Reinhardstein)",
+   "address": "Chemin du Cheneux 50, 4950 Ovifat (Waimes), Belgium",
+   "w": "A 14th-century rock-built fortress high above the Warche near the Robertville dam, in the Hautes Fagnes. Saved from ruin and meticulously rebuilt from 1965 using surviving documents, it is shown on guided tours through the knights' and guards' halls, chapel and living quarters, hung with armour, paintings and tapestries.",
+   "k": "restored medieval castle",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/castle/reinhardstein"
+    ],
+    [
+     "VISITWALLONIA",
+     "https://visitwallonia.com/en-gb/content/reinhardstein-castle-ovifat"
+    ],
+    [
+     "BURGENWELT",
+     "https://www.burgenwelt.org/belgien/reinhardstein/object.php"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BE",
+   "n": "Stausee Bütgenbach & Sport-/Ferienpark Worriken",
+   "address": "Worriken 9, 4750 Bütgenbach, Belgium",
+   "w": "A reservoir on the Warche (dammed from 1932) that became the region's watersports lake, ringed by the ADEPS Worriken sports-and-holiday park: sailing, kayaking, SUP and windsurfing, the VENNtastic Beach, a high-ropes course and lakeside hiking and biking trails.",
+   "k": "reservoir & lakeside leisure park",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "closed": false,
+   "sources": [
+    [
+     "OSTBELGIEN",
+     "https://www.ostbelgien.eu/en/fiche/funsports/worriken-sports-and-holiday-park"
+    ],
+    [
+     "WORRIKEN",
+     "https://www.worriken.be/aktivitaeten/kanu/"
+    ]
+   ]
+  }
+ ]
+}
