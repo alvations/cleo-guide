@@ -28,6 +28,7 @@ CITY = {
     "wheeling-wv":      ("wheeling",      "wheeling.dataset.json"),
     "erie-pa":          ("erie",          "erie.dataset.json"),
     "saarland":         ("saarland",      "saarland.dataset.json"),
+    "aachen":           ("aachen",        "aachen.dataset.json"),
 }
 BUILD = {  # city-key -> build script (defaults to build-<datasetstem>.py)
     "washington-dc": "build-washingtondc.py",

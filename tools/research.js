@@ -59,6 +59,7 @@ const PAGE_FOR = {
   'wheeling-wv': path.join(__dirname, '..', 'cities', 'wheeling.html'),
   'erie-pa': path.join(__dirname, '..', 'cities', 'erie.html'),
   'saarland': path.join(__dirname, '..', 'cities', 'saarland.html'),
+  'aachen': path.join(__dirname, '..', 'cities', 'aachen.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -74,6 +75,7 @@ const DATASET_FOR = {
   'wheeling-wv': path.join(__dirname, '..', 'data', 'wheeling.dataset.json'),
   'erie-pa': path.join(__dirname, '..', 'data', 'erie.dataset.json'),
   'saarland': path.join(__dirname, '..', 'data', 'saarland.dataset.json'),
+  'aachen': path.join(__dirname, '..', 'data', 'aachen.dataset.json'),
 };
 
 function loadGeocodes() {

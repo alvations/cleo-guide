@@ -28,6 +28,7 @@ DATASETS = {
     "wheeling-wv": "data/wheeling.dataset.json",
     "erie-pa": "data/erie.dataset.json",
     "saarland": "data/saarland.dataset.json",
+    "aachen": "data/aachen.dataset.json",
 }
 
 def sourced_ok(rec):
