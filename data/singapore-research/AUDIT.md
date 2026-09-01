@@ -72,3 +72,83 @@ Google/TripAdvisor counted as **0** (rating aggregators), editorial articles onl
 - **Location-verify:** geocode wave over the 85 new (Vietnamese sights with Wikipedia/official coords pin;
   small eateries return address-only and are HELD for the browser helper — no fabricated/ZIP pins). Then
   geo-merge -> rebuild-city singapore --build -> gates.
+
+## Stage 4 — Bishan HDB-town guide (discovery, 2026-09-01)
+New pastel-guide town **Bishan** (area code **BSH**), mirroring the Toa Payoh format/source bar.
+Subzones covered: Bishan Street 11/13/22, Sin Ming, Shunfu, Marymount, Bright Hill, Upper Thomson edge.
+
+- **FOOD → FOOD_BISHAN.json (18):** T1 3 · T2 7 · T3 8. Anchors: Ming Kee Chicken Rice (ice-bathed,
+  Kim San Leng) · Sin Ming Roti Prata (coin prata, Michelin roti-prata feature) · Rong Cheng Sin Ming
+  Bak Kut Teh (Teochew dragon ribs, 1976). Sin Ming cluster (Sin Kian Heng BCM, Shi Xiang Ge Shanxi
+  dao xiao mian by ex-Crystal Jade la mian director). Shunfu Mart cluster (Mei Zhen Hakka abacus seeds,
+  Leong chicken rice, Lai Heng char kway teow, Wak Limah Malay, Quan Ann prawn mee, Marsiling Teochew
+  fish soup, Chocolat N' Spice muffins, Heng Heng popiah). Plus Yang Ming Seafood (lobster chee cheong
+  fun, SPH Food Masters 2020), 284 Kway Chap + Ding Ji (Bishan St 22 supper), Kam's Roast (Junction 8),
+  Jai Thai. Every place has ≥2 credible outlets OR an award/Michelin editorial feature.
+- **SIGHTS → SIGHTS_BISHAN.json (11):** T1 3 · T2 6 · T3 2. Bishan-Ang Mo Kio Park (62ha, naturalised
+  Kallang River) · Kong Meng San Phor Kark See Monastery (largest in SG, Bright Hill) · HSBC TreeTop Walk;
+  MacRitchie Reservoir Park, Bishan Public Library (LOOK Architects tree-house, President's Design Award
+  2007), Kwong Wai Siew Peck San Theng (1870 cemetery that gave Bishan its name), Thomson Nature Park
+  (Hainan village ruins), Windsor Nature Park, Lower Peirce Reservoir Park; Central Catchment Nature
+  Reserve, Junction 8. Sources: NParks/PUB/NLB/Roots/NAS/Wikipedia/Remember Singapore/Mothership/
+  Little Day Out/CapitaLand.
+- **SOURCES_BISHAN.json** 23 outlets · **CREATORS_BISHAN.json** 1 verified creator (ieatishootipost /
+  Dr Leslie Tay) with 2 attachments (Mei Zhen Hakka, Yang Ming Seafood). Yelp/TripAdvisor/Google/OpenRice/
+  Burpple/FoodAdvisor/Lemon8 counted as 0; SEO farms + credit/real-estate blogs rejected (logged).
+- **Deliberately excluded:** Lian Shan Shuang Lin Monastery (184 Jalan Toa Payoh) — already in the Toa
+  Payoh guide, kept there to avoid a duplicate-name gate failure.
+- **Budget note / backlog:** the shared WebSearch budget hit its 200/200 cap mid-research, so the town
+  landed at 18 food + 11 sights (Toa-Payoh-comparable, below the ~35+18 stretch target). Sourced-but-held
+  candidates needing one more credible voice on a future wave: Uncle Penyet (ayam penyet, Kim San Leng),
+  The Wholefood Kitchen, Chi Western (吃Western), Wei Ji Congee, Jiak Mee, Hup Seng Duck Rice, Chindamani
+  Indian (KPT), Dong Nan Wanton (Shunfu), Grin Affair & Denzy Gelato (Bishan dessert; Denzy's Bishan
+  outlet is CLOSED), Canopy Garden Dining (Bishan Park bistro); plus the remaining stalls on the Eatbook/
+  DFD/HerWorld/SethLui Shunfu 10-lists and the ieatishootipost Sin Ming Industrial Estate food trail.
+- **NEXT:** resume discovery to lift food→~35 and sights→~18 once search budget resets; then geocode +
+  location-verify (addresses carry block + S-postal; a few — Shi Xiang Ge at Bishan Cafeteria, Jai Thai
+  Clover Way — flagged for postal confirmation at the geocode stage) → statuscheck → geo-merge → rebuild.
+
+## Stage 1 — Ang Mo Kio (AMK) discovery (DONE 2026-09-01)
+Goal: build the Ang Mo Kio HDB-town guide at maximum LEGITIMATE density (no aggregator padding), mirroring
+the Toa Payoh file format. Files: `FOOD_AMK.json` (LIST), `SIGHTS_AMK.json` (DICT), `SOURCES_AMK.json`,
+`CREATORS_AMK.json`. WebSearch-only; **the shared 200-search budget was fully exhausted mid-run**, which
+capped further 2nd-source verification (see NEXT).
+- **FOOD: 31 places** (t1 8 · t2 13 · t3 10; 0 closed). Every entry clears >=2 credible SG sources, or a lone
+  Michelin. Coverage by node: **724 AMK Central** (Ang Mo Kio Fried Kway Teow — SethLui/ieat/MissTamChiak/
+  DFD; Yunos N Family mee rebus 1965; Centre Satay Bee Hoon; Seng Bee Chicken Rice), **Mayflower / Blk 158**
+  (Ho Ji Fried Hokkien Mee; Malaysian Hup Kee Fishball — pure-yellowtail), **628 Market** (Ho Bee Roasted
+  Food; Song Heng Fishball; Imperial Fish Soup; Sumo Hokkien Mee), **Chong Boon** (Rahim 'Power' Mee Rebus
+  1957; Loh Mee Laksa; Cai Ji Fish Soup; Sin Kee Chicken Rice; Yong Xin), **Cheng San** (Ann Hoo Teochew
+  Porridge; Top 73+1 Fishball Legacy — halal), **Kebun Baru** (Huang Fu Duck Rice; Hock Kee Wanton; Foo
+  Hing Fishball), **Teck Ghee** (Eng Kee Bak Kut Teh), **zi char/seafood** (Mellben crab bee hoon — Michelin
+  Plate 2019; Kam Jia Zhuang; Kian Seng), **Jalan Kayu** (Thasevi prata since 1960), **Sin Ming edge** (Sin
+  Ming Roti Prata — coin prata), **Sembawang Hills FC** (Jing Ji Fishball; Fresh Fish Soup), plus No Horse
+  Run Cafe and Kuai San Dian Xin ($1.30 24h dim sum). Ah Jie Hokkien Mee (Gen-Z viral, Ave 8).
+- **SIGHTS: 13** (t1 3 · t2 8 · t3 2), all >=2 sources incl. institutional NParks/PUB/Roots(NHB)/MUIS:
+  Bishan-Ang Mo Kio Park (naturalised Kallang River), Kebun Baru Birdsinging Club (SG's largest), AMK Town
+  Garden West & East, Windsor Nature Park, MacRitchie TreeTop Walk (Venus Dr fringe), Lower Peirce Reservoir
+  Park, Thomson Nature Park (Hainan village ruins), AMK Heritage Trail (NHB 2023 refresh, 40 sites), Church
+  of Christ the King, Clover Block (Blk 259 — SG's only circular-flat block), Chu Sheng Temple, Masjid
+  Al-Muttaqin.
+- **CREATORS: 2 vetted** — Dr Leslie Tay/ieatishootipost (award-winning blog since 2006; 5 AMK attachments)
+  and Tony Boey/Johor Kaki (widely-read hawker blog since 2011; 4 attachments). No new verifiable TikToker/
+  YouTuber with follower evidence was confirmable within the search budget — logged, not fabricated.
+- **Yelp/TripAdvisor/Google = 0 throughout.** Rejected: SEO/directory sites (kopitiam.com.sg,
+  singaporehawkercentres.com, donsignaturecrab.sg), aggregators (Burpple/OpenRice/FoodAdvisor/jointhawker/
+  Stampede/Hawkerpedia — measure-only), Lemon8/anon TikTok. **Out-of-area excluded** and noted: Ponggol Nasi
+  Lemak (Kovan), Jian Bo Shui Kueh (Tiong Bahru home), Chomp Chomp (Serangoon Gardens); and **'Fishball
+  Story'** from the brief is Douglas Ng's Golden Mile/Timbre+ stall, NOT AMK — excluded to avoid a false
+  attribution.
+- **Sub-areas with thin/single-credible coverage (budget-capped, for next pass):** Yio Chu Kang & Jalan Kayu
+  heritage sights; the AMK Joint Temple / Liuxun Sanhemiao (on the trail but no detail captured); 409 AMK
+  Market (Yummy Western, Shi Xian mee siam), Teck Ghee (Han Jiang Fish Soup, Belinda's Pancake), Cheng San
+  (Mei Ji Niang Dou Foo, Mun Fu Chicken Rice, He Le Prawn Noodles), Mayflower (3 Sisters Prawn Noodle), and
+  cafés (Twenty Grammes, Froz, Thus Coffee, F.I.C, Crunch & Cups Vietnamese, Teng Sheng K-BBQ) — each seen
+  in only ONE credible outlet so far; hold for a 2nd source before adding.
+- **Address note:** AMK HDB postal = "560"+block (search-confirmed for 724/628/158/202/232/532/555). A few
+  addresses need geocode-stage confirmation: Kian Seng Seafood (block unknown — marked in file), Ah Jie
+  (Food Loft Kopitiam, Ave 8, no block), Ann Hoo (Cheng San Market, no block/postal), Kebun Baru Market
+  block/street (226H Ave 1 assumed). NO coordinates were invented — location-verify happens at geocode.
+- **NEXT:** resume discovery to lift food→~50+ and sights→~18 once the WebSearch budget resets (many
+  single-credible leads above await a 2nd source); then geocode + location-verify (Google !3d!4d / Apple /
+  OneMap / Wikipedia coords) → statuscheck → geo-merge → rebuild-city singapore --build → gates.

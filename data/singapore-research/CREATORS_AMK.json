@@ -1,0 +1,25 @@
+{
+ "creators": [
+  {"key":"IEATISHOOTIPOST","name":"Dr Leslie Tay (ieatishootipost)","platform":"Blog / YouTube","followers":"Award-winning SG food blog since 2006 + YouTube channel","url":"https://ieatishootipost.sg"},
+  {"key":"JOHORKAKI","name":"Tony Boey (Johor Kaki)","platform":"Blog / Facebook / YouTube","followers":"Widely-read SG/Malaysia hawker-food blog since 2011 (Johor Kaki Food & Travel FB ~150K)","url":"https://johorkaki.blogspot.com"}
+ ],
+ "attach": [
+  {"place":"Ang Mo Kio Fried Kway Teow","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/ang-mo-kio-fried-kway-teow-14-years-on/","note":"Dr Leslie Tay has reviewed the 724 AMK Central char kway teow stall across years ('14 years on'), documenting the elderly couple's short daily hours and long queue."},
+  {"place":"Rahim Muslim Food","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/rahim-muslim-food-power-mee-rebus/","note":"ieatishootipost profiled Rahim's satay-gravy 'Power' mee rebus at Chong Boon."},
+  {"place":"Ah Jie Hokkien Mee","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/ah-jie-hokkien-mee-gen-z-hawker-heroes/","note":"ieatishootipost featured the two Gen-Z hawkers' single-item wok-hei Hokkien mee on Ang Mo Kio Ave 8."},
+  {"place":"Ho Ji Fried Hokkien Mee","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/ho-ji-hokkien-mee-its-about-the-hawker-wielding-the-wok/","note":"ieatishootipost documented hawker Ah Ho's Mayflower Hokkien mee and his Bukit Batok training."},
+  {"place":"Thasevi Food (Famous Jalan Kayu Prata)","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/thasevi-food-famous-jalan-kayu-prata/","note":"ieatishootipost covered the original Jalan Kayu prata institution."},
+  {"place":"Song Heng Fishball Minced Meat Noodle","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2021/08/song-heng-fishball-noodle-ang-mo-kio.html","note":"Johor Kaki named Song Heng at AMK 628 a personal favourite fishball noodle."},
+  {"place":"Ho Ji Fried Hokkien Mee","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2025/05/ho-ji-fried-hokkien-mee-at-mayflower.html","note":"Johor Kaki reviewed Ho Ji's superior-stock Hokkien mee at Mayflower Food Centre."},
+  {"place":"Centre Satay Bee Hoon","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2015/02/centre-satay-bee-hoon-ang-mo-kio.html","note":"Johor Kaki reviewed the 724 AMK Central satay bee hoon and its thick peanut gravy."},
+  {"place":"Eng Kee Bak Kut Teh","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2023/05/eng-kee-bak-kut-teh-ang-mo-kio-everyone.html","note":"Johor Kaki covered the queue at Teck Ghee's Eng Kee bak kut teh and its braised pig trotter."}
+ ],
+ "rejected": [
+  {"name":"Burpple / OpenRice / FoodAdvisor / Foursquare / jointhawker / Wanderlog / Stampede / Hawkerpedia","reason":"User-review aggregators or crowd-listing directories — used only to MEASURE popularity/ratings, never counted toward the 2-credible bar."},
+  {"name":"Yelp / TripAdvisor / Google","reason":"Never a recommender per project rules; fact-check/status only, 0 toward the two."},
+  {"name":"kopitiam.com.sg / singaporehawkercentres.com / disneyblog.com / thebestsingapore.com / donsignaturecrab.sg","reason":"SEO listicle / directory / affiliate sites with no verifiable authorship or following — mention, not merit."},
+  {"name":"Lemon8 / anonymous TikTok discover pages","reason":"Anonymous or unverifiable accounts with no findable track record on the specific stall."},
+  {"name":"Ponggol Nasi Lemak / Jian Bo Shui Kueh / Chomp Chomp Food Centre","reason":"Well-sourced but OUT OF AREA — Ponggol NL is Kovan/Serangoon, Jian Bo's home is Tiong Bahru, Chomp Chomp is Serangoon Gardens. Not counted as AMK."},
+  {"name":"'Fishball Story'","reason":"Named in the brief but it is Douglas Ng's stall (Golden Mile/Timbre+), not in Ang Mo Kio — excluded to avoid a false AMK attribution."}
+ ]
+}

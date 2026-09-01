@@ -258,3 +258,130 @@ Belgian-French, Grenz-Echo Mahlzeit) t2; Ratskeller (Eupen town-hall brasserie, 
 - Cross-border notes: Baraque Michel (Jalhay) and Reinhardstein/Botrange (Waimes/Ovifat) sit in French-
   speaking facilitated communes but are THE Hautes Fagnes landmarks bordering the DG — binned to BE per the
   Ostbelgien/Hautes-Fagnes remit. Sel et Poivre & Töpfereimuseum are in Raeren/Eynatten (DG).
+
+---
+
+## Stage X2 — STADT & EIFEL food deepening pass (German-side)
+
+Goal: deepen the thin German-side food (STADT 7, EIFEL 11). Searched **in German**, credible-first
+(Aachener Zeitung/Nachrichten, WDR, Michelin, Der Feinschmecker, official DMOs eifel.info/eifel.de,
+Rureifel-Tourismus, Nordeifel/Roetgen-Touristik, Tourismus NRW, Top Magazin Aachen). Yelp / TripAdvisor
+/ Google / speisekarte.de / cylex / golocal / restaurant-ranglisten / werkenntdenbesten / gastroguide =
+counted ZERO. Reddit/TikTok yielded no findable, verifiably-popular clip naming a place in these towns.
+
+### Added — clear the bar (9: STADT 6, EIFEL 3) → FOOD_STADT_EIFEL_X2.json
+STADT:
+- **Caffee-Rösterei Wilhelm Maassen**, Monschau (t1) — Der Feinschmecker ("among Germany's best
+  roasters") + eifel.info + AZ. 1862, 5th-gen drum-roastery; canon coffee/Kaffeehaus angle.
+- **Venngasthof Zur Buche**, Monschau-Mützenich (t2) — eifel.info + Rureifel + Eifelsteig ("one of the
+  best in the Nordeifel"). Hohes-Venn country inn.
+- **Hotel-Restaurant-Café Horchem**, Monschau (t2) — eifel.info + de-eifel.de. Rurblick terrace, own
+  cakes, Belgian beers, Braukeller.
+- **Restaurant Mirabela**, Roetgen (t2) — eifel.de + Roetgen-Touristik (two official DMOs). Popular
+  local mediterrane Küche.
+- **Restaurant Eduard**, Alsdorf (t2) — AZ + Top Magazin Aachen. Crossover kitchen in the Energeticon
+  (former Grube Anna); reopened post-insolvency under new operator (OPEN, not closed).
+- **Café-Bistro Grünental**, Monschau/Roetgen border (t3) — Tourismus NRW (dein-nrw) + eifel-tour.de.
+  Seasonal (Apr–Oct) Eifelsteig café.
+EIFEL:
+- **Wettsteins Restaurant**, Langerwehe (t1) — Michelin (lone institutional). Regional grill/Landküche.
+- **Genießer Wirtshaus**, Simmerath-Hövel (t2) — Michelin "Selected/good cooking" (lone institutional).
+- **Café Burgblick (Konditorei-Café Krupp)**, Heimbach (t3) — eifel.de + Schlemmerregion-Aachen-Eifel.
+  Rureifel Kaffee-und-Kuchen with Burg Hengebach view. (Leans on eifel.de as primary credible source.)
+
+### Measured & held / dropped (single-credible or aggregator-only — NOT padded in)
+- **Majas Kaffeezimmer**, Monschau — only AZ (opening notice); new, single-source → HOLD for a 2nd source.
+- **Hotel-Restaurant Mennicken**, Würselen — Schlemmer-Atlas ranks it #1-regional in Würselen but that is
+  one credible source only → HOLD.
+- **Landhaus Odinius**, Jülich (Adenauerstr. 45) — juelich.de gastro brochure + strong RestaurantGuru
+  4.7/188, but only ONE credible recommender → HOLD.
+- **Das Brauhaus / Birra Duria**, Düren (Annaplatz 1-2) — brews its own Birra Duria since 2006, but only
+  own-site + aggregators found; NO credible editorial → DROP (revisit; a WDR/AZ piece would clear it).
+- **Trattoria Rossini** (Jülich), **Bäckerei-Konditorei-Café Mainz-Weitz** (Jülich, 150-yr), **Café
+  Zur Schönen Aussicht** (Nideggen), **Stadtcafé Heimbach**, **Ristorante Da Vinci** (Düren) — each has
+  at most one credible/DMO listing in the data gathered → HOLD for a corroboration wave.
+- **"Pfanntissimo"**, Eschweiler — well-covered (Kabel Eins "Mein Lokal, Dein Lokal – Der Profi kommt"
+  2nd place + AZ), but chef Marc Meuser CLOSED it and did not relocate → DROP (defunct, not a landmark).
+- **Stolberg** (Deux Ponts, Boccaccio, Burg Stolberg – Di Giovanni, Due Ponti, Da Pino, Burghof),
+  **Eschweiler** (Königsberger Hof, Pepazzo, El Rancho), **Baesweiler/Herzogenrath** (Baesweiler-Eck,
+  Landhaus Wurmtal, Brauhaus Peltzer, Zur alten Schmiede) — surfaced ONLY on aggregators; no credible
+  German editorial/DMO recommender found. Per the "state the gap, don't pad" rule these towns are left
+  thin until a bylined AZ/AN/WDR piece or a DMO listing is found. Kupferstadt Stolberg's Altstadt Italian
+  scene in particular is real but under-covered online by credible sources — a targeted AZ-Genuss /
+  WDR-Lokalzeit search is the next move.
+
+### Creators
+No individual creator met the vetting bar (verifiable following + findable piece naming a place) for these
+German towns; CREATORS_STADT_EIFEL_X2.json is intentionally empty. The nationally-broadcast Kabel Eins
+format "Mein Lokal, Dein Lokal – Der Profi kommt" featured Pfanntissimo (Eschweiler, now closed) and
+Eduard (Alsdorf) — a TV media appearance, logged as corroboration but not a handled creator. Credible base
+here is institutional/editorial/DMO (Michelin, Der Feinschmecker, AZ/AN, eifel.info/eifel.de, Rureifel,
+Roetgen-Touristik, Tourismus NRW, Top Magazin Aachen).
+
+### Limits
+Shared WebSearch budget hit 200/200 mid-pass (industrial-town coverage is aggregator-heavy, so many
+searches burned confirming that a lead was Yelp/TripAdvisor-only). Delivered 9 firmly ≥2-credible /
+lone-Michelin adds rather than padding to ~20 with aggregator-only entries. A follow-up wave with fresh
+budget should (a) find 2nd credible sources for the HOLD list above, (b) hunt AZ-Genuss/WDR-Lokalzeit
+bylined reviews for Stolberg, Eschweiler, Würselen, Herzogenrath, Baesweiler, and (c) confirm a credible
+recommender for Das Brauhaus/Birra Duria (Düren) and the Jülich Italians/Konditoreien.
+
+---
+
+## FOOD deep-dive pass — AACHEN city (X2), 2026-09-01
+
+Goal: substantially deepen Aachen's food & drink (student city, international, coffee, bakery,
+nightlife). Emphasis on credible + popular/viral + local-editorial sources, searched in German.
+Output: `FOOD_AACHEN_X2.json` (17 NEW places), `SOURCES_AACHEN_X2.json` (6 new outlets),
+`CREATORS_AACHEN_X2.json`.
+
+### Added (17 NEW, all ≥2 credible or lone Michelin; deduped against the 12 existing + ban list)
+By tier: t1 = 1, t2 = 12, t3 = 4.
+- Öcher taverns / German / beer: **Aachener Brauhaus** (aachen-tourismus + AZ), **Sauerbratenpalast**
+  (AZ + StädteRegion), **Gaffel Wirtshaus am Hühnerdieb** (top-aachen + STILPUNKTE),
+  **Zum Goldenen Einhorn — CLOSED** (AZ closure story + t-online; flagged `closed:true`, Markt 33).
+- Fine dining: **Plaisir by Hamid Heidarzadeh** (Guide Michelin + Falstaff 89).
+- International: **Day Du** modern Asian/sushi (Merian + Klenkes Gastroguide).
+- Specialty coffee / third-wave: **Franky's Farm** (European Coffee Trip + stadtleben), **Nela's
+  Coffee & Kitchen** (ECT + stadtleben), **Plum's Kaffee** roastery since 1870 (AZ roasters feature +
+  Wikipedia), **Leni liebt Kaffee** (AZ + ECT), **Kaffee Erhard** (AZ + Merian).
+- Cafés / brunch / sweet: **Egmont** Pontviertel cult café-bar (Merian + Falstaff), **Café Liège**
+  Belgian café (Merian + stadtleben), **Café Kittel** student institution (Merian + aachen-tourismus
+  Pontviertel), **Isabella Glutenfreie Pâtisserie** (aachen-tourismus + Merian).
+- Ice cream: **Leana und Luise** (aachen-tourismus + Klenkes Eisdielentest; "drittbeste Eisdiele NRW"
+  per Klenkes).
+- Nightlife: **Domkeller** live-music Kneipe, oldest secular building 1658 (AZ + kulturserver-NRW).
+
+### New outlets registered (SOURCES_AACHEN_X2.json)
+MERIAN (national travel magazine), FALSTAFF (rated restaurant guide), STADTLEBEN (regional city
+portal, editorial Tipps guides), STADTREGIONAC (official StädteRegion tourism), STILPUNKTE (regional
+lifestyle magazine), KULTURSERVERNRW (NRW cultural-institutions network). Reused: AACHENTOUR, AZ,
+KLENKES, MICHELIN, EUROPEANCOFFEETRIP, TONLINE_AC, TOPAACHEN, WIKIPEDIA.
+
+### Merit / measure notes
+- Yelp/TripAdvisor/Google/TheFork used only as popularity signals; never counted toward the ≥2 bar.
+- Plaisir cleared on lone institutional authority (in Guide Michelin) plus Falstaff 89.
+- Leana und Luise: award signal (Klenkes: 3rd-best Eisdiele NRW prior year) + official listing.
+- Zum Goldenen Einhorn kept as a CLOSED flagged entry per the "closed places stay, flagged" rule.
+
+### Creators
+No NEW creator cleared the vetting bar (verifiable follower count + a specific piece naming the place)
+within this pass's shared WebSearch budget. Existing LINHÉ remains registered. Leads noted in
+CREATORS_AACHEN_X2.json for a budget-restored creator pass.
+
+### DROPPED / leads that need a 2nd credible source (WebSearch budget hit 200/200 mid-pass)
+Vetted candidates with a real address but only ONE credible source found so far — left OUT rather than
+padded; a follow-up pass with restored WebSearch budget should confirm a 2nd credible source and add:
+- International: **Konak** (Turkish, Pontstraße 70 — Klenkes only), **EMESSA** (Syrian, Kaiserplatz
+  25-27), **AKL** (Lebanese, Pontstraße 1-3), **Fuji No Hana** (Japanese ramen — AZ Themenwelten
+  advertorial only), **Madame Tam** (Vietnamese, Schildstraße 2), Good Morning Vietnam, Krua Thai,
+  Noorjahan/India House (Indian).
+- Fine/modern: **One & Only** (Peterstraße 81-83 — Falstaff 86 only), **CafÉlysée** (Falstaff 83, no
+  address confirmed), **Boulevard 30** (RWTH campus — Merian only, no address), **Lola Paroli**
+  (vegan collective, Friedrichstraße 117 — Merian only), Pfannenzauber (fully vegan).
+- Burgers/street food: **Homeburgers** (Komphausbadstraße 25 — stadtleben only), **Burgeria**
+  (Templergraben 20 — stadtleben only).
+- Cafés/brunch/ice: **Barbarella** (Merian + stadtleben — 2 credible but NO street address captured;
+  add once address verified), Café Juli, Café Helmut, Aachener Café Haus (Krämerstraße 11), Ferbers
+  Parkcafé, Oecher Eistreff, Eiscafé Elisenbrunnen, Al Teatro, Südseite Coffee Roasters & Sourdough
+  Bakery.

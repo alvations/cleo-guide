@@ -1,0 +1,83 @@
+[
+  {
+    "t": 1, "a": "STADT", "cz": ["CAFE", "SWEET"],
+    "dish": "handgerösteter Monschauer Kaffee (& Caffeebier)",
+    "n": "Caffee-Rösterei Wilhelm Maassen",
+    "address": "Stadtstraße 24, 52156 Monschau, Germany",
+    "w": "A coffee roastery run in the fifth family generation in a 300-year-old Monschau townhouse, founded 1862 — beans are still gently drum-roasted for about 15 minutes to old recipes. Der Feinschmecker ranks it among Germany's best roasters; the house also makes a 'Caffeebier' (a full beer refined with Brazilian espresso).",
+    "closed": false,
+    "sources": [["FEINSCHMECKER", "https://www.feinschmecker.de/coffeeShop/de/monschau/caffee-r%C3%B6sterei-wilhelm-maassen-b8"], ["EIFEL_INFO", "https://www.eifel.info/en/pois/caffee-roesterei-wilhelm-maassen-1"], ["AZ", "https://www.aachener-zeitung.de/lokales/eifel/monschau/monschau-als-adresse-fuer-feinschmecker_aid-64059633"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["GER", "MED"],
+    "dish": "bürgerlich-mediterrane Küche (argentinisches Rumpsteak, Buche-Burger)",
+    "n": "Venngasthof Zur Buche",
+    "address": "Im Brand 39, 52156 Monschau (Mützenich), Germany",
+    "w": "A family-run country inn on the Eifelsteig at the Hohes Venn above Monschau, called one of the best addresses in the Nordeifel. The kitchen runs home-style and Mediterranean plates with constantly changing daily specials — the Argentine rumpsteaks, the Buche-Burger and schnitzel are the crowd-pleasers.",
+    "closed": false,
+    "sources": [["EIFEL_INFO", "https://www.eifel.info/en/gastro/venngasthof-zur-buche-1"], ["RUREIFEL", "https://www.rureifel-tourismus.de/gastro/venngasthof-zur-buche-1"], ["EIFELSTEIG", "https://www.eifelsteig.de/en/gastro/venngasthof-zur-buche-1"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["GER", "CAFE"],
+    "dish": "regionale Eifelküche & hausgebackener Kuchen mit Rurblick",
+    "n": "Hotel-Restaurant-Café Horchem",
+    "address": "Rurstraße 14, 52156 Monschau, Germany",
+    "w": "A hotel-restaurant-café in the heart of Monschau run by chef Lutz Schell, cooking regional and seasonal Eifel plates plus Belgian beers and its own cakes. Its sunny 'Venedig-Blick' terrace looks across the Rur to the Rotes Haus and the evangelical church, and a modern Braukeller lounge bar was added in 2014.",
+    "closed": false,
+    "sources": [["EIFEL_INFO", "https://www.eifel.info/en/gastro/hotel-restaurant-cafe-horchem"], ["DE_EIFEL", "https://de-eifel.de/hotel/horchemhotelrestaurant"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["MED"],
+    "dish": "leichte mediterrane Küche (Fisch, Grillgerichte)",
+    "n": "Restaurant Mirabela",
+    "address": "Hauptstraße 49, 52159 Roetgen, Germany",
+    "w": "In the heart of the Eifel-gateway town of Roetgen, the Kosor family run one of the most popular local addresses for light, freshly-prepared Mediterranean cooking — meat, fish, soups and salads — with a garden terrace and Croatian wines. Regional artists' paintings hang in the bright dining rooms.",
+    "closed": false,
+    "sources": [["EIFEL_INFO", "https://www.eifel.de/go/gastronomie-detail/2472.html"], ["ROETGEN_TOUR", "https://www.roetgen-touristik.de/business/gastronomy"]]
+  },
+  {
+    "t": 2, "a": "STADT", "cz": ["INT", "GER"],
+    "dish": "moderne Crossover-Küche mit regionalen Produkten",
+    "n": "Restaurant Eduard",
+    "address": "Konrad-Adenauer-Allee 7, 52477 Alsdorf, Germany",
+    "w": "A restaurant on the grounds of the Energeticon — the former Grube-Anna colliery — in Alsdorf, serving modern crossover cooking and a changing recommendation card built on seasonal regional produce in a striking industrial-heritage setting. Reopened after an insolvency under a new operator and kitchen.",
+    "closed": false,
+    "sources": [["AZ", "https://www.aachener-zeitung.de/lokales/region-aachen/alsdorf/restaurant-eduard-so-sieht-der-neuanfang-nach-der-insolvenz-aus/146694960.html"], ["TOP_AACHEN", "https://www.top-aachen.de/eduard-geniessen-in-geschichtstraechtiger-atmosphaere/"]]
+  },
+  {
+    "t": 3, "a": "STADT", "cz": ["CAFE", "GER"],
+    "dish": "regional-saisonale Küche & Kuchen am Eifelsteig",
+    "n": "Café-Bistro Grünental",
+    "address": "Grünental 1, 52156 Monschau, Germany",
+    "w": "A lovingly-run café-bistro set alone in the woods on the Roetgen–Monschau border by the Eifelsteig, cooking regional and seasonal dishes and cakes. Open seasonally (roughly April to October, Fri–Sun) and a beloved rest stop for hikers.",
+    "closed": false,
+    "sources": [["NRW_TOUR", "https://entdecke.dein-nrw.de/de/dein-nrw/default/detail/Gastro/g_100020096/caf-bistro-grnental"], ["EIFEL_TOUR", "https://www.eifel-tour.de/en/a-cafe-bistro-gruenental"]]
+  },
+  {
+    "t": 1, "a": "EIFEL", "cz": ["GER"],
+    "dish": "regional geprägte Küche (Rumpsteak vom Grill, Schnitzel, Braten)",
+    "n": "Wettsteins Restaurant",
+    "address": "Schlossstraße 66, 52379 Langerwehe, Germany",
+    "w": "A MICHELIN-Guide country restaurant a little off the beaten track in Langerwehe, on the Düren edge of the Eifel, cooking regionally-influenced food to choose as a set menu or à la carte — grilled meats such as rumpsteak alongside classics like schnitzel and roast joint, with a summer terrace.",
+    "closed": false,
+    "sources": [["MICHELIN", "https://guide.michelin.com/us/en/nordrhein-westfalen/langerwehe/restaurant/wettsteins-restaurant"]]
+  },
+  {
+    "t": 2, "a": "EIFEL", "cz": ["GER"],
+    "dish": "gehobene Eifeler Landküche",
+    "n": "Genießer Wirtshaus",
+    "address": "Hövel 15, 52152 Simmerath, Germany",
+    "w": "A MICHELIN-Guide 'good cooking' country inn in the Simmerath district of Hövel, in the Rureifel near the national park, serving hearty regional Landküche. Inspector-selected for honest country cooking at a fair price.",
+    "closed": false,
+    "sources": [["MICHELIN", "https://guide.michelin.com/en/nordrhein-westfalen/simmerath/restaurant/geniesser-wirtshaus"]]
+  },
+  {
+    "t": 3, "a": "EIFEL", "cz": ["CAFE", "SWEET"],
+    "dish": "hausgebackener Kuchen der Konditorei Krupp (Burgblick-Terrasse)",
+    "n": "Café Burgblick (Konditorei-Café Krupp)",
+    "address": "Über Rur 3, 52396 Heimbach, Germany",
+    "w": "An excursion café-Konditorei (Café Krupp) above the Rur in Heimbach with a large sun terrace and a wide choice of cakes and baked goods from its own bakery, plus coffee, ice cream and light lunch dishes — a classic Rureifel Kaffee-und-Kuchen stop with a view toward Burg Hengebach.",
+    "closed": false,
+    "sources": [["EIFEL_INFO", "https://www.eifel.de/go/gastronomie-detail/345.html"], ["SCHLEMMERREGION", "http://www.schlemmerregion-aachen-eifel-euregio.de/rp_restaurant_kurzinfo.afp?rid=_1i71db633"]]
+  }
+]

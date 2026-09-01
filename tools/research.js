@@ -60,6 +60,7 @@ const PAGE_FOR = {
   'erie-pa': path.join(__dirname, '..', 'cities', 'erie.html'),
   'saarland': path.join(__dirname, '..', 'cities', 'saarland.html'),
   'aachen': path.join(__dirname, '..', 'cities', 'aachen.html'),
+  'rhineland': path.join(__dirname, '..', 'cities', 'rhineland.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -76,6 +77,7 @@ const DATASET_FOR = {
   'erie-pa': path.join(__dirname, '..', 'data', 'erie.dataset.json'),
   'saarland': path.join(__dirname, '..', 'data', 'saarland.dataset.json'),
   'aachen': path.join(__dirname, '..', 'data', 'aachen.dataset.json'),
+  'rhineland': path.join(__dirname, '..', 'data', 'rhineland.dataset.json'),
 };
 
 function loadGeocodes() {
