@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Aachen &amp; the Dreiländereck (Euregio Maas-Rhein) field guide — 113 sights and 0 places to eat across Aachen and its StädteRegion, the Eifel &amp; Düren, Dutch South Limburg (Maastricht, Vaals, Valkenburg) and Ostbelgien (Eupen, Kelmis), each traceable to its source (Michelin, UNESCO, Aachener Zeitung, Visit Maastricht, Grenz-Echo, DW Travel) on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Aachen &amp; the Dreiländereck Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Aachen &amp; the Dreiländereck, sourced</p>
+  <h1>Aachen<span class="thin">&amp; the Dreiländereck — StädteRegion · Eifel · Maastricht · Ostbelgien</span></h1>
+  <p class="standfirst">113 sights and 0 places to eat across the tri-border <strong>Euregio Maas-Rhein</strong> &mdash; anchored on <strong>Aachen</strong> (Charlemagne’s city, its <strong>UNESCO cathedral</strong> the first site ever listed in Germany) and reaching into the <strong>Eifel</strong>, across the border to <strong>Maastricht</strong> &amp; Dutch Limburg, and into <strong>Ostbelgien</strong>. A food canon all its own: <strong>Aachener Printen</strong> and Reisfladen, Rhenish <strong>Sauerbraten</strong> and Öcher <strong>Puttes</strong>, Limburgse <strong>vlaai</strong> and <strong>zuurvlees</strong>, Belgian beer and Eupen chocolate, out to a deep Michelin bench in Aachen &amp; Maastricht. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#2E6DA4"></i>Aachen</span>
+  <span><i style="background:#C0504D"></i>StädteRegion Aachen</span>
+  <span><i style="background:#6A8D3F"></i>Eifel & Düren, DE</span>
+  <span><i style="background:#E8973A"></i>Dutch South Limburg</span>
+  <span><i style="background:#8E44AD"></i>Ostbelgien, BE</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Printen, Riesling, Dom, vlaai, Senf…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-09-01</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in German, Dutch &amp; French across Michelin, UNESCO, Gault&amp;Millau, the Aachener Zeitung/Nachrichten, WDR, Route Aachen, Eifel Tourismus, Visit Maastricht, De Limburger, the Grenz-Echo and BRF (Ostbelgien) and DW Travel. Every coordinate is verified into data/geocodes.json and every place status-checked open. A large batch of restaurants is pending a final coordinate pass before appearing.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AACHENALTSTADT":{k:"AACHENALTSTADT",t:"Aachen schöne Altstadt",u:"https://aachen-schoene-altstadt.de",l:"Aachen schöne Altstadt"},
+  "AACHENTOUR":{k:"AACHENTOUR",t:"aachen tourist service e.V. / aachen-tourismus.de (charlie.aachen-tourismus.de)",u:"https://www.aachen-tourismus.de",l:"aachen tourist service e.V. / aachen-tourismus.de (charlie.aachen-tourismus.de)"},
+  "AACHEN_DE":{k:"AACHEN DE",t:"Stadt Aachen",u:"https://www.aachen.de",l:"Stadt Aachen"},
+  "ABMC":{k:"ABMC",t:"American Battle Monuments Commission",u:"https://www.abmc.gov/Netherlands",l:"American Battle Monuments Commission"},
+  "ARTHIST":{k:"ARTHIST",t:"arthistoricum.net",u:"https://www.arthistoricum.net",l:"arthistoricum.net"},
+  "AZ":{k:"AACHENER ZEITUNG",t:"Aachener Zeitung",u:"https://www.aachener-zeitung.de",l:"Aachener Zeitung"},
+  "BAUKUNST":{k:"BAUKUNST",t:"baukunst-nrw",u:"https://www.baukunst-nrw.de",l:"baukunst-nrw"},
+  "BAUKUNST_NRW":{k:"BAUKUNST NRW",t:"Baukunst NRW (Architektenkammer NRW)",u:"https://www.baukunst-nrw.de",l:"Baukunst NRW (Architektenkammer NRW)"},
+  "BONNEFANTEN":{k:"BONNEFANTEN",t:"Bonnefanten (official)",u:"https://www.bonnefanten.nl",l:"Bonnefanten (official)"},
+  "BOTRANGE":{k:"BOTRANGE",t:"Parc naturel Hautes Fagnes-Eifel / Maison du Parc Botrange",u:"https://botrange.be",l:"Parc naturel Hautes Fagnes-Eifel / Maison du Parc Botrange"},
+  "BRF":{k:"BRF (OSTBELGIEN)",t:"BRF (Belgischer Rundfunk)",u:"https://brf.be",l:"BRF (Belgischer Rundfunk)"},
+  "BURGENWELT":{k:"BURGENWELT",t:"Burgenwelt.org",u:"https://www.burgenwelt.org",l:"Burgenwelt.org"},
+  "BURGEN_DE":{k:"BURGEN DE",t:"Burgen.de",u:"https://www.burgen.de",l:"Burgen.de"},
+  "CENTRECHARLEMAGNE":{k:"CENTRECHARLEMAGNE",t:"Centre Charlemagne — Neues Stadtmuseum Aachen",u:"https://centre-charlemagne.eu",l:"Centre Charlemagne — Neues Stadtmuseum Aachen"},
+  "COUVEN":{k:"COUVEN",t:"Couven-Museum Aachen",u:"https://couven-museum.de",l:"Couven-Museum Aachen"},
+  "CULTUREELERFGOED":{k:"CULTUREELERFGOED",t:"Rijksdienst voor het Cultureel Erfgoed",u:"https://kennis.cultureelerfgoed.nl",l:"Rijksdienst voor het Cultureel Erfgoed"},
+  "DRIELANDENPUNT":{k:"DRIELANDENPUNT",t:"Het Drielandenpunt (official)",u:"https://hetdrielandenpunt.nl",l:"Het Drielandenpunt (official)"},
+  "DUMONT":{k:"DUMONT",t:"DuMont Reise",u:"https://www.dumontreise.de",l:"DuMont Reise"},
+  "EIFELDE":{k:"EIFELDE",t:"Eifel.de (Eifel Tourismus)",u:"https://www.eifel.de",l:"Eifel.de (Eifel Tourismus)"},
+  "EIFELFUEHRER":{k:"EIFELFUEHRER",t:"Eifelführer",u:"https://eifelfuehrer.de",l:"Eifelführer"},
+  "EIFELINFO":{k:"EIFELINFO",t:"Eifel Tourismus (eifel.info)",u:"https://www.eifel.info",l:"Eifel Tourismus (eifel.info)"},
+  "EIFELSTEIG":{k:"EIFELSTEIG",t:"Eifelsteig",u:"https://www.eifelsteig.de",l:"Eifelsteig"},
+  "EIFEL_INFO":{k:"EIFEL INFO",t:"Eifel Tourismus (eifel.info / eifel.de)",u:"https://www.eifel.info",l:"Eifel Tourismus (eifel.info / eifel.de)"},
+  "EUREGIOZOO":{k:"EUREGIOZOO",t:"Aachener Tierpark Euregiozoo",u:"https://www.euregiozoo.de",l:"Aachener Tierpark Euregiozoo"},
+  "EXPLOREMAASTRICHT":{k:"EXPLOREMAASTRICHT",t:"Explore Maastricht (Maastricht Underground)",u:"https://www.exploremaastricht.nl",l:"Explore Maastricht (Maastricht Underground)"},
+  "FORTEN":{k:"FORTEN",t:"Forten.nl (Stichting Menno van Coehoorn)",u:"https://forten.nl",l:"Forten.nl (Stichting Menno van Coehoorn)"},
+  "HEIMBACH":{k:"HEIMBACH",t:"Stadt Heimbach",u:"https://www.heimbach-eifel.de",l:"Stadt Heimbach"},
+  "HERZOGENRATH":{k:"HERZOGENRATH",t:"Stadt Herzogenrath",u:"https://www.herzogenrath.de",l:"Stadt Herzogenrath"},
+  "HETROMEINSMUSEUM":{k:"HETROMEINSMUSEUM",t:"Het Romeins Museum (Thermenmuseum)",u:"https://www.hetromeinsmuseum.nl",l:"Het Romeins Museum (Thermenmuseum)"},
+  "HSO_NRW":{k:"HSO NRW",t:"AG Historische Stadt- und Ortskerne in NRW",u:"https://www.hso-nrw.de",l:"AG Historische Stadt- und Ortskerne in NRW"},
+  "IKOB":{k:"IKOB",t:"IKOB — Museum für Zeitgenössische Kunst",u:"https://www.ikob.be",l:"IKOB — Museum für Zeitgenössische Kunst"},
+  "IND_EMR":{k:"IND EMR",t:"Industriemuseen Euregio Maas-Rhein",u:"https://industriemuseen-emr.de",l:"Industriemuseen Euregio Maas-Rhein"},
+  "JUELICH":{k:"JUELICH",t:"Stadt Jülich",u:"https://www.juelich.de",l:"Stadt Jülich"},
+  "KASTEELVALKENBURG":{k:"KASTEELVALKENBURG",t:"Kasteelruïne & Fluweelengrot (official)",u:"https://www.kasteelvalkenburg.nl",l:"Kasteelruïne & Fluweelengrot (official)"},
+  "KATHOLISCH":{k:"KATHOLISCH",t:"katholisch.de",u:"https://katholisch.de",l:"katholisch.de"},
+  "KERSTSTADVALKENBURG":{k:"KERSTSTADVALKENBURG",t:"Kerststad Valkenburg (official)",u:"https://www.kerststadvalkenburg.nl",l:"Kerststad Valkenburg (official)"},
+  "KREISDN":{k:"KREISDN",t:"Kreis Düren Tourismus",u:"https://www.tourismus.kreis-dueren.de",l:"Kreis Düren Tourismus"},
+  "KULADIG":{k:"KULADIG",t:"KuLaDig — Kultur.Landschaft.Digital (LVR)",u:"https://www.kuladig.de",l:"KuLaDig — Kultur.Landschaft.Digital (LVR)"},
+  "KUNSTHAUS_NRW":{k:"KUNSTHAUS NRW",t:"Kunsthaus NRW Kornelimünster",u:"https://www.kunsthaus.nrw",l:"Kunsthaus NRW Kornelimünster"},
+  "LEB_AACHEN":{k:"LEB AACHEN",t:"Lebendiges Aachen",u:"https://www.lebendiges-aachen.de",l:"Lebendiges Aachen"},
+  "LHM":{k:"LHM",t:"Leopold-Hoesch-Museum & Papiermuseum Düren",u:"https://www.leopoldhoeschmuseum.de",l:"Leopold-Hoesch-Museum & Papiermuseum Düren"},
+  "LUDWIGFORUM":{k:"LUDWIGFORUM",t:"Ludwig Forum für Internationale Kunst",u:"https://ludwigforum.de",l:"Ludwig Forum für Internationale Kunst"},
+  "MEMORIAL":{k:"MEMORIAL",t:"Memorial Museums",u:"https://www.memorialmuseums.org",l:"Memorial Museums"},
+  "MUSEEN_DE":{k:"MUSEEN DE",t:"museen.de",u:"https://museen.de",l:"museen.de"},
+  "MUSZIT":{k:"MUSZIT",t:"Museum Zitadelle Jülich",u:"https://www.museum-zitadelle.de",l:"Museum Zitadelle Jülich"},
+  "MVMKELMIS":{k:"MVMKELMIS",t:"Museum Vieille Montagne (MVM), Kelmis",u:"https://www.mvm-kelmis.be",l:"Museum Vieille Montagne (MVM), Kelmis"},
+  "NATURPARKEIFEL":{k:"NATURPARKEIFEL",t:"Naturpark Hohes Venn-Eifel (DE side)",u:"https://www.naturpark-eifel.de",l:"Naturpark Hohes Venn-Eifel (DE side)"},
+  "NATUURMONUMENTEN":{k:"NATUURMONUMENTEN",t:"Natuurmonumenten",u:"https://www.natuurmonumenten.nl",l:"Natuurmonumenten"},
+  "NORDEIFEL":{k:"NORDEIFEL TOURISTIK",t:"Nordeifel Tourismus",u:"https://nordeifel-tourismus.de",l:"Nordeifel Tourismus"},
+  "NPEIFEL":{k:"NPEIFEL",t:"Nationalpark Eifel",u:"https://www.nationalpark-eifel.de",l:"Nationalpark Eifel"},
+  "NRWTOUR":{k:"NRWTOUR",t:"Tourismus NRW e.V. (nrw-tourismus.de)",u:"https://www.nrw-tourismus.de",l:"Tourismus NRW e.V. (nrw-tourismus.de)"},
+  "NRW_TOUR":{k:"NRW TOUR",t:"NRW-Tourismus (Tourismus NRW e.V.)",u:"https://www.nrw-tourismus.de",l:"NRW-Tourismus (Tourismus NRW e.V.)"},
+  "NSGEDENK":{k:"NSGEDENK",t:"Gedenkstätten NRW",u:"https://www.ns-gedenkstaetten.de",l:"Gedenkstätten NRW"},
+  "OSTBELGIEN":{k:"OSTBELGIEN.EU",t:"OSTBELGIEN.EU",u:"",l:""},
+  "OSTBELGIENDIREKT":{k:"OSTBELGIENDIREKT",t:"Ostbelgien Direkt",u:"https://ostbelgiendirekt.be",l:"Ostbelgien Direkt"},
+  "RAERENTOURISMUS":{k:"RAERENTOURISMUS",t:"Raeren Tourismus",u:"https://www.raeren-tourismus.be",l:"Raeren Tourismus"},
+  "RATHAUSAACHEN":{k:"RATHAUSAACHEN",t:"Rathaus Aachen / Route Charlemagne (Stadt Aachen)",u:"https://rathaus-aachen.de",l:"Rathaus Aachen / Route Charlemagne (Stadt Aachen)"},
+  "RIJKSMONUMENTEN":{k:"RIJKSMONUMENTEN",t:"Rijksmonumenten.nl",u:"https://rijksmonumenten.nl",l:"Rijksmonumenten.nl"},
+  "ROETGEN":{k:"ROETGEN",t:"Gemeinde Roetgen",u:"https://www.roetgen.de",l:"Gemeinde Roetgen"},
+  "RUHRNACHRICHTEN":{k:"RUHRNACHRICHTEN",t:"Ruhr Nachrichten",u:"https://www.ruhrnachrichten.de",l:"Ruhr Nachrichten"},
+  "RUREIFEL":{k:"RUREIFEL",t:"Rureifel-Tourismus e.V.",u:"https://www.rureifel-tourismus.de",l:"Rureifel-Tourismus e.V."},
+  "RURSEE":{k:"RURSEE",t:"Rursee-Touristik GmbH",u:"https://www.rursee.de",l:"Rursee-Touristik GmbH"},
+  "STRMODERNE":{k:"STRMODERNE",t:"Straße der Moderne",u:"https://strasse-der-moderne.de",l:"Straße der Moderne"},
+  "STR_AACHEN":{k:"STR AACHEN",t:"StädteRegion Aachen (Freizeit-/Tourenportal)",u:"https://www.freizeitportal.staedteregion-aachen.de",l:"StädteRegion Aachen (Freizeit-/Tourenportal)"},
+  "SUERMONDT":{k:"SUERMONDT",t:"Suermondt-Ludwig-Museum",u:"https://suermondt-ludwig-museum.de",l:"Suermondt-Ludwig-Museum"},
+  "THERMAE":{k:"THERMAE",t:"Thermae 2000 (official)",u:"https://www.thermae.nl",l:"Thermae 2000 (official)"},
+  "TOEPFEREIMUSEUM":{k:"TOEPFEREIMUSEUM",t:"Töpfereimuseum Raeren",u:"https://www.toepfereimuseum.org",l:"Töpfereimuseum Raeren"},
+  "TOERISMEVAALS":{k:"TOERISMEVAALS",t:"Toerisme Vaals (VVV Vaals)",u:"https://www.toerismevaals.nl",l:"Toerisme Vaals (VVV Vaals)"},
+  "TOPAACHEN":{k:"TOPAACHEN",t:"top-aachen",u:"https://www.top-aachen.de",l:"top-aachen"},
+  "UNESCO":{k:"UNESCO",t:"Deutsche UNESCO-Kommission",u:"https://www.unesco.de",l:"Deutsche UNESCO-Kommission"},
+  "VARTA":{k:"VARTA",t:"Varta-Guide",u:"https://www.varta-guide.de",l:"Varta-Guide"},
+  "VIABELGICA":{k:"VIABELGICA",t:"Via Belgica",u:"https://www.viabelgica.nl",l:"Via Belgica"},
+  "VISITMAASTRICHT":{k:"VISIT MAASTRICHT",t:"Visit Maastricht",u:"https://www.visitmaastricht.com",l:"Visit Maastricht"},
+  "VISITWALLONIA":{k:"VISIT WALLONIA",t:"VISIT WALLONIA",u:"",l:""},
+  "VISITZUIDLIMBURG":{k:"VISIT ZUID-LIMBURG",t:"Visit Zuid-Limburg",u:"https://www.visitzuidlimburg.nl",l:"Visit Zuid-Limburg"},
+  "VRT":{k:"VRT",t:"VRT NWS (German-language pages)",u:"https://www.vrt.be/vrtnws/de/",l:"VRT NWS (German-language pages)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (de/en)",u:"https://de.wikipedia.org",l:"Wikipedia (de/en)"},
+  "WIKIVOYAGE":{k:"WIKIVOYAGE",t:"Wikivoyage (de)",u:"https://de.wikivoyage.org",l:"Wikivoyage (de)"},
+  "WNL":{k:"WNL",t:"WNL",u:"https://wnl.tv",l:"WNL"},
+  "WORRIKEN":{k:"WORRIKEN",t:"Sport- & Freizeitzentrum Worriken (Bütgenbach)",u:"https://www.worriken.be",l:"Sport- & Freizeitzentrum Worriken (Bütgenbach)"},
+  "WP":{k:"WP",t:"WP",u:"",l:""}
+};
+
+const AREAS = [
+  {id:"AACHEN",n:"Aachen (Dom · Altstadt · Burtscheid · RWTH)",c:"#2E6DA4"},
+  {id:"STADT",n:"StädteRegion Aachen (Monschau · Stolberg · Kornelimünster)",c:"#C0504D"},
+  {id:"EIFEL",n:"Eifel & Düren, DE (National Park · Nideggen · Jülich)",c:"#6A8D3F"},
+  {id:"NL",n:"Dutch South Limburg (Maastricht · Vaals · Valkenburg)",c:"#E8973A"},
+  {id:"BE",n:"Ostbelgien, BE (Eupen · Kelmis · Hautes Fagnes)",c:"#8E44AD"}
+];
+
+const P = [
+{t:1,a:"AACHEN",n:"Aachener Dom (Pfalzkapelle Karls des Großen)",ad:"Klosterplatz 2, 52062 Aachen, Germany",la:50.77475,ln:6.08399,w:"Karls des Großen Pfalzkapelle (um 793–813) und 1978 als erste deutsche Stätte in die UNESCO-Welterbeliste aufgenommen. Das oktogonale Zentrum, der Karlsschrein und der Barbarossaleuchter machen den Dom zum Herzstück der Kaiserstadt und zur Krönungskirche der römisch-deutschen Könige.",k:"cathedral",g:["ICON","UNESCO","HIST","ARCH"],s:[["UNESCO","https://www.unesco.de/staette/aachener-dom/"],["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/aachener-dom/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Aachener_Dom"]]},
+{t:1,a:"AACHEN",n:"Domschatzkammer Aachen",ad:"Klosterplatz 2, 52062 Aachen, Germany",la:50.77504,ln:6.08282,w:"Einer der bedeutendsten Kirchenschätze Europas und selbst Teil des UNESCO-Welterbes — mit dem Lotharkreuz, der Karlsbüste und dem Aachener Domschatz in einem Gebäude nordwestlich des Doms.",k:"museum",g:["MUS","UNESCO","HIST","ICON"],s:[["UNESCO","https://www.unesco.de/staette/aachener-dom/"],["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/domschatzkammer/"]]},
+{t:1,a:"AACHEN",n:"Aachener Rathaus & Krönungssaal",ad:"Markt, 52062 Aachen, Germany",la:50.77610,ln:6.08377,w:"Gotisches Rathaus des 14. Jahrhunderts auf den Fundamenten der karolingischen Aula Regia. Im Krönungssaal fanden bis 1531 die Krönungsmahle der römisch-deutschen Könige statt; heute Station der Route Charlemagne.",k:"townhall",g:["ICON","HIST","ARCH"],s:[["RATHAUSAACHEN","https://rathaus-aachen.de/en/town-hall/the-town-hall-a-station-on-the-route-charlemagne/"],["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/aachener-rathaus"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Aachener_Rathaus"]]},
+{t:2,a:"AACHEN",n:"Katschhof",ad:"Katschhof, 52062 Aachen, Germany",la:50.77546,ln:6.08380,w:"Der zentrale Platz zwischen Dom und Rathaus, einst Innenhof der karolingischen Pfalz. Schauplatz der großen Aachener Veranstaltungen — im Sommer mit „Archimedischem Sandkasten“, im Winter mit dem Weihnachtsmarkt und dem schönsten Domblick.",k:"square",g:["HIST","FREE","ARCH","MKT"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/katschhof"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Katschhof"]]},
+{t:1,a:"AACHEN",n:"Elisenbrunnen",ad:"Friedrich-Wilhelm-Platz, 52062 Aachen, Germany",la:50.77417,ln:6.08694,w:"Klassizistische Wandelhalle (1827, nach Ideen Schinkels) über den beiden Trinkbrunnen, aus denen 52 °C warmes, schwefelhaltiges Wasser der Kaiserquelle sprudelt — sichtbares Wahrzeichen von Aachens Thermal- und Bädertradition seit der Römerzeit.",k:"monument",g:["ICON","SPA","HIST","ARCH"],s:[["NRWTOUR","https://www.nrw-tourismus.de/elisenbrunnen"],["AACHENTOUR","https://charlie.aachen-tourismus.de/en/poi/elisenbrunnen"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Elisenbrunnen"]]},
+{t:1,a:"AACHEN",n:"Carolus Thermen Bad Aachen",ad:"Passstraße 79, 52070 Aachen, Germany",la:50.78283,ln:6.09705,w:"Moderne Thermen- und Saunalandschaft im Stadtgarten, die die über 30 unterirdischen Thermalquellen Aachens (heiß, schwefelhaltig) fortführt. 1998–2001 erbaut, 2020–2022 aufwendig saniert.",k:"spa",g:["SPA","MUS","PARK"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/en/poi/carolus-thermen"],["NRWTOUR","https://www.nrw-tourismus.de/thermen/carolus-thermen"]]},
+{t:1,a:"AACHEN",n:"Centre Charlemagne — Neues Stadtmuseum",ad:"Katschhof 1, 52062 Aachen, Germany",la:50.77579,ln:6.08296,w:"Interaktives Stadtmuseum am Katschhof, das Aachens Geschichte von der Römersiedlung über Karl den Großen bis heute erzählt — der Ausgangspunkt der Route Charlemagne.",k:"museum",g:["MUS","HIST","MKT"],s:[["CENTRECHARLEMAGNE","https://centre-charlemagne.eu/?lang=en"],["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/centre-charlemagne/"]]},
+{t:1,a:"AACHEN",n:"Suermondt-Ludwig-Museum",ad:"Wilhelmstraße 18, 52070 Aachen, Germany",la:50.77350,ln:6.09569,w:"Die bürgerliche Kunstsammlung Aachens in einem Stadtpalais — mittelalterliche Skulptur, altdeutsche und niederländische Malerei, als „Salon der Stadt“ beschrieben.",k:"museum",g:["MUS","ARCH"],s:[["SUERMONDT","https://suermondt-ludwig-museum.de/besuch/"],["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/suermondt-ludwig-museum/"]]},
+{t:1,a:"AACHEN",n:"Ludwig Forum für Internationale Kunst",ad:"Jülicher Straße 97-109, 52070 Aachen, Germany",la:50.78111,ln:6.10194,w:"Museum für zeitgenössische Kunst in einer ehemaligen Schirmfabrik der 1920er — Pop-Art, Fotorealismus und aktuelle Positionen aus der Sammlung Peter und Irene Ludwig.",k:"museum",g:["MUS","ARCH"],s:[["LUDWIGFORUM","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/ludwig-forum-fuer-internationale-kunst/"],["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/ludwig-forum"]]},
+{t:2,a:"AACHEN",n:"Couven-Museum",ad:"Hühnermarkt 17, 52062 Aachen, Germany",la:50.77569,ln:6.08489,w:"Wohnkultur des Aachener Großbürgertums vom Rokoko über Empire bis Biedermeier, benannt nach den Baumeistern Johann Joseph und Jakob Couven — inklusive der „Adler-Apotheke“ mit der ersten Schokoladenwerbung.",k:"museum",g:["MUS","HIST"],s:[["COUVEN","https://couven-museum.de/besuch/"],["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/couven-museum/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Couven_Museum"]]},
+{t:2,a:"AACHEN",n:"Internationales Zeitungsmuseum (IZM)",ad:"Pontstraße 13, 52062 Aachen, Germany",la:50.77726,ln:6.08280,w:"In einem Bürgerhaus des 15. Jahrhunderts an der Pontstraße gelegen; die weltweit einzigartige Sammlung fußt auf einem Bestand von rund 300.000 internationalen Zeitungen aus fünf Jahrhunderten. Freier Eintritt für unter 22-Jährige.",k:"museum",g:["MUS","HIST"],s:[["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/internationales-zeitungsmuseum/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Internationales_Zeitungsmuseum"]]},
+{t:2,a:"AACHEN",n:"Ponttor",ad:"Ponttor, 52062 Aachen, Germany",la:50.78152,ln:6.07832,w:"Eines der beiden erhaltenen Tore der äußeren Stadtmauer, ein wehrhaftes Doppelturmtor des 14. Jahrhunderts am Kopf der Pontstraße — das Wahrzeichen des Studentenviertels.",k:"gate",g:["ICON","HIST","ARCH","FREE"],s:[["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/ponttor/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ponttor"]]},
+{t:2,a:"AACHEN",n:"Marschiertor",ad:"Franzstraße, 52064 Aachen, Germany",la:50.76819,ln:6.08689,w:"Das zweite erhaltene Stadttor Aachens, ein mächtiges Torhaus des 13./14. Jahrhunderts im Süden der Altstadt nahe dem Hauptbahnhof.",k:"gate",g:["HIST","ARCH","FREE"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/marschiertor"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Marschiertor"]]},
+{t:2,a:"AACHEN",n:"Grashaus",ad:"Fischmarkt 3, 52062 Aachen, Germany",la:50.77450,ln:6.08281,w:"Eines der ältesten Gebäude Aachens und ältestes Rathaus der Stadt (13. Jh.) am Fischmarkt; heute „Europäisches Klassenzimmer“ und Station der Route Charlemagne.",k:"landmark",g:["HIST","ARCH","ICON","MKT"],s:[["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/grashaus/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Grashaus_(Aachen)"]]},
+{t:2,a:"AACHEN",n:"Lousberg",ad:"Lousberg, 52072 Aachen, Germany",la:50.78689,ln:6.07919,w:"Der 264 m hohe Stadtberg am Nordrand der Innenstadt, seit dem frühen 19. Jahrhundert nach Plänen von Maximilian Weyhe zur Parklandschaft gestaltet — mit dem drehbaren Belvedere-Wasserturm und weitem Blick über Aachen.",k:"park",g:["PARK","FREE","NIGHT"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/lousberg"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Lousberg"]]},
+{t:2,a:"AACHEN",n:"Burg Frankenberg",ad:"Frankenberger Viertel (Burg-Frankenberg-Park), 52066 Aachen, Germany",la:50.76781,ln:6.10389,w:"Eine von Wasser umgebene Wasserburg des 13. Jahrhunderts im Frankenberger Viertel, einst Sitz der Vögte der Reichsabtei Burtscheid; heute Museum und Park.",k:"castle",g:["HIST","ARCH","PARK","MUS"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/burg-frankenberg"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)"]]},
+{t:2,a:"AACHEN",n:"Kurpark Burtscheid",ad:"Dammstraße, 52066 Aachen (Burtscheid), Germany",la:50.76482,ln:6.09506,w:"Der älteste Park Aachens, Ende des 18. Jahrhunderts im barocken Bäderviertel Burtscheid angelegt, wo die heißesten Thermalquellen Mitteleuropas entspringen.",k:"park",g:["PARK","SPA","FREE","NIGHT"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/Kurpark_Burtscheid"],["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/kurpark-burtscheid"]]},
+{t:2,a:"AACHEN",n:"Burtscheid — barockes Kur- und Thermalviertel",ad:"Burtscheid, 52066 Aachen, Germany",la:50.76306,ln:6.09333,w:"Das historische Bäderviertel Aachens, dessen heiße Thermalquellen mit über 70 °C zu den heißesten Nordeuropas zählen — mit der barocken Abteikirche St. Johann Baptist von Johann Joseph Couven und dem Markt.",k:"quarter",g:["HIST","ARCH","SPA","MUS"],s:[["AACHENTOUR","https://centre-charlemagne.eu/termin/fuehrung-durch-burtscheid/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Burtscheid"]]},
+{t:2,a:"AACHEN",n:"Aachener Tierpark Euregiozoo",ad:"Obere Drimborner Straße 44, 52066 Aachen, Germany",la:50.76311,ln:6.11531,w:"Einer der ältesten Tierparks Deutschlands, im Grünzug am Aachener Stadtrand gelegen, mit rund 500 Tieren aus der Euregio und aller Welt — ein Familienziel.",k:"zoo",g:["PARK"],s:[["EUREGIOZOO","https://www.euregiozoo.de/de/tierpark/besucherinfo.php"],["AACHENTOUR","https://www.aachen-tourismus.de/aachen-entdecken/details/poi/aachener-tierpark-euregiozoo/"],["NRWTOUR","https://www.nrw-tourismus.de/zoos-tierparke/aachener-tierpark-euregiozoo"]]},
+{t:2,a:"AACHEN",n:"Theater Aachen",ad:"Theaterplatz 1, 52062 Aachen, Germany",la:50.77250,ln:6.08719,w:"Das klassizistische Stadttheater (1825, nach Plänen von Johann Peter Cremer, Fassade von Karl Friedrich Schinkel beeinflusst) am Theaterplatz — Aachens Dreispartenhaus.",k:"theatre",g:["ARCH","HIST","MUS","SPA"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/theater-aachen"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Theater_Aachen"]]},
+{t:2,a:"AACHEN",n:"St. Foillan",ad:"Ursulinerstraße 1, 52062 Aachen, Germany",la:50.77489,ln:6.08469,w:"Die gotische Pfarrkirche unmittelbar neben dem Dom, im Krieg zerstört und wieder aufgebaut; die „Dompfarrei“ mit direktem Blick auf das Welterbe.",k:"church",g:["HIST","ARCH","FREE","NIGHT"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/st-foillan"],["WIKIPEDIA","https://de.wikipedia.org/wiki/St._Foillan_(Aachen)"]]},
+{t:2,a:"AACHEN",n:"Markt & Karlsbrunnen",ad:"Markt, 52062 Aachen, Germany",la:50.77639,ln:6.08369,w:"Einer der schönsten Plätze der Altstadt, überragt vom Rathaus. In der Mitte steht seit 1334 der Karlsbrunnen, dessen bronzene Karlsfigur (16. Jh.) den Stadtgründer zeigt.",k:"square",g:["ICON","HIST","FREE","ARCH"],s:[["AACHENALTSTADT","https://aachen-schoene-altstadt.de/der-karlsbrunnen/"],["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/marktplatz"]]},
+{t:2,a:"AACHEN",n:"Puppenbrunnen",ad:"Krämerstraße, 52062 Aachen, Germany",la:50.77508,ln:6.08445,w:"Der beliebte Brunnen von Bonifatius Stirnberg (1975) mit beweglichen Bronzefiguren — Ritter, Narr, Professor, Marktfrau, Pferd — die Facetten der Aachener Stadtgeschichte verkörpern und die man drehen darf.",k:"fountain",g:["FREE","ICON","MKT"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/Puppenbrunnen"],["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/puppenbrunnen"]]},
+{t:3,a:"AACHEN",n:"Fischmarkt",ad:"Fischmarkt, 52062 Aachen, Germany",la:50.77450,ln:6.08281,w:"Kleiner, malerischer Platz mit dem Fischpüddelchen-Brunnen hinter dem Dom, Ausgangspunkt vieler Altstadtrundgänge.",k:"square",g:["HIST","FREE","ARCH","MKT"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/fischmarkt"],["AACHENALTSTADT","https://aachen-schoene-altstadt.de/altstadtrundgang-1-rund-um-dom-und-rathaus/"]]},
+{t:3,a:"AACHEN",n:"Elisengarten (mit Archäologischer Vitrine)",ad:"Elisengarten, 52062 Aachen, Germany",la:50.77419,ln:6.08639,w:"Innerstädtische Grünanlage zwischen Dom und Elisenbrunnen; unter Glas ist ein archäologisches Schaufenster mit Fundschichten von der Jungsteinzeit bis zur Neuzeit zu sehen.",k:"park",g:["PARK","HIST","FREE","ICON"],s:[["AACHENTOUR","https://charlie.aachen-tourismus.de/poi/elisengarten"],["AACHENALTSTADT","https://aachen-schoene-altstadt.de/altstadtrundgang-1-rund-um-dom-und-rathaus/"]]},
+{t:1,a:"AACHEN",n:"Aachener Weihnachtsmarkt",ad:"Markt & Katschhof, 52062 Aachen, Germany",la:50.77639,ln:6.08369,w:"Einer der bekanntesten Weihnachtsmärkte Deutschlands, der sich rund um Dom und Rathaus legt — mit Printen, Aachener Dampfnudeln und Glühwein vor der Kulisse des Welterbes. Saisonal (Ende November bis Weihnachten).",k:"market",g:["MKT","ICON","ARCH"],s:[["AACHENTOUR","https://www.aachen-tourismus.de/aachener-weihnachtsmarkt/"],["AZ","https://www.aachener-zeitung.de/thema/aachener-weihnachtsmarkt/"]]},
+{t:2,a:"AACHEN",n:"Öcher Bend (Volksfest)",ad:"Bendplatz, Süsterfeldstraße 36, 52072 Aachen, Germany",la:50.78325,ln:6.07093,w:"Aachens großes Volksfest, das zweimal im Jahr (Frühjahr und Sommer) auf dem 40.000 m² großen Bendplatz stattfindet — Fahrgeschäfte, Buden und ein modernes Kirmesfest mit langer Tradition.",k:"festival",g:["MKT","FREE"],s:[["TOPAACHEN","https://www.top-aachen.de/oecher-bend-modernes-volksfest-mit-vielen-liebgewonnenen-traditionen/"],["RUHRNACHRICHTEN","https://www.ruhrnachrichten.de/regionales/oecher-sommerbend-2024-aachen-bend-kirmes-oeffnungszeiten-fahrgeschaefte-familientag-feuerwerk-w919586-2001317913/"]]},
+{t:1,a:"AACHEN",n:"Pontstraße & Pontviertel (Studentenviertel)",ad:"Pontstraße, 52062 Aachen, Germany",la:50.77894,ln:6.08106,w:"Die gastronomische und studentische Ausgehmeile Aachens zwischen Markt und Ponttor — dicht an dicht Cafés, Bars, Kneipen und Restaurants aller Küchen, Herz des von RWTH und FH geprägten Pontviertels.",k:"district",g:["NIGHT","FREE","MKT"],s:[["AACHENTOUR","https://www.aachen-tourismus.de/aachenoeffentlichefuehrungen/offer/detail/TUR00020110532518657"],["AACHENALTSTADT","https://aachen-schoene-altstadt.de/kategorie/strassen/pontstrasse/"]]},
+{t:3,a:"AACHEN",n:"RWTH Aachen Hauptgebäude & Reiff-Museum",ad:"Templergraben 55, 52062 Aachen, Germany",la:50.77769,ln:6.07800,w:"Das historistische Hauptgebäude der RWTH Aachen am Templergraben mit dem angrenzenden Reiff-Museum (Fakultät Architektur) — Wahrzeichen von Deutschlands größter Technischer Hochschule.",k:"landmark",g:["ARCH","HIST","FREE","ICON"],s:[["KULADIG","https://www.kuladig.de/Objektansicht/O-9560-20110408-3"],["WIKIPEDIA","https://de.wikipedia.org/wiki/RWTH_Aachen"]]},
+{t:1,a:"BE",n:"Signal de Botrange",ad:"Route de Botrange 133, 4950 Waimes (Botrange), Belgium",la:50.50167,ln:6.09306,w:"At 694 m this is the highest point in Belgium and the roof of the Hohes Venn / Hautes Fagnes. A short flight of steps up the artificial Baltia mound (raised after WWI, named for General Herman Baltia) reaches the exact summit; beside it stand a 24 m viewing tower and a restaurant overlooking the moor.",k:"highest point & viewing tower",g:["ICON","PARK","FREE","MUS"],s:[["VISITWALLONIA","https://visitwallonia.de/de/produit/botrangesignal/11105"],["OSTBELGIEN","https://www.ostbelgien.eu/media/3985ba5f-d49e-46b3-873e-84958b5e0556.pdf"]]},
+{t:1,a:"BE",n:"Hohes Venn / Hautes Fagnes — moorland reserve & boardwalks",ad:"Hohes Venn – Hautes Fagnes, 4845 Jalhay / 4950 Waimes, Belgium",la:50.54444,ln:6.07778,w:"Belgium's most famous nature reserve: a ~5,000-hectare high plateau of raised peat bog, heath and beech, protected since 1957 (the oldest reserve in Wallonia). Wooden caillebotis boardwalks let walkers cross the fragile Fagne Wallonne and Fagne de la Poleur without damaging the moor.",k:"high moor nature reserve",g:["ICON","PARK","FREE"],s:[["WIKIPEDIA","https://fr.wikipedia.org/wiki/Hautes_Fagnes"],["VISITWALLONIA","https://visitwallonia.be/fr-be/produit/attractions/activites/reserve/espace-naturel/signal-de-botrange/11105"],["OSTBELGIEN","https://www.ostbelgien.eu/media/3985ba5f-d49e-46b3-873e-84958b5e0556.pdf"]]},
+{t:2,a:"BE",n:"Naturparkzentrum Botrange (Maison du Parc)",ad:"Route de Botrange 131, 4950 Waimes (Robertville), Belgium",la:50.58128,ln:6.09296,w:"The visitor centre of the Hautes Fagnes-Eifel nature park at the foot of the Signal de Botrange — exhibitions on the moor's formation, ecology and history, guided walks, and the trailhead for the reserve's marked boardwalk routes.",k:"nature-park visitor centre",g:["PARK","MUS","FREE"],s:[["BOTRANGE","https://botrange.be/?id_menu=29&id_menu2=201&id_menu3=240&surf_lang=fr"],["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/touristinfo/tourist-info-signal-de-botrange"]]},
+{t:3,a:"BE",n:"Naturzentrum Haus Ternell",ad:"Ternell 2-3, 4700 Eupen, Belgium",la:50.58621,ln:6.12959,w:"A nature-and-environment education centre of the German-speaking Community set in the Hertogenwald forest near the Weser dam, with a small fen-and-forest natural-history museum and guided hikes (in German, French and Dutch) into the northern Hohes Venn.",k:"nature centre & forest museum",g:["PARK","MUS","FREE"],s:[["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/virtualtour/nature-centre-haus-ternell"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Haus_Ternell"],["NATURPARKEIFEL","https://www.naturpark-eifel.de/de/naturpark-erleben/Naturerlebniszentren/detail/Naturzentrum-Haus-Ternell--12X/"]]},
+{t:1,a:"BE",n:"St.-Nikolaus-Kirche Eupen",ad:"Marktplatz, 4700 Eupen, Belgium",la:50.63074,ln:6.03257,w:"Eupen's landmark parish church, a twin-towered baroque hall built 1720-26 to plans by Aachen architect Laurenz Mefferdatis; the lower south tower survives from a 12th-century predecessor and the high altar (1740-44) is the work of Johann Joseph Couven. It gives the capital of the DG its skyline.",k:"baroque parish church",g:["HIST","ARCH","FREE","ICON"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/St._Nikolaus_(Eupen)"],["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/virtualtour/st-nicholas-church"]]},
+{t:1,a:"BE",n:"Eupener Marktplatz & Werthplatz",ad:"Marktplatz & Werthplatz, 4700 Eupen, Belgium",la:50.63063,ln:6.03132,w:"The heart of Eupen's Oberstadt: around the Marktplatz and the Werthplatz stand the tall brick-and-limestone houses the town's 18th-century cloth merchants built themselves, many with classicist gables — the architectural record of Eupen's golden age as a cloth-weaving town.",k:"historic town squares",g:["HIST","ARCH","FREE","MUS"],s:[["OSTBELGIEN","https://www.ostbelgien.eu/de/erleben/entdecken/panoramatafeln/fiche/eupen-blick-auf-sieben-kirchturme"],["WIKIVOYAGE","https://de.wikivoyage.org/wiki/Eupen"],["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/eupener_marktplatz.html"]]},
+{t:1,a:"BE",n:"Wesertalsperre (Weser dam & visitor centre)",ad:"Langesthal 164, 4700 Eupen, Belgium",la:50.61667,ln:6.09222,w:"Belgium's most important drinking-water reservoir, holding ~25 million m³ behind a dam begun in 1936 and inaugurated in 1950; it supplies the Eupen and Herve country, the Liège suburbs and Spa. From the visitor centre you can take a guided tour that starts on the crest and descends deep inside the dam wall and waterworks.",k:"reservoir & dam (guided tours)",g:["HIST","PARK","ICON","MUS"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/Wesertalsperre"],["VISITWALLONIA","https://visitwallonia.de/de/content/eupener-wesertalsperre"],["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/leisurecenters/wesertalsperre"]]},
+{t:2,a:"BE",n:"IKOB — Museum für Zeitgenössische Kunst",ad:"Rotenberg 12B, 4700 Eupen, Belgium",la:50.62597,ln:6.03013,w:"Eupen's contemporary-art museum, founded in 1993 as the International Art Centre of East Belgium. Changing exhibitions of international artists and a collection that ranges from Günther Förg to Yves Zurstrassen make it the modern-art anchor of the German-speaking Community.",k:"contemporary-art museum",g:["MUS","ARCH"],s:[["VISITWALLONIA","https://visitwallonia.de/de/content/ikob-museum-fur-zeitgenossische-kunst-eupen"],["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/museum/ikob"],["IKOB","https://www.ikob.be/"]]},
+{t:2,a:"BE",n:"Eupener Rosenmontagszug (carnival)",ad:"Oberstadt / Marktplatz, 4700 Eupen, Belgium",la:50.63063,ln:6.03132,w:"The biggest carnival parade in Ostbelgien: on Rose Monday dozens of floats and foot-groups wind through Eupen's old town (in its heyday over 120), one of the two great East-Belgian carnival strongholds alongside Kelmis. A free, city-filling street spectacle each February/March.",k:"carnival parade (Feb/Mar)",g:["ICON","FREE","HIST"],s:[["BRF","https://brf.be/regional/1802832/"],["OSTBELGIENDIREKT","https://ostbelgiendirekt.be/rosenmontagszug-eupen-2026-436487"],["VISITWALLONIA","https://visitwallonia.de/de/content/der-eupener-karneval-und-sein-beruhmter-rosenmontag"]]},
+{t:3,a:"BE",n:"Schokoladenmuseum Chocolaterie Jacques — CLOSED",ad:"Industriegebiet, 4700 Eupen, Belgium",la:50.64059,ln:6.00721,w:"For a quarter-century (1993-2019) Eupen's glass-domed chocolate museum let visitors watch Chocolaterie Jacques — founded 1896, based in Eupen from 1923 — make its bars beneath the roof and taste them at the end. The Eupen factory and museum closed in 2019; the Jacques brand lives on, but the visit no longer exists. Kept for the story (canon: Eupen chocolate).",k:"chocolate museum (closed 2019)",closed:1,g:["MUS","HIST","ARCH","NIGHT"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/Chocolaterie_Jacques"],["BRF","https://brf.be/regional/1222825/"],["VRT","https://www.vrt.be/vrtnws/de/2018/11/03/die-traditionsreiche-eupener-chocolaterie-jacques-wird-geschloss/"]]},
+{t:1,a:"BE",n:"Museum Vieille Montagne (MVM), Kelmis",ad:"Lütticher Straße, 4720 Kelmis (La Calamine), Belgium",la:50.71164,ln:6.00887,w:"Housed in the 1910 administrative building of the Vieille-Montagne zinc company, the MVM (successor of the Göhltalmuseum) tells the political, industrial and social story of Neutral-Moresnet — the tiny neutral territory that existed from 1816 to 1919 because of the calamine (zinc) ore mined at Kelmis for centuries.",k:"industrial-history museum",g:["MUS","HIST"],s:[["MVMKELMIS","https://www.mvm-kelmis.be/de/das-museum"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Museum_Vieille_Montagne"],["VISITWALLONIA","https://visitwallonia.de/de/content/museum-vieille-montagne-la-calamine"]]},
+{t:1,a:"BE",n:"Töpfereimuseum in der Burg Raeren",ad:"Burgstraße, 4730 Raeren, Belgium",la:50.67806,ln:6.12194,w:"Inside the mid-14th-century Burg Raeren, the world's only museum devoted to Raeren stoneware — over 2,000 pieces spanning 500 years of Rhenish and contemporary ceramics, including work by masters like Jan Emens Mennicken. The Raeren reference collection was awarded the European Cultural Heritage Seal in 2007.",k:"pottery museum in a castle",g:["MUS","HIST","ARCH","SPA"],s:[["TOEPFEREIMUSEUM","https://www.toepfereimuseum.org/Raerener-Steinzeug"],["WIKIPEDIA","https://de.wikipedia.org/wiki/T%C3%B6pferei_von_Raeren"],["RAERENTOURISMUS","https://www.raeren-tourismus.be/angebot/toepfereimuseum-raeren/"]]},
+{t:2,a:"BE",n:"Büchelturm St. Vith",ad:"Büchelstraße, 4780 Sankt Vith, Belgium",la:50.27960,ln:6.12481,w:"The 14th-century Büchelturm is the surviving landmark of St. Vith's medieval fortifications — once a town wall with seven towers and a castle, destroyed in the 17th century. Its platform gives a panorama over St. Vith and the Eifel; the key is available at the tourist information.",k:"medieval town tower",g:["HIST","ARCH","FREE","ICON"],s:[["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/virtualtour/b-chelturm"],["VARTA","https://www.varta-guide.de/freizeit-guide/ostbelgien/st-vith-kulturzentrum-in-ostbelgien/"]]},
+{t:1,a:"BE",n:"Burg Reinhardstein (Château de Reinhardstein)",ad:"Chemin du Cheneux 50, 4950 Ovifat (Waimes), Belgium",la:50.45271,ln:6.10278,w:"A 14th-century rock-built fortress high above the Warche near the Robertville dam, in the Hautes Fagnes. Saved from ruin and meticulously rebuilt from 1965 using surviving documents, it is shown on guided tours through the knights' and guards' halls, chapel and living quarters, hung with armour, paintings and tapestries.",k:"restored medieval castle",g:["HIST","ARCH","MUS","PARK"],s:[["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/castle/reinhardstein"],["VISITWALLONIA","https://visitwallonia.com/en-gb/content/reinhardstein-castle-ovifat"],["BURGENWELT","https://www.burgenwelt.org/belgien/reinhardstein/object.php"]]},
+{t:1,a:"BE",n:"Stausee Bütgenbach & Sport-/Ferienpark Worriken",ad:"Worriken 9, 4750 Bütgenbach, Belgium",la:50.42544,ln:6.22258,w:"A reservoir on the Warche (dammed from 1932) that became the region's watersports lake, ringed by the ADEPS Worriken sports-and-holiday park: sailing, kayaking, SUP and windsurfing, the VENNtastic Beach, a high-ropes course and lakeside hiking and biking trails.",k:"reservoir & lakeside leisure park",g:["PARK","FREE"],s:[["OSTBELGIEN","https://www.ostbelgien.eu/en/fiche/funsports/worriken-sports-and-holiday-park"],["WORRIKEN","https://www.worriken.be/aktivitaeten/kanu/"]]},
+{t:1,a:"EIFEL",n:"Nationalpark Eifel",ad:"Nationalpark Eifel, 53937 Schleiden-Gemünd, Germany",la:50.61669,ln:6.43331,w:"NRW's only national park, protecting beech forests, wild daffodil meadows and the Rur/Urft lake country between Monschau and Düren; a certified Dark-Sky park where 'wilderness is allowed to happen'. Free-access trails, ranger tours and four Nationalpark-Tore make it the anchor of the whole Rureifel.",k:"National park",g:["PARK","ICON","FREE"],s:[["NPEIFEL","https://www.nationalpark-eifel.de"],["EIFELINFO","https://www.eifel.info/en/discover-nature/eifel-national-park"]]},
+{t:1,a:"EIFEL",n:"Wilder Kermeter & Wilder Weg",ad:"Kermeter, 52396 Heimbach, Germany",la:50.61605,ln:6.43690,w:"A barrier-free wilderness area on the Kermeter ridge with a 6.2 km trail network and the interactive ten-station Wilder Weg nature-education path. Short spurs reach the Hirschley viewpoint, where the forest opens onto a sweeping view over the Rursee.",k:"Nature trail / viewpoint",g:["PARK","FREE","NIGHT"],s:[["NPEIFEL","https://www.nationalpark-eifel.de/de/nationalpark-erleben/barrierefrei-unterwegs/wilder-kermeter-und-wilder-weg/wilder-kermeter/"],["NORDEIFEL","https://nordeifel-tourismus.de/aktivzeit/natur-erleben/nationalpark-eifel/wilder-kermeter-und-wilder-weg"]]},
+{t:1,a:"EIFEL",n:"Vogelsang IP",ad:"Vogelsang 70, 53937 Schleiden, Germany",la:50.58476,ln:6.44794,w:"A former Nazi 'Ordensburg' above the Urftsee, one of the largest surviving complexes of Nazi architecture, reborn as an international visitor centre. It houses the Nationalpark-Zentrum Eifel and a 48 m observation tower reached by a historic spiral staircase, with panoramic views over the Dreiborn plateau.",k:"Visitor centre / former Ordensburg",g:["MUS","HIST","ICON","ARCH"],s:[["NPEIFEL","https://www.nationalpark-eifel.de"],["NRWTOUR","https://www.nrw-tourismus.de/kulturpaeckchen/vogelsang-ip"],["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/vogelsang.html"]]},
+{t:1,a:"EIFEL",n:"NS-Dokumentation Vogelsang — 'Bestimmung: Herrenmensch'",ad:"Vogelsang 70, 53937 Schleiden, Germany",la:50.58476,ln:6.44794,w:"The permanent exhibition (opened 2016) confronting the history of the NS-Ordensburgen 'between fascination and crime' across 800 m². As a recognised memorial site it documents how the NSDAP trained its leadership cadre here between 1936 and 1939.",k:"Documentation centre / memorial",g:["MUS","HIST","ARCH"],s:[["NSGEDENK","https://www.ns-gedenkstaetten.de/nrw/vogelsang/besucherinformationen"],["MEMORIAL","https://www.memorialmuseums.org/memorialmuseum/ns-ordensburg-vogelsang"],["WP","https://de.wikipedia.org/wiki/NS-Ordensburg_Vogelsang"]]},
+{t:2,a:"EIFEL",n:"Wüstung Wollseifen",ad:"Wollseifen, Dreiborner Hochfläche, 53937 Schleiden, Germany",la:50.57950,ln:6.42700,w:"A ghost village on the Dreiborn plateau: its ~550 residents were expelled in 1946 so the site could become a troop training ground, used by Belgian forces until 2005. Since the national park opened in 2006 the ruins are freely accessible — the St-Rochus church, the old school and a wayside chapel still stand.",k:"Abandoned village / historic site",g:["HIST","FREE","ARCH","PARK"],s:[["KULADIG","https://www.kuladig.de/Objektansicht/O-UM-20130327-0007"],["WP","https://de.wikipedia.org/wiki/Wollseifen"],["NPEIFEL","https://tourenportal.nationalpark-eifel.de/de/poi/historische-staette/wuestung-wollseifen/32912878/"]]},
+{t:1,a:"EIFEL",n:"Burg Nideggen & Burgenmuseum",ad:"Burg Nideggen, Kirchgasse, 52385 Nideggen, Germany",la:50.68851,ln:6.47664,w:"Built 1177–1191 by the Counts of Jülich and long reputed impregnable, this red-sandstone castle sits high above the Rur valley, protected on three sides by sheer cliffs. Its keep has housed the Burgenmuseum since 1979, showing how people lived and worked in the medieval Rhineland and Eifel.",k:"Castle & museum",g:["HIST","ARCH","MUS","ICON"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/pois/eifel-blick-burg-nideggen"],["KREISDN","https://www.kreis-dueren.de/microsite/burgenmuseum/index.php"],["WP","https://en.wikipedia.org/wiki/Castle_Museum,_Nideggen"]]},
+{t:1,a:"EIFEL",n:"Buntsandsteinfelsen & Buntsandsteinroute Nideggen",ad:"Buntsandsteinfelsen im Rurtal, 52385 Nideggen, Germany",la:50.67613,ln:6.48044,w:"The Rur valley around Nideggen is walled by steeply towering red-sandstone (Buntsandstein) cliffs — a protected landscape and one of the Eifel's signature geological sights. The waymarked Buntsandsteinroute threads the crags and rewards with dramatic valley views; the same red stone built the town's gates and walls.",k:"Red-rock cliffs / hiking route",g:["PARK","FREE","ICON"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/pois/eifel-blick-burg-nideggen"],["EIFELSTEIG","https://www.eifelsteig.de/pois/hoch-ueber-dem-tal-der-rur-nideggen"],["EIFELINFO","https://www.eifel.info"]]},
+{t:3,a:"EIFEL",n:"Ausstellung 'Rur und Fels' Nideggen-Brück",ad:"Bahnhof Nideggen-Brück, 52385 Nideggen-Brück, Germany",la:50.68970,ln:6.46686,w:"The Biologische Station Düren turned the old freight shed of the Nideggen-Brück station into a free natural-history exhibition on the twin habitats of the Rur floodplain and the sandstone cliffs, with beavers, steppe grasshoppers and grass snakes shown in vivid dioramas.",k:"Nature exhibition",g:["MUS","FREE","PARK"],s:[["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/ausstellung_rur_und_fels_nideggen.html"],["EIFELINFO","https://www.eifel.info/fr/a-ausstellung-rur-fels"]]},
+{t:1,a:"EIFEL",n:"Jugendstil-Wasserkraftwerk Heimbach",ad:"Wasserkraftwerk, 52396 Heimbach, Germany",la:50.62860,ln:6.45190,w:"When it opened in 1905 at the foot of the Urft dam it was the largest hydroelectric power station in the world; today it is celebrated as Germany's most beautiful power station, a working Art Nouveau (Jugendstil) hall. Free guided tours run daily and let you see the machine hall's original grandeur.",k:"Art Nouveau hydro power station",g:["HIST","ARCH","ICON","MUS"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/pois/jugendstil-wasserkraftwerk-heimbach"],["KREISDN","https://www.tourismus.kreis-dueren.de/en/a-jugendstil-wasserkraftwerk-heimbach"],["EIFELSTEIG","https://www.eifelsteig.de/en/pois/jugendstil-wasserkraftwerk-heimbach"]]},
+{t:2,a:"EIFEL",n:"Abtei Mariawald",ad:"Mariawald, 52396 Heimbach, Germany",la:50.62000,ln:6.48083,w:"Perched at 417 m above Heimbach in the heart of the national park, Mariawald was Germany's last Trappist monastery until the community dissolved in 2018. The site is being rebuilt as a spiritual centre and remains open to visitors, with near-daily guided tours of the cloister, a shop, guesthouse and its own liqueur and Trappist beer.",k:"Former Trappist abbey / pilgrimage site",g:["HIST","ARCH","MUS","PARK"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/imxplatform/abtei-mariawald-3"],["KATHOLISCH","https://katholisch.de/artikel/34276-frueheres-trappistenkloster-mariawald-geistliches-zentrum-im-aufbau"],["HEIMBACH","https://www.heimbach-eifel.de/tourismus/sehenswuerdigkeiten/abtei-mariawald.php"]]},
+{t:2,a:"EIFEL",n:"Burg Hengebach",ad:"Burg Hengebach, 52396 Heimbach, Germany",la:50.63331,ln:6.47939,w:"Heimbach's landmark castle, dating to the 11th century, stands 200 m up on its greywacke rock over the old town. Courtyard, wall-walk and keep are open free year-round, and the castle now houses the Internationale Kunstakademie Heimbach.",k:"Medieval castle / art academy",g:["HIST","ARCH","ICON","MUS"],s:[["HEIMBACH","https://www.heimbach-eifel.de/tourismus/sehenswuerdigkeiten/burg-hengebach.php"],["EIFELINFO","https://www.eifel.info/eifel-fuer-alle/ein-barrierefreier-tag-in-der-eifel/kultur-erleben-auf-burg-hengebach"],["RUREIFEL","https://www.rureifel-tourismus.de/heimbach"]]},
+{t:2,a:"EIFEL",n:"Heimbach — Altstadt & NRW's smallest town",ad:"Altstadt, 52396 Heimbach, Germany",la:50.63306,ln:6.48306,w:"The smallest town in North Rhine-Westphalia, tucked in the Rur valley below the Rursee and the Kermeter, with half-timbered houses, galleries, taverns and street cafés under Burg Hengebach. A compact base uniting the Jugendstil power station, the art academy and the national-park gate in one riverside stroll.",k:"Historic small town",g:["HIST","ICON","ARCH","MUS"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/pois/malerischer-luftkurort-heimbach-1"],["EIFELSTEIG","https://www.eifelsteig.de/imxplatform/malerischer-luftkurort-heimbach"],["HEIMBACH","https://www.heimbach-eifel.de/unsere-stadt/ortsteile/heimbach.php"]]},
+{t:1,a:"EIFEL",n:"Rurtalsperre Schwammenauel & Rursee",ad:"Rurtalsperre Schwammenauel, 52396 Heimbach, Germany",la:50.63719,ln:6.44189,w:"The Rur was dammed at Schwammenauel in the 1930s to create the 8 km² Rursee — the 'Amazon of the Eifel' — one of Germany's largest reservoirs at 205 million m³. Its 480 m dam wall and the surrounding hiking and cycling shoreline make it the recreational heart of the Rureifel.",k:"Reservoir / dam",g:["PARK","ICON","MUS"],s:[["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/rurtalsperre_schwammenauel.html"],["RUREIFEL","https://www.rureifel-tourismus.de/touren/rureifel-rursee-runde"],["RURSEE","https://www.rursee.de"]]},
+{t:2,a:"EIFEL",n:"Rursee-Schifffahrt",ad:"Rursee-Schifffahrt, Seeufer, 52152 Simmerath-Rurberg, Germany",la:50.60863,ln:6.38559,w:"Passenger boats run four scenic circuits of two to four hours across the Rursee and Obersee, calling at landing stages from Schwammenauel and Woffelsbach to Rurberg, the Urft dam and Einruhr. The classic car-free way to reach trailheads deep inside the national park.",k:"Lake cruises",g:["PARK","FREE"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/pois/rursee-schifffahrt"],["EIFELSTEIG","https://www.eifelsteig.de/en/pois/rursee-schifffahrt"],["RURSEE","https://www.rursee.de/en/a-nationalpark-tor-rurberg"]]},
+{t:2,a:"EIFEL",n:"Urftsee & Urftstaumauer",ad:"Urftstaumauer, 53937 Schleiden, Germany",la:50.60222,ln:6.41889,w:"The Urft was dammed in 1905 — one of Germany's oldest large dams — to form the Urftsee, which together with the Rursee and Obersee makes up the Eifeler Seenplatte. The historic curved masonry Urftstaumauer sits below Vogelsang, ringed by national-park forest and reachable on foot or by boat.",k:"Reservoir / historic dam",g:["PARK","HIST"],s:[["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/rurtalsperre_schwammenauel.html"],["RURSEE","https://www.rursee.de"],["NPEIFEL","https://www.nationalpark-eifel.de"]]},
+{t:2,a:"EIFEL",n:"Nationalpark-Tor Rurberg",ad:"Seeufer 3, 52152 Simmerath-Rurberg, Germany",la:50.60692,ln:6.38319,w:"One of the national park's gateway centres, with the free permanent exhibition 'Lebensadern der Natur' on the region's rivers, lakes and ponds — river crayfish, pearl mussels and beavers among them — plus tourist information and a digital terrain model. A prime starting point for free ranger tours.",k:"National-park gateway / exhibition",g:["MUS","FREE","PARK"],s:[["NPEIFEL","https://www.nationalpark-eifel.de/de/infohaeuser-und-einrichtungen/nationalpark-tore/nationalpark-tor-rurberg/"],["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/nationalpark_tor_rurberg.html"],["RURSEE","https://www.rursee.de/natur/nationalpark-eifel/nationalpark-tore-und-nationalpark-infopunkte"]]},
+{t:1,a:"EIFEL",n:"Leopold-Hoesch-Museum Düren",ad:"Hoeschplatz 1, 52349 Düren, Germany",la:50.80150,ln:6.47931,w:"Founded 1905 and expanded in 2010 with a Peter Kulka extension, Düren's fine-art museum holds an outstanding collection of classical modernism, Expressionism, concrete art and the ZERO movement. One of the Rhineland's serious art addresses, in a striking Jugendstil-plus-modern building.",k:"Art museum",g:["MUS","ARCH"],s:[["LHM","https://www.leopoldhoeschmuseum.de/de"],["NRWTOUR","https://www.nrw-tourismus.de/kulturpaeckchen/leopold-hoesch-museum"],["WP","https://de.wikipedia.org/wiki/Leopold-Hoesch-Museum"]]},
+{t:2,a:"EIFEL",n:"Papiermuseum Düren",ad:"Hoeschplatz, 52349 Düren, Germany",la:50.80081,ln:6.47939,w:"Next door to the Leopold-Hoesch-Museum, the award-winning Paper Museum (2018, by architect Klaus Hollenbeck) tells the story of paper — its making, use and Düren's own paper-industry heritage — with folding, watermarking and embossing built into the architecture itself.",k:"Paper museum",g:["MUS","HIST"],s:[["LHM","https://www.leopoldhoeschmuseum.de/en/museum/papiermuseum"],["NRWTOUR","https://www.nrw-tourismus.de/kulturpaeckchen/leopold-hoesch-museum"],["ARTHIST","https://www.arthistoricum.net/netzwerke/netzwerk-graphische-sammlungen/sammlungen-in-deutschland/leopold-hoesch-museum-papiermuseum-dueren"]]},
+{t:2,a:"EIFEL",n:"Annakirche (St. Anna) Düren",ad:"Annakirchplatz, 52349 Düren, Germany",la:50.80139,ln:6.48389,w:"Düren's medieval pilgrimage church to the relic of St Anna — once called 'the cathedral of Düren' — was flattened in the 1944 bombing and rebuilt by Rudolf and Maria Schwarz (1951–56) as a landmark of modern sacred architecture, using rubble stone from across the ruined city to let the old church symbolically rise again.",k:"Modernist pilgrimage church",g:["ARCH","HIST","ICON"],s:[["BAUKUNST","https://www.baukunst-nrw.de/objekte/Pfarrkirche-St.-Anna--249.htm"],["STRMODERNE","https://strasse-der-moderne.de/kirchen/dueren-st-anna/"],["KULADIG","https://www.kuladig.de/Objektansicht/O-12651-20110629-2"]]},
+{t:1,a:"EIFEL",n:"Zitadelle Jülich & Museum Zitadelle",ad:"Schlossstraße 6, 52428 Jülich, Germany",la:50.92550,ln:6.36011,w:"A 90,000 m² fortress and ducal palace — the most significant Italian High-Renaissance citadel north of the Alps and one of the best-preserved early-modern fortresses in Europe. Ramparts, casemates and the restored palace chapel can be toured, and the Museum Zitadelle traces Jülich from Roman times through the Renaissance to Prussia.",k:"Renaissance citadel & museum",g:["HIST","ARCH","MUS","ICON"],s:[["MUSZIT","https://www.museum-zitadelle.de/besucherinfo"],["KREISDN","https://www.tourismus.kreis-dueren.de/pois/zitadelle-juelich"],["JUELICH","https://www.juelich.de"],["WP","https://de.wikipedia.org/wiki/Zitadelle_J%C3%BClich"]]},
+{t:2,a:"EIFEL",n:"Brückenkopf-Park Jülich",ad:"Rurauenstraße 11, 52428 Jülich, Germany",la:50.92081,ln:6.35019,w:"A star-shaped Napoleonic bridgehead fortress on the left bank of the Rur, raised in the early 19th century to guard the river crossing and converted to a public park in 1929. Its 33 ha now hold gardens, woodland and a family zoo around the preserved fortifications — one of the few Jülich structures to survive the 1944 devastation.",k:"Napoleonic fortress park",g:["PARK","HIST","ARCH","NIGHT"],s:[["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/brueckenkopf_juelich.html"],["KULADIG","https://www.kuladig.de/Objektansicht/KLD-296882"],["KREISDN","https://tourenportal.staedteregion-aachen.de/de/poi/park/brueckenkopf-park-juelich/12679173/"]]},
+{t:2,a:"EIFEL",n:"Perlenbach-Fuhrtsbachtal — Narzissenblüte (Hohes Venn edge)",ad:"Perlenbach-Fuhrtsbachtal, 52156 Monschau-Höfen, Germany",la:50.50931,ln:6.30693,w:"On the German edge of the Hohes Venn, this 331 ha reserve turns golden each spring as over 10 million wild daffodils bloom in the narrow Perlenbach and Fuhrtsbach valleys — a phenomenon unique in Europe. The Narzissenroute from Monschau-Höfen, an Eifelsteig partner trail, is the classic way to see it.",k:"Nature reserve / daffodil valley",g:["PARK","FREE","ICON","MUS"],s:[["EIFELSTEIG","https://www.eifelsteig.de/en/pois/narzissenwiesen-im-perlenbach-und-fuhrtsbachtal"],["AZ","https://www.aachener-zeitung.de/lokales/eifel/fast-minuetlich-fragen-nach-dem-stand-der-narzissenbluete_aid-25465407"],["EIFELDE","https://www.eifel.de/go/sehenswertes-detail/narzissenbluete_monschau_hoefen.html"]]},
+{t:2,a:"EIFEL",n:"Wildnis-Trail Nationalpark Eifel",ad:"Wildnis-Trail (Höfen–Zerkall), 53937 Schleiden, Germany",la:50.53417,ln:6.25361,w:"The national park's signature long-distance path — about 85 km in four stages from Monschau-Höfen across the Kermeter to Zerkall/Nideggen — leading through the park's wildest core of beech forest, moor and lake. The through-hike that strings together most of the Eifel's landscape sights.",k:"Long-distance wilderness trail",g:["PARK","FREE"],s:[["NPEIFEL","https://www.nationalpark-eifel.de/en/experience-national-park/wilderness-trail/the-four-sections/section-3/"],["EIFELINFO","https://www.eifel.info"]]},
+{t:2,a:"EIFEL",n:"Dreiborner Hochfläche",ad:"Dreiborner Hochfläche, 53937 Schleiden, Germany",la:50.56333,ln:6.41639,w:"The open plateau below Vogelsang — a former Belgian troop training ground now returning to grassland, heath and returning wildlife inside the national park. Wide skies, red deer and free walking and cycling routes past Wollseifen make it one of the park's most distinctive open landscapes.",k:"Plateau landscape / viewpoint",g:["PARK","FREE"],s:[["NPEIFEL","https://www.nationalpark-eifel.de"],["EIFELINFO","https://www.eifel.info"]]},
+{t:1,a:"NL",n:"Sint-Servaasbasiliek",ad:"Keizer Karelplein 3, Maastricht, Netherlands",la:50.84882,ln:5.68720,w:"The Netherlands' oldest church, over the tomb of St Servatius, set between the Vrijthof and Keizer Karelplein. Its Schatkamer (treasury) holds the jewelled Noodkist reliquary and one of Europe's great collections of early-medieval Oriental silks.",k:"Basilica & treasury",g:["ICON","ARCH","HIST","MUS"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/locaties/2059606782/sint-servaasbasiliek-1"],["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/basiliek-van-st-servaas/59336/"]]},
+{t:1,a:"NL",n:"Onze-Lieve-Vrouwebasiliek",ad:"Onze Lieve Vrouweplein 7, Maastricht, Netherlands",la:50.84762,ln:5.69344,w:"A powerful Romanesque basilica (the fortress-like Westwerk is its signature) on Maastricht's most atmospheric square. Pilgrims still light candles at the 15th-century 'Sterre der Zee' (Star of the Sea) image of the Virgin.",k:"Romanesque basilica",g:["ARCH","HIST","PARK","MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Basilica_of_Our_Lady,_Maastricht"],["RIJKSMONUMENTEN","https://rijksmonumenten.nl/monument/27454/onze-lieve-vrouwebasiliek/maastricht/"]]},
+{t:1,a:"NL",n:"Boekhandel Dominicanen",ad:"Dominicanerkerkstraat 1, Maastricht, Netherlands",la:50.85030,ln:5.68959,w:"A 13th-century Dominican church, the first Gothic church of the Low Countries, reborn as a bookshop under towering vaults and a monumental steel bookcase. Voted the world's most beautiful bookstore (2025), it draws roughly a million visitors a year.",k:"Bookshop in a Gothic church",g:["ICON","ARCH","HIST"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/locaties/30386516/boekhandel-dominicanen"],["WNL","https://wnl.tv/2025/08/07/boekhandel-dominicanen-in-maastricht-mooiste-ter-wereld"]]},
+{t:1,a:"NL",n:"Bonnefantenmuseum",ad:"Avenue Céramique 250, Maastricht, Netherlands",la:50.84253,ln:5.70204,w:"Limburg's leading art museum, from old masters to contemporary, in Aldo Rossi's landmark E-shaped building with a rocket-shaped cupola on the Maas. The brick 'Treppestraat' staircase is a destination in itself.",k:"Art museum",g:["MUS","ARCH","ICON"],s:[["BONNEFANTEN","https://www.bonnefanten.nl/en/art-artists/explore-the-building"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bonnefantenmuseum"]]},
+{t:1,a:"NL",n:"Grotten Noord (Sint-Pietersberg)",ad:"Luikerweg 80, 6212 NH Maastricht, Netherlands",la:50.83624,ln:5.68415,w:"A guided descent ~30 m into the Sint-Pietersberg marl, through part of a labyrinth of once 20,000+ passages carved over centuries by block-cutters, walls covered in charcoal drawings and names. Cool year-round; wartime hiding place.",k:"Marl cave labyrinth",g:["HIST","PARK","MUS"],s:[["EXPLOREMAASTRICHT","https://www.exploremaastricht.nl/en/caves-sint-pietersberg-hill"],["NATUURMONUMENTEN","https://www.natuurmonumenten.nl/natuurgebieden/sint-pietersberg"]]},
+{t:2,a:"NL",n:"Fort Sint Pieter",ad:"Luikerweg 80, 6212 NH Maastricht, Netherlands",la:50.83611,ln:5.68411,w:"A pentagonal 1701-02 fort on the Sint-Pietersberg guarding the Maas approach, restored and toured by guides who re-tell its sieges among casemates, loopholes and cannon, with a sweeping view over Maastricht.",k:"18th-century fort",g:["HIST","ARCH"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/uitagenda/3594467358/rondleiding-combi-fort-en-grotten-noord-maastricht-underground"],["EXPLOREMAASTRICHT","https://www.exploremaastricht.nl/rondleidingen"]]},
+{t:2,a:"NL",n:"Kazematten (Maastricht Underground)",ad:"Waldeckpark 11, 6214 BH Maastricht, Netherlands",la:50.84331,ln:5.68093,w:"A guided hour underground in the western defence tunnels dug between 1575 and 1825 - kilometres of mine galleries used to attack besiegers and, in WWII, to shelter residents from bombing. Departs from the Waldeck bastion in the city park.",k:"Casemate tunnels",g:["HIST","MUS","PARK"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/locaties/3486023688/kazematten-maastricht-underground"],["FORTEN","https://forten.nl/activiteit/rondleidingen-kazematten/"]]},
+{t:1,a:"NL",n:"Vrijthof",ad:"Vrijthof, Maastricht, Netherlands",la:50.84919,ln:5.68839,w:"Maastricht's grand stage - terraces, the basilica and the red-towered Sint-Janskerk framing a square often called the finest in the Netherlands, and home to Andre Rieu's summer concerts and the Vrijthof museum.",k:"Grand square",g:["MKT","ICON","FREE","ARCH"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/dit-is-maastricht/bouwen-op-het-verleden/monumentenstad"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Maastricht"]]},
+{t:2,a:"NL",n:"Sint-Janskerk",ad:"Vrijthof 24, Maastricht, Netherlands",la:50.84833,ln:5.68750,w:"The Gothic Protestant church on the Vrijthof whose bright-red, ~80 m marl tower is a symbol of Maastricht; climb it for a rooftop view across the old city.",k:"Gothic church tower",g:["ARCH","HIST","ICON","MKT"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/dit-is-maastricht/bouwen-op-het-verleden/monumentenstad"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Maastricht"]]},
+{t:2,a:"NL",n:"Helpoort",ad:"Sint Bernardusstraat, Maastricht, Netherlands",la:50.84553,ln:5.69445,w:"The oldest surviving city gate in the Netherlands (1229) and the only one left in Maastricht - twin towers of the first medieval wall, beside a preserved stretch of ramparts along the Jeker.",k:"Medieval city gate",g:["HIST","ARCH","FREE","MUS"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/locaties/906385495/helpoort"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Maastricht"]]},
+{t:2,a:"NL",n:"Stadhuis op de Markt",ad:"Markt 78, Maastricht, Netherlands",la:50.85139,ln:5.69111,w:"Pieter Post's Dutch-Classicist town hall (1659-64) commands the Markt, its 1684 tower ringing a 49-bell carillon over the Wednesday and Friday markets; inside are tapestries, stucco and painted ceilings.",k:"Town hall & market",g:["ARCH","MKT","HIST"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/locaties/592754364/stadhuis-op-de-markt"],["CULTUREELERFGOED","https://kennis.cultureelerfgoed.nl/index.php/Monumenten/27382"]]},
+{t:1,a:"NL",n:"Sint Servaasbrug",ad:"Sint Servaasbrug, Maasboulevard, Maastricht, Netherlands",la:50.84889,ln:5.69694,w:"The oldest bridge in the Netherlands - a seven-arch limestone span built around 1280-1298 that has linked the old town to Wyck across the Maas for seven centuries; now a pedestrian icon of the city.",k:"Medieval stone bridge",g:["ICON","HIST","FREE","SPA"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/locaties/1335944557/sint-servaasbrug"],["VIABELGICA","https://www.viabelgica.nl/plek/sint-servaasbrug/"]]},
+{t:2,a:"NL",n:"Jekerkwartier",ad:"Jekerkwartier, Maastricht, Netherlands",la:50.84417,ln:5.69139,w:"One of Maastricht's oldest quarters, threaded by the little Jeker river that once formed the city's defence; today a village-in-the-city of makers, delis, galleries and terraces below the old ramparts.",k:"Historic quarter",g:["HIST","NIGHT","FREE","MUS"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/doen/stadsdelen/jekerkwartier"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Jekerkwartier"]]},
+{t:2,a:"NL",n:"Stokstraatkwartier",ad:"Stokstraat, Maastricht, Netherlands",la:50.84891,ln:5.69411,w:"A tightly restored quarter of national monuments around the Stokstraat - the city's smartest shopping lane - built over the streets of the Roman castellum.",k:"Historic shopping quarter",g:["HIST","MKT","FREE","MUS"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/doen/shoppen/winkelen-in-het-stokstraatkwartier"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Stokstraat_(Maastricht)"]]},
+{t:3,a:"NL",n:"Sphinxkwartier",ad:"Sphinxkwartier, Boschstraat, Maastricht, Netherlands",la:50.85672,ln:5.68939,w:"The old Sphinx ceramics works reborn as a creative quarter - the landmark Eiffelgebouw, an arthouse cinema, food halls, hotels and design studios north of the centre.",k:"Former-factory district",g:["HIST","NIGHT","ICON","MUS"],s:[["VISITMAASTRICHT","https://www.visitmaastricht.com/nl/doen/stadsdelen/sphinxkwartier"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Sphinxkwartier"]]},
+{t:1,a:"NL",n:"Drielandenpunt / Vaalserberg",ad:"Viergrenzenweg, Vaalserberg, Vaals, Netherlands",la:50.75439,ln:6.02081,w:"The highest point of the mainland Netherlands (322.5 m) where the borders of the Netherlands, Germany and Belgium meet. Straddle three countries at once, climb the Wilhelmina and Boudewijn observation towers, and lose the kids in one of Europe's largest hedge mazes.",k:"Tri-border summit",g:["ICON","PARK","FREE"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Drielandenpunt_(Vaals)"],["DRIELANDENPUNT","https://hetdrielandenpunt.nl/"]]},
+{t:2,a:"NL",n:"Kasteel Vaalsbroek",ad:"Vaalsbroek 1, 6291 NH Vaals, Netherlands",la:50.76772,ln:5.99461,w:"An estate first named in 1420 and given its stately look by Aachen cloth-baron Von Clermont, with a landscape park, ponds, a water mill, an 18th-century ice-cellar and the family mausoleum near the tri-border point; now a Bilderberg hotel whose grounds you can walk.",k:"Country estate",g:["ARCH","PARK","HIST","NIGHT"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Kasteel_Vaalsbroek"],["RIJKSMONUMENTEN","https://rijksmonumenten.nl/monument/519852/vaalsbroek/vaals/"]]},
+{t:1,a:"NL",n:"Kasteelruine & Fluweelengrot Valkenburg",ad:"Grendelplein, Valkenburg aan de Geul, Netherlands",la:50.86194,ln:5.83083,w:"The only true hilltop castle in the Netherlands - a beacon over Valkenburg since around 1050 - and, beneath it, the Fluweelengrot, a museum marl cave linked to the ruin by centuries-old secret escape passages rediscovered in 1937.",k:"Hilltop castle ruin & cave",g:["ICON","ARCH","HIST","MUS"],s:[["KASTEELVALKENBURG","https://www.kasteelvalkenburg.nl/"],["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/kasteelruine-en-fluweelengrot/9431/"]]},
+{t:2,a:"NL",n:"Gemeentegrot Valkenburg",ad:"Cauberg 4, 6301 BT Valkenburg aan de Geul, Netherlands",la:50.86215,ln:5.82901,w:"A kilometre-long marl cave toured year-round by foot or by little train past charcoal murals and sculptures - and, each winter, the largest underground Christmas market in Europe, part of Kerststad Valkenburg.",k:"Marl cave & Christmas market",g:["HIST","MKT","ARCH","MUS"],s:[["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/mergel-grotten/kerstmarkten-in-de-grotten/"],["KERSTSTADVALKENBURG","https://www.kerststadvalkenburg.nl/te-doen/kerstmarkt-gemeentegrot/"]]},
+{t:2,a:"NL",n:"Thermae 2000",ad:"Cauberg 27, 6301 BT Valkenburg aan de Geul, Netherlands",la:50.86008,ln:5.82379,w:"A thermal-water wellness resort of pyramided pools, saunas and a rooftop bath high on the Cauberg, fed by a natural spring drawn from deep under the Limburg hills.",k:"Thermal spa",g:["SPA","ARCH","PARK"],s:[["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/thermae-2000/9390/"],["THERMAE","https://en.thermae.nl/hotel/surroundings/cauberg/"]]},
+{t:3,a:"NL",n:"Cauberg",ad:"Cauberg, Valkenburg aan de Geul, Netherlands",la:50.86028,ln:5.82333,w:"The Netherlands' most famous hill: a short, steep marl climb through Valkenburg that has hosted the road World Championships and is the traditional finale of the Amstel Gold Race every April.",k:"Cycling climb",g:["PARK","ICON","ARCH"],s:[["THERMAE","https://www.thermae.nl/blog-en-nieuws/amstel-gold-race-op-de-cauberg/"],["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/thermae-2000/9390/"]]},
+{t:2,a:"NL",n:"Het Romeins Museum (Thermenmuseum) - CLOSED",ad:"Coriovallumstraat 9, 6411 CA Heerlen, Netherlands",la:50.88500,ln:5.97667,w:"Heerlen's museum built over the excavated Roman bathhouse of Coriovallum - the oldest stone building in the Netherlands. The old Thermenmuseum closed in September 2024; a new Romeins Museum on the site is due to open in 2028.",k:"Roman bath museum",closed:1,g:["MUS","HIST","SPA"],s:[["HETROMEINSMUSEUM","https://www.hetromeinsmuseum.nl/geschiedenis"],["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/attracties-bezienswaardigheden/detail/thermenmuseum/9371/"]]},
+{t:1,a:"NL",n:"Netherlands American Cemetery",ad:"Amerikaanse Begraafplaats 1, 6269 NA Margraten, Netherlands",la:50.81750,ln:5.80500,w:"The only American military cemetery in the Netherlands: 8,000+ US war dead beneath white marble crosses at Margraten, with a visitor centre and free guided tours. Adopted graves are tended by local families to this day. Free, open daily.",k:"WWII war cemetery",g:["HIST","FREE"],s:[["ABMC","https://www.abmc.gov/Netherlands"],["VISITMAASTRICHT","https://www.visitmaastricht.com/en/locations/401408597/netherlands-american-cemetary"]]},
+{t:2,a:"NL",n:"Heuvelland: Vijlenerbos & Epen",ad:"Vijlenerbos, Epen, Netherlands",la:50.78782,ln:5.96338,w:"The rolling green heart of the Dutch 'mountains' around Epen, Gulpen and Vijlen - hollow lanes, the Geul valley and the long Vijlenerbos ridge with the country's most southern panoramas, some of the best walking in the Netherlands.",k:"Hill-country walking",g:["PARK","FREE","MUS"],s:[["VISITZUIDLIMBURG","https://www.visitzuidlimburg.nl/te-doen-in-zuid-limburg/wandelen-in-zuid-limburg/"],["TOERISMEVAALS","https://www.toerismevaals.nl/te-doen-in-zuid-limburg/routes-in-vaals/detail/vaalsbroek-route-v3-vaals/59969/"]]},
+{t:1,a:"STADT",n:"Historische Altstadt Monschau",ad:"Altstadt / Am Markt, 52156 Monschau, Germany",la:50.55469,ln:6.24089,w:"Around 300 listed slate-and-timber Fachwerk houses crowd the narrow lanes of the Rur valley, the best-preserved cloth-makers' town in the Eifel and the postcard image of Monschau. Its Blütezeit came from 18th-century wool-cloth (Monschauer Tuch), prized across Europe.",k:"old town",g:["ICON","HIST","ARCH","FREE"],s:[["EIFEL_INFO","https://www.eifel.info/en/pois/historische-altstadt-monschau"],["HSO_NRW","https://www.hso-nrw.de/historische-stadt-und-ortskerne/monschau/"]]},
+{t:1,a:"STADT",n:"Rotes Haus (Scheibler-Museum)",ad:"Laufenstraße 10, 52156 Monschau, Germany",la:50.55469,ln:6.24089,w:"The Red House was built around 1760 as home and counting-house of cloth merchant Johann Heinrich Scheibler; today it is a museum of 18th–19th-century bourgeois living, famous for its carved free-standing oak staircase and original furnishings.",k:"historic house museum",g:["HIST","MUS","ARCH","FREE"],s:[["STR_AACHEN","https://www.freizeitportal.staedteregion-aachen.de/pois/das-rote-haus-in-monschau-1"],["EIFEL_INFO","https://www.eifel.info/en/pois/das-rote-haus-in-monschau-1"],["MUSEEN_DE","https://museen.de/scheibler-museum-rotes-haus-monschau.html"]]},
+{t:2,a:"STADT",n:"Historische Senfmühle Monschau",ad:"Laufenstraße 118, 52156 Monschau, Germany",la:50.56254,ln:6.23833,w:"A working mustard mill grinding by hand since 1882, now in the 4th–5th generation, producing the celebrated Moutarde de Montjoie (Monschauer Senf) in over twenty varieties. Mill tours, a shop and the adjoining Schnabuleum restaurant occupy the restored listed building.",k:"mustard mill",g:["HIST","MUS","ICON"],s:[["NRW_TOUR","https://www.nrw-tourismus.de/genuss/historische-senfmuehle-monschau-ruth-breuer"],["DUMONT","https://www.dumontreise.de/magazin/empfehlungen/sehenswert-13/historische-senfmuehle-monschau-115005861"]]},
+{t:3,a:"STADT",n:"Monschauer Glashütte",ad:"Burgau 15, 52156 Monschau, Germany",la:50.55284,ln:6.23691,w:"A glassblowing workshop below the castle where you can watch a Glasbläser at work — a nod to the town's second historic craft alongside cloth-making — with a shop and demonstrations.",k:"glassworks",g:["HIST","MUS","ARCH"],s:[["EIFEL_INFO","https://www.eifel.de/go/sehenswertes-detail/glashuette_monschau.html"],["EIFELSTEIG","https://www.eifelsteig.de/en/pois/glashuette-monschau"]]},
+{t:1,a:"STADT",n:"Burg Monschau",ad:"Auf dem Schloß 4, 52156 Monschau, Germany",la:50.55358,ln:6.23977,w:"A well-preserved 13th-century hilltop castle above the Altstadt with a commanding view over the slate roofs of Monschau; today an event venue and youth hostel, and the stage of the summer Monschau Klassik open-air concerts.",k:"castle",g:["ICON","HIST","ARCH"],s:[["BURGEN_DE","https://www.burgen.de/burgen-und-schloesser/deutschland/burg-monschau/"],["NRW_TOUR","https://www.nrw-tourismus.de/schloesser-burgen/burg-monschau"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Monschau_Castle"]]},
+{t:3,a:"STADT",n:"Felsenkeller Brauhaus & Museum — CLOSED",ad:"Laufenstraße, 52156 Monschau, Germany",la:50.55293,ln:6.23431,w:"Founded in 1847, the Felsenkeller was a four-generation Monschau brewery (Felsquell Pils, naturally cloudy Zwickelbier) that later became the Eifel's first brewery museum. The brewery museum closed in 2019; it remains a landmark of the region's brewing heritage.",k:"brewery museum",closed:1,g:["HIST","MUS","ICON","PARK"],s:[["BRF","https://brf.be/regional/471550/"],["IND_EMR","https://industriemuseen-emr.de/de_DE/felsenkeller-brauerei-museum"]]},
+{t:1,a:"STADT",n:"Historischer Ortskern Kornelimünster",ad:"Benediktusplatz / Korneliusmarkt, 52076 Aachen-Kornelimünster, Germany",la:50.72877,ln:6.18157,w:"One of Germany's most complete pre-industrial townscapes: 17th–18th-century slate-timber and quarry-stone houses ring the Korneliusmarkt and Benediktusplatz around the former abbey church. The abbey village grew from the 'Monasterium ad Indam' founded in 814 by Benedict of Aniane.",k:"old town",g:["HIST","ARCH","ICON","FREE"],s:[["BAUKUNST_NRW","https://www.baukunst-nrw.de/objekte/Historischer-Ortskern-Kornelimuenster--664.htm"],["EIFELSTEIG","https://www.eifelsteig.de/en/a-historischer-ortskern-kornelimuenster"],["AACHEN_DE","https://www.aachen.de/in-aachen-leben/stadtbezirke-und-viertel/kornelimuenster-walheim/sehenswuerdigkeiten/"]]},
+{t:2,a:"STADT",n:"Kunsthaus NRW / ehem. Reichsabtei Kornelimünster",ad:"Abteigarten 6, 52076 Aachen-Kornelimünster, Germany",la:50.72908,ln:6.18194,w:"The former Imperial Abbey, rebuilt in 1721 as a late-baroque palace, houses the Kunsthaus NRW — the state of North Rhine-Westphalia's art collection of over 5,000 works from Rhenish Expressionism to the present, shown in the abbey's grand halls and garden.",k:"art museum",g:["MUS","HIST","ARCH","PARK"],s:[["KUNSTHAUS_NRW","https://www.kunsthaus.nrw/besuch/klosteranlage/"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Kunsthaus_Nordrhein-Westfalen_Kornelim%C3%BCnster"],["MUSEEN_DE","https://museen.de/kunst-aus-nordrhein-westfalen-aachen.html"]]},
+{t:2,a:"STADT",n:"Propsteikirche St. Kornelius",ad:"Korneliusmarkt, 52076 Aachen-Kornelimünster, Germany",la:50.72881,ln:6.18211,w:"The former abbey church and today's parish church, a landmark of Rhenish architecture whose 814–817 founding core hides beneath a seemingly Gothic five-aisled body — over 1,000 years of building history. A pilgrimage site for its Corneliusreliquien (Cornelius relics).",k:"pilgrimage church",g:["HIST","ARCH","FREE","ICON"],s:[["BAUKUNST_NRW","https://www.baukunst-nrw.de/objekte/St.-Kornelius-Aachen--669.htm"],["EIFELFUEHRER","https://eifelfuehrer.de/index.php/touristische-ziele/kirchenkloester/abtei-kornelimuenster"],["KULADIG","https://www.kuladig.de/Objektansicht/O-55084-20121005-3"]]},
+{t:1,a:"STADT",n:"Burg Stolberg",ad:"Burgstraße, 52222 Stolberg (Rheinland), Germany",la:50.76689,ln:6.23281,w:"The stone landmark of the Kupferstadt, rising on a limestone crag above the old town and the Vichtbach. The medieval-to-Renaissance castle now hosts events and a Burggastronomie, with wide views over Stolberg's copper-town roofscape.",k:"castle",g:["ICON","HIST","ARCH"],s:[["NRW_TOUR","https://www.nrw-tourismus.de/schloesser-burgen/burg-stolberg"],["EIFEL_INFO","https://www.eifel.info/en/pois/burg-stolberg"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Stolberg_(Rhineland)"]]},
+{t:2,a:"STADT",n:"Historischer Altstadtkern Stolberg",ad:"Altstadt / Burgstraße, 52222 Stolberg (Rheinland), Germany",la:50.76662,ln:6.23448,w:"Narrow stepped lanes and small squares of half-timbered and local-limestone houses with hewn bluestone (Blaustein) trim, climbing beneath Burg Stolberg — a townscape shaped by the 17th–18th-century copper and brass boom.",k:"old town",g:["HIST","ARCH","FREE","MKT"],s:[["RUREIFEL","https://www.rureifel-tourismus.de/pois/historischer-altstadtkern"],["STR_AACHEN","https://www.freizeitportal.staedteregion-aachen.de/pois/historischer-altstadtkern"],["HSO_NRW","https://www.hso-nrw.de/historische-stadt-und-ortskerne/stolberg/"]]},
+{t:2,a:"STADT",n:"Kupferhof Rosenthal",ad:"Rathausstraße 67, 52222 Stolberg (Rheinland), Germany",la:50.77298,ln:6.22588,w:"A baroque copper-master's courtyard house built in 1724 by Tillmann Roland, monument-protected since 1986 — one of the finest of Stolberg's Kupferhöfe, the fortified merchant-workshop yards found nowhere else in Germany.",k:"copper courtyard house",g:["HIST","ARCH","NIGHT"],s:[["EIFELSTEIG","https://www.eifelsteig.de/en/pois/kupferhof-rosenthal"],["RUREIFEL","https://www.rureifel-tourismus.de/en/a-kupferhof-rosenthal"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Kupferhof_Rosenthal"]]},
+{t:3,a:"STADT",n:"Kupferhof Grünenthal",ad:"Steinfeldstraße, 52222 Stolberg (Rheinland), Germany",la:50.77135,ln:6.22854,w:"A historic Stolberg copper yard and the founding seat of the Grünenthal pharmaceutical company, still held by the Wirtz family — another of the town's more-than-ten Kupferhöfe that trace its industrial golden age.",k:"copper courtyard house",g:["HIST","ARCH"],s:[["STR_AACHEN","https://www.freizeitportal.staedteregion-aachen.de/pois/kupferhof-gruenenthal"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Kupferhof_Gr%C3%BCnenthal"],["KULADIG","https://www.kuladig.de/Objektansicht/O-110578-20141222-5"]]},
+{t:2,a:"STADT",n:"Museum Zinkhütter Hof",ad:"Cockerillstraße 90, 52222 Stolberg (Rheinland), Germany",la:50.77500,ln:6.21694,w:"A museum of the Aachen region's industrial, economic and social history in a former 19th-century glassworks — 'Stolberger Zink', 'Aachener Nadel' (needle-making) and brass, one of the best-preserved examples of the historic industrial belt from Aachen through Stolberg to Eschweiler.",k:"industrial museum",g:["MUS","HIST","ARCH"],s:[["MUSEEN_DE","https://museen.de/museum-zinkhuetter-hof-stolberg.html"],["WIKIPEDIA","https://de.wikipedia.org/wiki/Museum_Zinkh%C3%BCtter_Hof"],["RUREIFEL","https://www.rureifel-tourismus.de/pois/museum-zinkhuetter-hof-1"]]},
+{t:1,a:"STADT",n:"Burg Rode",ad:"Burg Rode, 52134 Herzogenrath, Germany",la:50.86689,ln:6.09000,w:"First documented in 1104 as 'castrum Rodense', Herzogenrath's best-known landmark stands above the Wurm with a 14th-century tower reshaped in the 19th century. Now a cultural venue with exhibitions on the castle's history and the 18th-century Bockreiter robber band.",k:"castle",g:["ICON","HIST","ARCH"],s:[["KULADIG","https://www.kuladig.de/Objektansicht/O-14859-20110817-2"],["HERZOGENRATH","https://www.herzogenrath.de/freizeit-tourismus/tourismus/erlebnisraum-roemerstrasse/ausstellung-burg-rode/"]]},
+{t:2,a:"STADT",n:"Wurmtal (Naturschutzgebiet)",ad:"Wurmtal, 52134 Herzogenrath, Germany",la:50.84900,ln:6.09061,w:"A green regional recreation corridor along the Wurm river between Aachen and Herzogenrath — meadow, wetland and forest with small lakes and the old mine dumps (Halden) of the Aachen coal district, laced with cycle and hiking paths.",k:"nature reserve / river valley",g:["PARK","FREE"],s:[["HERZOGENRATH","https://www.herzogenrath.de/freizeit-tourismus/im-gruenen/fahrradrouten/radtour-entlang-der-halden-ins-wurmtal/"],["KULADIG","https://www.kuladig.de/Objektansicht/KLD-252079"]]},
+{t:1,a:"STADT",n:"ENERGETICON",ad:"Konrad-Adenauer-Allee 7, 52477 Alsdorf, Germany",la:50.87504,ln:6.15039,w:"An energy-and-mining experience museum opened in 2014 on the grounds of the former Grube Anna II colliery — from coal and the Aachen mining district to the future of energy, with preserved pit buildings and hands-on exhibits.",k:"energy & mining museum",g:["MUS","HIST"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/Energeticon"],["NRW_TOUR","https://www.nrw-tourismus.de/museen/energeticon-alsdorf"],["MUSEEN_DE","https://museen.de/energeticon-alsdorf.html"]]},
+{t:2,a:"STADT",n:"Burg Wilhelmstein",ad:"Burg Wilhelmstein, 52146 Würselen-Bardenberg, Germany",la:50.84169,ln:6.10189,w:"A castle ruin on the eastern bank of the Wurm near Würselen-Bardenberg, set directly in the Wurmtal; for over twenty summers its open-air stage has hosted the city's popular Freiluft programme of concerts, cabaret and film.",k:"castle ruin",g:["HIST","ARCH","PARK","FREE"],s:[["STR_AACHEN","https://tourenportal.staedteregion-aachen.de/de/poi/burg/burg-wilhelmstein/3032207/"],["LEB_AACHEN","https://www.lebendiges-aachen.de/modules.php?name=Aachen&act=page&id=377"]]},
+{t:2,a:"STADT",n:"Carl-Alexander-Park (Grube Carl-Alexander)",ad:"Carl-Alexander-Park, 52499 Baesweiler, Germany",la:50.91013,ln:6.16713,w:"The ~80 m mining spoil heap of the former Grube Carl-Alexander colliery, greened and opened for EuRegionale 2008 — a suspension bridge climbs to a viewpoint high above the treetops with a panorama over Baesweiler and the surrounding towns.",k:"mining heap park / viewpoint",g:["PARK","HIST","FREE"],s:[["WIKIPEDIA","https://de.wikipedia.org/wiki/Grube_Carl_Alexander"],["KULADIG","https://www.kuladig.de/Objektansicht/KLD-343846"]]},
+{t:1,a:"STADT",n:"Dreilägerbachtalsperre",ad:"Dreilägerbachtalsperre, 52159 Roetgen, Germany",la:50.66061,ln:6.21561,w:"A drinking-water reservoir of 1909–1911 behind a 38 m-high, 240 m-long dam wall between Roetgen and Rott, in the northern Eifel. A scenic lakeside walk and a section of the Eifelsteig through the Struffelt make it the classic Eifel-gateway outing from Roetgen.",k:"reservoir / dam",g:["PARK","HIST","FREE"],s:[["EIFELSTEIG","https://www.eifelsteig.de/pois/dreilaegerbachtalsperre"],["STR_AACHEN","https://tourenportal.staedteregion-aachen.de/de/poi/staumauer-wehr/dreilaegerbachtalsperre/20249494/"],["RUREIFEL","https://www.rureifel-tourismus.de/pois/dreilaegerbachtalsperre"]]},
+{t:2,a:"STADT",n:"Naturschutzgebiet Struffelt",ad:"Struffelt, 52159 Roetgen, Germany",la:50.66778,ln:6.21361,w:"A heath-and-moor nature reserve on the Eifelsteig above Roetgen — 'the gateway to the Eifel' — with a circular premium trail (Roetgener Schleife) linking the ridge to the Dreilägerbachtalsperre.",k:"heath nature reserve",g:["PARK","FREE"],s:[["ROETGEN","https://www.roetgen.de/unsere-gemeinde/wanderrouten/"],["EIFELSTEIG","https://www.eifelsteig.de/pois/dreilaegerbachtalsperre"]]}
+];
+
+const FS = {
+  "AACHENALTSTADT":{k:"AACHENALTSTADT",t:"Aachen schöne Altstadt",u:"https://aachen-schoene-altstadt.de",l:"Aachen schöne Altstadt"},
+  "AACHENTOUR":{k:"AACHENTOUR",t:"aachen tourist service e.V. / aachen-tourismus.de (charlie.aachen-tourismus.de)",u:"https://www.aachen-tourismus.de",l:"aachen tourist service e.V. / aachen-tourismus.de (charlie.aachen-tourismus.de)"},
+  "AZ":{k:"AACHENER ZEITUNG",t:"Aachener Zeitung",u:"https://www.aachener-zeitung.de",l:"Aachener Zeitung"},
+  "BRF":{k:"BRF (OSTBELGIEN)",t:"BRF (Belgischer Rundfunk)",u:"https://brf.be",l:"BRF (Belgischer Rundfunk)"},
+  "CHAPEAU":{k:"CHAPEAU",t:"Chapeau Magazine",u:"https://www.chapeaumagazine.com",l:"Chapeau Magazine"},
+  "EIFELDE":{k:"EIFELDE",t:"Eifel.de (Eifel Tourismus)",u:"https://www.eifel.de",l:"Eifel.de (Eifel Tourismus)"},
+  "EIFELINFO":{k:"EIFELINFO",t:"Eifel Tourismus (eifel.info)",u:"https://www.eifel.info",l:"Eifel Tourismus (eifel.info)"},
+  "EIFELSTEIG":{k:"EIFELSTEIG",t:"Eifelsteig",u:"https://www.eifelsteig.de",l:"Eifelsteig"},
+  "EIFEL_INFO":{k:"EIFEL INFO",t:"Eifel Tourismus (eifel.info / eifel.de)",u:"https://www.eifel.info",l:"Eifel Tourismus (eifel.info / eifel.de)"},
+  "ERLEBNIS_REGION":{k:"ERLEBNIS REGION",t:"Erlebnis-Region (Euregio Maas-Rhein)",u:"https://www.erlebnis-region.de",l:"Erlebnis-Region (Euregio Maas-Rhein)"},
+  "EUROPEANCOFFEETRIP":{k:"EUROPEANCOFFEETRIP",t:"European Coffee Trip",u:"https://europeancoffeetrip.com",l:"European Coffee Trip"},
+  "FALSTAFF":{k:"FALSTAFF",t:"Falstaff",u:"https://www.falstaff.com",l:"Falstaff"},
+  "FEINSCHMECKER":{k:"FEINSCHMECKER",t:"Der Feinschmecker",u:"https://www.feinschmecker.de",l:"Der Feinschmecker"},
+  "FOODIES":{k:"FOODIES",t:"Foodies Magazine",u:"https://www.foodiesmagazine.nl",l:"Foodies Magazine"},
+  "GASTROGUIDE":{k:"GASTROGUIDE",t:"GastroGuide Euregio",u:"https://www.gastroguide-euregio.de",l:"GastroGuide Euregio"},
+  "GAULTMILLAU":{k:"GAULT&MILLAU",t:"Gault&Millau Nederland",u:"https://www.gault-millau.nl",l:"Gault&Millau Nederland"},
+  "GRACHTENBEANS":{k:"GRACHTENBEANS",t:"Grachten Beans Coffee Guide",u:"https://grachtenbeans.nl",l:"Grachten Beans Coffee Guide"},
+  "GRENZECHO":{k:"GRENZ-ECHO",t:"GRENZ-ECHO",u:"",l:""},
+  "GULPENER":{k:"GULPENER",t:"Gulpener Bierbrouwerij (official)",u:"https://gulpener.nl",l:"Gulpener Bierbrouwerij (official)"},
+  "GUSTO":{k:"GUSTO",t:"Gusto (Gusto-online)",u:"https://www.gusto-online.de",l:"Gusto (Gusto-online)"},
+  "GUTWIRTZ":{k:"GUTWIRTZ",t:"gut-wirtz.de — Aachener Printen (Dokumentationsseite)",u:"http://www.gut-wirtz.de/aachener_printen/",l:"gut-wirtz.de — Aachener Printen (Dokumentationsseite)"},
+  "INLIMBURG":{k:"INLIMBURG",t:"inLimburg",u:"https://www.inlimburg.com",l:"inLimburg"},
+  "ISG_MONSCHAU":{k:"ISG MONSCHAU",t:"ISG Monschau (Interessengemeinschaft Stadtbild)",u:"https://www.isgmonschau.de",l:"ISG Monschau (Interessengemeinschaft Stadtbild)"},
+  "KAFFEENETZ":{k:"KAFFEENETZ",t:"Kaffee-Netz",u:"https://www.kaffee-netz.de",l:"Kaffee-Netz"},
+  "KATHOLISCH":{k:"KATHOLISCH",t:"katholisch.de",u:"https://katholisch.de",l:"katholisch.de"},
+  "KLENKES":{k:"KLENKES",t:"Klenkes",u:"https://www.klenkes.de",l:"Klenkes"},
+  "KOFFIETJE":{k:"KOFFIETJE",t:"Koffietje.nl",u:"https://www.koffietje.nl",l:"Koffietje.nl"},
+  "KREISDN":{k:"KREISDN",t:"Kreis Düren Tourismus",u:"https://www.tourismus.kreis-dueren.de",l:"Kreis Düren Tourismus"},
+  "LINHE":{k:"LINHE",t:"LINHÉ (linhe.de)",u:"https://linhe.de",l:"LINHÉ (linhe.de)"},
+  "MADEINOSTBELGIEN":{k:"MADEINOSTBELGIEN",t:"Made in Ostbelgien / Ostbelgien Info",u:"https://madeinostbelgien.be",l:"Made in Ostbelgien / Ostbelgien Info"},
+  "MECHERNICH":{k:"MECHERNICH",t:"Stadt Mechernich",u:"https://www.mechernich.de",l:"Stadt Mechernich"},
+  "MICHELIN":{k:"MICHELIN",t:"Guide Michelin Deutschland",u:"https://guide.michelin.com",l:"Guide Michelin Deutschland"},
+  "NPEIFEL":{k:"NPEIFEL",t:"Nationalpark Eifel",u:"https://www.nationalpark-eifel.de",l:"Nationalpark Eifel"},
+  "NRW_TOUR":{k:"NRW TOUR",t:"NRW-Tourismus (Tourismus NRW e.V.)",u:"https://www.nrw-tourismus.de",l:"NRW-Tourismus (Tourismus NRW e.V.)"},
+  "ONEZUID":{k:"ONEZUID",t:"1Zuid",u:"https://1zuid.nl",l:"1Zuid"},
+  "OOSTWEGEL":{k:"OOSTWEGEL",t:"Oostwegel Collection",u:"https://www.oostwegelcollection.nl",l:"Oostwegel Collection"},
+  "OSTBELGIEN":{k:"OSTBELGIEN.EU",t:"OSTBELGIEN.EU",u:"",l:""},
+  "OSTBELGIENDIREKT":{k:"OSTBELGIENDIREKT",t:"Ostbelgien Direkt",u:"https://ostbelgiendirekt.be",l:"Ostbelgien Direkt"},
+  "OSTBELGIENINFO":{k:"OSTBELGIENINFO",t:"Ostbelgien Info",u:"https://ostbelgieninfo.be",l:"Ostbelgien Info"},
+  "OSTBELGIENNET":{k:"OSTBELGIENNET",t:"Ostbelgien.net",u:"https://www.ostbelgien.net",l:"Ostbelgien.net"},
+  "PUURZUIDLIMBURG":{k:"PUURZUIDLIMBURG",t:"Puur Zuid-Limburg",u:"https://www.puurzuidlimburg.nl",l:"Puur Zuid-Limburg"},
+  "RELAISCHATEAUX":{k:"RELAISCHATEAUX",t:"Relais & Châteaux",u:"https://www.relaischateaux.com",l:"Relais & Châteaux"},
+  "RTVMAASTRICHT":{k:"RTVMAASTRICHT",t:"RTV Maastricht",u:"https://rtvmaastricht.nl",l:"RTV Maastricht"},
+  "RUREIFEL":{k:"RUREIFEL",t:"Rureifel-Tourismus e.V.",u:"https://www.rureifel-tourismus.de",l:"Rureifel-Tourismus e.V."},
+  "SCHLEMMER":{k:"SCHLEMMER",t:"Schlemmer Atlas",u:"https://www.schlemmer-atlas.de",l:"Schlemmer Atlas"},
+  "SCHWARZAUFWEISS":{k:"SCHWARZAUFWEISS",t:"Schwarzaufweiss — Reisemagazin",u:"https://www.schwarzaufweiss.de",l:"Schwarzaufweiss — Reisemagazin"},
+  "STAYOKAY":{k:"STAYOKAY",t:"Stayokay City Tips",u:"https://www.stayokay.com",l:"Stayokay City Tips"},
+  "SUSA":{k:"SUSA",t:"SUSA (Maastricht student platform)",u:"https://www.susa.nl",l:"SUSA (Maastricht student platform)"},
+  "TIMETOMOMO":{k:"TIMETOMOMO",t:"Time to Momo",u:"https://www.timetomomo.com",l:"Time to Momo"},
+  "TONLINE_AC":{k:"TONLINE AC",t:"t-online Region Aachen (aachen.t-online.de)",u:"https://aachen.t-online.de",l:"t-online Region Aachen (aachen.t-online.de)"},
+  "TRAPPISTBIER":{k:"TRAPPISTBIER",t:"Trappistbier.wordpress",u:"https://trappistbier.wordpress.com",l:"Trappistbier.wordpress"},
+  "TRAVELWORLDONLINE":{k:"TRAVELWORLDONLINE",t:"TravelWorldOnline Traveller",u:"https://www.travelworldonline.de",l:"TravelWorldOnline Traveller"},
+  "VISITMAASTRICHT":{k:"VISIT MAASTRICHT",t:"Visit Maastricht",u:"https://www.visitmaastricht.com",l:"Visit Maastricht"},
+  "VISITZUIDLIMBURG":{k:"VISIT ZUID-LIMBURG",t:"Visit Zuid-Limburg",u:"https://www.visitzuidlimburg.nl",l:"Visit Zuid-Limburg"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (de/en)",u:"https://de.wikipedia.org",l:"Wikipedia (de/en)"}
+};
+
+const CUISINES = [
+  {id:"GER",n:"Rhenish & German"},
+  {id:"BE",n:"Belgian & Ostbelgien"},
+  {id:"NL",n:"Dutch & Limburgs"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"BEER",n:"Beer & Brewpubs"},
+  {id:"SWEET",n:"Printen, Bakeries & Sweets"},
+  {id:"CAFE",n:"Coffee & Kaffeehaus"},
+  {id:"INT",n:"International & Student"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Castles & Rathaus"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"SPA",n:"Thermal Baths & Springs"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('aa_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('aa_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('aa_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('aa_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Aachen')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {AACHEN:'#2E6DA4',STADT:'#C0504D',EIFEL:'#6A8D3F',NL:'#E8973A',BE:'#8E44AD'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([50.7005,6.0839],9);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Aachen", 50.775, 6.087], ["StädteRegion Aachen", 50.7163, 6.1974], ["Eifel", 50.661, 6.428], ["Dutch South Limburg", 50.8398, 5.7676], ["Ostbelgien", 50.5691, 6.0799]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('aachen-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('aachen-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('aachen-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The Dreiländereck canon crosses three countries: <b>Aachener Printen</b> and Reisfladen, Rhenish <b>Sauerbraten</b> (thickened with Printen) and Öcher <b>Puttes</b>, Dutch-Limburg <b>vlaai</b> and <b>zuurvlees</b>, Belgian beer, moules-frites and Eupen chocolate — with a deep Michelin bench in Aachen and Maastricht. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in-language and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, the Aachener Zeitung/Nachrichten, WDR, Route Aachen, Eifel &amp; Monschau tourism, Visit Maastricht, De Limburger, 1Limburg, the Grenz-Echo, BRF (Ostbelgien), DW Travel, local university &amp; ESN guides and vetted local creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 113 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
