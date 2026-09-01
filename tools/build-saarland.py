@@ -170,7 +170,7 @@ new = new.replace(">Cleveland — my list<", ">Greater Region — my list<").rep
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="Schwenker, Riesling, Porta Nigra, quiche…"')
 new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
                   "? 'Schwenker, Judd, quiche lorraine, Riesling…' : 'Völklinger Hütte, Porta Nigra, casemates, Saarschleife…'")
-new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
+new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../Germany/index.html" style="color:var(--bone-dim)')
 
 new = new.replace("last verified 2026-08-08", "last verified 2026-08-31")
 new = new.replace(

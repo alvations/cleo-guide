@@ -9,14 +9,32 @@ not code** — it lives in [`data/countries.json`](../data/countries.json) and i
 This is the reuse mechanism. To bring the **next** country live you add/enable one entry in
 `data/countries.json` and run the build — you do **not** restructure anything.
 
-## The two kinds of country
+## The rule: every country gets its own hub page, then the cities inside it
+
+**A country is never a bare link to a single city.** Each live country has its **own hub page** (a
+country landing page) that lists the cities/regions **inside** it; the root `index.html` switcher links to
+that hub, never straight to a city. This is how Singapore (→ its towns) and Vietnam (→ its cities) already
+work, and it is the required shape for **every** country added from here on. When a country would launch
+with only one city, still give it a hub with that one city on it — the second city then just slots in.
+
+## The three kinds of country
 
 ```jsonc
-{ "key":"us",        "kind":"us",     "live":true,  "hub":"index.html" }
-{ "key":"singapore", "kind":"engine", "live":true,  "region":"Singapore", "folder":"Singapore", "hub":"Singapore/index.html" }
-{ "key":"vietnam",   "kind":"engine", "live":true,  "region":"Vietnam",   "folder":"Vietnam",   "hub":"Vietnam/index.html" }
-{ "key":"malaysia",  "kind":"engine", "live":false, "region":"Malaysia",  "folder":"Singapore" }
+{ "key":"us",        "kind":"us",             "live":true,  "hub":"index.html" }
+{ "key":"singapore", "kind":"engine",         "live":true,  "region":"Singapore", "folder":"Singapore", "hub":"Singapore/index.html" }
+{ "key":"vietnam",   "kind":"engine",         "live":true,  "region":"Vietnam",   "folder":"Vietnam",   "hub":"Vietnam/index.html" }
+{ "key":"germany",   "kind":"dataset-cities", "live":true,  "folder":"Germany",   "hub":"Germany/index.html", "pages":["cities/saarland.html","cities/aachen.html"] }
+{ "key":"malaysia",  "kind":"engine",         "live":false, "region":"Malaysia",  "folder":"Singapore" }
 ```
+
+- **`kind:"dataset-cities"`** — a country whose guides are the **dark-engine dataset cities** (the same
+  `cities/<city>.html` builds as the US cities: `build-<city>.py` → gates), grouped under a **hand-authored
+  hub** at `<folder>/index.html` in the dark theme (mirror `Germany/index.html`). `pages` lists the city
+  guides the hub links to (relative to repo root); the guides stay in `cities/` — only the hub moves into
+  the country `folder`. Each such city guide's footer back-link points at its country hub
+  (`../<folder>/index.html`), set in its `build-<city>.py`. Germany is the first of these (Saarbrücken &
+  the Greater Region + Aachen & the Dreiländereck). Use this kind for any non-US country whose guides are
+  cross-border/regional dataset cities rather than the pastel one-page-per-place engine.
 
 - **`kind:"us"`** — the US cities, built by the dataset/engine city builds (`cleveland.html` +
   `cities/*.html`) and listed **by hand** in `index.html`. There is one of these.

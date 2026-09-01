@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Germany — Field Guides</title>
+<meta name="description" content="Source-traceable field guides to Germany's cross-border regions — Saarbrücken &amp; the SaarLorLux Greater Region, and Aachen &amp; the Dreiländereck — on interactive maps. UNESCO sites, deep Michelin benches, and food canons all their own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --slab-2:#232C31;
+    --patina:#74AE99; --patina-dim:#3E5D53; --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2; --hair:#2E393E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  body{margin:0;background:var(--iron);color:var(--bone);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;}
+  a{color:var(--patina);text-decoration:none;} a:hover{text-decoration:underline;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+  header{padding:76px 0 30px;border-bottom:1px solid var(--hair);}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--patina);margin:0 0 22px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 6px;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--patina);font-size:clamp(28px,5.5vw,58px);line-height:1.05;margin-top:6px;}
+  .standfirst{max-width:64ch;margin:26px 0 6px;color:var(--bone);font-size:19px;}
+  .standfirst strong{font-weight:500;}
+  .back{display:inline-block;margin:18px 0 0;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-dim);}
+  .back:hover{color:var(--patina);}
+
+  h2.sec{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:44px 0 16px;font-weight:500;}
+
+  .cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+  .city{display:block;background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:26px 26px 22px;color:var(--bone);transition:border-color .15s,transform .15s;}
+  .city:hover{border-color:var(--patina);text-decoration:none;transform:translateY(-2px);}
+  .city .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--patina);margin:0 0 8px;}
+  .city .nm{font-family:"Archivo Black",sans-serif;font-size:clamp(24px,3.2vw,32px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;overflow-wrap:anywhere;}
+  .city .desc{color:var(--bone-dim);font-size:15.5px;margin:0 0 16px;}
+  .city .stat{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--brass);}
+  .city .go{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--patina);}
+
+  footer{padding:44px 0 80px;color:var(--bone-dim);font-size:14px;max-width:78ch;border-top:1px solid var(--hair);margin-top:44px;}
+  footer p{margin:0 0 12px;} code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Field Guides · Germany · Sourced · On a map</p>
+    <h1>Germany<span class="thin">two cross-border regions, each on its own map</span></h1>
+    <p class="standfirst">Both guides sit on the borders they were built around — the <strong>Greater Region</strong>
+      of SaarLorLux and the tri-border <strong>Dreiländereck</strong>. Every place is traceable to the source
+      that named it (Michelin, UNESCO, the regional press in German, French, Dutch &amp; Luxembourgish), on an
+      interactive map with area, collection and cuisine filters, a trip builder and exports.</p>
+    <a class="back" href="../index.html">← all countries</a>
+  </header>
+
+  <h2 class="sec">Regions</h2>
+  <div class="cities">
+    <a class="city" href="../cities/saarland.html">
+      <p class="kicker">Saarland · Lorraine · Luxembourg · Mosel</p>
+      <p class="nm">Saarbrücken &amp; the Greater Region</p>
+      <p class="desc">The cross-border SaarLorLux — Saarbrücken &amp; Saarland (DE), Metz &amp; Nancy (FR),
+        the whole Grand Duchy of Luxembourg, the Mosel &amp; Trier (DE) and Strasbourg/Alsace. The UNESCO trio
+        (Völklinger Hütte, Roman Trier, Luxembourg's fortifications), a deep Michelin bench, and a canon from
+        the Saarland Schwenker to Luxembourg's Judd, Lorraine quiche and Mosel Riesling.</p>
+      <p class="stat">287 places · 183 sights · 104 food · 5 areas</p>
+      <span class="go">Open the Greater Region →</span>
+    </a>
+    <a class="city" href="../cities/aachen.html">
+      <p class="kicker">Aachen · Eifel · Maastricht · Ostbelgien</p>
+      <p class="nm">Aachen &amp; the Dreiländereck</p>
+      <p class="desc">Charlemagne's Aachen and its UNESCO cathedral, out across the tri-border Euregio
+        Maas-Rhein — the StädteRegion (Monschau, Kornelimünster), the Eifel &amp; Düren, Maastricht &amp;
+        Dutch Limburg (NL), and Ostbelgien (BE: Eupen, the Hautes Fagnes). Printen &amp; Sauerbraten to
+        vlaai, zuurvlees and Belgian beer, with a Michelin bench in Aachen &amp; Maastricht.</p>
+      <p class="stat">148 places · 113 sights · 35 food · 5 areas</p>
+      <span class="go">Open Aachen →</span>
+    </a>
+  </div>
+
+  <footer>
+    <p>Sourced &amp; fact-checked via the pipeline — every place ≥2 credible sources (or a lone Michelin/UNESCO/
+      Gault&amp;Millau), every coordinate verified into <code>data/geocodes.json</code>, every open/closed status
+      checked. Details in <code>docs/CITIES.md</code> and each region's <code>data/&lt;region&gt;-research/</code>.</p>
+    <p><a href="../index.html">← all countries</a></p>
+  </footer>
+</div>
+</body>
+</html>

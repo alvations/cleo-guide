@@ -171,7 +171,7 @@ new = new.replace(">Cleveland — my list<", ">Aachen &amp; region — my list<"
 new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="Printen, Riesling, Dom, vlaai, Senf…"')
 new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
                   "? 'Printen, Sauerbraten, zuurvlees, vlaai…' : 'Aachener Dom, Elisenbrunnen, Monschau, Vrijthof…'")
-new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../index.html" style="color:var(--bone-dim)')
+new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../Germany/index.html" style="color:var(--bone-dim)')
 
 new = new.replace("last verified 2026-08-08", "last verified 2026-09-01")
 new = new.replace(

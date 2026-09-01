@@ -1,13 +1,103 @@
 {
   "_doc": "Reusable COUNTRY registry for the multi-country field guide. The root index.html is a COUNTRY HUB (default view: the US city list) with a switcher to each live country's own hub. Two kinds of country: kind 'us' = the US cities built by the dataset/engine city builds (cleveland.html + cities/*.html), listed by hand in index.html; kind 'engine' = the pastel one-page-per-place guides cloned from the Cleveland engine by tools/build-singapore-pages.py (Singapore towns, Vietnam cities, and future SEA countries). Each engine country's `region` MUST match the region string used in build-singapore-pages PLACES. `folder` is where that country's place pages + its own hub (index.html) are written; today only Vietnam has its own folder — Singapore and the not-yet-live SEA countries share the Singapore/ folder (so the archived all-SEA hub Singapore/singapore-old.html keeps resolving). Set live:true and add the country's card to index.html when it is ready to surface. 'We populate US, Singapore and Vietnam first'; the rest stay live:false, reachable only from the archived Singapore/singapore-old.html, until each is populated through the full pipeline (sources -> fact-check -> re-rank -> location-verify). See docs/COUNTRIES.md.",
   "countries": [
-    {"key": "us", "name": "United States", "flag": "🇺🇸", "order": 1, "live": true, "kind": "us", "hub": "index.html"},
-    {"key": "singapore", "name": "Singapore", "flag": "🇸🇬", "order": 2, "live": true, "kind": "engine", "region": "Singapore", "folder": "Singapore", "hub": "Singapore/index.html", "blurb": "The city-state, town by town — hawker food and landmarks, opening on Toa Payoh."},
-    {"key": "vietnam", "name": "Vietnam", "flag": "🇻🇳", "order": 3, "live": true, "kind": "engine", "region": "Vietnam", "folder": "Vietnam", "hub": "Vietnam/index.html", "blurb": "Ho Chi Minh City, district by district and out to the Mekong, Củ Chi, Tây Ninh and Vũng Tàu corridors."},
-    {"key": "malaysia", "name": "Malaysia", "flag": "🇲🇾", "order": 4, "live": false, "kind": "engine", "region": "Malaysia", "folder": "Singapore"},
-    {"key": "thailand", "name": "Thailand", "flag": "🇹🇭", "order": 5, "live": false, "kind": "engine", "region": "Thailand", "folder": "Singapore"},
-    {"key": "indonesia", "name": "Indonesia", "flag": "🇮🇩", "order": 6, "live": false, "kind": "engine", "region": "Indonesia", "folder": "Singapore"},
-    {"key": "philippines", "name": "Philippines", "flag": "🇵🇭", "order": 7, "live": false, "kind": "engine", "region": "Philippines", "folder": "Singapore"},
-    {"key": "indochina", "name": "Cambodia, Laos & Myanmar", "flag": "🌏", "order": 8, "live": false, "kind": "engine", "region": "Cambodia, Laos & Myanmar", "folder": "Singapore"}
+    {
+      "key": "us",
+      "name": "United States",
+      "flag": "🇺🇸",
+      "order": 1,
+      "live": true,
+      "kind": "us",
+      "hub": "index.html"
+    },
+    {
+      "key": "singapore",
+      "name": "Singapore",
+      "flag": "🇸🇬",
+      "order": 2,
+      "live": true,
+      "kind": "engine",
+      "region": "Singapore",
+      "folder": "Singapore",
+      "hub": "Singapore/index.html",
+      "blurb": "The city-state, town by town — hawker food and landmarks, opening on Toa Payoh."
+    },
+    {
+      "key": "vietnam",
+      "name": "Vietnam",
+      "flag": "🇻🇳",
+      "order": 3,
+      "live": true,
+      "kind": "engine",
+      "region": "Vietnam",
+      "folder": "Vietnam",
+      "hub": "Vietnam/index.html",
+      "blurb": "Ho Chi Minh City, district by district and out to the Mekong, Củ Chi, Tây Ninh and Vũng Tàu corridors."
+    },
+    {
+      "key": "germany",
+      "name": "Germany",
+      "flag": "🇩🇪",
+      "order": 4,
+      "live": true,
+      "kind": "dataset-cities",
+      "folder": "Germany",
+      "hub": "Germany/index.html",
+      "pages": [
+        "cities/saarland.html",
+        "cities/aachen.html"
+      ],
+      "blurb": "Two cross-border regions — Saarbrücken & the SaarLorLux Greater Region, and Aachen & the Dreiländereck (Eifel, Maastricht, Ostbelgien)."
+    },
+    {
+      "key": "malaysia",
+      "name": "Malaysia",
+      "flag": "🇲🇾",
+      "order": 5,
+      "live": false,
+      "kind": "engine",
+      "region": "Malaysia",
+      "folder": "Singapore"
+    },
+    {
+      "key": "thailand",
+      "name": "Thailand",
+      "flag": "🇹🇭",
+      "order": 6,
+      "live": false,
+      "kind": "engine",
+      "region": "Thailand",
+      "folder": "Singapore"
+    },
+    {
+      "key": "indonesia",
+      "name": "Indonesia",
+      "flag": "🇮🇩",
+      "order": 7,
+      "live": false,
+      "kind": "engine",
+      "region": "Indonesia",
+      "folder": "Singapore"
+    },
+    {
+      "key": "philippines",
+      "name": "Philippines",
+      "flag": "🇵🇭",
+      "order": 8,
+      "live": false,
+      "kind": "engine",
+      "region": "Philippines",
+      "folder": "Singapore"
+    },
+    {
+      "key": "indochina",
+      "name": "Cambodia, Laos & Myanmar",
+      "flag": "🌏",
+      "order": 9,
+      "live": false,
+      "kind": "engine",
+      "region": "Cambodia, Laos & Myanmar",
+      "folder": "Singapore"
+    }
   ]
 }
