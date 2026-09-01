@@ -1,0 +1,5507 @@
+{
+ "areas": [
+  {
+   "id": "KOLN",
+   "n": "Cologne / Köln (Dom · Altstadt · Ehrenfeld · Südstadt)"
+  },
+  {
+   "id": "BONN",
+   "n": "Bonn (Beethoven · Museumsmeile · Bad Godesberg)"
+  },
+  {
+   "id": "DUS",
+   "n": "Düsseldorf (Altstadt · Kö · MedienHafen · Little Tokyo)"
+  }
+ ],
+ "ac": {
+  "KOLN": "#C0504D",
+  "BONN": "#2E6DA4",
+  "DUS": "#E8973A"
+ },
+ "cuisines": [
+  {
+   "id": "GER",
+   "n": "Rhenish & German"
+  },
+  {
+   "id": "BEER",
+   "n": "Kölsch, Altbier & Brauhaus"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "JP",
+   "n": "Japanese & Little Tokyo"
+  },
+  {
+   "id": "INT",
+   "n": "International & Immigrant"
+  },
+  {
+   "id": "SWEET",
+   "n": "Bakeries, Konditorei & Sweets"
+  },
+  {
+   "id": "CAFE",
+   "n": "Coffee & Café"
+  },
+  {
+   "id": "VEG",
+   "n": "Vegan & Vegetarian"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARCH",
+   "n": "Churches, Castles & Architecture"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "RIVER",
+   "n": "The Rhine & Riverfront"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Squares"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife & Quarters"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Beethoven-Haus",
+   "ad": "Bonngasse 20, 53111 Bonn, Germany",
+   "w": "Ludwig van Beethoven's birthplace and one of the most-visited music museums in the world, holding the largest Beethoven collection anywhere. Founded 1889; the neighbouring houses hold the Beethoven archive, library and a chamber-music hall.",
+   "k": "Beethoven's birthplace",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.beethoven.de/"
+    ],
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/beethoven/beethoven-haus-bonn.php"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/museen/beethoven-haus-bonn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Bonner Münster",
+   "ad": "Gerhard-von-Are-Straße 5, 53111 Bonn, Germany",
+   "w": "Bonn's Romanesque landmark basilica (11th–13th c.), raised over the graves of the martyrs Cassius and Florentius and carried in the city seal since the 13th century. Given the title Basilica minor in 1956; reopened October 2021 after a full restoration.",
+   "k": "12th-c. Romanesque basilica",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.bonner-muenster.de/bonner-muenster/historie/index.html"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/poi/bonner-muenster"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Bonner_M%C3%BCnster"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Haus der Geschichte",
+   "ad": "Willy-Brandt-Allee 14, 53113 Bonn, Germany",
+   "w": "The museum of postwar German history, the anchor of Bonn's Museumsmeile and one of the country's most-visited museums. Free admission; a vivid, hands-on walk through the Bundesrepublik from 1945 to today.",
+   "k": "Postwar German history · free",
+   "g": [
+    "MUS",
+    "HIST",
+    "FREE",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.hdg.de/haus-der-geschichte/besucherinformation"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.museumsmeilebonn.de/portfolio/haus-der-geschichte/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Museum Koenig",
+   "ad": "Adenauerallee 160, 53113 Bonn, Germany",
+   "w": "The Zoologisches Forschungsmuseum Alexander Koenig, a natural-history museum famous for its walk-through African savannah dioramas. In 1948 its festival hall hosted the Parlamentarischer Rat that drafted the Grundgesetz, giving the Federal Republic its birthplace here.",
+   "k": "Natural history · birthplace of the Grundgesetz",
+   "g": [
+    "MUS",
+    "HIST",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://bonn.leibniz-lib.de/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_Koenig_Bonn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Bundeskunsthalle",
+   "ad": "Friedrich-Ebert-Allee 4, 53113 Bonn, Germany",
+   "w": "The federal art and exhibitions hall, a Gustav Peichl building (1992) whose three blue cone-skylights and rooftop sculpture garden are a Museumsmeile signature. Big rotating shows spanning art, archaeology and culture.",
+   "k": "Peichl building · major touring shows",
+   "g": [
+    "MUS",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.bundeskunsthalle.de/"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Kunst-und-Ausstellungshalle-der-Bundesrepublik-Deutschland--292.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Bundeskunsthalle_Bonn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Altes Rathaus & Markt",
+   "ad": "Markt 2, 53111 Bonn, Germany",
+   "w": "Bonn's pink-and-gold Rococo town hall (1737–38, from a design by Michael Leveilly), its gilded perron a stage for de Gaulle, Kennedy and Gorbachev. It presides over the daily market square at the city's heart.",
+   "k": "Rococo town hall · market square",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MKT",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/altes-rathaus.php"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-19183-20111020-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Poppelsdorfer Schloss & Botanischer Garten",
+   "ad": "Meckenheimer Allee 171, 53115 Bonn, Germany",
+   "w": "The Rococo pleasure palace of the Cologne prince-electors (completed 1746), now a university building, wrapped by the Botanical Garden — one of the oldest and most traditional north of the Alps, with an Amorphophallus titanum among its stars. Garden admission free.",
+   "k": "Rococo palace · botanical garden",
+   "g": [
+    "ARCH",
+    "PARK",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/poppelsdorfer-schloss.php"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.botgart.uni-bonn.de/en/your-visit/your-visit"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Botanical_Garden,_Bonn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Freizeitpark Rheinaue",
+   "ad": "Ludwig-Erhard-Allee 20, 53175 Bonn, Germany",
+   "w": "Bonn's 160-hectare riverside park, laid out for the 1979 Bundesgartenschau, with a lake, a Japanese garden, rose garden and 45 km of paths. A vast green lung for cycling, picnics and the big summer flea market.",
+   "k": "Bundesgartenschau park · Japanese garden",
+   "g": [
+    "PARK",
+    "RIVER",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/aktiv-und-unterwegs/parks-und-gaerten/freizeitpark-rheinaue.php"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/parks-gaerten/freizeitpark-rheinaue"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Alter Zoll",
+   "ad": "Brassertufer 1, 53111 Bonn, Germany",
+   "w": "A 17th-century bastion of the old city wall, below the university's Hofgarten, turned into Bonn's classic Rhine viewpoint. From its platform the river bends toward the peaks of the Siebengebirge — a favourite of Romantic painters.",
+   "k": "Rhine-bastion viewpoint",
+   "g": [
+    "HIST",
+    "RIVER",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-30062-20120112-2"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Alter_Zoll_(Bonn)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Kurfürstliches Schloss & Hofgarten",
+   "ad": "Regina-Pacis-Weg 3, 53113 Bonn, Germany",
+   "w": "The former electoral palace (1697–1705), a vast Baroque residence that has been the main building of the University of Bonn since 1818. Its sweeping Hofgarten lawn is the students' and city's great open-air meeting place.",
+   "k": "Baroque palace · university · park",
+   "g": [
+    "ARCH",
+    "HIST",
+    "PARK",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/ehemaliges-kurfuerstliches-schloss-hauptgebaeude-der-universitaet-bonn.php"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-78578-20131103-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Bonner Kirschblüte",
+   "ad": "Heerstraße, 53111 Bonn, Germany",
+   "w": "Each mid-April some 300 Japanese Kanzan cherries turn the streets of the Altstadt — Heerstraße and Breite Straße above all — into a pink blossom tunnel. Planted in the late 1980s as neighbourhood greening, now a magnet drawing crowds for its brief 10–14 day peak.",
+   "k": "Cherry-blossom tunnel · mid-April",
+   "g": [
+    "ICON",
+    "FREE",
+    "PARK",
+    "HIST"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/kirschbluete.php"
+    ],
+    [
+     "GA",
+     "https://www.general-anzeiger-bonn.de/bonn/stadt-bonn/kirschbluete-2024-in-der-bonner-altstadt.php"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Drachenfels & Drachenfelsbahn",
+   "ad": "Drachenfelsstraße 53, 53639 Königswinter, Germany",
+   "w": "The most-climbed mountain in Europe, crowned by a ruined 12th-century castle with a sweeping Rhine panorama across the Siebengebirge. Ride Germany's oldest rack railway (1883) up from Königswinter — an easy edge day-trip from Bonn across the river.",
+   "k": "Siebengebirge summit · rack railway",
+   "g": [
+    "ICON",
+    "RIVER",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/aussichtspunkte/schloss-drachenburg"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.drachenfelsbahn.de/drachenfels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Schloss Drachenburg",
+   "ad": "Drachenfelsstraße 118, 53639 Königswinter, Germany",
+   "w": "A fairy-tale Gründerzeit palace (1882–84) perched on the Drachenfels slope, all turrets, terraces and stained glass, with grand river views. Reached on foot or by an intermediate stop of the Drachenfels railway.",
+   "k": "Gründerzeit fantasy castle",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON"
+   ],
+   "s": [
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/aussichtspunkte/schloss-drachenburg"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Schloss_Drachenburg"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Kunstmuseum Bonn",
+   "ad": "Helmut-Kohl-Allee 2, 53113 Bonn, Germany",
+   "w": "A leading modern-art museum on the Museumsmeile, holding the finest collection of Rhenish Expressionism — August Macke above all — alongside major postwar German art. Some 9,000 works in a luminous Axel Schultes building.",
+   "k": "Rhenish Expressionism · August Macke",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.kunstmuseum-bonn.de/"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/museen/kunstmuseum-bonn"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Deutsches Museum Bonn",
+   "ad": "Ahrstraße 45, 53175 Bonn, Germany",
+   "w": "The Bonn outpost of Munich's science museum, at the southern end of the Museumsmeile, showcasing German research and technology since 1945 with plenty of hands-on stations for families.",
+   "k": "Science & technology since 1945",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.deutsches-museum.de/bonn"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.museumsmeilebonn.de/portfolio/deutsches-museum-bonn/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "LVR-LandesMuseum Bonn",
+   "ad": "Colmantstraße 14–16, 53115 Bonn, Germany",
+   "w": "The Rhineland's state museum of archaeology, art and cultural history — 400,000 years in one house, from the original Neanderthal 1 skeleton through Celts and Romans to modern art.",
+   "k": "Neanderthal · Rhineland archaeology",
+   "g": [
+    "MUS",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.landesmuseum-bonn.lvr.de/"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/museen/lvr-landesmuseum-bonn"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "UN Campus & Langer Eugen",
+   "ad": "Platz der Vereinten Nationen 1, 53113 Bonn, Germany",
+   "w": "The heart of Bonn's former government quarter: the 117 m Egon-Eiermann tower 'Langer Eugen', once the Bundestag's office high-rise, now home to a dozen UN organisations. The riverside campus makes Bonn Germany's UN city.",
+   "k": "Former Bundestag tower · UN city",
+   "g": [
+    "HIST",
+    "ARCH",
+    "RIVER",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-21102-20111109-3"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Langer_Eugen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Kreuzbergkirche",
+   "ad": "Stationsweg 21, 53127 Bonn, Germany",
+   "w": "A Baroque pilgrimage church above the city whose Heilige Stiege — a Holy Staircase replicating Rome's Scala Santa — was built by the great Balthasar Neumann and consecrated in 1751. One of Bonn's most important monuments.",
+   "k": "Baroque · Balthasar Neumann's Holy Staircase",
+   "g": [
+    "ARCH",
+    "HIST",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/kreuzbergkirche.php"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Kreuzbergkirche-mit-Heiliger-Stiege--1324.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Beethoven-Denkmal",
+   "ad": "Münsterplatz, 53111 Bonn, Germany",
+   "w": "Germany's oldest Beethoven monument, an 1845 bronze by Ernst Hähnel unveiled for the composer's 75th birthday at the first Beethoven Festival. It presides over the Münsterplatz, the city's favourite square.",
+   "k": "1845 statue · oldest in Germany",
+   "g": [
+    "HIST",
+    "MKT",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-60161-20130130-2"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Beethoven-Denkmal_(Bonner_M%C3%BCnsterplatz)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Post Tower",
+   "ad": "Charles-de-Gaulle-Straße 20, 53113 Bonn, Germany",
+   "w": "Helmut Jahn's 162.5 m glass headquarters for DHL/Deutsche Post (2002), the tallest building in Bonn and the defining note of its riverside skyline, its twin elliptical shells split by a full-height atrium.",
+   "k": "Helmut Jahn skyscraper · city's tallest",
+   "g": [
+    "ARCH",
+    "RIVER",
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/KLD-345391"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Post_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Alter Friedhof",
+   "ad": "Bornheimer Straße 75, 53111 Bonn, Germany",
+   "w": "A romantic garden cemetery (from 1715) that is one of Germany's most significant, the resting place of Robert and Clara Schumann, Schiller's wife Charlotte and Beethoven's mother among many university greats. An open-air monument, free to wander.",
+   "k": "Schumann's grave · garden cemetery",
+   "g": [
+    "HIST",
+    "PARK",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/aktiv-und-unterwegs/parks-und-gaerten/alter-friedhof.php"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alter_Friedhof,_Bonn"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Museum August Macke Haus",
+   "ad": "Bornheimer Straße 96, 53119 Bonn, Germany",
+   "w": "The home and studio where August Macke lived 1911–14 and painted more than 400 works, now a museum of Rhenish Expressionism with changing shows. Macke staged the landmark 'Rheinische Expressionisten' exhibition here in 1913.",
+   "k": "August Macke's studio-home",
+   "g": [
+    "MUS",
+    "HIST",
+    "ICON",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.august-macke-haus.de/"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/museen/museum-august-macke-haus"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Doppelkirche Schwarzrheindorf",
+   "ad": "Dixstraße 41, 53225 Bonn, Germany",
+   "w": "A rare two-storey Romanesque double church, consecrated in 1151, celebrated for its largely original 12th-century frescoes rediscovered under plaster in 1863. One of the best-known churches in the Rhineland, on the Beuel bank.",
+   "k": "1151 Romanesque · original frescoes",
+   "g": [
+    "ARCH",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/doppelkirche-schwarzrheindorf.php"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Doppelkirche-St.-Maria-und-St.-Clemens-Schwarzrheindorf--1281.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Bonner Rheinuferpromenade",
+   "ad": "Brassertufer, 53111 Bonn, Germany",
+   "w": "The city's long Rhine promenade, running from the Beethovenhalle past the Alter Zoll to the UN Campus, with lawns, cafés and constant barge traffic. A newly redesigned stretch makes it Bonn's front porch on the river.",
+   "k": "Rhine promenade walk",
+   "g": [
+    "RIVER",
+    "FREE",
+    "PARK",
+    "ICON"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/themen-entdecken/planen-bauen/masterplan-bonn-innere-stadt.php"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Redoute",
+   "ad": "Kurfürstenallee 1, 53177 Bonn, Germany",
+   "w": "A Classicist electoral ballhouse (1790–92) in Bad Godesberg where the young Beethoven played before Joseph Haydn in 1792. Still a grand venue for concerts and receptions, set in the Redoutenpark.",
+   "k": "1792 ballhouse · Beethoven met Haydn",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-60161-20130130-2"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Redoute_(Bad_Godesberg)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Sterntor",
+   "ad": "Vivatsgasse, 53111 Bonn, Germany",
+   "w": "A picturesque city gate rebuilt in 1900 from stones of Bonn's medieval fortification, incorporating a real basalt half-round tower from the old wall. A small window onto how mighty the town's defences once were.",
+   "k": "Reconstructed medieval gate",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/sterntor.php"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-30380-20120115-2"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Arithmeum",
+   "ad": "Lennéstraße 2, 53113 Bonn, Germany",
+   "w": "A university museum of 'calculating in olden and modern times', holding the world's most comprehensive collection of mechanical calculating machines — from 3,000-year-old clay tokens to modern chips — shown with unusual aesthetic flair.",
+   "k": "Calculating machines",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "http://www.arithmeum.uni-bonn.de/de/museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arithmeum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Frauenmuseum",
+   "ad": "Im Krausfeld 10, 53111 Bonn, Germany",
+   "w": "Founded in 1981, the world's first museum of women's art and history, with 700-plus exhibitions to its name and an internationally recognised programme. A Bonn original.",
+   "k": "World's first women's museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://frauenmuseum.de/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Frauenmuseum_(Bonn)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Namen-Jesu-Kirche",
+   "ad": "Bonngasse 8, 53111 Bonn, Germany",
+   "w": "A former Jesuit church (1686–1717) a few steps from the Beethoven-Haus, a fine example of Rhenish Jesuit Baroque with Romanesque and Gothic touches, today seat of the Old Catholic bishop.",
+   "k": "Jesuit Baroque church",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/namen-jesu-kirche.php"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Namen-Jesu-Kirche-Bonn--2230.htm"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Kanzlerbungalow & Palais Schaumburg",
+   "ad": "Adenauerallee 139, 53113 Bonn, Germany",
+   "w": "The heart of the 'Bonn Republic': Palais Schaumburg, chancellery from 1949, and the Sep-Ruf-designed Kanzlerbungalow (1963–64) that was the chancellors' residence and reception house until 1999. On the Weg der Demokratie; visits by prior registration.",
+   "k": "Bonn Republic · chancellor's bungalow",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-21743-20111110-13"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/poi/palais-schaumburg"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Villa Hammerschmidt",
+   "ad": "Adenauerallee 135, 53113 Bonn, Germany",
+   "w": "The 'white villa on the Rhine', official seat of the Federal President from 1950 and still his Bonn office. When the President is in residence the standard flies from the roof; occasional guided tours open the state rooms.",
+   "k": "President's Bonn residence",
+   "g": [
+    "HIST",
+    "ARCH",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/aktiv-und-unterwegs/parks-und-gaerten/villa-hammerschmidt.php"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.bundespraesident.de/DE/amt-und-aufgaben/amtssitze/villa-hammerschmidt/villa-hammerschmidt.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Beethovenhalle",
+   "ad": "Wachsbleiche 16, 53111 Bonn, Germany",
+   "w": "Bonn's 1959 concert hall by Siegfried Wolske, a listed piece of postwar modernism on the Rhine and long the home of the Beethoven Festival. An iconic city building at the north end of the riverfront.",
+   "k": "1959 concert hall",
+   "g": [
+    "HIST",
+    "ARCH",
+    "RIVER",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Beethovenhalle"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Stadtpark & Kurpark Bad Godesberg",
+   "ad": "Koblenzer Straße 173, 53177 Bonn, Germany",
+   "w": "Together with the Redoutenpark the spa park forms eight hectares of old trees and lawns, the green centre of former spa-town Bad Godesberg, near the Draitsch mineral spring. A quiet counterpoint to the Godesburg above.",
+   "k": "Spa-town park",
+   "g": [
+    "PARK",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/aktiv-und-unterwegs/parks-und-gaerten/stadtpark-bad-godesberg.php"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Stadtpark_Bad_Godesberg"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Altstadt & \"die längste Theke der Welt\"",
+   "ad": "Bolkerstraße, 40213 Düsseldorf, Germany",
+   "w": "Düsseldorf's compact Old Town packs some 260 pubs, brewhouses and bars into less than a square kilometre along the Rhine — the density locals proudly call \"the longest bar counter in the world.\" Bolkerstraße is its spine; it is the city's number-one draw.",
+   "k": "Altstadt",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/experience/sights/altstadt"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/D%C3%BCsseldorfer_Altstadt"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Königsallee (die Kö)",
+   "ad": "Königsallee, 40212 Düsseldorf, Germany",
+   "w": "A near-1,000 m luxury boulevard split by a moat-like canal (the former Stadtgraben) and a lime-tree allée, lined with designer boutiques and jewellers. Renamed to honour the king in 1851 after a scandal; at nearly 87 m across it is one of Germany's widest streets.",
+   "k": "Stadtmitte",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www2.duesseldorf.de/touristik/entdecken/koe"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/K%C3%B6nigsallee_(D%C3%BCsseldorf)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Neuer Zollhof (Gehry-Bauten) im MedienHafen",
+   "ad": "Neuer Zollhof 1-3, 40221 Düsseldorf, Germany",
+   "w": "Frank Gehry's ensemble of three leaning, curving towers (1998) — one white-plastered, one red-brick, one mirror-clad stainless steel — is the signature landmark of the redeveloped MedienHafen, a showcase of contemporary architecture beside the old harbour basins.",
+   "k": "MedienHafen",
+   "g": [
+    "ICON",
+    "ARCH",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/126-neuer-zollhof-am-medienhafen-gehry-bauten"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/medienhafen-079d420f94"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Rheinturm",
+   "ad": "Stromstraße 20, 40221 Düsseldorf, Germany",
+   "w": "At 240.5 m the city's tallest structure (1982), with a 168 m observation deck giving a 360° panorama. Horst Baumann's \"Lichtzeitpegel\" of 39 portholes in the shaft is recognised by Guinness as the world's largest decimal clock.",
+   "k": "MedienHafen",
+   "g": [
+    "ICON",
+    "ARCH",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/rheinturm-rhine-tower-dcb3b3b3cb"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Rheinturm_D%C3%BCsseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Rheinuferpromenade",
+   "ad": "Mannesmannufer, 40213 Düsseldorf, Germany",
+   "w": "After the riverside road was buried in the Rheinufertunnel (1993), Niklaus Fritschi's plane-tree promenade (1990-97) reconnected the Old Town to the Rhine; it won the German Urban Design Prize and is the city's favourite riverside stroll.",
+   "k": "Altstadt",
+   "g": [
+    "ICON",
+    "RIVER",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "http://www.baukunst-nrw.de/objekte/Rheinuferpromenade-Duesseldorf--143.htm"
+    ],
+    [
+     "THEDUESSELDORFER",
+     "https://the-duesseldorfer.de/25-jahre-rheinufertunnel-das-beste-was-duesseldorf-je-bauen-liess/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Little Tokyo (Immermannstraße)",
+   "ad": "Immermannstraße, 40210 Düsseldorf, Germany",
+   "w": "Germany's largest Japanese quarter, around Immermann-, Ost- and Klosterstraße near the Hauptbahnhof. Home to roughly 6,500 Japanese residents (Europe's third-largest Japanese community), it is a genuine signature — ramen shops, izakaya, sushi bars, bookshops and supermarkets.",
+   "k": "Stadtmitte",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "MKT",
+    "MUS"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/experience/sights/little-tokyo"
+    ],
+    [
+     "SWD",
+     "https://www.swd-ag.de/magazin/heimatliebe/japanisches-viertel-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Basilika St. Lambertus",
+   "ad": "Stiftsplatz 7, 40213 Düsseldorf, Germany",
+   "w": "The Old Town's mother church, a Lower-Rhenish brick-Gothic hall church consecrated in 1394. Its twisted, \"leaning\" tower roof — the Schiefer Turm — has defined the Rhine silhouette for centuries and is a city emblem.",
+   "k": "Altstadt",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/st-lamberts-basilica-catholic-e400ddfe39"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/St._Lambertus_(D%C3%BCsseldorf)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "K20 – Kunstsammlung Nordrhein-Westfalen",
+   "ad": "Grabbeplatz 5, 40213 Düsseldorf, Germany",
+   "w": "The state's flagship modern-art museum behind a curved black-granite façade, holding a classic-modern collection — Klee, Picasso, Warhol, Rauschenberg, Judd, Johns, Stella — and a famous Paul Klee trove.",
+   "k": "Altstadt",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "KUNSTSAMMLUNG",
+     "https://www.kunstsammlung.de/en/visit"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/k20-kunstsammlung-nordrhein-westfalen-d47daf5d55"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Museum Kunstpalast",
+   "ad": "Ehrenhof 4-5, 40479 Düsseldorf, Germany",
+   "w": "Rooted in 1902 and set in the monumental 1920s Ehrenhof complex by the Rhine, the Kunstpalast spans old masters to modern art and design across 5,000 m² of galleries, plus a renowned glass collection.",
+   "k": "Pempelfort / Ehrenhof",
+   "g": [
+    "ICON",
+    "MUS",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/museum-kunstpalast-8d1497204d"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_Kunstpalast"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Schloss Benrath",
+   "ad": "Benrather Schloßallee 100-106, 40597 Düsseldorf, Germany",
+   "w": "A late-Rococo pleasure palace (1755-73) by Nicolas de Pigage for Elector Karl Theodor, its pink corps de logis set in a 60-hectare park of ponds and canals — architecture, garden and interiors conceived as one Gesamtkunstwerk.",
+   "k": "Benrath",
+   "g": [
+    "ICON",
+    "ARCH",
+    "PARK",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Schloss-Benrath--665.htm"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/schloss-benrath-8f5d0c1"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Kaiserpfalz Kaiserswerth",
+   "ad": "Burgallee, 40489 Düsseldorf, Germany",
+   "w": "The mighty riverside ruin of Emperor Friedrich Barbarossa's imperial palace, expanded 1174-84 on a stronghold first documented in 1016. Restored 1997-2002 and open to walk through, it anchors the pretty Kaiserswerth quarter.",
+   "k": "Kaiserswerth",
+   "g": [
+    "ICON",
+    "HIST",
+    "RIVER",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NRWSTIFTUNG",
+     "https://www.nrw-stiftung.de/entdecken/heimat-touren/kaiserpfalz-in-duesseldorf-kaiserswerth.html"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/kaiserpfalz-kaiserswerth-imperial-palace-kaiserswerth-b9ad56bf93"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Hofgarten",
+   "ad": "Hofgartenstraße, 40479 Düsseldorf, Germany",
+   "w": "Germany's first and oldest public park (Volksgarten), begun 1769 under Nicolas de Pigage; a 27-hectare \"green island\" of lawns, monuments and sculpture running from Schloss Jägerhof to the Rhine terraces.",
+   "k": "Pempelfort",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/hofgarten-147d13cd43"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Hofgarten_(D%C3%BCsseldorf)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Carlsplatz Markt",
+   "ad": "Carlsplatz, 40213 Düsseldorf, Germany",
+   "w": "Düsseldorf's oldest surviving daily market, at the Old Town's edge: 60-plus covered stalls of fruit, cheese, fish, flowers and regional produce, plus warm street food, open Monday to Saturday.",
+   "k": "Carlstadt",
+   "g": [
+    "ICON",
+    "MKT",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/carlsplatz-ccab5c84dd"
+    ],
+    [
+     "SWD",
+     "https://www.swd-ag.de/magazin/heimatliebe/carlsplatz-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Kö-Bogen II",
+   "ad": "Schadowstraße 50-52, 40212 Düsseldorf, Germany",
+   "w": "Ingenhoven's five-storey retail-and-office building (2020) wraps 8 km of hornbeam hedge — over 30,000 plants — across roof and slanted façades, billed as Europe's largest green façade, framing the redesigned Gustaf-Gründgens-Platz.",
+   "k": "Stadtmitte",
+   "g": [
+    "ICON",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/koe-bogen-ii-1"
+    ],
+    [
+     "WZ",
+     "https://www.dbz.de/artikel/dbz_Koe-Bogen_II_Duesseldorf_Es_gruent_im_Ingenhoven-Tal_-3544135.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "K21 – Kunstsammlung im Ständehaus",
+   "ad": "Ständehausstraße 1, 40217 Düsseldorf, Germany",
+   "w": "The Kunstsammlung's home for art since 1980, in the domed former Rhenish parliament (Ständehaus). Best known for Tomás Saraceno's walk-on wire installation \"in orbit\" suspended beneath the glass roof.",
+   "k": "Unterbilk",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KUNSTSAMMLUNG",
+     "https://www.kunstsammlung.de/en/visit"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/k21-kunstsammlung-nordrhein-westfalen-36a2a858d9"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "NRW-Forum",
+   "ad": "Ehrenhof 2, 40479 Düsseldorf, Germany",
+   "w": "An exhibition house in the Ehrenhof devoted to photography, pop and digital culture, with festivals, workshops and boundary-pushing shows for a broad audience.",
+   "k": "Pempelfort / Ehrenhof",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.germany.travel/en/cities-culture/nrw-forum-duesseldorf.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/NRW-Forum_D%C3%BCsseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "EKŌ-Haus der japanischen Kultur",
+   "ad": "Brüggener Weg 6, 40547 Düsseldorf, Germany",
+   "w": "A Japanese cultural centre (1993) in Niederkassel with Germany's largest Buddhist temple, traditional gardens, a tea house and tea ceremonies — the contemplative counterpart to Little Tokyo across the river.",
+   "k": "Niederkassel",
+   "g": [
+    "ARCH",
+    "PARK",
+    "MUS"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/eko-haus-ab09e3dc2a"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/EKO-Haus_der_japanischen_Kultur"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Japanischer Garten im Nordpark",
+   "ad": "Kaiserswerther Straße 365, 40474 Düsseldorf, Germany",
+   "w": "A gift of Düsseldorf's Japanese community since 1975, tucked in the quiet north-west corner of Nordpark: a waterfall, island pond, azaleas and Japanese maples laid out to traditional symbolism. Free and open around the clock.",
+   "k": "Stockum / Nordpark",
+   "g": [
+    "PARK",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/japanischer-garten-968dcd5f34"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Nordpark_D%C3%BCsseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "SchifffahrtMuseum im Schlossturm",
+   "ad": "Burgplatz 30, 40213 Düsseldorf, Germany",
+   "w": "The round Schlossturm on Burgplatz is the sole survivor of the ducal castle (burned in the 19th century). Since 1984 it houses Germany's oldest inland-navigation museum, telling 2,000 years of Rhine shipping.",
+   "k": "Altstadt",
+   "g": [
+    "MUS",
+    "RIVER",
+    "HIST",
+    "ICON"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/schifffahrtsmuseum-maritime-museum-8053d1977f"
+    ],
+    [
+     "MUSENKUSS",
+     "https://www.schifffahrtmuseum.de/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Hetjens – Deutsches Keramikmuseum",
+   "ad": "Schulstraße 4, 40213 Düsseldorf, Germany",
+   "w": "Germany's only museum devoted entirely to ceramics, in the Baroque Palais Nesselrode, with exhibits up to 8,000 years old spanning the whole world of pottery and porcelain.",
+   "k": "Carlstadt",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/hetjens-museum-442582fcc8"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Hetjens-Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Heinrich-Heine-Institut",
+   "ad": "Bilker Straße 12-14, 40213 Düsseldorf, Germany",
+   "w": "In patrician houses on Bilker Straße, the world's only Heine museum plus archive and library — a centre of international research on the great poet born in Düsseldorf in 1797.",
+   "k": "Carlstadt",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/heinrich-heine-institute-372ae44d11"
+    ],
+    [
+     "MUSENKUSS",
+     "https://www.musenkuss-duesseldorf.de/anbieter/heinrich-heine-institut"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Aquazoo Löbbecke Museum",
+   "ad": "Kaiserswerther Straße 380, 40474 Düsseldorf, Germany",
+   "w": "A combined aquarium, zoo and natural-history museum (1987) on the edge of Nordpark, showing about 500 species across 25 themed rooms with aquariums, terrariums and a tropical hall.",
+   "k": "Stockum / Nordpark",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/aquazoo-loebbecke-museum-cfdc0641fc"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Aquazoo_%E2%80%93_L%C3%B6bbecke_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Kiefernstraße (Flingern) Street Art",
+   "ad": "Kiefernstraße, 40233 Düsseldorf, Germany",
+   "w": "A former squatters' street now painted end to end — the city's largest continuous artwork and an open-air gallery of murals by local and international artists, at the heart of buzzy, creative Flingern.",
+   "k": "Flingern",
+   "g": [
+    "FREE",
+    "NIGHT",
+    "MUS"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/kiefernstrasse-644701a230"
+    ],
+    [
+     "SWD",
+     "https://www.swd-ag.de/magazin/heimatliebe/duesseldorf-flingern/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "KIT – Kunst im Tunnel",
+   "ad": "Mannesmannufer 1b, 40213 Düsseldorf, Germany",
+   "w": "A contemporary-art space (opened 2007) in a light-filled vault set between the road tunnels beneath the Rhine promenade, showing emerging artists — with a café on the riverbank above.",
+   "k": "Altstadt",
+   "g": [
+    "MUS",
+    "RIVER",
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/kit-kunst-im-tunnel-9df9885198"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kunst_im_Tunnel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "St. Andreas",
+   "ad": "Andreasstraße 27, 40213 Düsseldorf, Germany",
+   "w": "The former court and Jesuit church (1622-29), a key monument of the late Renaissance-into-Baroque, holding the electoral Wittelsbach mausoleum. Cared for by the Dominicans since 1972.",
+   "k": "Altstadt",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/St.-Andreas-Duesseldorf--1291.htm"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/st.-andreas-kirche-catholic-church-8bc2e234bb"
+    ],
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/St._Andreas_(K%C3%B6ln)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Tonhalle Düsseldorf",
+   "ad": "Ehrenhof 1, 40479 Düsseldorf, Germany",
+   "w": "Wilhelm Kreis's domed 1926 planetarium at the Ehrenhof, converted to a concert hall in 1976-78. Its 38 m blue dome, now studded with LEDs for an \"indoor starry sky,\" hosts around 300 concerts a year.",
+   "k": "Pempelfort / Ehrenhof",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/tonhalle-duesseldorf-9b4f1d13f7"
+    ],
+    [
+     "WZ",
+     "https://www.wz.de/nrw/klang-in-kuppel-warum-ein-planetarium-zum-konzerthaus-wurde_bid-147710955"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Botanischer Garten der HHU (Kuppelgewächshaus)",
+   "ad": "Universitätsstraße 1, 40225 Düsseldorf, Germany",
+   "w": "The university's botanical garden in Bilk, whose landmark 18 m filigree dome greenhouse — a Mediterranean \"cold house\" of some 400 species from Australia to California — is a much-loved free retreat.",
+   "k": "Bilk",
+   "g": [
+    "PARK",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NRWTOURISMUS",
+     "https://www.botanischergarten.hhu.de/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Botanical_garden_of_D%C3%BCsseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Dreischeibenhaus & Schauspielhaus",
+   "ad": "Gustaf-Gründgens-Platz 1, 40211 Düsseldorf, Germany",
+   "w": "An icon duo on Gustaf-Gründgens-Platz: HPP's 94 m glass \"three-slice\" tower (1957-60) and Bernhard Pfau's flowing white theatre (1970), postwar-modern landmarks now framed by the green Kö-Bogen II.",
+   "k": "Stadtmitte",
+   "g": [
+    "ARCH",
+    "ICON",
+    "MKT"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Museum-Kunstpalast-Duesseldorf--1188.htm"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/dhaus-duesseldorfer-schauspielhaus-1dcecbfaf5"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Landtag Nordrhein-Westfalen",
+   "ad": "Platz des Landtags 1, 40221 Düsseldorf, Germany",
+   "w": "The state parliament (1988), the first purpose-built Landtag in postwar West Germany: an all-circles composition of round plenary and committee halls facing the Rhine. Free visits by prior registration.",
+   "k": "MedienHafen",
+   "g": [
+    "ARCH",
+    "RIVER",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Landtag-Nordrhein-Westfalen--135.htm"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/landtag-nordrhein-westfalen-state-parliament-205ac921e9"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Jan-Wellem-Reiterdenkmal & Marktplatz",
+   "ad": "Marktplatz, 40213 Düsseldorf, Germany",
+   "w": "Gabriel de Grupello's Baroque equestrian statue (1711) of art-loving Elector Johann Wilhelm II stands before the Renaissance-and-later town hall on the Old Town's Marktplatz — a favourite meeting point.",
+   "k": "Altstadt",
+   "g": [
+    "HIST",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/jan-wellem-reiterdenkmal-equestrian-monument-fa548c510c"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Altes-Rathaus-Duesseldorf--2618.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Kunsthalle Düsseldorf",
+   "ad": "Grabbeplatz 4, 40213 Düsseldorf, Germany",
+   "w": "A rare Brutalist landmark on Grabbeplatz — a 1967 concrete cube on black basalt — showing changing contemporary exhibitions without a permanent collection; listed as a monument in 2024.",
+   "k": "Altstadt",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Kunsthalle-Duesseldorf--1187.htm"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/kunsthalle-duesseldorf-951ad65b4f"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Stadterhebungsmonument",
+   "ad": "Joseph-Wimmer-Gasse, 40213 Düsseldorf, Germany",
+   "w": "Bert Gerresheim's dense bronze tableau (1988) near Burgplatz marks the city's 700th anniversary, depicting the Battle of Worringen that won Düsseldorf its town charter in 1288.",
+   "k": "Altstadt",
+   "g": [
+    "HIST",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/stadterhebungsmonument-city-founding-monument-f2df78ccff"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Stadterhebungsmonument"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Bilker Bunker",
+   "ad": "Aachener Straße 39, 40223 Düsseldorf, Germany",
+   "w": "A 1942 high-rise air-raid bunker, listed since 2014 and reopened in 2023 as an art-and-culture house: rotating exhibitions, performances and the club Schleuse Zwei — concrete meets Bilk's creative scene.",
+   "k": "Bilk",
+   "g": [
+    "ARCH",
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/bilker-bunker-c07f90df6c"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Umbau-Bilker-Bunker--14807.htm"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Roncalli's Apollo Varieté",
+   "ad": "Apollo-Platz 1, 40213 Düsseldorf, Germany",
+   "w": "A 500-seat variety theatre (1997) slotted as a glass box beneath the Rheinkniebrücke beside the Landtag, run in the Roncalli tradition — acrobatics, music and cabaret by the river.",
+   "k": "Altstadt / Rheinufer",
+   "g": [
+    "ARCH",
+    "NIGHT",
+    "RIVER",
+    "ICON"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Apollo-Variete-Duesseldorf--12470.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Apollo_Variet%C3%A9_(D%C3%BCsseldorf)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Alt St. Martin (Bilk)",
+   "ad": "Martinstraße 72, 40223 Düsseldorf, Germany",
+   "w": "Düsseldorf's oldest surviving building: a small tufa church in Bilk whose origins reach back to around 700, with an 12th-century five-storey tower. Once the parish church for the whole settlement.",
+   "k": "Bilk",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Alt_St._Martin_(D%C3%BCsseldorf)"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Alt-St.-Martin-Duesseldorf--2237.htm"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Filmmuseum & Black Box Kino",
+   "ad": "Schulstraße 4, 40213 Düsseldorf, Germany",
+   "w": "The city's film museum in Carlstadt traces the whole history of cinema; its Black Box arthouse cinema (133 seats, with a historic cinema organ for silent films) screens repertory and festival programmes.",
+   "k": "Carlstadt",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/black-box-18bde38bd6"
+    ],
+    [
+     "MUSENKUSS",
+     "https://www.musenkuss-duesseldorf.de/anbieter/filmmuseum-duesseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "St. Rochus (Rochuskirche)",
+   "ad": "Rochusmarkt 5, 40479 Düsseldorf, Germany",
+   "w": "A striking modern church (1953-55) by Paul Schneider-Esleben: a triple-shell, egg-shaped concrete dome — symbol of resurrection — grafted onto the surviving old tower, with fittings by sculptor Ewald Mataré.",
+   "k": "Pempelfort",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/St.-Rochus-Duesseldorf--1092.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Rochuskirche_(D%C3%BCsseldorf)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Wilhelm-Marx-Haus",
+   "ad": "Heinrich-Heine-Allee 53, 40213 Düsseldorf, Germany",
+   "w": "Wilhelm Kreis's 57 m brick tower (1922-24) was Germany's first high-rise and briefly the tallest reinforced-concrete building in Europe. A protected monument at the edge of the Old Town.",
+   "k": "Stadtmitte",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Wilhelm-Marx-Haus"
+    ],
+    [
+     "WZ",
+     "https://www.wz.de/nrw/duesseldorf/wilhelm-marx-haus-ein-rotes-wort-leuchtet-in-der-nacht_aid-29317737"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Südpark",
+   "ad": "Am Südpark, 40225 Düsseldorf, Germany",
+   "w": "At 70 hectares the city's largest and most-visited park, created for the 1987 Bundesgartenschau around the older Volksgarten; three contrasting garden landscapes plus one of the world's largest climbing-net structures.",
+   "k": "Bilk / Wersten",
+   "g": [
+    "PARK",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WZ",
+     "https://www.wz.de/nrw/duesseldorf/25-jahre-suedpark-der-beliebteste-park-der-stadt_aid-30363247"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/S%C3%BCdpark_(D%C3%BCsseldorf)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Kölner Dom",
+   "ad": "Domkloster 4, 50667 Köln, Germany",
+   "w": "Cologne's Gothic cathedral of St Peter, begun 1248 and completed 1880, is a UNESCO World Heritage Site and Germany's most-visited landmark. Climb the 533 steps of the south tower for the city view; inside are the Shrine of the Three Kings and the Gerhard Richter window.",
+   "k": "Gothic cathedral, UNESCO",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://www.unesco.de/kultur-und-natur/welterbe/welterbe-deutschland/koelner-dom"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/koelner-dom"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Domschatzkammer Köln",
+   "ad": "Domkloster 4, 50667 Köln, Germany",
+   "w": "The cathedral treasury, set in the vaulted 13th-century cellars on the Dom's north side, holds reliquaries, medieval liturgical vessels and vestments spanning the 4th to 20th centuries.",
+   "k": "Cathedral treasury",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/koelner-dom/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Groß St. Martin",
+   "ad": "An Groß St. Martin 9, 50667 Köln, Germany",
+   "w": "The tall crossing tower of this Romanesque basilica dominates the Rhine-side Altstadt skyline beside the Fischmarkt. One of Cologne's twelve great Romanesque churches, rebuilt after WWII.",
+   "k": "Romanesque basilica",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de/martin"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "St. Gereon",
+   "ad": "Gereonsdriesch 2-4, 50670 Köln, Germany",
+   "w": "A former collegiate church whose extraordinary ten-sided ribbed decagon (c. 1220) is one of the largest domed spaces built between antiquity and the Renaissance. Among the twelve Romanesque churches.",
+   "k": "Romanesque decagon",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/St._Gereon%27s_Basilica,_Cologne"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "St. Aposteln",
+   "ad": "Apostelnkloster 10, 50667 Köln, Germany",
+   "w": "A late-Romanesque basilica on the Neumarkt with a striking eastern trefoil (three-apse) choir and a tall central tower. One of Cologne's twelve Romanesque churches.",
+   "k": "Romanesque, trefoil choir",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MKT"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de/aposteln"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "St. Maria im Kapitol",
+   "ad": "Kasinostraße 6, 50676 Köln, Germany",
+   "w": "Built on the Roman capitol, this 11th-century church has a rare trefoil east end and famous carved wooden doors of c. 1065. One of the twelve Romanesque churches and among the finest.",
+   "k": "Romanesque, carved doors",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/st-maria-im-kapitol"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "St. Severin",
+   "ad": "Im Ferkulum 29, 50678 Köln, Germany",
+   "w": "A Romanesque and Gothic basilica in the Südstadt over a late-Roman burial ground; excavations beneath revealed graves from the 4th century. One of the twelve Romanesque churches.",
+   "k": "Romanesque basilica",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/kirchen/st-severin_615204.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "St. Pantaleon",
+   "ad": "Am Pantaleonsberg 8, 50676 Köln, Germany",
+   "w": "One of Cologne's oldest churches, an Ottonian foundation with a monumental 10th-century westwork and the tomb of Empress Theophanu. Among the twelve Romanesque churches.",
+   "k": "Ottonian westwork",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "St. Kunibert",
+   "ad": "Kunibertsklostergasse 2, 50668 Köln, Germany",
+   "w": "The last of the great Romanesque churches to be completed (1247), on the northern Rhine bank, keeping fine early-13th-century stained glass. One of the twelve Romanesque churches.",
+   "k": "Late Romanesque, stained glass",
+   "g": [
+    "ARCH",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de/m/index.php?id=30"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/romanische-kirchen-in-koeln/st-kunibert/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "St. Ursula",
+   "ad": "Ursulaplatz 24, 50668 Köln, Germany",
+   "w": "Built over a Roman cemetery and dedicated to St Ursula and her companions; its Baroque Golden Chamber (Goldene Kammer) is lined with bones and reliquary busts. One of the twelve Romanesque churches.",
+   "k": "Golden Chamber, relics",
+   "g": [
+    "ARCH",
+    "HIST",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "St. Georg",
+   "ad": "Waidmarkt / Georgstraße, 50676 Köln, Germany",
+   "w": "An 11th-century pillared basilica near the Waidmarkt, the only fully preserved flat-roofed Romanesque columned church in the Rhineland. One of the twelve Romanesque churches.",
+   "k": "Romanesque columned basilica",
+   "g": [
+    "ARCH",
+    "HIST",
+    "RIVER",
+    "MKT"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de/georg"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/kirchen/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "St. Maria Lyskirchen",
+   "ad": "An Lyskirchen 10, 50676 Köln, Germany",
+   "w": "The smallest of the twelve Romanesque churches, near the Rhine in the Martinsviertel, with a vaulted nave carrying rare 13th-century ceiling frescoes.",
+   "k": "Romanesque, ceiling frescoes",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MUS",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "ROMANISCHEKIRCHEN",
+     "https://www.romanische-kirchen-koeln.de/marialyskirchen"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/romanische-kirchen-in-koeln/maria-lyskirchen/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Museum Ludwig",
+   "ad": "Heinrich-Böll-Platz, 50667 Köln, Germany",
+   "w": "One of Europe's great collections of 20th- and 21st-century art beside the Dom: the largest Pop Art holdings outside the US, a major Picasso collection and Russian avant-garde.",
+   "k": "Modern & Pop Art",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/museum-ludwig/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Wallraf-Richartz-Museum & Fondation Corboud",
+   "ad": "Obenmarspforten 40, 50667 Köln, Germany",
+   "w": "Cologne's oldest museum, spanning medieval Cologne panel painting through Rubens, Rembrandt and a superb Impressionist and Post-Impressionist gallery (Fondation Corboud).",
+   "k": "Old Masters to Impressionism",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WALLRAF",
+     "https://www.wallraf.museum"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Römisch-Germanisches Museum",
+   "ad": "Cäcilienstraße 46, 50667 Köln, Germany",
+   "w": "Cologne's Roman archaeology museum (temporarily in the Belgisches Haus during renovation), showing the Dionysus mosaic, the Poblicius tomb and everyday finds from Roman Colonia.",
+   "k": "Roman archaeology",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/roemisch-germanisches-museum/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Schokoladenmuseum",
+   "ad": "Am Schokoladenmuseum 1a, 50678 Köln, Germany",
+   "w": "A glass ship-shaped museum at the tip of the Rheinauhafen tracing 4,000 years of chocolate, with a working production line and a chocolate fountain. One of Cologne's most popular attractions.",
+   "k": "Chocolate museum",
+   "g": [
+    "MUS",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Kolumba",
+   "ad": "Kolumbastraße 4, 50667 Köln, Germany",
+   "w": "The Archdiocese's art museum, Peter Zumthor's celebrated building rising over the ruins of the Gothic St Kolumba church and its 1950 'Madonna of the Ruins' chapel; sacred and contemporary art shown together.",
+   "k": "Zumthor architecture, art",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOLUMBA",
+     "https://www.kolumba.de"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/kolumba"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "MAKK – Museum für Angewandte Kunst",
+   "ad": "An der Rechtschule 7, 50667 Köln, Germany",
+   "w": "The applied-arts museum near the Dom, strong in design, Bauhaus, furniture, fashion and jewellery from the Middle Ages to the present.",
+   "k": "Design & applied art",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MAKK",
+     "https://makk.de"
+    ],
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Käthe Kollwitz Museum",
+   "ad": "Neumarkt 18-24, 50667 Köln, Germany",
+   "w": "The world's largest collection of the Cologne-born artist Käthe Kollwitz, holding her drawings, prints and sculptures in the Neumarkt-Passage.",
+   "k": "Kollwitz collection",
+   "g": [
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOLLWITZ",
+     "https://www.kollwitz.de"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/veranstaltungsort/kaethe-kollwitz-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Museum Schnütgen",
+   "ad": "Cäcilienstraße 29, 50667 Köln, Germany",
+   "w": "Medieval religious art displayed inside the Romanesque church of St Cäcilien: ivories, stained glass, textiles and sculpture. One of the finest medieval collections in Germany.",
+   "k": "Medieval sacred art",
+   "g": [
+    "MUS",
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/museum-schnuetgen/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Schn%C3%BCtgen_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Rautenstrauch-Joest-Museum",
+   "ad": "Cäcilienstraße 29-33, 50667 Köln, Germany",
+   "w": "Cologne's ethnology museum ('Cultures of the World') in the Kulturquartier am Neumarkt, praised for its thematic, non-colonial re-hang of world cultures.",
+   "k": "World cultures / ethnology",
+   "g": [
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/rautenstrauch-joest-museum/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Museum für Ostasiatische Kunst",
+   "ad": "Universitätsstraße 100, 50674 Köln, Germany",
+   "w": "Germany's oldest museum of East Asian art, in a serene 1970s pavilion by Kunio Maekawa beside the Aachener Weiher, with Chinese, Japanese and Korean painting, lacquer and Buddhist art.",
+   "k": "East Asian art",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/museum-fuer-ostasiatische-kunst/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/museum-fuer-ostasiatische-kunst"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Kölnisches Stadtmuseum",
+   "ad": "Minoritenstraße 13, 50667 Köln, Germany",
+   "w": "The city-history museum (reopened 2024 in a former department store near the Dom) telling Cologne's story from Roman Colonia through Carnival, eau de Cologne and the modern city.",
+   "k": "City history",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/koelnisches-stadtmuseum/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/koelnisches-stadtmuseum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "NS-Dokumentationszentrum (EL-DE-Haus)",
+   "ad": "Appellhofplatz 23-25, 50667 Köln, Germany",
+   "w": "The former Cologne Gestapo headquarters, now a memorial and documentation centre; the preserved basement prison cells still carry hundreds of prisoners' wall inscriptions.",
+   "k": "Nazi-era memorial",
+   "g": [
+    "MUS",
+    "HIST",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museenkoeln.de/ns-dokumentationszentrum/"
+    ],
+    [
+     "STADTKOELN",
+     "https://www.stadt-koeln.de"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Odysseum",
+   "ad": "Corintostraße 1, 51103 Köln, Germany",
+   "w": "A large hands-on science and adventure museum in Kalk, with interactive experiments, a dinosaur world and climbing structures; a family favourite.",
+   "k": "Science / family museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Duftmuseum im Farina-Haus",
+   "ad": "Obenmarspforten 21, 50667 Köln, Germany",
+   "w": "The birthplace of Eau de Cologne: Johann Maria Farina created the original 'Kölnisch Wasser' here in 1709, and the guided fragrance tour tells the world's oldest perfume-house story.",
+   "k": "Eau de Cologne origin",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/duftmuseum-im-farina-haus"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Dufthaus 4711",
+   "ad": "Glockengasse 4, 50667 Köln, Germany",
+   "w": "The neo-Gothic house of 4711 on the Glockengasse, home of the famous Echt Kölnisch Wasser; a fragrance fountain runs at the entrance and there is a small museum floor.",
+   "k": "4711 cologne",
+   "g": [
+    "HIST",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Historisches Rathaus",
+   "ad": "Rathausplatz 2, 50667 Köln, Germany",
+   "w": "Germany's oldest city hall, with a Gothic council tower carrying 124 sculptures and an elegant Renaissance loggia facing the Alter Markt; a carillon rings out daily.",
+   "k": "Historic town hall",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/historisches-rathaus"
+    ],
+    [
+     "STADTKOELN",
+     "https://www.stadt-koeln.de/artikel/05391/index.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Praetorium – Römischer Statthalterpalast",
+   "ad": "Kleine Budengasse 1-3, 50667 Köln, Germany",
+   "w": "The underground remains of the Roman governor's palace of Lower Germania, beneath the Rathaus, with a stretch of Roman sewer you can walk through.",
+   "k": "Roman governor's palace",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Alter Markt",
+   "ad": "Alter Markt, 50667 Köln, Germany",
+   "w": "Cologne's most traditional square in the Altstadt, ringed by gabled houses and pubs, home of the Jan von Werth fountain and a hub of Carnival street life.",
+   "k": "Historic square",
+   "g": [
+    "MKT",
+    "HIST",
+    "ICON",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/koelner-altstadt"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Alter_Markt_(K%C3%B6ln)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Heumarkt",
+   "ad": "Heumarkt, 50667 Köln, Germany",
+   "w": "Cologne's largest Altstadt square, laid out in Roman times, with the great equestrian monument to Friedrich Wilhelm III and, in winter, one of the city's main Christmas markets.",
+   "k": "Square, Christmas market",
+   "g": [
+    "MKT",
+    "HIST",
+    "ICON",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Heumarkt_(K%C3%B6ln)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Gürzenich",
+   "ad": "Martinstraße 29-37, 50667 Köln, Germany",
+   "w": "Cologne's late-Gothic festival and banqueting hall of 1447, Germany's oldest congress house, still the grand ballroom of Carnival and city celebrations.",
+   "k": "Gothic festival hall",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "STADTKOELN",
+     "https://www.stadt-koeln.de/artikel/71967/index.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Römerturm",
+   "ad": "Am Römerturm 3, 50667 Köln, Germany",
+   "w": "The best-preserved corner tower of the Roman city wall (1st century AD), still showing its decorative bands of coloured stonework at the northwest corner of ancient Colonia.",
+   "k": "Roman wall tower",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/R%C3%B6merturm_(K%C3%B6ln)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Hohenzollernbrücke",
+   "ad": "Hohenzollernbrücke, 50667 Köln, Germany",
+   "w": "The great rail-and-pedestrian arch bridge behind the Dom, whose fences carry hundreds of thousands of love locks; the classic vantage for the cathedral-and-Rhine skyline.",
+   "k": "Bridge, love locks",
+   "g": [
+    "RIVER",
+    "ICON",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Kranhäuser",
+   "ad": "Im Zollhafen, 50678 Köln, Germany",
+   "w": "The three inverted-L 'crane houses' rising over the Rheinauhafen, Cologne's signature contemporary architecture, echoing the harbour's old loading cranes.",
+   "k": "Modern crane-shaped towers",
+   "g": [
+    "RIVER",
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Rheinauhafen",
+   "ad": "Rheinauhafen, 50678 Köln, Germany",
+   "w": "A former harbour peninsula reborn as a riverfront quarter of offices, galleries and restaurants below the Kranhäuser, a favourite promenade south of the Altstadt.",
+   "k": "Redeveloped harbour quarter",
+   "g": [
+    "RIVER",
+    "FREE",
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "KölnTriangle Panorama",
+   "ad": "Ottoplatz 1, 50679 Köln, Germany",
+   "w": "An open rooftop viewing platform 100 m up in Deutz, giving the best full-frontal panorama of the Dom, the Rhine bridges and the Altstadt skyline.",
+   "k": "Rooftop viewpoint",
+   "g": [
+    "RIVER",
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/koelntriangle"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C3%B6lntriangle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Rheinboulevard Deutz",
+   "ad": "Rheinboulevard, 50679 Köln, Germany",
+   "w": "A wide flight of riverbank steps on the Deutz side, facing the Dom across the Rhine; on warm evenings the whole city seems to sit here to watch the sunset over the Altstadt.",
+   "k": "Riverbank steps",
+   "g": [
+    "RIVER",
+    "FREE",
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Fischmarkt",
+   "ad": "Fischmarkt, 50667 Köln, Germany",
+   "w": "A tiny riverside square of tall, brightly painted gabled houses beneath Groß St. Martin, the most photographed corner of the old Altstadt.",
+   "k": "Painted gabled houses",
+   "g": [
+    "MKT",
+    "RIVER",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten/detail/koelner-altstadt"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Flora und Botanischer Garten",
+   "ad": "Amsterdamer Straße 34, 50735 Köln, Germany",
+   "w": "Cologne's botanical garden, combining a grand 1864 glass Festhalle and formal parterres with greenhouses and themed gardens; free to enter and beloved by locals.",
+   "k": "Botanical garden",
+   "g": [
+    "PARK",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "STADTKOELN",
+     "https://www.stadt-koeln.de/artikel/05256/index.html"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Kölner Zoo",
+   "ad": "Riehler Straße 173, 50735 Köln, Germany",
+   "w": "One of Germany's oldest zoos (1860), known for its elephant park, hippodrome-style Antelope House and rainforest hall, on the Rhine's left bank in Riehl.",
+   "k": "Zoo",
+   "g": [
+    "PARK",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Kölner Seilbahn",
+   "ad": "Riehler Straße 180, 50735 Köln, Germany",
+   "w": "Germany's first cable car to cross a river (1957), gliding over the Rhine between the Zoo/Flora and the Rheinpark; a short, scenic ride with skyline views.",
+   "k": "Rhine cable car",
+   "g": [
+    "RIVER",
+    "PARK"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Rheinpark",
+   "ad": "Rheinparkweg, 50679 Köln, Germany",
+   "w": "A large landscaped riverside park on the Deutz bank, laid out for the 1957 garden show, with lawns, water features and the little Rheinpark miniature railway; the cable car lands here.",
+   "k": "Riverside park",
+   "g": [
+    "PARK",
+    "RIVER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "STADTKOELN",
+     "https://www.stadt-koeln.de"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Claudius Therme",
+   "ad": "Sachsenbergstraße 1, 50679 Köln, Germany",
+   "w": "A thermal-bath and sauna spa fed by a mineral spring, set in the greenery of the Rheinpark with outdoor pools looking across the Rhine.",
+   "k": "Thermal spa",
+   "g": [
+    "PARK",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Melaten-Friedhof",
+   "ad": "Aachener Straße 204, 50931 Köln, Germany",
+   "w": "Cologne's grand 19th-century cemetery and arboretum, a park of ornate mausoleums and famous graves that doubles as a peaceful nature walk within the city.",
+   "k": "Historic cemetery park",
+   "g": [
+    "PARK",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MELATEN",
+     "https://melatenfriedhof.de/friedhof/information/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Skulpturenpark Köln",
+   "ad": "Elsa-Brändström-Straße 9, 50668 Köln, Germany",
+   "w": "A free open-air museum of contemporary sculpture on the Rhine's left bank near the Zoobrücke, its display of works rotating every two years.",
+   "k": "Sculpture park",
+   "g": [
+    "PARK",
+    "MUS",
+    "FREE",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "MUSEENKOELN",
+     "https://www.museen.koeln/en/visit/museums/sculpture-park"
+    ],
+    [
+     "STADTKOELN",
+     "https://www.stadt-koeln.de/artikel/08116/index.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Stadtgarten",
+   "ad": "Venloer Straße 40, 50672 Köln, Germany",
+   "w": "A leafy Neustadt park wrapped around a famous jazz venue and beer garden, a green meeting point on the edge of the Belgisches Viertel.",
+   "k": "Park, jazz & beer garden",
+   "g": [
+    "PARK",
+    "NIGHT",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Belgisches Viertel",
+   "ad": "Brüsseler Platz, 50674 Köln, Germany",
+   "w": "Cologne's most stylish quarter, its streets named after Belgian cities lined with independent boutiques, galleries, bars and restaurants; on summer nights crowds gather on the steps of St Michael on Brüsseler Platz.",
+   "k": "Design & nightlife quarter",
+   "g": [
+    "NIGHT",
+    "FREE",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Kwartier Latäng (Zülpicher Viertel)",
+   "ad": "Zülpicher Straße, 50674 Köln, Germany",
+   "w": "Cologne's student quarter around the Zülpicher Straße and Rathenauplatz, an intense run of bars, kebab shops, live-music clubs and cheap eats near the university.",
+   "k": "Student nightlife quarter",
+   "g": [
+    "NIGHT",
+    "FREE",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://magazin.koelntourismus.de/koelle/kwartier-lataeng/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/veranstaltungen/ll/das-sind-angesagte-clubs-in-koeln/clubs-am-zuelpicher-platz/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Ehrenfeld",
+   "ad": "Venloer Straße, 50823 Köln, Germany",
+   "w": "A former industrial district turned Cologne's creative heart: street art, the Heliosturm, multicultural Venloer Straße food, roasteries, clubs and Turkish Keupstraße nearby.",
+   "k": "Creative multicultural quarter",
+   "g": [
+    "NIGHT",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Südstadt (Chlodwigplatz)",
+   "ad": "Chlodwigplatz, 50678 Köln, Germany",
+   "w": "The easy-going southern Altstadt quarter around the Chlodwigplatz and Severinstorburg, full of pavement cafés, Veedel pubs and the Carnival heartland of the 'Vringsveedel'.",
+   "k": "Café & Veedel quarter",
+   "g": [
+    "NIGHT",
+    "FREE",
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Nippes (Wilhelmplatz)",
+   "ad": "Wilhelmplatz, 50733 Köln, Germany",
+   "w": "A down-to-earth residential Veedel north of the centre, with a lively weekly market on the Wilhelmplatz and a genuine neighbourhood feel away from the tourist trail.",
+   "k": "Neighbourhood market square",
+   "g": [
+    "NIGHT",
+    "MKT",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/sehenswertes/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Deutz (Deutzer Freiheit)",
+   "ad": "Deutzer Freiheit, 50679 Köln, Germany",
+   "w": "The right-bank quarter facing the Dom, combining the Rheinboulevard and KölnTriangle with an everyday high street and old Kölsch pubs like the Lommi.",
+   "k": "Right-bank quarter",
+   "g": [
+    "NIGHT",
+    "RIVER",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Deutz,_Cologne"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Kölner Philharmonie",
+   "ad": "Bischofsgartenstraße 1, 50667 Köln, Germany",
+   "w": "One of Europe's leading concert halls, its amphitheatre auditorium tucked beneath the Museum Ludwig on the Heinrich-Böll-Platz beside the Dom; home to the Gürzenich-Orchester and WDR Symphony.",
+   "k": "Concert hall",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/kunst-kultur/sehenswuerdigkeiten"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/veranstaltungsort/koelner-philharmonie/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Hahnentorburg",
+   "ad": "Rudolfplatz, 50672 Köln, Germany",
+   "w": "One of the four surviving medieval city gates of Cologne (of an original twelve), the western gate towards Aachen on the Rudolfplatz, through which emperors once entered the city.",
+   "k": "Medieval city gate",
+   "g": [
+    "HIST",
+    "FREE",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2024/11-orte-an-denen-du-das-alte-koeln-erleben-kannst/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Hahnentorburg"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Brauhaus Bönnsch",
+   "ad": "Sterntorbrücke 4, 53111 Bonn, Germany",
+   "w": "Bonn's own brewpub, pouring the naturally cloudy Bönnsch it has brewed for forty years — the beer is also the name of the Bonn dialect. Rhenish plates, a barrel-vault room and a beer garden by the Sterntor.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/gastro/brauhaus-boennsch"
+    ],
+    [
+     "GA",
+     "https://www.general-anzeiger-bonn.de/freizeit/gastro-szene/Diese-typisch-rheinischen-Gerichte-haben-Tradition-article4033882.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Em Höttche",
+   "ad": "Markt 4, 53111 Bonn, Germany",
+   "w": "A gasthaus on the market square with a tradition reaching back to 1389 — Bonn's oldest — and the address for uncompromisingly Rhenish cooking: Sauerbraten, Halve Hahn and Reibekuchen. Summer terrace right on the Markt.",
+   "cz": [
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GA",
+     "https://www.general-anzeiger-bonn.de/freizeit/gastro-szene/Diese-typisch-rheinischen-Gerichte-haben-Tradition-article4033882.html"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.meet-bonn-region.de/gastro/em-hoettche"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Im Sudhaus",
+   "ad": "Friedensplatz 10, 53111 Bonn, Germany",
+   "w": "A central brewery-restaurant serving hearty Rhenish home cooking — Reibekuchen, Sauerbraten and Brauhaus plates — in a relaxed city-centre gasthaus.",
+   "cz": [
+    "GER",
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/gastro/im-sudhaus"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Maternus",
+   "ad": "Löbestraße 3, 53173 Bonn, Germany",
+   "w": "Founded 1931, the Bad Godesberg restaurant and Weinhaus that was the canteen of the Bonn Republic — every US president from Truman to Reagan, plus de Gaulle and Gorbachev, dined in its wood-panelled rooms under legendary host Ria Maternus.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GA",
+     "http://www.general-anzeiger-bonn.de/freizeit/gastro-szene/Neues-Leben-f%C3%BCrs-Maternus-article916895.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "halbedel's Gasthaus",
+   "ad": "Rheinallee 47, 53173 Bonn, Germany",
+   "w": "Bonn's flagship gourmet address, a Michelin-starred kitchen in a Wilhelminian villa in Bad Godesberg turning out refined modern French cooking. A star holder for many years running.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/bonn/restaurant/halbedel-s-gasthaus"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/halbedels-bonn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Yunico",
+   "ad": "Am Bonner Bogen 1, 53227 Bonn, Germany",
+   "w": "A Michelin-starred Japanese fine-dining room on the top floor of the Kameha Grand with sweeping Rhine views, chef Christian Sturm-Willms plating a contemporary omakase and one of Germany's deepest sake lists.",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/bonn/restaurant/yunico"
+    ],
+    [
+     "FEINSCHMECKER",
+     "https://www.feinschmecker.de/restaurant/de/bonn/yunico-japanese-fine-dining-bc"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Strandhaus",
+   "ad": "Georgstraße 28, 53111 Bonn, Germany",
+   "w": "A beach-house-styled Michelin Guide restaurant in the Altstadt since 2000, doing fresh, seasonal Mediterranean plates in a maritime, laid-back setting.",
+   "cz": [
+    "INT",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/bonn/restaurant/strandhaus"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/gastro/strandhaus"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Redüttchen",
+   "ad": "Kurfürstenallee 1, 53177 Bonn, Germany",
+   "w": "A Michelin Guide restaurant and wine bar (two Hauben) in the former gardener's cottage of the La Redoute ballhouse, where chef Matthias Pietsch marries regional produce with international finesse.",
+   "cz": [
+    "FINE",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/bonn/restaurant/reduttchen"
+    ],
+    [
+     "GUSTO",
+     "https://www.gusto-online.de/oliveto.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Oliveto",
+   "ad": "Adenauerallee 9, 53111 Bonn, Germany",
+   "w": "The Michelin Guide Italian in the AMERON Hotel Königshof, right on the Rhine promenade — polished Italian cooking with river views from the room and terrace.",
+   "cz": [
+    "INT",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/gb/en/nordrhein-westfalen/bonn/restaurant/oliveto"
+    ],
+    [
+     "FEINSCHMECKER",
+     "https://www.feinschmecker.de/restaurant/de/bonn/oliveto-70"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Konrad's",
+   "ad": "Platz der Vereinten Nationen 4, 53113 Bonn, Germany",
+   "w": "A Michelin-Plate restaurant and skybar on the 17th floor of the Bonn Marriott, floor-to-ceiling windows over the city, doing modern Mediterranean-leaning cooking.",
+   "cz": [
+    "FINE",
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/bonn/restaurants"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/konrads-restaurant-bar-bonn"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Kaspars — CLOSED",
+   "ad": "Rosental 105, 53111 Bonn, Germany",
+   "w": "The Michelin-starred riverside room of brothers Felix and Lukas Kaspar (star from 2017) closed permanently at year's end, citing chronic gastronomy staff shortages. Listed for the record; no longer operating.",
+   "closed": true,
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/de/de/best-of/die-besten-restaurants-in-bonn"
+    ],
+    [
+     "TAGESKARTE",
+     "https://www.tageskarte.io/gastronomie/detail/personalmangel-bonner-sternerestaurant-kaspars-macht-dicht.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Godesburg",
+   "ad": "Auf dem Godesberg 5, 53177 Bonn, Germany",
+   "w": "Dining in the ruins of the Godesburg, in Gottfried Böhm's 1960 building, with a knight's hall, bar and terrace high above Bad Godesberg — German and Mediterranean cooking with a Siebengebirge view.",
+   "cz": [
+    "GER",
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SCHLEMMERATLAS",
+     "https://www.schlemmer-atlas.de/restaurants/deutschland/bonn/godesburg/"
+    ],
+    [
+     "BONNDE",
+     "https://www.bonn.de/bonn-erleben/besichtigen-entdecken/godesburg.php"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Godesburg"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Rheinhotel Dreesen",
+   "ad": "Rheinstraße 45-49, 53179 Bonn, Germany",
+   "w": "The Gobelin restaurant of an 1894 Art-Nouveau grand hotel on the Bad Godesberg riverfront, still run by the founding family — classic German cuisine and one of Bonn's finest Rhine terraces.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-31984-20120120-2"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rheinhotel_Dreesen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BONN",
+   "n": "Cassius Garten",
+   "ad": "Maximilianstraße 28d, 53111 Bonn, Germany",
+   "w": "A Bonn institution opposite the Hauptbahnhof: a big self-service wholefood buffet, cooked in-house from largely organic produce for over three decades, now largely vegan, with cakes and ice cream too.",
+   "cz": [
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GA",
+     "http://www.general-anzeiger-bonn.de/freizeit/gastro-szene/Kennen-Sie-diese-veganen-Restaurants-und-Caf%C3%A9s-in-Bonn-article3507386.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Mr. and Mrs. Humus",
+   "ad": "Kaiser-Karl-Ring 27, 53111 Bonn, Germany",
+   "w": "A small, colourful Nordstadt spot for Israeli/Levantine cooking — the hummus, freshly baked pita and shakshuka draw a devoted following. One of the highest-rated tables in the city.",
+   "cz": [
+    "INT",
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GA",
+     "http://www.general-anzeiger-bonn.de/freizeit/gastro-szene/Kennen-Sie-diese-veganen-Restaurants-und-Caf%C3%A9s-in-Bonn-article3507386.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Café Blau",
+   "ad": "Franziskanerstraße 9, 53113 Bonn, Germany",
+   "w": "A relaxed student-and-professor favourite set in the entrance hall of a former swimming pool, doing breakfast, brunch, pasta, salads and cake all day. Named among the city's best breakfast cafés by the General-Anzeiger.",
+   "cz": [
+    "CAFE",
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GA",
+     "https://general-anzeiger-bonn.de/bonn/diese-bonner-cafes-bieten-fruehstueck-und-brunch_aid-43401361"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Café Spitz",
+   "ad": "Sterntorbrücke 10, 53111 Bonn, Germany",
+   "w": "A long-running city-centre café doing generous all-day breakfast, tapas, bowls and Mediterranean plates from morning to late — a General-Anzeiger pick for breakfast and brunch.",
+   "cz": [
+    "CAFE",
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GA",
+     "https://general-anzeiger-bonn.de/bonn/diese-bonner-cafes-bieten-fruehstueck-und-brunch_aid-43401361"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BONN",
+   "n": "Der Kaffeeladen",
+   "ad": "Obere Wilhelmstraße 25, 53225 Bonn, Germany",
+   "w": "A small specialty roastery-café in Beuel, founded 2013 alongside the Bonner Kaffeeschule barista academy — freshly roasted single origins as espresso and filter, plus beans to take home.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.bonner-kaffeeschule.de/kaffeeszene-bonn-drei-gruender-zwei-konzepte-standort/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BONN",
+   "n": "Café Profittlich",
+   "ad": "Drachenfelsstraße 21, 53604 Bad Honnef-Rhöndorf, Germany",
+   "w": "A famed traditional Konditorei in a 1731 half-timbered house at the foot of the Drachenfels, run by the Profittlich family since 1892 and known far beyond the region for its Herrentorte and Stollen — a fine stop on the Drachenfels day-trip.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEINSCHMECKER",
+     "https://www.feinschmecker.de/coffeeShop/de/bad-honnef/caf%C3%A9-profittlich-f1"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/cafes/cafe-profittlich"
+    ],
+    [
+     "BONNTOURISMUS",
+     "https://www.visit-bonn-region.de/gastro/cafe-profittlich"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Uerige",
+   "ad": "Berger Straße 1, 40213 Düsseldorf, Germany",
+   "w": "The archetypal Düsseldorf brewhouse, brewing dark, hoppy-bitter Altbier in the Old Town since 1862 — regularly voted among Germany's best beers, poured from the wood by Köbes and drunk standing at the copper counter. Its twice-yearly Sticke is a cult event.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Uerige"
+    ],
+    [
+     "OFFICIAL",
+     "https://uerige.de/en/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Brauerei im Füchschen",
+   "ad": "Ratinger Straße 28, 40213 Düsseldorf, Germany",
+   "w": "A boisterous house brewery on Ratinger Straße pouring Füchschen Alt (brewed here since 1848) alongside hearty Rhenish plates — the roast Schweinshaxe is the classic order. A carnival institution.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/brewery-im-fuechschen-6d7099e780"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Brauerei_im_F%C3%BCchschen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Brauerei Schumacher / Stammhaus",
+   "ad": "Oststraße 123, 40210 Düsseldorf, Germany",
+   "w": "Founded 1838, the oldest of the city's house breweries and cradle of Düsseldorf Altbier: Schumacher Alt has been brewed to family recipe for over 175 years, served with Rhenish cooking on Oststraße and at the Old-Town Stammhaus \"Im goldenen Kessel.\"",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/dusseldorf/bars-and-pubs/brauerei-ferdinand-schumacher"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Brauerei_Schumacher"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Hausbrauerei Zum Schlüssel",
+   "ad": "Bolkerstraße 41-47, 40213 Düsseldorf, Germany",
+   "w": "A big, convivial Bolkerstraße brewhouse pouring full-bodied Schlüssel Alt (brewed on-site since 1850, a European Beer Star gold winner) with classic brauhaus fare in the thick of the \"longest bar.\"",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/brewery-zum-schluessel-664df56165"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Brauerei_zum_Schl%C3%BCssel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Brauerei Kürzer",
+   "ad": "Kurze Straße 18-20, 40213 Düsseldorf, Germany",
+   "w": "The youngest of the five house breweries (2010): a modern, kitsch-free Altbier bar on Kurze Straße where the copper brewing kit sits right in the room and Kürzer Alt is drawn a few steps from where it's made.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/brewery-kuerzer-1c00c2a104"
+    ],
+    [
+     "SWD",
+     "https://www.swd-ag.de/magazin/heimatliebe/bierbrauen/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Frankenheim Brauereiausschank",
+   "ad": "Wielandstraße 12-14, 40211 Düsseldorf, Germany",
+   "w": "The tavern of the Frankenheim private brewery (founded 1873), pouring its top-fermented Alt in great quantity across three big rooms and a beer garden, with rustic Rhenish specialities.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/brewery-frankenheim-7303396a3b"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/die-besten-brauhaeuser-in-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Brauerei zur Uel",
+   "ad": "Ratinger Straße 16, 40213 Düsseldorf, Germany",
+   "w": "A historic Ratinger-Straße brauhaus with 18th-century roots, named for its owl-filled rooms (Uel = Eule), serving gutbürgerliche Rhenish plates and Füchschen Alt in the Old Town's liveliest pub row.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Zur_Uel"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/attractions/brauerei-zur-uel"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Brauhaus Joh. Albrecht",
+   "ad": "Niederkasseler Straße 104, 40547 Düsseldorf, Germany",
+   "w": "A listed brewhouse on the left bank in Niederkassel, brewing and cooking in a former Kornbrennerei building for nearly 30 years — its own rotating beers with hearty German fare.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SCHLEMMERATLAS",
+     "https://www.schlemmer-atlas.de/restaurants/deutschland/duesseldorf/brauhaus-joh-albrecht/"
+    ],
+    [
+     "PRINZ",
+     "https://prinz.de/duesseldorf/locations/101855-brauhaus-joh-albrecht-1/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Brauerei zum Schiffchen — CLOSED",
+   "ad": "Hafenstraße 5, 40213 Düsseldorf, Germany",
+   "w": "Düsseldorf's oldest restaurant (established 1628, where Napoleon dined in 1811) and a byword for original Old-Town dining. CLOSED since autumn 2024 pending renovation; kept here as heritage, not a live tip.",
+   "closed": true,
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Brauerei_%E2%80%9Ezum_Schiffchen%E2%80%9C"
+    ],
+    [
+     "THEDUESSELDORFER",
+     "https://www.viernull.de/wirtschaft-und-wohnen/zum-schiffchen-in-der-altstadt-kurz-vorm-400-geburtstag-ein-wrack/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Takumi",
+   "ad": "Immermannstraße 28, 40210 Düsseldorf, Germany",
+   "w": "Little Tokyo's most famous ramen house, in Sapporo style — broths simmered up to eight hours, red-miso, shoyu and tonkotsu bowls plus tantanmen. So popular it has spun off several nearby siblings.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2018/ramen-wie-in-japan-original-ramen-bei-takumi-in-duesseldorf/"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/poi/detail/takumi-9757e67f9b"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Naniwa",
+   "ad": "Oststraße 55, 40211 Düsseldorf, Germany",
+   "w": "Open in Little Tokyo since 1986 and still the reference for ramen — house-made noodles in robust shio, shoyu and miso broths, plus gyoza and yakisoba. The daily queue is part of the ritual.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANDIGEST",
+     "https://www.japandigest.de/japan-in-deutschland/genuss/naniwa/"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/top-spots-in-little-tokyo-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Maruyasu",
+   "ad": "Immermannstraße 11, 40210 Düsseldorf, Germany",
+   "w": "A family-run, self-service Japanese diner on Immermannstraße: pick sushi, bento, tempura and udon from the case and settle at the counter. Founder Akio Ando helped introduce raw fish to the city in 1995.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/poi/detail/maruyasu-22358dfe4b"
+    ],
+    [
+     "BENTODAISUKI",
+     "https://bento-daisuki.de/fundstellen/restaurants/maruyasu-2342/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Yabase",
+   "ad": "Klosterstraße 70, 40211 Düsseldorf, Germany",
+   "w": "An unadorned, deeply authentic Little-Tokyo Japanese where much of the room is Japanese business diners — widely rated the city's best sushi, with very fresh, precise nigiri and sashimi. Reservations essential.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/Lieblingslaeden/yabase/"
+    ],
+    [
+     "PRINZ",
+     "https://prinz.de/duesseldorf/locations/101870-yabase/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Kushi-Tei of Tokyo",
+   "ad": "Immermannstraße 38, 40210 Düsseldorf, Germany",
+   "w": "An authentic izakaya whose speciality is yakitori grilled over real charcoal, as in Tokyo's backstreets, alongside sushi cut by the master — a Little-Tokyo all-rounder.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/streetfood/kushi-tei-of-tokyo"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/top-spots-in-little-tokyo-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Takezo Ramen Bar",
+   "ad": "Immermannstraße 48, 40210 Düsseldorf, Germany",
+   "w": "A compact Immermannstraße ramen bar near the station serving the full range from shoyu to tantanmen — a reliable Little-Tokyo noodle stop.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/storys/2024/10/01/6-japanische-food-hotspots-immermannstrasse/"
+    ],
+    [
+     "BENTODAISUKI",
+     "https://bento-daisuki.de/fundstellen/restaurants/takezo-2368/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Soba-An",
+   "ad": "Klosterstraße 68, 40211 Düsseldorf, Germany",
+   "w": "A rarity: a dedicated soba house on Klosterstraße where Tamaki Hamano — reputedly Germany's only female soba master — makes buckwheat noodles by hand at an open counter.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/storys/2024/05/24/soba-little-tokyo-duesseldorf/"
+    ],
+    [
+     "VERLIEBTINJAPAN",
+     "https://verliebt-in-japan.de/klosterstrasse-little-tokyo/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Bing Go",
+   "ad": "Immermannstraße 27, 40210 Düsseldorf, Germany",
+   "w": "A little Immermannstraße sweet spot for taiyaki — fish-shaped cakes filled with classic anko or creative fillings — a favourite Little-Tokyo snack since 2020.",
+   "cz": [
+    "SWEET",
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/poi/detail/bing-go-9e051a8b06"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/top-spots-auf-der-immermannstrasse/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Nagaya",
+   "ad": "Klosterstraße 42, 40211 Düsseldorf, Germany",
+   "w": "Yoshizumi Nagaya's Little-Tokyo flagship — the only Japanese restaurant in Germany to hold a Michelin star continuously since 2012, blending classical Japanese technique with subtle Western notes.",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/nagaya"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/storys/2024/04/02/nagaya-in-duesseldorf-little-tokyo/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Yoshi by Nagaya",
+   "ad": "Kreuzstraße 17, 40210 Düsseldorf, Germany",
+   "w": "Nagaya's second Michelin-starred house (a star since 2017), given over to kaiseki: an evening omakase of eight ingredient-led courses of exacting precision. It makes Nagaya Germany's only two-star Japanese chef.",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/yoshi-by-nagaya"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/poi/detail/yoshi-by-nagaya-chang-wu-29076e47af"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Agata's",
+   "ad": "Kirchfeldstraße 59, 40217 Düsseldorf, Germany",
+   "w": "A Michelin-starred Unterbilk restaurant praised for \"cuisine full of finesse\" — creative cooking with international influences, one of the city's most consistent fine-dining addresses.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/agata-s"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/agatas-duesseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "1876 Daniel Dal-Ben",
+   "ad": "Grunerstraße 42a, 40239 Düsseldorf, Germany",
+   "w": "A tiny 14-seat Michelin-starred room in Düsseltal where Daniel Dal-Ben cooks a creative set menu drawing on French, Italian and Japanese influences — one of the city's hardest tables to book.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/tafelspitz-1876"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/top-restaurants-mit-michelin-sternen-in-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Fritz's Frau Franzi",
+   "ad": "Adersstraße 8, 40215 Düsseldorf, Germany",
+   "w": "The Michelin-starred restaurant of the boutique Fritz Hotel near the Kö, an \"experimental world kitchen\" of creative, locally sourced small plates that shift with the season.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/gb/en/nordrhein-westfalen/dusseldorf/restaurant/fritz-s-frau-franzi"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/dusseldorf/restaurants/fritzs-frau-franzi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Le Flair",
+   "ad": "Marc-Chagall-Straße 108, 40477 Düsseldorf, Germany",
+   "w": "A Michelin-starred French restaurant in Pempelfort (a star since 2017), purist and product-driven, with a flexible menu that stresses taste quality and respect for its ingredients.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/le-flair"
+    ],
+    [
+     "WZ",
+     "https://www.wz.de/nrw/duesseldorf/michelin-sterne-wo-duesseldorf-am-besten-schmeckt_aid-24891535"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Setzkasten",
+   "ad": "Berliner Allee 52, 40212 Düsseldorf, Germany",
+   "w": "A one-of-a-kind Michelin-starred concept by chef Egor Hopp in the basement of the Zurheide Feine Kost gourmet supermarket near the Kö — fine dining wrapped around one of Germany's great food halls.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/setzkasten"
+    ],
+    [
+     "TAGESKARTE",
+     "https://www.tageskarte.io/gastronomie/detail/im-supermarkt-restaurant-setzkasten-in-duesseldorf-erhaelt-michelin-stern-zurueck.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Im Schiffchen",
+   "ad": "Kaiserswerther Markt 9, 40489 Düsseldorf, Germany",
+   "w": "Jean-Claude Bourgueil's Michelin-starred temple of classic cuisine in a Baroque brick house on Kaiserswerther Markt — once a three-star great, still a benchmark of refined, produce-led cooking.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/im-schiffchen"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/nordics/restaurants/im-schiffchen-duesseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Enzo im Schiffchen",
+   "ad": "Kaiserswerther Markt 9, 40489 Düsseldorf, Germany",
+   "w": "The young, more casual ground-floor restaurant of the Im Schiffchen house in Kaiserswerth, awarded a Michelin star of its own for Bourgueil's creative Italian-Mediterranean cooking.",
+   "cz": [
+    "INT",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/dusseldorf/restaurant/im-schiffchen"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/enzo-im-schiffchen-duesseldorf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "LA VIE by Thomas Bühner",
+   "ad": "Schlüterstraße 1, 40235 Düsseldorf, Germany",
+   "w": "Star chef Thomas Bühner's return, opened May 2025 in Flingern and awarded a Michelin star just 46 days later — an elegant marriage of French and Asian cooking, with a rotating vegan menu.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/ch/de/nordrhein-westfalen/dusseldorf/restaurant/la-vie-by-thomas-buhner-1210743"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/storys/2025/05/23/la-vie-by-thomas-buehner/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Münstermanns Kontor",
+   "ad": "Hohe Straße 11, 40213 Düsseldorf, Germany",
+   "w": "A Carlstadt institution grown from the Münstermann family delicatessen: a lively open-kitchen bistro with a daily-changing card of European classics from bouillabaisse to Wiener Schnitzel. In the Michelin guide.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/dusseldorf/restaurant/munstermanns-kontor"
+    ],
+    [
+     "DUSTOURISMUS",
+     "https://www.visitduesseldorf.de/en/poi/detail/muenstermann-kontor-216ae4154a"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Sattgrün (Medienhafen)",
+   "ad": "Brückenstraße 12, 40221 Düsseldorf, Germany",
+   "w": "A much-loved all-vegan buffet — warm dishes, salads, soups, seitan and cakes, priced by plate size — with several Düsseldorf branches, this one in the MedienHafen.",
+   "cz": [
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/vegan-essen-in-duesseldorf/"
+    ],
+    [
+     "DEUTSCHLANDVEGAN",
+     "https://www.deutschlandistvegan.de/veganes-buffet-trifft-romantik-sattgruen-in-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Meerbar",
+   "ad": "Neuer Zollhof 1, 40221 Düsseldorf, Germany",
+   "w": "A seafood restaurant-and-bar in the red Gehry building of the MedienHafen — Mediterranean-French cooking around daily-fresh fish (its \"Sexy Fish\" theme), with a long bar and lounge for after.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SCHLEMMERATLAS",
+     "https://www.schlemmer-atlas.de/restaurants/deutschland/duesseldorf/meerbar/"
+    ],
+    [
+     "PRINZ",
+     "https://prinz.de/duesseldorf/artikel/115873-10-besten-fischrestaurants-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Phox",
+   "ad": "Stresemannstraße 32, 40210 Düsseldorf, Germany",
+   "w": "A modern Vietnamese kitchen focused on pho, named by Der Feinschmecker among Germany's ten best Vietnamese restaurants — a strong immigrant-cuisine pick near Little Tokyo.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEINSCHMECKER",
+     "https://www.pho-x.de/"
+    ],
+    [
+     "THEDORF",
+     "https://thedorf.de/speis-und-trank/restaurants/phox-pho/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Konditorei Heinemann",
+   "ad": "Bahnstraße 16, 40212 Düsseldorf, Germany",
+   "w": "A confectionery renowned far beyond the city for its Champagnertrüffel — handmade since 1968 with Épernay Champagne — plus café-patisserie counters around the Kö. A Düsseldorf sweet institution.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOENIGSALLEE",
+     "https://koenigsallee-duesseldorf.de/hotel-gastro/restaurants-cafes-bars/konditorei-heinemann/"
+    ],
+    [
+     "OFFICIAL",
+     "https://www.konditorei-heinemann.de/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DUS",
+   "n": "Bäckerei Josef Hinkel",
+   "ad": "Hohe Straße 31, 40213 Düsseldorf, Germany",
+   "w": "A fourth-generation Old-Town bakery (since 1891) beloved as \"die Bäckerei der Brotfreunde,\" working exclusively with natural sourdoughs and craft methods. Listed by the Deutsches Brotinstitut and Der Feinschmecker.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BROTINSTITUT",
+     "https://www.brotinstitut.de/baeckerfinder/baecker/372dfe21-75e8-486a-a9b9-3e2137427121"
+    ],
+    [
+     "FEINSCHMECKER",
+     "https://www.feinschmecker.de/baecker/de/d%C3%BCsseldorf/b%C3%A4ckerei-josef-hinkel-e9"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DUS",
+   "n": "Kaffeehandwerk",
+   "ad": "Birkenstraße 127, 40233 Düsseldorf, Germany",
+   "w": "A pioneering third-wave roastery-café in Flingern, roasting its own beans and pulling carefully sourced filter and espresso — a fixture of the city's specialty-coffee scene.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "CREMAGAZIN",
+     "https://www.cremagazin.de/die-besten-cafes-in-duesseldorf/"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/die-besten-coffee-shops-und-cafes-in-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Lightroast",
+   "ad": "Hoffeldstraße 104, 40235 Düsseldorf, Germany",
+   "w": "A micro-roastery and café in Flingern, opening its backyard works for espresso and beans — a small, serious address for specialty coffee.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "THEDORF",
+     "https://thedorf.de/speis-und-trank/cafes/lightroast/"
+    ],
+    [
+     "MRDUES",
+     "https://www.mrduesseldorf.de/die-besten-coffee-shops-und-cafes-in-duesseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DUS",
+   "n": "Café Hüftgold",
+   "ad": "Ackerstraße 113, 40233 Düsseldorf, Germany",
+   "w": "A cosy Flingern café that has baked lovingly homemade cakes for over 20 years — \"Genuss ohne Reue\" — and become a neighbourhood status symbol on Ackerstraße, anchoring the quarter's street-art strip.",
+   "cz": [
+    "CAFE",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RHEINTOPF",
+     "https://www.rheintopf.com/ausgehen/cafe-hueftgold-duesseldorf-flingern/"
+    ],
+    [
+     "LIFEINDUS",
+     "https://lifeinduesseldorf.com/street-art-in-dusseldorf/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Früh am Dom",
+   "ad": "Am Hof 12-18, 50667 Köln, Germany",
+   "w": "The definitive Dom-side Brauhaus, brewing since 1904, where Köbes in blue aprons serve Früh Kölsch by the stange and the Halve Hahn (rye roll with aged Gouda) is a rite of passage. Vast warren of vaulted rooms.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/essen-trinken/gastronomie"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/brauhaus-koeln/frueh-am-dom/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Brauerei zur Malzmühle",
+   "ad": "Heumarkt 6, 50667 Köln, Germany",
+   "w": "A family brewery on the Heumarkt since 1858 pouring the maltier Mühlen Kölsch, and one of the best places for Himmel un Ääd (black pudding with mashed potato and apple). Voted among Cologne's favourite Brauhäuser.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/brauhaus-koeln/brauerei-zur-malzmuehle/"
+    ],
+    [
+     "TONLINE",
+     "https://koeln.t-online.de/region/koeln/id_100577144/frueh-gaffel-oder-paeffgen-das-ist-das-lieblings-brauhaus-der-koelner.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Brauhaus Päffgen",
+   "ad": "Friesenstraße 64-66, 50670 Köln, Germany",
+   "w": "A cult Brauhaus in the Friesenviertel brewing Päffgen Kölsch since 1883 and still tapping it from wooden barrels; topped a reader poll of Cologne's favourite Brauhaus. Leafy back courtyard.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TONLINE",
+     "https://koeln.t-online.de/region/koeln/id_100577144/frueh-gaffel-oder-paeffgen-das-ist-das-lieblings-brauhaus-der-koelner.html"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/urige-brauhaeuser/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Lommerzheim",
+   "ad": "Siegesstraße 18, 50679 Köln, Germany",
+   "w": "'Der Lommi', the most Cologne of all Kölsch pubs, a 1959-frozen Deutz institution famous for a pork chop 'thick as a Bible' with fried potatoes and Päffgen Kölsch. Expect a queue; cash only.",
+   "cz": [
+    "GER",
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/leben/ll/kneipen-restaurants-koeln-deutz/lommerzheim/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/essen-trinken/gastronomie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Gaffel am Dom",
+   "ad": "Bahnhofsvorplatz 1, 50667 Köln, Germany",
+   "w": "A big, buzzing Brauhaus right between the Hauptbahnhof and the Dom, pouring Gaffel Kölsch with the full Rhenish menu; the reliable first-taste of Brauhaus culture for arrivals.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/brauhaus-koeln/gaffel-am-dom/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/essen-trinken/gastronomie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Peters Brauhaus",
+   "ad": "Mühlengasse 1, 50667 Köln, Germany",
+   "w": "One of the prettiest Brauhäuser in the Altstadt, with stained glass, a carved ceiling and murals; a classic setting for Sauerbraten and Kölsch off the beaten strip.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/brauhaus-koeln/peters-brauhaus/"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/urige-brauhaeuser/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Brauhaus Sion",
+   "ad": "Unter Taschenmacher 5-7, 50667 Köln, Germany",
+   "w": "A traditional Altstadt Brauhaus between Alter Markt and Dom pouring Sion Kölsch, good for the hearty Hämchen (pork knuckle) and Himmel un Ääd.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/brauhaus-koeln/brauhaus-sion/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/essen-trinken/gastronomie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Bierhaus en d'r Salzgass",
+   "ad": "Salzgasse 5-7, 50667 Köln, Germany",
+   "w": "A multi-level, wood-panelled Brauhaus in a lane off the Heumarkt with a defiantly traditional Rhenish menu, from Himmel un Ääd to knuckle in beer sauce.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/urige-brauhaeuser/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/branchen/eintrag/1631/brauhaeuser/bierhaus-en-dr-salzgass"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Brauhaus Reissdorf am Griechenmarkt",
+   "ad": "Kleiner Griechenmarkt 40, 50676 Köln, Germany",
+   "w": "The tap house of Reissdorf, one of the most-drunk Kölsch brands in the city, serving the brewery's beer with solid Rhenish home cooking in the southern Altstadt.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/brauhaeuser/"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/urige-brauhaeuser/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Hellers Brauhaus",
+   "ad": "Roonstraße 33, 50674 Köln, Germany",
+   "w": "An organic Brauhaus near the Zülpicher Viertel brewing unfiltered Bio-Kölsch and cooking a well-regarded Rheinischer Sauerbraten; a greener, quieter take on the tradition.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/urige-brauhaeuser/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/brauhaeuser/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Brauhaus Sünner im Walfisch",
+   "ad": "Salzgasse 13, 50667 Köln, Germany",
+   "w": "A half-timbered 17th-century house in the Altstadt tapping Sünner, the oldest Kölsch brewery brand, with classic Rhenish plates in a low-beamed setting.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/beliebte-restaurants-in-der-koelner-altstadt/suenner-im-walfisch/"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/urige-brauhaeuser/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Gilden im Zims",
+   "ad": "Heumarkt 77, 50667 Köln, Germany",
+   "w": "A cosy classic-German house on the Heumarkt in a historic building, a dependable central address for Rheinischer Sauerbraten and Kölsch.",
+   "cz": [
+    "GER",
+    "BEER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/brauhaeuser/"
+    ],
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/essen-trinken/gastronomie"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Bei Oma Kleinmann",
+   "ad": "Zülpicher Straße 9, 50674 Köln, Germany",
+   "w": "A beloved, tightly-packed institution open since 1949 in the Kwartier Latäng, famous for enormous schnitzels in dozens of variations. Book ahead; the queues are legendary.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/essen-trinken/gastronomie/bei-oma-kleinmann"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/tourismus/ll/koelner-lokale-mit-koelscher-und-rheinischer-kueche/bei-oma-kleinmann/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Metzgerei & Salon Schmitz",
+   "ad": "Aachener Straße 30, 50674 Köln, Germany",
+   "w": "A cult Belgisches-Viertel trio (butcher's deli, café-Salon and bar) where the Mettbrötchen (seasoned raw pork on a roll) and charcuterie are Cologne staples done stylishly; a design-crowd meeting point.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/leben/ll/beliebte-restaurants-im-belgischen-viertel/schmitz-salon-bar-metzgerei/"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/restaurants-belgisches-viertel/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Ox & Klee",
+   "ad": "Im Zollhafen 18, 50678 Köln, Germany",
+   "w": "Cologne's only two-Michelin-star restaurant, Daniel Gottschlich's creative, taste-led cooking in a glass pavilion in the Rheinauhafen beneath the Kranhäuser.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/koln/restaurant/ox-klee"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "Le Moissonnier",
+   "ad": "Krefelder Straße 25, 50670 Köln, Germany",
+   "w": "A jewel-box Belle-Époque bistro long held as one of Germany's best French kitchens (a former Michelin star); Vincent Moissonnier and Eric Menchon's cooking is inventive and deeply French.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/le-moissonnier"
+    ],
+    [
+     "FEINSCHMECKER",
+     "https://www.feinschmecker.de/restaurants/beste-restaurants-koeln"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "maximilian lorenz",
+   "ad": "Johannisstraße 64, 50668 Köln, Germany",
+   "w": "Chef Maximilian Lorenz's one-star restaurant near the Hauptbahnhof, a refined take on German produce and cooking; his more casual 'heimat' concept sits alongside.",
+   "cz": [
+    "FINE",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/maximilian-lorenz"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "astrein",
+   "ad": "Krefelder Straße 37, 50670 Köln, Germany",
+   "w": "A one-star restaurant in Agnesviertel with a semi-open kitchen and modern, creative cooking; intimate and much-praised for value at the top end.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/astrein"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "neobiota",
+   "ad": "Pantaleonswall 27, 50676 Köln, Germany",
+   "w": "Sonja Baumann and Erik Scheffler's one-star 'comfort cuisine', unusual for serving a gourmet breakfast by day and a tasting menu by night; relocated to the Pantaleonswall in 2025.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/neobiota"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2024/neobiota/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "maiBeck",
+   "ad": "Am Frankenturm 5, 50667 Köln, Germany",
+   "w": "A relaxed one-star in the Altstadt near the Rhine, Jan Maier and Tobias Becker cooking light, market-driven, regionally-rooted plates; a favourite for accessible fine dining.",
+   "cz": [
+    "FINE",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/koln/restaurant/maibeck"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KOLN",
+   "n": "taku",
+   "ad": "Trankgasse 1-5, 50667 Köln, Germany",
+   "w": "The Michelin-starred restaurant of the Excelsior Hotel Ernst, chef Mirko Gaul weaving Japanese, Thai, Vietnamese and Chinese influences into a precise Asian fine-dining menu.",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/koln/restaurant/taku"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Restaurant ACHT",
+   "ad": "Spichernstraße 10, 50672 Köln, Germany",
+   "w": "Casual fine dining in the Belgisches Viertel, chef Simon Kollmann sending out European, French-inflected small plates to share; creative-rustic and much-loved locally.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/koln/restaurant/acht"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/acht-koeln"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Pottkind",
+   "ad": "Darmstädter Straße 9, 50678 Köln, Germany",
+   "w": "A small one-star in the Südstadt with an open kitchen and unpretentious, world-open gourmet cooking; a personal, warm room.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/koln/restaurant/pottkind"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Sahila – The Restaurant",
+   "ad": "Kämmergasse 18, 50676 Köln, Germany",
+   "w": "A one-star restaurant in the southern Altstadt, chef's globally-drawn cooking presented as a tasting experience.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/sahila-the-restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "La Société",
+   "ad": "Kyffhäuserstraße 53, 50674 Köln, Germany",
+   "w": "A long-running one-star in the Kwartier Latäng, a small and characterful room with creative, produce-led cooking.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/la-societe"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "La Cuisine Rademacher",
+   "ad": "Dellbrücker Hauptstraße 176, 51069 Köln, Germany",
+   "w": "A one-star destination out in Dellbrück, chef Eric Werner Rademacher's contemporary cooking rewarding the trip east of the centre.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/nordrhein-westfalen/koln/restaurant/la-cuisine-rademacher"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Habibi",
+   "ad": "Zülpicher Straße 28, 50674 Köln, Germany",
+   "w": "The cult Lebanese imbiss of the Kwartier Latäng, open late and repeatedly named among Cologne's best falafel; a student-quarter institution.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2023/habibi/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/leben/ll/imbisse-und-fast-food-in-koeln/habibi/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Asmali Konak Deluxe",
+   "ad": "Keupstraße 44-46, 51063 Köln, Germany",
+   "w": "A well-regarded Turkish grill on the Keupstraße, the heart of Cologne's Turkish community in Mülheim, for charcoal-grilled kebabs and mezze.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2022/koreanisch-essen/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Hankki",
+   "ad": "Brabanter Straße 42, 50672 Köln, Germany",
+   "w": "A popular Korean kitchen in the Belgisches Viertel known for Korean fried chicken and comfort bowls; generous portions and a devoted following.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2022/koreanisch-essen/"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/streetfood/hankki"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Gogi Matcha",
+   "ad": "Johannisstraße 47, 50668 Köln, Germany",
+   "w": "A Korean BBQ and bibimbap spot near the Hauptbahnhof, called by Mit Vergnügen perhaps the city's best Korean; grill-at-table and classic mains.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2019/gogi-matcha-das-vielleicht-beste-koreanische-restaurant-koelns/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Takezo",
+   "ad": "Mathiasstraße 24-26, 50676 Köln, Germany",
+   "w": "A ramen bar in the southern Altstadt built on authentic recipes from Japan, a repeat pick on Cologne's best-ramen lists.",
+   "cz": [
+    "JP"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2025/ramen/"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/de/news/top-5-ramen-bars-in-koeln"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "NOI Cologne",
+   "ad": "Antwerpener Straße 5, 50672 Köln, Germany",
+   "w": "A stylish modern Italian in the Belgisches Viertel, praised for creative cooking and design; a step up from the neighbourhood trattoria.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2026/restaurants-belgisches-viertel/"
+    ],
+    [
+     "GEHEIMTIPP",
+     "https://geheimtipp-koeln.de/geheimtipp/unsere-topliste-fuer-restaurants-mit-dolce-vita-italienisch-essen-gehen-in-koeln/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Fischermanns'",
+   "ad": "Rathenauplatz 21, 50674 Köln, Germany",
+   "w": "A long-running crossover bistro on the leafy Rathenauplatz, international French-Mediterranean cooking in a relaxed neighbourhood setting.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNMAG",
+     "https://koeln-magazin.de/gastronomie-in-koeln/kneipen/fischermanns"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Die fette Kuh",
+   "ad": "Bonner Straße 34, 50677 Köln, Germany",
+   "w": "A tiny Südstadt cult imbiss grilling what many locals call Cologne's best burger since 2011, with house-made sauces and a veggie option; expect a wait.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/koeln/essen_und_trinken/burgerlaeden/die-fette-kuh_646537.html"
+    ],
+    [
+     "GEHEIMTIPP",
+     "https://geheimtipp-koeln.de/geheimtipp/die-fette-kuh-tipps-rund-um-das-kultlokal-vom-chefkoch-persoenlich/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Freddy Schilling",
+   "ad": "Hospeltstraße 1, 50825 Köln, Germany",
+   "w": "An Ehrenfeld 'burger manufaktur' making everything in-house from regional beef and fresh buns, a fixture of Cologne's best-burger conversation.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2021/burger-bestellen/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/koeln/essen_und_trinken/burgerlaeden/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Van Dyck Rösterei",
+   "ad": "Körnerstraße 43, 50823 Köln, Germany",
+   "w": "An Ehrenfeld specialty roastery-café (in a former hair salon) roasting certified organic and fair-trade coffee; a benchmark of Cologne's third-wave scene.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2019/11-kaffeeroestereien-in-koeln-die-du-kennen-solltest"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/branchen/eintrag/24510/kaffeeroesterei-kaffee/van-dyck"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Ernst Kaffeeröster",
+   "ad": "Bonner Straße 56, 50677 Köln, Germany",
+   "w": "A Südstadt specialty roaster-café with rotating espresso, filter roasts, coldbrew and homemade cakes, consistently named among the city's best coffee.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2018/11-cafes-mit-richtig-gutem-kaffee/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Café & Konditorei Nimmersatt",
+   "ad": "Darmstädter Straße 19, 50678 Köln, Germany",
+   "w": "A refined Südstadt pâtisserie-café turning out fine cakes and tarts; a locals' favourite for coffee-and-cake done seriously.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2021/konditorei-cafe-nimmersatt/"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/cafes/cafe-konditorei-nimmersatt"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Villa Kalka",
+   "ad": "Kalk-Mülheimer Straße 58, 51103 Köln, Germany",
+   "w": "A café-restaurant-pâtisserie in up-and-coming Kalk, where a Paris- and Tokyo-trained pastry chef makes the sweets alongside a multicultural brunch and lunch.",
+   "cz": [
+    "CAFE",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2023/villa-kalka/"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/gastro/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Eis-Engeln",
+   "ad": "Cranachstraße 22, 50733 Köln, Germany",
+   "w": "A family gelateria in Nippes making ice cream since 1953 from natural ingredients without additives, repeatedly listed among Cologne's best.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/leben/ll/beliebte-eisdielen-in-koeln/eiscafe-engeln/"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2019/11-kaffeeroestereien-in-koeln-die-du-kennen-solltest"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KOLN",
+   "n": "Bäckerei Balkhausen",
+   "ad": "Apostelnstraße 27, 50667 Köln, Germany",
+   "w": "A traditional craft bakery near the Neumarkt where people queue for the many breads, pastries and the historic Adenauerbrot; widely called Cologne's best bakery.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/genuss-diversitaet/gastronomie/detail/baeckerei-balkhausen"
+    ],
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2025/baeckereien/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Traubenzeit",
+   "ad": "Hauffstraße 1, 50825 Köln, Germany",
+   "w": "A small, warm Ehrenfeld restaurant-Weinstube serving down-to-earth modern European and Rhenish cooking with a good wine list.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNTOURISMUS",
+     "https://www.koelntourismus.de/genuss-diversitaet/gastronomie/detail/traubenzeit"
+    ],
+    [
+     "KOELNDE",
+     "https://www.koeln.de/leben/ll/beliebte-restaurants-in-koeln-ehrenfeld/traubenzeit/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KOLN",
+   "n": "Weinhaus Vogel",
+   "ad": "Eigelstein 74, 50668 Köln, Germany",
+   "w": "A traditional wine tavern on the Eigelstein running since 1898, a genuinely old-Cologne room for hearty Rhenish plates and a glass of wine.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/branchen/eintrag/76062/restaurants/weinhaus-vogel"
+    ],
+    [
+     "KOELNER",
+     "https://www.koelner.de/locations/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "BAUKUNSTNRW": {
+   "k": "BAUKUNSTNRW",
+   "t": "baukunst-nrw",
+   "u": "https://www.baukunst-nrw.de/",
+   "l": "baukunst-nrw"
+  },
+  "BONNDE": {
+   "k": "BONNDE",
+   "t": "Stadt Bonn (bonn.de)",
+   "u": "https://www.bonn.de/",
+   "l": "Stadt Bonn (bonn.de)"
+  },
+  "BONNTOURISMUS": {
+   "k": "BONN TOURISMUS",
+   "t": "Bonn Tourismus / visit-bonn-region",
+   "u": "https://www.visit-bonn-region.de/",
+   "l": "Bonn Tourismus / visit-bonn-region"
+  },
+  "DUSTOURISMUS": {
+   "k": "DÜSSELDORF TOURISMUS",
+   "t": "Düsseldorf Tourismus / visitduesseldorf",
+   "u": "https://www.visitduesseldorf.de/",
+   "l": "Düsseldorf Tourismus / visitduesseldorf"
+  },
+  "GA": {
+   "k": "GENERAL-ANZEIGER BONN",
+   "t": "General-Anzeiger Bonn",
+   "u": "https://www.general-anzeiger-bonn.de/",
+   "l": "General-Anzeiger Bonn"
+  },
+  "KOELNDE": {
+   "k": "KOELNDE",
+   "t": "koeln.de (Stadtportal)",
+   "u": "https://www.koeln.de",
+   "l": "koeln.de (Stadtportal)"
+  },
+  "KOELNTOURISMUS": {
+   "k": "KÖLN TOURISMUS",
+   "t": "KölnTourismus / cologne-tourism.com",
+   "u": "https://www.koelntourismus.de",
+   "l": "KölnTourismus / cologne-tourism.com"
+  },
+  "KOLLWITZ": {
+   "k": "KOLLWITZ",
+   "t": "Käthe Kollwitz Museum Köln",
+   "u": "https://www.kollwitz.de",
+   "l": "Käthe Kollwitz Museum Köln"
+  },
+  "KOLUMBA": {
+   "k": "KOLUMBA",
+   "t": "Kolumba – Kunstmuseum des Erzbistums Köln",
+   "u": "https://www.kolumba.de",
+   "l": "Kolumba – Kunstmuseum des Erzbistums Köln"
+  },
+  "KULADIG": {
+   "k": "KULADIG",
+   "t": "KuLaDig (LVR Kultur.Landschaft.Digital)",
+   "u": "https://www.kuladig.de/",
+   "l": "KuLaDig (LVR Kultur.Landschaft.Digital)"
+  },
+  "KUNSTSAMMLUNG": {
+   "k": "KUNSTSAMMLUNG",
+   "t": "Kunstsammlung Nordrhein-Westfalen (official)",
+   "u": "https://www.kunstsammlung.de/",
+   "l": "Kunstsammlung Nordrhein-Westfalen (official)"
+  },
+  "MAKK": {
+   "k": "MAKK",
+   "t": "Museum für Angewandte Kunst Köln",
+   "u": "https://makk.de",
+   "l": "Museum für Angewandte Kunst Köln"
+  },
+  "MELATEN": {
+   "k": "MELATEN",
+   "t": "Melatenfriedhof.de",
+   "u": "https://melatenfriedhof.de",
+   "l": "Melatenfriedhof.de"
+  },
+  "MITVERGNUEGEN": {
+   "k": "MIT VERGNÜGEN",
+   "t": "Mit Vergnügen",
+   "u": "https://mitvergnuegen.com/",
+   "l": "Mit Vergnügen"
+  },
+  "MUSEENKOELN": {
+   "k": "MUSEENKOELN",
+   "t": "Museen der Stadt Köln",
+   "u": "https://www.museenkoeln.de",
+   "l": "Museen der Stadt Köln"
+  },
+  "MUSENKUSS": {
+   "k": "MUSENKUSS",
+   "t": "Musenkuss Düsseldorf (city cultural portal)",
+   "u": "https://www.musenkuss-duesseldorf.de/",
+   "l": "Musenkuss Düsseldorf (city cultural portal)"
+  },
+  "NRWSTIFTUNG": {
+   "k": "NRWSTIFTUNG",
+   "t": "NRW-Stiftung",
+   "u": "https://www.nrw-stiftung.de/",
+   "l": "NRW-Stiftung"
+  },
+  "NRWTOURISMUS": {
+   "k": "NRWTOURISMUS",
+   "t": "NRW Tourismus (Tourismus NRW e.V.)",
+   "u": "https://www.nrw-tourismus.de/",
+   "l": "NRW Tourismus (Tourismus NRW e.V.)"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site of the place",
+   "u": "",
+   "l": "Official site of the place"
+  },
+  "ROMANISCHEKIRCHEN": {
+   "k": "ROMANISCHEKIRCHEN",
+   "t": "Förderverein Romanische Kirchen Köln",
+   "u": "https://www.romanische-kirchen-koeln.de",
+   "l": "Förderverein Romanische Kirchen Köln"
+  },
+  "STADTKOELN": {
+   "k": "STADTKOELN",
+   "t": "Stadt Köln (offiziell)",
+   "u": "https://www.stadt-koeln.de",
+   "l": "Stadt Köln (offiziell)"
+  },
+  "SWD": {
+   "k": "SWD",
+   "t": "Heimatliebe (Stadtwerke Düsseldorf city magazine)",
+   "u": "https://www.swd-ag.de/magazin/",
+   "l": "Heimatliebe (Stadtwerke Düsseldorf city magazine)"
+  },
+  "THEDUESSELDORFER": {
+   "k": "THEDUESSELDORFER",
+   "t": "The Düsseldorfer",
+   "u": "https://the-duesseldorfer.de/",
+   "l": "The Düsseldorfer"
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "Deutsche UNESCO-Kommission",
+   "u": "https://www.unesco.de/kultur-und-natur/welterbe",
+   "l": "Deutsche UNESCO-Kommission"
+  },
+  "WALLRAF": {
+   "k": "WALLRAF",
+   "t": "Wallraf-Richartz-Museum & Fondation Corboud",
+   "u": "https://www.wallraf.museum",
+   "l": "Wallraf-Richartz-Museum & Fondation Corboud"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://de.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WZ": {
+   "k": "WZ",
+   "t": "Westdeutsche Zeitung",
+   "u": "https://www.wz.de/",
+   "l": "Westdeutsche Zeitung"
+  }
+ },
+ "FS": {
+  "BENTODAISUKI": {
+   "k": "BENTODAISUKI",
+   "t": "Bento Daisuki",
+   "u": "https://bento-daisuki.de/",
+   "l": "Bento Daisuki"
+  },
+  "BONNDE": {
+   "k": "BONNDE",
+   "t": "Stadt Bonn (bonn.de)",
+   "u": "https://www.bonn.de/",
+   "l": "Stadt Bonn (bonn.de)"
+  },
+  "BONNTOURISMUS": {
+   "k": "BONN TOURISMUS",
+   "t": "Bonn Tourismus / visit-bonn-region",
+   "u": "https://www.visit-bonn-region.de/",
+   "l": "Bonn Tourismus / visit-bonn-region"
+  },
+  "BROTINSTITUT": {
+   "k": "BROTINSTITUT",
+   "t": "Deutsches Brotinstitut",
+   "u": "https://www.brotinstitut.de/",
+   "l": "Deutsches Brotinstitut"
+  },
+  "CREMAGAZIN": {
+   "k": "CREMAGAZIN",
+   "t": "CREMA Magazin (coffee)",
+   "u": "https://www.cremagazin.de/",
+   "l": "CREMA Magazin (coffee)"
+  },
+  "DEUTSCHLANDVEGAN": {
+   "k": "DEUTSCHLANDVEGAN",
+   "t": "Deutschland is(s)t vegan",
+   "u": "https://www.deutschlandistvegan.de/",
+   "l": "Deutschland is(s)t vegan"
+  },
+  "DUSTOURISMUS": {
+   "k": "DÜSSELDORF TOURISMUS",
+   "t": "Düsseldorf Tourismus / visitduesseldorf",
+   "u": "https://www.visitduesseldorf.de/",
+   "l": "Düsseldorf Tourismus / visitduesseldorf"
+  },
+  "FALSTAFF": {
+   "k": "FALSTAFF",
+   "t": "Falstaff",
+   "u": "https://www.falstaff.com/",
+   "l": "Falstaff"
+  },
+  "FEINSCHMECKER": {
+   "k": "DER FEINSCHMECKER",
+   "t": "Der Feinschmecker",
+   "u": "https://www.feinschmecker.de/",
+   "l": "Der Feinschmecker"
+  },
+  "GA": {
+   "k": "GENERAL-ANZEIGER BONN",
+   "t": "General-Anzeiger Bonn",
+   "u": "https://www.general-anzeiger-bonn.de/",
+   "l": "General-Anzeiger Bonn"
+  },
+  "GEHEIMTIPP": {
+   "k": "GEHEIMTIPP",
+   "t": "Geheimtipp Köln",
+   "u": "https://geheimtipp-koeln.de",
+   "l": "Geheimtipp Köln"
+  },
+  "GUSTO": {
+   "k": "GUSTO",
+   "t": "Gusto Deutschland",
+   "u": "https://www.gusto-online.de/",
+   "l": "Gusto Deutschland"
+  },
+  "JAPANDIGEST": {
+   "k": "JAPANDIGEST",
+   "t": "Japan Digest",
+   "u": "https://www.japandigest.de/",
+   "l": "Japan Digest"
+  },
+  "KOELNDE": {
+   "k": "KOELNDE",
+   "t": "koeln.de (Stadtportal)",
+   "u": "https://www.koeln.de",
+   "l": "koeln.de (Stadtportal)"
+  },
+  "KOELNER": {
+   "k": "KOELNER",
+   "t": "koelner.de",
+   "u": "https://www.koelner.de",
+   "l": "koelner.de"
+  },
+  "KOELNMAG": {
+   "k": "KOELNMAG",
+   "t": "Köln-Magazin",
+   "u": "https://koeln-magazin.de",
+   "l": "Köln-Magazin"
+  },
+  "KOELNTOURISMUS": {
+   "k": "KÖLN TOURISMUS",
+   "t": "KölnTourismus / cologne-tourism.com",
+   "u": "https://www.koelntourismus.de",
+   "l": "KölnTourismus / cologne-tourism.com"
+  },
+  "KOENIGSALLEE": {
+   "k": "KOENIGSALLEE",
+   "t": "Königsallee Düsseldorf (official boulevard site)",
+   "u": "https://koenigsallee-duesseldorf.de/",
+   "l": "Königsallee Düsseldorf (official boulevard site)"
+  },
+  "KULADIG": {
+   "k": "KULADIG",
+   "t": "KuLaDig (LVR Kultur.Landschaft.Digital)",
+   "u": "https://www.kuladig.de/",
+   "l": "KuLaDig (LVR Kultur.Landschaft.Digital)"
+  },
+  "LIFEINDUS": {
+   "k": "LIFEINDUS",
+   "t": "Life in Düsseldorf",
+   "u": "https://lifeinduesseldorf.com/",
+   "l": "Life in Düsseldorf"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "Guide Michelin Deutschland",
+   "u": "https://guide.michelin.com/de/de/",
+   "l": "Guide Michelin Deutschland"
+  },
+  "MITVERGNUEGEN": {
+   "k": "MIT VERGNÜGEN",
+   "t": "Mit Vergnügen",
+   "u": "https://mitvergnuegen.com/",
+   "l": "Mit Vergnügen"
+  },
+  "MRDUES": {
+   "k": "MRDUES",
+   "t": "Mr. Düsseldorf",
+   "u": "https://www.mrduesseldorf.de/",
+   "l": "Mr. Düsseldorf"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site of the place",
+   "u": "",
+   "l": "Official site of the place"
+  },
+  "PRINZ": {
+   "k": "PRINZ",
+   "t": "PRINZ Düsseldorf",
+   "u": "https://prinz.de/duesseldorf/",
+   "l": "PRINZ Düsseldorf"
+  },
+  "RHEINTOPF": {
+   "k": "RHEINTOPF",
+   "t": "Rheintopf (Rhineland food magazine)",
+   "u": "https://www.rheintopf.com/",
+   "l": "Rheintopf (Rhineland food magazine)"
+  },
+  "SCHLEMMERATLAS": {
+   "k": "SCHLEMMERATLAS",
+   "t": "Schlemmer Atlas",
+   "u": "https://www.schlemmer-atlas.de/",
+   "l": "Schlemmer Atlas"
+  },
+  "SWD": {
+   "k": "SWD",
+   "t": "Heimatliebe (Stadtwerke Düsseldorf city magazine)",
+   "u": "https://www.swd-ag.de/magazin/",
+   "l": "Heimatliebe (Stadtwerke Düsseldorf city magazine)"
+  },
+  "TAGESKARTE": {
+   "k": "TAGESKARTE",
+   "t": "Tageskarte (gastro trade press)",
+   "u": "https://www.tageskarte.io/",
+   "l": "Tageskarte (gastro trade press)"
+  },
+  "THEDORF": {
+   "k": "THEDORF",
+   "t": "THE DORF (Düsseldorf lifestyle magazine)",
+   "u": "https://thedorf.de/",
+   "l": "THE DORF (Düsseldorf lifestyle magazine)"
+  },
+  "THEDUESSELDORFER": {
+   "k": "THEDUESSELDORFER",
+   "t": "The Düsseldorfer",
+   "u": "https://the-duesseldorfer.de/",
+   "l": "The Düsseldorfer"
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out",
+   "u": "https://www.timeout.com/dusseldorf",
+   "l": "Time Out"
+  },
+  "TONLINE": {
+   "k": "TONLINE",
+   "t": "t-online Köln",
+   "u": "https://koeln.t-online.de",
+   "l": "t-online Köln"
+  },
+  "VERLIEBTINJAPAN": {
+   "k": "VERLIEBTINJAPAN",
+   "t": "Verliebt in Japan",
+   "u": "https://verliebt-in-japan.de/",
+   "l": "Verliebt in Japan"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://de.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WZ": {
+   "k": "WZ",
+   "t": "Westdeutsche Zeitung",
+   "u": "https://www.wz.de/",
+   "l": "Westdeutsche Zeitung"
+  }
+ }
+}
