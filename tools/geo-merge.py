@@ -79,9 +79,11 @@ def main():
             verified = conf != "unverified" and lat is not None and lng is not None
             status = r.get("status", "open")
             # CLOSED-marker convention: mark the key + queue the research rename
-            # mark only if the name doesn't ALREADY carry the marker anywhere (some agents write it
-            # mid-name, e.g. "X — CLOSED (branch)"); endswith alone would double-mark those.
-            if status == "closed" and CLOSED_SUFFIX not in n:
+            # mark only if the name doesn't ALREADY carry a CLOSED token anywhere — checked
+            # case-insensitively on the bare word so an em-dash marker ("X — CLOSED"), a hyphen one
+            # a discovery agent wrote ("X - CLOSED"), or a mid-name one ("X — CLOSED (branch)") all
+            # count as already-marked; matching only the exact " — CLOSED" suffix double-marks those.
+            if status == "closed" and "CLOSED" not in n.upper():
                 marked = n + CLOSED_SUFFIX
                 if rename_research_record(rdir, slug, n, marked):
                     renamed += 1

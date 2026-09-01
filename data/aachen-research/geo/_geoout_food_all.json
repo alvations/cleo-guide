@@ -1,0 +1,587 @@
+[
+ {
+  "n": "Café Leo van den Daele",
+  "address": "Büchel 18, 52062 Aachen, Germany",
+  "lat": 50.775867,
+  "lng": 6.085565,
+  "confidence": "high",
+  "geoSource": "aachen-tourismus/feinschmecker directory structured geo; historic listed café (buildings 1655), address Büchel 18 matches",
+  "status": "open"
+ },
+ {
+  "n": "Café & Bäckerei Nobis Printen am Münsterplatz",
+  "address": "Münsterplatz 3, 52062 Aachen, Germany",
+  "lat": 50.7743,
+  "lng": 6.0848,
+  "confidence": "med",
+  "geoSource": "innungsbaecker/gastroguide directory geo (low precision) at Münsterplatz 3, beside Aachen cathedral",
+  "status": "open"
+ },
+ {
+  "n": "Lambertz Fabrikverkauf",
+  "address": "Ritterstraße 9, 52072 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary factory-outlet; no attributable POI decimal (WebFetch blocked, only town centroid resolvable)",
+  "status": "open"
+ },
+ {
+  "n": "Printenbäckerei Klein",
+  "address": "Franzstraße 91, 52064 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary bakery; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Postwagen Zum Ratskeller",
+  "address": "Krämerstraße 2, 52062 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "historic timber house on the Markt (de.wikipedia article exists) but no venue-precise decimal surfaced — only Aachen-Mitte district centroid; left null rather than fabricate",
+  "status": "open"
+ },
+ {
+  "n": "Am Knipp",
+  "address": "Bergdriesch 3, 52062 Aachen, Germany",
+  "lat": 50.77903435,
+  "lng": 6.08416129,
+  "confidence": "high",
+  "geoSource": "Falstaff directory structured geo; historic Gaststätte (est. 1698), address Bergdriesch 3 matches",
+  "status": "open"
+ },
+ {
+  "n": "La Bécasse",
+  "address": "Hanbrucher Straße 1, 52064 Aachen, Germany",
+  "lat": 50.7702641,
+  "lng": 6.069238,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide structured geo (1-star), Hanbrucher Straße 1 Aachen",
+  "status": "open"
+ },
+ {
+  "n": "Eiscafé Del Negro",
+  "address": "Jakobstraße, 52064 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary ice-café; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "MAQII Coffee Roasters",
+  "address": "Pontstraße, 52062 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary café; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Baristinho",
+  "address": "Kleinmarschierstraße 48-52, 52062 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary café; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Café & Rösterei Mundus",
+  "address": "Schmiedstraße 22, 52062 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary café/roastery; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Gold of Naples",
+  "address": "Pontstraße 125, 52062 Aachen, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary pizzeria; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Zur Post",
+  "address": "Hauptstraße 39, 4780 Sankt Vith, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Quadras",
+  "address": "Malmedyer Straße 53, 4780 Sankt Vith, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Couleur Rouge",
+  "address": "4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no street address in worklist; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Arti'Choc",
+  "address": "Haasstraße 38, 4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary chocolatier/café; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Bütgenbacher Hof",
+  "address": "Marktplatz 8, 4750 Bütgenbach, Belgium",
+  "lat": 50.42632,
+  "lng": 6.20544,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide structured geo, Marktplatz 8 Bütgenbach",
+  "status": "open"
+ },
+ {
+  "n": "Sel et Poivre",
+  "address": "Aachener Straße 140, 4731 Raeren (Eynatten), Belgium",
+  "lat": 50.7066,
+  "lng": 6.08784,
+  "confidence": "high",
+  "geoSource": "MICHELIN/Falstaff directory structured geo, Aachener Straße 140 Eynatten",
+  "status": "open"
+ },
+ {
+  "n": "Antoine",
+  "address": "4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no street address in worklist; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Baraque Michel",
+  "address": "Baraque Michel, 4845 Jalhay, Belgium",
+  "lat": 50.5187932,
+  "lng": 6.0624375,
+  "confidence": "med",
+  "geoSource": "Wikidata Q321168 (Baraque Michel landmark/locality point in the Hautes Fagnes); restaurant sits at this named site",
+  "status": "open"
+ },
+ {
+  "n": "Brauerei Néau",
+  "address": "Schulstraße 11, 4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary microbrewery; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Kelleter Bäckerei-Konditorei",
+  "address": "Bergstraße 9, 4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary bakery; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Panciera Eiscafé",
+  "address": "Marktplatz 3, 4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary ice-café; no attributable POI decimal resolved within budget",
+  "status": "open"
+ },
+ {
+  "n": "Reiner's Fritten & Sandwich",
+  "address": "Herbesthaler Straße 299, 4700 Eupen, Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary friture; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Alt Keris",
+  "address": "Lütticher Straße 232B, 4720 Kelmis (La Calamine), Belgium",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Ratskeller",
+  "address": "Klötzerbahn 2, 4700 Eupen, Belgium",
+  "lat": 50.6301842,
+  "lng": 6.0332718,
+  "confidence": "high",
+  "geoSource": "directory structured geo (Untappd/venue), Klötzerbahn 2 Eupen",
+  "status": "open"
+ },
+ {
+  "n": "Burgrestaurant Nideggen",
+  "address": "Kirchgasse 10a, 52385 Nideggen, Germany",
+  "lat": 50.68861,
+  "lng": 6.47722,
+  "confidence": "med",
+  "geoSource": "Wikidata Q1013312 / Wikipedia Nideggen Castle point; restaurant is within the Burg complex (Kirchgasse 10a adjoins the castle)",
+  "status": "open"
+ },
+ {
+  "n": "Heimbacher Brauhaus",
+  "address": "Schwammenauel 6, 52396 Heimbach, Germany",
+  "lat": 50.6323717,
+  "lng": 6.4452435,
+  "confidence": "high",
+  "geoSource": "Foursquare/directory structured geo, Schwammenauel 6 Heimbach",
+  "status": "open"
+ },
+ {
+  "n": "Eifeler Hof am Rursee",
+  "address": "Hengebachstraße 43-45, 52396 Heimbach, Germany",
+  "lat": 50.6338501,
+  "lng": 6.4776359,
+  "confidence": "high",
+  "geoSource": "mindtrip/directory structured geo, Hengebachstraße Heimbach",
+  "status": "open"
+ },
+ {
+  "n": "Eifelhaus Einruhr",
+  "address": "Am Obersee 1, 52152 Simmerath-Einruhr, Germany",
+  "lat": 50.582873,
+  "lng": 6.378582,
+  "confidence": "high",
+  "geoSource": "outdooractive/directory structured geo (DMS-confirmed 50°34'58.3\"N 6°22'42.9\"E), Am Obersee 1 Einruhr",
+  "status": "open"
+ },
+ {
+  "n": "Hotel-Restaurant Kermeterschänke",
+  "address": "Kermeterstraße 4, 53937 Schleiden-Wolfgarten, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary rural hotel-restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Gastro Vogelsang — Panorama-Restaurant",
+  "address": "Vogelsang 71, 53937 Schleiden, Germany",
+  "lat": 50.5861262,
+  "lng": 6.4481264,
+  "confidence": "med",
+  "geoSource": "eifel.info Tourist-Info Vogelsang IP structured geo (Vogelsang 70) within the Ordensburg Vogelsang complex where the Panorama-Restaurant (Vogelsang 71) sits",
+  "status": "open"
+ },
+ {
+  "n": "Hotel-Restaurant Roeb",
+  "address": "Monschauer Straße 1, 52385 Nideggen-Schmidt, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary rural hotel-restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Gemünder Parkrestaurant",
+  "address": "Kurhausstraße 5, 53937 Schleiden-Gemünd, Germany",
+  "lat": 50.576397,
+  "lng": 6.4969807,
+  "confidence": "high",
+  "geoSource": "directory structured geo, Kurhausstraße 5 Schleiden-Gemünd",
+  "status": "open"
+ },
+ {
+  "n": "Hotel-Restaurant Zum kleinen Seehof",
+  "address": "Woffelsbach, 52152 Simmerath, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary lakeside hotel; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Hotel-Restaurant Seemöwe",
+  "address": "Am Obersee 10, 52152 Simmerath-Rurberg, Germany",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "directory-returned coord (50.5833,6.3783) collided with Eifelhaus Einruhr and read as an approximate Obersee value; Rurberg is km from Einruhr, so left null rather than stack/fabricate",
+  "status": "open"
+ },
+ {
+  "n": "Klostergastronomie Abtei Mariawald",
+  "address": "Mariawald, 52396 Heimbach, Germany",
+  "lat": 50.62,
+  "lng": 6.48083,
+  "confidence": "med",
+  "geoSource": "Wikidata Q334026 / Wikipedia Mariawald Abbey point; the Klostergastronomie is at the abbey",
+  "status": "open"
+ },
+ {
+  "n": "Cafe Sjiek",
+  "address": "Sint Pieterstraat 13, 6211 JM Maastricht, Netherlands",
+  "lat": 50.845361,
+  "lng": 5.692424,
+  "confidence": "high",
+  "geoSource": "directory structured geo, Sint Pieterstraat 13 Maastricht (Jekerkwartier)",
+  "status": "open"
+ },
+ {
+  "n": "In den Ouden Vogelstruys",
+  "address": "Vrijthof 15, 6211 LE Maastricht, Netherlands",
+  "lat": 50.84833,
+  "lng": 5.68972,
+  "confidence": "high",
+  "geoSource": "Wikidata Q17423357 (rijksmonument café on the Vrijthof, built 1730), Vrijthof 15",
+  "status": "open"
+ },
+ {
+  "n": "Bar & Kitchen De la Bourse",
+  "address": "Markt 37, 6211 CK Maastricht, Netherlands",
+  "lat": 50.8519235,
+  "lng": 5.6913936,
+  "confidence": "high",
+  "geoSource": "directory structured geo, Markt 37 on the Maastricht market square",
+  "status": "open"
+ },
+ {
+  "n": "Beluga Loves You",
+  "address": "Plein 1992 nr 12, 6221 JP Maastricht, Netherlands",
+  "lat": 50.8462005,
+  "lng": 5.6990715,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide structured geo (1-star), Plein 1992 nr 12 Maastricht",
+  "status": "open"
+ },
+ {
+  "n": "Tout a Fait",
+  "address": "Sint Bernardusstraat 12-14, 6211 HL Maastricht, Netherlands",
+  "lat": 50.846375,
+  "lng": 5.694051,
+  "confidence": "high",
+  "geoSource": "MICHELIN/directory structured geo (1-star), Sint Bernardusstraat Maastricht",
+  "status": "open"
+ },
+ {
+  "n": "Chateau Neercanne",
+  "address": "Cannerweg 800, 6213 ND Maastricht, Netherlands",
+  "lat": 50.81861,
+  "lng": 5.66739,
+  "confidence": "high",
+  "geoSource": "Wikidata Q22914699 (Château Neercanne, terraced monument-restaurant), Cannerweg 800",
+  "status": "open"
+ },
+ {
+  "n": "L'Auberge (Chateau Neercanne)",
+  "address": "Cannerweg 800, 6213 ND Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "brasserie co-located on the Château Neercanne estate (Cannerweg 800, same point as record 'Chateau Neercanne'); not given a separate anchor to avoid stacking two pins on one coordinate",
+  "status": "open"
+ },
+ {
+  "n": "Les Salons (Chateau St. Gerlach)",
+  "address": "Joseph Corneli Allee 1, 6301 KK Houthem, Netherlands",
+  "lat": 50.87,
+  "lng": 5.79833,
+  "confidence": "high",
+  "geoSource": "nl.wikipedia Kasteel Sint Gerlach (rijksmonument) coordinates 50°52'12\"N 5°47'54\"E, Houthem-St.Gerlach",
+  "status": "open"
+ },
+ {
+  "n": "Prix de Rome",
+  "address": "Susserweg 1, Maastricht, Netherlands",
+  "lat": 50.8372626,
+  "lng": 5.6719421,
+  "confidence": "high",
+  "geoSource": "MICHELIN/directory structured geo (Bib Gourmand), Susserweg 1 Maastricht",
+  "status": "open"
+ },
+ {
+  "n": "Tabkeaw",
+  "address": "Rechtstraat 102, 6221 EL Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Harry's",
+  "address": "Wycker Brugstraat 2, Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary restaurant; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "De Bisschopsmolen",
+  "address": "Stenenbrug 3, 6211 HP Maastricht, Netherlands",
+  "lat": 50.84644,
+  "lng": 5.69274,
+  "confidence": "high",
+  "geoSource": "Wikidata Q1841164 / molens.nl WGS84 (rijksmonument watermill bakery), cross-checked with Commons category & historical marker (~50.8464,5.6927)",
+  "status": "open"
+ },
+ {
+  "n": "Bakkerij Hermans",
+  "address": "Zakstraat 9, Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary bakery; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Patisserie Royale",
+  "address": "Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no street address in worklist; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Coffeelovers Dominicanen",
+  "address": "Dominicanerkerkstraat 1, Maastricht, Netherlands",
+  "lat": 50.85012,
+  "lng": 5.689634,
+  "confidence": "high",
+  "geoSource": "Wikipedia Dominicanenkerk (Maastricht) / directory geo; café inside the 13th-c. Dominican church (Boekhandel Dominicanen), Dominicanerkerkstraat 1",
+  "status": "open"
+ },
+ {
+  "n": "Blanche Dael Branderij",
+  "address": "Aan de Brikkebouw 10, 6227 AH Maastricht, Netherlands",
+  "lat": 50.855519,
+  "lng": 5.686985,
+  "confidence": "high",
+  "geoSource": "directory structured geo, Aan de Brikkebouw 10 (Sphinxkwartier) Maastricht",
+  "status": "open"
+ },
+ {
+  "n": "Fixed Gear Coffee",
+  "address": "Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no street address in worklist; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Cafe Zondag",
+  "address": "Wijckerbrugstraat 42, 6221 ED Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "ordinary café; no attributable POI decimal available",
+  "status": "open"
+ },
+ {
+  "n": "Gulpener BrouwLokaal",
+  "address": "Rijksweg 16, 6271 AE Gulpen, Netherlands",
+  "lat": 50.81444,
+  "lng": 5.89056,
+  "confidence": "high",
+  "geoSource": "Wikidata Q2754546 / Wikipedia Gulpener brewery 50°48'52\"N 5°53'26\"E, Rijksweg 16 Gulpen",
+  "status": "open"
+ },
+ {
+  "n": "Brand Bierbrouwerij",
+  "address": "Brouwerijstraat 2, 6321 AC Wijlre, Netherlands",
+  "lat": 50.8306858,
+  "lng": 5.8940571,
+  "confidence": "high",
+  "geoSource": "directory structured geo / nl.wikipedia Brand Bierbrouwerij, Brouwerijstraat Wijlre",
+  "status": "open"
+ },
+ {
+  "n": "Take One — CLOSED",
+  "address": "Rechtstraat 28, Wyck, Maastricht, Netherlands",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "CLOSED confirmed permanently closed via Foursquare ('Now Closed') and Yelp ('CLOSED'); no venue decimal surfaced, left null",
+  "status": "closed"
+ },
+ {
+  "n": "Restaurant Sankt Benedikt",
+  "address": "Benediktusplatz 12, 52076 Aachen-Kornelimünster, Germany",
+  "lat": 50.7282927,
+  "lng": 6.183493,
+  "confidence": "high",
+  "geoSource": "MICHELIN/directory structured geo (1-star, listed building), Benediktusplatz 12 Kornelimünster",
+  "status": "open"
+ },
+ {
+  "n": "Schnabuleum (Historische Senfmühle)",
+  "address": "Laufenstraße 118, 52156 Monschau, Germany",
+  "lat": 50.56249,
+  "lng": 6.23836,
+  "confidence": "high",
+  "geoSource": "de.wikipedia Senfmühle Monschau / directory geo (DMS 50°33'45.1\"N 6°14'18\"E), Laufenstraße 118 Monschau",
+  "status": "open"
+ },
+ {
+  "n": "Café Kaulard",
+  "address": "Markt 8, 52156 Monschau, Germany",
+  "lat": 50.55509,
+  "lng": 6.24258,
+  "confidence": "high",
+  "geoSource": "directory structured geo, Markt 8 on the Monschau market square",
+  "status": "open"
+ },
+ {
+  "n": "Konditorei-Café am Roten Haus",
+  "address": "Laufenstraße 11, 52156 Monschau, Germany",
+  "lat": 50.55485,
+  "lng": 6.24097,
+  "confidence": "med",
+  "geoSource": "Wikidata Q2168498 Rotes Haus (Laufenstraße 10) — heritage anchor the café sits directly at/opposite (Laufenstraße 11)",
+  "status": "open"
+ },
+ {
+  "n": "Alte Feuerwache – Podobnik's Restaurant",
+  "address": "Oppener Straße 115, 52146 Würselen, Germany",
+  "lat": 50.81188,
+  "lng": 6.14126,
+  "confidence": "high",
+  "geoSource": "Falstaff/directory structured geo, Oppener Straße 115 Würselen",
+  "status": "open"
+ },
+ {
+  "n": "Restaurant Gut Schwarzenbruch",
+  "address": "Gut Schwarzenbruch 2, 52222 Stolberg (Rheinland), Germany",
+  "lat": 50.789182,
+  "lng": 6.223596,
+  "confidence": "high",
+  "geoSource": "outdooractive/directory structured geo (DMS 50°47'21.1\"N 6°13'24.9\"E), Gut Schwarzenbruch Stolberg",
+  "status": "open"
+ },
+ {
+  "n": "Landgasthof Gut Marienbildchen",
+  "address": "Münsterbildchen 3, 52159 Roetgen, Germany",
+  "lat": 50.65759,
+  "lng": 6.18814,
+  "confidence": "high",
+  "geoSource": "directory structured geo, Münsterbildchen 3 Roetgen",
+  "status": "open"
+ }
+]

@@ -1,41 +1,353 @@
 [
- {"n":"Signal de Botrange","address":"Route de Botrange 133, 4950 Waimes (Botrange), Belgium","lat":50.501669,"lng":6.093061,"confidence":"high","geoSource":"Wikidata Q322824 (Signal de Botrange)","status":"open"},
- {"n":"Hohes Venn / Hautes Fagnes — moorland reserve & boardwalks","address":"Hohes Venn – Hautes Fagnes, 4845 Jalhay / 4950 Waimes, Belgium","lat":50.544444,"lng":6.077778,"confidence":"med","geoSource":"Wikipedia High Fens / Wikidata Q599193 — representative point for the whole reserve","status":"open"},
- {"n":"Naturparkzentrum Botrange (Maison du Parc)","address":"Route de Botrange 131, 4950 Waimes (Robertville), Belgium","lat":50.581280,"lng":6.092959,"confidence":"high","geoSource":"fr.wikipedia Centre nature de Botrange (50°29'36\"N 6°05'59\"E)","status":"open"},
- {"n":"Naturzentrum Haus Ternell","address":"Ternell 2-3, 4700 Eupen, Belgium","lat":50.586206,"lng":6.129592,"confidence":"high","geoSource":"Wikidata Q1225966 (Haus Ternell) / outdooractive","status":"open"},
- {"n":"St.-Nikolaus-Kirche Eupen","address":"Marktplatz, 4700 Eupen, Belgium","lat":50.630735,"lng":6.032574,"confidence":"high","geoSource":"Wikidata Q15848652 (St. Nicholas church, Eupen)","status":"open"},
- {"n":"Eupener Marktplatz & Werthplatz","address":"Marktplatz & Werthplatz, 4700 Eupen, Belgium","lat":50.630633,"lng":6.031317,"confidence":"med","geoSource":"opencaching Eupen Marktplatz (N50°37.838' E6°01.879') / Rathaus Eupen — square anchor","status":"open"},
- {"n":"Wesertalsperre (Weser dam & visitor centre)","address":"Langesthal 164, 4700 Eupen, Belgium","lat":50.616667,"lng":6.092222,"confidence":"high","geoSource":"Wikidata Q165395 (Dam of the Vesdre / Wesertalsperre)","status":"open"},
- {"n":"IKOB — Museum für Zeitgenössische Kunst","address":"Rotenberg 12B, 4700 Eupen, Belgium","lat":50.625974,"lng":6.030130,"confidence":"high","geoSource":"outdooractive / ostbelgien.eu IKOB (Rotenberg 12b)","status":"open"},
- {"n":"Eupener Rosenmontagszug (carnival)","address":"Oberstadt / Marktplatz, 4700 Eupen, Belgium","lat":50.630633,"lng":6.031317,"confidence":"med","geoSource":"parade route anchored at Eupen Marktplatz (opencaching N50°37.838' E6°01.879')","status":"open"},
- {"n":"Schokoladenmuseum Chocolaterie Jacques — CLOSED","address":"Industriegebiet, 4700 Eupen, Belgium","lat":50.640590,"lng":6.007213,"confidence":"high","geoSource":"outdooractive Schokoladenmuseum Chocolaterie Jacques (Industriestraße 16, Eupen)","status":"open"},
- {"n":"Museum Vieille Montagne (MVM), Kelmis","address":"Lütticher Straße, 4720 Kelmis (La Calamine), Belgium","lat":50.711638,"lng":6.008874,"confidence":"high","geoSource":"Wikidata Q60965271 / fietsnetwerk (Lütticher Straße 278, Kelmis)","status":"open"},
- {"n":"Töpfereimuseum in der Burg Raeren","address":"Burgstraße, 4730 Raeren, Belgium","lat":50.678056,"lng":6.121944,"confidence":"high","geoSource":"de.wikipedia Burg Raeren (50°40'41\"N 6°07'19\"E)","status":"open"},
- {"n":"Büchelturm St. Vith","address":"Büchelstraße, 4780 Sankt Vith, Belgium","lat":50.279600,"lng":6.124809,"confidence":"high","geoSource":"Wikidata Q57352839 (Büchelturm)","status":"open"},
- {"n":"Burg Reinhardstein (Château de Reinhardstein)","address":"Chemin du Cheneux 50, 4950 Ovifat (Waimes), Belgium","lat":50.452711,"lng":6.102781,"confidence":"high","geoSource":"Wikidata Q320479 (Reinhardstein Castle)","status":"open"},
- {"n":"Stausee Bütgenbach & Sport-/Ferienpark Worriken","address":"Worriken 9, 4750 Bütgenbach, Belgium","lat":50.425440,"lng":6.222584,"confidence":"high","geoSource":"TripAdvisor / ostbelgien.eu Sport- und Ferienpark Worriken (Worriken 9)","status":"open"},
- {"n":"Sint-Servaasbasiliek","address":"Keizer Karelplein 3, Maastricht, Netherlands","lat":50.848819,"lng":5.687200,"confidence":"high","geoSource":"Wikidata Q253935 (Basilica of Saint Servatius)","status":"open"},
- {"n":"Onze-Lieve-Vrouwebasiliek","address":"Onze Lieve Vrouweplein 7, Maastricht, Netherlands","lat":50.847620,"lng":5.693440,"confidence":"high","geoSource":"Wikidata Q908127 (Basilica of Our Lady, Maastricht)","status":"open"},
- {"n":"Boekhandel Dominicanen","address":"Dominicanerkerkstraat 1, Maastricht, Netherlands","lat":50.850301,"lng":5.689585,"confidence":"high","geoSource":"nl.wikipedia Dominicanenkerk (Maastricht) (Dominicanerkerkstraat 1)","status":"open"},
- {"n":"Bonnefantenmuseum","address":"Avenue Céramique 250, Maastricht, Netherlands","lat":50.842529,"lng":5.702040,"confidence":"high","geoSource":"Wikidata Q892727 (Bonnefanten Museum)","status":"open"},
- {"n":"Grotten Noord (Sint-Pietersberg)","address":"Luikerweg 80, 6212 NH Maastricht, Netherlands","lat":50.836239,"lng":5.684148,"confidence":"high","geoSource":"outdooractive / VisitMaastricht Grotten Noord Sint-Pietersberg (Luikerweg 80)","status":"open"},
- {"n":"Fort Sint Pieter","address":"Luikerweg 80, 6212 NH Maastricht, Netherlands","lat":50.836111,"lng":5.684111,"confidence":"high","geoSource":"Wikidata Q3316628 (Saint Peter Fort)","status":"open"},
- {"n":"Kazematten (Maastricht Underground)","address":"Waldeckpark 11, 6214 BH Maastricht, Netherlands","lat":50.843308,"lng":5.680925,"confidence":"high","geoSource":"VisitMaastricht Kazematten / Waldeckpark 11 (Wikidata Q14517485 Waldeckpark)","status":"open"},
- {"n":"Vrijthof","address":"Vrijthof, Maastricht, Netherlands","lat":50.849194,"lng":5.688389,"confidence":"high","geoSource":"Wikidata Q3516485 (Vrijthof)","status":"open"},
- {"n":"Sint-Janskerk","address":"Vrijthof 24, Maastricht, Netherlands","lat":50.848331,"lng":5.687500,"confidence":"high","geoSource":"Wikidata Q1263843 (Sint-Janskerk, Maastricht)","status":"open"},
- {"n":"Helpoort","address":"Sint Bernardusstraat, Maastricht, Netherlands","lat":50.845528,"lng":5.694454,"confidence":"high","geoSource":"Wikidata Q2250186 (Helpoort)","status":"open"},
- {"n":"Stadhuis op de Markt","address":"Markt 78, Maastricht, Netherlands","lat":50.851389,"lng":5.691111,"confidence":"high","geoSource":"Wikidata Q1923527 (Maastricht City Hall, Markt 78)","status":"open"},
- {"n":"Sint Servaasbrug","address":"Sint Servaasbrug, Maasboulevard, Maastricht, Netherlands","lat":50.848889,"lng":5.696944,"confidence":"high","geoSource":"Wikidata Q604785 (Sint Servaasbrug)","status":"open"},
- {"n":"Jekerkwartier","address":"Jekerkwartier, Maastricht, Netherlands","lat":50.844167,"lng":5.691389,"confidence":"med","geoSource":"Wikidata Q723272 (Jekerkwartier) — neighbourhood anchor point","status":"open"},
- {"n":"Stokstraatkwartier","address":"Stokstraat, Maastricht, Netherlands","lat":50.848911,"lng":5.694106,"confidence":"med","geoSource":"nl.wikipedia Stokstraat (Maastricht) / Stokstraat 1 — street/quarter anchor","status":"open"},
- {"n":"Sphinxkwartier","address":"Sphinxkwartier, Boschstraat, Maastricht, Netherlands","lat":50.856725,"lng":5.689394,"confidence":"med","geoSource":"nl.wikipedia Sphinxkwartier — district anchor point (50°51'24.2\"N 5°41'21.8\"E)","status":"open"},
- {"n":"Drielandenpunt / Vaalserberg","address":"Viergrenzenweg, Vaalserberg, Vaals, Netherlands","lat":50.754389,"lng":6.020806,"confidence":"high","geoSource":"Wikidata Q3246949 (drielandenpunt, Vaalserberg)","status":"open"},
- {"n":"Kasteel Vaalsbroek","address":"Vaalsbroek 1, 6291 NH Vaals, Netherlands","lat":50.767717,"lng":5.994608,"confidence":"high","geoSource":"Wikidata Q2243832 / rijksmonument 519852 (Vaalsbroek Castle)","status":"open"},
- {"n":"Kasteelruine & Fluweelengrot Valkenburg","address":"Grendelplein, Valkenburg aan de Geul, Netherlands","lat":50.861939,"lng":5.830831,"confidence":"high","geoSource":"Wikidata Q1473283 (Valkenburg Castle / Kasteelruïne)","status":"open"},
- {"n":"Gemeentegrot Valkenburg","address":"Cauberg 4, 6301 BT Valkenburg aan de Geul, Netherlands","lat":50.862152,"lng":5.829006,"confidence":"high","geoSource":"gemeentegrot.nl / VisitZuidLimburg Gemeentegrot (Cauberg 4)","status":"open"},
- {"n":"Thermae 2000","address":"Cauberg 27, 6301 BT Valkenburg aan de Geul, Netherlands","lat":50.860080,"lng":5.823790,"confidence":"high","geoSource":"Thermae 2000 official / fresha (Cauberg 25-27)","status":"open"},
- {"n":"Cauberg","address":"Cauberg, Valkenburg aan de Geul, Netherlands","lat":50.860281,"lng":5.823331,"confidence":"med","geoSource":"Wikidata Q178064 (Cauberg) — hill/street anchor point","status":"open"},
- {"n":"Het Romeins Museum (Thermenmuseum) - CLOSED","address":"Coriovallumstraat 9, 6411 CA Heerlen, Netherlands","lat":50.885000,"lng":5.976669,"confidence":"high","geoSource":"Wikidata Q153193 (Thermenmuseum, Coriovallumstraat 9)","status":"open"},
- {"n":"Netherlands American Cemetery","address":"Amerikaanse Begraafplaats 1, 6269 NA Margraten, Netherlands","lat":50.817500,"lng":5.805000,"confidence":"high","geoSource":"Wikidata Q954571 (Netherlands American Cemetery)","status":"open"},
- {"n":"Heuvelland: Vijlenerbos & Epen","address":"Vijlenerbos, Epen, Netherlands","lat":50.787816,"lng":5.963385,"confidence":"med","geoSource":"Wikidata Q3230466 / Sint-Martinuskerk Vijlen — named landmark anchoring the Vijlenerbos area","status":"open"}
+ {
+  "n": "Signal de Botrange",
+  "address": "Route de Botrange 133, 4950 Waimes (Botrange), Belgium",
+  "lat": 50.501669,
+  "lng": 6.093061,
+  "confidence": "high",
+  "geoSource": "Wikidata Q322824 (Signal de Botrange)",
+  "status": "open"
+ },
+ {
+  "n": "Hohes Venn / Hautes Fagnes — moorland reserve & boardwalks",
+  "address": "Hohes Venn – Hautes Fagnes, 4845 Jalhay / 4950 Waimes, Belgium",
+  "lat": 50.544444,
+  "lng": 6.077778,
+  "confidence": "med",
+  "geoSource": "Wikipedia High Fens / Wikidata Q599193 — representative point for the whole reserve",
+  "status": "open"
+ },
+ {
+  "n": "Naturparkzentrum Botrange (Maison du Parc)",
+  "address": "Route de Botrange 131, 4950 Waimes (Robertville), Belgium",
+  "lat": 50.58128,
+  "lng": 6.092959,
+  "confidence": "high",
+  "geoSource": "fr.wikipedia Centre nature de Botrange (50°29'36\"N 6°05'59\"E)",
+  "status": "open"
+ },
+ {
+  "n": "Naturzentrum Haus Ternell",
+  "address": "Ternell 2-3, 4700 Eupen, Belgium",
+  "lat": 50.586206,
+  "lng": 6.129592,
+  "confidence": "high",
+  "geoSource": "Wikidata Q1225966 (Haus Ternell) / outdooractive",
+  "status": "open"
+ },
+ {
+  "n": "St.-Nikolaus-Kirche Eupen",
+  "address": "Marktplatz, 4700 Eupen, Belgium",
+  "lat": 50.630735,
+  "lng": 6.032574,
+  "confidence": "high",
+  "geoSource": "Wikidata Q15848652 (St. Nicholas church, Eupen)",
+  "status": "open"
+ },
+ {
+  "n": "Eupener Marktplatz & Werthplatz",
+  "address": "Marktplatz & Werthplatz, 4700 Eupen, Belgium",
+  "lat": 50.630633,
+  "lng": 6.031317,
+  "confidence": "med",
+  "geoSource": "opencaching Eupen Marktplatz (N50°37.838' E6°01.879') / Rathaus Eupen — square anchor",
+  "status": "open"
+ },
+ {
+  "n": "Wesertalsperre (Weser dam & visitor centre)",
+  "address": "Langesthal 164, 4700 Eupen, Belgium",
+  "lat": 50.616667,
+  "lng": 6.092222,
+  "confidence": "high",
+  "geoSource": "Wikidata Q165395 (Dam of the Vesdre / Wesertalsperre)",
+  "status": "open"
+ },
+ {
+  "n": "IKOB — Museum für Zeitgenössische Kunst",
+  "address": "Rotenberg 12B, 4700 Eupen, Belgium",
+  "lat": 50.625974,
+  "lng": 6.03013,
+  "confidence": "high",
+  "geoSource": "outdooractive / ostbelgien.eu IKOB (Rotenberg 12b)",
+  "status": "open"
+ },
+ {
+  "n": "Eupener Rosenmontagszug (carnival)",
+  "address": "Oberstadt / Marktplatz, 4700 Eupen, Belgium",
+  "lat": 50.630633,
+  "lng": 6.031317,
+  "confidence": "med",
+  "geoSource": "parade route anchored at Eupen Marktplatz (opencaching N50°37.838' E6°01.879')",
+  "status": "open"
+ },
+ {
+  "n": "Schokoladenmuseum Chocolaterie Jacques — CLOSED",
+  "address": "Industriegebiet, 4700 Eupen, Belgium",
+  "lat": 50.64059,
+  "lng": 6.007213,
+  "confidence": "high",
+  "geoSource": "outdooractive Schokoladenmuseum Chocolaterie Jacques (Industriestraße 16, Eupen)",
+  "status": "open"
+ },
+ {
+  "n": "Museum Vieille Montagne (MVM), Kelmis",
+  "address": "Lütticher Straße, 4720 Kelmis (La Calamine), Belgium",
+  "lat": 50.711638,
+  "lng": 6.008874,
+  "confidence": "high",
+  "geoSource": "Wikidata Q60965271 / fietsnetwerk (Lütticher Straße 278, Kelmis)",
+  "status": "open"
+ },
+ {
+  "n": "Töpfereimuseum in der Burg Raeren",
+  "address": "Burgstraße, 4730 Raeren, Belgium",
+  "lat": 50.678056,
+  "lng": 6.121944,
+  "confidence": "high",
+  "geoSource": "de.wikipedia Burg Raeren (50°40'41\"N 6°07'19\"E)",
+  "status": "open"
+ },
+ {
+  "n": "Büchelturm St. Vith",
+  "address": "Büchelstraße, 4780 Sankt Vith, Belgium",
+  "lat": 50.2796,
+  "lng": 6.124809,
+  "confidence": "high",
+  "geoSource": "Wikidata Q57352839 (Büchelturm)",
+  "status": "open"
+ },
+ {
+  "n": "Burg Reinhardstein (Château de Reinhardstein)",
+  "address": "Chemin du Cheneux 50, 4950 Ovifat (Waimes), Belgium",
+  "lat": 50.452711,
+  "lng": 6.102781,
+  "confidence": "high",
+  "geoSource": "Wikidata Q320479 (Reinhardstein Castle)",
+  "status": "open"
+ },
+ {
+  "n": "Stausee Bütgenbach & Sport-/Ferienpark Worriken",
+  "address": "Worriken 9, 4750 Bütgenbach, Belgium",
+  "lat": 50.42544,
+  "lng": 6.222584,
+  "confidence": "high",
+  "geoSource": "TripAdvisor / ostbelgien.eu Sport- und Ferienpark Worriken (Worriken 9)",
+  "status": "open"
+ },
+ {
+  "n": "Sint-Servaasbasiliek",
+  "address": "Keizer Karelplein 3, Maastricht, Netherlands",
+  "lat": 50.848819,
+  "lng": 5.6872,
+  "confidence": "high",
+  "geoSource": "Wikidata Q253935 (Basilica of Saint Servatius)",
+  "status": "open"
+ },
+ {
+  "n": "Onze-Lieve-Vrouwebasiliek",
+  "address": "Onze Lieve Vrouweplein 7, Maastricht, Netherlands",
+  "lat": 50.84762,
+  "lng": 5.69344,
+  "confidence": "high",
+  "geoSource": "Wikidata Q908127 (Basilica of Our Lady, Maastricht)",
+  "status": "open"
+ },
+ {
+  "n": "Boekhandel Dominicanen",
+  "address": "Dominicanerkerkstraat 1, Maastricht, Netherlands",
+  "lat": 50.850301,
+  "lng": 5.689585,
+  "confidence": "high",
+  "geoSource": "nl.wikipedia Dominicanenkerk (Maastricht) (Dominicanerkerkstraat 1)",
+  "status": "open"
+ },
+ {
+  "n": "Bonnefantenmuseum",
+  "address": "Avenue Céramique 250, Maastricht, Netherlands",
+  "lat": 50.842529,
+  "lng": 5.70204,
+  "confidence": "high",
+  "geoSource": "Wikidata Q892727 (Bonnefanten Museum)",
+  "status": "open"
+ },
+ {
+  "n": "Grotten Noord (Sint-Pietersberg)",
+  "address": "Luikerweg 80, 6212 NH Maastricht, Netherlands",
+  "lat": 50.836239,
+  "lng": 5.684148,
+  "confidence": "high",
+  "geoSource": "outdooractive / VisitMaastricht Grotten Noord Sint-Pietersberg (Luikerweg 80)",
+  "status": "open"
+ },
+ {
+  "n": "Fort Sint Pieter",
+  "address": "Luikerweg 80, 6212 NH Maastricht, Netherlands",
+  "lat": 50.836111,
+  "lng": 5.684111,
+  "confidence": "high",
+  "geoSource": "Wikidata Q3316628 (Saint Peter Fort)",
+  "status": "open"
+ },
+ {
+  "n": "Kazematten (Maastricht Underground)",
+  "address": "Waldeckpark 11, 6214 BH Maastricht, Netherlands",
+  "lat": 50.843308,
+  "lng": 5.680925,
+  "confidence": "high",
+  "geoSource": "VisitMaastricht Kazematten / Waldeckpark 11 (Wikidata Q14517485 Waldeckpark)",
+  "status": "open"
+ },
+ {
+  "n": "Vrijthof",
+  "address": "Vrijthof, Maastricht, Netherlands",
+  "lat": 50.849194,
+  "lng": 5.688389,
+  "confidence": "high",
+  "geoSource": "Wikidata Q3516485 (Vrijthof)",
+  "status": "open"
+ },
+ {
+  "n": "Sint-Janskerk",
+  "address": "Vrijthof 24, Maastricht, Netherlands",
+  "lat": 50.848331,
+  "lng": 5.6875,
+  "confidence": "high",
+  "geoSource": "Wikidata Q1263843 (Sint-Janskerk, Maastricht)",
+  "status": "open"
+ },
+ {
+  "n": "Helpoort",
+  "address": "Sint Bernardusstraat, Maastricht, Netherlands",
+  "lat": 50.845528,
+  "lng": 5.694454,
+  "confidence": "high",
+  "geoSource": "Wikidata Q2250186 (Helpoort)",
+  "status": "open"
+ },
+ {
+  "n": "Stadhuis op de Markt",
+  "address": "Markt 78, Maastricht, Netherlands",
+  "lat": 50.851389,
+  "lng": 5.691111,
+  "confidence": "high",
+  "geoSource": "Wikidata Q1923527 (Maastricht City Hall, Markt 78)",
+  "status": "open"
+ },
+ {
+  "n": "Sint Servaasbrug",
+  "address": "Sint Servaasbrug, Maasboulevard, Maastricht, Netherlands",
+  "lat": 50.848889,
+  "lng": 5.696944,
+  "confidence": "high",
+  "geoSource": "Wikidata Q604785 (Sint Servaasbrug)",
+  "status": "open"
+ },
+ {
+  "n": "Jekerkwartier",
+  "address": "Jekerkwartier, Maastricht, Netherlands",
+  "lat": 50.844167,
+  "lng": 5.691389,
+  "confidence": "med",
+  "geoSource": "Wikidata Q723272 (Jekerkwartier) — neighbourhood anchor point",
+  "status": "open"
+ },
+ {
+  "n": "Stokstraatkwartier",
+  "address": "Stokstraat, Maastricht, Netherlands",
+  "lat": 50.848911,
+  "lng": 5.694106,
+  "confidence": "med",
+  "geoSource": "nl.wikipedia Stokstraat (Maastricht) / Stokstraat 1 — street/quarter anchor",
+  "status": "open"
+ },
+ {
+  "n": "Sphinxkwartier",
+  "address": "Sphinxkwartier, Boschstraat, Maastricht, Netherlands",
+  "lat": 50.856725,
+  "lng": 5.689394,
+  "confidence": "med",
+  "geoSource": "nl.wikipedia Sphinxkwartier — district anchor point (50°51'24.2\"N 5°41'21.8\"E)",
+  "status": "open"
+ },
+ {
+  "n": "Drielandenpunt / Vaalserberg",
+  "address": "Viergrenzenweg, Vaalserberg, Vaals, Netherlands",
+  "lat": 50.754389,
+  "lng": 6.020806,
+  "confidence": "high",
+  "geoSource": "Wikidata Q3246949 (drielandenpunt, Vaalserberg)",
+  "status": "open"
+ },
+ {
+  "n": "Kasteel Vaalsbroek",
+  "address": "Vaalsbroek 1, 6291 NH Vaals, Netherlands",
+  "lat": 50.767717,
+  "lng": 5.994608,
+  "confidence": "high",
+  "geoSource": "Wikidata Q2243832 / rijksmonument 519852 (Vaalsbroek Castle)",
+  "status": "open"
+ },
+ {
+  "n": "Kasteelruine & Fluweelengrot Valkenburg",
+  "address": "Grendelplein, Valkenburg aan de Geul, Netherlands",
+  "lat": 50.861939,
+  "lng": 5.830831,
+  "confidence": "high",
+  "geoSource": "Wikidata Q1473283 (Valkenburg Castle / Kasteelruïne)",
+  "status": "open"
+ },
+ {
+  "n": "Gemeentegrot Valkenburg",
+  "address": "Cauberg 4, 6301 BT Valkenburg aan de Geul, Netherlands",
+  "lat": 50.862152,
+  "lng": 5.829006,
+  "confidence": "high",
+  "geoSource": "gemeentegrot.nl / VisitZuidLimburg Gemeentegrot (Cauberg 4)",
+  "status": "open"
+ },
+ {
+  "n": "Thermae 2000",
+  "address": "Cauberg 27, 6301 BT Valkenburg aan de Geul, Netherlands",
+  "lat": 50.86008,
+  "lng": 5.82379,
+  "confidence": "high",
+  "geoSource": "Thermae 2000 official / fresha (Cauberg 25-27)",
+  "status": "open"
+ },
+ {
+  "n": "Cauberg",
+  "address": "Cauberg, Valkenburg aan de Geul, Netherlands",
+  "lat": 50.860281,
+  "lng": 5.823331,
+  "confidence": "med",
+  "geoSource": "Wikidata Q178064 (Cauberg) — hill/street anchor point",
+  "status": "open"
+ },
+ {
+  "n": "Het Romeins Museum (Thermenmuseum) — CLOSED",
+  "address": "Coriovallumstraat 9, 6411 CA Heerlen, Netherlands",
+  "lat": 50.885,
+  "lng": 5.976669,
+  "confidence": "high",
+  "geoSource": "Wikidata Q153193 (Thermenmuseum, Coriovallumstraat 9)",
+  "status": "open"
+ },
+ {
+  "n": "Netherlands American Cemetery",
+  "address": "Amerikaanse Begraafplaats 1, 6269 NA Margraten, Netherlands",
+  "lat": 50.8175,
+  "lng": 5.805,
+  "confidence": "high",
+  "geoSource": "Wikidata Q954571 (Netherlands American Cemetery)",
+  "status": "open"
+ },
+ {
+  "n": "Heuvelland: Vijlenerbos & Epen",
+  "address": "Vijlenerbos, Epen, Netherlands",
+  "lat": 50.787816,
+  "lng": 5.963385,
+  "confidence": "med",
+  "geoSource": "Wikidata Q3230466 / Sint-Martinuskerk Vijlen — named landmark anchoring the Vijlenerbos area",
+  "status": "open"
+ }
 ]
