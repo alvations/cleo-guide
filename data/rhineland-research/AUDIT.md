@@ -109,3 +109,67 @@ Merit/source notes:
   ≥2-credible bar over padding; the held list is the fastest route to extend.
 - All addresses = street + Bonn/Königswinter/Bad Honnef + PLZ + Germany, fact-checked via German-language
   search; NO coordinates (geocode/location-verify happen at build from data/geocodes.json).
+
+---
+
+## DÜSSELDORF (DUS) — discovery pass (2026-09-01)
+
+Emitted: `SIGHTS_DUS.json` (39 sights, DICT), `FOOD_DUS.json` (36 food, LIST), `SOURCES_DUS.json` (27
+outlets), `CREATORS_DUS.json` (3 creators). Consolidate OK — DUS contributes 75 records; combined
+region total 225 (KOLN 98, DUS 75, BONN 52). No dup names within DUS or across the region merge.
+
+### Sights (39) — tiers 1:14 / 2:17 / 3:8
+Signature spine covered: Altstadt/"längste Theke", Königsallee, Neuer Zollhof (Gehry)+Rheinturm+MedienHafen,
+Rheinuferpromenade, Little Tokyo, St. Lambertus (schiefer Turm), K20 & K21, Kunstpalast & NRW-Forum,
+Schloss Benrath, Kaiserpfalz Kaiserswerth, Hofgarten, Carlsplatz, Kö-Bogen II, EKŌ-Haus, Nordpark/Japanischer
+Garten, Schlossturm/SchifffahrtMuseum, Hetjens, Heinrich-Heine-Institut, Aquazoo, Kiefernstraße/Flingern,
+KIT, St. Andreas, Tonhalle, Botanischer Garten HHU (Kuppel), Dreischeibenhaus/Schauspielhaus, Landtag NRW,
+Jan-Wellem/Marktplatz, Kunsthalle, Stadterhebungsmonument, Bilker Bunker, Apollo Varieté, Alt St. Martin
+(oldest building), Filmmuseum/Black Box, St. Rochus (egg dome), Wilhelm-Marx-Haus (1st German high-rise),
+Südpark. `g` from HIST/ARCH/MUS/RIVER/PARK/MKT/NIGHT/FREE/ICON (no UNESCO in DUS, per brief).
+- Every sight ≥2 credible: DUSTOURISMUS (tourism board) + BAUKUNSTNRW (Architektenkammer NRW db) / WIKIPEDIA /
+  WZ (Westdeutsche Zeitung) / KUNSTSAMMLUNG (official) / NRWSTIFTUNG / MUSENKUSS / SWD / THEDUESSELDORFER.
+
+### Food (36) — tiers 1:12 / 2:15 / 3:9. Signature FIRST, dish named.
+- Altbier brewhouses (7): Uerige (Sticke), Füchschen, Schumacher (oldest, Stammhaus), Zum Schlüssel, Kürzer,
+  Frankenheim, Zur Uel; + Brauhaus Joh. Albrecht (Niederkassel brewpub). Rhenish canon dishes named
+  (Schweinshaxe, Sauerbraten, Alt).
+- Little Tokyo / Japanese (9): Takumi & Naniwa & Takezo (ramen), Maruyasu & Yabase (sushi), Kushi-Tei
+  (yakitori/izakaya), Soba-An (hand-cut soba), Bing Go (taiyaki), plus the two Nagaya stars below.
+- Michelin bench (9 star houses + 1 guide-listed bistro): Nagaya + Yoshi by Nagaya (JP), Agata's, 1876
+  Daniel Dal-Ben, Fritz's Frau Franzi, Le Flair, Setzkasten, Im Schiffchen + Enzo im Schiffchen, LA VIE by
+  Thomas Bühner; Münstermanns Kontor (guide-listed bistro). All cleared on lone-Michelin + a 2nd guide
+  (Falstaff/WZ/DUSTOURISMUS/Tageskarte/MRDUES).
+- Sweets/bakery/coffee/veg/intl: Konditorei Heinemann (Champagnertrüffel), Bäckerei Hinkel (Brotinstitut +
+  Feinschmecker), Kaffeehandwerk & Lightroast (specialty coffee), Café Hüftgold (Flingern cakes),
+  Sattgrün (vegan buffet), Meerbar (MedienHafen seafood, in the red Gehry building), Phox (Vietnamese pho,
+  named by Der Feinschmecker top-10 DE).
+
+### Merit / source notes
+- Merit bar applied — mentions measured, not auto-added. Michelin/Feinschmecker/Brotinstitut = institutional;
+  editorial recommenders = DUSTOURISMUS, WZ, MRDUES, SWD, Falstaff, JapanDigest, Mit Vergnügen, THE DORF, The
+  Düsseldorfer, PRINZ, Schlemmer Atlas. Yelp/TripAdvisor/Google/OpenTable = 0.
+- CLOSED (kept, flagged " — CLOSED" + closed:true): Brauerei zum Schiffchen (city's oldest restaurant, closed
+  autumn 2024 for renovation; Wikipedia + Viernull).
+- CREATORS (3, all corroborating, never lone): Bento Daisuki & Verliebt in Japan (Little-Tokyo blogs),
+  Life in Düsseldorf (expat city blog). None fabricated; r/dusseldorf not used as a lone pin.
+
+### SINGLE-/SOFT-SOURCE flags (verify before build)
+- Heinemann: cited KOENIGSALLEE (official Kö boulevard site) + OFFICIAL — both non-editorial; the
+  Champagnertrüffel fame is genuine but a 2nd independent credible editorial (RP/Feinschmecker) should be
+  added before build.
+- Café Hüftgold: RHEINTOPF + LIFEINDUS (blogs) — credible but soft; add MRDUES/RP if extending.
+- Zur Uel: WIKIPEDIA + a DUSTOURISMUS attractions URL that was inferred (not opened this pass) — verify the
+  visitduesseldorf link resolves before build.
+- Several sight sources reuse a DUSTOURISMUS attractions URL pattern that was seen for the institution but not
+  each exact slug re-opened (Benrath, Zur Uel) — spot-check slugs at build.
+
+### HELD candidates (not pinned — sourcing under the ≥2-credible bar this pass)
+- Okinii (AYCE sushi; PRINZ only), Kikaku (Little-Tokyo izakaya — appears CLOSED per recent listings; confirm
+  + flag if adding), Sila Thai (guide/rating only), Bistro Zicke (DUSTOURISMUS only; iconic Altstadt bistro —
+  find 2nd credible), Woyton (specialty-coffee institution since 1998; CREMAGAZIN + coffee-retailer guide),
+  Pia Eis (best-gelato reputation; duesseldorf-magazin + ratings), Berens am Kai / "Am Kai" (Michelin but
+  renamed/ownership change — resolve status), En de Canon (Badisch, PRINZ only), Bob & Mary (burgers;
+  TIMEOUT + THE DORF — dropped only for lack of a mappable cuisine tag, re-add with an INT label).
+- Carlsplatz individual stalls (Dauser Gulasch, Fladi, Steakschmiede) — Carlsplatz kept as a SIGHT (MKT);
+  stalls held pending per-stall ≥2-credible.
