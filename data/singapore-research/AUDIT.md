@@ -195,3 +195,43 @@ coordinates (full SG address + postal per place); ≥2 credible sources per plac
   Singapore town (region→folder) → rebuild-city singapore --build → gates. Extension leads for a 2nd
   wave: Tom's Palette (Kovan), Lickers, The Larder, Tracy's Sarawak Kitchen, Breakfast Club, Ding Te Le,
   Qi Wei Chicken Claypot — held pending a confirmed 2nd credible source and/or exact address.
+
+## Stage 4 — Potong Pasir & MacPherson (PPM) discovery (DONE 2026-09-01)
+Two adjacent central areas built to Toa Payoh depth, area code **PPM**, WebSearch-only (WebFetch blocked),
+batched to conserve shared budget. Files: `FOOD_PPM.json` (25), `SIGHTS_PPM.json` (12 + 16 source rows),
+`SOURCES_PPM.json` (14 outlets), `CREATORS_PPM.json` (3 creators / 5 attach / 5 rejected). All parse
+(python3); every record `a="PPM"`; **every place carries >=2 credible sources** (validator GATE-1 clean);
+all source keys resolve to their registry.
+
+- **FOOD 25** — tiers t1=4, t2=10, t3=11. Clusters: **Circuit Road Market & Food Centre** (MacPherson's
+  50-yr, 2026-renovated centre) — The Fishball Story (Michelin Bib 2016, Douglas Ng), Old Fisherman crab
+  bee hoon (ex-actor Huang Yiliang), Tian Seng fried Hokkien mee, Victor Veggie mock-meat satay, Dancing
+  Char Kway Teow, Nan Xing Claypot Rice, Briyani by Hamidah Bi, Ghim Guan Fried Oyster. **MacPherson Rd /
+  Tai Thong / Potong Pasir** — Julaiha 24h prata, River South (Hoe Nam) Prawn Noodle (est. 1971, 1 Tai
+  Thong Cres), Macpherson Minced Meat Noodle (Tai Thong bak chor mee), Kizuna cafe (148 Potong Pasir Ave 1),
+  Rise Bakehouse (Poiz Centre), Taste of Home (Seremban Malaysian — Potong Pasir stall closed Mar 2024,
+  **reopened Sep 2024** at The Commerze @ Irving, Tai Seng edge; recorded at current address, open).
+  **Woodleigh Village Hawker Centre (202C Woodleigh Link) + The Woodleigh Mall (Bidadari)** — Style Palate
+  duck confit, Guan Kee Kway Chap (1980s), Ming Chung White Lor Mee (Henghua), Eng Kee Chicken Wings,
+  Origanics (vegan), Ji Hui Lai Nasi Kerabu, Fat Fat Food (Cantonese porridge), Pura Vida Cocina (Mexican),
+  HK Egglet, Olla Specialty Coffee (barista champ), Surrey Hills Grocer.
+- **SIGHTS 12** — tiers t1=3, t2=5, t3=4. Potong Pasir sloping-roof HDB (Blk 101-142, 1984 postmodern),
+  Bidadari Park & Alkaff Lake (opened 3 Sep 2024), **Alkaff Upper Serangoon Mosque (68th National
+  Monument, 1932)**, St Andrew's Village, Lorong Koo Chye Sheng Hong Temple (City God, MacPherson), Sri
+  Manmatha Karuneshvarar Temple (1888, Kallang edge), Sennett Estate (SG's largest 1950s planned estate),
+  Bidadari Cemetery heritage & Memorial Garden, The Woodleigh Mall & Village, Kallang River & Bidadari
+  Park Connector (Potong Pasir = 'cut sand'), MacPherson estate/road heritage (Col. Ronald MacPherson;
+  ex-Jalan Klapa; first 10-storey flats 1961), Potong Pasir Town & Block 142 landmark.
+- **Merit bar applied — measured, then dropped:** PP 881 handmade bao (EdgeProp/blog only — 1 credible),
+  Ser Seng Herbs turtle soup (johorkaki only), No.10 Noodle House / Yong Lai Fa Ji fish soup / Soon Lee
+  Lor Mee / Omar's Thai Beef / Hup Hup Mee Siam (single-credible-list each), Jackson Noodles & Fong Yong
+  Tau Foo (aggregator-only), Ms Durian (moved / status unconfirmed), Siam Village & Tian Wai Tian & Gu Ma
+  Jia (aggregator-only). Sasanaramsi Burmese Temple & Kwan Im Thong Hood Cho dropped as out-of-area.
+- **Sources:** Michelin/Wikipedia + SethLui, Eatbook, Daniel Food Diary, Miss Tam Chiak, Her World, The
+  Singapore Women's Weekly, HungryGoWhere, ieatishootipost, Johor Kaki, SG Food on Foot, AsiaOne,
+  Honeycombers, TimeOut; sights on NParks/URA/Roots/NLB/NAS/BiblioAsia/MTI + official temple/mosque sites.
+  **Yelp/TripAdvisor/Google/Burpple/FoodAdvisor = 0 throughout** (measurement only); kopitiam.com.sg,
+  singaporehawkercentres, singaporefoodie & other SEO farms rejected. No coordinates (address + postal
+  only), no fabrication; closures=0 (all verified open).
+- **NEXT:** geocode/location-verify PPM addresses via browser helper -> geo-merge -> rebuild-city
+  singapore --build -> gates (sourcecheck/geocheck/statuscheck), same as Stage 2.

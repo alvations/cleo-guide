@@ -1,0 +1,21 @@
+{
+ "creators": [
+  {"key":"IEATISHOOTIPOST","name":"Dr Leslie Tay (ieatishootipost)","platform":"Blog / YouTube","followers":"Award-winning food blog since 2006 + YouTube channel","url":"https://ieatishootipost.sg"},
+  {"key":"JOHORKAKI","name":"Tony Boey (Johor Kaki)","platform":"Blog","followers":"Long-running, widely-cited SG/JB hawker-food blog","url":"https://johorkaki.blogspot.com"},
+  {"key":"SGFOODONFOOT","name":"SG Food on Foot","platform":"Blog","followers":"Established Singapore hawker-food blog since 2008","url":"https://www.sgfoodonfoot.com"}
+ ],
+ "attach": [
+  {"place":"Taste of Home (家乡味)","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/taste-of-home-seremban-style-lai-fen-and-pork-curry/","note":"Dr Leslie Tay reviewed the ex-Hyatt manager's Seremban-style lai fen (cuttlefish bee hoon) and pork curry, corroborating Eatbook and Seth Lui."},
+  {"place":"The Fishball Story","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/fishball-story-handmade-fishballs/","note":"ieatishootipost documented Douglas Ng's handmade yellowtail fishballs and the young-hawker economics behind the Michelin Bib Gourmand stall."},
+  {"place":"Tian Seng Fried Prawn Mee","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2025/06/tian-seng-prawn-mee-circuit-road-hawker.html","note":"Tony Boey's dedicated Circuit Road post on Tian Seng's old-school fried Hokkien/prawn mee."},
+  {"place":"Macpherson Minced Meat Noodle","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2016/08/singapore-best-bak-chor-mee-macpherson.html","note":"Johor Kaki traced the Tai Thong Crescent bak chor mee stall to its master-apprentice lineage."},
+  {"place":"Macpherson Minced Meat Noodle","creatorKey":"SGFOODONFOOT","url":"https://www.sgfoodonfoot.com/2024/12/macpherson-minced-meat-noodles-tai.html","note":"SG Food on Foot's 2024 revisit of the Tai Thong Crescent minced-meat noodle inside Sin Keng Seng coffeeshop."}
+ ],
+ "rejected": [
+  {"name":"kopitiam.com.sg / singaporehawkercentres.com / hawkerpedia.com.sg","reason":"SEO/directory listicles with no verifiable authorship or following — mention, not merit (kopitiam.com.sg already rejected for Toa Payoh)."},
+  {"name":"singaporefoodie.com / voykris.com / islifearecipe.net / maxthon blog","reason":"SEO/affiliate content-farm style pages; unverifiable authority — not counted toward the 2-credible bar."},
+  {"name":"Burpple / FoodAdvisor / OpenRice / Foursquare / Wanderlog / Chope","reason":"User-review or booking aggregators — used only to MEASURE popularity, never toward the 2-credible bar."},
+  {"name":"Yelp / TripAdvisor / Google","reason":"Never a recommender per project rules; fact-check/status only, 0 toward the two."},
+  {"name":"Lemon8 / anonymous TikTok discover pages / nickblitzz.sg unverified","reason":"Anonymous or unverifiable accounts with no findable track record on the specific stall."}
+ ]
+}
