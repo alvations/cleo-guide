@@ -28,6 +28,18 @@ RDIR = {
 # human labels for Singapore area codes (best-effort; unknown codes print the raw code)
 SG_LABELS = {"TPY":"Toa Payoh","BSH":"Bishan","AMK":"Ang Mo Kio","PPM":"Potong Pasir & MacPherson",
              "USG":"Upper Serangoon","PPS":"(retired combined PP/Mac/Serangoon)"}
+# SCALE-TO-SIZE: the benchmark is Toa Payoh; every town's target scales by its resident population
+# relative to Toa Payoh's (a larger, older town must be denser — the user's rule made concrete/auditable).
+# Populations are ~2020 census planning-area/subzone estimates for the ground each guide actually covers.
+# Target = round(TPY_target * pop / TPY_pop), floored at 55 (the "at least 50-60" minimum).
+SG_POP = {  # thousands of residents on the ground the guide covers
+    "TPY": 121,   # Toa Payoh planning area (the benchmark)
+    "AMK": 164,   # Ang Mo Kio + Yio Chu Kang — one of the largest, oldest towns
+    "USG": 175,   # Upper Serangoon: Serangoon Gardens + Kovan + the Hougang edge
+    "BSH": 88,    # Bishan — a compact town
+    "PPM": 95,    # Potong Pasir + MacPherson + Bidadari/Woodleigh
+}
+SG_FLOOR = 55     # no SG neighbourhood target below this, however small
 
 def load_records(rdir):
     """Return (food, sights) lists of {n, a} from every research JSON in the dir (LIST=food, DICT=sights)."""
@@ -94,10 +106,16 @@ def main():
     print(f"\nDENSITY — {a.key}  (discovered places per area: food + sights = total)")
     print("-" * 72)
     any_gap = False
+    tpy_pop = SG_POP.get("TPY", 121)
     for code in areas:
         f, s = by.get(code, [0, 0]); total = f + s
         label = SG_LABELS.get(code, code) if a.key == "singapore" else code
-        tgt = a.target or targets.get(code) or tpy_bench or 57
+        # SG towns: scale the Toa Payoh benchmark by population (floored); else RESUME target or benchmark
+        if a.key == "singapore" and tpy_bench and code in SG_POP:
+            scaled = max(SG_FLOOR, round(tpy_bench * SG_POP[code] / tpy_pop))
+        else:
+            scaled = None
+        tgt = a.target or scaled or targets.get(code) or tpy_bench or 57
         gap = tgt - total
         flag = "OK" if gap <= 0 else f"NEED +{gap}"
         if gap > 0: any_gap = True

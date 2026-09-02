@@ -5,10 +5,13 @@ built and announced — and the number is **not fixed**: it is benchmarked to a 
 the place's size. This is the reusable rule and the measured loop that enforces it.
 
 ## The benchmarks (what "dense enough" means)
-- **Singapore neighbourhoods** → **at least as dense as Toa Payoh**, scaled to size. Toa Payoh is the
-  living benchmark (`python3 tools/density.py singapore` reads its current total and targets every other
-  town to it). A physically larger, older town (Ang Mo Kio) should exceed it; a compact one still clears
-  ~50–60. You judge the number from the place's real footprint — but never below the Toa Payoh line.
+- **Singapore neighbourhoods** → **at least as dense as Toa Payoh, scaled by resident population.** This
+  is now computed, not eyeballed: `tools/density.py` holds a `SG_POP` table (thousands of residents on the
+  ground each guide covers) and sets `target = round(TPY_total × pop / TPY_pop)`, floored at 55. So a big,
+  old town is required to be denser — Ang Mo Kio (~164k) targets ~95, Upper Serangoon incl. Hougang (~175k)
+  ~101, Bishan (~88k) ~55, vs Toa Payoh (~121k) = 70. Add a town's population to `SG_POP` when you scaffold
+  it; never target below the 55 floor. `python3 tools/density.py singapore` prints each town's scaled target
+  and the gap.
 - **Dataset cities / regions** (US cities, Aachen, Saarland, Rhineland, Belgian cities) → the density of
   the established peers: **Pittsburgh (~212)** for a single metro, **the SaarLorLux Greater Region (~287)**
   for a multi-city/cross-border map, **NYC (~500)** where the brief explicitly calls for it. Per-area
