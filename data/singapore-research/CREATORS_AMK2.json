@@ -1,0 +1,22 @@
+{
+ "creators": [
+  {"key":"CAVINTEO","name":"Cavin Teo (Entree Kibbles)","platform":"Blog","followers":"Long-running, widely-cited Singapore food blog (Entree Kibbles), active since 2009","url":"https://cavinteo.blogspot.com"},
+  {"key":"LADYIRONCHEF","name":"Brad Lau (ladyironchef)","platform":"Blog / Instagram","followers":"One of Singapore's most-read food & travel blogs since 2007; large Instagram following","url":"https://www.ladyironchef.com"}
+ ],
+ "attach": [
+  {"place":"Song Kee Fishball Noodle","creatorKey":"CAVINTEO","url":"https://cavinteo.blogspot.com/2021/10/song-kee-fishball-noodle-cheng-san.html","note":"Entree Kibbles' dedicated review of the Cheng San Song Kee branch's handmade fishballs, corroborating Johor Kaki and HungryGoWhere."},
+  {"place":"Soi 19 Thai Wanton Mee","creatorKey":"CAVINTEO","url":"https://cavinteo.blogspot.com/2021/09/soi-19-thai-wanton-mee-ang-mo-kio-block-151.html","note":"Entree Kibbles documented the Blk 151 Thai-style wanton mee, alongside Miss Tam Chiak and Eatbook."},
+  {"place":"Xi Xiang Feng Yong Tau Foo","creatorKey":"CAVINTEO","url":"https://cavinteo.blogspot.com/2016/12/xi-xiang-feng-yong-tau-foo-with-chee.html","note":"Entree Kibbles reviewed the 724 AMK Central YTF and its chee cheong fun option, among many outlets covering the stall."},
+  {"place":"Twenty Grammes","creatorKey":"LADYIRONCHEF","url":"https://www.ladyironchef.com/tag/ang-mo-kio-cafes/","note":"ladyironchef covered the Ang Mo Kio outlet of the Twenty Grammes dessert cafe, corroborating Eatbook and Seth Lui."},
+  {"place":"Sin Hoe Huat Cafe","creatorKey":"LADYIRONCHEF","url":"https://www.ladyironchef.com/2022/07/sin-hoe-huat-cafe/","note":"ladyironchef profiled the third-generation Sembawang Hills kaya-toast stall (since 1968), alongside Miss Tam Chiak, Her World and Women's Weekly."}
+ ],
+ "rejected": [
+  {"name":"Froz Bakery Cafe / Thus Coffee / Apiary (Jubilee Square)","reason":"Each seen in only ONE credible outlet so far (Daniel Food Diary's AMK cafes round-up) — HELD for a 2nd credible source, not added."},
+  {"name":"Mei Ji Niang Dou Foo / He Le Prawn Noodle / Jie Mei Yong Tau Foo / Ms Aiyu / Xiang Kee Fishball / Lu Ge Wanton Mee","reason":"Single-credible-source stalls (one SethLui or one Johor Kaki appearance) — measured but held below the 2-credible bar pending a 2nd source."},
+  {"name":"Yummy Western (409 AMK Market)","reason":"Old-school Western stall (41 years) but its unit was taken over by Wang Ji Hainanese Chicken Rice in Jan 2025 — effectively gone; not added as a live suggestion."},
+  {"name":"Dim Sum Express (555 AMK)","reason":"Same 24-hour $1.30 dim sum stall as wave-1's Kuai San Dian Xin (Eatbook labelled it '$1.50') — duplicate, not re-added."},
+  {"name":"nickblitzz.sg / donsignaturecrab.sg / getgo.sg blog / trip.com / kopitiam.com.sg / singaporehawkercentres.com / hawkerpedia / eatshopplay / threebestrated / foodadvisor / entersingapore / homejourney.sg / lionheartlanders / springtomorrow (borderline) / hawkerfood.com / travelopy / wonderlog / mindtrip / aroundus","reason":"SEO listicle / directory / affiliate / AI-scraped pages with no verifiable editorial authority — mention, not merit; not counted toward the 2-credible bar."},
+  {"name":"Burpple / OpenRice / Foursquare / Stampede / jointhawker / Lemon8","reason":"User-review or crowd-listing aggregators — used only to MEASURE popularity or confirm addresses, never toward the 2-credible bar."},
+  {"name":"Yelp / TripAdvisor / Google","reason":"Never a recommender per project rules; fact-check / status / address only, 0 toward the two."}
+ ]
+}

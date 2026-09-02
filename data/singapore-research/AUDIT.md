@@ -364,3 +364,53 @@ files untouched): `FOOD_PPM2.json` (20, LIST), `SIGHTS_PPM2.json` (3 + 6 source 
   traveltriangle, sglocalnews) + Lemon8/anon TikTok + AI-scrape pages (mindtrip, aroundus) rejected.
   No coordinates (address + postal only; postal omitted rather than guessed where unconfirmed — Fullybooked,
   Folk Yard unit); no fabrication; closures=0 (all verified open).
+
+### Stage 1 — Ang Mo Kio (AMK) wave 2 (DONE 2026-09-02)
+Second discovery wave on area code **AMK**, WebSearch-only (WebFetch blocked). **Appended to new files**
+(wave-1 files untouched): `FOOD_AMK2.json` (20, LIST), `SIGHTS_AMK2.json` (4 + 5 source rows, DICT),
+`SOURCES_AMK2.json` (4 new outlets), `CREATORS_AMK2.json` (2 creators / 5 attach / 7 rejected). All parse
+(python3); every record `a="AMK"`; **every place carries >=2 credible sources**; all food source keys resolve
+(SOURCES_AMK + SOURCES_AMK2), all sight keys resolve (SIGHTS_AMK2 own `sources`). **De-duped against wave 1**
+(0 name collisions in food or sights). Takes AMK from 44 -> **68** (51 food + 17 sights).
+
+- **FOOD +20** — tiers t1=2, t2=15, t3=3.
+  - **Standouts (t1):** Plum Village (Singapore's oldest Hakka restaurant, 16 Jalan Leban, AMK/Sembawang
+    Hills fringe; Eatbook + MTC + Ordinary Patrons + Johor Kaki + ieat); Xi Xiang Feng Yong Tau Foo (724
+    Central, longest queue / best-YTF; DFD + MTC + ieat + Johor Kaki + SethLui best-YTF + Cavinteo + Eatbook).
+  - **Chased wave-1 HELD candidates, now 2nd-source-confirmed:** Han Jiang Fish Soup (409; SethLui 409 guide
+    + Johor Kaki), Mun Fu Chicken Rice (Cheng San; SethLui Cheng San guide + ieat 'Man Fu'), 3 Sisters Prawn
+    Noodle (Mayflower; MTC + SethLui dedicated), Belinda's Pancake (Teck Ghee Court min jiang kueh; MTC +
+    Eatbook + SethLui + HGW), Crunch & Cups (Vietnamese, 260 St 21; Eatbook + SethLui), Twenty Grammes (529
+    dessert cafe; Eatbook + SethLui waffles + ladyironchef + DFD), F.I.C (void-deck fried-ice-cream cafe;
+    Eatbook dedicated + HGW).
+  - **New clusters:** Cheng San — Song Kee Fishball Noodle (Johor Kaki + Cavinteo + HGW), Nagara Thai (HGW +
+    SethLui). Kebun Baru — Seletar Sheng Mian & Mian Fen Guo (SethLui + MTC), Hong Heng Beef Noodle & Laksa
+    (unique beef laksa; SethLui + MTC + Eatbook beef-laksa). Sin Ming/Peirce fringe — Casuarina Curry (60+
+    prata flavours; DFD prata guide + Time Out). Bishan-AMK Park — Grub (HGW + MTC). Sembawang Hills — Sin
+    Hoe Huat Cafe (kaya toast since 1968; ladyironchef + MTC + Women's Weekly + Her World + DFD). Ave 3/5 —
+    Soi 19 Thai Wanton Mee (MTC + Cavinteo + Eatbook), Rasa Sayang Western Food (DFD + Eatbook + SethLui),
+    AMK 453 Wanton Mee (Johor Kaki + MTC), Brew & Co cafe (DFD + HGW).
+- **SIGHTS +4** — tiers t2=1, t3=3, all >=2 sources incl. institutional Roots(NHB)/NHB. Ang Mo Kio Dragon
+  Playground (Blk 570 Ave 3 — surviving vintage sand dragon, mosaic slide; Little Day Out + Roots trail +
+  Home&Decor); Ang Mo Kio Joint Temple (1978/2011, Gao Lin Gong 1888; Roots + NHB + SG Magazine); Liuxun
+  Sanhemiao (1989, ex-Lak Xun Village, Yio Chu Kang; Roots + NHB); Swee Kow Kuan (Hong-surname clan temple
+  est. 1905; Roots hidden gems + NHB). All are Ang Mo Kio Heritage Trail sites (Iconic Landmarks / Hidden
+  Gems / Scenic Fringes routes), chasing the wave-1 leads (AMK Joint Temple, Liuxun Sanhemiao, YCK heritage).
+- **Merit bar applied — HELD below the 2-credible bar (single credible source only):** Froz Bakery Cafe,
+  Thus Coffee, Apiary (Jubilee Square) — DFD AMK-cafes round-up only; Mei Ji Niang Dou Foo, He Le Prawn
+  Noodle, Jie Mei YTF, Ms Aiyu (409), Xiang Kee Fishball (Cheng San), Lu Ge Wanton Mee — one SethLui or one
+  Johor Kaki appearance each; logged in CREATORS_AMK2 rejected[]. **Dropped:** Yummy Western (409; unit
+  taken over by Wang Ji Hainanese Chicken Rice Jan 2025 — gone); Dim Sum Express (555; = wave-1 Kuai San
+  Dian Xin, duplicate).
+- **Sources:** SethLui, Eatbook, Daniel Food Diary, Miss Tam Chiak, HungryGoWhere, Her World, Women's
+  Weekly, ieatishootipost, Johor Kaki, Entree Kibbles (Cavin Teo), ladyironchef, Time Out; sights on
+  Roots(NHB)/NHB/Little Day Out/Home&Decor/SG Magazine. **Yelp/TripAdvisor/Google/Burpple/Foursquare/
+  Stampede/Lemon8 = 0 throughout** (measure/address only); SEO farms (nickblitzz, donsignaturecrab,
+  getgo blog, kopitiam.com.sg, singaporehawkercentres, hawkerpedia, threebestrated, foodadvisor, trip.com)
+  rejected. **NO coordinates** (full address + S-postal only; a few blocks/units flagged 'to confirm' for
+  the geocode stage — F.I.C block, AMK 453 stall no., AMK Joint Temple / Swee Kow Kuan streets). No
+  fabrication; closures among new places = 0.
+- **NEXT:** geocode + location-verify each AMK/AMK2 place (Google !3d!4d / Apple / OneMap / Wikipedia
+  coords) -> statuscheck -> geo-merge -> register AMK as a Singapore town (region->folder) -> rebuild-city
+  singapore --build -> gates (sourcecheck/geocheck/statuscheck). Remaining single-credible HELD leads above
+  await a 2nd source for a wave 3 if AMK is pushed past 70.
