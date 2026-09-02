@@ -19,6 +19,10 @@ os.makedirs(OUTDIR, exist_ok=True)
 PLACES = [
  # ---- Singapore ----
  ("toa-payoh","Toa Payoh","Singapore",["__AREA_TPY__"],16),
+ ("bishan","Bishan","Singapore",["__AREA_BSH__"],15),
+ ("ang-mo-kio","Ang Mo Kio","Singapore",["__AREA_AMK__"],15),
+ ("potong-pasir-macpherson","Potong Pasir &amp; MacPherson","Singapore",["__AREA_PPM__"],15),
+ ("upper-serangoon","Upper Serangoon","Singapore",["__AREA_USG__"],15),
  ("chinatown","Chinatown & CBD","Singapore",["Chinatown","South Bridge","Smith Street","Pagoda Street","Keong Saik","Telok Ayer","Maxwell","Kadayanallur","Hong Lim","Upper Cross Street","China Street","Far East Square","Riverside Point","Merchant Road","New Bridge Road","Lau Pa Sat","Raffles Quay","Boon Tat"],16),
  ("marina-bay","Marina Bay","Singapore",["Marina Bay","Bayfront","Marina Gardens","Raffles Avenue","Fullerton","Esplanade Drive"],15),
  ("civic-district","Civic District","Singapore",["St Andrew","Empress Place","Stamford Road","Fort Canning","River Valley","1 Beach Road","Civic District"],16),
@@ -121,6 +125,10 @@ def has_pin(n):
 def assign(r):
     hay = (r["n"]+" "+r["ad"]).lower()
     if r["a"]=="TPY": return "toa-payoh"
+    if r["a"]=="BSH": return "bishan"
+    if r["a"]=="AMK": return "ang-mo-kio"
+    if r["a"]=="PPM": return "potong-pasir-macpherson"
+    if r["a"]=="USG": return "upper-serangoon"
     for slug,name,region,kws,zoom in PLACES:
         # core identity keywords (PLACES) + the metro's outskirts/day-trip keywords (data/metros.json)
         for kw in list(kws)+metro_keywords(slug):

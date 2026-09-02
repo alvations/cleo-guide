@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Holland Village (Singapore) field guide — 1 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
-<title>Holland Village — Singapore &amp; SEA field guide</title>
+<meta name="description" content="Potong Pasir &amp; MacPherson (Singapore) field guide — 0 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Potong Pasir &amp; MacPherson — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,8 +230,8 @@
 
 <header>
   <p class="eyebrow">Neighbourhood guide · Singapore</p>
-  <h1>Holland Village<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">1 sights and 1 places to eat in <strong>Holland Village</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <h1>Potong Pasir &amp; MacPherson<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
+  <p class="standfirst">0 sights and 1 places to eat in <strong>Potong Pasir &amp; MacPherson</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -242,13 +242,13 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#BCA7E6"></i>Holland Village</span>
+  <span><i style="background:#BCA7E6"></i>Potong Pasir &amp; MacPherson</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
 <div class="modebar">
-  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
-  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+  <button id="modeSights" class="modebtn" aria-pressed="false">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="true">Food, drink &amp; desserts</button>
 </div>
 
 <div class="controls">
@@ -312,21 +312,19 @@
 <script>
 
 const S = {
-  "VISITSG":{k:"VISIT SINGAPORE (STB)",t:"Visit Singapore (Singapore Tourism Board)",u:"https://www.visitsingapore.com/",l:"Visit Singapore (Singapore Tourism Board)"},
-  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"}
+
 };
 
 const AREAS = [
-  {id:"HOLLANDVILLAGE",n:"Holland Village",c:"#BCA7E6"}
+  {id:"POTONGPASIRMACPHERSON",n:"Potong Pasir &amp; MacPherson",c:"#BCA7E6"}
 ];
 
-const P = [
-{t:3,a:"HOLLANDVILLAGE",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]}
-];
+const P = [];
 
 const FS = {
-  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"}
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
+  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"}
 };
 
 const CUISINES = [
@@ -368,7 +366,7 @@ const CATS = [
 ];
 
 const F = [
-{t:2,a:"HOLLANDVILLAGE",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]}
+{t:2,a:"POTONGPASIRMACPHERSON",n:"Guan Kee Kway Chap",ad:"Woodleigh Village Hawker Centre, 202C Woodleigh Link, Singapore 360202",cz:["CHINESE"],la:1.34026,ln:103.85442,w:"A legendary kway chap name dating to the 1980s, now with a Woodleigh Village outlet — a set from S$5 gets broad rice sheets in braised gravy with expertly done pork belly, big and small intestine, tau pok and more.",s:[["EATBOOK","https://eatbook.sg/woodleigh-village-hawker-centre-guide/"],["DANIELFOOD","https://danielfooddiary.com/2025/03/09/woodleighvillage/"],["MISSTAMCHIAK","https://www.misstamchiak.com/guan-kee-kway-chap/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -384,16 +382,16 @@ try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}
 function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
 function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Holland Village')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Potong Pasir &amp; MacPherson')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {HOLLANDVILLAGE:'#BCA7E6'};
+const AC = {POTONGPASIRMACPHERSON:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.31111,103.795],16);
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.34026,103.85442],15);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -807,7 +805,7 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
   + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
-setMode('sights');
+setMode('food');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Toa Payoh (Singapore) field guide — 14 sights and 42 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="description" content="Toa Payoh (Singapore) field guide — 14 sights and 41 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
 <title>Toa Payoh — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -231,7 +231,7 @@
 <header>
   <p class="eyebrow">Neighbourhood guide · Singapore</p>
   <h1>Toa Payoh<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">14 sights and 42 places to eat in <strong>Toa Payoh</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p class="standfirst">14 sights and 41 places to eat in <strong>Toa Payoh</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -316,7 +316,7 @@ const S = {
   "KIDSGOWHERE":{k:"KIDSGOWHERE",t:"KidsGoWhere",u:"https://kidsgowhere.sg",l:"KidsGoWhere"},
   "LITTLEDAYOUT":{k:"LITTLEDAYOUT",t:"Little Day Out",u:"https://www.littledayout.com",l:"Little Day Out"},
   "NEWAGEPARENTS":{k:"NEWAGEPARENTS",t:"The New Age Parents",u:"https://thenewageparents.com",l:"The New Age Parents"},
-  "NLB":{k:"NLB",t:"National Library Board — Singapore Infopedia",u:"https://www.nlb.gov.sg/",l:"National Library Board — Singapore Infopedia"},
+  "NLB":{k:"NLB",t:"National Library Board",u:"https://www.nlb.gov.sg",l:"National Library Board"},
   "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
   "SAFRA":{k:"SAFRA",t:"SAFRA (official)",u:"https://www.safra.sg",l:"SAFRA (official)"},
   "SGTRAINS":{k:"SGTRAINS",t:"SGTrains",u:"https://blog.sgtrains.com",l:"SGTrains"},
@@ -349,21 +349,21 @@ const P = [
 ];
 
 const FS = {
-  "ASIAONE":{k:"ASIAONE",t:"AsiaOne (SPH Media)",u:"https://www.asiaone.com/",l:"AsiaOne (SPH Media)"},
-  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com/2025/12/11/bunchahuonglien/",l:"Daniel Food Diary"},
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg/",l:"Eatbook.sg"},
+  "ASIAONE":{k:"ASIAONE",t:"AsiaOne",u:"https://www.asiaone.com",l:"AsiaOne"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
   "GHIBOJISAN":{k:"GHIBOJISAN",t:"Ghib Ojisan (YouTube)",u:"https://www.youtube.com/c/GhibOjisan",l:"Ghib Ojisan (YouTube)"},
-  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore (SPH Media)",u:"https://www.herworld.com/",l:"Her World Singapore (SPH Media)"},
-  "HONEYCOMBERS":{k:"HONEYCOMBERS",t:"The Honeycombers / HoneyKids Asia",u:"https://thehoneycombers.com/singapore/",l:"The Honeycombers / HoneyKids Asia"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
+  "HONEYCOMBERS":{k:"HONEYCOMBERS",t:"The Honeycombers Singapore",u:"https://thehoneycombers.com/singapore",l:"The Honeycombers Singapore"},
   "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
-  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"ieatishootipost (Dr Leslie Tay)",u:"https://ieatishootipost.sg",l:"ieatishootipost (Dr Leslie Tay)"},
-  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey food blog)",u:"https://johorkaki.blogspot.com/",l:"Johor Kaki (Tony Boey food blog)"},
+  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
+  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey)",u:"https://johorkaki.blogspot.com",l:"Johor Kaki (Tony Boey)"},
   "MAKANSUTRA":{k:"MAKANSUTRA",t:"Makansutra",u:"https://makansutra.com",l:"Makansutra"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
   "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
   "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com/",l:"Seth Lui"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
   "SGFOODONFOOT":{k:"SGFOODONFOOT",t:"SG Food on Foot",u:"https://www.sgfoodonfoot.com",l:"SG Food on Foot"}
 };
 
@@ -430,7 +430,6 @@ const F = [
 {t:3,a:"TOAPAYOH",n:"Fried Fish Soup (Toa Payoh West)",ad:"Toa Payoh West Market & Food Centre, #02-24, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["NOODLE"],la:1.33813,ln:103.84473,w:"A no-frills stall doing a $3 bowl of fried fish ban mian — crispy fried fish slices, handmade noodles and a clean savoury broth — one of the value picks flagged across guides to the renovated Toa Payoh West food centre.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/toa-payoh-west-food/"]]},
 {t:3,a:"TOAPAYOH",n:"Jia Le Man Fen Guo",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["HAWKER"],la:1.33813,ln:103.84473,w:"A 20-year veteran hand-tearing mee hoon kueh dough to order and ladling fish soup and porridge — old-school comfort noodles that regulars queue for at Toa Payoh West.",s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/toa-payoh-west-food/"]]},
 {t:2,a:"TOAPAYOH",n:"Allauddin's Briyani (Toa Payoh Lor 8)",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-79, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["HAWKER"],la:1.34026,ln:103.85442,w:"The Toa Payoh outlet of the Tekka Centre briyani institution — a Michelin Plate / Michelin-recommended name whose fragrant $6 chicken, mutton and fish briyani draw a queue; the pull-apart rice and house sambal are the draw.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/allauddin-s-briyani"],["DANIELFOOD","https://danielfooddiary.com/2020/06/06/allauddinbriyani/"]]},
-{t:2,a:"TOAPAYOH",n:"Guan Kee Kway Chap",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-24, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["CHINESE"],la:1.34026,ln:103.85442,w:"A 40-year Toa Payoh institution famous for selling out fast — owner Mr Ng meticulously cleans the offal for an odourless, tender braise served over silky rice sheets in a light herbal broth; widely rated among Singapore's best kway chap.",s:[["SETHLUI","https://sethlui.com/guan-kee-kway-chap-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/guan-kee-kway-chap/"],["EATBOOK","https://eatbook.sg/kway-chap/"]]},
 {t:2,a:"TOAPAYOH",n:"Yokozuna Stall",ad:"211 Lorong 8 Toa Payoh, #01-01, S310211",cz:["HAWKER"],la:1.34026,ln:103.85442,w:"An ex-hotel chef plates restaurant-grade Japanese food from a kopitiam beside the Lorong 8 hawker centre — the Tataki Salmon Roll ($6) and Butter Yaki Seabass Bento ($6.80) look far pricier than they cost; nothing on the menu tops $10.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/yokozuna-stall/"],["SETHLUI","https://sethlui.com/yokozuna-stall-affordable-bento-sets-singapore/"]]},
 {t:2,a:"TOAPAYOH",n:"Da Lao Fried White Kway Teow",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-23, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["NOODLE"],la:1.34026,ln:103.85442,w:"A one-man wok turning out Penang-style fried white kway teow with serious wok hei — clean, coated-not-greasy strands with fish cake, lap cheong and cockles from $4; the single-hand pace means a wait, and a long queue.",s:[["SETHLUI","https://sethlui.com/toa-payoh-lorong-8-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/cockles-fried-kway-teow/"]]},
 {t:3,a:"TOAPAYOH",n:"Seletar Sheng Mian Mee Hoon Kway",ad:"Toa Payoh Lorong 8 Market & Food Centre, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["HAWKER"],la:1.34026,ln:103.85442,w:"Relocated from the demolished Seletar market, this snaking-queue stall hand-kneads, smacks and tears each piece of dough for uniquely textured sheng mian in a comforting pork-and-ikan-bilis broth from $3.",g:["MKT"],s:[["SGFOODONFOOT","https://www.sgfoodonfoot.com/2017/05/seletar-sheng-mian-mee-hoon-kway-toa.html"],["JOHORKAKI","https://johorkaki.blogspot.com/2015/08/seletar-sheng-mian-mee-hoon-kway.html"]]},
@@ -472,7 +471,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.33629,103.85169],16);
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.3362,103.85073],16);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
