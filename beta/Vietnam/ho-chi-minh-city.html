@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Ho Chi Minh City (Vietnam) field guide — 105 sights and 66 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Ho Chi Minh City — Singapore &amp; SEA field guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
+  :root{
+    color-scheme: light dark;
+    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
+    --patina:#3E9A88; --patina-dim:#BFE0D8;
+    --brass:#B9863A; --rust:#C56F73;
+    --bone:#2E2838; --bone-dim:#6E6480;
+    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --iron:#191521; --slab:#241E30; --hair:#382E48;
+    --patina:#93D6C6; --patina-dim:#3E5D53;
+    --brass:#E8C57C; --rust:#E4989B;
+    --bone:#ECE7F2; --bone-dim:#A79FB8;
+  }}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:none;}
+  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:var(--slab);}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Ho Chi Minh City — Singapore &amp; SEA field guide — Cleo">
+<meta property="og:description" content="Ho Chi Minh City (Vietnam) field guide — 105 sights and 66 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/Vietnam/ho-chi-minh-city.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ho Chi Minh City — Singapore &amp; SEA field guide — Cleo">
+<meta name="twitter:description" content="Ho Chi Minh City (Vietnam) field guide — 105 sights and 66 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#101318" media="(prefers-color-scheme:dark)">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{ color-scheme:light dark;
+    --iron:#FAF7F0; --slab:#F2ECE1; --slab-2:#EAE2D3; --hair:#E4DBCC; --hair-2:#D8CDB9;
+    --patina:#3C8A79; --patina-dim:#CBE1D9; --brass:#9C7431; --brass-soft:#B79A5E; --rust:#B4645A;
+    --bone:#26241F; --bone-dim:#6C665B; --bone-faint:#928B7C;
+    --glow-a:rgba(156,116,49,.05); --glow-b:rgba(60,138,121,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">City guide · Vietnam · 17 districts</p>
+  <h1>Ho Chi Minh City<span class="thin">Vietnam — a whole city, district by district, sourced</span></h1>
+  <p class="standfirst">105 sights and 66 places to eat in the city of <strong>Ho Chi Minh City</strong>, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators) across 17 districts. Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by district, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Vietnam guides</a></p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#F2A1A1"></i>District 1 (Bến Nghé · Bến Thành)</span>
+  <span><i style="background:#BCA7E6"></i>District 3 (Võ Thị Sáu)</span>
+  <span><i style="background:#84CBB9"></i>District 4 (Vĩnh Khánh)</span>
+  <span><i style="background:#9CBEEC"></i>Chợ Lớn (D5–6)</span>
+  <span><i style="background:#E8C57C"></i>District 8 · Bình Tân</span>
+  <span><i style="background:#E4989B"></i>Phú Nhuận</span>
+  <span><i style="background:#8FD0A0"></i>Bình Thạnh</span>
+  <span><i style="background:#C9A9D6"></i>Gò Vấp · District 12</span>
+  <span><i style="background:#7FC7D9"></i>Tân Bình · Airport (Tân Sơn Nhất)</span>
+  <span><i style="background:#F0B48A"></i>Thủ Đức City (D2 · Thảo Điền · D9)</span>
+  <span><i style="background:#A9C48A"></i>District 7 · Nhà Bè</span>
+  <span><i style="background:#D9A6C2"></i>Biên Hòa (Đồng Nai)</span>
+  <span><i style="background:#C7B37F"></i>Bình Dương (Đại Nam · Thuận An)</span>
+  <span><i style="background:#93C6C0"></i>NW route · Củ Chi → Trảng Bàng → Tây Ninh</span>
+  <span><i style="background:#E0A8C0"></i>SW route · Long An → Mekong Delta</span>
+  <span><i style="background:#A6B8E0"></i>SE route · Long Thành → Bà Rịa → Vũng Tàu</span>
+  <span><i style="background:#D3C08A"></i>S route · Nhà Bè → Cần Giờ</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AEON":{k:"AEON",t:"AEON Vietnam (corporate newsroom)",u:"https://corp.aeon.com.vn/",l:"AEON Vietnam (corporate newsroom)"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "AUDIALA":{k:"AUDIALA",t:"Audiala travel guide",u:"https://audiala.com/",l:"Audiala travel guide"},
+  "BACKPACKSNORKEL":{k:"BACKPACKSNORKEL",t:"Backpack and Snorkel",u:"https://backpackandsnorkel.com/",l:"Backpack and Snorkel"},
+  "BAODAUTU":{k:"BAODAUTU",t:"Báo Đầu Tư (Vietnam Investment Review)",u:"https://baodautu.vn/",l:"Báo Đầu Tư (Vietnam Investment Review)"},
+  "BAOVANHOA":{k:"BAOVANHOA",t:"Báo Văn Hóa",u:"https://baovanhoa.vn/",l:"Báo Văn Hóa"},
+  "BECAMEX":{k:"BECAMEX",t:"Explore Binh Duong (Becamex)",u:"https://becamexhotels.com/en/explore-binh-duong/",l:"Explore Binh Duong (Becamex)"},
+  "CAFEBIZ":{k:"CAFEBIZ",t:"CafeBiz",u:"https://cafebiz.vn/",l:"CafeBiz"},
+  "CNNTRAVEL":{k:"CNN TRAVEL",t:"CNN Travel",u:"https://www.cnn.com/travel",l:"CNN Travel"},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"The Culture Trip",u:"https://theculturetrip.com/",l:"The Culture Trip"},
+  "DANTRI":{k:"DANTRI",t:"Dân Trí",u:"https://dantri.com.vn/",l:"Dân Trí"},
+  "DANVIET":{k:"DANVIET",t:"Dân Việt (Nông Thôn Ngày Nay)",u:"https://danviet.vn/",l:"Dân Việt (Nông Thôn Ngày Nay)"},
+  "DONGNAIGOV":{k:"DONGNAIGOV",t:"Dong Nai Provincial Government",u:"https://dongnai.gov.vn",l:"Dong Nai Provincial Government"},
+  "DSVH":{k:"DSVH",t:"Cục Di sản Văn hóa (official)",u:"https://dsvh.gov.vn/",l:"Cục Di sản Văn hóa (official)"},
+  "DULICHBINHDUONG":{k:"DULICHBINHDUONG",t:"Sở Văn hóa, Thể thao và Du lịch Bình Dương",u:"https://dulichbinhduong.org.vn/",l:"Sở Văn hóa, Thể thao và Du lịch Bình Dương"},
+  "ENWIKI":{k:"ENWIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
+  "GUINNESS":{k:"GUINNESS",t:"Guinness World Records",u:"https://www.guinnessworldrecords.com/",l:"Guinness World Records"},
+  "HCMCGOV":{k:"HCMCGOV",t:"Cổng thông tin điện tử chính quyền TP.HCM & quận/huyện (official)",u:"https://hochiminhcity.gov.vn/",l:"Cổng thông tin điện tử chính quyền TP.HCM & quận/huyện (official)"},
+  "HISTORICVIETNAM":{k:"HISTORICVIETNAM",t:"Historic Vietnam (Tim Doling)",u:"https://www.historicvietnam.com",l:"Historic Vietnam (Tim Doling)"},
+  "KENH14":{k:"KENH14",t:"Kenh14",u:"https://kenh14.vn/",l:"Kenh14"},
+  "KEPPEL":{k:"KEPPEL",t:"Keppel Land (developer, official)",u:"https://www.keppel.com/",l:"Keppel Land (developer, official)"},
+  "LOCALVIETNAM":{k:"LOCALVIETNAM",t:"Local Vietnam",u:"https://localvietnam.com/",l:"Local Vietnam"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/indonesia/bali",l:"Lonely Planet"},
+  "LUNEPRODUCTION":{k:"LUNEPRODUCTION",t:"Lune Production (official Saigon Opera House A O Show operator)",u:"https://www.luneproduction.com/",l:"Lune Production (official Saigon Opera House A O Show operator)"},
+  "MYTOUR":{k:"MYTOUR",t:"Mytour.vn",u:"https://mytour.vn/",l:"Mytour.vn"},
+  "NHANDAN":{k:"NHANDAN",t:"Nhân Dân Online (English)",u:"https://en.nhandan.vn/",l:"Nhân Dân Online (English)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Cuisine Wat Damnak (official)",u:"https://www.cuisinewatdamnak.com/",l:"Cuisine Wat Damnak (official)"},
+  "ORIGINVIETNAM":{k:"ORIGINVIETNAM",t:"Origin Vietnam",u:"https://www.originvietnam.com/",l:"Origin Vietnam"},
+  "PLO":{k:"PLO",t:"Phap Luat TP.HCM (PLO)",u:"https://plo.vn/",l:"Phap Luat TP.HCM (PLO)"},
+  "RUSTYCOMPASS":{k:"RUSTYCOMPASS",t:"Rusty Compass",u:"https://www.rustycompass.com/",l:"Rusty Compass"},
+  "SAIGONEER":{k:"SAIGONEER",t:"Saigoneer",u:"https://saigoneer.com/",l:"Saigoneer"},
+  "SAIGONTOURIST":{k:"SAIGONTOURIST",t:"Saigontourist Group (official)",u:"https://saigontourist.com.vn",l:"Saigontourist Group (official)"},
+  "SCMP":{k:"SCMP",t:"South China Morning Post",u:"https://www.scmp.com/",l:"South China Morning Post"},
+  "SGGP":{k:"SGGP",t:"Saigon Giai Phong (SGGP English)",u:"https://en.sggp.org.vn/",l:"Saigon Giai Phong (SGGP English)"},
+  "SPECTRALCODEX":{k:"SPECTRALCODEX",t:"Spectral Codex (independent Asia architecture/temple research)",u:"https://spectralcodex.com/",l:"Spectral Codex (independent Asia architecture/temple research)"},
+  "THANHNIEN":{k:"THANHNIEN",t:"Thanh Nien",u:"https://thanhnien.vn/",l:"Thanh Nien"},
+  "THERESHEGOES":{k:"THERESHEGOES",t:"There She Goes Again (travel blogger)",u:"https://thereshegoesagain.org/",l:"There She Goes Again (travel blogger)"},
+  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal Vietnam",u:"https://thesmartlocal.com/vietnam/",l:"TheSmartLocal Vietnam"},
+  "THUDUCGOV":{k:"THUDUCGOV",t:"Thu Duc City Tourism (official)",u:"https://dulich-tpthuduc.hochiminhcity.gov.vn",l:"Thu Duc City Tourism (official)"},
+  "TIENPHONG":{k:"TIENPHONG",t:"Tiền Phong",u:"https://tienphong.vn/",l:"Tiền Phong"},
+  "TRAVELFISH":{k:"TRAVELFISH",t:"Travelfish",u:"https://www.travelfish.org",l:"Travelfish"},
+  "TRAVELVIET":{k:"TRAVELVIET",t:"Travelviet",u:"https://travelviet.net/",l:"Travelviet"},
+  "TTBCHCM":{k:"TTBCHCM",t:"Trung tâm Báo chí TP.HCM",u:"https://ttbc-hcm.gov.vn/",l:"Trung tâm Báo chí TP.HCM"},
+  "TUOITRE":{k:"TUOITRE",t:"Tuoi Tre / Tuoi Tre News",u:"https://tuoitre.vn/",l:"Tuoi Tre / Tuoi Tre News"},
+  "VIETBAO":{k:"VIETBAO",t:"Viet Bao (English)",u:"https://vietbao.vn/en/",l:"Viet Bao (English)"},
+  "VIETCETERA":{k:"VIETCETERA",t:"Vietcetera",u:"https://vietcetera.com/",l:"Vietcetera"},
+  "VIETNAMAIRLINES":{k:"VIETNAMAIRLINES",t:"Vietnam Airlines travel guide",u:"https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide",l:"Vietnam Airlines travel guide"},
+  "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
+  "VIETNAMNET":{k:"VIETNAMNET",t:"VietnamNet",u:"https://vietnamnet.vn/en/",l:"VietnamNet"},
+  "VIETNAMPLUS":{k:"VIETNAMPLUS",t:"VietnamPlus (Vietnam News Agency)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (Vietnam News Agency)"},
+  "VIETNAMTOURISM":{k:"VIETNAMTOURISM",t:"Vietnam National Administration of Tourism (official)",u:"https://vietnamtourism.gov.vn/",l:"Vietnam National Administration of Tourism (official)"},
+  "VIETNAMTOURISMGOV":{k:"VIETNAMTOURISMGOV",t:"Vietnam National Administration of Tourism (official)",u:"https://vietnamtourism.gov.vn/",l:"Vietnam National Administration of Tourism (official)"},
+  "VINPEARL":{k:"VINPEARL",t:"Vinpearl Travel",u:"https://vinpearl.com/en",l:"Vinpearl Travel"},
+  "VINWONDERS":{k:"VINWONDERS",t:"VinWonders (Vingroup) Wonderpedia",u:"https://vinwonders.com/",l:"VinWonders (Vingroup) Wonderpedia"},
+  "VIR":{k:"VIR",t:"Vietnam Investment Review",u:"https://vir.com.vn/",l:"Vietnam Investment Review"},
+  "VNAIR":{k:"VNAIR",t:"Vietnam Airlines Travel Guide",u:"https://www.vietnamairlines.com/",l:"Vietnam Airlines Travel Guide"},
+  "VNANET":{k:"VNANET",t:"Vietnam News Agency (vnanet.vn)",u:"https://vietnam.vnanet.vn/",l:"Vietnam News Agency (vnanet.vn)"},
+  "VNAT_ORG":{k:"VNAT ORG",t:"Vietnam Tourism Info (vietnamtourism.org.vn)",u:"https://www.vietnamtourism.org.vn",l:"Vietnam Tourism Info (vietnamtourism.org.vn)"},
+  "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
+  "VNP":{k:"VNP",t:"VietnamPlus (Vietnam News Agency, English)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (Vietnam News Agency, English)"},
+  "VNP2":{k:"VNP2",t:"VietnamPlus (second article)",u:"https://en.vietnamplus.vn/",l:"VietnamPlus (second article)"},
+  "VNS":{k:"VNS",t:"Việt Nam News (VNS)",u:"https://vietnamnews.vn/",l:"Việt Nam News (VNS)"},
+  "VNTOURISM":{k:"VNTOURISM",t:"Vietnam National Authority of Tourism",u:"https://vietnamtourism.vn/",l:"Vietnam National Authority of Tourism"},
+  "VNTRAVEL":{k:"VNTRAVEL",t:"Vietnam Tourism (vietnam.travel)",u:"https://vietnam.travel",l:"Vietnam Tourism (vietnam.travel)"},
+  "VOV":{k:"VOV",t:"VOV World (Voice of Vietnam)",u:"https://vovworld.vn/",l:"VOV World (Voice of Vietnam)"},
+  "VOVWORLD":{k:"VOVWORLD",t:"VOV World (Voice of Vietnam)",u:"https://vovworld.vn/en-US",l:"VOV World (Voice of Vietnam)"},
+  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"},
+  "WIKIVI":{k:"WIKIVI",t:"Wikipedia tiếng Việt",u:"https://vi.wikipedia.org/",l:"Wikipedia tiếng Việt"},
+  "XUYENMOC":{k:"XUYENMOC",t:"Xuyên Mộc District Portal",u:"https://xuyenmoc.baria-vungtau.gov.vn/",l:"Xuyên Mộc District Portal"},
+  "ZNEWS":{k:"ZNEWS",t:"Znews (formerly Zing News)",u:"https://znews.vn/",l:"Znews (formerly Zing News)"}
+};
+
+const AREAS = [
+  {id:"D1",n:"District 1 (Bến Nghé · Bến Thành)",c:"#F2A1A1"},
+  {id:"D3",n:"District 3 (Võ Thị Sáu)",c:"#BCA7E6"},
+  {id:"D4",n:"District 4 (Vĩnh Khánh)",c:"#84CBB9"},
+  {id:"CHOLON",n:"Chợ Lớn (D5–6)",c:"#9CBEEC"},
+  {id:"D8",n:"District 8 · Bình Tân",c:"#E8C57C"},
+  {id:"PHUNHUAN",n:"Phú Nhuận",c:"#E4989B"},
+  {id:"BINHTHANH",n:"Bình Thạnh",c:"#8FD0A0"},
+  {id:"GOVAP",n:"Gò Vấp · District 12",c:"#C9A9D6"},
+  {id:"TANBINH",n:"Tân Bình · Airport (Tân Sơn Nhất)",c:"#7FC7D9"},
+  {id:"THUDUC",n:"Thủ Đức City (D2 · Thảo Điền · D9)",c:"#F0B48A"},
+  {id:"D7",n:"District 7 · Nhà Bè",c:"#A9C48A"},
+  {id:"BIENHOA",n:"Biên Hòa (Đồng Nai)",c:"#D9A6C2"},
+  {id:"BINHDUONG",n:"Bình Dương (Đại Nam · Thuận An)",c:"#C7B37F"},
+  {id:"TAYNINHRT",n:"NW route · Củ Chi → Trảng Bàng → Tây Ninh",c:"#93C6C0"},
+  {id:"MEKONGRT",n:"SW route · Long An → Mekong Delta",c:"#E0A8C0"},
+  {id:"VUNGTAURT",n:"SE route · Long Thành → Bà Rịa → Vũng Tàu",c:"#A6B8E0"},
+  {id:"CANGIO",n:"S route · Nhà Bè → Cần Giờ",c:"#D3C08A"}
+];
+
+const P = [
+{t:1,a:"D1",n:"Reunification Palace (Independence Palace)",ad:"135 Nam Ky Khoi Nghia, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77694,ln:106.69528,w:"The modernist 1960s presidential palace where NVA Tank 843 crashed the gate on 30 April 1975, ending the war. Frozen-in-time state rooms, war-command bunker and telecoms basement. National monument; daily ~07:00-18:00, 80,000d.",k:"Historic palace & war site",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Independence_Palace"],["OFFICIAL","https://independencepalace.gov.vn/"]]},
+{t:1,a:"D1",n:"Saigon Notre-Dame Basilica",ad:"01 Cong xa Paris, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77972,ln:106.69917,w:"The twin-spired red-brick French cathedral (1863-1880) built with imported Marseille materials, on the square opposite the Post Office. UNDER RESTORATION since 2017 (interior closed to visitors; completion pushed to ~2027, scaffolding coming off by early 2026) — view the exterior.",k:"Colonial cathedral (restoration)",g:["HERITAGE","TEMPLE","VIEW","ARCH"],s:[["SAIGONEER","https://saigoneer.com/saigon-news/25698-saigon-extends-notre-dame-cathedral-renovation-by-4-years-to-2027"],["VIETNAMPLUS","https://en.vietnamplus.vn/key-milestone-reached-in-restoration-of-saigon-notre-dame-cathedral-post339565.vnp"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Notre-Dame_Cathedral_Basilica_of_Saigon"]]},
+{t:1,a:"D1",n:"Saigon Central Post Office",ad:"125 Cong xa Paris (Hai Ba Trung), Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.78000,ln:106.70000,w:"Working 1886-1891 post office (architect Alfred Foulhoux; often mis-credited to Eiffel) with a vaulted iron-truss hall, painted maps and a portrait of Ho Chi Minh. Ranked among the world's most beautiful post offices; still operational.",k:"Colonial landmark",g:["HERITAGE","ARCH"],s:[["VIETCETERA","https://vietcetera.com/en/the-saigon-central-post-office-inside-a-130-year-old-landmark-in-saigon"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Saigon_Central_Post_Office"]]},
+{t:1,a:"D1",n:"Jade Emperor Pagoda (Phuoc Hai Tu)",ad:"73 Mai Thi Luu, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",la:10.79171,ln:106.69789,w:"Saigon's most atmospheric Taoist temple, built by the Cantonese community in 1909, thick with incense smoke and carved wooden deities incl. the Hall of Ten Hells and a turtle pond. Obama visited in 2016. Free, ~07:00-18:00.",k:"Taoist temple",g:["TEMPLE","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Jade_Emperor_Pagoda"],["TRAVELFISH","https://www.travelfish.org/sight_profile/vietnam/saigon_and_surrounds/ho_chi_minh_city/ho_chi_minh_city/611"]]},
+{t:1,a:"D1",n:"Nguyen Hue Walking Street & People's Committee Building",ad:"Nguyen Hue Boulevard, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77650,ln:106.70090,w:"The city's 900 m pedestrian boulevard (a former canal, walkerised 2015) running from the floodlit French Hotel de Ville / People's Committee Building (1898-1909, viewed from outside) and Ho Chi Minh statue down to the Saigon River. Liveliest at night.",k:"Pedestrian boulevard & civic landmark",g:["VIEW","ARCH"],s:[["SAIGONEER","https://saigoneer.com/saigon-heritage/1409-nguyen-hue-street-1871"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nguy%E1%BB%85n_Hu%E1%BB%87_Boulevard"]]},
+{t:2,a:"D1",n:"Saigon Opera House (Municipal Theatre)",ad:"07 Cong Truong Lam Son, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77670,ln:106.70322,w:"Flamboyant 1897-1900 French Beaux-Arts theatre, once seat of South Vietnam's Lower House, now a national relic staging the acclaimed bamboo-circus A O Show and The Mist.",k:"Beaux-Arts theatre",g:["HERITAGE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Municipal_Theatre,_Ho_Chi_Minh_City"],["LUNEPRODUCTION","https://www.luneproduction.com/saigon-opera-house"]]},
+{t:2,a:"D1",n:"Bitexco Financial Tower & Saigon Skydeck",ad:"36 Ho Tung Mau, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77167,ln:106.70444,w:"The 262 m lotus-bud tower (2010) with a helipad wing and the 49th-floor Saigon Skydeck, the city's first observation deck, giving 360-degree views over the river. Open daily ~09:30-21:30.",k:"Skyscraper & observation deck",g:["VIEW","ARCH"],s:[["OFFICIAL","http://www.bitexcofinancialtower.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bitexco_Financial_Tower"]]},
+{t:2,a:"D1",n:"Ho Chi Minh City Museum (Gia Long Palace)",ad:"65 Ly Tu Trong, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77611,ln:106.69972,w:"City-history museum in an 1885-1890 neoclassical palace that served the French governor, President Diem (as Gia Long Palace) and the RVN Supreme Court, with a wartime bunker/tunnel beneath. Traces Saigon from prehistory to reunification.",k:"City history museum",g:["MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/points-of-interest/hcmc-museum/1389224"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_of_Ho_Chi_Minh_City"]]},
+{t:2,a:"D1",n:"Museum of Vietnamese History",ad:"2 Nguyen Binh Khiem, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.78484,ln:106.70759,w:"Vietnam's national-history collection in a 1926-1929 Indochinese-style building beside the Botanical Gardens: Cham and Oc Eo antiquities, Dong Son drums, a mummified noblewoman, plus water-puppet shows. Closed Mondays.",k:"Archaeology & history museum",g:["TEMPLE","PARK","MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Ho_Chi_Minh_City_Museum_of_History"],["THESMARTLOCAL","https://thesmartlocal.com/vietnam/history-museum-of-ho-chi-minh-city/"]]},
+{t:2,a:"D1",n:"Fine Arts Museum (Bao tang My thuat)",ad:"97A Pho Duc Chinh, Nguyen Thai Binh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77006,ln:106.69938,w:"The city's leading art museum in a yellow 1929-1934 Franco-Chinese mansion of the wealthy Hua family, with the first lift in Saigon; holds lacquer, silk and war-era painting plus Champa/Oc Eo relics. Closed Mondays.",k:"Art museum",g:["MUS"],s:[["VIETCETERA","https://vietcetera.com/en/notable-museums-in-ho-chi-minh-city"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ho_Chi_Minh_City_Museum_of_Fine_Arts"]]},
+{t:2,a:"D1",n:"The Cafe Apartment (42 Nguyen Hue)",ad:"42 Nguyen Hue, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77410,ln:106.70409,w:"A crumbling 1960s nine-storey block (once housing for US advisers) reborn as a vertical warren of independent cafes, boutiques and bars, each balcony overlooking the walking street. Slow lift ~3,000d, or take the stairs.",k:"Cafe & boutique building",g:["ARCH"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/the-cafe-apartment-on-saigons-walking-street/"],["SAIGONEER","https://saigoneer.com/saigon-news/9389-saigon-to-evict-shops-and-cafes-from-42-nguyen-hue"]]},
+{t:2,a:"D1",n:"Bui Vien Walking Street",ad:"Bui Vien Street, Pham Ngu Lao Ward, District 1, Ho Chi Minh City, Vietnam",la:10.76742,ln:106.69399,w:"Saigon's neon backpacker strip in the Pham Ngu Lao quarter (on the map since Lonely Planet's 1993 guide) — bar stools spilling into the road, street food and live music. Pedestrianised nightly; peaks Fri-Sun.",k:"Nightlife street",g:["VIEW"],s:[["SAIGONEER","https://saigoneer.com/saigon-heritage/8212-street-cred-bui-vien,-the-first-vietnamese-in-america-or-was-he"],["LONELYPLANET","https://www.lonelyplanet.com/destinations/vietnam/ho-chi-minh-city"]]},
+{t:2,a:"D4",n:"Ho Chi Minh Museum - Dragon House Wharf (Nha Rong)",ad:"1 Nguyen Tat Thanh, District 4, Ho Chi Minh City, Vietnam",la:10.76824,ln:106.70680,w:"The 1862-1863 twin-dragon-roofed former Messageries Maritimes house on the riverfront from which the 21-year-old future Ho Chi Minh sailed to France in June 1911; a branch of the Ho Chi Minh Museum since 1979. Closed Mondays.",k:"Historic wharf & museum",g:["MUS"],s:[["VIETNAMNET","https://vietnamnet.vn/en/nha-rong-wharf-ho-chi-minh-museum-E131310.html"],["VOVWORLD","https://vovworld.vn/en-US/discovery-vietnam/nha-rong-wharf-ho-chi-minh-museum-336566.vov"]]},
+{t:2,a:"D3",n:"Turtle Lake (Ho Con Rua)",ad:"Cong Truong Quoc Te (Pham Ngoc Thach / Tran Cao Van), District 3, Ho Chi Minh City, Vietnam",la:10.78260,ln:106.69590,w:"A modernist 1967-1972 traffic-circle monument of five splayed concrete 'hands' and an octagonal fountain, on the site of a French water tower and an old Nguyen-era citadel gate. Now a beloved evening hangout for street snacks.",k:"Modernist monument & plaza",g:["TEMPLE","VIEW","ARCH"],s:[["SAIGONEER","https://saigoneer.com/saigon-heritage/26145-from-vauban-citadel-to-modernist-icon-the-history-of-h%E1%BB%93-con-r%C3%B9a-turtle-lake"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Turtle_Lake_(Ho_Chi_Minh_City)"]]},
+{t:3,a:"D3",n:"Southern Women's Museum",ad:"202 Vo Thi Sau, District 3, Ho Chi Minh City, Vietnam",la:10.78060,ln:106.68830,w:"A 31,000-object museum (est. 1985; Class-I museum from 2024) devoted to southern Vietnamese women in war and culture — female guerrillas, ao dai history and Mother Goddess worship. Closed Mondays; free.",k:"Social history museum",g:["MUS","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Southern_Women%27s_Museum"],["OFFICIAL","https://baotangphunu.com/en/home/"]]},
+{t:3,a:"D1",n:"Ton Duc Thang Museum",ad:"5 Ton Duc Thang, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77729,ln:106.70663,w:"Riverside museum (opened 1988) to Ton Duc Thang, Vietnam's second president and a Con Dao political prisoner, with 16,000+ documents on his life and the labour movement. Closed Mondays; free.",k:"Biographical museum",g:["MUS","FREE"],s:[["VIETCETERA","https://vietcetera.com/en/notable-museums-in-ho-chi-minh-city"],["OFFICIAL","https://baotangtonducthang.vn/en/"]]},
+{t:3,a:"D1",n:"Dan Sinh Market (War Surplus Market)",ad:"104 Yersin, Nguyen Thai Binh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.76639,ln:106.69806,w:"The 'American Market' off Yersin St, famous since 1975 for army-surplus gear, dog tags, ponchos and militaria (genuine and replica) alongside hardware stalls — a gritty relic of the war years. Bargain and check provenance.",k:"War-surplus market",g:["MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/D%C3%A2n_Sinh_Market"],["CULTURETRIP","https://theculturetrip.com/asia/vietnam/articles/dan-sinh-exploring-vietnams-war-memorabilia-market"]]},
+{t:2,a:"D3",n:"Vinh Nghiem Pagoda",ad:"339 Nam Ky Khoi Nghia, Ward 7, District 3, Ho Chi Minh City, Vietnam",la:10.79083,ln:106.68389,w:"The city's largest Mahayana pagoda (built 1964-1971 with Japanese aid), the first to render traditional temple form in concrete, crowned by a seven-storey, 40 m stupa. Free.",k:"Buddhist pagoda",g:["TEMPLE","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/V%C4%A9nh_Nghi%C3%AAm_Pagoda,_Ho_Chi_Minh_City"],["TRAVELFISH","https://www.travelfish.org/sight_profile/vietnam/saigon_and_surrounds/ho_chi_minh_city/ho_chi_minh_city/1335"]]},
+{t:2,a:"D3",n:"Xa Loi Pagoda",ad:"89 Ba Huyen Thanh Quan, Vo Thi Sau Ward, District 3, Ho Chi Minh City, Vietnam",la:10.77806,ln:106.68667,w:"A seven-storey 1956-1958 pagoda that was the flashpoint of the 1963 Buddhist Crisis: the epicentre of anti-Diem protests and the 21 August 1963 army raid that arrested hundreds of monks and helped trigger the coup.",k:"Buddhist pagoda & 1963 history",g:["TEMPLE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/xa-loi-pagoda/a/poi-sig/403450/357884"],["WIKIPEDIA","https://en.wikipedia.org/wiki/X%C3%A1_L%E1%BB%A3i_Pagoda"]]},
+{t:2,a:"D3",n:"Tan Dinh Church (Pink Church)",ad:"289 Hai Ba Trung, District 3, Ho Chi Minh City, Vietnam",la:10.78840,ln:106.69070,w:"The bubblegum-pink Romano-Gothic Catholic church begun 1870-1876 (its signature pink dates to a 1957 repaint) — the city's second-largest church and a landmark photo stop. Active parish; exterior always, interior around Mass times.",k:"Colonial church",g:["HERITAGE","TEMPLE","ARCH"],s:[["SAIGONEER","https://saigoneer.com/saigon-heritage/2488-how-nh%C3%A0-th%E1%BB%9D-t%C3%A2n-%C4%91%E1%BB%8Bnh,-saigon-s-iconic-pink-church,-came-to-be"],["WIKIPEDIA","https://en.wikipedia.org/wiki/T%C3%A2n_%C4%90%E1%BB%8Bnh_Church"]]},
+{t:1,a:"BINHTHANH",n:"Landmark 81 & SkyView Observatory",ad:"720A Dien Bien Phu, Ward 22, Binh Thanh District, Ho Chi Minh City, Vietnam",la:10.79500,ln:106.72194,w:"At 461 m the tallest building in Vietnam (2018), a bamboo-cluster supertall over the Saigon River in Vinhomes Central Park. The SkyView observatory spans floors 79-81 for the city's highest panorama.",k:"Supertall tower & observatory",g:["PARK","VIEW","ARCH"],s:[["CNNTRAVEL","https://www.cnn.com/travel/article/vinpearl-highest-hotel-vietnam-intl-hnk/index.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Landmark_81"]]},
+{t:1,a:"CHOLON",n:"Thien Hau Temple (Cholon)",ad:"710 Nguyen Trai, Ward 11, District 5 (Cholon), Ho Chi Minh City, Vietnam",la:10.75291,ln:106.66117,w:"Cholon's most famous temple (Tue Thanh Guildhall), built by Cantonese immigrants around 1760 for Mazu, sea goddess of the overseas Chinese. Famed for its porcelain-figurine roof friezes and hanging incense coils. National monument.",k:"Chinese temple",g:["TEMPLE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Thien_Hau_Temple_of_Cholon"],["SPECTRALCODEX","https://spectralcodex.com/the-chinese-temples-and-guildhalls-of-cholon/"]]},
+{t:2,a:"CHOLON",n:"Binh Tay Market",ad:"57A Thap Muoi, Ward 2, District 6 (Cholon), Ho Chi Minh City, Vietnam",la:10.74938,ln:106.65108,w:"Cholon's grand wholesale market, financed by merchant Quach Dam and completed 1928, built around a pagoda-roofed courtyard; a recognised heritage building (restored 2016-2018) and still a major distribution hub.",k:"Heritage wholesale market",g:["HERITAGE","TEMPLE","MKT","ARCH"],s:[["TRAVELFISH","https://www.travelfish.org/sight_profile/vietnam/saigon_and_surrounds/ho_chi_minh_city/ho_chi_minh_city/1334"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%C3%ACnh_T%C3%A2y_Market"]]},
+{t:2,a:"CHOLON",n:"Cha Tam Church (St Francis Xavier)",ad:"25 Hoc Lac, Ward 14, District 5 (Cholon), Ho Chi Minh City, Vietnam",la:10.75197,ln:106.65369,w:"Cholon's Chinese-Catholic parish church (1900-1902), Gothic with Chinese detailing. Here President Ngo Dinh Diem and his brother took refuge and surrendered during the 1 November 1963 coup, before being killed en route.",k:"Colonial church & 1963 history",g:["HERITAGE","TEMPLE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cha_Tam_Church"],["SPECTRALCODEX","https://spectralcodex.com/the-chinese-temples-and-guildhalls-of-cholon/"]]},
+{t:2,a:"CHOLON",n:"Nghia An Hoi Quan (Ong Temple)",ad:"678 Nguyen Trai, Ward 11, District 5 (Cholon), Ho Chi Minh City, Vietnam",la:10.75366,ln:106.66213,w:"A 19th-century Teochew guildhall temple to the deified warlord Quan Cong, one of Cholon's oldest, celebrated for its gilded woodwork, a huge red-lacquer horse of Quan Cong and intricate roof ceramics.",k:"Chinese temple",g:["TEMPLE","ARCH"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/nghia-an-hoi-quan-pagoda"],["SPECTRALCODEX","https://spectralcodex.com/the-chinese-temples-and-guildhalls-of-cholon/"]]},
+{t:3,a:"CHOLON",n:"Ha Chuong Hoi Quan",ad:"802 Nguyen Trai, Ward 14, District 5 (Cholon), Ho Chi Minh City, Vietnam",la:10.75327,ln:106.65786,w:"A southern-Fujian (Zhangzhou) guildhall temple founded 1809 for Thien Hau, with four China-carved dragon-wrapped stone pillars shipped in by boat and vivid ceramic roof scenes; especially alive at the Lantern Festival.",k:"Chinese temple",g:["TEMPLE","ARCH"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/ha-chuong-hoi-quan-pagoda/a/poi-sig/1155297/357884"],["THERESHEGOES","https://thereshegoesagain.org/district-5-ho-chi-minh-city-vietnam/"]]},
+{t:2,a:"TANBINH",n:"Giac Lam Pagoda",ad:"565 Lac Long Quan, Ward 10, Tan Binh District, Ho Chi Minh City, Vietnam",la:10.77944,ln:106.64917,w:"Believed the oldest temple in the city (founded 1744), atmospheric in garden grounds with a Bodhi tree, a nine-tier stupa and thousands of decorative plates set into its walls. National relic. Free.",k:"Buddhist pagoda",g:["TEMPLE","PARK","FREE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/articles/best-things-to-do-in-ho-chi-minh-city"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Gi%C3%A1c_L%C3%A2m_Pagoda"]]},
+{t:1,a:"TAYNINHRT",n:"Cao Dai Holy See (Tay Ninh)",ad:"Long Hoa, Hoa Thanh, Tay Ninh Province, Vietnam (day trip ~90 km NW of Ho Chi Minh City, Vietnam)",la:11.30389,ln:106.13333,w:"The kaleidoscopic 1933-1955 Great Temple of Caodaism, Vietnam's homegrown syncretic religion, with a divine 'all-seeing eye', dragon pillars and rainbow interior. Time a visit for the white-robed noon ceremony. Often paired with Cu Chi.",k:"Cao Dai temple (day trip)",g:["TEMPLE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/articles/day-trips-from-ho-chi-minh-city"],["WIKIPEDIA","https://en.wikipedia.org/wiki/T%C3%A2y_Ninh_Holy_See"]]},
+{t:1,a:"MEKONGRT",n:"Mekong Delta Day Trip (My Tho & Ben Tre)",ad:"My Tho (Tien Giang) & Ben Tre Provinces, Vietnam (day trip ~70-90 km SW of Ho Chi Minh City, Vietnam)",la:10.35806,ln:106.36417,w:"The classic close Delta day trip: a Tien River cruise past the Dragon/Unicorn/Phoenix/Tortoise islets, sampan rides through coconut-palm canals, a coconut-candy workshop, honey tea and the large Vinh Trang Pagoda at My Tho.",k:"River delta day trip",g:["TEMPLE"],s:[["VIETNAMTOURISM","https://vietnam.travel/things-to-do/4-memorable-days-mekong-delta"],["LONELYPLANET","https://www.lonelyplanet.com/articles/day-trips-from-ho-chi-minh-city"]]},
+{t:2,a:"TAYNINHRT",n:"Ba Den Mountain (Nui Ba Den)",ad:"Ninh Son, Tay Ninh Province, Vietnam (day trip ~100 km NW of Ho Chi Minh City, Vietnam)",la:11.36700,ln:106.16700,w:"The 986 m 'Black Virgin Mountain', highest peak in the south, a pilgrimage site of cave temples reached by a Guinness-record cable-car system to Sun World, with a 72 m bronze Bodhisattva at the summit. Pairs with Tay Ninh's Cao Dai temple.",k:"Sacred mountain & cable car (day trip)",g:["TEMPLE","VIEW"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/tay-ninh/attractions/nui-ba-den/a/poi-sig/1157437/357857"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%C3%A0_%C4%90en_Mountain"]]},
+{t:2,a:"CANGIO",n:"Can Gio Mangrove Biosphere Reserve (Monkey Island)",ad:"Can Gio District, Ho Chi Minh City, Vietnam (~50-60 km SE of the centre)",la:10.40948,ln:106.88864,w:"Vietnam's first UNESCO Man-and-Biosphere reserve (designated 2000), a replanted mangrove forest that was the Viet Cong's Rung Sac guerrilla zone. Boat trips, a reconstructed guerrilla base, crocodile lagoons and a large troop of macaques ('Monkey Island').",k:"Mangrove biosphere reserve (day trip)",g:["HERITAGE","PARK"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/can-gio-forest-rung-sac-road/"],["OFFICIAL","https://en.nbca.gov.vn/khu-du-tru-sinh-quyen-rung-ngap-man-can-gio-tp-ho-chi-minh-khu-dtsq-can-gio/"]]},
+{t:2,a:"MEKONGRT",n:"Cai Rang Floating Market (Can Tho)",ad:"Cai Rang District, Can Tho, Mekong Delta, Vietnam (long day trip / overnight ~170 km SW of Ho Chi Minh City, Vietnam)",la:10.00298,ln:105.74375,w:"The biggest floating wholesale market in the Delta, where boats trade produce hung from tall poles at dawn on the Can Tho River. Deep in the Delta (~3.5 hrs each way) — best as an early-start long day trip or overnight; trades wind down by ~08:30.",k:"Floating market (day trip)",g:["MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/C%C3%A1i_R%C4%83ng_Floating_Market"],["LONELYPLANET","https://www.lonelyplanet.com/articles/day-trips-from-ho-chi-minh-city"]]},
+{t:2,a:"VUNGTAURT",n:"Vung Tau (Christ the King Statue)",ad:"Ha Long St, Ward 2, Vung Tau, Ba Ria-Vung Tau Province, Vietnam (day trip ~95 km / 2-hr ferry from Ho Chi Minh City, Vietnam)",la:10.32639,ln:107.08439,w:"The nearest beach escape: a seaside town crowned by a 32 m Christ the King statue (1974) you can climb (~800 steps inside) for coastal views, plus the White Palace and Back Beach. Reachable by road or Saigon River fast ferry.",k:"Coastal town & statue (day trip)",g:["PARK","VIEW","ARCH"],s:[["VIETNAMTOURISM","https://vietnam.travel/things-to-do/essential-vung-tau-guide"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Christ_of_V%C5%A9ng_T%C3%A0u"]]},
+{t:1,a:"D1",n:"Mariamman Hindu Temple (Chua Ba Mariamman)",ad:"45 Truong Dinh, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77222,ln:106.69556,w:"Saigon's only Hindu temple, a vivid South-Indian shrine built by Tamil merchants in the late 1800s to the goddess Mariamman, its ~12 m gopuram crowded with painted deities. Free; daily ~07:00-19:00, remove shoes.",k:"Hindu temple",g:["TEMPLE","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mariamman_Temple,_Ho_Chi_Minh_City"],["VIETNAMAIRLINES","https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/mariamman-hindu-temple"]]},
+{t:2,a:"D1",n:"Tao Dan Park",ad:"Truong Dinh Street, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77472,ln:106.69306,w:"One of central Saigon's largest green spaces (a former French garden), with a Cham-style shrine, a Hung Kings temple and a famous early-morning 'bird cafe' where locals hang songbird cages (~06:00-09:00; disrupted in recent years by Metro works). Free.",k:"Park & nature",g:["TEMPLE","PARK","FAM","FREE"],s:[["SAIGONEER","https://saigoneer.com/in-plain-sight/27856-to-appreciate-tao-%C4%91%C3%A0n-more,-study-the-park-s-past,-present,-and-future"],["VIETNAMNET","https://vietnamnet.vn/en/saigon-mornings-are-for-the-beautiful-birds-E190530.html"]]},
+{t:1,a:"THUDUC",n:"Buu Long Pagoda (Gotama Cetiya)",ad:"81 Nguyen Xien, Long Binh Ward, Thu Duc City, Ho Chi Minh City, Vietnam",la:10.87878,ln:106.83598,w:"A gleaming white Thai/Indian-style Theravada temple and 56 m Gotama Cetiya stupa on a hill above the Dong Nai River in Thu Duc, named by National Geographic (2019) among the world's 10 most beautiful Buddhist sites. Free; incense-free grounds.",k:"Buddhist pagoda",g:["TEMPLE","PARK","FREE"],s:[["SAIGONEER","https://saigoneer.com/vietnam-travel/14019-photos-in-saigon-s-buu-long-pagoda,-a-meditative-escape-and-pan-southeast-asian-architecture"],["VIETNAMNET","https://vietnamnet.vn/en/national-geographic-s-pick-a-closer-look-at-buu-long-pagoda-2346410.html"]]},
+{t:2,a:"BINHTHANH",n:"Binh Quoi Tourist Village",ad:"1147 Binh Quoi, Ward 28 (Thanh Da Peninsula), Binh Thanh District, Ho Chi Minh City, Vietnam",la:10.82750,ln:106.73694,w:"A riverside 'traditional-village' recreation park on the Thanh Da peninsula run by Saigontourist, known for its weekend Southern-style buffets, folk games and thatched-hut gardens along the Saigon River. Free entry; paid activities and buffet.",k:"Riverside park & village",g:["PARK","FREE"],s:[["SAIGONTOURIST","https://saigontourist.com.vn/en/service/cuisine/35-binh-quoi-tourist-village-1"],["OFFICIAL","https://binhquoi.vn/en/"]]},
+{t:2,a:"D1",n:"Việt Nam Quốc Tự",ad:"244 Ba Tháng Hai, Ward 12, District 10, Ho Chi Minh City, Vietnam",la:10.77115,ln:106.67322,w:"A landmark District 10 Buddhist temple on Ba Tháng Hai (3/2) Boulevard, originally built in 1964 and rebuilt 2014–2017 around a soaring 13-storey stupa (Tháp Đa Bảo). A historically significant seat of Vietnamese Buddhism and a striking, uncrowded stop; upper floors open on the 1st and 15th of the lunar month.",k:"Buddhist temple",g:["TEMPLE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Vi%E1%BB%87t_Nam_Qu%E1%BB%91c_T%E1%BB%B1"],["VIETNAMPLUS","https://en.vietnamplus.vn/hcm-city-vietnam-quoc-tu-pagoda-rebuilt-post66804.vnp"]]},
+{t:1,a:"D8",n:"Chùa An Phú (Chùa Miểng Sành)",ad:"24 Chánh Hưng, Ward 4, District 8, Ho Chi Minh City, Vietnam",la:10.74500,ln:106.67583,w:"A near-180-year-old Buddhist temple in District 8 whose surfaces are almost entirely mosaicked in over 30 tonnes of broken porcelain and ceramic shards — bowls, plates, teapots — applied by hand from 1961 to 2004. Holds a Vietnam Book of Records mark for the most ceramic pieces, plus a pair of 3.4 m, 1.8-tonne candles. The 'Miểng Sành' pagoda is District 8's signature sight.",k:"Buddhist temple",g:["TEMPLE"],s:[["VNEXPRESS","https://vnexpress.net/ngoi-chua-o-sai-gon-lam-bang-30-tan-manh-sanh-3672404.html"],["THANHNIEN","https://thanhnien.vn/ngoi-chua-gan-180-tuoi-o-tphcm-cong-trinh-doc-nhat-vo-nhi-voi-30-tan-mieng-sanh-185250524123711422.htm"]]},
+{t:2,a:"D8",n:"Bến Bình Đông & the Tết Flower Market",ad:"Bến Bình Đông (along Kênh Tàu Hủ), Ward 11, District 8, Ho Chi Minh City, Vietnam",la:10.72833,ln:106.63806,w:"The old rice-trade wharf strung along Kênh Tàu Hủ, once the 'prosperous Tàu Hủ avenue' linking Saigon-Chợ Lớn to the Mekong. Each Lunar New Year it becomes the 'trên bến dưới thuyền' flower market, with growers selling blooms straight off sampans — the most atmospheric Tết scene in the city and a working glimpse of canal-borne Saigon.",k:"Historic wharf / seasonal flower market",g:["MKT"],s:[["VNEXPRESS","https://vnexpress.net/ben-binh-dong-tu-ben-hoa-tet-den-diem-hen-dau-tu-moi-4191674.html"],["THANHNIEN","https://thanhnien.vn/cho-hoa-xuan-tren-ben-duoi-thuyen-tet-binh-ngo-2026-o-tphcm-co-gi-dac-sac-1852601130939046.htm"]]},
+{t:3,a:"D8",n:"Cầu Nhị Thiên Đường",ad:"Cầu Nhị Thiên Đường (over Kênh Đôi), Ward 5, District 8, Ho Chi Minh City, Vietnam",la:10.74168,ln:106.65598,w:"A 1925 bridge over the Kênh Đôi, said to be the first reinforced-concrete bridge in Indochina, built by the Chinese-Vietnamese magnate behind the Nhị Thiên Đường medicated-oil empire. A row of arches beneath it evokes an old Roman viaduct; a District 8 landmark and marker of the Nam Bộ resistance era.",k:"Historic bridge",g:["ARCH"],s:[["KENH14","https://kenh14.vn/xa-hoi/6-cay-cau-gan-lien-voi-lich-su-hon-300-nam-o-sai-gon-20151102091315112.chn"],["CAFEBIZ","https://cafebiz.vn/ong-chu-nguoi-hoa-nuc-tieng-sai-gon-va-di-tich-ky-la-tren-cay-cau-xi-mang-dau-tien-o-dong-duong-20210525104208647.chn"]]},
+{t:3,a:"D8",n:"AEON Mall Bình Tân",ad:"1 Đường số 17A, Bình Trị Đông B Ward, Bình Tân, Ho Chi Minh City, Vietnam",la:10.74326,ln:106.61303,w:"The 114,000 sqm Japanese-run mall that anchors Bình Tân, opened 2016 as one of the largest in Ho Chi Minh City — cinema, a huge food street, and the everyday air-conditioned pull for the district's working-class west. The practical family day-out landmark out here.",k:"Shopping mall",g:["ARCH"],s:[["VNEXPRESS","https://ngoisao.vnexpress.net/aeon-mall-binh-tan-diem-dung-chan-thu-vi-cho-gia-dinh-3413897.html"],["BAODAUTU","https://baodautu.vn/aeon-khai-truong-trung-tam-thuong-mai-aeon-binh-tan-d46845.html"]]},
+{t:2,a:"GOVAP",n:"Bà Điểm & the Eighteen Betel Garden Villages (18 Thôn Vườn Trầu)",ad:"Bà Điểm Commune, Hóc Môn, Ho Chi Minh City, Vietnam",la:10.83944,ln:106.59944,w:"The historic areca-and-betel-growing belt around Bà Điểm, famed since the 18th century and a cradle of the 1940 Southern Uprising — the Southern Party Committee sheltered in its gardens. Today a living cultural-heritage landscape of remnant trầu (betel) gardens and revolutionary memory rather than a ticketed attraction.",k:"heritage district",g:["HERITAGE","PARK"],s:[["WIKIPEDIA","https://vi.wikipedia.org/wiki/18_th%C3%B4n_v%C6%B0%E1%BB%9Dn_tr%E1%BA%A7u"],["BAOVANHOA","https://baovanhoa.vn/doi-song-van-hoa/phat-huy-gia-tri-van-hoa%C2%A018-thon-vuon-trau-49748.html"]]},
+{t:2,a:"TANBINH",n:"AEON Mall Tân Phú Celadon",ad:"30 Bờ Bao Tân Thắng, Sơn Kỳ Ward, Tân Phú, Ho Chi Minh City, Vietnam",la:10.79222,ln:106.62528,w:"AEON's first shopping mall in Vietnam, opened 11 Jan 2014 — a ~70,000 m² Japanese-anchored complex in the Celadon City estate that made Vietnam the third country (after Malaysia and China) with a large-scale AEON MALL. A CGV cinema, food court, indoor playground and 200+ brands make it the western suburbs' main weekend gathering place.",k:"landmark",g:["MKT","ARCH","FAM"],s:[["VIR","https://vir.com.vn/aeons-first-vietnam-shopping-centre-launch-packs-them-in-24967.html"],["AEON","https://corp.aeon.com.vn/en/aeon-vietnam-news/aeon-first-presenting-in-vietnam-aeon-mall-tan-phu-celadon-opening-on-january-11-2014/"]]},
+{t:1,a:"TANBINH",n:"Suoi Tien Theme Park",ad:"120 Hanoi Highway, Tan Phu Ward, Thu Duc City, Ho Chi Minh City, Vietnam",la:10.86389,ln:106.80217,w:"The world's first Buddhism-themed amusement/water park (opened 1995), a surreal 200-ha spread of giant dragons, a neon-haloed Buddha shrine, a 'Buddhist Hell' walkthrough and waterslides pouring from sages' beards. ~1.5-2M visitors/year; daily ~07:30-17:00. Reachable on Metro Line 1.",k:"theme park",g:["TEMPLE","PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Su%E1%BB%91i_Ti%C3%AAn_Theme_Park"],["ATLASOBSCURA","https://www.atlasobscura.com/places/suoi-tien-cultural-theme-park"]]},
+{t:3,a:"THUDUC",n:"Vietnam National Historical Culture Park (Cong vien Lich su Van hoa Dan toc)",ad:"Long Binh Ward, Thu Duc (District 9), Ho Chi Minh City, Vietnam",la:10.86583,ln:106.83250,w:"A ~400-ha state park recreating Vietnam's history in themed zones, anchored by the grand Hung Kings temple complex where the city holds its official Hung Kings' Death Anniversary rites. Long-running build-out; the ancient/Hung-Kings zone is the finished, visit-worthy core.",k:"park",g:["TEMPLE","PARK"],s:[["WIKIPEDIA","https://vi.wikipedia.org/wiki/C%C3%B4ng_vi%C3%AAn_L%E1%BB%8Bch_s%E1%BB%AD_%E2%80%93_V%C4%83n_h%C3%B3a_D%C3%A2n_t%E1%BB%99c"],["THUDUCGOV","https://dulich-tpthuduc.hochiminhcity.gov.vn/diem-den/diem-den-mo-phong-3d/"]]},
+{t:2,a:"D7",n:"Crescent Mall & Starlight Bridge (Cau Anh Sao)",ad:"Ton Dat Tien, Phu My Hung, District 7, Ho Chi Minh City, Vietnam",la:10.72872,ln:106.71685,w:"The centrepiece of planned Phu My Hung: a 170 m LED-lit pedestrian bridge over crescent-shaped Ho Ban Nguyet lake, glowing like a starry sky at night, beside the riverfront Crescent Mall. The go-to evening promenade of Saigon's affluent south.",k:"landmark",g:["ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Crescent_Mall"],["SAIGONEER","https://saigoneer.com/saigon-food-culture/27006-evening-stroll-phu-my-hung-d7-korea-town-saigon-south"]]},
+{t:3,a:"BIENHOA",n:"Tri An Lake",ad:"Vinh Cuu District, Tri An, Dong Nai, Vietnam",la:11.18583,ln:107.15111,w:"Vietnam's largest man-made reservoir (behind the Tri An hydro dam), a vast expanse dotted with ~76 forested islets, popular for boat trips, sunrise/sunset floats, island picnics and overnight fishing with local boatmen. ~65-70 km northeast of HCMC.",k:"nature",g:["PARK"],s:[["DONGNAIGOV","https://dongnai.gov.vn/en/news/Socio-Economic-information/tourism-potential-of-tri-an-lake-5654.html"],["VNAT_ORG","https://www.vietnamtourism.org.vn/travel-guide/destination-in-vietnam/dong-nai/tri-an-lake.html"]]},
+{t:1,a:"BINHDUONG",n:"Dai Nam Wonderland (Dai Nam Van Hien)",ad:"Dai Nam, Thu Dau Mot, Binh Duong, Vietnam",la:11.04333,ln:106.63250,w:"Vietnam's largest tourist complex (711 ha, opened 2008): an amusement park, a man-made 'sea' with wave beach, a zoo/safari, a racecourse and the colossal gilded Kim Dien (Dai Nam) temple, once the country's biggest. ~40 km north of HCMC.",k:"theme park",g:["TEMPLE","PARK","FAM"],s:[["BECAMEX","https://becamexhotels.com/en/explore-binh-duong/dai-nam-wonderland/"],["THESMARTLOCAL","https://thesmartlocal.com/vietnam/dai-nam-wonderland/"]]},
+{t:2,a:"VUNGTAURT",n:"Vung Tau Lighthouse (Hai Dang)",ad:"Hai Dang, Ward 2 (Nui Nho), Vung Tau, Vietnam",la:10.33411,ln:107.07766,w:"Built by the French in 1862, the oldest of Vietnam's ~79 lighthouses, perched atop Nui Nho (Small Mountain); a short climb up 55 steps delivers a 360-degree view over the city, harbour and the Christ statue on the opposite hill.",k:"landmark",g:["PARK","VIEW","ARCH"],s:[["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/vung-tau-45/see-and-do-14/lighthouse-vung-tau-868"],["VNTRAVEL","https://vietnam.travel/things-to-do/vung-tau-sightseeing-wonderland"]]},
+{t:2,a:"VUNGTAURT",n:"Back Beach (Bai Sau)",ad:"Thuy Van, Bai Sau, Vung Tau, Vietnam",la:10.33487,ln:107.09148,w:"Vung Tau's main swimming beach, a ~10 km southeast-facing strand lined with loungers, seafood shacks and water sports (surf, SUP, kite-surf); the Saigonese weekend seaside default, two hours from the city.",k:"beach",g:["TEMPLE","PARK"],s:[["VNTRAVEL","https://vietnam.travel/things-to-do/essential-vung-tau-guide"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/vung-tau-45"]]},
+{t:1,a:"MEKONGRT",n:"Vinh Trang Pagoda",ad:"Nguyen Trung Truc, My Phong, My Tho, Tien Giang, Vietnam",la:10.36281,ln:106.37375,w:"The largest and most famous pagoda in Tien Giang (completed 1850), a national heritage site blending Vietnamese, Khmer, Chinese and European arches, set in gardens with giant Buddha statues; the standout stop on any My Tho / Mekong day trip.",k:"temple",g:["HERITAGE","TEMPLE","PARK","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/V%C4%A9nh_Tr%C3%A0ng_Temple"],["TRAVELFISH","https://www.travelfish.org/sight_profile/vietnam/mekong_delta/tien_giang/my_tho/658"]]},
+{t:1,a:"TAYNINHRT",n:"Sun World Ba Đen Mountain Cable Car",ad:"Sun World Ba Den Mountain, Núi Bà Đen, Tây Ninh, Vietnam",la:11.36700,ln:106.16700,w:"The Doppelmayr cable-car complex that lifts you up the 986 m 'Roof of the South' in minutes instead of a three-hour climb. Its Ba Den departure station holds the Guinness World Record for the largest cable-car station (10,959 sqm), moving 4,400 passengers an hour to the spiritual complex on top.",k:"Cable car / Things to do",g:["HERITAGE"],s:[["VNS","https://vietnamnews.vn/society/571411/new-cable-car-at-ba-den-mountain-opens-in-tay-ninh.html"],["GUINNESS","https://www.guinnessworldrecords.com/world-records/604248-largest-cable-car-station"],["NHANDAN","https://en.nhandan.vn/tay-ninh-provinces-cable-car-station-sets-guinness-world-record-post82477.html"]]},
+{t:1,a:"TAYNINHRT",n:"Tây Bổ Đà Sơn Buddha Statue",ad:"Summit of Núi Bà Đen, Tây Ninh, Vietnam",la:11.36700,ln:106.16700,w:"A 72 m bronze Bodhisattva cast from 170+ tonnes of red copper on the 986 m summit — recognised by Guinness as Asia's tallest bronze Lady-Buddha statue on a mountain peak. Ringed by terraced gardens and often wrapped in cloud, it is the visual icon of the Bà Đen complex.",k:"Temple / Monument",g:["TEMPLE","PARK","VIEW","ARCH"],s:[["VNP","https://en.vietnamplus.vn/bodhisattva-statue-on-mountain-makes-tay-ninh-worth-to-visit-destination-post233692.vnp"],["VNP2","https://en.vietnamplus.vn/lady-buddha-statue-of-black-virgin-mountain-post224400.vnp"]]},
+{t:2,a:"TAYNINHRT",n:"Dầu Tiếng Lake (Reservoir)",ad:"Dầu Tiếng, Tây Ninh, Vietnam",la:11.38419,ln:106.36361,w:"Vietnam and Southeast Asia's largest artificial lake — 270 sqkm damming the upper Saigon River, completed 1985 — now an ecotourism draw of forested islets and hill-fringed water. A go-to for camping, fishing and sunset-watching on the far side of Bà Đen.",k:"Nature / Lake",g:["TEMPLE","PARK"],s:[["WIKI","https://en.wikipedia.org/wiki/D%E1%BA%A7u_Ti%E1%BA%BFng_Lake"],["VNS","https://vietnamnews.vn/life-style/1797137/tay-ninh-taps-dau-tieng-reservoir-s-dual-roles-in-ecotourism-water-security.html"]]},
+{t:2,a:"TAYNINHRT",n:"Long Hoa Market",ad:"Long Hoa, Hòa Thành, Tây Ninh, Vietnam",la:11.28639,ln:106.12944,w:"Tây Ninh's busiest market, laid out in 1952 to the design of Cao Đài dignitary Phạm Công Tắc to serve the faith's followers. The place to buy the province's edible souvenirs — dew-soaked rice paper, muối tôm, sesame and beans — and to eat at its famous vegetarian stalls.",k:"Market",g:["MKT"],s:[["MYTOUR","https://mytour.vn/en/blog/bai-viet/exploring-long-hoa-market-in-tay-ninh-understanding-cao-dai-culture.html"],["VIETBAO","https://vietbao.vn/en/nghe-thuat-mon-chay-net-van-hoa-dac-sac-cua-tay-ninh-418696.html"]]},
+{t:2,a:"VUNGTAURT",n:"Hòn Bà",ad:"off Mũi Nghinh Phong / Bãi Sau, Phường 2, Vũng Tàu, Bà Rịa–Vũng Tàu, Vietnam",la:10.32389,ln:107.08917,w:"A tiny rocky islet crowned by a small temple locals hold sacred; at low tide a natural stone causeway surfaces so you can walk out from the shore. A quiet sunrise and spiritual spot — time it carefully or the rising tide strands you.",k:"Islet / temple",g:["TEMPLE"],s:[["WIKI","https://en.wikipedia.org/wiki/Hon_Ba"],["ORIGINVIETNAM","https://www.originvietnam.com/destinations/front-beach/"]]},
+{t:2,a:"VUNGTAURT",n:"Front Beach (Bãi Trước)",ad:"Quang Trung / Trần Phú promenade, Bãi Trước, Vũng Tàu, Bà Rịa–Vũng Tàu, Vietnam",la:10.35083,ln:107.07000,w:"Vũng Tàu's crescent-bay waterfront between Big and Small Mountain — a palm-lined promenade for sunset strolls, seafood and coconuts, ringed by landmarks (Bạch Dinh, the cable-car station, Phước Thắng Fortress). The city's social heart, quieter than Back Beach.",k:"Beach / promenade",g:["TEMPLE","PARK","ARCH"],s:[["VIETCETERA","https://vietcetera.com/en/vung-tau-a-magnet-for-the-weekend-crowd"],["ORIGINVIETNAM","https://www.originvietnam.com/destinations/front-beach/"]]},
+{t:1,a:"VUNGTAURT",n:"Nhà Lớn Long Sơn (Đền Ông Trần)",ad:"Long Sơn commune (Núi Nứa island), Vũng Tàu, Bà Rịa–Vũng Tàu, Vietnam",la:10.45000,ln:107.05000,w:"A one-of-a-kind 2-hectare wood-and-tile temple compound on Long Sơn island, built 1910–1929 by Lê Văn Mưu ('Ông Trần'), founder of a local folk faith blending Confucianism and Taoism. Temple, mausoleum and communal halls with a century-old tamarind tree; a national relic and the island's living heritage site.",k:"Heritage house / temple",g:["HERITAGE","TEMPLE","PARK","ARCH"],s:[["THANHNIEN","https://thanhnien.vn/kham-pha-nha-lon-long-son-cay-me-tram-tuoi-long-liet-gan-voi-dao-ong-tran-185251016111551621.htm"],["DANTRI","https://dantri.com.vn/du-lich/kham-pha-kien-truc-co-mot-khong-hai-cua-nha-lon-long-son-o-vung-tau-20200728002516646.htm"],["VNTOURISM","https://vietnamtourism.vn/index.php/tourism/items/2628"]]},
+{t:1,a:"VUNGTAURT",n:"Bình Châu Hot Springs (Suối khoáng nóng Bình Châu)",ad:"Bình Châu, Xuyên Mộc, Bà Rịa–Vũng Tàu, Vietnam",la:10.56056,ln:107.54250,w:"Southern Vietnam's only natural hot mineral springs — 70-plus surface vents from 37°C up to a boiling 82°C, set in the Bình Châu–Phước Bửu coastal forest with soaking pools, mud baths and an egg-boiling spring. A classic overnight on the Hồ Tràm–Hồ Cốc coast road.",k:"Hot springs / eco-resort",g:["HERITAGE"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/ho-tram-ho-coc-beaches/"],["XUYENMOC","https://xuyenmoc.baria-vungtau.gov.vn/article?item=9b5e4fcbf75feb134ef6f1204518df9e"]]},
+{t:2,a:"VUNGTAURT",n:"Hồ Tràm Beach",ad:"Hồ Tràm, Phước Thuận, Xuyên Mộc, Bà Rịa–Vũng Tàu, Vietnam",la:10.48333,ln:107.43333,w:"A long, quiet arc of fine sand and clear water between Long Hải and Bình Châu, ~125 km from HCMC — casuarina-lined, cheap seafood at the fishing hamlet, and the anchor of the coast's cluster of beach resorts and golf courses. With Hồ Cốc, the best beach within easy reach of Saigon.",k:"Beach / resort coast",g:["TEMPLE","PARK"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/ho-tram-ho-coc-beaches/"],["VNAIR","https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/bai-bien-ho-tram"]]},
+{t:3,a:"VUNGTAURT",n:"Bình Châu–Phước Bửu Nature Reserve",ad:"Bình Châu / Bưng Riềng, Xuyên Mộc, Bà Rịa–Vũng Tàu, Vietnam",la:10.55000,ln:107.50500,w:"An 11,293-hectare protected coastal rainforest — the region's only surviving lowland dipterocarp forest — wrapping the Hồ Tràm and Hồ Cốc beaches and the Bình Châu hot springs. Home to the 136m Núi Hồ Linh hill and endangered species; hiking trails through a rare intact ecosystem.",k:"Nature reserve",g:["PARK"],s:[["WIKI","https://en.wikipedia.org/wiki/B%C3%ACnh_Ch%C3%A2u%E2%80%93Ph%C6%B0%E1%BB%9Bc_B%E1%BB%ADu_Nature_Reserve"],["VNANET","https://vietnam.vnanet.vn/vietnamese/tin-tuc/kham-pha-khu-bao-ton-thien-nhien-binh-chau-%E2%80%93-phuoc-buu-351483.html"]]},
+{t:1,a:"D3",n:"Phap Hoa Pagoda",ad:"870 Truong Sa, Ward 14, District 3, Ho Chi Minh City, Vietnam",la:10.78250,ln:106.67917,w:"A near-century-old pagoda on the Nhieu Loc Canal, a city-designated heritage site and the city's most photogenic Vesak venue, when thousands of lanterns are floated on the water. Serene canal-side visit any day; spectacular at Buddha's Birthday (4th lunar month).",k:"Temple",g:["HERITAGE","TEMPLE"],s:[["VIETNAMNET","https://vietnamnet.vn/en/seven-giant-lotus-flowers-illuminate-ho-chi-minh-city-canal-for-vesak-2026-2518730.html"],["NHANDAN","https://en.nhandan.vn/in-pictures-ho-chi-minh-city-residents-float-lanterns-to-celebrate-vesak-day-at-phap-hoa-pagoda-post147819.html"]]},
+{t:2,a:"D1",n:"Phung Son Pagoda (Chua Go)",ad:"1408 Duong 3 Thang 2, Ward 2, District 11, Ho Chi Minh City, Vietnam",la:10.75528,ln:106.64833,w:"An early-19th-century pagoda built on the foundations of an ancient Khmer/Oc Eo-era temple mound, a recognised National Historical-Cultural Monument with a fine timber-framed Southern-style hall. A quiet, deeply historic stop in District 11.",k:"Temple",g:["TEMPLE","ARCH"],s:[["TRAVELVIET","https://travelviet.net/en/news/ho-chi-minh-cityhcmc/phung-son-tu-the-architectural-beauty-of-an-ancient-southern-pagoda-in-the-heart-of-ho-chi-minh-city"],["VINWONDERS","https://vinwonders.com/en/wonderpedia/news/district-11-saigon/"]]},
+{t:2,a:"D1",n:"September 23 Park (Cong Vien 23 Thang 9)",ad:"Pham Ngu Lao, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.76940,ln:106.69380,w:"A long, 9-hectare downtown green ribbon on the site of Saigon's demolished 19th-century railway station, running from behind Ben Thanh Market through the backpacker quarter. Handy central breathing space for a stroll or people-watching.",k:"Park",g:["TEMPLE","MKT","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/September_23rd_Park"],["VINPEARL","https://vinpearl.com/en/september-23rd-park-a-recommended-choice-for-your-day-in-ho-chi-minh-city"]]},
+{t:3,a:"D1",n:"Le Van Tam Park",ad:"Dien Bien Phu, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",la:10.78861,ln:106.69372,w:"A shaded central park laid out in 1983 over the former Massiges (European) Cemetery, once the resting place of colonial elites and President Ngo Dinh Diem. A leafy escape with a fascinating buried history documented by Saigoneer.",k:"Park",g:["HERITAGE","PARK","ARCH"],s:[["SAIGONEER","https://saigoneer.com/saigon-heritage/2695-le-van-tam-park-the-former-massiges-cemetery-part-i"],["WIKIPEDIA","https://en.wikipedia.org/wiki/L%C3%AA_V%C4%83n_T%C3%A1m_Park"]]},
+{t:1,a:"D1",n:"Bach Dang Wharf & Saigon Waterbus",ad:"10B Ton Duc Thang, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77739,ln:106.70705,w:"The 1.3 km riverside park and pier on the Saigon River where locals gather at sunset and river cruises and the 15,000d public waterbus depart for Thu Duc. The best way to see the city from the water, past Landmark 81 and Bitexco.",k:"River",g:["TEMPLE","PARK","ARCH"],s:[["VIETNAMTOURISMGOV","https://vietnamtourism.gov.vn/en/post/18388"],["LOCALVIETNAM","https://localvietnam.com/ho-chi-minh-city/bach-dang-wharf/"]]},
+{t:2,a:"D1",n:"Golden Dragon Water Puppet Theatre",ad:"55B Nguyen Thi Minh Khai, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77620,ln:106.69230,w:"The city's main venue for mua roi nuoc (water puppetry), the thousand-year-old northern folk art performed on a pool of water with live traditional musicians. Two short shows daily (17:00 and 18:30) beside Tao Dan Park.",k:"Performance",g:["TEMPLE","PARK"],s:[["TRAVELFISH","https://www.travelfish.org/sight_profile/vietnam/saigon_and_surrounds/ho_chi_minh_city/ho_chi_minh_city/2184"],["OFFICIAL","http://www.goldendragonwaterpuppet.vn/golden-dragon-water-puppet-theater"]]},
+{t:2,a:"D1",n:"Hotel Continental Saigon",ad:"132-134 Dong Khoi, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77690,ln:106.70250,w:"The city's oldest hotel (1880) on former Rue Catinat opposite the Opera House, where Graham Greene wrote much of 'The Quiet American' in Room 214 and its terrace was the correspondents' 1950s watering hole. A living piece of literary and war-era Saigon.",k:"Architecture",g:["TEMPLE","ARCH"],s:[["SCMP","https://www.scmp.com/postmag/travel/article/3310447/footsteps-saigons-quiet-american-70-years"],["HISTORICVIETNAM","https://www.historicvietnam.com/graham-greenes-saigon-revisited/"]]},
+{t:2,a:"D1",n:"Hotel Majestic Saigon",ad:"01 Dong Khoi, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77310,ln:106.70610,w:"A 1925 French-colonial landmark on the Dong Khoi/Ton Duc Thang riverfront corner, built by the tycoon Hui Bon Hoa and preserving its original Art Deco character. Worth a look for the facade and a drink at its river-view rooftop.",k:"Architecture",g:["HERITAGE","VIEW","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hotel_Majestic_(Saigon)"],["OFFICIAL","https://www.majesticsaigon.com/our-hotel/our-history/"]]},
+{t:2,a:"D1",n:"Rex Hotel Rooftop Garden Bar",ad:"141 Nguyen Hue, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77583,ln:106.70150,w:"The open-air rooftop bar of the 1960 Rex Hotel, site of the US military's daily wartime press briefings mocked as the 'Five O'Clock Follies'. Iconic Vietnam-War history plus sweeping views over Nguyen Hue and City Hall.",k:"Architecture",g:["PARK","VIEW","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Rex_Hotel"],["OFFICIAL","https://www.rexhotelsaigon.com/dining/rooftop-garden-bar/"]]},
+{t:3,a:"D1",n:"Saigon Centre & Takashimaya",ad:"65 Le Loi, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77306,ln:106.70083,w:"The city's most polished shopping complex on Le Loi, anchored by Vietnam's first Takashimaya Japanese department store with a top-floor food court and basement Japanese supermarket. A cool, glossy contrast to the street markets.",k:"Market",g:["MKT"],s:[["KEPPEL","https://www.keppel.com/realestate/About-Us/Our-Projects/Saigon-Centre"],["BACKPACKSNORKEL","https://backpackandsnorkel.com/Vietnam/Saigon-Centre/"]]},
+{t:2,a:"D1",n:"Dam Sen Cultural Park",ad:"3 Hoa Binh, Ward 3, District 11, Ho Chi Minh City, Vietnam",la:10.76556,ln:106.63811,w:"A 50-hectare cultural-and-amusement park in District 11 with landscaped gardens, thrill rides, cultural exhibits and an adjoining water park. One of the city's big family day-outs, alongside Suoi Tien and Dai Nam.",k:"Park",g:["TEMPLE","PARK"],s:[["AUDIALA","https://audiala.com/en/vietnam/ho-chi-minh-city/dam-sen-cultural-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/District_11,_Ho_Chi_Minh_City"]]},
+{t:1,a:"GOVAP",n:"Chùa Hoằng Pháp (Hoang Phap Temple)",ad:"Xã Tân Hiệp, huyện Hóc Môn, Ho Chi Minh City, Vietnam",la:10.90030,ln:106.58180,w:"Founded 1957 on ~6 ha in suburban Hóc Môn, this is regarded as the largest Buddhist practice-and-teaching center in Vietnam, with 50+ affiliated branches. Famous for its mass seven-day meditation retreats and student/summer courses; on Vu Lan and Tết it draws enormous crowds. Northern-Buddhist double-tiered tile roofs and a serene bougainvillea-lined forecourt.",k:"Temple",g:["HIST","FREE","TEMPLE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/Ch%C3%B9a_Ho%E1%BA%B1ng_Ph%C3%A1p"],["ENWIKI","https://en.wikipedia.org/wiki/Ho%E1%BA%B1ng_Ph%C3%A1p_Temple"]]},
+{t:1,a:"BINHDUONG",n:"Chùa núi Châu Thới (Chau Thoi Mountain Temple)",ad:"Phường Bình An, TP. Dĩ An, Bình Dương, Vietnam",la:10.91493,ln:106.80453,w:"The oldest temple in Bình Dương (founded 1612) and one of the earliest in the whole south, perched atop an 82 m granite hill reached by a 220-step stone stair. A national scenic-landmark since 1989, with a 'sacred rock', panoramic views over the Đồng Nai plain and coiled-dragon rooflines — an easy ~40-minute pilgrimage day-trip from the city.",k:"Temple / mountain",g:["HIST","ODD","FREE","TEMPLE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/N%C3%BAi_Ch%C3%A2u_Th%E1%BB%9Bi"],["THANHNIEN","https://thanhnien.vn/binh-duong-doc-dao-ngoi-chua-400-nam-tuoi-tren-dinh-nui-185241208104511153.htm"],["VIETNAMNET","https://vietnamnet.vn/ngoi-chua-chau-thoi-400-nam-tuoi-co-hon-da-than-tren-dinh-nui-o-binh-duong-2215451.html"]]},
+{t:2,a:"BINHDUONG",n:"Chùa Hội Khánh (Hoi Khanh Temple)",ad:"Phường Phú Cường, TP. Thủ Dầu Một, Bình Dương, Vietnam",la:10.98103,ln:106.65964,w:"A near-300-year-old temple (founded 1741) in Thủ Dầu Một crowned by a 52 m-long, 12 m-high reclining Buddha completed in 2013 and recognized by Asia Records as the longest rooftop nirvana Buddha in Asia — set 23 m up on the roof, with 20 relief panels of the Buddha's life below. A serene old-Bình Dương compound of carved wood and lacquer.",k:"Temple",g:["HIST","ODD","FREE","TEMPLE"],s:[["VNEXPRESS","https://vnexpress.net/ngoi-chua-gan-300-tuoi-co-tuong-phat-nam-dai-nhat-viet-nam-3754188.html"],["WIKIVI","https://vi.wikipedia.org/wiki/Ch%C3%B9a_H%E1%BB%99i_Kh%C3%A1nh"]]},
+{t:1,a:"D1",n:"Cầu Ba Son (Thu Thiem 2 Bridge)",ad:"Nối Quận 1 với TP. Thủ Đức (sông Sài Gòn), Ho Chi Minh City, Vietnam",la:10.77955,ln:106.71017,w:"The city's newest icon — a cable-stayed bridge with a single soaring pylon, opened April 2022, linking central District 1 (Mê Linh Square) to the Thủ Thiêm new-urban area. Its artistic night lighting and the riverside park beneath it have made it one of Saigon's most popular sunset and check-in spots on the water.",k:"Bridge / landmark",g:["ICON","FREE","TEMPLE","PARK"],s:[["VNEXPRESS","https://vnexpress.net/chu-de/cau-thu-thiem-2-5336"],["WIKIVI","https://vi.wikipedia.org/wiki/C%E1%BA%A7u_Th%E1%BB%A7_Thi%C3%AAm_2"]]},
+{t:2,a:"D1",n:"Cầu Mống (Mong Bridge)",ad:"Nối Quận 1 với Quận 4 (kênh Bến Nghé), Ho Chi Minh City, Vietnam",la:10.76800,ln:106.70370,w:"One of Saigon's oldest surviving bridges — a 128 m green iron arch built 1893–94 by Levallois-Perret (the old Eiffel firm) over the Bến Nghé canal, sibling in age to Hanoi's Long Biên. The French called it 'Arc-en-ciel' (rainbow); locals named it Cầu Mống for its arch. Ranked among the city's 10 heritage sites in 2015; a quiet evening photo spot.",k:"Historic bridge",g:["HIST","MARITIME","FREE","HERITAGE"],s:[["VNEXPRESS","https://vnexpress.net/nhung-cay-cau-hon-nua-the-ky-o-sai-gon-3557329.html"],["VOV","https://vovgiaothong.vn/newsaudio/cau-mong-di-san-tram-nam-giua-long-pho-thi-d50814.html"]]},
+{t:1,a:"TANBINH",n:"Vườn quốc gia Cát Tiên (Cat Tien National Park)",ad:"Huyện Tân Phú, Đồng Nai, Vietnam",la:11.50000,ln:107.33300,w:"A 70,000+ ha tropical-forest reserve and UNESCO World Biosphere ~150 km from the city — the region's marquee nature trip. The Nam Cát Tiên sector holds the trekking trails, Crocodile Lake (Bàu Sấu), the 400-year Tung tree, night wildlife spotting, gibbons and the Dao Tien primate centre. Best in the December–May dry season.",k:"National park",g:["PARK","ODD","HERITAGE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/V%C6%B0%E1%BB%9Dn_qu%E1%BB%91c_gia_C%C3%A1t_Ti%C3%AAn"],["VNEXPRESS","https://vnexpress.net/cam-nang-du-lich-vuon-quoc-gia-cat-tien-4775984.html"]]},
+{t:2,a:"D1",n:"Đền thờ Trần Hưng Đạo (Tran Hung Dao Temple)",ad:"36 Võ Thị Sáu, phường Tân Định, Quận 1, Ho Chi Minh City, Vietnam",la:10.79106,ln:106.69441,w:"A dignified 1932/1958 temple to the national hero Trần Hưng Đạo on a quiet Tân Định block, built by the Bắc Việt mutual-aid society. Curved-tile roofs with dragon-and-phoenix motifs and a triple gate; ranked a city relic, and busiest around the eighth-lunar-month death anniversary of Đức Thánh Trần.",k:"Temple / historic",g:["HIST","FREE","TEMPLE"],s:[["VNEXPRESS","https://vnexpress.net/den-tho-tran-hung-dao-90-nam-tuoi-o-sai-gon-4440770.html"],["WIKIVI","https://vi.wikipedia.org/wiki/%C4%90%E1%BB%81n_th%E1%BB%9D_Tr%E1%BA%A7n_H%C6%B0ng_%C4%90%E1%BA%A1o_(Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh)"]]},
+{t:2,a:"D1",n:"Tu viện Khánh An (Khanh An Monastery)",ad:"1055/3D Quốc lộ 1A, phường An Phú Đông, Quận 12, Ho Chi Minh City, Vietnam",la:10.85500,ln:106.69389,w:"A century-old monastery rebuilt over ~10 years (reopened 2016) in a serene Japanese-influenced style — timber and wood-grained structures in white, ochre and red-brown among green courtyards, earning it the nickname 'little Japan' of Saigon. A calm, camera-ready riverside retreat in District 12, busiest on weekends and full-moon days.",k:"Temple / check-in",g:["ICON","ODD","FREE","TEMPLE"],s:[["VNEXPRESS","https://vnexpress.net/tag/tu-vien-khanh-an-994598"],["WIKIVI","https://vi.wikipedia.org/wiki/Tu_vi%E1%BB%87n_Kh%C3%A1nh_An"]]},
+{t:3,a:"D1",n:"Công viên Lê Thị Riêng (Le Thi Rieng Park)",ad:"875 Cách Mạng Tháng Tám, Quận 10, Ho Chi Minh City, Vietnam",la:10.78510,ln:106.66440,w:"A green, lake-dotted culture park on Cách Mạng Tháng Tám — built in 1983 on the cleared Chí Hòa cemetery — that doubles as a family playground with the 'Thỏ Trắng' rides, pool, weekend magic shows and street-food stalls. Free entry; a local weekend hangout rather than a headline sight.",k:"Park",g:["PARK","FAM","FREE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/C%C3%B4ng_vi%C3%AAn_V%C4%83n_h%C3%B3a_L%C3%AA_Th%E1%BB%8B_Ri%C3%AAng"],["TTBCHCM","https://ttbc-hcm.gov.vn/"]]},
+{t:2,a:"D1",n:"Bảo tàng Chiến dịch Hồ Chí Minh (Ho Chi Minh Campaign Museum)",ad:"2 Lê Duẩn, Quận 1, Ho Chi Minh City, Vietnam",la:10.78092,ln:106.69908,w:"A free military museum set in an early-20th-century French building beside Reunification Palace, opened 1987, devoted to the 1975 Spring Offensive that ended in the fall of Saigon. Maps, sand-table dioramas, weapons and photographs trace the final campaign; a focused complement to the nearby palace and War Remnants Museum.",k:"Museum",g:["MUS","HIST","FREE","ARCH"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/B%E1%BA%A3o_t%C3%A0ng_Chi%E1%BA%BFn_d%E1%BB%8Bch_H%E1%BB%93_Ch%C3%AD_Minh"],["VIETNAMTOURISM","https://vietnamtourism.vn/index.php/tourism/items/1892/3"]]},
+{t:2,a:"GOVAP",n:"Công viên Gia Định (Gia Dinh Park)",ad:"Đường Hoàng Minh Giám, Quận Gò Vấp, Ho Chi Minh City, Vietnam",la:10.80167,ln:106.67750,w:"The largest green space in the city — a ~32 ha park at the meeting point of Gò Vấp, Tân Bình and Phú Nhuận with ~1,000 trees, 63,000 m² of lawn and a big children's play zone, split into Gia Định 1 and 2. The 'green lung' of Saigon: shaded jogging paths, picnics and early-morning tai chi.",k:"Park",g:["PARK","FAM","FREE"],s:[["VNEXPRESS","https://vnexpress.net/tp-hcm-chi-hon-74-ty-dong-chinh-trang-cong-vien-gia-dinh-3301111.html"],["PLO","https://plo.vn/cong-vien-gia-dinh-tro-thanh-mang-xanh-lon-nhat-tphcm-post450295.html"]]},
+{t:2,a:"BINHDUONG",n:"Làng sơn mài Tương Bình Hiệp (Tuong Binh Hiep Lacquer Village)",ad:"Phường Tương Bình Hiệp, TP. Thủ Dầu Một, Bình Dương, Vietnam",la:11.00778,ln:106.63028,w:"The near-300-year cradle of Bình Dương's fine-art lacquerware, recognized in 2016 as a National Intangible Cultural Heritage. Family workshops still build up gold-leaf and inlay lacquer over many painstaking layers; a living craft-village visit ~30 km from the city, best paired with Thủ Dầu Một's temples.",k:"Craft village",g:["CRAFT","HIST","HERITAGE","TEMPLE"],s:[["NHANDAN","https://nhandan.vn/bao-ton-lang-nghe-son-mai-truyen-thong-o-binh-duong-post782943.html"],["DULICHBINHDUONG","https://dulichbinhduong.org.vn/du-lich/nghe-son-mai-tuong-binh-hiep-tpthu-dau-mot-di-san-van-hoa-phi-vat-the-quoc-gia/ct"],["VNANET","https://vietnam.vnanet.vn/vietnamese/long-form/lang-tuong-binh-hiep-%E2%80%93-cai-noi-nghe-son-mai-binh-duong-316334.html"]]},
+{t:2,a:"TANBINH",n:"Làng bưởi Tân Triều (Tan Trieu Pomelo Village)",ad:"Cù lao Tân Triều, xã Tân Bình, huyện Vĩnh Cửu, Đồng Nai, Vietnam",la:10.97028,ln:106.84417,w:"A river islet ~40 km from the city famed for its 'orange-leaf' pomelos — thin-skinned, sweet, faintly bitter aftertaste. A model community farm-tourism village where you pick fruit in the orchards and eat a whole pomelo-themed menu (pomelo salad, pomelo wine); Đồng Nai is developing it as a signature agri-tourism destination.",k:"Craft / eco village",g:["CRAFT","FAM"],s:[["VIETNAMNET","https://vietnamnet.vn/dong-nai-sap-bien-cu-lao-buoi-tan-trieu-thanh-diem-du-lich-hap-dan-2258195.html"],["VNANET","https://vietnam.vnanet.vn/vietnamese/long-form/vang-danh-buoi-tan-trieu-353832.html"]]},
+{t:1,a:"D1",n:"Tuyến Metro số 1 Bến Thành - Suối Tiên (Metro Line 1)",ad:"Tuyến Bến Thành (Quận 1) – Suối Tiên (TP. Thủ Đức), Ho Chi Minh City, Vietnam",la:10.77080,ln:106.69780,w:"The city's first metro, opened 22 December 2024 after more than a decade of building — and an instant 'triệu-like' check-in phenomenon in its own right. The Bến Thành underground hall's lotus-shaped skylight and the elevated An Phú and Thảo Điền stations (sunset views over Thủ Đức) are the most-photographed spots; ride it as an attraction, not just transport.",k:"Metro / check-in",g:["ICON","FREE","VIEW","ARCH"],s:[["VIETNAMNET","https://vietnamnet.vn/metro-ben-thanh-suoi-tien-ram-rap-chay-thu-thieu-nu-hao-hung-check-in-2351594.html"],["TUOITRE","https://tuoitre.vn/nld/video-ga-metro-so-1-tro-thanh-diem-check-in-trieu-like-cua-gioi-tre-196241227143259305.htm"]]},
+{t:1,a:"BIENHOA",n:"Núi Chứa Chan & Chùa Gia Lào (Chua Chan Mountain)",ad:"Huyện Xuân Lộc, Đồng Nai, Vietnam",la:10.94170,ln:107.37920,w:"At 837 m the second-highest peak in the south after Bà Đen — a national historical-scenic site (2012) and Đồng Nai's premier day-hike. Trek or take the cable car up through cloud-hunting viewpoints to the cliff-set Chùa Gia Lào (Bửu Quang) tucked under a giant three-trunk fig; camping on the summit is popular with young hikers ~110 km from the city.",k:"Mountain / temple",g:["PARK","ODD","TEMPLE","VIEW"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/N%C3%BAi_Ch%E1%BB%A9a_Chan"],["VNANET","https://vietnam.vnanet.vn/vietnamese/tin-tuc/nui-chua-chan-%E2%80%93-diem-den-hap-dan-tai-dong-nai-352565.html"]]},
+{t:2,a:"PHUNHUAN",n:"Nhà thờ Đa Minh - Ba Chuông (Ba Chuong Church)",ad:"190 Lê Văn Sỹ, Quận Phú Nhuận, Ho Chi Minh City, Vietnam",la:10.79333,ln:106.67333,w:"A remarkable 1962 Catholic church on Lê Văn Sỹ that fuses East-Asian temple form with Christian meaning — its three-tiered bell tower and roofline echo a southern Vietnamese communal house (đình), with dragons turned to face the cross, and a square-nave/round-sanctuary plan symbolizing earth and heaven. One of the most architecturally distinctive churches in the city.",k:"Church",g:["HIST","ODD","FREE","TEMPLE"],s:[["THANHNIEN","https://thanhnien.vn/doc-dao-nha-tho-ba-chuong-co-kien-truc-giong-dinh-lang-o-tphcm-185250610210028157.htm"],["TUOITRE","https://tuoitre.vn/nha-tho-ba-chuong-giua-long-thanh-pho-585592.htm"]]},
+{t:2,a:"CHOLON",n:"Đình Minh Hương Gia Thạnh (Minh Huong Gia Thanh Communal House)",ad:"380 Trần Hưng Đạo B, Quận 5, Ho Chi Minh City, Vietnam",la:10.75500,ln:106.66030,w:"The first communal house of the Chinese-Vietnamese (Minh Hương) community in Saigon-Chợ Lớn, built 1789 and named 'Gia Thạnh đường' by Emperor Gia Long in 1808. A national architectural-art relic (1993): a five-bay timber-frame đình with tube-tiled roof, 'two dragons contesting the pearl' friezes and Ông Nhật–Bà Nguyệt statuary — a rare monument to how the Minh Hương wove into Vietnamese culture.",k:"Historic communal house",g:["HIST","FREE","ARCH"],s:[["VNEXPRESS","https://vnexpress.net/ngoi-dinh-dau-tien-cua-nguoi-hoa-o-sai-gon-3960268.html"],["WIKIVI","https://vi.wikipedia.org/wiki/%C4%90%C3%ACnh_Minh_H%C6%B0%C6%A1ng_Gia_Th%E1%BA%A1nh"]]},
+{t:2,a:"D1",n:"Đền thờ Vua Hùng (Hung Kings Temple, Thao Cam Vien)",ad:"2 Nguyễn Bình Khiêm, Quận 1, Ho Chi Minh City, Vietnam",la:10.78720,ln:106.70570,w:"A near-century-old temple inside the Botanical Gardens, built by the French in 1926 as a 'Temple du souvenir' and rededicated after 1954 to the Hùng Kings and other national heroes. Modeled on Huế imperial-palace architecture with a 3-ton bronze elephant in the forecourt; the focal point of Saigon's Giỗ Tổ Hùng Vương observances each third lunar month.",k:"Temple / historic",g:["HIST","FREE","TEMPLE","PARK"],s:[["VNEXPRESS","https://vnexpress.net/den-tho-vua-hung-gan-tram-tuoi-o-trung-tam-sai-gon-3908054.html"],["WIKIVI","https://vi.wikipedia.org/wiki/%C4%90%E1%BB%81n_th%E1%BB%9D_Vua_H%C3%B9ng_(Th%E1%BA%A3o_C%E1%BA%A7m_Vi%C3%AAn)"]]},
+{t:2,a:"CANGIO",n:"Lăng Ông Thủy Tướng Cần Giờ (Whale Lord Shrine)",ad:"Thị trấn Cần Thạnh, huyện Cần Giờ, Ho Chi Minh City, Vietnam",la:10.42000,ln:106.94444,w:"A Nguyễn-era coastal shrine to Cá Ông (the whale deity revered by fishermen), at the end of Duyên Hải road in Cần Thạnh — and home to a 12 m whale skeleton. Its Nghinh Ông 'Sea Tết' festival, held since 1913 on the 15th of the eighth lunar month, is one of only three National Intangible Cultural Heritages of Ho Chi Minh City.",k:"Shrine / heritage",g:["HIST","MARITIME","ODD","FREE"],s:[["DANVIET","https://danviet.vn/lang-ong-thuy-tuong-can-gio-tho-bo-xuong-ca-ong-dai-12m-20221124232853373.htm"],["TIENPHONG","https://tienphong.vn/noi-co-bo-xuong-ca-voi-dai-12m-va-le-hoi-ton-tai-hon-100-nam-o-tphcm-post1564003.tpo"]]},
+{t:2,a:"D1",n:"Khách sạn Grand Sài Gòn (Hotel Grand Saigon)",ad:"8 Đồng Khởi, Quận 1, Ho Chi Minh City, Vietnam",la:10.77386,ln:106.70564,w:"One of Saigon's three great heritage hotels (with the Continental and Majestic), opened 1930 at 8 rue Catinat with classical French lines — and still running its original 1930 cage elevator. A near-century of Đồng Khởi history preserved in the 'ancient wing'; step into the lobby or the rooftop bar to feel old Saigon.",k:"Historic hotel",g:["HIST","ICON","HERITAGE","VIEW"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/Kh%C3%A1ch_s%E1%BA%A1n_Grand_S%C3%A0i_G%C3%B2n"],["NHANDAN","https://nhandan.vn/hotel-grand-saigon-gan-mot-the-ky-khang-dinh-gia-tri-di-san-post917812.html"]]},
+{t:2,a:"CHOLON",n:"Trường THPT chuyên Lê Hồng Phong (Lycée Petrus Ký)",ad:"235 Nguyễn Văn Cừ, Quận 5, Ho Chi Minh City, Vietnam",la:10.76389,ln:106.68167,w:"The former Lycée Petrus Trương Vĩnh Ký, built 1927 on an 8-ha campus in classical French style — the leading boys' lycée of the colonial south and still an elite specialist school. Ranked among the city's top-10 architectural-art heritage sites (2015); its ochre halls and old courtyards are a quiet architecture stop in Chợ Lớn's fringe.",k:"Historic school",g:["HIST","FREE","HERITAGE","ARCH"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_Trung_h%E1%BB%8Dc_ph%E1%BB%95_th%C3%B4ng_chuy%C3%AAn_L%C3%AA_H%E1%BB%93ng_Phong,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh"],["VNANET","https://vietnam.vnanet.vn/vietnamese/tin-tuc/le-hong-phong-ngoi-truong-cua-nhung-tri-thuc-lon-78148.html"]]},
+{t:2,a:"D3",n:"Trường THPT Nguyễn Thị Minh Khai (Trường Áo Tím / Gia Long)",ad:"275 Điện Biên Phủ, Quận 3, Ho Chi Minh City, Vietnam",la:10.77889,ln:106.68694,w:"The 1913 Collège des Jeunes Filles Indigènes — the storied girls' school known first as the 'Purple Áo Dài School', then Gia Long — a Gothic-influenced early-20th-century complex on a 23,000 m² block. A century of southern women's education; ranked a city Architectural-Art Monument in 2012.",k:"Historic school",g:["HIST","FREE","ARCH"],s:[["PLO","https://plo.vn/mot-the-ky-tu-hao-nu-sinh-ao-tim-gia-long-minh-khai-post348077.html"],["HCMCGOV","https://quan3.hochiminhcity.gov.vn/van-hoa-the-thao-du-lich/truong-thpt-nguyen-thi-minh-khai-257.html"]]},
+{t:3,a:"D3",n:"Trường THPT Marie Curie",ad:"159 Nam Kỳ Khởi Nghĩa, Quận 3, Ho Chi Minh City, Vietnam",la:10.78240,ln:106.69080,w:"A 1918 girls' lycée on a rare four-frontage block, built in Indochine style (yellow walls, red tile, high arched gates) and one of the very few century-old schools in Vietnam still under its original name. Ranked a city heritage site (2015); it still keeps 100-year-old xà cừ trees, a wooden staircase and water tank.",k:"Historic school",g:["HIST","FREE","HERITAGE","TEMPLE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_Trung_h%E1%BB%8Dc_ph%E1%BB%95_th%C3%B4ng_Marie_Curie"],["VNEXPRESS","https://vnexpress.net/truong-nu-sinh-lon-nhat-sai-gon-100-nam-truoc-3582866.html"]]},
+{t:3,a:"THUDUC",n:"Cầu Phú Mỹ (Phu My Bridge)",ad:"Nối Quận 7 với TP. Thủ Đức (sông Sài Gòn), Ho Chi Minh City, Vietnam",la:10.74499,ln:106.74446,w:"The largest cable-stayed bridge in the city — a 2,000 m span (705 m cable-stayed) opened September 2009 on the Ring Road 2, linking Phú Mỹ Hưng in District 7 to the Thủ Thiêm side. A modern engineering icon of Saigon, photogenic from the riverside at dusk.",k:"Bridge / landmark",g:["ICON","FREE","ARCH"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/C%E1%BA%A7u_Ph%C3%BA_M%E1%BB%B9"],["VNEXPRESS","https://vnexpress.net/noi-nao-o-sai-gon-co-song-rach-nhieu-nhat-3618900-p8.html"]]},
+{t:2,a:"D1",n:"Kênh Nhiêu Lộc - Thị Nghè (Nhieu Loc Canal)",ad:"Chạy qua Quận 1, Quận 3, Phú Nhuận, Bình Thạnh, Tân Bình, Ho Chi Minh City, Vietnam",la:10.79553,ln:106.68911,w:"A nearly 10 km 'green ribbon' through the inner city — once a dead, polluted canal, reborn after a decade-long clean-up into landscaped embankments and a signature of Saigon's revival. Since 2015 a 4.5 km guided boat tour (covered wooden boats and hand-rowed phụng boats) runs it with đờn ca tài tử music; the multi-coloured bridge lighting is a night check-in.",k:"Canal / waterfront",g:["PARK","MARITIME","FREE","TEMPLE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/K%C3%AAnh_Nhi%C3%AAu_L%E1%BB%99c_%E2%80%93_Th%E1%BB%8B_Ngh%C3%A8"],["VNEXPRESS","https://vnexpress.net/kenh-nhieu-loc-thi-nghe-sau-10-nam-cai-tao-4269716.html"]]},
+{t:1,a:"GOVAP",n:"Đình Thông Tây Hội (Thong Tay Hoi Communal House)",ad:"Đường Thống Nhất, phường 11, Quận Gò Vấp, Ho Chi Minh City, Vietnam",la:10.83778,ln:106.65639,w:"The oldest surviving đình (village communal house) in all of southern Vietnam — first raised in 1679 by Nghệ An migrants and rebuilt in 1883 in the layered 'trùng thiềm điệp ốc' style, honouring two 11th-century Lý princes. A national Architectural-Art-Historical Monument since 1998, prized for its intricate dragon-phoenix woodcarving.",k:"Communal house",g:["HIST","FREE","ARCH"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/%C4%90%C3%ACnh_Th%C3%B4ng_T%C3%A2y_H%E1%BB%99i"],["PLO","https://plo.vn/kham-pha-dinh-thong-tay-hoi-co-so-tuoi-hon-300-nam-o-tphcm-post785634.html"]]},
+{t:2,a:"TANBINH",n:"Địa đạo Phú Thọ Hòa (Phu Tho Hoa Tunnels)",ad:"139 Phú Thọ Hòa, phường Phú Thọ Hòa, Quận Tân Phú, Ho Chi Minh City, Vietnam",la:10.78528,ln:106.62861,w:"A resistance-era tunnel network right inside the city — dug from the 1940s and used to stage raids on Tân Sơn Nhất airfield and the Bảy Hiền/Phú Thọ Hòa depots. Recognised a national historical site in 1996 and the only one in Tân Phú District; a compact, little-visited alternative to the Củ Chi tunnels.",k:"Historic site",g:["HIST","ODD","FREE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/%C4%90%E1%BB%8Ba_%C4%91%E1%BA%A1o_Ph%C3%BA_Th%E1%BB%8D_H%C3%B2a"],["SGGP","https://www.sggp.org.vn/phu-tho-hoa-dia-dao-trong-long-thanh-pho-post475847.html"]]},
+{t:2,a:"VUNGTAURT",n:"Núi Dinh (Dinh Mountain)",ad:"Phường Phú Mỹ, Bà Rịa - Vũng Tàu, Vietnam",la:10.53887,ln:107.12953,w:"A ~500 m pilgrimage mountain on the way to Vũng Tàu, threaded with over 100 temples and cave-hermitages hidden in its granite — Tổ Đình Linh Sơn, Hang Tổ, Hang Mai, Chùa Diệu Linh and more — plus streams and viewpoints. A national historical site (1993) and a favourite spiritual-and-adventure day hike east of the city.",k:"Mountain / temples",g:["PARK","HIST","ODD","TEMPLE"],s:[["WIKIVI","https://vi.wikipedia.org/wiki/N%C3%BAi_Dinh"],["VNANET","https://vietnam.vnanet.vn/vietnamese/tin-van/nui-dinh-diem-den-hap-dan-tai-vung-tau-351301.html"]]},
+{t:1,a:"VUNGTAURT",n:"Nhà tù Côn Đảo & Nghĩa trang Hàng Dương",ad:"Đặc khu Côn Đảo, Bà Rịa - Vũng Tàu, Vietnam",la:8.68890,ln:106.61480,w:"The 'hell on earth' prison archipelago — 113 years of French and American incarceration of Vietnamese patriots, its tiger cages, cell blocks and the Côn Đảo Museum ranked a Special National Monument (2012, 17 component sites). Hàng Dương cemetery (20 ha, 1,900+ graves incl. heroine Võ Thị Sáu) is a candle-lit pilgrimage. An overnight boat/flight trip; also known for pristine beaches and sea-turtle nesting.",k:"Historic prison / island",g:["HIST","MARITIME","ICON","PARK"],s:[["DSVH","https://dsvh.gov.vn/di-tich-lich-su-nha-tu-con-dao-2956"],["ZNEWS","https://znews.vn/noi-yen-nghi-cua-hang-nghin-chien-si-o-con-dao-post1670997.html"]]},
+{t:1,a:"D3",n:"War Remnants Museum",ad:"28 Vo Van Tan Street, District 3, Ho Chi Minh City, Vietnam",la:10.77947,ln:106.69213,w:"HCMC's unflinching museum of the Indochina and Vietnam wars — the city's most affecting historical site.",k:"History museum",g:["MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/attractions/war-remnants-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/War_Remnants_Museum"]]},
+{t:2,a:"D1",n:"Ben Thanh Market",ad:"Le Loi, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",la:10.77252,ln:106.69802,w:"The landmark 1914 central market — street food, textiles and souvenirs in the heart of Saigon.",k:"Market",g:["MKT","ARCH"],s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/B%E1%BA%BFn_Th%C3%A0nh_Market"]]},
+{t:1,a:"TAYNINHRT",n:"Cu Chi Tunnels",ad:"Cu Chi District (Ben Dinh / Ben Duoc), Ho Chi Minh City, Vietnam",la:11.03250,ln:106.48444,w:"The vast wartime underground tunnel network northwest of the city — a defining day trip from Saigon.",k:"Historic site",g:["HERITAGE"],s:[["LONELYPLANET","https://www.lonelyplanet.com/vietnam/around-ho-chi-minh-city/attractions/cu-chi-tunnels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/C%E1%BB%A7_Chi_tunnels"]]}
+];
+
+const FS = {
+  "ASIA50BARS":{k:"ASIA50BARS",t:"Asia's 50 Best Bars / 50 Best Discovery (World's 50 Best)",u:"https://www.theworlds50best.com/discovery/",l:"Asia's 50 Best Bars / 50 Best Discovery (World's 50 Best)"},
+  "ASIABARS":{k:"ASIABARS",t:"Asia Bars & Restaurants (asia-bars.com)",u:"https://www.asia-bars.com/",l:"Asia Bars & Restaurants (asia-bars.com)"},
+  "BABLOCAL":{k:"BABLOCAL",t:"BAB Local",u:"https://bablocal.com/",l:"BAB Local"},
+  "BOURDAIN":{k:"BOURDAIN",t:"Anthony Bourdain (A Cook's Tour / No Reservations)",u:"https://eatlikebourdain.com/anthony-bourdain-in-ho-chi-minh-city/",l:"Anthony Bourdain (A Cook's Tour / No Reservations)"},
+  "CATHAY":{k:"CATHAY",t:"Cathay Pacific — Inspiration (editorial)",u:"https://www.cathaypacific.com/",l:"Cathay Pacific — Inspiration (editorial)"},
+  "CITYNOMADS":{k:"CITYNOMADS",t:"City Nomads",u:"https://citynomads.com/",l:"City Nomads"},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"The Culture Trip",u:"https://theculturetrip.com/",l:"The Culture Trip"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com/2025/12/11/bunchahuonglien/",l:"Daniel Food Diary"},
+  "DFD":{k:"DFD",t:"Daniel Food Diary",u:"https://danielfooddiary.com/",l:"Daniel Food Diary"},
+  "EATINGSAIGON":{k:"EATINGSAIGON",t:"Eating Saigon! (Here in Saigon)",u:"https://www.eatingsaigon.com/",l:"Eating Saigon! (Here in Saigon)"},
+  "GASTRONOMYBLOG":{k:"GASTRONOMYBLOG",t:"Gastronomy Blog (Cathy Chaplin)",u:"https://gastronomyblog.com/",l:"Gastronomy Blog (Cathy Chaplin)"},
+  "GINGERANDSCOTCH":{k:"GINGERANDSCOTCH",t:"Ginger and Scotch",u:"https://gingerandscotch.com/",l:"Ginger and Scotch"},
+  "HIVELIFE":{k:"HIVELIFE",t:"Hive Life Magazine",u:"https://hivelife.com/",l:"Hive Life Magazine"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/indonesia/bali",l:"Lonely Planet"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
+  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
+  "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN Guide — Star",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Star"},
+  "MIGRATIONOLOGY":{k:"MIGRATIONOLOGY",t:"Mark Wiens (Migrationology) (YouTube + blog)",u:"https://migrationology.com/best-banh-mi-saigon-ho-chi-minh-city/",l:"Mark Wiens (Migrationology) (YouTube + blog)"},
+  "NGOISAO":{k:"NGOISAO",t:"Ngoi Sao (VnExpress)",u:"https://ngoisao.vnexpress.net/",l:"Ngoi Sao (VnExpress)"},
+  "OIVIETNAM":{k:"OIVIETNAM",t:"Oi Vietnam",u:"https://oivietnam.com/",l:"Oi Vietnam"},
+  "RUSTYCOMPASS":{k:"RUSTYCOMPASS",t:"Rusty Compass",u:"https://www.rustycompass.com/",l:"Rusty Compass"},
+  "SAIGONEER":{k:"SAIGONEER",t:"Saigoneer",u:"https://saigoneer.com/",l:"Saigoneer"},
+  "SAIGONSCENE":{k:"SAIGONSCENE",t:"Saigon Scene",u:"https://saigon-scene.com/",l:"Saigon Scene"},
+  "SGGP":{k:"SGGP",t:"Saigon Giai Phong (SGGP English)",u:"https://en.sggp.org.vn/",l:"Saigon Giai Phong (SGGP English)"},
+  "SILVERKRIS":{k:"SILVERKRIS",t:"SilverKris (Singapore Airlines)",u:"https://silverkris.singaporeair.com/",l:"SilverKris (Singapore Airlines)"},
+  "SPRUDGE":{k:"SPRUDGE",t:"Sprudge",u:"https://sprudge.com/",l:"Sprudge"},
+  "TATLER":{k:"TATLER",t:"Tatler Asia",u:"https://www.tatlerasia.com/",l:"Tatler Asia"},
+  "THANHNIEN":{k:"THANHNIEN",t:"Thanh Nien",u:"https://thanhnien.vn/",l:"Thanh Nien"},
+  "THECITYLANE":{k:"THECITYLANE",t:"The City Lane",u:"https://thecitylane.com/",l:"The City Lane"},
+  "THEDOT":{k:"THEDOT",t:"The Dot Magazine",u:"https://thedotmagazine.com/",l:"The Dot Magazine"},
+  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal Vietnam",u:"https://thesmartlocal.com/vietnam/",l:"TheSmartLocal Vietnam"},
+  "TUOITRE":{k:"TUOITRE",t:"Tuoi Tre / Tuoi Tre News",u:"https://tuoitre.vn/",l:"Tuoi Tre / Tuoi Tre News"},
+  "VIETCETERA":{k:"VIETCETERA",t:"Vietcetera",u:"https://vietcetera.com/",l:"Vietcetera"},
+  "VIETNAMAIRLINES":{k:"VIETNAMAIRLINES",t:"Vietnam Airlines travel guide",u:"https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide",l:"Vietnam Airlines travel guide"},
+  "VIETNAMCORACLE":{k:"VIETNAM CORACLE",t:"Vietnam Coracle (Tom Divers)",u:"https://www.vietnamcoracle.com/",l:"Vietnam Coracle (Tom Divers)"},
+  "VIETNAMNET":{k:"VIETNAMNET",t:"VietnamNet",u:"https://vietnamnet.vn/en/",l:"VietnamNet"},
+  "VIETNAMNEWS":{k:"VIETNAMNEWS",t:"Viet Nam News (VNA English)",u:"https://vietnamnews.vn/",l:"Viet Nam News (VNA English)"},
+  "VIETNAM_COM":{k:"VIETNAM COM",t:"Vietnam.com",u:"https://www.vietnam.com/",l:"Vietnam.com"},
+  "VIETNAM_VN":{k:"VIETNAM VN",t:"Vietnam.vn",u:"https://www.vietnam.vn/en/",l:"Vietnam.vn"},
+  "VNEXPRESS":{k:"VNEXPRESS",t:"VnExpress International",u:"https://e.vnexpress.net/",l:"VnExpress International"},
+  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
+  "WILLFLY":{k:"WILLFLY",t:"Will Fly for Food (JB & Renée Macatulad)",u:"https://www.willflyforfood.net/",l:"Will Fly for Food (JB & Renée Macatulad)"},
+  "WILLFLYFORFOOD":{k:"WILLFLYFORFOOD",t:"Will Fly for Food (JB & Renée Macatulad)",u:"https://www.willflyforfood.net/",l:"Will Fly for Food (JB & Renée Macatulad)"},
+  "WORDVIETNAM":{k:"WORDVIETNAM",t:"The Word Vietnam",u:"https://wordhanoi.com/",l:"The Word Vietnam"},
+  "WORLDS50BESTBARS":{k:"WORLDS50BESTBARS",t:"Asia's 50 Best Bars (World's 50 Best)",u:"https://www.theworlds50best.com/",l:"Asia's 50 Best Bars (World's 50 Best)"}
+};
+
+const CUISINES = [
+  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
+  {id:"LAKSA",n:"Laksa & Curry Noodles"},
+  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
+  {id:"BKT",n:"Bak Kut Teh & Soups"},
+  {id:"HAWKER",n:"Hawker & Zi Char"},
+  {id:"MALAY",n:"Malay & Nasi Padang"},
+  {id:"INDIAN",n:"Indian & Roti Prata"},
+  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
+  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
+  {id:"THAI",n:"Thai"},
+  {id:"VIET",n:"Vietnamese"},
+  {id:"INDO",n:"Indonesian, Satay & Rendang"},
+  {id:"FILIPINO",n:"Filipino"},
+  {id:"KHMER",n:"Khmer (Cambodian)"},
+  {id:"LAO",n:"Lao"},
+  {id:"BURMESE",n:"Burmese"},
+  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
+  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
+  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
+  {id:"CAFE",n:"Cafés & Modern"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"HERITAGE",n:"Heritage & Culture"},
+  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
+  {id:"MKT",n:"Markets & Hawker Centres"},
+  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"VIEW",n:"Views & Skyline"},
+  {id:"ARCH",n:"Architecture & Landmarks"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"D3",n:"Pho Dau",ad:"288 Nam Ky Khoi Nghia (in the alley), Vo Thi Sau Ward, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78976,ln:106.68442,w:"Legendary 60-year alley phở serving strict Nam Dinh/Northern-style beef phở with no herbs, sprouts or hoisin - the 'take it or leave it' bowl locals queue for.",s:[["SAIGONEER","https://saigoneer.com/saigon-street-food-restaurants/14038-hem-gems-old-school-take-it-or-leave-it-nam-dinh-pho-in-district-3"],["THEDOT","https://thedotmagazine.com/the-best-pho-in-ho-chi-minh-city/"]]},
+{t:1,a:"D1",n:"Pho Tau Bay",ad:"435 Ly Thai To, Ward 9, District 10, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.76787,ln:106.66876,w:"North-to-South phở institution since 1954, famed for its giant 'to xe lua' (train-car) bowl of simple, garnish-free Northern phở bac that Saigonese have loved for 70+ years.",s:[["SAIGONEER","https://saigoneer.com/saigon-food-culture/1173-the-best-pho-in-vietnam"],["VIETNAM_VN","https://www.vietnam.vn/en/pho-tau-bay-pho-bac-vo-nam-nguoi-sai-gon-nho-lam"]]},
+{t:2,a:"D1",n:"Pho Cao Van",ad:"25 Mac Dinh Chi, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78477,ln:106.69943,w:"One of Saigon's oldest phở houses, founded 1947 by Mr Tran Van Phon and still simmering its crystal-clear, lightly sweet broth over a charcoal stove; now second/third generation.",s:[["THEDOT","https://thedotmagazine.com/the-best-pho-in-ho-chi-minh-city/"],["TATLER","https://www.tatlerasia.com/dining/food/three-pho-brands-saigon-half-century"]]},
+{t:1,a:"D1",n:"Che Thai Y Phuong",ad:"380 Nguyen Tri Phuong, Ward 6, District 10, Ho Chi Minh City, Vietnam",cz:["DESSERT"],la:10.76420,ln:106.66790,w:"The standout of District 10's neon-lit chè Thái street; a famously rich Thai-style sweet soup of pureed durian, jackfruit, palm seed and longan in coconut milk.",s:[["SAIGONEER","https://saigoneer.com/saigon-street-food-restaurants/8692-hem-gems-striking-a-balance-with-d10-s-che"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"]]},
+{t:1,a:"D3",n:"Hu Tieu Lien Hua",ad:"Vo Van Tan, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77072,ln:106.68483,w:"One of Saigon's most storied hủ tiếu Nam Vang brands and reputedly its most expensive bowl - Chinese-Cambodian noodles with minced pork, liver, heart, shrimp and quail egg in a refined sweet broth.",s:[["THANHNIEN","https://thanhnien.vn/nguoi-sai-gon-an-hu-tieu-to-hu-tieu-nam-vang-mac-nhat-hon-ca-to-pho-185905348.htm"],["NGOISAO","https://ngoisao.vnexpress.net/8-thuong-hieu-hu-tieu-nam-vang-tru-danh-sai-gon-3096286.html"]]},
+{t:1,a:"D1",n:"Ca Phe Do Phu",ad:"113A Dang Dung, Tan Dinh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE","VIET"],la:10.79150,ln:106.68520,w:"The 'Commando Cafe' - a 1940s house that was a secret Viet Cong special-forces base with a weapons bunker and hidden mailbox; today it pours nostalgic bac xiu and serves com tam Dai Han above its wartime tunnel.",s:[["VIETNAMNET","https://vietnamnet.vn/en/the-hidden-bunkers-of-saigon-inside-the-secret-bases-of-vietnam-s-commandos-2391497.html"],["VIETNAM_VN","https://www.vietnam.vn/en/quan-ca-phe-do-phu-com-tam-dai-han-co-so-bi-mat-cua-biet-dong-sai-gon-gia-dinh"],["SAIGONSCENE","https://saigon-scene.com/ca-phe-do-phu/"]]},
+{t:1,a:"D1",n:"Bun Bo Hue Dong Ba",ad:"207B Nguyen Van Thu, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77434,ln:106.69534,w:"A perennially packed bún bò Huế spot beside the Conservatory of Music, singled out by a visiting New York chef as one of the best bowls of soup in all of Vietnam.",s:[["CULTURETRIP","https://theculturetrip.com/asia/vietnam/articles/the-10-best-bun-bo-hue-spots-in-ho-chi-minh-city"],["VIETNAM_COM","https://www.vietnam.com/en/news/article/bun-bo-hue-saigon-style.html"]]},
+{t:2,a:"D3",n:"Banh Khot Co Ba Vung Tau",ad:"40B Tran Cao Van, Ward 6, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77784,ln:106.68803,w:"Saigon's best-known outpost of Vung Tau-style banh khot - crispy coconut-batter mini rice pancakes topped with shrimp - wrapped with herbs and dipped in sweet fish sauce; also serves banh xeo.",s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/eating-banh-khot-in-vung-tau/"],["EATINGSAIGON","https://www.eatingsaigon.com/2013/03/15/vung-taus-famous-tasty-banh-khot-here-in-saigon/"]]},
+{t:2,a:"D3",n:"Bot Chien Dat Thanh",ad:"277 Vo Van Tan, Ward 5, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77183,ln:106.68593,w:"A 40-year Chinese-Vietnamese street stall whose bot chien - rice-flour cake pan-fried crisp in a copper pan with egg, scallion and rich soy - is a Saigon late-afternoon institution.",s:[["EATINGSAIGON","https://www.eatingsaigon.com/2013/03/18/bot-chien-2/"],["BABLOCAL","https://bablocal.com/post/bot-chien-dat-thanh-vo-van-tan-quan-3-moolhz"]]},
+{t:2,a:"D1",n:"Pho Phuong",ad:"25 Hoang Sa, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.79176,ln:106.70442,w:"Canalside beef pho stall; MICHELIN Bib Gourmand 2024-2026, famed for its long-braised oxtail.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-phuong"],["TUOITRE","https://tuoitre.vn/michelin-guide-nhac-5-quan-gia-phai-chang-o-tp-hcm-co-com-tam-ba-ghien-pho-phuong-20241208005541557.htm"]]},
+{t:2,a:"D1",n:"Pho Minh",ad:"63/6 Pasteur, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77481,ln:106.70028,w:"Alley pho institution serving Saigonese since 1945; MICHELIN Bib Gourmand, pairs its broth with pate chaud.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-minh"],["DFD","https://danielfooddiary.com/2024/02/27/phohoapasteur/"]]},
+{t:1,a:"D3",n:"Pho Hoa Pasteur",ad:"260C Pasteur, Ward 8, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78671,ln:106.68926,w:"Landmark Southern pho since 1968; MICHELIN Bib Gourmand, a whole plate of herbs, bean sprouts and you tiao.",s:[["MICHELIN_BIB","https://guide.michelin.com/vn/en/ho-chi-minh/restaurants/bib-gourmand"],["DFD","https://danielfooddiary.com/2024/02/27/phohoapasteur/"]]},
+{t:2,a:"CHOLON",n:"Pho Le",ad:"413-415 Nguyen Trai, Ward 7, District 5, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.75537,ln:106.67350,w:"Cholon-area pho household name since 1970; generous flank-and-filet bowls, in the MICHELIN Guide selection.",s:[["MICHELIN","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-le-district-5"],["VIETNAMAIRLINES","https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/best-pho-in-hcmc"]]},
+{t:3,a:"D1",n:"Pho Hoang",ad:"460 Nguyen Tri Phuong, Ward 9, District 10, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.76105,ln:106.66885,w:"MICHELIN Bib Gourmand pho whose owner simmers a clear beef broth over 12 hours; customizable cuts.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-hoang"]]},
+{t:3,a:"D3",n:"Pho Huong Binh",ad:"148 Vo Thi Sau, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78721,ln:106.69139,w:"Humble pho ga stall since 1958 in the MICHELIN Guide; freshly-made clear chicken broth, second generation.",s:[["MICHELIN","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/pho-huong-binh"],["VIETNAMAIRLINES","https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/best-pho-in-hcmc"]]},
+{t:2,a:"D1",n:"Banh Mi Bay Ho",ad:"19 Huynh Khuong Ninh, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.79041,ln:106.69668,w:"Nearly-century-old banh mi cart (est. 1930), now third generation, with homemade pate and pork roll.",s:[["VNEXPRESS","https://e.vnexpress.net/photo/food-recipes/saigon-fed-by-half-century-of-banh-mi-4589182.html"],["TUOITRE","https://vietnamlife.tuoitrenews.vn/news/vietnamese-culture/20201213/check-out-this-centuryold-banh-mi-stand-in-downtown-saigon/58215.html"]]},
+{t:2,a:"D3",n:"Banh Mi Hoa Ma",ad:"53 Cao Thang, Ward 3, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77029,ln:106.68173,w:"Iconic 1958 breakfast spot; sizzling cast-iron skillet of fried eggs, pate and cold cuts with baguette.",s:[["DFD","https://danielfooddiary.com/2017/11/21/banhmihoama/"],["THECITYLANE","https://thecitylane.com/banh-mi-hoa-ma-district-3/"]]},
+{t:2,a:"D1",n:"Banh Mi 37 Nguyen Trai",ad:"37-39 Nguyen Trai, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77079,ln:106.69248,w:"Alley cart open ~4 hours a day; sweet charcoal-grilled pork patties in place of pate, a Saigon street icon.",s:[["MIGRATIONOLOGY","https://migrationology.com/best-banh-mi-saigon-ho-chi-minh-city/"],["WILLFLYFORFOOD","https://www.willflyforfood.net/saigon-food-guide-25-must-eat-restaurants-street-food-stalls-in-ho-chi-minh-city-vietnam/"]]},
+{t:1,a:"D3",n:"Hu Tieu Hong Phat",ad:"Vo Van Tan, Ban Co Ward, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77049,ln:106.68483,w:"Chinese-Khmer-Vietnamese hu tieu Nam Vang since 1975; MICHELIN Bib Gourmand celebrated for its Phnom Penh-style bowl.",s:[["MICHELIN_BIB","https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/hong-phat-district-3"],["MICHELIN","https://guide.michelin.com/vn/en/article/dining-out/behind-the-bib-hong-phat-khmer-noodle-shop-ho-chi-minh-city"]]},
+{t:1,a:"D1",n:"Anan Saigon",ad:"89 Ton That Dam, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77173,ln:106.70286,w:"Chef Peter Cuong Franklin's MICHELIN-starred restaurant over the Ton That Dam market; street food reimagined as fine dining.",g:["MKT"],s:[["MICHELIN_STAR","https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/anan-saigon"]]},
+{t:2,a:"D1",n:"Bep Me In",ad:"136/9 Le Thanh Ton (Hem 136), Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77383,ln:106.69806,w:"Hole-in-the-wall down an alley by Ben Thanh's north gate; MICHELIN Bib Gourmand home cooking and shrimp banh xeo.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/bep-me-in-le-thanh-ton"]]},
+{t:2,a:"D1",n:"Banh Cuon Tay Ho 127",ad:"127 Dinh Tien Hoang, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78842,ln:106.69985,w:"MICHELIN Bib Gourmand banh cuon shop; freshly-made, paper-thin steamed rolls with pork and mushroom.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/banh-cuon-tay-ho-127"]]},
+{t:2,a:"D1",n:"Banh Canh Cua 87 Tran Khac Chan",ad:"87 Tran Khac Chan, Tan Dinh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.79153,ln:106.68825,w:"Corner stall famed for a thick, stew-like crab banh canh loaded with crab meat, crab cake and quail egg.",s:[["TUOITRE","https://tuoitre.vn/ghien-qua-banh-canh-cua-87-tran-khac-chan-20250226235417524.htm"],["MIGRATIONOLOGY","https://migrationology.com/banh-canh-cua/"]]},
+{t:2,a:"D1",n:"Oc Dao",ad:"212B Alley, Nguyen Trai, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.76484,ln:106.68500,w:"Saigon's most famous snail operation tucked down a downtown alley; 100+ snail and shellfish dishes.",s:[["SAIGONEER","https://saigoneer.com/saigon-street-food-restaurants/6629-video-h%E1%BA%BBm-gems-d1-s-not-so-secret-snail-grilling-operation"],["GINGERANDSCOTCH","https://gingerandscotch.com/snails-oc-dao-restaurant-saigon/"]]},
+{t:1,a:"D1",n:"The Cafe Apartment",ad:"42 Nguyen Hue, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77410,ln:106.70409,w:"1960s apartment block on the Nguyen Hue walking street turned vertical warren of 50+ cafes; a Saigon coffee landmark.",s:[["VIETNAMCORACLE","https://www.vietnamcoracle.com/the-cafe-apartment-on-saigons-walking-street/"],["THEDOT","https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"]]},
+{t:2,a:"D1",n:"The Workshop Coffee",ad:"27 Ngo Duc Ke (2nd floor), Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77348,ln:106.70560,w:"Saigon's pioneering specialty-coffee roaster in a 1912 building; pour-over, cold brew and light-roast Arabica.",s:[["VIETCETERA","https://vietcetera.com/en/the-workshops-quynh-tran-shares-how-he-manages-one-of-saigons-favorite-coffee-shops"],["SILVERKRIS","https://silverkris.singaporeair.com/guide/vietnam/sgn/eat-ho-chi-minh-city/the-workshop-coffee/"]]},
+{t:1,a:"D3",n:"Cheo Leo Cafe",ad:"109/36 Nguyen Thien Thuat, Ward 2, District 3, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.76696,ln:106.67988,w:"Saigon's oldest cafe (est. 1938), sole keeper of ca phe vot cloth-filter coffee, run by the founder's daughters.",s:[["SAIGONEER","https://www.saigoneer.com/saigon-street-food-restaurants/13232-video-h%E1%BA%BBm-gems-80-years-of-c%C3%A0-ph%C3%AA-v%E1%BB%A3t-in-saigon-s-oldest-cafe"],["VIETNAMNET","https://vietnamnet.vn/en/three-50-year-old-coffee-shops-in-saigon-E157546.html"]]},
+{t:2,a:"D1",n:"Xoi Ga Number One",ad:"Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam (corner by Ben Thanh Market)",cz:["VIET"],la:10.77389,ln:106.69937,w:"Nearly-70-year sticky-rice corner by Ben Thanh Market; MICHELIN Bib Gourmand xoi ga with house pate and quail egg.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/xoi-ga-number-one"]]},
+{t:1,a:"D1",n:"Cuc Gach Quan",ad:"10 Dang Tat, Tan Dinh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.79308,ln:106.68900,w:"Beloved home-cooking restaurant in restored villas; MICHELIN Bib Gourmand, rice cooked in cast iron on wood stoves.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/cuc-gach-quan"],["LONELYPLANET","https://www.lonelyplanet.com/vietnam/ho-chi-minh-city/restaurants/cuc-gach-quan/a/poi-eat/1596895/357884"]]},
+{t:2,a:"D1",n:"Tiem Com Tho Chuyen Ky",ad:"67 Ton That Dam, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CHINESE"],la:10.77207,ln:106.70378,w:"Cantonese clay-pot rice shop since 1948, now third generation; MICHELIN Bib Gourmand for its double-boiled silkie soup.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/tiem-com-tho-chuyen-ky"]]},
+{t:2,a:"D3",n:"Nha Tu",ad:"129/4 Vo Van Tan, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77516,ln:106.68954,w:"Alley hideaway with a rooftop balcony; MICHELIN Bib Gourmand home cooking, signature oyster-and-beef hotpot.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/nha-tu"]]},
+{t:2,a:"D1",n:"Beo Oi",ad:"15/20 Nguyen Thi Minh Khai, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78583,ln:106.70086,w:"Owner-run shop of generous Hanoian home cooking; MICHELIN Bib Gourmand bun rieu cua topped with crispy fried tofu.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/beo-oi"]]},
+{t:2,a:"D1",n:"Dim Tu Tac",ad:"55 Dong Du, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CHINESE"],la:10.77474,ln:106.70457,w:"Always-busy Cantonese dim sum house by the Dong Du mosque; MICHELIN Bib Gourmand, a large dim sum and BBQ selection.",s:[["MICHELIN_BIB","https://guide.michelin.com/tr/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/dim-tu-tac-dong-du"],["DFD","https://danielfooddiary.com/2024/03/16/dimtutac/"]]},
+{t:1,a:"D3",n:"Com Nieu Sai Gon",ad:"59 Ho Xuan Huong, Ward 6, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77607,ln:106.68721,w:"Bourdain's 'flying rice': clay pots smashed and rice tossed across the room, from A Cook's Tour and No Reservations.",s:[["BOURDAIN","https://eatlikebourdain.com/anthony-bourdain-in-ho-chi-minh-city/"],["GASTRONOMYBLOG","https://gastronomyblog.com/2008/01/14/c%C6%A1m-nieu-sai-gon/"]]},
+{t:3,a:"D1",n:"Mountain Retreat",ad:"36 Le Loi (5th floor), Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77606,ln:106.70299,w:"Hidden rooftop above Le Loi serving northern Vietnamese home cooking with city views; part of the Cuc Gach/Secret Garden family.",s:[["WORDVIETNAM","https://wordhanoi.com/food-drink/top-eats/mountain-retreat"],["OIVIETNAM","https://oivietnam.com/2016/05/retreat-into-food/"]]},
+{t:2,a:"D1",n:"Maison Marou",ad:"167-169 Calmette, Nguyen Thai Binh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.76959,ln:106.69780,w:"Marou's flagship cafe and bean-to-bar chocolate factory in a heritage building; award-winning single-origin Vietnamese cacao.",s:[["VIETCETERA","https://vietcetera.com/en/from-maison-to-station-marou-creates-a-new-chocolate-experience"],["THECITYLANE","https://thecitylane.com/maison-marou-district-1/"]]},
+{t:1,a:"D1",n:"The Lunch Lady",ad:"23 Hoang Sa, Da Kao Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.79167,ln:106.70437,w:"Nguyen Thi Thanh's canalside stall made famous by Bourdain's No Reservations; a different regional noodle soup each day.",s:[["BOURDAIN","https://eatlikebourdain.com/anthony-bourdain-in-ho-chi-minh-city/"],["MIGRATIONOLOGY","https://migrationology.com/bun-mam-saigon/"]]},
+{t:2,a:"D1",n:"Stir",ad:"136 Le Thanh Ton (1st floor), Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77382,ln:106.69800,w:"1960s-70s-styled cocktail bar on Asia's 50 Best Bars list; local-ingredient drinks like the sugarcane Nuoc Mia Highball.",s:[["WORLDS50BESTBARS","https://www.theworlds50best.com/discovery/Establishments/Vietnam/Ho-Chi-Minh-City/Stir-Modern-Classic-Cocktail-Bar.html"],["THEDOT","https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"]]},
+{t:3,a:"D1",n:"Drinking & Healing",ad:"25 Ho Tung Mau (2nd floor), Nguyen Thai Binh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77057,ln:106.70455,w:"Ingredient-focused hidden cocktail bar; debuted on Asia's 50 Best Bars (No.99, 2024) with drinks built on Vietnamese produce.",s:[["WORLDS50BESTBARS","https://www.theworlds50best.com/discovery/Establishments/Vietnam/Ho-Chi-Minh-City/Drinking-and-Healing.html"],["THEDOT","https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"]]},
+{t:3,a:"D1",n:"Quan Bui",ad:"17-19 Ngo Van Nam, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.78132,ln:106.70587,w:"Well-loved modern-traditional Vietnamese restaurant (since 2011); MSG-free home dishes in a vintage-contemporary setting.",s:[["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/quan-bui-downtown-saigon-948"],["WORDVIETNAM","https://wordhanoi.com/food-drink/top-eats/mountain-retreat"]]},
+{t:2,a:"D1",n:"Vi Que Kitchen",ad:"110 Suong Nguyet Anh, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77181,ln:106.68857,w:"MICHELIN Bib Gourmand modern-Vietnamese vegan kitchen using produce from the family garden; punchy bun Vi Que broth.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/vi-que-kitchen"]]},
+{t:1,a:"D1",n:"Sủi Cảo Hà Tôn Quyền (Thiên Thiên)",ad:"Hà Tôn Quyền, Ward 4, District 11, Cholon, Ho Chi Minh City, Vietnam",cz:["CHINESE"],la:10.75790,ln:106.65286,w:"The heart of Saigon's nicknamed 'phố sủi cảo' — a cluster of Hoa family dumpling shops (Thiên Thiên among the best-known) that have run for 30+ years each. Plump shrimp-and-pork sủi cảo steamed, fried, or in clear soup with handmade noodles.",s:[["SAIGONEER","https://saigoneer.com/saigon-street-food-restaurants/7003-hem-gems-saigon-s-sui-cao-street"],["VIETNAMNEWS","https://vietnamnews.vn/life-style/772577/ha-ton-quyen-hcm-city-s-jiaozi-road.html"],["TUOITRE","https://tuoitrenews.vn/news/vietnam-life/photo/20220722/diners-would-never-regret-visiting-this-shuijiao-dumpling-street-in-ho-chi-minh-city/68212.html"]]},
+{t:1,a:"CHOLON",n:"Chè Châu Giang",ad:"Trần Hưng Đạo B, Ward 11, District 5, Ho Chi Minh City, Vietnam",cz:["DESSERT","CHINESE"],la:10.75206,ln:106.65970,w:"An ~80-year-old Cantonese dessert cart (opened 1938 by a Guangdong immigrant), nicknamed Chè Cột Điện and Chè Ma for its lamppost spot and late hours. Warm and iced Chinese sweet soups — almond, black-sesame, lotus and herbal chè — done the old way.",s:[["TUOITRE","https://news.tuoitre.vn/lost-amidst-chinese-dessert-heaven-in-saigon-10350407.htm"],["THESMARTLOCAL","https://thesmartlocal.com/vietnam/cho-lon-foods/"]]},
+{t:2,a:"CHOLON",n:"Sủi Cảo Đại Nương",ad:"Châu Văn Liêm, Ward 11, District 5, Ho Chi Minh City, Vietnam",cz:["CHINESE"],la:10.75421,ln:106.65852,w:"A Chợ Lớn dumpling stalwart on Châu Văn Liêm known for chive-packed sủi cảo — soft-yet-chewy dumplings loaded with garlic-chive; also plates a Chinese-style phá lấu. A neighbourhood authority on the craft.",s:[["SAIGONEER","https://saigoneer.com/saigon-street-food-restaurants/17644-hem-gems-at-d5-s-sui-cao-dai-nuong-a-song-of-chives-and-fire"],["THESMARTLOCAL","https://thesmartlocal.com/vietnam/things-to-do-saigon/"]]},
+{t:1,a:"D3",n:"Bún Bò Huế Cô Như",ad:"274/29 Võ Văn Tần, Ward 5, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77163,ln:106.68574,w:"Family-run bún bò Huế in a narrow District 3 alley; a MICHELIN Bib Gourmand for its rich lemongrass-and-beef-bone broth and generous mixed bowl.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/bun-bo-hue-co-nhu"]]},
+{t:1,a:"D3",n:"Nguyễn Thượng Hiền Food Street",ad:"Nguyễn Thượng Hiền (Điện Biên Phủ to Nguyễn Đình Chiểu), Bàn Cờ Ward, District 3, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77624,ln:106.68267,w:"District 3's official night food street (opened Dec 2022) on a stretch Time Out ranked among the world's coolest; ~90 stalls of bánh tráng trộn, snails and skewers, 7pm–11pm.",s:[["SGGP","https://en.sggp.org.vn/hcmcs-district-3-inaugurates-nguyen-thuong-hien-food-street-post99326.html"],["VIETNAMNET","https://vietnamnet.vn/en/hcm-city-opens-new-night-food-street-in-district-3-2093554.html"]]},
+{t:1,a:"D1",n:"Hồ Thị Kỷ Food Street",ad:"Hồ Thị Kỷ, Ward 1, District 10, Ho Chi Minh City, Vietnam",cz:["KHMER","VIET"],la:10.76620,ln:106.67655,w:"A 300m alley market settled by Vietnamese-Cambodian refugees in the 1970s, now Saigon's densest Cambodian-Vietnamese food alley (100+ stalls); Khmer fish noodles, prahok and palm-sugar chè, from ~3pm.",g:["MKT"],s:[["VNEXPRESS","https://e.vnexpress.net/news/travel/food-recipes/ho-thi-ky-food-street-hidden-culinary-gem-next-to-a-flower-market-vnepre-4508552.html"],["VIETNAMNET","https://vietnamnet.vn/en/a-bustling-cambodian-market-in-saigon-E178659.html"]]},
+{t:1,a:"PHUNHUAN",n:"Bánh Đúc Phan Đăng Lưu",ad:"116/2/3 Phan Đăng Lưu, Ward 3, Phú Nhuận, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.80324,ln:106.68403,w:"A 40-year alley institution off Phan Đăng Lưu famous for warm bánh đúc ladled to order with pork, wood-ear mushroom and fried shallots; once notorious for its brusque service.",s:[["THANHNIEN","https://thanhnien.vn/banh-duc-phan-dang-luu-nay-da-khong-con-chanh-1851480661.htm"],["VIETNAMNET","https://vietnamnet.vn/banh-duc-pho-le-co-tham-nien-lau-doi-noi-tieng-o-sai-gon-545659.html"]]},
+{t:1,a:"D1",n:"2 Lam Son",ad:"2 Lam Son Square (Park Hyatt Saigon), Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77646,ln:106.70303,w:"Park Hyatt Saigon's martini bar and one of the city's cocktail landmarks, running guest shifts with bartenders drawn from the World's Best Bars.",s:[["THEDOT","https://thedotmagazine.com/the-best-cocktail-bars-in-ho-chi-minh-city/"],["CITYNOMADS","https://citynomads.com/best-bars-ho-chi-minh-city/"]]},
+{t:1,a:"D1",n:"Saigon Saigon Bar",ad:"Caravelle Saigon, 19-23 Lam Son Square, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["HAWKER"],la:10.77606,ln:106.70363,w:"Historic 10th-floor rooftop bar atop the Caravelle Hotel, a wartime haunt of diplomats and correspondents since 1959, with live music and skyline views.",s:[["CATHAY","https://www.cathaypacific.com/cx/en_IN/inspiration/dining/10-best-rooftop-bars-ho-chi-minh-city-vietnam.html"],["THEDOT","https://thedotmagazine.com/the-best-rooftop-bars-in-ho-chi-minh-city/"]]},
+{t:1,a:"THUDUC",n:"The Deck Saigon",ad:"38 Nguyễn Ư Dĩ, Thảo Điền, Thủ Đức City, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.80677,ln:106.74457,w:"Saigon's benchmark riverside restaurant-bar (since 2008) on a near-rural stretch of the Saigon River; named by The Guardian among the world's best bars, and Rusty Compass's pick for the city's best riverside meal.",s:[["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/the-deck-saigon-265"],["VNEXPRESS","https://e.vnexpress.net/news/travel/food-recipes/saigon-bar-among-world-s-best-the-guardian-4116987.html"],["VIETNAMNET","https://vietnamnet.vn/en/the-deck-saigon-bar-named-as-worlds-best-bar-652989.html"]]},
+{t:2,a:"THUDUC",n:"La Villa French Restaurant",ad:"Ngô Quang Huy, Thảo Điền, Thủ Đức City, Ho Chi Minh City, Vietnam",cz:["HAWKER"],la:10.80390,ln:106.73289,w:"Chef-owner Thierry Mounon's elegant colonial villa off Thảo Điền serving classic French gastronomy from the southwest; a MICHELIN Selected restaurant (2023 & 2024) with a deep French wine list.",s:[["MICHELIN","https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/la-villa-1201811"]]},
+{t:1,a:"D1",n:"Long Trieu (The Royal Pavilion)",ad:"4F, The Reverie Saigon, 22-36 Nguyen Hue, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam",cz:["CHINESE"],la:10.77391,ln:106.70477,w:"One MICHELIN Star; chef Angus Chan's refined Cantonese kitchen inside The Reverie, weaving Vietnamese ingredients into Hong Kong technique amid jade and gold-leaf interiors.",s:[["MICHELIN_STAR","https://guide.michelin.com/vn/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/long-trieu"],["SGGP","https://en.sggp.org.vn/two-additional-ho-chi-minh-city-restaurants-receive-one-michelin-star-post118075.html"]]},
+{t:2,a:"CHOLON",n:"Chè Hà Ký",ad:"District 5 (Cholon), Ho Chi Minh City, Vietnam",cz:["CHINESE","DESSERT"],la:10.75410,ln:106.65862,w:"A 30-year Cholon institution that grew from a single chè stall into a symbol of Chinese-Vietnamese sweets — egg-in-tea chè and almond chè among the classics.",s:[["VIETCETERA","https://vietcetera.com/en/for-those-having-a-sweet-tooth-che-spots-you-must-try-in-saigon"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/sweet-saigon-where-to-eat-che/"]]},
+{t:1,a:"D4",n:"Ốc Oanh",ad:"534 Vĩnh Khánh, District 4, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.76094,ln:106.70330,w:"The most famous ốc house on District 4's Vĩnh Khánh seafood strip (~20 years); a MICHELIN Bib Gourmand 2024 pick, signature salt-roasted crab claws, plastic-stool buzz.",s:[["MICHELIN","https://guide.michelin.com/en/article/michelin-guide-ceremony/michelin-guide-vietnam-2024"],["WILLFLY","https://www.willflyforfood.net/vinh-khanh-district-4-where-to-have-the-best-street-seafood-in-saigon-vietnam/"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/vinh-khanh-local-seafood-strip-saigon-1457"]]},
+{t:2,a:"THUDUC",n:"Laang",ad:"22 Đặng Hữu Phổ, Thảo Điền, District 2 (Thủ Đức City), Ho Chi Minh City, Vietnam",cz:["VIET","CAFE"],la:10.80332,ln:106.73630,w:"A tranquil green villa in Thảo Điền serving authentic Vietnamese with a gentle modern twist and vegetarian focus — a District 2 expat favourite.",s:[["VIETCETERA","https://vietcetera.com/en/eight-authentic-vietnamese-restaurants-in-saigon"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"]]},
+{t:3,a:"D1",n:"L'Usine",ad:"Thảo Điền, District 2, Ho Chi Minh City, Vietnam (also Lê Lợi & Đồng Khởi, District 1)",cz:["CAFE"],la:10.77570,ln:106.70320,w:"A pioneering concept-store cafe-bistro brand that keeps innovating brunch with Vietnamese ingredients; the Thảo Điền outlet anchors District 2.",s:[["VIETCETERA","https://vietcetera.com/en/where-to-eat-brunch-in-ho-chi-minh-city"],["RUSTYCOMPASS","https://www.rustycompass.com/vietnam-travel-guide-233/ho-chi-minh-city-4/eating-16/district-2-a-guide-to-eating-in-saigons-expat-enclave-1378"]]},
+{t:2,a:"D1",n:"Shin Coffee",ad:"27 Lưu Văn Lang, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77325,ln:106.69907,w:"Widely regarded as one of the city's best practitioners of specialty coffee — serious brew hardware, Vietnamese and international beans, standout egg coffee.",s:[["VIETCETERA","https://vietcetera.com/en/vietceteras-go-to-coffee-shops-in-saigon"],["HIVELIFE","https://hivelife.com/specialty-coffee-shops-saigon/"]]},
+{t:2,a:"D1",n:"Cộng Cà Phê",ad:"26 Lý Tự Trọng & Nguyễn Huệ, District 1, Ho Chi Minh City, Vietnam (multiple branches)",cz:["CAFE"],la:10.77826,ln:106.70094,w:"The retro, olive-green subsidy-era chain that made cà phê cốt dừa (coconut coffee) a Saigon signature — a near-obligatory coconut-coffee stop.",s:[["DANIELFOOD","https://danielfooddiary.com/2024/02/20/congcaphe/"],["WIKI","https://en.wikipedia.org/wiki/C%E1%BB%99ng_C%C3%A0_Ph%C3%AA"]]},
+{t:2,a:"D1",n:"Okkio Caffe",ad:"22 Lê Lợi, District 1, Ho Chi Minh City, Vietnam (branches incl. Thảo Điền, District 2)",cz:["CAFE"],la:10.77251,ln:106.69893,w:"A sleek retro-Saigon small-batch roaster near Bến Thành that blends traditional Vietnamese coffee with modern specialty craft across its city outlets.",s:[["VIETCETERA","https://vietcetera.com/en/vietceteras-go-to-coffee-shops-in-saigon"],["THEDOT","https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"]]},
+{t:2,a:"BINHTHANH",n:"Bosgaurus Coffee Roasters",ad:"Saigon Pearl, Nguyễn Hữu Cảnh, Bình Thạnh District, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.78891,ln:106.72063,w:"A multi-storey riverside coffee mansion (opened 2016) that helped awaken Vietnam's Arabica specialty scene and trained national barista champions.",s:[["SPRUDGE","https://sprudge.com/inside-bosgaurus-ho-chi-minh-citys-stunning-multi-story-cafe-140778.html"],["SAIGONEER","https://saigoneer.com/sponsored-listings/11457-bosgaurus-awakens-vietnam%E2%80%99s-coffee-culture-with-arabica-beans"],["THEDOT","https://thedotmagazine.com/the-best-coffeeshops-in-ho-chi-minh-city/"]]},
+{t:1,a:"D1",n:"Stir - Modern Classic Cocktail",ad:"1st floor, 136 Lê Thánh Tôn, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77382,ln:106.69800,w:"Saigon's highest-placed bar on Asia's 50 Best Bars (ranked 2022-2025, No. 61 in 2025) — a speakeasy-jazz room of precise modern-classic drinks.",s:[["ASIA50BARS","https://thedotmagazine.com/3-cocktail-bars-in-vietnam-stir-hudson-rooms-and-drinking-healing-in-asias-50-best-2024-51-100-list/"],["THEDOT","https://thedotmagazine.com/the-best-cocktail-bars-in-ho-chi-minh-city/"]]},
+{t:2,a:"D1",n:"Summer Experiment",ad:"District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.77466,ln:106.69802,w:"Layla's experimental sibling and a sustainability-driven cocktail lab — Saigon's sole entrant on Asia's 50 Best Bars 51-100 in 2021 (No. 77).",s:[["ASIA50BARS","https://vietcetera.com/en/asias-50-best-reveals-51-100-ranked-bars-2021-summer-experiment-is-saigons-sole-winner-at-77"],["ASIABARS","https://www.asia-bars.com/2021/01/summer-experiment-craft-cocktail-bar-in-ho-chi-minh-city/"]]},
+{t:2,a:"D1",n:"Snuffbox",ad:"1st floor, 14 Tôn Thất Đạm, District 1, Ho Chi Minh City, Vietnam",cz:["CAFE"],la:10.76952,ln:106.70415,w:"A 1920s New York-styled speakeasy specialising in classic cocktails and mixology — one of the bars that seeded Saigon's speakeasy wave.",s:[["VIETCETERA","https://vietcetera.com/en/where-to-find-the-best-cocktail-bars-in-ho-chi-minh-city"],["ASIABARS","https://www.asia-bars.com/2017/07/snuffbox-speakeasy-bar-in-saigon/"]]},
+{t:1,a:"D1",n:"Banh Mi Huynh Hoa",ad:"26 Le Thi Rieng Street, District 1, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.77148,ln:106.69238,w:"Saigon's most famous banh mi since 1989 — permanent queues for the thap cam loaded with pate and cold cuts.",s:[["DANIELFOOD","https://danielfooddiary.com/2024/02/26/banhmihuynhhoa/"],["VIETNAMCORACLE","https://www.vietnamcoracle.com/"]]},
+{t:2,a:"PHUNHUAN",n:"Com Tam Ba Ghien",ad:"84 Dang Van Ngu Street, Phu Nhuan District, Ho Chi Minh City, Vietnam",cz:["VIET"],la:10.79444,ln:106.66935,w:"A Bib Gourmand com tam house famous for its thick, well-charred grilled pork chop over broken rice.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/ho-chi-minh/ho-chi-minh_2978179/restaurant/com-tam-ba-ghien"],["VIETCETERA","https://vietcetera.com/en"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Ho Chi Minh City')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {D1:'#F2A1A1',D3:'#BCA7E6',D4:'#84CBB9',CHOLON:'#9CBEEC',D8:'#E8C57C',PHUNHUAN:'#E4989B',BINHTHANH:'#8FD0A0',GOVAP:'#C9A9D6',TANBINH:'#7FC7D9',THUDUC:'#F0B48A',D7:'#A9C48A',BIENHOA:'#D9A6C2',BINHDUONG:'#C7B37F',TAYNINHRT:'#93C6C0',MEKONGRT:'#E0A8C0',VUNGTAURT:'#A6B8E0',CANGIO:'#D3C08A'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([10.77516,106.69534],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[];
+
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

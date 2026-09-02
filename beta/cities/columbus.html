@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Columbus field guide — 62 sights and 24 places to eat across Columbus and its neighborhoods, each traceable to its source (the Columbus Dispatch, Columbus Monthly, Columbus Underground, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<title>Columbus Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Columbus Field Guide — Sourced — Cleo">
+<meta property="og:description" content="Columbus field guide — 62 sights and 24 places to eat across Columbus and its neighborhoods, each traceable to its source (the Columbus Dispatch, Columbus Monthly, Columbus Underground, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip b…">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/cities/columbus.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Columbus Field Guide — Sourced — Cleo">
+<meta name="twitter:description" content="Columbus field guide — 62 sights and 24 places to eat across Columbus and its neighborhoods, each traceable to its source (the Columbus Dispatch, Columbus Monthly, Columbus Underground, James Beard, Atlas Obscura), on one interactive map with neighborhood, collection and cuisine filters, a trip b…">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#101318">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Columbus, sourced</p>
+  <h1>Columbus<span class="thin">Ohio’s capital &mdash; the Short North, German Village &amp; a great immigrant table</span></h1>
+  <p class="standfirst">62 sights and 24 places to eat across Columbus and its neighborhoods, each traceable to the source that named it. The city’s food is a sleeper great &mdash; <strong>Jeni’s</strong> ice cream (born here), the North Market, Columbus-style square-cut <strong>pizza</strong>, Schmidt’s German cream puffs and one of America’s deepest <strong>Somali</strong> tables. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#E8973A"></i>Downtown & Scioto Mile</span>
+  <span><i style="background:#C0504D"></i>Short North, Victorian & Italian Village</span>
+  <span><i style="background:#8064A2"></i>German Village & Brewery District</span>
+  <span><i style="background:#4F81BD"></i>University District, Clintonville & OSU</span>
+  <span><i style="background:#9BBB59"></i>Bexley, Olde Towne East & Whitehall</span>
+  <span><i style="background:#4BACC6"></i>Franklinton, Grandview & Hilltop</span>
+  <span><i style="background:#7E8FC4"></i>Suburbs (Dublin, Worthington, Westerville, New Albany)</span>
+  <span><i style="background:#A6588C"></i>Madison County (London, West Jefferson)</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="North Market, Jeni’s, Short North, pizza…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-14</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across James Beard, the Columbus Dispatch, Columbus Monthly, Columbus Underground, Columbus Alive, NBC4, Experience Columbus, Atlas Obscura and official sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ARCHITECTMAG":{k:"ARCHITECTMAG",t:"Architect Magazine",u:"https://www.architectmagazine.com/",l:"Architect Magazine"},
+  "ARTHOUSE":{k:"ARTHOUSE",t:"Art House Theaters (Art House Convergence directory)",u:"https://www.arthousetheaters.com/",l:"Art House Theaters (Art House Convergence directory)"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BIRDING_HOTSPOTS":{k:"BIRDING HOTSPOTS",t:"Birding in Ohio (eBird hotspot atlas)",u:"https://birding-in-ohio.com",l:"Birding in Ohio (eBird hotspot atlas)"},
+  "CAPA":{k:"CAPA",t:"Columbus Association for the Performing Arts",u:"https://www.capa.com",l:"Columbus Association for the Performing Arts"},
+  "CITYSCENE":{k:"CITYSCENE",t:"CityScene Magazine (Columbus)",u:"https://www.cityscenecolumbus.com/",l:"CityScene Magazine (Columbus)"},
+  "COLUMBUSMAKESART":{k:"COLUMBUSMAKESART",t:"Columbus Makes Art (Greater Columbus Arts Council)",u:"https://www.columbusmakesart.com",l:"Columbus Makes Art (Greater Columbus Arts Council)"},
+  "COLUMBUSNAVIGATOR":{k:"COLUMBUSNAVIGATOR",t:"Columbus Navigator",u:"https://www.columbusnavigator.com",l:"Columbus Navigator"},
+  "COLUMBUSUNDERGROUND":{k:"COLUMBUS UNDERGROUND",t:"Columbus Underground",u:"https://columbusunderground.com",l:"Columbus Underground"},
+  "DISPATCH":{k:"COLUMBUS DISPATCH",t:"The Columbus Dispatch",u:"https://www.dispatch.com/",l:"The Columbus Dispatch"},
+  "EXPERIENCECBUS":{k:"EXPERIENCE COLUMBUS",t:"Experience Columbus",u:"https://www.experiencecolumbus.com",l:"Experience Columbus"},
+  "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org",l:"The Historical Marker Database"},
+  "LOC":{k:"LOC",t:"Library of Congress (HABS survey)",u:"https://www.loc.gov",l:"Library of Congress (HABS survey)"},
+  "METROPARKS":{k:"METROPARKS",t:"Columbus and Franklin County Metro Parks",u:"https://www.metroparks.net",l:"Columbus and Franklin County Metro Parks"},
+  "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov",l:"National Park Service"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site",u:"",l:"Official site"},
+  "OHIO":{k:"OHIO",t:"Ohio.org (Ohio state tourism)",u:"https://ohio.org",l:"Ohio.org (Ohio state tourism)"},
+  "OHIOMAG":{k:"OHIOMAG",t:"Ohio Magazine",u:"https://www.ohiomagazine.com",l:"Ohio Magazine"},
+  "SEEOHIOFIRST":{k:"SEEOHIOFIRST",t:"See Ohio First (Ohio History Connection network)",u:"https://seeohiofirst.org",l:"See Ohio First (Ohio History Connection network)"},
+  "VISITDUBLIN":{k:"VISITDUBLIN",t:"Visit Dublin Ohio (CVB)",u:"https://www.visitdublinohio.com",l:"Visit Dublin Ohio (CVB)"},
+  "VISITWESTERVILLE":{k:"VISITWESTERVILLE",t:"Visit Westerville (CVB)",u:"https://www.visitwesterville.org",l:"Visit Westerville (CVB)"},
+  "WESTERVILLEHIST":{k:"WESTERVILLEHIST",t:"Westerville Historical Society",u:"https://www.westervillehistory.org",l:"Westerville Historical Society"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  "WOSU":{k:"WOSU",t:"WOSU Public Media",u:"https://www.wosu.org",l:"WOSU Public Media"}
+};
+
+const AREAS = [
+  {id:"DTN",n:"Downtown & Scioto Mile",c:"#E8973A"},
+  {id:"SN",n:"Short North, Victorian & Italian Village",c:"#C0504D"},
+  {id:"GV",n:"German Village & Brewery District",c:"#8064A2"},
+  {id:"OSU",n:"University District, Clintonville & OSU",c:"#4F81BD"},
+  {id:"EAST",n:"Bexley, Olde Towne East & Whitehall",c:"#9BBB59"},
+  {id:"WEST",n:"Franklinton, Grandview & Hilltop",c:"#4BACC6"},
+  {id:"BURB",n:"Suburbs (Dublin, Worthington, Westerville, New Albany)",c:"#7E8FC4"},
+  {id:"MADISON",n:"Madison County (London, West Jefferson)",c:"#A6588C"}
+];
+
+const P = [
+{t:1,a:"DTN",n:"Ohio Statehouse",ad:"1 Capitol Sq, Columbus, OH 43215",la:39.96139,ln:-82.99889,w:"Ohio's 1861 Greek Revival capitol on Capitol Square — free tours, the Statehouse Museum, and grounds dotted with monuments in the heart of downtown.",g:["ICON","ARCH","FREE","MUS"],s:[["OFFICIAL","https://www.ohiostatehouse.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ohio_Statehouse"]]},
+{t:1,a:"EAST",n:"Franklin Park Conservatory and Botanical Gardens",ad:"1777 E Broad St, Columbus, OH 43203",la:39.96586,ln:-82.95289,w:"An 1895 glasshouse built for a world's fair, with themed biomes, a permanent Chihuly glass collection and blooming seasonal gardens on the near east side.",g:["MUS","PARK","FAM"],s:[["OFFICIAL","https://www.fpconservatory.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Franklin_Park_Conservatory"]]},
+{t:1,a:"DTN",n:"COSI",ad:"333 W Broad St, Columbus, OH 43215",la:39.95969,ln:-83.00689,w:"The Center of Science and Industry — a top-ranked U.S. science museum in an Arata Isozaki building on the Scioto riverfront, with giant hands-on exhibits and a dinosaur gallery.",g:["MUS","FAM","ICON","VIEW"],s:[["EXPERIENCECBUS","https://www.experiencecolumbus.com/things-to-do/attractions/cosi/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/COSI"]]},
+{t:1,a:"DTN",n:"Columbus Museum of Art",ad:"480 E Broad St, Columbus, OH 43215",la:39.96438,ln:-82.98777,w:"Strong holdings of American and European modernism (including Columbus native George Bellows) in a 1931 Renaissance-revival building with a light-filled modern wing.",g:["MUS","ARCH"],s:[["OFFICIAL","https://www.columbusmuseum.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Columbus_Museum_of_Art"]]},
+{t:1,a:"OSU",n:"Wexner Center for the Arts",ad:"1871 N High St, Columbus, OH 43210",la:40.00019,ln:-83.00939,w:"Ohio State's contemporary-art laboratory in Peter Eisenman's landmark 1989 Deconstructivist building — galleries, avant-garde film and performance at the campus's edge.",g:["MUS","ARCH"],s:[["OFFICIAL","https://wexarts.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wexner_Center_for_the_Arts"]]},
+{t:1,a:"GV",n:"The Book Loft of German Village",ad:"631 S 3rd St, Columbus, OH 43206",la:39.94870,ln:-82.99730,w:"A literary labyrinth of 32 rooms of discounted books in pre-Civil War buildings — one of the largest independent bookstores in the country.",g:["SHOP","ODD","ICON","ARCH"],s:[["OFFICIAL","https://bookloft.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Book_Loft"]]},
+{t:2,a:"DTN",n:"Topiary Park",ad:"480 E Town St, Columbus, OH 43215",la:39.96111,ln:-82.98756,w:"The only park based on a painting: sculpted yews recreate Seurat's 'A Sunday on La Grande Jatte' — 54 people, boats and dogs — on the Old Deaf School Park grounds. Free.",g:["PARK","ODD","FREE","ICON"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/the-topiary-park-columbus-ohio"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Topiary_Park"],["OFFICIAL","https://topiarypark.org/"]]},
+{t:1,a:"OSU",n:"Ohio Stadium (the Horseshoe)",ad:"411 Woody Hayes Dr, Columbus, OH 43210",la:40.00167,ln:-83.01972,w:"The 1922 horseshoe-shaped, 100,000-plus-seat home of Buckeyes football — an enduring icon of college-football gameday and a National Register landmark.",g:["ICON","ARCH","ENT"],s:[["OFFICIAL","https://ohiostatebuckeyes.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ohio_Stadium"]]},
+{t:2,a:"SN",n:"Goodale Park",ad:"120 W Goodale St, Columbus, OH 43215",la:39.97521,ln:-83.00678,w:"Columbus's oldest park (donated 1851) in Victorian Village — a pond, fountain and gazebo, and host of the summer ComFest gathering.",g:["PARK","FREE","ARCH"],s:[["OFFICIAL","https://columbusrecparks.com/parks/goodale-park/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Goodale_Park"]]},
+{t:2,a:"OSU",n:"Columbus Park of Roses",ad:"3901 N High St, Columbus, OH 43214",la:40.04390,ln:-83.02530,w:"A free 13-acre rose garden inside Clintonville's Whetstone Park — 11,000-plus roses across 350-plus varieties, at their peak in June.",g:["PARK","FREE","SHOP"],s:[["OFFICIAL","https://parkofroses.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Columbus_Park_of_Roses"]]},
+{t:1,a:"BURB",n:"Columbus Zoo and Aquarium",ad:"4850 W Powell Rd, Powell, OH 43065",la:40.15627,ln:-83.11840,w:"One of America's premier zoos (Jack Hanna's longtime home base), north of the city in Powell, with the Zoombezi Bay water park next door.",g:["FAM","ICON","ENT","PARK"],s:[["OFFICIAL","https://www.columbuszoo.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Columbus_Zoo_and_Aquarium"]]},
+{t:1,a:"DTN",n:"Scioto Mile and Bicentennial Park",ad:"233 Civic Center Dr, Columbus, OH 43215",la:39.95628,ln:-83.00404,w:"Downtown's riverfront promenade — a 15,000-sq-ft interactive fountain, gardens and skyline views stretching along the Scioto from the Arena District to the Whittier Peninsula.",g:["PARK","FREE","FAM","VIEW"],s:[["OFFICIAL","https://www.sciotomile.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Scioto_Mile"]]},
+{t:2,a:"DTN",n:"LeVeque Tower",ad:"50 W Broad St, Columbus, OH 43215",la:39.96238,ln:-83.00209,w:"The 1927 Art Deco skyscraper that has defined the skyline for a century — 555 feet, now a hotel, lit in changing colors nightly.",g:["ARCH","ICON","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/LeVeque_Tower"],["COLUMBUSMAKESART","https://www.columbusmakesart.com/place/10400-leveque-tower"]]},
+{t:2,a:"DTN",n:"Grange Insurance Audubon Center and Scioto Audubon Metro Park",ad:"505 W Whittier St, Columbus, OH 43215",la:39.94923,ln:-83.00889,w:"A LEED-Platinum birding center on the restored Whittier Peninsula wetlands, plus a 35-ft outdoor climbing wall and downtown skyline views. Free.",g:["PARK","FREE","VIEW"],s:[["OFFICIAL","https://grange.audubon.org/visit"],["METROPARKS","https://www.metroparks.net/parks-and-trails/scioto-audubon/"]]},
+{t:1,a:"DTN",n:"North Market",ad:"59 Spruce St, Columbus, OH 43215",la:39.97193,ln:-83.00431,w:"Columbus's last true public market (est. 1876) — 30-plus merchants including the original Jeni's, Momo Ghar and Hoyo's, just off the Short North and Arena District.",g:["ICON","SHOP","FAM","ENT"],s:[["OFFICIAL","https://northmarket.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/North_Market"]]},
+{t:1,a:"SN",n:"Short North Arts District",ad:"N High St (Goodale St to W 5th Ave), Columbus, OH 43215",la:39.97972,ln:-83.00471,w:"The gallery, restaurant and shopping spine on High Street between downtown and OSU, marked by its signature lit metal arches; monthly Gallery Hop has run since 1984.",g:["ICON","SHOP","ARCH","MUS"],s:[["EXPERIENCECBUS","https://www.experiencecolumbus.com/neighborhoods/short-north/"],["OFFICIAL","https://shortnorth.org/"]]},
+{t:2,a:"DTN",n:"Thurber House",ad:"77 Jefferson Ave, Columbus, OH 43215",la:39.96578,ln:-82.98522,w:"The restored home of humorist and New Yorker cartoonist James Thurber, now a literary center, museum and bookstore on a Jefferson Avenue historic row.",g:["MUS","ODD","ARCH"],s:[["OFFICIAL","https://www.thurberhouse.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Thurber_House"]]},
+{t:1,a:"GV",n:"German Village",ad:"588 S 3rd St, Columbus, OH 43206",la:39.94583,ln:-82.99278,w:"A 19th-century German immigrant neighborhood of brick-paved streets and Italianate cottages — the largest privately funded historic district on the National Register. Address is the German Village Society Meeting Haus.",g:["ICON","ARCH","FREE","SHOP"],s:[["OFFICIAL","https://germanvillage.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/German_Village"]]},
+{t:2,a:"OSU",n:"The Oval at Ohio State",ad:"181 S Oval Dr, Columbus, OH 43210",la:39.99940,ln:-83.01560,w:"The 11-acre historic green at the heart of OSU's campus, framed by University Hall and Thompson Library and landscaped with Olmsted-brothers input — the campus 'living room.'",g:["PARK","FREE","ARCH","ICON"],s:[["OFFICIAL","https://slec.osu.edu/explore-venues/outdoor-event-spaces/the-oval"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ohio_State_University"]]},
+{t:2,a:"OSU",n:"Olentangy Trail",ad:"311 W Long St, Columbus, OH 43215",la:39.96581,ln:-83.01982,w:"A 13-plus-mile paved riverside greenway from downtown's North Bank Park up through OSU and Clintonville to Worthington — the city's spine for cycling and running. Address is the southern North Bank Park trailhead.",g:["PARK","FREE","VIEW","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Olentangy_Trail"],["OFFICIAL","https://columbusrecparks.com/facilities/trails/greenways/olentangy-trail/"]]},
+{t:3,a:"SN",n:"Italian Village",ad:"224 E 1st Ave, Columbus, OH 43201",la:39.98000,ln:-83.01000,w:"The historic district just east of the Short North — brick worker cottages and the redeveloped Jeffrey Park, now home to Seventh Son and Fox in the Snow. Address is the landmark Jeffrey Manufacturing office building.",g:["ARCH","FREE","ICON","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Italian_Village"],["OFFICIAL","https://www.italianvillage.org/"],["COLUMBUSUNDERGROUND","https://columbusunderground.com/decade-in-development-jeffrey-park-italian-village-we1/"]]},
+{t:2,a:"OSU",n:"Ohio History Center and Ohio Village",ad:"800 E 17th Ave, Columbus, OH 43211",la:40.00486,ln:-82.98742,w:"The state history museum in a striking 1970 Brutalist building, with the adjacent Ohio Village recreating an 1890s town. Ohio Village is under phased restoration into the mid-2020s.",g:["MUS","ARCH","FAM"],s:[["OFFICIAL","https://www.ohiohistory.org/visit/ohio-history-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ohio_History_Center"]]},
+{t:2,a:"DTN",n:"National Veterans Memorial and Museum",ad:"300 W Broad St, Columbus, OH 43215",la:39.96194,ln:-83.00806,w:"The only congressionally designated national museum for veterans of every branch and era, in a sculptural 2018 concrete-arch building (Allied Works) on the Scioto's west bank, ringed by a memorial grove and rooftop sanctuary.",g:["MUS","ARCH","ICON","VIEW"],s:[["OFFICIAL","https://nationalvmm.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Veterans_Memorial_and_Museum"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/things-to-do/attractions/national-veterans-memorial-museum/"]]},
+{t:3,a:"DTN",n:"Central Ohio Fire Museum",ad:"260 N 4th St, Columbus, OH 43215",la:39.96822,ln:-82.99695,w:"A restored 1908 downtown engine house of hand-drawn, horse-drawn and early motorized fire apparatus, with a kids' play space and fire-safety tours.",g:["MUS","FAM"],s:[["OFFICIAL","https://www.centralohiofiremuseum.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Central_Ohio_Fire_Museum"]]},
+{t:2,a:"SN",n:"Columbus Museum of Art at The Pizzuti",ad:"632 N Park St, Columbus, OH 43215",la:39.97507,ln:-83.00450,w:"CMA's contemporary satellite in a restored Short North building — rotating exhibitions drawn from Ron and Ann Pizzuti's globe-spanning collection of contemporary art.",g:["MUS","ARCH","ICON","SHOP"],s:[["OFFICIAL","https://www.columbusmuseum.org/the-pizzuti"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pizzuti_Collection"]]},
+{t:2,a:"GV",n:"Schiller Park",ad:"1069 Jaeger St, Columbus, OH 43206",la:39.94190,ln:-82.99280,w:"German Village's 23-acre green heart (est. 1867) — Columbus's second-oldest park, with a lake, the Umbrella Girl fountain, a bust of poet Friedrich Schiller and summer 'Actors' Theatre' Shakespeare. Free.",g:["PARK","FREE","ICON","ARCH"],s:[["OFFICIAL","https://columbusrecparks.com/parks/schiller-park/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Schiller_Park_(Columbus,_Ohio)"]]},
+{t:1,a:"OSU",n:"Billy Ireland Cartoon Library & Museum",ad:"1813 N High St, Columbus, OH 43210",la:39.99950,ln:-83.00880,w:"The world's largest collection of cartoons and comics — original Calvin and Hobbes, Peanuts and Pogo art — in Ohio State's Sullivant Hall, with free rotating gallery exhibitions.",g:["MUS","ODD","FREE"],s:[["OFFICIAL","https://cartoons.osu.edu/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Billy_Ireland_Cartoon_Library_%26_Museum"]]},
+{t:2,a:"OSU",n:"Jack Nicklaus Museum",ad:"2355 Olentangy River Rd, Columbus, OH 43210",la:40.00985,ln:-83.02366,w:"A 24,000-sq-ft shrine to the Golden Bear — the Columbus-born golf legend — inside the OSU sports complex, tracing his record 18 major championships.",g:["MUS"],s:[["OFFICIAL","https://www.nicklausmuseum.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Jack_Nicklaus_Museum"]]},
+{t:2,a:"OSU",n:"Orton Geological Museum",ad:"155 S Oval Mall, Columbus, OH 43210",la:40.00133,ln:-83.01456,w:"Ohio State's free natural-history gem inside the 1893 Romanesque Orton Hall (a National Historic Landmark built of Ohio stone) — a full Cretodus shark, a giant ground sloth and thousands of fossils and minerals.",g:["MUS","FREE","ARCH"],s:[["OFFICIAL","https://ortonmuseum.osu.edu/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Orton_Hall"]]},
+{t:3,a:"OSU",n:"Chadwick Arboretum & Learning Gardens",ad:"2001 Fyffe Ct, Columbus, OH 43210",la:40.00273,ln:-83.02811,w:"A 60-plus-acre living plant collection across OSU's campus — ornamental Learning Gardens, a conifer and hosta collection and a Chartres-style labyrinth. Open dawn to dusk, free.",g:["PARK","FREE"],s:[["OFFICIAL","https://chadwickarboretum.osu.edu/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chadwick_Arboretum"]]},
+{t:2,a:"EAST",n:"Kelton House Museum & Garden",ad:"586 E Town St, Columbus, OH 43215",la:39.96086,ln:-82.98438,w:"An 1852 Greek Revival/Italianate home on the near east side, a documented Underground Railroad stop, preserved with original Kelton-family furnishings and a period garden.",g:["MUS","ARCH"],s:[["OFFICIAL","https://keltonhouse.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kelton_House_Museum_and_Garden"]]},
+{t:3,a:"EAST",n:"Jeffrey Mansion",ad:"165 N Parkview Ave, Bexley, OH 43209",la:39.97266,ln:-82.94258,w:"A 1905 brick mansion built by Columbus mayor Robert H. Jeffrey, willed to Bexley in 1941 and now the centerpiece of a 40-acre park of woodland trails, an Alum Creek overlook and a pool.",g:["PARK","ARCH","VIEW"],s:[["OFFICIAL","https://bexley.org/jeffreymansion/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/blog/post/live-to-explore-bexley-with-jean-adkins/"]]},
+{t:2,a:"EAST",n:"Drexel Theatre",ad:"2254 E Main St, Bexley, OH 43209",la:39.95730,ln:-82.93860,w:"Central Ohio's home for independent and international film — a 1937 Art Deco/Art Moderne neighborhood movie house in Bexley, on the National Register and running continuously since Christmas Day 1937.",g:["ENT","ICON","ARCH"],s:[["OFFICIAL","https://www.drexel.net/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Drexel_Theater"],["CAPA","https://www.capa.com/drexel-theatre/"]]},
+{t:2,a:"WEST",n:"Green Lawn Cemetery",ad:"1000 Greenlawn Ave, Columbus, OH 43223",la:39.94039,ln:-83.03232,w:"Ohio's second-largest cemetery (est. 1848) — a 325-acre garden cemetery and registered arboretum with an old-growth oak forest, ornate mausoleums and an Audubon Important Bird Area; resting place of the Wright brothers' family and Eddie Rickenbacker.",g:["PARK","ODD","FREE"],s:[["OFFICIAL","https://www.greenlawncemetery.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Green_Lawn_Cemetery_(Columbus,_Ohio)"]]},
+{t:3,a:"WEST",n:"Camp Chase Confederate Cemetery",ad:"2900 Sullivant Ave, Columbus, OH 43204",la:39.94382,ln:-83.07612,w:"A National Cemetery on the Hilltop holding 2,200-plus Confederate soldiers who died at the Union's Camp Chase prison — rows of white headstones behind a boulder arch reading 'Americans.' Free.",g:["ODD","FREE"],s:[["NPS","https://www.nps.gov/articles/not-to-be-forgotten-camp-chase-confederate-cemetery-teaching-with-historic-places.htm"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Camp_Chase"]]},
+{t:1,a:"WEST",n:"Battelle Darby Creek Metro Park",ad:"1775 Darby Creek Dr, Galloway, OH 43119",la:39.90360,ln:-83.21544,w:"A 7,000-plus-acre metro park on the state-and-national scenic Big and Little Darby Creeks — restored tallgrass prairie with a free-roaming bison herd, a nature center and miles of trail. Free.",g:["PARK","FAM","FREE","VIEW"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/battelle-darby-creek/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Battelle_Darby_Creek_Metro_Park"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/battelle-darby-creek-metro-park/427211/"]]},
+{t:2,a:"BURB",n:"Field of Corn (Cornhenge)",ad:"4995 Rings Rd, Dublin, OH 43017",la:40.08497,ln:-83.12322,w:"Malcolm Cochran's 1994 public artwork — 109 six-foot white concrete ears of corn standing in rows in a Dublin park, a tribute to farmer Sam Frantz and the area's agricultural roots. Free.",g:["ODD","ARCH","FREE","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Field_of_Corn"],["ATLASOBSCURA","https://www.atlasobscura.com/places/cornhenge"],["COLUMBUSMAKESART","https://www.columbusmakesart.com/place/8183-field-of-corn-with-osage-orange-trees"],["WOSU","https://www.wosu.org/news/2018-09-14/curious-cbus-whats-the-history-of-dublins-concrete-cornfield"]]},
+{t:2,a:"BURB",n:"Dublin Link",ad:"6625 Riverside Dr, Dublin, OH 43017",la:40.10210,ln:-83.11162,w:"The world's longest single-tower S-shaped suspension bridge (760 ft, opened 2020) — a curving pedestrian span whose deck threads the keyhole of a 169-ft tower, linking Historic Dublin to Riverside Crossing Park. Free.",g:["ARCH","VIEW","FREE","PARK"],s:[["OFFICIAL","https://dublinohiousa.gov/downtown-dublin/the-dublin-link/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Dublin_Link"],["COLUMBUSUNDERGROUND","https://columbusunderground.com/dublin-pedestrian-bridge-we1/"]]},
+{t:3,a:"BURB",n:"Indian Run Falls",ad:"700 Shawan Falls Dr, Dublin, OH 43017",la:40.10060,ln:-83.12076,w:"A wooded ravine steps from Historic Dublin with a multi-tier waterfall dropping into Indian Run — boardwalks, viewing decks and a short trail named for its Wyandot campsite history. Free.",g:["PARK","FREE","VIEW","ARCH"],s:[["VISITDUBLIN","https://www.visitdublinohio.com/listing/indian-run-falls/382/"],["COLUMBUSNAVIGATOR","https://www.columbusnavigator.com/indian-run-falls-dublin/"]]},
+{t:2,a:"BURB",n:"Highbanks Metro Park",ad:"9466 Columbus Pike, Lewis Center, OH 43035",la:40.15385,ln:-83.02729,w:"A 1,200-acre metro park north of the city named for its 100-ft shale bluffs over the Olentangy River — ten trails, a nature center, a sledding hill and ancient Adena burial mounds. Free.",g:["PARK","VIEW","FREE"],s:[["METROPARKS","https://www.metroparks.net/venue/highbanks/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Highbanks_Metro_Park"]]},
+{t:2,a:"BURB",n:"Inniswood Metro Gardens",ad:"940 S Hempstead Rd, Westerville, OH 43081",la:40.10133,ln:-82.89947,w:"A 123-acre metro park of themed display gardens in Westerville — herb, rose and woodland gardens, a Sisters' Garden and boardwalk nature trails through nature preserve. Free.",g:["PARK","FREE","VIEW"],s:[["METROPARKS","https://www.metroparks.net/venue/inniswood/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Inniswood_Metro_Gardens"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/inniswood-metro-gardens/427221/"]]},
+{t:2,a:"BURB",n:"AMA Motorcycle Hall of Fame Museum",ad:"13515 Yarmouth Dr, Pickerington, OH 43147",la:39.93380,ln:-82.78340,w:"The American Motorcyclist Association's national museum in Pickerington — vintage and racing motorcycles and the Hall of Fame honoring the sport's legends.",g:["MUS"],s:[["OFFICIAL","https://americanmotorcyclist.com/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Motorcycle_Hall_of_Fame"]]},
+{t:3,a:"BURB",n:"The Wagnalls Memorial",ad:"150 E Columbus St, Lithopolis, OH 43136",la:39.80215,ln:-82.80558,w:"A storybook 1925 Tudor Gothic library and cultural center in tiny Lithopolis, gifted by Mabel Wagnalls (of Funk & Wagnalls) in memory of her parents — stone, stained glass and a theater.",g:["ARCH","MUS"],s:[["OFFICIAL","https://www.wagnalls.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wagnalls_Memorial_Library"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/the-wagnalls-memorial-library-lithopolis"]]},
+{t:3,a:"BURB",n:"Orange Johnson House",ad:"956 High St, Worthington, OH 43085",la:40.09368,ln:-83.01762,w:"One of Worthington's oldest homes — an 1811 pioneer house with an 1816 Federal addition, restored by the Worthington Historical Society to show early-19th-century village life.",g:["MUS","ARCH"],s:[["OFFICIAL","https://worthingtonhistory.org/orange-johnson-house/"],["OHIO","https://ohio.org/things-to-do/destinations/orange-johnson-house"]]},
+{t:3,a:"BURB",n:"Hanby House",ad:"160 W Main St, Westerville, OH 43081",la:40.12642,ln:-82.93760,w:"The 1850s Westerville home of the Hanby family — Bishop William Hanby, an Underground Railroad conductor and Otterbein co-founder, and son Benjamin, composer of 'Up on the Housetop' and abolitionist ballad 'Darling Nelly Gray.'",g:["MUS","ARCH"],s:[["WESTERVILLEHIST","https://www.westervillehistory.org/"],["VISITWESTERVILLE","https://www.visitwesterville.org/play/history/"]]},
+{t:1,a:"DTN",n:"Ohio Theatre",ad:"39 E State St, Columbus, OH 43215",la:39.95988,ln:-82.99894,w:"The 'Official Theatre of the State of Ohio' — a lavishly gilded 1928 Spanish-Baroque movie palace on Capitol Square, saved from the wrecking ball in 1969 and declared a National Historic Landmark in 1977. CAPA runs it today, with free summer walking tours and 'Mighty Morton' organ demos.",k:"Free guided tours on select summer Saturdays; otherwise a ticketed performance venue.",g:["ICON","ARCH","ENT","FREE"],s:[["OFFICIAL","https://www.capa.com/venues/ohio-theatre/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ohio_Theatre_(Columbus,_Ohio)"],["CITYSCENE","https://www.cityscenecolumbus.com/arts-and-entertainment/scene-online/capa-offers-free-walking-tours-throughout-all-of-their-theat/"]]},
+{t:2,a:"DTN",n:"Southern Theatre",ad:"21 E Main St, Columbus, OH 43215",la:39.95606,ln:-82.99866,w:"The oldest surviving theatre in central Ohio — opened 1896 as the 'Great Southern Fireproof Hotel and Opera House' after a run of downtown theatre fires, it hosted Sarah Bernhardt, Anna Pavlova and John Philip Sousa. CAPA restored it in a 14-month, $10M rebuild reopening in 1998.",g:["ARCH","ENT"],s:[["OFFICIAL","https://www.capa.com/southern-theatre/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Great_Southern_Hotel_%26_Theatre"]]},
+{t:2,a:"DTN",n:"Columbus Commons",ad:"160 S High St, Columbus, OH 43215",la:39.95854,ln:-82.99873,w:"A six-acre downtown green built on the footprint of the old City Center mall — a restored 1914 carousel, free summer concerts, a Thursday farmers market and 200+ free events a year. Free.",k:"Free; carousel rides seasonal (Apr–Sep).",g:["PARK","FREE","FAM","SHOP"],s:[["OFFICIAL","https://columbuscommons.org/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/directory/columbus-commons/"]]},
+{t:3,a:"DTN",n:"Union Station Arch at McFerson Commons",ad:"McFerson Commons, Nationwide Blvd, Arena District, Columbus, OH 43215",la:39.96814,ln:-83.00741,w:"The last surviving arch of Columbus's demolished 1897 Union Station (a Daniel Burnham design), rescued during the 1976 wrecking and re-erected as the centerpiece of the 2.2-acre McFerson Commons in the Arena District. Free.",g:["ARCH","ODD","FREE","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/McFerson_Commons"],["DISPATCH","https://www.dispatch.com/story/news/history/2021/10/22/union-station-arch-columbus-ohio-history/"]]},
+{t:3,a:"DTN",n:"Columbus Metropolitan Library — Main Library",ad:"96 S Grant Ave, Columbus, OH 43215",la:39.96138,ln:-82.98940,w:"The flagship of a system twice named National Library of the Year — its $30M 2016 daylight-flooded renovation (GUND Partnership), opening onto Topiary Park, won the Columbus Landmarks James B. Recchie Design Award. Free to wander.",g:["ARCH","FREE","ICON","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Main_Library_(Columbus,_Ohio)"],["ARCHITECTMAG","https://www.architectmagazine.com/project-gallery/columbus-metropolitan-library-main-library/"]]},
+{t:2,a:"OSU",n:"Studio 35 Cinema & Drafthouse",ad:"3055 Indianola Ave, Columbus, OH 43202",la:40.02603,ln:-83.00182,w:"Clintonville's beloved neighborhood movie house — opened 1938 as the Indianola Theatre, it's Columbus's oldest cinema and the last independent one left, famous as the first U.S. theater licensed to serve alcohol. Two screens, 40 taps and an in-house pizza kitchen.",g:["ENT","ODD","SHOP"],s:[["OFFICIAL","https://studio35.com/about/"],["ARTHOUSE","https://www.arthousetheaters.com/theater/studio-35-columbus"]]},
+{t:2,a:"EAST",n:"Schumacher Gallery",ad:"Blackmore Library, 4th Fl, 2199 E Main St, Bexley, OH 43209",la:39.95605,ln:-82.93700,w:"Capital University's free art museum on the top floor of its Bexley library — 3,000+ works spanning Rembrandt, Dürer, Goya, Renoir, Cassatt, Picasso, Chagall and Warhol, plus rotating exhibits of Indigenous and local artists.",k:"Free; open during the academic year only (closed summers and university holidays).",g:["MUS","FREE"],s:[["OFFICIAL","https://www.capital.edu/student-life/arts-and-culture/schumacher-gallery/"],["COLUMBUSMAKESART","https://www.columbusmakesart.com/organization/406-the-schumacher-gallery"]]},
+{t:2,a:"WEST",n:"Columbus Idea Foundry",ad:"421 W State St, Columbus, OH 43215",la:39.95863,ln:-83.01203,w:"A 60,000-sq-ft Franklinton makerspace billed as the physically largest in the world — welding, blacksmithing, woodshop, 3D printing and 80+ classes a month, with free RSVP evening tours and demonstrations.",k:"Free evening tours by RSVP; workshops/membership ticketed.",g:["ODD","FAM","FREE"],s:[["OFFICIAL","https://www.ideafoundry.com/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/blog/post/pick-up-a-new-skill-at-these-8-maker-spaces/"],["CITYSCENE","https://www.cityscenecolumbus.com/columbus-idea-foundry/"]]},
+{t:2,a:"BURB",n:"Early Television Museum",ad:"5396 Franklin St, Hilliard, OH 43026",la:40.03468,ln:-83.16176,w:"A 6,000-sq-ft Hilliard oddity holding 150+ working sets — mechanical 1920s scanning-disc TVs, prewar and early-color receivers — one of the world's deepest early-television collections. Free (donations welcome), weekends only.",k:"Free; open Sat 10–6 and Sun 12–5.",g:["MUS","ODD","FREE"],s:[["OFFICIAL","https://www.earlytelevision.org/museum.html"],["ATLASOBSCURA","https://www.atlasobscura.com/places/early-television-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Early_Television_Museum"]]},
+{t:2,a:"BURB",n:"Anti-Saloon League Museum",ad:"126 S State St, Westerville, OH 43081",la:40.12278,ln:-82.92917,w:"Inside the Westerville library, in the League's old printing-plant town — 'the dry capital of the world' — the nation's foremost temperance/Prohibition collection: propaganda, artifacts and the story of the Ohio-born movement that drove the 18th Amendment. Free.",k:"Free; open library hours or by appointment.",g:["MUS","ARCH","FREE"],s:[["OFFICIAL","https://westervillelibrary.org/antisaloon/"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/explore-prohibition-history-at-the-anti-saloon-league-museum"],["ATLASOBSCURA","https://www.atlasobscura.com/places/antisaloon-league-museum"]]},
+{t:2,a:"BURB",n:"Sharon Woods Metro Park",ad:"6911 Cleveland Ave, Westerville, OH 43081",la:40.11692,ln:-82.96178,w:"A 761-acre Metro Park wrapping the 11-acre Schrock Lake and the Edward S. Thomas State Nature Preserve, with old-growth oak-hickory-beech woods and a 3.8-mile paved multipurpose loop. Free.",g:["PARK","VIEW","FREE"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/sharon-woods/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/directory/sharon-woods-metro-park/"]]},
+{t:2,a:"BURB",n:"Blendon Woods Metro Park",ad:"4265 E Dublin-Granville Rd, Westerville, OH 43081",la:40.07046,ln:-82.87306,w:"A 653-acre Metro Park whose 118-acre Walden Waterfowl Refuge and 11-acre Thoreau Lake draw hundreds of birds — 220+ species logged — viewed from two elevated shelters with spotting scopes. Free.",g:["PARK","VIEW","FREE","FAM"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/blendon-woods/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/blendon-woods-metro-park/427214/"]]},
+{t:2,a:"BURB",n:"Slate Run Living Historical Farm",ad:"1375 State Route 674 N, Canal Winchester, OH 43110",la:39.76094,ln:-82.85054,w:"An 1880s working farm inside Slate Run Metro Park — costumed staff tend heirloom pigs, geese, turkeys and Percheron horses and cook in an 1856 Gothic-revival farmhouse, recreating daily central-Ohio farm life. Free.",k:"Free; seasonal hours (open Tue–Sun; closed some winter days).",g:["FAM","ARCH","PARK","FREE"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/slate-run-historical-farm/"],["OHIOMAG","https://www.ohiomagazine.com/travel/article/slate-run-living-historical-farm-canal-winchester"]]},
+{t:2,a:"BURB",n:"Hayden Run Falls",ad:"4326 Hayden Run Rd, Dublin, OH 43017",la:40.06731,ln:-83.11011,w:"A 35-foot ravine waterfall in Dublin, reached by a short wheelchair-accessible boardwalk and staircase in Columbus's two-acre Hayden Falls Nature Preserve — best after rain. Free, distinct from Dublin's Indian Run Falls.",k:"Free; open daily 6am–10pm.",g:["VIEW","PARK","FREE","ODD"],s:[["OFFICIAL","https://columbusrecparks.com/parks/hayden-falls-nature-preserve/"],["VISITDUBLIN","https://www.visitdublinohio.com/listing/hayden-run-falls/554/"],["COLUMBUSNAVIGATOR","https://www.columbusnavigator.com/dublins-indian-hayden-run-falls-should-be-your-next-weekend-adventure/"]]},
+{t:2,a:"BURB",n:"Easton Town Center",ad:"160 Easton Town Center, Columbus, OH 43219",la:40.05048,ln:-82.91543,w:"A 30-million-visitor-a-year open-air 'town' laid out like a 1950s Main Street — 250+ shops from Nordstrom to Louis Vuitton alongside restaurants, cinemas and free public events. Repeatedly named the top retail experience in America. A tourism draw in its own right.",g:["SHOP","FAM","FREE"],s:[["OFFICIAL","https://eastontowncenter.com/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/neighborhoods/easton/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Easton_Town_Center"]]},
+{t:2,a:"MADISON",n:"Red Brick Tavern",ad:"1700 Cumberland St (US-40), Lafayette, OH 43140",la:39.93780,ln:-83.40692,w:"A landmark 1836-37 National Road stagecoach inn in tiny Lafayette, said to be second only to the Golden Lamb among Ohio's oldest continuously recognized taverns; it hosted six U.S. presidents. Documented by the Library of Congress HABS survey. Closed 2020, reopened Feb 2023 and still operating as a historic tavern you can walk into.",g:["HIST","ARCH","ICON"],s:[["LOC","https://www.loc.gov/item/oh0150/"],["HMDB","https://www.hmdb.org/m.asp?m=96415"],["OFFICIAL","https://historicredbricktavern.com/about"]]},
+{t:2,a:"MADISON",n:"Prairie Oaks Metro Park",ad:"3225 Plain City-Georgesville Rd, West Jefferson, OH 43162",la:39.99812,ln:-83.24147,w:"A 2,200-acre Metro Park straddling the Madison-Franklin line along Big Darby Creek (a state and national scenic river), with restored prairie, quarry-pond beaches and paddling, and prime birding. The Madison County side lies west of the creek. Distinct from Battelle Darby Creek downstream.",g:["PARK","FREE","OUT","VIEW"],s:[["METROPARKS","https://www.metroparks.net/parks-and-trails/prairie-oaks/"],["BIRDING_HOTSPOTS","https://birding-in-ohio.com/madison-county/prairie-oaks-metro-park-madison-county"]]}
+];
+
+const FS = {
+  "614MAG":{k:"614 MAGAZINE",t:"614 MAGAZINE",u:"",l:""},
+  "AAA":{k:"AAA",t:"AAA",u:"",l:""},
+  "ABC6":{k:"ABC6",t:"ABC6",u:"",l:""},
+  "AFRICANRESTWEEK":{k:"AFRICANRESTWEEK",t:"AFRICANRESTWEEK",u:"",l:""},
+  "ALTEATS":{k:"ALTEATS",t:"ALTEATS",u:"",l:""},
+  "AXIOSCOLUMBUS":{k:"AXIOSCOLUMBUS",t:"AXIOSCOLUMBUS",u:"",l:""},
+  "BARBECUEBROS":{k:"BARBECUEBROS",t:"BARBECUEBROS",u:"",l:""},
+  "BELTMAG":{k:"BELTMAG",t:"BELTMAG",u:"",l:""},
+  "BREAKFASTNICK":{k:"BREAKFASTNICK",t:"BREAKFASTNICK",u:"",l:""},
+  "BWNICK":{k:"BWNICK",t:"BWNICK",u:"",l:""},
+  "CFA":{k:"CFA",t:"CFA",u:"",l:""},
+  "CITYSCENE":{k:"CITYSCENE",t:"CityScene Magazine (Columbus)",u:"https://www.cityscenecolumbus.com/",l:"CityScene Magazine (Columbus)"},
+  "CMHGOURMAND":{k:"CMHGOURMAND",t:"CMHGOURMAND",u:"",l:""},
+  "COLUMBUSMONTHLY":{k:"COLUMBUS MONTHLY",t:"COLUMBUS MONTHLY",u:"",l:""},
+  "COLUMBUSNAVIGATOR":{k:"COLUMBUSNAVIGATOR",t:"Columbus Navigator",u:"https://www.columbusnavigator.com",l:"Columbus Navigator"},
+  "COLUMBUSUG":{k:"COLUMBUSUG",t:"COLUMBUSUG",u:"",l:""},
+  "COLUMBUSUNDERGROUND":{k:"COLUMBUS UNDERGROUND",t:"Columbus Underground",u:"https://columbusunderground.com",l:"Columbus Underground"},
+  "DETROITNEWS":{k:"DETROITNEWS",t:"DETROITNEWS",u:"",l:""},
+  "DISPATCH":{k:"COLUMBUS DISPATCH",t:"The Columbus Dispatch",u:"https://www.dispatch.com/",l:"The Columbus Dispatch"},
+  "DOWNTOWNCOLUMBUS":{k:"DOWNTOWNCOLUMBUS",t:"DOWNTOWNCOLUMBUS",u:"",l:""},
+  "EASTONTC":{k:"EASTONTC",t:"EASTONTC",u:"",l:""},
+  "EXPERIENCECBUS":{k:"EXPERIENCE COLUMBUS",t:"Experience Columbus",u:"https://www.experiencecolumbus.com",l:"Experience Columbus"},
+  "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org",l:"The Historical Marker Database"},
+  "INFATUATION":{k:"INFATUATION",t:"INFATUATION",u:"",l:""},
+  "NATLROADBLOG":{k:"NATLROADBLOG",t:"NATLROADBLOG",u:"",l:""},
+  "NBC4":{k:"NBC4",t:"NBC4",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site",u:"",l:"Official site"},
+  "OHIOMAGAZINE":{k:"OHIOMAGAZINE",t:"OHIOMAGAZINE",u:"",l:""},
+  "SHORTNORTH":{k:"SHORTNORTH",t:"SHORTNORTH",u:"",l:""},
+  "SNACKANDBAKERY":{k:"SNACKANDBAKERY",t:"SNACKANDBAKERY",u:"",l:""},
+  "STEPOUTCBUS":{k:"STEPOUTCBUS",t:"STEPOUTCBUS",u:"",l:""},
+  "TENTV":{k:"10TV",t:"10TV",u:"",l:""},
+  "TOURINGOHIO":{k:"TOURINGOHIO",t:"TOURINGOHIO",u:"",l:""},
+  "VISITFAIRFIELD":{k:"VISITFAIRFIELD",t:"VISITFAIRFIELD",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  "WINESPECTATOR":{k:"WINESPECTATOR",t:"WINESPECTATOR",u:"",l:""}
+};
+
+const CUISINES = [
+  {id:"US",n:"American & New American"},
+  {id:"BURG",n:"Burgers & Diners"},
+  {id:"PIZZA",n:"Columbus-Style Pizza"},
+  {id:"GERMAN",n:"German"},
+  {id:"AFRICAN",n:"Somali & East African"},
+  {id:"ASIAN",n:"Asian"},
+  {id:"MEX",n:"Mexican & Latin"},
+  {id:"MED",n:"Mediterranean & Middle Eastern"},
+  {id:"SOUL",n:"Soul, BBQ & Southern"},
+  {id:"ICE",n:"Ice Cream & Bakeries"},
+  {id:"BREW",n:"Breweries & Bars"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks & Gardens"},
+  {id:"VIEW",n:"Views & Trails"},
+  {id:"ARCH",n:"Architecture & History"},
+  {id:"ENT",n:"Sports, Music & Entertainment"},
+  {id:"SHOP",n:"Markets & Districts"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"DTN",n:"Jeni's Splendid Ice Creams — North Market",ad:"59 Spruce St, Columbus, OH 43215",cz:["ICE"],la:39.97193,ln:-83.00431,w:"Jeni Britton Bauer launched Jeni's at the North Market in 2002; the grassy-buttermilk base and inventive flavors (Brambleberry Crisp, Brown Butter Almond Brittle) that turned a Columbus stall into a national brand.",g:["MKT"],s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/jenis-relocates-within-the-north-market/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Jeni's_Splendid_Ice_Creams"]]},
+{t:1,a:"DTN",n:"Momo Ghar — North Market",ad:"59 Spruce St, Columbus, OH 43215",cz:["AFRICAN"],la:39.97193,ln:-83.00431,w:"Phenomenal Himalayan dumplings that put Columbus's huge Nepali-Bhutanese community on the map; the jhol momo swim in a spiced sesame broth. Featured on Diners, Drive-Ins and Dives.",g:["MKT"],s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2021/12/07/nepalese-restaurants-food-columbus-momo-ghar-yeti-express-himalayan-grille-namaste-indo-nepali/8842189002/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/blog/post/where-to-find-nepali-food-in-columbus/"]]},
+{t:1,a:"DTN",n:"Hoyo's Kitchen — North Market",ad:"59 Spruce St, Columbus, OH 43215",cz:["AFRICAN"],la:39.97193,ln:-83.00431,w:"The friendly gateway to Columbus's Somali food scene (one of the largest Somali communities in the US): tender suqaar, crisp sambusas and rice served the traditional way with a banana. 'Hoyo' means mother.",g:["MKT"],s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/entertainment/dining/2015/04/01/restaurant-review-delightful-hoyo-s/23007328007/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/blog/post/get-to-know-hoyos-kitchen-at-the-north-market/"]]},
+{t:1,a:"GV",n:"Schmidt's Sausage Haus",ad:"240 E Kossuth St, Columbus, OH 43206",cz:["GERMAN"],la:39.94629,ln:-82.99100,w:"German Village institution since 1886 in a brick livery stable. The Bahama Mama smoked sausage was voted Columbus's official food; the world-famous jumbo cream puffs are the other reason to come.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/entertainment/2017/03/29/best-german-village-restaurant-schmidt/21790668007/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Schmidt's_Sausage_Haus"],["BWNICK","https://breakfastwithnick.com/2022/09/06/where-to-find-german-food-in-columbus/"]]},
+{t:1,a:"GV",n:"The Thurman Cafe — CLOSED",ad:"183 Thurman Ave, Columbus, OH 43206",cz:["BURG"],la:39.93956,ln:-82.99110,w:"Family-owned since 1942 and home of the Thurmanator, a monster double burger loaded with ham, bacon and three cheeses. TEMPORARILY CLOSED after an April 2026 electrical fire; owners have vowed to rebuild — call ahead before visiting.",closed:1,s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/the-thurman-cafe-truly-the-tastiest-burgers-in-columbus-pk1/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Thurman_Cafe"],["TENTV","https://www.10tv.com/article/news/local/owners-columbus-thurman-cafe-vow-to-rebuild-fire/530-41492190-19c4-4529-ac2c-7118b6edaac0"]]},
+{t:1,a:"EAST",n:"Rubino's Pizza",ad:"2643 E Main St, Bexley, OH 43209",cz:["PIZZA"],la:39.95657,ln:-82.92811,w:"A Bexley shrine since 1954: ultra-thin cracker crust, cash only, no alcohol, hand-written checks and folded paper 'tents' — Columbus-style pizza at its most austere and beloved.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/entertainment/dining/2019/09/09/restaurant-review-rubino-s-pizza/3268400007/"],["614MAG","https://614now.com/2020/food-drink/columbus-classics-rubinos-pizza"]]},
+{t:2,a:"EAST",n:"TAT Ristorante di Famiglia",ad:"1210 S James Rd, Columbus, OH 43227",cz:["US"],la:39.94657,ln:-82.91452,w:"Columbus's oldest Italian restaurant (est. 1929, 'Talk of the Town'), credited with serving the city's first pizza. Wood-paneled, red-sauce, old-world charm.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/aficionadough-columbus-first-pizza-old-school-charm-on-tap-at-tat-je1/"],["614MAG","https://614now.com/2017/food-drink/tradish-columbus-pizza-history"]]},
+{t:3,a:"DTN",n:"Hot Chicken Takeover — CLOSED",ad:"59 Spruce St, Columbus, OH 43215",cz:["SOUL"],la:39.97193,ln:-83.00431,w:"A Columbus original that launched at the North Market in 2014 and built a devoted following (and a social mission) around its Nashville hot chicken. All central-Ohio locations closed in September 2025 — kept here for the record.",closed:1,g:["MKT"],s:[["NBC4","https://www.nbc4i.com/news/local-news/columbus/hot-chicken-takeover-closes-final-columbus-location-at-north-market/"],["COLUMBUSUNDERGROUND","https://columbusunderground.com/hot-chicken-takeover-third-location-ls1/"]]},
+{t:1,a:"DTN",n:"Veritas",ad:"11 W Gay St, Columbus, OH 43215",cz:["US"],la:39.96333,ln:-83.00139,w:"Chef Josh Dalton's glass-kitchen tasting menu, reinvented every few months — repeatedly ranked Columbus's #1 restaurant since 2012.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2026/08/12/the-best-restaurants-in-columbus-by-columbus-monthly/91196404007/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Veritas_(restaurant)"]]},
+{t:1,a:"DTN",n:"Wolf's Ridge Brewing",ad:"215 N 4th St, Columbus, OH 43215",cz:["US","BREW"],la:39.96736,ln:-82.99745,w:"The rare brewery that's also one of the city's best restaurants — award-winning beers (the coffee-and-vanilla Daybreak cream ale) alongside a serious downtown dining room.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/wolfs-ridge-brewing/10877/"]]},
+{t:1,a:"WEST",n:"Anthony-Thomas Candy Company",ad:"1777 Arlingate Ln, Columbus, OH 43228",cz:["US"],la:39.95087,ln:-83.12628,w:"Columbus's family chocolatier since 1952 and maker of the definitive Ohio buckeye — peanut-butter fudge dipped in chocolate. Free factory tours on the west side.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Anthony_Thomas_Candy_Company"],["SNACKANDBAKERY","https://www.snackandbakery.com/articles/106374-anthony-thomas-candy-co-marks-70-years"]]},
+{t:1,a:"GV",n:"Lindey's",ad:"169 E Beck St, Columbus, OH 43206",cz:["US"],la:39.95058,ln:-82.99374,w:"German Village's see-and-be-seen bistro since 1981 — steaks, seafood and one of the most beloved leafy patios in America.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/lindeys-best-restaurants-in-columbus-2025/85197920007/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/lindeys/5539/"]]},
+{t:1,a:"SN",n:"Seventh Son Brewing",ad:"1101 N 4th St, Columbus, OH 43201",cz:["BREW"],la:39.98537,ln:-82.99968,w:"One of Columbus's OG craft breweries (2013), a local institution in Italian Village with street-level and second-floor patios in a former auto garage.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/features/2026/07/20/the-top-beer-bars-and-breweries-in-columbus/90934685007/"],["SHORTNORTH","https://shortnorth.org/businesses/seventh-son-brewing/"]]},
+{t:1,a:"GV",n:"Agni",ad:"716 S High St, Columbus, OH 43206",cz:["US"],la:39.94750,ln:-82.99750,w:"Chef Avishar Barua — a James Beard 'Best Chef: Great Lakes' semifinalist — cooks inventive, Bangladeshi-inflected New American on the German Village edge; a recent Columbus Monthly #1.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2025/07/18/agni-best-restaurants-in-columbus-2025-chef-avishar-barua/85197782007/"],["NBC4","https://www.nbc4i.com/news/local-news/central-ohio-news/columbus-chef-bakery-bar-among-james-beard-awards-semifinalists/"]]},
+{t:2,a:"SN",n:"Fox in the Snow Cafe",ad:"1031 N 4th St, Columbus, OH 43201",cz:["ICE","COF"],la:39.98413,ln:-82.99943,w:"Italian Village's scratch bakery and hand-poured-coffee darling since 2014; the gooey cinnamon roll and egg sandwich draw morning lines.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/restaurant-review-fox-in-the-snow-cafe-ma1/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/fox-in-the-snow-cafe/413414/"],["BWNICK","https://breakfastwithnick.com/2022/10/02/best-coffee-fox-in-the-snow-italian-village/"]]},
+{t:2,a:"EAST",n:"Huong Vietnamese Restaurant",ad:"1270 Morse Rd, Columbus, OH 43229",cz:["ASIAN"],la:40.06175,ln:-82.98502,w:"Long-running Morse Rd Vietnamese room (murals, plastic fruit trees) singled out by Columbus Underground for a super-crunchy grilled-chicken banh mi and picked as a reviewers' favorite on alt.eats.columbus (Columbus Food Adventures). Google ~4.4 with high volume.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/restaurant-review-huong-vietnamese-restaurant-morse-ma1/"],["CFA","https://alteatscolumbus.com/2010/03/12/huong/"]]},
+{t:1,a:"OSU",n:"Meshikou",ad:"1506 Bethel Rd, Columbus, OH 43220",cz:["ASIAN"],la:40.06515,ln:-83.05906,w:"Columbus' pioneering ramen shop (Bethel Centre), routinely called the best ramen in the city — and named best in Ohio by a national food guide. Columbus Monthly ran a First Look, and it's covered on alt.eats.columbus and by creator Breakfast With Nick. Yelp 587 reviews / Google high-rated.",s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2014/10/30/first-look-ramen-at-meshikou/22779587007/"],["CFA","https://alteatscolumbus.com/2014/10/10/meshikou/"],["BWNICK","https://breakfastwithnick.com/2014/11/18/breakfast-meshikou/"]]},
+{t:2,a:"OSU",n:"NE Chinese Restaurant",ad:"2620 N High St, Columbus, OH 43202",cz:["ASIAN"],la:40.01576,ln:-83.01148,w:"University District specialist in Dongbei (Northeastern/Manchurian) Chinese cooking — a rare regional cuisine for the city, reviewed by Columbus Underground and Columbus Monthly (\"Short Order\") and written up by creator Breakfast With Nick. Google high-rated with real volume.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/review-ne-chinese-restaurant-ma1/"],["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2018/01/08/short-order-ne-chinese-restaurant/16357209007/"],["BWNICK","https://breakfastwithnick.com/2018/06/05/breakfast-ne-chinese-restaurant/"]]},
+{t:1,a:"DTN",n:"Lan Viet Market",ad:"59 Spruce St, Columbus, OH 43215",cz:["ASIAN"],la:39.97193,ln:-83.00431,w:"North Market's Northern Vietnamese stall from Khanh Le and his mother Lan Pham (a North Market staple since 2010; earlier known as Lac Viet) — a from-scratch pho broth simmered 24 hours and crisp, balanced banh mi.",g:["MKT"],s:[["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/2011/03/18/restaurant-review-lac-viet/23000633007/"],["OFFICIAL","https://northmarket.org/merchant/lan-viet-market/"]]},
+{t:1,a:"SN",n:"One Line Coffee — Short North",ad:"745 N High St, Columbus, OH 43215",cz:["COF"],la:39.97766,ln:-83.00383,w:"Specialty roaster's showcase Short North bar with a pour-over station and small sample-roaster; works directly with small coffee farmers and cooperatives, and among the strongest in-city options for locally roasted single-origin beans.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/one-line-coffee-opens-in-the-short-north/"],["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/one-line-coffee-short-north/410691/"]]},
+{t:1,a:"WEST",n:"Stauf's Coffee Roasters — Grandview",ad:"1277 Grandview Ave, Columbus, OH 43212",cz:["COF"],la:39.98320,ln:-83.04500,w:"Columbus's original micro-roaster and coffee house (founded 1988 in Grandview) — 60-plus small-batch coffees hand-selected from 20-plus countries, plus pastries and locally made desserts.",s:[["EXPERIENCECBUS","https://www.experiencecolumbus.com/listing/staufs-coffee-roasters-grandview/6593/"],["CITYSCENE","https://www.cityscenecolumbus.com/locations/stauf-s-coffee-roasters/"]]},
+{t:2,a:"BURB",n:"City Barbeque — Upper Arlington",ad:"2111 W Henderson Rd, Columbus, OH 43220",cz:["SOUL"],la:40.05681,ln:-83.07615,w:"The original City Barbeque, founded in Columbus in 1999 in a former doughnut shop by a team that won the American Royal Invitational for best brisket — the recipe that grew a Columbus-born pit-BBQ chain.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/columbus-born-bbq-joint-turning-25-ak1/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/City_Barbeque"]]},
+{t:1,a:"MADISON",n:"The Red Brick Tavern",ad:"1700 Cumberland St, London, OH 43140",cz:["US"],la:39.93780,ln:-83.40692,w:"A genuine National Road landmark still serving dinner — built 1836–37 in Lafayette and reputed to be Ohio's second-oldest stagecoach inn, host to six U.S. presidents (subject of an Ohio Historical Marker and National Road travel histories). Known today for prime rib and home-cooked specials. Open Tue–Sat (active listings, Aug 2026). Merit is the landmark itself; food is honest tavern fare.",s:[["HMDB","https://www.hmdb.org/m.asp?m=96415"],["TOURINGOHIO","https://touring-ohio.com/history/national-road-inns.html"],["NATLROADBLOG","https://blog.jimgrey.net/2023/03/03/the-national-road-in-ohio-the-red-brick-tavern/"]]},
+{t:1,a:"OSU",n:"Preston's: A Burger Joint",ad:"2973 N High St, Columbus, OH 43202",cz:["BURG","VIRAL"],la:40.02261,ln:-83.01413,w:"Chefs Matt Heaggans & Catie Randazzo's cult smash burger — Ohio beef, American cheese, pickles and special sauce. A James Beard Blended Burger Project entrant that graduated from pop-up to a beloved Clintonville brick-and-mortar next to Combustion Brewery.",s:[["COLUMBUSUNDERGROUND","https://columbusunderground.com/first-look-prestons-is-back-now-in-clintonville-sp1/"],["COLUMBUSMONTHLY","https://www.columbusmonthly.com/story/lifestyle/food/2022/12/19/prestons-a-burger-joint-is-moving-to-clintonville/69740782007/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('col_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('col_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('col_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('col_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Columbus OH')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {DTN:'#E8973A',SN:'#C0504D',GV:'#8064A2',OSU:'#4F81BD',EAST:'#9BBB59',WEST:'#4BACC6',BURB:'#7E8FC4',MADISON:'#A6588C'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.9719,-83.0043],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle municipality labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Downtown", 39.9642, -83.0002], ["Short North", 39.9796, -83.0041], ["German Village", 39.9458, -82.9937], ["University District", 40.0113, -83.0171], ["Bexley", 39.9722, -82.9479], ["Franklinton", 39.9468, -83.0845], ["Suburbs (Dublin", 40.052, -82.9902], ["Madison County (London", 39.9579, -83.3518]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('columbus-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('columbus-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('columbus-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Columbus’s signature strength is range: <b>Jeni’s Splendid</b> ice cream (born here), the <b>North Market</b>, <b>Columbus-style</b> square-cut <b>pizza</b>, <b>Schmidt’s</b> German sausage &amp; cream puffs, and one of the largest <b>Somali</b> tables in the US, sourced to the Columbus Dispatch, Columbus Monthly and Columbus Underground. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 86 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

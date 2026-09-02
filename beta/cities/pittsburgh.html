@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Pittsburgh, PA field guide — 111 sights and 101 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<title>Pittsburgh Field Guide — The Steel City, Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sh:#8CA84E; --c-ev:#B57FC4; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Pittsburgh Field Guide — The Steel City, Sourced — Cleo">
+<meta property="og:description" content="Pittsburgh, PA field guide — 111 sights and 101 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/cities/pittsburgh.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pittsburgh Field Guide — The Steel City, Sourced — Cleo">
+<meta name="twitter:description" content="Pittsburgh, PA field guide — 111 sights and 101 places to eat, drink, shop &amp; pick, each traceable to its source, on one interactive map with filters, a trip builder and exports.">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#101318">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · the Steel City, sourced</p>
+  <h1>Pittsburgh<span class="thin">rivers, inclines &amp; the odd corners</span></h1>
+  <p class="standfirst">111 sights and 101 places to eat, drink, shop &amp; pick across Greater Pittsburgh, each traceable to the source that named it. <strong>Switch modes below</strong> &mdash; the same map, filters, trip builder and exports as the Cleveland guide. Tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-09 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:var(--c-dt)"></i>Downtown &amp; North Side</span>
+  <span><i style="background:var(--c-uc)"></i>Oakland &amp; East End</span>
+  <span><i style="background:var(--c-ws)"></i>South Side &amp; Mt Washington</span>
+  <span><i style="background:var(--c-sh)"></i>South Hills &amp; Southwest</span>
+  <span><i style="background:var(--c-ev)"></i>East Suburbs &amp; Valleys</span>
+  <span><i style="background:var(--c-sub)"></i>Day trips</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink, markets &amp; farms</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="incline, dinosaurs, relics, pierogi…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-09</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md). Sourced across aggregator and guidebook rankings (Tripadvisor, U.S. News, PlanetWare, Lonely Planet, Britannica), the official institutions (Carnegie Museums, the Zoo, the National Aviary), university visitor guides (Pitt, CMU, Duquesne), regional heritage bodies (Rivers of Steel) and local news / CVBs recorded in data/local-media.json. Coordinates are approximate pending a places-API pass; confirm hours before a drive.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  AO:{k:"ATLAS OBSCURA",t:"70 Cool and Unusual Things to Do in Pittsburgh",u:"https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania",l:"Atlas Obscura"},
+  TA:{k:"TRIPADVISOR",t:"THE 15 BEST Things to Do in Pittsburgh",u:"https://www.tripadvisor.com/Attractions-g53449-Activities-Pittsburgh_Pennsylvania.html",l:"Tripadvisor"},
+  USN:{k:"U.S. NEWS",t:"U.S. News Travel — 15 Best Things to Do in Pittsburgh",u:"https://travel.usnews.com/Pittsburgh_PA/Things_To_Do/",l:"U.S. News Travel"},
+  PW:{k:"PLANETWARE",t:"Top-Rated Tourist Attractions in Pittsburgh",u:"https://www.planetware.com/tourist-attractions-/pittsburgh-us-pa-pt.htm",l:"PlanetWare"},
+  LP:{k:"LONELY PLANET",t:"11 of the best things to do in Pittsburgh",u:"https://www.lonelyplanet.com/articles/top-things-to-do-in-pittsburgh",l:"Lonely Planet"},
+  FOD:{k:"FODOR'S",t:"Fodor's Pittsburgh Travel Guide",u:"https://www.fodors.com/world/north-america/usa/pennsylvania/pittsburgh",l:"Fodor's"},
+  FRO:{k:"FROMMER'S",t:"Frommer's — Things to See in Pittsburgh",u:"https://www.frommers.com/destinations/pittsburgh/attractions",l:"Frommer's"},
+  NATGEO:{k:"NAT GEO",t:"National Geographic — A guide to Pittsburgh",u:"https://www.nationalgeographic.com/travel/article/guide-pittsburgh-americas-characterful-cultural-powerhouse",l:"National Geographic"},
+  BRIT:{k:"BRITANNICA",t:"Encyclopaedia Britannica — Pittsburgh, Cultural life",u:"https://www.britannica.com/place/Pittsburgh",l:"Britannica"},
+  WIKI:{k:"WIKIPEDIA",t:"List of museums in Pittsburgh",u:"https://en.wikipedia.org/wiki/List_of_museums_in_Pittsburgh",l:"Wikipedia"},
+  DTB:{k:"DISCOVER BURGH",t:"Discover the Burgh — A Local's Guide to the Best Things to Do",u:"https://www.discovertheburgh.com/things-to-do-in-pittsburgh/",l:"Discover the Burgh"},
+  CT:{k:"CULTURE TRIP",t:"The Best Things To Do In Pittsburgh",u:"https://theculturetrip.com/north-america/usa/pittsburgh",l:"Culture Trip"},
+  UPA:{k:"UNCOVERING PA",t:"Uncovering PA — Pittsburgh guides",u:"https://uncoveringpa.com",l:"Uncovering PA"},
+  NP:{k:"NEXTPITTSBURGH",t:"NextPittsburgh — neighborhoods & things to do",u:"https://nextpittsburgh.com",l:"NextPittsburgh"},
+  PGHMAG:{k:"PITTSBURGH MAG",t:"Pittsburgh Magazine — Best of the 'Burgh",u:"https://www.pittsburghmagazine.com/best-of-pittsburgh/",l:"Pittsburgh Magazine"},
+  VP:{k:"VISIT PITTSBURGH",t:"Visit Pittsburgh — the official CVB",u:"https://www.visitpittsburgh.com/things-to-do/",l:"Visit Pittsburgh"},
+  CMP:{k:"CARNEGIE MUSEUMS",t:"Carnegie Museums of Pittsburgh (official)",u:"https://carnegiemuseums.org/",l:"carnegiemuseums.org"},
+  CMOA:{k:"CMOA (OFFICIAL)",t:"Carnegie Museum of Art — official site",u:"https://cmoa.org/",l:"cmoa.org"},
+  CMNH:{k:"CMNH (OFFICIAL)",t:"Carnegie Museum of Natural History — official site",u:"https://carnegiemnh.org/",l:"carnegiemnh.org"},
+  ZOO:{k:"ZOO (OFFICIAL)",t:"Pittsburgh Zoo & Aquarium — official site",u:"https://www.pittsburghzoo.org/",l:"pittsburghzoo.org"},
+  AVI:{k:"AVIARY (OFFICIAL)",t:"National Aviary — official site",u:"https://www.aviary.org/",l:"aviary.org"},
+  PITT:{k:"UNIV OF PITTSBURGH",t:"University of Pittsburgh — Guide to Oakland & Pittsburgh",u:"https://www.provost.pitt.edu/acc-aln-conference/guide",l:"pitt.edu"},
+  CMU:{k:"CARNEGIE MELLON",t:"Carnegie Mellon — Discover Pittsburgh",u:"https://www.cmu.edu/admission/campus-experience/discover-pittsburgh",l:"cmu.edu"},
+  DUQ:{k:"DUQUESNE UNIV",t:"Duquesne University — Our Pittsburgh Community",u:"https://www.duq.edu/life-at-duquesne/our-campus/our-pittsburgh-community.php",l:"duq.edu"},
+  CHAT:{k:"CHATHAM UNIV",t:"Chatham University — Free Activities in Pittsburgh",u:"https://www.pulse.chatham.edu",l:"chatham.edu"},
+  ROS:{k:"RIVERS OF STEEL",t:"Rivers of Steel — Carrie Furnaces & Mon Valley heritage",u:"https://riversofsteel.com/",l:"Rivers of Steel"},
+  BOH:{k:"BATTLE OF HOMESTEAD",t:"Battle of Homestead Foundation — the Pump House",u:"https://battleofhomestead.org/",l:"Battle of Homestead Fdn"},
+  ACP:{k:"ALLEGHENY PARKS",t:"Allegheny County Parks",u:"https://www.alleghenycounty.us/Parks-and-Events/Parks/",l:"Allegheny County Parks"},
+  AUD:{k:"AUDUBON W. PA",t:"Audubon Society of Western PA — Beechwood Farms",u:"https://www.aswp.org/",l:"Audubon Society of W PA"},
+  TRIB:{k:"TRIBLIVE",t:"TribLive (Pittsburgh Tribune-Review)",u:"https://triblive.com/",l:"TribLive"},
+  VWC:{k:"VISIT WASH. CO",t:"Visit Washington County PA",u:"https://www.visitwashingtoncountypa.com/",l:"Visit Washington County"},
+  OBSREP:{k:"OBSERVER-REPORTER",t:"Observer-Reporter (Washington, PA)",u:"https://www.observer-reporter.com/",l:"Observer-Reporter"},
+  ALM:{k:"THE ALMANAC",t:"The Almanac (South Hills)",u:"https://www.thealmanac.net/",l:"The Almanac"},
+  PABL:{k:"PA BUCKET LIST",t:"PA Bucket List — Washington County attractions",u:"https://pabucketlist.com/",l:"PA Bucket List"},
+  PHLF:{k:"PGH LANDMARKS",t:"Pittsburgh History & Landmarks Foundation",u:"https://phlf.org/",l:"PHLF"},
+  ADD:{k:"ADDED",t:"Well-known landmarks the oddity lists skip because they are not hidden",u:"",l:"My addition — verify hours before visiting"}
+};
+
+const AREAS = [
+  {id:"DT",  n:"Downtown, North Shore & North Side", c:"var(--c-dt)"},
+  {id:"OAK", n:"Oakland & the East End",             c:"var(--c-uc)"},
+  {id:"SS",  n:"South Side, Mount Washington & the West End", c:"var(--c-ws)"},
+  {id:"SH",  n:"South Hills & the Southwest",         c:"var(--c-sh)"},
+  {id:"EV",  n:"Eastern Suburbs & River Valleys",     c:"var(--c-ev)"},
+  {id:"DY",  n:"Day Trips & the Laurel Highlands",    c:"var(--c-sub)"}
+];
+
+const P = [
+/* == DOWNTOWN, NORTH SHORE & NORTH SIDE == */
+{t:1,a:"DT",n:"Point State Park & the Fort Pitt Museum",ad:"601 Commonwealth Pl",la:40.44064,ln:-80.00957,
+ w:"The tip of the Golden Triangle where the Allegheny and Monongahela meet to form the Ohio, marked by a giant fountain, with the Fort Pitt Museum telling the French-and-Indian-War story on the very spot.",
+ k:"Park free and always open; fountain runs in season. Museum (Heinz History Center-run) daily 10–5.",s:[["VP",""],["LP",""],["FRO",""],["CHAT",""]]},
+{t:2,a:"DT",n:"Fort Pitt Block House",ad:"Point State Park, Downtown",la:40.44120,ln:-80.00980,
+ w:"A 1764 brick redoubt of Fort Pitt — the oldest structure in Western Pennsylvania and the only surviving piece of the fort — tucked inside Point State Park.",
+ k:"Free and open to the public since 1895; run by the Fort Pitt Society, DAR. Approximate pin.",s:[["WIKI",""],["TA",""]]},
+{t:2,a:"DT",n:"Great Allegheny Passage — Pittsburgh trailhead",ad:"Point State Park (waters-edge medallion)",la:40.44170,ln:-80.01190,
+ w:"The northern terminus of the 150-mile GAP rail-trail to Cumberland, MD, where it links the C&O Canal towpath all the way to Washington, DC — the mile-zero medallion sits at the very Point.",
+ k:"Free, always open; bike and kayak rentals nearby. The ride is the draw. Approximate pin.",s:[["VP",""],["USN",""]]},
+{t:3,a:"DT",n:"Three Rivers Heritage Trail",ad:"Both banks of the three rivers",la:40.44215,ln:-80.01190,
+ w:"A ~35-mile riverfront multi-use trail lacing Downtown to the neighbourhoods on both banks, used by more than half a million people a year and a National Recreation Trail since 2010.",
+ k:"Free, always open. Best stretches: the North Shore and the Eliza Furnace 'Jail Trail'. Approximate pin.",s:[["USN",""],["WIKI",""]]},
+{t:1,a:"DT",n:"The Andy Warhol Museum",ad:"117 Sandusky St, North Shore",la:40.44840,ln:-80.00240,
+ w:"Seven floors devoted to Pittsburgh-born Andy Warhol — the largest single-artist museum in North America, from the soup cans to the floating Silver Clouds room.",
+ k:"Admission charged; some seasons half-price Friday evenings. Closed Tuesdays.",s:[["CMP",""],["TA",""],["CMU",""],["VP",""]]},
+{t:1,a:"DT",n:"Mattress Factory",ad:"500 Sampsonia Way, North Side",la:40.45715,ln:-80.01219,
+ w:"A museum of room-sized, permanent installation art you walk through — Yayoi Kusama's mirrored infinity room among them — in a former mattress warehouse on the North Side.",
+ k:"Admission charged; closed Mon–Tue. Pair with a Mexican War Streets walk.",s:[["AO",""],["TA",""],["VP",""]]},
+{t:1,a:"DT",n:"Senator John Heinz History Center",ad:"1212 Smallman St, Strip District",la:40.44684,ln:-79.99207,
+ w:"Pennsylvania's largest history museum and a Smithsonian affiliate — six floors on Pittsburgh's steel, glass and sports story, the Heinz 57 kitchen, a real Mister Rogers set, and the Western PA Sports Museum.",
+ k:"Admission charged. Allow 2–3 hours. In the Strip; combine with a food crawl.",s:[["VP",""],["PITT",""],["TA",""]]},
+{t:2,a:"DT",n:"National Aviary",ad:"700 Arch St, North Side",la:40.45330,ln:-80.01000,
+ w:"The country's only congressionally-designated National Aviary — walk-through free-flight rooms with 500+ birds from penguins to a two-toed sloth — called 'hugely underrated' by National Geographic.",
+ k:"Admission charged. Great with kids. Closed some holidays.",s:[["AVI",""],["NATGEO",""],["PW",""],["USN",""]]},
+{t:2,a:"DT",n:"Kamin Science Center (formerly Carnegie Science Center)",ad:"1 Allegheny Ave, North Shore",la:40.44568,ln:-80.01819,
+ w:"Four floors of hands-on science on the North Shore, plus a planetarium, the WWII submarine USS Requin moored outside, and the beloved Miniature Railroad & Village.",
+ k:"Admission charged; the sub is a separate ticket. Busy on weekends.",s:[["CMP",""],["VP",""],["TA",""]]},
+{t:2,a:"DT",n:"Children's Museum of Pittsburgh",ad:"10 Children's Way, North Side",la:40.45290,ln:-80.00640,
+ w:"A nationally-ranked hands-on museum for younger kids — a giant Waterplay hall, a Nursery, MAKESHOP tinkering, and Mister Rogers artefacts — beside the old Buhl planetarium.",
+ k:"Admission charged; best for under-10s. Pair with the Warhol next door.",s:[["VP",""],["NP",""],["TA",""]]},
+{t:2,a:"DT",n:"Randyland",ad:"1501 Arch St, Mexican War Streets",la:40.45793,ln:-80.00974,
+ w:"A free, riotously colourful found-art courtyard and house by folk artist Randy Gilson — one of the most joyful corners of the city, and an Atlas Obscura favourite.",
+ k:"Free, outdoors, daytime. Approximate pin in the Mexican War Streets.",s:[["AO",""],["CT",""],["NP",""]]},
+{t:2,a:"DT",n:"Bicycle Heaven",ad:"1800 Preble Ave, Chateau",la:40.45636,ln:-80.03245,
+ w:"The world's largest bicycle museum and shop — some 4,000 bikes floor to ceiling, including the banana-seat Bowden Spacelander and bikes from films. Free, and gloriously overwhelming.",
+ k:"Free. Part shop, part museum. Approximate pin near the Ohio River.",s:[["AO",""],["TA",""],["NP",""]]},
+{t:2,a:"DT",n:"St. Anthony's Chapel",ad:"1704 Harpster St, Troy Hill",la:40.46489,ln:-79.98369,
+ w:"A hilltop Troy Hill chapel holding the largest collection of Catholic relics in North America — some 5,000 of them, plus life-sized Stations of the Cross carved in Bavaria.",
+ k:"Free; limited open hours — check ahead. Quietly astonishing. Approximate pin.",s:[["AO",""],["DTB",""]]},
+{t:2,a:"DT",n:"August Wilson African American Cultural Center",ad:"980 Liberty Ave, Cultural District",la:40.44330,ln:-79.99570,
+ w:"The city's hub for Black arts, culture and history in the Cultural District — galleries, a 500-seat theatre and 200+ performances a year — named for the Pittsburgh-born playwright.",
+ k:"Galleries free; performances ticketed. Approximate pin.",s:[["VP",""],["TA",""],["CMU",""]]},
+{t:2,a:"DT",n:"Heinz Hall",ad:"600 Penn Ave, Cultural District",la:40.44267,ln:-80.00145,
+ w:"A lavish 1927 former movie palace, restored in 1971 as the 2,676-seat home of the Pittsburgh Symphony Orchestra — the anchor of the Cultural District.",
+ k:"Lobby and shows by ticket; catch a symphony or a tour. Approximate pin.",s:[["BRIT",""],["VP",""]]},
+{t:2,a:"DT",n:"PNC Park",ad:"115 Federal St, North Shore",la:40.44694,ln:-80.00583,
+ w:"Widely called the most beautiful ballpark in America — an intimate riverfront park where the Pirates play against the full Downtown skyline framed beyond the outfield.",
+ k:"Best on a game night; the riverwalk and Clemente Bridge views are free any time.",s:[["VP",""],["TA",""],["ADD",""]]},
+{t:2,a:"DT",n:"Allegheny Observatory",ad:"159 Riverview Ave, Perry North",la:40.48253,ln:-80.02083,
+ w:"A historic University of Pittsburgh research observatory in Riverview Park — one of the world's major astronomical observatories — offering free public tours (reservations required) April through October.",
+ k:"Free; reserve ahead. ~4 miles north of Downtown. Approximate pin.",s:[["PITT",""],["AO",""]]},
+{t:2,a:"DT",n:"Maxo Vanka Murals, St. Nicholas Croatian Catholic Church",ad:"24 Maryland Ave, Millvale",la:40.47704,ln:-79.96969,
+ w:"Twenty-five socially-charged 1937 and 1941 murals by Croatian immigrant Maxo Vanka on immigration, industry and social justice, covering the walls of a Millvale church.",
+ k:"Docent-led tours by the Society to Preserve the Millvale Murals; reserve. Approximate pin.",s:[["PITT",""],["NP",""]]},
+{t:3,a:"DT",n:"Roberto Clemente Bridge & the Three Sisters",ad:"6th/7th/9th St bridges",la:40.44560,ln:-80.00330,
+ w:"Three near-identical yellow self-anchored suspension bridges — the only such trio anywhere — the Clemente closed to cars on game days for a pedestrian stream to PNC Park.",
+ k:"Free; walk the Clemente Bridge for the classic skyline shot. Approximate pin.",s:[["VP",""],["ADD",""]]},
+{t:3,a:"DT",n:"Fred Rogers Memorial statue",ad:"North Shore Riverfront Park",la:40.44616,ln:-80.01260,
+ w:"A quiet, much-loved bronze of Pittsburgh's own Mister Rogers tying his shoe, looking across the river to the city where he made the neighbourhood.",
+ k:"Free, outdoors, always there. A two-minute stop on a North Shore walk. Approximate pin.",s:[["ADD",""]]},
+{t:3,a:"DT",n:"Acrisure Stadium",ad:"100 Art Rooney Ave, North Shore",la:40.44673,ln:-80.01582,
+ w:"The 2001 riverfront stadium (formerly Heinz Field) home to the NFL Steelers and Pitt Panthers, with skyline and river views and behind-the-scenes tours.",
+ k:"Best on a game day; tours otherwise. Approximate pin.",s:[["USN",""],["FOD",""]]},
+{t:3,a:"DT",n:"Market Square & the Cultural District",ad:"Market Square, Downtown",la:40.44070,ln:-80.00250,
+ w:"The pedestrian heart of Downtown — cafés and a farmers' market by day — a block from the Cultural District's theatres and public art along Penn and Liberty.",
+ k:"Free to wander; liveliest at lunch and on event nights.",s:[["VP",""],["BRIT",""]]},
+{t:3,a:"DT",n:"PPG Place Wintergarden",ad:"Third Ave & Market St, Downtown",la:40.43980,ln:-80.00320,
+ w:"Philip Johnson's glass 'castle' of a skyscraper, whose glass-roofed Wintergarden atrium and plaza host a seasonal ice rink and a giant winter tree.",
+ k:"Plaza free; rink is seasonal and ticketed.",s:[["TA",""],["ADD",""]]},
+{t:3,a:"DT",n:"City of Asylum / Alphabet City",ad:"40 W North Ave, North Side",la:40.45562,ln:-80.00752,
+ w:"A sanctuary for exiled writers running free literary events and jazz, anchored by the Alphabet City bookstore-and-restaurant and a row of art-covered 'house publications'.",
+ k:"Free events; check the calendar. Bookstore has café hours.",s:[["NP",""],["CT",""]]},
+{t:3,a:"DT",n:"Photo Antiquities Museum of Photographic History",ad:"531 E Ohio St, Deutschtown",la:40.45348,ln:-79.99953,
+ w:"One of few U.S. museums devoted to 19th-century photography — daguerreotypes, hundreds of vintage cameras, Civil War images and rare early photographs of Pittsburgh.",
+ k:"Small; largely by appointment — call ahead. Approximate pin.",s:[["DTB",""],["WIKI",""]]},
+{t:3,a:"DT",n:"PPG Paints Arena",ad:"1001 Fifth Ave, Uptown",la:40.43945,ln:-79.98989,
+ w:"Pittsburgh's 18,000-seat arena, home of the NHL Penguins and the city's biggest concert stage, on the edge of the Hill District.",
+ k:"Visit on an event night. Approximate pin.",s:[["TA",""]]},
+{t:3,a:"DT",n:"Kayak Pittsburgh",ad:"River Front Plaza, North Shore",la:40.44605,ln:-80.00330,
+ w:"Seasonal kayak, canoe and hydrobike rentals launching straight onto the Allegheny for a paddle under the bridges with the skyline overhead.",
+ k:"~$45 for two hours incl. life jacket; May–Oct, weather permitting. Approximate pin.",warn:1,s:[["VP",""]]},
+{t:3,a:"DT",n:"Fineview Overlook",ad:"308 Catoma St, Fineview",la:40.46050,ln:-80.00420,
+ w:"A North Side hilltop overlook — a grand, crowd-free alternative to Mount Washington — reached by the Fineview 'Rising Main' step-streets.",
+ k:"Free, outdoors. Steep steps; a local hidden gem. Approximate pin.",s:[["NP",""]]},
+/* == OAKLAND & THE EAST END == */
+{t:1,a:"OAK",n:"Cathedral of Learning & the Nationality Rooms",ad:"4200 Fifth Ave, Oakland",la:40.44417,ln:-79.95306,
+ w:"Pitt's 42-storey Gothic tower — the tallest university building in the Western Hemisphere — whose lower floors hold 31 Nationality Rooms, each a working classroom built in the style of a different culture.",
+ k:"Commons Room free; the rooms have tour hours / small fees. Go up for the view.",s:[["PITT",""],["FOD",""],["VP",""]]},
+{t:1,a:"OAK",n:"Carnegie Museum of Natural History",ad:"4400 Forbes Ave, Oakland",la:40.44361,ln:-79.95000,
+ w:"One of the great American natural-history museums — 'Dippy' the Diplodocus out front, the T. rex holotype and a world-class Dinosaurs in Their Time hall, and 1,300+ gems and minerals below.",
+ k:"One ticket covers Natural History and the Museum of Art. Closed some Tuesdays.",s:[["CMNH",""],["PW",""],["TA",""],["BRIT",""]]},
+{t:1,a:"OAK",n:"Carnegie Museum of Art",ad:"4400 Forbes Ave, Oakland",la:40.44369,ln:-79.94898,
+ w:"Andrew Carnegie's 'museum of modern art' from 1895, host of the Carnegie International, strong on Impressionism and holding the 70,000-image Teenie Harris archive of Black Pittsburgh.",
+ k:"Shares a ticket and building with Natural History. Closed some Tuesdays.",s:[["CMOA",""],["USN",""],["PW",""],["VP",""]]},
+{t:1,a:"OAK",n:"Phipps Conservatory and Botanical Gardens",ad:"1 Schenley Dr, Oakland",la:40.43895,ln:-79.94771,
+ w:"A glittering 1893 glasshouse on the edge of Schenley Park — 23 gardens of orchids, palms and seasonal flower shows, plus a Chihuly-dotted sunken garden.",
+ k:"Admission charged. The seasonal shows (spring, fall, winter light) are the draw.",s:[["VP",""],["BRIT",""],["CMU",""],["PW",""]]},
+{t:1,a:"OAK",n:"Heinz Memorial Chapel",ad:"4200 Fifth Ave, Oakland",la:40.44528,ln:-79.95167,
+ w:"A 1938 French-Gothic chapel on Pitt's campus famous for 23 Charles Connick stained-glass windows — the transept pair, up to 73 feet, are among the tallest in the world.",
+ k:"Free; open most weekdays, sometimes closed Saturdays for weddings. Look up.",s:[["PITT",""],["TA",""],["DTB",""]]},
+{t:2,a:"OAK",n:"The Frick Pittsburgh",ad:"7227 Reynolds St, Point Breeze",la:40.44635,ln:-79.90251,
+ w:"Henry Clay Frick's estate in Point Breeze — the Frick Art Museum, his preserved Gilded-Age mansion 'Clayton', and a car-and-carriage museum — free to walk, on wooded grounds.",
+ k:"Grounds and Art Museum free; Clayton tours ticketed. Closed Mondays.",s:[["VP",""],["PGHMAG",""],["TA",""]]},
+{t:2,a:"OAK",n:"Pittsburgh Zoo & Aquarium",ad:"7370 Baker St, Highland Park",la:40.48389,ln:-79.91806,
+ w:"Pennsylvania's largest zoo and aquarium — 77 acres and roughly 4,000 animals from tigers and gorillas to a PPG Aquarium — climbing the hillside above Highland Park.",
+ k:"Admission charged. Lots of walking and hills; good half-day with kids.",s:[["ZOO",""],["USN",""],["PW",""],["VP",""]]},
+{t:2,a:"OAK",n:"Schenley Park",ad:"Schenley Dr, Oakland",la:40.43440,ln:-79.94280,
+ w:"A 456-acre 1889 Olmsted-era park wrapping Oakland — Panther Hollow's wooded trails and lake, a golf course and ice rink, and the PNC carousel at Schenley Plaza.",
+ k:"Free; hosts the Vintage Grand Prix each July. Phipps sits inside it. Approximate pin.",s:[["DTB",""],["TA",""],["VP",""]]},
+{t:2,a:"OAK",n:"The Clemente Museum",ad:"3339 Penn Ave, Lawrenceville",la:40.46247,ln:-79.96773,
+ w:"The world's largest exhibited collection of Roberto Clemente artefacts, in an 1898 firehouse (Engine House 25) assembled by photographer Duane Rieder.",
+ k:"Guided tours only (~75 min), by reservation; no walk-ins. Approximate pin.",warn:1,s:[["UPA",""],["TA",""],["DTB",""]]},
+{t:2,a:"OAK",n:"Stephen Foster Memorial",ad:"4301 Forbes Ave, Oakland",la:40.44382,ln:-79.95275,
+ w:"A 1937 hall beside the Cathedral of Learning housing a free museum on America's first professional songwriter, plus two university theatres, in a twelve-sided Gothic chamber with Connick glass.",
+ k:"Museum free, Mon–Fri 9–4. Approximate pin.",s:[["PITT",""],["WIKI",""]]},
+{t:2,a:"OAK",n:"Hunt Institute for Botanical Documentation",ad:"5th floor, Hunt Library, 4909 Frew St, CMU",la:40.44111,ln:-79.94374,
+ w:"A Carnegie Mellon research institute on the history of botany that mounts free public exhibitions of botanical art, including its landmark International Exhibition of Botanical Art & Illustration.",
+ k:"Free; galleries open Tue–Fri, Monday by appointment. Approximate pin.",s:[["CMU",""],["AO",""]]},
+{t:2,a:"OAK",n:"Frick Fine Arts Building & the Nicholas Lochoff Cloister",ad:"650 Schenley Dr, Oakland",la:40.44170,ln:-79.95125,
+ w:"Pitt's Italian-Renaissance fine-arts building — a 1965 gift of Helen Clay Frick — with an open cloister of Nicholas Lochoff's full-scale reproductions of Florentine masterpieces and a University Art Gallery.",
+ k:"Free; adjacent to Schenley Plaza. Approximate pin.",s:[["PITT",""],["AO",""]]},
+{t:2,a:"OAK",n:"Schenley Plaza & the Mary Schenley Memorial Fountain",ad:"4100 Forbes Ave, Oakland",la:40.44199,ln:-79.95189,
+ w:"A restored green plaza at the gateway to Schenley Park, centred on Victor Brenner's 1918 bronze fountain 'A Song to Nature' — Brenner also designed the Lincoln cent.",
+ k:"Free; a carousel, food kiosks and lawns ring the Carnegie and Pitt. Approximate pin.",s:[["PITT",""],["NP",""]]},
+{t:2,a:"OAK",n:"Walking to the Sky",ad:"Warner Hall lawn, Carnegie Mellon",la:40.44407,ln:-79.94278,
+ w:"Jonathan Borofsky's 100-foot stainless-steel pole angled at 75 degrees with figures striding skyward — a signature photo spot on the CMU campus by the alumnus sculptor.",
+ k:"Free, outdoors, always there. Approximate pin.",s:[["CMU",""]]},
+{t:2,a:"OAK",n:"Randy Pausch Memorial Bridge",ad:"Gates Center to Purnell, Carnegie Mellon",la:40.44320,ln:-79.94395,
+ w:"A 230-foot pedestrian bridge threaded with 7,000+ programmable LEDs honouring professor Randy Pausch, running student-designed light shows over the ravine between CS and drama.",
+ k:"Free; best after dark for the ~15-minute light loop. Approximate pin.",s:[["CMU",""]]},
+{t:2,a:"OAK",n:"Pittsburgh Glass Center",ad:"5472 Penn Ave, Friendship",la:40.46419,ln:-79.93292,
+ w:"A nonprofit public-access glass-art centre with a contemporary gallery and live hot-shop glassblowing demonstrations on the Penn Avenue arts corridor.",
+ k:"Self-guided free; demos and a monthly First-Friday open house. Approximate pin.",s:[["VP",""],["DTB",""]]},
+{t:2,a:"OAK",n:"Highland Park & the Entry Garden",ad:"Reservoir Dr, Highland Park",la:40.47932,ln:-79.91551,
+ w:"An East End city park built around a walkable reservoir loop, entered through an ornate 1890s Victorian garden of fountains and reflecting pools, next to the zoo.",
+ k:"Free; a flat, popular walking loop. Approximate pin.",s:[["DTB",""],["VP",""]]},
+{t:3,a:"OAK",n:"Center for PostNatural History",ad:"4913 Penn Ave, Garfield",la:40.46536,ln:-79.94467,
+ w:"A tiny, brilliant museum of life altered by humans — transgenic mice, 'atomic' fruit flies, a taxidermied silkworm empire — deadpan and unforgettable.",
+ k:"Free / donation; very limited hours (often weekends) — check first. Approximate pin.",s:[["AO",""],["CT",""]]},
+{t:3,a:"OAK",n:"Carnegie Library of Pittsburgh (Main)",ad:"4400 Forbes Ave, Oakland",la:40.44273,ln:-79.95079,
+ w:"Carnegie's grand 1895 flagship library, free to the public and beautiful inside — the civic heart of his 'free to the people' Oakland cultural complex.",
+ k:"Free. Walk in and look up. Adjacent to the Carnegie Museums.",s:[["PITT",""],["CHAT",""]]},
+{t:3,a:"OAK",n:"Soldiers & Sailors Memorial Hall & Museum",ad:"4141 Fifth Ave, Oakland",la:40.44512,ln:-79.95644,
+ w:"A monumental 1910 Beaux-Arts hall — one of the country's largest memorials to all who served — with a military museum spanning the Civil War to recent conflicts.",
+ k:"Modest admission (free/discounted with student ID); Mon–Sat 10–4.",s:[["PITT",""],["ADD",""]]},
+{t:3,a:"OAK",n:"Allegheny Cemetery",ad:"4734 Butler St, Lawrenceville",la:40.47250,ln:-79.95000,
+ w:"One of America's oldest garden cemeteries (1844) — rolling, wooded and full of Pittsburgh history, from Stephen Foster to steel barons — with a self-guided tour map.",
+ k:"Free, open daylight hours. Grab a notable-graves map at the gate. Approximate pin.",s:[["AO",""],["NP",""]]},
+{t:3,a:"OAK",n:"Frick Park & the Frick Environmental Center",ad:"2005 Beechwood Blvd",la:40.43638,ln:-79.90879,
+ w:"Pittsburgh's largest city park — 600+ wooded acres of ravines and trails in the East End, with a net-zero green environmental center at the Beechwood gate.",
+ k:"Free, always open. Real trails; wear shoes. Approximate pin.",s:[["DTB",""],["ADD",""]]},
+{t:3,a:"OAK",n:"Mellon Park Walled Garden",ad:"6300 Fifth Ave, Point Breeze",la:40.45208,ln:-79.91805,
+ w:"A half-acre 1920s Renaissance-style walled garden — the last remnant of the demolished Mellon estate — with a Shakespeare herb-garden section and summer performances.",
+ k:"Free; a popular photo and wedding spot. Approximate pin.",s:[["VP",""],["TA",""]]},
+{t:3,a:"OAK",n:"The Fence",ad:"The Cut, Carnegie Mellon",la:40.44330,ln:-79.94360,
+ w:"A CMU landmark once ranked the most-painted object in the world — students repaint it nightly (midnight–6am, brushes only) as a rolling campus message board.",
+ k:"Free, outdoors. The original collapsed under its own paint in 1993. Approximate pin.",s:[["CMU",""]]},
+{t:3,a:"OAK",n:"Kraus Campo",ad:"Posner Center rooftop, Carnegie Mellon",la:40.44375,ln:-79.94360,
+ w:"A 2005 rooftop garden and public artwork by Mel Bochner with landscape architect Michael Van Valkenburgh — orange paths, plantings and a numeric-pattern platform, little-known and contemplative.",
+ k:"Free; atop the Posner Center. Approximate pin.",s:[["CMU",""]]},
+/* == SOUTH SIDE, MOUNT WASHINGTON & THE WEST END == */
+{t:1,a:"SS",n:"Duquesne Incline",ad:"1197 W Carson St, Mount Washington",la:40.43917,ln:-80.01806,
+ w:"An 1877 wooden funicular that hauls you up Mount Washington in original cable cars to an observation deck with the classic postcard view of the three rivers and the Point.",
+ k:"Small fare each way. Ride up for the overlook; go at dusk.",s:[["VP",""],["DUQ",""],["TA",""]]},
+{t:1,a:"SS",n:"Grandview Avenue Overlook, Mount Washington",ad:"Grandview Ave, Mount Washington",la:40.43562,ln:-80.01200,
+ w:"The clifftop promenade named one of America's best views — the whole Golden Triangle laid out below, with overlook platforms strung between the two inclines.",
+ k:"Free, always open. Best at sunset and after dark. Approximate pin.",s:[["VP",""],["USN",""]]},
+{t:2,a:"SS",n:"Monongahela Incline",ad:"8 Grandview Ave (lower: W Carson St)",la:40.43194,ln:-80.00556,
+ w:"The oldest continuously operating funicular in the United States (1870), still a working commuter line up Mount Washington from Station Square.",
+ k:"Small fare; part of the transit system. Pair with the Grandview overlook.",s:[["AO",""],["VP",""]]},
+{t:2,a:"SS",n:"West End Overlook Park",ad:"Marlow St, West End",la:40.44602,ln:-80.03405,
+ w:"A four-acre bluff-top park with a head-on skyline view straight up the point where the rivers meet — beloved by photographers and far quieter than Mount Washington.",
+ k:"Free; small parking lot on site. Approximate pin.",s:[["AO",""],["DTB",""],["UPA",""]]},
+{t:2,a:"SS",n:"Gateway Clipper Fleet",ad:"350 W Station Square Dr, South Shore",la:40.43170,ln:-80.00330,
+ w:"America's premier riverboat sightseeing fleet, cruising the three rivers since 1958 with narrated skyline, dining and holiday cruises — plus game-day shuttles.",
+ k:"Ticketed; multiple departures daily, fewer in winter. Approximate pin.",s:[["TA",""],["VP",""]]},
+{t:3,a:"SS",n:"South Side Slopes city steps",ad:"South Side Slopes",la:40.41670,ln:-79.96670,
+ w:"Pittsburgh has more public staircases than any US city, and the South Side Slopes are the densest — hundreds of steps threading between hillside houses, with the annual StepTrek walk.",
+ k:"Free, outdoors, steep. Wear real shoes; grab a Slopes steps map. Approximate pin.",s:[["NP",""],["AO",""]]},
+{t:3,a:"SS",n:"East Carson Street, South Side",ad:"E Carson St, South Side Flats",la:40.42882,ln:-79.98558,
+ w:"One of the country's longest intact Victorian commercial streets — a mile-plus of 19th-century storefronts that turns into Pittsburgh's rowdiest bar strip after dark.",
+ k:"Free to stroll; daytime for the architecture, night for the bars. Approximate pin.",s:[["DTB",""],["ADD",""]]},
+{t:3,a:"SS",n:"Station Square",ad:"125 W Station Square Dr",la:40.43500,ln:-80.00750,
+ w:"A riverfront complex in a former railroad terminal — the Bessemer Court of salvaged steel-mill relics, the Gateway Clipper cruises and a fountain show.",
+ k:"Free to walk; cruises and dining ticketed. Lower station of the Mon Incline.",s:[["VP",""],["ADD",""]]},
+{t:3,a:"SS",n:"Point of View statue",ad:"Grandview Ave at Sweetbriar St, Mount Washington",la:40.43923,ln:-80.02118,
+ w:"A 2006 bronze by James A. West of the 1770 face-to-face meeting of George Washington and Seneca leader Guyasuta, perched on the edge of Mount Washington with the skyline behind.",
+ k:"Free, outdoors, always accessible. Approximate pin.",s:[["AO",""],["VP",""]]},
+{t:3,a:"SS",n:"Emerald View Park",ad:"Grandview Ave area, Mount Washington",la:40.43452,ln:-80.01130,
+ w:"A 257-acre park wrapping Mount Washington with ~10 miles of wooded single-track trails and skyline overlooks — a hiking alternative to the crowded promenade.",
+ k:"Free; the Grandview loop is ~4.9 mi, moderate. Approximate pin.",s:[["VP",""],["TA",""]]},
+{t:3,a:"SS",n:"Beechview–Seldom Seen Greenway",ad:"Saw Mill Run Blvd trailhead, Beechview",la:40.41369,ln:-80.02243,
+ w:"A hidden ~100-acre urban nature preserve on a former farming hamlet, with the 120-year-old Seldom Seen Arch and graffiti-covered railroad tracks.",
+ k:"Free; short easy trail (~0.6 mi). The trailhead pull-off is easy to miss. Approximate pin.",s:[["AO",""],["CT",""],["UPA",""]]},
+/* == SOUTH HILLS & THE SOUTHWEST == */
+{t:1,a:"SH",n:"Pennsylvania Trolley Museum",ad:"1 Electric Way, Washington, PA",la:40.21134,ln:-80.24609,
+ w:"A museum of restored streetcars where admission includes a four-mile scenic ride on a vintage trolley, plus exhibits, a theatre and a store — the South Hills' signature day out.",
+ k:"Ticketed (adults ~$20); hours vary by season, last full ride ~3pm. ~40 min south. Approximate pin.",s:[["VWC",""],["PABL",""],["UPA",""]]},
+{t:1,a:"SH",n:"Andrew Carnegie Free Library & Music Hall",ad:"300 Beechwood Ave, Carnegie",la:40.40687,ln:-80.08586,
+ w:"One of only four libraries Andrew Carnegie personally endowed (1901), combining a working library with a restored concert and music hall on the National Register.",
+ k:"Music hall hosts year-round shows. ~15 min southwest, in Carnegie borough. Approximate pin.",s:[["UPA",""],["TRIB",""]]},
+{t:2,a:"SH",n:"Captain Thomas Espy G.A.R. Post (Civil War Room)",ad:"300 Beechwood Ave, Carnegie",la:40.40732,ln:-80.08586,
+ w:"The best-preserved Grand Army of the Republic post in the country — a virtually untouched 1906 memorial room of ~2,000 Civil War artefacts, sealed for 50 years, inside the Carnegie library.",
+ k:"Free tours Saturdays 11–3, or weekday appointment. Approximate pin.",s:[["UPA",""],["TRIB",""]]},
+{t:2,a:"SH",n:"Uptown Mt. Lebanon business district",ad:"Washington Rd, Mt. Lebanon",la:40.37500,ln:-80.05000,
+ w:"Mt. Lebanon's walkable central district of ~41 independent shops and restaurants along a recently-renovated streetscape, anchored by Clearview Common and reached by the 'T' light rail.",
+ k:"Free; First Fridays, an Uptown farmers market and Artists' Market. Approximate pin.",s:[["ALM",""],["NP",""]]},
+{t:2,a:"SH",n:"Dormont Pool",ad:"1801 Dormont Ave, Dormont",la:40.39716,ln:-80.04516,
+ w:"One of Pennsylvania's largest and oldest municipal swimming pools (~1.85 acres), built up through the 1920s and dedicated in 1929 — a designated historic landmark.",
+ k:"Seasonal (summer); set in 23.5-acre Dormont Park. Approximate pin.",warn:1,s:[["NP",""],["ALM",""]]},
+{t:2,a:"SH",n:"Row House — Hollywood Theater",ad:"1449 Potomac Ave, Dormont",la:40.39611,ln:-80.03538,
+ w:"A restored ~1926 atmospheric movie palace — domed ceiling with embedded star lights — reopened in November 2025 by Row House Cinema as Pittsburgh's largest full-time movie hall.",
+ k:"Screens first-run and repertory film; check showtimes. Approximate pin.",s:[["NP",""],["TRIB",""]]},
+{t:2,a:"SH",n:"LeMoyne House",ad:"49 E Maiden St, Washington, PA",la:40.16889,ln:-80.24333,
+ w:"An 1812 stone house — Pennsylvania's first National Historic Landmark of the Underground Railroad — home of abolitionist Dr. F. Julius LeMoyne and now the Washington County Historical Society.",
+ k:"Tours via the historical society; call ahead. ~40 min south. Approximate pin.",s:[["OBSREP",""],["VWC",""]]},
+{t:2,a:"SH",n:"David Bradford House & Whiskey Rebellion Center",ad:"175 S Main St, Washington, PA",la:40.16806,ln:-80.24500,
+ w:"The restored home of Whiskey Rebellion leader David Bradford, now a museum with an adjoining Whiskey Rebellion Education & Visitor Center in downtown Washington.",
+ k:"Docent tours Wed–Sat, Apr–Nov; free (enter via the visitor center). Approximate pin.",s:[["VWC",""],["OBSREP",""]]},
+{t:2,a:"SH",n:"Woodville Plantation (John & Presley Neville House)",ad:"1375 Washington Pike, Bridgeville",la:40.37950,ln:-80.09610,
+ w:"A National Historic Landmark house that was a focal point of the 1794 Whiskey Rebellion, run as a house museum by the Pittsburgh History & Landmarks Foundation.",
+ k:"House tours Sundays 1–4, late Mar–early Dec; grounds weekdays. Approximate pin.",s:[["PHLF",""],["DTB",""]]},
+{t:2,a:"SH",n:"Mingo Creek County Park & the covered bridges",ad:"Mingo Creek County Park, Finleyville",la:40.19924,ln:-80.03283,
+ w:"A 2,600-acre county park with two historic covered bridges — the picturesque Ebenezer and the 1841 Henry — a short walk apart, plus a creekside trail; Washington County has 23 covered bridges.",
+ k:"Free, dawn to dusk. ~30 min south. Approximate pin.",s:[["DTB",""],["UPA",""]]},
+{t:2,a:"SH",n:"Washington County Agricultural Fair",ad:"2151 N Main St, Washington, PA",la:40.20950,ln:-80.25730,
+ w:"One of Pennsylvania's largest and oldest county fairs — livestock, carnival rides, live entertainment and fair food — on the Washington fairgrounds each August.",
+ k:"Runs annually in mid-August; grounds host events year-round. Approximate pin.",warn:1,s:[["VWC",""],["OBSREP",""]]},
+{t:3,a:"SH",n:"Duncan & Miller Glass Museum",ad:"525 Jefferson Ave, Washington, PA",la:40.17626,ln:-80.25748,
+ w:"A museum of the celebrated Duncan & Miller glassware once made in Washington, PA, run by the National Duncan Glass Society.",
+ k:"Thu–Sun 10–4, Mar–Dec, or by appointment. Approximate pin.",warn:1,s:[["VWC",""],["PABL",""]]},
+{t:3,a:"SH",n:"Perry Como Statue",ad:"68 E Pike St, Canonsburg",la:40.26257,ln:-80.18728,
+ w:"A bronze of crooner Perry Como, born in Canonsburg in 1912, in the walkable downtown — speakers by the borough building play his singing.",
+ k:"Free roadside stop; pair with Sarris Candies nearby. Approximate pin.",s:[["VWC",""],["NP",""]]},
+{t:3,a:"SH",n:"LeMoyne Crematory",ad:"Gallows Hill, North Franklin Twp",la:40.16056,ln:-80.23778,
+ w:"The first crematory built in the United States (1876), where the first U.S. cremation took place that December — restored and on the National Register.",
+ k:"Tours by appointment via the historical society; niche history. Approximate pin.",warn:1,s:[["OBSREP",""],["VWC",""]]},
+{t:3,a:"SH",n:"Washington County Courthouse",ad:"1 S Main St, Washington, PA",la:40.17045,ln:-80.24580,
+ w:"A 1900 Beaux-Arts landmark by Frederick Osterling, topped by a dome and a statue of George Washington, with a grand stair and a 40-foot stained-glass ceiling.",
+ k:"Working courthouse; admire the exterior/lobby during business hours. Approximate pin.",s:[["OBSREP",""],["VWC",""]]},
+{t:3,a:"SH",n:"Carnegie Stage & Main Street",ad:"25 W Main St, Carnegie",la:40.40694,ln:-80.08667,
+ w:"An intimate professional theatre on Carnegie's revitalised, walkable Main Street of shops and antiques, with a monthly Carnegie Crawl.",
+ k:"Performances generally Thu–Sun; check the schedule. Approximate pin.",s:[["NP",""],["TRIB",""]]},
+{t:3,a:"SH",n:"Mingo Creek Park Observatory",ad:"1 Shelter 10 Rd, Finleyville",la:40.21100,ln:-80.02000,
+ w:"The largest amateur observatory in southwestern PA, run by the Amateur Astronomers Association of Pittsburgh, hosting free public 'Star Parties' since 2005.",
+ k:"Free star parties on set Fri/Sat evenings, weather permitting. Approximate pin.",warn:1,s:[["VWC",""],["DTB",""]]},
+{t:3,a:"SH",n:"Little Lake Theatre",ad:"500 Lakeside Dr S, Canonsburg",la:40.26557,ln:-80.13483,
+ w:"A historic theatre-in-the-round founded in 1949 in a former barn on Canonsburg Lake, staging comedies, dramas, classics and children's theatre in an intimate 180-seat setting.",
+ k:"Check the season for the schedule. Approximate pin.",s:[["VWC",""],["NP",""]]},
+{t:3,a:"SH",n:"Cross Creek County Park",ad:"near Avella, PA",la:40.25674,ln:-80.40257,
+ w:"Washington County's largest park (2,000+ acres) centred on Cross Creek Lake for boating and fishing, with hiking trails, a bike park and picnic shelters.",
+ k:"Free, dawn to dusk; PA Fish & Boat license to fish or boat. Approximate pin.",s:[["DTB",""],["VWC",""]]},
+{t:3,a:"SH",n:"Washington & Jefferson College (McMillan Hall)",ad:"60 S Lincoln St, Washington, PA",la:40.17033,ln:-80.24108,
+ w:"A historic walkable campus whose McMillan Hall (1793) is the oldest college building west of the Alleghenies, with the Olin Fine Arts Center for public performances.",
+ k:"Campus open to stroll; Olin hosts a public season. Approximate pin.",s:[["VWC",""]]},
+/* == EASTERN SUBURBS & RIVER VALLEYS == */
+{t:1,a:"EV",n:"Carrie Blast Furnaces National Historic Landmark",ad:"801 Carrie Furnace Blvd, Rankin",la:40.41308,ln:-79.89008,
+ w:"Furnaces #6 and #7 of the former U.S. Steel Homestead Works, towering 92 feet over the Monongahela — rare pre-WWII iron-making relics now toured by Rivers of Steel for industrial history and its famous guerrilla art.",
+ k:"Guided Industrial and Arts & Grounds tours, May–Oct; book ahead. Approximate pin.",warn:1,s:[["ROS",""],["LP",""],["TA",""]]},
+{t:1,a:"EV",n:"Pump House & Battle of Homestead Site",ad:"880 E Waterfront Dr, Munhall",la:40.41318,ln:-79.89697,
+ w:"The 1892 Carnegie Steel pump house where the Battle of Homestead between Pinkertons and steelworkers left ten dead — a National Historic Landmark of American labour history.",
+ k:"Grounds free, trailside on the GAP; interior tours via Rivers of Steel and the Battle of Homestead Foundation. Approximate pin.",s:[["ROS",""],["BOH",""]]},
+{t:2,a:"EV",n:"Braddock Carnegie Library",ad:"419 Library St, Braddock",la:40.40187,ln:-79.86543,
+ w:"The first Carnegie library in the United States, dedicated by Andrew Carnegie in 1889 — a National Historic Landmark saved from demolition and restored, with an original music hall and gym.",
+ k:"Free; recently completed a major restoration. Approximate pin.",s:[["ROS",""],["DTB",""]]},
+{t:2,a:"EV",n:"Carnegie Library of Homestead Music Hall",ad:"510 E 10th Ave, Munhall",la:40.40710,ln:-79.90300,
+ w:"An 1898 Carnegie library and 1,047-seat music hall — the oldest Carnegie library in continuous operation in its original building — and a busy live-concert venue.",
+ k:"Library free to browse; music-hall shows ticketed. Approximate pin.",s:[["ROS",""],["VP",""]]},
+{t:2,a:"EV",n:"Bost Building (Rivers of Steel Visitor Center)",ad:"623 E 8th Ave, Homestead",la:40.40902,ln:-79.90446,
+ w:"The 1892 hotel that served as strike headquarters for the steelworkers' union during the Homestead Lockout — now a National Historic Landmark museum and Rivers of Steel's visitor center.",
+ k:"Galleries on the Homestead Works and the 1892 strike; check hours. Approximate pin.",s:[["ROS",""]]},
+{t:2,a:"EV",n:"The Waterfront & the Homestead stacks",ad:"E Waterfront Dr, Homestead",la:40.41111,ln:-79.91111,
+ w:"An open-air shopping district built on the former U.S. Steel Homestead Works, preserving a row of twelve tall brick stacks, a gantry crane and the pump house as reminders of the mill.",
+ k:"Free public access; a short walk from the Pump House and the GAP. Approximate pin.",s:[["VP",""],["DTB",""]]},
+{t:2,a:"EV",n:"Monroeville Mall & the Living Dead Museum",ad:"200 Mall Circle Dr, Monroeville",la:40.42976,ln:-79.79517,
+ w:"The 1969 mall used as the primary filming location for George Romero's 1978 'Dawn of the Dead', with a Romero bust, 'Romero Court' and the Living Dead Museum shrine to the film.",
+ k:"Museum on the upper level; annual Living Dead Weekend in June. Mall's future uncertain. Approximate pin.",warn:1,s:[["NP",""],["TA",""]]},
+{t:2,a:"EV",n:"Boyce Park",ad:"675 Old Frankstown Rd, Plum",la:40.46556,ln:-79.74528,
+ w:"A 1,096-acre Allegheny County park spanning Monroeville and Plum — the only place in the county with downhill skiing and snowtubing lifts, plus a summer wave pool, nature center and trails.",
+ k:"Free entry; ski area and wave pool are seasonal and paid. Approximate pin.",s:[["ACP",""],["DTB",""]]},
+{t:2,a:"EV",n:"Aspinwall Riverfront Park",ad:"285 River Ave, Aspinwall",la:40.49371,ln:-79.90841,
+ w:"A free riverfront park on a reclaimed industrial site with an easy Highmark Trail loop, a kayak launch and a playground on the Allegheny — expanding along the old Brilliant Line rail corridor.",
+ k:"Free, dawn to dusk. Approximate pin.",s:[["NP",""]]},
+{t:2,a:"EV",n:"Beechwood Farms Nature Reserve",ad:"614 Dorseyville Rd, Fox Chapel",la:40.54311,ln:-79.90519,
+ w:"A 134-acre Audubon nature reserve — one of the region's largest private preserves — with forest and meadow trails, a nature store and native-plant center, and the regional Audubon headquarters.",
+ k:"Trails free, dawn to dusk; no pets. Approximate pin.",s:[["AUD",""],["DTB",""]]},
+{t:2,a:"EV",n:"Braddock's Battlefield History Center",ad:"609 6th St, Braddock",la:40.40558,ln:-79.86450,
+ w:"A museum interpreting the 1755 Battle of the Monongahela — General Braddock's defeat, with a young George Washington present — on the edge of the actual battlefield.",
+ k:"Seasonal weekend hours (roughly May–Aug). Approximate pin.",warn:1,s:[["VP",""]]},
+{t:2,a:"EV",n:"Tour-Ed Mine & Museum",ad:"748 Bull Creek Rd, Tarentum",la:40.61754,ln:-79.76050,
+ w:"A real former coal mine turned museum where visitors ride a mantrip a half-mile underground, plus 13 acres of mining and farm exhibits, a 1785 log home and a caboose.",
+ k:"Memorial Day–Labor Day, daily 10–4, closed Tuesdays; cash only. ~30 min north. Approximate pin.",warn:1,s:[["TRIB",""],["DTB",""]]},
+{t:2,a:"EV",n:"Oakmont Country Club",ad:"1233 Hulton Rd, Oakmont",la:40.52610,ln:-79.82640,
+ w:"The private championship course that has hosted a record ten U.S. Opens (most recently 2025) and 18 USGA championships — one of the most storied courses in the world.",
+ k:"Private; visitable only during USGA championship spectator events. Approximate pin.",warn:1,s:[["NP",""],["VP",""]]},
+{t:2,a:"EV",n:"Duff Park",ad:"Old William Penn Hwy, Murrysville",la:40.42093,ln:-79.67874,
+ w:"A 237-acre park with one of only three remaining old-growth deciduous forests in Pennsylvania — oaks 250–300 years old — a state Wild Plant Sanctuary famous for spring wildflowers.",
+ k:"Free; connects to the Westmoreland Heritage Trail. Approximate pin.",s:[["DTB",""]]},
+{t:3,a:"EV",n:"Sandcastle Waterpark",ad:"1000 Sandcastle Dr, West Homestead",la:40.39800,ln:-79.92800,
+ w:"A 67-acre Monongahela riverside water park (opened 1989) with sixteen slides, a wave pool and a lazy river, on the old Homestead Works land beside the Waterfront.",
+ k:"Seasonal summer; paid admission. Approximate pin.",warn:1,s:[["VP",""]]},
+{t:3,a:"EV",n:"Dead Man's Hollow Conservation Area",ad:"near the GAP Boston trailhead, McKeesport",la:40.31896,ln:-79.85477,
+ w:"A 450-acre Allegheny Land Trust preserve along the Youghiogheny with 8+ miles of trails past a waterfall, an 'enchanted staircase' and overgrown quarry and pipe-factory ruins.",
+ k:"Free; main access ~3/4 mile from the GAP's Boston parking lot. Approximate pin.",s:[["DTB",""]]},
+{t:3,a:"EV",n:"Round Hill Park",ad:"651 Round Hill Rd, Elizabeth",la:40.24184,ln:-79.85238,
+ w:"A 1,101-acre county park built around a working demonstration farm — a dairy barn, animals, herb gardens and retired county horses — plus a spray park and trails.",
+ k:"Free; the exhibit farm is open daily year-round. Approximate pin.",s:[["ACP",""],["DTB",""]]},
+{t:3,a:"EV",n:"Renziehausen Park Rose Garden & Arboretum",ad:"1400 Pinoak Dr, McKeesport",la:40.33939,ln:-79.82619,
+ w:"A 205-acre city park whose rose garden holds ~1,200 bushes in 28 beds — the second-largest rose garden in Pennsylvania after Hershey — with an arboretum and bandshell.",
+ k:"Free, open daily; roses best in summer. Approximate pin.",s:[["DTB",""]]},
+{t:3,a:"EV",n:"McKees Rocks Mound",ad:"near Chartiers Creek & the Ohio, McKees Rocks",la:40.47300,ln:-80.05158,
+ w:"The remnant of what was western Pennsylvania's largest Native American burial mound, built by the Adena people ~200 BC and later used by the Hopewell — largely quarried away, now marked by a state marker.",
+ k:"A historical marker; the mound itself is mostly gone. Approximate pin.",s:[["DTB",""]]},
+{t:3,a:"EV",n:"Monroeville Convention Center",ad:"209 Mall Plaza Blvd, Monroeville",la:40.43267,ln:-79.79116,
+ w:"A 100,000-square-foot event hall east of the city, best known to visitors as the home of Steel City Con and large train, toy and craft shows.",
+ k:"Visit-worthy chiefly during ticketed shows; check the calendar. Approximate pin.",warn:1,s:[["VP",""]]},
+/* == DAY TRIPS & THE LAUREL HIGHLANDS == */
+{t:1,a:"DY",n:"Fallingwater",ad:"1491 Mill Run Rd, Mill Run, PA",la:39.90626,ln:-79.46783,
+ w:"Frank Lloyd Wright's masterpiece cantilevered over a waterfall in the Laurel Highlands — arguably the most famous house in America, and worth every mile of the drive.",
+ k:"Timed tickets, reserve well ahead; closed Wednesdays and winter weekdays. ~90 min southeast.",s:[["AO",""],["VP",""],["LP",""]]},
+{t:1,a:"DY",n:"Kennywood",ad:"4800 Kennywood Blvd, West Mifflin, PA",la:40.38750,ln:-79.86333,
+ w:"A beloved 1898 amusement park and National Historic Landmark — wooden coasters (Jack Rabbit, Thunderbolt, Racer), Noah's Ark and Potato Patch fries — old-school in the best way.",
+ k:"Seasonal (summer + Phantom Fright Nights). ~20 min southeast. Buy ahead.",warn:1,s:[["VP",""],["LP",""]]},
+{t:2,a:"DY",n:"Ohiopyle State Park",ad:"Ohiopyle, PA (Laurel Highlands)",la:39.86813,ln:-79.49430,
+ w:"Whitewater on the Youghiogheny, waterfalls, the Great Allegheny Passage trail and Cucumber Falls — the outdoor heart of the Laurel Highlands, near Fallingwater.",
+ k:"Free park; rafting outfitters and bike rentals in town. ~90 min southeast.",s:[["UPA",""],["VP",""]]},
+{t:2,a:"DY",n:"Kentuck Knob",ad:"723 Kentuck Rd, Chalk Hill, PA",la:39.86940,ln:-79.52000,
+ w:"A second, quieter Frank Lloyd Wright house near Fallingwater — a hexagon-grid Usonian home with a sculpture meadow — often paired with Fallingwater in one Laurel Highlands day.",
+ k:"Timed tours; reserve ahead. ~90 min southeast; combine with Fallingwater.",s:[["UPA",""],["AO",""]]},
+{t:3,a:"DY",n:"Idlewild & SoakZone",ad:"2574 Rt 30, Ligonier, PA",la:40.26111,ln:-79.28139,
+ w:"A gentle 1878 park in Ligonier repeatedly voted among the best kids' amusement parks in the world — home to Mister Rogers' Neighborhood of Make-Believe trolley ride.",
+ k:"Seasonal (summer). ~1 hr east. Great for younger kids. Approximate pin.",warn:1,s:[["UPA",""],["VP",""]]},
+{t:3,a:"DY",n:"Bayernhof Music Museum",ad:"225 St Charles Pl, O'Hara Township",la:40.49839,ln:-79.91589,
+ w:"An eccentric hilltop mansion stuffed with rare automatic music machines — orchestrions, music boxes, a hidden bar and a cave — shown only by guided tour.",
+ k:"Guided tours by reservation only; not for small kids. ~20 min northeast. Approximate pin.",warn:1,s:[["AO",""]]},
+{t:3,a:"DY",n:"Meadowcroft Rockshelter",ad:"401 Meadowcroft Rd, Avella, PA",la:40.28639,ln:-80.49167,
+ w:"A National Historic Landmark rock overhang with evidence of human use going back some 19,000 years — among the oldest sites of habitation in North America — with a re-created 16th-century village.",
+ k:"Seasonal hours; guided. ~50 min west. A genuine deep-history stop. Approximate pin.",warn:1,s:[["UPA",""],["AO",""]]}
+];
+
+const FS = {
+  AO:{k:"ATLAS OBSCURA",t:"Atlas Obscura — Pittsburgh",u:"https://www.atlasobscura.com/things-to-do/pittsburgh-pennsylvania",l:"Atlas Obscura"},
+  VP:{k:"VISIT PITTSBURGH",t:"Visit Pittsburgh — food, drink & markets",u:"https://www.visitpittsburgh.com/restaurants-culinary/",l:"Visit Pittsburgh"},
+  GFP:{k:"GOOD FOOD PGH",t:"Good Food Pittsburgh",u:"https://goodfoodpittsburgh.com",l:"Good Food Pittsburgh"},
+  DTB:{k:"DISCOVER BURGH",t:"Discover the Burgh — Best Restaurants in Pittsburgh",u:"https://www.discovertheburgh.com/best-restaurants-in-pittsburgh/",l:"Discover the Burgh"},
+  PGHMAG:{k:"PITTSBURGH MAG",t:"Pittsburgh Magazine — The Best Restaurants in Pittsburgh",u:"https://www.pittsburghmagazine.com/here-are-the-25-best-restaurants-in-pittsburgh/",l:"Pittsburgh Magazine"},
+  PGPG:{k:"POST-GAZETTE",t:"Pittsburgh Post-Gazette — Best restaurants",u:"https://newsinteractive.post-gazette.com/pittsburgh-best-restaurants-2025/",l:"Post-Gazette"},
+  CP:{k:"CITY PAPER",t:"Pittsburgh City Paper — Best Of Readers' Poll",u:"https://www.pghcitypaper.com/food-drink/",l:"Pittsburgh City Paper"},
+  USN:{k:"U.S. NEWS",t:"U.S. News Travel — Best Things to Do in Pittsburgh",u:"https://travel.usnews.com/Pittsburgh_PA/Things_To_Do/",l:"U.S. News Travel"},
+  TT:{k:"TASTING TABLE",t:"Tasting Table — Pittsburgh features",u:"https://www.tastingtable.com/",l:"Tasting Table"},
+  SAV:{k:"SAVEUR",t:"Saveur — America's Next Great Chinatown Takes Root in Pittsburgh",u:"https://www.saveur.com/how-pittsburgh-is-growing-americas-next-chinatown-chinese-restaurants",l:"Saveur"},
+  INF:{k:"INFATUATION",t:"The Infatuation — Pittsburgh",u:"https://www.theinfatuation.com/pittsburgh",l:"The Infatuation"},
+  FR:{k:"FOOD REPUBLIC",t:"Food Republic — the Original Oyster House",u:"https://www.foodrepublic.com/2080475/original-oyster-house-fried-fish-sandwiches-pittsburgh/",l:"Food Republic"},
+  NP:{k:"NEXTPITTSBURGH",t:"NextPittsburgh — ice cream, markets & dining",u:"https://nextpittsburgh.com",l:"NextPittsburgh"},
+  KB:{k:"KIDSBURGH",t:"Kidsburgh — farm festivals & u-pick",u:"https://www.kidsburgh.org/pick-perfect-pumpkin-10-pittsburgh-farm-festivals/",l:"Kidsburgh"},
+  VWC:{k:"VISIT WASH. CO",t:"Visit Washington County PA",u:"https://www.visitwashingtoncountypa.com/",l:"Visit Washington County"},
+  AXIOS:{k:"AXIOS PGH",t:"Axios Pittsburgh — apple picking",u:"https://www.axios.com/local/pittsburgh",l:"Axios Pittsburgh"},
+  FADD:{k:"ADDED",t:"Local staples added from general knowledge",u:"",l:"My addition — verify before visiting"},
+  TABLE:{k:"TABLE MAG",t:"TABLE Magazine \u2014 Pittsburgh food & drink",u:"https://www.tablemagazine.com",l:"TABLE Magazine"},
+  EATER:{k:"EATER",t:"Eater \u2014 dining coverage",u:"https://www.eater.com",l:"Eater"},
+  VLOCAL:{k:"VERY LOCAL",t:"Very Local Pittsburgh",u:"https://verylocal.com/pittsburgh",l:"Very Local Pittsburgh"},
+  WESA:{k:"WESA",t:"90.5 WESA \u2014 Pittsburgh NPR",u:"https://www.wesa.fm",l:"WESA \u00b7 NPR Pittsburgh"},
+  HOPC:{k:"HOP CULTURE",t:"Hop Culture \u2014 craft beer",u:"https://www.hopculture.com",l:"Hop Culture"},
+  PLAT:{k:"PGH LATINO",t:"Pittsburgh Latino Magazine",u:"https://www.pghlatinomag.com",l:"Pittsburgh Latino Magazine"},
+  NYT:{k:"NYT",t:"The New York Times \u2014 dining",u:"https://www.nytimes.com/section/food",l:"The New York Times"},
+  TRIB:{k:"TRIBLIVE",t:"TribLive \u2014 Tribune-Review",u:"https://triblive.com",l:"TribLive"}
+};
+
+const CUISINES = [
+  {id:"AM",  n:"Pittsburgh Classics"},
+  {id:"IT",  n:"Italian"},
+  {id:"POL", n:"Polish & Pierogi"},
+  {id:"AS",  n:"Asian & Dumplings"},
+  {id:"ME",  n:"Middle Eastern"},
+  {id:"LAT", n:"Latin American"},
+  {id:"CAF", n:"Cafe & Coffee"},
+  {id:"DES", n:"Dessert & Bakery"},
+  {id:"DR",  n:"Drinks & Breweries"},
+  {id:"MKT", n:"Markets"},
+  {id:"IN",  n:"Indian & South Asian"},
+  {id:"AFR", n:"African"},
+  {id:"EU",  n:"European"},
+  {id:"FARM",n:"Farms & U-Pick"}
+];
+
+// Collections (cross-cutting themes over all areas). Empty → the Collections
+// filter auto-hides; the engine guards on CATS.length. Pittsburgh defines none yet.
+const CATS = [];
+
+const F = [
+{t:1,a:"DT",cz:["AM"],n:"Primanti Bros (original)",ad:"46 18th St, Strip District",la:40.45071,ln:-79.98559,
+ w:"The 1933 Strip original of a Pittsburgh institution. The sandwich: grilled meat, provolone, oil-and-vinegar slaw and fries all stacked inside the Italian bread. Order it as-is.",
+ k:"Open late; cash and cards. The other locations are fine, but this is the one.",s:[["VP",""],["DTB",""]]},
+{t:1,a:"DT",cz:["AM"],n:"The Original Oyster House",ad:"20 Market Sq, Downtown",la:40.44096,ln:-80.00201,
+ w:"Pittsburgh's oldest bar and restaurant (1870), a historic landmark, famous for a giant breaded fish sandwich and breaded oysters from the original Mary Americus recipe.",
+ k:"Walk-in; old-school counter, cash-friendly. A landmark, not just a meal.",s:[["FR",""],["CP",""],["VP",""]]},
+{t:1,a:"OAK",cz:["AM"],n:"Tessaro's",ad:"4601 Liberty Ave, Bloomfield",la:40.46271,ln:-79.95073,
+ w:"Since 1985, in-house-ground burgers cooked over local hardwood coals on a cast-iron grill — voted the city's Best Burger by Pittsburgh Magazine readers.",
+ k:"Popular; the hardwood grill is the whole point. Approximate pin.",s:[["DTB",""],["PGHMAG",""]]},
+{t:2,a:"DT",cz:["CAF","AM"],n:"Pamela's Diner (Strip)",ad:"60 21st St, Strip District",la:40.45195,ln:-79.98362,
+ w:"The classic Pittsburgh breakfast: crepe-thin, crispy-edged 'hotcakes' rolled around fruit or chocolate. Obama liked them enough to fly the cooks to the White House.",
+ k:"Cash only at some locations; breakfast/brunch. Expect a wait on weekends.",s:[["GFP",""],["DTB",""]]},
+{t:3,a:"OAK",cz:["AM"],n:"The Original Hot Dog Shop \u2014 CLOSED",ad:"3901 Forbes Ave, Oakland",la:40.44210,ln:-79.95647,
+ w:"'The O' — a beloved, grubby Oakland institution since 1960 famous for a mountain of fresh-cut fries with every order and cheap beer, feeding Pitt students at 2am.",
+ k:"CLOSED April 2020 (Covid), never reopened \u2014 the O\u2019s corner at Forbes &amp; Bouquet is now other restaurants. Kept for the record.",warn:1,s:[["FADD",""],["CP",""]]},
+{t:2,a:"DT",cz:["AM","IT"],n:"Gaucho Parrilla Argentina",ad:"1601 Penn Ave, Strip District",la:40.44278,ln:-80.00251,
+ w:"Wood-fired Argentine grill that repeatedly tops the city's best-restaurant lists — chimichurri-slathered meats and vegetables off open flame, in a line-out-the-door Strip room.",
+ k:"Counter-service but destination-worthy; peak-time lines. Approximate pin.",s:[["DTB",""],["GFP",""]]},
+{t:2,a:"OAK",cz:["AM"],n:"Morcilla",ad:"3519 Butler St, Lawrenceville",la:40.46456,ln:-79.96609,
+ w:"A James Beard–winning Spanish restaurant in Lawrenceville — pintxos, house-cured charcuterie and its namesake blood sausage — routinely called one of the best in the country.",
+ k:"Reserve ahead; small plates add up. Approximate pin.",s:[["GFP",""],["PGHMAG",""],["PGPG",""]]},
+{t:2,a:"EV",cz:["AM"],n:"Superior Motors \u2014 CLOSED",ad:"1211 Braddock Ave, Braddock",la:40.39776,ln:-79.86046,
+ w:"Chef Kevin Sousa's acclaimed farm-to-table room in a former Braddock car dealership, in the shadow of the still-running Edgar Thomson steelworks — a national dining story.",
+ k:"CLOSED \u2014 shut at the start of the 2020 pandemic and never reopened; a Brew Gentlemen brewpub is taking the Braddock space. Kept for the record.",warn:1,s:[["GFP",""],["PGHMAG",""]]},
+{t:2,a:"OAK",cz:["AM"],n:"Kelly's Bar & Lounge",ad:"6012 Centre Ave, East Liberty",la:40.45985,ln:-79.92500,
+ w:"A classic dive with a creative cocktail list and a baked-to-order mac and cheese widely cited as the city's best.",
+ k:"The mac takes ~20 minutes to bake; $4 daily cocktail special. Approximate pin.",s:[["INF",""],["PGHMAG",""]]},
+{t:1,a:"OAK",cz:["POL"],n:"Apteka",ad:"4606 Penn Ave, Bloomfield",la:40.46576,ln:-79.94932,
+ w:"A nationally celebrated, James Beard–nominated Central-and-Eastern-European kitchen that happens to be entirely vegan — pierogi, cabbage and rye done with real craft.",
+ k:"Very popular; go early or expect a wait. Approximate pin.",s:[["GFP",""],["PGHMAG",""]]},
+{t:2,a:"DT",cz:["POL"],n:"Pierogies Plus",ad:"342 Island Ave, McKees Rocks",la:40.46891,ln:-80.05992,
+ w:"A former gas station where Polish women hand-pinch pierogi daily — the benchmark for Pittsburgh's signature dumpling, boiled or fried with butter and onions.",
+ k:"Takeout-leaning; cash-friendly. ~15 min from downtown. Approximate pin.",s:[["GFP",""],["VP",""]]},
+{t:2,a:"OAK",cz:["POL"],n:"Gooski's",ad:"3117 Brereton St, Polish Hill",la:40.45702,ln:-79.96650,
+ w:"A punk dive bar on Polish Hill making house pierogies and a kielbasa-'n'-kraut sandwich — a Thrillist best-dive-bars pick with a jukebox to match.",
+ k:"Cash only; kitchen evenings only. Approximate pin.",warn:1,s:[["GFP",""],["DTB",""]]},
+{t:3,a:"DT",cz:["POL"],n:"S&D Polish Deli",ad:"2204 Penn Ave, Strip District",la:40.45234,ln:-79.98201,
+ w:"A tiny Strip District deli for kielbasa, stuffed cabbage and pierogi to eat in or take home — Old-World Polish cooking with no frills.",
+ k:"Small; lunch-focused. Approximate pin.",s:[["VP",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Everyday Noodles",ad:"5875 Forbes Ave, Squirrel Hill",la:40.43825,ln:-79.92010,
+ w:"The place that brought xiao long bao to Pittsburgh in 2013 — pork soup dumplings and hand-pulled noodles made in the front window.",
+ k:"Popular; watch the dumpling-folding. Approximate pin.",s:[["PGHMAG",""],["VP",""],["SAV",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Chengdu Gourmet",ad:"5840 Forward Ave, Squirrel Hill",la:40.42934,ln:-79.92237,
+ w:"Four-time James Beard semifinalist chef Wei Zhu's Sichuan kitchen — mapo tofu and double-cooked pork belly numbing with Sichuan peppercorns.",
+ k:"Order from the secondary Sichuan menu. Approximate pin.",s:[["SAV",""],["CP",""],["PGPG",""]]},
+{t:2,a:"OAK",cz:["AS"],n:"How Lee",ad:"5888 Forbes Ave, Squirrel Hill",la:40.43776,ln:-79.91972,
+ w:"A bilingual-menu Sichuan spot favoured by Chinese-speaking regulars — Chongqing dry hot chicken and dan dan noodles.",
+ k:"Casual; go for the Sichuan menu. Approximate pin.",s:[["SAV",""],["DTB",""]]},
+{t:2,a:"OAK",cz:["AS"],n:"KIIN Lao & Thai Eatery",ad:"5846 Forbes Ave, Squirrel Hill",la:40.43760,ln:-79.92085,
+ w:"Pittsburgh's first Lao restaurant (in the old Bangkok Balcony space) — chicken larb with sticky rice and Isan-style Thai dishes.",
+ k:"Reservations help on weekends. Approximate pin.",s:[["PGHMAG",""],["CP",""]]},
+{t:1,a:"SS",cz:["ME"],n:"Salem's Market & Grill",ad:"2923 Penn Ave, Strip District",la:40.45844,ln:-79.97377,
+ w:"Pittsburgh's premier halal butcher and Middle Eastern grill — shawarma and kabobs off the grill and Indo-Pak steam-tray dishes, with a full international market attached.",
+ k:"Also a grocery/halal meat market. Approximate pin.",s:[["PGHMAG",""],["CP",""],["DTB",""]]},
+{t:2,a:"SS",cz:["ME"],n:"Kassab's",ad:"1207 E Carson St, South Side",la:40.42884,ln:-79.98608,
+ w:"A longtime Lebanese kitchen on the South Side — award-winning falafel and a big, cheap lamb shank, plus kebabs and shawarma.",
+ k:"Closed Sundays. Approximate pin.",s:[["CP",""],["DTB",""]]},
+{t:3,a:"EV",cz:["LAT"],n:"Rey Azteca",ad:"3448 William Penn Hwy, Monroeville",la:40.42994,ln:-79.81160,
+ w:"A suburban favourite for authentic Mexican — carne asada street tacos and tableside guacamole.",
+ k:"Several east-suburb locations. Approximate pin.",s:[["DTB",""]]},
+{t:1,a:"SS",cz:["IT"],n:"Fiori's Pizzaria",ad:"103 Wenzell Ave, Brookline",la:40.40518,ln:-80.01849,
+ w:"A Brookline staple since 1979 whose hand-tossed cuts have won City Paper's Best Pizza readers' poll every year since 2019.",
+ k:"Casual; grab a cut. Approximate pin.",s:[["CP",""],["DTB",""]]},
+{t:1,a:"SS",cz:["IT"],n:"Alla Famiglia",ad:"804 E Warrington Ave, Allentown",la:40.42163,ln:-79.99347,
+ w:"An old-world fine-dining Italian in Allentown since 1997 — the house specialty is veal, especially the Veal Milanese, in a multi-course family-style meal.",
+ k:"Expensive; reservations recommended. Approximate pin.",s:[["DTB",""],["PGHMAG",""]]},
+{t:2,a:"OAK",cz:["IT"],n:"DiAnoia's Eatery",ad:"2549 Penn Ave, Strip District",la:40.45492,ln:-79.97878,
+ w:"A modern Italian favourite for house pastas and a proper breakfast pastry case — one of the restaurants that put the new Strip on the national map.",
+ k:"Popular brunch and dinner; reservations help. Approximate pin.",s:[["GFP",""],["PGHMAG",""]]},
+{t:2,a:"OAK",cz:["IT"],n:"Piccolo Forno",ad:"3801 Butler St, Lawrenceville",la:40.46705,ln:-79.96442,
+ w:"A Tuscan trattoria since 2005 — Carla Branduzzi's dozen hand-made pastas and gnocchi, with lasagna the signature.",
+ k:"BYOB; small dining room. Approximate pin.",s:[["PGHMAG",""],["DTB",""]]},
+{t:2,a:"OAK",cz:["IT"],n:"Driftwood Oven",ad:"3615 Butler St, Lawrenceville",la:40.46589,ln:-79.96512,
+ w:"An artisan sourdough pizzeria — naturally-leavened Grandma-style square pies plus 16-inch thin rounds.",
+ k:"Casual; the square is the move. Approximate pin.",s:[["PGHMAG",""],["DTB",""]]},
+{t:3,a:"OAK",cz:["IT"],n:"Mineo's Pizza House",ad:"2128 Murray Ave, Squirrel Hill",la:40.43286,ln:-79.92326,
+ w:"Half of Squirrel Hill's decades-old Mineo's-vs-Aiello's pizza rivalry — a thick, cheese-heavy Pittsburgh-style pie locals argue about with real feeling.",
+ k:"Casual; grab a slice and judge it against Aiello's up the street.",s:[["GFP",""]]},
+{t:3,a:"OAK",cz:["IT"],n:"Aiello's Pizza",ad:"2112 Murray Ave, Squirrel Hill",la:40.43326,ln:-79.92320,
+ w:"The other half of the legendary Squirrel Hill rivalry, six doors from Mineo's — crisp thin-crust cuts with a devoted camp of its own.",
+ k:"Casual; do the taste test. Approximate pin.",s:[["PGHMAG",""],["DTB",""]]},
+{t:2,a:"EV",cz:["IT"],n:"Vincent's Pizza Park",ad:"998 Ardmore Blvd, Forest Hills",la:40.41054,ln:-79.84473,
+ w:"A Forest Hills institution since 1952 — the overloaded mushroom 'Vinnie Pie', with pizzas so big a medium rivals other places' large.",
+ k:"Cash only; long waits. Approximate pin.",warn:1,s:[["DTB",""]]},
+{t:3,a:"DT",cz:["IT"],n:"Papa J's Twin Plaza",ad:"2200 Penn Ave, Strip District",la:40.45206,ln:-79.98432,
+ w:"A revived Italian kitchen in the Strip — veal meatballs in marinara and two-day-proofed Roman-style pizza.",
+ k:"The Carnegie original is closed; this is the Strip relocation. Approximate pin.",s:[["CP",""]]},
+{t:2,a:"DT",cz:["CAF","AM"],n:"De Luca's Diner",ad:"2015 Penn Ave, Strip District",la:40.45167,ln:-79.98389,
+ w:"A Strip District breakfast institution slinging enormous omelettes and hotcakes to a weekend line down the block — old-school diner energy at full volume.",
+ k:"Cash-friendly; weekend waits. Breakfast/lunch. Approximate pin.",s:[["GFP",""]]},
+{t:3,a:"DT",cz:["CAF"],n:"La Prima Espresso",ad:"205 21st St, Strip District",la:40.45160,ln:-79.98282,
+ w:"An old-school Italian espresso bar in the Strip where the men play cards in the back and the espresso is the real thing — a Pittsburgh coffee landmark.",
+ k:"Cash; standing-room mornings. Approximate pin.",s:[["NP",""]]},
+{t:3,a:"OAK",cz:["CAF"],n:"Commonplace Coffee",ad:"5827 Forbes Ave, Squirrel Hill",la:40.43820,ln:-79.92190,
+ w:"An iconic local roaster since 2003 with cosy neighbourhood cafés — house-roasted single-origin espresso.",
+ k:"Several café locations. Approximate pin.",s:[["GFP",""]]},
+{t:3,a:"DT",cz:["CAF"],n:"De Fer Coffee & Tea",ad:"2002 Smallman St, Strip District",la:40.45165,ln:-79.98436,
+ w:"An employee-owned Strip roastery (2017) — house-roasted coffee and creative drinks like the espresso tonic — in an airy former warehouse.",
+ k:"Spacious; good for working. Approximate pin.",s:[["GFP",""]]},
+{t:1,a:"OAK",cz:["DES"],n:"Prantl's Bakery",ad:"5525 Walnut St, Shadyside",la:40.45154,ln:-79.93290,
+ w:"Home of the Burnt Almond Torte — once called 'the greatest cake in America' — a yellow cake with custard and caramelised almonds that Pittsburghers ship across the country.",
+ k:"Get a slice or a whole torte; also a Downtown shop. Approximate pin.",s:[["GFP",""],["PGHMAG",""]]},
+{t:1,a:"EV",cz:["DES"],n:"Oakmont Bakery",ad:"1 Sweet St, Oakmont",la:40.52565,ln:-79.84240,
+ w:"An enormous, beloved bakery (founded 1988) — one of the largest retail bakeries in America — whose burnt-almond torte, cookie-table trays and pepperoni rolls draw lines out the door.",
+ k:"Huge cases; go early on weekends. ~20 min northeast. Approximate pin.",s:[["DTB",""],["PGHMAG",""],["NP",""]]},
+{t:2,a:"SH",cz:["DES"],n:"Sarris Candies",ad:"511 Adams Ave, Canonsburg",la:40.26565,ln:-80.17321,
+ w:"A regional chocolatier since 1960 with a 1,500-pound edible chocolate castle and an old-fashioned parlour famous for sundaes capped in hardened poured chocolate.",
+ k:"Parlour open late; ~18 mi southwest in Canonsburg. Approximate pin.",s:[["DTB",""],["VWC",""]]},
+{t:2,a:"DT",cz:["DES","CAF"],n:"Klavon's Ice Cream Parlor \u2014 CLOSED",ad:"2801 Penn Ave, Strip District",la:40.45703,ln:-79.97561,
+ w:"A 1923 soda fountain restored to its original marble-and-mahogany glory in the Strip — sundaes, egg creams and banana splits in a genuine time capsule.",
+ k:"Seasonal-ish hours; great with kids. Approximate pin.",s:[["VP",""],["NP",""]]},
+{t:2,a:"OAK",cz:["DES"],n:"Gaby et Jules",ad:"5837 Forbes Ave, Squirrel Hill",la:40.43823,ln:-79.92155,
+ w:"A French patisserie from Master Pastry Chef David Piquard — jewel-like macarons and rum canelés — the sweet anchor of Squirrel Hill's Forbes Avenue.",
+ k:"Grab a box of macarons. Approximate pin.",s:[["PGHMAG",""],["NP",""]]},
+{t:2,a:"OAK",cz:["DES"],n:"La Gourmandine",ad:"4605 Butler St, Lawrenceville",la:40.47361,ln:-79.95840,
+ w:"A from-scratch French bakery (2010) — all-butter croissants and baguettes, plus quiches and tarts — with several locations across the city.",
+ k:"Mornings for the best pastry selection. Approximate pin.",s:[["NP",""],["DTB",""]]},
+{t:2,a:"DT",cz:["DES"],n:"Mancini's Bakery",ad:"1717 Penn Ave (Strip retail)",la:40.45017,ln:-79.98575,
+ w:"Baking since 1926 — some 10,000 loaves a day — famous for a hand-rolled Italian 'twist' bread and fast-selling pepperoni rolls.",
+ k:"Original bakery in McKees Rocks is 24/7; retail shop in the Strip. Approximate pin.",s:[["TT",""],["NP",""]]},
+{t:2,a:"OAK",cz:["DES"],n:"Dave & Andy's Homemade Ice Cream",ad:"207 Atwood St, Oakland",la:40.44096,ln:-79.95725,
+ w:"An Oakland institution since 1983 — hand-rolled waffle cones made on-site with an M&M plugged in the tip so nothing drips out.",
+ k:"Cash-friendly; summer lines. Approximate pin.",s:[["PGHMAG",""],["NP",""]]},
+{t:3,a:"SS",cz:["DES"],n:"Page Dairy Mart",ad:"4112 E Carson St, South Side",la:40.41112,ln:-79.95557,
+ w:"A seasonal walk-up soft-serve stand by the river that opens every spring to long, happy lines — a South Side rite of warm weather since 1951.",
+ k:"Cash; open spring–fall only. Cones and Gobs. Approximate pin.",warn:1,s:[["GFP",""]]},
+{t:3,a:"OAK",cz:["DES"],n:"Millie's Homemade Ice Cream",ad:"232 S Highland Ave, Shadyside",la:40.45787,ln:-79.92538,
+ w:"A beloved small-batch scoop shop (with a cult 'honey lavender') that grew from a farmers'-market stand into several East End parlours.",
+ k:"Seasonal flavours; lines in summer. Approximate pin.",s:[["GFP",""],["NP",""]]},
+{t:3,a:"DT",cz:["DES"],n:"Gus and Yia Yia's",ad:"Allegheny Commons Park, North Side",la:40.45209,ln:-80.01224,
+ w:"A seasonal cart on the same North Side spot since 1934 — hand-shaved ice balls in syrup, plus peanuts and popcorn — with an honorary 'Gus & YiaYia Way' named for it.",
+ k:"Seasonal cart (warm months), cash. Approximate pin.",warn:1,s:[["NP",""],["PGHMAG",""]]},
+{t:3,a:"DT",cz:["DES","CAF"],n:"Enrico Biscotti",ad:"2022 Penn Ave, Strip District",la:40.45139,ln:-79.98330,
+ w:"A hole-in-the-wall Strip bakery-café turning out biscotti and rustic breads from an old brick oven, with a hidden courtyard café out back.",
+ k:"Small; mornings best. Approximate pin.",s:[["VP",""]]},
+{t:1,a:"OAK",cz:["DR","AM"],n:"Church Brew Works",ad:"3525 Liberty Ave, Lawrenceville",la:40.46199,ln:-79.96408,
+ w:"A brewery inside a magnificently restored 1902 Catholic church — brew tanks on the old altar, pierogi and house lagers under the stained glass. An only-in-Pittsburgh night out.",
+ k:"Restaurant + brewery; busy on weekends. Approximate pin.",s:[["AO",""],["VP",""]]},
+{t:1,a:"DT",cz:["DR"],n:"Wigle Whiskey",ad:"2401 Smallman St, Strip District",la:40.45439,ln:-79.98150,
+ w:"Pittsburgh's first distillery since Prohibition and one of the most-awarded craft distilleries in the country — hand-milled local grain, copper-pot whiskey and a Strip tasting room named for a whiskey-rebellion figure.",
+ k:"Tastings and tours; buy a bottle. Approximate pin.",s:[["VP",""],["PGHMAG",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"East End Brewing Company",ad:"147 Julius St, Larimer",la:40.45927,ln:-79.91178,
+ w:"A pioneer of Pittsburgh craft beer with a big Larimer taproom — ~14 taps, pinball, food trucks and easy parking — a proper neighbourhood beer hall.",
+ k:"Family/dog-friendly; food trucks. Approximate pin.",s:[["NP",""]]},
+{t:3,a:"OAK",cz:["DR"],n:"Arsenal Cider House",ad:"300 39th St, Lawrenceville",la:40.46511,ln:-79.96092,
+ w:"A family-run cidery in Lawrenceville pouring hard ciders and meads by the growler in a Civil-War-themed taproom — a low-key local institution.",
+ k:"Taproom hours vary; growler fills. Approximate pin.",s:[["NP",""]]},
+{t:3,a:"DT",cz:["DR"],n:"Dancing Gnome",ad:"1025 Main St, Sharpsburg",la:40.49387,ln:-79.93155,
+ w:"A hop-forward Sharpsburg brewery beer nerds cross town for — hazy IPAs done with real precision in a relaxed taproom.",
+ k:"Taproom hours vary. ~10 min north. Approximate pin.",s:[["NP",""]]},
+{t:3,a:"DT",cz:["DR"],n:"Grist House Craft Brewery",ad:"10 E Sherman St, Millvale",la:40.47873,ln:-79.97237,
+ w:"A well-loved Millvale brewery with a big outdoor deck and rotating small-batch beers — the kind of neighbourhood taproom Pittsburgh does well.",
+ k:"Outdoor-friendly; food trucks. ~10 min north. Approximate pin.",s:[["NP",""]]},
+{t:1,a:"DT",cz:["MKT"],n:"The Strip District",ad:"Penn Ave & Smallman St",la:40.45000,ln:-79.98500,
+ w:"Pittsburgh's historic market district: a mile of ethnic grocers and food halls the city calls its essential food crawl, ranked among the top things to do in the whole city.",
+ k:"Best Saturday mornings; much is closed Mondays. Permanent, publicly open. Approximate pin.",s:[["USN",""],["VP",""],["AO",""]]},
+{t:1,a:"DT",cz:["MKT"],n:"Pennsylvania Macaroni Company (Penn Mac)",ad:"2010 Penn Ave, Strip District",la:40.45113,ln:-79.98349,
+ w:"An iconic Italian grocery since 1902 — 400-plus imported cheeses cut to order at the counter, plus olive oils, cured meats and pantry goods stacked to the ceiling.",
+ k:"The cheese counter is the whole experience. Approximate pin.",s:[["VP",""],["PGHMAG",""]]},
+{t:1,a:"DT",cz:["MKT"],n:"Wholey's",ad:"1711 Penn Ave, Strip District",la:40.45011,ln:-79.98588,
+ w:"A landmark fish market since 1912 — a suspended model train over the floor, a fresh seafood counter and a hot one-pound fried-cod sandwich.",
+ k:"A Strip rite; go for the fish sandwich. Approximate pin.",s:[["VP",""],["DTB",""]]},
+{t:2,a:"DT",cz:["MKT"],n:"Reyna Foods",ad:"2031 Penn Ave, Strip District",la:40.45169,ln:-79.98331,
+ w:"The area's oldest Latin grocery (1987) — fresh corn tortillas and tamales off the line, with a taco window downstairs on weekends.",
+ k:"Taco stand weekends. Approximate pin.",warn:1,s:[["CP",""],["NP",""]]},
+{t:2,a:"OAK",cz:["MKT"],n:"Groceria Merante",ad:"3454 Bates St, Oakland",la:40.43652,ln:-79.95531,
+ w:"A family Italian grocery and deli rooted in 1905 — house-made hot and mild sausage and imported prosciutto, its top seller — tucked below Oakland.",
+ k:"Small; a real neighbourhood grocer. Approximate pin.",s:[["DTB",""]]},
+{t:2,a:"OAK",cz:["MKT"],n:"Bloomfield Saturday Market",ad:"5050 Liberty Ave, Bloomfield",la:40.45887,ln:-79.94456,
+ w:"An established (2014) farmers market of 40-plus vetted farm, fish and food vendors — Mediterra Bakehouse, Chantal's Cheese, Who Cooks For You Farm — in Little Italy.",
+ k:"Sat 9–1 May–Oct; first & third Sat in winter. Publicly open. Approximate pin.",warn:1,s:[["NP",""],["VP",""]]},
+{t:3,a:"OAK",cz:["MKT"],n:"Squirrel Hill Farmers Market",ad:"5737 Beacon St, Squirrel Hill",la:40.43570,ln:-79.92359,
+ w:"A city-run Sunday market in the Beacon/Bartlett lot — farm produce, meats, cheese and baked goods, SNAP-accessible.",
+ k:"Sun 9–1, May–Dec. Publicly open. Approximate pin.",warn:1,s:[["NP",""],["VP",""]]},
+{t:3,a:"DT",cz:["MKT"],n:"Farmers@Firehouse",ad:"2216 Penn Ave, Strip District",la:40.45256,ln:-79.98152,
+ w:"A long-running Saturday producers' market in the Strip with regional farms and prepared-food vendors around an old firehouse.",
+ k:"Sat 9–1, May–Nov. Seasonal; publicly open. Approximate pin.",warn:1,s:[["VP",""],["NP",""]]},
+{t:2,a:"DY",cz:["FARM"],n:"Soergel Orchards",ad:"2573 Brandt School Rd, Wexford, PA",la:40.61218,ln:-80.09215,
+ w:"A family orchard north of the city since the 1850s: pick-your-own apples July–November, a farm market and bakery, a gift barn, and a hard-cider taproom. A proper agritourism day.",
+ k:"Open much of the year; fall festival weekends. ~25 min north. Approximate pin.",s:[["VP",""],["KB",""]]},
+{t:2,a:"DY",cz:["FARM"],n:"Trax Farms",ad:"528 Trax Rd, Finleyville, PA",la:40.27603,ln:-80.03050,
+ w:"A South Hills fall-festival farm with pumpkin picking, a 3-acre corn maze, hayrides, a train ride, live music and food — a big family day out.",
+ k:"Fall festival is the draw (Sept–Oct); market open longer. ~25 min south. Approximate pin.",warn:1,s:[["KB",""],["AXIOS",""]]},
+{t:2,a:"DY",cz:["FARM"],n:"Triple B Farms",ad:"823 Berry Ln, Monongahela, PA",la:40.22768,ln:-79.94659,
+ w:"A popular family farm about 15 miles south for apple and pumpkin picking, plus Pop's Farmyard with animals, hayrides and acres of fall fun.",
+ k:"Seasonal (summer berries, fall apples/pumpkins). ~30 min south. Approximate pin.",warn:1,s:[["KB",""]]},
+{t:2,a:"EV",cz:["FARM"],n:"Kerber's Dairy",ad:"1856 Guffey Rd, North Huntingdon, PA",la:40.31128,ln:-79.73889,
+ w:"A working dairy on the family's last farm parcel making ~40 flavours of homemade ice cream daily, with goats and sheep to visit and an 18-hole mini-golf course.",
+ k:"Petting animals summer/early fall. ~30 min east. Approximate pin.",warn:1,s:[["NP",""],["KB",""]]},
+{t:2,a:"EV",cz:["FARM"],n:"Schramm Farms & Orchards \u2014 CLOSED",ad:"1002 Blank Rd, Jeannette, PA",la:40.37479,ln:-79.63868,
+ w:"A family farm since 1864 with a year-round market, fresh cider and a fall pumpkin patch with hayrides.",
+ k:"Confirm fall-festival hours by phone. ~40 min east. Approximate pin.",warn:1,s:[["CP",""],["KB",""]]},
+{t:2,a:"SH",cz:["FARM"],n:"Bedner's Farm & Greenhouse",ad:"315 Coleman Rd, McDonald, PA",la:40.33505,ln:-80.21100,
+ w:"A farm and greenhouse ~30 minutes southwest — pick-your-own pumpkins and vegetables, a corn maze, a petting zoo and hayrides, with a big fall festival.",
+ k:"Retail Apr 1–Oct 31; fall festival is the draw. Approximate pin.",warn:1,s:[["VP",""],["KB",""]]},
+{t:3,a:"DY",cz:["FARM"],n:"Janoski's Farm & Greenhouse",ad:"1714 Rt 30, Clinton, PA",la:40.49013,ln:-80.33246,
+ w:"A family farm market and greenhouse — pick-your-own produce and pumpkins with hay rides, horse rides and a corn maze.",
+ k:"Open year-round; fall is busiest. ~30 min west. Approximate pin.",warn:1,s:[["KB",""]]},
+{t:3,a:"DY",cz:["FARM"],n:"Shenot Farm & Market",ad:"3754 Wexford Run Rd, Wexford, PA",la:40.65933,ln:-80.07912,
+ w:"A 100-plus-acre fruit-and-vegetable farm since 1854 — pick-your-own blueberries, award-winning fresh-pressed cider, homemade fudge and pumpkin-patch hayrides.",
+ k:"North Hills; seasonal crops. ~25 min north. Approximate pin.",warn:1,s:[["KB",""]]},
+{t:3,a:"DY",cz:["FARM"],n:"Simmons Farm",ad:"170 Simmons Rd, McMurray, PA",la:40.26820,ln:-80.08309,
+ w:"A South Hills u-pick farm with apples, pumpkins and flowers, hayrides, a petting zoo and an on-site market — easy fall fun with animals for the kids.",
+ k:"Seasonal u-pick; check the crop schedule. ~30 min south. Approximate pin.",warn:1,s:[["KB",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Taiwanese Bistro Cafe 33",ad:"1711 Shady Ave, Squirrel Hill",la:40.43794,ln:-79.91922,w:"Squirrel Hill Taiwanese bistro doing proper beef noodle soup, soup dumplings and scallion pancakes",s:[["PGHMAG",""]]},
+{t:1,a:"OAK",cz:["AM","IT"],n:"Lilith",ad:"238 Spahr St, Shadyside",la:40.45786,ln:-79.92757,w:"Tiny reservation-only Shadyside spot from chefs Dianne DeStefano and Jamilka Borges, coastal Sicilian-Puerto Rican cooking",s:[["PGPG",""],["TABLE",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Noodlehead",ad:"242 S Highland Ave, Shadyside",la:40.45787,ln:-79.92538,w:"Cash-only, BYOB Thai street-food counter with a tight noodle-focused menu; the drunken noodles are the draw",s:[["CP",""]]},
+{t:1,a:"OAK",cz:["AS"],n:"Teppanyaki Kyoto",ad:"5808 Bryant St, Highland Park",la:40.47574,ln:-79.92047,w:"Highland Park Japanese kitchen known for teppanyaki and its rare Hiroshima-style okonomiyaki (dinner only)",s:[["PGHMAG",""],["CP",""]]},
+{t:2,a:"OAK",cz:["IN"],n:"Reva Modern Indian Cuisine",ad:"220 N Highland Ave, East Liberty",la:40.46307,ln:-79.92401,w:"Modern Indian kitchen in East Liberty turning out biryani and contemporary takes on regional Indian dishes",s:[["VLOCAL",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Independent Brewing Company",ad:"1704 Shady Ave, Squirrel Hill",la:40.43770,ln:-79.91950,w:"Squirrel Hill tavern pouring only fresh, independent Western PA beer alongside locally sourced comfort food",s:[["HOPC",""],["CP",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Lorelei",ad:"124 S Highland Ave, East Liberty",la:40.46030,ln:-79.92513,w:"Dual-concept cocktail bar and Alpine beer hall in the historic Werner Building on the East Liberty corner",s:[["PGHMAG",""],["NP",""]]},
+{t:2,a:"OAK",cz:["DR","AM"],n:"Squirrel Hill Cafe",ad:"5802 Forbes Ave, Squirrel Hill",la:40.43787,ln:-79.92267,w:"The 'Squirrel Cage,' a 1935 art-deco dive on Forbes with cheap drinks, big burgers and cult status",s:[["WESA",""],["CP",""]]},
+{t:3,a:"EV",cz:["IN"],n:"Udipi Cafe",ad:"4141 Old William Penn Hwy, Monroeville",la:40.44345,ln:-79.79049,w:"All-vegetarian South Indian mainstay near the Venkateswara Temple, open since 1995; dosas, idli and thalis",s:[["VLOCAL",""],["CP",""]]},
+{t:1,a:"OAK",cz:["EU","AM"],n:"Fet-Fisk",ad:"4786 Liberty Ave, Bloomfield",la:40.46051,ln:-79.94733,w:"Nordic-influenced seafood room in a former Bloomfield red-sauce space; a 2025 James Beard Best New Restaurant finalist and New York Times top-50 pick, known for roasted chicken with lingonberries, mussels and freshly shucked oysters.",s:[["PGHMAG","Best Restaurants"],["NYT","50 best restaurants in America"],["PGPG",""]]},
+{t:2,a:"DT",cz:["LAT"],n:"Balvanera",ad:"1660 Smallman St, Strip District",la:40.45200,ln:-79.98375,w:"Argentine-style brasserie in the Strip District grilling wood-fired steaks and folding hand-crimped beef empanadas; the entraña skirt steak and lomo are standouts.",s:[["PGHMAG","Best Restaurants list"]]},
+{t:2,a:"OAK",cz:["AS"],n:"Pusadee's Garden",ad:"5319 Butler St, Upper Lawrenceville",la:40.48254,ln:-79.95198,w:"Family-run traditional Thai in Upper Lawrenceville with a lush garden patio where the matriarch cooks daily; the fall-off-the-bone massaman lamb shank routinely sells out before close.",s:[["PGHMAG","restaurant review"],["INF",""],["CP",""]]},
+{t:2,a:"OAK",cz:["AS"],n:"Soju",ad:"4923 Penn Ave, Garfield",la:40.46540,ln:-79.94431,w:"Small, lively Korean-American spot in Garfield pairing house craft cocktails and soju with Korean barbecue and stone-bowl bibimbap.",s:[["PGPG","opening feature"],["PGHMAG","First Look"],["CP",""]]},
+{t:2,a:"OAK",cz:["DR"],n:"Hidden Harbor",ad:"1708 Shady Ave, Squirrel Hill",la:40.43770,ln:-79.91951,w:"Squirrel Hill tiki bar and repeat City Paper Best Craft Cocktails winner, pouring elaborate drinks from 500-plus rum bottlings with tropical juices pressed in house.",s:[["CP","Best Craft Cocktails 2025, 1st place"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Bar Botanico",ad:"4325 Butler St, Lawrenceville",la:40.47137,ln:-79.96012,w:"Plant-filled, artsy Lawrenceville cocktail bar leaning on seasonal, local ingredients; a City Paper 2025 Best Craft Cocktails runner-up known for a crisp, frothy Clover Club.",s:[["CP","Best Craft Cocktails 2025, 2nd place"]]},
+{t:3,a:"SS",cz:["DR"],n:"Acacia",ad:"2108 E Carson St, South Side",la:40.42828,ln:-79.97588,w:"Below-street South Side speakeasy where bartenders build custom drinks to a guest's taste; a City Paper 2025 Best Craft Cocktails pick, with a standout Mai Tai.",s:[["CP","Best Craft Cocktails 2025, 3rd place"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Tina's",ad:"4144 Main St, Bloomfield",la:40.46518,ln:-79.95477,w:"Bloomfield corner store and bar pouring an all-organic, biodynamic natural-wine list, plus bottled old fashioneds to drink in or take away.",s:[["CP","natural wine guide"],["TABLE",""]]},
+{t:2,a:"DT",cz:["LAT"],n:"Arepittas",ad:"412 Cherry Way, Downtown",la:40.43876,ln:-79.99822,w:"Downtown Venezuelan counter on Cherry Way, City Paper's 2025 Best Latin Restaurant, griddling gluten-free corn arepas stuffed to order plus tequeños and cachapas.",s:[["CP","Best Latin Restaurant 2025"],["PGPG","business feature"]]},
+{t:2,a:"OAK",cz:["AFR"],n:"Tana Ethiopian Cuisine",ad:"5929 Baum Blvd, East Liberty",la:40.46064,ln:-79.92688,w:"Pittsburgh's established Ethiopian kitchen in East Liberty, family-run since 2008, serving big shareable sampler platters of stewed meats and legumes on fresh-made injera.",s:[["CP","staff review"]]},
+{t:3,a:"OAK",cz:["AS"],n:"Banh Mi & Ti",ad:"4502 Butler St, Lawrenceville",la:40.47218,ln:-79.95905,w:"Central Lawrenceville Vietnamese cafe on Butler Street with traditional and vegan banh mi, Vietnamese coffee and bubble tea; the Viet Special layers pate, pork roll and head cheese.",s:[["CP",""]]},
+{t:3,a:"OAK",cz:["DES","EU"],n:"Madeleine Bakery & Bistro",ad:"609 S Trenton Ave, Regent Square",la:40.43899,ln:-79.89220,w:"Family French bakery in Regent Square turning out blistered, flaky croissants, baguettes and sweet pastries baked fresh daily.",s:[["PGHMAG","best croissants roundup"]]},
+{t:2,a:"OAK",cz:["CAF","ME"],n:"Shibam Coffee",ad:"4630 Centre Ave, North Oakland",la:40.45213,ln:-79.95175,w:"Pittsburgh's first Yemeni cafe, opened 2025 in North Oakland, serving cardamom-spiced coffees, kettle teas and honeycomb pastries in a gilded room open late.",s:[["PGPG","opening feature"],["TABLE",""],["AXIOS","2025 coffee boom"]]},
+{t:3,a:"OAK",cz:["DR"],n:"Trace Brewing",ad:"4312 Main St, Bloomfield",la:40.46410,ln:-79.95328,w:"Bloomfield brewery, bottle shop and community hangout on Main Street pouring hop-forward IPAs and mixed-culture farmhouse ales, with a food truck out front nightly.",s:[["NP","opening feature"],["VLOCAL",""]]},
+{t:3,a:"DT",cz:["DR"],n:"Cinderlands Warehouse",ad:"2601 Smallman St, Strip District",la:40.45573,ln:-79.97965,w:"Strip District production brewery and taproom with chef-driven pub food, best known for its Squish-series hazy IPAs and crisp house lagers.",s:[["VP","craft breweries guide"]]},
+{t:3,a:"EV",cz:["LAT"],n:"El Campesino",ad:"4771 McKnight Rd, North Hills",la:40.52086,ln:-80.00574,w:"Family-run Mexican restaurant in the North Hills, voted City Paper's 2025 Best Mexican Restaurant, praised for al pastor tacos on flour tortillas.",s:[["CP","Best Mexican Restaurant 2025"]]},
+{t:3,a:"OAK",cz:["AS"],n:"Smiling Banana Leaf",ad:"5901 Bryant St, Highland Park",la:40.47585,ln:-79.91958,w:"Tiny, long-loved BYOB Thai spot in Highland Park serving down-home curries, pad Thai and pineapple fried rice at gentle prices.",s:[["CP",""],["TRIB","feature"]]},
+{t:3,a:"SH",cz:["ME"],n:"Laziz Lebanese Cuisine",ad:"615 Washington Rd, Mt. Lebanon",la:40.38240,ln:-80.04374,w:"Family Lebanese kitchen in Mt. Lebanon with fresh, generous plates; standouts include chicken shawarma, falafel wraps and lamb shanks.",s:[["PGHMAG","opening feature"]]},
+{t:3,a:"OAK",cz:["CAF"],n:"KLVN Coffee Lab",ad:"6600 Hamilton Ave, Larimer",la:40.45770,ln:-79.91074,w:"Scandinavian-style specialty roaster and cafe in Larimer with single-origin coffees roasted in view of the bar in a revived industrial building.",s:[["VLOCAL","Now Open feature"]]},
+{t:3,a:"OAK",cz:["IN"],n:"Tamarind Flavor of India",ad:"257 N Craig St, Oakland",la:40.45115,ln:-79.95195,w:"No-frills South Indian house on North Craig Street in Oakland, a go-to for crisp paper and mysore masala dosas, idli and vegetarian thalis.",s:[["PGHMAG","Indian restaurants feature"]]},
+{t:1,a:"OAK",cz:["AM","POL"],n:"Butterjoint",ad:"208 N Craig St, North Oakland",la:40.45010,ln:-79.95066,w:"North Oakland bar from the Legume team where light-as-air pierogi and a cult bar burger share the menu with French-bistro plates — a Post-Gazette pierogi-project favorite and an Infatuation pick.",s:[["PGHMAG","Now Open"],["INF",""],["PGPG","pierogi project"]]},
+{t:2,a:"OAK",cz:["IT","AM"],n:"Spak Brothers",ad:"5107 Penn Ave, Garfield",la:40.46516,ln:-79.94253,w:"Garfield pizza-and-sub shop beloved for giant hoagies and one of the city's best vegan-friendly menus — seitan wings, soy-cheese pies and locally sourced ingredients alongside the classic steak hoagie.",s:[["CP","review"],["DTB","review"]]},
+{t:2,a:"DT",cz:["AM"],n:"Pamela's Diner",ad:"60 21st St, Strip District",la:40.45195,ln:-79.98362,w:"The Strip's cash-only griddle famous for crisp-edged, crêpe-thin banana or blueberry hotcakes and Lyonnaise potatoes — President Obama ate here, and it's a Pittsburgh breakfast rite. Cash only.",s:[["VP","Favorite Diners"],["GFP","Best Diners"]]},
+{t:2,a:"DT",cz:["AM"],n:"DeLuca's Diner",ad:"2015 Penn Ave, Strip District",la:40.45155,ln:-79.98376,w:"Since 1950, the Strip District's line-out-the-door breakfast institution — huge skillets, hotcakes and eggs off a busy open griddle in the heart of the market district. Cash only.",s:[["VP","Strip District dining"],["GFP","Best Diners"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('pgh_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('pgh_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('pgh_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('pgh_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Pittsburgh PA')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {DT:'#74AE99',OAK:'#C89B4A',SS:'#B45B3E',SH:'#8CA84E',EV:'#B57FC4',DY:'#7E8FC4'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([40.4406,-79.9959],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle neighbourhood labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Downtown",40.4400,-80.0000],["North Side",40.4560,-80.0080],
+ ["Strip District",40.4520,-79.9760],["Oakland",40.4420,-79.9530],["Lawrenceville",40.4660,-79.9600],
+ ["Mount Washington",40.4300,-80.0110],["South Side",40.4280,-79.9750],["Carnegie",40.4090,-80.0850],
+ ["Homestead",40.4060,-79.9120],["Washington PA",40.1720,-80.2460]];
+
+// Real geography comes from the tiles; here we add only neighbourhood labels.
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see ('+P.filter(p=>p.t===1).length+')', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('pittsburgh-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('pittsburgh-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('pittsburgh-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the food, markets & farms list works'
+  + '<span>Pittsburgh classics anchor it — the Primanti’s sandwich, pierogi, the burnt almond torte, soup dumplings. A cuisine tag needs a named dish; markets and farms must be genuinely visit-worthy and publicly open (see docs/SOURCES.md); anything tagged ADDED is general knowledge, verify it.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Found and cross-checked with web search across aggregator/guidebook rankings, the official institution sites, university visitor guides and the city’s local media (direct page fetches are blocked in the build environment). Ranked sources live in data/sources.json; the local-news map is data/local-media.json.</span></div></div>'
+  + '<div class="srcrow"><span class="k">COVERED BY</span><div class="t">YouTube &amp; creators'
+  + '<span>Pittsburgh gets heavy travel-vlog coverage — e.g. a \u201cBritish Guy in Pittsburgh\u201d tour of Mt Washington, Randyland and the museums, and 4K city tours. See the national creators catalogue in data/sources.json.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 212 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

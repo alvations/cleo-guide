@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Silicon Valley field guide — 108 sights and 44 places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to its source (Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura), on one interactive map with city, collection and cuisine filters, a trip builder and exports.">
+<title>Silicon Valley Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Silicon Valley Field Guide — Sourced — Cleo">
+<meta property="og:description" content="Silicon Valley field guide — 108 sights and 44 places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to its source (Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura), on one interactive map with city, collection…">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/cities/siliconvalley.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Silicon Valley Field Guide — Sourced — Cleo">
+<meta name="twitter:description" content="Silicon Valley field guide — 108 sights and 44 places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to its source (Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura), on one interactive map with city, collection…">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#101318">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · the Santa Clara Valley, sourced</p>
+  <h1>Silicon Valley<span class="thin">the South Bay &mdash; tech, trails &amp; the best Asian tables in America</span></h1>
+  <p class="standfirst">108 sights and 44 places to eat across Palo Alto, Mountain View, Sunnyvale, Cupertino, Santa Clara and San Jose, each traceable to the source that named it. The Valley’s food is its immigrant density &mdash; arguably the best Taiwanese, Vietnamese and South Indian eating in the country. <strong>Switch modes below</strong>, filter by <strong>city</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#C0504D"></i>Palo Alto & Stanford</span>
+  <span><i style="background:#4F81BD"></i>Mountain View & Los Altos</span>
+  <span><i style="background:#9BBB59"></i>Sunnyvale</span>
+  <span><i style="background:#8064A2"></i>Cupertino & Saratoga</span>
+  <span><i style="background:#4BACC6"></i>Santa Clara</span>
+  <span><i style="background:#E8973A"></i>San Jose</span>
+  <span><i style="background:#7E8FC4"></i>Day Trips & Coast</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="dosa, boba, Stanford, dim sum…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-14</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin (stars + Bib Gourmand), Eater SF, The Infatuation, the San Francisco Chronicle, the San Jose Mercury News, Atlas Obscura and official municipal / state-park sites. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ABC7":{k:"ABC7 BAY AREA",t:"ABC7 BAY AREA",u:"",l:""},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "CASTATEPARKS":{k:"CA STATE PARKS",t:"California State Parks",u:"https://www.parks.ca.gov/",l:"California State Parks"},
+  "LATOWNCRIER":{k:"LOS ALTOS TOWN CRIER",t:"LOS ALTOS TOWN CRIER",u:"",l:""},
+  "LOCALNEWSMATTERS":{k:"LOCAL NEWS MATTERS",t:"LOCAL NEWS MATTERS",u:"",l:""},
+  "MERCURY":{k:"MERCURY NEWS",t:"San Jose Mercury News / Bay Area business press",u:"https://www.mercurynews.com/",l:"San Jose Mercury News / Bay Area business press"},
+  "METROSV":{k:"METRO SILICON VALLEY",t:"METRO SILICON VALLEY",u:"",l:""},
+  "MTNVIEWVOICE":{k:"MOUNTAIN VIEW VOICE",t:"MOUNTAIN VIEW VOICE",u:"",l:""},
+  "MVVOICE":{k:"MVVOICE",t:"MVVOICE",u:"",l:""},
+  "NBCBAY":{k:"NBC BAY AREA",t:"NBC BAY AREA",u:"",l:""},
+  "NEWATLAS":{k:"NEWATLAS",t:"NEWATLAS",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official company/institution site",u:"",l:"Official company/institution site"},
+  "PALOALTOONLINE":{k:"PALO ALTO ONLINE",t:"PALO ALTO ONLINE",u:"",l:""},
+  "SFCHRON":{k:"SF CHRONICLE",t:"San Francisco Chronicle / Bay Area news",u:"https://www.sfchronicle.com/",l:"San Francisco Chronicle / Bay Area news"},
+  "SJSPOTLIGHT":{k:"SAN JOSÉ SPOTLIGHT",t:"SAN JOSÉ SPOTLIGHT",u:"",l:""},
+  "SJTOURISM":{k:"VISIT SAN JOSE",t:"Visit San Jose",u:"https://www.sanjose.org/",l:"Visit San Jose"},
+  "SMITHSONIAN":{k:"SMITHSONIAN",t:"SMITHSONIAN",u:"",l:""},
+  "VISITCA":{k:"VISIT CALIFORNIA",t:"Visit California",u:"https://www.visitcalifornia.com/",l:"Visit California"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
+  "YELP":{k:"YELP",t:"Yelp business listing (hours/access cross-check)",u:"https://www.yelp.com/",l:"Yelp business listing (hours/access cross-check)"}
+};
+
+const AREAS = [
+  {id:"PA",n:"Palo Alto & Stanford",c:"#C0504D"},
+  {id:"MV",n:"Mountain View & Los Altos",c:"#4F81BD"},
+  {id:"SUN",n:"Sunnyvale",c:"#9BBB59"},
+  {id:"CU",n:"Cupertino & Saratoga",c:"#8064A2"},
+  {id:"SC",n:"Santa Clara",c:"#4BACC6"},
+  {id:"SJ",n:"San Jose",c:"#E8973A"},
+  {id:"DAY",n:"Day Trips & Coast",c:"#7E8FC4"}
+];
+
+const P = [
+{t:1,a:"CU",n:"Apple Park Visitor Center",ad:"10600 N Tantau Ave, Cupertino, CA 95014",la:37.33284,ln:-122.00535,w:"The public building Apple built across the street from its 'spaceship' ring HQ, opened 2017. A design landmark in its own right, with a carbon-fiber roof floating on stone columns.",k:"Open to anyone: full Apple Store, Caffe Macs rooftop cafe/terrace with a distant view over the ring, and an augmented-reality tabletop model of the campus. The ring building itself and the grounds are closed to the public. Open to visitors.",g:["TECH","ICON","PARK","ARCH"],s:[["OFFICIAL","https://www.apple.com/retail/appleparkvisitorcenter/"],["YELP","https://www.yelp.com/biz/apple-park-visitor-center-cupertino-2"],["ABC7","Apple opens new visitor center in Cupertino — https://abc7news.com/post/apple-opens-new-visitor-center-in-cupertino/2662716/"],["NBCBAY","Aerial Photos Show New Apple 'Spaceship' Campus Taking Shape in Cupertino — https://nbcbayarea.com/news/tech/Aerial-Photos-Show-New-Apple-Spaceship-Campus-Taking-Shape-in-Cupertino-257432561.html"]]},
+{t:2,a:"MV",n:"Steve Jobs' Childhood Home & Apple Garage",ad:"2066 Crist Dr, Los Altos, CA 94024",la:37.34032,ln:-122.06888,w:"The ranch house where Steve Jobs grew up and where he and Steve Wozniak built the first Apple I computers in the garage in 1976. Los Altos designated it a historic resource in 2013.",k:"View from the public street ONLY. It is a private, occupied residence with no plaque or tour; do not enter the property or disturb residents. Just a quiet curbside pilgrimage. Viewable from the street/sidewalk only — no public interior access.",g:["TECH","ARCH","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Steve_Jobs"],["MERCURY","https://www.nbcbayarea.com/news/local/los-altos-turns-steve-jobs-childhood-home-into-historical-site/1958074/"]]},
+{t:1,a:"MV",n:"Google Visitor Experience",ad:"2000 N Shoreline Blvd, Mountain View, CA 94043",la:37.42182,ln:-122.07937,w:"Google's official public front door at the Googleplex, opened October 2023 inside the striking curved 'Gradient Canopy' (Charleston East) building. The rest of the Googleplex is closed to non-employees.",k:"Open to the public: the Google Store (hardware + exclusive branded merch), a cafe, the Huddle event space and an outdoor Plaza with public art. Offices and the wider campus are off-limits. Open to visitors.",g:["TECH","SHOP"],s:[["OFFICIAL","https://visit.withgoogle.com/plan-your-visit/"],["OFFICIAL","https://9to5google.com/2023/10/12/google-store-mountain-view/"],["MVVOICE","https://www.mv-voice.com/news/2023/10/12/opening-its-doors-to-the-community-google-unveils-new-visitor-center-in-mountain-view/"]]},
+{t:2,a:"MV",n:"Android Lawn Statues",ad:"Charleston Rd & Huff Ave, Mountain View, CA 94043",la:37.42056,ln:-122.08333,w:"The beloved oversized foam sculptures of Android dessert mascots (Cupcake through Pie, etc.). The tradition ran 2008-2019; newer versions are digital-only.",k:"An outdoor photo spot beside the Google Visitor Experience. The statues were moved here from the old Landings Drive lawn (redeveloped) in 2022; the area is technically for Google employees and guests, but visitors are generally welcomed to walk up and photograph them. Best combined with a Visitor Experience stop. Open to visitors.",g:["TECH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Android_lawn_statues"],["ATLASOBSCURA","https://www.atlasobscura.com/places/android-lawn-statues-mountain-view"]]},
+{t:1,a:"MV",n:"Computer History Museum",ad:"1401 N Shoreline Blvd, Mountain View, CA 94043",la:37.41437,ln:-122.07682,w:"The world's leading museum of computing history, holding everything from a working Babbage Difference Engine reconstruction to Cray supercomputers and a restored PDP-1. A must for any tech traveler.",k:"Fully open to the public (Wed-Sun, ~10a-5p; general admission ~$15). No membership or affiliation needed. Open to visitors.",g:["TECH","ICON","MUS","ARCH"],s:[["OFFICIAL","https://computerhistory.org/hours-admission/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Computer_History_Museum"]]},
+{t:1,a:"SC",n:"Intel Museum",ad:"2200 Mission College Blvd, Santa Clara, CA 95054",la:37.38750,ln:-121.96361,w:"A free museum at Intel's HQ tracing the silicon-chip story from the transistor to modern processors, with hands-on exhibits on how chips are made and Intel's Silicon Valley founding.",k:"Free and open to the public inside the Robert Noyce Building lobby (Mon-Fri, ~9a-5p; call ahead as it closes for events). The rest of the Intel campus is not public. Open to visitors.",g:["TECH","MUS","FREE"],s:[["OFFICIAL","https://www.intel.com/content/www/us/en/history/museum-visiting-intel.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Intel_Museum"]]},
+{t:3,a:"SC",n:"NVIDIA HQ - Voyager & Endeavor",ad:"2788 San Tomas Expy, Santa Clara, CA 95051",la:37.36910,ln:-121.95820,w:"NVIDIA's dramatic triangle-motif headquarters: the Gensler-designed Endeavor (2017) and the enormous Voyager (2022), whose sloped glass 'mountain' roof shelters an indoor landscaped village.",k:"Exterior architecture only. The buildings are private and closed to the public; the striking hexagonal/triangular forms are best appreciated from the sidewalk and San Tomas Expressway. No visitor center or tours. Viewable from the street/sidewalk only — no public interior access.",g:["TECH","VIEW"],s:[["MERCURY","https://therealdeal.com/san-francisco/2025/12/09/nvidia-grows-with-new-santa-clara-headquarters-building/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nvidia"]]},
+{t:2,a:"PA",n:"HP Garage - Birthplace of Silicon Valley",ad:"367 Addison Ave, Palo Alto, CA 94301",la:37.44307,ln:-122.15481,w:"The one-car garage where Bill Hewlett and Dave Packard started Hewlett-Packard in 1939, widely honored as the birthplace of Silicon Valley. California Historical Landmark and on the National Register.",k:"View from the public sidewalk ONLY. It is a private HP-owned property, not open inside; a bronze plaque on the front lawn reads 'Birthplace of Silicon Valley.' Viewable from the street/sidewalk only — no public interior access.",g:["TECH","ICON","ARCH","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/HP_Garage"],["ATLASOBSCURA","https://www.atlasobscura.com/places/birthplace-of-silicon-valley"]]},
+{t:3,a:"PA",n:"Xerox PARC",ad:"3333 Coyote Hill Rd, Palo Alto, CA 94304",la:37.40161,ln:-122.14734,w:"The low-slung research lab (now PARC, part of SRI International) where the graphical user interface, the mouse, Ethernet, laser printing and WYSIWYG editing were invented in the 1970s - ideas that shaped every modern computer.",k:"Exterior/landmark only. It is a working private research facility, not open to the public; the site sits on Coyote Hill above Stanford with hiking-trail views nearby. A pilgrimage for the story, not the building. Viewable from the street/sidewalk only — no public interior access.",g:["TECH","ICON","ARCH","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/PARC_(company)"],["MERCURY","https://www.theregister.com/2023/04/25/xerox_parc_goodbye/"]]},
+{t:2,a:"MV",n:"NASA Ames Exploration Center & Hangar One",ad:"Moffett Blvd, Mountain View, CA 94035",la:37.41291,ln:-122.05386,w:"NASA's free space-science visitor center at Ames Research Center/Moffett Field, with Mercury and Apollo-era artifacts, a Mars meteorite and moon-mission exhibits. Nearby looms Hangar One, the colossal 1930s airship hangar that is a Bay Area landmark.",k:"The Exploration Center sits outside the security gate and is free and open to the public (Tue-Fri 10a-4p, Sat-Sun 12-4p) - no base access needed. Hangar One and the airfield itself are secured; the hangar is viewable from outside/afar only. (The separate Moffett Field Museum, inside the gate, requires ID and a fee.)",g:["TECH","MUS","ICON","ARCH"],s:[["OFFICIAL","https://www.nasa.gov/ames/visit-ames-research-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hangar_One_(Moffett_Federal_Airfield)"]]},
+{t:2,a:"DAY",n:"Meta 'Like' Sign, 1 Hacker Way",ad:"1 Hacker Way, Menlo Park, CA 94025",la:37.48507,ln:-122.14828,w:"The famous sign at the entrance to Meta's (Facebook's) headquarters - once the giant blue thumbs-up 'Like', now the blue Meta infinity logo (swapped in the 2021 rebrand). A classic Silicon Valley selfie stop.",k:"Photo stop at the entrance sign ONLY, from the public roadside. The Meta campus is closed to the public - no walk-in access. The famous thumbs-up is gone; the sign now shows the Meta infinity mark (with 'Facebook' still on the reverse). Viewable from the street/sidewalk only — no public interior access.",g:["TECH","VIEW"],s:[["SFCHRON","https://www.paloaltoonline.com/news/2021/10/29/facebook-changes-its-name-to-meta/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Meta_Platforms"]]},
+{t:3,a:"SJ",n:"Adobe HQ & San Jose Semaphore",ad:"151 S Almaden Blvd, San Jose, CA 95113",la:37.33111,ln:-121.89389,w:"Adobe's cluster of towers that anchors downtown San Jose's skyline. Atop the Almaden Tower is the 'San Jose Semaphore,' a public art installation of four rotating LED disks that broadcast an encoded message.",k:"Exterior and skyline only - the offices are private. The San Jose Semaphore art piece is visible free from the street/downtown after dark (message decodable online). No public interior or tours. Viewable from the street/sidewalk only — no public interior access.",g:["TECH","ARCH","VIEW","FREE"],s:[["OFFICIAL","https://www.adobe.com/about-adobe/visit-us/sj-semaphore.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Adobe_World_Headquarters"]]},
+{t:3,a:"SJ",n:"eBay Main Campus",ad:"2025 Hamilton Ave, San Jose, CA 95125",la:37.29546,ln:-121.92755,w:"The headquarters campus of eBay, one of the dot-com era's defining companies, whose whimsical signage and 'Main Street' welcome center reflect its marketplace roots.",k:"Exterior and signage only. The campus is a private workplace not open to the public; the branded eBay sign and buildings can be seen from the roadside. Viewable from the street/sidewalk only — no public interior access.",g:["TECH","SHOP","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/EBay"],["MERCURY","https://oceanwestcp.com/properties/north-first-commons-ebay/"]]},
+{t:3,a:"SJ",n:"Samsung Semiconductor 'Samsung@First'",ad:"3655 N First St, San Jose, CA 95134",la:37.40931,ln:-121.94651,w:"Samsung's striking 10-story North American semiconductor HQ (opened 2015), a LEED-Platinum tower with a sculptural stepped facade - the standout landmark of North San Jose's 'Golden Triangle' tech corridor along N First St, which also hosts PayPal, Cisco and others.",k:"Exterior architecture and signage only. The building is a private office, not open to the public; admire the facade from N First St. Neighboring PayPal (2211 N First St) and Cisco (170 W Tasman Dr) campuses are likewise exteriors-only drive-bys. Viewable from the street/sidewalk only — no public interior access.",g:["TECH","ICON","ARCH","VIEW"],s:[["OFFICIAL","https://semiconductor.samsung.com/about-us/locations/us/us-campus/"],["MERCURY","https://en.wikipedia.org/wiki/North_San_Jose"]]},
+{t:1,a:"PA",n:"Elizabeth F. Gamble Garden",ad:"1431 Waverley St, Palo Alto, CA 94301",la:37.44049,ln:-122.14774,w:"A historic 2.5-acre estate garden in downtown Palo Alto, with formal rose and perennial beds, a wisteria arbor and the 1902 Gamble family house. A quiet horticultural retreat open daily during daylight hours.",k:"Grounds free and open every day at daylight; the Main House and offices keep weekday hours (roughly 9am-2pm). Donations encouraged.",g:["PARK","FREE","ARCH"],s:[["OFFICIAL","https://www.gamblegarden.org/"],["SMITHSONIAN","gardens.si.edu/garden-story/elizabeth-f-gamble-garden/ — Smithsonian Gardens feature"]]},
+{t:2,a:"PA",n:"Foothills Nature Preserve",ad:"3300 Page Mill Rd, Los Altos Hills, CA 94022",la:37.35400,ln:-122.18500,w:"A 1,400-acre Palo Alto nature preserve in the Santa Cruz Mountain foothills, with oak woodland trails, Boronda Lake and sweeping ridge views. Famous for being residents-only from 1969 until it finally opened to everyone in December 2020.",k:"Now open to all; a small per-vehicle entry fee applies and the lot can fill on weekends. Open sunrise to sunset.",g:["PARK","VIEW"],s:[["OFFICIAL","https://www.paloalto.gov/Departments/Community-Services/Parks-Open-Space-Golf-Division/Neighborhood-Parks/Foothills-Nature-Preserve"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Foothills_Nature_Preserve"]]},
+{t:2,a:"MV",n:"Los Altos History Museum",ad:"51 S San Antonio Rd, Los Altos, CA 94022",la:37.38083,ln:-122.11198,w:"A free community museum telling the story of the Santa Clara Valley's orchard era and its turn into Silicon Valley, set on a campus beside the 1905 J. Gilbert Smith farmhouse. A gentle stop in downtown Los Altos.",k:"Free admission; open Thursday-Sunday, roughly noon-4pm. Closed major holidays.",g:["MUS","FREE","ARCH"],s:[["OFFICIAL","https://www.losaltoshistory.org/visit/"],["MTNVIEWVOICE","mv-voice.com — Heather Zimmerman review of the 'Making Connections: Stories from the Land' permanent exhibit"],["LATOWNCRIER","Los Altos Town Crier — coverage of Making Connections exhibit grand opening / Ikebana front-page feature"]]},
+{t:3,a:"MV",n:"Cuesta Park",ad:"615 Cuesta Dr, Mountain View, CA 94040",la:37.37750,ln:-122.08250,w:"A beloved 32-acre Mountain View neighborhood park shaded by mature redwoods and oaks, with tennis courts, playgrounds, picnic lawns and a demonstration garden. A classic local weekend spot.",k:"Free; parking off Cuesta Dr fills on sunny weekends. Better as a picnic/family stop than a destination sight.",g:["PARK","FAM","FREE","VIEW"],s:[["OFFICIAL","https://www.mountainview.gov/Home/Components/FacilityDirectory/FacilityDirectory/20/671"],["MTNVIEWVOICE","Cuesta Park profile — https://www.mv-voice.com/real-estate/2017/06/14/cuesta-park/ ; also Best of Mountain View & Sliding through the Peninsula's playgrounds"],["PALOALTOONLINE","Cuesta Park — https://www.paloaltoonline.com/real-estate/2009/01/22/cuesta-park-3/"]]},
+{t:1,a:"SUN",n:"Historic Murphy Avenue",ad:"S Murphy Ave, Sunnyvale, CA 94086",la:37.37730,ln:-122.03050,w:"The character-filled heart of downtown Sunnyvale: a block of restored late-1800s brick storefronts named for pioneer Martin Murphy Jr., now a pedestrian-only strip of restaurants, cafes and shops. Converted to a walking mall in 2023.",k:"Free to stroll; liveliest at the Saturday farmers market and in the evenings. On-street/garage parking nearby.",g:["FREE","ARCH","PARK"],s:[["OFFICIAL","https://murphysv.com/"],["PALOALTOONLINE","https://www.paloaltoonline.com/ae/2026/02/19/downtown-sunnyvale-developments-where-to-play-dine-and-unwind-in-a-transforming-silicon-valley-corridor/ (names Murphy Avenue as heart of downtown Sunnyvale)"]]},
+{t:2,a:"SUN",n:"Sunnyvale Baylands Park",ad:"999 E Caribbean Dr, Sunnyvale, CA 94089",la:37.41250,ln:-121.99690,w:"A 177-acre bayfront park on the edge of the salt marsh, with seasonal wetlands, a large playground, picnic areas and flat trails linking to the Bay Trail. A joint city-county park good for birding and kite-flying.",k:"Per-vehicle parking fee on weekends and holidays; open 8am to 30 minutes after sunset. Windy near the marsh.",g:["PARK","FAM"],s:[["OFFICIAL","https://parks.santaclaracounty.gov/locations/sunnyvale-baylands-park"],["SJSPOTLIGHT","sanjosespotlight.com / x.com/SJSpotlight/status/1808525028113416563 — Baylands Park drone light show coverage"]]},
+{t:2,a:"SUN",n:"Sunnyvale Heritage Park Museum",ad:"570 E Remington Dr, Sunnyvale, CA 94087",la:37.35647,ln:-122.02551,w:"A small volunteer-run museum housed in a replica of the historic Murphy family's Bay View farmhouse, set in Orchard Heritage Park amid one of the valley's last surviving apricot orchards. Free local history exhibits.",k:"Free; open limited hours (typically Tue/Thu/Sun afternoons). Combine with a walk through the adjacent heritage orchard.",g:["MUS","FREE","PARK","ARCH"],s:[["OFFICIAL","https://heritageparkmuseum.org/visit-us"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sunnyvale_Heritage_Park_Museum"]]},
+{t:3,a:"SUN",n:"Las Palmas Park",ad:"850 Russet Dr, Sunnyvale, CA 94087",la:37.36407,ln:-122.03803,w:"A green Sunnyvale neighborhood park with a pond, big playground, tennis and a walking loop shaded by palms and redwoods. An easygoing family stop away from the tech campuses.",k:"Free; mainly a picnic/playground park rather than a marquee sight.",g:["PARK","FAM","FREE","TECH"],s:[["OFFICIAL","https://www.sunnyvale.ca.gov/Home/Components/FacilityDirectory/FacilityDirectory/51/456"],["SJSPOTLIGHT","sanjosespotlight.com/sunnyvale-residents-opposed-to-park-redesign — Las Palmas Park (24.3-acre) redesign coverage"],["LOCALNEWSMATTERS","localnewsmatters.org/2026/05/11/sunnyvale-residents-fear-sports-upgrades-fencing-could-alter-las-palmas-parks-charm — Bay City News nonprofit"]]},
+{t:1,a:"CU",n:"Historic Saratoga Village",ad:"14503 Big Basin Way, Saratoga, CA 95070",la:37.25570,ln:-122.03260,w:"The walkable historic core of Saratoga along Big Basin Way (once 1850s 'Lumber Street'), lined with wine-country-style restaurants, galleries, boutiques and Blaney Plaza. The gateway to Hakone Gardens and Montalvo.",k:"Free to wander; parking on Big Basin Way and side lots. Best paired with a nearby garden or winery visit.",g:["FREE","ARCH","PARK","SHOP"],s:[["OFFICIAL","https://www.saratoga.ca.us/276/Saratoga-Village"],["METROSV","Saratoga cover: Big Basin Way, downtown Saratoga's main street becoming a destination — https://www.metrosiliconvalley.com/metro/10.24.07/cover-saratoga-0743.html"]]},
+{t:2,a:"CU",n:"McClellan Ranch Preserve",ad:"22221 McClellan Rd, Cupertino, CA 95014",la:37.31307,ln:-122.06369,w:"A rustic 18-acre former horse ranch preserved as a nature area on Stevens Creek, with 1930s barns, a blacksmith shop, community gardens, a rotary nature museum and an environmental education center. A designated Cupertino natural preserve.",k:"Free; open daily 6am to dusk. Saturday open-house and last-Saturday blacksmith demos are the liveliest times.",g:["PARK","FAM","FREE","MUS"],s:[["OFFICIAL","https://www.cupertino.gov/Parks-Recreation/McClellan-Ranch-Preserve"],["WIKIPEDIA","https://en.wikipedia.org/wiki/McClellan_Ranch_Preserve"]]},
+{t:1,a:"SC",n:"Triton Museum of Art",ad:"1505 Warburton Ave, Santa Clara, CA 95050",la:37.35611,ln:-121.95417,w:"A free art museum on El Camino Real focused on Bay Area and California artists, with rotating exhibitions, a permanent collection and a sculpture garden on the grounds. A well-kept Santa Clara secret.",k:"Free admission and free parking; open Tuesday-Sunday, 11am-5pm, closed Mondays.",g:["MUS","FREE","PARK","ARCH"],s:[["OFFICIAL","https://www.tritonmuseum.org/visit"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Triton_Museum_of_Art"]]},
+{t:2,a:"SC",n:"de Saisset Museum",ad:"500 El Camino Real, Santa Clara, CA 95053",la:37.35230,ln:-121.93819,w:"Santa Clara University's free art and history museum, holding a California/mission-era collection and rotating fine-art shows, next to the historic Mission Santa Clara on the leafy campus. Accredited and free to all.",k:"Free; open Tuesday-Sunday afternoons, closed Mondays. Check the site as campus schedules shift hours.",g:["MUS","FREE","ICON","ARCH"],s:[["OFFICIAL","https://www.scu.edu/desaisset/about/visit/hours/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/De_Saisset_Museum"]]},
+{t:2,a:"SJ",n:"Almaden Quicksilver County Park",ad:"21785 Almaden Rd, San Jose, CA 95120",la:37.17422,ln:-121.82455,w:"A 4,163-acre park on the grounds of the New Almaden mercury ('quicksilver') mines, which ran for 135 years and helped fuel the Gold Rush. Over 37 miles of trails wind past mine ruins, brick chimneys and hillside views above south San Jose.",k:"Free entry; hot and exposed in summer with little water. The nearby Casa Grande / New Almaden Quicksilver Mining Museum tells the mine story.",g:["PARK","ODD","VIEW","MUS"],s:[["OFFICIAL","https://parks.santaclaracounty.gov/locations/almaden-quicksilver-county-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Almaden_Quicksilver_County_Park"]]},
+{t:2,a:"DAY",n:"Pulgas Water Temple",ad:"80 Cañada Rd, Redwood City, CA 94062",la:37.48332,ln:-122.31715,w:"A neoclassical Beaux-Arts temple built by the SFPUC in 1934 to mark where Hetch Hetchy water — piped 160 miles from Yosemite — arrives on the Peninsula, framed by cypress and a long reflecting pool. A striking, little-known monument near Woodside.",k:"Free; grounds open weekdays 9am-5pm, and to pedestrians/cyclists on weekends (the parking lot is closed weekends and holidays). Off Cañada Rd near I-280.",g:["ARCH","ODD","FREE","PARK"],s:[["OFFICIAL","https://www.sfpuc.gov/learning/come-visit/pulgas-water-temple"],["ATLASOBSCURA","https://www.atlasobscura.com/places/pulgas-water-temple"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pulgas_Water_Temple"]]},
+{t:1,a:"DAY",n:"Natural Bridges State Beach",ad:"2531 W Cliff Dr, Santa Cruz, CA 95060",la:36.95250,ln:-122.05750,w:"A pretty Santa Cruz cove named for its remaining natural rock arch, with tide pools and, from mid-October to mid-February, California's only State Monarch Butterfly Preserve, where thousands of monarchs cluster in the eucalyptus grove.",k:"Open 8am to sunset; parking about $10. Monarchs are seasonal (roughly November-January is peak) — the beach is worth it year-round.",g:["PARK","ICON","FAM","VIEW"],s:[["CASTATEPARKS","https://www.parks.ca.gov/?page_id=541"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Natural_Bridges_State_Beach"]]},
+{t:1,a:"DAY",n:"West Cliff Drive",ad:"701 W Cliff Dr, Santa Cruz, CA 95060",la:36.95146,ln:-122.02671,w:"A scenic ~3-mile clifftop walking and biking path running from the wharf to Natural Bridges, overlooking Monterey Bay and the world-famous Steamer Lane surf break. Lighthouse Point holds the tiny Santa Cruz Surfing Museum.",k:"Free and always open; storm damage has closed short stretches to cars in recent years, but the coastal path remains the draw. Parking along the bluff.",g:["VIEW","ICON","FREE","MUS"],s:[["CASTATEPARKS","https://www.parks.ca.gov/?page_id=550"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Steamer_Lane"]]},
+{t:2,a:"DAY",n:"Mystery Spot",ad:"465 Mystery Spot Rd, Santa Cruz, CA 95065",la:37.01260,ln:-122.00180,w:"A classic 1940s roadside gravity-illusion attraction in the redwoods above Santa Cruz, where a tilted cabin makes balls appear to roll uphill and people seem to change height. A campy, only-in-California guided tour.",k:"Paid timed tours every half hour (~$12), plus $5 cash parking; it sells out midday. Arrive 30 minutes early. Open daily.",g:["ODD","ICON","FAM","PARK"],s:[["OFFICIAL","https://www.mysteryspot.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mystery_Spot"]]},
+{t:2,a:"DAY",n:"Wilder Ranch State Park",ad:"1401 Coast Rd, Santa Cruz, CA 95060",la:36.98300,ln:-122.10000,w:"A coastal state park just north of Santa Cruz combining a preserved 1800s dairy ranch (Victorian farmhouse, adobe, working blacksmith) with bluff-top trails over pocket beaches and tide pools. Popular with hikers and mountain bikers.",k:"Day-use parking about $10 (free on foot or bike); park open 8am-sunset, the historic Interpretive Center Thursday-Sunday.",g:["PARK","VIEW","TECH","ARCH"],s:[["CASTATEPARKS","https://www.parks.ca.gov/?page_id=549"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wilder_Ranch_State_Park"]]},
+{t:2,a:"DAY",n:"Roaring Camp Railroads",ad:"5401 Graham Hill Rd, Felton, CA 95018",la:37.04078,ln:-122.06219,w:"A 19th-century-style logging camp in Felton running two heritage trains: an 1890s narrow-gauge steam train that climbs through old-growth redwoods to Bear Mountain, and a diesel line down the San Lorenzo gorge to the Santa Cruz Boardwalk.",k:"Paid excursions; gates open 9am-5pm on operating days. Book steam-train tickets ahead, especially for holiday and Thomas events.",g:["FAM","ICON","ARCH"],s:[["OFFICIAL","https://roaringcamp.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Roaring_Camp_%26_Big_Trees_Narrow_Gauge_Railroad"]]},
+{t:1,a:"DAY",n:"Pigeon Point Lighthouse",ad:"210 Pigeon Point Rd, Pescadero, CA 94060",la:37.18175,ln:-122.39392,w:"One of the tallest lighthouses in the U.S. — a 115-foot 1872 tower on a dramatic bluff on the San Mateo coast, 5 miles south of Pescadero. A photogenic Highway 1 landmark now run as a state historic park (and hostel).",k:"Grounds free and open daily for photos and whale-watching; the tower itself has long been closed for restoration, so views are from the base. Bring a windbreaker.",g:["ICON","VIEW","PARK","ARCH"],s:[["CASTATEPARKS","https://www.parks.ca.gov/?page_id=533"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pigeon_Point_Lighthouse"]]},
+{t:2,a:"DAY",n:"Mount Umunhum Summit",ad:"Mount Umunhum Rd, Los Gatos, CA 95033",la:37.16050,ln:-121.89857,w:"A 3,486-foot Santa Cruz Mountains peak inside Sierra Azul Open Space Preserve, crowned by 'the Cube' — the concrete base of a Cold War radar tower from the former Almaden Air Force Station. Reopened to the public in 2017 with 360-degree Bay-to-ocean views.",k:"Free; reach the summit by the paved Mount Umunhum Rd or a strenuous ~3.7-mile trail from the Bald Mountain lot. The narrow mountain road can close in bad weather — check before going.",g:["VIEW","ODD","PARK","ARCH"],s:[["OFFICIAL","https://www.openspace.org/preserves/sierra-azul"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sierra_Azul_Open_Space_Preserve"]]},
+{t:1,a:"DAY",n:"Pillar Point Harbor & Mavericks",ad:"1 Johnson Pier, Half Moon Bay, CA 94019",la:37.50294,ln:-122.48198,w:"A working fishing harbor at Princeton-by-the-Sea and the launch point for Mavericks, the legendary big-wave surf break a half-mile offshore where winter swells top 60 feet. Harbor tide pools, seafood shacks and coastal trails round out a day.",k:"Harbor free to visit; to glimpse Mavericks, park at the Pillar Point bluff lot and walk the dirt trail. Big-wave season is roughly November-March.",g:["ICON","VIEW","PARK","FREE"],s:[["OFFICIAL","https://www.smharbor.com/pillar-point-harbor"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mavericks_Beach"]]},
+{t:2,a:"DAY",n:"Pinnacles National Park",ad:"5000 East Entrance Rd, Paicines, CA 95043",la:36.49354,ln:-121.14665,w:"California's newest national park (2013): the eroded remnants of an ancient volcano, with jagged rock spires, talus caves and one of the best places in the state to spot free-flying California condors. A striking, harder-to-reach day trip southeast of Gilroy.",k:"About 1.5-2 hours from San Jose; the east and west entrances are NOT connected by road. Entry fee per vehicle; brutally hot in summer, best in spring. High Peaks Trail is the top condor spot.",g:["PARK","VIEW","ICON","FREE"],s:[["OFFICIAL","https://www.nps.gov/pinn/planyourvisit/basicinfo.htm"],["VISITCA","https://www.visitcalifornia.com/experience/plan-your-trip-pinnacles-national-park/"]]},
+{t:1,a:"PA",n:"Stanford Dish Loop",ad:"Stanford Ave & Junipero Serra Blvd, Stanford, CA 94305",la:37.41070,ln:-122.16050,w:"An iconic ~3.7-mile paved loop over Stanford's rolling foothills, named for the giant radio telescope dish on the ridge, with sweeping views of the Bay and campus. A local exercise ritual dawn to dusk.",k:"No dogs, no bikes; free street parking on Stanford Ave fills early on weekends. No water on the loop.",g:["PARK","ICON","VIEW","FREE"],s:[["OFFICIAL","https://dish.stanford.edu/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Stanford_Dish"]]},
+{t:1,a:"PA",n:"Baylands Nature Preserve",ad:"2500 Embarcadero Rd, Palo Alto, CA 94303",la:37.45961,ln:-122.10641,w:"One of the largest tracts of undisturbed marshland left on the Bay, with 15 miles of flat trails, boardwalks and superb birding along the salt marsh and sloughs. The Lucy Evans Interpretive Center sits at 2775 Embarcadero Rd.",k:"Flat and stroller/bike friendly; best light and bird activity at sunrise and sunset.",g:["PARK"],s:[["OFFICIAL","https://www.paloalto.gov/Departments/Community-Services/Parks-Open-Space-Golf-Division/Neighborhood-Parks/Baylands-Nature-Preserve"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Palo_Alto_Baylands_Nature_Preserve"]]},
+{t:2,a:"MV",n:"Shoreline Park & Lake",ad:"3160 N Shoreline Blvd, Mountain View, CA 94043",la:37.43276,ln:-122.08812,w:"A 750-acre bayfront park built on former landfill, with a 50-acre sailing lake, kite-flying meadows, burrowing owls and miles of paved trails linking to the Bay Trail. The historic Rengstorff House stands near the entrance.",k:"Boat and kayak rentals at the lake; Shoreline Amphitheatre concerts can jam parking on show nights.",g:["PARK","ENT","ARCH"],s:[["OFFICIAL","https://www.mountainview.gov/our-city/departments/community-services/shoreline-at-mountain-view"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Shoreline_Park_(Mountain_View,_California)"]]},
+{t:1,a:"CU",n:"Rancho San Antonio Preserve",ad:"22500 Cristo Rey Dr, Cupertino, CA 95014",la:37.33111,ln:-122.09278,w:"The South Bay's most popular open space: 24 miles of oak-and-grassland trails, the family-favorite Deer Hollow Farm, and the climb to Wildcat Loop and PG&E Trail. Open 8 a.m. to 30 minutes after sunset.",k:"The lot fills by mid-morning on weekends; arrive early or expect to wait.",g:["PARK","VIEW"],s:[["OFFICIAL","https://www.openspace.org/preserves/rancho-san-antonio"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rancho_San_Antonio_County_Park"]]},
+{t:2,a:"CU",n:"Fremont Older Open Space Preserve",ad:"22898 Prospect Rd, Saratoga, CA 95070",la:37.28601,ln:-122.05911,w:"A 739-acre preserve of hayfields, oak woodland and orchard on the Saratoga/Cupertino line, with two lookout peaks (Hunters Point, Maisie's Peak) giving valley-wide views. A favorite of hikers, riders and mountain bikers.",k:"Only ~21 spaces at the Prospect Rd lot; go early. Trails are shared with bikes and horses.",g:["PARK","VIEW"],s:[["OFFICIAL","https://www.openspace.org/preserves/fremont-older-preserve"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Fremont_Older_Open_Space_Preserve"]]},
+{t:2,a:"CU",n:"Stevens Creek County Park",ad:"11401 Stevens Canyon Rd, Cupertino, CA 95014",la:37.29399,ln:-122.07986,w:"Santa Clara County's first regional park (1924): 1,077 acres of foothills around a 92-acre reservoir, with hiking, fishing, non-motorized boating and links to the Fremont Older and Skyline trails.",k:"$6 parking at the ranger station; a second lot near the reservoir is closer to the water.",g:["PARK","VIEW"],s:[["OFFICIAL","https://parks.santaclaracounty.gov/locations/stevens-creek-county-park"],["MERCURY","https://www.mercurynews.com/"]]},
+{t:1,a:"CU",n:"Hakone Estate & Gardens",ad:"21000 Big Basin Way, Saratoga, CA 95070",la:37.25232,ln:-122.04177,w:"One of the oldest Japanese-style residential gardens in the Western Hemisphere (est. 1917), with a koi pond, tea house, bamboo grove and hillside strolling paths. A National Historic District in the Saratoga hills.",k:"Paid admission; the Lower House and tea garden are best in spring azalea and fall maple season.",g:["PARK","ARCH"],s:[["OFFICIAL","https://www.hakone.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hakone_Gardens"]]},
+{t:2,a:"SJ",n:"Japanese Friendship Garden",ad:"1300 Senter Rd, San Jose, CA 95112",la:37.32222,ln:-121.86111,w:"A serene 6.5-acre koi garden in Kelley Park modeled on Okayama's Korakuen, sister city to San Jose, with waterfalls, arched bridges and hundreds of koi. Free to enter.",k:"Inside Kelley Park; parking on Senter Rd. Combine with the neighboring Happy Hollow zoo.",g:["PARK","VIEW","FAM","FREE"],s:[["OFFICIAL","https://www.sanjoseca.gov/your-government/departments-offices/parks-recreation-neighborhood-services/parks/regional-parks/japanese-friendship-garden"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Japanese_Friendship_Garden_(San_Jose)"]]},
+{t:1,a:"SJ",n:"Municipal Rose Garden",ad:"Naglee Ave & Dana Ave, San Jose, CA 95126",la:37.33176,ln:-121.92859,w:"A 5.5-acre historic rose garden with roughly 3,500 plantings of nearly 200 varieties, repeatedly voted America's Best Rose Garden. Peak bloom is late April through the summer.",k:"Free; on-street parking. Fragrance and color peak in May. GPS 1649 Naglee Ave.",g:["PARK","ARCH","VIEW","FREE"],s:[["OFFICIAL","https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityDirectory/2295/2028"],["WIKIPEDIA","https://en.wikipedia.org/wiki/San_Jose_Municipal_Rose_Garden"]]},
+{t:3,a:"SJ",n:"Overfelt Gardens & Chinese Cultural Garden",ad:"368 Educational Park Dr, San Jose, CA 95133",la:37.36303,ln:-121.85353,w:"A quiet 33-acre passive park with ponds, a fragrance/sensory garden and the Chinese Cultural Garden, complete with a Friendship Gate and a towering statue of Confucius. Free and rarely crowded.",k:"Free entry; wandering pathways suit a slow stroll rather than a workout.",g:["PARK","ARCH","FREE"],s:[["OFFICIAL","https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityDirectory/2311/2028"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chinese_Cultural_Garden"]]},
+{t:2,a:"SJ",n:"Alum Rock Park",ad:"15350 Penitencia Creek Rd, San Jose, CA 95127",la:37.39772,ln:-121.79968,w:"Founded in 1872, one of California's oldest municipal parks: 720 acres of rugged canyon in the Diablo foothills, with mineral springs, stone grottoes, a creek and 13 miles of trails. Open 8 a.m. to a half-hour after sunset.",k:"Weekend parking fee; the Creek and North Rim trails give the best canyon views.",g:["PARK","VIEW"],s:[["OFFICIAL","https://www.sanjoseca.gov/Home/Components/FacilityDirectory/FacilityDirectory/2088/2028"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Alum_Rock_Park"]]},
+{t:1,a:"DAY",n:"Mission Peak (Fremont)",ad:"680 Stanford Ave, Fremont, CA 94539",la:37.51590,ln:-121.90190,w:"The Bay Area's most famous foothill summit hike: a relentless ~6-mile round trip climbing 2,000 ft to a 2,517-ft peak and its selfie-famous survey pole, with 360-degree valley and Bay views. A rite of passage for South Bay hikers.",k:"Tiny Stanford Ave lot fills at dawn; overflow on Vineyard Ave. Bring water, no shade. Entrance open 6:30 a.m.",g:["ICON","ARCH","VIEW"],s:[["OFFICIAL","https://www.ebparks.org/parks/mission-peak"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mission_Peak"]]},
+{t:2,a:"DAY",n:"Lick Observatory (Mt Hamilton)",ad:"7281 Mt Hamilton Rd, Mount Hamilton, CA 95140",la:37.34110,ln:-121.64310,w:"A working University of California observatory on the 4,200-ft summit of Mt Hamilton, reached by a famously winding road with knockout views over San Jose. Free visitor center and tours of the historic 36-inch Great Refractor.",k:"Public grounds open weekends noon-5 p.m.; the drive is long and twisty with no gas or food. Check for construction closures.",g:["ICON","ARCH","VIEW","FREE"],s:[["OFFICIAL","https://www.lickobservatory.org/public-visitor-information/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lick_Observatory"]]},
+{t:1,a:"DAY",n:"Filoli Historic House & Garden",ad:"86 Canada Rd, Woodside, CA 94062",la:37.47040,ln:-122.31070,w:"A 1917 Georgian country estate on 654 acres in Woodside, with 16 acres of formal English Renaissance gardens, reflecting pools and seasonal displays. A National Trust site open daily 10 a.m.-5 p.m.",k:"Paid, often timed-ticket admission; spring tulips and the holiday displays draw crowds. Book ahead.",g:["PARK","ARCH"],s:[["OFFICIAL","https://filoli.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Filoli"]]},
+{t:1,a:"DAY",n:"Big Basin Redwoods State Park",ad:"21600 Big Basin Way, Boulder Creek, CA 95006",la:37.17194,ln:-122.22222,w:"California's oldest state park (1902) and its old-growth coast redwoods. Badly burned in the 2020 CZU fire, it has reopened for limited day-use with reservations; over 20 miles of trails are restored and the forest is visibly regenerating.",k:"Day-use reservations required; a summer weekend/holiday shuttle runs. Full rebuild will take years, so check current access before going.",g:["PARK"],s:[["CASTATEPARKS","https://www.parks.ca.gov/bigbasin"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Big_Basin_Redwoods_State_Park"]]},
+{t:2,a:"DAY",n:"Henry Cowell Redwoods State Park",ad:"101 Big Trees Park Rd, Felton, CA 95018",la:37.04086,ln:-122.06492,w:"An accessible grove of ancient coast redwoods near Felton, with an easy self-guided Redwood Loop, the San Lorenzo River and trails up to an observation deck. A gentler redwood day than Big Basin.",k:"Day-use fee; the flat Redwood Loop is stroller-friendly. The Roaring Camp steam railroad runs nearby.",g:["PARK"],s:[["CASTATEPARKS","https://www.parks.ca.gov/henrycowell/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Henry_Cowell_Redwoods_State_Park"]]},
+{t:2,a:"DAY",n:"Santa Cruz Beach Boardwalk",ad:"400 Beach St, Santa Cruz, CA 95060",la:36.96417,ln:-122.01778,w:"California's classic beachfront amusement park, home to the 1924 wooden Giant Dipper coaster and the 1911 Looff carousel, both National Historic Landmarks. Free to enter, pay per ride; open year-round.",k:"Free admission, ride wristbands sold separately; summer weekends are packed and parking is tight.",g:["PARK","ICON","ARCH","FAM"],s:[["OFFICIAL","https://beachboardwalk.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Santa_Cruz_Beach_Boardwalk"]]},
+{t:2,a:"DAY",n:"Half Moon Bay State Beach",ad:"95 Kelly Ave, Half Moon Bay, CA 94019",la:37.46563,ln:-122.44605,w:"Four miles of sandy state beach on the San Mateo coast, edged by the level, paved Coastside Trail running from Pillar Point to Poplar Beach with wide-open ocean views. Day-use 8 a.m. to sunset.",k:"Francis Beach is at the end of Kelly Ave; the coast is windy and cold-water, more for walking than swimming.",g:["VIEW"],s:[["CASTATEPARKS","https://www.parks.ca.gov/?page_id=531"],["OFFICIAL","https://www.halfmoonbay.gov/732/Beaches"]]},
+{t:3,a:"DAY",n:"Gilroy Gardens Family Theme Park",ad:"3050 Hecker Pass Hwy, Gilroy, CA 95020",la:37.00528,ln:-121.62806,w:"A horticulture-themed family park in the garlic capital of Gilroy, built around famous 'circus trees' and six gardens with gentle rides and attractions. Seasonal, open roughly late March through early January.",k:"Paid admission; low-key rides aimed at younger kids. Pair with Gilroy's garlic scene and the July Garlic Festival heritage.",g:["PARK","ARCH","FAM"],s:[["OFFICIAL","https://www.gilroygardens.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Gilroy_Gardens"]]},
+{t:1,a:"SC",n:"Levi's Stadium & 49ers Museum",ad:"4900 Marie P DeBartolo Way, Santa Clara, CA 95054",la:37.40306,ln:-121.97000,w:"Home of the NFL's San Francisco 49ers and host of Super Bowl 50 and the 2026 Super Bowl LX, this open-air stadium also holds the 49ers Museum, an 20,000-sq-ft hall of trophies, memorabilia, and Hall of Fame exhibits.",k:"Stadium interior only by game/event ticket or scheduled tour. The 49ers Museum keeps separate hours (typically Fri-Sun) on non-event days; on gamedays it needs both a game and a museum ticket. Verify hours before visiting.",g:["ENT","TECH","MUS"],s:[["OFFICIAL","https://levisstadium.com/visit-the-museum/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Levi%27s_Stadium"]]},
+{t:1,a:"SJ",n:"SAP Center at San Jose (The Shark Tank)",ad:"525 W Santa Clara St, San Jose, CA 95113",la:37.33278,ln:-121.90111,w:"The 17,500-seat downtown arena nicknamed 'The Shark Tank,' home of the NHL's San Jose Sharks since 1993 and one of the busiest concert and event arenas in the country.",k:"Interior accessible only with a ticket to a Sharks game, concert, or event. No general tours.",g:["ENT"],s:[["OFFICIAL","https://www.sapcenter.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/SAP_Center"]]},
+{t:2,a:"SJ",n:"PayPal Park",ad:"1123 Coleman Ave, San Jose, CA 95110",la:37.35139,ln:-121.92500,w:"An 18,000-seat soccer-specific stadium beside the airport, home to MLS's San Jose Earthquakes and NWSL's Bay FC, known for its steep stands and the largest outdoor bar in North America.",k:"Match-day or event ticket required to enter; no regular public access otherwise.",g:["ENT","TECH","PARK"],s:[["OFFICIAL","https://www.sjearthquakes.com/paypalpark"],["WIKIPEDIA","https://en.wikipedia.org/wiki/PayPal_Park"]]},
+{t:1,a:"MV",n:"Shoreline Amphitheatre",ad:"1 Amphitheatre Pkwy, Mountain View, CA 94043",la:37.42678,ln:-122.08073,w:"Northern California's largest outdoor amphitheater, opened in 1986 by Bill Graham, seating about 22,500 between reserved seats and a big grass lawn, next to Shoreline Park by the bay.",k:"Open only for concerts, roughly May through October; entry by event ticket. Lawn seating is general admission.",g:["ENT","PARK","ARCH"],s:[["OFFICIAL","https://www.shorelineamphitheatre.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Shoreline_Amphitheatre"]]},
+{t:2,a:"DAY",n:"The Mountain Winery",ad:"14831 Pierce Rd, Saratoga, CA 95070",la:37.26037,ln:-122.06494,w:"A historic hilltop winery estate in the Saratoga foothills whose open-air amphitheater seats about 2,500 for an intimate summer concert series with sweeping views over Silicon Valley.",k:"Concert season runs spring through fall; entry by event ticket. Gates open ~2 hours before showtime; ~$20 per car parking.",g:["ENT","PARK","ARCH","VIEW"],s:[["OFFICIAL","https://www.mountainwinery.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mountain_Winery"]]},
+{t:2,a:"SC",n:"California's Great America",ad:"4701 Great America Pkwy, Santa Clara, CA 95054",la:37.39594,ln:-121.97225,w:"A 100-acre amusement park opened in 1976 with roller coasters, a Boardwalk water area, and the landmark Carousel Columbia, celebrating its 50th season in 2026.",k:"Seasonal ride park; entry by ticket. Slated to close after the 2027 season (lease expires 2028) unless extended - still fully operating for now.",g:["ENT","PARK","ICON","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/California%27s_Great_America"],["MERCURY","https://sanjosespotlight.com/fact-brief-is-californias-great-america-in-santa-clara-closing/"]]},
+{t:3,a:"SJ",n:"The Ritz",ad:"400 S First St, San Jose, CA 95113",la:37.32980,ln:-121.88490,w:"A 500-capacity live-music venue and nightclub in a former 1940s movie theater at the heart of the SoFA District, hosting touring rock, hip-hop, Latin, and electronic acts.",k:"Open for scheduled shows and club nights only; entry by ticket. Check the calendar before going.",g:["ENT"],s:[["OFFICIAL","https://sofadistrict.org/the-ritz-nightclub-san-jose/"],["MERCURY","https://www.metrosiliconvalley.com/can-the-ritz-bring-rock-roll-back-to-sofa/"]]},
+{t:1,a:"SJ",n:"Santana Row",ad:"377 Santana Row, San Jose, CA 95128",la:37.32028,ln:-121.94778,w:"Silicon Valley's premier open-air shopping and dining district on Stevens Creek Blvd, a European-styled neighborhood of ~50 shops, 30-plus restaurants, a boutique hotel, and a cinema, dubbed the 'Rodeo Drive of Silicon Valley.'",k:"Open-air district, free to stroll; individual shops and restaurants keep their own hours. Paid garages and street parking.",g:["SHOP","PARK","ENT","VIEW"],s:[["OFFICIAL","https://www.santanarow.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Santana_Row"]]},
+{t:2,a:"PA",n:"Stanford Shopping Center",ad:"660 Stanford Shopping Center, Palo Alto, CA 94304",la:37.44306,ln:-122.17111,w:"An upscale open-air mall on El Camino Real at Sand Hill Road with 140-plus specialty stores from luxury brands to local favorites, adjoining the Stanford campus.",k:"Free to enter; store hours vary. Ample free parking.",g:["SHOP","PARK","ICON","FREE"],s:[["OFFICIAL","https://www.simon.com/mall/stanford-shopping-center"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Stanford_Shopping_Center"]]},
+{t:2,a:"PA",n:"University Avenue (Downtown Palo Alto)",ad:"University Ave, Palo Alto, CA 94301",la:37.44440,ln:-122.16310,w:"The walkable spine of downtown Palo Alto, lined with boutiques, bookstores, cafes, art galleries, a cinema, and a dense run of restaurants a short walk from the Caltrain station.",k:"Public street district, free to explore; shops and restaurants set their own hours. Street parking is tight at peak times; use the public garages.",g:["SHOP","PARK","ENT","VIEW"],s:[["OFFICIAL","https://www.destinationpaloalto.com/downtown-palo-alto"],["VISITCA","https://www.destinationpaloalto.com/fun/shopping"]]},
+{t:2,a:"MV",n:"Castro Street (Downtown Mountain View)",ad:"Castro St, Mountain View, CA 94041",la:37.39230,ln:-122.08130,w:"Downtown Mountain View's pedestrian-friendly main street between Evelyn Ave and El Camino Real, packed with diverse restaurants, sidewalk cafes, beer gardens, boutiques, and a Sunday farmers' market.",k:"Public street district (100-300 blocks are a pedestrian mall); free to walk. Individual businesses keep their own hours.",g:["SHOP","PARK","VIEW","FREE"],s:[["VISITCA","https://visitsiliconvalley.org/attractions/castro-street-shopping-district"],["OFFICIAL","https://econdev.mountainview.gov/downtown"]]},
+{t:2,a:"DAY",n:"Downtown Los Gatos (Santa Cruz Avenue)",ad:"N Santa Cruz Ave, Los Gatos, CA 95030",la:37.22660,ln:-121.98140,w:"A picturesque four-to-five-block historic downtown along Santa Cruz Avenue with independent boutiques, art and cooking shops, fine dining, and turn-of-the-century architecture at the foot of the Santa Cruz Mountains.",k:"Public street district, free to stroll; shop and restaurant hours vary. A pleasant day-trip stop en route to Santa Cruz.",g:["SHOP","ARCH","FREE"],s:[["OFFICIAL","https://visitlosgatosca.com/shop/"],["VISITCA","https://www.losgatoschamber.com/list/ql/shopping-specialty-retail-23"]]},
+{t:3,a:"SJ",n:"The Pruneyard Shopping Center",ad:"1875 S Bascom Ave, Campbell, CA 95008",la:37.28908,ln:-121.93399,w:"A relaxed open-air shopping, dining, and cinema center at Bascom and Campbell Avenues, named for the prune orchards it replaced and known for the landmark 1980s free-speech Supreme Court case that bears its name.",k:"Free to enter; store and restaurant hours vary. Just southwest of San Jose in Campbell.",g:["SHOP","ICON","ENT","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Pruneyard_Shopping_Center"],["OFFICIAL","https://www.downtowncampbell.com/directory/location/5709"]]},
+{t:2,a:"SJ",n:"SoFA District & SoFA Market",ad:"387 S First St, San Jose, CA 95113",la:37.33086,ln:-121.88591,w:"Downtown San Jose's 'Creative District' (South of First Area), a cluster of galleries, theaters, live-music clubs, and the SoFA Market food hall, anchored by the monthly South First Fridays art walk.",k:"Public district, free to wander; the food hall and venues keep their own hours. South First Fridays runs the first Friday evening of each month.",g:["SHOP","ENT","FREE"],s:[["SJTOURISM","https://www.sanjose.org/listings/sofa-district"],["WIKIPEDIA","https://en.wikipedia.org/wiki/SoFA_District"]]},
+{t:2,a:"SJ",n:"Japantown San Jose",ad:"N 5th St & Jackson St, San Jose, CA 95112",la:37.34833,ln:-121.89556,w:"One of only three surviving historic Japantowns in the U.S., centered on Jackson and Fifth Streets, with the Japanese American Museum, family-run shops and restaurants, temples, and Empire Seven Studios murals.",k:"Public historic neighborhood, free to explore; museum, shops, and eateries keep their own hours. Also a strong food destination.",g:["SHOP","MUS","ARCH","FREE"],s:[["OFFICIAL","https://www.japantownsanjose.org/where-is-jtown"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Japantown,_San_Jose"]]},
+{t:1,a:"SJ",n:"Children's Discovery Museum of San Jose",ad:"180 Woz Way, San Jose, CA 95110",la:37.32668,ln:-121.89177,w:"A large purple hands-on children's museum on Woz Way (named for Apple's Steve Wozniak, its biggest founding donor), with interactive exhibits on water, art, science, and community for young families.",k:"Ticketed admission; check open days and hours before visiting. Near the convention center in downtown San Jose.",g:["FAM","MUS","ARCH"],s:[["OFFICIAL","https://www.cdm.org/getting-here/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Children%27s_Discovery_Museum_of_San_Jose"]]},
+{t:2,a:"SJ",n:"Happy Hollow Park & Zoo",ad:"748 Story Rd, San Jose, CA 95112",la:37.32568,ln:-121.86206,w:"A family amusement park and accredited zoo in Kelley Park, mixing gentle rides, a puppet theater, and a Danny the Dragon ride with animal habitats for lemurs, jaguars, and more.",k:"Ticketed admission; typically closed some weekdays - check the calendar. Parking at 748 Story Rd or 1300 Senter Rd.",g:["FAM","PARK","ENT","ARCH"],s:[["OFFICIAL","https://happyhollow.org/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Happy_Hollow_Park_%26_Zoo"]]},
+{t:2,a:"SJ",n:"Downtown San Jose Murals & Public Art",ad:"396 S First St, San Jose, CA 95113",la:37.33020,ln:-121.88644,w:"An outdoor gallery of 70-plus murals and installations produced by Empire Seven Studios and the SJ Walls festival, concentrated in the SoFA District and Japantown, including El Mac's 'Sophie Holding the World Together' at Discovery Meadow.",k:"Free, self-guided, viewable any time on public streets and walls. Cluster around S First St in SoFA; more in Japantown.",g:["ENT","MUS","VIEW","FREE"],s:[["OFFICIAL","https://www.empiresevenstudios.com/"],["SJTOURISM","https://www.kqed.org/arts/11741855/find-beauty-in-the-streets-of-san-jose-this-summer"]]},
+{t:3,a:"SJ",n:"St. James Park",ad:"N 2nd St & E St James St, San Jose, CA 95112",la:37.33895,ln:-121.89120,w:"A 6.8-acre downtown square laid out in 1848, ringed by the St. James Square Historic District's landmark courthouse, post office, and churches, and the site where President McKinley once spoke.",k:"Free public park, open daytime; a recent renovation has reopened it as a downtown green. Ringed by historic civic buildings.",g:["PARK","ICON","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/St._James_Park_(San_Jose)"],["SJTOURISM","https://www.sanjose.org/listings/st-james-park"]]},
+{t:1,a:"SJ",n:"San Jose Museum of Art",ad:"110 S Market St, San Jose, CA 95113",la:37.33361,ln:-121.88917,w:"Downtown's flagship art museum, set in a landmarked 1892 Richardsonian-Romanesque former post office joined to a modern wing, with a strong collection of modern and contemporary West Coast art.",k:"Closed Mondays; open Tue-Sun (Fri until 9pm). Paid admission.",g:["MUS","ICON","ARCH"],s:[["OFFICIAL","https://sjmusart.org/hours-and-admissions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/San_Jose_Museum_of_Art"]]},
+{t:2,a:"SJ",n:"MACLA (Movimiento de Arte y Cultura Latino Americana)",ad:"510 S 1st St, San Jose, CA 95113",la:37.32806,ln:-121.88389,w:"A contemporary arts space in the SoFA District grounded in the Chicano/Latino experience, showing visual art, performance, and spoken word with free admission.",k:"Gallery open Wed-Sun, roughly noon-5pm; free.",g:["MUS","FREE","ARCH"],s:[["OFFICIAL","https://maclaarte.org/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Movimiento_de_Arte_y_Cultura_Latino_Americana"]]},
+{t:2,a:"SJ",n:"San Jose Museum of Quilts & Textiles",ad:"520 S 1st St, San Jose, CA 95113",la:37.32815,ln:-121.88436,w:"The first US museum devoted entirely to quilts and textiles, with rotating exhibitions of fiber art in the heart of the SoFA arts district.",k:"Open Thu-Sun; closed early week. Paid admission.",g:["MUS","ARCH"],s:[["OFFICIAL","https://sj-mqt.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/San_Jose_Museum_of_Quilts_%26_Textiles"]]},
+{t:2,a:"SJ",n:"Institute of Contemporary Art San Jose",ad:"560 S 1st St, San Jose, CA 95113",la:37.32770,ln:-121.88425,w:"A non-collecting contemporary art center in SoFA showing rotating exhibitions by emerging and established artists, with free admission and an active public-programs schedule.",k:"Open Thu-Sun, noon-5pm; free.",g:["MUS","FREE","ARCH"],s:[["OFFICIAL","https://www.icasanjose.org/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Institute_of_Contemporary_Art_San_Jos%C3%A9"]]},
+{t:1,a:"SJ",n:"Peralta Adobe & Fallon House Historic Site",ad:"175 W St John St, San Jose, CA 95110",la:37.33640,ln:-121.89475,w:"Two eras side by side: the 1797 Peralta Adobe, the oldest surviving structure in San Jose and last remnant of the original Pueblo de San Jose, faces the ornate 1855 Fallon House built by an early city mayor.",k:"Interiors are seen by guided tour only, generally weekend afternoons, booked in advance; the site is run by History San Jose. The surrounding street was renamed Sharks Way near the arena.",g:["ARCH","TECH","ENT"],s:[["OFFICIAL","https://historysanjose.org/plan-your-visit/peralta-fallon-historic-site/"],["SJTOURISM","https://www.sanjose.org/listings/peralta-adobe-fallon-house-historic-site"]]},
+{t:2,a:"SJ",n:"Japanese American Museum of San Jose",ad:"535 N 5th St, San Jose, CA 95112",la:37.34750,ln:-121.89360,w:"In the heart of San Jose's Japantown, this museum collects and preserves Japanese American history and culture, including the WWII incarceration era, with a focus on the Bay Area.",k:"Open Thu-Sun, noon-4pm; closed Mon-Wed.",g:["MUS","PARK"],s:[["OFFICIAL","https://www.jamsj.org/visit"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Japanese_American_Museum_of_San_Jose"]]},
+{t:2,a:"SJ",n:"Viet Museum (Museum of the Boat People & the Republic of Vietnam)",ad:"1650 Senter Rd, San Jose, CA 95112",la:37.32028,ln:-121.86000,w:"Housed in the historic Greenwalt House within History Park at Kelley Park, this is believed to be the only museum focused on the Vietnamese diaspora and the boat-people exodus, in a city with one of the largest Vietnamese populations in the US.",k:"Limited hours (often weekends); confirm before visiting. Inside History Park at Kelley Park.",g:["MUS","PARK","ARCH"],s:[["OFFICIAL","https://vietmuseumsanjose.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Viet_Museum"]]},
+{t:2,a:"SJ",n:"Emma Prusch Farm Park",ad:"647 S King Rd, San Jose, CA 95116",la:37.33959,ln:-121.84668,w:"A 47-acre working farm park preserving San Jose's agricultural past, with the city's largest barn, a rare-fruit orchard, community gardens, and roaming farm animals, all free to visit.",k:"Open daily 8:30am to sunset; free.",g:["PARK","FREE","FAM"],s:[["OFFICIAL","https://www.pruschfarmpark.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Emma_Prusch_Farm_Park"]]},
+{t:2,a:"SJ",n:"San Jose Heritage Rose Garden",ad:"399 W Taylor St, San Jose, CA 95110",la:37.34393,ln:-121.90726,w:"One of the largest public collections of rare and historic roses in the world, with roughly 3,000 varieties on nearly four acres of the Guadalupe River Park's Guadalupe Gardens.",k:"Open daily sunrise to sunset; free. Best bloom in spring.",g:["PARK","FREE","MUS","ARCH"],s:[["OFFICIAL","https://grpg.org/visit/guadalupe-gardens/san-jose-heritage-rose-garden/"],["SJTOURISM","https://www.sanjose.org/listings/heritage-rose-garden"]]},
+{t:2,a:"SJ",n:"Plaza de Cesar Chavez",ad:"170 S Market St, San Jose, CA 95113",la:37.33194,ln:-121.89000,w:"A 2.2-acre downtown park with a central fountain, ringed by the art museum, The Tech, and the adjacent Circle of Palms; on the site of the 1797 pueblo plaza, it is among the oldest public spaces in Northern California.",k:"Open daily; free. Hosts frequent festivals and Music in the Park.",g:["PARK","FREE","MUS","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Plaza_de_C%C3%A9sar_Ch%C3%A1vez"],["SJTOURISM","https://www.sanjose.org/listings/plaza-de-cesar-chavez"]]},
+{t:3,a:"SJ",n:"Mexican Heritage Plaza",ad:"1700 Alum Rock Ave, San Jose, CA 95116",la:37.35275,ln:-121.85396,w:"A landmark cultural campus on the Eastside, opened in 1999 and run by the School of Arts and Culture, with a 500-seat theater, galleries, gardens, and a pavilion celebrating Latino arts and heritage.",k:"Grounds and gardens are open to the public; indoor venues are event- and program-driven, so check the calendar.",g:["ARCH","PARK","ICON","ENT"],s:[["OFFICIAL","https://www.schoolofartsandculture.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mexican_Heritage_Plaza"]]},
+{t:3,a:"SJ",n:"Five Wounds Portuguese National Church",ad:"1375 E Santa Clara St, San Jose, CA 95116",la:37.35009,ln:-121.86393,w:"The soaring Manueline-Gothic landmark of San Jose's Little Portugal, built 1916-19 partly from timbers salvaged from the Portuguese Pavilion of the 1915 Panama-Pacific Exposition.",k:"An active parish; visit respectfully and check Mass times before entering.",g:["ARCH","ICON"],s:[["OFFICIAL","https://fivewoundschurch.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Five_Wounds_Portuguese_National_Church"]]},
+{t:2,a:"SJ",n:"SoFA District",ad:"420 S 1st St, San Jose, CA 95113",la:37.33086,ln:-121.88591,w:"The South First Area, downtown's compact arts-and-nightlife quarter along South First Street, packing MACLA, the ICA, the Quilts & Textiles museum, Anno Domini gallery, the historic California Theatre, and live-music venues into a few walkable blocks.",k:"A walkable district (representative address given). Liveliest on the free South First Fridays art walk, first Friday each month.",g:["FREE","MUS","ENT","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/SoFA_District"],["SJTOURISM","https://www.sanjose.org/listings/sofa-district"]]},
+{t:1,a:"SJ",n:"Japantown Historic District",ad:"Jackson St & N 5th St, San Jose, CA 95112",la:37.34846,ln:-121.89542,w:"One of only three surviving Japantowns in the United States and widely called the most authentic, this three-block Jackson Street district of family shops, markets, and restaurants dates to around 1900 and was named a California Cultural District in 2025.",k:"A walkable neighborhood (central intersection given). Pair with the Japanese American Museum on N 5th St.",g:["FREE","MUS","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Japantown,_San_Jose"],["SJTOURISM","https://www.sanjose.org/neighborhoods/japantown"]]},
+{t:2,a:"SJ",n:"Downtown Willow Glen (Lincoln Avenue)",ad:"1261 Lincoln Ave, San Jose, CA 95125",la:37.30364,ln:-121.89595,w:"A tree-lined, small-town-feeling shopping and dining strip along Lincoln Avenue, with hundreds of independent boutiques, cafes, and restaurants a few miles southwest of downtown.",k:"A walkable district (central address given); pedestrian-friendly, best on foot.",g:["FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Willow_Glen,_San_Jose"],["SJTOURISM","https://www.sanjose.org/neighborhoods/willow-glen"]]},
+{t:1,a:"PA",n:"Cantor Arts Center",ad:"328 Lomita Dr, Stanford, CA 94305",la:37.43298,ln:-122.17084,w:"Stanford's free art museum, whose 24-hour outdoor Rodin Sculpture Garden holds some 20 monumental bronzes, one of the largest Rodin collections outside Paris, alongside wide-ranging galleries indoors.",k:"Museum closed Tue-Wed; free. The Rodin Sculpture Garden is open outdoors 24/7, free.",g:["MUS","FREE","PARK","ICON"],s:[["OFFICIAL","https://museum.stanford.edu/visit"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cantor_Center_for_Visual_Arts"]]},
+{t:2,a:"PA",n:"Anderson Collection at Stanford University",ad:"314 Lomita Dr, Stanford, CA 94305",la:37.43280,ln:-122.17020,w:"A purpose-built museum next to the Cantor housing the Anderson family's gift of postwar American painting, with major works by Pollock, Rothko, de Kooning, and Diebenkorn, all free to see.",k:"Open Thu-Mon (closed Tue-Wed); free, no reservation needed.",g:["MUS","FREE","ICON"],s:[["OFFICIAL","https://anderson.stanford.edu/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Anderson_Collection"]]},
+{t:2,a:"PA",n:"Hoover Tower",ad:"550 Serra Mall, Stanford, CA 94305",la:37.42761,ln:-122.16700,w:"The 285-foot 1941 landmark tower at the center of Stanford's campus, home to the Hoover Institution's library and archives, with an observation deck that gives sweeping views over the Peninsula.",k:"The observation deck runs seasonal hours and closes for stretches (closed Aug 2026-Jan 2027); paid ticket to ascend. Verify it is open before visiting.",g:["ARCH","ICON","VIEW"],s:[["OFFICIAL","https://www.hoover.org/visit-us-hoover-tower"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hoover_Tower"]]},
+{t:2,a:"PA",n:"Palo Alto Junior Museum & Zoo",ad:"1451 Middlefield Rd, Palo Alto, CA 94301",la:37.44360,ln:-122.15540,w:"A hands-on children's science museum paired with a small zoo of rescued and native animals, rebuilt and reopened in 2021 as a bright, interactive family destination.",k:"Closed Mondays; open Tue-Sun 10am-5pm.",g:["FAM","MUS"],s:[["OFFICIAL","https://www.cityofpaloalto.org/Departments/Community-Services/Junior-Museum-Zoo"],["SJTOURISM","https://www.destinationpaloalto.com/junior-museum-and-zoo"]]},
+{t:2,a:"PA",n:"Barron Park Donkeys (Bol Park)",ad:"3590 Laguna Ave, Palo Alto, CA 94306",la:37.41470,ln:-122.13050,w:"Palo Alto's beloved community donkeys graze a pasture beside the Bol Park bike path; one resident, Perry, was a live model for the Donkey character in Shrek.",k:"View free from the fence any time; volunteers host Sunday morning walks and feedings. Small pasture, not a formal attraction.",g:["FAM","FREE","PARK","VIEW"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/the-donkeys-of-barron-park-palo-alto-california"],["OFFICIAL","https://barronparkdonkeys.org/"]]},
+{t:1,a:"CU",n:"Montalvo Arts Center (Villa Montalvo)",ad:"15400 Montalvo Rd, Saratoga, CA 95070",la:37.24056,ln:-122.03028,w:"A 1912 Mediterranean-Revival villa built by Senator James Phelan, now an arts center set in 175 hillside acres with formal gardens, an outdoor amphitheater, an artist residency, and free hiking trails through the redwoods.",k:"Grounds and trails open daily 8am-sunset, free parking on weekdays; villa interior access varies with events and tours.",g:["ARCH","PARK","FREE","ENT"],s:[["OFFICIAL","https://montalvoarts.org/experience/plan-visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Montalvo_Arts_Center"]]},
+{t:1,a:"DAY",n:"New Museum Los Gatos (NUMU)",ad:"106 E Main St, Los Gatos, CA 95030",la:37.22074,ln:-121.97922,w:"A community art and history museum in downtown Los Gatos with rotating contemporary-art and local-history exhibitions, an easy stop on a day trip to the town's shops and the Los Gatos Creek Trail.",k:"Closed Mon-Tue; open Wed-Sun. Free for Los Gatos residents and under-18s; modest admission otherwise.",g:["MUS","SHOP","ARCH","FREE"],s:[["OFFICIAL","https://www.numulosgatos.org/visit"],["WIKIPEDIA","https://en.wikipedia.org/wiki/New_Museum_Los_Gatos"]]},
+{t:1,a:"SJ",n:"The Tech Interactive",ad:"201 S Market St, San Jose, CA 95113",la:37.33144,ln:-121.89073,w:"A hands-on science and technology center in downtown San Jose with interactive innovation labs, a design workshop, and an IMAX dome theater, aimed at families and curious minds.",k:"Since June 2026 on a reduced schedule; closed Mondays and Tuesdays. Not permanently closed despite some stale listings. Open to visitors.",g:["MUS","ENT","FAM"],s:[["OFFICIAL","https://www.thetech.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Tech_Interactive"],["SJTOURISM","https://www.sanjose.org/listings/tech-interactive"]]},
+{t:1,a:"PA",n:"Stanford Main Quad & Memorial Church",ad:"450 Jane Stanford Way, Stanford, CA 94305",la:37.42690,ln:-122.17050,w:"The sandstone Romanesque heart of Stanford's campus, where the arcaded Main Quad frames Memorial Church, famed for its gold-leaf mosaic facade and stained glass, built by Jane Stanford in memory of Leland.",k:"Free and open to the public; the Quad is walkable any time and the church is open daily outside services. Docent tours Fridays.",g:["ICON","ARCH","FREE"],s:[["OFFICIAL","https://orsl.stanford.edu/memorial-church-directions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Stanford_Memorial_Church"]]},
+{t:1,a:"PA",n:"Cantor Arts Center & Rodin Sculpture Garden",ad:"328 Lomita Dr, Stanford, CA 94305",la:37.43299,ln:-122.17078,w:"Stanford's free art museum spanning 5,000 years, holding the largest Rodin collection outside Paris - including a cast of The Gates of Hell - with an outdoor Rodin Sculpture Garden open around the clock.",k:"Free admission; museum closed Tuesdays. The outdoor sculpture garden is open 24/7 and lit at night.",g:["MUS","PARK","ICON","ARCH"],s:[["OFFICIAL","https://museum.stanford.edu/visit"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cantor_Arts_Center"]]},
+{t:2,a:"PA",n:"Anderson Collection at Stanford",ad:"314 Lomita Dr, Stanford, CA 94305",la:37.43377,ln:-122.17078,w:"A jewel-box museum of postwar American modern and contemporary art - Pollock, Rothko, Diebenkorn, de Kooning - given to Stanford by the Anderson family, next door to the Cantor Arts Center.",k:"Always free; open Thursday-Monday, closed Tuesday and Wednesday. No reservation needed.",g:["MUS","ICON","FREE"],s:[["OFFICIAL","https://anderson.stanford.edu/visit/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Anderson_Collection_at_Stanford"]]},
+{t:3,a:"PA",n:"Bing Concert Hall",ad:"327 Lasuen St, Stanford, CA 94305",la:37.43194,ln:-122.16611,w:"Stanford's acoustically acclaimed 842-seat 'vineyard'-style concert hall, opened in 2013, where audience terraces wrap the stage so no seat sits more than 75 feet from the performers.",k:"A performing-arts venue - visitable by attending a Stanford Live concert or event; check the calendar for public performances.",g:["ICON","ENT"],s:[["OFFICIAL","https://live.stanford.edu/your-visit/venues/bing-concert-hall/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bing_Concert_Hall"]]},
+{t:1,a:"SJ",n:"Winchester Mystery House",ad:"525 S Winchester Blvd, San Jose, CA 95128",la:37.31836,ln:-121.95076,w:"The sprawling, labyrinthine Victorian mansion built continuously for decades by rifle heiress Sarah Winchester, riddled with stairs to nowhere, doors opening onto walls, and 160 rooms.",k:"Guided tours only, by ticket; open daily. On the National Register of Historic Places.",g:["ICON","ARCH"],s:[["OFFICIAL","https://winchestermysteryhouse.com/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Winchester_Mystery_House"],["SJTOURISM","https://www.sanjose.org/listings/winchester-mystery-house"]]},
+{t:1,a:"SJ",n:"Rosicrucian Egyptian Museum",ad:"1660 Park Ave, San Jose, CA 95191",la:37.33417,ln:-121.92333,w:"The largest collection of Egyptian antiquities on display in western North America - mummies, sarcophagi, amulets, and a walk-in replica rock-cut tomb - set in a distinctive Egyptian-Revival campus.",k:"Ticketed; check days open before visiting. Free parking at Naglee Ave and Chapman St, one block east.",g:["MUS","PARK","FREE"],s:[["OFFICIAL","https://www.egyptianmuseum.org/directions"],["ATLASOBSCURA","https://www.atlasobscura.com/places/rosicrucian-egyptian-museum"]]},
+{t:2,a:"SC",n:"Mission Santa Clara de Asis",ad:"500 El Camino Real, Santa Clara, CA 95053",la:37.34922,ln:-121.94154,w:"The eighth of California's 21 Franciscan missions, founded in 1777 and now the centerpiece of Santa Clara University, with a restored adobe-style church, rose gardens, and centuries-old olive trees.",k:"Free; grounds and church open daily roughly 7am-7pm. No guided tours (self-guided pamphlet available). Free visitor parking permit at the campus kiosk on weekdays.",g:["TECH","PARK","ICON","ARCH"],s:[["OFFICIAL","https://www.scu.edu/missionchurch/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mission_Santa_Clara_de_As%C3%ADs"]]},
+{t:2,a:"SJ",n:"Cathedral Basilica of St. Joseph",ad:"80 S Market St, San Jose, CA 95113",la:37.33404,ln:-121.89082,w:"San Jose's landmark downtown cathedral, an 1877 Italianate-Renaissance church crowned by a great dome, richly frescoed inside and designated a minor basilica by the Vatican.",k:"Free to visit outside of Mass and services; open to the public in downtown San Jose.",g:["ICON","ARCH","FREE"],s:[["OFFICIAL","https://stjosephcathedral.org/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cathedral_Basilica_of_St._Joseph_(San_Jose,_California)"]]},
+{t:2,a:"SJ",n:"History Park San Jose",ad:"635 Phelan Ave, San Jose, CA 95112",la:37.32056,ln:-121.85778,w:"A 14-acre open-air museum in Kelley Park with 30-plus original and re-created homes, shops, and landmarks of early San Jose - including a half-scale Electric Light Tower - plus a working trolley and the O'Brien's ice cream parlor.",k:"Park grounds free to walk; some buildings and the trolley run on limited days. Run by History San Jose.",g:["MUS","PARK","ICON","ARCH"],s:[["OFFICIAL","https://historysanjose.org/plan-your-visit/history-park/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/History_Park"]]},
+{t:3,a:"CU",n:"Apple Infinite Loop Campus",ad:"1 Infinite Loop, Cupertino, CA 95014",la:37.33182,ln:-122.03118,w:"Apple's original headquarters (1993-2017, still active offices/labs) on the private U-shaped street Infinite Loop, the iconic '1 Infinite Loop' address. VIEWABLE ONLY now: the public Apple Company Store that once operated here (exclusive Apple-branded merch you could buy nowhere else) PERMANENTLY CLOSED on Jan 20, 2024, so there is no longer anything open to the public inside. Photograph the entrance sign and campus from the perimeter (De Anza Blvd / Mariani Ave / N Tantau); for a public Apple stop, use the Apple Park Visitor Center instead.",g:["TECH","PARK","ICON","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Apple_Infinite_Loop_campus"],["OFFICIAL","https://maps.apple.com/place?place-id=I92DB6EB7006183F4"]]}
+];
+
+const FS = {
+  "ABC7":{k:"ABC7 BAY AREA",t:"ABC7 BAY AREA",u:"",l:""},
+  "ALMANAC":{k:"THE ALMANAC",t:"THE ALMANAC",u:"",l:""},
+  "EATERSF":{k:"EATER SF",t:"EATER SF",u:"",l:""},
+  "EDIBLESV":{k:"EDIBLESV",t:"EDIBLESV",u:"",l:""},
+  "FOODGAL":{k:"FOODGAL",t:"FOODGAL",u:"",l:""},
+  "HOODLINE":{k:"HOODLINE",t:"HOODLINE",u:"",l:""},
+  "INFATUATION":{k:"INFATUATION",t:"INFATUATION",u:"",l:""},
+  "INMENLO":{k:"INMENLO",t:"INMENLO",u:"",l:""},
+  "KQED":{k:"KQED BAY AREA",t:"KQED BAY AREA",u:"",l:""},
+  "KRON":{k:"KRON",t:"KRON",u:"",l:""},
+  "KRON4":{k:"KRON4",t:"KRON4",u:"",l:""},
+  "MERCURY":{k:"MERCURY NEWS",t:"San Jose Mercury News / Bay Area business press",u:"https://www.mercurynews.com/",l:"San Jose Mercury News / Bay Area business press"},
+  "MERCURYNEWS":{k:"MERCURYNEWS",t:"MERCURYNEWS",u:"",l:""},
+  "METROSV":{k:"METRO SILICON VALLEY",t:"METRO SILICON VALLEY",u:"",l:""},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
+  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN BIB",u:"",l:""},
+  "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN ★",u:"",l:""},
+  "MMAG":{k:"MMAG",t:"MMAG",u:"",l:""},
+  "MTNVIEWVOICE":{k:"MOUNTAIN VIEW VOICE",t:"MOUNTAIN VIEW VOICE",u:"",l:""},
+  "NBCBAY":{k:"NBC BAY AREA",t:"NBC BAY AREA",u:"",l:""},
+  "OWN":{k:"OWN",t:"OWN",u:"",l:""},
+  "PALOALTOONLINE":{k:"PALO ALTO ONLINE",t:"PALO ALTO ONLINE",u:"",l:""},
+  "SANJOSECOM":{k:"SANJOSECOM",t:"SANJOSECOM",u:"",l:""},
+  "SANJOSESPOTLIGHT":{k:"SANJOSESPOTLIGHT",t:"SANJOSESPOTLIGHT",u:"",l:""},
+  "SFCHRON":{k:"SF CHRONICLE",t:"San Francisco Chronicle / Bay Area news",u:"https://www.sfchronicle.com/",l:"San Francisco Chronicle / Bay Area news"},
+  "SFSTANDARD":{k:"SF STANDARD",t:"SF STANDARD",u:"",l:""},
+  "SIXFIFTY":{k:"THE SIX FIFTY",t:"THE SIX FIFTY",u:"",l:""},
+  "SJINSIDE":{k:"SJINSIDE",t:"SJINSIDE",u:"",l:""},
+  "SJSPOTLIGHT":{k:"SAN JOSÉ SPOTLIGHT",t:"SAN JOSÉ SPOTLIGHT",u:"",l:""},
+  "SJTODAY":{k:"SJTODAY",t:"SJTODAY",u:"",l:""},
+  "THRILLIST":{k:"THRILLIST",t:"THRILLIST",u:"",l:""},
+  "TIMCHEUNG":{k:"BAY AREA FOODIES",t:"BAY AREA FOODIES",u:"",l:""},
+  "VISITCALIFORNIA":{k:"VISITCALIFORNIA",t:"VISITCALIFORNIA",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
+  "YELP":{k:"YELP",t:"Yelp business listing (hours/access cross-check)",u:"https://www.yelp.com/",l:"Yelp business listing (hours/access cross-check)"}
+};
+
+const CUISINES = [
+  {id:"TWN",n:"Taiwanese"},
+  {id:"CN",n:"Chinese"},
+  {id:"CANT",n:"Cantonese & Dim Sum"},
+  {id:"SICH",n:"Sichuan"},
+  {id:"VN",n:"Vietnamese"},
+  {id:"KR",n:"Korean"},
+  {id:"JP",n:"Japanese, Sushi & Ramen"},
+  {id:"IN",n:"Indian & South Indian"},
+  {id:"SEA",n:"Southeast Asian"},
+  {id:"MX",n:"Mexican & Taqueria"},
+  {id:"US",n:"American & Californian"},
+  {id:"SEAF",n:"Seafood"},
+  {id:"BOBA",n:"Boba & Tea"},
+  {id:"DES",n:"Desserts & Bakeries"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"TECH",n:"Big Tech Campuses"},
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks & Gardens"},
+  {id:"ENT",n:"Sports, Music & Entertainment"},
+  {id:"SHOP",n:"Shopping & Districts"},
+  {id:"ARCH",n:"Architecture & History"},
+  {id:"VIEW",n:"Views & Hikes"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"SJ",n:"Back A Yard Caribbean Grill",ad:"457 E San Carlos St, San Jose, CA 95112",cz:["US"],la:37.33630,ln:-121.87737,w:"The South Bay's beloved Jamaican-Caribbean institution; the signature is smoky, allspice-and-scotch-bonnet jerk chicken paired with braised beef oxtail, rice and peas and fried plantains. Downtown flagship on San Carlos (the old 80 N Market location is closed; Capitol Expy and 13th St branches also open).",g:["MKT"],s:[["YELP","yelp.com/biz/back-a-yard-caribbean-grill-san-jose - open, updated July 2026; 457 E San Carlos St. Note: 80 N Market St location marked CLOSED"],["MICHELIN","guide.michelin.com/us/en/article/dining-out/back-a-yard-caribbean-restaurant-michelin — 'Hidden Gems: Back A Yard'"],["INFATUATION","theinfatuation.com/san-jose/reviews/backayard"],["KQED","kqed.org/checkplease/6666/back-a-yard-caribbean-american-grill-reviews"],["ABC7","abc7news.com/back-a-yard-grill-caribbean-menlo-park-san-jose/5486122/ — 'Back A Yard brings Jamaican family flavor to South Bay'"]]},
+{t:1,a:"CU",n:"Alexander's Steakhouse",ad:"19379 Stevens Creek Blvd, Cupertino, CA 95014",cz:["US"],la:37.32270,ln:-122.02960,w:"Cupertino's landmark high-end steakhouse and a California pioneer of imported Japanese wagyu; the draw is one of the region's deepest A5 wagyu selections plus dry-aged, hand-cut prime steaks with Japanese accents. Reopened end of July 2026 after a renovation.",s:[["YELP","yelp.com/biz/alexanders-steakhouse-cupertino-11 - open, updated July 2026 (4,337 reviews); 19379 Stevens Creek Blvd. Temporarily closed for renovation June-July 2026, reopened end July 2026"],["MICHELIN","https://guide.michelin.com/us/en/california/cupertino/restaurant/alexander-s-steakhouse"]]},
+{t:1,a:"SUN",n:"Hobee's",ad:"800 W Ahwanee Ave, Sunnyvale, CA 94086",cz:["US"],la:37.39554,ln:-122.02802,w:"A Bay Area breakfast institution since 1974, best known for its world-famous blueberry coffee cake alongside all-day scrambles, Cha Cha Bowls and healthy diner fare. The Mountain View branch closed; the Sunnyvale location (and Palo Alto) is open.",s:[["YELP","yelp.com/biz/hobees-restaurant-sunnyvale - open, updated Aug 2026 (609 reviews); 800 W Ahwanee Ave, Sunnyvale. Note: Mountain View location marked CLOSED"],["MTNVIEWVOICE","mv-voice.com/food/2024/12/04/hobees-will-introduce-dinner-craft-beer-and-elevated-twists-on-its-signature-coffee-cake — names Hobee's, blueberry coffee cake"],["KQED","kqed.org/news/11578267 — 'In a Startup and Cash-Out World, One Silicon Valley Restaurant Keeps It Homespun' (Hobee's, coffee cake)"]]},
+{t:1,a:"SJ",n:"Nirvana Soul",ad:"315 S 1st St, San Jose, CA 95113",cz:["DES"],la:37.33117,ln:-121.88702,w:"Downtown San Jose's first Black-owned coffeehouse, opened by sisters Jeronica Macey and Be'Anka Ashaolu — a warm SoFA gathering spot with quality espresso, a soulful vibe and a strong community following. Open (verified Aug 2026).",s:[["YELP","https://www.yelp.com/biz/nirvana-soul-coffee-san-jose-3"],["SJSPOTLIGHT","https://sanjosespotlight.com/san-jose-coffee-shop-is-community-anchor-for-local-artists/"],["NBCBAY","https://www.nbcbayarea.com/news/local/nirvana-soul-san-jose-coffee/3156262/"],["ABC7","https://abc7news.com/nirvana-soul-san-jose-coffee-shop-opening-black-owned-businesses/6550735/"]]},
+{t:2,a:"SJ",n:"Crema Coffee Roasting",ad:"1202 The Alameda, San Jose, CA 95126",cz:["DES"],la:37.33184,ln:-121.91181,w:"A neighborhood-staple San Jose roaster with warm wood interiors and a laid-back patio where regulars bring dogs and laptops; solid espresso and house-roasted beans. Open (verified Aug 2026).",s:[["YELP","https://www.yelp.com/biz/crema-coffee-roasting-san-jose"],["SJSPOTLIGHT","Access v. Abuse: Crema Coffee in San Jose closes due to ADA lawsuit — https://sanjosespotlight.com/access-v-abuse-crema-coffee-in-san-jose-closes-due-to-ada-lawsuit/ (NOTE: covers flagship/original closure; 1202 The Alameda location remained open)"],["SJINSIDE","San Jose Inside: Crema Coffee Shutters Flagship Location in Wake of ADA Suit — https://www.sanjoseinside.com/the-fly/crema-coffee-shutters-flagship-location-in-wake-of-ada-suit/"]]},
+{t:2,a:"SC",n:"Tai Er Sichuan Cuisine",ad:"2855 Stevens Creek Blvd, Unit A268, Santa Clara, CA 95050",cz:["SICH"],la:37.32623,ln:-121.94409,w:"The viral Chinese chain built on a single dish: suan cai yu, boneless fish poached in a tangy house-fermented sauerkraut and pork-bone broth. This Valley Fair location is its second Bay Area outpost, opened spring 2026.",s:[["YELP","yelp.com Tai Er Sichuan Cuisine Valley Fair - opened Westfield Valley Fair spring 2026; also westfield.com/valleyfair restaurant listing, open"],["SFSTANDARD","sfstandard.com/2026/05/20/tai-er-sauerkraut-fish-sf-chefs — Tai Er sauerkraut fish at Valley Fair (Santa Clara)"],["HOODLINE","hoodline.com/2026/04/sauerkraut-fish-frenzy-as-tai-er-splashes-down-at-valley-fair"]]},
+{t:1,a:"MV",n:"Chef Chu's",ad:"1067 N San Antonio Rd, Los Altos, CA 94022",cz:["CN"],la:37.40067,ln:-122.11366,w:"The definitive Silicon Valley Chinese institution, run by chef Lawrence Chu since 1970 and a stop for heads of state and tech elite; the minced-squab lettuce cups and lemon chicken are the enduring classics.",s:[["KQED","kqed.org/checkplease/6741/chef-chus-restaurant-info - KQED Check, Please! Bay Area listing"],["YELP","yelp.com/biz/chef-chus-los-altos - 1067 N San Antonio Rd, updated 2026, open since 1970"],["PALOALTOONLINE","Palo Alto Online: 'As Chef Chu's turns 50, Larry Chu looks to the future'"]]},
+{t:2,a:"SJ",n:"Dynasty Chinese Seafood Restaurant",ad:"1001 Story Rd, San Jose, CA 95122",cz:["CANT"],la:37.33242,ln:-121.85624,w:"A big banquet hall on Story Road doing weekend push-cart dim sum from a roomy second floor; go for the plump-shrimp har gow, siu mai and BBQ-pork buns rolled out on the carts.",s:[["YELP","yelp.com/biz/dynasty-chinese-seafood-restaurant-san-jose - 1001 Story Rd; updated August 2026, open"],["METROSV","Metroactive Dining | Dynasty Chinese Seafood Restaurant — https://www.metrosiliconvalley.com/papers/metro/10.17.02/dining-0242.html (won Metro reader vote for dim sum)"],["ABC7","Driver plows into outdoor diners at Dynasty Chinese Seafood Restaurant, Grand Century Mall — https://abc7news.com/2-remain-in-critical-condition-after-outdoor-dining-crash-in-san-jose/6979800/"]]},
+{t:1,a:"SJ",n:"Koi Palace (Milpitas)",ad:"768 Barber Ln, Milpitas, CA 95035",cz:["CANT"],la:37.41943,ln:-121.91569,w:"The Bay Area's dim sum benchmark for Cantonese banquet cooking; the har gow come with near-translucent skins over sweet whole shrimp, alongside flaky baked BBQ-pork buns and whole roast duck.",s:[["INFATUATION","theinfatuation.com/san-francisco/reviews/koi-palace - 'the dim sum gold standard in the Bay Area' (review of the Koi Palace flagship; Milpitas is the South Bay outpost)"],["EATERSF","Eater SF feature 'How Dim Sum Legend Koi Palace Preserves the Legacy of Cantonese Banquet Culture'"]]},
+{t:1,a:"CU",n:"Ox 9 Lanzhou Handpulled Noodles",ad:"10745 S De Anza Blvd, Cupertino, CA 95014",cz:["CN"],la:37.31260,ln:-122.03275,w:"The first Bay Area shop to specialize in Gansu-province Lanzhou noodles; choose your noodle cut for a clear, 10-hour spiced beef broth, or get the flat noodles with the ten-hour Sichuan-braised beef stew.",s:[["INFATUATION","theinfatuation.com/san-jose/reviews/ox-9-lanzhou-handpulled-noodles"],["MICHELIN","guide.michelin.com — Ox 9 Lanzhou is Michelin-recommended (also featured Michelin Cover Story 2018)"]]},
+{t:1,a:"SC",n:"Jang Su Jang",ad:"3561 El Camino Real #10, Santa Clara, CA 95051",cz:["KR"],la:37.35366,ln:-121.99487,w:"A longtime anchor of Santa Clara's El Camino Koreatown and a repeat Michelin Guide selection; the tabletop galbi (marinated beef short ribs) and stone-pot stews arrive with a generous banchan spread.",s:[["MICHELIN","MICHELIN Guide selected restaurant, Santa Clara (Korean); multi-year California Guide listing"]]},
+{t:1,a:"PA",n:"Ramen Nagi",ad:"541 Bryant St, Palo Alto, CA 94301",cz:["JP"],la:37.44548,ln:-122.16072,w:"The Tokyo chain's first U.S. shop, famous for long nightly waits; the Original King is a silky 24-hour tonkotsu you customize by richness, garlic and a 1-to-10 spice scale.",s:[["INFATUATION","theinfatuation.com/san-francisco/reviews/ramen-nagi-palo-alto"],["PALOALTOONLINE","Japan's Ramen Nagi arrives to elevate Palo Alto's noodle game — https://www.paloaltoonline.com/uncategorized/2018/06/19/japans-ramen-nagi-arrives-to-elevate-palo-altos-noodle-game/"],["METROSV","Bowls of Bliss at Ramen Nagi — https://www.metrosiliconvalley.com/bowls-of-bliss-at-ramen-nagi/"],["SIXFIFTY","Japan's Ramen Nagi arrives to elevate Palo Alto's noodle game — https://www.thesixfifty.com/japans-ramen-nagi-arrives-to-elevate-palo-altos-noodle-game-6073/"]]},
+{t:1,a:"SJ",n:"Gombei",ad:"193 Jackson St, San Jose, CA 95112",cz:["JP"],la:37.34894,ln:-121.89489,w:"A bare-bones mainstay in historic San Jose Japantown for comforting teishoku; go for the tangy chicken teriyaki, breaded katsu cutlets and savory udon.",s:[["INFATUATION","theinfatuation.com/san-jose/reviews/gombei"],["KQED","https://www.kqed.org/arts/13904788/san-jose-japantown-changes-minato-gombei-shuei-do-santo-market (names Gombei; owner Shiro Kubota profile)"]]},
+{t:1,a:"SJ",n:"Falafel's Drive-In",ad:"2301 Stevens Creek Blvd, San Jose, CA 95128",cz:["US","VIRAL"],la:37.32367,ln:-121.93513,w:"A 1966 mid-century drive-in and Guy Fieri 'Diners, Drive-Ins and Dives' icon whose crispy herb-marbled falafel and cult banana shake have kept lines out the door for 50+ years.",s:[["INFATUATION","https://www.theinfatuation.com/san-jose/reviews/falafels-drive-in"],["MERCURY","https://edition.pagesuite.com/tribune/article_popover.aspx?guid=de67b538-59b1-47f0-8c79-cc745c9c8eaf"]]},
+{t:1,a:"SJ",n:"Original Joe's",ad:"301 S 1st St, San Jose, CA 95113",cz:["US"],la:37.33143,ln:-121.88707,w:"The definitive downtown San Jose old-school Italian-American institution, run by the Rocca family since 1956 with clubby booths, tuxedoed servers and pre-Sharks-game Manhattans.",s:[["INFATUATION","https://www.theinfatuation.com/san-jose/guides/best-restaurants-san-jose-california"],["SJSPOTLIGHT","sanjosespotlight.com/fact-brief-is-san-joses-original-joes-closing/"]]},
+{t:1,a:"SJ",n:"Adega",ad:"1614 Alum Rock Ave, San Jose, CA 95116",cz:["SEAF"],la:37.35111,ln:-121.85833,w:"San Jose's first and only Michelin-starred restaurant, an ambitious Portuguese fine-dining room in the Little Portugal district known for its seafood cataplana and deep wine cellar.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/california/san-jose/restaurant/adega"],["KRON4","kron4.com/news/bay-area/san-joses-only-michelin-star-restaurant-announced-reopen/ — 'Adega: San Jose's only Michelin-star restaurant announced reopen'"]]},
+{t:1,a:"PA",n:"Philz Coffee",ad:"101 Forest Ave, Palo Alto, CA 94301",cz:["DES"],la:37.44209,ln:-122.16154,w:"The cult Bay-born, one-cup-at-a-time pour-over chain; this Palo Alto shop was Philz's first location outside San Francisco and the Mint Mojito iced coffee is its signature obsession.",s:[["INFATUATION","https://www.theinfatuation.com/san-francisco/reviews/philz-coffee-embarcadero"],["PALOALTOONLINE","Whimsical forest mural at Philz Coffee (Palo Alto, Forest Ave) getting uprooted — https://www.paloaltoonline.com/news/2017/01/24/whimsical-forest-mural-at-philz-coffee-getting-uprooted/ ; also Best Of Palo Alto winners lists"]]},
+{t:1,a:"PA",n:"Zareen's (Palo Alto)",ad:"365 S California Ave, Palo Alto, CA 94306",cz:["IN"],la:37.42673,ln:-122.14410,w:"A Silicon Valley cult favorite for Pakistani home cooking, the California Ave flagship earned a spot in the Michelin Guide on the strength of its chicken Memoni samosas and buttery tikka masala.",s:[["INFATUATION","https://www.theinfatuation.com/san-francisco/reviews/zareens"],["MICHELIN","https://guide.michelin.com/us/en/california/palo-alto/restaurants"]]},
+{t:1,a:"PA",n:"Protégé",ad:"250 S California Ave, Palo Alto, CA 94306",cz:["US"],la:37.42784,ln:-122.14382,w:"Michelin-starred New American from French Laundry alums Anthony Secviar and master sommelier Dennis Kelly; a serene tasting-menu dining room plus a walk-in lounge/bar on California Ave.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/california/palo-alto/restaurant/protege"],["PALOALTOONLINE","https://www.paloaltoonline.com/blogs/2018/11/29/palo-altos-protg-earns-michelin-star/"]]},
+{t:2,a:"MV",n:"Steins Beer Garden",ad:"895 Villa St, Mountain View, CA 94041",cz:["US"],la:37.39393,ln:-122.08000,w:"Downtown Mountain View's flagship beer garden and New American gastropub, rescued by a new owner in 2025, known for its patio, house sausages and deep tap list.",s:[["INFATUATION","https://www.theinfatuation.com/san-francisco/guides/best-restaurants-mountain-view"],["MTNVIEWVOICE","mv-voice.com/mountain-view/2025/03/26/steins-is-saved-mountain-view-beer-garden-gets-new-owner-in-the-nick-of-time/"]]},
+{t:2,a:"SC",n:"Voyager Craft Coffee",ad:"3985 Stevens Creek Blvd, Santa Clara, CA 95051",cz:["DES","VIRAL"],la:37.32230,ln:-121.97200,w:"Silicon Valley-born specialty roaster with a big social-media following for its globally themed 'Destination' lattes and photogenic pastries; the Stevens Creek cafe is the busy flagship.",s:[["INFATUATION","https://www.theinfatuation.com/san-francisco/cuisines/coffee"],["EDIBLESV","https://www.ediblesiliconvalley.com/inside-voyager-craft-coffee/"]]},
+{t:1,a:"DAY",n:"Manresa Bread",ad:"40 N Santa Cruz Ave, Los Gatos, CA 95030",cz:["DES"],la:37.22380,ln:-121.98320,w:"Born from David Kinch's three-Michelin-starred Manresa, James Beard-recognized baker Avery Ruzicka's Los Gatos flagship is famous for its crackly, buttery kouign-amann and levain loaves.",s:[["MERCURY","https://edition.pagesuite.com/tribune/article_popover.aspx?guid=8502eb70-fad7-4cb1-8ac9-97237214ca53"],["KQED","Finally! ManresaBread to Open Soon in Downtown Los Gatos — https://www.kqed.org/bayareabites/93043/finally-manresabread-to-open-soon-in-downtown-los-gatos"],["PALOALTOONLINE","Manresa Bread expanding to new flagship location — https://www.paloaltoonline.com/peninsula-foodist/2022/10/17/manresa-bread-expanding-to-new-flagship-location/"],["METROSV","Manresa Bread: Comparing David Kinch's Bakery Bazaars — https://www.metrosiliconvalley.com/lust-for-crust/"],["NBCBAY","Manresa Restaurant to Open Neighboring Bakery in Los Gatos — https://nbcbayarea.com/news/local/Manresa-Restaurant-to-Open-Neighboring-Bakery-in-Los-Gatos-292968681.html"]]},
+{t:1,a:"DAY",n:"Plumed Horse",ad:"14555 Big Basin Way, Saratoga, CA 95070",cz:["US"],la:37.25651,ln:-122.03518,w:"Saratoga's long-running Michelin-starred (18 consecutive years) fine-dining destination, a Silicon Valley special-occasion landmark with a Wine Spectator Grand Award cellar.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/california/saratoga/restaurant/plumed-horse"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Plumed_Horse"]]},
+{t:2,a:"DAY",n:"Dutch Goose",ad:"3567 Alameda de las Pulgas, Menlo Park, CA 94025",cz:["US"],la:37.43202,ln:-122.20195,w:"A 1966 West Menlo Park dive institution near Sand Hill Road, the graffiti-carved 'melting pot' of Stanford students, VCs and Little League teams famous for its unchanged secret deviled-egg recipe.",s:[["INFATUATION","https://www.theinfatuation.com/san-francisco/guides/best-restaurants-menlo-park"],["INMENLO","inmenlo.com/2012/06/29/burgers-in-menlo-park-the-dutch-goose/ — local Menlo Park news outlet"]]},
+{t:1,a:"PA",n:"Ettan",ad:"518 Bryant St, Palo Alto, CA 94301",cz:["IN"],la:37.44543,ln:-122.16132,w:"Chef Srijith Gopinathan's Michelin Guide-listed 'Cal-Indian' dining room; the peas-and-ricotta stuffed kulcha with bright kale chutney is the signature.",s:[["MICHELIN","https://guide.michelin.com/us/en/california/palo-alto/restaurant/ettan"],["PALOALTOONLINE","paloaltoonline.com/blogs/2020/02/19 — 'Ettan arrives in Palo Alto with chaat, caviar and a secret menu'"],["INFATUATION","theinfatuation.com/san-francisco/reviews/ettan — Palo Alto"]]},
+{t:1,a:"PA",n:"Eylan",ad:"500 El Camino Real, Suite 101, Menlo Park, CA 94025",cz:["IN"],la:37.45050,ln:-122.18030,w:"2026 Michelin Bib Gourmand and 2026 James Beard finalist for inventive regional Indian with a Californian twist; the flaky paratha-like flatbread stuffed with Dungeness crab is the standout. (On the Palo Alto/Menlo El Camino corridor.)",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/california/menlo-park/restaurant/eylan"],["PALOALTOONLINE","Restaurateurs behind Ettan, Eylan and Little Blue Door are James Beard Award finalists — https://www.paloaltoonline.com/food/2026/03/31/ettan-eylan-james-beard-finalist-2026/"],["NBCBAY","Eylan in Menlo Park: New Indian restaurant focuses on wood-fire cooking — https://www.nbcbayarea.com/news/local/eylan-restaurant-menlo-park/3760729/"],["INFATUATION","Eylan - Review - Menlo Park — https://www.theinfatuation.com/san-francisco/reviews/eylan"]]},
+{t:1,a:"MV",n:"Zareen's (Mountain View)",ad:"1477 Plymouth St, Mountain View, CA 94043",cz:["IN"],la:37.41622,ln:-122.07946,w:"Michelin Guide-recognized Pakistani & Indian halal home-cooking institution; the Guide singled out the caramelized chicken shami kebabs and chicken Memoni samosas.",s:[["MICHELIN","Zareen's, Michelin Guide (2016-2020) recognition; per zareensrestaurant.com/about and Stanford Daily Q&A on its Michelin Guide status"],["INFATUATION",""]]},
+{t:2,a:"SJ",n:"Fitoor",ad:"377 Santana Row, Suite 1140, San Jose, CA 95128",cz:["IN"],la:37.31934,ln:-121.94863,w:"The Infatuation-reviewed modern-Indian grill & lounge in Santana Row from the Rooh/Alora team; coastal South Indian plates like the Mangalorean-style duck ghee roast and soft-shell crab poriyal stand out.",s:[["INFATUATION","https://www.theinfatuation.com/san-jose/reviews/fitoor"],["SANJOSESPOTLIGHT","https://sanjosespotlight.com/the-biz-beat-santana-rows-fitoor-offers-flavorful-tour-of-indian-cuisine/"]]},
+{t:1,a:"MV",n:"Aurum",ad:"132 State St, Los Altos, CA 94022",cz:["IN"],la:37.37780,ln:-122.11470,w:"Michelin Guide (2025) modern-Indian dining room from chef Manish Tyagi and Anupam Bhatia; the slow-cooked dum ki boti lamb curry and the spinach-and-paneer 'lasagna' with fenugreek and browned garlic are the standouts. (Los Altos, mapped to the Mountain View cluster.)",s:[["MICHELIN","https://guide.michelin.com/us/en/california/los-altos/restaurant/aurum-1195363"],["PALOALTOONLINE","paloaltoonline.com/blogs/p/2020/12/24 — 'August 1 Five chef opens Indian restaurant in Los Altos' (Aurum, 132 State St)"]]},
+{t:1,a:"MV",n:"Sakoon",ad:"357 Castro St, Mountain View, CA 94041",cz:["IN"],la:37.39070,ln:-122.07950,w:"KQED South Bay favorite: chef Sachin Chopra's glossy, multi-regional contemporary Indian room on Castro Street; go for the gol gappa (pani puri) shots and tandoori specialties.",s:[["KQED","https://www.kqed.org/bayareabites/94724/bay-area-bites-guide-to-10-favorite-south-bay-indian-restaurants"],["METROSV","Sakoon | Modern Indian | Mountain View — https://www.metrosiliconvalley.com/metro/11.04.09/dining-0944.html"],["MTNVIEWVOICE","Restaurant review: Sakoon's food lives up to vibrancy and color of decor — https://www.mv-voice.com/uncategorized/2009/10/02/restaurant-review-sakoons-food-lives-up-to-vibrancy-and-color-of-decor/"]]},
+{t:1,a:"SJ",n:"Saapaaduu",ad:"5968 Silver Creek Valley Rd, Ste 20, San Jose, CA 95138",cz:["IN"],la:37.29050,ln:-121.78150,w:"South San Jose homestyle Tamil Nadu cooking singled out by the SF Chronicle for dishes still rare on American Indian menus; the banana-leaf saapaadu meals and Chettinad mutton curry are the reason to make the drive.",s:[["YELP","https://www.yelp.com/biz/saapaaduu-san-jose"],["SJSPOTLIGHT","https://sanjosespotlight.com/the-biz-beat-san-jose-restaurant-saapaaduu-serves-dishes-from-southern-india/"],["SFCHRON","SF Chronicle highlighted Saapaaduu as one of California's notable Indian restaurants, emphasizing its Tamil Nadu cooking (title/quote surfaced; sfchronicle crawler-blocked)"]]},
+{t:2,a:"SUN",n:"Arka",ad:"725 S Fair Oaks Ave, Sunnyvale, CA 94086",cz:["IN"],la:37.36080,ln:-121.99750,w:"Sunnyvale kitchen bridging the South Indian shoreline and North Indian frontier; the tart, chili-laced gongura mutton is the Andhra signature to chase.",s:[["YELP","https://us.sulekha.com/sunnyvale-ca/restaurants/arka-indian-restaurant-819435"],["SANJOSECOM","sanjose.com/2012/02/21/review_chef_sachin_chopras_arka/ — Metro/SanJose.com critic review of Chef Sachin Chopra's Arka"],["FOODGAL","foodgal.com/2012/01/arka-rises-brightly-in-sunnyvale/ — Carolyn Jung, former Mercury News food editor"]]},
+{t:1,a:"SJ",n:"Minato Japanese Restaurant",ad:"617 N 6th St, San Jose, CA 95112",cz:["JP"],la:37.34920,ln:-121.89360,w:"A family-run anchor of historic San Jose Japantown since 1957, doing timeless home-style teishoku; go for the katsudon (crisp pork cutlet over rice bound with egg), the shioyaki salt-grilled fish and light tempura.",s:[["INFATUATION","theinfatuation.com/san-jose - featured in the Best Restaurants in San Jose guide as a Japantown pick for tempura, curry and tonkatsu"],["YELP","yelp.com/biz/minato-japanese-restaurant-san-jose - open, 617 N 6th St (891 reviews)"],["KQED","https://www.kqed.org/arts/13904788/san-jose-japantown-changes-minato-gombei-shuei-do-santo-market (Japantown feature names Minato)"]]},
+{t:1,a:"SJ",n:"Sushi Confidential",ad:"26 N San Pedro St, San Jose, CA 95113",cz:["JP"],la:37.33600,ln:-121.89520,w:"The downtown San Jose sushi bar off San Pedro Square that locals pack for happy hour; go for fresh nigiri and the over-the-top specialty rolls, with a lively bar scene that has anchored the block since 2016.",s:[["YELP","yelp.com/biz/sushi-confidential-san-jose-san-jose - open, updated August 2026 (1,195 reviews); 26 N San Pedro St"],["NBCBAY","Sushi Confidential reportedly closing San Pedro Square location — https://www.nbcbayarea.com/news/local/sushi-confidential-san-pedro-square/4119925/ (NOTE: names the 26 N San Pedro St location as closing)"],["METROSV","Locksmith at Sushi Confidential — https://www.metrosiliconvalley.com/locksmith-at-sushi-confidential/"]]},
+{t:2,a:"PA",n:"Green Elephant Gourmet",ad:"3950 Middlefield Rd, Palo Alto, CA 94303",cz:["SEA"],la:37.41937,ln:-122.10957,w:"A tucked-away Midtown Palo Alto room doing Burmese-Chinese home cooking for two decades; the tea leaf salad and coconut-chicken noodles sit next to garlic-forward Chinese plates in an intimate, no-frills space.",s:[["YELP","yelp.com/biz/green-elephant-gourmet-palo-alto - open, updated June 2026 (335 reviews); 3950 Middlefield Rd"],["MTNVIEWVOICE","https://www.mv-voice.com/ae/2013/09/03/review-green-elephant-offers-hard-to-find-burmese-flavors/"],["METROSV","http://www.metroactive.com/metro/06.13.07/dining-0724.html"]]},
+{t:2,a:"MV",n:"Amarin Thai Cuisine",ad:"147 Castro St, Mountain View, CA 94041",cz:["SEA"],la:37.39430,ln:-122.07903,w:"Downtown Mountain View's Thai standby (now relocated a few doors down Castro St from its old 174 address); the pad Thai, pineapple curry and coconut prawn soup draw the Castro Street lunch crowd.",s:[["YELP","yelp.com/biz/amarin-thai-cuisine-mountain-view-3 - open, updated August 2026; current address 147 Castro St (old 174 Castro listing is marked CLOSED)"],["PALOALTOONLINE","https://www.paloaltoonline.com/ae/2018/10/18/thai-style-comfort-food/"],["MTNVIEWVOICE","https://www.mv-voice.com/ae/2018/10/19/thai-style-comfort-food/"]]},
+{t:1,a:"SJ",n:"Super Taqueria",ad:"480 S 10th St, San Jose, CA 95112",cz:["MX"],la:37.33353,ln:-121.87547,w:"A homegrown San Jose mini-chain (this is the original SoFA-adjacent S 10th St location) that locals reach for first — crackly-edged carnitas, reliably hot food and friendly counter service, open till late. Featured by The Infatuation's San Jose guide.",s:[["INFATUATION","theinfatuation.com/san-jose — named in the Best Restaurants in San Jose guide"],["YELP","yelp.com/biz/super-taqueria-san-jose-2 — open, updated Aug 2026; 480 S 10th St"],["SJSPOTLIGHT","sanjosespotlight.com/the-biz-beat-san-jose-taqueria-is-the-masters-of-mexican-munchies"],["METROSV","metrosiliconvalley.com/taq-of-the-town — 'San Jose's Super Taqueria, Magnet for Avant-Garde Artists' (Tenth St location)"]]},
+{t:1,a:"SJ",n:"Taqueria Eduardo",ad:"3123 Williamsburg Dr, San Jose, CA 95117",cz:["MX"],la:37.29805,ln:-121.95089,w:"A West San Jose institution whose carnitas — served open-face, juicy inside and crisped at the edges — draw a devoted following; regulars call them among the best in the Bay. Also strong al pastor and quesadillas.",s:[["YELP","yelp.com/biz/taqueria-eduardo-san-jose-2 — open, updated Aug 2026 (679 reviews); 3123 Williamsburg Dr"],["SJSPOTLIGHT","The Biz Beat: San Jose taqueria claims 'Masters of Mexican Munchies' — https://sanjosespotlight.com/the-biz-beat-san-jose-taqueria-is-the-masters-of-mexican-munchies/ ; also Chick-fil-A displacement coverage naming Taqueria Eduardo"],["NBCBAY","New Chick-fil-A in San Jose could displace restaurant (Taqueria Eduardo) — https://www.nbcbayarea.com/news/local/san-jose-proposed-chick-fil-a/3884297/"]]},
+{t:1,a:"DAY",n:"Shalizaar",ad:"300 El Camino Real, Belmont, CA 94002",cz:["US"],la:37.52761,ln:-122.28554,w:"Upscale white-tablecloth Persian room on the Peninsula, chandeliers and Persian carpets, listed in the Michelin Guide; go for the crackly saffron tahdig ladled with gheimeh and the joojeh and koobideh kababs. Belmont day-trip worth the drive.",s:[["MICHELIN","Listed in the MICHELIN Guide — San Francisco Peninsula (guide update Oct 14 2025)"],["YELP","https://www.yelp.com/biz/shalizaar-belmont — updated Dec 2025, OPEN; 300 El Camino Real, Belmont"],["KQED","kqed.org/checkplease/185 & /187 — Check Please! Bay Area review of Shalizaar, Belmont (unanimous recommend)"]]},
+{t:1,a:"PA",n:"Oren's Hummus",ad:"261 University Ave, Palo Alto, CA 94301",cz:["US"],la:37.44572,ln:-122.16217,w:"The University Avenue original of the beloved Israeli mini-chain, where silky made-daily hummus arrives warm topped with ful, mushrooms or lamb and mopped with fresh pita. A Palo Alto staple whose lines say it all.",s:[["YELP","https://www.yelp.com/biz/orens-hummus-palo-alto — 2,700+ reviews, updated 2026, OPEN; 261 University Ave"],["INFATUATION","theinfatuation.com/san-francisco/reviews/orens-hummus — Palo Alto (261 University Ave)"],["MICHELIN","Oren's Hummus – Palo Alto, a MICHELIN Guide restaurant (guide.michelin.com)"]]},
+{t:2,a:"SJ",n:"Zeni Ethiopian Restaurant",ad:"1320 Saratoga Ave, San Jose, CA 95129",cz:["US"],la:37.30029,ln:-121.98056,w:"San Jose's best-known Ethiopian table, with a traditional mesob-seated room; scoop the spice-deep doro wat, kitfo and veggie combos with spongy injera. The South Bay's go-to for East African cooking.",s:[["YELP","https://www.yelp.com/biz/zeni-ethiopian-restaurant-san-jose — 2,000+ reviews, updated Aug 2026, OPEN; 1320 Saratoga Ave"],["KQED","kqed.org/arts/13905230/zeni-ethiopian-restaurant-san-jose — 'The Hidden History of Zeni, the Bay Area's Most Famous Ethiopian Restaurant'"],["MICHELIN","guide.michelin.com/us/en/california/san-jose/restaurant/zeni — 2019 Michelin Guide California"]]},
+{t:2,a:"MV",n:"Rose International Market",ad:"801 W El Camino Real, Ste B, Mountain View, CA 94040",cz:["US"],la:37.38571,ln:-122.08450,w:"A 36-year-old Iranian grocery with a homey kabob counter in back — KQED called it a destination for Persian home cooking; get the charcoal koobideh plate with tahdig, then shop the shelves of Iranian pantry staples on the way out.",g:["MKT"],s:[["KQED","https://www.kqed.org/arts/13965475/rose-market-iranian-persian-food-mountain-view — KQED feature: 'homey destination for Iranian food'"],["YELP","https://www.yelp.com/biz/rose-international-market-mountain-view-3 — updated Aug 2026, OPEN; 801 W El Camino Real, Ste B"],["PALOALTOONLINE","Rose International Market reopens in Mountain View — https://www.paloaltoonline.com/peninsula-foodist/2019/02/14/rose-international-market-returns-to-mountain-view/"],["MTNVIEWVOICE","The 'best kebab in the Bay'? Rose International Market reopens in Mountain View — https://www.mv-voice.com/uncategorized/2019/02/14/the-best-kebab-in-the-bay-rose-international-market-reopens-in-mountain-view/"],["SIXFIFTY","The best kebab in the Bay: Rose International Market reopens — https://www.thesixfifty.com/the-best-kebab-in-the-bay-rose-international-market-reopens-in-mountain-view-3732/"],["METROSV","Metroactive Dining | Rose International Market — https://www.metrosiliconvalley.com/papers/metro/11.23.05/dining-0547.html"]]},
+{t:1,a:"SJ",n:"Pho Ha Noi",ad:"969 Story Rd, San Jose, CA 95122",cz:["VN"],la:37.33216,ln:-121.85813,w:"Little Saigon's benchmark for Northern-style pho, its golden bone-marrow broth simmered nearly a day; get the pho bo dac biet or splurge on the one-pound bone-in short rib. SF Chronicle calls it a 'pho sensation' and Eater singles out its amply-portioned bowls and char-grilled pork rolls.",s:[["INFATUATION","https://www.theinfatuation.com/san-jose/reviews/pho-ha-noi"],["SFCHRON","SF Chronicle called Pho Ha Noi a 'pho sensation' (Bay Area pho coverage)"],["EATERSF","Eater praised its 'generous, amply-portioned servings' and char-grilled pork rolls"]]},
+{t:1,a:"SJ",n:"Duc Huong Sandwiches",ad:"1020 Story Rd, Ste C, San Jose, CA 95122",cz:["VN"],la:37.33138,ln:-121.85497,w:"The Infatuation calls this takeout counter the best lunch deal in San Jose: small banh mi for $4, large for $8. Get the grilled pork banh mi, punchy strips of pork and lightly pickled julienned vegetables in a crackly-yet-fluffy baguette.",s:[["INFATUATION","https://www.theinfatuation.com/san-jose/reviews/duc-huong"],["MMAG","https://issuu.com/mmagazinebayarea/docs/m_los_gatos_0623_web/s/25853444"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sv_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sv_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sv_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sv_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', San Jose CA')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {PA:'#C0504D',MV:'#4F81BD',SUN:'#9BBB59',CU:'#8064A2',SC:'#4BACC6',SJ:'#E8973A',DAY:'#7E8FC4'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([37.3475,-121.9975],10);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle municipality labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Palo Alto", 37.4311, -122.1573], ["Mountain View", 37.3988, -122.0846], ["Sunnyvale", 37.3778, -122.0194], ["Cupertino", 37.2975, -122.0454], ["Santa Clara", 37.3615, -121.9609], ["San Jose", 37.3317, -121.8903], ["Day Trips", 37.2066, -122.0539]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('siliconvalley-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('siliconvalley-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('siliconvalley-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The Valley’s signature strength is immigrant density: <b>Taiwanese</b> (Cupertino/Sunnyvale), <b>Vietnamese</b> (San Jose’s Little Saigon, the largest outside Vietnam), <b>South Indian</b> (Sunnyvale/Milpitas) and the American <b>boba</b> scene the region invented each got a dedicated search led by Michelin, Eater SF, The Infatuation and the SF Chronicle. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, Eater SF, The Infatuation, SF Chronicle, Mercury News, Atlas Obscura and official sites — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 152 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

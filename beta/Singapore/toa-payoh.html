@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Toa Payoh (Singapore) field guide — 14 sights and 42 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Toa Payoh — Singapore &amp; SEA field guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
+  :root{
+    color-scheme: light dark;
+    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
+    --patina:#3E9A88; --patina-dim:#BFE0D8;
+    --brass:#B9863A; --rust:#C56F73;
+    --bone:#2E2838; --bone-dim:#6E6480;
+    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --iron:#191521; --slab:#241E30; --hair:#382E48;
+    --patina:#93D6C6; --patina-dim:#3E5D53;
+    --brass:#E8C57C; --rust:#E4989B;
+    --bone:#ECE7F2; --bone-dim:#A79FB8;
+  }}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:none;}
+  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:var(--slab);}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Toa Payoh — Singapore &amp; SEA field guide — Cleo">
+<meta property="og:description" content="Toa Payoh (Singapore) field guide — 14 sights and 42 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/Singapore/toa-payoh.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Toa Payoh — Singapore &amp; SEA field guide — Cleo">
+<meta name="twitter:description" content="Toa Payoh (Singapore) field guide — 14 sights and 42 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#101318" media="(prefers-color-scheme:dark)">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{ color-scheme:light dark;
+    --iron:#FAF7F0; --slab:#F2ECE1; --slab-2:#EAE2D3; --hair:#E4DBCC; --hair-2:#D8CDB9;
+    --patina:#3C8A79; --patina-dim:#CBE1D9; --brass:#9C7431; --brass-soft:#B79A5E; --rust:#B4645A;
+    --bone:#26241F; --bone-dim:#6C665B; --bone-faint:#928B7C;
+    --glow-a:rgba(156,116,49,.05); --glow-b:rgba(60,138,121,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Neighbourhood guide · Singapore</p>
+  <h1>Toa Payoh<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
+  <p class="standfirst">14 sights and 42 places to eat in <strong>Toa Payoh</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#BCA7E6"></i>Toa Payoh</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "HDB":{k:"HDB",t:"HDB (MyNiceHome)",u:"https://www.mynicehome.gov.sg",l:"HDB (MyNiceHome)"},
+  "KIDSGOWHERE":{k:"KIDSGOWHERE",t:"KidsGoWhere",u:"https://kidsgowhere.sg",l:"KidsGoWhere"},
+  "LITTLEDAYOUT":{k:"LITTLEDAYOUT",t:"Little Day Out",u:"https://www.littledayout.com",l:"Little Day Out"},
+  "NEWAGEPARENTS":{k:"NEWAGEPARENTS",t:"The New Age Parents",u:"https://thenewageparents.com",l:"The New Age Parents"},
+  "NLB":{k:"NLB",t:"National Library Board — Singapore Infopedia",u:"https://www.nlb.gov.sg/",l:"National Library Board — Singapore Infopedia"},
+  "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
+  "SAFRA":{k:"SAFRA",t:"SAFRA (official)",u:"https://www.safra.sg",l:"SAFRA (official)"},
+  "SGTRAINS":{k:"SGTRAINS",t:"SGTrains",u:"https://blog.sgtrains.com",l:"SGTrains"},
+  "SMARTLOCAL":{k:"SMARTLOCAL",t:"The Smart Local",u:"https://thesmartlocal.com",l:"The Smart Local"},
+  "SMRT":{k:"SMRT",t:"SMRT (official)",u:"https://www.smrt.com.sg",l:"SMRT (official)"},
+  "TIMEOUTSG":{k:"TIME OUT SINGAPORE",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
+  "TPSTST":{k:"TPSTST",t:"Toa Payoh Seu Teck Sean Tong (official)",u:"https://tpstst.org.sg",l:"Toa Payoh Seu Teck Sean Tong (official)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"TOAPAYOH",n:"Toa Payoh",c:"#BCA7E6"}
+];
+
+const P = [
+{t:1,a:"TOAPAYOH",n:"Toa Payoh Dragon Playground",ad:"Lorong 6 Toa Payoh (in front of Blk 28), Singapore",la:1.33457,ln:103.85716,w:"Singapore's most iconic surviving 1979 mosaic 'dragon' playground, designed by HDB's Khor Ean Ghee — a terrazzo-tiled dragon head with a climbable ring body. One of only two dragon playgrounds left and a marquee stop on NHB's Toa Payoh Heritage Trail.",k:"Open 24h, free",g:["HERITAGE","FAM","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Toa-Payoh-Dragon-Playground"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Toa_Payoh_Dragon_Playground"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-dragon-playground-an-icon-at-lorong-6/"]]},
+{t:1,a:"TOAPAYOH",n:"Lian Shan Shuang Lin Monastery",ad:"184 Jalan Toa Payoh, Singapore 319944",la:1.33028,ln:103.85750,w:"Singapore's oldest Buddhist monastery — completed 1909 and gazetted a National Monument in 1980 — modelled on Fuzhou's Xi Chan Monastery, with the Hall of Celestial Kings and Mahavira Hall laid out in the classic cong lin ('layered forest') plan.",k:"Free entry",g:["TEMPLE","ARCH","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/en/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Lian-Shan-Shuang-Lin-Monastery"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lian_Shan_Shuang_Lin_Monastery"]]},
+{t:2,a:"TOAPAYOH",n:"Toa Payoh Town Park & Look-Out Tower",ad:"Lorong 6 Toa Payoh (beside Toa Payoh HDB Hub), Singapore",la:1.33076,ln:103.84718,w:"The 4.8-hectare 1970s town park that pioneered greenery in HDB new towns — landscaped ponds, rustic gazebos and the conserved 25 m space-age Look-Out Tower, a favourite 1970s-80s wedding-photo backdrop.",k:"Open daily, free; tower not accessible",g:["PARK","VIEW","ARCH","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces/Toa-Payoh-Town-Park"],["TIMEOUTSG","https://www.timeout.com/singapore/attractions/toa-payoh-town-park-observation-tower"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"]]},
+{t:2,a:"TOAPAYOH",n:"Church of the Risen Christ",ad:"91 Toa Payoh Central, Singapore 319193",la:1.33485,ln:103.85073,w:"Toa Payoh's first Catholic church (inaugurated 1971), a modernist landmark at the junction of Toa Payoh Central and Lorong 4 that has long offered Mass in English, Mandarin and Tamil — featured on the Toa Payoh Heritage Trail's 'Of Faiths & Beliefs' route.",g:["HERITAGE","TEMPLE","ARCH"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail/Church-of-the-Risen-Christ"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_of_the_Risen_Christ"]]},
+{t:2,a:"TOAPAYOH",n:"Block 53, The 'VIP Block'",ad:"53 Lorong 5 Toa Payoh, Singapore 310053",la:1.33770,ln:103.84860,w:"The Y-shaped 1967 HDB showpiece with a rooftop viewing gallery once used to survey the young new town from above. Queen Elizabeth II visited in 1972 (as did Princess Anne, Prince Philip and other dignitaries), earning it the 'VIP Block' name.",k:"Rooftop gallery closed; view from ground level",g:["MUS","VIEW"],s:[["ROOTSSG","https://www.roots.gov.sg/en/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces/Block-53-The-VIP-Block"],["WIKIPEDIA","https://en.wikipedia.org/wiki/53_Lorong_5_Toa_Payoh"]]},
+{t:3,a:"TOAPAYOH",n:"Toa Payoh HDB Hub",ad:"480 Lorong 6 Toa Payoh, Singapore 310480",la:1.33230,ln:103.84570,w:"HDB's headquarters and the civic heart of Singapore's first fully HDB-built satellite town, home to relocated public sculptures — Ng Eng Teng's 'The Climb', Chong Fah Cheong's 'Mama's Precious One' and Ju Ming's 'Tai Chi Boxing' — plus a mall, library and hawker fare.",g:["MKT"],s:[["HDB","https://www.mynicehome.gov.sg/lifestyle/places/neighbourhood-nostalgia-toa-payoh/"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"]]},
+{t:2,a:"TOAPAYOH",n:"Toa Payoh Heritage Trail",ad:"Toa Payoh Central (trail starts near HDB Hub), Singapore",la:1.33230,ln:103.84570,w:"NHB's self-guided trail through Singapore's second satellite town, linking 16-plus sites — from the Dragon Playground and Town Park to Shuang Lin Monastery — across two themed routes, 'Of Public Housing & Shared Spaces' and 'Of Faiths & Beliefs'.",k:"Free; map downloadable on Roots.gov.sg",g:["HERITAGE","TEMPLE","PARK","FAM"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/Toa-Payoh-Heritage-Trail----Of-Public-Housing-and-Shared-Spaces"],["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-heritage-trail-uncovering-gems-about-the-town/"]]},
+{t:1,a:"TOAPAYOH",n:"United Temple (United Five Temples of Toa Payoh)",ad:"Lorong 6 Toa Payoh (near Blk 177/178), Singapore",la:1.33862,ln:103.85639,w:"Established 1974, the first temple in Singapore to house smaller constituent temples under one roof — five village temples (Chee Tian Keng, Shan Zu Yuan Fu De Ci, Tong Xing Gang, Zhao Ying Ci and others) that were displaced when Toa Payoh's kampongs were cleared pooled their devotees' funds to build here. A landmark on NHB's Toa Payoh Heritage Trail 'Of Faiths & Beliefs' route.",k:"Free entry",g:["HERITAGE","TEMPLE","ARCH","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Faiths-and-Beliefs/United-Five-Temples-of-Toa-Payoh"],["NEWAGEPARENTS","https://thenewageparents.com/toa-payoh-heritage-trail/"]]},
+{t:2,a:"TOAPAYOH",n:"Sri Vairavimada Kaliamman Temple",ad:"2001 Lorong 8 Toa Payoh, Singapore 319259",la:1.33500,ln:103.85917,w:"A Dravidian-style Hindu temple to the goddess Kaliamman, tracing to an 1860 shrine near Orchard Road and rebuilt at Toa Payoh in 1982 (consecrated 1986). Notable for founding Saraswathi Kindergarten, said to be Singapore's first pre-school, and a stop on the Toa Payoh Heritage Trail's 'Of Faiths & Beliefs' route.",k:"Free entry",g:["HERITAGE","TEMPLE","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Toa_Payoh_Vairavimada_Kaliamman_Temple"],["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Faiths-and-Beliefs/Sri-Vairavimada-Kaliamman-Temple"]]},
+{t:2,a:"TOAPAYOH",n:"Toa Payoh Sensory Park",ad:"Lorong 5 / Lorong 6 Toa Payoh, Singapore",la:1.33506,ln:103.85282,w:"Singapore's first sensory park (opened 2009), a 1.1-hectare garden by Surbana and Yoshisuke Miyake split into five zones for sight, smell, touch, sound and taste — with larger-than-life optical-illusion mirrors that reveal a hidden face, resonating steel 'drum' plates, a playground and a fragrant garden.",k:"Open daily, free",g:["PARK","FAM","FREE"],s:[["LITTLEDAYOUT","https://www.littledayout.com/toa-payoh-sensory-park/"],["SMARTLOCAL","https://thesmartlocal.com/read/sights-in-toa-payoh/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Toa_Payoh_Sensory_Park"]]},
+{t:2,a:"TOAPAYOH",n:"Toa Payoh Public Library",ad:"6 Toa Payoh Central, Singapore 319191",la:1.33350,ln:103.85050,w:"Inaugurated 7 Feb 1974, the second public library of the 1970s branch-building drive and a civic anchor of the town — its Children's Section riffs on the iconic dragon playground with hexagonal mosaic-tile motifs. A pioneering heartland library documented in NLB's BiblioAsia.",k:"Free; closed Mondays historically — check hours",g:["ARCH","FAM","FREE"],s:[["NLB","https://biblioasia.nlb.gov.sg/all-sections/vol-21-issue-2-jul-sep-2025-toa-payoh-public-library/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Toa_Payoh_Public_Library"]]},
+{t:3,a:"TOAPAYOH",n:"Toa Payoh Seu Teck Sean Tong",ad:"15 Lorong 6 Toa Payoh (Kampong Hup Choon Hng site), Singapore",la:1.33860,ln:103.85169,w:"A Chinese charitable temple established as an attap hut in 1942 and rebuilt 1959, enshrining the deity Song Da Feng and blending Buddhist, Taoist and Confucian rites. Its medical wing (opened 1967) still gives free Traditional Chinese Medicine consultations — a living community institution on the heritage trail.",k:"Free entry; free TCM clinic",g:["HERITAGE","TEMPLE","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Toa-Payoh-Heritage-Trail----Of-Faiths-and-Beliefs/Toa-Payoh-Seu-Teck-Sean-Tong"],["TPSTST","https://tpstst.org.sg/our-heritage/tpststs-history/"]]},
+{t:3,a:"TOAPAYOH",n:"Toa Payoh MRT Heritage Mural",ad:"Toa Payoh MRT Station (NS19), 480 Lorong 6 Toa Payoh, Singapore",la:1.33263,ln:103.84750,w:"A station wall mural in SMRT's heritage-mural series telling Toa Payoh's story as the first town wholly designed and built by the HDB — co-created by James Suresh, better known as co-creator of the 'Mr Kiasu' comics. A quick, free public-art stop right at the interchange.",k:"Free; inside paid transit area",g:["HERITAGE","FREE"],s:[["SMRT","https://www.smrt.com.sg/news-publications/newsroom/media-releases/media-release-smrt-trains-engages-local-art-community-to-produce-wall-murals-showcasing-singapore%E2%80%99/"],["SGTRAINS","https://blog.sgtrains.com/2022/06/smrt-heritage-themed-wall-murals/"]]},
+{t:3,a:"TOAPAYOH",n:"SAFRA Toa Payoh",ad:"293 Toa Payoh Lorong 6, Singapore 319387",la:1.33027,ln:103.85467,w:"The town's big community-and-sports clubhouse (open to the public, not just NSmen) with a leisure pool and lap lanes, bowling, badminton, tennis, gym, karaoke and F&B — the recreation hub that carries on locally while the adjacent old stadium and swimming complex are redeveloped into the Toa Payoh Integrated Development.",k:"Facilities ticketed; entry free",g:["FREE"],s:[["SAFRA","https://www.safra.sg/clubs/toapayoh"],["KIDSGOWHERE","https://kidsgowhere.sg/places/safra-toa-payoh"]]}
+];
+
+const FS = {
+  "ASIAONE":{k:"ASIAONE",t:"AsiaOne (SPH Media)",u:"https://www.asiaone.com/",l:"AsiaOne (SPH Media)"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com/2025/12/11/bunchahuonglien/",l:"Daniel Food Diary"},
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg/",l:"Eatbook.sg"},
+  "GHIBOJISAN":{k:"GHIBOJISAN",t:"Ghib Ojisan (YouTube)",u:"https://www.youtube.com/c/GhibOjisan",l:"Ghib Ojisan (YouTube)"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore (SPH Media)",u:"https://www.herworld.com/",l:"Her World Singapore (SPH Media)"},
+  "HONEYCOMBERS":{k:"HONEYCOMBERS",t:"The Honeycombers / HoneyKids Asia",u:"https://thehoneycombers.com/singapore/",l:"The Honeycombers / HoneyKids Asia"},
+  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
+  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"ieatishootipost (Dr Leslie Tay)",u:"https://ieatishootipost.sg",l:"ieatishootipost (Dr Leslie Tay)"},
+  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey food blog)",u:"https://johorkaki.blogspot.com/",l:"Johor Kaki (Tony Boey food blog)"},
+  "MAKANSUTRA":{k:"MAKANSUTRA",t:"Makansutra",u:"https://makansutra.com",l:"Makansutra"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
+  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
+  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
+  "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com/",l:"Seth Lui"},
+  "SGFOODONFOOT":{k:"SGFOODONFOOT",t:"SG Food on Foot",u:"https://www.sgfoodonfoot.com",l:"SG Food on Foot"}
+};
+
+const CUISINES = [
+  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
+  {id:"LAKSA",n:"Laksa & Curry Noodles"},
+  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
+  {id:"BKT",n:"Bak Kut Teh & Soups"},
+  {id:"HAWKER",n:"Hawker & Zi Char"},
+  {id:"MALAY",n:"Malay & Nasi Padang"},
+  {id:"INDIAN",n:"Indian & Roti Prata"},
+  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
+  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
+  {id:"THAI",n:"Thai"},
+  {id:"VIET",n:"Vietnamese"},
+  {id:"INDO",n:"Indonesian, Satay & Rendang"},
+  {id:"FILIPINO",n:"Filipino"},
+  {id:"KHMER",n:"Khmer (Cambodian)"},
+  {id:"LAO",n:"Lao"},
+  {id:"BURMESE",n:"Burmese"},
+  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
+  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
+  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
+  {id:"CAFE",n:"Cafés & Modern"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"HERITAGE",n:"Heritage & Culture"},
+  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
+  {id:"MKT",n:"Markets & Hawker Centres"},
+  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"VIEW",n:"Views & Skyline"},
+  {id:"ARCH",n:"Architecture & Landmarks"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"TOAPAYOH",n:"Chey Sua Carrot Cake",ad:"Toa Payoh West Market & Food Centre, #02-30, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["CHINESE"],la:1.33813,ln:103.84473,w:"Michelin Bib Gourmand since 2016 — two sisters fry each plate of crispy-yet-spongy white carrot cake to order, drawing long queues at the freshly renovated (reopened Aug 2025) Toa Payoh West hawker centre.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/chey-sua-carrot-cake"],["SETHLUI","https://sethlui.com/chey-sua-carrot-cake-singapore/"],["EATBOOK","https://eatbook.sg/chey-sua-carrot-cake/"],["DANIELFOOD","https://danielfooddiary.com/2016/08/08/cheysuacarrotcake/"]]},
+{t:1,a:"TOAPAYOH",n:"Come Daily Fried Hokkien Prawn Mee",ad:"Toa Payoh West Market & Food Centre, #02-27, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["NOODLE"],la:1.33813,ln:103.84473,w:"Michelin-listed and running since 1968, Steven Ng reduces prawn stock right in the wok for one of Toa Payoh's most famous plates of Hokkien mee — a fixture of the reopened Toa Payoh West food centre.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/come-daily-fried-hokkien-prawn-mee"],["EATBOOK","https://eatbook.sg/come-daily-hokkien-mee/"],["DANIELFOOD","https://danielfooddiary.com/2019/03/02/comedaily/"]]},
+{t:1,a:"TOAPAYOH",n:"Hai Nan Xing Zhou Beef Noodle",ad:"Kim Keat Palm Market & Food Centre, #01-06, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"Nearly 70 years of Hainanese beef noodles from S$5, newly awarded a Michelin Bib Gourmand — dry or soup, in a rich braise the whole hawker centre queues for.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/jp/ja/singapore-region/singapore/restaurant/hai-nan-xing-zhou-beef-noodle"],["DANIELFOOD","https://danielfooddiary.com/2022/05/19/hainanxingzhou/"],["SETHLUI","https://sethlui.com/hai-nan-xing-zhou-beef-noodle-singapore/"],["EATBOOK","https://eatbook.sg/hai-nan-xing-zhou-beef-noodle/"],["MISSTAMCHIAK","https://www.misstamchiak.com/hai-nan-xing-zhou-beef-noodles/"]]},
+{t:1,a:"TOAPAYOH",n:"Chef Kang's Noodle House",ad:"Block A, Jackson Square, 11 Toa Payoh Lorong 3, S319579",cz:["NOODLE"],la:1.33770,ln:103.84820,w:"A Michelin-starred Cantonese chef sells $5 wanton mee from a warehouse-canteen stall — HK-shipped springy noodles and charred char siew that earned a Michelin Bib Gourmand within a year of opening (still listed 2025/2026).",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/chef-kang-s-noodle-house"],["DANIELFOOD","https://danielfooddiary.com/2018/11/04/chefkangsnoodlehouse/"],["MISSTAMCHIAK","https://www.misstamchiak.com/chef-kang-wanton-noodle-house/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/chef-kang-noodle-house-michelin-star-chef-wanton-mee/"]]},
+{t:1,a:"TOAPAYOH",n:"LiXin Teochew Fishball Noodles",ad:"Kim Keat Palm Market & Food Centre, #01-20, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"The original stall of Singapore's 58-year-old fishball dynasty (est. 1968), Michelin Bib Gourmand for four years running since 2022 — springy, umami yellowtail fishballs made fresh daily.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/lixin-teochew-fishball-noodles"],["DANIELFOOD","https://danielfooddiary.com/2022/05/18/lixin/"]]},
+{t:2,a:"TOAPAYOH",n:"Kedai Makan Muhajirin",ad:"Blk 20 Toa Payoh Lorong 7 coffeeshop, S310020",cz:["MALAY"],la:1.33499,ln:103.85701,w:"A beloved $1 nasi lemak that has held its price since 1987 to stay affordable for elderly regulars — cooking starts at 4am and 300-500 plates sell out by midday; covered by every major food outlet and YouTuber Ghib Ojisan.",s:[["SETHLUI","https://sethlui.com/kedai-makan-muhajirin-singapore/"],["EATBOOK","https://eatbook.sg/kedai-makan-muhajirin/"],["MISSTAMCHIAK","https://www.misstamchiak.com/kedai-makan-muhajirin/"],["MOTHERSHIP","https://mothership.sg/2023/02/nasi-lemak-kedai-makan-muhajirin/"],["ASIAONE","https://www.asiaone.com/food/1-toa-payoh-nasi-lemak-almost-closed-good-you-can-relax-now"],["GHIBOJISAN","https://www.youtube.com/c/GhibOjisan/videos"]]},
+{t:2,a:"TOAPAYOH",n:"Da Ji Hainanese Chicken Rice",ad:"Toa Payoh Lorong 5 Food Centre, #01-31, Blk 75 Lorong 5 Toa Payoh, S310075",cz:["CHICKENRICE"],la:1.33620,ln:103.85282,w:"A cult chicken rice stall that swaps roast/poached chicken for addictively marinated crispy fried wings ($3.50) with a spicy chilli dip — famously long evening queues until sold out.",s:[["EATBOOK","https://eatbook.sg/da-ji-hainanese-chicken-rice/"],["MISSTAMCHIAK","https://www.misstamchiak.com/da-ji-hainanese-chicken-rice/"]]},
+{t:2,a:"TOAPAYOH",n:"Ru Ji Kitchen (Toa Payoh)",ad:"Blk 22 Lorong 7 Toa Payoh, #01-58, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"The Toa Payoh outlet of Uncle David Ng's famed noodle stall, where bouncy yellowtail fishballs are hand-pounded on the spot (the Holland Drive original holds the Michelin Bib Gourmand).",s:[["SETHLUI","https://sethlui.com/ru-ji-kitchen-singapore/"],["EATBOOK","https://eatbook.sg/ru-ji-kitchen/"],["DANIELFOOD","https://danielfooddiary.com/2019/03/06/ruji/"]]},
+{t:2,a:"TOAPAYOH",n:"Old Long House Popiah",ad:"Kim Keat Palm Market & Food Centre, #01-03, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["CHINESE"],la:1.33519,ln:103.85710,w:"A 3rd-generation popiah stall with roots to 1930, hand-rolling Hokkien-style popiah (no pork, no lard, no MSG) with house-fried sole-fish crisps — one of Singapore's most heritage popiah names.",s:[["SETHLUI","https://sethlui.com/old-long-house-popiah-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2021/05/02/kimkeatpalm/"],["HERWORLD","https://www.herworld.com/life/best-places-popiah-in-singapore"],["MAKANSUTRA","https://makansutra.com/fave-5-kim-keat-palm-market-and-food-centre/"]]},
+{t:2,a:"TOAPAYOH",n:"Lai Heng Mushroom Minced Meat Noodle",ad:"Blk 73 Toa Payoh Lorong 5, Toa Payoh",cz:["NOODLE"],la:1.33437,ln:103.85174,w:"A bak chor mee institution running since 1985 (relocated twice within Toa Payoh), still turning out a spicy dry mee kia and a standout lard-rich kway teow soup that Seth Lui rated after 24 years of visits.",s:[["SETHLUI","https://sethlui.com/lai-heng-mushroom-minced-meat-noodle-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/critics-reviews/lai-heng-mushroom-minced-meat-noodle/"]]},
+{t:2,a:"TOAPAYOH",n:"Uggli Muffins",ad:"Toa Payoh West Market & Food Centre, #02-34, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["DESSERT","VIRAL"],la:1.33813,ln:103.84473,w:"UK-trained ex-engineer Anton Tan turned his family's zi char stall into a viral $1.20 muffin institution — deliberately misshapen buns with crunchy caramelised crusts; a long-queue hawker-dessert cult reopened after the 2025 renovation.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2025/08/06/ugglimuffinssg/"]]},
+{t:2,a:"TOAPAYOH",n:"Teochew Handmade Pau",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["CHINESE"],la:1.33813,ln:103.84473,w:"A 30-plus-year heritage pau stall (est. 1993, three years on the Michelin Plate) hand-making Teochew-style buns with thick, not-too-sweet lotus paste — announced closure end-2025 but reopened June 2026 after public demand.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/teochew-handmade-pau-toa-payoh/"],["DANIELFOOD","https://danielfooddiary.com/2025/12/19/teochewhandmadepausg/"],["ASIAONE","https://www.asiaone.com/lifestyle/teochew-handmade-pau-reopen"]]},
+{t:3,a:"TOAPAYOH",n:"Hometaste Hakka Lei Cha",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["CHINESE"],la:1.33813,ln:103.84473,w:"Two sisters plate one of Singapore's most generous $5 thunder tea rice sets — less oil, less salt, no MSG — with the fragrant bitter-green tea broth poured over brown rice and crunchy toppings.",s:[["SETHLUI","https://sethlui.com/best-thunder-tea-rice-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2025/05/12/hometasteleicha/"]]},
+{t:3,a:"TOAPAYOH",n:"Pure Soya Bean",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["DESSERT"],la:1.33813,ln:103.84473,w:"Ex-Italian-restaurant cook Desheng makes beancurd from scratch daily with non-GMO soybeans — smooth, un-gritty tau huay you can dress with gula melaka, grass jelly or gingko.",s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/unique-tau-huay/"]]},
+{t:3,a:"TOAPAYOH",n:"Toa Payoh Scissors Cut Curry Rice",ad:"Toa Payoh Lorong 8 Market & Food Centre, 210 Lorong 8 Toa Payoh, S310210",cz:["HAWKER"],la:1.34022,ln:103.85487,w:"Old-school Hainanese-style curry rice from S$2.80 — a heaped plate of chopped sides flooded in three different gravies (curry, braise, pork), a comfort-food fixture of Lorong 8.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/best-curry-rice-singapore/"],["EATBOOK","https://eatbook.sg/tpy-lorong-8/"]]},
+{t:3,a:"TOAPAYOH",n:"Uncle Kun's Delicacies (Kun Shu Food Stall)",ad:"Toa Payoh Vista Market, Lorong 4 Toa Payoh",cz:["CHINESE"],la:1.33465,ln:103.85218,w:"Ex-hotel HK chef Lam Kun serves restaurant-grade dim sum at hawker prices; his signature oblong scallop glutinous rice (S$4.80), packed with dried scallop, salted egg and lap cheong, isn't found elsewhere in Singapore.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/kun-shu-food-stall-singapore/"],["EATBOOK","https://eatbook.sg/food-places-toa-payoh/"]]},
+{t:3,a:"TOAPAYOH",n:"Min Kee Tanjong Rhu Wanton Noodle",ad:"Kim Keat Palm Market & Food Centre, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["NOODLE"],la:1.33519,ln:103.85710,w:"A decades-old wanton mee that relocated from Tanjong Rhu, still selling a substantial $3.50 bowl of springy noodles with black-chilli option, soupy and fried wantons — a Kim Keat breakfast favourite.",s:[["MOTHERSHIP","https://mothership.sg/2024/08/min-kee-tanjong-rhu-wanton-noodle/"],["DANIELFOOD","https://danielfooddiary.com/tag/min-kee-tanjong-rhu-wanton-noodle/"]]},
+{t:3,a:"TOAPAYOH",n:"Hougang 6 Miles Famous Muah Chee",ad:"Gourmet Paradise Food Court, Toa Payoh HDB Hub, Blk 480 Lorong 6 Toa Payoh, #B1-01, S310480",cz:["DESSERT"],la:1.33230,ln:103.84570,w:"Likely the last hawker hand-making this Teochew snack from scratch — Teo Yong Joo mills flour, roasts peanuts and pinches each soft, tender muah chee ball to order at the HDB Hub food court.",g:["MKT"],s:[["HUNGRYGOWHERE","https://hungrygowhere.com/critics-reviews/hougang-6-miles-famous-muah-chee/"],["EATBOOK","https://eatbook.sg/food-places-toa-payoh/"]]},
+{t:2,a:"TOAPAYOH",n:"Kim Keat Hokkien Mee — CLOSED",ad:"Blk 92 Toa Payoh Lorong 4, #01-264, S310092",cz:["NOODLE"],la:1.33809,ln:103.84933,w:"Once rated among Singapore's top-five Hokkien mee — served in a heat-retaining claypot with deep-fried crispy pork belly — this 10-year Toa Payoh favourite shuttered on 28 Feb 2026. Kept here as a flagged closure.",closed:1,s:[["EATBOOK","https://eatbook.sg/kim-keat/"],["DANIELFOOD","https://danielfooddiary.com/2015/09/15/kimkeathokkienmee/"],["ASIAONE","https://www.asiaone.com/lifestyle/kim-keat-claypot-hokkien-mee-closure"]]},
+{t:2,a:"TOAPAYOH",n:"Hup Chong Hakka Yong Tau Foo — CLOSED",ad:"Blk 203 Toa Payoh (final location; earlier Blk 116/124)",cz:["BKT","CHINESE"],la:1.34202,ln:103.84912,w:"A four-generation Hakka yong tau foo with roots to a 1952 pushcart, famous for handmade fried meatballs and fish paste — it closed for good on 28 Jan 2026 after 70-plus years amid falling footfall. Kept here as a flagged closure.",closed:1,s:[["SETHLUI","https://sethlui.com/hup-chong-yong-tau-foo-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/hup-chong-hakka-yong-tau-foo/"],["EATBOOK","https://eatbook.sg/hup-chong-yong-tau-foo/"],["ASIAONE","https://www.asiaone.com/lifestyle/hup-chong-yong-tau-foo-last-day"],["MOTHERSHIP","https://mothership.sg/2026/01/toa-payoh-yong-tau-foo-close-down/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/hup-chong-yong-tau-foo-fried-pork-paradise/"]]},
+{t:2,a:"TOAPAYOH",n:"Grandpa Homemade Cheung Fun",ad:"Toa Payoh West Market & Food Centre, #02-22, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["HAWKER"],la:1.33813,ln:103.84473,w:"A father-and-son team from Shenzhen mill their own rice flour on a stone grinder to make thicker, rustic cheung fun to order, tinted naturally with spinach and pink dragonfruit across 13 fillings — a standout of the reopened (Aug 2025) Toa Payoh West hawker centre.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/grandpa-homemade-cheung-fun/"],["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2025/08/05/toapayohwest/"]]},
+{t:3,a:"TOAPAYOH",n:"Fried Fish Soup (Toa Payoh West)",ad:"Toa Payoh West Market & Food Centre, #02-24, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["NOODLE"],la:1.33813,ln:103.84473,w:"A no-frills stall doing a $3 bowl of fried fish ban mian — crispy fried fish slices, handmade noodles and a clean savoury broth — one of the value picks flagged across guides to the renovated Toa Payoh West food centre.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/toa-payoh-west-food/"]]},
+{t:3,a:"TOAPAYOH",n:"Jia Le Man Fen Guo",ad:"Toa Payoh West Market & Food Centre, Blk 127 Lorong 1 Toa Payoh, S310127",cz:["HAWKER"],la:1.33813,ln:103.84473,w:"A 20-year veteran hand-tearing mee hoon kueh dough to order and ladling fish soup and porridge — old-school comfort noodles that regulars queue for at Toa Payoh West.",s:[["SETHLUI","https://sethlui.com/toa-payoh-west-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/toa-payoh-west-food/"]]},
+{t:2,a:"TOAPAYOH",n:"Allauddin's Briyani (Toa Payoh Lor 8)",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-79, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["HAWKER"],la:1.34026,ln:103.85442,w:"The Toa Payoh outlet of the Tekka Centre briyani institution — a Michelin Plate / Michelin-recommended name whose fragrant $6 chicken, mutton and fish briyani draw a queue; the pull-apart rice and house sambal are the draw.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/allauddin-s-briyani"],["DANIELFOOD","https://danielfooddiary.com/2020/06/06/allauddinbriyani/"]]},
+{t:2,a:"TOAPAYOH",n:"Guan Kee Kway Chap",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-24, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["CHINESE"],la:1.34026,ln:103.85442,w:"A 40-year Toa Payoh institution famous for selling out fast — owner Mr Ng meticulously cleans the offal for an odourless, tender braise served over silky rice sheets in a light herbal broth; widely rated among Singapore's best kway chap.",s:[["SETHLUI","https://sethlui.com/guan-kee-kway-chap-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/guan-kee-kway-chap/"],["EATBOOK","https://eatbook.sg/kway-chap/"]]},
+{t:2,a:"TOAPAYOH",n:"Yokozuna Stall",ad:"211 Lorong 8 Toa Payoh, #01-01, S310211",cz:["HAWKER"],la:1.34026,ln:103.85442,w:"An ex-hotel chef plates restaurant-grade Japanese food from a kopitiam beside the Lorong 8 hawker centre — the Tataki Salmon Roll ($6) and Butter Yaki Seabass Bento ($6.80) look far pricier than they cost; nothing on the menu tops $10.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/yokozuna-stall/"],["SETHLUI","https://sethlui.com/yokozuna-stall-affordable-bento-sets-singapore/"]]},
+{t:2,a:"TOAPAYOH",n:"Da Lao Fried White Kway Teow",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-23, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["NOODLE"],la:1.34026,ln:103.85442,w:"A one-man wok turning out Penang-style fried white kway teow with serious wok hei — clean, coated-not-greasy strands with fish cake, lap cheong and cockles from $4; the single-hand pace means a wait, and a long queue.",s:[["SETHLUI","https://sethlui.com/toa-payoh-lorong-8-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/cockles-fried-kway-teow/"]]},
+{t:3,a:"TOAPAYOH",n:"Seletar Sheng Mian Mee Hoon Kway",ad:"Toa Payoh Lorong 8 Market & Food Centre, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["HAWKER"],la:1.34026,ln:103.85442,w:"Relocated from the demolished Seletar market, this snaking-queue stall hand-kneads, smacks and tears each piece of dough for uniquely textured sheng mian in a comforting pork-and-ikan-bilis broth from $3.",g:["MKT"],s:[["SGFOODONFOOT","https://www.sgfoodonfoot.com/2017/05/seletar-sheng-mian-mee-hoon-kway-toa.html"],["JOHORKAKI","https://johorkaki.blogspot.com/2015/08/seletar-sheng-mian-mee-hoon-kway.html"]]},
+{t:2,a:"TOAPAYOH",n:"Four Seasons Cendol",ad:"Toa Payoh Lorong 8 Market & Food Centre, #01-07, Blk 210 Lorong 8 Toa Payoh, S310210",cz:["DESSERT"],la:1.34026,ln:103.85442,w:"Widely dubbed the best cendol in Singapore — and a favourite of ESM Goh Chok Tong, whose photos line the stall — with firmly-packed ice that stays solid, springy pandan jelly and gula melaka, plus Mao Shan Wang / D24 durian tops.",s:[["EATBOOK","https://eatbook.sg/four-seasons-cendol/"],["SETHLUI","https://sethlui.com/four-seasons-cendol-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2019/04/06/chendol/"]]},
+{t:2,a:"TOAPAYOH",n:"Song Kee Kway Teow Noodle Soup",ad:"Toa Payoh Lorong 5 Food Centre, Blk 75 Lorong 5 Toa Payoh, S310075",cz:["NOODLE","CHINESE"],la:1.33602,ln:103.85296,w:"A 16-year evening-only stall (5pm–midnight) whose fishballs are pounded from scratch at 3am — bouncy, fresh yellowtail fishballs and fragrant fish dumplings over springy mee pok that fans call the best in Singapore.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/song-kee-fishball-noodles-toa-payoh/"],["DANIELFOOD","https://danielfooddiary.com/2017/08/08/songkeefishballnoodles/"]]},
+{t:3,a:"TOAPAYOH",n:"Fang Yuan Satay",ad:"Toa Payoh Lorong 5 Food Centre, #01-25, Blk 75 Lorong 5 Toa Payoh, S310075",cz:["MALAY"],la:1.33602,ln:103.85296,w:"A 1966 satay stall now in its third generation, grilling well-marinated Chinese-style chicken and pork skewers over charcoal to order — beautifully charred sticks served with peanut sauce and fresh pineapple gravy.",s:[["SETHLUI","https://sethlui.com/blk-75-lorong-5-toa-payoh-food-centre-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/foodanddrink/best-hawker-stalls-toa-payoh-lorong-5-food-centre"]]},
+{t:2,a:"TOAPAYOH",n:"Ah Chuan Fried Oyster Omelette",ad:"Kim Keat Palm Market & Food Centre, #01-25, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["CHINESE"],la:1.33523,ln:103.85703,w:"A 50-year-old orh chien specialist (open ~3 hours a day) frying crisp-yet-chewy potato-starch batter with fluffy egg and juicy large Korean oysters, finished with crunchy parsley — a repeat pick on 'best oyster omelette' lists.",s:[["SETHLUI","https://sethlui.com/ah-chuan-fried-oyster-omelette-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2017/09/ah-chuan-toa-payoh-fried-oyster.html"],["EATBOOK","https://eatbook.sg/kim-keat-palm-market-food-centre/"]]},
+{t:3,a:"TOAPAYOH",n:"Economical Fried Bee Hoon & Noodle",ad:"Kim Keat Palm Market & Food Centre, Blk 22 Lorong 7 Toa Payoh, S310022",cz:["HAWKER"],la:1.33523,ln:103.85703,w:"The stall with Kim Keat Palm's longest breakfast queue — wok-fried bee hoon and noodles with cabbage, best paired with a runny-yolk sunny-side-up egg; a heartland morning staple.",s:[["EATBOOK","https://eatbook.sg/kim-keat-palm-market-food-centre/"],["DANIELFOOD","https://danielfooddiary.com/2021/05/02/kimkeatpalm/"]]},
+{t:2,a:"TOAPAYOH",n:"Palm Spring Kway Chap",ad:"Toa Payoh Palm Spring Market, Blk 93 Lorong 4 Toa Payoh, S310093",cz:["CHINESE"],la:1.33842,ln:103.84949,w:"A second-generation kway chap running since 1967 and rated Singapore's best-rated kway chap — spice-forward braised innards, tau pok and silky rice sheets from 5.30pm, with snaking queues before it even opens.",s:[["SETHLUI","https://sethlui.com/kuey-chap-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2018/07/singapore-toa-payoh-lor-4-kuey-chap.html"]]},
+{t:2,a:"TOAPAYOH",n:"Cai Ji Fishball Noodle",ad:"Toa Payoh Palm Spring Market, Blk 93 Lorong 4 Toa Payoh, S310093",cz:["NOODLE","CHINESE"],la:1.33842,ln:103.84949,w:"A 58-year cult favourite with arguably the longest queue in Palm Spring from 6am — springy mee pok tossed in a punchy chilli sauce with hand-made fishballs and meatballs; dry or soup.",s:[["SETHLUI","https://sethlui.com/toa-payoh-palm-spring-market-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/cai-ji-fishball-noodle/"],["JOHORKAKI","https://johorkaki.blogspot.com/2022/11/cai-ji-fishball-noodle-local-favourite.html"]]},
+{t:2,a:"TOAPAYOH",n:"Rahmath Cheese Prata",ad:"Toa Payoh Vista Market, 74 Lorong 4 Toa Payoh, S310074",cz:["INDIAN"],la:1.33440,ln:103.85200,w:"A Vista Market morning fixture drawing daily queues for crisp roti prata — plain to cheese-and-egg and sweet banana — then Indian-Muslim mee goreng, nasi goreng merah and tulang merah after 1.30pm; carries a Makansutra 'Divine' rating.",g:["MKT"],s:[["MISSTAMCHIAK","https://www.misstamchiak.com/rahmath/"],["DANIELFOOD","https://danielfooddiary.com/2020/05/02/prata/"]]},
+{t:2,a:"TOAPAYOH",n:"Soon Heng Rojak",ad:"Gourmet Paradise Food Court, Toa Payoh HDB Hub, #B1-01, Blk 480 Lorong 6 Toa Payoh, S310480",cz:["HAWKER"],la:1.33214,ln:103.84833,w:"A decades-old rojak stall by the HDB Hub food-court escalator with a permanent 20-30 minute queue — a generous mountain of youtiao, cucumber, pineapple, turnip and cuttlefish drowned in prawn-paste, torch-ginger and mounds of peanut.",s:[["HUNGRYGOWHERE","https://hungrygowhere.com/critics-reviews/soon-heng-silver-stream-rojak/"],["EATBOOK","https://eatbook.sg/toa-payoh-food/"],["JOHORKAKI","https://johorkaki.blogspot.com/2023/01/soon-heng-famous-toa-payoh-hdb-hub.html"]]},
+{t:2,a:"TOAPAYOH",n:"Biang Biang Noodles Xi'an Famous Food",ad:"Food Alley, 190 Lorong 6 Toa Payoh, #01-518, Toa Payoh Central, S310190",cz:["CHINESE"],la:1.33157,ln:103.84850,w:"A rare hawker source of Xi'an biang biang noodles — extra-wide belt noodles hand-stretched and slapped against the counter, tossed with braised pork, tomato-egg and chilli, plus rou jia mo (Chinese 'burger'); a hidden gem at Toa Payoh Central's Food Alley.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/biang-biang-noodles/"],["SETHLUI","https://sethlui.com/xian-famous-food-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/biang-biang-noodles/"]]},
+{t:3,a:"TOAPAYOH",n:"2612 Little Vietnam Cuisine",ad:"Blk 125 Lorong 1 Toa Payoh, #01-, S310125",cz:["VIET"],la:1.33833,ln:103.84574,w:"A husband-and-wife stall (she's Vietnamese) doing soul-comforting pho with broth simmered 8 hours on beef shank and shin, plus crisp fried spring rolls stuffed with pork, prawn and glass noodles — sauces imported from Vietnam, everything under $10.",s:[["SETHLUI","https://sethlui.com/2612-little-vietnam-cuisine-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/2612-little-vietnam-cuisine/"]]},
+{t:2,a:"TOAPAYOH",n:"Creamier Handcrafted Ice Cream & Coffee",ad:"Blk 128 Lorong 1 Toa Payoh, #01-829, S310128",cz:["DESSERT","CAFE"],la:1.33788,ln:103.84364,w:"The original heartland home of a beloved SG ice-cream name — handcrafted scoops like Earl Grey Lavender and Sea Salt Gula Melaka over freshly-pressed, crisp-outside pillowy Belgian waffles; the Toa Payoh dessert stop.",s:[["EATBOOK","https://eatbook.sg/toa-payoh-cafes/"],["HONEYCOMBERS","https://thehoneycombers.com/singapore/toa-payoh-neighbourhood-guide/"]]},
+{t:3,a:"TOAPAYOH",n:"Niche Savoureuse",ad:"Blk 128 Lorong 1 Toa Payoh, #01-833, S310128",cz:["CAFE","DESSERT"],la:1.33775,ln:103.84421,w:"An under-rated heartland cafe run by a France-trained baker — everything is handmade in-house, from crusty tiger bread and light not-too-sweet cakes to a Nyonya chendol waffle; a quaint wooden-front hideout beside Creamier.",s:[["SETHLUI","https://sethlui.com/niche-savoureuse-hand-made-bakes-singapore/"],["EATBOOK","https://eatbook.sg/toa-payoh-cafes/"]]},
+{t:2,a:"TOAPAYOH",n:"The Twisted Trio",ad:"Blk 85C Lorong 4 Toa Payoh, #01-385, S310085",cz:["DESSERT","CAFE"],la:1.33629,ln:103.84748,w:"A hole-in-the-wall HDB cake cafe by three pastry-chef friends selling atas bakes from $3.50 — the chio Watermelon Rose cake (a nod to Black Star Pastry) and fudgy brownies among biscotti, pound cakes and cookies.",s:[["EATBOOK","https://eatbook.sg/the-twisted-trio/"],["DANIELFOOD","https://danielfooddiary.com/2020/03/07/thetwistedtrio/"],["SETHLUI","https://sethlui.com/the-twisted-trio-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/the-twisted-trio/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Toa Payoh')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {TOAPAYOH:'#BCA7E6'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.33629,103.85169],16);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[];
+
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

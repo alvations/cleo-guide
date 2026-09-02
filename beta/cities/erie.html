@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Erie PA &amp; the Lake Erie / I-79 corridor field guide — 41 sights and 18 places to eat across Erie, North East wine country, Meadville, Edinboro and Grove City, each traceable to its source (Erie Times-News, Erie Reader, Visit Erie, PA DCNR, Atlas Obscura), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Erie, PA &amp; the Lake Erie Corridor Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Erie, PA &amp; the Lake Erie Corridor Field Guide — Sourced — Cleo">
+<meta property="og:description" content="Erie PA &amp; the Lake Erie / I-79 corridor field guide — 41 sights and 18 places to eat across Erie, North East wine country, Meadville, Edinboro and Grove City, each traceable to its source (Erie Times-News, Erie Reader, Visit Erie, PA DCNR, Atlas Obscura), on one interactive map with area, collect…">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/cities/erie.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Erie, PA &amp; the Lake Erie Corridor Field Guide — Sourced — Cleo">
+<meta name="twitter:description" content="Erie PA &amp; the Lake Erie / I-79 corridor field guide — 41 sights and 18 places to eat across Erie, North East wine country, Meadville, Edinboro and Grove City, each traceable to its source (Erie Times-News, Erie Reader, Visit Erie, PA DCNR, Atlas Obscura), on one interactive map with area, collect…">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#101318">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Erie &amp; the Lake Erie corridor, sourced</p>
+  <h1>Erie<span class="thin">the Bayfront, the wine belt &amp; the I-79 corridor to Pittsburgh</span></h1>
+  <p class="standfirst">41 sights and 18 places to eat across <strong>Erie, PA</strong> &mdash; the Bayfront and Presque Isle &mdash; the <strong>Lake Erie wine belt</strong> at North East, and the <strong>I-79/US-19 corridor</strong> south toward Pittsburgh through Meadville, Edinboro and Grove City. Each is traceable to the source that named it. Erie’s canon is its own: the <strong>Greek-sauce hot dog</strong>, <strong>Stanganelli’s</strong> pepperoni balls, <strong>sponge candy</strong>, Great-Lakes perch, and the wineries &amp; breweries — plus Presque Isle, the U.S. Brig Niagara and the Bicentennial Tower. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#2E6DA4"></i>Erie, PA</span>
+  <span><i style="background:#8E44AD"></i>North East & the Lake Erie wine belt</span>
+  <span><i style="background:#16A085"></i>Meadville & Crawford County</span>
+  <span><i style="background:#C0504D"></i>Edinboro & Cambridge Springs</span>
+  <span><i style="background:#E8973A"></i>Grove City, Mercer & Slippery Rock</span>
+  <span><i style="background:#6C7A89"></i>I-79 corridor south to Pittsburgh</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Greek dog, sponge candy, Presque Isle, perch…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-28</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across the Erie Times-News (GoErie), Erie Reader, Visit Erie, the Meadville Tribune, PA DCNR &amp; NPS official sites, Uncovering PA and Atlas Obscura. Every coordinate is verified into data/geocodes.json and every place status-checked open. A handful of newly-added spots are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ALLEGHENY":{k:"ALLEGHENY",t:"Allegheny College (official)",u:"https://allegheny.edu/",l:"Allegheny College (official)"},
+  "ARBNET":{k:"ARBNET",t:"ArbNet / Morton Register of Arboreta",u:"https://arbnet.org/",l:"ArbNet / Morton Register of Arboreta"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "BUTLEREAGLE":{k:"BUTLEREAGLE",t:"Butler Eagle",u:"https://www.butlereagle.com/",l:"Butler Eagle"},
+  "CLIO":{k:"CLIO",t:"The Clio",u:"https://theclio.com/",l:"The Clio"},
+  "DCNR":{k:"PA DCNR (STATE PARKS)",t:"PA DCNR — Pennsylvania State Parks",u:"https://www.pa.gov/agencies/dcnr/",l:"PA DCNR — Pennsylvania State Parks"},
+  "ERIECEMETERY":{k:"ERIECEMETERY",t:"Erie Cemetery Association (official)",u:"https://www.eriecemeteryassoc.com/",l:"Erie Cemetery Association (official)"},
+  "ERIEMARITIME":{k:"ERIEMARITIME",t:"Erie Maritime Museum (official)",u:"https://www.eriemaritimemuseum.org/",l:"Erie Maritime Museum (official)"},
+  "ERIENEWSNOW":{k:"ERIENEWSNOW",t:"Erie News Now — WICU/WSEE",u:"https://www.erienewsnow.com/",l:"Erie News Now — WICU/WSEE"},
+  "ERIEREADER":{k:"ERIE READER",t:"Erie Reader (Erie alt-weekly)",u:"https://www.eriereader.com/",l:"Erie Reader (Erie alt-weekly)"},
+  "ERIEYESTERDAY":{k:"ERIEYESTERDAY",t:"Erie Yesterday",u:"https://www.erieyesterday.org/",l:"Erie Yesterday"},
+  "EXPERIENCEBUTLER":{k:"EXPERIENCEBUTLER",t:"Experience Butler County PA (CVB)",u:"https://www.experiencebutler.com/",l:"Experience Butler County PA (CVB)"},
+  "EXPLOREPAHISTORY":{k:"EXPLOREPAHISTORY",t:"ExplorePAHistory (WITF)",u:"https://explorepahistory.com/",l:"ExplorePAHistory (WITF)"},
+  "GOERIE":{k:"ERIE TIMES-NEWS",t:"Erie Times-News / GoErie",u:"https://www.goerie.com/",l:"Erie Times-News / GoErie"},
+  "HAGENHISTORY":{k:"HAGENHISTORY",t:"Hagen History Center (Erie County Historical Society)",u:"https://www.hagenhistory.org/",l:"Hagen History Center (Erie County Historical Society)"},
+  "HMDB":{k:"HMDB",t:"The Historical Marker Database",u:"https://www.hmdb.org/",l:"The Historical Marker Database"},
+  "INTERESTINGPA":{k:"INTERESTINGPA",t:"Interesting Pennsylvania and Beyond (PA travel writer)",u:"https://www.interestingpennsylvania.com/",l:"Interesting Pennsylvania and Beyond (PA travel writer)"},
+  "MEADVILLETRIBUNE":{k:"MEADVILLE TRIBUNE",t:"Meadville Tribune",u:"https://www.meadvilletribune.com/",l:"Meadville Tribune"},
+  "PABUCKETLIST":{k:"PA BUCKET LIST",t:"PA Bucket List",u:"https://pabucketlist.com/",l:"PA Bucket List"},
+  "PAEATS":{k:"PAEATS",t:"PA Eats (Pennsylvania food/drink editorial)",u:"https://www.paeats.org/",l:"PA Eats (Pennsylvania food/drink editorial)"},
+  "PAROUTE6":{k:"PAROUTE6",t:"PA Route 6 Alliance",u:"https://paroute6.com/",l:"PA Route 6 Alliance"},
+  "PGHPG":{k:"PGHPG",t:"Pittsburgh Post-Gazette",u:"https://www.post-gazette.com/",l:"Pittsburgh Post-Gazette"},
+  "PITTSBURGHMAG":{k:"PITTSBURGHMAG",t:"Pittsburgh Magazine",u:"https://www.pittsburghmagazine.com/",l:"Pittsburgh Magazine"},
+  "PITTSBURGHMUSEUMS":{k:"PITTSBURGHMUSEUMS",t:"Pittsburgh & Western PA Museum Council",u:"https://pittsburghmuseums.org/",l:"Pittsburgh & Western PA Museum Council"},
+  "PREMIUMOUTLETS":{k:"PREMIUMOUTLETS",t:"Simon / Grove City Premium Outlets (official)",u:"https://www.premiumoutlets.com/",l:"Simon / Grove City Premium Outlets (official)"},
+  "PRESQUEISLELH":{k:"PRESQUEISLELH",t:"Presque Isle Lighthouse (official)",u:"https://www.presqueislelighthouse.org/",l:"Presque Isle Lighthouse (official)"},
+  "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"Roadside America",u:"https://www.roadsideamerica.com/",l:"Roadside America"},
+  "SEAHISTORY":{k:"SEAHISTORY",t:"National Maritime Historical Society",u:"https://seahistory.org/",l:"National Maritime Historical Society"},
+  "SRU":{k:"SRU",t:"Slippery Rock University (official)",u:"https://www.sru.edu/",l:"Slippery Rock University (official)"},
+  "TRAVELADDICTS":{k:"TRAVELADDICTS",t:"Travel Addicts (travel blog, real track record)",u:"https://traveladdicts.net/",l:"Travel Addicts (travel blog, real track record)"},
+  "UNCOVERINGPA":{k:"UNCOVERING PA",t:"Uncovering PA (Jim Cheney — established PA travel writer, real track record)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney — established PA travel writer, real track record)"},
+  "VISITCRAWFORD":{k:"VISIT CRAWFORD COUNTY",t:"Visit Crawford County PA",u:"https://visitcrawford.org/",l:"Visit Crawford County PA"},
+  "VISITERIE":{k:"VISIT ERIE",t:"VisitErie (Erie County CVB)",u:"https://www.visiterie.com/",l:"VisitErie (Erie County CVB)"},
+  "VISITMERCER":{k:"VISITMERCER",t:"Visit Mercer County PA",u:"https://www.visitmercercountypa.com/",l:"Visit Mercer County PA"},
+  "VISITPA":{k:"VISIT PA",t:"VisitPA (Pennsylvania Tourism Office)",u:"https://www.visitpa.com/",l:"VisitPA (Pennsylvania Tourism Office)"},
+  "WENDELLAUGUST":{k:"WENDELLAUGUST",t:"Wendell August Forge (official)",u:"https://www.wendellaugust.com/",l:"Wendell August Forge (official)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (sights / institutional facts)",u:"https://en.wikipedia.org/",l:"Wikipedia (sights / institutional facts)"},
+  "WPC":{k:"WPC",t:"Western Pennsylvania Conservancy",u:"https://waterlandlife.org/",l:"Western Pennsylvania Conservancy"}
+};
+
+const AREAS = [
+  {id:"ERIE",n:"Erie, PA (Bayfront, Presque Isle, downtown, Millcreek)",c:"#2E6DA4"},
+  {id:"NORTHEAST",n:"North East & the Lake Erie wine belt",c:"#8E44AD"},
+  {id:"MEADVILLE",n:"Meadville & Crawford County (Allegheny College, Market House)",c:"#16A085"},
+  {id:"EDINBORO",n:"Edinboro & Cambridge Springs",c:"#C0504D"},
+  {id:"GROVECITY",n:"Grove City, Mercer & Slippery Rock",c:"#E8973A"},
+  {id:"CORRIDOR",n:"I-79 corridor south to Pittsburgh (Conneaut Lake, Zelienople, Harmony, Cranberry)",c:"#6C7A89"}
+];
+
+const P = [
+{t:1,a:"ERIE",n:"Presque Isle State Park",ad:"301 Peninsula Dr, Erie, PA 16505",la:42.10964,ln:-80.15384,w:"A 3,200-acre sandy peninsula arcing into Lake Erie — Pennsylvania's only 'seashore,' with 13 beaches, lagoons, a 13.5-mile multi-use trail and some of the best migratory birding in the state. Erie's single most-visited attraction and the geographic heart of the guide.",k:"NATURE",g:["ICON","MARITIME","PARK"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/presque-isle-state-park"],["VISITERIE","https://www.visiterie.com/blog/presque-isle-state-park-with-kids-a-three-day-family-guide"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Presque_Isle_State_Park"]]},
+{t:1,a:"ERIE",n:"Erie Maritime Museum & U.S. Brig Niagara",ad:"150 E Front St, Erie, PA 16507",la:42.13661,ln:-80.08669,w:"Bayfront museum and homeport of the U.S. Brig Niagara, a sailing reconstruction of Commodore Oliver Hazard Perry's relief flagship from the 1813 Battle of Lake Erie ('We have met the enemy and they are ours'). Exhibits on the battle and Great Lakes sail; the ship sails in season.",k:"MARITIME",g:["ICON","MARITIME","MUS","PARK"],s:[["ERIEMARITIME","https://www.eriemaritimemuseum.org/us-brig-niagara"],["SEAHISTORY","https://seahistory.org/museums-sites/erie-maritime-museum-u-s-brig-niagara/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Maritime_Museum"]]},
+{t:1,a:"ERIE",n:"Tom Ridge Environmental Center",ad:"301 Peninsula Dr, Erie, PA 16505",la:42.11000,ln:-80.15000,w:"The free year-round gateway to Presque Isle — interactive exhibits on the peninsula's ecology, a big-screen orientation film and a glass-enclosed 75-foot observation tower over Lake Erie and Waldameer. Named for the Erie-raised former PA governor and Homeland Security secretary.",k:"NATURE",g:["ICON","MARITIME","CRAFT","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Tom_Ridge_Environmental_Center"],["UNCOVERINGPA","https://uncoveringpa.com/tom-ridge-environmental-center"]]},
+{t:1,a:"ERIE",n:"Waldameer Park & Water World",ad:"220 Peninsula Dr, Erie, PA 16505",la:42.10869,ln:-80.15546,w:"A family-owned amusement park at the doorstep of Presque Isle, open since 1896 and billed as the sixth-oldest continuously operating park in the U.S. Its wooden coaster Ravine Flyer II is a perennial Golden Ticket top-ten pick; free admission and parking, pay per ride.",k:"AMUSEMENT",g:["ICON","MARITIME","PARK","FAM"],s:[["VISITERIE","https://www.visiterie.com/things-to-do/arts-and-culture/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Waldameer_Park"]]},
+{t:2,a:"ERIE",n:"Bicentennial Tower",ad:"1 State St, Erie, PA 16507",la:42.13883,ln:-80.09143,w:"A 187-foot observation tower at Dobbins Landing on the bayfront, built in 1995–96 for Erie's bicentennial, with two decks giving panoramic views of Presque Isle Bay, the peninsula and downtown.",k:"VIEW",g:["ICON","MARITIME","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Bicentennial_Tower"],["GOERIE","https://www.yahoo.com/news/articles/bicentennial-tower-erie-land-lighthouse-090859966.html"]]},
+{t:2,a:"ERIE",n:"Erie Art Museum",ad:"20 E 5th St, Erie, PA 16501",la:42.13078,ln:-80.08532,w:"Downtown museum (rooted in the 1898 Art Club of Erie) holding 8,000-plus objects with notable strengths in American ceramics, Tibetan paintings, Indian bronzes, photography and comic art — the leading visual-arts institution in northwest PA.",k:"MUSEUM",g:["MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Art_Museum"],["VISITERIE","https://www.visiterie.com/things-to-do/arts-and-culture/"]]},
+{t:2,a:"ERIE",n:"Warner Theatre",ad:"811 State St, Erie, PA 16501",la:42.12722,ln:-80.08333,w:"A 1931 Art Deco / French Renaissance movie palace by Rapp & Rapp, saved by the city and reborn as a performing-arts center — home to the Erie Philharmonic and Lake Erie Ballet and a linchpin of the downtown revival.",k:"ARCH",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Warner_Theatre_(Erie,_Pennsylvania)"],["EXPLOREPAHISTORY","https://explorepahistory.com/attraction.php%3Fid=1-B-1DBA.html"]]},
+{t:2,a:"ERIE",n:"Presque Isle Lighthouse",ad:"301 Peninsula Dr (Presque Isle), Erie, PA 16505",la:42.16578,ln:-80.11542,w:"An 1872 lighthouse on the sandy north shore of Presque Isle, still an active aid to navigation; in season visitors tour the keeper's house and climb 78 steps to the lantern for a sweeping Lake Erie view.",k:"LANDMARK",g:["ICON","MARITIME","PARK"],s:[["UNCOVERINGPA","https://uncoveringpa.com/lighthouses-erie-pa"],["PRESQUEISLELH","https://www.presqueislelighthouse.org/"]]},
+{t:3,a:"ERIE",n:"Erie Land Lighthouse",ad:"2 Lighthouse St, Erie, PA 16507",la:42.14384,ln:-80.06220,w:"One of the first two lighthouses on the Great Lakes (first tower 1818), the present stone tower crowns a bluff east of downtown — the second of Erie's three historic lights (with Presque Isle and the North Pier Light).",k:"LANDMARK",g:["ICON","HIST","MARITIME","PARK"],s:[["UNCOVERINGPA","https://uncoveringpa.com/lighthouses-erie-pa"],["PAROUTE6","https://paroute6.com/attractions/presque-isle-lighthouse-erie-land-lighthouse/"]]},
+{t:3,a:"ERIE",n:"Erie Zoo",ad:"423 W 38th St, Erie, PA 16508",la:42.09680,ln:-80.07550,w:"A compact, well-regarded zoo along Mill Creek with some 400 animals and a kiddieland train — a longtime family staple in the city's south side.",k:"ZOO",g:["FAM"],s:[["VISITERIE","https://www.visiterie.com/things-to-do/arts-and-culture/"],["UNCOVERINGPA","https://uncoveringpa.com/tom-ridge-environmental-center"]]},
+{t:3,a:"ERIE",n:"Erie Playhouse",ad:"13 W 10th St, Erie, PA 16501",la:42.12550,ln:-80.08380,w:"One of the oldest and largest community theaters in the country (founded 1916), staging a full season of musicals and plays downtown — a cornerstone of Erie's grassroots arts life.",k:"ARCH",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Playhouse"],["VISITERIE","https://www.visiterie.com/things-to-do/arts-and-culture/"]]},
+{t:2,a:"NORTHEAST",n:"Lake Erie Wine Country (Concord Grape Belt)",ad:"North East, PA 16428",la:42.21561,ln:-79.83422,w:"The 20-plus-winery belt straddling Erie County, PA and Chautauqua County, NY — one of the world's largest concentrations of Concord vineyards and the heart of Welch's grape production, best toured as a scenic drive of tasting rooms around North East.",k:"SCENIC",g:["CRAFT","PARK"],s:[["PAEATS","https://www.paeats.org/feature/lake-erie-ava/"],["TRAVELADDICTS","https://traveladdicts.net/weekend-in-lake-erie-wine-country/"]]},
+{t:1,a:"MEADVILLE",n:"Meadville Market House",ad:"910 Market St, Meadville, PA 16335",la:41.63875,ln:-80.15389,w:"Built in 1870 and community-rescued in 1970, the oldest continuously operating public market structure in Pennsylvania — 50-plus vendors selling produce, meats, baked goods and crafts, and the civic heart of this Allegheny College town.",k:"MARKET",g:["ICON","HIST","MKT"],s:[["INTERESTINGPA","https://www.interestingpennsylvania.com/2016/07/meadville-market-house.html"],["VISITCRAWFORD","https://visitcrawford.org/listing/meadville-market-house/"],["HMDB","https://www.hmdb.org/m.asp?m=85233"]]},
+{t:2,a:"MEADVILLE",n:"Allegheny College",ad:"520 N Main St, Meadville, PA 16335",la:41.64980,ln:-80.14500,w:"Founded in 1815, the oldest college west of the Allegheny Mountains — a leafy liberal-arts campus (Bentley Hall, Bousson) that gives Meadville its college-town energy and cultural programming.",k:"HIST",g:["HIST"],s:[["ALLEGHENY","https://allegheny.edu/about/sustainability/food-choices/"],["VISITCRAWFORD","https://visitcrawford.org/meadville-pennsylvania-a-town-built-on-history-community-and-innovation/"]]},
+{t:1,a:"CORRIDOR",n:"Conneaut Lake Park",ad:"12382 Center St, Conneaut Lake, PA 16316",la:41.63556,ln:-80.31500,w:"A trolley-era lakeside amusement park dating to 1892 on Pennsylvania's largest natural lake, home to the 1938 Blue Streak wooden coaster and the world's oldest Tumble Bug ride. Beloved and much-imperiled — its operating season has run hot and cold under successive owners, so check ahead.",k:"AMUSEMENT",g:["ICON","HIST","PARK","FAM"],s:[["VISITCRAWFORD","https://visitcrawford.org/regions/conneaut-lake/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2016/07/meadville-market-house.html"]]},
+{t:1,a:"CORRIDOR",n:"McConnells Mill State Park",ad:"McConnells Mill Rd, Portersville, PA 16051",la:40.95171,ln:-80.16847,w:"2,546 acres of the Slippery Rock Creek Gorge — a National Natural Landmark of whitewater, boulders and hemlock — with a restored 1800s gristmill and a covered bridge; hiking, climbing and kayaking about 40 miles north of Pittsburgh off I-79.",k:"NATURE",g:["HIST","PARK"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/mcconnells-mill-state-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/McConnells_Mill_State_Park"]]},
+{t:2,a:"CORRIDOR",n:"Moraine State Park",ad:"225 Pleasant Valley Rd, Portersville, PA 16051",la:40.93950,ln:-80.09710,w:"A reclaimed strip-mine and oil-field turned 3,225-acre Lake Arthur, with two swimming beaches, sailing, and a paved lakeside bike trail — two miles from McConnells Mill along the I-79 corridor.",k:"NATURE",g:["PARK"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/moraine-state-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Moraine_State_Park"]]},
+{t:2,a:"GROVECITY",n:"Grove City Premium Outlets",ad:"1911 Leesburg Grove City Rd, Grove City, PA 16127",la:41.14021,ln:-80.15672,w:"One of Pennsylvania's biggest outlet destinations — 100-plus open-air brand stores (Coach, Michael Kors, The North Face, Columbia) with tax-free clothing, right off I-79 exit 113.",k:"SHOPPING",g:["MKT","FREE"],s:[["VISITMERCER","https://www.visitmercercountypa.com/insiders-guide-to-shopping-at-grove-city-premium-outlets/"],["PREMIUMOUTLETS","https://www.premiumoutlets.com/outlet/grove-city"]]},
+{t:1,a:"GROVECITY",n:"Wendell August Forge",ad:"620 Madison Ave, Grove City, PA 16127",la:41.16611,ln:-80.07611,w:"America's oldest and largest working forge (since 1932), part artisan workshop and part gallery — watch smiths hand-hammer aluminum, bronze and pewter giftware, trays and ornaments on the factory floor.",k:"CRAFT",g:["MUS","CRAFT"],s:[["VISITMERCER","https://www.visitmercercountypa.com/a-few-great-ways-to-spend-the-day-in-grove-city-while-your-college-student-settles-in/"],["WENDELLAUGUST","https://www.wendellaugust.com/"]]},
+{t:2,a:"GROVECITY",n:"Grove City College",ad:"100 Campus Dr, Grove City, PA 16127",la:41.15600,ln:-80.08000,w:"A handsome Gothic-collegiate campus (founded 1876) known for its independence from federal funding; the Harbison Chapel and the college's grounds are the centerpiece of this Mercer County town.",k:"CAMPUS",g:["HIST"],s:[["VISITMERCER","https://www.visitmercercountypa.com/communities/grove-city-pa/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Grove_City_College"]]},
+{t:1,a:"CORRIDOR",n:"Harmony Historic District",ad:"Main St, Harmony, PA 16037",la:40.80306,ln:-80.12833,w:"A National Historic Landmark district (designated 1974) preserving the old-world German village founded in 1804 by the Harmony Society — 50-plus early buildings, the Harmony Museum and a Harmonist cemetery, half an hour north of Pittsburgh near Zelienople.",k:"HIST",g:["HIST","MUS","MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Harmony_Historic_District"],["EXPERIENCEBUTLER","https://www.experiencebutler.com/cities-and-towns/harmony/"],["PITTSBURGHMAG","https://www.pittsburghmagazine.com/in-harmony-pa-youll-find-peace-love-and-of-course-harmony/"]]},
+{t:3,a:"CORRIDOR",n:"Riverside Inn — CLOSED",ad:"1 Fountain Ave, Cambridge Springs, PA 16403",la:41.80575,ln:-80.05333,w:"The grand 1885 mineral-springs resort and dinner theater that made Cambridge Springs a Gilded-Age destination (NRHP 1978) was destroyed by fire on May 2, 2017. Kept flagged: the site now hosts the Riverside Brewing Company, but the historic inn itself is gone.",k:"HIST",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Riverside_Inn_(Cambridge_Springs,_Pennsylvania)"],["ERIENEWSNOW","https://www.erienewsnow.com/story/42081849/three-years-since-fire-destroyed-cambridge-springs-historic-riverside-inn"],["MEADVILLETRIBUNE","https://www.meadvilletribune.com/news/riverside-inn-lost-to-fire-five-years-ago/article_9673c130-c7d5-11ec-8a70-03418341df7a.html"]]},
+{t:2,a:"MEADVILLE",n:"Baldwin-Reynolds House Museum",ad:"639 Terrace St, Meadville, PA 16335",la:41.64653,ln:-80.15228,w:"The 1843 Greek Revival mansion begun as the dream home of U.S. Supreme Court Justice Henry Baldwin, later home to businessman William Reynolds and now the house museum of the Crawford County Historical Society, filled with Baldwin and Reynolds furnishings; as of 2025 open year-round for the first time in its 60-plus-year history.",k:"MUSEUM",g:["HIST","MUS"],s:[["UNCOVERINGPA","https://uncoveringpa.com/visiting-baldwin-reynolds-house-museum-meadville"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Baldwin%E2%80%93Reynolds_House"],["VISITCRAWFORD","https://visitcrawford.org/listing/baldwin-reynolds-house-museum/"]]},
+{t:1,a:"MEADVILLE",n:"Pymatuning Spillway (Where the Ducks Walk on the Fish)",ad:"12318 Hartstown Rd, Linesville, PA 16424",la:41.63102,ln:-80.44028,w:"The Linesville spillway on Pennsylvania's largest lake, where carp mass so thickly below the dam that ducks and geese appear to walk across their backs to reach the fish pellets tourists toss in — a genuine Pennsylvania roadside phenomenon drawing 300,000-plus visitors a year and Linesville's town motto.",k:"ODDITY",g:["PARK","ODD"],s:[["UNCOVERINGPA","https://uncoveringpa.com/where-the-ducks-walk-on-the-fish"],["VISITCRAWFORD","https://visitcrawford.org/listing/pymatuning-spillway/"],["ROADSIDEAMERICA","https://www.roadsideamerica.com/story/2204"]]},
+{t:1,a:"EDINBORO",n:"Goodell Gardens & Homestead",ad:"221 Waterford St, Edinboro, PA 16412",la:41.87695,ln:-80.12303,w:"An 80-acre botanical garden and accredited arboretum on the former Goodell family farm, with formal gardens, 60-plus tree species (including a Franklin tree and dawn redwood), rhododendron and pollinator displays and a concert/event series; students get in free.",k:"GARDEN",g:["PARK","FREE"],s:[["VISITPA","https://www.visitpa.com/listing/goodell-gardens-&-homestead/1944/"],["ARBNET","https://arbnet.org/morton-register/goodell-gardens-homestead/"],["PAROUTE6","https://paroute6.com/places/goodell-gardens-homestead/"]]},
+{t:2,a:"EDINBORO",n:"Edinboro Lake",ad:"Edinboro, PA 16412",la:41.88472,ln:-80.13611,w:"A 245-acre glacial lake at the center of this college town, rated unlimited-horsepower for water-skiing, with the guarded Pat Crawford Beach, public boat launches and kayak/canoe/pontoon rentals at Edinboro Lake Resort — the town's warm-weather focal point.",k:"NATURE",g:["PARK"],s:[["VISITERIE","https://www.visiterie.com/blog/edinboro-pa-itinerary-where-to-eat-and-explore-in-erie-countys-small-towns"],["VISITPA","https://www.visitpa.com/explore/regions/pa-great-lakes-region/edinboro/"]]},
+{t:2,a:"GROVECITY",n:"Living Treasures Animal Park (Moraine)",ad:"268 Fox Rd, New Castle, PA 16101",la:40.96862,ln:-80.21473,w:"An interactive walk-through wild-animal park four miles from the Moraine/I-79 exit where visitors hand-feed deer, hold reptiles and get face-to-face with 300-plus animals across dozens of species — a family stop near Moraine and McConnells Mill.",k:"FAMILY",g:["PARK"],s:[["VISITPA","https://www.visitpa.com/listing/living-treasures-animal-park/264/"],["VISITMERCER","https://www.visitmercercountypa.com/see-and-do/living-treasures-animal-park-2/"]]},
+{t:2,a:"GROVECITY",n:"Old Stone House",ad:"PA-8 at PA-173, Slippery Rock, PA 16057",la:41.01270,ln:-80.00217,w:"An 1822 stagecoach inn and tavern built by John Brown on the old Pittsburgh-to-Erie Pike, later a post office and Civil War muster point; reconstructed in 1963 and now a free museum of rural life owned and run by Slippery Rock University, open weekends May through October.",k:"HIST",g:["MUS","FREE"],s:[["SRU","https://www.sru.edu/life-at-sru/arts-and-culture/old-stone-house"],["EXPERIENCEBUTLER","https://www.experiencebutler.com/directory/the-old-stone-house-museum/"],["CLIO","https://theclio.com/entry/24498"]]},
+{t:2,a:"GROVECITY",n:"Wolf Creek Narrows Natural Area",ad:"Mountville Rd, Slippery Rock, PA 16057",la:41.06367,ln:-80.08818,w:"A 243-acre Western Pennsylvania Conservancy preserve near Slippery Rock where Wolf Creek cuts a gorge with 50-foot rock walls; a 1.5-mile loop trail runs through one of the state's most diverse spring wildflower displays — Virginia bluebells, trillium, trout-lily — peaking mid-April to May.",k:"NATURE",g:["PARK"],s:[["WPC","https://waterlandlife.org/land-conservation/explore-our-preserves/wolf-creek-narrows-natural-area/"],["PGHPG","https://www.post-gazette.com/life/recreation/2017/04/15/Wolf-Creek-Narrows-Natural-Area-hike-trail-wildflowers/stories/201704150002"],["UNCOVERINGPA","https://uncoveringpa.com/wolf-creek-narrows"]]},
+{t:3,a:"CORRIDOR",n:"Passavant House",ad:"243 S Main St, Zelienople, PA 16063",la:40.79306,ln:-80.13694,w:"The first house built in Zelienople (1808-1810), home of Philippe Passavant and Zelie Basse, daughter of the town's founder; now the Zelienople Historical Society's house museum with early-1800s Passavant-family furnishings and a period herb garden, tours by appointment.",k:"HIST",g:["HIST","MUS"],s:[["EXPERIENCEBUTLER","https://www.experiencebutler.com/blog/have-you-visited-the-buhl-and-passavant-houses/"],["EXPLOREPAHISTORY","https://explorepahistory.com/attraction.php%3Fid=1-B-20D4.html"],["BUTLEREAGLE","https://www.butlereagle.com/20260507/making-a-living-museum/"]]},
+{t:1,a:"ERIE",n:"Hagen History Center",ad:"356 W 6th St, Erie, PA 16507",la:42.12639,ln:-80.09333,w:"Erie County's history campus across four buildings, anchored by the 1891 Richardsonian-Romanesque Watson-Curtze Mansion (24 rooms, period interiors, exhibits on Erie's brewing and sporting heritage). Its grounds now also hold Frank Lloyd Wright's relocated original San Francisco office — a marquee addition making it one of northwest PA's top museums.",k:"MUSEUM",g:["MUS","HIST"],s:[["UNCOVERINGPA","https://uncoveringpa.com/hagen-history-center-erie"],["PAROUTE6","https://paroute6.com/attractions/hagen-history-center-museum/"]]},
+{t:2,a:"ERIE",n:"Perry Monument",ad:"Crystal Point, Presque Isle State Park, Erie, PA 16505",la:42.15478,ln:-80.08978,w:"An 80-foot limestone obelisk on Crystal Point at Presque Isle, dedicated 1926 on the 113th anniversary of the Battle of Lake Erie, honoring Commodore Oliver Hazard Perry and the sailors who built and sailed his fleet from Erie's harbor in 1813. Sited to be visible from the mainland across Misery Bay.",k:"MONUMENT",g:["MARITIME","HIST","ICON","PARK"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/presque-isle-state-park/history"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Perry_Monument"],["HMDB","https://www.hmdb.org/m.asp?m=129899"]]},
+{t:3,a:"ERIE",n:"Erie Cemetery",ad:"2116 Chestnut St, Erie, PA 16502",la:42.11139,ln:-80.08472,w:"A 75-acre garden cemetery laid out in 1851 between Chestnut and Cherry, a leafy walk of Victorian monuments and a Civil War veterans' section. Among its famous residents are composer Harry T. Burleigh and many of the industrialists who built Erie — the city's outdoor history book.",k:"CEMETERY",g:["HIST","ODD","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Cemetery"],["ERIECEMETERY","https://www.eriecemeteryassoc.com/famous-residents"]]},
+{t:2,a:"ERIE",n:"Dobbins Landing",ad:"1 State St, Erie, PA 16507",la:42.13763,ln:-80.09064,w:"The public wharf at the foot of State Street where the city meets Presque Isle Bay — the waterfront hub holding the Bicentennial Tower, boat-tour and fishing-charter docks and the seasonal water taxi across to Presque Isle. Named for Daniel Dobbins, the Erie sailing master who helped build Perry's fleet.",k:"LANDMARK",g:["MARITIME","ICON","FREE","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dobbins_Landing"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-erie-pa"]]},
+{t:3,a:"ERIE",n:"Frontier Park",ad:"1501 W 6th St, Erie, PA 16505",la:42.11672,ln:-80.11700,w:"A shaded west-side greenspace along Cascade Creek with an outdoor amphitheater — home each summer to free Frontier Friday concerts and, on the first weekend of August, the 30-plus-year-old Erie Blues & Jazz Festival that draws thousands.",k:"PARK",g:["PARK","FREE"],s:[["ERIEREADER","https://www.eriereader.com/article/31st-annual-blues-and-jazz-fest-returns-to-frontier-park"],["ERIENEWSNOW","https://www.erienewsnow.com/news/summer-2026-festivals-and-fairs-in-erie-pennsylvania/article_8a92440a-184c-49f1-bf11-5bed225fce9f.html"]]},
+{t:1,a:"ERIE",n:"Schaefer's Auto Art",ad:"3705 Hershey Rd, Erie, PA 16506",la:42.04365,ln:-80.13418,w:"A free roadside sculpture garden of larger-than-life outsider art welded from old car and truck parts — a spider built from a whole VW Beetle, a bumblebee from a cement truck. One of northwest PA's most-photographed oddities; park in the gravel lot along Hershey Road.",k:"ART",g:["ODD","ICON","FREE","PARK"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/schaefer-s-auto-art"],["UNCOVERINGPA","https://uncoveringpa.com/schaefers-auto-art"],["PABUCKETLIST","https://pabucketlist.com/exploring-schaefers-auto-art-in-erie-pa/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2021/07/schaefers-auto-art-erie-awesome.html"]]},
+{t:2,a:"ERIE",n:"Erie Bluffs State Park",ad:"11122 West Lake Rd, Girard, PA 16417",la:42.01640,ln:-80.37190,w:"A 587-acre undeveloped stretch of Lake Erie shoreline twelve miles west of the city, where trails run through oak savanna and along 90-foot bluffs to a wild, uncrowded beach and the mouth of Elk Creek — the quiet, rugged counterpart to Presque Isle.",k:"NATURE",g:["PARK","FREE","ICON","MARITIME"],s:[["DCNR","https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/erie-bluffs-state-park"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-erie-pa"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Bluffs_State_Park"]]},
+{t:2,a:"ERIE",n:"Splash Lagoon Indoor Water Park Resort",ad:"8091 Peach St, Erie, PA 16509",la:42.04800,ln:-80.07800,w:"A Polynesian-themed indoor water park kept at 84 degrees year-round — nine slides, a 30,000-square-foot wave pool, a FlowRider and a five-story treehouse — attached to several hotels off Peach Street. One of Erie's top family attractions, rain or snow.",k:"AMUSEMENT",g:["FAM","PARK"],s:[["VISITPA","https://www.visitpa.com/listing/splash-lagoon-indoor-water-park-resort/1128/"],["UNCOVERINGPA","https://uncoveringpa.com/things-to-do-in-erie-pa"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Splash_Lagoon"]]},
+{t:2,a:"ERIE",n:"Asbury Woods",ad:"4105 Asbury Rd, Erie, PA 16506",la:42.06092,ln:-80.17621,w:"A free 234-acre Millcreek nature preserve with five miles of trails, a boardwalk through a wooded wetland and a year-round nature center — a beloved local spot for birding, maple-sugaring programs and easy family walks.",k:"NATURE",g:["PARK","FREE","FAM"],s:[["UNCOVERINGPA","https://uncoveringpa.com/asbury-woods"],["PABUCKETLIST","https://pabucketlist.com/exploring-asbury-woods-in-erie-county-pa/"],["EXPLOREPAHISTORY","https://explorepahistory.com/attraction.php?id=1-B-F9C"]]},
+{t:3,a:"ERIE",n:"Wayne Blockhouse",ad:"Soldiers & Sailors Home grounds, 560 E 3rd St, Erie, PA 16507",la:42.13978,ln:-80.07423,w:"An 1880 state-built replica of the Fort Presque Isle blockhouse marking where General 'Mad' Anthony Wayne died in 1796 — and the site of one of early America's strangest burials: his flesh was boiled from his bones in 1809 so the skeleton could be carried to eastern PA, and the boiled remains reburied here.",k:"HIST",g:["HIST","ODD","FREE","ICON"],s:[["HMDB","https://www.hmdb.org/m.asp?m=21420"],["ROADSIDEAMERICA","https://www.roadsideamerica.com/story/17318"],["HAGENHISTORY","https://www.hagenhistory.org/blog/a-halloween-story-the-death-of-anthony-wayne"]]},
+{t:2,a:"ERIE",n:"North Pier Lighthouse",ad:"North Pier, Presque Isle State Park, Erie, PA 16505",la:42.15670,ln:-80.07060,w:"The shortest of Erie's three lighthouses at 34 feet, standing at the tip of Presque Isle where the bay meets the lake — and the last square, pyramidal-style light tower left in the United States. A 20-minute drive from the park entrance and a favorite sunset perch.",k:"LANDMARK",g:["MARITIME","ICON","FREE","PARK"],s:[["UNCOVERINGPA","https://uncoveringpa.com/lighthouses-erie-pa"],["PABUCKETLIST","https://pabucketlist.com/exploring-the-historic-lighthouses-of-erie/"],["VISITPA","https://www.visitpa.com/blog/post/your-guide-lighthouses-erie/"]]}
+];
+
+const FS = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "BREWERSPA":{k:"BREWERSPA",t:"Brewers of Pennsylvania (state craft-brewers guild)",u:"https://www.brewersofpa.org/",l:"Brewers of Pennsylvania (state craft-brewers guild)"},
+  "BUSINESSJOURNAL":{k:"BUSINESSJOURNAL",t:"The Business Journal (Youngstown / Mahoning Valley)",u:"https://businessjournaldaily.com/",l:"The Business Journal (Youngstown / Mahoning Valley)"},
+  "CUCUMBERCHEF":{k:"CUCUMBERCHEF",t:"Cucumber Chef — Jennie Geisler's food blog",u:"https://cucumber-chef.org/",l:"Cucumber Chef — Jennie Geisler's food blog"},
+  "CUMBERLINK":{k:"CUMBERLINK",t:"The Sentinel / Cumberlink (Lee Enterprises PA regional news)",u:"https://cumberlink.com/",l:"The Sentinel / Cumberlink (Lee Enterprises PA regional news)"},
+  "DISCOVERBURGH":{k:"DISCOVERBURGH",t:"Discover the Burgh (Pittsburgh travel writers, real track record)",u:"https://www.discovertheburgh.com/",l:"Discover the Burgh (Pittsburgh travel writers, real track record)"},
+  "ECED":{k:"ECED",t:"Visit Edinboro / Edinboro Community Economic Development (ECED)",u:"https://www.visitedinboropa.com/",l:"Visit Edinboro / Edinboro Community Economic Development (ECED)"},
+  "EDIBLEWNY":{k:"EDIBLEWNY",t:"Edible Western New York (Edible Communities regional food magazine)",u:"https://ediblewesternny.ediblecommunities.com/",l:"Edible Western New York (Edible Communities regional food magazine)"},
+  "ERIEARTSCULTURE":{k:"ERIEARTSCULTURE",t:"Erie Arts & Culture — Refugee-Owned Business Directory",u:"https://www.erieartsandculture.org/refugee-owned-business-directory",l:"Erie Arts & Culture — Refugee-Owned Business Directory"},
+  "ERIENEWSNOW":{k:"ERIENEWSNOW",t:"Erie News Now — WICU/WSEE",u:"https://www.erienewsnow.com/",l:"Erie News Now — WICU/WSEE"},
+  "ERIEREADER":{k:"ERIE READER",t:"Erie Reader (Erie alt-weekly)",u:"https://www.eriereader.com/",l:"Erie Reader (Erie alt-weekly)"},
+  "EXPERIENCEBUTLER":{k:"EXPERIENCEBUTLER",t:"Experience Butler County PA (CVB)",u:"https://www.experiencebutler.com/",l:"Experience Butler County PA (CVB)"},
+  "EXPLOREPAHISTORY":{k:"EXPLOREPAHISTORY",t:"ExplorePAHistory (WITF)",u:"https://explorepahistory.com/",l:"ExplorePAHistory (WITF)"},
+  "FLAGSHIPDISTRICT":{k:"FLAGSHIPDISTRICT",t:"Flagship City District (Erie Downtown Development Corp. — official)",u:"https://www.flagshipcitydistrict.com/",l:"Flagship City District (Erie Downtown Development Corp. — official)"},
+  "GOERIE":{k:"ERIE TIMES-NEWS",t:"Erie Times-News / GoErie",u:"https://www.goerie.com/",l:"Erie Times-News / GoErie"},
+  "INTERESTINGPA":{k:"INTERESTINGPA",t:"Interesting Pennsylvania and Beyond (PA travel writer)",u:"https://www.interestingpennsylvania.com/",l:"Interesting Pennsylvania and Beyond (PA travel writer)"},
+  "ISLANDS":{k:"ISLANDS",t:"Islands.com",u:"https://www.islands.com/",l:"Islands.com"},
+  "KEYSTONE":{k:"KEYSTONE",t:"Keystone Newsroom (PA statewide news/food readers' polls)",u:"https://keystonenewsroom.com/",l:"Keystone Newsroom (PA statewide news/food readers' polls)"},
+  "LAKEERIELIVING":{k:"LAKEERIELIVING",t:"Lake Erie Living",u:"https://lakeerieliving.com/",l:"Lake Erie Living"},
+  "LIVINGDREAM":{k:"LIVINGDREAM",t:"Living the Dream (Lake Erie Ale Trail feature)",u:"https://www.livingthedreamrtw.com/",l:"Living the Dream (Lake Erie Ale Trail feature)"},
+  "MEADVILLETRIBUNE":{k:"MEADVILLE TRIBUNE",t:"Meadville Tribune",u:"https://www.meadvilletribune.com/",l:"Meadville Tribune"},
+  "NATIONALHERALD":{k:"NATIONALHERALD",t:"The National Herald (Greek-American national paper)",u:"https://www.thenationalherald.com/",l:"The National Herald (Greek-American national paper)"},
+  "NEXTPGH":{k:"NEXTPGH",t:"NextPittsburgh",u:"https://nextpittsburgh.com/",l:"NextPittsburgh"},
+  "NORTHCOUNTRY":{k:"NORTHCOUNTRY",t:"North Country Brewing Company (official)",u:"https://northcountrybrewing.com/",l:"North Country Brewing Company (official)"},
+  "NPR":{k:"NPR",t:"NPR",u:"https://www.npr.org/",l:"NPR"},
+  "NWIRC":{k:"NWIRC",t:"Northwest Industrial Resource Center",u:"https://nwirc.org/",l:"Northwest Industrial Resource Center"},
+  "ONLYINYOURSTATE":{k:"ONLYINYOURSTATE",t:"Only In Your State — Pennsylvania",u:"https://www.onlyinyourstate.com/",l:"Only In Your State — Pennsylvania"},
+  "PAEATS":{k:"PAEATS",t:"PA Eats (Pennsylvania food/drink editorial)",u:"https://www.paeats.org/",l:"PA Eats (Pennsylvania food/drink editorial)"},
+  "PAROUTE6":{k:"PAROUTE6",t:"PA Route 6 Alliance",u:"https://paroute6.com/",l:"PA Route 6 Alliance"},
+  "PBS":{k:"PBS",t:"PBS",u:"https://www.pbs.org/",l:"PBS"},
+  "PENNSYLVANIAWINE":{k:"PENNSYLVANIAWINE",t:"Pennsylvania Wines (PA Winery Association)",u:"https://pennsylvaniawine.com/",l:"Pennsylvania Wines (PA Winery Association)"},
+  "PITTSBURGHMAG":{k:"PITTSBURGHMAG",t:"Pittsburgh Magazine",u:"https://www.pittsburghmagazine.com/",l:"Pittsburgh Magazine"},
+  "TALKERIE":{k:"TALKERIE",t:"TalkErie.com (Erie local news/radio site)",u:"https://talkerie.com/",l:"TalkErie.com (Erie local news/radio site)"},
+  "TOURERIEPA":{k:"TOURERIEPA",t:"Tour Erie PA / Erie Insider",u:"https://www.toureriepa.com/",l:"Tour Erie PA / Erie Insider"},
+  "TRAVELADDICTS":{k:"TRAVELADDICTS",t:"Travel Addicts (travel blog, real track record)",u:"https://traveladdicts.net/",l:"Travel Addicts (travel blog, real track record)"},
+  "UNCOVERINGPA":{k:"UNCOVERING PA",t:"Uncovering PA (Jim Cheney — established PA travel writer, real track record)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney — established PA travel writer, real track record)"},
+  "VISITCRAWFORD":{k:"VISIT CRAWFORD COUNTY",t:"Visit Crawford County PA",u:"https://visitcrawford.org/",l:"Visit Crawford County PA"},
+  "VISITEDINBORO":{k:"VISITEDINBORO",t:"Visit Edinboro PA (Edinboro tourism)",u:"https://www.visitedinboropa.com/",l:"Visit Edinboro PA (Edinboro tourism)"},
+  "VISITERIE":{k:"VISIT ERIE",t:"VisitErie (Erie County CVB)",u:"https://www.visiterie.com/",l:"VisitErie (Erie County CVB)"},
+  "VISITMERCER":{k:"VISITMERCER",t:"Visit Mercer County PA",u:"https://www.visitmercercountypa.com/",l:"Visit Mercer County PA"},
+  "VISITPA":{k:"VISIT PA",t:"VisitPA (Pennsylvania Tourism Office)",u:"https://www.visitpa.com/",l:"VisitPA (Pennsylvania Tourism Office)"},
+  "VOODOO":{k:"VOODOO",t:"Voodoo Brewing Co. (official — founding history)",u:"https://www.voodoobrewery.com/",l:"Voodoo Brewing Co. (official — founding history)"},
+  "WANDERINGEDU":{k:"WANDERINGEDU",t:"Wandering Educators (travel writers' network)",u:"https://www.wanderingeducators.com/",l:"Wandering Educators (travel writers' network)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (sights / institutional facts)",u:"https://en.wikipedia.org/",l:"Wikipedia (sights / institutional facts)"},
+  "WINETRAVELER":{k:"WINETRAVELER",t:"Winetraveler (wine-travel editorial)",u:"https://www.winetraveler.com/",l:"Winetraveler (wine-travel editorial)"},
+  "WQLN":{k:"WQLN",t:"WQLN PBS — 'Erie Eats' (local public-television dining series)",u:"https://www.wqln.org/shows/erie-eats",l:"WQLN PBS — 'Erie Eats' (local public-television dining series)"},
+  "YOURERIE":{k:"YOURERIE",t:"YourErie / WJET-WFXP (Erie ABC/Fox affiliate)",u:"https://www.yourerie.com/",l:"YourErie / WJET-WFXP (Erie ABC/Fox affiliate)"}
+};
+
+const CUISINES = [
+  {id:"ITAL",n:"Italian & Pizza"},
+  {id:"GREEK",n:"Greek Dogs & Diners"},
+  {id:"FISH",n:"Great-Lakes Fish (Perch & Walleye)"},
+  {id:"US",n:"American & New American"},
+  {id:"BBQ",n:"BBQ & Smokehouse"},
+  {id:"BREW",n:"Breweries, Wineries & Beer"},
+  {id:"DESSERT",n:"Sponge Candy & Sweets"},
+  {id:"ASIAN",n:"Asian"},
+  {id:"CAFE",n:"Cafés & Coffee"},
+  {id:"MEX",n:"Mexican & Latin"},
+  {id:"VIRAL",n:"Viral / Local Favorite"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"MARITIME",n:"Bayfront & Maritime"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"CRAFT",n:"Wine, Glass & Craft"},
+  {id:"PARK",n:"Parks & Outdoors"},
+  {id:"FAM",n:"Family & Amusement"},
+  {id:"MKT",n:"Markets & Shopping"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"ERIE",n:"New York Lunch (The Original)",ad:"East Ave, Erie, PA 16504",cz:["US","GREEK"],la:42.13399,ln:-80.06094,w:"Opened 1927 and claims to be the first place to serve Erie's signature Greek dog; the Greek sauce is a spiced-up Greek pasta-sauce recipe brought by the city's early Greek restaurateurs, and it's the defining Erie street food.",s:[["ERIEREADER","https://www.eriereader.com/article/eries-greek-dogs-a-slowcooked-history"],["YOURERIE","https://www.yourerie.com/digital-first/digital-exclusive/greek-dog-coney-dog-what-is-it-called-and-who-can-claim-it/"],["NATIONALHERALD","https://www.thenationalherald.com/new-york-lunch-in-erie-pa-has-real-coney-greek-dogs-too/"]]},
+{t:1,a:"ERIE",n:"Sara's Restaurant",ad:"25 Peninsula Dr, Erie, PA 16505",cz:["US","DESSERT"],la:42.11256,ln:-80.15518,w:"The seasonal 1950s-themed drive-in guarding the entrance to Presque Isle since 1980 — vintage gas pumps, red picnic tables, char-grilled Smith's dogs and orange-vanilla twist; lines can run an hour at peak.",s:[["INTERESTINGPA","https://www.interestingpennsylvania.com/2023/04/saras-restaurant-yummy-americana-at.html"],["TOURERIEPA","https://www.toureriepa.com/post/sara-s-a-presque-isle-staple"]]},
+{t:1,a:"ERIE",n:"Stanganelli's Italian Foods",ad:"602 E 25th St, Erie, PA 16503",cz:["ITAL"],la:42.11789,ln:-80.06096,w:"Making Erie's deep-fried pepperoni balls since 1961; so central to the city's identity that the Erie SeaWolves rebranded as the 'Pepperoni Balls' and QVC sold out 18,000 of Stanganelli's frozen ones in 2020.",s:[["ERIEREADER","https://www.eriereader.com/article/pepperoni-balls-the-lifebread-of-erie"],["YOURERIE","https://www.yourerie.com/news/local-news/the-history-of-eries-famous-pepperoni-balls/"],["NWIRC","https://nwirc.org/manufacturing-the-taste-of-home-for-the-holidays/"]]},
+{t:1,a:"ERIE",n:"Romolo Chocolates",ad:"1525 W 8th St, Erie, PA 16505",cz:["DESSERT"],la:42.11458,ln:-80.11717,w:"A four-generation Erie chocolatier whose sponge candy (and sponge-candy truffles) is a benchmark for the regional treat that can only be made in cool, dry weather; Erie sits in the heart of the 'Sponge Candy Crescent.'",s:[["NPR","https://www.npr.org/2012/07/01/156031130/in-sponge-candy-crescent-addicts-hoard-heaven"],["WANDERINGEDU","https://www.wanderingeducators.com/best/traveling/unexpected-chocolate-haven-erie-pennsylvania.html"]]},
+{t:2,a:"ERIE",n:"Pulakos Chocolates",ad:"2530 Parade St, Erie, PA 16503",cz:["DESSERT"],la:42.10177,ln:-80.10026,w:"Erie chocolatier tracing to Greek immigrant George Pulakos in 1889; known for sponge taffy, French truffles and a 25-minute factory tour with samples — the old-guard counterpart to Romolo in Erie's chocolate scene.",s:[["PBS","https://www.pbs.org/video/pulakos-ezjutq"],["WANDERINGEDU","https://www.wanderingeducators.com/best/traveling/unexpected-chocolate-haven-erie-pennsylvania.html"]]},
+{t:1,a:"ERIE",n:"Lavery Brewing Co.",ad:"128 W 12th St, Erie, PA 16501",cz:["BREW"],la:42.12283,ln:-80.08402,w:"A cornerstone of the Lake Erie Ale Trail — a downtown Erie brewery whose taproom is among the city's busiest, pouring a wide range of styles alongside a well-reviewed kitchen.",s:[["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-erie-pa"],["VISITERIE","https://www.visiterie.com/things-to-do/breweries-and-distilleries/"],["LIVINGDREAM","https://www.livingthedreamrtw.com/erie-breweries"]]},
+{t:1,a:"ERIE",n:"The Brewerie at Union Station",ad:"123 W 14th St, Erie, PA 16501",cz:["BREW","US"],la:42.12120,ln:-80.08212,w:"A brewpub set in Erie's historic Union Station — trains still stop upstairs — pairing fresh house ales with a scratch menu; consistently rated among the best restaurants in the city.",s:[["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-erie-pa"],["VISITERIE","https://www.visiterie.com/things-to-do/breweries-and-distilleries/"]]},
+{t:2,a:"ERIE",n:"Erie Brewing Company",ad:"Erie, PA 16501",cz:["BREW"],la:42.11879,ln:-79.96764,w:"Founded as a brewpub in 1993 and a full brewery since 1999, Erie Brewing has taken three Great American Beer Festival medals and distributes across more than a dozen states — the veteran of the local scene.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Erie_Brewing_Company"],["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-erie-pa"]]},
+{t:2,a:"ERIE",n:"Colao's Ristorante",ad:"2826 Plum St, Erie, PA 16508",cz:["ITAL"],la:42.10272,ln:-80.09046,w:"Family-owned since 1999, cooking authentic Italian from recipes passed down for generations — a locals' pick for Erie's Italian dining rooted in the city's deep Italian community.",s:[["VISITERIE","https://www.visiterie.com/things-to-do/eat-drink/"],["KEYSTONE","https://keystonenewsroom.com/food-guide/eries-5-best-restaurants-according-to-locals/"]]},
+{t:2,a:"ERIE",n:"Federal Hill Smokehouse",ad:"W 26th St & Peach St, Erie, PA 16508",cz:["BBQ"],la:42.11110,ln:-80.07468,w:"Bringing slow-smoked Texas barbecue to far-northern PA near Erie's Little Italy at 26th and Peach; a frequently top-cited Erie meat destination.",s:[["VISITERIE","https://www.visiterie.com/things-to-do/eat-drink/"],["KEYSTONE","https://keystonenewsroom.com/local/food-drink/eries-5-best-restaurants-according-to-locals/"]]},
+{t:2,a:"NORTHEAST",n:"Penn Shore Winery",ad:"10225 East Lake Rd, North East, PA 16428",cz:["BREW"],la:42.22888,ln:-79.86462,w:"One of the first two wineries in Pennsylvania to get a limited-winery license after Prohibition (1968), crushing its first grapes in 1969 — a foundational stop on the Lake Erie Wine Country trail.",s:[["PAEATS","https://www.paeats.org/feature/lake-erie-ava/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"]]},
+{t:2,a:"NORTHEAST",n:"Arrowhead Wine Cellars",ad:"12073 East Main Rd, North East, PA 16428",cz:["BREW"],la:42.22975,ln:-79.78826,w:"Nick and Kathy Mobilia's farm winery since 1998, making wine from grapes and fruit grown on their own 250 acres — European varietals (Pinot Grigio, Riesling) alongside native Niagara, Catawba and Concord.",s:[["TRAVELADDICTS","https://traveladdicts.net/weekend-in-lake-erie-wine-country/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"]]},
+{t:2,a:"CORRIDOR",n:"Harmony Inn",ad:"230 Mercer St, Harmony, PA 16037",cz:["US"],la:40.80290,ln:-80.12659,w:"A historic tavern in the heart of Harmony's National Historic Landmark district, now run by North Country Brewing, serving German-inflected comfort food in a storied (and reputedly haunted) old building.",s:[["EXPERIENCEBUTLER","https://www.experiencebutler.com/cities-and-towns/harmony/"],["PITTSBURGHMAG","https://www.pittsburghmagazine.com/in-harmony-pa-youll-find-peace-love-and-of-course-harmony/"]]},
+{t:3,a:"CORRIDOR",n:"Conneaut Cellars Winery & Distillery",ad:"Conneaut Lake, PA 16316",cz:["BREW"],la:41.60189,ln:-80.29733,w:"A lakeside winery and distillery beside Conneaut Lake that hosts summer live-music and outdoor tasting series — the drinks anchor of the Conneaut Lake resort area on the corridor.",s:[["VISITCRAWFORD","https://visitcrawford.org/regions/conneaut-lake/"],["INTERESTINGPA","https://www.interestingpennsylvania.com/2017/06/a-tour-of-lake-erie-wine-country.html"]]},
+{t:1,a:"EDINBORO",n:"Riverside Brewing Co.",ad:"1 Fountain Ave, Cambridge Springs, PA 16403",cz:["BREW","US"],la:41.80575,ln:-80.05333,w:"Opened 2019 in a refurbished 19th-century barn along French Creek on the grounds of the lost Riverside Inn, this farm-to-table brewpub is an outgrowth of the four-generation Howles Maple Farm and folds its own maple into beer and food; live music and outdoor summer series.",s:[["VISITCRAWFORD","https://visitcrawford.org/listing/riverside-brewing-company/"],["VISITPA","https://www.visitpa.com/listing/riverside-brewing-company/989/"]]},
+{t:2,a:"EDINBORO",n:"Edinboro Chocolaterie",ad:"114 Erie St, Edinboro, PA 16412",cz:["DESSERT"],la:41.87492,ln:-80.13175,w:"A downtown Edinboro chocolatier opened in 2019 by the family behind Butler's long-running Peter's Chocolate Shoppe; small-batch fillings made on site, hand-dipped nuts and clusters, and chocolate-covered raspberries, strawberries and Granny Smith apples.",s:[["ERIENEWSNOW","https://www.erienewsnow.com/archive/edinboro-chocolaterie-creates-chocolate-dipped-creations-for-all-occasions-community-gems/article_9a30ac67-c2b7-56c0-92e8-056322d7a7a3.html"],["ECED","https://www.visitedinboropa.com/shopping/edinboro-chocolaterie"]]},
+{t:2,a:"ERIE",n:"Black Monk Brewery",ad:"3721 W 12th St, Erie, PA 16505",cz:["BREW"],la:42.09201,ln:-80.16552,w:"A small west-side brewery on the Lake Erie Ale Trail devoted to Belgian styles (dubbels, tripels, quads) with 16-plus taps and rotating food trucks — a distinctive specialist among Erie's breweries.",s:[["UNCOVERINGPA","https://uncoveringpa.com/breweries-in-erie-pa"],["BREWERSPA","https://www.brewersofpa.org/news/tom-morris-of-black-monk-brewery-on-belgian-style-beers-and-the-erie-craft-beer-community"]]},
+{t:1,a:"ERIE",n:"Lawrence Park Dinor",ad:"4019 Main St, Erie, PA 16511",cz:["US","GREEK"],la:42.15028,ln:-80.01444,w:"A 1948 Silk City diner in Lawrence Park and the only 'dinor' — the northwest-PA spelling — on the National Register of Historic Places (2004). Seventy-five-plus years of counter-service classics, most famously the Greek omelet drowned in Erie's signature Greek sauce.",s:[["ATLASOBSCURA","https://www.atlasobscura.com/itineraries/pennsylvania-erie"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lawrence_Park_Dinor"],["LAKEERIELIVING","https://lakeerieliving.com/articles/2025-best-of-lake-erie/best-dinor-lawrence-park-dinor/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('er_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('er_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('er_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('er_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Erie PA')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {ERIE:'#2E6DA4',NORTHEAST:'#8E44AD',MEADVILLE:'#16A085',EDINBORO:'#C0504D',GROVECITY:'#E8973A',CORRIDOR:'#6C7A89'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.5093,-80.0898],8);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Erie", 42.1149, -80.1029], ["North East", 42.2247, -79.829], ["Meadville", 41.6415, -80.2229], ["Edinboro", 41.8606, -80.1111], ["Grove City", 41.0846, -80.103], ["I-79 corridor south to Pittsburgh", 41.1667, -80.1654]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('erie-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('erie-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('erie-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Erie’s canon is its own: the <b>Greek-sauce hot dog</b> (New York Lunch, Sara’s), deep-fried <b>pepperoni balls</b> (Stanganelli’s), <b>sponge candy</b> (Romolo, Pulakos), Federal Hill <b>Italian</b>, Great-Lakes <b>perch &amp; walleye</b> fish fries, and the <b>Lake Erie wine belt</b> (Mazza, Penn Shore, Arrowhead), sourced to the Erie Times-News and Erie Reader. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to a credible source — the Erie Times-News/GoErie, Erie Reader, Visit Erie, the Meadville Tribune, PA DCNR, NPS, Uncovering PA, Atlas Obscura and official sites — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 59 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

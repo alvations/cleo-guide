@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Washington DC field guide — 75 sights and 59 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<title>Washington DC Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Washington DC Field Guide — Sourced — Cleo">
+<meta property="og:description" content="Washington DC field guide — 75 sights and 59 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with…">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/cities/washingtondc.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Washington DC Field Guide — Sourced — Cleo">
+<meta name="twitter:description" content="Washington DC field guide — 75 sights and 59 places to eat across DC, Arlington and the Northern Virginia corridor to Dulles, each traceable to its source (Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, the National Park Service, the Smithsonian), on one interactive map with…">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#101318">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="../index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · DC, Arlington &amp; the Dulles corridor, sourced</p>
+  <h1>Washington DC<span class="thin">the monuments, the Smithsonians &amp; the Dulles-corridor food belt</span></h1>
+  <p class="standfirst">75 sights and 59 places to eat from the National Mall out through Arlington to the Dulles corridor, each traceable to the source that named it. The monumental core &mdash; the Lincoln and Jefferson memorials, the free Smithsonians, the Capitol &mdash; anchors the map; the food runs on what the region does best: the half-smoke at Ben’s, DC’s Ethiopian and Salvadoran kitchens, Chesapeake crab and oysters, the Michelin room and the Vietnamese sprawl of Eden Center. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#B0405A"></i>National Mall, Tidal Basin & the Monuments</span>
+  <span><i style="background:#E8973A"></i>Downtown, Penn Quarter & Chinatown</span>
+  <span><i style="background:#8064A2"></i>Georgetown & Foggy Bottom</span>
+  <span><i style="background:#4F81BD"></i>Dupont, Logan Circle & Adams Morgan</span>
+  <span><i style="background:#C0504D"></i>U Street, Shaw & Columbia Heights</span>
+  <span><i style="background:#4BACC6"></i>Capitol Hill, H Street, Navy Yard & The Wharf</span>
+  <span><i style="background:#9BBB59"></i>Arlington & National Landing</span>
+  <span><i style="background:#D99694"></i>Old Town Alexandria</span>
+  <span><i style="background:#2C7FB8"></i>Tysons, McLean & Vienna</span>
+  <span><i style="background:#F2A900"></i>Reston, Herndon & the Dulles Corridor</span>
+  <span><i style="background:#7BA05B"></i>Falls Church, Annandale & Eden Center</span>
+  <span><i style="background:#A6588C"></i>Fairfax, Merrifield (Mosaic) & Chantilly</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Lincoln Memorial, Smithsonian, half-smoke…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-14</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, Northern Virginia Magazine, ARLnow, the National Park Service and the Smithsonian, plus official sites. Every place is merit-measured (award, rave, or high rating with real volume) before it earns a pin; every coordinate is verified into data/geocodes.json and every place status-checked open. A number of restaurant pins are pending a final coordinate pass before they appear.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AAA":{k:"AAA",t:"AAA Travel",u:"https://www.aaa.com/",l:"AAA Travel"},
+  "ARLMAG":{k:"ARLMAG",t:"Arlington Magazine",u:"https://www.arlingtonmagazine.com/",l:"Arlington Magazine"},
+  "ARLNOW":{k:"ARLNOW",t:"ARLnow (Arlington local news)",u:"https://www.arlnow.com/",l:"ARLnow (Arlington local news)"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "FFXNOW":{k:"FFXNOW",t:"FFXnow (Fairfax County local news)",u:"https://www.ffxnow.com/",l:"FFXnow (Fairfax County local news)"},
+  "FXVA":{k:"FAIRFAX CVB",t:"Visit Fairfax (FXVA)",u:"https://www.fxva.com/",l:"Visit Fairfax (FXVA)"},
+  "NOVAMAG":{k:"NORTHERN VIRGINIA MAG",t:"Northern Virginia Magazine",u:"https://northernvirginiamag.com/",l:"Northern Virginia Magazine"},
+  "NOVAPARKS":{k:"NOVAPARKS",t:"NOVA Parks (Northern Virginia Regional Park Authority)",u:"https://www.novaparks.com/",l:"NOVA Parks (Northern Virginia Regional Park Authority)"},
+  "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/",l:"National Park Service"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"https://www.si.edu/",l:"Official site / operator"},
+  "SMITHSONIAN":{k:"SMITHSONIAN",t:"Smithsonian Institution",u:"https://www.si.edu/",l:"Smithsonian Institution"},
+  "STAYARLINGTON":{k:"STAYARLINGTON",t:"Arlington Convention & Visitors Service (stayArlington)",u:"https://www.stayarlington.com/",l:"Arlington Convention & Visitors Service (stayArlington)"},
+  "VIRGINIA":{k:"VIRGINIA",t:"Virginia.org (Virginia Tourism Corporation)",u:"https://www.virginia.org/",l:"Virginia.org (Virginia Tourism Corporation)"},
+  "VISITALEX":{k:"VISIT ALEXANDRIA",t:"Visit Alexandria",u:"https://www.visitalexandria.com/",l:"Visit Alexandria"},
+  "WAPO":{k:"WASHINGTON POST",t:"The Washington Post",u:"https://www.washingtonpost.com/",l:"The Washington Post"},
+  "WASHINGTONORG":{k:"DESTINATION DC",t:"Destination DC (washington.org)",u:"https://washington.org/",l:"Destination DC (washington.org)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"MALL",n:"National Mall, Tidal Basin & the Monuments",c:"#B0405A"},
+  {id:"DTN",n:"Downtown, Penn Quarter & Chinatown",c:"#E8973A"},
+  {id:"GTWN",n:"Georgetown & Foggy Bottom",c:"#8064A2"},
+  {id:"DUPONT",n:"Dupont, Logan Circle & Adams Morgan",c:"#4F81BD"},
+  {id:"USHAW",n:"U Street, Shaw & Columbia Heights",c:"#C0504D"},
+  {id:"CAPHILL",n:"Capitol Hill, H Street, Navy Yard & The Wharf",c:"#4BACC6"},
+  {id:"ARL",n:"Arlington & National Landing",c:"#9BBB59"},
+  {id:"ALEX",n:"Old Town Alexandria",c:"#D99694"},
+  {id:"TYSONS",n:"Tysons, McLean & Vienna",c:"#2C7FB8"},
+  {id:"RESTON",n:"Reston, Herndon & the Dulles Corridor",c:"#F2A900"},
+  {id:"FCITY",n:"Falls Church, Annandale & Eden Center",c:"#7BA05B"},
+  {id:"FAIRFAX",n:"Fairfax, Merrifield (Mosaic) & Chantilly",c:"#A6588C"}
+];
+
+const P = [
+{t:1,a:"MALL",n:"Lincoln Memorial",ad:"2 Lincoln Memorial Cir NW, Washington, DC 20037",la:38.88928,ln:-77.05014,w:"Henry Bacon's Doric temple (1922) housing Daniel Chester French's 19-foot seated Lincoln, the terminus of the Reflecting Pool and the spot where Dr. King delivered 'I Have a Dream.' Open 24 hours, free, ranger-staffed.",k:"memorial",g:["ICON","MON","FREE"],s:[["NPS","https://www.nps.gov/linc/"],["WASHINGTONORG","https://washington.org/DC-guide-to/lincoln-memorial"]]},
+{t:1,a:"MALL",n:"Washington Monument",ad:"2 15th St NW, Washington, DC 20024",la:38.88948,ln:-77.03528,w:"The 555-foot marble obelisk (completed 1884) honoring the first president, the tallest structure in DC. Grounds are open daily; the interior elevator to the observation deck has faced repeated closures, so check NPS for current top access before you go.",k:"monument",g:["ICON","MON","VIEW"],s:[["NPS","https://www.nps.gov/wamo/"],["WASHINGTONORG","https://washington.org/find-dc-listings/washington-monument"]]},
+{t:1,a:"MALL",n:"Thomas Jefferson Memorial",ad:"16 E Basin Dr SW, Washington, DC 20242",la:38.88139,ln:-77.03653,w:"John Russell Pope's domed rotunda (1943) on the Tidal Basin, with a 19-foot bronze of Jefferson ringed by his own words. One of the finest cherry-blossom vantage points each spring.",k:"memorial",g:["ICON","MON","PARK"],s:[["NPS","https://www.nps.gov/thje/"],["WASHINGTONORG","https://washington.org/find-dc-listings/thomas-jefferson-memorial"]]},
+{t:1,a:"MALL",n:"National World War II Memorial",ad:"1750 Independence Ave SW, Washington, DC 20024",la:38.88944,ln:-77.04056,w:"A plaza of 56 granite pillars and two arches around a fountain between the Washington Monument and the Reflecting Pool, dedicated 2004 to the 16 million who served. The Freedom Wall bears 4,048 gold stars.",k:"memorial",g:["ICON","MON","VIEW"],s:[["NPS","https://www.nps.gov/wwii/index.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/world-war-ii-memorial"]]},
+{t:1,a:"MALL",n:"Vietnam Veterans Memorial",ad:"5 Henry Bacon Dr NW, Washington, DC 20037",la:38.89111,ln:-77.04778,w:"Maya Lin's stark black-granite wall (1982) inscribed with the 58,000-plus names of the fallen and missing, sunk into the earth beside the Three Soldiers statue. Among the most-visited and most-moving sites on the Mall.",k:"memorial",g:["MON"],s:[["NPS","https://www.nps.gov/vive/"],["WASHINGTONORG","https://washington.org/find-dc-listings/vietnam-veterans-memorial"]]},
+{t:2,a:"MALL",n:"Korean War Veterans Memorial",ad:"10 Daniel French Dr SW, Washington, DC 20024",la:38.88778,ln:-77.04722,w:"Nineteen stainless-steel soldiers advance through juniper toward an American flag, mirrored on a granite wall to read as 38 (the 38th parallel). The 2022 Wall of Remembrance added the names of the dead.",k:"memorial",g:["MON"],s:[["NPS","https://www.nps.gov/kowa/"],["WASHINGTONORG","https://washington.org/find-dc-listings/korean-war-veterans-memorial"]]},
+{t:1,a:"MALL",n:"Martin Luther King Jr. Memorial",ad:"1964 Independence Ave SW, Washington, DC 20024",la:38.88611,ln:-77.04417,w:"A 30-foot 'Stone of Hope' likeness of Dr. King emerging from a split boulder on the Tidal Basin's northwest rim, opened 2011. A 450-foot inscription wall carries 14 of his quotations.",k:"memorial",g:["ICON","MON","PARK"],s:[["NPS","https://www.nps.gov/mlkm/"],["WASHINGTONORG","https://washington.org/find-dc-listings/martin-luther-king-jr-memorial"]]},
+{t:2,a:"MALL",n:"Franklin Delano Roosevelt Memorial",ad:"1850 West Basin Dr SW, Washington, DC 20242",la:38.88389,ln:-77.04444,w:"A 7.5-acre sequence of four granite outdoor 'rooms,' one per FDR term, threaded with waterfalls, sculpture and quotations. Opened 1997 on the Tidal Basin's Cherry Tree Walk.",k:"memorial",g:["ICON","MON","PARK"],s:[["NPS","https://www.nps.gov/frde/"],["WASHINGTONORG","https://washington.org/find-dc-listings/franklin-delano-roosevelt-memorial"]]},
+{t:2,a:"MALL",n:"Tidal Basin & the Cherry Blossoms",ad:"1501 Maine Ave SW, Washington, DC 20024",la:38.88417,ln:-77.03917,w:"The man-made inlet ringed by the Jefferson, FDR and MLK memorials and by 3,000-plus Yoshino cherry trees, a 1912 gift from Tokyo that draws peak-bloom crowds each late March. Paddleboats and a walking loop year-round.",k:"waterfront",g:["ICON","MON","PARK","VIEW"],s:[["NPS","https://www.nps.gov/subjects/cherryblossom/index.htm"],["WASHINGTONORG","https://washington.org/DC-guide-to/national-cherry-blossom-festival"]]},
+{t:1,a:"MALL",n:"National Air and Space Museum",ad:"655 Jefferson Dr SW, Washington, DC 20560",la:38.88833,ln:-77.02000,w:"The Smithsonian's flagship of flight and spaceflight, home to the Wright Flyer, Spirit of St. Louis, and Apollo 11 command module. Reopened in full for its 50th anniversary in July 2026 after a multi-year renovation; free, timed passes recommended.",k:"museum",g:["ICON","MUS","FAM","FREE"],s:[["SMITHSONIAN","https://airandspace.si.edu/"]]},
+{t:1,a:"MALL",n:"National Museum of Natural History",ad:"10th St & Constitution Ave NW, Washington, DC 20560",la:38.89130,ln:-77.02590,w:"The Smithsonian's natural-history giant, home to the Hope Diamond, a live butterfly pavilion, dinosaurs and the Ocean Hall. Free admission, one of the most-visited museums on earth.",k:"museum",g:["MUS","HIST","FAM","FREE"],s:[["SMITHSONIAN","https://naturalhistory.si.edu/"]]},
+{t:1,a:"MALL",n:"National Museum of American History",ad:"1300 Constitution Ave NW, Washington, DC 20560",la:38.89111,ln:-77.03000,w:"Keeper of the original Star-Spangled Banner, the Ruby Slippers, Julia Child's kitchen and the First Ladies' gowns. A free Smithsonian survey of the American story.",k:"museum",g:["MUS","FREE"],s:[["SMITHSONIAN","https://americanhistory.si.edu/"]]},
+{t:1,a:"MALL",n:"National Museum of African American History and Culture",ad:"1400 Constitution Ave NW, Washington, DC 20560",la:38.89111,ln:-77.03278,w:"David Adjaye's bronze-corona building (opened 2016), the Smithsonian's newest and among its most sought-after, tracing slavery through the present across culture, sport and struggle. Free, but timed passes are advised.",k:"museum",g:["MUS","FREE"],s:[["SMITHSONIAN","https://nmaahc.si.edu/"]]},
+{t:2,a:"MALL",n:"Hirshhorn Museum and Sculpture Garden",ad:"Independence Ave SW & 7th St SW, Washington, DC 20560",la:38.88820,ln:-77.02300,w:"The Smithsonian's modern and contemporary art museum, a cylindrical 'donut' by Gordon Bunshaft with a sunken sculpture garden across Jefferson Drive. Free; strong in Rothko, Bourgeois and immersive installations.",k:"museum",g:["MUS","PARK","FREE"],s:[["SMITHSONIAN","https://hirshhorn.si.edu/"]]},
+{t:1,a:"MALL",n:"National Gallery of Art",ad:"6th St & Constitution Ave NW, Washington, DC 20565",la:38.89140,ln:-77.02000,w:"The nation's art museum (not a Smithsonian), pairing John Russell Pope's neoclassical West Building with I.M. Pei's East Building, plus a sculpture garden. Free; home to the only Leonardo da Vinci in the Americas.",k:"museum",g:["MUS","PARK","FREE"],s:[["OFFICIAL","https://www.nga.gov/"],["WASHINGTONORG","https://washington.org/find-dc-listings/national-gallery-art"]]},
+{t:2,a:"MALL",n:"United States Botanic Garden",ad:"100 Maryland Ave SW, Washington, DC 20001",la:38.88800,ln:-77.01300,w:"A living plant museum at the foot of Capitol Hill, its 1933 glass Conservatory holding a jungle, orchids and a seasonal garden-railway show. Free, and one of the oldest continually operating botanic gardens in the country.",k:"garden",g:["MUS","GOV","PARK","FREE"],s:[["OFFICIAL","https://www.usbg.gov/"],["WASHINGTONORG","https://washington.org/find-dc-listings/united-states-botanic-garden"]]},
+{t:1,a:"DTN",n:"The White House",ad:"1600 Pennsylvania Ave NW, Washington, DC 20500",la:38.89778,ln:-77.03639,w:"The executive mansion and workplace of every president since John Adams, viewable from Lafayette Square and the south Ellipse. Interior tours are free but must be arranged well ahead through a member of Congress.",k:"landmark",g:["ICON","GOV","HIST","VIEW"],s:[["NPS","https://www.nps.gov/whho/"],["WASHINGTONORG","https://washington.org/find-dc-listings/white-house"]]},
+{t:1,a:"DTN",n:"National Archives Museum",ad:"701 Constitution Ave NW, Washington, DC 20408",la:38.89278,ln:-77.02306,w:"Home of the Declaration of Independence, the Constitution and the Bill of Rights, displayed in the Rotunda for the Charters of Freedom. Free admission.",k:"landmark",g:["MUS","GOV","HIST","FREE"],s:[["OFFICIAL","https://www.archives.gov/museum"],["WASHINGTONORG","https://washington.org/find-dc-listings/national-archives"]]},
+{t:1,a:"DTN",n:"Smithsonian American Art Museum & National Portrait Gallery",ad:"800 G St NW, Washington, DC 20001",la:38.89780,ln:-77.02330,w:"Two free Smithsonian museums sharing the Greek Revival Old Patent Office Building in Penn Quarter, joined by the glass-roofed Kogod Courtyard. The Portrait Gallery's 'America's Presidents' is the only complete set outside the White House.",k:"museum",g:["ICON","MUS","GOV","HIST"],s:[["SMITHSONIAN","https://npg.si.edu/"]]},
+{t:2,a:"DTN",n:"Ford's Theatre",ad:"511 10th St NW, Washington, DC 20004",la:38.89667,ln:-77.02583,w:"The still-operating 1863 theater where Lincoln was shot on April 14, 1865, now an NPS site with a museum and the Petersen House (where he died) across the street. Working stage plus historical tours.",k:"historic",g:["MUS","HIST","ENT"],s:[["NPS","https://www.nps.gov/foth/"],["OFFICIAL","https://www.fords.org/"]]},
+{t:2,a:"DTN",n:"National Building Museum",ad:"401 F St NW, Washington, DC 20001",la:38.89750,ln:-77.01810,w:"A soaring 1887 Great Hall lined with 75-foot Corinthian columns, once the Pension Bureau, now devoted to architecture, design and engineering. Known for blockbuster summer installations; the Great Hall is free.",k:"museum",g:["MUS","HIST","FAM","FREE"],s:[["OFFICIAL","https://www.nbm.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/national-building-museum"]]},
+{t:2,a:"DTN",n:"International Spy Museum",ad:"700 L'Enfant Plaza SW, Washington, DC 20024",la:38.88416,ln:-77.02572,w:"A privately run, glass-clad museum of espionage at L'Enfant Plaza, with one of the largest public collections of spy artifacts and interactive tradecraft exhibits. Ticketed admission.",k:"museum",g:["MUS"],s:[["OFFICIAL","https://www.spymuseum.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/international-spy-museum"]]},
+{t:2,a:"DTN",n:"Chinatown Friendship Archway",ad:"610 H St NW, Washington, DC 20001",la:38.89982,ln:-77.02169,w:"A 75-foot, seven-roof gate over H Street (1986), the largest single-span Chinese archway of its kind, marking the entrance to DC's compact Chinatown near Capital One Arena.",k:"landmark",g:["HIST","ENT"],s:[["WASHINGTONORG","https://washington.org/DC-neighborhoods/chinatown"],["ATLASOBSCURA","https://www.atlasobscura.com/places/friendship-archway"]]},
+{t:1,a:"GTWN",n:"John F. Kennedy Center for the Performing Arts",ad:"2700 F St NW, Washington, DC 20566",la:38.89570,ln:-77.05590,w:"The nation's living memorial to JFK and its busiest performing-arts complex, on the Potomac beside the Watergate, home to the National Symphony and Washington National Opera. Free daily performances on the Millennium Stage and a rooftop terrace with river views.",k:"entertainment",g:["MON","GOV","VIEW","ENT"],s:[["OFFICIAL","https://www.kennedy-center.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/kennedy-center"]]},
+{t:1,a:"GTWN",n:"Georgetown Waterfront & the C&O Canal",ad:"3303 Water St NW, Washington, DC 20007",la:38.90216,ln:-77.06189,w:"The cobblestoned C&O Canal towpath and the Potomac-front park frame Georgetown's shops and rowing crews, with mule-drawn boat history at the NPS canal. A walkable stretch of the neighborhood's 18th-century core.",k:"waterfront",g:["PARK","VIEW","SHOP"],s:[["NPS","https://www.nps.gov/choh/"],["WASHINGTONORG","https://washington.org/DC-neighborhoods/georgetown"]]},
+{t:2,a:"GTWN",n:"Dumbarton Oaks",ad:"1703 32nd St NW, Washington, DC 20007",la:38.91420,ln:-77.06330,w:"A Harvard-run research estate in upper Georgetown celebrated for its Byzantine and Pre-Columbian art and, above all, Beatrix Farrand's terraced formal gardens. Museum is free; the gardens are ticketed in season.",k:"garden",g:["MUS","HIST","PARK","SHOP"],s:[["OFFICIAL","https://www.doaks.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/dumbarton-oaks"]]},
+{t:2,a:"GTWN",n:"Old Stone House",ad:"3051 M St NW, Washington, DC 20007",la:38.90556,ln:-77.06056,w:"Built in 1765, the oldest unchanged building in DC and a rare survivor of pre-Revolutionary Georgetown, now an NPS house museum with a colonial-style garden. Free.",k:"historic",g:["MUS","HIST","PARK","SHOP"],s:[["NPS","https://www.nps.gov/places/old-stone-house.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/old-stone-house"]]},
+{t:2,a:"GTWN",n:"Georgetown University & Healy Hall",ad:"3700 O St NW, Washington, DC 20057",la:38.90728,ln:-77.07272,w:"The oldest Catholic and Jesuit university in the United States (founded 1789), whose Flemish-Romanesque Healy Hall and its clock-tower spires crown the campus above the Potomac. Grounds are open to visitors.",k:"landmark",g:["HIST","VIEW","SHOP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Healy_Hall"],["WASHINGTONORG","https://washington.org/find-dc-listings/georgetown-university"]]},
+{t:1,a:"DUPONT",n:"The Phillips Collection",ad:"1600 21st St NW, Washington, DC 20009",la:38.91139,ln:-77.04681,w:"America's first museum of modern art (1921), an intimate Dupont Circle mansion whose crown jewel is Renoir's 'Luncheon of the Boating Party,' plus a meditative Rothko Room. Ticketed for special exhibitions.",k:"museum",g:["MUS","HIST"],s:[["OFFICIAL","https://www.phillipscollection.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/phillips-collection"]]},
+{t:2,a:"DUPONT",n:"Embassy Row",ad:"2300 Massachusetts Ave NW, Washington, DC 20008",la:38.91228,ln:-77.05110,w:"The Massachusetts Avenue stretch northwest of Dupont Circle lined with more than 50 embassies and Gilded Age mansions, marked by statues of Gandhi, Churchill and Mandela. A self-guided architectural walk.",k:"district",g:["MON","GOV","HIST","SHOP"],s:[["WASHINGTONORG","https://washington.org/DC-neighborhoods/dupont-circle"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Embassy_Row"]]},
+{t:2,a:"DUPONT",n:"Adams Morgan (18th Street)",ad:"18th St NW & Columbia Rd NW, Washington, DC 20009",la:38.92150,ln:-77.04220,w:"DC's most eclectic nightlife-and-dining strip, famous for its murals, international restaurants and the late-night jumbo slice. A lively, walkable neighborhood core.",k:"district",g:["SHOP"],s:[["WASHINGTONORG","https://washington.org/DC-neighborhoods/adams-morgan"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Adams_Morgan"]]},
+{t:2,a:"DUPONT",n:"Dupont Circle & Fountain",ad:"1 Dupont Cir NW, Washington, DC 20036",la:38.90924,ln:-77.04166,w:"The traffic-circle park at the heart of the neighborhood, its 1921 marble fountain designed by the Lincoln Memorial's team, ringed by bookstores, cafes and a Sunday farmers market. A classic people-watching green.",k:"district",g:["ICON","MON","PARK","SHOP"],s:[["WASHINGTONORG","https://washington.org/DC-neighborhoods/dupont-circle"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Dupont_Circle"]]},
+{t:1,a:"USHAW",n:"African American Civil War Memorial & Museum",ad:"1925 Vermont Ave NW, Washington, DC 20001",la:38.91639,ln:-77.02583,w:"A bronze 'Spirit of Freedom' sculpture and a wall inscribed with the 209,000-plus names of the U.S. Colored Troops, paired with a museum around the corner on U Street. Anchors the historic Black cultural heart of the city.",k:"memorial",g:["MON","MUS","HIST"],s:[["OFFICIAL","https://www.afroamcivilwar.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/african-american-civil-war-memorial-museum"]]},
+{t:2,a:"USHAW",n:"Lincoln Theatre",ad:"1215 U St NW, Washington, DC 20009",la:38.91694,ln:-77.02944,w:"A restored 1922 movie-and-vaudeville palace on 'Black Broadway,' where Duke Ellington, Ella Fitzgerald and Cab Calloway played, now a concert and event venue. A cornerstone of the U Street corridor's revival.",k:"entertainment",g:["ENT"],s:[["OFFICIAL","https://thelincolndc.com/"],["WASHINGTONORG","https://washington.org/find-dc-listings/lincoln-theatre"]]},
+{t:2,a:"USHAW",n:"Meridian Hill Park (Malcolm X Park)",ad:"2400 15th St NW, Washington, DC 20009",la:38.92110,ln:-77.03560,w:"An Italianate terraced NPS park with the longest cascading fountain in North America and, on Sundays, a decades-old drum circle. Known locally as Malcolm X Park.",k:"park",g:["PARK"],s:[["NPS","https://www.nps.gov/places/meridian-hill-park.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/meridian-hill-park"]]},
+{t:1,a:"CAPHILL",n:"United States Capitol",ad:"First St SE, Washington, DC 20004",la:38.88972,ln:-77.00889,w:"The seat of Congress crowned by Thomas U. Walter's cast-iron dome and the Statue of Freedom, with the frescoed Rotunda and Brumidi corridors within. Free tours start from the underground Capitol Visitor Center; passes recommended.",k:"landmark",g:["MON","GOV","HIST","FREE"],s:[["OFFICIAL","https://www.visitthecapitol.gov/"],["WASHINGTONORG","https://washington.org/find-dc-listings/us-capitol"]]},
+{t:1,a:"CAPHILL",n:"Library of Congress",ad:"10 First St SE, Washington, DC 20540",la:38.88870,ln:-77.00460,w:"The largest library in the world, whose 1897 Thomas Jefferson Building is a Gilded Age showpiece of marble, mosaic and the domed Main Reading Room. Free; home to a Gutenberg Bible and Jefferson's library.",k:"landmark",g:["GOV","HIST","FREE"],s:[["OFFICIAL","https://www.loc.gov/visit/"],["WASHINGTONORG","https://washington.org/find-dc-listings/library-congress"]]},
+{t:2,a:"CAPHILL",n:"Supreme Court of the United States",ad:"1 First St NE, Washington, DC 20543",la:38.89056,ln:-77.00444,w:"Cass Gilbert's 1935 marble temple facing the Capitol, its pediment reading 'Equal Justice Under Law.' Free to enter when the court is not in session; visitors can hear argument or view the courtroom.",k:"landmark",g:["GOV","HIST","VIEW","FREE"],s:[["OFFICIAL","https://www.supremecourt.gov/visiting/visiting.aspx"],["WASHINGTONORG","https://washington.org/find-dc-listings/supreme-court-united-states"]]},
+{t:1,a:"CAPHILL",n:"Eastern Market",ad:"225 7th St SE, Washington, DC 20003",la:38.88639,ln:-76.99667,w:"DC's last of the great 19th-century public markets (1873), still selling produce, meat and crafts inside Adolf Cluss's South Hall, with a weekend flea market and farmers' line outside. The social heart of Capitol Hill.",k:"market",g:["GOV","HIST","SHOP"],s:[["OFFICIAL","https://easternmarket-dc.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/eastern-market"]]},
+{t:1,a:"CAPHILL",n:"The Wharf",ad:"760 Maine Ave SW, Washington, DC 20024",la:38.87939,ln:-77.02470,w:"A mile-long redeveloped Southwest Waterfront of restaurants, live-music halls and piers on the Washington Channel, anchored by the nation's oldest continuously operating fish market. Waterfront promenade, water taxis and boat rentals.",k:"waterfront",g:["HIST","VIEW","ENT","SHOP"],s:[["OFFICIAL","https://www.wharfdc.com/"],["WASHINGTONORG","https://washington.org/find-dc-listings/wharf"]]},
+{t:2,a:"CAPHILL",n:"Union Market",ad:"1309 5th St NE, Washington, DC 20002",la:38.90858,ln:-76.99803,w:"A restored NoMa warehouse turned buzzy food hall with 40-plus local vendors, a rooftop, and a fast-growing district of restaurants and murals around it. Open year-round.",k:"market",g:["HIST","VIEW","SHOP"],s:[["OFFICIAL","https://unionmarketdc.com/"],["WASHINGTONORG","https://washington.org/find-dc-listings/union-market"]]},
+{t:2,a:"CAPHILL",n:"H Street Corridor (Atlas District)",ad:"1300 H St NE, Washington, DC 20002",la:38.89972,ln:-76.98750,w:"A revived nightlife-and-arts strip northeast of Union Station, centered on the restored Atlas Performing Arts Center and a dense run of bars, small plates and live music. Served by the DC Streetcar.",k:"district",g:["ENT","SHOP"],s:[["WASHINGTONORG","https://washington.org/DC-neighborhoods/h-street"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H_Street_(Washington,_D.C.)"]]},
+{t:2,a:"CAPHILL",n:"Yards Park",ad:"355 Water St SE, Washington, DC 20003",la:38.87353,ln:-77.00110,w:"A design-forward riverfront park on the Anacostia in Navy Yard, with a wave-arched bridge, boardwalk and canal basin beside Nationals Park. Free summer concerts and fountains for kids.",k:"waterfront",g:["PARK","VIEW","FREE"],s:[["OFFICIAL","https://www.capitolriverfront.org/go/yards-park"],["WASHINGTONORG","https://washington.org/DC-neighborhoods/capitol-riverfront"]]},
+{t:1,a:"ARL",n:"Arlington National Cemetery",ad:"1 Memorial Ave, Arlington, VA 22211",la:38.87917,ln:-77.07222,w:"The nation's most hallowed military cemetery, 639 acres of some 400,000 graves, the Tomb of the Unknown Soldier with its round-the-clock changing of the guard, and President Kennedy's eternal flame. Free; open daily.",k:"memorial",g:["ICON","MON","HIST","FREE"],s:[["OFFICIAL","https://www.arlingtoncemetery.mil/"],["WASHINGTONORG","https://washington.org/find-dc-listings/arlington-national-cemetery"]]},
+{t:1,a:"ARL",n:"U.S. Marine Corps War Memorial (Iwo Jima)",ad:"1400 N Meade St, Arlington, VA 22209",la:38.89044,ln:-77.06972,w:"Felix de Weldon's 32-foot bronze of the flag-raising on Mount Suribachi, dedicated 1954 just north of Arlington Cemetery. An NPS site with sweeping views back to the Mall.",k:"memorial",g:["MON","VIEW"],s:[["NPS","https://www.nps.gov/gwmp/planyourvisit/usmcwarmemorial.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/us-marine-corps-war-memorial-iwo-jima"]]},
+{t:2,a:"ARL",n:"Air Force Memorial",ad:"1 Air Force Memorial Dr, Arlington, VA 22204",la:38.86860,ln:-77.06630,w:"Three stainless-steel spires arcing 270 feet skyward in the 'bomb burst' of the Thunderbirds, on a ridge overlooking the Pentagon and the city. Free, open daily; striking at sunset.",k:"memorial",g:["MON","GOV","VIEW","FREE"],s:[["OFFICIAL","https://www.arlingtoncemetery.mil/Expansion/US-Air-Force-Memorial"],["WASHINGTONORG","https://washington.org/find-dc-listings/us-air-force-memorial"]]},
+{t:2,a:"ARL",n:"Gravelly Point Park",ad:"George Washington Memorial Pkwy, Arlington, VA 22202",la:38.86715,ln:-77.03924,w:"A riverside NPS lawn at the north end of Reagan National's main runway, where jets roar overhead just above your head on final approach. Free plane-spotting, picnicking and Mount Vernon Trail access.",k:"waterfront",g:["ICON","HIST","PARK","VIEW"],s:[["NPS","https://www.nps.gov/gwmp/planyourvisit/gravelly-point.htm"],["WASHINGTONORG","https://washington.org/find-dc-listings/gravelly-point"]]},
+{t:2,a:"ARL",n:"Theodore Roosevelt Island",ad:"George Washington Memorial Pkwy, Arlington, VA 22209",la:38.89722,ln:-77.06417,w:"An 88-acre wooded Potomac island preserved as a living memorial to the conservationist president, laced with swampy trails and centered on a 17-foot bronze of TR. Reached by footbridge from a GW Parkway lot; free.",k:"park",g:["MON","PARK","VIEW","FREE"],s:[["NPS","https://www.nps.gov/this/"],["WASHINGTONORG","https://washington.org/find-dc-listings/theodore-roosevelt-island"]]},
+{t:1,a:"ALEX",n:"Old Town Alexandria & King Street",ad:"King St, Alexandria, VA 22314",la:38.80670,ln:-77.04200,w:"A mile of preserved 18th- and 19th-century streets running from the King Street Metro down to the Potomac, packed with independent shops, taverns and George Washington history. A free trolley links the waterfront to the top of the hill.",k:"district",g:["HIST","VIEW","SHOP","FREE"],s:[["VISITALEX","https://www.visitalexandria.com/things-to-do/king-street/"],["WASHINGTONORG","https://washington.org/find-dc-listings/old-town-alexandria"]]},
+{t:1,a:"ALEX",n:"George Washington's Mount Vernon",ad:"3200 Mount Vernon Memorial Hwy, Mount Vernon, VA 22121",la:38.70800,ln:-77.08610,w:"Washington's meticulously restored Potomac plantation home, 16 miles south of the city, with the mansion, his tomb, working farm, and museums on his life and the people he enslaved. Ticketed; a full half-day day trip.",k:"historic",g:["ICON","MON","MUS","HIST"],s:[["OFFICIAL","https://www.mountvernon.org/"],["WASHINGTONORG","https://washington.org/find-dc-listings/george-washingtons-mount-vernon"]]},
+{t:2,a:"ALEX",n:"Torpedo Factory Art Center",ad:"105 N Union St, Alexandria, VA 22314",la:38.80490,ln:-77.03978,w:"A WWII munitions plant on the Alexandria waterfront reborn as a warren of 80-plus working artist studios and galleries you can walk through. Free admission.",k:"museum",g:["MUS","VIEW","FREE"],s:[["OFFICIAL","https://torpedofactory.org/"],["VISITALEX","https://www.visitalexandria.com/listing/torpedo-factory-art-center/"]]},
+{t:2,a:"ALEX",n:"Gadsby's Tavern Museum",ad:"134 N Royal St, Alexandria, VA 22314",la:38.80556,ln:-77.04361,w:"A restored 1785 tavern and 1792 hotel where Washington, Jefferson and Adams dined and danced, now a city museum with a still-operating period restaurant next door. Ticketed tours.",k:"historic",g:["MUS","HIST"],s:[["OFFICIAL","https://www.alexandriava.gov/GadsbysTavern"],["VISITALEX","https://www.visitalexandria.com/listing/gadsbys-tavern-museum/"]]},
+{t:2,a:"ALEX",n:"Alexandria Waterfront & Waterfront Park",ad:"1A Prince St, Alexandria, VA 22314",la:38.80337,ln:-77.03941,w:"The revitalized Potomac edge at the foot of King Street, with promenade, public art, boat tours and water-taxi service to The Wharf and National Harbor. Free to stroll.",k:"waterfront",g:["PARK","VIEW","SHOP","FREE"],s:[["VISITALEX","https://www.visitalexandria.com/things-to-do/waterfront/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Alexandria,_Virginia"]]},
+{t:1,a:"TYSONS",n:"Great Falls Park",ad:"9200 Old Dominion Dr, McLean, VA 22102",la:38.99750,ln:-77.25500,w:"An 800-acre NPS park in McLean where the Potomac crashes through the jagged Mather Gorge in a series of dramatic falls, with three clifftop overlooks and hiking beside the 18th-century Patowmack Canal. Entrance fee; a short drive from Tysons.",k:"park",g:["PARK","VIEW"],s:[["NPS","https://www.nps.gov/grfa/"],["FXVA","https://www.fxva.com/great-falls-park/"]]},
+{t:1,a:"TYSONS",n:"Wolf Trap National Park for the Performing Arts",ad:"1551 Trap Rd, Vienna, VA 22182",la:38.93694,ln:-77.26194,w:"The only U.S. national park dedicated to the performing arts, whose open-air Filene Center seats 7,000 for a summer season of pop, classical and dance on 117 wooded acres. Lawn tickets and picnics are the local ritual.",k:"entertainment",g:["PARK","ENT"],s:[["NPS","https://www.nps.gov/wotr/"],["OFFICIAL","https://www.wolftrap.org/"]]},
+{t:2,a:"TYSONS",n:"Meadowlark Botanical Gardens",ad:"9750 Meadowlark Gardens Ct, Vienna, VA 22182",la:38.93775,ln:-77.28097,w:"A 95-acre NOVA Parks garden in Vienna with lakes, native-plant and Korean bell gardens, an atrium conservatory, and the popular winter Walk of Lights. Ticketed; peaceful and stroller-friendly.",k:"garden",g:["PARK"],s:[["OFFICIAL","https://www.novaparks.com/parks/meadowlark-botanical-gardens"],["FXVA","https://www.fxva.com/listing/meadowlark-botanical-gardens/"]]},
+{t:1,a:"RESTON",n:"Steven F. Udvar-Hazy Center (Air & Space)",ad:"14390 Air and Space Museum Pkwy, Chantilly, VA 20151",la:38.91139,ln:-77.44417,w:"The Smithsonian Air and Space Museum's cavernous companion by Dulles, hangaring the Space Shuttle Discovery, a Concorde, the SR-71 Blackbird and the Enola Gay. Free admission (paid parking); an aviation day out in the Dulles corridor.",k:"museum",g:["ICON","MUS","PARK","FAM"],s:[["SMITHSONIAN","https://airandspace.si.edu/visit/udvar-hazy-center"]]},
+{t:2,a:"RESTON",n:"Reston Town Center",ad:"11900 Market St, Reston, VA 20190",la:38.95861,ln:-77.35694,w:"Reston's walkable, European-style downtown of shops, restaurants, a cinema and a central pavilion that becomes an ice rink in winter. The social hub of the Dulles Toll Road suburbs, on the Silver Line.",k:"district",g:["SHOP"],s:[["OFFICIAL","https://www.restontowncenter.com/"],["FXVA","https://www.fxva.com/listing/reston-town-center/"]]},
+{t:1,a:"FCITY",n:"Eden Center",ad:"6751 Wilson Blvd, Falls Church, VA 22044",la:38.87361,ln:-77.15389,w:"The largest Vietnamese American commercial center on the East Coast, a Falls Church strip of 120-plus shops, groceries, cafes and restaurants marked by a pagoda gate and clock tower. The cultural and culinary heart of NoVA's Vietnamese community.",k:"market",g:["HIST","SHOP"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/eden-center"],["FXVA","https://www.fxva.com/listing/eden-center/"]]},
+{t:2,a:"FCITY",n:"The Falls Church (Historic)",ad:"115 E Fairfax St, Falls Church, VA 22046",la:38.88083,ln:-77.17111,w:"The 1769 colonial-era Episcopal church that gave the city its name, where George Washington served as a vestryman, still an active parish. A National Register landmark.",k:"historic",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Falls_Church_(Falls_Church,_Virginia)"],["FXVA","https://www.fxva.com/listing/the-falls-church-episcopal/"]]},
+{t:1,a:"FAIRFAX",n:"Mosaic District",ad:"2910 District Ave, Fairfax, VA 22031",la:38.87080,ln:-77.23050,w:"A mixed-use Merrifield district built around a green, with an arthouse Angelika cinema, chef-driven restaurants, a Saturday farmers market and design shops. A polished NoVA gathering spot just off I-66.",k:"district",g:["HIST","SHOP"],s:[["FXVA","https://www.fxva.com/listing/mosaic-district/"],["OFFICIAL","https://www.mosaicdistrict.com/"]]},
+{t:1,a:"FAIRFAX",n:"National Museum of the United States Army",ad:"1775 Liberty Dr, Fort Belvoir, VA 22060",la:38.72250,ln:-77.17000,w:"The Army's national museum on the public side of Fort Belvoir (no ID or pass needed), opened 2020, telling nearly 250 years of soldiers' stories through immersive galleries, real tanks and a rooftop overlook. Free admission and free parking; timed-entry tickets recommended.",k:"museum",g:["MUS","HIST","PARK","VIEW"],s:[["OFFICIAL","https://www.thenmusa.org/visit/"],["FXVA","https://www.fxva.com/blog/post/must-see-experiences-at-the-national-museum-of-the-us-army/"]]},
+{t:2,a:"FAIRFAX",n:"Workhouse Arts Center",ad:"9518 Workhouse Way, Lorton, VA 22079",la:38.69808,ln:-77.25478,w:"A 55-acre arts campus in the repurposed Lorton Reformatory, with a dozen galleries, 65-plus resident artist studios, live theater and music, and the Lucy Burns Museum on the suffragists jailed here. Second-Saturday open houses, Brewfest and a July 4 festival draw crowds; galleries free to browse.",k:"art",g:["MUS","HIST","ENT","FREE"],s:[["FXVA","https://www.fxva.com/workhouse-arts-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Workhouse_Arts_Center"],["VIRGINIA","https://www.virginia.org/listing/workhouse-arts-center/4974/"]]},
+{t:2,a:"FAIRFAX",n:"Old Town Fairfax",ad:"10209 Main St, Fairfax, VA 22030",la:38.84610,ln:-77.30517,w:"The historic core of the City of Fairfax around Old Town Square and the 1900 Old Town Hall, with boutiques, sidewalk cafes, the Fairfax Museum & Visitor Center in an 1873 schoolhouse, and festivals from Chocolate Lovers to Fall for the Book. Free spring/fall walking tours cover the Civil War-era streets.",k:"district",g:["MUS","HIST","SHOP","FREE"],s:[["NOVAMAG","https://northernvirginiamag.com/style/shopping/2022/02/03/old-town-fairfax/"],["FXVA","https://www.fxva.com/explore/discover-neighborhoods/fairfax/"]]},
+{t:2,a:"FAIRFAX",n:"Sully Historic Site",ad:"3650 Historic Sully Way, Chantilly, VA 20151",la:38.90806,ln:-77.43222,w:"The 1794 home of Richard Bland Lee, Northern Virginia's first congressman and uncle of Robert E. Lee, preserved by the Fairfax County Park Authority beside Dulles Airport. Guided house tours plus a 'Forgotten Road' walking tour of the original outbuildings and enslaved-workers' quarters; grounds and trails are free.",k:"historic",g:["HIST","PARK","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/sully-historic-site"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sully_Historic_Site"],["VIRGINIA","https://www.virginia.org/listing/sully-historic-site/4593/"]]},
+{t:2,a:"RESTON",n:"Lake Anne Plaza",ad:"1609 Washington Plaza N, Reston, VA 20190",la:38.96889,ln:-77.34083,w:"Reston's original 1960s village center on the National Register of Historic Places, a modernist waterfront plaza founder Robert E. Simon designed and lived above, with a boardwalk, restaurants, a Saturday farmers market and kayak rentals on the lake. The 'Bronze Bob' bench statue honors Simon lakeside.",k:"district",g:["MON","HIST","VIEW","SHOP"],s:[["FXVA","https://www.fxva.com/explore/discover-neighborhoods/reston/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lake_Anne"]]},
+{t:2,a:"RESTON",n:"Frying Pan Farm Park",ad:"2709 W Ox Rd, Herndon, VA 22071",la:38.93683,ln:-77.41058,w:"A 130-acre Fairfax County working 1930s-era farm with 100-plus animals to meet, a restored 1918 Herschell carousel, wagon rides, a country store and nature trails. Free admission and parking (rides carry small fees); a favorite family day out near Herndon.",k:"family",g:["PARK","FAM","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/frying-pan-park"],["AAA","https://www.aaa.com/travelinfo/virginia/herndon/attractions/frying-pan-farm-park-543702.html"]]},
+{t:2,a:"RESTON",n:"Washington & Old Dominion Trail",ad:"Herndon Depot, 717 Lynn St, Herndon, VA 20170",la:38.97019,ln:-77.38575,w:"A 45-mile paved rail-trail on a former railroad bed, running from Shirlington in Arlington out through Falls Church, Vienna, Reston, Herndon and Leesburg to Purcellville, and used by roughly two million walkers, cyclists and runners a year. The Herndon Depot marks a classic downtown trailhead; managed by NOVA Parks.",k:"trail",g:["HIST","PARK"],s:[["NOVAPARKS","https://www.novaparks.com/parks/washington-and-old-dominion-railroad-regional-park"],["FXVA","https://www.fxva.com/blog/post/best-stops-along-the-wod-trail/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Washington_and_Old_Dominion_Railroad_Regional_Park"]]},
+{t:2,a:"TYSONS",n:"Clemyjontri Park",ad:"6317 Georgetown Pike, McLean, VA 22101",la:38.94472,ln:-77.15667,w:"Virginia's first fully accessible playground (2006), a two-acre space where children of all abilities play side by side across four themed 'rooms,' with rubberized surfacing, a Liberty wheelchair swing and a ground-level, wheelchair-accessible carousel. Free; a trackless train runs seasonally.",k:"family",g:["PARK","FAM","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/clemyjontri"],["FXVA","https://www.fxva.com/clemyjontri-park/"],["NOVAMAG","https://northernvirginiamag.com/urban-parks-clemyjontri-park/"]]},
+{t:2,a:"TYSONS",n:"Tysons Corner Center",ad:"1961 Chain Bridge Rd, Tysons, VA 22102",la:38.91713,ln:-77.22224,w:"One of the largest shopping malls on the East Coast, open since 1968 with 300-plus stores including Apple, Nordstrom and Bloomingdale's, plus an AMC theater and the 1.5-acre outdoor PenFed Plaza that hosts concerts, holiday light shows and family events. On the Silver Line at Tysons.",k:"district",g:["ENT","SHOP"],s:[["FXVA","https://www.fxva.com/explore/discover-neighborhoods/tysons-corner/shopping/"],["NOVAMAG","https://northernvirginiamag.com/things-to-do/2025/11/06/6-holiday-events-coming-to-tysons-corner-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tysons_Corner_Center"]]},
+{t:2,a:"TYSONS",n:"Observatory Park at Turner Farm",ad:"925 Springvale Rd, Great Falls, VA 22066",la:38.99641,ln:-77.31124,w:"A Fairfax County park in Great Falls whose observatory holds three permanent telescopes under a roll-off roof, run with the volunteer Analemma Society for free Friday-night public viewing. In 2026 it earned an International Dark Sky 'Urban Night Sky Place' designation - a rare dark sky this close to DC. Programs require advance registration.",k:"park",g:["PARK","VIEW","FREE"],s:[["OFFICIAL","https://www.fairfaxcounty.gov/parks/turner-farm"],["FFXNOW","https://www.ffxnow.com/2026/01/22/turner-farm-earns-urban-night-sky-designation-for-efforts-to-limit-light-pollution/"]]},
+{t:2,a:"ARL",n:"Long Bridge Park",ad:"333 Long Bridge Dr, Arlington, VA 22202",la:38.86730,ln:-77.04600,w:"A 36-acre Arlington County park between Crystal City and the 14th Street Bridge, with a three-quarter-mile esplanade delivering monumental Potomac and DC skyline views for walking, birdwatching and plane-spotting, plus a $60M aquatics-and-fitness center with a competition pool, lazy river and slides. Free grounds; center is ticketed.",k:"waterfront",g:["MON","PARK","VIEW","FREE"],s:[["OFFICIAL","https://www.arlingtonva.us/Government/Departments/Parks-Recreation/Locations/Parks/Long-Bridge-Park"],["ARLNOW","https://www.arlnow.com/2021/08/23/long-bridge-aquatics-and-fitness-center-now-open/"],["STAYARLINGTON","https://www.stayarlington.com/blog/beat-the-summer-heat-in-arlington-county/"]]},
+{t:2,a:"ARL",n:"Signature Theatre",ad:"4200 Campbell Ave, Arlington, VA 22206",la:38.84088,ln:-77.09022,w:"A Tony Award-winning professional theater (2009 Regional Theatre Tony) in the Village at Shirlington, called a 'musical theater powerhouse' by The Washington Post, staging Broadway-caliber musicals and premieres in two intimate spaces. Winner of 100-plus Helen Hayes Awards and the cultural anchor of Shirlington.",k:"entertainment",g:["HIST","ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Signature_Theatre_(Arlington,_Virginia)"],["STAYARLINGTON","https://www.stayarlington.com/directory/signature-theatre/"],["VIRGINIA","https://www.virginia.org/listing/signature-theatre/14887/"]]},
+{t:2,a:"ARL",n:"DEA Museum",ad:"700 Army Navy Dr, Arlington, VA 22202",la:38.86460,ln:-77.05780,w:"The Drug Enforcement Administration's free museum by Pentagon City, reopened after a two-year renovation with the interactive 'Illegal Drugs in America: A Modern History' exhibit tracing trafficking from the 1850s opium wars to today. Open Tuesday-Saturday; steps from the Pentagon City Metro.",k:"museum",g:["MUS","GOV","FREE"],s:[["OFFICIAL","https://museum.dea.gov/"],["STAYARLINGTON","https://www.stayarlington.com/blog/dea-museum-reopens/"],["ATLASOBSCURA","https://www.atlasobscura.com/places/dea-drug-enforcement-agency-museum"]]},
+{t:2,a:"ARL",n:"Ballston Quarter",ad:"4238 Wilson Blvd, Arlington, VA 22203",la:38.88183,ln:-77.11129,w:"A revitalized mixed-use district on the Orange/Silver Line, centered on the Quarter Market food hall (18 globally-inspired stalls), Punch Bowl Social, and the MedStar Capitals Iceplex where the Washington Capitals practice and the public can skate. A walkable Arlington dining-and-entertainment hub.",k:"district",g:["HIST","SHOP"],s:[["STAYARLINGTON","https://www.stayarlington.com/directory/ballston-quarter/"],["OFFICIAL","https://www.ballstonquarter.com/en/"]]}
+];
+
+const FS = {
+  "ADORKANDHERFORK":{k:"ADORKANDHERFORK",t:"ADORKANDHERFORK",u:"",l:""},
+  "ANNANDALETODAY":{k:"ANNANDALETODAY",t:"ANNANDALETODAY",u:"",l:""},
+  "ARLMAG":{k:"ARLMAG",t:"Arlington Magazine",u:"https://www.arlingtonmagazine.com/",l:"Arlington Magazine"},
+  "ARLNOW":{k:"ARLNOW",t:"ARLnow (Arlington local news)",u:"https://www.arlnow.com/",l:"ARLnow (Arlington local news)"},
+  "ASIANFORTUNE":{k:"ASIANFORTUNE",t:"ASIANFORTUNE",u:"",l:""},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/",l:"Atlas Obscura"},
+  "BALTMAG":{k:"BALTMAG",t:"BALTMAG",u:"",l:""},
+  "CHILIPEPPERCOOKS":{k:"CHILIPEPPERCOOKS",t:"CHILIPEPPERCOOKS",u:"",l:""},
+  "CITYCAST":{k:"CITYCAST",t:"CITYCAST",u:"",l:""},
+  "DCIST":{k:"DCIST / WAMU",t:"DCIST / WAMU",u:"",l:""},
+  "DMVEATS":{k:"DMVEATS",t:"DMVEATS",u:"",l:""},
+  "EATERDC":{k:"EATER DC",t:"EATER DC",u:"",l:""},
+  "FCNP":{k:"FCNP",t:"FCNP",u:"",l:""},
+  "FFXNOW":{k:"FFXNOW",t:"FFXnow (Fairfax County local news)",u:"https://www.ffxnow.com/",l:"FFXnow (Fairfax County local news)"},
+  "FXVA":{k:"FAIRFAX CVB",t:"Visit Fairfax (FXVA)",u:"https://www.fxva.com/",l:"Visit Fairfax (FXVA)"},
+  "GAYOT":{k:"GAYOT",t:"GAYOT",u:"",l:""},
+  "HYPEFOODIES":{k:"HYPEFOODIES",t:"HYPEFOODIES",u:"",l:""},
+  "INFATUATION":{k:"INFATUATION",t:"INFATUATION",u:"",l:""},
+  "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
+  "KEITHLEE":{k:"KEITHLEE",t:"KEITHLEE",u:"",l:""},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
+  "MICHELIN_BIB":{k:"MICHELIN BIB GOURMAND",t:"MICHELIN BIB GOURMAND",u:"",l:""},
+  "MICHELIN_STAR":{k:"MICHELIN STAR",t:"MICHELIN STAR",u:"",l:""},
+  "NEWYORKER":{k:"NEWYORKER",t:"NEWYORKER",u:"",l:""},
+  "NOVAMAG":{k:"NORTHERN VIRGINIA MAG",t:"Northern Virginia Magazine",u:"https://northernvirginiamag.com/",l:"Northern Virginia Magazine"},
+  "NYTIMES":{k:"NYTIMES",t:"NYTIMES",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site / operator",u:"https://www.si.edu/",l:"Official site / operator"},
+  "RAMW":{k:"RAMMY AWARDS",t:"RAMMY AWARDS",u:"",l:""},
+  "ROADFOOD":{k:"ROADFOOD",t:"ROADFOOD",u:"",l:""},
+  "SOUTHERNFOODWAYS":{k:"SOUTHERNFOODWAYS",t:"SOUTHERNFOODWAYS",u:"",l:""},
+  "STAYARLINGTON":{k:"STAYARLINGTON",t:"Arlington Convention & Visitors Service (stayArlington)",u:"https://www.stayarlington.com/",l:"Arlington Convention & Visitors Service (stayArlington)"},
+  "TIMEOUT":{k:"TIMEOUT",t:"TIMEOUT",u:"",l:""},
+  "TYLERCOWEN":{k:"TYLERCOWEN",t:"TYLERCOWEN",u:"",l:""},
+  "TYSONSREPORTER":{k:"TYSONS REPORTER",t:"TYSONS REPORTER",u:"",l:""},
+  "URNOVAFOODIE":{k:"URNOVAFOODIE",t:"URNOVAFOODIE",u:"",l:""},
+  "USATODAY":{k:"USA TODAY 10BEST",t:"USA TODAY 10BEST",u:"",l:""},
+  "VIETCETERA":{k:"VIETCETERA",t:"VIETCETERA",u:"",l:""},
+  "VIRGINIALIVING":{k:"VIRGINIALIVING",t:"VIRGINIALIVING",u:"",l:""},
+  "VISITALEX":{k:"VISIT ALEXANDRIA",t:"Visit Alexandria",u:"https://www.visitalexandria.com/",l:"Visit Alexandria"},
+  "VISITFALLSCHURCH":{k:"VISITFALLSCHURCH",t:"VISITFALLSCHURCH",u:"",l:""},
+  "WAMU":{k:"WAMU",t:"WAMU",u:"",l:""},
+  "WAPO":{k:"WASHINGTON POST",t:"The Washington Post",u:"https://www.washingtonpost.com/",l:"The Washington Post"},
+  "WASHINGTONIAN":{k:"WASHINGTONIAN",t:"WASHINGTONIAN",u:"",l:""},
+  "WASHINGTONORG":{k:"DESTINATION DC",t:"Destination DC (washington.org)",u:"https://washington.org/",l:"Destination DC (washington.org)"},
+  "WCP":{k:"WCP",t:"WCP",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
+  "WTOP":{k:"WTOP",t:"WTOP",u:"",l:""}
+};
+
+const CUISINES = [
+  {id:"US",n:"American, New American & Steak"},
+  {id:"SEAFOOD",n:"Chesapeake Seafood & Raw Bars"},
+  {id:"ETHIOPIAN",n:"Ethiopian & East African"},
+  {id:"AFRICAN",n:"West & Sub-Saharan African"},
+  {id:"CARIB",n:"Caribbean"},
+  {id:"LATIN",n:"Salvadoran, Mexican & Latin"},
+  {id:"SASIAN",n:"South Asian & Afghan"},
+  {id:"VIET",n:"Vietnamese"},
+  {id:"KOREAN",n:"Korean"},
+  {id:"ASIAN",n:"Chinese, Thai, Japanese & More"},
+  {id:"MED",n:"Mediterranean & Middle Eastern"},
+  {id:"BURG",n:"Burgers, Half-Smokes & Diners"},
+  {id:"PIZZA",n:"Pizza & Jumbo Slice"},
+  {id:"BREW",n:"Breweries, Bars & Cocktails"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"ICE",n:"Bakeries, Ice Cream & Desserts"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"MON",n:"Monuments & Memorials"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"GOV",n:"Government & Landmarks"},
+  {id:"HIST",n:"History & Architecture"},
+  {id:"PARK",n:"Parks & Gardens"},
+  {id:"VIEW",n:"Views & Waterfront"},
+  {id:"ENT",n:"Theaters & Entertainment"},
+  {id:"SHOP",n:"Markets & Districts"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"USHAW",n:"Ben's Chili Bowl",ad:"1213 U St NW, Washington, DC 20009",cz:["BURG"],la:38.91719,ln:-77.02874,w:"The definitive home of DC's signature half-smoke, a U Street institution since 1958. A James Beard Foundation \"America's Classics\" honoree (2004) and Bon Appetit \"Best Chili Spots\" pick; the half-smoke — a spicier, coarser pork-and-beef sausage smothered in Ben's chili — is the top seller and a genuine city icon.",s:[["JAMESBEARD","https://www.jamesbeard.org/awards/americas-classics"],["WASHINGTONORG","https://washington.org/find-dc-listings/bens-chili-bowl"],["OFFICIAL","https://www.benschilibowl.com/"]]},
+{t:1,a:"DUPONT",n:"Hank's Oyster Bar",ad:"1624 Q St NW, Washington, DC 20009",cz:["SEAFOOD"],la:38.91087,ln:-77.03812,w:"Chef Jamie Leeds's Dupont original, repeatedly voted DC's best raw bar and seafood restaurant and praised by Washingtonian, Bon Appetit and Food & Wine. The seafood plateau, Maine-style lobster roll and Chesapeake crab cakes headline a menu built around East Coast oysters.",s:[["WASHINGTONIAN","https://www.washingtonian.com/2022/03/07/100-very-best-restaurants-2022/"],["OFFICIAL","https://hanksoysterbar.com/our-story/"]]},
+{t:2,a:"CAPHILL",n:"The Salt Line",ad:"79 Potomac Ave SE, Washington, DC 20003",cz:["SEAFOOD"],la:38.87125,ln:-77.00652,w:"A New England-leaning Navy Yard raw bar on the Anacostia waterfront, a Washingtonian 100 Very Best pick known for its oyster selection, lobster roll and Nashville-hot soft-shell crab. A reliable Chesapeake-and-Northeast seafood room by the ballpark.",s:[["WASHINGTONIAN","https://www.washingtonian.com/2022/03/07/100-very-best-restaurants-2022/"],["EATERDC","https://dc.eater.com/maps/best-oysters-raw-bars-washington-dc"]]},
+{t:1,a:"CAPHILL",n:"Ethiopic Restaurant",ad:"401 H St NE, Washington, DC 20002",cz:["ETHIOPIAN"],la:38.90004,ln:-77.00044,w:"The first Ethiopian restaurant on the H Street Corridor and one of the most polished in the city, recommended by Washingtonian and consistently rated among DC's best Ethiopian tables. Bright combination platters and a strong vegetarian beyaynetu on house injera.",s:[["WASHINGTONIAN","https://www.washingtonian.com/2019/10/04/best-ethiopian-restaurants-washington-dc/"],["WASHINGTONORG","https://washington.org/find-dc-listings/ethiopic"]]},
+{t:2,a:"DTN",n:"Old Ebbitt Grill",ad:"675 15th St NW, Washington, DC 20005",cz:["SEAFOOD"],la:38.89806,ln:-77.03333,w:"A block from the White House, DC's oldest saloon (1856) runs one of the city's busiest raw bars and its annual Oyster Riot. A tourist-and-lobbyist institution whose oysters on the half shell and crab cakes make it a dependable Chesapeake stop downtown.",s:[["WASHINGTONORG","https://washington.org/find-dc-listings/old-ebbitt-grill"],["USATODAY","https://www.10best.com/awards/travel/best-raw-bar/"]]},
+{t:2,a:"DTN",n:"Bombay Club",ad:"815 Connecticut Ave NW, Washington, DC 20006",cz:["SASIAN"],la:38.90100,ln:-77.03795,w:"Ashok Bajaj's first DC restaurant (1989), a genteel colonial-era dining room a block from the White House long favored by presidents and cabinet secretaries. A Washingtonian mainstay whose refined North Indian cooking helped set the template for the city's upscale Indian scene.",s:[["WASHINGTONIAN","https://www.washingtonian.com/2019/01/24/best-indian-restaurants-washington-dc/"],["OFFICIAL","https://www.bombayclubdc.com/"]]},
+{t:2,a:"ARL",n:"Kabob Palace",ad:"2333 S Eads St, Arlington, VA 22202",cz:["SASIAN"],la:38.85257,ln:-77.05304,w:"A 24-hour Crystal City Afghan institution famous with cab drivers and late-night crowds for its charcoal-grilled kabobs, fluffy rice and fresh naan. A long-running ARLnow and Washingtonian cheap-eats favorite with heavy, high-rated review volume.",s:[["ARLNOW","https://www.arlnow.com/2016/11/25/kabob-palace/"],["WASHINGTONIAN","https://www.washingtonian.com/2019/01/24/cheap-eats-2019/"]]},
+{t:2,a:"USHAW",n:"Gloria's Pupuseria",ad:"3411 14th St NW, Washington, DC 20010",cz:["LATIN"],la:38.93186,ln:-77.03242,w:"A Columbia Heights hole-in-the-wall — Selena art on the walls, ranchera on the jukebox — turning out plump, well-stuffed pupusas with curtido for a couple dollars each. Repeatedly named among DC's best pupuserias; Salvadorans are the city's largest immigrant group and this is one of the canon rooms.",s:[["DCIST","https://dc.citycast.fm/food-drink/who-makes-dc-s-best-pupusas"],["USATODAY","https://www.insidehook.com/food/best-pupusas-dmv"]]},
+{t:2,a:"ARL",n:"Quarterdeck Restaurant",ad:"1200 Fort Myer Dr, Arlington, VA 22209",cz:["SEAFOOD"],la:38.88802,ln:-77.07581,w:"A rough-and-ready Arlington crab house since 1979 and one of the last true steamed-blue-crab feasts inside the Beltway — Old Bay-dusted Maryland blues by the dozen, hammers and paper on the table. A multi-generational local institution keeping the Chesapeake crab-feast tradition alive in NoVA.",s:[["ARLNOW","https://www.arlnow.com/2018/07/06/quarterdeck/"],["WTOP","https://wtop.com/food-restaurant/2021/07/best-crab-houses-around-dc/"]]},
+{t:2,a:"ARL",n:"Pho 75",ad:"1721 Wilson Blvd, Arlington, VA 22209",cz:["VIET"],la:38.89434,ln:-77.07891,w:"The no-frills, cash-only pho institution of the DC area — communal tables, one thing done superbly: deeply aromatic beef pho ladled in vast bowls. A decades-old Washingtonian and Eater DC benchmark that set the standard for the region's Vietnamese noodle soup.",s:[["EATERDC","https://dc.eater.com/maps/best-pho-washington-dc-northern-virginia"],["WASHINGTONIAN","https://www.washingtonian.com/2019/01/24/cheap-eats-2019/"]]},
+{t:1,a:"FCITY",n:"Mark's Duck House",ad:"6184-A Arlington Blvd, Falls Church, VA 22044",cz:["ASIAN"],la:38.86989,ln:-77.14713,w:"The Seven Corners/Willston Cantonese landmark that started at Eden Center in the early '80s and has carved tableside Peking duck \"with care bordering on reverence\" ever since — long rated among the best duck and dim sum in the region. Reviewed by Washingtonian and Northern Virginia Magazine (which singled out the Peking duck, steamed spare ribs and wu gok).",s:[["WASHINGTONIAN","https://washingtonian.com/2006/10/17/marks-duck-house/"],["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2021/05/28/online-exclusive-review-marks-duck-house/"]]},
+{t:2,a:"FCITY",n:"Uncle Liu's Hot Pot — CLOSED",ad:"2972 Gallows Rd, Falls Church, VA 22042",cz:["ASIAN"],la:38.86966,ln:-77.22904,w:"A Falls Church destination for tableside Sichuan hot pot — dunk meats, seafood, tofu and noodles into a fiery Chengdu broth (mild available), open till midnight. Reviewed by the Washington Post and a standing recommendation in Tyler Cowen's Ethnic Dining Guide, which praises its classic ingredient list and fair prices. (Permanently closed 2026 — kept flagged.)",closed:1,s:[["WAPO","https://www.washingtonpost.com/archive/lifestyle/2010/07/18/hot-and-in-more-ways-than-one-uncle-lius-showcases-popular-pots/d7c1c1c9-aa5c-43eb-9335-bc8e0f9af9d0/"],["TYLERCOWEN","https://tylercowensethnicdiningguide.com/index.php/uncle-lius-hot-pot-old-lius-hotpot-city/"]]},
+{t:2,a:"FCITY",n:"Chả Ốc Gia Huy",ad:"6757 Wilson Blvd, Falls Church, VA 22044",cz:["VIET"],la:38.87361,ln:-77.15389,w:"The Eden Center specialist for chả ốc — Huế-style rolls of pork studded with snail for a clam-like snap, in a garlic-rich sauce — a dish you won't easily find elsewhere on the East Coast. Owner Huy Pham brought the Garden Grove, CA original east to the region's Little Saigon.",s:[["VIETCETERA","https://vietcetera.com/en/little-saigon-guide-the-best-vietnamese-food-in-falls-church-virginia"],["ARLMAG","https://www.arlingtonmagazine.com/eden-center-falls-church/"],["WAPO","https://www.washingtonpost.com/food/2021/04/05/eden-center-vietnamese-dishes/"],["OFFICIAL","https://edencenter.com/stores/cha-oc-gia-huy/"]]},
+{t:2,a:"FCITY",n:"Chả Lụa Ngọc Hưng",ad:"6799 Wilson Blvd #2, Falls Church, VA 22044",cz:["VIET"],la:38.87361,ln:-77.15389,w:"A take-out Eden Center institution and, per Arlington Magazine, \"best of breed\" for Vietnamese chả — house pork sausage (chả lụa), fried chả chiên and cinnamon chả quế, plus bánh bao and bánh chưng. A daily-staple counter for the local Vietnamese community.",s:[["ARLMAG","https://www.arlingtonmagazine.com/eden-center-falls-church/"],["VIETCETERA","https://vietcetera.com/en/little-saigon-guide-the-best-vietnamese-food-in-falls-church-virginia"],["OFFICIAL","https://edencenter.com/stores/cha-lua-ngoc-hung/"]]},
+{t:1,a:"DTN",n:"Rania",ad:"427 11th St NW, Washington, DC 20004",cz:["US"],la:38.89577,ln:-77.02681,w:"One Michelin star — chef Chetan Shetty (ex-Indian Accent) reinvents Indian fine dining in a regal Penn Quarter room; the Washington Post calls it adventurous Indian cooking in a regal setting. Starred in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WAPO","https://www.washingtonpost.com/food/2022/08/05/rania-restaurant-review-indian-dc/"]]},
+{t:1,a:"DTN",n:"Fiola",ad:"601 Pennsylvania Ave NW, Washington, DC 20004",cz:["US"],la:38.89391,ln:-77.02069,w:"One Michelin star — Fabio Trabocchi's luxe downtown Italian, a longtime power-dining room off Pennsylvania Avenue. Holds its star in the 2025 MICHELIN Guide Washington, D.C.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:1,a:"DTN",n:"Rasika",ad:"633 D St NW, Washington, DC 20004",cz:["US"],la:38.89495,ln:-77.02130,w:"DC's most acclaimed Indian restaurant — Ashok Bajaj's Penn Quarter icon, whose crackling palak chaat is a citywide signature; a MICHELIN Guide recommended pick and a perennial Washingtonian 100 Very Best.",s:[["MICHELIN","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"],["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"]]},
+{t:2,a:"DTN",n:"L'Ardente",ad:"200 Massachusetts Ave NW, Washington, DC 20001",cz:["US"],la:38.89907,ln:-77.01410,w:"MICHELIN Bib Gourmand — chef John Manolatos's glam East End Italian, whose viral 40-layer lasagna became a citywide sensation. Named a Bib Gourmand in the MICHELIN Guide Washington, D.C.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants/bib-gourmand"],["WIKIPEDIA","https://en.wikipedia.org/wiki/L%27Ardente"]]},
+{t:1,a:"USHAW",n:"Jont",ad:"1904 14th St NW, Washington, DC 20009",cz:["US"],la:38.91583,ln:-77.03222,w:"Two Michelin stars — Ryan Ratino's intimate upstairs tasting counter on 14th Street, DC's only two-star outside minibar and the Inn at Little Washington. Held both stars in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:1,a:"USHAW",n:"Bresca",ad:"1906 14th St NW, Washington, DC 20009",cz:["US"],la:38.91579,ln:-77.03229,w:"One Michelin star — Ryan Ratino's honey-themed 14th Street bistro (below Jont), starred every year since it opened. Retains its star in the 2025 MICHELIN Guide Washington, D.C.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:1,a:"USHAW",n:"The Dabney",ad:"122 Blagden Alley NW, Washington, DC 20001",cz:["US"],la:38.90637,ln:-77.02456,w:"One Michelin star — Jeremiah Langhorne's wood-hearth Shaw restaurant championing Mid-Atlantic ingredients; starred every year since the DC guide launched in 2017 and a former Washingtonian #1.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"]]},
+{t:1,a:"USHAW",n:"Oyster Oyster",ad:"1440 8th St NW, Washington, DC 20001",cz:["US"],la:38.90925,ln:-77.02314,w:"One Michelin star and a Michelin Green Star — Rob Rubba's vegetable-forward Shaw room; Rubba won the James Beard Award for Best Chef: Mid-Atlantic (2023). Starred in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["JAMESBEARD","https://www.jamesbeard.org/awards/restaurant-and-chef-awards"]]},
+{t:1,a:"USHAW",n:"Causa",ad:"920 Blagden Alley NW, Washington, DC 20001",cz:["LATIN"],la:38.90664,ln:-77.02487,w:"One Michelin star — Carlos Delgado's upscale Peruvian in Blagden Alley (with casual Amazonia below); Delgado won the James Beard Award for Best Chef: Mid-Atlantic (2025). Starred in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["JAMESBEARD","https://www.jamesbeard.org/stories/the-2025-james-beard-award-winners"]]},
+{t:1,a:"USHAW",n:"Maydan",ad:"1346 Florida Ave NW, Washington, DC 20009",cz:["MED"],la:38.91993,ln:-77.03107,w:"James Beard Award for Best New Restaurant (2018) — a soaring, live-fire Middle Eastern and North African room where everything meets an open wood fire; a Washingtonian 100 Very Best mainstay.",s:[["JAMESBEARD","https://www.jamesbeard.org/awards/restaurant-and-chef-awards"],["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/maydan-3/"]]},
+{t:2,a:"USHAW",n:"Rooster & Owl",ad:"2436 14th St NW, Washington, DC 20009",cz:["US"],la:38.92147,ln:-77.03214,w:"One Michelin star — chef Yuan Tang's four-course, choose-your-own-adventure menu on the 14th Street corridor, drawing from the Carolinas, Thailand, France and Japan. Retains its star in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/rooster-owl"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:1,a:"DUPONT",n:"Le Diplomate",ad:"1601 14th St NW, Washington, DC 20009",cz:["US"],la:38.91126,ln:-77.03175,w:"Stephen Starr's landmark Logan Circle brasserie — the see-and-be-seen French cafe that anchored the 14th Street revival; a Washingtonian 100 Very Best and one of DC's hardest tables.",s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["OFFICIAL","https://starr-restaurants.com/restaurants/le-diplomate/"]]},
+{t:1,a:"GTWN",n:"Imperfecto",ad:"1124 23rd St NW, Washington, DC 20037",cz:["MED"],la:38.90424,ln:-77.05036,w:"One Michelin star — chef Enrique Limardo's Mediterranean-meets-Latin-American cooking in the West End, a chef's-table experience of bold, cross-continental plates. Starred in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:2,a:"GTWN",n:"Fiola Mare",ad:"3050 K St NW, Washington, DC 20007",cz:["SEAFOOD"],la:38.90165,ln:-77.06104,w:"Fabio Trabocchi's glamorous Georgetown waterfront seafood room on the Potomac at Washington Harbour — a Washingtonian 100 Very Best and the marquee special-occasion table on the water.",s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["MICHELIN","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"]]},
+{t:1,a:"CAPHILL",n:"Albi",ad:"1346 4th St SE, Washington, DC 20003",cz:["US"],la:38.87406,ln:-77.00035,w:"One Michelin star — Michael Rafidi's live-fire Palestinian restaurant in The Yards; Rafidi won the James Beard Award for Outstanding Chef (2024). Retains its star in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["JAMESBEARD","https://www.jamesbeard.org/stories/the-2024-james-beard-award-winners"]]},
+{t:1,a:"CAPHILL",n:"Rose's Luxury",ad:"717 8th St SE, Washington, DC 20003",cz:["US"],la:38.88058,ln:-76.99522,w:"One Michelin star — Aaron Silverman's beloved Barracks Row room, whose lychee-and-pork-sausage salad made it a national name. Starred in the 2025 MICHELIN Guide Washington, D.C.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/all-the-stars-in-the-michelin-guide-washington-d.c.-2025"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:1,a:"CAPHILL",n:"Pineapple and Pearls",ad:"715 8th St SE, Washington, DC 20003",cz:["US"],la:38.88069,ln:-76.99531,w:"One Michelin star — Aaron Silverman's all-inclusive, playful fine-dining tasting menu next to Rose's Luxury on Barracks Row; one of DC's most sought-after reservations. Starred in the 2025 MICHELIN Guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/pineapple-and-pearls"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Michelin-starred_restaurants_in_Washington,_D.C."]]},
+{t:1,a:"CAPHILL",n:"Dogon",ad:"1330 Maryland Ave SW, Washington, DC 20024",cz:["US"],la:38.88370,ln:-77.03020,w:"James Beard Award-winning chef Kwame Onwuachi's Afro-Caribbean flagship at Salamander DC near the Wharf; Washingtonian's #2 restaurant and a Conde Nast Traveler / Esquire Best New Restaurant. Opened 2024 to national acclaim.",g:["MKT"],s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/D%C5%8Dgon_(restaurant)"]]},
+{t:1,a:"ARL",n:"Ambar Clarendon",ad:"2901 Wilson Blvd, Arlington, VA 22201",cz:["US"],la:38.88874,ln:-77.09345,w:"Arlington's standout for Balkan small plates — an all-you-can-eat spread of cevapi, ajvar and sarma that made it a Clarendon fixture and a Washingtonian/regional-award favorite; the strongest fine-casual pick in Arlington.",s:[["WASHINGTONIAN","https://washingtonian.com/specialty/100-very-best-restaurants-2025/"],["ARLNOW","https://www.arlingtonmagazine.com/best-restaurants-clarendon-arlington-virginia/"]]},
+{t:2,a:"ALEX",n:"Hummingbird",ad:"220 S Union St, Alexandria, VA 22314",cz:["US","SEAFOOD"],la:38.80226,ln:-77.04048,w:"James Beard Award-winning chef Cathal Armstrong's breezy waterfront room at Hotel Indigo; Washington Post critic Tom Sietsema has called it Old Town's most appealing place to eat.",s:[["JAMESBEARD","https://www.jamesbeard.org/awards/restaurant-and-chef-awards"],["WAPO","https://washingtonian.com/2017/06/28/chef-cathal-armstrong-serves-seafood-with-waterfront-views-in-alexandria/"]]},
+{t:1,a:"FCITY",n:"2941 Restaurant",ad:"2941 Fairview Park Dr, Falls Church, VA 22042",cz:["US"],la:38.86932,ln:-77.21505,w:"A longtime Northern Virginia fine-dining destination — chef Bertrand Chemel's contemporary American cooking with French and Mediterranean influences, set beside koi ponds and a lakeside view; a Falls Church special-occasion standard-bearer.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/2941_Restaurant"],["FXVA","https://www.fxva.com/listing/2941-restaurant/1003/"]]},
+{t:1,a:"DUPONT",n:"Sushi Taro",ad:"1503 17th St NW, Washington, DC 20036",cz:["ASIAN"],la:38.90994,ln:-77.03828,w:"The city's benchmark for traditional Japanese dining: a MICHELIN-starred kaiseki-and-sushi room above a Dupont Circle CVS, run by second-generation chef Nobu Yamazaki, who reinvented the family restaurant into an upmarket kaiseki house. The MICHELIN star is a lone institutional authority; Time Out ranks it among DC's very best Japanese. Fish is flown from Toyosu.",g:["MKT"],s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurants"],["TIMEOUT","https://www.timeout.com/washington-dc/restaurants/best-japanese-restaurants-in-dc"]]},
+{t:1,a:"DUPONT",n:"Chang Chang",ad:"1200 19th St NW, Washington, DC 20036",cz:["ASIAN"],la:38.90640,ln:-77.04365,w:"Sichuan legend Peter Chang's polished DC flagship, where he applies precision to Sichuan and classic Chinese cooking without dialing down the heat. The Washington Post's Tom Sietsema reviewed it as \"worth the wait,\" Esquire named it a Best New Restaurant (2023), and it carries a MICHELIN Guide listing; The Infatuation is a fan. Peter Chang is a past James Beard finalist.",s:[["WAPO","https://www.washingtonpost.com/food/2022/11/11/chang-chang-restaurant-review-peter/"],["MICHELIN","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/chang-chang"],["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/chang-chang"]]},
+{t:1,a:"DTN",n:"Daikaya",ad:"705 6th St NW, Washington, DC 20001",cz:["ASIAN"],la:38.89861,ln:-77.01959,w:"The restaurant that introduced DC to serious ramen (2013): a Sapporo-style ramen bar downstairs with noodles handcrafted and imported from Japan, and a full izakaya upstairs, from chef Katsuya Fukushima. A perennial Eater essential; The Infatuation and Gayot both rate it a Chinatown/Penn Quarter must, and there's usually a line.",s:[["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/daikaya"],["GAYOT","https://www.gayot.com/restaurants/daikaya-washington-dc-20001_8dc130601.html"],["TIMEOUT","https://www.timeout.com/washington-dc/bars/daikaya-upstairs-izakaya"]]},
+{t:2,a:"DTN",n:"The Continent DC",ad:"1110 Vermont Ave NW, Washington, DC 20005",cz:["AFRICAN"],la:38.90434,ln:-77.03322,w:"DC's upscale West African flagship (opened 2024) from Nigerian-American founder Ope Amosu, a 175-seat downtown room built around a Nigerian core — egusi, bitterleaf (ofe onugbu), beef suya, Lagos snapper — that shifts to a lounge scene on weekends. Reviewed by The Infatuation and featured in Destination DC's dining coverage; fills a real West African gap for a \"Chocolate City.\"",s:[["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/the-continent"],["WASHINGTONORG","https://washington.org/visit-dc/award-winning-restaurants-washington-dc"]]},
+{t:1,a:"USHAW",n:"Purple Patch",ad:"3155 Mount Pleasant St NW, Washington, DC 20010",cz:["ASIAN"],la:38.93056,ln:-77.03767,w:"Patrice Cleary's warm Mount Pleasant Filipino restaurant (2015) was named the Washington Post's Restaurant of the Year by Tom Sietsema in 2023 — his highest annual honor. The Southern Foodways Alliance and Positively Filipino have both told its story; a diaspora home-away-from-home for kare-kare, crispy lechon kawali and lumpia.",s:[["WAPO","https://www.washingtonpost.com/food/2023/10/02/purple-patch-dc-restaurant-of-the-year/"],["SOUTHERNFOODWAYS","https://www.southernfoodways.org/purple-patch-my-home-away-from-home/"]]},
+{t:1,a:"USHAW",n:"Tiger Fork",ad:"922 N St NW Rear, Washington, DC 20001",cz:["ASIAN"],la:38.90664,ln:-77.02485,w:"A playful Hong Kong-style Cantonese spot tucked in Shaw's Blagden Alley with red lanterns and night-market energy — dim sum, cheung fun, chow fun and whole crispy fish. The Washington Post's Tom Sietsema ranked it #7 on his top-10 restaurants; Washingtonian and Time Out both praise it. Real Cantonese cooking inside the District.",g:["MKT"],s:[["WAPO","https://www.washingtonpost.com/lifestyle/food/tiger-fork-a-playful-take-on-hong-kong-style-cooking-in-shaw/2017/03/28/5e2b0e36-080a-11e7-b77c-0047d15a24e0_story.html"],["WASHINGTONIAN","https://washingtonian.com/2017/02/23/tiger-fork-brings-hong-kong-style-chinese-and-dim-sum-to-shaw/"]]},
+{t:1,a:"USHAW",n:"Letena",ad:"3100 14th St NW, Washington, DC 20010",cz:["ETHIOPIAN"],la:38.93024,ln:-77.03338,w:"Yamrot Ezineh's farm-to-table Ethiopian kitchen in Columbia Heights, spices imported from Ethiopia, standout vegetable dishes (sweet-savory carrot wat, deeply caramelized mushroom tibs) alongside berbere beef and braised-lamb yebeg wat. Named to Washingtonian's 100 Very Best Restaurants (2025) and to the Washington Post's best-Ethiopian roundup (2025).",s:[["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/letena-3/"],["WAPO","https://www.washingtonpost.com/food/2025/03/11/best-ethiopian-restaurants-dc/"]]},
+{t:2,a:"USHAW",n:"Appioo African Bar & Grill",ad:"1924 9th St NW, Washington, DC 20001",cz:["AFRICAN"],la:38.91630,ln:-77.02420,w:"Chef Prince Matey's home-cooked Ghanaian mainstay in Shaw (2015), which Eater calls \"Shaw's essential Ghanaian mainstay\" for its stellar groundnut soup, egusi and jollof; Washingtonian folded it into its guide to DC's West African cooking. Live bands on weekends and a diaspora crowd — authentic West African, not a fusion approximation.",s:[["EATERDC","https://dc.eater.com/maps/best-african-restaurants-washington-dc"],["WASHINGTONIAN","https://washingtonian.com/2023/07/18/these-dc-restaurants-will-transport-you-to-west-africa/"]]},
+{t:1,a:"CAPHILL",n:"Panda Gourmet",ad:"2700 New York Ave NE, Washington, DC 20002",cz:["ASIAN"],la:38.91784,ln:-76.97013,w:"The genuine-article Sichuan and Shaanxi kitchen hidden inside a Days Inn off New York Avenue NE. The Washington Post's $20 Diner said it \"dazzles\"; Tyler Cowen's Ethnic Dining Guide calls it the best Chinese restaurant DC has ever had, with the best dan dan noodles the area has seen; Washington City Paper chronicled its cult following.",s:[["WAPO","https://www.washingtonpost.com/goingoutguide/the-20-diner-panda-gourmet-dazzles-with-genuine-sichuan-and-shaanxi-cooking-at-a-days-inn/2013/08/28/cef3a876-0b9c-11e3-b87c-476db8ac34cd_story.html"],["TYLERCOWEN","https://tylercowensethnicdiningguide.com/index.php/panda-gourmet/"],["WCP","https://washingtoncitypaper.com/article/505272/the-past-present-and-future-of-d-c-s-panda-gourmet/"]]},
+{t:1,a:"CAPHILL",n:"Cane",ad:"403 H St NE, Washington, DC 20002",cz:["CARIB"],la:38.90002,ln:-77.00031,w:"Chef Peter Prime's small, bright H Street ode to Trinidad's Indian-African-Chinese street food — doubles, dhalpuri roti, jerk, oxtail and Caribbean rums. A MICHELIN Bib Gourmand honoree repeatedly (2020, 2024, 2025), a lone institutional authority; even Obama has been photographed eating a double there.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/cane"],["WASHINGTONIAN","https://washingtonian.com/2025/11/18/michelin-adds-no-new-starred-restaurants-to-dc-guide/"]]},
+{t:1,a:"CAPHILL",n:"Daru",ad:"1451 Maryland Ave NE, Washington, DC 20002",cz:["SASIAN"],la:38.89967,ln:-76.98392,w:"Rasika alums Suresh Sundas and Dante Datta's low-lit \"Indian-ish\" bar-restaurant off H Street — tandoori lamb chops, black dal moored with burrata, inventive cocktails. In the MICHELIN Guide (2022), on the New York Times' 50 Best New Restaurants in America, and a Washingtonian 100 Very Best pick; The Infatuation is a fan.",s:[["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/daru-3/"],["MICHELIN","https://guide.michelin.com/en/district-of-columbia/washington-dc/restaurant/daru"],["DCIST","https://dcist.com/story/21/08/17/first-look-daru-restaurant-indian-cuisine-hstreet/"]]},
+{t:2,a:"CAPHILL",n:"Maketto",ad:"1351 H St NE, Washington, DC 20002",cz:["ASIAN"],la:38.90004,ln:-76.98667,w:"Erik Bruner-Yang's genre-bending H Street Taiwanese-Cambodian restaurant, cafe and retail concept — dumplings, noodles and a cult twice-fried chicken. The Washington Post reviewed it as a party you can slurp, sip and shop through; The Infatuation calls the Taiwanese-Cambodian hybrid a standout. A rare Taiwanese anchor inside the District.",s:[["WAPO","https://www.washingtonpost.com/lifestyle/food/h-streets-maketto-looks-acts-and-tastes-like-a-party/2015/07/21/b42b4866-23fd-11e5-b77f-eb13a215f593_story.html"],["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/maketto"]]},
+{t:1,a:"GTWN",n:"Das Ethiopian Cuisine",ad:"1201 28th St NW, Washington, DC 20007",cz:["ETHIOPIAN"],la:38.90544,ln:-77.05691,w:"Ethiopian dining inside a classic Georgetown townhouse — soothing rooms, attentive service that walks newcomers through the menu, and a much-praised doro wot. A MICHELIN Bib Gourmand honoree (2021 onward), a lone institutional authority, and the rare authentic Ethiopian option west of the Little Ethiopia corridor.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/district-of-columbia/washington-dc/restaurant/das"],["WASHINGTONIAN","https://washingtonian.com/2016/10/06/michelin-releases-bib-gourmand-list-dc/"]]},
+{t:1,a:"FAIRFAX",n:"Mama Chang",ad:"3251 Blenheim Blvd Ste 101, Fairfax, VA 22030",cz:["ASIAN"],la:38.86260,ln:-77.27656,w:"James Beard finalist Peter Chang's Fairfax homage to the women of his family (recipes from his mother and wife Lisa; daughter Lydia Chang runs it) — regional Hubei home cooking alongside his cult Sichuan classics. The Washington Post's Tim Carman reviewed it as a new star \"powered by women,\" it ranked #14 on Washingtonian's 100 Very Best Restaurants (2020) and has stayed a fixture through the 2025 and 2026 lists, The Infatuation calls it \"Peter Chang's best effort yet,\" and it's listed in Tyler Cowen's Ethnic Dining Guide. NoVA food creator @urnovafoodie's viral all-you-can-eat dim-sum reel put its weekday dim sum on the map. Open and reviewed into 2026 (Yelp ~996 reviews, ~4.5).",s:[["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2026/mama-chang-2/"],["WAPO","https://www.washingtonpost.com/lifestyle/food/peter-chang-returns-to-fairfax-with-a-new-star-powered-by-women/2019/04/04/392217ce-5191-11e9-a3f7-78b7525a8d5f_story.html"],["INFATUATION","https://www.theinfatuation.com/washington-dc/reviews/mama-chang"],["URNOVAFOODIE","https://www.tiktok.com/@urnovafoodie/video/7492895090952752430"]]},
+{t:1,a:"ARL",n:"El Pollo Rico",ad:"932 N Kenmore St, Arlington, VA 22201",cz:["LATIN"],la:38.88384,ln:-77.10071,w:"Arlington's legendary Peruvian charcoal-chicken counter in Virginia Square, a decades-old cult institution whose aroma reaches a block away; a Washingtonian award winner for Best Peruvian Chicken and a Roadfood-anointed classic.",s:[["ROADFOOD","https://roadfood.com/restaurants/el-pollo-rico"],["WASHINGTONIAN","https://elpollorico.com/press/"]]},
+{t:1,a:"ARL",n:"Ruthie's All-Day",ad:"3411 5th St S, Arlington, VA 22204",cz:["US"],la:38.86730,ln:-77.09532,w:"James Beard-nominated chef Matt Hill's family-friendly Southern smokehouse; a 2022 RAMMY winner and voted the No. 1 reader-favorite restaurant in Virginia by Washingtonian, with a Washington Post rave for its barbecue and brunch biscuits.",s:[["ARLNOW","https://www.arlnow.com/2022/07/25/ruthies-all-day-and-owners-of-shirlingtons-chiko-were-served-up-rammy-wins-last-night/"],["WAPO","https://www.washingtonpost.com/lifestyle/food/ruthies-all-day-restaurant-review/2021/04/29/9dfa344c-a45a-11eb-a7ee-949c574a09ac_story.html"]]},
+{t:2,a:"ARL",n:"Maison Cheryl",ad:"2900 Wilson Blvd, Arlington, VA 22201",cz:["US"],la:38.88828,ln:-77.09332,w:"A chic French New-American bistro in the heart of Clarendon executing comforting classics with classic French technique; reviewed favorably by Northern Virginia Magazine and covered as a Clarendon draw by ARLnow.",s:[["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2022/01/28/online-exclusive-review-maison-cheryl/"],["ARLNOW","https://www.arlnow.com/2021/08/25/maison-cheryl-in-clarendon-promises-chic-atmosphere-for-older-millennials/"]]},
+{t:1,a:"TYSONS",n:"Nostos",ad:"8100 Boone Blvd, Vienna, VA 22182",cz:["MED"],la:38.91369,ln:-77.22589,w:"The upscale modern-Greek destination of Tysons/Vienna, a repeat Washingtonian 100 Very Best and ranked No. 2 on Northern Virginia Magazine's 2025 list of the 50 Best Restaurants in Northern Virginia.",s:[["WASHINGTONIAN","https://washingtonian.com/2018/02/01/100-very-best-restaurants-90-nostos/"],["NOVAMAG","https://northernvirginiamag.com/food-and-drink/reviews/2025/10/24/the-50-best-restaurants-in-northern-virginia-of-2025/"]]},
+{t:1,a:"FCITY",n:"Ellie Bird",ad:"125 Founders Ave, Falls Church, VA 22046",cz:["US"],la:38.89111,ln:-77.18361,w:"The Falls Church comfort-food restaurant from Yuan and Carey Tang of Michelin-starred Rooster & Owl; winner of the 2024 RAMMY for New Restaurant of the Year and a Washingtonian 100 Very Best, with a New York Times nod.",s:[["WTOP","https://wtop.com/business-finance/2024/07/falls-church-restaurant-ellie-bird-named-rammy-best-new-restaurant/"],["WASHINGTONIAN","https://washingtonian.com/100-very-best-restaurants-2025/ellie-bird-3/"]]},
+{t:1,a:"FCITY",n:"Peking Gourmet Inn",ad:"6029 Leesburg Pike, Falls Church, VA 22041",cz:["ASIAN"],la:38.85534,ln:-77.13951,w:"The famous Falls Church Peking-duck house since 1978 and a Bush-family favorite (their booth got Secret Service bulletproof glass); its lacquered duck is a Washingtonian-lauded regional institution.",s:[["WASHINGTONIAN","https://washingtonian.com/2015/03/01/peking-duck-at-peking-gourmet-inn/"],["FXVA","https://patch.com/virginia/fallschurch/falls-church-eatery-favorite-president-george-h-w-bush"]]},
+{t:2,a:"FCITY",n:"A&J Restaurant",ad:"4316 Markham St, Annandale, VA 22003",cz:["ASIAN"],la:38.83029,ln:-77.20101,w:"A cash-friendly Annandale outpost of the Taiwanese Tang-family chain, serving authentic Taiwanese and Northern Chinese street snacks; a longtime Washingtonian Cheap Eats pick and a Tyler Cowen ethnic-dining favorite.",s:[["WASHINGTONIAN","https://washingtonian.com/2016/05/12/best-cheap-vietnamese-restaurants-around-dc/"],["FXVA","https://www.fxva.com/blog/post/a-delicious-tour-through-annandale/"]]},
+{t:2,a:"FAIRFAX",n:"Artie's",ad:"3260 Old Lee Hwy, Fairfax, VA 22030",cz:["US","SEAFOOD"],la:38.86237,ln:-77.27737,w:"A Fairfax City favorite from the beloved Great American Restaurants group since 1978, called 'the very best in Fairfax' by Washingtonian; a perennially packed, no-reservations American seafood-and-steak house.",s:[["WASHINGTONIAN","https://www.artiesva.com/"],["FXVA","https://www.fxva.com/listing/arties-classic-american/287/"]]},
+{t:1,a:"FAIRFAX",n:"Okonomi Asian Grill",ad:"9623 Fairfax Blvd, Fairfax, VA 22031",cz:["KOREAN","VIET"],la:38.85010,ln:-77.30300,w:"The Korean-Vietnamese build-your-own-bowl spot a local dubbed 'the Asian Chipotle,' turned a NoVA phenomenon after Keith Lee (~17M TikTok) opened his 2024 DMV tour here and rated the lemongrass chicken bowl 8.5/10 — the shop went from ~100 to nearly 1,000 orders a day. Covered by the Washington Post and WUSA9. Open (Yelp, July 2026, 160+ reviews).",s:[["WAPO","https://www.washingtonpost.com/food/2024/08/22/keith-lee-tiktok-restaurant-fairfax-okonomi/"],["KEITHLEE","https://www.tiktok.com/@keith_lee125/video/7405430595867692318"]]},
+{t:2,a:"FAIRFAX",n:"Toimoi Bakery",ad:"4520 Daly Dr, Chantilly, VA 20151",cz:["ICE","VIET"],la:38.89490,ln:-77.44280,w:"The viral Asian-inspired croissant bakery (cube croissants; the cream-filled 'Supreme'; cherry-blossom, pistachio-rose, ube flavors) that grew from NoVA farmers-markets to a Chantilly storefront and is opening a permanent Mosaic District space. Arlington Magazine's 'Eat This Now' spotlighted the croissants and NoVA food creator Sandie S. (@adorkandherfork, ~52K) reeled it to a wider audience. Open (Yelp, July 2026, 4.5+ across 120+ reviews).",g:["MKT"],s:[["NOVAMAG","https://northernvirginiamag.com/food-and-drink/food-news/2026/07/30/toimoi-bakery-to-open-permanent-space-in-mosaic/"],["ADORKANDHERFORK","https://www.instagram.com/adorkandherfork/reel/C8ApnOLyd1M/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('dc_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('dc_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('dc_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('dc_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Washington DC')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {MALL:'#B0405A',DTN:'#E8973A',GTWN:'#8064A2',DUPONT:'#4F81BD',USHAW:'#C0504D',CAPHILL:'#4BACC6',ARL:'#9BBB59',ALEX:'#D99694',TYSONS:'#2C7FB8',RESTON:'#F2A900',FCITY:'#7BA05B',FAIRFAX:'#A6588C'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([38.8943,-77.0406],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle municipality labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["National Mall", 38.8883, -77.0344], ["Downtown", 38.8968, -77.0254], ["Georgetown", 38.9045, -77.0603], ["Dupont", 38.9116, -77.0417], ["U Street", 38.9177, -77.0295], ["Capitol Hill", 38.8902, -76.9997], ["Arlington", 38.8763, -77.0755], ["Old Town Alexandria", 38.7885, -77.0486], ["Tysons", 38.9492, -77.2449], ["Reston", 38.9492, -77.3877], ["Falls Church", 38.8687, -77.1748], ["Fairfax", 38.8351, -77.2992]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('dc-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('dc-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('dc-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The region’s signature strengths are the <b>half-smoke</b> (Ben’s Chili Bowl), DC’s <b>Ethiopian</b> corridor along U Street, the area’s <b>Salvadoran</b> pupuserias, <b>Chesapeake</b> blue crab and oysters, the <b>jumbo slice</b>, and the Vietnamese sprawl of <b>Eden Center</b> — alongside a deep Michelin and James Beard fine-dining bench. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched, merit-measured and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, James Beard, Washingtonian, the Washington Post, Eater DC, Northern Virginia Magazine, ARLnow, the National Park Service and the Smithsonian — recorded in data/sources.json (direct map/page fetches are blocked in the build environment, so sources were confirmed via search). A mention is not merit: each place is measured for acclaim (award, rave, or a high rating with real volume) before it earns a pin. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 134 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>

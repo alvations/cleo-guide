@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13161B; --ink2:#1B1F27; --hair:#2C323C;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB;
+    --brass:#CBA96A; --sage:#86A99B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:1200px;height:630px;}
+  body{
+    background:
+      radial-gradient(1100px 620px at 78% -12%, rgba(203,169,106,.10), transparent 60%),
+      radial-gradient(760px 520px at 8% 118%, rgba(134,169,155,.09), transparent 62%),
+      var(--ink);
+    color:var(--bone);
+    font-family:"Instrument Serif",Georgia,serif;
+    position:relative;overflow:hidden;
+  }
+  .frame{position:absolute;inset:44px;border:1px solid var(--hair);border-radius:6px;}
+  .corner{position:absolute;width:16px;height:16px;border:1.5px solid var(--brass);opacity:.9;}
+  .corner.tl{top:36px;left:36px;border-right:0;border-bottom:0;}
+  .corner.tr{top:36px;right:36px;border-left:0;border-bottom:0;}
+  .corner.bl{bottom:36px;left:36px;border-right:0;border-top:0;}
+  .corner.br{bottom:36px;right:36px;border-left:0;border-top:0;}
+  .stage{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    padding:0 96px;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:16px;letter-spacing:.42em;
+    text-transform:uppercase;color:var(--sage);margin-bottom:34px;display:flex;align-items:center;gap:16px;}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--brass);display:inline-block;}
+  .lockup{display:flex;align-items:center;gap:30px;}
+  .mark{width:96px;height:96px;flex:none;}
+  .word{font-family:"Fraunces",Georgia,serif;font-weight:600;font-optical-sizing:auto;
+    font-size:150px;line-height:.9;letter-spacing:.06em;text-transform:uppercase;color:var(--bone);}
+  .rule{width:132px;height:1px;background:linear-gradient(90deg,var(--brass),transparent);margin:36px 0 26px;}
+  .tag{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:400;font-size:46px;
+    letter-spacing:.01em;color:var(--bone);}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--bone-dim);margin-top:24px;}
+  .foot{position:absolute;left:96px;bottom:70px;font-family:"JetBrains Mono",monospace;
+    font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim);}
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+  <span class="corner tl"></span><span class="corner tr"></span>
+  <span class="corner bl"></span><span class="corner br"></span>
+  <div class="stage">
+    <div class="eyebrow"><span class="dot"></span>Field guides · every place sourced</div>
+    <div class="lockup">
+      <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" stroke="#CBA96A" stroke-width="1.4"/>
+        <circle cx="50" cy="50" r="34" stroke="#86A99B" stroke-width="1" opacity="0.55"/>
+        <path d="M50 8 L57 43 L92 50 L57 57 L50 92 L43 57 L8 50 L43 43 Z" fill="#CBA96A"/>
+        <circle cx="50" cy="50" r="4.4" fill="#13161B" stroke="#ECE8E1" stroke-width="1.2"/>
+      </svg>
+      <span class="word">Cleo</span>
+    </div>
+    <div class="rule"></div>
+    <div class="tag">Where to go, after hours.</div>
+    <div class="sub">Sourced city guides · on one map</div>
+  </div>
+  <div class="foot">alvations.github.io / cleo-guide</div>
+</body>
+</html>

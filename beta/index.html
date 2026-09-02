@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Guides — Choose a Country</title>
+<meta name="description" content="Source-traceable travel field guides on interactive maps. Choose a country — the United States, Singapore, Vietnam or Germany — then a city, or suggest the next one.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --slab-2:#232C31;
+    --patina:#74AE99; --patina-dim:#3E5D53; --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2; --hair:#2E393E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  body{margin:0;background:var(--iron);color:var(--bone);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;}
+  a{color:var(--patina);text-decoration:none;} a:hover{text-decoration:underline;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+
+  header{padding:76px 0 30px;border-bottom:1px solid var(--hair);}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--patina);margin:0 0 22px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 6px;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--patina);font-size:clamp(28px,5.5vw,58px);line-height:1.05;margin-top:6px;}
+  .standfirst{max-width:64ch;margin:26px 0 6px;color:var(--bone);font-size:19px;}
+
+  h2.sec{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:44px 0 16px;font-weight:500;}
+
+  .cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+  .city{display:block;background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:26px 26px 22px;color:var(--bone);transition:border-color .15s,transform .15s;}
+  .city:hover{border-color:var(--patina);text-decoration:none;transform:translateY(-2px);}
+  .city .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--patina);margin:0 0 8px;}
+  .city .nm{font-family:"Archivo Black",sans-serif;font-size:clamp(26px,3.4vw,34px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;overflow-wrap:anywhere;}
+  .city .desc{color:var(--bone-dim);font-size:15.5px;margin:0 0 16px;}
+  .city .stat{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--brass);}
+  .city .go{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--patina);}
+  a.cardmain{display:block;color:var(--bone);} a.cardmain:hover{text-decoration:none;color:var(--bone);}
+  .subrow{margin-top:14px;padding-top:14px;border-top:1px solid var(--hair);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;}
+  .subrow a{color:var(--bone-dim);} .subrow a:hover{color:var(--patina);} .subrow span{color:var(--hair);padding:0 4px;}
+  .city.soon{opacity:.6;cursor:default;} .city.soon:hover{border-color:var(--hair);transform:none;}
+
+  /* Country switcher — this page is the country hub; the US city list is the default view below. */
+  .countries{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .country{display:block;background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:22px 22px 20px;color:var(--bone);transition:border-color .15s,transform .15s;}
+  .country:hover{border-color:var(--patina);text-decoration:none;transform:translateY(-2px);}
+  .country .flag{font-size:30px;line-height:1;}
+  .country .cn{font-family:"Archivo Black",sans-serif;font-size:22px;letter-spacing:-.01em;text-transform:uppercase;margin:10px 0 6px;}
+  .country .cd{color:var(--bone-dim);font-size:14.5px;margin:0 0 12px;}
+  .country .cgo{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--patina);}
+  .country.here{border-color:var(--patina-dim);}
+  .country.soon{opacity:.6;cursor:default;} .country.soon:hover{border-color:var(--hair);transform:none;}
+
+  .panel{background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:24px 26px;margin:8px 0 12px;}
+  .panel p{color:var(--bone-dim);font-size:15px;max-width:78ch;margin:0 0 14px;}
+  textarea{width:100%;min-height:110px;resize:vertical;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:9px;padding:13px 14px;font-family:"Newsreader",serif;font-size:16px;line-height:1.5;}
+  textarea:focus{outline:none;border-color:var(--patina);}
+  .fieldrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+  input.city-in{flex:1 1 260px;min-width:0;background:var(--iron);color:var(--bone);border:1px solid var(--hair);border-radius:9px;padding:12px 14px;font-family:"JetBrains Mono",monospace;font-size:14px;}
+  input.city-in:focus{outline:none;border-color:var(--patina);}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  button{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:8px;padding:12px 18px;border:1px solid var(--patina-dim);background:var(--patina-dim);color:var(--bone);}
+  button:hover{background:var(--patina);color:var(--iron);}
+  button.ghost{background:transparent;color:var(--bone-dim);border-color:var(--hair);}
+  button.ghost:hover{background:var(--slab-2);color:var(--bone);}
+  .note{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--bone-dim);margin-top:12px;}
+  .saved{margin:18px 0 0;padding:0;list-style:none;}
+  .saved li{border-top:1px solid var(--hair);padding:11px 0;font-size:15px;display:flex;justify-content:space-between;gap:12px;align-items:baseline;}
+  .saved li .when{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);white-space:nowrap;}
+  .saved li button{padding:5px 10px;font-size:10px;}
+  .empty{color:var(--bone-dim);font-style:italic;font-size:14px;margin-top:12px;}
+
+  footer{padding:44px 0 80px;color:var(--bone-dim);font-size:14px;max-width:78ch;border-top:1px solid var(--hair);margin-top:44px;}
+  footer p{margin:0 0 12px;} code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
+</style>
+
+<!-- Cleo brand: fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<!-- Cleo brand: social share -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cleo — Sourced City Guides">
+<meta property="og:title" content="Field Guides — Choose a Country — Cleo">
+<meta property="og:description" content="Source-traceable travel field guides on interactive maps. Choose a country — the United States, Singapore, Vietnam or Germany — then a city, or suggest the next one.">
+<meta property="og:url" content="https://alvations.github.io/cleo-guide/beta/index.html">
+<meta property="og:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cleo — sourced city guides. Where to go, after hours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Field Guides — Choose a Country — Cleo">
+<meta name="twitter:description" content="Source-traceable travel field guides on interactive maps. Choose a country — the United States, Singapore, Vietnam or Germany — then a city, or suggest the next one.">
+<meta name="twitter:image" content="https://alvations.github.io/cleo-guide/beta/assets/og-cover.png">
+<meta name="theme-color" content="#101318">
+<!-- Cleo brand: design system (appended so it wins by cascade order) -->
+<style id="cleo-ds">:root{
+    --iron:#101318; --slab:#181C22; --slab-2:#20252C; --hair:#2A2F37; --hair-2:#353B44;
+    --patina:#8FB3A4; --patina-dim:#3C4F49; --brass:#CBA96A; --brass-soft:#8A7746; --rust:#C07456;
+    --bone:#ECE8E1; --bone-dim:#9AA0AB; --bone-faint:#727982;
+    --glow-a:rgba(203,169,106,.06); --glow-b:rgba(143,179,164,.05);
+}
+  /* ============ Cleo design system (appended override — wins by cascade order) ============ *
+     Type roles:  --display Fraunces (masthead/titles) · body Newsreader (prose) ·
+                  --ui Archivo (labels/chips/buttons, uppercase-tracked) · Instrument Serif (italic accent). */
+  :root{
+    --display:"Fraunces","Newsreader",Georgia,serif;
+    --ui:"Archivo","Helvetica Neue",system-ui,-apple-system,sans-serif;
+    --serif:"Newsreader",Georgia,serif;
+    --measure:64ch; --radius:16px;
+  }
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(1200px 720px at 84% -8%, var(--glow-a), transparent 60%),
+      radial-gradient(900px 640px at -6% 108%, var(--glow-b), transparent 62%);}
+  ::selection{background:var(--brass);color:var(--iron);}
+  /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
+  [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+
+  /* Signature: an oversized engraved compass watermark filling the masthead void */
+  header{position:relative;}
+  header::after{content:"";position:absolute;top:-40px;right:-70px;width:430px;height:430px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23CBA96A' stroke-width='0.7'%3E%3Ccircle cx='100' cy='100' r='92'/%3E%3Ccircle cx='100' cy='100' r='84' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='52' stroke-width='0.5'/%3E%3Cline x1='100.0' y1='16.0' x2='100.0' y2='10.0' stroke-width='0.7'/%3E%3Cline x1='107.3' y1='16.3' x2='107.6' y2='13.3' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='17.3' x2='115.1' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='18.9' x2='122.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='21.1' x2='129.8' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='135.5' y1='23.9' x2='136.8' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='27.3' x2='145.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='148.2' y1='31.2' x2='149.9' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='35.7' x2='155.9' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='40.6' x2='161.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='46.0' x2='166.6' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='168.8' y1='51.8' x2='171.3' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='58.0' x2='177.9' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='176.1' y1='64.5' x2='178.8' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='71.3' x2='181.8' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='78.3' x2='184.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='85.4' x2='185.7' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='183.7' y1='92.7' x2='186.7' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='184.0' y1='100.0' x2='190.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='183.7' y1='107.3' x2='186.7' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='182.7' y1='114.6' x2='185.7' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='181.1' y1='121.7' x2='184.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='178.9' y1='128.7' x2='181.8' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='176.1' y1='135.5' x2='178.8' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='172.7' y1='142.0' x2='177.9' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='168.8' y1='148.2' x2='171.3' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='164.3' y1='154.0' x2='166.6' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='159.4' y1='159.4' x2='161.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='154.0' y1='164.3' x2='155.9' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='148.2' y1='168.8' x2='149.9' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='142.0' y1='172.7' x2='145.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='135.5' y1='176.1' x2='136.8' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='128.7' y1='178.9' x2='129.8' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='121.7' y1='181.1' x2='122.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='114.6' y1='182.7' x2='115.1' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='107.3' y1='183.7' x2='107.6' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='100.0' y1='184.0' x2='100.0' y2='190.0' stroke-width='0.7'/%3E%3Cline x1='92.7' y1='183.7' x2='92.4' y2='186.7' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='182.7' x2='84.9' y2='185.7' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='181.1' x2='77.5' y2='184.0' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='178.9' x2='70.2' y2='181.8' stroke-width='0.4'/%3E%3Cline x1='64.5' y1='176.1' x2='63.2' y2='178.8' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='172.7' x2='55.0' y2='177.9' stroke-width='0.7'/%3E%3Cline x1='51.8' y1='168.8' x2='50.1' y2='171.3' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='164.3' x2='44.1' y2='166.6' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='159.4' x2='38.5' y2='161.5' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='154.0' x2='33.4' y2='155.9' stroke-width='0.4'/%3E%3Cline x1='31.2' y1='148.2' x2='28.7' y2='149.9' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='142.0' x2='22.1' y2='145.0' stroke-width='0.7'/%3E%3Cline x1='23.9' y1='135.5' x2='21.2' y2='136.8' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='128.7' x2='18.2' y2='129.8' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='121.7' x2='16.0' y2='122.5' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='114.6' x2='14.3' y2='115.1' stroke-width='0.4'/%3E%3Cline x1='16.3' y1='107.3' x2='13.3' y2='107.6' stroke-width='0.4'/%3E%3Cline x1='16.0' y1='100.0' x2='10.0' y2='100.0' stroke-width='0.7'/%3E%3Cline x1='16.3' y1='92.7' x2='13.3' y2='92.4' stroke-width='0.4'/%3E%3Cline x1='17.3' y1='85.4' x2='14.3' y2='84.9' stroke-width='0.4'/%3E%3Cline x1='18.9' y1='78.3' x2='16.0' y2='77.5' stroke-width='0.4'/%3E%3Cline x1='21.1' y1='71.3' x2='18.2' y2='70.2' stroke-width='0.4'/%3E%3Cline x1='23.9' y1='64.5' x2='21.2' y2='63.2' stroke-width='0.4'/%3E%3Cline x1='27.3' y1='58.0' x2='22.1' y2='55.0' stroke-width='0.7'/%3E%3Cline x1='31.2' y1='51.8' x2='28.7' y2='50.1' stroke-width='0.4'/%3E%3Cline x1='35.7' y1='46.0' x2='33.4' y2='44.1' stroke-width='0.4'/%3E%3Cline x1='40.6' y1='40.6' x2='38.5' y2='38.5' stroke-width='0.4'/%3E%3Cline x1='46.0' y1='35.7' x2='44.1' y2='33.4' stroke-width='0.4'/%3E%3Cline x1='51.8' y1='31.2' x2='50.1' y2='28.7' stroke-width='0.4'/%3E%3Cline x1='58.0' y1='27.3' x2='55.0' y2='22.1' stroke-width='0.7'/%3E%3Cline x1='64.5' y1='23.9' x2='63.2' y2='21.2' stroke-width='0.4'/%3E%3Cline x1='71.3' y1='21.1' x2='70.2' y2='18.2' stroke-width='0.4'/%3E%3Cline x1='78.3' y1='18.9' x2='77.5' y2='16.0' stroke-width='0.4'/%3E%3Cline x1='85.4' y1='17.3' x2='84.9' y2='14.3' stroke-width='0.4'/%3E%3Cline x1='92.7' y1='16.3' x2='92.4' y2='13.3' stroke-width='0.4'/%3E%3Cpath d='M 96.2 90.8 L 96.2 90.8 L 100.0 22.0 L 103.8 90.8 L 128.3 71.7 L 109.2 96.2 L 178.0 100.0 L 109.2 103.8 L 128.3 128.3 L 103.8 109.2 L 100.0 178.0 L 96.2 109.2 L 71.7 128.3 L 90.8 103.8 L 22.0 100.0 L 90.8 96.2 L 71.7 71.7 Z' stroke-width='0.6'/%3E%3Ccircle cx='100' cy='100' r='6'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none;z-index:0;}
+  header>*{position:relative;z-index:1;}
+  @media (max-width:900px){header::after{display:none;}}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
+  [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
+    outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+
+  /* -- Brand bar -- */
+  .cleo-topbar{position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb,var(--iron) 84%,transparent);
+    -webkit-backdrop-filter:saturate(150%) blur(12px);backdrop-filter:saturate(150%) blur(12px);
+    border-bottom:1px solid var(--hair);}
+  /* engraved keyline — a bound-volume edge across the very top */
+  .cleo-topbar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),color-mix(in srgb,var(--patina) 80%,var(--brass)),transparent 88%);}
+  .cleo-bar-inner{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;
+    justify-content:space-between;gap:18px;}
+  .cleo-brand{display:inline-flex;align-items:center;gap:13px;text-decoration:none;color:var(--bone);}
+  .cleo-brand:hover{text-decoration:none;}
+  .cleo-mark{width:30px;height:30px;color:var(--brass);flex:none;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .cleo-brand:hover .cleo-mark{transform:rotate(90deg);}
+  .cleo-word{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:.42em;
+    text-transform:uppercase;padding-left:.42em;line-height:1;}
+  .cleo-tag{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--bone-faint);white-space:nowrap;display:flex;align-items:center;gap:.7em;}
+  .cleo-tag b{color:var(--patina);font-weight:600;}
+  .cleo-tag .sep{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.7;}
+  @media (max-width:640px){.cleo-tag{display:none;}}
+
+  /* -- Editorial masthead -- */
+  header .eyebrow,.eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--patina);
+    display:inline-flex;align-items:center;}
+  header .eyebrow::before,.eyebrow::before{content:"";width:22px;height:1px;margin-right:14px;
+    background:var(--brass);opacity:.8;flex:none;}
+  h1{font-family:var(--display);font-weight:600;font-optical-sizing:auto;
+    font-variation-settings:"opsz" 144,"SOFT" 28,"WONK" 0;
+    letter-spacing:-.02em;text-transform:none;line-height:.98;}
+  h1 .thin{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:0;color:var(--brass);line-height:1.05;max-width:30ch;}
+  .standfirst{font-family:var(--serif);color:color-mix(in srgb,var(--bone) 72%,var(--bone-dim));
+    max-width:var(--measure);font-size:19px;line-height:1.62;}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+  header a{color:var(--patina);}
+
+  /* -- Section headings / clusters -- */
+  h2.sec{font-family:var(--ui);font-weight:600;letter-spacing:.2em;color:var(--brass-soft);
+    text-transform:uppercase;font-size:12px;position:relative;padding-left:26px;}
+  h2.sec::before{content:"";position:absolute;left:0;top:50%;width:16px;height:1px;background:var(--brass);opacity:.7;}
+  .cluster{border-bottom:1px solid var(--hair-2);align-items:baseline;}
+  .cluster h2{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.015em;
+    font-size:clamp(20px,3vw,26px);}
+  .cluster .meta{font-family:var(--ui);font-weight:500;color:var(--bone-faint);
+    letter-spacing:.12em;text-transform:uppercase;font-size:10.5px;}
+
+  /* -- Entries -- */
+  .entry h3{font-family:var(--display);font-weight:600;letter-spacing:-.015em;text-transform:none;}
+  .marker{font-family:var(--ui);font-weight:600;color:var(--brass);letter-spacing:.06em;}
+  .addr{font-family:var(--ui);letter-spacing:.04em;font-size:11.5px;text-transform:uppercase;}
+
+  /* -- Cards (country / city / panel) -- */
+  .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
+    position:relative;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
+    transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
+  .city:hover,.country:hover{border-color:color-mix(in srgb,var(--brass) 55%,var(--hair));
+    transform:translateY(-4px);box-shadow:0 22px 48px -26px rgba(0,0,0,.6);}
+  .city:hover::after,.country:hover::after{transform:scaleX(1);}
+  .city.soon,.country.soon{background:transparent;}
+  .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
+  .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
+  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
+    background:var(--slab-2);font-size:22px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
+    filter:saturate(.9);}
+  .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
+  .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
+    display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
+  .city:hover .go{gap:1em;}
+  .city .stat{font-weight:500;letter-spacing:.08em;color:var(--bone-faint);text-transform:uppercase;font-size:10.5px;}
+  .subrow{letter-spacing:.06em;}
+
+  /* -- Chips / filters (editorial pills, not a dashboard) -- */
+  .ctrl-label,.controls .ctrl-label{font-family:var(--ui);font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--bone-faint);font-size:10px;}
+  .chip{font-family:var(--ui);font-weight:500;border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--bone-dim);background:transparent;transition:.16s ease;letter-spacing:.05em;
+    text-transform:none;padding:7px 14px;}
+  .chip:hover{border-color:var(--brass);color:var(--bone);background:color-mix(in srgb,var(--brass) 8%,transparent);}
+  .chip[aria-pressed="true"]{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:600;
+    box-shadow:inset 0 1px 2px color-mix(in srgb,#000 22%,transparent);}
+
+  /* Inline prose links — engraved brass underline that grows on hover */
+  .standfirst a,.what a,.desc a,.cd a,.panel p a{color:var(--brass);text-decoration:none;
+    box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--brass) 42%,transparent);
+    transition:box-shadow .2s ease,color .2s ease;}
+  .standfirst a:hover,.what a:hover,.desc a:hover,.cd a:hover,.panel p a:hover{
+    color:var(--bone);box-shadow:inset 0 -2px 0 var(--brass);}
+
+  /* -- Inputs / buttons -- */
+  #search,input.city-in,textarea{border-radius:11px;font-family:var(--serif);}
+  #search{font-family:var(--ui);letter-spacing:.02em;}
+  #search:focus,input.city-in:focus,textarea:focus{border-color:var(--brass);outline:none;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--brass) 18%,transparent);}
+  button,.tripbtn,.modebtn,.count,.city-in,.saved li .when{font-family:var(--ui);letter-spacing:.08em;}
+  .modebar{border:1px solid var(--hair-2);border-radius:13px;overflow:hidden;}
+  .modebtn{font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+  .modebtn[aria-pressed="true"]{background:var(--brass);color:var(--iron);}
+  .tripbtn{border-radius:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px;}
+  .count{color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* -- Sources / notes / legend -- */
+  .src{border-radius:999px;font-family:var(--ui);border-color:var(--patina-dim);letter-spacing:.03em;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .ledger .lbl{font-family:var(--ui);font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+  .note{border-left:2px solid var(--brass);border-radius:0 10px 10px 0;
+    background:color-mix(in srgb,var(--slab) 90%,var(--brass) 4%);}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
+  .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  #map{border:1px solid var(--hair-2);border-radius:14px;}
+  #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
+
+  /* -- Footer + Cleo colophon -- */
+  footer{color:var(--bone-dim);border-top:1px solid var(--hair);}
+  .cleo-colophon{max-width:1120px;margin:0 auto;padding:30px 24px 64px;border-top:1px solid var(--hair);
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    font-family:var(--ui);font-weight:500;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--bone-faint);}
+  .cleo-colophon .cleo-mark{width:20px;height:20px;color:var(--brass);}
+  .cleo-colophon b{font-family:var(--display);font-weight:600;letter-spacing:.34em;
+    color:var(--bone);text-transform:uppercase;font-size:12px;padding-left:.34em;}
+  .cleo-colophon .cleo-dot{width:3px;height:3px;border-radius:50%;background:var(--brass);opacity:.6;}
+</style>
+</head>
+<body>
+<div class="cleo-topbar"><div class="cleo-bar-inner"><a class="cleo-brand" href="index.html" aria-label="Cleo — home"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="cleo-word">Cleo</span></a><span class="cleo-tag">Sourced city guides<span class="sep"></span><b>where to go, after hours</b></span></div></div>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Field Guides · Sourced · On a map</p>
+    <h1>Where to<span class="thin">Choose a country, then a city</span></h1>
+    <p class="standfirst">Travel field guides where every place is traceable to the source that
+      recommended it, on an interactive map with filters, a trip builder and exports. The
+      <strong>United States</strong> is below by default — or cross to <strong>Singapore</strong>,
+      <strong>Vietnam</strong> or <strong>Germany</strong>. Suggest the next place at the bottom.</p>
+  </header>
+
+  <h2 class="sec">Countries</h2>
+  <div class="countries">
+    <a class="country here" href="#us">
+      <div class="flag">🇺🇸</div>
+      <p class="cn">United States</p>
+      <p class="cd">14 city &amp; regional guides — Cleveland, Pittsburgh, New York, the Bay Area, the
+        Ohio cities, DC and the corridors. Listed below.</p>
+      <span class="cgo">See the US cities ↓</span>
+    </a>
+    <a class="country" href="Singapore/index.html">
+      <div class="flag">🇸🇬</div>
+      <p class="cn">Singapore</p>
+      <p class="cd">The city-state, town by town — hawker food and landmarks, opening on Toa Payoh. A
+        pastel edition, light &amp; dark.</p>
+      <span class="cgo">Open Singapore →</span>
+    </a>
+    <a class="country" href="Vietnam/index.html">
+      <div class="flag">🇻🇳</div>
+      <p class="cn">Vietnam</p>
+      <p class="cd">Ho Chi Minh City — district by district and out to the Mekong, Củ Chi, Tây Ninh and
+        Vũng Tàu corridors. Pastel, light &amp; dark.</p>
+      <span class="cgo">Open Vietnam →</span>
+    </a>
+    <a class="country" href="Germany/index.html">
+      <div class="flag">🇩🇪</div>
+      <p class="cn">Germany</p>
+      <p class="cd">Two cross-border regions — Saarbrücken &amp; the SaarLorLux Greater Region, and Aachen &amp;
+        the Dreiländereck (Eifel, Maastricht, Ostbelgien). UNESCO sites, deep Michelin benches, and food
+        canons all their own.</p>
+      <span class="cgo">Open Germany →</span>
+    </a>
+    <div class="country soon">
+      <div class="flag">🌏</div>
+      <p class="cn">More soon</p>
+      <p class="cd">Malaysia, Thailand, Indonesia, the Philippines and more — each populated through the
+        full pipeline (sources → fact-check → re-rank → location-verify) before it goes live. The
+        archived all-SEA index is <a href="Singapore/singapore-old.html">here</a>.</p>
+      <span class="cgo">In the backlog</span>
+    </div>
+  </div>
+
+  <h2 class="sec" id="us">United States · cities</h2>
+  <div class="cities">
+    <div class="city">
+      <a class="cardmain" href="cleveland.html">
+        <p class="kicker">Complete edition</p>
+        <p class="nm">Cleveland</p>
+        <p class="desc">The full guide — 148 sights and 46 places to eat (now reaching Lakewood, the Heights and
+          Bay Village), every source transcribed, with area/source/rank filters, cuisine sub-filters, a trip
+          builder and Google/Apple exports.</p>
+        <p class="stat">194 places · updated 2026-08-24</p>
+        <span class="go">Open the Cleveland guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="https://alvations.github.io/cleo-guide/versions/v1-shortlist/guide.html">19-stop shortlist</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/versions/v1-shortlist/google-map.html">on Google Maps</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/youngstown.html">
+        <p class="kicker">Full edition</p>
+        <p class="nm">Youngstown</p>
+        <p class="desc">The Mahoning Valley — Wick Avenue's museums, Mill Creek Park, the downtown halls,
+          Valley day trips (Past Times Arcade, the Packard Museum, the Robins Theatre) and Brier Hill pizza.
+          The <strong>same</strong> interactive map, filters, trip builder and exports as Cleveland, with
+          ranked, fact-checked local sources.</p>
+        <p class="stat">40 sights · 22 food, markets &amp; farms · updated 2026-08-09</p>
+        <span class="go">Open the Youngstown guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/pittsburgh.html">
+        <p class="kicker">Full edition</p>
+        <p class="nm">Pittsburgh</p>
+        <p class="desc">The Steel City — the inclines and the Mount Washington view, Warhol and the Mattress
+          Factory, Cathedral of Learning, Fallingwater, the Strip District, Primanti's and pierogi. The
+          same interactive map, filters, trip builder and exports as Cleveland.</p>
+        <p class="stat">111 sights · 68 food, markets &amp; farms · updated 2026-08-09</p>
+        <span class="go">Open the Pittsburgh guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/pittsburgh.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/newyork.html">
+        <p class="kicker">Full edition · new</p>
+        <p class="nm">New York City</p>
+        <p class="desc">All five boroughs plus regional day trips — the Met, Central Park and the Empire
+          State; Coney Island, the Bronx Zoo, Arthur Avenue and Flushing; Michelin stars &amp; Bib
+          Gourmand, the great immigrant kitchens and viral bites. Filter by <strong>borough</strong> or
+          by <strong>collection</strong> (museums, parks, markets, oddities, free…), plus cuisines.</p>
+        <p class="stat">Sourced from Michelin, Eater, Infatuation, Atlas Obscura, NYC Parks 88 sights · 53 food · Michelin + Eater + Atlas Obscura sourced · updated 2026-08-10amp; more · filter by borough or collection · updated 2026-08-10</p>
+        <span class="go">Open the New York guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/newyork.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/siliconvalley.html">
+        <p class="kicker">Region edition · new</p>
+        <p class="nm">Silicon Valley</p>
+        <p class="desc">Not one city but the South Bay — Palo Alto, Mountain View, Sunnyvale, Cupertino,
+          Santa Clara and San Jose. Apple Park, the Computer History Museum, Stanford and the Winchester
+          Mystery House; and the Valley's real signature, its immigrant kitchens — arguably the best
+          Taiwanese, Vietnamese and South Indian eating in America, plus the boba it invented. Filter by
+          <strong>city</strong> or by <strong>collection</strong> (tech landmarks, museums, parks…), plus cuisines.</p>
+        <p class="stat">150 places, each clearing a ≥2-credible-source bar (Michelin, James Beard,
+          Infatuation, KQED, Metro Silicon Valley, San José Spotlight, The Six Fifty &amp; more) with a
+          fact-checked, source-cited coordinate. Filter by city or collection.</p>
+        <span class="go">Open the Silicon Valley guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/siliconvalley.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/sanfrancisco.html">
+        <p class="kicker">Region edition · new</p>
+        <p class="nm">San Francisco &amp; the Peninsula</p>
+        <p class="desc">The city and the northern Peninsula down to San Mateo and the SFO corridor —
+          picking up exactly where the Silicon Valley guide edges out. Golden Gate, Alcatraz, the cable
+          cars and the Painted Ladies; and SF's food canon — the Mission burrito, dim sum in the oldest
+          Chinatown in America, cioppino and Dungeness crab, Tenderloin Vietnamese, the Bay's famous
+          Burmese, sourdough and the third-wave coffee it helped invent. Filter by
+          <strong>neighborhood</strong> or by <strong>collection</strong>, plus cuisines.</p>
+        <p class="stat">141 places, each clearing a ≥2-credible-source bar (Michelin, James Beard,
+          Infatuation, KQED, SF Standard, Mission Local, Hoodline, 7x7…) with a fact-checked,
+          source-cited coordinate. Filter by neighborhood or collection.</p>
+        <span class="go">Open the San Francisco guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/sanfrancisco.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/cincinnati.html">
+        <p class="kicker">City edition · new</p>
+        <p class="nm">Cincinnati</p>
+        <p class="desc">The Queen City and its Northern Kentucky riverfront — Union Terminal and the
+          Cincinnati Museum Center, the Roebling Suspension Bridge, Music Hall, the zoo (yes, Fiona), and
+          Over-the-Rhine's Italianate blocks. And a food canon all its own: <strong>Cincinnati chili</strong>
+          (Skyline, Camp Washington), goetta, Montgomery Inn ribs, Findlay Market, Graeter's ice cream and
+          the German brewing heritage reborn at Rhinegeist. Filter by <strong>neighborhood</strong> or by
+          <strong>collection</strong>, plus cuisines.</p>
+        <p class="stat">81 places, each clearing a ≥2-credible-source bar (James Beard, the Cincinnati
+          Enquirer, Cincinnati Magazine, CityBeat…) with a fact-checked, source-cited coordinate. Filter
+          by neighborhood or collection.</p>
+        <span class="go">Open the Cincinnati guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/cincinnati.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/columbus.html">
+        <p class="kicker">City edition · new</p>
+        <p class="nm">Columbus</p>
+        <p class="desc">Ohio's capital — the Short North arts district, German Village and the Book Loft,
+          the Scioto Mile and Ohio State. And a sleeper-great food town: <strong>Jeni's</strong> ice cream
+          (born here), the North Market, Columbus-style square-cut <strong>pizza</strong>, Schmidt's German
+          cream puffs, and one of the deepest <strong>Somali</strong> tables in America. Same
+          ≥2-credible-source pipeline as our other cities.</p>
+        <p class="stat">37 places, sourced to James Beard, the Columbus Dispatch, Columbus Monthly &amp;
+          Columbus Underground; each fact-checked open/closed and given a source-cited coordinate first.</p>
+        <span class="go">Open the Columbus guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/columbus.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/dayton.html">
+        <p class="kicker">City edition · new</p>
+        <p class="nm">Dayton</p>
+        <p class="desc">The birthplace of aviation — the <strong>National Museum of the U.S. Air Force</strong>
+          (the world's largest, and free), Carillon Historical Park with the Wright Flyer III, and the
+          Wright brothers' own workshops in Wright-Dunbar. Plus the Oregon District's bars, Marion's
+          Dayton-style pizza, Esther Price candy and Bill's Donuts — out to Yellow Springs. Same
+          ≥2-credible-source pipeline as our other cities.</p>
+        <p class="stat">39 places, sourced to the National Park Service, the Dayton Daily News, Dayton
+          Magazine, WHIO &amp; James Beard; each fact-checked and given a source-cited coordinate first.</p>
+        <span class="go">Open the Dayton guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/dayton.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/washingtondc.html">
+        <p class="kicker">City edition · new</p>
+        <p class="nm">Washington DC</p>
+        <p class="desc">DC proper plus <strong>Arlington</strong> and the Northern Virginia corridor out to
+          <strong>Dulles</strong> — the National Mall monuments, the free Smithsonians, Georgetown and the
+          Wharf, then the food belt: the <strong>half-smoke</strong>, DC's Ethiopian and Salvadoran
+          kitchens, Chesapeake crab, Eden Center's Vietnamese, and a deep Michelin bench. Every place is
+          <strong>merit-measured</strong> — an award, a rave, or a high rating with real volume — before it
+          earns a pin.</p>
+        <p class="stat">134 places, sourced to Michelin, James Beard, Washingtonian, the Washington Post,
+          the National Park Service &amp; the Smithsonian; each fact-checked and given a source-cited
+          coordinate first.</p>
+        <span class="go">Open the Washington DC guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/washingtondc.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/statecollege.html">
+        <p class="kicker">City edition · new</p>
+        <p class="nm">State College &amp; Happy Valley</p>
+        <p class="desc">Penn State country — <strong>Old Main</strong>, <strong>Beaver Stadium</strong>, the
+          Nittany Lion Shrine and Mount Nittany, plus the town's own food canon: <strong>Berkey Creamery</strong>
+          ice cream, the <strong>grilled sticky</strong>, tavern wings and Happy Valley beer — out to historic
+          Bellefonte and Boalsburg and the <strong>Altoona &amp; Alleghenies</strong> day-trip belt (Horseshoe
+          Curve, Raystown Lake). Sourced to the Centre Daily Times, StateCollege.com, Onward State and the
+          Happy Valley Adventure Bureau; each place merit-measured with a source-cited coordinate.</p>
+        <p class="stat">48 places live · more restaurant pins pending the geocode helper · updated 2026-08-27</p>
+        <span class="go">Open the State College guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/statecollege.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/wheeling.html">
+        <p class="kicker">Corridor edition · new</p>
+        <p class="nm">Wheeling &amp; the National Road</p>
+        <p class="desc">The Ohio Valley and the old <strong>National Road (I-70)</strong> — <strong>Wheeling, WV</strong>
+          (the Suspension Bridge, Oglebay, Centre Market, Independence Hall) and nearby <strong>Washington, PA</strong>,
+          then west through St. Clairsville, Cambridge (Dickens Village, Salt Fork) and <strong>Zanesville</strong>
+          (the Y-Bridge, the pottery legacy, The Wilds) to where the Columbus guide begins. Valley food:
+          <strong>DiCarlo's</strong> pizza, Coleman's fish sandwich, pepperoni rolls, Tom's Ice Cream Bowl, and
+          James-Beard-honored <strong>Figaretti's</strong>. Sourced to the Wheeling Intelligencer, Weelunk, the
+          Observer-Reporter and the Zanesville Times Recorder; each place merit-measured with a source-cited coordinate.</p>
+        <p class="stat">35 places live · more restaurant pins pending the geocode helper · updated 2026-08-27</p>
+        <span class="go">Open the Wheeling &amp; National Road guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/wheeling.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city">
+      <a class="cardmain" href="cities/erie.html">
+        <p class="kicker">Corridor edition · new</p>
+        <p class="nm">Erie &amp; the Lake Erie Corridor</p>
+        <p class="desc"><strong>Erie, PA</strong> — the Bayfront, <strong>Presque Isle</strong>, the U.S. Brig
+          <strong>Niagara</strong> and the Bicentennial Tower — the <strong>Lake Erie wine belt</strong> at North
+          East, and the <strong>I-79/US-19 corridor</strong> south toward Pittsburgh through <strong>Meadville</strong>
+          (Market House, Voodoo Brewing), Edinboro and <strong>Grove City</strong> (Wendell August Forge, the
+          outlets). Erie's own canon: the <strong>Greek-sauce hot dog</strong>, Stanganelli's pepperoni balls,
+          <strong>sponge candy</strong>, Great-Lakes perch, and the wineries &amp; breweries. Sourced to the Erie
+          Times-News, Erie Reader, Visit Erie and PA DCNR; each place merit-measured with a source-cited coordinate.</p>
+        <p class="stat">35 places live · more restaurant pins pending the geocode helper · updated 2026-08-28</p>
+        <span class="go">Open the Erie &amp; Lake Erie corridor guide →</span>
+      </a>
+      <div class="subrow">
+        <a href="cities/erie.html">open the map</a><span>·</span>
+        <a href="https://alvations.github.io/cleo-guide/docs/SOURCES.md">how sources are vetted</a>
+      </div>
+    </div>
+
+    <div class="city soon">
+      <p class="kicker">Not built yet</p>
+      <p class="nm">Your city?</p>
+      <p class="desc">The pipeline is reusable — any city starts with a sourced shortlist. Suggest one
+        below and it goes into the repo's backlog as a GitHub issue.</p>
+      <p class="stat">suggest it ↓</p>
+    </div>
+  </div>
+
+  <h2 class="sec">Suggest the next city</h2>
+  <div class="panel">
+    <p>Tell us where to go next — and, if you can, drop the credible local sources you'd use (a TV
+      station's "best of" list, the alt-weekly, a historical society, a famous YouTuber or TikTok
+      creator who covered it). Suggestions are saved in your browser and can be filed straight into the
+      repository as a GitHub issue, where they become the backlog for future cities.</p>
+    <div class="fieldrow">
+      <input class="city-in" id="cityName" type="text" placeholder="City, State — e.g. Akron, OH" autocomplete="off">
+    </div>
+    <textarea id="cityNotes" placeholder="Why this city, and any sources to start from (links welcome)…"></textarea>
+    <div class="btns">
+      <button id="fileIssue">File as GitHub issue</button>
+      <button id="saveLocal" class="ghost">Save in this browser</button>
+      <button id="copyOut" class="ghost">Copy</button>
+    </div>
+    <p class="note" id="status">Saved suggestions stay in this browser until you file them.</p>
+    <ul class="saved" id="savedList"></ul>
+    <p class="empty" id="emptyNote">No suggestions saved yet.</p>
+  </div>
+
+  <footer>
+    <p><strong>How suggestions reach the repo.</strong> This is a static site, so it can't write to
+      GitHub directly. "File as GitHub issue" opens a pre-filled issue on
+      <code>alvations/cleo-guide</code> with your city and notes; a maintainer (or an agent) then runs
+      the research pipeline (<code>tools/research.js</code>) and adds the city. The tracked backlog also
+      lives in <a href="https://alvations.github.io/cleo-guide/data/city-requests.md">data/city-requests.md</a>.</p>
+    <p>Every place in these guides links to the source that recommended it. Business details come from
+      third parties and change without notice — confirm before you travel.</p>
+  </footer>
+</div>
+
+<script>
+/* Feedback is stored locally (wrapped — storage throws in some sandboxes) and can be
+   filed into the repo as a GitHub issue. No backend, no tracking. */
+var REPO = "alvations/cleo-guide";
+var STORE = "fg_city_suggestions";
+
+function load(){ try{ return JSON.parse(localStorage.getItem(STORE) || "[]"); }catch(e){ return window.__mem || []; } }
+function save(list){ try{ localStorage.setItem(STORE, JSON.stringify(list)); }catch(e){ window.__mem = list; } }
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function stamp(){ // avoid Date in a way that still reads; ISO minute precision
+  try { return new Date().toISOString().slice(0,16).replace("T"," "); } catch(e){ return ""; }
+}
+
+function render(){
+  var list = load();
+  var ul = document.getElementById("savedList");
+  var empty = document.getElementById("emptyNote");
+  ul.innerHTML = "";
+  empty.style.display = list.length ? "none" : "block";
+  list.forEach(function(item, i){
+    var li = document.createElement("li");
+    li.innerHTML = "<span><strong>" + esc(item.city || "(unnamed)") + "</strong>" +
+      (item.notes ? " — " + esc(item.notes) : "") + "</span>" +
+      "<span class='when'>" + esc(item.when || "") + "</span>";
+    var del = document.createElement("button");
+    del.className = "ghost"; del.textContent = "Remove";
+    del.addEventListener("click", function(){ var l = load(); l.splice(i,1); save(l); render(); });
+    li.appendChild(del);
+    ul.appendChild(li);
+  });
+}
+
+function current(){
+  return {
+    city: (document.getElementById("cityName").value || "").trim(),
+    notes: (document.getElementById("cityNotes").value || "").trim(),
+    when: stamp()
+  };
+}
+function setStatus(msg){ document.getElementById("status").textContent = msg; }
+
+document.getElementById("saveLocal").addEventListener("click", function(){
+  var s = current();
+  if (!s.city){ setStatus("Add a city name first."); return; }
+  var list = load(); list.unshift(s); save(list); render();
+  document.getElementById("cityName").value = ""; document.getElementById("cityNotes").value = "";
+  setStatus("Saved in this browser. File it as an issue to add it to the repo.");
+});
+
+document.getElementById("fileIssue").addEventListener("click", function(){
+  var s = current();
+  if (!s.city){ setStatus("Add a city name first."); return; }
+  // Save locally too, so it isn't lost.
+  var list = load(); list.unshift(s); save(list); render();
+  var title = "City request: " + s.city;
+  var body = "**City:** " + s.city + "\n\n**Why / sources to start from:**\n" +
+             (s.notes || "(none provided)") +
+             "\n\n---\nFiled from the field-guide site. Next step: run `node tools/research.js \"" +
+             s.city + "\"` and follow docs/SOURCES.md.";
+  var url = "https://github.com/" + REPO + "/issues/new?labels=city-request" +
+            "&title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body);
+  window.open(url, "_blank", "noopener");
+  setStatus("Opened a pre-filled GitHub issue for “" + s.city + "”. Submit it there to add it to the backlog.");
+});
+
+document.getElementById("copyOut").addEventListener("click", function(){
+  var s = current();
+  var text = (s.city || "(city)") + (s.notes ? " — " + s.notes : "");
+  try { navigator.clipboard.writeText(text); setStatus("Copied."); }
+  catch(e){ setStatus("Copy not available; select and copy manually."); }
+});
+
+render();
+</script>
+
+<div class="cleo-colophon"><span class="cleo-mark"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="1.6" opacity=".55"/><g stroke="currentColor" stroke-width="1" opacity=".32"><path d="M50 12 L50 88 M12 50 L88 50 M26 26 L74 74 M74 26 L26 74"/></g><path d="M50 8 L55.5 44.5 L50 50 L44.5 44.5 Z" fill="currentColor"/><path d="M50 92 L44.5 55.5 L50 50 L55.5 55.5 Z" fill="currentColor" opacity=".55"/><path d="M92 50 L55.5 55.5 L50 50 L55.5 44.5 Z" fill="currentColor" opacity=".55"/><path d="M8 50 L44.5 44.5 L50 50 L44.5 55.5 Z" fill="currentColor"/><circle cx="50" cy="50" r="3.4" fill="var(--iron)" stroke="currentColor" stroke-width="1.4"/></svg></span><b>Cleo</b><span class="cleo-dot"></span><span>Sourced city guides · every place traceable to its source</span></div>
+</body>
+</html>
