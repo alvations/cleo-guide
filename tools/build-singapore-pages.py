@@ -407,7 +407,7 @@ for b in built: print("  %-22s %-14s %-26s S%d F%d"%(b["slug"],b["folder"],b["re
 # individual place pages are clickable is LIVE_SLUGS; the rest are greyed "expanding soon". The root
 # index.html is the COUNTRY hub (hand-authored, US default). Adding a country = a data/countries.json
 # entry + set live:true; no code change here. See docs/COUNTRIES.md.
-LIVE_SLUGS={"toa-payoh","ho-chi-minh-city"}
+LIVE_SLUGS={"toa-payoh","ho-chi-minh-city","bishan","ang-mo-kio","potong-pasir-macpherson","upper-serangoon"}
 LIVE_SLUG="toa-payoh"   # back-compat single check
 def esc(s): return s.replace("&","&amp;").replace("<","&lt;")
 byreg=defaultdict(list)
