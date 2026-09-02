@@ -11,8 +11,9 @@ AREAS = [
  {"id":"KOLN","n":"Cologne / Köln (Dom · Altstadt · Ehrenfeld · Südstadt)"},
  {"id":"BONN","n":"Bonn (Beethoven · Museumsmeile · Bad Godesberg)"},
  {"id":"DUS","n":"Düsseldorf (Altstadt · Kö · MedienHafen · Little Tokyo)"},
+ {"id":"RHEIN","n":"The Rhine Corridor (Brühl · Bergisch Gladbach · Leverkusen · Neuss · Zons)"},
 ]
-AC = {"KOLN":"#C0504D","BONN":"#2E6DA4","DUS":"#E8973A"}
+AC = {"KOLN":"#C0504D","BONN":"#2E6DA4","DUS":"#E8973A","RHEIN":"#16A085"}
 
 # ---- cuisine taxonomy — the Rhineland canon ----
 CUISINES = [
