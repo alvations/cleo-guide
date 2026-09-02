@@ -106,7 +106,10 @@ if _lats:
     _lo_la, _hi_la = _pct(_lats, 0.05), _pct(_lats, 0.95)
     _lo_ln, _hi_ln = _pct(_lngs, 0.05), _pct(_lngs, 0.95)
     _clat = round((_lo_la + _hi_la) / 2, 4); _clng = round((_lo_ln + _hi_ln) / 2, 4)
-    _span = max(_hi_la - _lo_la, (_hi_ln - _lo_ln) * 0.7)
+    # Centre on the trimmed midpoint (above), but pick the ZOOM from the FULL pin bounds so all three
+    # clusters (Bonn south, Cologne middle, Düsseldorf north — ~0.6° apart) sit in the opening frame.
+    # P05..P95 would trim the end cities out and over-zoom onto Cologne alone (the largest cluster).
+    _span = max(max(_lats) - min(_lats), (max(_lngs) - min(_lngs)) * 0.7)
     _zoom = 13 if _span < 0.05 else 12 if _span < 0.11 else 11 if _span < 0.26 else 10 if _span < 0.55 else 9 if _span < 1.1 else 8
 else:
     _clat, _clng, _zoom = 50.9384, 6.9603, 10   # Cologne
