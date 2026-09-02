@@ -1,0 +1,29 @@
+{
+ "creators": [
+  {"key":"IEATISHOOTIPOST","name":"Dr Leslie Tay (ieatishootipost)","platform":"Blog / YouTube","followers":"Award-winning Singapore food blog since 2006 + YouTube channel","url":"https://ieatishootipost.sg"},
+  {"key":"JOHORKAKI","name":"Tony Boey (Johor Kaki)","platform":"Blog","followers":"Long-running, widely-cited SG/Malaysia heritage-food blog","url":"https://johorkaki.blogspot.com"}
+ ],
+ "attach": [
+  {"place":"Anshun Seafood Soup","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/an-shun-seafood-soup-honest-to-goodness-seafood-soup/","note":"Dr Leslie Tay reviewed An Shun's honest, clean seafood soup after its move to a Hougang Ave 1 coffeeshop."},
+  {"place":"Hougang Oyster Omelette & Fried Kway Teow","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/hougangfriedoyster/","note":"ieatishootipost profiled the Ongs' 30-year lard-fried oyster omelette with big oysters at Blk 435A Hougang Ave 8."},
+  {"place":"Chindamani Indian Restaurant","creatorKey":"IEATISHOOTIPOST","url":"https://ieatishootipost.sg/singapore-famous-five-best-roti-prata-2/","note":"Dr Leslie Tay named Chindamani's plain prata among his 'Famous Five' best roti prata in Singapore."},
+  {"place":"Ming Fa Duck Rice","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2021/04/ming-fa-duck-rice-hainanese-village.html","note":"Johor Kaki (Tony Boey) rated Ming Fa at Hainanese Village Centre among Singapore's best Teochew braised duck rice."},
+  {"place":"Yi Liu Xiang Nasi Lemak","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2021/04/first-class-fragrance-yi-liu-xiang-nasi.html","note":"Johor Kaki flagged First Class Fragrance (Yi Liu Xiang) as the hottest, most-queued nasi lemak stall at Hainanese Village Centre."},
+  {"place":"Dong Jin Yuan Dian Xin","creatorKey":"JOHORKAKI","url":"https://johorkaki.blogspot.com/2024/02/fried-carrot-cake-by-former-ah-hui-big.html","note":"Johor Kaki documented the finger-sized fried carrot cake sticks at Hainanese Village Centre's Dong Jin Yuan stall."}
+ ],
+ "rejected": [
+  {"name":"Charlie's by Rise & Grind (Kovan / Hougang Rivercourt)","reason":"Only one clearly-credible editorial listing (Eatbook Kovan guide) found this wave; held pending a confirmed second credible source."},
+  {"name":"Chu and Co / Chulato (Serangoon Gardens)","reason":"Only Daniel Food Diary is clearly credible; remaining coverage is personal blogs / Lemon8. Held for a second editorial-of-record or verified-creator source."},
+  {"name":"805 Seafood Kitchen (Hougang Central)","reason":"Only Miss Tam Chiak's curry-fish-head list clearly credible this wave; held pending a confirmed second credible source."},
+  {"name":"Suriya Curry House (536A Upper Serangoon Rd)","reason":"Genuinely in-area 24h banana-leaf spot, but only aggregator/review-platform listings found (Burpple/TripAdvisor) — no >=2 credible editorial. Held as an in-area lead."},
+  {"name":"Chin Kee 77 (Hougang Ave 5)","reason":"One credible source (SethLui) only for the claypot-rice/roast-meat stall; held for a second."},
+  {"name":"Yong Seng Teochew Fishball Noodle (Hainanese Village)","reason":"One credible source (SethLui fishball guide) only; area already well-covered for fishball noodle — held."},
+  {"name":"Munchi Pancakes (Ci Yuan Hawker Centre outlet)","reason":"Credible (Eatbook/SethLui) but the Ci Yuan outlet has SHUTTERED per Eatbook editor's note — not added as a live in-area suggestion (min jiang kueh already covered by 682 Min Jiang Kueh)."},
+  {"name":"Bedok Chwee Kueh (Hainanese Village outlet) / Relish by Wild Rocket (myVillage) / iSTEAKS Diner (myVillage)","reason":"Bedok Chwee Kueh's Hougang-outlet sourcing thin (Michelin listing is for Bedok/Chinatown branch); Relish myVillage outlet is CLOSED; iSTEAKS is a chain with only one clear credible mention — measured, not added."},
+  {"name":"Sheng Hong Temple (15 Arumugam Rd) / Rosyth School / Serangoon Garden Secondary","reason":"Out of the Kovan/Upper-Serangoon/Hougang core — Arumugam Rd is MacPherson/Geylang East; Rosyth and Serangoon Garden Sec have relocated to Serangoon North. Dropped to avoid area creep."},
+  {"name":"Lau Wang Claypot Delights / Bee Kee Wanton Noodle / Song Kee Fishball (Serangoon Central)","reason":"Cluster around Serangoon Central / Nex — nearer Serangoon town proper than Upper Serangoon/Kovan/Hougang; kept deferred per waves 1-2."},
+  {"name":"Froz-type frozen-yogurt cafe (held from wave 1)","reason":"No in-area 'Froz' outlet found in Kovan/Heartland Mall this wave; resolved as not-present."},
+  {"name":"Yelp / TripAdvisor / Google / Burpple / OpenRice / Foursquare / Lemon8 / TikTok discover pages","reason":"User-review aggregators or anonymous social — used only to fact-check existence/status, 0 toward the two-credible bar."},
+  {"name":"kopitiam.com.sg / hawkerpedia / foodadvisor / wanderlog / evendo / thefat.guide / sengkangtopunggol / ahmaqqbowl / tidbitsmag / therantingpanda / sgfoodonfoot / ivanteh-runningman (SEO/personal)","reason":"SEO/directory/aggregator listings or personal blogs without editorial-of-record authority; used only as corroborating leads, never counted toward the credible bar."}
+ ]
+}
