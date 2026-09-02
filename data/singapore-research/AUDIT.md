@@ -274,3 +274,53 @@ all source keys resolve to their registry.
   only), no fabrication; closures=0 (all verified open).
 - **NEXT:** geocode/location-verify PPM addresses via browser helper -> geo-merge -> rebuild-city
   singapore --build -> gates (sourcecheck/geocheck/statuscheck), same as Stage 2.
+
+### Stage 4 — PPM wave 2 (DONE 2026-09-02)
+Second discovery wave on the same area code **PPM**, WebSearch-only. **Appended to new files** (wave-1
+files untouched): `FOOD_PPM2.json` (20, LIST), `SIGHTS_PPM2.json` (3 + 6 source rows, DICT),
+`SOURCES_PPM2.json` (4 new outlets), `CREATORS_PPM2.json` (2 creators / 4 attach / 5 rejected). All parse
+(python3); every record `a="PPM"`; **every place carries >=2 credible sources**; all source keys resolve
+(SOURCES_PPM + SOURCES_PPM2 for food; SIGHTS_PPM2's own `sources` for sights). **De-duped against wave 1**
+(0 name collisions in food or sights). Takes PPM from 37 -> **60** (45 food + 15 sights).
+
+- **FOOD +20** — tiers t2=7, t3=13.
+  - **Circuit Road Market & Food Centre (chased wave-1 HELD candidates, now 2nd-source-confirmed):**
+    No.10 Noodle House (S$2.50 old-school BCM/fishball; SethLui-dedicated + Mothership + Ordinary Patrons),
+    Yong Lai Fa Ji Shu Shi (fish soup "on par with Amoy St"; ieat + MissTamChiak + DFD), Omar's Halal Thai
+    Beef Noodles (3 dedicated: SethLui + Eatbook + MTC), Soon Lee Lor Mee (since 1970s; SethLui + ieat),
+    Hup Hup Mee Siam・Laksa・Lor Mee (Top-10 mee siam; SethLui-dedicated + Entree Kibbles), Three Treasures
+    Roast Duck (Women's Weekly + Her World).
+  - **MacPherson / Tai Thong / Potong Pasir:** Folk Yard (sandwich cafe; Eatbook + DFD + TimeOut),
+    Yuan Wei Seafood (83 MacPherson Lane; $5 crab claws + Penang CKT; Eatbook + ieat), Yi Jia South Village
+    Seafood (544 MacPherson Rd; honeydew prawns; ieat + Entree Kibbles), Fullybooked (industrial local cafe;
+    Eatbook + DFD + SethLui), Sweet Cheeks Gelato (SMU-grads; DFD + ladyironchef + Entree Kibbles), Ling's
+    Patisseries (DFD + HungryGoWhere), No Monkey Business (veg zi char; SethLui + Honeycombers), EVERY
+    (Japanese konbini cafe, Poiz Centre; Eatbook + TimeOut).
+  - **Woodleigh Village Hawker Centre + The Woodleigh Mall:** Liu Kou Shui (Japanese donburi; Eatbook +
+    SethLui + DFD), Kallang Wantan Mee (SethLui + DFD + Eatbook), M+ Fried Rice Paradise (halal; HungryGoWhere
+    Hawker-Hustlers + SethLui + AsiaOne), Whampoa Nan Xiang Chicken Rice (SethLui + Eatbook), Liu Da Xia
+    (white curry prawn noodles; Eatbook young-hawkers + TimeOut), Beans.Factory (Malaysian tau fu fah;
+    Eatbook + HungryGoWhere).
+- **SIGHTS +3** — t2=2, t3=1. Istana Bidadari (the vanished Sultan Abu Bakar palace that named the whole
+  estate/district — Zubaidah/"bidadari"; Wikipedia + RememberSingapore + Home&Decor), Sri Siva Durga Temple
+  (8 Potong Pasir Ave 2; Hindu, est. 1906, rebuilt 2016; Wikipedia + NLB + TimeOut + official), Alkaff
+  Gardens (former 1929-64 Japanese-style lake garden, ancestor of the new Alkaff Lake; Wikipedia + Home&Decor).
+  Most PPM sight ground was already covered by wave 1 (mosque, temples, Sennett, Bidadari Park/Cemetery,
+  sloping-roof HDB, MacPherson/Potong Pasir heritage) — added only genuinely-distinct heritage.
+- **Merit bar applied — measured, then HELD/dropped (not padded):** **Ser Seng Herbs turtle soup (39 Tai
+  Thong Cres)** — Johor Kaki has a dedicated MacPherson post, but the SethLui/Miss Tam Chiak dedicated
+  reviews are the *Geylang sister* branch (Tan Ser Seng), so the MacPherson outlet holds at 1 clear credible
+  — HELD. **Nooodon** (Venue Shoppes BCM/donburi) — only Daniel Food Diary is clearly credible (2nd was the
+  small jiaksimipng blog) — HELD. **PP 881 handmade bao** (still EdgeProp-only, 1 credible), **Fuel X** (DFD
+  only), **Kumari's Veetu Biryani** (Eatbook Bidadari-guide only), **Huang Chao Teochew Fish Soup**
+  (Fei Siong chain, thin dedicated coverage) — all HELD pending a 2nd credible. **"Macpherson Bak Chor Mee"**
+  correctly EXCLUDED — it is a *Toa Payoh* (Blk 95 Lor 4) stall despite the name, not in PPM.
+- **Sources:** existing PPM outlets (SethLui, Eatbook, Daniel Food Diary, Miss Tam Chiak, Her World, Women's
+  Weekly, HungryGoWhere, ieatishootipost, AsiaOne, Honeycombers, TimeOut) + **4 new**: Mothership,
+  The Ordinary Patrons, ladyironchef, Entree Kibbles (Cavin Teo, added as creator). Sights on
+  Wikipedia/NLB/TimeOut + RememberSingapore + Home&Decor + official temple site. **Yelp/TripAdvisor/Google/
+  Burpple/FoodAdvisor/OpenRice/foodpanda/eatigo/Quandoo = 0 toward the bar** (address/measurement only);
+  SEO farms (voykris, islifearecipe, singaporehawkercentres, hawkerpedia, kopitiam.com.sg, nickblitzz,
+  traveltriangle, sglocalnews) + Lemon8/anon TikTok + AI-scrape pages (mindtrip, aroundus) rejected.
+  No coordinates (address + postal only; postal omitted rather than guessed where unconfirmed — Fullybooked,
+  Folk Yard unit); no fabrication; closures=0 (all verified open).

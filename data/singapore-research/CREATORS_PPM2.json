@@ -1,0 +1,19 @@
+{
+ "creators": [
+  {"key":"CAVINTEO","name":"Cavin Teo (Entree Kibbles)","platform":"Blog","followers":"Long-running, widely-cited Singapore food blog (Entree Kibbles)","url":"https://cavinteo.blogspot.com"},
+  {"key":"ORDINARYPATRONS","name":"The Ordinary Patrons","platform":"Blog","followers":"Established Singapore hawker/restaurant review blog","url":"https://ordinarypatrons.com"}
+ ],
+ "attach": [
+  {"place":"Hup Hup Mee Siam・Laksa・Lor Mee","creatorKey":"CAVINTEO","url":"https://cavinteo.blogspot.com/2021/08/hup-hup-mee-siam-80-circuit-road-market-hawker-centre-singapore.html","note":"Entree Kibbles' dedicated Circuit Road post on Hup Hup's Top-10-ranked mee siam, corroborating SethLui."},
+  {"place":"Sweet Cheeks Gelato","creatorKey":"CAVINTEO","url":"https://cavinteo.blogspot.com/2022/04/sweet-cheeks-gelato-near-potong-pasir.html","note":"Entree Kibbles reviewed the SMU-grads' handcrafted gelato near Potong Pasir MRT, alongside Daniel Food Diary and ladyironchef."},
+  {"place":"Yi Jia South Village Seafood Restaurant","creatorKey":"CAVINTEO","url":"https://cavinteo.blogspot.com/2012/02/yi-jia-south-village-seafood-restaurant_06.html","note":"Entree Kibbles' dedicated review of the MacPherson Road zi char's honeydew prawns, corroborating ieatishootipost."},
+  {"place":"No.10 Noodle House","creatorKey":"ORDINARYPATRONS","url":"https://ordinarypatrons.com/2019/04/11/no-10-noodle-house-in-circuit-road-2-50-noodles/","note":"The Ordinary Patrons documented the S$2.50 old-school bak chor mee, corroborating SethLui and Mothership."}
+ ],
+ "rejected": [
+  {"name":"jiaksimipng.wordpress.com (borderline for Nooodon)","reason":"Real but small blog; on its own not enough to clear the 2-credible bar for Nooodon, which otherwise had only Daniel Food Diary — HELD, not added."},
+  {"name":"voykris.com / islifearecipe.net / singaporehawkercentres.com / hawkerpedia.com.sg / kopitiam.com.sg / trending.globit.dev / a1credit.sg / traveltriangle / sglocalnews / nickblitzz.sg / thewonderlustway","reason":"SEO/directory/content-farm or unverifiable-authorship pages — mention, not merit; not counted toward the 2-credible bar."},
+  {"name":"Burpple / FoodAdvisor / OpenRice / Foursquare / Wanderlog / Chope / eatigo / OpenTable / Quandoo / foodpanda / seaco-online / reviewbah / sgpbusiness","reason":"User-review, booking, delivery or business-registry aggregators — used only to MEASURE popularity or confirm addresses, never toward the 2-credible bar."},
+  {"name":"Yelp / TripAdvisor / Google","reason":"Never a recommender per project rules; fact-check/status/address only, 0 toward the two."},
+  {"name":"Lemon8 / anonymous TikTok discover pages / mimiworld / mindtrip.ai / aroundus","reason":"Anonymous or unverifiable accounts / AI-scraped pages with no findable track record on the specific place."}
+ ]
+}
