@@ -235,6 +235,46 @@ coordinates (full SG address + postal per place); ≥2 credible sources per plac
   wave: Tom's Palette (Kovan), Lickers, The Larder, Tracy's Sarawak Kitchen, Breakfast Club, Ding Te Le,
   Qi Wei Chicken Claypot — held pending a confirmed 2nd credible source and/or exact address.
 
+### Upper Serangoon (USG) — WAVE 2 discovery (DONE 2026-09-02)
+Goal: push USG from ~46 toward the Toa Payoh ~70 benchmark, no padding below the >=2-credible bar.
+WebSearch-only; no coordinates (full SG address + postal where known); APPENDED to NEW files
+`FOOD_USG2.json` (15), `SIGHTS_USG2.json` (5 sights + 7 source rows), `SOURCES_USG2.json` (5 new outlets),
+`CREATORS_USG2.json` (1 creator / 4 attach / 6 rejected). All parse (python3); every record `a="USG"`;
+**no name collides with wave 1**; every food place carries >=2 credible sources, every sight >=2; all
+source/creator keys resolve against SOURCES_USG(+2)/CREATORS_USG(+2). Running total ≈ 61 (49 food + 17
+sights across both waves; wave-1 was 34 food + 12 sights, wave-2 adds 15 + 5).
+
+- **FOOD 15 — tiers t2=8, t3=7 (no new t1).**
+  - **Chomp Chomp Food Centre (2 more):** Swee Heng Wanton Noodle (#01-12, 50-yr, in-house char siew/
+    wantons), Wang Da Shen Chicken Wing & Satay (pandemic-era stall, only one open till 2am).
+  - **Serangoon Garden Market (1 more):** Seng Kee Mushroom Minced Meat Noodle (#01-36, 40-yr bak chor mee).
+  - **Kovan 209 Market (2 more):** Fa Ji Minced Meat Fishball Noodle (#01-05), Hajjah Mariam Muslim Food
+    (#01-53, halal nasi lemak).
+  - **Kovan / Hougang St 21 / Upper Serangoon / myVillage (10):** Tom's Palette Kovan (Blk 212 #01-333 —
+    gelato, opened Mar 2024; HONEST NOTE recorded in-card: both outlets set to close Oct 2026, kept
+    open=true as it is trading as of Sep 2026), Lola's Cafe (5 Simon Road, brunch), Two Cranes (Blk 211
+    #01-291, Korean-fusion cafe), Dessert Bowl (80A Serangoon Garden Way, durian mousse), East Bistro
+    (myVillage #02-01, ex-Lei Garden chef Tony Wong, dim sum), Ng Kuan Chilli Pan Mee (943 Upper Serangoon,
+    KL ban mian), Nakhon Kitchen (Blk 212 #01-341, pioneer affordable Kovan Thai since 2008), Curry & Curry
+    (203 Hougang St 21 #01-45, curry fish head zi char), Sin Heng Kee Porridge (685 Hougang St 61 #01-150,
+    long-queue congee), Fragrant Garden (756 Upper Serangoon Rd, Teochew — anchors the 'Au Kang' heritage).
+- **SIGHTS 5 — tiers t2=2, t3=3.** Masjid Haji Yusoff (2 Hillside Drive, oldest Hougang mosque 1921,
+  Angullia-donated land — Hougang Heritage Trail) and Chee Tong Temple (62 Hougang Ave 3, 1987, Tay Kheng
+  Soon / Akitek Tenggara — SG's first modernist Chinese temple, docomomo-documented) lead; plus Church of
+  St Vincent de Paul (301 Yio Chu Kang Rd, Kovan western edge, opened 1970), Heartland Mall @ Kovan (205
+  Hougang St 21, above Kovan MRT), Sungei Serangoon Park Connector / North-Eastern Riverine Loop.
+- **New outlets (SOURCES_USG2):** THESMARTLOCAL, TIMEOUT (Time Out SG), DOCOMOMO (Docomomo Singapore),
+  CATHOLICSG (Archdiocese heritage), GCATHOLIC. All other keys reuse the wave-1 registries. **Creator:**
+  ieatishootipost (Dr Leslie Tay) re-referenced with 4 new attach notes (East Bistro, Curry & Curry, Sin
+  Heng Kee, Fragrant Garden). Yelp/TripAdvisor/Google/Burpple/OpenRice/Lemon8/TikTok = 0.
+- **Merit bar — measured then dropped/held (in CREATORS_USG2 rejected[]):** Zuzu Kebab, Denzy Gelato,
+  Weng Fatt HK Roast, Prata Lahhh!, Hajime Tonkatsu / iSTEAKS / Waa Cow! (myVillage chains) — single-
+  credible or not area-signature. Bee Kee Wanton, Lau Wang Claypot, Suriya Curry House, Song Kee Fishball
+  deferred as Serangoon-Central cluster (nearer Serangoon town / Nex than Upper Serangoon-Kovan).
+- **NEXT (shared with wave 1):** geo-merge FOOD_USG(+2)/SIGHTS_USG(+2) → geocode + location-verify each new
+  place (Google !3d!4d / OneMap / Wikipedia coords) → statuscheck (RE-CONFIRM Tom's Palette Kovan closure
+  date — flag `— CLOSED` once it actually shuts in Oct 2026) → rebuild-city singapore → gates.
+
 ## Stage 4 — Potong Pasir & MacPherson (PPM) discovery (DONE 2026-09-01)
 Two adjacent central areas built to Toa Payoh depth, area code **PPM**, WebSearch-only (WebFetch blocked),
 batched to conserve shared budget. Files: `FOOD_PPM.json` (25), `SIGHTS_PPM.json` (12 + 16 source rows),
