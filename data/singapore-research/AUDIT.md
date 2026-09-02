@@ -414,3 +414,124 @@ Second discovery wave on area code **AMK**, WebSearch-only (WebFetch blocked). *
   coords) -> statuscheck -> geo-merge -> register AMK as a Singapore town (region->folder) -> rebuild-city
   singapore --build -> gates (sourcecheck/geocheck/statuscheck). Remaining single-credible HELD leads above
   await a 2nd source for a wave 3 if AMK is pushed past 70.
+
+### Stage 1 — Ang Mo Kio (AMK) wave 3 (DONE 2026-09-02)
+Third discovery wave on area code **AMK**, WebSearch-only (WebFetch blocked). **Appended to new files**
+(waves 1+2 untouched): `FOOD_AMK3.json` (16, LIST), `SIGHTS_AMK3.json` (3 + 6 source rows, DICT),
+`SOURCES_AMK3.json` (2 new outlets), `CREATORS_AMK3.json` (0 new creators / 28 rejected-or-held). All parse
+(python3); every record `a="AMK"`; **every food place carries >=2 credible sources** (or lone Michelin); all
+food source keys resolve (SOURCES_AMK + AMK2 + AMK3), all sight keys resolve (SIGHTS_AMK3 own `sources`).
+**De-duped against waves 1+2** (0 name collisions in food or sights). Takes AMK from 68 -> **87** (67 food + 20 sights).
+
+- **FOOD +16** — tiers t1=1, t2=8, t3=7; 0 closed.
+  - **t1:** Hup Hup Minced Meat Noodle (724 Central #01-39 — Michelin Guide-listed ketchup-forward bak chor mee;
+    DFD + SethLui + Her World + Women's Weekly).
+  - **t2:** Eng Ho Fried Hokkien Prawn Mee (409/Teck Ghee Sq — SethLui 409 guide + MTC; Lianhe Wanbao top-10);
+    Zhen Ming Pork Ribs Prawn Noodle (Mayflower 162 — MTC + SethLui best-prawn-noodle-soup; black-sugarcane broth);
+    Shu Heng Bi Tai Mak (Kebun Baru — Eatbook + SethLui + Johor Kaki + MTC; JB-style bi tai mak);
+    Thohirah Restaurant (258 Jalan Kayu — 24h halal prata/biryani; Eatbook + MTC Jalan Kayu guides);
+    Lai Heng Char Kway Teow (Sembawang Hills — MTC + Eatbook + DFD + Johor Kaki; CKT + otah);
+    Ayah Dimsum (Blk 260 St 21 — Muslim-owned handmade dim sum; Eatbook + Have Halal Will Travel + 8days);
+    Dongsheng Cafe (Blk 163 Ave 4 — 2025 Nanyang cafe, mani cai mee hoon kueh; SethLui + Eatbook);
+    Wonders (128 Ave 3 — mahjong-themed gelato cafe; Eatbook + DFD).
+  - **t3:** Rosnah's Family Kitchen (628 #01-97 — Malay; SethLui + Eatbook 628); Foy Yin Vegetarian (628 #01-70 —
+    SethLui + Eatbook 628); Seng Huat Duck Rice (Sembawang Hills #01-27 — MTC + DFD + SethLui);
+    Makan Food Stall (Sembawang Hills #01-17 — halal Malay; MTC + DFD); Xiang Kee Yu Yuan Mian Tang (Cheng San
+    527 #01-125 — fishball KT soup; SethLui Cheng San guide + Johor Kaki); Vincent Western Food (724 Central
+    #01-08 — 1990s hawker-Western; SethLui old-school Western guide + DFD 724 roundup); Ki-mochi (Blk 446 Ave 10
+    #01-1661 — mochi pancakes/waffles cafe; Eatbook + SethLui + Mothership) — **FLAGGED: one unverified report the
+    unit changed hands; re-verify at statuscheck before publishing.**
+- **SIGHTS +3** — tiers t2=1, t3=2, all >=2 credible incl. institutional Roots(NHB)/NHB/NLB/Wikipedia.
+  Old Upper Thomson Road / Thomson Road Grand Prix Circuit (1961-73 SG GP course — Devil's Bend, The Snakes;
+  Wikipedia + NLB + Atlas Obscura + Remember Singapore); Teachers' Housing Estate (STU estate, 1969/71, roads
+  named after literary figures; Roots + NHB); Sembawang Hills Estate (1950s ex-rubber landed estate; Roots +
+  Wikipedia + NHB). All three are Ang Mo Kio Heritage Trail markers (Scenic Fringes / heritage).
+- **Chased wave-2 HELD leads → confirmed:** Zhen Ming (now 2nd-sourced), Shu Heng, Lai Heng, Seng Huat, Makan,
+  Xiang Kee, Ayah Dimsum, Dongsheng, Wonders, Ki-mochi. **CORRECTION:** wave-2's Penang Delights was NOT added —
+  re-check found only ONE clearly-credible source (Cavin Teo); 'Penang Savour'/'Penang Kitchen' are different
+  places. Moved to CREATORS_AMK3 rejected/held.
+- **New CREDIBLE outlets registered (SOURCES_AMK3):** Have Halal Will Travel (major SG halal food/travel
+  publication) and 8days (Mediacorp) — both for Ayah Dimsum, alongside Eatbook. No new individual TikToker/
+  YouTuber with verifiable follower evidence was confirmable — logged, not fabricated.
+- **HELD below the 2-credible bar (single credible only), logged for a wave 4:** Mikuriya (ex-Sushi Tei donburi),
+  Konomi Zen, Donburi No Tatsujin, SteakGrill, Marugoto Shokudou (Broadway Plaza, former cinema), I'm Kim Korean
+  BBQ, Thai Baang (AMK Hub), Kopi Soh, Just Love Bread, Zhou Ji Wanton, Huang Ah Yi Noodle, Jia Xiang Curry Rice,
+  Teck Kee Cooked Food, OK Chicken Rice & Humfull Laksa, Lao San Kway Chap, Ru Lai Vegetarian, Qi Xiang, Gao Yuan
+  Dessert, Wei Ji Braised Duck, Sing Soon Lee Chicken Rice, Xiang Ji Porridge, Nasi Lemak@67, Shi Xian, Jie Mei
+  YTF, Ping Kee Popiah, Ang Mo Kio Big Prawn Noodle, Penang Savour, Hup Lee Bee Hoon, Roasted Delight. Froz Bakery
+  re-checked (still aggregators only — rejected). Seletar Hills Estate excluded (on AMK trail but Seletar/Serangoon
+  geography — area over-reach).
+- **Yelp/TripAdvisor/Google/Burpple/OpenRice/Foursquare/Lemon8/abillion/happycow = 0 throughout** (measure/address
+  only); SEO farms (kopitiam.com.sg, singaporehawkercentres, donsignaturecrab, getgo, nickblitzz, threebestrated,
+  foodadvisor, trip.com, nearme, everydayonsales) rejected. **NO coordinates** (full address + S-postal only; a few
+  stall units flagged 'to confirm' for geocode — Shu Heng, Ayah Dimsum, Lai Heng #01-32 vs 01-15). No fabrication.
+- **NEXT:** geocode + location-verify each AMK3 place (Google !3d!4d / OneMap / Wikipedia coords) -> statuscheck
+  (incl. Ki-mochi closure re-verify) -> geo-merge -> rebuild-city singapore --build -> gates. Single-credible HELD
+  leads above await a 2nd source for a wave 4 if AMK is pushed past 90.
+
+### Upper Serangoon (USG) — WAVE 3 discovery (DONE 2026-09-02)
+Goal: from ~66, push USG toward 100+ across EVERY subzone (Serangoon Gardens/Chomp Chomp/myVillage,
+Kovan/Kovan 209/Heartland Mall, Hougang Ave 1-10/Hougang Central/Hougang Mall/Ci Yuan/Lorong Ah Soo,
+Buangkok, the Defu/Lorong Halus edge). No padding below the >=2-credible bar.
+
+**Files:** `FOOD_USG3.json` (33, LIST), `SIGHTS_USG3.json` (5 sights + 8 embedded source rows, DICT),
+`SOURCES_USG3.json` (2 new outlets), `CREATORS_USG3.json` (2 creators re-declared / 6 attach / 13 rejected).
+All parse (python3 json.load); every record `a="USG"`; every food carries `closed`; DEDUP against
+waves 1+2 = 0 collisions (verified programmatically). Every source key resolves against
+SOURCES_USG(+2+3)/CREATORS_USG(+2+3)/SIGHTS embedded sources. **Running total = 66 + 38 = 104**
+(82 food + 22 sights).
+
+- **FOOD 33 — tiers t1=5, t2=14, t3=14, closures 0.**
+  - **t1 (institutional / best-rated):** Nasi Lemak Ayam Taliwang (Ci Yuan #01-40, MICHELIN-listed +
+    DFD), Ming Fa Duck Rice (Hainanese Village #02-01, Johor Kaki + MTC + SethLui + Eatbook), Original
+    Simon Road Hokkien Mee (Kovan 209 #01-66, same recipe since 1960 — SethLui + DFD + Eatbook),
+    Anshun Seafood Soup (174C Hougang Ave 1, SG's best-rated fish soup — ieat + Eatbook + SethLui),
+    Hougang Oyster Omelette & Fried Kway Teow (435A Hougang Ave 8, ieat + MTC + Eatbook + SethLui).
+  - **Kovan / Kovan 209 / Upper Serangoon:** Davis Prawn Court (#01-37), Yong's Teochew Kueh (1022 UppSer),
+    Yi Ji Fried Hokkien Prawn Mee (965 UppSer), Yi Dian Xin HK Dim Sum (973 UppSer), 88 Pocha (957 UppSer),
+    Breakfast Club (941 UppSer), Picky Snout (1014 UppSer), Tachinomiya (Blk 211, first heartland izakaya),
+    Fatto Catto (15 Simon Rd, matcha cafe by Fat Cat).
+  - **Hougang (Ave 1-10 / Central / Rivercourt):** Denzy Gelato (684 Ave 8, 2019 SG Gelato champ), 682 Min
+    Jiang Kueh (682 Ave 4), Sweedy Patisserie (377 St 32, viral crookie/Fatcaron), Happy Oven (678 Ave 8),
+    5 Star Corner Western (805 Hougang Central), Goldhill Family Restaurant (Blk 6 Ave 3, cai png),
+    Kovan Scrambled Egg Rice (relocated 2024 to Blk 335 Ave 7).
+  - **Hainanese Village Centre / Lorong Ah Soo (105 Hougang Ave 1) — the Teochew/heartland cluster (7):**
+    Ming Fa Duck Rice, Quan Ji Cooked Food, Yi Liu Xiang (First Class Fragrance) Nasi Lemak, Apollo Grilled
+    Western Food, Lorong Ah Soo Lor Mee (Fu Yuan Mei Shi), Dong Jin Yuan Dian Xin (fried carrot cake sticks),
+    Roasted Pork Belly Nasi Lemak.
+  - **Ci Yuan Hawker Centre (51 Hougang Ave 9):** Nasi Lemak Ayam Taliwang, Jade's Chicken (Korean),
+    Mei Xi Hakka Yong Tau Foo.
+  - **Serangoon Gardens / myVillage:** Hajime Tonkatsu & Ramen (#02-07/8/9), Waa Cow! Yakiniku (#02-10/11),
+    The Larder Cafe (66A Serangoon Garden Way), Chindamani Indian Restaurant (108 Ave 1, ieat 'Famous Five'
+    prata + Honeycombers).
+- **SIGHTS 5 — tiers t1=1, t2=1, t3=3.** **Kampong Lorong Buangkok** (7 Lorong Buangkok — Singapore's last
+  mainland village, est. 1956, Trafalgar/Buangkok subzone of Hougang; NLB + TheSmartLocal + Wikipedia) leads.
+  **Lorong Halus Wetland / Serangoon Reservoir** (the Defu/industrial edge; NParks + PUB). Plus **Holy
+  Innocents' High School** (5 Lorong Low Koon, 1892 mission school; Wikipedia + CatholicSG), **Zi Yun Kai Ji
+  Gong** (56 Hougang Ave 3, 1996, three relocated temples — Hougang Heritage Trail 'Architectural Gems';
+  Roots + Wikipedia), **Kangkar (Kang Kar) heritage site** (foot of Sungei Serangoon, old fish market at
+  7½ milestone; Roots/NHB + Remember Singapore).
+- **New outlets (SOURCES_USG3):** WOMENSWEEKLY (The Singapore Women's Weekly), PUB (national water agency,
+  for Lorong Halus). All other keys reuse the existing USG registry.
+- **Creator attach (CREATORS_USG3):** IEATISHOOTIPOST -> Anshun Seafood Soup, Hougang Oyster Omelette,
+  Chindamani; JOHORKAKI -> Ming Fa Duck Rice, Yi Liu Xiang Nasi Lemak, Dong Jin Yuan Dian Xin.
+- **Merit bar — measured then HELD/DROPPED (in CREATORS_USG3 rejected[]):** HELD for a 2nd credible source:
+  Charlie's by Rise & Grind, Chu and Co/Chulato, 805 Seafood Kitchen, Suriya Curry House (genuinely in-area
+  536A UppSer but only aggregators), Chin Kee 77, Yong Seng Teochew Fishball. DROPPED: Munchi Pancakes
+  (Ci Yuan outlet SHUTTERED), Relish by Wild Rocket (myVillage CLOSED), iSTEAKS (chain, 1 credible), Bedok
+  Chwee Kueh (Hougang-outlet sourcing thin). Out-of-area (area creep): Sheng Hong Temple (Arumugam Rd),
+  Rosyth School & Serangoon Garden Sec (Serangoon North), Lau Wang/Bee Kee/Song Kee (Serangoon Central).
+  Held-lead 'Froz-type cafe' resolved as not-present in-area.
+- **Sources:** Michelin, SethLui, Eatbook, Daniel Food Diary, Miss Tam Chiak, HungryGoWhere, Her World,
+  Women's Weekly, Mothership, AsiaOne, ladyironchef, The Honeycombers, ieatishootipost, Johor Kaki; sights
+  on NLB / Roots(NHB) / NParks / PUB / CatholicSG / TheSmartLocal / Remember Singapore / Wikipedia.
+  **Yelp/TripAdvisor/Google/Burpple/OpenRice/Foursquare/Lemon8/TikTok = 0** (existence/status only). SEO/
+  aggregator/personal (kopitiam.com.sg, hawkerpedia, foodadvisor, wanderlog, evendo, thefat.guide,
+  sengkangtopunggol, ahmaqqbowl, tidbitsmag, therantingpanda, sgfoodonfoot, ivanteh-runningman) rejected.
+  **NO coordinates** (full address + S-postal only; Fatto Catto 15 Simon Rd & Lorong Halus/Buangkok/Kangkar
+  postals flagged 'to confirm' at the geocode stage). No fabrication; closures among added places = 0.
+- **NEXT (shared with waves 1-2):** geo-merge FOOD_USG(+2+3)/SIGHTS_USG(+2+3) -> geocode + location-verify
+  each new place (Google !3d!4d / OneMap / Wikipedia coords) -> statuscheck (RE-CONFIRM the Munchi Ci Yuan &
+  Relish myVillage closures; Kovan Scrambled Egg Rice relocation to Blk 335 Ave 7) -> register USG as a
+  Singapore town (region->folder) -> rebuild-city -> gates (sourcecheck/geocheck/statuscheck). HELD single-
+  credible leads above await a 2nd source for any wave 4.
