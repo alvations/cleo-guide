@@ -173,3 +173,82 @@ Südpark. `g` from HIST/ARCH/MUS/RIVER/PARK/MKT/NIGHT/FREE/ICON (no UNESCO in DU
   TIMEOUT + THE DORF — dropped only for lack of a mappable cuisine tag, re-add with an INT label).
 - Carlsplatz individual stalls (Dauser Gulasch, Fladi, Steakschmiede) — Carlsplatz kept as a SIGHT (MKT);
   stalls held pending per-stall ≥2-credible.
+
+---
+
+## RHEIN — "The Rhine Corridor" (between & ringing the three cities)
+
+New area code **`RHEIN`** for the notable places along the Rhine axis from south of Bonn (Königswinter,
+Bad Honnef, Siegburg, Troisdorf) through the Bonn↔Cologne belt (Brühl, Rheinbach, Frechen, Hürth,
+Pulheim, Bergheim/Bedburg) and the Cologne↔Düsseldorf belt (Bergisch Gladbach, Leverkusen,
+Zons/Dormagen, Neuss, Meerbusch, Jüchen). Output files: `SIGHTS_RHEIN.json`, `FOOD_RHEIN.json`,
+`SOURCES_RHEIN.json`, `CREATORS_RHEIN.json`. Search language: **German** (English where natural).
+WebSearch only. **No coordinates** — full street addresses only.
+
+### Counts
+- **Sights: 29** — tier-1 **13**, tier-2 **15**, tier-3 **1**.
+- **Food/drink: 16** — tier-1 **4**, tier-2 **8**, tier-3 **4**.
+- **Creators: 0** (none vetted this pass to a real findable following + specific naming piece — file left empty).
+- **Closures: 0** (no permanently-closed places pinned this pass).
+
+### Sights by town (all `a:"RHEIN"`)
+- **Brühl:** Schlösser Augustusburg & Falkenlust (UNESCO 1984, lone-authority + NRW/Brühl tourism),
+  Max Ernst Museum (LVR — only Max-Ernst museum worldwide), Phantasialand.
+- **Neuss (+ Hombroich):** Museum Insel Hombroich, Langen Foundation (Tadao Ando), Skulpturenhalle
+  Thomas Schütte, Clemens-Sels-Museum & Roman Novaesium, Quirinus-Münster.
+- **Leverkusen:** Japanischer Garten (Bayer/Carl Duisberg), Museum Morsbroich, BayArena, Neuland-Park.
+- **Bergisch Gladbach:** Kunstmuseum Villa Zanders, Schloss Bensberg.
+- **Pulheim/Dormagen/Siegburg:** Abtei Brauweiler (1024), Kloster Knechtsteden, Zollfeste Zons,
+  Abtei Michaelsberg.
+- **Siebengebirge edge (Königswinter/Bad Honnef/Troisdorf):** Klosterruine Heisterbach, Großer Ölberg,
+  Petersberg (Bundesgästehaus), Insel Grafenwerth, Bilderbuchmuseum Burg Wissem.
+- **Rhein-Erft / Jüchen:** Schloss Paffendorf, Schloss Bedburg, Museum Keramion (Frechen), Glasmuseum
+  Rheinbach, Schloss Dyck (Jüchen), Otto-Maigler-See (Hürth).
+  Note: Drachenfels / Schloss Drachenburg are already pinned under `BONN` and were NOT duplicated here.
+
+### Food — signature FIRST (name the dish)
+- **Corridor Michelin bench:** **Vendôme** (Bergisch Gladbach, Althoff Schloss Bensberg — 3★ for 17 yrs,
+  **2★ since 2022**; Wissler handed the kitchen to **Dennis Kuckuck in Oct 2025** — recorded accurately, NOT
+  as "3 stars"), **Schote by Nelson Müller** (Bergisch Gladbach, Diepeschrather Mühle — lost its star on the
+  2025 move, **regained 1★ in the 2026 guide**), **Anthony's Kitchen** (Meerbusch, 1★, West-African fine
+  dining), **Landhaus Mönchenwerth** (Meerbusch, Michelin-listed, Rhine terrace), **Herzog von Burgund**
+  (Neuss, Michelin-listed) + **Trattoria Enoteca** (Schloss Bensberg's Italian).
+- **Rhenish / Altbier / Kölsch:** **Brauhaus Im Dom** (Neuss — house brewery documented since 1607, among
+  the world's oldest Altbier breweries; WZ + KuLaDig + neuss.de), **Siegburger Brauhaus**, **Brühler
+  Wirtshaus am Schloss** (Himmel un Äd/Halve Hahn in the palace park; koeln.de + Falstaff + Brühl tourism),
+  **Altes Standesamt** (Bad Honnef).
+- **Bergische Kaffeetafel** ("Kaffee mit allem Drum und Dran"): **Restaurant Dröppelminna** and **Zur Quelle
+  der Strunde** (both Herrenstrunden, Bergisch Gladbach).
+- **Siebengebirge wine (Drachenfels):** **Weingut Pieper – Vinothek** (Königswinter, trachyte-soil Riesling)
+  and **Weingut Blöser** (Oberdollendorf, family since 1696).
+- **Cafés / Rhine gasthäuser:** **Museumscafé Siegburg**, **Weinhaus am Rhein** (Königswinter-Niederdollendorf).
+
+### Merit / source notes
+- ≥2-credible bar enforced; **lone Michelin/UNESCO accepted** (Augustusburg&Falkenlust, Vendôme, Schote,
+  Anthony's, Landhaus Mönchenwerth, Herzog von Burgund). Yelp/TripAdvisor/Google/OpenTable = **0**;
+  schlemmer-atlas/gusto/Falstaff/Michelin count as editorial/institutional. Ratings only *measure*.
+- Credible outlets registered in `SOURCES_RHEIN.json`: KStA-tier local editorial (WZ, in-gl.de Bürgerportal,
+  koeln.de, Mit Vergnügen Köln); official municipal (neuss.de, dormagen.de, siegburg.de/tourismus-siegburg,
+  troisdorf.de, bedburg.de, city.bergheim.de, rheinbach.de, leverkusen.de, bruehl tourism); tourism boards
+  (NRW, Rhein-Erft, Niederrhein, RadRegionRheinland, visit-bonn-region, meinbadhonnef, Das Bergische,
+  Naturpark Bergisches Land, Naturpark Rheinland, siebengebirge.com); heritage/architecture (LVR, KuLaDig,
+  baukunst-nrw, baukultur.nrw, Denkmalschutz, EGHN, Rheinische Art); guides (Michelin, Falstaff, Schlemmer
+  Atlas, Gusto); owner-official (Bayer for the Japanese garden).
+
+### HELD candidates (did NOT clear ≥2-credible this pass — verify/extend before build)
+- **Weinwirtschaft zum Böllchen** (Bad Honnef/Rhöndorf, 1720 Fachwerk wine tavern) — strong editorial via Mit
+  Vergnügen Köln but only **one** credible source found; add a 2nd (GA / meinbadhonnef gastro) to pin.
+- **Gasthaus Herkenrath Hof** (Leverkusen-Schlebusch, 18th-c. Bergisch Fachwerk, rheinisch + Biergarten) —
+  Schlemmer Atlas only; needs a 2nd credible (WDR/koeln.de/Radio Leverkusen).
+- **Ristorante Quattro Passi / restaurant at Burg Wissem** (Troisdorf, Burgallee 1) — the brief's "Fabbrica";
+  a **Sept-2025 operator handover** (Adscheid) makes the current name/concept uncertain — resolve current
+  name & status before pinning.
+- **Wirtshaus am Rhein** (Königswinter, Rheinallee 9) & **Fährhaus Zons** (Dormagen) — ratings-portals only.
+- **Brauhaus Brühler Hof** (Uhlstraße 30, Brühl) — Brühler Wirtshaus am Schloss chosen instead (better sourced).
+- **Petersberg address**: pinned as "Petersberg, 53639 Königswinter" (no house number published for the
+  summit/Bundesgästehaus) — confirm exact street at geocode.
+
+### For the geocode/status pipeline (next stages)
+- No coordinates emitted (per brief). Every place carries a full street address + City + Germany.
+- Run `--sourcecheck`, then geocode + **placement re-verify** (read `!3d!4d`, not `/@`), then `--statuscheck`
+  before build. Watch: Vendôme leadership/star line is current as of 2026-09; Schote star is the **2026** guide.

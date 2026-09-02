@@ -11,12 +11,17 @@
   {
    "id": "DUS",
    "n": "Düsseldorf (Altstadt · Kö · MedienHafen · Little Tokyo)"
+  },
+  {
+   "id": "RHEIN",
+   "n": "The Rhine Corridor (Brühl · Bergisch Gladbach · Leverkusen · Neuss · Zons)"
   }
  ],
  "ac": {
   "KOLN": "#C0504D",
   "BONN": "#2E6DA4",
-  "DUS": "#E8973A"
+  "DUS": "#E8973A",
+  "RHEIN": "#16A085"
  },
  "cuisines": [
   {
@@ -3057,6 +3062,786 @@
      "https://de.wikipedia.org/wiki/Hahnentorburg"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Schlösser Augustusburg & Falkenlust (UNESCO-Welterbe)",
+   "ad": "Schlossstraße 6, 50321 Brühl, Germany",
+   "w": "Two early-Rococo masterpieces in Brühl — the sumptuous residence Augustusburg with Balthasar Neumann's grand ceremonial staircase, and the intimate hunting lodge Falkenlust — set in a formal French garden. Together with the garden they have been a UNESCO World Heritage Site since 1984, the corridor's cultural crown.",
+   "k": "Rococo palaces · UNESCO since 1984",
+   "g": [
+    "UNESCO",
+    "ICON",
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.schlossbruehl.de/"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/unesco-weltkulturerbe/schloesser-bruehl"
+    ],
+    [
+     "BRUEHLTOUR",
+     "https://tourismus.bruehl.de/bruehl-entdecken/highlights-in-bruehl/schloesser.php"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Max Ernst Museum Brühl des LVR",
+   "ad": "Comesstraße 42 / Max-Ernst-Allee 1, 50321 Brühl, Germany",
+   "w": "The world's only museum devoted to the whole life and work of Dadaist and Surrealist Max Ernst, born in Brühl in 1891. A neoclassical villa with a glass extension holds sculptures, graphics and the 36 intimate 'D-paintings' Ernst gave his wife Dorothea Tanning.",
+   "k": "Only Max Ernst museum worldwide",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "LVR",
+     "https://www.maxernstmuseum.lvr.de/"
+    ],
+    [
+     "BRUEHLTOUR",
+     "https://tourismus.bruehl.de/bruehl-entdecken/highlights-in-bruehl/max-ernst-museum-bruehl-des-lvr.php"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/kulturpaeckchen/max-ernst-museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Phantasialand",
+   "ad": "Berggeiststraße 31–41, 50321 Brühl, Germany",
+   "w": "One of Germany's best and most-visited theme parks, drawing over two million guests a year to seven immersive themed worlds — Berlin, China, Mexico, Deep in Africa, Fantasy, Mystery and the acclaimed new Klugheim and Rookburgh — with some of Europe's most admired roller coasters.",
+   "k": "Top German theme park · 7 themed worlds",
+   "g": [
+    "ICON",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.phantasialand.de/"
+    ],
+    [
+     "RADREGION",
+     "https://www.radregionrheinland.de/attraktion/phantasialand-05f80a2105"
+    ],
+    [
+     "BRUEHLTOUR",
+     "https://www.bruehl.de/microsite/tourismus/bruehl-entdecken/highlights-in-bruehl/phantasialand.php"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Museum Insel Hombroich",
+   "ad": "Minkel 2, 41472 Neuss, Germany",
+   "w": "A singular 'art parallel to nature' on 25 hectares of Erft meadowland near Neuss: walk-in pavilions holding works from Cézanne and Rembrandt to Asian antiquities, set loose in a wild landscape with no labels and one flat entry fee. Includes the Kirkeby-Feld and the former NATO Raketenstation.",
+   "k": "Art island in the meadows",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.inselhombroich.de/"
+    ],
+    [
+     "RADREGION",
+     "https://www.radregionrheinland.de/attraktion/museum-insel-hombroich-b7dd9a6925"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/museum-insel-hombroich-raketenstation-hombroich-niederrhein"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Langen Foundation",
+   "ad": "Raketenstation Hombroich 1, 41472 Neuss, Germany",
+   "w": "Tadao Ando's serene concrete-and-glass museum (2004) on the former Hombroich missile base, a long glazed hall crossed by two half-buried concrete wings. It shows the Viktor and Marianne Langen collection of Japanese and modern art in changing exhibitions.",
+   "k": "Tadao Ando art house on the Raketenstation",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.langenfoundation.de/"
+    ],
+    [
+     "VISITDUS",
+     "https://www.visitduesseldorf.de/en/attractions/langen-foundation-ac6458a93c"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Langen_Foundation"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Skulpturenhalle Thomas Schütte",
+   "ad": "Lindenweg / Ecke Berger Weg, 41472 Neuss-Holzheim, Germany",
+   "w": "An elliptical, column-free exhibition hall built to a model by Golden-Lion sculptor Thomas Schütte and opened in 2016, set among the Hombroich cultural grounds between the Museum Insel and the Langen Foundation. It shows Schütte's own work and changing sculpture exhibitions.",
+   "k": "Thomas Schütte's sculpture hall",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://thomas-schuette-stiftung.de/en/"
+    ],
+    [
+     "BAUKULTURNRW",
+     "https://baukultur.nrw/artikel/leicht-wie-ein-kartoffelchip-die-neue-skulpturenhalle-von-thomas-schuette/"
+    ],
+    [
+     "RHEINISCHEART",
+     "http://www.rheinische-art.de/cms/topics/bildhauer-thomas-schuette-eroeffnet-seine-skulpturenhalle-in-neuss-bei-raketenstation-hombroich.php"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Clemens-Sels-Museum & Novaesium",
+   "ad": "Am Obertor, 41460 Neuss, Germany",
+   "w": "Neuss's municipal museum — Rhenish Late Gothic, Symbolism and 20th-century art — alongside the restored Roman collection from Novaesium, the oldest Roman military site on the Lower Rhine, where legions were stationed from the 1st century AD.",
+   "k": "Roman Novaesium · Rhenish art",
+   "g": [
+    "MUS",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://clemens-sels-museum-neuss.de/en"
+    ],
+    [
+     "NEUSSDE",
+     "https://www.neuss.de/kultur/museen-und-kunst/clemens-sels-museum"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/KLD-338924"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Quirinus-Münster Neuss",
+   "ad": "Münsterplatz 23, 41460 Neuss, Germany",
+   "w": "A three-aisled vaulted galleried basilica (1209–1230), one of the great late-Romanesque churches of the Lower Rhine, crowned by a Baroque lantern dome. It holds the relics of St Quirinus, the city's patron, and was raised to a Basilica minor by Benedict XVI in 2009.",
+   "k": "Late-Romanesque basilica · St Quirinus",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/St-Quirinus-Muenster--769.htm"
+    ],
+    [
+     "NEUSSDE",
+     "https://www.neuss.de/erleben/geschichte/neuss-historisch/quirinus-muenster"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Quirinus-M%C3%BCnster_(Neuss)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Japanischer Garten Leverkusen",
+   "ad": "Kaiser-Wilhelm-Allee, 51373 Leverkusen, Germany",
+   "w": "A jewel-like Japanese garden begun in 1912 by Bayer director Carl Duisberg and reshaped after his 1926 trip to Japan, with ponds, arched bridges, lanterns and maples. Set inside the Carl-Duisberg-Park on the Bayer Chempark, free and open year-round.",
+   "k": "1912 Japanese garden · free",
+   "g": [
+    "PARK",
+    "ICON",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BAYER",
+     "https://www.bayer.com/de/de/japanischer-garten-leverkusen"
+    ],
+    [
+     "LEVERKUSENDE",
+     "https://www.leverkusen.de/stadt-erleben/freizeit/carl-duisberg-park-und-japanischer-garten"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Japanischer-Garten-Leverkusen--678.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Museum Morsbroich",
+   "ad": "Gustav-Heinemann-Straße 80, 51377 Leverkusen, Germany",
+   "w": "Leverkusen's museum of modern and contemporary art, in a Baroque moated palace (Schloss Morsbroich) with a mirror hall and a sculpture park. Founded 1951 as one of the first postwar contemporary-art museums in Germany.",
+   "k": "Modern art in a Baroque Schloss",
+   "g": [
+    "MUS",
+    "ARCH",
+    "PARK",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.museum-morsbroich.de/"
+    ],
+    [
+     "LEVERKUSENDE",
+     "https://www.leverkusen.de/kultur-bildung/Kultur/museen/Museum_Morsbroich.php"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Schloss-Morsbroich--742.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "BayArena",
+   "ad": "Bismarckstraße 122–124, 51373 Leverkusen, Germany",
+   "w": "The compact, atmospheric home of Bundesliga club Bayer 04 Leverkusen — the 2024 German champions — seating about 30,000 in the heart of the city, with a hotel built into the stand and stadium tours on non-match days.",
+   "k": "Bayer 04's Bundesliga stadium",
+   "g": [
+    "ICON",
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.bayer04.de/en-us/page/bayarena/directions-to-the-bayarena"
+    ],
+    [
+     "RADREGION",
+     "https://www.radregionrheinland.de/attraktion/bayarena-8bc417fb01"
+    ],
+    [
+     "LEVERKUSENDE",
+     "https://www.leverkusen.de/stadt-erleben/sport/bayarena"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Neuland-Park",
+   "ad": "Nobelstraße 91, 51373 Leverkusen, Germany",
+   "w": "A 25-hectare park on the Rhine, laid out for the 2005 Landesgartenschau on a capped former landfill, that reconnected Leverkusen's centre to the river. Flowering slopes, play areas and long riverside paths.",
+   "k": "Rhine park on a reclaimed Landesgartenschau site",
+   "g": [
+    "PARK",
+    "RIVER",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.neuland-park.de/"
+    ],
+    [
+     "EGHN",
+     "https://www.eghn.org/en/neuland-park-2/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Neuland-Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Kunstmuseum Villa Zanders",
+   "ad": "Konrad-Adenauer-Platz 8, 51465 Bergisch Gladbach, Germany",
+   "w": "The art museum of Bergisch Gladbach in the grand villa of the Zanders paper dynasty, with about 1,500 m² over three floors devoted to contemporary art and a celebrated collection of art made from and with paper.",
+   "k": "Contemporary & paper art in a paper-baron's villa",
+   "g": [
+    "MUS",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://villa-zanders.de/"
+    ],
+    [
+     "DASBERGISCHE",
+     "https://www.dasbergische.de/poi/kunstmuseum-villa-zanders"
+    ],
+    [
+     "NATURPARKBERG",
+     "https://www.naturparkbergischesland.de/en/poi/kunstmuseum-villa-zanders"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Schloss Bensberg",
+   "ad": "Kadettenstraße 1, 51429 Bergisch Gladbach, Germany",
+   "w": "One of Germany's largest Baroque palaces, a hilltop hunting seat begun for Elector Johann Wilhelm in the early 1700s, with sweeping views over Cologne and the Rhine plain. Long a cadet school, since 2000 the Althoff Grandhotel — home to the 2-star Vendôme.",
+   "k": "Baroque hilltop palace · grand hotel",
+   "g": [
+    "ARCH",
+    "HIST",
+    "RIVER",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/schloesser-burgen/schloss-bensberg"
+    ],
+    [
+     "DASBERGISCHE",
+     "https://www.dasbergische.de/hotel/grandhotel-schloss-bensberg"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Schloss_Bensberg"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Abtei Brauweiler",
+   "ad": "Ehrenfriedstraße 19, 50259 Pulheim, Germany",
+   "w": "A former Benedictine abbey founded in 1024 by the Palatine count Ezzo and his wife Mathilde, its great Romanesque church begun in 1135 and a four-winged Baroque cloister added from 1780. Now the LVR cultural centre, marking its 1,000-year jubilee.",
+   "k": "1024 Benedictine abbey · Romanesque church",
+   "g": [
+    "ARCH",
+    "HIST",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "LVR",
+     "https://abteibrauweiler.lvr.de/"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "http://www.baukunst-nrw.de/objekte/Ehemalige-Benediktinerabtei-Brauweiler--1364.htm"
+    ],
+    [
+     "RHEINERFTTOUR",
+     "https://www.rhein-erft-tourismus.de/attraktion/abtei-brauweiler-9f44ca878f"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Kloster Knechtsteden",
+   "ad": "Knechtsteden 4, 41540 Dormagen, Germany",
+   "w": "A former Premonstratensian abbey founded around 1130, its double-choir Romanesque basilica (1138–1181) preserving a rare 12th-century apse fresco of Christ in Majesty. One of the oldest pilgrimage sites in the Rhineland, run by the Spiritans since 1896.",
+   "k": "12th-c. Romanesque basilica · original fresco",
+   "g": [
+    "ARCH",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.kloster-knechtsteden.de/"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-11914-20110606-2"
+    ],
+    [
+     "DORMAGENDE",
+     "https://www.dormagen.de/tourismus-freizeit/kloster-knechtsteden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Zollfeste Zons",
+   "ad": "Schloßstraße 2–4, 41541 Dormagen, Germany",
+   "w": "A remarkably complete medieval customs fortress on the Rhine, laid out from 1372 when the Cologne archbishop moved his toll here, with towers, gates and walls still ringing the little town. The mighty Rheinturm of 1388 and the Judde and Mühlenturm are the picture-book sights.",
+   "k": "Intact medieval Rhine customs town",
+   "g": [
+    "HIST",
+    "ICON",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "DORMAGENDE",
+     "https://www.dormagen.de/tourismus-freizeit/zons-stadt-zons"
+    ],
+    [
+     "NIEDERRHEINTOUR",
+     "https://www.niederrhein-tourismus.de/attraktion/zollfeste-zons-am-rhein-edcf87e52e"
+    ],
+    [
+     "WZ",
+     "https://www.wz.de/nrw/rhein-kreis-neuss/dormagen/zollfeste-zons-am-rhein-lebt-das-mittelalter_aid-29674229"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Abtei Michaelsberg",
+   "ad": "Bergstraße 26, 53721 Siegburg, Germany",
+   "w": "A Benedictine abbey founded on the Michaelsberg by Cologne's Archbishop Anno II in 1064, its baroque bulk crowning Siegburg's skyline. Rebuilt after wartime destruction and, since 2017, a spiritual conference centre — the town's near-1,000-year landmark.",
+   "k": "1064 hilltop Benedictine abbey",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Abtei-Michaelsberg-Siegburg--921.htm"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-3720-20110117-2"
+    ],
+    [
+     "SIEGBURGDE",
+     "https://siegburg.de/strukturierte-daten/orte/sehenswuerdigkeiten/abtei-michaelsberg/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Klosterruine Heisterbach",
+   "ad": "Heisterbacher Straße, 53639 Königswinter, Germany",
+   "w": "The romantic ruin of a Cistercian abbey founded in 1192 in a wooded Siebengebirge valley; only the soaring choir apse of its once-vast church survives, a favourite of the Rhine Romantics, set in a landscaped park. Free to wander.",
+   "k": "Cistercian choir ruin in the Siebengebirge",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/O-FJK-20100614-0005"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Kloster_Heisterbach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Siebengebirge — Großer Ölberg",
+   "ad": "Großer Ölberg, 53639 Königswinter, Germany",
+   "w": "The 461 m Großer Ölberg is the highest summit of the Siebengebirge, Germany's oldest nature reserve, reached by forest trails from Margarethenhöhe or Königswinter. Its summit terrace opens far-reaching views over the range toward the Eifel — the corridor's great hiking country above the Rhine.",
+   "k": "Highest Siebengebirge summit · oldest German reserve",
+   "g": [
+    "PARK",
+    "FREE",
+    "ICON",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "MITVERGNUEGEN",
+     "https://koeln.mitvergnuegen.com/2024/ausflugsziele-siebengebirge/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Gro%C3%9Fer_%C3%96lberg"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Petersberg",
+   "ad": "Petersberg, 53639 Königswinter, Germany",
+   "w": "A Siebengebirge summit above the Rhine crowned by a pilgrimage chapel and the grand hotel that served as the Federal Republic's official guest house — seat of the Allied High Commission after 1945 and host to Kennedy, Gorbachev and the 1999 Petersberg talks. Sweeping river and range views.",
+   "k": "Bundesgästehaus summit · Rhine panorama",
+   "g": [
+    "HIST",
+    "RIVER",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hotel_Petersberg"
+    ],
+    [
+     "OFFICIAL",
+     "https://hrewards.com/en/steigenberger-icon-grandhotel-petersberg-koenigswinter"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Insel Grafenwerth",
+   "ad": "Lohfelder Straße 7, 53604 Bad Honnef, Germany",
+   "w": "A car-free Rhine island reached on foot from Bad Honnef, laid out as a 15-hectare park with lawns, a beer garden, an open-air pool and mini-golf, and a superb view onto the silhouette of the Siebengebirge. The town's riverside playground for a century.",
+   "k": "Car-free Rhine island park",
+   "g": [
+    "RIVER",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MEINBADHONNEF",
+     "https://meinbadhonnef.de/tourismus-freizeit/freizeitmoeglichkeiten/insel-grafenwerth/"
+    ],
+    [
+     "VISITBONN",
+     "https://www.visit-bonn-region.de/gastro/biergarten-insel-grafenwerth"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Grafenwerth"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Bilderbuchmuseum Burg Wissem",
+   "ad": "Burgallee 1, 53840 Troisdorf, Germany",
+   "w": "Housed in the manor house of Burg Wissem, Europe's museum for the art of the picture book, with a high-quality collection of original illustration and lively shows for families. Set in the castle park at the edge of the Wahner Heide.",
+   "k": "Museum of picture-book art",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "TROISDORFDE",
+     "https://www.troisdorf.de/de/freizeit-familie/troisdorf-entdecken/rund-um-die-burg-wissem/"
+    ],
+    [
+     "NATURREGIONSIEG",
+     "https://naturregion-sieg.de/poi/bilderbuchmuseum-burg-wissem"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Schloss Paffendorf",
+   "ad": "Burggasse, 50126 Bergheim, Germany",
+   "w": "A romantic moated Renaissance castle (1531–1546), remodelled in neo-Gothic style in the 19th century, on a triangular island in a landscape park. Home to RWE Power's information centre on the Rhenish lignite region, with a café and free garden.",
+   "k": "Moated Renaissance castle · park",
+   "g": [
+    "ARCH",
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "BERGHEIMCITY",
+     "https://city.bergheim.de/sehenswuerdigkeiten/schloesser-burgen/schloss-paffendorf"
+    ],
+    [
+     "BAUKUNSTNRW",
+     "https://www.baukunst-nrw.de/objekte/Schloss-Paffendorf--3191.htm"
+    ],
+    [
+     "RHEINERFTTOUR",
+     "https://www.rhein-erft-tourismus.de/attraktion/schloss-paffendorf-8c920e78e5"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Schloss Bedburg",
+   "ad": "Graf-Salm-Straße 34, 50181 Bedburg, Germany",
+   "w": "A moated castle whose brick core is among the oldest in the Rhineland, rebuilt as a Renaissance palace after 1588 and later home to the Rhenish Knights' Academy. It stands in the centre of Bedburg on the Mühlenerft, a venue for concerts and events.",
+   "k": "Early brick castle · Renaissance palace",
+   "g": [
+    "ARCH",
+    "HIST",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "BEDBURGDE",
+     "https://www.bedburg.de/Seiten/Schloss-Bedburg.html"
+    ],
+    [
+     "RHEINERFTTOUR",
+     "https://www.rhein-erft-tourismus.de/attraktion/schloss-bedburg-60822b25cb"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Schloss_Bedburg"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Museum Keramion",
+   "ad": "Bonnstraße 12, 50226 Frechen, Germany",
+   "w": "An internationally renowned ceramics museum in Frechen — long a stoneware town famed for its 'Bartmann' jugs — founded 1971 by stoneware magnate Gottfried Cremer. Peter Neufert's landmark building is a glazed rotunda shaped like a giant potter's wheel.",
+   "k": "Ceramics in a potter's-wheel rotunda",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ICON",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://keramion.de/foundation-keramion/"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/kulturpaeckchen/keramion"
+    ],
+    [
+     "RHEINERFTTOUR",
+     "https://www.rhein-erft-tourismus.de/de/poi-details/poi/5076/keramion/index.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Glasmuseum Rheinbach",
+   "ad": "Himmeroder Wall 6, 53359 Rheinbach, Germany",
+   "w": "Rheinbach's glass museum, in the historic Himmeroder Hof, tells the story of the 'glass town' shaped after 1947 by expelled Bohemian glass refiners. Baroque to Art Nouveau glass and studio glass since the 1960s.",
+   "k": "Glass town · Bohemian & studio glass",
+   "g": [
+    "MUS",
+    "HIST",
+    "RIVER",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "RHEINBACHDE",
+     "https://www.rheinbach.de/glasmuseum"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/kulturpaeckchen/glasmuseum-rheinbach"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Glasmuseum_Rheinbach"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Schloss Dyck",
+   "ad": "Schloss-Dyck-Straße 1, 41363 Jüchen, Germany",
+   "w": "One of the Rhineland's most important moated castles, spread over four islands in the Kelzenberger Bach and wrapped in a 70-hectare early-19th-century English landscape park with rare ancient trees. Now an international centre for garden art.",
+   "k": "Moated castle · English landscape park",
+   "g": [
+    "ARCH",
+    "PARK",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://www.stiftung-schloss-dyck.de/"
+    ],
+    [
+     "NRWTOURISMUS",
+     "https://www.nrw-tourismus.de/kulturpaeckchen/schloss-dyck"
+    ],
+    [
+     "DENKMALSCHUTZ",
+     "https://www.denkmalschutz.de/denkmal/schloss-dyck.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "RHEIN",
+   "n": "Otto-Maigler-See",
+   "ad": "Zieskovener Straße 85, 50354 Hürth, Germany",
+   "w": "A recultivated lignite-pit lake south-west of Cologne, one of the Rhein-Erft district's swimming lakes, with a Strandbad beach, sailing, surfing and rowing and forest paths for walking and cycling — the corridor's warm-weather escape near Hürth.",
+   "k": "Beach lake in the reclaimed coalfield",
+   "g": [
+    "PARK",
+    "FREE",
+    "RIVER"
+   ],
+   "s": [
+    [
+     "RHEINERFTTOUR",
+     "https://www.rhein-erft-tourismus.de/attraktion/strandbad-otto-maigler-see-oms-beachclub-13eb1e45cb"
+    ],
+    [
+     "NATURPARKRHEINLAND",
+     "https://www.naturpark-rheinland.de/otto-maigler-runde"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://de.wikipedia.org/wiki/Otto-Maigler-See"
+    ]
+   ]
   }
  ],
  "F": [
@@ -4997,14 +5782,394 @@
      "https://www.koelner.de/locations/"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Restaurant Vendôme",
+   "ad": "Kadettenstraße 1, 51429 Bergisch Gladbach, Germany",
+   "w": "The corridor's gastronomic summit, in the Althoff Grandhotel Schloss Bensberg: Joachim Wissler held three Michelin stars here for 17 years (two since 2022) before handing the kitchen to sous-chef Dennis Kuckuck in October 2025. Classic French base, modern signatures, and a strong vegetarian menu.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/de/de/nordrhein-westfalen/bergisch-gladbach/restaurant/vendome"
+    ],
+    [
+     "INGL",
+     "https://in-gl.de/2025/09/17/nach-45-jahren-am-herd-joachim-wissler-gibt-leitung-des-restaurant-vendome-ab/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Schote by Nelson Müller",
+   "ad": "Diepeschrather Weg 80A, 51469 Bergisch Gladbach, Germany",
+   "w": "TV chef Nelson Müller moved his Essen restaurant into the new Diepeschrather Mühle in a forest clearing in January 2025; after a year without a star it regained a Michelin star in the 2026 guide. Sustainable, ambitious cooking at a 30-seat chef's-table room with an open kitchen.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/bergisch-gladbach/restaurant/schote-1215854"
+    ],
+    [
+     "INGL",
+     "https://in-gl.de/2026/06/24/nelson-mueller-holt-mit-der-schote-den-michelin-stern-zurueck/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Anthony's Kitchen",
+   "ad": "Moerser Straße 81, 40667 Meerbusch, Germany",
+   "w": "Ghanaian-born, Wiesbaden-raised chef Anthony Sarpong has held a Michelin star in Meerbusch since 2015, blending West African flavours with modern European technique. One of the few starred kitchens between Cologne and Düsseldorf.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/meerbusch/restaurant/anthony-s-kitchen"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.100bestchefs.de/100best/anthony-sarpong/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Landhaus Mönchenwerth",
+   "ad": "Niederlöricker Straße 56, 40667 Meerbusch, Germany",
+   "w": "A refined, long-established Rhine-side restaurant and beer garden in Meerbusch, recommended in the Michelin Guide, where chef Guy de Vries plates classic French technique brightened with Mediterranean lift right beside the river.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/meerbusch/restaurant/landhaus-monchenwerth"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/landhaus-moenchenwerth-meerbusch-buederich"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Herzog von Burgund",
+   "ad": "Erftstraße 88, 41460 Neuss, Germany",
+   "w": "A Michelin-listed classic in a stately Neuss townhouse with a heritage staircase and a green courtyard garden — seasonal German-French cooking with a much-loved Wiener Schnitzel, the town's dependable address for a proper dinner.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/nordrhein-westfalen/neuss/restaurant/herzog-von-burgund"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/herzog-von-burgund-neuss"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Trattoria Enoteca",
+   "ad": "Kadettenstraße 1, 51429 Bergisch Gladbach, Germany",
+   "w": "The relaxed Italian table of Schloss Bensberg, with its own wine boutique and a vine-draped terrace: homemade pasta, coastal fish and hearty country dishes with well-matched Italian wines — fine dining's easygoing sibling to the Vendôme.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SCHLEMMERATLAS",
+     "https://www.schlemmer-atlas.de/restaurants/deutschland/bergisch-gladbach/trattoria-enoteca/"
+    ],
+    [
+     "GUSTO",
+     "https://www.gusto-online.de/trattoria-enoteca.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RHEIN",
+   "n": "Brauhaus Im Dom",
+   "ad": "Michaelstraße 75–77, 41460 Neuss, Germany",
+   "w": "Neuss's oldest inn and only surviving house brewery, brewing on this spot documented since 1607. Beside Bolten it is one of the world's oldest Altbier breweries — pour a Dom's Alt with hearty seasonal Rhenish plates in a medieval building by the Münster.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WZ",
+     "https://www.wz.de/nrw/rhein-kreis-neuss/neuss/im-dom-seit-400-jahren-obergaerig-in-neuss_aid-29858191"
+    ],
+    [
+     "KULADIG",
+     "https://www.kuladig.de/Objektansicht/KLD-343593"
+    ],
+    [
+     "NEUSSDE",
+     "https://www.neuss.de/presse/archiv/2013/09/10.09.2013-neuss-und-das-altbier"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Restaurant Dröppelminna",
+   "ad": "Herrenstrunden 3, 51465 Bergisch Gladbach, Germany",
+   "w": "A cosy half-timbered house in Herrenstrunden serving the full Bergische Kaffeetafel — 'Koffedrenken met allem Dröm un Draan', coffee from the Dröppelmina pot with sweet-and-savoury spreads, rice pudding and hot-cherry waffles — the Bergisches Land's great hospitality ritual.",
+   "cz": [
+    "GER",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DASBERGISCHE",
+     "https://www.dasbergische.de/en/gastro/restaurant-cafe-droeppelminna"
+    ],
+    [
+     "NATURPARKBERG",
+     "https://www.naturparkbergischesland.de/en/gastro/restaurant-cafe-droeppelminna"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Gasthaus Zur Quelle der Strunde",
+   "ad": "Herrenstrunden 31, 51465 Bergisch Gladbach, Germany",
+   "w": "For nearly 150 years an inn among the meadows at the source of the Strunde, famous for its Bergische Kaffeetafel and Sunday Bergische Waffeln — coffee, cocoa and a closing schnapps included, served over a long, unhurried afternoon.",
+   "cz": [
+    "GER",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "INGL",
+     "https://in-gl.de/2023/08/14/kurz-knackig-ein-wirtshaus-mit-geschichte-quelle-der-strunde-gasthaus-herrenstrunden-bergisch-gladbach/"
+    ],
+    [
+     "DASBERGISCHE",
+     "https://www.dasbergische.de/gastro/zur-quelle-der-strunde"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Weingut Pieper — Vinothek",
+   "ad": "Hauptstraße 458, 53639 Königswinter, Germany",
+   "w": "A defining family winery of the Siebengebirge, working ten hectares on the Drachenfels — a volcanic trachyte soil found in no other German wine region. Taste the Drachenfels Rieslings and reds in the Königswinter vinothek, the corridor's own wine.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBONN",
+     "https://www.visit-bonn-region.de/poi/weingut-pieper-vinothek"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/wineries/weingut-pieper"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "RHEIN",
+   "n": "Weingut Blöser",
+   "ad": "Bachstraße 112, 53639 Königswinter, Germany",
+   "w": "A winegrowing family in Oberdollendorf since 1696, working the Laurentiusberg, Rosenhügel and Sülzenberg slopes at the foot of the Siebengebirge. Riesling, Spätburgunder and more, poured in a tasting room right below the vineyards.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SIEBENGEBIRGE",
+     "https://www.siebengebirge.com/index.php/gastronomie?view=article&id=130&catid=13"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Siebengebirge_(Wine_District)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Siegburger Brauhaus",
+   "ad": "Holzgasse 37–39, 53721 Siegburg, Germany",
+   "w": "Siegburg's own brewpub off the market square, pouring house-brewed Siegburger beer with rustic Rhenish brauhaus fare and changing lunch dishes in a beery, timber-warm room below the Michaelsberg.",
+   "cz": [
+    "BEER",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SIEGBURGDE",
+     "https://siegburg.de/strukturierte-daten/cityportal/gastronomiebetriebe/siegburger-brauhaus/"
+    ],
+    [
+     "NATURREGIONSIEG",
+     "https://naturregion-sieg.de/gastro/brau-gmbh-siegburg"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "RHEIN",
+   "n": "Museumscafé Siegburg",
+   "ad": "Markt 46, 53721 Siegburg, Germany",
+   "w": "A café in Siegburg's city museum on the market square, with a big sun terrace and a generous afternoon spread of homemade cake — an easy pause between the Markt and the Michaelsberg climb.",
+   "cz": [
+    "CAFE",
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "NATURREGIONSIEG",
+     "https://naturregion-sieg.de/gastro/museumscafe-siegburg"
+    ],
+    [
+     "SIEGBURGDE",
+     "https://tourismus-siegburg.de/erleben-geniessen/gastronomie/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "RHEIN",
+   "n": "Weinhaus am Rhein",
+   "ad": "Rheinufer 100, 53639 Königswinter, Germany",
+   "w": "A family Weinhaus directly on the Rhine at Königswinter-Niederdollendorf, pairing traditional Rhenish cooking and seasonal specialties with regional and Italian wines and a green riverside terrace in summer.",
+   "cz": [
+    "GER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SIEBENGEBIRGE",
+     "https://www.siebengebirge.com/index.php/gastronomie?view=article&id=139&catid=14"
+    ],
+    [
+     "SCHLEMMERATLAS",
+     "https://www.schlemmer-atlas.de/restaurants/deutschland/koenigswinter/deutsche-kueche/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "RHEIN",
+   "n": "Altes Standesamt",
+   "ad": "Markt 7, 53604 Bad Honnef, Germany",
+   "w": "A market-square restaurant in Bad Honnef serving local Rhenish and hearty German cooking — a reliable, characterful table in the little spa town at the foot of the Siebengebirge.",
+   "cz": [
+    "GER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "SIEBENGEBIRGE",
+     "https://www.siebengebirge.com/index.php/gastronomie?view=article&id=141&catid=14"
+    ],
+    [
+     "SCHLEMMERATLAS",
+     "https://www.schlemmer-atlas.de/restaurants/deutschland/bad-honnef/deutsche-kueche/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RHEIN",
+   "n": "Brühler Wirtshaus am Schloss",
+   "ad": "Max-Ernst-Allee 2, 50321 Brühl, Germany",
+   "w": "In Brühl's restored 1844 station beside the UNESCO palace park, a Rhenish wirtshaus for the classics — Himmel un Äd with Flönz, Halve Hahn, Flammkuchen and grills — with a Kölsch in the castle-park beer garden and a view to Augustusburg.",
+   "cz": [
+    "GER",
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KOELNDE",
+     "https://www.koeln.de/freizeit/ll/ausflugslokale-in-der-naehe-von-koeln/bruehler-wirtshaus/"
+    ],
+    [
+     "FALSTAFF",
+     "https://www.falstaff.com/en/restaurants/bruehler-wirtshaus-am-schloss-bruehl"
+    ],
+    [
+     "BRUEHLTOUR",
+     "https://tourismus.bruehl.de/bruehl-entdecken/essen-und-trinken.php"
+    ]
+   ]
   }
  ],
  "S": {
+  "BAUKULTURNRW": {
+   "k": "BAUKULTURNRW",
+   "t": "Baukultur Nordrhein-Westfalen",
+   "u": "https://baukultur.nrw/",
+   "l": "Baukultur Nordrhein-Westfalen"
+  },
   "BAUKUNSTNRW": {
    "k": "BAUKUNSTNRW",
    "t": "baukunst-nrw",
    "u": "https://www.baukunst-nrw.de/",
    "l": "baukunst-nrw"
+  },
+  "BAYER": {
+   "k": "BAYER",
+   "t": "Bayer AG (bayer.com)",
+   "u": "https://www.bayer.com/",
+   "l": "Bayer AG (bayer.com)"
+  },
+  "BEDBURGDE": {
+   "k": "BEDBURGDE",
+   "t": "Stadt Bedburg (bedburg.de)",
+   "u": "https://www.bedburg.de/",
+   "l": "Stadt Bedburg (bedburg.de)"
+  },
+  "BERGHEIMCITY": {
+   "k": "BERGHEIMCITY",
+   "t": "Stadt Bergheim (city.bergheim.de)",
+   "u": "https://city.bergheim.de/",
+   "l": "Stadt Bergheim (city.bergheim.de)"
   },
   "BONNDE": {
    "k": "BONNDE",
@@ -5018,11 +6183,41 @@
    "u": "https://www.visit-bonn-region.de/",
    "l": "Bonn Tourismus / visit-bonn-region"
   },
+  "BRUEHLTOUR": {
+   "k": "BRUEHLTOUR",
+   "t": "Stadt Brühl Tourismus",
+   "u": "https://tourismus.bruehl.de/",
+   "l": "Stadt Brühl Tourismus"
+  },
+  "DASBERGISCHE": {
+   "k": "DASBERGISCHE",
+   "t": "Das Bergische (Naturarena Bergisches Land)",
+   "u": "https://www.dasbergische.de/",
+   "l": "Das Bergische (Naturarena Bergisches Land)"
+  },
+  "DENKMALSCHUTZ": {
+   "k": "DENKMALSCHUTZ",
+   "t": "Deutsche Stiftung Denkmalschutz",
+   "u": "https://www.denkmalschutz.de/",
+   "l": "Deutsche Stiftung Denkmalschutz"
+  },
+  "DORMAGENDE": {
+   "k": "DORMAGENDE",
+   "t": "Stadt Dormagen (dormagen.de)",
+   "u": "https://www.dormagen.de/",
+   "l": "Stadt Dormagen (dormagen.de)"
+  },
   "DUSTOURISMUS": {
    "k": "DÜSSELDORF TOURISMUS",
    "t": "Düsseldorf Tourismus / visitduesseldorf",
    "u": "https://www.visitduesseldorf.de/",
    "l": "Düsseldorf Tourismus / visitduesseldorf"
+  },
+  "EGHN": {
+   "k": "EGHN",
+   "t": "European Garden Heritage Network",
+   "u": "https://www.eghn.org/",
+   "l": "European Garden Heritage Network"
   },
   "GA": {
    "k": "GENERAL-ANZEIGER BONN",
@@ -5066,11 +6261,29 @@
    "u": "https://www.kunstsammlung.de/",
    "l": "Kunstsammlung Nordrhein-Westfalen (official)"
   },
+  "LEVERKUSENDE": {
+   "k": "LEVERKUSENDE",
+   "t": "Stadt Leverkusen (leverkusen.de)",
+   "u": "https://www.leverkusen.de/",
+   "l": "Stadt Leverkusen (leverkusen.de)"
+  },
+  "LVR": {
+   "k": "LVR",
+   "t": "Landschaftsverband Rheinland (LVR)",
+   "u": "https://www.lvr.de/",
+   "l": "Landschaftsverband Rheinland (LVR)"
+  },
   "MAKK": {
    "k": "MAKK",
    "t": "Museum für Angewandte Kunst Köln",
    "u": "https://makk.de",
    "l": "Museum für Angewandte Kunst Köln"
+  },
+  "MEINBADHONNEF": {
+   "k": "MEINBADHONNEF",
+   "t": "Bad Honnef Tourismus (meinbadhonnef.de)",
+   "u": "https://meinbadhonnef.de/",
+   "l": "Bad Honnef Tourismus (meinbadhonnef.de)"
   },
   "MELATEN": {
    "k": "MELATEN",
@@ -5096,6 +6309,36 @@
    "u": "https://www.musenkuss-duesseldorf.de/",
    "l": "Musenkuss Düsseldorf (city cultural portal)"
   },
+  "NATURPARKBERG": {
+   "k": "NATURPARKBERG",
+   "t": "Naturpark Bergisches Land",
+   "u": "https://www.naturparkbergischesland.de/",
+   "l": "Naturpark Bergisches Land"
+  },
+  "NATURPARKRHEINLAND": {
+   "k": "NATURPARKRHEINLAND",
+   "t": "Naturpark Rheinland",
+   "u": "https://www.naturpark-rheinland.de/",
+   "l": "Naturpark Rheinland"
+  },
+  "NATURREGIONSIEG": {
+   "k": "NATURREGIONSIEG",
+   "t": "Naturregion Sieg",
+   "u": "https://naturregion-sieg.de/",
+   "l": "Naturregion Sieg"
+  },
+  "NEUSSDE": {
+   "k": "NEUSSDE",
+   "t": "Stadt Neuss (neuss.de)",
+   "u": "https://www.neuss.de/",
+   "l": "Stadt Neuss (neuss.de)"
+  },
+  "NIEDERRHEINTOUR": {
+   "k": "NIEDERRHEINTOUR",
+   "t": "Niederrhein Tourismus",
+   "u": "https://www.niederrhein-tourismus.de/",
+   "l": "Niederrhein Tourismus"
+  },
   "NRWSTIFTUNG": {
    "k": "NRWSTIFTUNG",
    "t": "NRW-Stiftung",
@@ -5114,11 +6357,41 @@
    "u": "",
    "l": "Official site of the place"
   },
+  "RADREGION": {
+   "k": "RADREGION",
+   "t": "RadRegionRheinland / Region Köln-Bonn",
+   "u": "https://www.radregionrheinland.de/",
+   "l": "RadRegionRheinland / Region Köln-Bonn"
+  },
+  "RHEINBACHDE": {
+   "k": "RHEINBACHDE",
+   "t": "Stadt Rheinbach (rheinbach.de)",
+   "u": "https://www.rheinbach.de/",
+   "l": "Stadt Rheinbach (rheinbach.de)"
+  },
+  "RHEINERFTTOUR": {
+   "k": "RHEINERFTTOUR",
+   "t": "Rhein-Erft Tourismus",
+   "u": "https://www.rhein-erft-tourismus.de/",
+   "l": "Rhein-Erft Tourismus"
+  },
+  "RHEINISCHEART": {
+   "k": "RHEINISCHEART",
+   "t": "Rheinische Art (Kunstmagazin)",
+   "u": "https://www.rheinische-art.de/",
+   "l": "Rheinische Art (Kunstmagazin)"
+  },
   "ROMANISCHEKIRCHEN": {
    "k": "ROMANISCHEKIRCHEN",
    "t": "Förderverein Romanische Kirchen Köln",
    "u": "https://www.romanische-kirchen-koeln.de",
    "l": "Förderverein Romanische Kirchen Köln"
+  },
+  "SIEGBURGDE": {
+   "k": "SIEGBURGDE",
+   "t": "Stadt Siegburg / Tourismus Siegburg",
+   "u": "https://siegburg.de/",
+   "l": "Stadt Siegburg / Tourismus Siegburg"
   },
   "STADTKOELN": {
    "k": "STADTKOELN",
@@ -5138,11 +6411,29 @@
    "u": "https://the-duesseldorfer.de/",
    "l": "The Düsseldorfer"
   },
+  "TROISDORFDE": {
+   "k": "TROISDORFDE",
+   "t": "Stadt Troisdorf (troisdorf.de)",
+   "u": "https://www.troisdorf.de/",
+   "l": "Stadt Troisdorf (troisdorf.de)"
+  },
   "UNESCO": {
    "k": "UNESCO",
    "t": "Deutsche UNESCO-Kommission",
    "u": "https://www.unesco.de/kultur-und-natur/welterbe",
    "l": "Deutsche UNESCO-Kommission"
+  },
+  "VISITBONN": {
+   "k": "VISITBONN",
+   "t": "Bonn Tourismus (visit-bonn-region.de)",
+   "u": "https://www.visit-bonn-region.de/",
+   "l": "Bonn Tourismus (visit-bonn-region.de)"
+  },
+  "VISITDUS": {
+   "k": "VISITDUS",
+   "t": "Düsseldorf Tourismus (visitduesseldorf.de)",
+   "u": "https://www.visitduesseldorf.de/",
+   "l": "Düsseldorf Tourismus (visitduesseldorf.de)"
   },
   "WALLRAF": {
    "k": "WALLRAF",
@@ -5188,11 +6479,23 @@
    "u": "https://www.brotinstitut.de/",
    "l": "Deutsches Brotinstitut"
   },
+  "BRUEHLTOUR": {
+   "k": "BRUEHLTOUR",
+   "t": "Stadt Brühl Tourismus",
+   "u": "https://tourismus.bruehl.de/",
+   "l": "Stadt Brühl Tourismus"
+  },
   "CREMAGAZIN": {
    "k": "CREMAGAZIN",
    "t": "CREMA Magazin (coffee)",
    "u": "https://www.cremagazin.de/",
    "l": "CREMA Magazin (coffee)"
+  },
+  "DASBERGISCHE": {
+   "k": "DASBERGISCHE",
+   "t": "Das Bergische (Naturarena Bergisches Land)",
+   "u": "https://www.dasbergische.de/",
+   "l": "Das Bergische (Naturarena Bergisches Land)"
   },
   "DEUTSCHLANDVEGAN": {
    "k": "DEUTSCHLANDVEGAN",
@@ -5235,6 +6538,12 @@
    "t": "Gusto Deutschland",
    "u": "https://www.gusto-online.de/",
    "l": "Gusto Deutschland"
+  },
+  "INGL": {
+   "k": "INGL",
+   "t": "Bürgerportal Bergisch Gladbach (in-gl.de)",
+   "u": "https://in-gl.de/",
+   "l": "Bürgerportal Bergisch Gladbach (in-gl.de)"
   },
   "JAPANDIGEST": {
    "k": "JAPANDIGEST",
@@ -5302,6 +6611,24 @@
    "u": "https://www.mrduesseldorf.de/",
    "l": "Mr. Düsseldorf"
   },
+  "NATURPARKBERG": {
+   "k": "NATURPARKBERG",
+   "t": "Naturpark Bergisches Land",
+   "u": "https://www.naturparkbergischesland.de/",
+   "l": "Naturpark Bergisches Land"
+  },
+  "NATURREGIONSIEG": {
+   "k": "NATURREGIONSIEG",
+   "t": "Naturregion Sieg",
+   "u": "https://naturregion-sieg.de/",
+   "l": "Naturregion Sieg"
+  },
+  "NEUSSDE": {
+   "k": "NEUSSDE",
+   "t": "Stadt Neuss (neuss.de)",
+   "u": "https://www.neuss.de/",
+   "l": "Stadt Neuss (neuss.de)"
+  },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
    "t": "Official site of the place",
@@ -5325,6 +6652,18 @@
    "t": "Schlemmer Atlas",
    "u": "https://www.schlemmer-atlas.de/",
    "l": "Schlemmer Atlas"
+  },
+  "SIEBENGEBIRGE": {
+   "k": "SIEBENGEBIRGE",
+   "t": "Siebengebirge.com",
+   "u": "https://www.siebengebirge.com/",
+   "l": "Siebengebirge.com"
+  },
+  "SIEGBURGDE": {
+   "k": "SIEGBURGDE",
+   "t": "Stadt Siegburg / Tourismus Siegburg",
+   "u": "https://siegburg.de/",
+   "l": "Stadt Siegburg / Tourismus Siegburg"
   },
   "SWD": {
    "k": "SWD",
@@ -5367,6 +6706,12 @@
    "t": "Verliebt in Japan",
    "u": "https://verliebt-in-japan.de/",
    "l": "Verliebt in Japan"
+  },
+  "VISITBONN": {
+   "k": "VISITBONN",
+   "t": "Bonn Tourismus (visit-bonn-region.de)",
+   "u": "https://www.visit-bonn-region.de/",
+   "l": "Bonn Tourismus (visit-bonn-region.de)"
   },
   "WIKIPEDIA": {
    "k": "WIKIPEDIA",
