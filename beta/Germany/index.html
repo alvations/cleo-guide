@@ -80,6 +80,12 @@
   }
   html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
   body{font-family:var(--serif);position:relative;background:var(--iron);}
+  /* Numerals: oldstyle in editorial prose (they sit in the line like a fine book),
+     lining + tabular in UI labels/stats so figures align in a column. */
+  .standfirst,.desc,.what,.cd,p{font-variant-numeric:oldstyle-nums proportional-nums;}
+  .eyebrow,.marker,.addr,.city .stat,.subrow,.count,.cluster .meta,.maplegend,
+  .cleo-tag,.cleo-colophon,.chip,.city .kicker,.country .cgo{
+    font-variant-numeric:lining-nums tabular-nums;}
   /* atmospheric ground — barely-there dual glow so the dark isn't one flat note */
   body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     background:
@@ -88,6 +94,24 @@
   ::selection{background:var(--brass);color:var(--iron);}
   /* Kill any inline monospace stragglers baked into the source markup (meta lines) */
   [style*="JetBrains"],[style*="monospace"]{font-family:var(--ui)!important;letter-spacing:.1em!important;}
+  /* Kill EVERY classed monospace in the chrome (the source's own coder font). This list is the
+     complete union of JetBrains-Mono selectors across all source pages (regenerate with the
+     enumerator if the engine adds one). Genuine <code>/<pre> keep mono — real data, where mono belongs. */
+  .addr,.applelink,.back,.chip,.cites,.city .go,.city .kicker,.city .stat,.cluster .meta,
+  .count,.country .cgo,.ctrl-label,.czbadge,.eyebrow,.ledger .lbl,.maplegend,.marker,.modebtn,
+  .note .tag,.pc,.ptier,.reg,.regnote,.saved li .when,.soon,.src,.srcrow .k,.subrow,.tierbadge,
+  .tripbtn,.tripcount,footer,h2.sec{
+    font-family:var(--ui)!important;}
+  .note{font-family:var(--serif);}
+  /* Badges (tier / cuisine) read as small engraved labels, not code */
+  .tierbadge,.czbadge{letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+  .cites,.srcrow .k{letter-spacing:.1em;}
+  code,pre,kbd,samp{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;}
+  /* Refined editorial back-link (was a mono crumb) */
+  .back{font-weight:600;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--bone-faint);text-decoration:none;display:inline-flex;align-items:center;gap:.6em;
+    transition:color .2s ease,gap .2s ease;}
+  .back:hover{color:var(--brass);gap:.9em;}
 
   /* Signature: an oversized engraved compass watermark filling the masthead void */
   header{position:relative;}
@@ -98,6 +122,11 @@
   a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   [role="button"]:focus-visible,.chip:focus-visible,.src:focus-visible,.cleo-brand:focus-visible{
     outline:2px solid var(--brass);outline-offset:3px;border-radius:4px;}
+  /* Accessibility: honour reduced-motion — no hover lifts, no spinning mark, no reveals */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important;}
+    .city:hover,.country:hover{transform:none;}
+    .cleo-brand:hover .cleo-mark{transform:none;}}
 
   /* -- Brand bar -- */
   .cleo-topbar{position:sticky;top:0;z-index:60;
@@ -156,7 +185,10 @@
   .city,.country,.panel{border:1px solid var(--hair);border-radius:var(--radius);
     background:linear-gradient(180deg,color-mix(in srgb,var(--slab) 96%,var(--bone) 4%),var(--slab));
     position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
     transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;}
+  /* Pin the "OPEN →" CTA to the card floor so a row of cards aligns like a contents page */
+  .city .go,.country .cgo{margin-top:auto;padding-top:16px;}
   .city::after,.country::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
     background:linear-gradient(90deg,var(--brass),var(--patina));transform:scaleX(0);transform-origin:left;
     transition:transform .32s cubic-bezier(.2,.7,.2,1);opacity:.9;}
@@ -166,12 +198,17 @@
   .city.soon,.country.soon{background:transparent;}
   .city .nm,.country .cn{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.02em;}
   .city .kicker,.country .cgo,.city .go,.city .stat,.subrow{font-family:var(--ui);}
-  /* Flag emoji -> refined medallion instead of a raw sticker on dark */
-  .country .flag,.city .flag,.flag{display:inline-flex;align-items:center;justify-content:center;
+  /* Flag emoji -> pressed-metal medallion instead of a raw sticker on dark */
+  .country .flag,.city .flag,.flag{position:relative;display:inline-flex;align-items:center;justify-content:center;
     width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);
-    background:var(--slab-2);font-size:22px;line-height:1;
-    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 8%,transparent);
-    filter:saturate(.9);}
+    background:radial-gradient(120% 120% at 30% 22%,var(--slab-2),color-mix(in srgb,var(--slab) 80%,#000 20%));
+    font-size:21px;line-height:1;
+    box-shadow:inset 0 1px 0 color-mix(in srgb,var(--bone) 12%,transparent),
+      inset 0 -6px 12px -8px #000, 0 2px 6px -3px rgba(0,0,0,.5);
+    filter:saturate(.92);}
+  /* engraved inner keyline ring */
+  .country .flag::after,.city .flag::after{content:"";position:absolute;inset:4px;border-radius:50%;
+    border:1px solid color-mix(in srgb,var(--brass) 22%,transparent);opacity:.7;pointer-events:none;}
   .city .kicker,.country .cgo{font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:10.5px;color:var(--patina);}
   .city .go{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--brass);
     display:inline-flex;align-items:center;gap:.5em;transition:gap .2s ease;}
@@ -217,6 +254,8 @@
   .note.warn{border-left-color:var(--rust);}
   .note .tag{font-family:var(--ui);font-weight:600;letter-spacing:.14em;}
   .maplegend{font-family:var(--ui);letter-spacing:.06em;color:var(--bone-dim);text-transform:uppercase;font-size:10px;font-weight:500;}
+  /* Brand the trip-builder tick + every native control: your list fills with brass, not browser blue */
+  input[type=checkbox],input[type=radio]{accent-color:var(--brass);}
   #map{border:1px solid var(--hair-2);border-radius:14px;}
   #tilewarn,#tripbar .tripinner{font-family:var(--ui);}
 

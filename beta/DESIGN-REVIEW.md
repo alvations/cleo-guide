@@ -81,7 +81,85 @@ brass index, refined rank badge & note). **Reviewer:** "Genuinely handsome now �
 the hub down to a single listing. It's a fingerprint, not a template. Half a point still hiding in the
 finish: links, active states and the top edge are a touch plain. 8.5."
 
-## Round 5 — (in progress)
+## Round 5 — 8.6 / 10
 **Changed:** engraved 2px brass→sage **keyline** across the top of the bar (bound-volume edge); inline prose
 links get an animated engraved underline; chip active-state gains an inset; Fraunces `SOFT` axis dialled to
-28 for a warmer display personality.
+28 for a warmer display personality. **Reviewer:** "The edge treatment and the living underlines are the
+kind of finish I only see on paid design. Still a hair off a 9 — the country cards in a row don't line up,
+and I can still spot a coder-font label or two if I look. 8.6."
+
+## Round 6 — 8.6 / 10
+**Changed:** verification pass — re-rendered all four systems (hub, country hub, dark city, pastel city) at
+desktop + mobile; confirmed the compass watermark, wordmark and palette hold across every surface and the
+map fallback stays graceful when the CDN is blocked. No new visual moves. **Reviewer:** "Consistent. But
+you didn't fix what I told you — the row of cards is still ragged and the entry list is where the old coder
+font is hiding. Do the unglamorous work. 8.6."
+
+## Round 7 — 8.5 / 10  *(rate-limit resume baseline)*
+**Rendered fresh** after the resume. The reviewer went looking in the **entry list** — the densest surface,
+below the map — and in the **country hub card row**, and was not kind:
+> The mastheads are a knockout, I'll grant that — the compass ghost, the serif, the ivory-and-ink pairing.
+> But you've been polishing the lobby and ignoring the rooms. Two things drag it down. **One:** the "← all
+> countries" back-links and, worse, the **entire per-listing meta row** — "SOURCED FROM", "1 source", the
+> "APPLE MAPS" link, even the "MUST SEE" tag — are still in that **monospace coder font**. On the title page
+> it's gone; three screens down it's everywhere. **Two:** the three region cards in a row are **different
+> heights with their "OPEN →" links floating at random** — an editor's contents page aligns. 8.5.
+
+**Top issues:** (1) exterminate the classed monospace in the body, not just the masthead; (2) align the card
+row like a contents page.
+
+## Round 8 — 8.9 / 10
+**Changed:** (a) pinned the card "OPEN →" CTA to the card floor (`display:flex;flex-direction:column` +
+`margin-top:auto`) so a row of country/city cards aligns like a table of contents; (b) killed the first tier
+of classed monospace stragglers — `.back` and the region labels — mapping them to the Archivo UI face, and
+gave `.back` a real editorial back-link treatment (tracked caps, brass hover, growing arrow). **Reviewer:**
+"*Now* the contents page reads like one — the OPEN links snap to a line and the eye can scan the row. The
+back-links look intentional. I still caught mono in the listing meta on the city page, though. Close. 8.9."
+
+## Round 9 — 9.0 / 10
+**Changed:** flag emoji medallions upgraded from flat discs to **pressed-metal badges** (radial vignette,
+inset highlight + shadow, engraved brass inner keyline); numerals set editorially — **oldstyle proportional
+figures** in serif prose (they sit in the line like a fine book) and **lining tabular figures** in UI labels
+and stats so counts align in a column. **Reviewer:** "The medallions read as struck metal now, not stickers,
+and the oldstyle figures are the kind of detail that separates a designer from a developer. It's a 9 — but
+the listing meta on the guide pages *still* has coder-font tags. Fix that and I'll go higher."
+
+## Round 10 — 9.0 / 10
+**Changed:** accessibility/polish — `prefers-reduced-motion` honoured across the whole system (no hover
+lifts, no spinning mark, no reveals for motion-sensitive viewers); focus-visible brass rings confirmed on
+every interactive element. **Reviewer:** "Responsible and invisible, which is the point. Same 9 — I'm still
+staring at 'MUST SEE' and 'SOURCED FROM' in monospace in the entry list. You keep polishing everything
+*except* the one thing I keep naming."
+
+## Round 11 — 9.1 / 10  *(> 9.0 — first)*
+**Changed:** ran a **complete enumerator** over every source page's `<style>` blocks to extract the full
+union of JetBrains-Mono selectors, then mapped **all of them** to the editorial UI face in one authoritative
+rule — catching the last hidden stragglers the earlier hand-list missed: `.cites` ("1 source"), `.applelink`
+("APPLE MAPS ↗"), `.srcrow .k` ("SOURCED FROM"), `.tierbadge` ("MUST SEE") and `.czbadge` (cuisine tags).
+Only genuine `<code>/<pre>` keep monospace now. Badges regained proper small-caps tracking. **Reviewer:**
+> Finally. I scrolled the whole Cleveland guide top to bottom and there is **not one coder-font label left** —
+> the "MUST SEE" tags, the source rows, the address links all read as one editorial voice now, masthead to
+> footer. That was the single thing between this and a real magazine. The house style is total: hub, country
+> index, dark guide, pastel town — one fingerprint. **9.1.**
+
+## Round 12 — 9.2 / 10  *(> 9.0 — second consecutive → stop condition met)*
+**Changed:** branded the most-used interaction — the trip-builder **tick** — with `accent-color:var(--brass)`
+so building your list fills with brass, not browser blue (applies to every native checkbox/radio). Re-ran
+both guard scripts over `beta/` (Google/CARTO surfaces: **PASS**, escape leaks: **PASS**) and re-asserted
+every page's `P`/`F` counts + `<script>` bytes against source (**PASS**, 67 pages). **Reviewer:**
+> The little things are done: even the checkboxes are the house brass now, which most people never bother
+> with. Nothing on any of the four page types reads as a developer template any more — it reads as a
+> considered travel imprint with a point of view. The compass signature, the ivory/ink duality, the oldstyle
+> figures, the aligned contents grid, the struck-metal medallions, and now a fully editorial type voice with
+> zero coder-font residue. This is publishable. **9.2.**
+
+---
+
+## Result
+
+**Stop condition met:** **9.1 (R11) then 9.2 (R12)** — two consecutive rounds above 9.0.
+
+Invariant held every round: `python3 tools/beta-restyle.py --check` PASS (67 pages, `P`/`F` counts and
+`<script>` bytes byte-identical to source); `check-google` logic PASS (no Google/CARTO key-required
+surfaces); escape-leak scan PASS. No content, map, JS, data or place count was touched — chrome/CSS/brand
+only.
