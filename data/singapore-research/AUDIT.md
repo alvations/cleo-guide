@@ -108,6 +108,45 @@ Subzones covered: Bishan Street 11/13/22, Sin Ming, Shunfu, Marymount, Bright Hi
   location-verify (addresses carry block + S-postal; a few — Shi Xiang Ge at Bishan Cafeteria, Jai Thai
   Clover Way — flagged for postal confirmation at the geocode stage) → statuscheck → geo-merge → rebuild.
 
+## Stage 4 — Bishan wave 2 (discovery extension, 2026-09-02)
+Resumed Bishan discovery to lift density toward the Toa Payoh benchmark. **APPEND-only** to new files
+(`FOOD_BISHAN2.json` LIST, `SIGHTS_BISHAN2.json` DICT, `SOURCES_BISHAN2.json`, `CREATORS_BISHAN2.json`);
+wave-1 files untouched. Every place cleared **>=2 credible SG sources** (aggregators = 0); deduped against
+the 18 food + 11 sights already in wave 1. **Bishan now stands at 34 food + 14 sights = 48.**
+- **FOOD → FOOD_BISHAN2.json (16):** t1 0 · t2 7 · t3 9 · 1 closed. **T2:** Uncle Penyet (ayam penyet,
+  Kim San Leng — Eatbook+SethLui), Chindamani Indian (crispy prata/biryani, KPT — MissTamChiak+SethLui),
+  Dong Nan Wanton Noodle (Shunfu, Malaysian dry wanton — Eatbook+DFD), Jiak Mee (Gen-Z mee hoon kueh, Bishan
+  Cafeteria — Eatbook+SethLui+MTC), Sen Yen Charcoal Traditional Toast (Sin Ming, Jin Fa kopitiam —
+  Eatbook+MTC+SethLui), Hup Seng Duck Rice (Teochew braised duck, Blk 22 Sin Ming — MTC+Ladyironchef+HGW),
+  Two Chefs Eating Place (butter pork ribs, Blk 409 Sin Ming Ave — HGW Bishan list + ieat/SethLui/DFD brand).
+  **T3:** Mata Thai (claypot tom yum — SethLui+TheSmartLocal), Taste of Thailand (Thai zi char, Midview City
+  — ieat+SethLui), Mr Egg Fried Rice (wok-hei egg fried rice, Blk 151 — SethLui+MTC), Kings Cart Coffee
+  (Bishan Library — Eatbook+DFD+Honeycombers), Thus Coffee (Sembawang Hills roastery — SethLui+Timeout),
+  Grin Affair (jar cakes, Blk 505D — MTC+Timeout+TheSmartLocal), Canopy Garden Dining (Bishan Park bistro —
+  HGW+Honeycombers), **Denzy Gelato (Bishan) — CLOSED** (award gelato, Blk 506; Bishan outlet shut, brand
+  lives on in Hougang/Bedok — Eatbook+SethLui), Yue Lai Xiang Delights (blue-pea mee hoon kueh, Sin Ming —
+  MTC+ieat).
+- **SIGHTS → SIGHTS_BISHAN2.json (3):** all t3. Bishan ActiveSG Stadium & Sports Centre (Lion City Sailors
+  home, 7 Bishan St 14 — Wikipedia+AsiaOne+ActiveSG), Old Upper Thomson Road (1961-73 Grand Prix circuit,
+  now threading Thomson Nature Park — NAS+NLB+RememberSG), Tse Tho Aum Temple (Sin Ming Buddhist temple +
+  private crematorium — Roots(NHB)+Wikipedia).
+- **SOURCES_BISHAN2.json** 5 NEW outlets (Ladyironchef, Time Out SG, The Honeycombers, AsiaOne, ActiveSG);
+  all other outlets reused from wave 1. **CREATORS_BISHAN2.json** — ieatishootipost with 3 new attachments
+  (Two Chefs, Taste of Thailand, Yue Lai Xiang); 13 rejected/held entries logged.
+- **HELD (single-credible, chase on wave 3):** Wei Ji Congee (Eatbook only), Fu Hui Wantan/Lor Mee (HGW
+  only), Huat Heng Fried Prawn Mee (Eatbook only), Palm Garden + Columbus Coffee (Honeycombers only).
+  **REJECTED:** Wholefood Kitchen (CLOSED, 1 blog), Chi Western/吃Western (CLOSED, MTC only), Wowffle Burger
+  (CLOSED, no credible SG source), J8 chains (not Bishan-unique). Full reasons in CREATORS_BISHAN2 rejected[].
+- **Address flags for geocode stage:** most carry block + S-postal from search results; a handful of postals
+  were inferred from the HDB block and should be confirmed at geocode — Jiak Mee (514 Bishan St 13 → S570514),
+  Two Chefs (409 Sin Ming Ave → S570409), Mata Thai (508 Bishan St 11 → S570508), Mr Egg (151 Bishan St 11 →
+  S570151), Grin Affair (505D Bishan St 11 → S570481), Canopy (1382 AMK Ave 1 → S569931), Yue Lai Xiang (Blk 22
+  Sin Ming Rd → S570022). Sights Old Upper Thomson Rd & Tse Tho Aum carry descriptive addresses (no postal),
+  consistent with wave-1 nature/heritage sights.
+- **NEXT:** merge FOOD_BISHAN2/SIGHTS_BISHAN2 into the Bishan dataset → geocode + location-verify (confirm the
+  flagged postals; read !3d!4d place-pins) → statuscheck (Denzy already flagged CLOSED) → rebuild. Chase the
+  5 held single-credible candidates for a possible wave 3 toward the ~70 Toa Payoh benchmark.
+
 ## Stage 1 — Ang Mo Kio (AMK) discovery (DONE 2026-09-01)
 Goal: build the Ang Mo Kio HDB-town guide at maximum LEGITIMATE density (no aggregator padding), mirroring
 the Toa Payoh file format. Files: `FOOD_AMK.json` (LIST), `SIGHTS_AMK.json` (DICT), `SOURCES_AMK.json`,
