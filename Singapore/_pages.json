@@ -11,13 +11,46 @@
   "ndist": 0
  },
  {
+  "slug": "bishan",
+  "name": "Bishan",
+  "region": "Singapore",
+  "folder": "Singapore",
+  "nP": 10,
+  "nF": 32,
+  "total": 42,
+  "kind": "district",
+  "ndist": 0
+ },
+ {
+  "slug": "ang-mo-kio",
+  "name": "Ang Mo Kio",
+  "region": "Singapore",
+  "folder": "Singapore",
+  "nP": 20,
+  "nF": 66,
+  "total": 86,
+  "kind": "district",
+  "ndist": 0
+ },
+ {
   "slug": "potong-pasir-macpherson",
   "name": "Potong Pasir &amp; MacPherson",
   "region": "Singapore",
   "folder": "Singapore",
-  "nP": 0,
-  "nF": 1,
-  "total": 1,
+  "nP": 15,
+  "nF": 45,
+  "total": 60,
+  "kind": "district",
+  "ndist": 0
+ },
+ {
+  "slug": "upper-serangoon",
+  "name": "Upper Serangoon",
+  "region": "Singapore",
+  "folder": "Singapore",
+  "nP": 18,
+  "nF": 81,
+  "total": 99,
   "kind": "district",
   "ndist": 0
  },

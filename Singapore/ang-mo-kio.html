@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Ang Mo Kio (Singapore) field guide — 20 sights and 66 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Ang Mo Kio — Singapore &amp; SEA field guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
+  :root{
+    color-scheme: light dark;
+    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
+    --patina:#3E9A88; --patina-dim:#BFE0D8;
+    --brass:#B9863A; --rust:#C56F73;
+    --bone:#2E2838; --bone-dim:#6E6480;
+    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --iron:#191521; --slab:#241E30; --hair:#382E48;
+    --patina:#93D6C6; --patina-dim:#3E5D53;
+    --brass:#E8C57C; --rust:#E4989B;
+    --bone:#ECE7F2; --bone-dim:#A79FB8;
+  }}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:none;}
+  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:var(--slab);}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Neighbourhood guide · Singapore</p>
+  <h1>Ang Mo Kio<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
+  <p class="standfirst">20 sights and 66 places to eat in <strong>Ang Mo Kio</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#BCA7E6"></i>Ang Mo Kio</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "CATHOLICSG":{k:"CATHOLICSG",t:"Catholic Archdiocese of Singapore (history.catholic.sg)",u:"https://history.catholic.sg",l:"Catholic Archdiocese of Singapore (history.catholic.sg)"},
+  "HOMEANDDECOR":{k:"HOMEANDDECOR",t:"Home & Decor Singapore",u:"https://www.homeanddecor.com.sg",l:"Home & Decor Singapore"},
+  "LITTLEDAYOUT":{k:"LITTLEDAYOUT",t:"Little Day Out",u:"https://www.littledayout.com",l:"Little Day Out"},
+  "MUIS":{k:"MUIS",t:"MUIS (Islamic Religious Council of Singapore)",u:"https://www.muis.gov.sg",l:"MUIS (Islamic Religious Council of Singapore)"},
+  "NHB":{k:"NHB",t:"National Heritage Board",u:"https://www.nhb.gov.sg",l:"National Heritage Board"},
+  "NLB":{k:"NLB",t:"National Library Board",u:"https://www.nlb.gov.sg",l:"National Library Board"},
+  "NPARKS":{k:"NPARKS",t:"NParks (National Parks Board)",u:"https://www.nparks.gov.sg",l:"NParks (National Parks Board)"},
+  "PUB":{k:"PUB",t:"PUB, Singapore's National Water Agency",u:"https://www.pub.gov.sg",l:"PUB, Singapore's National Water Agency"},
+  "REMEMBERSG":{k:"REMEMBERSG",t:"Remember Singapore",u:"https://remembersingapore.org",l:"Remember Singapore"},
+  "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
+  "SGMAGAZINE":{k:"SG MAGAZINE",t:"SG Magazine",u:"https://sgmagazine.com",l:"SG Magazine"},
+  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal",u:"https://thesmartlocal.com",l:"TheSmartLocal"},
+  "THETRAVELINTERN":{k:"THETRAVELINTERN",t:"The Travel Intern",u:"https://thetravelintern.com",l:"The Travel Intern"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"ANGMOKIO",n:"Ang Mo Kio",c:"#BCA7E6"}
+];
+
+const P = [
+{t:1,a:"ANGMOKIO",n:"Bishan-Ang Mo Kio Park",ad:"1380 Ang Mo Kio Ave 1, Singapore 569930",la:1.36700,ln:103.83300,w:"One of Singapore's largest heartland parks and a global model for river restoration — under the ABC Waters Programme, a 2.7 km concrete stormwater canal was torn out and rebuilt as a 3 km meandering naturalised Kallang River. A 2017-19 NUS study found the naturalised river lifted the park's biodiversity by 33% (197 animal species, incl. 59 birds and 22 dragonflies).",k:"Open 24h, free",g:["PARK","ICON","FREE","TEMPLE"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/bishan-ang-mo-kio-park"],["PUB","https://www.pub.gov.sg/Public/Places-of-Interest/Our-Reservoirs-and-Waterways/Bishan-Ang-Mo-Kio-Park"]]},
+{t:1,a:"ANGMOKIO",n:"Kebun Baru Birdsinging Club",ad:"Block 159A, Ang Mo Kio Ave 5 (foot of Ang Mo Kio Town Garden West), Singapore",la:1.37403,ln:103.84056,w:"Singapore's largest bird-singing and display arena — established 1987 from a 1970s gathering of three AMK zebra-dove keepers, it holds more than a thousand cages on 20-foot poles rigged with pulleys across a space the size of two football fields. A rare surviving fragment of kampong-era culture and a stop on the Ang Mo Kio Heritage Trail.",k:"Morning sessions (esp. weekends), free",g:["HERITAGE","ODD","FREE","FAM"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/kebun-baru-birdsinging-club"],["THESMARTLOCAL","https://thesmartlocal.com/read/kebun-baru-birdsinging-club/"]]},
+{t:1,a:"ANGMOKIO",n:"Ang Mo Kio Town Garden West",ad:"Ang Mo Kio Avenue 5 / Avenue 6 (opposite Ang Mo Kio Public Library), Singapore",la:1.37437,ln:103.84343,w:"Completed in 1983 as the HDB's largest town-garden project of its day (~21 ha), built on a hillock with spreading greenery, a lotus pond home to some 19 dragonfly species, and a lookout — a pioneering piece of heartland landscaping and an Ang Mo Kio Heritage Trail site. (Note: a section near the pond is affected by LTA's North-South Corridor works.)",k:"Open daily, free",g:["PARK","HERITAGE","FREE"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/ang-mo-kio-town-garden-west"],["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/ang-mo-kio-town-garden-west"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ang_Mo_Kio_Town_Garden_West"]]},
+{t:2,a:"ANGMOKIO",n:"Ang Mo Kio Town Garden East",ad:"Ang Mo Kio Avenue 3 / Avenue 8 (behind Ang Mo Kio MRT), Singapore",la:1.36950,ln:103.85000,w:"The eastern counterpart town garden, tucked behind Ang Mo Kio MRT at the junction of Avenues 3 and 8 — a landscaped neighbourhood green with ponds and rest areas serving the surrounding HDB blocks.",k:"Open daily, free",g:["PARK","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Ang_Mo_Kio_Town_Garden_East"],["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/ang-mo-kio-town-garden-west"]]},
+{t:2,a:"ANGMOKIO",n:"Windsor Nature Park",ad:"30 Venus Drive, Singapore 573858",la:1.35889,ln:103.82823,w:"A 75-ha nature park opened in 2017 on the AMK/Upper Thomson fringe, a quieter gateway into the Central Catchment. About 4 km of trails — the boardwalked Hanguana Trail over a freshwater swamp forest, the Venus Loop and Drongo Trail — link to MacRitchie and the TreeTop Walk.",k:"7am-7pm, free",g:["PARK","FREE","TEMPLE"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/windsor-nature-park"],["THETRAVELINTERN","https://thetravelintern.com/windsor-nature-park/"]]},
+{t:2,a:"ANGMOKIO",n:"MacRitchie TreeTop Walk",ad:"Central Catchment Nature Reserve (via Venus Drive, off Upper Thomson Road), Singapore",la:1.36105,ln:103.81140,w:"A 250 m free-standing suspension bridge strung between MacRitchie's two highest points, Bukit Peirce and Bukit Kalang, high in the rainforest canopy — reached on foot from the AMK-side Venus Drive / Windsor trailheads. Closed Mondays (except public holidays).",k:"Tue-Fri 9am-5pm, wknd 8:30am-5pm; free",g:["PARK","VIEW","FREE","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/macritchie-reservoir-park"],["THETRAVELINTERN","https://thetravelintern.com/windsor-nature-park/"]]},
+{t:2,a:"ANGMOKIO",n:"Lower Peirce Reservoir Park",ad:"Casuarina Road / Upper Thomson Road, Singapore",la:1.37120,ln:103.82440,w:"A park around Singapore's second-oldest reservoir (1910s) whose 900 m nature boardwalk, built in 1998 along existing trails, threads one of the island's last mature secondary forests at the water's edge — home to more than 900 flowering plants, 100 ferns and 250 animal species.",k:"Open daily, free",g:["PARK","FREE","TEMPLE"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/lower-peirce-reservoir-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lower_Peirce_Reservoir_Park"]]},
+{t:2,a:"ANGMOKIO",n:"Thomson Nature Park",ad:"Upper Thomson Road (near Springleaf), Singapore",la:1.38647,ln:103.82107,w:"Singapore's 7th nature park (opened 2019), built around the atmospheric ruins of a 1930s-60s Hainanese village and a key conservation site for the critically endangered Raffles' banded langur. Five trails (3.8 km) — Ruins and Figs, Stream and Ferns, Rambutan, Langur and Macaque — wind past old village foundations and troops of long-tailed macaques.",k:"7am-7pm, free",g:["PARK","HERITAGE","FREE","ARCH"],s:[["NPARKS","https://www.nparks.gov.sg/visit/parks/park-detail/thomson-nature-park"],["LITTLEDAYOUT","https://www.littledayout.com/thomson-nature-park-walk-amongst-the-ruins-of-a-1930s-hainanese-village/"],["THESMARTLOCAL","https://thesmartlocal.com/read/thomson-nature-park-singapore/"]]},
+{t:2,a:"ANGMOKIO",n:"Ang Mo Kio Heritage Trail",ad:"Ang Mo Kio Town Centre (trail markers islandwide across AMK), Singapore",la:1.36960,ln:103.84850,w:"NHB's self-guided trail through Singapore's quintessential heartland town — refreshed in 2023 to 40 heritage sites and 10 markers across three routes (Iconic Landmarks, Hidden Heartland Gems, Scenic Fringes), linking the Clover Block, Kebun Baru Birdsinging Club, Chu Sheng Temple, Church of Christ the King, Bishan-Ang Mo Kio Park and more.",k:"Free; maps on Roots.gov.sg",g:["HERITAGE","FREE","TEMPLE","PARK"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/ang-mo-kio-heritage-trail"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"]]},
+{t:2,a:"ANGMOKIO",n:"Church of Christ the King",ad:"2221 Ang Mo Kio Ave 8, Singapore 569809",la:1.36190,ln:103.85241,w:"The only Catholic church in Ang Mo Kio — its foundation stone laid in 1981 by Archbishop Gregory Yong, it cost around S$3 million (then twice any other church in Singapore) and opened in 1982 before being rebuilt in 2002. Marked on the Ang Mo Kio Heritage Trail; the facade carries a statue of Christ the King.",k:"Free entry",g:["HERITAGE","ARCH","FREE","TEMPLE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/church-of-christ-the-king"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_of_Christ_the_King,_Singapore"],["CATHOLICSG","https://history.catholic.sg/church-of-christ-the-king/"]]},
+{t:2,a:"ANGMOKIO",n:"Block 259, the 'Clover Block'",ad:"259 Ang Mo Kio Avenue 2, Singapore 560259",la:1.36864,ln:103.83154,w:"The only block of circular flats the HDB ever built — four round towers joined into a four-leaf-clover plan (completed 1981), part of a late-1970s pilot of seven distinctively designed blocks meant to give estates their own identity. Built in solid brick with round rooms larger than a standard five-room flat; now an AMK icon and a heritage-trail marker.",k:"Residential; view from ground level",g:["HERITAGE","ARCH","ODD","VIEW"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/block-259-the-clover-block"],["WIKIPEDIA","https://en.wikipedia.org/wiki/259_Ang_Mo_Kio_Avenue_2"]]},
+{t:3,a:"ANGMOKIO",n:"Chu Sheng Temple",ad:"48 Ang Mo Kio Street 61, Singapore 569163",la:1.38102,ln:103.84152,w:"A Hokkien-style temple built in 1981 to house three older village temples — Ji Fu Gong, Hua Tang Fu and Long Quan Yan — displaced from Yio Chu Kang's 11th milestone (Ka Tau Au) by redevelopment. Pronounced curved roof ridges mark its Hokkien architecture; former villagers still gather here and it runs community charity. An Ang Mo Kio Heritage Trail hidden gem.",k:"Free entry",g:["TEMPLE","HERITAGE","FREE","ARCH"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/chu-sheng-temple"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"]]},
+{t:3,a:"ANGMOKIO",n:"Masjid Al-Muttaqin",ad:"5140 Ang Mo Kio Ave 6, Singapore 569844",la:1.37039,ln:103.84599,w:"Ang Mo Kio's HDB-built neighbourhood mosque, opened 21 September 1980 for a community that had earlier prayed at Thomson Road and Kampong Sireh. Part-funded by MUIS with the rest raised by residents through donations and food fairs, it accommodates up to 3,500 worshippers and is a marker on the Ang Mo Kio Heritage Trail.",k:"Free entry",g:["HERITAGE","ARCH","FREE","TEMPLE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/masjid-al-muttaqin"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Masjid_Al-Muttaqin"],["MUIS","https://www.muis.gov.sg/mosque/Our-Mosques/Mosque-Directory/Al-Muttaqin"]]},
+{t:2,a:"ANGMOKIO",n:"Ang Mo Kio Dragon Playground",ad:"Blk 570 Ang Mo Kio Avenue 3, Singapore 560570",la:1.36982,ln:103.85525,w:"One of the last surviving vintage sand-pit dragon playgrounds in Singapore — a 1980s reproduction of the beloved Toa Payoh design, its dragon head clad in terrazzo mosaic tiles, spine of steel rails, and (uniquely to this one) a mosaic slide. A stop on the Ang Mo Kio Heritage Trail's Iconic Landmarks route and a nostalgic icon of heartland childhood.",k:"Open 24h, free",g:["HERITAGE","ICON","FREE","ARCH"],s:[["LITTLEDAYOUT","https://www.littledayout.com/dragon-playground-ang-mo-kio-avenue-3/"],["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/ang-mo-kio-heritage-trail-iconic-landmarks"],["HOMEANDDECOR","https://www.homeanddecor.com.sg/property/hdb/dragon-playgrounds"]]},
+{t:3,a:"ANGMOKIO",n:"Ang Mo Kio Joint Temple",ad:"Ang Mo Kio Avenue 1 vicinity, Singapore (Ang Mo Kio Heritage Trail; exact street to confirm)",la:1.36633,ln:103.83885,w:"Established in 1978 and rebuilt in 2011, this joint temple houses three deities' temples displaced when their villages were cleared in the 1970s — Gao Lin Gong, Kim Eang Tong and Leng San Giam. The oldest, Gao Lin Gong, was founded in 1888 by Huang-surname immigrants from Nan An, Fujian, at Kow Tiow Kio ('nine bridges') along today's Ang Mo Kio Avenue 1; its pillars and facade carry carvings handcrafted by artisans in China. An Ang Mo Kio Heritage Trail hidden gem.",k:"Free entry",g:["TEMPLE","HERITAGE","FREE","ARCH"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/ang-mo-kio-joint-temple"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"],["SGMAGAZINE","https://sgmagazine.com/things-to-do/refreshed-heritage-trail-with-13-new-sites-reveals-more-stories-about-heartland-town-ang-mo-kio/"]]},
+{t:3,a:"ANGMOKIO",n:"Liuxun Sanhemiao",ad:"Ang Mo Kio / Yio Chu Kang vicinity (near Lentor Avenue), Singapore (Ang Mo Kio Heritage Trail)",la:1.38591,ln:103.84826,w:"Completed in 1989, this joint temple unites three temples — Sam Ann Fu, Longxuyan Jinshuiguan and the Hong San Chin Huat Temple Association — that once stood at Lak Xun, a village in Yio Chu Kang near present-day Lentor Avenue. One of two new markers added to the refreshed Ang Mo Kio Heritage Trail in 2023, recording the town's transformation from plantation land to new town.",k:"Free entry",g:["TEMPLE","HERITAGE","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/liuxun-sanhemiao"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"]]},
+{t:3,a:"ANGMOKIO",n:"Swee Kow Kuan",ad:"Ang Mo Kio (Ang Mo Kio Heritage Trail hidden gem; exact street to confirm)",la:1.38094,ln:103.84148,w:"A clan temple and association for people of the Hong (Xiong) surname, first established in 1905 at Buona Vista and relocated over the decades to Ang Mo Kio — a rare surviving surname-clan temple and a Hidden Heartland Gems stop on the Ang Mo Kio Heritage Trail, illustrating the village-and-clan networks that predate the new town.",k:"Free entry",g:["TEMPLE","HERITAGE","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/ang-mo-kio-heritage-trail-hidden-gems"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"]]},
+{t:2,a:"ANGMOKIO",n:"Old Upper Thomson Road (Thomson Road Grand Prix Circuit)",ad:"Old Upper Thomson Road (through/around Thomson Nature Park), Singapore",la:1.38320,ln:103.81911,w:"The surviving loop of the former Thomson Road Grand Prix circuit that hosted the Singapore Grand Prix from 1961 to 1973 — a ~4.8 km course legendary for its danger, with corners nicknamed Devil's Bend, The Snakes and Murder Mile. Now a quiet cycling and walking road on the AMK/Thomson fringe, part of it threading through Thomson Nature Park alongside the old Hainan-village ruins.",k:"Open road; free to walk/cycle",g:["HERITAGE","ODD","FREE","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Upper_Thomson_Road"],["NLB","https://eresources.nlb.gov.sg/history/events/19610850-ad7f-48b0-8317-7a25f62b1599"],["ATLASOBSCURA","https://www.atlasobscura.com/places/devils-bend-old-upper-thomson-road-singapore"],["REMEMBERSG","https://remembersingapore.org/2016/11/26/singapore-grand-prix-sixties-seventies/"]]},
+{t:3,a:"ANGMOKIO",n:"Teachers' Housing Estate",ad:"Teachers' Estate (off Jalan Kuras / Upper Thomson, Yio Chu Kang side), Singapore",la:1.37977,ln:103.82919,w:"A landed estate developed by the Singapore Teachers' Union — completed 1969 and officially opened in 1971 by then-Education Minister Lim Kim San — whose roads are named after literary figures such as Tu Fu, Rabindranath Tagore and Munshi Abdullah. A Scenic Fringes marker on the Ang Mo Kio Heritage Trail.",k:"Residential estate; free to walk",g:["HERITAGE","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/teachers-housing-estate"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"]]},
+{t:3,a:"ANGMOKIO",n:"Sembawang Hills Estate",ad:"Sembawang Hills Estate (Jalan Leban / Upper Thomson Road vicinity), Singapore",la:1.37273,ln:103.82817,w:"A private landed estate on the AMK/Upper Thomson fringe, jointly developed in the 1950s by Bukit Sembawang Rubber Estates and Singapore United Rubber Estates as rubber companies pivoted from a declining plantation trade into housing — one of the earliest such estates. A Scenic Fringes marker on the Ang Mo Kio Heritage Trail, and home to the well-loved Sembawang Hills Food Centre.",k:"Residential estate; free to walk",g:["HERITAGE","FREE","MKT","PARK"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/ang-mo-kio-heritage-trail/sembawang-hills-estate"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sembawang_Hills"],["NHB","https://www.nhb.gov.sg/-/media/nhb/files/media/releases/2023/media-release---refreshed-ang-mo-kio-heritage-trail-uncovers-new-stories-of-a-quintessential-heartland-town.pdf"]]}
+];
+
+const FS = {
+  "8DAYS":{k:"8DAYS",t:"8days (Mediacorp)",u:"https://www.8days.sg",l:"8days (Mediacorp)"},
+  "CAVINTEO":{k:"CAVINTEO",t:"Cavin Teo (Entree Kibbles)",u:"https://cavinteo.blogspot.com",l:"Cavin Teo (Entree Kibbles)"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
+  "HAVEHALALWILLTRAVEL":{k:"HAVEHALALWILLTRAVEL",t:"Have Halal Will Travel (HHWT)",u:"https://www.havehalalwilltravel.com",l:"Have Halal Will Travel (HHWT)"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
+  "HONEYCOMBERS":{k:"HONEYCOMBERS",t:"The Honeycombers Singapore",u:"https://thehoneycombers.com/singapore",l:"The Honeycombers Singapore"},
+  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
+  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
+  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey)",u:"https://johorkaki.blogspot.com",l:"Johor Kaki (Tony Boey)"},
+  "LADYIRONCHEF":{k:"LADYIRONCHEF",t:"ladyironchef (Brad Lau)",u:"https://www.ladyironchef.com",l:"ladyironchef (Brad Lau)"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
+  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
+  "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
+  "ORDINARYPATRONS":{k:"ORDINARYPATRONS",t:"Ordinary Patrons",u:"https://ordinarypatrons.com",l:"Ordinary Patrons"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
+  "TIMEOUTSG":{k:"TIME OUT SINGAPORE",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
+  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+};
+
+const CUISINES = [
+  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
+  {id:"LAKSA",n:"Laksa & Curry Noodles"},
+  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
+  {id:"BKT",n:"Bak Kut Teh & Soups"},
+  {id:"HAWKER",n:"Hawker & Zi Char"},
+  {id:"MALAY",n:"Malay & Nasi Padang"},
+  {id:"INDIAN",n:"Indian & Roti Prata"},
+  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
+  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
+  {id:"THAI",n:"Thai"},
+  {id:"VIET",n:"Vietnamese"},
+  {id:"INDO",n:"Indonesian, Satay & Rendang"},
+  {id:"FILIPINO",n:"Filipino"},
+  {id:"KHMER",n:"Khmer (Cambodian)"},
+  {id:"LAO",n:"Lao"},
+  {id:"BURMESE",n:"Burmese"},
+  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
+  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
+  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
+  {id:"CAFE",n:"Cafés & Modern"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"HERITAGE",n:"Heritage & Culture"},
+  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
+  {id:"MKT",n:"Markets & Hawker Centres"},
+  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"VIEW",n:"Views & Skyline"},
+  {id:"ARCH",n:"Architecture & Landmarks"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"ANGMOKIO",n:"Ang Mo Kio Fried Kway Teow",ad:"Ang Mo Kio Central Market & Food Centre, #01-22, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["NOODLE"],la:1.37218,ln:103.84656,w:"An elderly couple has fried this heritage char kway teow for 40-odd years, opening just 3.5 hours a day — the longest queue in 724 AMK Central, with senior regulars waiting 30 minutes at lunch for smoky, lard-slicked plates.",s:[["SETHLUI","https://sethlui.com/char-kway-teow-long-queue-showdown-singapore/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/ang-mo-kio-fried-kway-teow-14-years-on/"],["MISSTAMCHIAK","https://www.misstamchiak.com/fried-kway-teow-724-amk/"],["DANIELFOOD","https://danielfooddiary.com/2021/05/03/angmokiocentral/"]]},
+{t:1,a:"ANGMOKIO",n:"Yunos N Family",ad:"Ang Mo Kio Central Market & Food Centre, #01-01, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["MALAY"],la:1.37218,ln:103.84656,w:"Started by the late Haji Yunos Ahmad as a 1965 pushcart at Hastings Road and now run by the third generation, this stall pours a thick, spiced sweet-potato mee rebus gravy that ranks among Singapore's most storied — also known for its satay and soto.",s:[["EATBOOK","https://eatbook.sg/yunos-n-family/"],["SETHLUI","https://sethlui.com/yunos-n-family-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/yunos-n-family/"]]},
+{t:1,a:"ANGMOKIO",n:"Malaysian Hup Kee Fishball Noodle",ad:"Blk 158 Ang Mo Kio Ave 4, #01-590 (coffeeshop beside Mayflower Market), S560158",cz:["NOODLE"],la:1.37485,ln:103.83892,w:"Two brothers from Kuantan scrape yellowtail by hand daily — fishballs of pure fish, salt and pepper with no flour or filler, tossed Malaysian-style with black sauce and shallot oil. Sells out within four hours; closed Mondays.",s:[["SETHLUI","https://sethlui.com/malaysian-hup-kee-fishball-noodle-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/hupkee/"],["EATBOOK","https://eatbook.sg/malaysian-hupkee-fishball-noodle/"],["MOTHERSHIP","https://mothership.sg/2021/12/malaysian-style-fishball-noodles-store-in-ang-mo-kio/"]]},
+{t:1,a:"ANGMOKIO",n:"Ho Bee Roasted Food",ad:"Ang Mo Kio 628 Market & Food Centre, #01-84, Blk 628 Ang Mo Kio Ave 4, S560628",cz:["CHINESE"],la:1.38099,ln:103.84063,w:"AMK's most popular roast-meat stall for two decades, drawing long queues for glossy char siew, shatter-crisp sio bak and a paper-skinned roast duck that fans rate above town shops — the classic combo plate is S$4.50.",s:[["SETHLUI","https://sethlui.com/ho-bee-roasted-food-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/ho-bee-roasted-food/"],["EATBOOK","https://eatbook.sg/ang-mo-kio-628-food-centre/"]]},
+{t:1,a:"ANGMOKIO",n:"Mellben Seafood",ad:"Blk 232 Ang Mo Kio Ave 3, #01-1222, S560232",cz:["SEAFOOD","HAWKER"],la:1.36863,ln:103.83703,w:"A crab specialist since 1979 (Michelin Plate 2019) whose signature claypot crab bee hoon simmers over 20 crab shells into a rich, sweet milky broth soaked into glass noodles — plus chilli, black pepper and salted-egg crabs. Come early; the queue forms fast.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/mellben-seafood"],["DANIELFOOD","https://danielfooddiary.com/2019/06/23/mellben/"],["EATBOOK","https://eatbook.sg/crab-bee-hoon-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/best-chilli-crab-singapore/"]]},
+{t:1,a:"ANGMOKIO",n:"Sin Ming Roti Prata",ad:"Jin Fa Kopitiam, Blk 24 Sin Ming Road, #01-51, S570024",cz:["INDIAN"],la:1.35532,ln:103.83668,w:"On the Sin Ming edge of AMK, this corner stall traces back to a 1933 street-prata grandfather; the third generation flips 19 kinds and a famed hand-rolled Coin Prata set (S$4 for 6) that queues form for at breakfast.",s:[["SETHLUI","https://sethlui.com/sin-ming-roti-prata-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2021/02/17/sinmingrotiprata/"],["MISSTAMCHIAK","https://www.misstamchiak.com/sin-ming-roti-prata/"]]},
+{t:1,a:"ANGMOKIO",n:"Thasevi Food (Famous Jalan Kayu Prata)",ad:"237 Jalan Kayu, S799462",cz:["INDIAN"],la:1.39614,ln:103.87286,w:"The stall that made 'Jalan Kayu prata' a Singapore byword — serving small, round, crispy prata (plus murtabak, mee goreng and biryani) since the 1960s, so copied that it signboards itself the 'Original Prata Shop'. Open 24 hours.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/thasevi-food-famous-jalan-kayu-prata/"],["HONEYCOMBERS","https://thehoneycombers.com/singapore/best-prata-in-singapore/"],["ORDINARYPATRONS","https://ordinarypatrons.com/2016/04/28/thasevi-food-famous-original-jalan-kayu-roti-prata/"]]},
+{t:1,a:"ANGMOKIO",n:"Rahim Muslim Food",ad:"Chong Boon Market & Food Centre, #01-01, Blk 453A Ang Mo Kio Ave 10, S560453",cz:["MALAY"],la:1.36816,ln:103.85652,w:"Around since 1957 and now third-generation, Rahim's Straits Times-featured 'Power' mee rebus layers savoury satay peanut sauce and spiced chicken over the usual gravy — long queues at this Chong Boon stall for mee rebus and mee soto.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/rahim-muslim-food-power-mee-rebus/"],["EATBOOK","https://eatbook.sg/rahim-muslim-food-ang-mo-kio/"],["SETHLUI","https://sethlui.com/rahim-muslim-food-mee-rebus-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/rahim-power-mee-rebus/"]]},
+{t:2,a:"ANGMOKIO",n:"Ho Ji Fried Hokkien Mee",ad:"Mayflower Market & Food Centre, #01-39, Blk 162 Ang Mo Kio Ave 4, S560162",cz:["NOODLE"],la:1.37411,ln:103.83886,w:"Hawker Ah Ho learned the wok some 30 years ago at a famed Bukit Batok stall and now fries a leaning-wet Hokkien mee of yellow noodles and thin bee hoon in umami prawn stock — once named a top-10 Hokkien mee by Lianhe Wanbao.",g:["MKT"],s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/ho-ji-hokkien-mee-its-about-the-hawker-wielding-the-wok/"],["SETHLUI","https://sethlui.com/mayflower-market-food-centre-guide-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2025/05/ho-ji-fried-hokkien-mee-at-mayflower.html"]]},
+{t:2,a:"ANGMOKIO",n:"Song Heng Fishball Minced Meat Noodle",ad:"Ang Mo Kio 628 Market & Food Centre, #01-75, Blk 628 Ang Mo Kio Ave 4, S560628",cz:["NOODLE"],la:1.38099,ln:103.84063,w:"The longest queue at 628 with almost no publicity — a balanced chilli-vinegar dry mee pok with bouncy fishballs and a lightly sweet pork soup; fishballs regularly sell out by 11am. Closed Tuesdays.",s:[["SETHLUI","https://sethlui.com/song-heng-fishball-minced-meat-noodle-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/soon-heng-fishball-minced-meat-noodle/"],["JOHORKAKI","https://johorkaki.blogspot.com/2021/08/song-heng-fishball-noodle-ang-mo-kio.html"]]},
+{t:2,a:"ANGMOKIO",n:"Imperial Fish Soup",ad:"Ang Mo Kio 628 Market & Food Centre, Blk 628 Ang Mo Kio Ave 4, S560628",cz:["NOODLE"],la:1.38099,ln:103.84063,w:"Millennial hawker Max left a finance job in 2020 and, after training at Hock Heng, opened this long-queue stall; the Signature Seafood Noodle (from S$5) plays like bak chor mee but with seafood in place of pork.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/imperial-fish-soup/"],["MISSTAMCHIAK","https://www.misstamchiak.com/imperial-fish-soup-ang-mo-kio/"]]},
+{t:2,a:"ANGMOKIO",n:"Ah Jie Hokkien Mee",ad:"Food Loft Kopitiam, Ang Mo Kio Ave 8, Singapore",cz:["NOODLE","VIRAL"],la:1.37238,ln:103.84789,w:"Two Gen-Z hawkers both named Jie fry one dish only — a wok-hei Hokkien mee on a wide stove that chars the noodles before the homemade prawn stock goes in, with fresh pork lard and house chilli. Hour-long queues since 2024.",g:["MKT"],s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/ah-jie-hokkien-mee-gen-z-hawker-heroes/"],["EATBOOK","https://eatbook.sg/ah-jie-hokkien-mee/"],["SETHLUI","https://sethlui.com/ah-jie-hokkien-mee-ang-mo-kio-singapore/"]]},
+{t:2,a:"ANGMOKIO",n:"Kam Jia Zhuang Seafood",ad:"Blk 202 Ang Mo Kio Ave 3, #01-1690, S560202",cz:["HAWKER","SEAFOOD"],la:1.36845,ln:103.84452,w:"A family zi char in a HDB coffeeshop since 2003, beloved for crunchy salted-egg prawns, pumpkin prawns, Dong Po pork belly and the usual chilli/salted-egg crabs — a reliable AMK feast spot.",s:[["DANIELFOOD","https://danielfooddiary.com/2020/05/13/kamjiazhuang/"],["EATBOOK","https://eatbook.sg/north-east-zi-char/"],["MISSTAMCHIAK","https://www.misstamchiak.com/kam-jia-zhuang-seafood/"]]},
+{t:2,a:"ANGMOKIO",n:"Kian Seng Seafood Restaurant",ad:"Ang Mo Kio, Singapore (coffeeshop zi char; block to verify)",cz:["HAWKER","SEAFOOD","CHINESE"],la:1.35967,ln:103.85634,w:"An old-school Teochew zi char in AMK serving chilli crab and Teochew classics at neighbourhood prices — a longstanding local favourite for casual family dinners.",s:[["DANIELFOOD","https://danielfooddiary.com/2025/02/04/kiansengseafood/"],["EATBOOK","https://eatbook.sg/kian-seng-seafood/"]]},
+{t:2,a:"ANGMOKIO",n:"No Horse Run Cafe",ad:"Blk 202 Ang Mo Kio Ave 3, #01-1682, S560202",cz:["CAFE"],la:1.36845,ln:103.84452,w:"A retro void-deck cafe doing nett-price Western brunch — fried chicken and waffles (S$13.90), eggs benedict, fish and chips — with free-flow ice cream thrown in with every main.",s:[["EATBOOK","https://eatbook.sg/no-horse-run-cafe-amk/"],["DANIELFOOD","https://danielfooddiary.com/2020/02/06/amkcafes/"]]},
+{t:2,a:"ANGMOKIO",n:"Eng Kee Bak Kut Teh",ad:"Teck Ghee Court Market & Food Centre, #01-04, Blk 341 Ang Mo Kio Ave 1, S560341",cz:["BKT"],la:1.36404,ln:103.84807,w:"A lunchtime-queue fixture at Teck Ghee for peppery Singapore-style bak kut teh (S$8) and a fork-tender braised pig's trotter (S$7) in a dark, wine-scented lor bak gravy.",s:[["HERWORLD","https://www.herworld.com/life/foodanddrink/3-top-eats-try-ang-mo-kio-hawker-centre-teck-ghee"],["JOHORKAKI","https://johorkaki.blogspot.com/2023/05/eng-kee-bak-kut-teh-ang-mo-kio-everyone.html"]]},
+{t:2,a:"ANGMOKIO",n:"Ann Hoo Teochew Porridge",ad:"Cheng San Market & Cooked Food Centre, Ang Mo Kio Ave 10, Singapore",cz:["CHINESE"],la:1.37277,ln:103.85446,w:"Twenty years of Teochew-style porridge and a spread of 30-plus sides — fresh fish, fried meatballs, braised pork belly — one of Cheng San's most reliable old-school stalls.",s:[["SETHLUI","https://sethlui.com/cheng-san-market-food-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/ann-hoo-teochew-porridge/"],["EATBOOK","https://eatbook.sg/best-of-ang-mo-kio/"]]},
+{t:2,a:"ANGMOKIO",n:"Top 73+1 Fishball Legacy",ad:"Cheng San Centre, Blk 532 Ang Mo Kio Ave 10, #01-2495, S560532",cz:["NOODLE"],la:1.37387,ln:103.85453,w:"One of few halal-certified fishball noodle stalls, a hotspot for the Malay community — large hand-scooped fishballs on a family recipe, around S$5.50-6.50. Moved to Cheng San/AMK from Upper Thomson in Dec 2022.",s:[["SETHLUI","https://sethlui.com/top-73-1-fishball-legacy-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/fishball-noodles/"]]},
+{t:2,a:"ANGMOKIO",n:"Centre Satay Bee Hoon",ad:"Ang Mo Kio Central Market & Food Centre, #01-12, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["HAWKER"],la:1.37218,ln:103.84656,w:"Thin rice vermicelli drowned in a thick, peanut-heavy satay sauce with cuttlefish, prawns, pork, tau pok and kang kong (from ~S$4) — rated by some as the best satay bee hoon around.",s:[["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-ang-mo-kio-central-food-centre"],["JOHORKAKI","https://johorkaki.blogspot.com/2015/02/centre-satay-bee-hoon-ang-mo-kio.html"]]},
+{t:2,a:"ANGMOKIO",n:"Huang Fu Duck Rice",ad:"Kebun Baru Market & Food Centre, #01-20, Blk 226H Ang Mo Kio Ave 1, S560226",cz:["HAWKER"],la:1.36718,ln:103.84002,w:"Over four decades of herbal braised duck at Kebun Baru — the braise draws on more than ten herbs for a deep, aromatic gravy over rice or noodles.",s:[["SETHLUI","https://sethlui.com/kebun-baru-market-food-centre-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/best-of-kebun-baru-food-centre/"]]},
+{t:2,a:"ANGMOKIO",n:"Jing Ji Fishball Noodle",ad:"Sembawang Hills Food Centre, #01-04, 590 Upper Thomson Road, S574419",cz:["NOODLE"],la:1.37236,ln:103.82901,w:"Sembawang Hills' standout fishball noodle — a dry mee pok tossed in a house blend of chilli, vinegar and tomato, with fishballs, fishcake and pork liver served in a light porky soup.",s:[["EATBOOK","https://eatbook.sg/sembawang-hills-food/"],["DANIELFOOD","https://danielfooddiary.com/2020/04/28/sembawanghills/"]]},
+{t:3,a:"ANGMOKIO",n:"Seng Bee Hainanese Chicken Rice",ad:"Ang Mo Kio Central Market & Food Centre, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["CHICKENRICE"],la:1.37218,ln:103.84656,w:"A traditional Hainanese chicken rice counter that regularly makes the round-ups of 724 AMK Central's best — poached chicken and fragrant rice at heartland prices.",s:[["SETHLUI","https://sethlui.com/724-amk-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/best-of-ang-mo-kio/"]]},
+{t:3,a:"ANGMOKIO",n:"Sumo Fried Hokkien Prawn Mee",ad:"Ang Mo Kio 628 Market & Food Centre, Blk 628 Ang Mo Kio Ave 4, S560628",cz:["NOODLE"],la:1.38099,ln:103.84063,w:"A 628 stall specialising in the trio of fried Hokkien prawn mee, fried carrot cake and oyster omelette — a solid all-rounder in one of AMK's most food-dense hawker centres.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/ang-mo-kio-628-food-centre/"],["SETHLUI","https://sethlui.com/ang-mo-kio-628-market-food-guide-singapore/"]]},
+{t:3,a:"ANGMOKIO",n:"Ang Mo Kio Loh Mee Laksa",ad:"Chong Boon Market & Food Centre, #01-17, Blk 453A Ang Mo Kio Ave 10, S560453",cz:["LAKSA","NOODLE"],la:1.36816,ln:103.85652,w:"An elderly couple has run this Chong Boon stall for more than a decade, doing two things well — a thick-gravy lor mee and a coconutty laksa.",s:[["SETHLUI","https://sethlui.com/chong-boon-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/chong-boon-market-food/"]]},
+{t:3,a:"ANGMOKIO",n:"Cai Ji Fried Fish Soup",ad:"Chong Boon Market & Food Centre, #01-10, Blk 453A Ang Mo Kio Ave 10, S560453",cz:["HAWKER"],la:1.36816,ln:103.85652,w:"Known at Chong Boon for an affordable, generous red grouper fish-head soup (around S$10) — a comforting, clean-tasting bowl.",s:[["SETHLUI","https://sethlui.com/chong-boon-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/chong-boon-market-food/"]]},
+{t:3,a:"ANGMOKIO",n:"Sin Kee Chicken Rice",ad:"Chong Boon Market & Food Centre, #01-19, Blk 453A Ang Mo Kio Ave 10, S560453",cz:["CHICKENRICE"],la:1.36816,ln:103.85652,w:"A morning go-to at Chong Boon for silky, smooth poached chicken and fragrant rice.",s:[["SETHLUI","https://sethlui.com/chong-boon-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/chong-boon-market-food/"]]},
+{t:3,a:"ANGMOKIO",n:"Yong Xin",ad:"Chong Boon Market & Food Centre, #01-39, Blk 453A Ang Mo Kio Ave 10, S560453",cz:["NOODLE"],la:1.36816,ln:103.85652,w:"A 12-year Chong Boon stall that draws one of the centre's longest queues for its dry-tossed noodles.",s:[["SETHLUI","https://sethlui.com/chong-boon-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/chong-boon-market-food/"]]},
+{t:3,a:"ANGMOKIO",n:"Hock Kee Wanton Noodle",ad:"Kebun Baru Market & Food Centre, #01-05, Blk 226H Ang Mo Kio Ave 1, S560226",cz:["NOODLE"],la:1.36718,ln:103.84002,w:"A 31-year Kebun Baru stall serving a tidy small wanton noodle from S$3.50 — old-school springy mee and char siew.",s:[["SETHLUI","https://sethlui.com/kebun-baru-market-food-centre-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/best-of-kebun-baru-food-centre/"]]},
+{t:3,a:"ANGMOKIO",n:"Foo Hing Handmade Fishball & Meatball Noodle",ad:"Kebun Baru Market & Food Centre, #01-01, Blk 226H Ang Mo Kio Ave 1, S560226",cz:["NOODLE"],la:1.36718,ln:103.84002,w:"A Kebun Baru fixture for handmade fishballs and meatballs in a clean noodle bowl — one of the centre's most-recommended stalls.",s:[["SETHLUI","https://sethlui.com/kebun-baru-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/kebun-baru-food-centre/"]]},
+{t:3,a:"ANGMOKIO",n:"Kuai San Dian Xin",ad:"Blk 555 Ang Mo Kio Ave 10, #01-1936, S560555",cz:["CHINESE"],la:1.37137,ln:103.85700,w:"A no-frills 24-hour spot where every basket of dim sum is S$1.30 (buy 10, get 1 free) — fried prawn dumplings and siew mai the picks; not fine dining, but unbeatable value.",s:[["EATBOOK","https://eatbook.sg/kuai-san-dian-xin/"],["MISSTAMCHIAK","https://www.misstamchiak.com/kuai-san-dian-xin/"],["HUNGRYGOWHERE","https://hungrygowhere.com/critics-reviews/kuai-san-dian-xin/"]]},
+{t:3,a:"ANGMOKIO",n:"Fresh Fish Seafood Soup",ad:"Sembawang Hills Food Centre, 590 Upper Thomson Road, S574419",cz:["HAWKER"],la:1.37236,ln:103.82901,w:"A perennial peak-hour queue at Sembawang Hills for a fresh sliced-fish seafood soup — ladle it over ke kou mian or bee hoon to soak up the broth.",s:[["EATBOOK","https://eatbook.sg/sembawang-hills-food/"],["DANIELFOOD","https://danielfooddiary.com/2020/04/28/sembawanghills/"]]},
+{t:1,a:"ANGMOKIO",n:"Plum Village",ad:"16 Jalan Leban, Singapore 577554",cz:["CHINESE","HAWKER"],la:1.37178,ln:103.82919,w:"Widely called Singapore's oldest Hakka restaurant (going back to 1960s Chin Swee Road, at Jalan Leban on the Sembawang Hills/AMK fringe for over 30 years) — the abacus seeds are pounded with more yam than flour and wok-fried with dried shrimp, minced pork and mushroom, alongside stuffed beancurd, khong bak and festive poon choi.",s:[["EATBOOK","https://eatbook.sg/plum-village/"],["MISSTAMCHIAK","https://www.misstamchiak.com/plum-village-restaurant/"],["ORDINARYPATRONS","https://ordinarypatrons.com/2021/04/18/plum-village-hakka-restaurant-review/"],["JOHORKAKI","https://johorkaki.blogspot.com/2019/01/plum-village-best-hakka-restaurant-in.html"],["IEATISHOOTIPOST","https://ieatishootipost.sg/plum-village-origins-hakka-yong-tau-foo/"]]},
+{t:1,a:"ANGMOKIO",n:"Xi Xiang Feng Yong Tau Foo",ad:"Ang Mo Kio Central Market & Food Centre, #01-23, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["BKT"],la:1.37218,ln:103.84656,w:"Reliably the longest queue at 724 AMK Central — a half-hour wait even off-peak — for a yong tau foo rated among the island's best, its handmade pieces defined by a deeply savoury house sauce; order it over chee cheong fun (S$0.80) or as laksa (S$3). Widely reviewed by ieatishootipost, Miss Tam Chiak, Eatbook and Seth Lui.",s:[["DANIELFOOD","https://danielfooddiary.com/2021/02/19/xixiangfeng/"],["MISSTAMCHIAK","https://www.misstamchiak.com/xi-xiang-feng-yong-tau-foo-ang-mo-kio/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/xi-xiang-feng-yong-tau-foo-the-sauce-its-the-sauce/"],["JOHORKAKI","https://johorkaki.blogspot.com/2016/12/xi-xiang-feng-best-yong-tau-foo.html"],["SETHLUI","https://sethlui.com/best-yong-tau-foo-singapore/"],["EATBOOK","https://eatbook.sg/yong-tau-foo/"],["CAVINTEO","https://cavinteo.blogspot.com/2016/12/xi-xiang-feng-yong-tau-foo-with-chee.html"]]},
+{t:2,a:"ANGMOKIO",n:"Han Jiang Fish Soup",ad:"409 AMK Market & Food Centre, #01-15, Blk 409 Ang Mo Kio Ave 10, S560409",cz:["HAWKER"],la:1.36265,ln:103.85529,w:"A two-brother sliced-fish soup stall at 409 (Teck Ghee Square) whose broth balances savoury, sweet and a tang from fresh tomato, layered with tee po (dried sole), soy beans, tofu and seaweed. The queue runs 30 minutes even off-peak; soup from S$5.50, +S$0.50 with bee hoon.",s:[["SETHLUI","https://sethlui.com/409-amk-market-food-centre-guide-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2015/04/han-jiang-fish-soup-at-amk-409-teck.html"]]},
+{t:2,a:"ANGMOKIO",n:"Twenty Grammes",ad:"Blk 529 Ang Mo Kio Ave 10, #01-2353, S560529",cz:["CAFE","DESSERT"],la:1.37234,ln:103.85546,w:"The heartland flagship of the North Bridge Road dessert cafe, doing waffle-and-ice-cream sets in an AMK void deck — the charcoal waffle with salted-egg drizzle (S$8.50), an AMK-exclusive 'Yuan Yang' half-charcoal-half-Belgian waffle, and a toasted-marshmallow S'mores waffle (S$15). Open late on weekends.",s:[["EATBOOK","https://eatbook.sg/best-of-ang-mo-kio/"],["SETHLUI","https://sethlui.com/best-waffles-singapore-guide/"],["LADYIRONCHEF","https://www.ladyironchef.com/tag/ang-mo-kio-cafes/"],["DANIELFOOD","https://danielfooddiary.com/2014/11/14/twentygrammes/"]]},
+{t:2,a:"ANGMOKIO",n:"Casuarina Curry",ad:"136-138 Casuarina Road, Singapore 579526",cz:["INDIAN"],la:1.37719,ln:103.82806,w:"One of Singapore's most famous prata houses, on the Casuarina Road / Lower Peirce fringe of AMK — light, ghee-fragrant prata across 60-plus flavours (from Alfredo to salted-egg prawn), plus fish head curry, biryani, thosai and the off-menu R.K. Special (prata in mutton curry with soft-boiled eggs). Open till late.",s:[["DANIELFOOD","https://danielfooddiary.com/2021/11/04/pratasg/"],["TIMEOUTSG","https://www.timeout.com/singapore/restaurants/casuarina-curry-restaurant"]]},
+{t:2,a:"ANGMOKIO",n:"Song Kee Fishball Noodle",ad:"Cheng San Market & Cooked Food Centre, #01-123, Blk 527 Ang Mo Kio Ave 10, S560527",cz:["NOODLE"],la:1.37277,ln:103.85446,w:"Opened by one of the sisters from the original Song Kee, this Cheng San branch draws long queues (fishballs can sell out by 1pm) for honest handmade fishballs — bouncy, not over-salted — with an enhanced fishball and beancurd skin in each bowl. Closed Mondays.",s:[["JOHORKAKI","https://johorkaki.blogspot.com/2022/11/two-fishball-noodle-stalls-cheng-san.html"],["CAVINTEO","https://cavinteo.blogspot.com/2021/10/song-kee-fishball-noodle-cheng-san.html"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/fishball-noodles/"]]},
+{t:2,a:"ANGMOKIO",n:"Soi 19 Thai Wanton Mee",ad:"Blk 151 Ang Mo Kio Ave 5, #01-05, S560151",cz:["NOODLE","THAI"],la:1.37676,ln:103.84087,w:"A long-running Kebun Bahru stall plating Thai-style wanton noodles — al dente egg noodles lightly coated in shallot oil, springy and eggy, with fried wanton, flavourful char siew and crisp pork lard. A dish rarely found outside Thailand and a longtime AMK draw.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/soi19-thai-wanton-mee-ang-mo-kio/"],["CAVINTEO","https://cavinteo.blogspot.com/2021/09/soi-19-thai-wanton-mee-ang-mo-kio-block-151.html"],["EATBOOK","https://eatbook.sg/ang-mo-kio-food/"]]},
+{t:2,a:"ANGMOKIO",n:"Crunch & Cups",ad:"Blk 260 Ang Mo Kio Street 21, #01-04, S560260",cz:["VIET","CAFE"],la:1.36892,ln:103.83450,w:"A hidden Vietnamese nook in a new AMK BTO estate — a crunchy, well-stuffed Saigon banh mi (S$6.90) with pork floss and meats, plus a milky, subtly savoury ice salted coffee (S$4.90). Small, cash-and-carry, and a genuine rarity in the heartland.",s:[["EATBOOK","https://eatbook.sg/crunch-n-cups/"],["SETHLUI","https://sethlui.com/crunch-n-cups-ang-mo-kio-singapore-oct-2025/"]]},
+{t:2,a:"ANGMOKIO",n:"Rasa Sayang Western Food",ad:"Blk 347 Ang Mo Kio Ave 3, #01-2142, S560347",cz:["CAFE"],la:1.36734,ln:103.84858,w:"An old-school hawker-Western institution first opened in 1994 (originally at Blk 711 Ave 8) that reappeared at Blk 347 in 2021 to steady queues — thin, crispy chicken cutlet, pork chop, fish and chips and sirloin steak at heartland prices, in the Hainanese-Western tradition. Closed Wednesdays.",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2021/01/26/rasasayang/"],["EATBOOK","https://eatbook.sg/rasa-sayang-western-food/"],["SETHLUI","https://sethlui.com/old-school-western-food-guide-singapore/"]]},
+{t:2,a:"ANGMOKIO",n:"3 Sisters Prawn Noodle",ad:"Mayflower Market & Food Centre, #01-06, Blk 162 Ang Mo Kio Ave 4, S560162",cz:["NOODLE"],la:1.37411,ln:103.83886,w:"A humble Mayflower stall run by three sisters, doing a comforting prawn mee alongside fried Hokkien mee at value prices with generous prawns — friendly service and moderate waits. Opens from 6am; closed Wednesdays.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/3-sisters-prawn-noodle/"],["SETHLUI","https://sethlui.com/3-sisters-prawn-noodle-singapore/"]]},
+{t:2,a:"ANGMOKIO",n:"Mun Fu Chicken Rice",ad:"Cheng San Market & Cooked Food Centre, #01-110, Blk 527 Ang Mo Kio Ave 10, S560527",cz:["CHICKENRICE"],la:1.37277,ln:103.85446,w:"Founded in 1992 and run by a father and his two sons, this perpetually-queued Cheng San stall poaches its chicken the traditional way — an ice bath sets the gelatin under the skin for a slippery, slightly fatty finish — and debones it for you. Plates around S$4.50.",s:[["SETHLUI","https://sethlui.com/cheng-san-market-food-guide-singapore/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/man-fu-chicken-rice-neighbourhood-family-hawkers/"]]},
+{t:2,a:"ANGMOKIO",n:"Seletar Sheng Mian & Mian Fen Guo",ad:"Kebun Baru Market & Food Centre, #01-07, Blk 226H Ang Mo Kio Street 22, S560226",cz:["NOODLE"],la:1.36718,ln:103.84002,w:"A perpetual-queue stall at Kebun Baru for hand-torn mee hoon kueh and hand-pulled sheng mian, the noodles the pride of the house, in a broth boiled with pork bones and ikan bilis for a natural sweetness. Dry or soup, S$4-6.",s:[["SETHLUI","https://sethlui.com/kebun-baru-market-food-centre-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/seletar-sheng-mian-ang-mo-kio/"]]},
+{t:2,a:"ANGMOKIO",n:"Belinda's Pancake",ad:"Teck Ghee Court Market & Food Centre, #01-27, Blk 341 Ang Mo Kio Ave 1, S560341",cz:["DESSERT"],la:1.36404,ln:103.84807,w:"Aunty Belinda's morning stall at Teck Ghee Court is prized for min jiang kueh with a generous filling-to-pancake ratio (peanut, coconut or red bean), a crisp cone-crepe version, and putu mayam (S$1.80 for two). Often sold out before noon.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/belindas-pancake/"],["EATBOOK","https://eatbook.sg/min-jiang-kueh/"],["SETHLUI","https://sethlui.com/belindas-pancake-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/min-jiang-kueh/"]]},
+{t:2,a:"ANGMOKIO",n:"Sin Hoe Huat Cafe",ad:"Sembawang Hills Food Centre, 590 Upper Thomson Road, S574419",cz:["KOPI"],la:1.37236,ln:103.82901,w:"A traditional kopi-and-toast stall serving breakfast since 1968, now run by a third-generation mother-and-son duo — award-winning homemade kaya with a strong coconut aroma slathered on soft, crisp-edged 'Emperor' buns, paired with sous-vide eggs and old-school kopi.",s:[["LADYIRONCHEF","https://www.ladyironchef.com/2022/07/sin-hoe-huat-cafe/"],["MISSTAMCHIAK","https://www.misstamchiak.com/sin-hoe-huat-cafe/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/kaya-toast-singapore/"],["HERWORLD","https://www.herworld.com/life/places-to-get-the-best-kaya-toast-in-singapore"],["DANIELFOOD","https://danielfooddiary.com/2020/04/28/sembawanghills/"]]},
+{t:2,a:"ANGMOKIO",n:"Hong Heng Beef Noodle Soup & Laksa",ad:"Kebun Baru Market & Food Centre, #01-16, Blk 226H Ang Mo Kio Street 22, S560226",cz:["LAKSA"],la:1.36718,ln:103.84002,w:"A rare stall selling both beef noodles and laksa under one roof — and, unusually, a Mixed Beef Laksa (S$5.50) that spoons coconut-rich laksa gravy over tender beef. Also a dry beef noodle with thick bee hoon and a fresh-cockles laksa. Relocated to Kebun Baru from AMK Ave 3; closed Mondays.",s:[["SETHLUI","https://sethlui.com/kebun-baru-market-food-centre-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/best-of-kebun-baru-food-centre/"],["EATBOOK","https://eatbook.sg/beef-laksa/"]]},
+{t:2,a:"ANGMOKIO",n:"F.I.C",ad:"Ang Mo Kio (void-deck cafe; exact block to confirm at geocode)",cz:["CAFE","DESSERT"],la:1.37258,ln:103.83622,w:"A cosy void-deck cafe (Fried Ice Cream) that pairs its signature fried ice cream with Vietnamese-leaning bites — an unpretentious neighbourhood dessert-and-coffee spot that made both Eatbook's and HungryGoWhere's Ang Mo Kio round-ups.",s:[["EATBOOK","https://eatbook.sg/f-i-c-ang-mo-kio-cafe/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/ang-mo-kio-food/"]]},
+{t:3,a:"ANGMOKIO",n:"Ang Mo Kio 453 Wanton Mee",ad:"Mayflower Market & Food Centre, Ang Mo Kio Ave 4, S560162 (stall no. to confirm)",cz:["NOODLE"],la:1.37411,ln:103.83886,w:"A value-for-money wanton mee whose secret is in the lard-based sauce — springy egg noodles loaded with braised chicken feet, char siew and crispy pork lard bits. A long-standing local favourite carried over from its Blk 453 origins.",s:[["JOHORKAKI","https://johorkaki.blogspot.com/2021/01/ang-mo-kio-453-wanton-mee-mayflower.html"],["MISSTAMCHIAK","https://www.misstamchiak.com/amk-453-wantonmee/"]]},
+{t:3,a:"ANGMOKIO",n:"Nagara Thai",ad:"Chengsan Centre, #01-2371, Blk 529 Ang Mo Kio Ave 10, S560529",cz:["THAI"],la:1.37234,ln:103.85546,w:"A homely Thai stall (also in Toa Payoh) plating authentic street-Thai — a prawn-generous seafood tom yum nam kun (S$6.50), green curry with prawns, papaya salad and a peppery claypot tanghoon with prawns that stays springy. Affordable and consistently recommended.",s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/ang-mo-kio-food/"],["SETHLUI","https://sethlui.com/ang-mo-kio-food-guide-singapore/"]]},
+{t:3,a:"ANGMOKIO",n:"Brew & Co",ad:"Blk 716 Ang Mo Kio Ave 6, #01-4014, S560716",cz:["CAFE"],la:1.37148,ln:103.84587,w:"A quiet void-deck specialty-coffee cafe on AMK Ave 6 — espresso and pour-overs with cakes and light bites, one of the heartland cafe finds featured in both Daniel Food Diary's and HungryGoWhere's Ang Mo Kio guides.",s:[["DANIELFOOD","https://danielfooddiary.com/2021/01/09/angmokiocafes/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/ang-mo-kio-food/"]]},
+{t:1,a:"ANGMOKIO",n:"Hup Hup Minced Meat Noodle",ad:"Ang Mo Kio Central Market & Food Centre, #01-39, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["NOODLE"],la:1.37218,ln:103.84656,w:"A Michelin Guide-listed old-school minced meat noodle at 724 AMK Central — springy mee pok or mee kia tossed in a distinctive ketchup-forward chilli sauce with minced pork, braised mushroom and a round cracker, from S$3. Loaded portions and one of the heartland's most-cited bak chor mee stalls.",s:[["DANIELFOOD","https://danielfooddiary.com/2019/04/08/huphup/"],["SETHLUI","https://sethlui.com/hup-hup-minced-meat-noodle-ang-mo-kio-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-ang-mo-kio-central-food-centre"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/gallery/food/eating-out/ang-mo-kio-central-food-centre-best-hawker-stalls/"]]},
+{t:2,a:"ANGMOKIO",n:"Eng Ho Fried Hokkien Prawn Mee",ad:"409 AMK Market & Food Centre (Teck Ghee Square), #01-34, Blk 409 Ang Mo Kio Ave 10, S560409",cz:["NOODLE"],la:1.36265,ln:103.85529,w:"A wetter, prawn-stock-drenched fried Hokkien mee at 409 (Teck Ghee Square) built on a rich stock of wild sea prawns (swa lor), squid and pork for a sweeter, more delicate depth. Fried in batches with 30-40 minute peak-hour waits; named a top-10 Hokkien mee in Singapore by Lianhe Wanbao. Opens 4pm, closed alternate Tuesdays.",s:[["SETHLUI","https://sethlui.com/409-amk-market-food-centre-guide-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/eng-ho-fried-hokkien-prawn-mee/"]]},
+{t:2,a:"ANGMOKIO",n:"Zhen Ming Pork Ribs Prawn Noodle",ad:"Mayflower Market & Food Centre, #01-04, Blk 162 Ang Mo Kio Ave 4, S560162",cz:["NOODLE"],la:1.37411,ln:103.83886,w:"A 20-plus-year Mayflower stall whose brown prawn broth is simmered at least six hours with pork ribs, pig skin, red dates, prawn shells and black sugarcane (in place of rock sugar) for a natural, addictive sweetness — served dry or soup with fishcake, lean meat, Brazilian pork ribs and prawns. Mornings only; closed Tuesdays.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/zhen-ming-prawn-noodle-amk/"],["SETHLUI","https://sethlui.com/best-prawn-noodle-soup-singapore/"]]},
+{t:2,a:"ANGMOKIO",n:"Shu Heng Bi Tai Mak",ad:"Kebun Baru Market & Food Centre, Blk 226H Ang Mo Kio Street 22, S560226 (stall no. to confirm)",cz:["NOODLE"],la:1.36718,ln:103.84002,w:"A perpetual pre-lunch queue at Kebun Baru since Dec 2020 for a Johor-Bahru-style bi tai mak (S$4) rarely found this side of the Causeway — freshly-made 'rat-tail' noodles in a viscous, gravy-like broth crossing robust pork stock with light ikan bilis, studded with minced pork, mushroom, hae bee, garlic, fried shallots and salted fish. Sells out before lunch.",s:[["EATBOOK","https://eatbook.sg/shu-heng-bi-tai-mak/"],["SETHLUI","https://sethlui.com/shu-heng-bi-tai-mak-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2021/04/shu-heng-bi-tai-mak-kebun-baru-food.html"],["MISSTAMCHIAK","https://www.misstamchiak.com/shu-heng-bi-tai-mak/"]]},
+{t:2,a:"ANGMOKIO",n:"Thohirah Restaurant",ad:"258 Jalan Kayu, S799487",cz:["INDIAN"],la:1.39813,ln:103.87317,w:"A 24-hour Jalan Kayu institution on the AMK/Seletar fringe serving Singaporean, Malay, Thai and South Indian fare — famed for its prata, biryani, satay and curry fish head, with an air-conditioned wing alongside the coffeeshop seating. Packed at breakfast and supper.",s:[["EATBOOK","https://eatbook.sg/jalan-kayu-food/"],["MISSTAMCHIAK","https://www.misstamchiak.com/jalan-kayu/"]]},
+{t:2,a:"ANGMOKIO",n:"Lai Heng Char Kway Teow",ad:"Sembawang Hills Food Centre, #01-32, 590 Upper Thomson Road, S574419",cz:["NOODLE"],la:1.37236,ln:103.82901,w:"A Sembawang Hills favourite (formerly at Shunfu/Lakeview) for a wet, wok-hei char kway teow with cockles, beansprouts and Chinese sausage from S$3, best paired with its smoky S$1 otah. Closed Mondays.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/lai-heng-fried-kway-teow/"],["EATBOOK","https://eatbook.sg/sembawang-hills-food/"],["DANIELFOOD","https://danielfooddiary.com/2020/04/28/sembawanghills/"],["JOHORKAKI","https://johorkaki.blogspot.com/2022/02/lai-heng-shunfu-fried-kway-teow-with.html"]]},
+{t:2,a:"ANGMOKIO",n:"Ayah Dimsum",ad:"Blk 260 Ang Mo Kio Street 21, S560260",cz:["CHINESE"],la:1.36892,ln:103.83450,w:"A Muslim-owned dim sum stall (sharing a coffeeshop with Friends Kitchen HK, whose team co-owns it) doing an unusually wide handmade range from S$2.50 — chunky chicken-and-shrimp siew mai, fluffy BBQ chicken buns and salted-egg lava buns — a genuine rarity as halal dim sum in the heartland.",s:[["EATBOOK","https://eatbook.sg/ayah-dimsum/"],["HAVEHALALWILLTRAVEL","https://www.havehalalwilltravel.com/ayah-dim-sum-ang-mo-kio-halal-cheap"],["8DAYS","https://www.tiktok.com/@8dayseat/video/7514292284075150599"]]},
+{t:2,a:"ANGMOKIO",n:"Dongsheng Cafe",ad:"Blk 163 Ang Mo Kio Ave 4, #01-414, S560163",cz:["CAFE"],la:1.37355,ln:103.83818,w:"A 2025-opened old-school Nanyang cafe doing classic heartland fare — mani cai (sayur manis) mee hoon kueh, laksa, steamed toast and frothy kopi, most mains under S$8, CDC vouchers accepted. Open daily 7am-10pm.",s:[["SETHLUI","https://sethlui.com/dongsheng-cafe-ang-mo-kio-singapore-aug-2025/"],["EATBOOK","https://eatbook.sg/dongsheng-cafe/"]]},
+{t:2,a:"ANGMOKIO",n:"Wonders",ad:"Blk 128 Ang Mo Kio Ave 3, #01-1867, S560128",cz:["CAFE","DESSERT"],la:1.37083,ln:103.84355,w:"A void-deck gelato cafe themed around mahjong — flavours inspired by Chinese sweets, served with Belgian waffles, croffles and pandan-mochi or nian gao waffles, the tiles motif carried playfully through the shop. Open till late on weekends.",s:[["EATBOOK","https://eatbook.sg/wonders-ang-mo-kio/"],["DANIELFOOD","https://danielfooddiary.com/2024/02/14/wonderscafe/"]]},
+{t:3,a:"ANGMOKIO",n:"Rosnah's Family Kitchen",ad:"Ang Mo Kio 628 Market & Food Centre, #01-97, Blk 628 Ang Mo Kio Ave 4, S560628",cz:["MALAY"],la:1.38099,ln:103.84063,w:"A home-style Malay stall at 628 turning out comforting mee soto, mee rebus, lontong and nasi lemak — a neighbourhood staple recommended in both Seth Lui's and Eatbook's 628 round-ups.",s:[["SETHLUI","https://sethlui.com/ang-mo-kio-628-market-food-guide-singapore/"],["EATBOOK","https://eatbook.sg/ang-mo-kio-628-food-centre/"]]},
+{t:3,a:"ANGMOKIO",n:"Foy Yin Vegetarian Food",ad:"Ang Mo Kio 628 Market & Food Centre, #01-70, Blk 628 Ang Mo Kio Ave 4, S560628",cz:["HAWKER"],la:1.38099,ln:103.84063,w:"A 628 vegetarian stall doing curry vegetarian bee hoon in the morning and, from mid-afternoon, meat-free zi char — mock duck rice, fish-soup bee hoon and stir-fried sweet potato leaves — a rare all-vegetarian option in the centre.",s:[["SETHLUI","https://sethlui.com/ang-mo-kio-628-market-food-guide-singapore/"],["EATBOOK","https://eatbook.sg/ang-mo-kio-628-food-centre/"]]},
+{t:3,a:"ANGMOKIO",n:"Seng Huat Duck Rice",ad:"Sembawang Hills Food Centre, #01-27, 590 Upper Thomson Road, S574419",cz:["HAWKER"],la:1.37236,ln:103.82901,w:"A long-loved, no-frills braised duck rice and porridge counter at Sembawang Hills, a Thomson-and-Sembawang neighbourhood standby featured across the centre's guides.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/seng-huat-duck-rice/"],["DANIELFOOD","https://danielfooddiary.com/2020/04/28/sembawanghills/"],["SETHLUI","https://sethlui.com/sembawang-hills-food-centre-guide-singapore/"]]},
+{t:3,a:"ANGMOKIO",n:"Makan Food Stall",ad:"Sembawang Hills Food Centre, #01-17, 590 Upper Thomson Road, S574419",cz:["MALAY"],la:1.37236,ln:103.82901,w:"A Muslim-owned, halal-certified stall at Sembawang Hills known for a rich, gooey mee rebus alongside mee siam, lontong and nasi lemak — homely Malay breakfast fare in a mostly-Chinese food centre.",g:["MKT"],s:[["MISSTAMCHIAK","https://www.misstamchiak.com/makan-food-stall/"],["DANIELFOOD","https://danielfooddiary.com/2020/04/28/sembawanghills/"]]},
+{t:3,a:"ANGMOKIO",n:"Xiang Kee Yu Yuan Mian Tang",ad:"Cheng San Market & Cooked Food Centre, #01-125, Blk 527 Ang Mo Kio Ave 10, S560527",cz:["NOODLE"],la:1.37277,ln:103.85446,w:"A husband-and-wife fishball noodle stall of some 30 years at Cheng San — a lardy, savoury-tangy fishball kway teow soup (from S$4) with minced meat, mushroom, pork lard and fresh liver, its in-house chilli of dried chillies and shallots giving a fiery kick. Queues form from 7am; closed Mondays.",s:[["SETHLUI","https://sethlui.com/cheng-san-market-food-guide-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2022/11/two-fishball-noodle-stalls-cheng-san.html"]]},
+{t:3,a:"ANGMOKIO",n:"Vincent Western Food",ad:"Ang Mo Kio Central Market & Food Centre, #01-08, Blk 724 Ang Mo Kio Ave 6, S560724",cz:["CAFE"],la:1.37218,ln:103.84656,w:"A 724 AMK Central Western stall going since the 1990s, a longstanding heartland pick for grilled and deep-fried meats — chicken, pork chop and steak — in the old-school Hainanese-Western tradition. Opens afternoons, closed Mondays.",s:[["SETHLUI","https://sethlui.com/old-school-western-food-guide-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2021/05/03/angmokiocentral/"]]},
+{t:3,a:"ANGMOKIO",n:"Ki-mochi",ad:"Blk 446 Ang Mo Kio Ave 10, #01-1661, S560446",cz:["CAFE","DESSERT"],la:1.36776,ln:103.85536,w:"An under-HDB dessert cafe doing chewy mochi pancakes, mochi waffles and gelato at nett prices (from S$4.50), open late on weekends — a 14-minute walk from AMK MRT. (Status to re-verify: one report suggests the unit has since changed hands.)",s:[["EATBOOK","https://eatbook.sg/ki-mochi/"],["SETHLUI","https://sethlui.com/ki-mochi-opens-ang-mo-kio-singapore-jul-2024/"],["MOTHERSHIP","https://mothership.sg/2024/07/mochi-pancake-waffle-amk/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Ang Mo Kio')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {ANGMOKIO:'#BCA7E6'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.37218,103.84148],15);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[];
+
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

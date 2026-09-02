@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Upper Serangoon (Singapore) field guide — 18 sights and 81 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Upper Serangoon — Singapore &amp; SEA field guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
+  :root{
+    color-scheme: light dark;
+    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
+    --patina:#3E9A88; --patina-dim:#BFE0D8;
+    --brass:#B9863A; --rust:#C56F73;
+    --bone:#2E2838; --bone-dim:#6E6480;
+    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --iron:#191521; --slab:#241E30; --hair:#382E48;
+    --patina:#93D6C6; --patina-dim:#3E5D53;
+    --brass:#E8C57C; --rust:#E4989B;
+    --bone:#ECE7F2; --bone-dim:#A79FB8;
+  }}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:none;}
+  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:var(--slab);}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Neighbourhood guide · Singapore</p>
+  <h1>Upper Serangoon<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
+  <p class="standfirst">18 sights and 81 places to eat in <strong>Upper Serangoon</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#BCA7E6"></i>Upper Serangoon</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "CATHOLICSG":{k:"CATHOLICSG",t:"Catholic Archdiocese of Singapore (history.catholic.sg)",u:"https://history.catholic.sg",l:"Catholic Archdiocese of Singapore (history.catholic.sg)"},
+  "DOCOMOMO":{k:"DOCOMOMO",t:"Docomomo Singapore",u:"https://www.docomomo.sg",l:"Docomomo Singapore"},
+  "GCATHOLIC":{k:"GCATHOLIC",t:"GCatholic.org",u:"https://gcatholic.org",l:"GCatholic.org"},
+  "LITTLEDAYOUT":{k:"LITTLEDAYOUT",t:"Little Day Out",u:"https://www.littledayout.com",l:"Little Day Out"},
+  "MYVILLAGE":{k:"MYVILLAGE",t:"myVillage @ Serangoon Garden",u:"https://myvillage.sg",l:"myVillage @ Serangoon Garden"},
+  "NLB":{k:"NLB",t:"National Library Board",u:"https://www.nlb.gov.sg",l:"National Library Board"},
+  "NPARKS":{k:"NPARKS",t:"NParks (National Parks Board)",u:"https://www.nparks.gov.sg",l:"NParks (National Parks Board)"},
+  "PUB":{k:"PUB",t:"PUB, Singapore's National Water Agency",u:"https://www.pub.gov.sg",l:"PUB, Singapore's National Water Agency"},
+  "REMEMBERSINGAPORE":{k:"REMEMBERSINGAPORE",t:"Remember Singapore",u:"https://remembersingapore.org",l:"Remember Singapore"},
+  "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
+  "THEHONEYCOMBERS":{k:"THEHONEYCOMBERS",t:"The Honeycombers",u:"https://thehoneycombers.com/singapore",l:"The Honeycombers"},
+  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal",u:"https://thesmartlocal.com",l:"TheSmartLocal"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"UPPERSERANGOON",n:"Upper Serangoon",c:"#BCA7E6"}
+];
+
+const P = [
+{t:1,a:"UPPERSERANGOON",n:"Church of the Nativity of the Blessed Virgin Mary",ad:"1259 Upper Serangoon Road, Singapore 534795",la:1.37355,ln:103.89826,w:"A National Monument (gazetted 14 Jan 2005) and the historic heart of Serangoon's Teochew Catholic community, which was mostly farmers in the 19th century. The present Gothic church — pointed arches, a soaring nave — was blessed on 8 Dec 1901 and restored in 2019; the mission dates to pioneer priest Fr Ambrose Maistre in 1852.",k:"Free entry; a stop on the Hougang Heritage Trail",g:["Heritage","Church","National Monument","HERITAGE"],s:[["NLB","https://www.nlb.gov.sg/main/article-detail?cmsuuid=fcc55e37-2146-4d12-b755-13d16fcf81d9"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_of_the_Nativity_of_the_Blessed_Virgin_Mary,_Singapore"]]},
+{t:1,a:"UPPERSERANGOON",n:"Hougang Tou Mu Kung (Kew Ong Yah Temple)",ad:"779A Upper Serangoon Road, Singapore",la:1.35510,ln:103.87880,w:"Singapore's oldest temple dedicated to the Nine Emperor Gods (Kew Ong Yah), completed 1921 and gazetted a National Monument on 14 Jan 2005. Its blend of Hokkien and later Teochew roof forms anchors Hougang's Teochew heritage, and it remains the focus of the annual Nine Emperor Gods Festival.",k:"Free entry; busiest during the ninth-lunar-month festival",g:["Heritage","Temple","National Monument","HERITAGE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/tou-mu-kung"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tou_Mu_Kung_Temple"],["NLB","https://eresources.nlb.gov.sg/infopedia/articles/SIP_1858_2011-12-02.html"]]},
+{t:1,a:"UPPERSERANGOON",n:"Chomp Chomp Food Centre",ad:"20 Kensington Park Road, Singapore 557269",la:1.36423,ln:103.86653,w:"Serangoon Gardens' legendary supper hawker centre, open since 1972 with around 36 stalls. A night-time institution for BBQ stingray and sotong, Hokkien mee, satay, satay bee hoon, orh luak and charcoal chicken wings — as much a neighbourhood landmark as an eating spot.",k:"Evenings to late night; busiest for supper",g:["Food","Hawker","Landmark","MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Chomp_Chomp_Food_Centre"],["THEHONEYCOMBERS","https://thehoneycombers.com/singapore/chomp-chomp-serangoon-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Serangoon Garden Estate & Circus",ad:"Serangoon Garden Circus (Serangoon Garden Way / Kensington Park Road), Singapore",la:1.36360,ln:103.86540,w:"One of Singapore's oldest private landed estates, laid out in the 1950s by British developer Steven Charles Macey to house British, Australian and NZ servicemen from the nearby RAF Chia Keng camp — which is why nearly every street bears a British name. The Circus roundabout is its social heart, ringed by Chomp Chomp, the market and myVillage.",k:"Residential estate; open streetscape",g:["Heritage","Neighbourhood","MKT","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Serangoon_Garden"],["REMEMBERSINGAPORE","https://remembersingapore.org/2012/04/22/old-neighbourhood-serangoon-gardens/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Hougang Heritage Trail",ad:"Upper Serangoon Road (trail markers near Kovan MRT), Singapore",la:1.35970,ln:103.88530,w:"NHB's self-guided trail through 'Au Kang' — one of Singapore's oldest heartland towns and a historic Teochew enclave. Eighteen sites across three routes ('Landmarks of Hougang', 'Institutions of Service', 'Architectural Gems'), and the first heartland trail to include two National Monuments (Church of the Nativity and Tou Mu Kung).",k:"Free; booklet & map on Roots.gov.sg",g:["Heritage","Trail","Walk","HERITAGE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/Hougang-Heritage-Trail"],["LITTLEDAYOUT","https://www.littledayout.com/new-hougang-heritage-trail-discover-one-of-singapores-oldest-heartland-towns/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Punggol Park",ad:"Hougang Avenue 8 (junction of Hougang Ave 8 & Ave 10), Singapore",la:1.37715,ln:103.89732,w:"A 16-hectare Hougang park built around a 5-hectare lake — a former sand quarry once used to reclaim the area's swamps. Popular for lakeside jogging, fishing decks and a heron-frequented waterfront, and a green anchor of the Hougang edge.",k:"Open 24h, free",g:["Park","Nature","Lake","TEMPLE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Punggol_Park"],["NPARKS","https://www.nparks.gov.sg/visit/parks"]]},
+{t:3,a:"UPPERSERANGOON",n:"myVillage @ Serangoon Gardens",ad:"1 Maju Avenue, Singapore 556679",la:1.36517,ln:103.86519,w:"The neighbourhood mall on the site of the old Serangoon Garden Village and its 1950s Paramount Theatre (demolished 2009). Pitched as a 'village' concept mall, it keeps the Circus area's daily rhythm going with a supermarket, eateries and services.",k:"Mall hours daily",g:["Mall","Heritage","MKT","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Serangoon_Garden"],["MYVILLAGE","https://myvillage.sg/about/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Montfort Schools (formerly Holy Innocents' English School)",ad:"Montfort Secondary School, 50 Hougang Avenue 8, Singapore 538785",la:1.37408,ln:103.88883,w:"Founded in 1916 as Holy Innocents' English School beside the Church of the Nativity by the parish priest of Serangoon, renamed Montfort in 1959 and run by the Gabrielite Brothers. A cornerstone of Hougang's 'Holy Land' cluster of Catholic institutions; a heritage gallery traces its founding.",k:"Active school; grounds not open to visitors",g:["Heritage","School","HERITAGE","TEMPLE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Montfort_Secondary_School"],["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/Hougang-Heritage-Trail---Landmarks-of-Hougang"]]},
+{t:3,a:"UPPERSERANGOON",n:"Lim Tua Tow Market (heritage site)",ad:"Upper Serangoon Road (former 5th milestone), Kovan, Singapore",la:1.36030,ln:103.88550,w:"A Hougang Heritage Trail marker recalling Lim Tua Tow market at the old 5th milestone of Upper Serangoon Road — for decades the marketplace that served the population of Singapore's north-eastern region before the town was redeveloped.",k:"Interpretive heritage marker",g:["Heritage","Market","HERITAGE","MKT"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/trails/Hougang-Heritage-Trail---Landmarks-of-Hougang"],["LITTLEDAYOUT","https://www.littledayout.com/new-hougang-heritage-trail-discover-one-of-singapores-oldest-heartland-towns/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Serangoon Stadium & Sport Centre",ad:"33 Yio Chu Kang Road, Singapore 545677",la:1.35620,ln:103.87495,w:"The community stadium and adjoining sport centre serving the Serangoon–Hougang belt — running track, stands, gym and pool. A neighbourhood recreation hub on the western edge of the district.",k:"ActiveSG facility; public sessions & fees apply",g:["Sports","Recreation"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Serangoon_Stadium"],["NPARKS","https://www.nparks.gov.sg/visit/parks"]]},
+{t:3,a:"UPPERSERANGOON",n:"Nex",ad:"23 Serangoon Central, Singapore 556083",la:1.36964,ln:103.84850,w:"The North-East's biggest mall (opened 2011), integrated with Serangoon MRT (NEL/Circle Line interchange) and the air-conditioned bus interchange. The regional shopping-and-transit anchor on the western edge of the Upper Serangoon district, with a rooftop dog run and garden.",k:"Mall hours daily",g:["Mall","Transit","Shopping","PARK"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Nex,_Singapore"],["NPARKS","https://www.nparks.gov.sg/visit/parks"]]},
+{t:2,a:"UPPERSERANGOON",n:"Masjid Haji Yusoff",ad:"2 Hillside Drive, Singapore 548920",la:1.35565,ln:103.87968,w:"The oldest mosque in Hougang, built in 1921 on land donated by Gujarati merchant-philanthropist Ahmad Mohamed Salleh Angullia to serve the area's Muslim community of farmers and traders. A stop on the Hougang Heritage Trail, just off Upper Serangoon Road near Kovan.",k:"Active mosque; visitors welcome outside prayer times",g:["Heritage","Mosque","HERITAGE","TEMPLE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Hougang-Heritage-Trail/Masjid-Haji-Yusoff"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Masjid_Haji_Yusoff"]]},
+{t:2,a:"UPPERSERANGOON",n:"Chee Tong Temple",ad:"62 Hougang Avenue 3, Singapore 538844",la:1.35886,ln:103.89230,w:"Completed in 1987 and designed by Tay Kheng Soon of Akitek Tenggara, this is widely regarded as Singapore's first truly modernist Chinese temple — its roof rising in eight-sided prisms that evoke a lotus, its corners deliberately kept un-sharp on the deities' guidance. A Hougang Heritage Trail 'Architectural Gem' and a documented modern-movement building.",k:"Active temple; open daytime",g:["Heritage","Temple","Architecture","HERITAGE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Hougang-Heritage-Trail/Chee-Tong-Temple"],["DOCOMOMO","https://www.docomomo.sg/modernist-100/chee-tong-temple"],["NLB","https://www.nlb.gov.sg/main/image-detail?cmsuuid=71ababc5-d70d-4cee-8062-5be8f74cae13"]]},
+{t:3,a:"UPPERSERANGOON",n:"Church of St Vincent de Paul",ad:"301 Yio Chu Kang Road, Singapore 805910",la:1.38237,ln:103.87662,w:"A Catholic parish on Kovan's western edge whose roots trace to 1959, when Fr Henri Saussard began ministering to the rubber tappers, fishermen and farmers of the Jalan Kayu area; the present church was blessed and opened at Christmas 1970. It continues to serve the north-eastern Catholic community around Serangoon Gardens and Kovan.",k:"Active parish; Mass times on the church site",g:["Heritage","Church","TEMPLE","PARK"],s:[["CATHOLICSG","https://history.catholic.sg/church-of-st-vincent-de-paul/"],["GCATHOLIC","https://gcatholic.org/churches/asia-east/15243"]]},
+{t:1,a:"UPPERSERANGOON",n:"Kampong Lorong Buangkok",ad:"7 Lorong Buangkok (off Gerald Drive, via Buangkok Crescent), Singapore 547557",la:1.38333,ln:103.87806,w:"Singapore's last surviving mainland village, established in 1956 when traditional-medicine seller Sng Teow Koon bought the swampy land and rented plots to Malay and Chinese families. A cluster of zinc-roofed houses on dirt tracks around a surau, in the Trafalgar (Buangkok) subzone of Hougang; Ms Sng Mui Hong, the founder's youngest daughter, still lives here as landlord. Old four-digit street signs survive.",k:"Free; a living village — visit respectfully, don't enter homes",g:["Heritage","Kampong","Landmark","HERITAGE"],s:[["NLB","https://www.nlb.gov.sg/main/article-detail?cmsuuid=e1b16980-6628-4391-af99-2389c35150d1"],["THESMARTLOCAL","https://thesmartlocal.com/read/kampong-lorong-buangkok/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kampong_Lorong_Buangkok"]]},
+{t:2,a:"UPPERSERANGOON",n:"Lorong Halus Wetland (Serangoon Reservoir)",ad:"Lorong Halus Wetland, Lorong Halus North (eastern bank of Serangoon Reservoir), Singapore",la:1.37889,ln:103.92750,w:"An 18-football-field wetland on the Hougang/Defu edge — a former landfill transformed into a natural water-treatment site whose cattails bio-remediate rainwater before it enters the adjoining Serangoon Reservoir. Bounded by Kangkar to the west and Defu Industrial Park to the south, it's a family recreation spot reached over the red steel-railway-style Lorong Halus Bridge from Punggol Promenade.",k:"Open daily, free; cycling, fishing decks & birdwatching",g:["Park","Nature","Wetland","TEMPLE"],s:[["NPARKS","https://www.nparks.gov.sg/-/media/nparks-real-content/gardens-parks-and-nature/park-connector-network/00-pcn-overview-page/nerl-eguide-15042016.pdf"],["PUB","https://www.pub.gov.sg/-/media/PUB/Partnership/Schools/Geographical-Investigation-Field-Studies/Lorong-Halus-Wetland-adjacent-to-Serangoon-Reservoir.pdf"]]},
+{t:3,a:"UPPERSERANGOON",n:"Holy Innocents' High School",ad:"5 Lorong Low Koon, Singapore 536451",la:1.36709,ln:103.89388,w:"One of Singapore's first Chinese mission schools, founded in 1892 as Tao Nan School in the Upper Serangoon village and renamed Holy Innocents' Chinese Boys' School in 1920 under Fr Becheras. Part of Hougang's 'Holy Land' cluster of Catholic institutions around the Church of the Nativity; the school returned to a rebuilt Hougang campus, blessed by Archbishop Nicholas Chia in 2006.",k:"Active school; grounds not open to visitors",g:["Heritage","School","TEMPLE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Holy_Innocents%27_High_School"],["CATHOLICSG","https://history.catholic.sg/the-parish-schools/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Zi Yun Kai Ji Gong",ad:"56 Hougang Avenue 3, Singapore 538842",la:1.35860,ln:103.89220,w:"A Taoist temple complex completed in 1996 and a Hougang Heritage Trail 'Architectural Gems' landmark. It houses three older temples — Kai Hock Tong, Keat Sun Beo and Chao Ying Kong — relocated and consolidated from their original sites at Wolskel Road, Lorong Chuan and Yishun, a common Singapore story of temples resettled by redevelopment.",k:"Active temple; open daytime",g:["Heritage","Temple","HERITAGE","TEMPLE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/Hougang-Heritage-Trail/Zi-Yun-Kai-Ji-Gong"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hougang"]]}
+];
+
+const FS = {
+  "ASIAONE":{k:"ASIAONE",t:"AsiaOne",u:"https://www.asiaone.com",l:"AsiaOne"},
+  "CITYNOMADS":{k:"CITYNOMADS",t:"City Nomads",u:"https://citynomads.com/",l:"City Nomads"},
+  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
+  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
+  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
+  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey)",u:"https://johorkaki.blogspot.com",l:"Johor Kaki (Tony Boey)"},
+  "LADYIRONCHEF":{k:"LADYIRONCHEF",t:"ladyironchef (Brad Lau)",u:"https://www.ladyironchef.com",l:"ladyironchef (Brad Lau)"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
+  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
+  "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
+  "THEHONEYCOMBERS":{k:"THEHONEYCOMBERS",t:"The Honeycombers",u:"https://thehoneycombers.com/singapore",l:"The Honeycombers"},
+  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal",u:"https://thesmartlocal.com",l:"TheSmartLocal"},
+  "TIMEOUT":{k:"TIME OUT",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
+  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+};
+
+const CUISINES = [
+  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
+  {id:"LAKSA",n:"Laksa & Curry Noodles"},
+  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
+  {id:"BKT",n:"Bak Kut Teh & Soups"},
+  {id:"HAWKER",n:"Hawker & Zi Char"},
+  {id:"MALAY",n:"Malay & Nasi Padang"},
+  {id:"INDIAN",n:"Indian & Roti Prata"},
+  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
+  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
+  {id:"THAI",n:"Thai"},
+  {id:"VIET",n:"Vietnamese"},
+  {id:"INDO",n:"Indonesian, Satay & Rendang"},
+  {id:"FILIPINO",n:"Filipino"},
+  {id:"KHMER",n:"Khmer (Cambodian)"},
+  {id:"LAO",n:"Lao"},
+  {id:"BURMESE",n:"Burmese"},
+  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
+  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
+  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
+  {id:"CAFE",n:"Cafés & Modern"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"HERITAGE",n:"Heritage & Culture"},
+  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
+  {id:"MKT",n:"Markets & Hawker Centres"},
+  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"VIEW",n:"Views & Skyline"},
+  {id:"ARCH",n:"Architecture & Landmarks"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"UPPERSERANGOON",n:"Ah Hock Fried Hokkien Mee",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["NOODLE"],la:1.36423,ln:103.86653,w:"A Michelin Plate stall and Chomp Chomp's most famous name — thick yellow noodles and bee hoon fried with prawns and squid in a prawn stock simmered for hours, finished with a dollop of sambal. The go-to plate at Serangoon Gardens' legendary supper hawker centre.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/ah-hock-fried-hokkien-noodles"],["DANIELFOOD","https://danielfooddiary.com/2019/03/02/ahhock/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"],["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Chomp Chomp Satay",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["MALAY"],la:1.36423,ln:103.86653,w:"One of two Chomp Chomp stalls listed in the MICHELIN Guide with a Michelin Plate — skewers grilled over charcoal to order, a supper-time institution best eaten late at Serangoon Gardens with a plate of BBQ chicken wings alongside.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/restaurants"],["DANIELFOOD","https://danielfooddiary.com/2019/05/03/chompchompsatay/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Chomp Chomp Fried Oyster",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["HAWKER"],la:1.36423,ln:103.86653,w:"The standout orh luak of Chomp Chomp — eggs and starch fried until charred and crisp at the edges around plump, briny oysters, drizzled with tangy chilli. A perennial pick across the centre's food-guide round-ups.",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2019/05/07/chompchomp/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"],["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Good Luck BBQ Chicken Wings",ad:"Chomp Chomp Food Centre, #01-29, 20 Kensington Park Road, S557269",cz:["HAWKER"],la:1.36423,ln:103.86653,w:"Chicken wings are practically Chomp Chomp's mascot, and Good Luck (Stall 29) grills some of the most sought-after — burnished, charred-edged skin over juicy meat, at roughly S$1.30 a wing. A supper staple of the Serangoon Gardens crowd.",s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"],["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/chomp-chomp-food/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Hai Wei Yuan BBQ",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["HAWKER"],la:1.36423,ln:103.86653,w:"Chomp Chomp's best sambal BBQ seafood — fresh, flaky stingray blanketed in an addictive sambal and grilled on a banana leaf (from S$12 for a small), plus BBQ sotong and cockles. A late-night favourite that draws its own queue.",s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"],["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"],["THEHONEYCOMBERS","https://thehoneycombers.com/singapore/chomp-chomp-serangoon-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Ang Sar Lee Satay Bee Hoon",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["HAWKER"],la:1.36423,ln:103.86653,w:"A 40-plus-year Chomp Chomp veteran plating thin bee hoon drowned in a fragrant satay peanut gravy with cuttlefish, prawns, pork and tau pok — the Serangoon Gardens rendition of a dish few hawkers still make well.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"],["THEHONEYCOMBERS","https://thehoneycombers.com/singapore/chomp-chomp-serangoon-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Chia Keng Fried Hokkien Mee",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["NOODLE"],la:1.36423,ln:103.86653,w:"The other half of Chomp Chomp's Hokkien mee debate — a darker, wetter plate with its own loyal supporters who rate it over Ah Hock. Between the two, Serangoon Gardens arguably has Singapore's densest Hokkien mee rivalry.",s:[["DANIELFOOD","https://danielfooddiary.com/2019/05/07/chompchomp/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Aliff Nasi Lemak",ad:"Serangoon Garden Market & Food Centre, 49A Serangoon Garden Way, S555945",cz:["MALAY"],la:1.36340,ln:103.86670,w:"The most-recommended stall in the market — a Muslim-owned nasi lemak (from S$3) built on freshly squeezed coconut milk, pandan-scented rice and a shiok sambal, with crisp ikan bilis and add-ons. Serangoon Gardens' daytime counterpoint to Chomp Chomp.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/aliff-nasi-lemak-serangoon-garden/"],["EATBOOK","https://eatbook.sg/serangoon-garden-market/"],["DANIELFOOD","https://danielfooddiary.com/2020/05/26/serangoongarden/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Ah Seng Braised Duck Rice",ad:"Serangoon Garden Market & Food Centre, #01-44, 49A Serangoon Garden Way, S555945",cz:["CHINESE"],la:1.36340,ln:103.86670,w:"Rated among Singapore's best Teochew braised duck — tender, herbal braised duck over rice (from S$4) with pig's stomach soup and offal, from a decades-old recipe. Queues form before it opens.",s:[["SETHLUI","https://sethlui.com/ah-seng-braised-duck-rice-serangoon-gardens/"],["JOHORKAKI","https://johorkaki.blogspot.com/2023/10/ah-seng-teochew-braised-duck-rice.html"],["EATBOOK","https://eatbook.sg/serangoon-garden-market/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Garden Street Kway Chap",ad:"Serangoon Garden Market & Food Centre, #01-21, 49A Serangoon Garden Way, S555945",cz:["CHINESE"],la:1.36340,ln:103.86670,w:"A long-running kway chap stall (formerly Blanco Court) ladling silky flat rice sheets in braising liquor with well-stewed Teochew pig offal, braised egg and tau pok — a market breakfast institution.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/serangoon-garden-market/"],["SETHLUI","https://sethlui.com/serangoon-garden-market-food-centre-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Poh Poh Roasted Chicken Rice",ad:"Serangoon Garden Market & Food Centre, 49A Serangoon Garden Way, S555945",cz:["CHICKENRICE"],la:1.36340,ln:103.86670,w:"A market favourite for old-school roasted and poached Hainanese chicken rice, repeatedly singled out across the Serangoon Garden Market food-guide round-ups.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/serangoon-garden-market/"],["SETHLUI","https://sethlui.com/serangoon-garden-market-food-centre-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Serangoon Garden Bakery & Confectionery",ad:"Serangoon Garden Market & Food Centre, #01-45/46, 49A Serangoon Garden Way, S555945",cz:["DESSERT"],la:1.36340,ln:103.86670,w:"A 40-year neighbourhood bakery baking from 2am — classic coconut, cream-puff, chicken-sausage and curry buns from S$1.10, all made from scratch. A generational fixture inside the market.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/serangoon-garden-bakery-confectionary-singapore/"],["EATBOOK","https://eatbook.sg/serangoon-gardens-bakery-confectionery/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/serangoon-gardens-bakery-and-confectionary-good-old-curry-buns/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Hock Kee Fried Oyster",ad:"Serangoon Garden Market & Food Centre, 49A Serangoon Garden Way, S555945",cz:["HAWKER"],la:1.36340,ln:103.86670,w:"A veteran orh luak stall frying crisp, starchy oyster omelettes to order — one of the market's most-named stalls in the food-guide coverage of Serangoon Garden.",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2020/05/26/serangoongarden/"],["SETHLUI","https://sethlui.com/serangoon-garden-market-food-centre-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Lao Song Fa (Botanical Garden Famous Fishball Noodle)",ad:"Serangoon Garden Market & Food Centre, 49A Serangoon Garden Way, S555945",cz:["NOODLE"],la:1.36340,ln:103.86670,w:"An old-name fishball noodle stall carrying the 'Botanical Garden Famous' lineage — springy mee pok tossed with handmade fishballs, fishcake and minced pork, a market staple for decades.",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2020/05/26/serangoongarden/"],["SETHLUI","https://sethlui.com/serangoon-garden-market-food-centre-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Bee Heng Prawn Noodle",ad:"Serangoon Garden Market & Food Centre, 49A Serangoon Garden Way, S555945",cz:["NOODLE"],la:1.36340,ln:103.86670,w:"A market prawn-noodle mainstay, its rich prawn-and-pork broth a recurring recommendation in the Serangoon Garden Market guides.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/serangoon-garden-market/"],["DANIELFOOD","https://danielfooddiary.com/2020/05/26/serangoongarden/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Fong Kee Delicacies",ad:"Serangoon Garden Market & Food Centre, Stall 12, 49A Serangoon Garden Way, S555945",cz:["DESSERT"],la:1.36340,ln:103.86670,w:"An old-school snack stall for hum ji beng, traditional pastries and kueh — the kind of nostalgic bite the Serangoon Garden Market food guides keep flagging.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/serangoon-garden-market-food-centre-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2020/05/26/serangoongarden/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Pancake King",ad:"Serangoon Garden Market & Food Centre, #01-25, 49A Serangoon Garden Way, S555945",cz:["DESSERT"],la:1.36340,ln:103.86670,w:"A long-standing stall for min jiang kueh (folded peanut pancake) and hum ji beng (from about S$1.30) — a market breakfast and tea-time regular.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/serangoon-garden-market-food-centre-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2020/05/26/serangoongarden/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Fatt Soon Kueh",ad:"Kovan 209 Market & Food Centre, #01-17, 209 Hougang Street 21, S530209",cz:["CHINESE"],la:1.35909,ln:103.88609,w:"A decades-old stall hand-making Teochew kueh — soon kueh, png kueh and gu chye kueh at around S$1 each, using only fresh fillings. A Kovan 209 heritage name.",s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/kovan-food/"],["JOHORKAKI","https://johorkaki.blogspot.com/2022/07/best-of-kovan-209-food-centre-heartland.html"]]},
+{t:2,a:"UPPERSERANGOON",n:"Hougang Hainanese Curry Rice",ad:"Kovan 209 Market & Food Centre, #01-25, 209 Hougang Street 21, S530209",cz:["CHICKENRICE"],la:1.35909,ln:103.88609,w:"The lunch-hour queue of Kovan 209 — a heaped plate of Hainanese-style chye png flooded with curry, braise and pork gravies, with fried pork chop and cabbage. Old-school comfort food.",s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2022/07/best-of-kovan-209-food-centre-heartland.html"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"]]},
+{t:3,a:"UPPERSERANGOON",n:"Bedok North 85 Fried Oyster",ad:"Kovan 209 Market & Food Centre, #01-30, 209 Hougang Street 21, S530209",cz:["HAWKER","NOODLE"],la:1.35909,ln:103.88609,w:"A three-in-one stall doing moist, well-coated Hokkien mee in a velvety prawn stock (about S$3.50), plus fried oyster and white/black carrot cake with eggy bits and preserved radish.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"]]},
+{t:3,a:"UPPERSERANGOON",n:"Yi Shi Jia Wanton Mee",ad:"Kovan 209 Market & Food Centre, #01-57, 209 Hougang Street 21, S530209",cz:["NOODLE"],la:1.35909,ln:103.88609,w:"A decades-old wanton mee stall with a constant queue for simple, honest bowls of springy noodles in soy sauce with char siew and wantons.",s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"]]},
+{t:3,a:"UPPERSERANGOON",n:"51 Ming Fa Wanton Egg Noodle",ad:"Kovan 209 Market & Food Centre, 209 Hougang Street 21, S530209",cz:["NOODLE"],la:1.35909,ln:103.88609,w:"A community-loved wanton mee for its well-charred char siew and springy egg noodles — one of Kovan 209's most cited noodle stalls.",s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"]]},
+{t:3,a:"UPPERSERANGOON",n:"Yam Mee Teochew Fishball Noodles",ad:"Kovan 209 Market & Food Centre, 209 Hougang Street 21, S530209",cz:["NOODLE"],la:1.35909,ln:103.88609,w:"Fishball noodles with a choice of dry, soup or a coconutty, mildly spicy laksa broth, topped with fishcake, minced meat and braised mushroom — a Kovan 209 regular.",s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"]]},
+{t:2,a:"UPPERSERANGOON",n:"Pow Sing Restaurant",ad:"59 Serangoon Garden Way, S555955",cz:["CHICKENRICE"],la:1.36340,ln:103.86576,w:"A Serangoon Gardens institution since 1983 — the Hainanese founders opened a chicken rice stall, then hired a Nonya chef, and today it is rated among Singapore's best traditional Hainanese chicken rice with a Peranakan zi char spread.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/pow-sing/"],["LADYIRONCHEF","https://www.ladyironchef.com/2021/10/serangoon-gardens-food/"],["CITYNOMADS","https://citynomads.com/Dining-Guide-Serangoon-Gardens-Restaurants/"]]},
+{t:2,a:"UPPERSERANGOON",n:"R.K. Eating House",ad:"1 Kensington Park Road, S557253",cz:["INDIAN"],la:1.36437,ln:103.86594,w:"The 24-hour prata and mamak institution of Serangoon Gardens, famed for crispy plain prata, the over-the-top 'roti tsunami', chocolate prata and maggi mee goreng — its R.K. Special once a Sunday Times 'Cheap & Good' pick.",s:[["SETHLUI","https://sethlui.com/r-k-eating-house-singapore/"],["THEHONEYCOMBERS","https://thehoneycombers.com/singapore/serangoon-gardens-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Srisun Express",ad:"56 Serangoon Garden Way, S555952",cz:["INDIAN"],la:1.36338,ln:103.86576,w:"A 24-hour prata house that gave R.K. its cross-street rival — prata, murtabak and maggi goreng served with massive drink towers, a Serangoon Gardens supper staple.",s:[["EATBOOK","https://eatbook.sg/srisun-express/"],["THEHONEYCOMBERS","https://thehoneycombers.com/singapore/serangoon-gardens-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Apollo Coffee Bar",ad:"65 Serangoon Garden Way, S555961",cz:["CAFE"],la:1.36408,ln:103.86556,w:"A long-running Serangoon Gardens cafe from the Atlas Coffeehouse / Columbus Coffee team — minimalist interiors, a solid brunch menu and a cult dark-chocolate-and-miso-caramel softserve. The area's flagship specialty-coffee address.",s:[["SETHLUI","https://sethlui.com/apollo-coffee-bar-serangoon-gardens-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/apollo-coffee-bar/"],["DANIELFOOD","https://danielfooddiary.com/2019/11/13/apollocoffeebar/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Tian Wai Tian Fish Head Steamboat",ad:"203 Hougang Street 21, #01-89, S530203",cz:["CHINESE","HAWKER"],la:1.35816,ln:103.88440,w:"A tiny, wildly popular Kovan streetside zi char serving Teochew-style fish head steamboat in traditional charcoal aluminium pots — pomfret, red grouper or bighead carp — plus salted-egg pork ribs and prawn-paste chicken. Usually packed out by 5.30pm.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/tian-wai-tian-fish-head-steamboat-why-fish-head-steamboat-always-have-to-wait-so-long/"],["CITYNOMADS","https://citynomads.com/dining-guide-to-serangoon-and-kovan/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Ponggol Nasi Lemak",ad:"965 Upper Serangoon Road, S534721",cz:["MALAY"],la:1.36195,ln:103.88665,w:"The perennial after-midnight queue on Upper Serangoon Road is a Kovan landmark in itself. Founded 1979 (by the eldest of the Koh nasi lemak family), it's iconic for Chinese-style coconut rice with super-crispy chicken wings, luncheon meat and fried egg.",s:[["DANIELFOOD","https://danielfooddiary.com/2015/05/07/ponggolnasilemak/"],["LADYIRONCHEF","https://www.ladyironchef.com/2022/04/kovan-best-food/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Yaowarat Thai Kway Chap",ad:"945 Upper Serangoon Road, S534711",cz:["THAI"],la:1.36158,ln:103.88635,w:"A Kovan casual restaurant doing a distinctive Thai take on kway chap — a light, peppery broth (milder than bak kut teh) with silky, curled rice sheets and Thai-style braised sides, open till 3am for the supper crowd.",s:[["DANIELFOOD","https://danielfooddiary.com/2020/01/28/yaowaratthaikwaychap/"],["LADYIRONCHEF","https://www.ladyironchef.com/2022/04/kovan-best-food/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Naked Ice Cream",ad:"957 Upper Serangoon Road, S534717",cz:["DESSERT","CAFE"],la:1.36169,ln:103.88644,w:"A late-night Kovan dessert cafe open until 2am, pairing crisp waffles with handcrafted ice cream in offbeat flavours — a viral-friendly stop on the Upper Serangoon supper strip.",s:[["DANIELFOOD","https://danielfooddiary.com/2021/07/20/nakedicecream/"],["EATBOOK","https://eatbook.sg/naked-ice-cream/"],["LADYIRONCHEF","https://www.ladyironchef.com/2021/07/naked-ice-cream/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Al-Falah",ad:"Hougang Village, 681 Hougang Avenue 8, #01-855, S530681",cz:["INDIAN"],la:1.37274,ln:103.88591,w:"The mainstay 24/7 mamak for Kovan and Hougang residents — plain prata about S$2.60 for two, egg prata, murtabak and teh tarik at any hour. A Hougang-edge supper anchor.",s:[["LADYIRONCHEF","https://www.ladyironchef.com/2022/04/kovan-best-food/"],["CITYNOMADS","https://citynomads.com/dining-guide-to-serangoon-and-kovan/"]]},
+{t:3,a:"UPPERSERANGOON",n:"BakeOpedia (The Bread Rack)",ad:"Space @ Kovan, 9 Yio Chu Kang Road, #01-54, S545523",cz:["DESSERT","CAFE"],la:1.35465,ln:103.87689,w:"An artisanal bakery-cafe on the Kovan edge known for freshly baked sourdough, baguettes and a viral salted-caramel cube croissant — a modern counterpoint to the neighbourhood's old-school bakes.",s:[["SETHLUI","https://sethlui.com/the-bread-rack-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2021/01/18/thebreadrack/"],["MOTHERSHIP","https://mothership.sg/2021/04/bread-rack-kovan/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Amber Ember — CLOSED",ad:"730 Upper Serangoon Road, #01-01, Singapore",cz:["CAFE"],la:1.35353,ln:103.87797,w:"A well-loved Kovan brunch cafe for specialty coffee and toasted jaffles in a light, plant-filled space — it closed on 19 Jan 2025. Kept here as a flagged closure.",closed:1,s:[["DANIELFOOD","https://danielfooddiary.com/2018/09/03/amberember/"],["CITYNOMADS","https://citynomads.com/dining-guide-to-serangoon-and-kovan/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Seng Kee Mushroom Minced Meat Noodle",ad:"Serangoon Garden Market & Food Centre, #01-36, 49A Serangoon Garden Way, S555945",cz:["NOODLE"],la:1.36340,ln:103.86670,w:"A 40-plus-year mushroom minced-meat noodle stall — dry mee pok balanced with a house chilli, deep slow-braised mushroom sauce and crispy pork lard, plus a fish-maw soup its regulars swear by. One of Serangoon Garden Market's most cited names.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/seng-kee-mushroom-minced-pork-noodle-singapore/"],["EATBOOK","https://eatbook.sg/serangoon-garden-market/"],["DANIELFOOD","https://danielfooddiary.com/2020/02/04/sengkeebakchormee/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Swee Heng Wanton Noodle",ad:"Chomp Chomp Food Centre, #01-12, 20 Kensington Park Road, S557269",cz:["NOODLE"],la:1.36423,ln:103.86653,w:"A humble 50-year wanton mee tucked in a back corner of Chomp Chomp (no relation to the bakery of the same name) — springy noodles, silky-skinned wantons and char siew all made in-house, in a broth with robust ikan-bilis notes.",s:[["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/chomp-chomp-food-centre/"],["EATBOOK","https://eatbook.sg/chomp-chomp-food/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Wang Da Shen Chicken Wing & Satay",ad:"Chomp Chomp Food Centre, 20 Kensington Park Road, S557269",cz:["MALAY"],la:1.36423,ln:103.86653,w:"One of Chomp Chomp's newer stalls (opened during the pandemic) and the only one that stays open till 2am — charcoal-grilled chicken wings and satay for the deep-supper crowd at Serangoon Gardens.",s:[["SETHLUI","https://sethlui.com/chomp-chomp-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/north-east-supper-spots/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Fa Ji Minced Meat Fishball Noodle",ad:"Kovan 209 Market & Food Centre, #01-05, 209 Hougang Street 21, S530209",cz:["NOODLE"],la:1.35909,ln:103.88609,w:"The most popular of Kovan 209's three fishball-noodle stalls — springy noodles tossed with handmade fishballs, fishcake and minced pork, a heartland breakfast regular.",s:[["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"]]},
+{t:3,a:"UPPERSERANGOON",n:"Hajjah Mariam Muslim Food",ad:"Kovan 209 Market & Food Centre, #01-53, 209 Hougang Street 21, S530209",cz:["MALAY"],la:1.35909,ln:103.88609,w:"Kovan 209's go-to Malay-Muslim stall — nasi lemak sets alongside hawker staples like mee rebus, mee siam, lontong and soto, the halal anchor of the food centre.",g:["MKT"],s:[["HERWORLD","https://www.herworld.com/life/the-10-best-hawker-stalls-at-kovan-209-food-centre"],["SETHLUI","https://sethlui.com/kovan-209-market-food-centre-guide-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Tom's Palette (Kovan)",ad:"Block 212 Hougang Street 21, #01-333, S530212",cz:["DESSERT","CAFE"],la:1.35951,ln:103.88810,w:"The Kovan branch of homegrown gelateria Tom's Palette, opened March 2024 and open till midnight, known for adventurous flavours and a putu-mayam-topped cone nodding to the area's coconut-plantation past. Honest note: after 21 years, both Tom's Palette outlets are set to close in October 2026.",s:[["EATBOOK","https://eatbook.sg/toms-palette-kovan/"],["DANIELFOOD","https://danielfooddiary.com/2024/04/06/tomspalettekovan/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Lola's Cafe",ad:"5 Simon Road, S545893",cz:["CAFE"],la:1.36145,ln:103.88582,w:"A Kovan brunch stalwart a short walk from the MRT and one of the few dog-friendly cafes in the area — hearty brunch plates, truffle linguine and desserts like the oozy goma black-sesame tart and Lola's chocolate cake.",s:[["EATBOOK","https://eatbook.sg/lolas-cafe-kovan/"],["LADYIRONCHEF","https://www.ladyironchef.com/2022/04/kovan-best-food/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Two Cranes",ad:"Block 211 Hougang Street 21, #01-291, S530211",cz:["CAFE"],la:1.35962,ln:103.88772,w:"A minimalist neighbourhood cafe in Kovan serving a focused menu of Korean-leaning fusion food, bingsu desserts and hand-crafted beverages — a modern counterpoint to the estate's old-school stalls.",s:[["DANIELFOOD","https://danielfooddiary.com/2019/10/29/twocranes/"],["EATBOOK","https://eatbook.sg/two-cranes-hougang-cafe/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Dessert Bowl",ad:"80A Serangoon Garden Way, Singapore",cz:["DESSERT"],la:1.36425,ln:103.86503,w:"A Serangoon Gardens dessert institution on the second floor of a shophouse — famous for its trademarked durian mousse served on ice with a dollop of durian flesh, one of 50-plus traditional Chinese desserts.",s:[["THESMARTLOCAL","https://thesmartlocal.com/read/serangoon-gardens-guide/"],["TIMEOUT","https://www.timeout.com/singapore/restaurants/dessert-bowl"]]},
+{t:2,a:"UPPERSERANGOON",n:"East Bistro",ad:"myVillage @ Serangoon Garden, #02-01, 1 Maju Avenue, S556679",cz:["CHINESE"],la:1.36517,ln:103.86519,w:"A family-style Cantonese-Teochew restaurant at myVillage helmed by ex-Lei Garden head chef Tony Wong (40-plus years, credited as the original creator of mango sago with pomelo) — hearty zi char and a full dim sum spread.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/east-bistro-hearty-cantonese-cuisine-in-serangoon-gardens/"],["DANIELFOOD","https://danielfooddiary.com/2018/11/06/eastbistro/"],["EATBOOK","https://eatbook.sg/myvillage-food-guide/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Ng Kuan Chilli Pan Mee",ad:"943 Upper Serangoon Road, Singapore",cz:["HAWKER"],la:1.36148,ln:103.88628,w:"A KL-style chilli ban mian in an Upper Serangoon Road coffee shop, open into the small hours — al-dente noodles with minced pork, ikan bilis, fried shallots, a runny egg and a fierce dried-shrimp chilli that draws the supper crowd.",s:[["EATBOOK","https://eatbook.sg/ng-kuan-chilli-pan-mee/"],["SETHLUI","https://sethlui.com/ng-kuan-chilli-pan-mee-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Nakhon Kitchen",ad:"Block 212 Hougang Street 21, #01-341, S530212",cz:["THAI"],la:1.35951,ln:103.88810,w:"The pioneer of affordable neighbourhood Thai in Kovan (since 2008), the most popular eatery on Hougang Street 21 — a near-constant queue for pandan chicken, green curry, mango salad and pineapple fried rice at hawker prices.",g:["MKT"],s:[["LADYIRONCHEF","https://www.ladyironchef.com/2022/04/kovan-best-food/"],["HUNGRYGOWHERE","https://www.hungrygowhere.com/search-results/nakhon+kitchen+hougang/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Curry & Curry",ad:"203 Hougang Street 21, #01-45, S530203",cz:["HAWKER"],la:1.35816,ln:103.88440,w:"A family-run Kovan zi char eatery famed for its fragrant curry fish head, otah and the home-style dishes the family fancies — a low-key neighbourhood favourite off Hougang Street 21.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/curry-curry-singaporean-family-kitchen/"],["LADYIRONCHEF","https://www.ladyironchef.com/2022/04/kovan-best-food/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Sin Heng Kee Porridge",ad:"685 Hougang Street 61, #01-150, S530685",cz:["HAWKER"],la:1.37497,ln:103.88580,w:"A Hougang corner-stall congee institution with a perpetual 30-minute queue — thick, hearty bowls of smooth Cantonese-style porridge piled with generous ingredients, warming Hougang residents for decades.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/sin-heng-kee/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/sin-heng-kee-porridge-long-q-no-time-to-think/"],["DANIELFOOD","https://danielfooddiary.com/2021/01/12/porridge/"],["SETHLUI","https://sethlui.com/sin-heng-kee-porridge-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Fragrant Garden",ad:"756 Upper Serangoon Road, #01-15/16 Upper Serangoon Shopping Centre, S534626",cz:["CHINESE"],la:1.35391,ln:103.87865,w:"An authentic family-run Teochew restaurant on Upper Serangoon Road — steamed fish, braised goose and duck, oyster omelette and the mui-and-porridge classics — a fitting anchor for the district's Teochew ('Au Kang') heritage.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/fragrant-garden-teochew-cuisine/"],["MISSTAMCHIAK","https://www.misstamchiak.com/fragrant-garden/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Nasi Lemak Ayam Taliwang",ad:"Ci Yuan Hawker Centre, 51 Hougang Avenue 9, #01-40, Singapore 538776",cz:["MALAY","INDO"],la:1.37516,ln:103.88296,w:"A MICHELIN Guide-listed stall that pairs fragrant coconut rice with Ayam Taliwang, the fiery Lombok-style grilled chicken — the smoky, chilli-slicked bird against the cool creamy rice. The Ci Yuan branch of a beloved north-east name, right in Hougang.",s:[["MICHELIN","https://guide.michelin.com/us/en/singapore-region/singapore/restaurant/nasi-lemak-ayam-taliwang"],["DANIELFOOD","https://danielfooddiary.com/2022/03/07/nasilemakayamtaliwang/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Ming Fa Duck Rice",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-01, Singapore 530105",cz:["CHINESE"],la:1.35404,ln:103.88997,w:"One of Singapore's best Teochew braised duck rice stalls, tucked in Hougang's Hainanese Village Centre (Lorong Ah Soo). Tender lean duck over yam rice, drenched in a mildly sweet-savoury five-spice sauce, with an anchovy-loaded sambal. Opens at dawn and usually sells out by early lunch.",s:[["JOHORKAKI","https://johorkaki.blogspot.com/2021/04/ming-fa-duck-rice-hainanese-village.html"],["MISSTAMCHIAK","https://www.misstamchiak.com/ming-fa-duck-rice/"],["SETHLUI","https://sethlui.com/ming-fa-duck-rice-singapore/"],["EATBOOK","https://eatbook.sg/ming-fa-duck-rice/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Original Simon Road Hokkien Mee",ad:"Kovan 209 Market & Food Centre, 209 Hougang Street 21, #01-66, Singapore 530209",cz:["NOODLE"],la:1.35909,ln:103.88609,w:"Third- and fourth-generation hawkers who have fried their wet-style Hokkien mee to the same recipe since 1960 — whole prawns, squid rings and pork belly over noodles and bee hoon fried dry so they drink up a prawn-head-and-pork-rib stock, with free-flow crispy lard. Named for its old Simon Road home, now relocated to Kovan 209.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/simon-road-hokkien-mee-kovan-singapore-jun-2023/"],["DANIELFOOD","https://danielfooddiary.com/2024/07/24/originalsimonroadhokkienmee/"],["EATBOOK","https://eatbook.sg/best-hokkien-mee-singapore/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Anshun Seafood Soup",ad:"174C Hougang Avenue 1, Singapore 533174",cz:["HAWKER"],la:1.34906,ln:103.88806,w:"Widely cited as Singapore's best-rated fish soup — a clean, refined broth from a couple who started at Zion Road Blk 91 in 2002 before landing under a quiet Hougang coffeeshop. The 'hei bai' bowl of fried and sliced fish together, done with milk, is the order.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/an-shun-seafood-soup-honest-to-goodness-seafood-soup/"],["EATBOOK","https://eatbook.sg/zion-road-blk-91-fish-soup/"],["SETHLUI","https://sethlui.com/an-shun-seafood-soup-singapore/"]]},
+{t:1,a:"UPPERSERANGOON",n:"Hougang Oyster Omelette & Fried Kway Teow",ad:"Blk 435A Hougang Avenue 8, Singapore 531435",cz:["NOODLE"],la:1.37798,ln:103.89405,w:"A 30-year Hougang heritage stall run by Mr and Mrs Ong that still fries its oyster omelette in pork lard, with big juicy oysters and a fragrant char kway teow alongside. One of the island's best-rated orh luak, worth the queue.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/hougangfriedoyster/"],["MISSTAMCHIAK","https://www.misstamchiak.com/hougang-oyster-omelette-fried-kway-teow/"],["EATBOOK","https://eatbook.sg/hougang-oyster-omelette-fried-kway-teow/"],["SETHLUI","https://sethlui.com/hougang-oyster-omelette-and-fried-kway-teow-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Davis Prawn Court",ad:"Kovan 209 Market & Food Centre, 209 Hougang Street 21, #01-37, Singapore 530209",cz:["NOODLE"],la:1.35909,ln:103.88609,w:"A Kovan 209 Hokkien mee stall run by the former cook of Teow Heng Cooked Food. A big plate of thick and thin noodles with prawns, cuttlefish and pork lard in a seafood broth, fried with wok hei to spare — the 'Davis Prawn Noodles' are the house signature.",s:[["EATBOOK","https://eatbook.sg/davis-prawn-court-kovan/"],["SETHLUI","https://sethlui.com/davis-prawn-court-kovan-singapore-dec-2022/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Yong's Teochew Kueh",ad:"1022 Upper Serangoon Road, Singapore 534760",cz:["HAWKER"],la:1.36278,ln:103.88806,w:"A roadside Upper Serangoon stall within walking distance of Kovan MRT, packed each morning for handmade Teochew kueh — soon kueh, png kueh — bursting with well-seasoned fillings and made fresh daily.",s:[["EATBOOK","https://eatbook.sg/yongs-teochew-kueh/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/soon-kueh-teochew-kueh-singapore"]]},
+{t:2,a:"UPPERSERANGOON",n:"Denzy Gelato",ad:"684 Hougang Avenue 8, #01-953, Singapore 530684",cz:["DESSERT"],la:1.37396,ln:103.88690,w:"An under-HDB dessert cafe by an Italy-trained gelato-maker who won the Singapore Gelato Championship in 2019 ('Singapore's Best Gelato') with a Pear, Ginger and Ginger Flower scoop inspired by his father's Chinese rojak. The Hougang outlet opened January 2023.",s:[["SETHLUI","https://sethlui.com/denzy-gelato-hougang-singapore-jan-2023/"],["DANIELFOOD","https://danielfooddiary.com/2023/01/30/denzygelato/"],["EATBOOK","https://eatbook.sg/denzy-gelato-hougang/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Quan Ji Cooked Food",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-37, Singapore 530105",cz:["NOODLE"],la:1.35404,ln:103.88997,w:"A hidden gem at Hainanese Village Centre serving just two dishes — fried Hokkien prawn mee and char kway teow — with almost everything made from scratch: the prawn stock, pork lard, chilli, even hand-peeled garlic. Run by Mrs Lu and her husband for over a decade.",s:[["SETHLUI","https://sethlui.com/quan-ji-cooked-food-singapore/"],["MISSTAMCHIAK","https://www.misstamchiak.com/quan-ji-cooked-food/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Yi Liu Xiang Nasi Lemak",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-30, Singapore 530105",cz:["MALAY"],la:1.35404,ln:103.88997,w:"The First Class Fragrance nasi lemak — by queue, the most popular stall in the whole of Hainanese Village Centre. Fragrant coconut rice with crispy fried fish fillet, ikan selar, whitebait and sambal for a few dollars; regularly sold out before its stated noon close.",s:[["JOHORKAKI","https://johorkaki.blogspot.com/2021/04/first-class-fragrance-yi-liu-xiang-nasi.html"],["SETHLUI","https://sethlui.com/yi-liu-xiang-nasi-lemak-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Apollo Grilled Western Food",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-32, Singapore 530105",cz:["CAFE"],la:1.35404,ln:103.88997,w:"A 30-year hawker Western stall at Hainanese Village Centre — crispy-outside, tender-inside chicken cutlet, chicken chop, pork chop and fish & chips. Old-school flame-grilled plates at hawker prices.",g:["MKT"],s:[["MISSTAMCHIAK","https://www.misstamchiak.com/apollo-western-food/"],["EATBOOK","https://eatbook.sg/old-school-western-food/"],["THEHONEYCOMBERS","https://thehoneycombers.com/singapore/western-food-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Tachinomiya",ad:"Blk 211 Hougang Street 21, #01-285, Singapore 530211",cz:["HAWKER"],la:1.35962,ln:103.88772,w:"Billed as Singapore's first heartland izakaya — a 'standing bar' under an HDB block in Kovan serving good Japanese street food late into the night (till 2am on Saturdays). A neighbourhood spot for a late plate and a drink.",s:[["EATBOOK","https://eatbook.sg/tachinomiya/"],["MISSTAMCHIAK","https://www.misstamchiak.com/tachinomiya/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Lorong Ah Soo Lor Mee (Fu Yuan Mei Shi)",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-36, Singapore 530105",cz:["NOODLE","CHINESE"],la:1.35404,ln:103.88997,w:"A long-loved Hainanese Village Centre stall drawing crowds for its lor mee — flat noodles under a luscious thick gravy with a secret ingredient — and laksa. A Hougang breakfast-crowd fixture.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/lorong-ah-soo-lor-mee/"],["DANIELFOOD","https://danielfooddiary.com/2021/11/24/lorahsoolormee/"]]},
+{t:2,a:"UPPERSERANGOON",n:"682 Min Jiang Kueh",ad:"682 Hougang Avenue 4, Singapore 530682",cz:["HAWKER"],la:1.37362,ln:103.88575,w:"A humble coffeeshop stall turning out old-school min jiang kueh (Chinese pancakes) far bigger and more generously stuffed than most — red bean, yam, black sesame, matcha, peanut, chocolate — at S$1.30-1.60 a piece. Instagram-famous, and sells out.",s:[["EATBOOK","https://eatbook.sg/682-min-jiang-kueh/"],["SETHLUI","https://sethlui.com/682-min-jiang-kueh-singapore/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Sweedy Patisserie",ad:"377 Hougang Street 32, #01-32, Hougang Rivercourt, Singapore 530377",cz:["DESSERT"],la:1.36298,ln:103.89515,w:"A Hougang dessert bakery known for inventive sweets — Korean-French Fatcarons (fat macarons), viral cookie-croissants, mochi cakes and durian cakes. A modern sugar stop in the heartland.",s:[["EATBOOK","https://eatbook.sg/sweedy-patisserie-crookie/"],["MOTHERSHIP","https://mothership.sg/2024/03/sweedy-patisserie-crookie/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Jade's Chicken",ad:"Ci Yuan Hawker Centre, 51 Hougang Avenue 9, #01-18, Singapore 538776",cz:["HAWKER"],la:1.37516,ln:103.88296,w:"A Korean-owned hawker stall at Ci Yuan turning out legit Korean fried chicken — crackly-crisp, in flavours like honey butter — from around S$6.50. Hawker-priced KFC done properly.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/jades-chicken-singapore/"],["EATBOOK","https://eatbook.sg/jades-chicken/"],["DANIELFOOD","https://danielfooddiary.com/2023/06/23/jadeschicken/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Breakfast Club",ad:"941 Upper Serangoon Road, Singapore 534709",cz:["CAFE"],la:1.36137,ln:103.88615,w:"A corner-kopitiam stall two minutes from Kovan MRT doing all-day Western breakfasts — big brekkies, pancakes, creamy scrambled eggs — at hawker prices from S$3.90. Cafe brunch without the cafe markup.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/the-breakfast-club/"],["DANIELFOOD","https://danielfooddiary.com/2021/10/16/breakfastclub/"],["MOTHERSHIP","https://mothership.sg/2021/05/kovan-breakfast-club/"]]},
+{t:2,a:"UPPERSERANGOON",n:"Hajime Tonkatsu & Ramen",ad:"myVillage @ Serangoon Garden, 1 Maju Avenue, #02-07/8/9, Singapore 556679",cz:["HAWKER"],la:1.36517,ln:103.86519,w:"A tonkatsu specialist at myVillage by Chef Tan, using Sangenton pork air-flown from Japan, each loin tenderised and breaded only on order for a super-crunchy cutlet. Serangoon Gardens' go-to for premium katsu and ramen.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/hajime-tonkatsu/"],["DANIELFOOD","https://danielfooddiary.com/2021/09/15/hajimetonkatsu/"],["HUNGRYGOWHERE","https://hungrygowhere.com/food-news/hajime-tonkatsu-and-ramen/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Yi Ji Fried Hokkien Prawn Mee",ad:"965 Upper Serangoon Road (Mee Sek Food Court), Singapore 534721",cz:["NOODLE"],la:1.36195,ln:103.88665,w:"A popular Kovan fried Hokkien prawn mee that has spawned several branches — a spicy, prawn-rich plate with meat and abalone. The Upper Serangoon original anchors the group.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/hokkien-prawn-mee/"],["SETHLUI","https://sethlui.com/hokkien-prawn-mee-food-guide-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"5 Star Corner Western Food",ad:"Blk 805 Hougang Central, #01-116, Singapore 530805",cz:["CAFE"],la:1.37068,ln:103.89436,w:"A near-20-year Hougang coffeeshop Western stall famous for huge portions at small prices — chicken chop, sirloin, black-pepper lamb, hot-plate mixed grill and fish & chips. Value old-school hawker Western.",g:["MKT"],s:[["MISSTAMCHIAK","https://www.misstamchiak.com/5-star-corner-western-food/"],["EATBOOK","https://eatbook.sg/5-star-corner/"],["MOTHERSHIP","https://mothership.sg/2018/02/western-food-stall-in-hougang-dishes-out-big-portions-for-under-10-bucks/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Yi Dian Xin Hong Kong Dim Sum",ad:"973 Upper Serangoon Road, Singapore 534725",cz:["CHINESE"],la:1.36202,ln:103.88672,w:"An affordable Upper Serangoon dim sum spot near Kovan doing hearty Hong Kong-style plates — signature prawn dumplings and salted-egg custard bao among them. A neighbourhood dim sum fix.",s:[["ASIAONE","https://www.asiaone.com/lifestyle/hougang-abc-dim-sum-guide"],["MISSTAMCHIAK","https://www.misstamchiak.com/dim-sum-under-3/"]]},
+{t:3,a:"UPPERSERANGOON",n:"88 Pocha",ad:"957 Upper Serangoon Road, Singapore 534717",cz:["HAWKER"],la:1.36169,ln:103.88644,w:"A pojangmacha-style Korean tent-bar in Kovan — Korean fried chicken, army stew and soju into the small hours. A late-night Korean option on Upper Serangoon Road.",s:[["EATBOOK","https://eatbook.sg/88-pocha-kovan/"],["DANIELFOOD","https://danielfooddiary.com/2023/03/27/88pocha/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Goldhill Family Restaurant",ad:"Blk 6 Hougang Avenue 3, #01-78, Singapore 530006",cz:["HAWKER"],la:1.36270,ln:103.89400,w:"A long-running Hougang cai png shop beloved for very affordable economic rice — fried chicken wings, braised pork, stir-fried veg — from as little as S$2 a plate.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/goldhill-family-restaurant/"],["EATBOOK","https://eatbook.sg/goldhill-family-restaurant/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Mei Xi Hakka Yong Tau Foo",ad:"Ci Yuan Hawker Centre, 51 Hougang Avenue 9, #01-17, Singapore 538776",cz:["BKT","CHINESE"],la:1.37516,ln:103.88296,w:"A Ci Yuan stall where the Hakka owner marinates her own fish paste and offers unusual items — fried bean rolls, deep-fried yam strings and egg rolls — alongside the usual yong tau foo pieces.",s:[["MISSTAMCHIAK","https://www.misstamchiak.com/ci-yuan-hawker-centre/"],["SETHLUI","https://sethlui.com/ci-yuan-hawker-centre-food-guide-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"The Larder Cafe",ad:"66A Serangoon Garden Way, Singapore 555962",cz:["CAFE"],la:1.36411,ln:103.86556,w:"A Serangoon Gardens brunch cafe (second outlet after Toa Payoh) celebrated for its egg dishes, mains and desserts in an easy neighbourhood setting.",s:[["LADYIRONCHEF","https://www.ladyironchef.com/2019/09/the-larder-cafe/"],["DANIELFOOD","https://danielfooddiary.com/2016/02/23/thelardercafe/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Picky Snout",ad:"1014 Upper Serangoon Road, Singapore 534752",cz:["CAFE"],la:1.36286,ln:103.88829,w:"A Western coffeeshop stall hidden in a Kovan kopitiam eight minutes from the MRT, doing generous rosti with oversized pork chops and chargrilled chicken chops at affordable prices.",s:[["EATBOOK","https://eatbook.sg/picky-snout/"],["SETHLUI","https://sethlui.com/picky-snout-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Waa Cow! Yakiniku",ad:"myVillage @ Serangoon Garden, 1 Maju Avenue, #02-10/11, Singapore 556679",cz:["HAWKER"],la:1.36517,ln:103.86519,w:"The first yakiniku outlet from the Waa Cow! beef-bowl brand — a grill-it-yourself concept at myVillage with cuts like karubi, oyster blade, striploin and ox tongue plus pork, chicken and veg, from S$4.90.",s:[["EATBOOK","https://eatbook.sg/waa-cow-yakiniku/"],["SETHLUI","https://sethlui.com/waa-cow-yakiniku-serangoon-singapore-sep-2022/"],["MOTHERSHIP","https://mothership.sg/2022/09/waa-cow-yakiniku/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Fatto Catto",ad:"15 Simon Road, Singapore 545903",cz:["CAFE","DESSERT"],la:1.36158,ln:103.88565,w:"A Simon Road matcha-specialty cafe near Kovan by the team behind Fat Cat Ice Cream Bar — premium Japanese matcha, creative tea drinks, artisan ice cream and a matcha Basque burnt cheesecake that often sells out within hours.",s:[["DANIELFOOD","https://danielfooddiary.com/2025/06/30/fattocatto/"],["HUNGRYGOWHERE","https://hungrygowhere.com/food-news/fatto-catto-kovan/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Kovan Scrambled Egg Rice",ad:"Blk 335 Hougang Avenue 7, Singapore 530335",cz:["HAWKER","CHINESE"],la:1.36895,ln:103.89872,w:"A cult scrambled-egg-rice stall (高文滑蛋饭) — silky wat-dan-style egg over rice — that outgrew its old Kovan 209 home and relocated to a Hougang Avenue 7 coffeeshop in mid-2024.",s:[["EATBOOK","https://eatbook.sg/kovan-scrambled-egg-rice/"],["SETHLUI","https://sethlui.com/kovan-scrambled-egg-rice-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Dong Jin Yuan Dian Xin",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-04, Singapore 530105",cz:["HAWKER"],la:1.35404,ln:103.88997,w:"A 40-year-old Hainanese Village Centre stall, now run by second-gen hawker Nicholas Neo, famous for finger-sized fried carrot cake sticks — crisp outside, tender inside — sold by the thousand daily.",g:["MKT"],s:[["JOHORKAKI","https://johorkaki.blogspot.com/2024/02/fried-carrot-cake-by-former-ah-hui-big.html"],["HERWORLD","https://www.herworld.com/life/foodanddrink/carrot-cake-sticks-singapore-where-to-eat"]]},
+{t:3,a:"UPPERSERANGOON",n:"Roasted Pork Belly Nasi Lemak",ad:"Hainanese Village Centre, 105 Hougang Avenue 1, #02-28, Singapore 530105",cz:["MALAY"],la:1.35404,ln:103.88997,w:"A Hainanese Village Centre stall (easy to spot by its fuchsia signboard) plating fragrant coconut rice with crackly-skinned roasted pork belly and crispy ikan bilis — S$3 sets that draw an early crowd.",s:[["EATBOOK","https://eatbook.sg/roasted-pork-belly-nasi-lemak/"],["SETHLUI","https://sethlui.com/hougang-hainanese-village-centre-food-guide-singapore/"]]},
+{t:3,a:"UPPERSERANGOON",n:"Happy Oven",ad:"678 Hougang Avenue 8, #01-505, Singapore 530678",cz:["DESSERT"],la:1.37260,ln:103.88575,w:"A family-run old-school bakery in Hougang turning out traditional S$1 cakes and pastries — pandan, kaya, sugar rolls — the kind of heartland bakery that's getting rarer.",s:[["EATBOOK","https://eatbook.sg/happy-oven-hougang/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/traditional-bread-singapore/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Upper Serangoon')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {UPPERSERANGOON:'#BCA7E6'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.3634,103.88575],15);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[];
+
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
