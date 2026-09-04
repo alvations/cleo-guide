@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Brussels field guide — 71 sights and 68 places to eat across Brussels and its communes, each traceable to its source (Michelin, UNESCO, Le Soir, RTBF, BX1, VRT, visit.brussels) on one interactive map with area, collection and cuisine filters — beer &amp; breweries a first-class layer — a trip builder and exports.">
+<title>Brussels Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Brussels &amp; its region, sourced</p>
+  <h1>Brussels<span class="thin">&amp; its communes — Grand-Place · Sablon · Marolles · Ixelles · Saint-Gilles · the EU quarter</span></h1>
+  <p class="standfirst">71 sights and 68 places to eat across <strong>Brussels</strong> and its communes — from the gilded <strong>Grand-Place</strong> and Manneken Pis to the Royal Museums, the <strong>Atomium</strong>, the Sablon and Marolles, bohemian <strong>Ixelles</strong> and <strong>Saint-Gilles</strong>, the EU quarter and Matongé, out to Uccle, Schaerbeek, Anderlecht and Waterloo. A bilingual food canon: <strong>moules-frites</strong> and <strong>stoofvlees/carbonnade</strong>, a <strong>gaufre de Bruxelles</strong>, speculoos and chocolate houses, and the Senne-valley <strong>lambic, gueuze &amp; kriek</strong> — <strong>Cantillon</strong>, À la Mort Subite, Delirium. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (beer is its own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Belgium/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#8E44AD"></i>Brussels centre & communes</span>
+  <span><i style="background:#E8973A"></i>Around Brussels</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="moules-frites, gaufre, gueuze, Cantillon, Magritte…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-09-04</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in French AND Dutch across Michelin, UNESCO, Gault&amp;Millau, Le Soir, La Libre, RTBF, BX1, VRT NWS, visit.brussels and vetted local creators, with beer &amp; breweries grouped as a first-class layer. Every coordinate is verified into data/geocodes.json and every place status-checked open. A batch of restaurants is pending a final coordinate pass before appearing.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ADMIRABLEARTNOUVEAU":{k:"ADMIRABLEARTNOUVEAU",t:"Admirable Façades / Art Nouveau Brussels",u:"https://www.admirable-artnouveau.brussels",l:"Admirable Façades / Art Nouveau Brussels"},
+  "AFRICAMUSEUM":{k:"AFRICAMUSEUM",t:"AFRICAMUSEUM",u:"",l:""},
+  "ANDERLECHT":{k:"ANDERLECHT",t:"Commune d'Anderlecht",u:"https://www.anderlecht.be",l:"Commune d'Anderlecht"},
+  "ARTANDHISTORY":{k:"ARTANDHISTORY",t:"ARTANDHISTORY",u:"",l:""},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "ATOMIUM":{k:"ATOMIUM",t:"ATOMIUM",u:"",l:""},
+  "AUTOWORLD":{k:"AUTOWORLD",t:"AUTOWORLD",u:"",l:""},
+  "AUTRIQUE":{k:"AUTRIQUE",t:"AUTRIQUE",u:"",l:""},
+  "BEBRUSSELS":{k:"BEBRUSSELS",t:"be.brussels — Brussels-Capital Region",u:"https://be.brussels",l:"be.brussels — Brussels-Capital Region"},
+  "BELVUE":{k:"BELVUE",t:"BELVUE",u:"",l:""},
+  "BRUSSELSMUSEUMS":{k:"BRUSSELSMUSEUMS",t:"Brussels Museums",u:"https://www.brusselsmuseums.be",l:"Brussels Museums"},
+  "BRUZZ":{k:"BRUZZ",t:"BRUZZ",u:"https://www.bruzz.be",l:"BRUZZ"},
+  "BX1":{k:"BX1",t:"BX1 (Brussels regional TV/news)",u:"https://bx1.be",l:"BX1 (Brussels regional TV/news)"},
+  "CBBD":{k:"CBBD",t:"CBBD",u:"",l:""},
+  "CHOCOSTORY":{k:"CHOCOSTORY",t:"CHOCOSTORY",u:"",l:""},
+  "COUDENBERG":{k:"COUDENBERG",t:"COUDENBERG",u:"",l:""},
+  "DESIGNMUSEUM":{k:"DESIGNMUSEUM",t:"DESIGNMUSEUM",u:"",l:""},
+  "FINEARTS":{k:"FINEARTS",t:"FINEARTS",u:"",l:""},
+  "FLAGEY":{k:"FLAGEY",t:"FLAGEY",u:"",l:""},
+  "GARDENSBRUSSELS":{k:"GARDENSBRUSSELS",t:"gardens.brussels (Brussels-Capital green spaces)",u:"https://gardens.brussels",l:"gardens.brussels (Brussels-Capital green spaces)"},
+  "GRSH":{k:"GRSH",t:"GRSH",u:"",l:""},
+  "HERITAGEBRUSSELS":{k:"HERITAGEBRUSSELS",t:"urban.brussels / heritage.brussels",u:"https://monument.heritage.brussels",l:"urban.brussels / heritage.brussels"},
+  "HISTORIAEUROPA":{k:"HISTORIAEUROPA",t:"HISTORIAEUROPA",u:"",l:""},
+  "JEUNEAFRIQUE":{k:"JEUNEAFRIQUE",t:"Jeune Afrique",u:"https://www.jeuneafrique.com",l:"Jeune Afrique"},
+  "LALIBRE":{k:"LA LIBRE",t:"La Libre Belgique",u:"https://www.lalibre.be",l:"La Libre Belgique"},
+  "LAMONNAIE":{k:"LAMONNAIE",t:"LAMONNAIE",u:"",l:""},
+  "MAGRITTEMUSEUM":{k:"MAGRITTEMUSEUM",t:"MAGRITTEMUSEUM",u:"",l:""},
+  "MINIEUROPE":{k:"MINIEUROPE",t:"MINIEUROPE",u:"",l:""},
+  "MONARCHIE":{k:"MONARCHIE",t:"MONARCHIE",u:"",l:""},
+  "MUSEUMPASS":{k:"MUSEUMPASS",t:"Museum Pass Musées",u:"https://www.museumpassmusees.be",l:"Museum Pass Musées"},
+  "RENEMAGRITTE":{k:"RENEMAGRITTE",t:"RENEMAGRITTE",u:"",l:""},
+  "ROUTARD":{k:"ROUTARD",t:"Le Routard",u:"https://www.routard.com",l:"Le Routard"},
+  "RTBF":{k:"RTBF",t:"RTBF (Radio-Télévision belge francophone)",u:"https://www.rtbf.be",l:"RTBF (Radio-Télévision belge francophone)"},
+  "SJTN":{k:"SJTN",t:"Commune de Saint-Josse-ten-Noode",u:"https://sjtn.brussels",l:"Commune de Saint-Josse-ten-Noode"},
+  "TOONE":{k:"TOONE",t:"TOONE",u:"",l:""},
+  "TRAINWORLD":{k:"TRAINWORLD",t:"TRAINWORLD",u:"",l:""},
+  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org",l:"UNESCO World Heritage Centre"},
+  "VANBUUREN":{k:"VANBUUREN",t:"VANBUUREN",u:"",l:""},
+  "VISITBRUSSELS":{k:"VISIT.BRUSSELS",t:"visit.brussels",u:"https://www.visit.brussels",l:"visit.brussels"},
+  "WATERLOO1815":{k:"WATERLOO1815",t:"WATERLOO1815",u:"",l:""},
+  "WIELS":{k:"WIELS",t:"WIELS",u:"",l:""},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (FR/EN)",u:"https://fr.wikipedia.org",l:"Wikipedia (FR/EN)"}
+};
+
+const AREAS = [
+  {id:"BRU",n:"Brussels centre & communes (Grand-Place · Sablon · Marolles · Ixelles · Saint-Gilles · EU quarter)",c:"#8E44AD"},
+  {id:"BRUR",n:"Around Brussels (Uccle · Schaerbeek · Anderlecht · Tervuren · Waterloo)",c:"#E8973A"}
+];
+
+const P = [
+{t:1,a:"BRU",n:"Grand-Place / Grote Markt",ad:"Grand-Place, 1000 Bruxelles, Belgium",la:50.84667,ln:4.35250,w:"L'ensemble de maisons de guilde baroques et l'hôtel de ville gothique forment l'une des plus belles places d'Europe, inscrite à l'UNESCO depuis 1998. Gratuite et ouverte en permanence.",k:"UNESCO guildhall square",g:["ICON","UNESCO","HIST","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/857/"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/grand-place"]]},
+{t:1,a:"BRU",n:"Hôtel de Ville de Bruxelles",ad:"Grand-Place, 1000 Bruxelles, Belgium",la:50.84639,ln:4.35167,w:"Chef-d'œuvre gothique brabançon commencé en 1401, coiffé d'une flèche de 96 m et de la statue de saint Michel — le seul bâtiment médiéval subsistant sur la Grand-Place. Visites guidées de l'intérieur.",k:"Brabantine Gothic town hall",g:["HIST","ARCH","ICON","UNESCO"],s:[["UNESCO","https://whc.unesco.org/en/list/857/"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/grand-place"]]},
+{t:2,a:"BRU",n:"Maison du Roi — Musée de la Ville de Bruxelles",ad:"Grand-Place, 1000 Bruxelles, Belgium",la:50.84694,ln:4.35278,w:"Le néogothique Broodhuis abrite le musée de la Ville, dont la célèbre garde-robe des costumes du Manneken Pis et l'histoire de la cité. Fermé le lundi.",k:"City museum & Manneken Pis wardrobe",g:["MUS","HIST","ICON"],s:[["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/brussels-city-museum-king-s-house"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_of_the_City_of_Brussels"]]},
+{t:1,a:"BRU",n:"Manneken Pis",ad:"Rue de l'Étuve 31 (angle Rue du Chêne), 1000 Bruxelles, Belgium",la:50.84499,ln:4.34999,w:"La petite fontaine-statue de 1619, symbole de l'esprit frondeur bruxellois, régulièrement habillée d'un des plus de 1000 costumes de sa garde-robe. À cinq minutes de la Grand-Place.",k:"Brussels' cheeky icon",g:["ICON","FREE","HIST","UNESCO"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/manneken-pis"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Manneken_Pis"]]},
+{t:3,a:"BRU",n:"GardeRobe MannekenPis",ad:"Rue du Chêne 19, 1000 Bruxelles, Belgium",la:50.84417,ln:4.35105,w:"Le musée gratuit qui expose une sélection tournante des costumes offerts au Manneken Pis depuis le XVIIe siècle — l'une des collections les plus insolites de la ville.",k:"Manneken Pis costume museum",g:["MUS","FREE","ICON"],s:[["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/garderobe-mannekenpis"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Manneken_Pis"]]},
+{t:3,a:"BRU",n:"Jeanneke Pis",ad:"Impasse de la Fidélité 10-12, 1000 Bruxelles, Belgium",la:50.84847,ln:4.35403,w:"La contrepartie féminine du Manneken, installée en 1987 au fond de l'Impasse de la Fidélité, à deux pas du Delirium. Un clin d'œil folklorique.",k:"The female counterpart",g:["ICON","FREE","MUS"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/manneken-pis"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Jeanneke_Pis"]]},
+{t:1,a:"BRU",n:"Musée Magritte Museum",ad:"Place Royale 1, 1000 Bruxelles, Belgium",la:50.84194,ln:4.35861,w:"La plus grande collection au monde de René Magritte — plus de 200 œuvres — dans l'hôtel du Lotto de la Place Royale, section des Musées royaux des Beaux-Arts.",k:"World's largest Magritte collection",g:["MUS","ICON","MKT"],s:[["MAGRITTEMUSEUM","https://musee-magritte-museum.be/fr"],["FINEARTS","https://fine-arts-museum.be/en"]]},
+{t:1,a:"BRU",n:"Musées royaux des Beaux-Arts de Belgique",ad:"Rue de la Régence 3, 1000 Bruxelles, Belgium",la:50.84162,ln:4.35818,w:"Le musée national d'art regroupant les maîtres anciens (Bruegel, Rubens, Van der Weyden) et le musée Fin-de-Siècle (Ensor, Khnopff, Art nouveau). Une institution incontournable.",k:"National fine-arts museum",g:["MUS"],s:[["FINEARTS","https://fine-arts-museum.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Museums_of_Fine_Arts_of_Belgium"]]},
+{t:1,a:"BRU",n:"Musée des Instruments de Musique (MIM)",ad:"Rue Montagne de la Cour 2, 1000 Bruxelles, Belgium",la:50.84278,ln:4.35889,w:"Près de 10 000 instruments dans l'ancien grand magasin Old England, joyau Art nouveau de Paul Saintenoy (1899). Casque infrarouge diffusant la musique de chaque salle ; terrasse-café panoramique.",k:"Instruments in an Art Nouveau icon",g:["MUS","ARCH","NIGHT"],s:[["MUSEUMPASS","https://www.museumpassmusees.be/en/museum/mim"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Musical_Instruments_Museum,_Brussels"]]},
+{t:1,a:"BRU",n:"Galeries Royales Saint-Hubert",ad:"Galerie du Roi 5, 1000 Bruxelles, Belgium",la:50.84750,ln:4.35500,w:"L'un des plus anciens passages couverts vitrés d'Europe (1847, J.-P. Cluysenaer) : galeries de la Reine, du Roi et des Princes sous une verrière élégante, avec Neuhaus, le théâtre des Galeries et les cafés historiques.",k:"Europe's pioneering glazed arcade",g:["ARCH","HIST","ICON","MUS"],s:[["GRSH","https://www.grsh.be/en/history/"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/venue-details.Galeries-Royales-Saint-Hubert.246324"]]},
+{t:1,a:"BRU",n:"Cathédrale des Saints-Michel-et-Gudule",ad:"Place Sainte-Gudule, 1000 Bruxelles, Belgium",la:50.84778,ln:4.36028,w:"Cathédrale gothique brabançonne (XIIIe-XVe s.) aux deux tours jumelles, vitraux du XVIe siècle et chaire baroque monumentale ; lieu des mariages et funérailles royaux.",k:"Brabantine Gothic cathedral",g:["ARCH","HIST","ICON","NIGHT"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/st-michael-and-st-gudula-cathedral"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cathedral_of_St._Michael_and_St._Gudula"]]},
+{t:2,a:"BRU",n:"Bourse de Bruxelles — Belgian Beer World",ad:"Rue Henri Maus 2, 1000 Bruxelles, Belgium",la:50.84806,ln:4.35028,w:"L'ancienne Bourse néo-Renaissance (1873), restaurée, abrite depuis 2023 « Belgian Beer World », l'expérience consacrée au patrimoine brassicole belge (UNESCO), avec bar-rooftop panoramique.",k:"Beer temple in the old exchange",g:["ARCH","HIST","MUS","UNESCO"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/belgian-beer-world"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Brussels_Stock_Exchange"]]},
+{t:1,a:"BRU",n:"Église Notre-Dame du Sablon",ad:"Rue de la Régence 3B, 1000 Bruxelles, Belgium",la:50.84034,ln:4.35621,w:"Chef-d'œuvre du gothique flamboyant brabançon (XVe-XVIe s.), aux vitraux illuminés de l'intérieur le soir, cœur du quartier des antiquaires du Sablon.",k:"Flamboyant Gothic on the Sablon",g:["ARCH","HIST","MUS","MKT"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/plan-your-trip/the-sablon-and-marolles-districts-antiques-and-tradition"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_of_Our_Blessed_Lady_of_the_Sablon"]]},
+{t:2,a:"BRU",n:"Place du Grand Sablon",ad:"Place du Grand Sablon, 1000 Bruxelles, Belgium",la:50.84108,ln:4.35451,w:"Place raffinée bordée de chocolatiers (Marcolini, Wittamer, Neuhaus), galeries d'art et antiquaires, avec son marché d'antiquités et de livres le week-end.",k:"Antiques & chocolate square",g:["MKT","HIST","MUS"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/plan-your-trip/the-sablon-and-marolles-districts-antiques-and-tradition"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sablon,_Brussels"]]},
+{t:1,a:"BRU",n:"Marché aux Puces du Jeu de Balle",ad:"Place du Jeu de Balle, 1000 Bruxelles (Marolles), Belgium",la:50.83694,ln:4.34556,w:"Le brocante quotidienne des Marolles, tenue tous les jours depuis près d'un siècle de l'aube à 14h (15h le week-end) — le cœur populaire et bohème du quartier.",k:"Daily Marolles flea market",g:["MKT","FREE","HIST","MUS"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/plan-your-trip/the-sablon-and-marolles-districts-antiques-and-tradition"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Place_du_Jeu_de_Balle"]]},
+{t:1,a:"BRU",n:"Palais de Justice de Bruxelles",ad:"Place Poelaert 1, 1000 Bruxelles, Belgium",la:50.83667,ln:4.35167,w:"Colosse éclectique de Joseph Poelaert (1883), l'un des plus grands édifices du XIXe siècle, dominant les Marolles ; l'esplanade offre un panorama sur la ville.",k:"Poelaert's monumental courthouse",g:["ARCH","HIST","MKT"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/palace-of-justice"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Palace_of_Justice,_Brussels"]]},
+{t:1,a:"BRU",n:"Centre Belge de la Bande Dessinée",ad:"Rue des Sables 20, 1000 Bruxelles, Belgium",la:50.85111,ln:4.36000,w:"Le musée de la BD dans un magasin Art nouveau de Victor Horta (1906) : Tintin, Spirou, les Schtroumpfs et 4 200 m² dédiés au « neuvième art » belge.",k:"Comics in a Horta building",g:["MUS","ARCH"],s:[["CBBD","https://www.cbbd.be/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Belgian_Comic_Strip_Center"]]},
+{t:2,a:"BRU",n:"Parcours BD (Comic Book Route)",ad:"Centre-ville (Pentagone), 1000 Bruxelles, Belgium",la:50.84658,ln:4.34917,w:"Plus de 50 fresques murales géantes disséminées dans la ville depuis 1991 — Tintin, Gaston, Lucky Luke, le Chat — transformant Bruxelles en musée à ciel ouvert.",k:"50+ street comic murals",g:["FREE","ICON","ARCH","MUS"],s:[["BEBRUSSELS","https://be.brussels/en/leisure-events-sports/cultural-activities/comic-strips"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Brussels%27_Comic_Book_Route"]]},
+{t:1,a:"BRU",n:"Théâtre Royal de Toone",ad:"Rue du Marché aux Herbes 66 (Impasse Sainte-Pétronille), 1000 Bruxelles, Belgium",la:50.84722,ln:4.35333,w:"Le dernier théâtre de marionnettes à tringle de la tradition bruxelloise, actif depuis 1830, avec estaminet et musée. La marionnette de Toone est inscrite au patrimoine immatériel de l'UNESCO (2025).",k:"UNESCO puppet theatre & estaminet",g:["HIST","ICON","UNESCO","MUS"],s:[["TOONE","https://www.toone.be/fr/"],["LALIBRE","https://www.lalibre.be/regions/bruxelles/2025/12/09/bruxelles-celebre-ses-marionnettes-le-theatre-de-toone-inscrit-au-patrimoine-mondial-de-lunesco-QGGJFPRU2NCBBNUXIAXVWSVN7I/"]]},
+{t:1,a:"BRU",n:"Musée Horta",ad:"Rue Américaine 25, 1060 Saint-Gilles, Belgium",la:50.82417,ln:4.35472,w:"La maison-atelier de Victor Horta (1898-1901), œuvre d'art total de l'Art nouveau (mobilier, ferronneries, cage d'escalier lumineuse), inscrite à l'UNESCO. Rénovation d'ampleur annoncée — vérifier l'ouverture.",k:"Horta's Art Nouveau home",g:["MUS","UNESCO","ARCH"],s:[["UNESCO","https://whc.unesco.org/en/list/1005/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Horta_Museum"]]},
+{t:2,a:"BRU",n:"Hôtel Solvay",ad:"Avenue Louise 224, 1050 Bruxelles, Belgium",la:50.82632,ln:4.36528,w:"L'une des maisons de maître les plus abouties de Victor Horta (1894), classée à l'UNESCO ; façade et intérieur Art nouveau d'une richesse exceptionnelle (visites limitées).",k:"Horta masterpiece on Louise",g:["ARCH","UNESCO","MUS"],s:[["UNESCO","https://whc.unesco.org/en/list/1005/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H%C3%B4tel_Solvay"]]},
+{t:2,a:"BRU",n:"Hôtel van Eetvelde",ad:"Avenue Palmerston 4, 1000 Bruxelles, Belgium",la:50.84721,ln:4.38059,w:"Maison de maître de Horta (1895) à structure métallique apparente et coupole de verre, l'une des quatre inscrites à l'UNESCO, dans le quartier des Squares.",k:"Horta's glass-domed town house",g:["ARCH","UNESCO","MUS","MKT"],s:[["UNESCO","https://whc.unesco.org/en/list/1005/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H%C3%B4tel_van_Eetvelde"]]},
+{t:3,a:"BRU",n:"Maison Saint-Cyr",ad:"Square Ambiorix 11, 1000 Bruxelles, Belgium",la:50.84778,ln:4.38389,w:"Façade Art nouveau la plus exubérante de Bruxelles, à peine 4 m de large, œuvre baroque de Gustave Strauven (1901-1903) au bord du Square Ambiorix.",k:"Strauven's baroque Art Nouveau facade",g:["ARCH","MUS","MKT","NIGHT"],s:[["ADMIRABLEARTNOUVEAU","https://www.admirable-artnouveau.brussels/en/en-facades/saint-cyr-house/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Saint-Cyr_House"]]},
+{t:1,a:"BRU",n:"Parc du Cinquantenaire",ad:"Parc du Cinquantenaire, 1000 Bruxelles, Belgium",la:50.84056,ln:4.39278,w:"Parc monumental créé en 1880 pour le cinquantenaire de l'indépendance, dominé par les arcades triomphales et bordé de trois grands musées ; jardins à la française gratuits.",k:"Triumphal arch & museum park",g:["PARK","HIST","FREE","ARCH"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/parc-du-cinquantenaire"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cinquantenaire"]]},
+{t:2,a:"BRU",n:"Autoworld",ad:"Parc du Cinquantenaire 11, 1000 Bruxelles, Belgium",la:50.83992,ln:4.39341,w:"Plus de 300 véhicules de 1896 à nos jours sous la grande halle métallique du Cinquantenaire — l'une des plus belles collections automobiles d'Europe.",k:"300+ classic cars",g:["MUS"],s:[["AUTOWORLD","https://www.autoworld.be/en/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Autoworld_(museum)"]]},
+{t:1,a:"BRU",n:"Musée Art & Histoire (Cinquantenaire)",ad:"Parc du Cinquantenaire 10, 1000 Bruxelles, Belgium",la:50.83917,ln:4.39194,w:"Musée national encyclopédique : antiquités égyptiennes, gréco-romaines, trésors mérovingiens, arts décoratifs et un modèle réduit de Rome antique. Vaste et sous-visité.",k:"National antiquities & decorative arts",g:["MUS"],s:[["ARTANDHISTORY","https://www.artandhistory.museum/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Art_%26_History_Museum"]]},
+{t:2,a:"BRU",n:"War Heritage Institute — Musée royal de l'Armée",ad:"Parc du Cinquantenaire 3, 1000 Bruxelles, Belgium",la:50.84056,ln:4.39278,w:"Immense musée militaire (armes, uniformes, aviation, blindés) dans une aile du Cinquantenaire ; l'accès à l'arcade offre l'un des meilleurs panoramas gratuits de la ville.",k:"Army museum & rooftop view",g:["MUS","FREE","HIST"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/war-heritage-institute"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Museum_of_the_Armed_Forces_and_Military_History"]]},
+{t:2,a:"BRU",n:"Arcades du Cinquantenaire (Arc de Triomphe)",ad:"Parc du Cinquantenaire, 1000 Bruxelles, Belgium",la:50.84028,ln:4.39278,w:"La triple arche surmontée d'un quadrige de bronze (1905), version belge de l'arc de triomphe, emblème du parc et de l'histoire nationale.",k:"Belgium's triumphal arch",g:["ARCH","ICON","PARK"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/parc-du-cinquantenaire"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cinquantenaire"]]},
+{t:2,a:"BRU",n:"Étangs d'Ixelles",ad:"Étangs d'Ixelles, 1050 Ixelles, Belgium",la:50.82361,ln:4.37333,w:"Deux étangs romantiques cernés de façades Art nouveau (dont plusieurs Horta et Blérot), oasis paisible à un pas de la place Flagey.",k:"Art Nouveau ponds",g:["PARK","FREE","HIST","MUS"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/ixelles-ponds"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ixelles_Ponds"]]},
+{t:2,a:"BRU",n:"Place Flagey & Flagey (bâtiment)",ad:"Place Sainte-Croix, 1050 Ixelles, Belgium",la:50.82667,ln:4.37278,w:"Le « paquebot » Art déco (1938), ancien Institut national de radiodiffusion, aujourd'hui centre culturel et salle de concert, cœur battant du quartier d'Ixelles avec son marché et ses cafés.",k:"Art Deco 'ocean liner'",g:["ARCH","NIGHT","MUS","MKT"],s:[["FLAGEY","https://www.flagey.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Flagey_(building)"]]},
+{t:2,a:"BRU",n:"Matongé (quartier)",ad:"Galerie d'Ixelles / Chaussée de Wavre, 1050 Ixelles, Belgium",la:50.83826,ln:4.36244,w:"Le quartier de la diaspora congolaise et africaine, coloré et vivant, autour de la Porte de Namur : épiceries, salons, musique et restaurants de moambe et de yassa.",k:"Brussels' African quarter",g:["HIST","FREE","MUS","CANAL"],s:[["JEUNEAFRIQUE","https://www.jeuneafrique.com/mag/825504/culture/le-gout-de-lafrique-a-bruxelles-cinq-adresses-incontournables/"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Matonge_(Ixelles)"]]},
+{t:2,a:"BRU",n:"Parlamentarium",ad:"Place du Luxembourg, 1047 Bruxelles, Belgium",la:50.83997,ln:4.37418,w:"Le centre des visiteurs du Parlement européen : parcours interactif multilingue sur l'histoire et le fonctionnement de l'UE, gratuit et familial, au cœur du quartier européen.",k:"European Parliament visitor centre",g:["MUS","FREE","PARK","NIGHT"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/venue-details.Parlamentarium.251541"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Parlamentarium"]]},
+{t:2,a:"BRU",n:"House of European History",ad:"Rue Belliard 135 (Parc Léopold), 1000 Bruxelles, Belgium",la:50.84003,ln:4.37850,w:"Musée gratuit retraçant l'histoire européenne depuis 1789, dans l'écrin Art déco de l'ancien institut dentaire Eastman au parc Léopold ; disponible dans les 24 langues de l'UE.",k:"Europe's history, free",g:["MUS","FREE","PARK"],s:[["HISTORIAEUROPA","https://historia.europa.eu/en"],["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/house-of-european-history"]]},
+{t:1,a:"BRU",n:"Atomium",ad:"Place de l'Atomium 1, 1020 Bruxelles (Laeken), Belgium",la:50.89472,ln:4.34111,w:"Les neuf sphères d'acier de 102 m, cristal de fer agrandi 165 milliards de fois, vestige emblématique de l'Expo 58 ; ascenseur ultrarapide, expositions et restaurant panoramique.",k:"Expo 58 steel atom",g:["ICON","ARCH"],s:[["ATOMIUM","https://atomium.be/"],["ATLASOBSCURA","https://www.atlasobscura.com/places/the-atomium-brussels-belgium"]]},
+{t:2,a:"BRU",n:"Design Museum Brussels",ad:"Place de Belgique 1, 1020 Bruxelles, Belgium",la:50.89750,ln:4.34194,w:"Au pied de l'Atomium, un musée consacré au design du XXe siècle et à la plus grande collection de plastique d'Europe (le « Plasticarium »).",k:"20th-century design & plastics",g:["MUS","ICON"],s:[["DESIGNMUSEUM","https://designmuseum.brussels/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Design_Museum_Brussels"]]},
+{t:2,a:"BRU",n:"Mini-Europe",ad:"Avenue du Football 1, 1020 Bruxelles (Bruparck), Belgium",la:50.89389,ln:4.33889,w:"Maquettes au 1/25e des monuments emblématiques de l'Union européenne, au pied de l'Atomium — sortie familiale populaire.",k:"Europe in miniature",g:["ICON","HIST"],s:[["MINIEUROPE","https://www.minieurope.com/en/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mini-Europe"]]},
+{t:2,a:"BRU",n:"Église Sainte-Catherine & Marché aux Poissons",ad:"Place Sainte-Catherine, 1000 Bruxelles, Belgium",la:50.85083,ln:4.34861,w:"Église néogothique de Poelaert sur l'ancien port, cœur du quartier Sainte-Catherine et de ses maisons de poisson autour du bassin du Marché aux Poissons.",k:"Old fishing-port church",g:["ARCH","HIST","MUS","CANAL"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/church-of-st-catherine"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_of_St._Catherine,_Brussels"]]},
+{t:1,a:"BRU",n:"Mont des Arts",ad:"Mont des Arts, 1000 Bruxelles, Belgium",la:50.84389,ln:4.35667,w:"Jardin en terrasses reliant la ville basse au quartier royal, offrant l'une des plus belles vues sur les toits de Bruxelles et la tour de l'hôtel de ville. Gratuit.",k:"Terraced viewpoint garden",g:["PARK","ARCH","FREE","MUS"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/mont-des-arts"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mont_des_Arts"]]},
+{t:2,a:"BRU",n:"BELvue Museum",ad:"Place des Palais 7, 1000 Bruxelles, Belgium",la:50.84278,ln:4.36083,w:"Musée d'histoire de la Belgique et de la démocratie dans l'ancien hôtel Bellevue, jouxtant le Palais royal ; billet combiné avec le site archéologique du Coudenberg.",k:"History of Belgium",g:["MUS","HIST"],s:[["BELVUE","https://www.belvue.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/BELvue_Museum"]]},
+{t:2,a:"BRU",n:"Coudenberg — ancien Palais de Bruxelles",ad:"Place des Palais 7, 1000 Bruxelles, Belgium",la:50.84278,ln:4.36083,w:"Les vestiges souterrains du palais des ducs de Bourgogne et de Charles Quint, détruit par un incendie en 1731 : rue médiévale, caves et chapelle sous la Place Royale.",k:"Underground Renaissance palace",g:["HIST","MUS","ARCH","MKT"],s:[["COUDENBERG","https://coudenberg.brussels/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Coudenberg"]]},
+{t:2,a:"BRU",n:"Palais Royal de Bruxelles",ad:"Place des Palais, 1000 Bruxelles, Belgium",la:50.84167,ln:4.36222,w:"Résidence officielle de la monarchie (fonctions protocolaires), ouverte gratuitement au public chaque été, dont la spectaculaire salle des Glaces au plafond de scarabées de Wim Delvoye.",k:"The king's state palace",g:["HIST","ARCH","NIGHT","FREE"],s:[["MONARCHIE","https://www.monarchie.be/en/heritage/royal-palace-of-brussels"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/royal-palace"]]},
+{t:3,a:"BRU",n:"Parc de Bruxelles (Parc Royal)",ad:"Parc de Bruxelles, 1000 Bruxelles, Belgium",la:50.84444,ln:4.36389,w:"Le parc néoclassique dessiné entre le Palais royal et le Parlement fédéral, à la géométrie maçonnique, poumon vert et théâtre de la révolution belge de 1830.",k:"Neoclassical royal park",g:["PARK","FREE","HIST"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/brussels-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Parc_de_Bruxelles"]]},
+{t:1,a:"BRU",n:"BOZAR — Palais des Beaux-Arts",ad:"Rue Ravenstein 23, 1000 Bruxelles, Belgium",la:50.84361,ln:4.35972,w:"Centre pluridisciplinaire (expositions, concerts, cinéma) dans un palais Art déco de Victor Horta (1928) — l'un de ses derniers grands chantiers, à l'acoustique réputée.",k:"Horta's Art Deco arts palace",g:["ARCH","MUS"],s:[["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/bozar-centre-for-fine-arts"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Centre_for_Fine_Arts,_Brussels"]]},
+{t:2,a:"BRU",n:"Théâtre Royal de la Monnaie",ad:"Place de la Monnaie, 1000 Bruxelles, Belgium",la:50.84972,ln:4.35389,w:"L'opéra national, où la représentation de « La Muette de Portici » en 1830 déclencha la révolution belge ; l'une des grandes maisons lyriques d'Europe.",k:"National opera, cradle of 1830",g:["ARCH","HIST","CANAL"],s:[["LAMONNAIE","https://www.lamonnaie.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/La_Monnaie"]]},
+{t:3,a:"BRU",n:"Choco-Story Brussels",ad:"Rue de l'Étuve 41, 1000 Bruxelles, Belgium",la:50.84528,ln:4.35020,w:"Musée du chocolat retraçant le cacao des Mayas à la praline belge, avec démonstrations et dégustations, à deux pas du Manneken Pis.",k:"The chocolate museum",g:["MUS","ICON"],s:[["CHOCOSTORY","https://www.choco-story-brussels.be/eng/home"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Choco-Story_Brussels"]]},
+{t:2,a:"BRU",n:"Villa Empain — Fondation Boghossian",ad:"Avenue Franklin Roosevelt 67, 1050 Ixelles, Belgium",la:50.80748,ln:4.38420,w:"Chef-d'œuvre Art déco de Michel Polak (1934) magnifiquement restauré, aujourd'hui centre d'art et de dialogue entre Orient et Occident de la Fondation Boghossian.",k:"Restored Art Deco villa",g:["ARCH","MUS"],s:[["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/boghossian-foundation-villa-empain"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Villa_Empain"]]},
+{t:3,a:"BRU",n:"Porte de Hal (Hallepoort)",ad:"Boulevard du Midi 150, 1060 Saint-Gilles, Belgium",la:50.83306,ln:4.34472,w:"La seule porte médiévale subsistante de la seconde enceinte de Bruxelles (XIVe s.), aujourd'hui musée sur la ville fortifiée, avec chemin de ronde panoramique.",k:"Surviving medieval gate",g:["HIST","MUS","CANAL"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/halle-gate"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Halle_Gate"]]},
+{t:1,a:"BRUR",n:"AfricaMuseum — Musée royal de l'Afrique centrale",ad:"Leuvensesteenweg 13, 3080 Tervuren, Belgium",la:50.83090,ln:4.51850,w:"Le musée national de l'Afrique centrale dans un palais de 1910 inspiré du Petit Palais, entièrement rénové en 2018 avec un regard critique et décolonial sur le passé colonial belge ; parc et étangs magnifiques.",k:"Central Africa, critically re-read",g:["MUS","PARK","HIST"],s:[["AFRICAMUSEUM","https://www.africamuseum.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Museum_for_Central_Africa"]]},
+{t:1,a:"BRUR",n:"Mémorial de Waterloo 1815 & Butte du Lion",ad:"Route du Lion 1815, 1420 Braine-l'Alleud, Belgium",la:50.67833,ln:4.40472,w:"Le champ de bataille où Napoléon fut défait en 1815 : mémorial souterrain, panorama circulaire, ferme d'Hougoumont et la Butte du Lion aux 226 marches dominant le site.",k:"Napoleon's final battlefield",g:["HIST","MUS","ICON"],s:[["WATERLOO1815","https://www.waterloo1815.be/en/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lion%27s_Mound"]]},
+{t:2,a:"BRUR",n:"Maison d'Érasme",ad:"Rue du Chapitre 31, 1070 Anderlecht, Belgium",la:50.83639,ln:4.30806,w:"Demeure gothique de 1515 où Érasme séjourna en 1521, l'une des plus anciennes d'Anderlecht : peintures des XVe-XVIIe s. (Dürer, Metsys), jardins des simples et philosophique de René Pechère.",k:"Erasmus' 1521 house",g:["MUS","HIST","PARK"],s:[["ANDERLECHT","https://www.anderlecht.be/fr/agenda/la-maison-d-erasme-une-demeure-de-500-ans"],["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/erasmus-house-and-beguinage-of-anderlecht"]]},
+{t:3,a:"BRUR",n:"Béguinage d'Anderlecht",ad:"Rue du Chapelain 8, 1070 Anderlecht, Belgium",la:50.83694,ln:4.30611,w:"Petit béguinage du XVIIe siècle, l'un des plus modestes et des mieux conservés du pays, retraçant la vie des béguines, à côté de la collégiale Saints-Pierre-et-Guidon.",k:"Tiny 17th-c beguinage",g:["HIST","ARCH","UNESCO"],s:[["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/erasmus-house-and-beguinage-of-anderlecht"],["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr"]]},
+{t:1,a:"BRUR",n:"Serres Royales de Laeken",ad:"Avenue du Parc Royal, 1020 Bruxelles (Laeken), Belgium",la:50.88833,ln:4.36028,w:"Complexe de serres monumentales en fer et verre de Balat et Horta (1874-1905), abritant la plus importante collection de camélias au monde ; ouvertes au public seulement quelques semaines au printemps.",k:"Royal glasshouses (spring only)",g:["PARK","ARCH","HIST","CANAL"],s:[["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr/buildings/36609"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Royal_Greenhouses_of_Laeken"]]},
+{t:2,a:"BRUR",n:"Musée René Magritte (Jette)",ad:"Rue Esseghem 135, 1090 Jette, Belgium",la:50.87667,ln:4.33583,w:"La maison où René Magritte vécut et peignit de 1930 à 1954, reconstituée à l'identique — nombre de ses toiles célèbres y sont nées ; un lieu intimiste pour les amateurs du surréalisme.",k:"Where Magritte lived & painted",g:["MUS","HIST"],s:[["RENEMAGRITTE","https://www.magrittemuseum.be/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte_Museum"]]},
+{t:2,a:"BRUR",n:"Musée & Jardins van Buuren",ad:"Avenue Léo Errera 41, 1180 Uccle, Belgium",la:50.81005,ln:4.35381,w:"Villa Art déco du banquier collectionneur David van Buuren, aux intérieurs intacts (Van Gogh, Ensor) et jardins remarquables dont un labyrinthe et un jardin du cœur.",k:"Art Deco house & gardens",g:["MUS","PARK"],s:[["VANBUUREN","https://www.museumvanbuuren.com/en/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Van_Buuren_Museum_%26_Gardens"]]},
+{t:1,a:"BRUR",n:"Train World",ad:"Place Princesse Élisabeth 5, 1030 Schaerbeek, Belgium",la:50.87806,ln:4.37944,w:"Le musée officiel du rail belge (SNCB), scénographié par François Schuiten, autour de la gare historique de Schaerbeek : 22 locomotives dont la plus vieille locomotive à vapeur conservée du continent.",k:"Belgium's railway museum",g:["MUS"],s:[["TRAINWORLD","https://www.trainworld.be/en/"],["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/train-world"]]},
+{t:1,a:"BRUR",n:"Basilique du Sacré-Cœur de Koekelberg",ad:"Parvis de la Basilique 1, 1081 Koekelberg, Belgium",la:50.86667,ln:4.31722,w:"La cinquième plus grande église du monde, colosse Art déco de 89 m de haut ; panorama sur Bruxelles depuis le dôme, plus musées et théâtre intégrés.",k:"Vast Art Deco basilica",g:["ARCH","HIST","ICON","MUS"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/region-de-bruxelles-capitale/koekelberg/basilique-du-sacre-coeur"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Basilica_of_the_Sacred_Heart,_Brussels"]]},
+{t:2,a:"BRUR",n:"WIELS",ad:"Avenue Van Volxem 354, 1190 Forest, Belgium",la:50.82444,ln:4.32583,w:"L'un des grands centres d'art contemporain d'Europe, installé dans l'ancienne brasserie Wielemans-Ceuppens (bâtiment Blomme, 1930), à Forest.",k:"Contemporary art in a brewery",g:["MUS","ARCH","PARK"],s:[["WIELS","https://www.wiels.org/en"],["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/wiels"]]},
+{t:2,a:"BRUR",n:"Pavillon Chinois & Tour Japonaise",ad:"Avenue Van Praet 44, 1020 Bruxelles (Laeken), Belgium",la:50.89278,ln:4.36139,w:"Deux folies exotiques commandées par Léopold II vers 1910 en bordure du domaine royal ; remarquables de l'extérieur (intérieurs fermés pour restauration).",k:"Leopold II's exotic follies",g:["ARCH","MUS"],s:[["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr/buildings/37912"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chinese_Pavilion_(Laeken)"]]},
+{t:2,a:"BRUR",n:"Bois de la Cambre",ad:"Bois de la Cambre, 1000 Bruxelles, Belgium",la:50.80306,ln:4.38111,w:"Grand parc paysager anglais prolongeant la ville vers la Forêt de Soignes, avec son lac, son île-chalet et ses pelouses — le rendez-vous vert des Bruxellois.",k:"City's great green lung",g:["PARK","FREE"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/bois-de-la-cambre"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bois_de_la_Cambre"]]},
+{t:2,a:"BRUR",n:"Forêt de Soignes (Zoniënwoud)",ad:"Forêt de Soignes, 1170 Watermael-Boitsfort, Belgium",la:50.76700,ln:4.41700,w:"Vaste hêtraie cathédrale de 4 400  ha aux portes de la ville ; ses parcelles anciennes sont inscrites au patrimoine mondial de l'UNESCO (forêts primaires de hêtres).",k:"UNESCO cathedral beech forest",g:["PARK","FREE","ICON","UNESCO"],s:[["UNESCO","https://whc.unesco.org/en/list/1133/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sonian_Forest"]]},
+{t:2,a:"BRUR",n:"Église Royale Sainte-Marie",ad:"Place de la Reine, 1030 Schaerbeek, Belgium",la:50.85917,ln:4.36889,w:"Étonnante église romano-byzantine à plan octogonal et coupole étoilée (1845-1888), point de fuite de la longue perspective de la rue Royale à Schaerbeek.",k:"Byzantine-Romanesque dome",g:["ARCH","HIST"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/region-de-bruxelles-capitale/schaerbeek"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Saint_Mary%27s_Royal_Church"]]},
+{t:3,a:"BRUR",n:"Parc Josaphat",ad:"Parc Josaphat, 1030 Schaerbeek, Belgium",la:50.86222,ln:4.38500,w:"Grand parc paysager à l'anglaise (classé) de Schaerbeek, avec ses étangs, sculptures, roseraie et kiosque — le poumon vert du « village » de Schaerbeek.",k:"Schaerbeek's romantic park",g:["PARK","FREE","HIST"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/plan-your-trip/10-000-steps-in-schaerbeek"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Josaphat_Park"]]},
+{t:2,a:"BRUR",n:"Maison Autrique",ad:"Chaussée de Haecht 266, 1030 Schaerbeek, Belgium",la:50.86306,ln:4.37306,w:"La toute première maison Art nouveau de Victor Horta (1893), commandée par l'ingénieur Eugène Autrique, restaurée et scénographiée avec l'univers de Schuiten et Peeters.",k:"Horta's first Art Nouveau house",g:["MUS","ARCH"],s:[["AUTRIQUE","https://www.autrique.be/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Autrique_House"]]},
+{t:1,a:"BRUR",n:"Palais Stoclet",ad:"Avenue de Tervueren 279-281, 1150 Woluwe-Saint-Pierre, Belgium",la:50.83528,ln:4.41611,w:"Chef-d'œuvre total de la Sécession viennoise construit par Josef Hoffmann (1905-1911) pour le banquier Adolphe Stoclet, avec la célèbre frise de salle à manger de Gustav Klimt et les créations de la Wiener Werkstätte. Inscrit à l'UNESCO en 2009 ; propriété privée admirable de l'extérieur.",k:"Klimt-frescoed UNESCO villa",g:["ARCH","UNESCO","HIST"],s:[["UNESCO","https://whc.unesco.org/en/list/1298/"],["LALIBRE","https://www.lalibre.be/economie/immo/2025/02/01/les-plus-belles-demeures-de-bruxelles-le-palais-stoclet-5ZLKGAL3NFCGZISXUJMLOU25QA/"]]},
+{t:3,a:"BRUR",n:"Halles de Schaerbeek",ad:"Rue Royale Sainte-Marie 22a, 1030 Schaerbeek, Belgium",la:50.86028,ln:4.36972,w:"Ancien marché couvert Sainte-Marie en fer et verre (reconstruit en 1901 après un incendie), devenu l'un des grands centres culturels de Bruxelles et d'Europe : concerts, cirque, théâtre et festivals sous une superbe halle métallique.",k:"Iron market hall turned arts venue",g:["ARCH","HIST","NIGHT","MUS"],s:[["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr.Schaerbeek.Rue_Royale_Sainte-Marie.22a.html"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Les_Halles_de_Schaerbeek"]]},
+{t:2,a:"BRU",n:"Abbaye de la Cambre",ad:"Abbaye de la Cambre 1, 1050 Ixelles, Belgium",la:50.81889,ln:4.37417,w:"Ancienne abbaye cistercienne fondée en 1201, blottie dans un vallon entre Ixelles et le bois de la Cambre : église Notre-Dame, cloître clos et jardins en terrasses avec un vivier alimenté par le Maelbeek. Havre de paix gratuit en pleine ville.",k:"Cistercian abbey & terraced gardens",g:["HIST","ARCH","PARK","FREE"],s:[["GARDENSBRUSSELS","https://gardens.brussels/fr/espaces-verts/jardins-de-labbaye-de-la-cambre"],["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr/Ixelles/Abbaye_de_la_Cambre/1/36943"]]},
+{t:2,a:"BRU",n:"Maison Cauchie",ad:"Rue des Francs 5, 1040 Etterbeek, Belgium",la:50.83833,ln:4.39528,w:"Chef-d'œuvre Art nouveau de Paul Cauchie (1905) en bordure du Cinquantenaire, dont l'immense façade en sgraffites figure huit femmes allégoriques des arts — à la fois maison, atelier et « carte de visite » géante. Ouverte au public certains week-ends.",k:"Art Nouveau sgraffito facade",g:["ARCH","MUS","NIGHT"],s:[["RTBF","https://www.rtbf.be/article/la-maison-cauchie-ouvre-ses-portes-aux-amateurs-dart-nouveau-10769943"],["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr/Etterbeek/Rue_des_Francs/5/15558"]]},
+{t:2,a:"BRU",n:"Parvis de Saint-Gilles",ad:"Parvis de Saint-Gilles, 1060 Saint-Gilles, Belgium",la:50.83060,ln:4.34540,w:"Le cœur battant et populaire de Saint-Gilles, bordé de terrasses et de brasseries authentiques, avec l'un des plus anciens marchés de la capitale (depuis 1865), presque tous les jours sauf le lundi, sous les tours néogothiques de l'église Saint-Gilles.",k:"Lively square & 1865 market",g:["MKT","FREE","HIST","ARCH"],s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/plan-your-trip/neighbourhood-walk--saint-gilles"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/bruxelles/saint-gilles"]]},
+{t:3,a:"BRU",n:"Hôtel de Ville de Saint-Gilles",ad:"Place Maurice Van Meenen 39, 1060 Saint-Gilles, Belgium",la:50.82444,ln:4.34583,w:"Imposant hôtel communal d'inspiration néo-Renaissance française (début XXe s.) dominant la place Maurice Van Meenen, coiffé d'un beffroi de 41 m et abritant de nombreuses œuvres d'art — l'un des plus beaux hôtels de ville de l'agglomération.",k:"Neo-Renaissance town hall & belfry",g:["ARCH","HIST","ICON","UNESCO"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/bruxelles/saint-gilles"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/plan-your-trip/neighbourhood-walk--saint-gilles"]]},
+{t:2,a:"BRU",n:"Marché du Châtelain",ad:"Place du Châtelain, 1050 Ixelles, Belgium",la:50.82823,ln:4.36060,w:"L'institution du mercredi soir à Ixelles : chaque mercredi (env. 14h-19h30), la place du Châtelain se transforme en marché apéro où le quartier se retrouve autour d'huîtres, de vin et de bons produits — le week-end y commence dès le mercredi.",k:"Wednesday-evening apéro market",g:["MKT","FREE","NIGHT","MUS"],s:[["BX1","https://bx1.be/categories/news/ixelles-le-marche-du-chatelain-revient-ce-mercredi-mais-a-un-autre-endroit/"],["RTBF","https://www.rtbf.be/article/fin-des-travaux-a-la-place-du-chatelain-a-ixelles-le-marche-du-mercredi-est-de-retour-11493140"]]},
+{t:2,a:"BRU",n:"Quartier turc de la Chaussée de Haecht",ad:"Chaussée de Haecht, 1210 Saint-Josse-ten-Noode, Belgium",la:50.85302,ln:4.37377,w:"La « petite Turquie » de Bruxelles : de part et d'autre de la frontière Saint-Josse/Schaerbeek, la Chaussée de Haecht aligne épiceries, pâtisseries, salons de thé et restaurants turcs — pide, lahmacun, baklava et cuisine anatolienne à prix doux.",k:"Brussels' Turkish quarter",g:["HIST","FREE","MKT","MUS"],s:[["BRUZZ","https://www.bruzz.be/samenleving/brussel-bij-de-turk-shopping-en-culinair-2004-10-16"],["SJTN","https://sjtn.brussels/nl/restauration/hanedan"]]}
+];
+
+const FS = {
+  "AFAR":{k:"AFAR",t:"AFAR Media",u:"https://www.afar.com",l:"AFAR Media"},
+  "BBP":{k:"BBP",t:"BBP",u:"",l:""},
+  "BLONDEEL":{k:"BLONDEEL",t:"BLONDEEL",u:"",l:""},
+  "BRASSERIESENNE":{k:"BRASSERIESENNE",t:"BRASSERIESENNE",u:"",l:""},
+  "BRUSSELSEXPRESS":{k:"BRUSSELSEXPRESS",t:"Brussels Express",u:"https://brussels-express.eu",l:"Brussels Express"},
+  "BRUSSELSKITCHEN":{k:"BRUSSELSKITCHEN",t:"Brussels' Kitchen",u:"https://www.brusselskitchen.com",l:"Brussels' Kitchen"},
+  "BRUSSELSLIFE":{k:"BRUSSELSLIFE",t:"BrusselsLife.be",u:"https://www.brusselslife.be",l:"BrusselsLife.be"},
+  "BRUSSELSMUSEUMS":{k:"BRUSSELSMUSEUMS",t:"Brussels Museums",u:"https://www.brusselsmuseums.be",l:"Brussels Museums"},
+  "BX1":{k:"BX1",t:"BX1 (Brussels regional TV/news)",u:"https://bx1.be",l:"BX1 (Brussels regional TV/news)"},
+  "CANTILLON":{k:"CANTILLON",t:"CANTILLON",u:"",l:""},
+  "DHNET":{k:"DHNET",t:"La DH / DH Les Sports+ (La Dernière Heure)",u:"https://www.dhnet.be",l:"La DH / DH Les Sports+ (La Dernière Heure)"},
+  "DOEATBETTER":{k:"DOEATBETTER",t:"DOEATBETTER",u:"",l:""},
+  "ELLE":{k:"ELLE",t:"ELLE Belgique",u:"https://www.elle.be",l:"ELLE Belgique"},
+  "ENSTOEMELINGS":{k:"ENSTOEMELINGS",t:"ENSTOEMELINGS",u:"",l:""},
+  "EUROPEANCOFFEETRIP":{k:"EUROPEANCOFFEETRIP",t:"European Coffee Trip",u:"https://europeancoffeetrip.com",l:"European Coffee Trip"},
+  "FODORS":{k:"FODORS",t:"Fodor's Travel",u:"https://www.fodors.com",l:"Fodor's Travel"},
+  "FRANCOIS":{k:"FRANCOIS",t:"FRANCOIS",u:"",l:""},
+  "GAULTMILLAU":{k:"GAULT&MILLAU",t:"Gault&Millau België/Belgique",u:"https://www.gaultmillau.be",l:"Gault&Millau België/Belgique"},
+  "GERBAUD":{k:"GERBAUD",t:"GERBAUD",u:"",l:""},
+  "GRSH":{k:"GRSH",t:"GRSH",u:"",l:""},
+  "INSIDEBRUSSELS":{k:"INSIDEBRUSSELS",t:"Inside Brussels",u:"https://en.insidebrussels.be",l:"Inside Brussels"},
+  "JEUNEAFRIQUE":{k:"JEUNEAFRIQUE",t:"Jeune Afrique",u:"https://www.jeuneafrique.com",l:"Jeune Afrique"},
+  "LABUVETTE":{k:"LABUVETTE",t:"LABUVETTE",u:"",l:""},
+  "LALIBRE":{k:"LA LIBRE",t:"La Libre Belgique",u:"https://www.lalibre.be",l:"La Libre Belgique"},
+  "LAVENIR":{k:"LAVENIR",t:"L'Avenir",u:"https://www.lavenir.net",l:"L'Avenir"},
+  "LEFOODING":{k:"LEFOODING",t:"Le Fooding",u:"https://lefooding.com",l:"Le Fooding"},
+  "LESOIR":{k:"LE SOIR",t:"Le Soir",u:"https://www.lesoir.be",l:"Le Soir"},
+  "LEVENTAIL":{k:"LEVENTAIL",t:"L'Éventail",u:"https://www.eventail.be",l:"L'Éventail"},
+  "LEVIF":{k:"LEVIF",t:"Le Vif Weekend",u:"https://weekend.levif.be",l:"Le Vif Weekend"},
+  "MAISONANTOINE":{k:"MAISONANTOINE",t:"MAISONANTOINE",u:"",l:""},
+  "MICHELIN":{k:"MICHELIN",t:"Le Guide Michelin Belgique/Luxembourg",u:"https://guide.michelin.com",l:"Le Guide Michelin Belgique/Luxembourg"},
+  "MOEDERLAMBIC":{k:"MOEDERLAMBIC",t:"MOEDERLAMBIC",u:"",l:""},
+  "PETITFUTE":{k:"PETITFUTE",t:"Petit Futé",u:"https://www.petitfute.com",l:"Petit Futé"},
+  "POECHENELLE":{k:"POECHENELLE",t:"POECHENELLE",u:"",l:""},
+  "PUDLOWSKI":{k:"PUDLOWSKI",t:"Le blog de Gilles Pudlowski",u:"https://www.gillespudlowski.com",l:"Le blog de Gilles Pudlowski"},
+  "ROYDESPAGNE":{k:"ROYDESPAGNE",t:"ROYDESPAGNE",u:"",l:""},
+  "RTBF":{k:"RTBF",t:"RTBF (Radio-Télévision belge francophone)",u:"https://www.rtbf.be",l:"RTBF (Radio-Télévision belge francophone)"},
+  "TRAVELTOMORROW":{k:"TRAVELTOMORROW",t:"Travel Tomorrow",u:"https://traveltomorrow.com",l:"Travel Tomorrow"},
+  "VISITBRUSSELS":{k:"VISIT.BRUSSELS",t:"visit.brussels",u:"https://www.visit.brussels",l:"visit.brussels"},
+  "VRT":{k:"VRT NWS",t:"VRT NWS",u:"https://www.vrt.be",l:"VRT NWS"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (FR/EN)",u:"https://fr.wikipedia.org",l:"Wikipedia (FR/EN)"},
+  "WITTAMER":{k:"WITTAMER",t:"WITTAMER",u:"",l:""}
+};
+
+const CUISINES = [
+  {id:"BEL",n:"Belgian & Flemish"},
+  {id:"FR",n:"French & Brasserie"},
+  {id:"BEER",n:"Beer & Breweries"},
+  {id:"SWEET",n:"Chocolate, Waffles & Sweets"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"CAFE",n:"Café & Brown Café"},
+  {id:"SEA",n:"North Sea & Seafood"},
+  {id:"VEG",n:"Vegetarian & Vegan"},
+  {id:"INT",n:"International & Student"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Belfries & Castles"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"CANAL",n:"Canals & Waterfront"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"BRU",n:"Delirium Café",ad:"Impasse de la Fidélité 4A, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84841,ln:4.35393,w:"Le temple de la bière belge dans une impasse près de la Grand-Place, entré au Guinness des records pour sa carte pléthorique ; tout un « village » de bars sur plusieurs niveaux.",s:[["RTBF","https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/beers-in-brussel-must-see-bars-and-restaurants"]]},
+{t:1,a:"BRU",n:"À la Mort Subite",ad:"Rue Montagne-aux-Herbes-Potagères 7, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84861,ln:4.35611,w:"Estaminet Belle Époque de 1928 aux miroirs et banquettes d'origine, qui a donné son nom à la célèbre gueuze ; une institution figée dans le temps.",s:[["RTBF","https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mort_Subite"]]},
+{t:1,a:"BRU",n:"Moeder Lambic Fontainas",ad:"Place Fontainas 8, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84520,ln:4.34674,w:"Bar à bières de référence au centre-ville, prolongeant la légende de la maison de Saint-Gilles avec une sélection pointue de lambics et de brasseries craft belges.",s:[["RTBF","https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"],["MOEDERLAMBIC","https://moederlambic.com/?lang=en"]]},
+{t:2,a:"BRU",n:"Moeder Lambic Original",ad:"Rue de Savoie 68, 1060 Saint-Gilles, Belgium",cz:["BEER"],la:50.82393,ln:4.34481,w:"Le bar historique de la « Mecque de la bière » à Saint-Gilles, minuscule et culte, fondé dans les années 1980 par Jean Hummler, pour explorer le lambic hors des sentiers battus.",s:[["LEVIF","https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"],["MOEDERLAMBIC","https://moederlambic.com/?lang=en"]]},
+{t:2,a:"BRU",n:"À la Bécasse",ad:"Rue de Tabora 11, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84837,ln:4.35153,w:"Taverne cachée au fond d'une ruelle près de la Bourse, célèbre pour son lambic doux servi à l'ancienne dans des cruchons de grès, dans un décor de longues tables en bois.",s:[["RTBF","https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/beers-in-brussel-must-see-bars-and-restaurants"]]},
+{t:2,a:"BRU",n:"Poechenellekelder",ad:"Rue du Chêne 5, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84475,ln:4.34999,w:"Estaminet bruxellois authentique face au Manneken Pis, tapissé de marionnettes et de curiosités, avec une belle carte de lambics et des plats typiques (rollmops, pottekeis, cervelas).",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/beers-in-brussel-must-see-bars-and-restaurants"],["POECHENELLE","https://poechenellekelder.be/en"]]},
+{t:2,a:"BRU",n:"Le Cirio",ad:"Rue de la Bourse 18, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.85000,ln:4.35000,w:"L'une des plus anciennes tavernes de Bruxelles (1886), au décor Belle Époque intact, où l'on commande le rituel « half-en-half » à côté de la Bourse.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/time-travel-in-brussels-bars"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Le_Cirio"]]},
+{t:2,a:"BRU",n:"À l'Imaige Nostre-Dame",ad:"Impasse des Cadeaux 3 (Rue du Marché aux Herbes 8), 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84833,ln:4.35218,w:"Trésor caché au fond d'une impasse : fondé en 1884 dans un bâtiment de 1682, ancien repaire de peintres et d'écrivains (Ghelderode), il conserve tout son charme d'estaminet.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/time-travel-in-brussels-bars"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Estaminet"]]},
+{t:2,a:"BRU",n:"Au Bon Vieux Temps",ad:"Impasse Saint-Nicolas 4 (Rue du Marché aux Herbes), 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84827,ln:4.35226,w:"L'un des plus vieux estaminets de la ville, dissimulé dans une impasse près de la Grand-Place, réputé pour dénicher parfois de la Westvleteren et son cadre boisé d'époque.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/what-to-do/time-travel-in-brussels-bars"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Estaminet"]]},
+{t:1,a:"BRU",n:"Brasserie de la Senne",ad:"Drève Anna Boch 19-21, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.86781,ln:4.34859,w:"À l'origine de la « nouvelle vague » brassicole bruxelloise, la brasserie s'est installée à Tour & Taxis avec son Zennebar, où déguster ses classiques Zinnebir et Taras Boulba à la source.",s:[["BRASSERIESENNE","https://www.brasseriedelasenne.be/"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/venue-details.Brasserie-de-La-Senne.275807"]]},
+{t:2,a:"BRU",n:"Brussels Beer Project",ad:"Rue Antoine Dansaert 188, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.85276,ln:4.34191,w:"Brasserie craft collaborative et pionnière rue Dansaert, célèbre pour sa Delta IPA et ses bières expérimentales dégustées sur place les jeudis-samedis.",s:[["BBP","https://www.beerproject.be/en"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/brussels-breweries"]]},
+{t:1,a:"BRU",n:"Pierre Marcolini",ad:"Rue des Minimes 1, 1000 Bruxelles (Sablon), Belgium",cz:["SWEET"],la:50.84136,ln:4.35366,w:"Le chocolatier haute couture belge, pionnier du bean-to-bar, dont le flagship du Sablon aligne pralines, ganaches d'origine et le célèbre Cœur Framboise.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pierre_Marcolini"]]},
+{t:1,a:"BRU",n:"Wittamer",ad:"Place du Grand Sablon 12-13, 1000 Bruxelles, Belgium",cz:["SWEET"],la:50.84127,ln:4.35505,w:"Maison installée sur le Sablon depuis 1910, fournisseur breveté de la Cour royale, réputée pour ses pralines, sa haute pâtisserie et son café à l'étage.",s:[["WITTAMER","https://www.wittamer.com/"],["GAULTMILLAU","https://chocolatier.gaultmillau.be/en/chocolatiers/wittamer-bruxelles"]]},
+{t:1,a:"BRU",n:"Neuhaus (Galeries Royales)",ad:"Galerie de la Reine 25-27, 1000 Bruxelles, Belgium",cz:["SWEET"],la:50.84750,ln:4.35483,w:"Boutique historique dans les Galeries Royales où Jean Neuhaus inventa la praline fourrée en 1912 — le berceau du chocolat belge tel qu'on le connaît.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"],["GRSH","https://www.grsh.be/en/store/neuhaus/"]]},
+{t:2,a:"BRU",n:"Mary Chocolatier",ad:"Rue Royale 73, 1000 Bruxelles, Belgium",cz:["SWEET"],la:50.84975,ln:4.36416,w:"Maison élégante fondée en 1919, fournisseur de la Cour royale, aux pralines artisanales à l'ancienne — l'autre grand nom historique des Galeries et de la rue Royale.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mary_(chocolatier)"]]},
+{t:2,a:"BRU",n:"Laurent Gerbaud",ad:"Rue Ravenstein 2/D, 1000 Bruxelles, Belgium",cz:["SWEET"],la:50.84400,ln:4.35877,w:"Chocolatier artisan près de Bozar, réputé pour ses chocolats aux fruits secs et épices, sans sucre ajouté, et son bar à chocolat chaud.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"],["GERBAUD","https://www.chocolatsgerbaud.be/"]]},
+{t:1,a:"BRU",n:"Maison Dandoy",ad:"Rue au Beurre 31, 1000 Bruxelles, Belgium",cz:["SWEET"],la:50.84744,ln:4.35163,w:"Biscuiterie bruxelloise fondée en 1829, institution du spéculoos et du pain à la grecque ; le salon de thé sert la véritable gaufre de Bruxelles croustillante.",s:[["GRSH","https://www.grsh.be/en/store/maison-dandoy/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Maison_Dandoy"]]},
+{t:2,a:"BRU",n:"Frederic Blondeel",ad:"Quai aux Briques 24, 1000 Bruxelles (Sainte-Catherine), Belgium",cz:["SWEET"],la:50.85240,ln:4.34740,w:"Chocolatier-torréfacteur artisan de Sainte-Catherine qui travaille la fève de A à Z ; son chocolat chaud et ses glaces sont réputés.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"],["BLONDEEL","https://www.frederic-blondeel.be/"]]},
+{t:1,a:"BRU",n:"Maison Antoine",ad:"Place Jourdan 1, 1040 Etterbeek, Belgium",cz:["BEL"],la:50.83678,ln:4.38142,w:"La friterie-baraque emblématique de la place Jourdan (1948), dans le quartier européen : cornets de frites croustillantes cuites au blanc de bœuf, sacrées parmi les meilleures de la ville.",s:[["MAISONANTOINE","https://www.maisonantoine.be/"],["BRUSSELSEXPRESS","https://brussels-express.eu/friterie-maison-antoine-modern-will-still-place-jourdan/"]]},
+{t:2,a:"BRU",n:"Chez Léon",ad:"Rue des Bouchers 18, 1000 Bruxelles, Belgium",cz:["BEL","SEA"],la:50.84815,ln:4.35400,w:"Friture bruxelloise familiale de l'Îlot Sacré, ouverte en 1893, qui a popularisé les moules servies dans leur casserole ; aussi carbonnade et waterzooi.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/venue-details.Chez-Leon-Friture-bruxelloise.260578"],["WIKIPEDIA","https://en.wikipedia.org/wiki/L%C3%A9on_de_Bruxelles"]]},
+{t:1,a:"BRU",n:"Aux Armes de Bruxelles",ad:"Rue des Bouchers 13, 1000 Bruxelles, Belgium",cz:["BEL","SEA"],la:50.84813,ln:4.35400,w:"Véritable institution de l'Îlot Sacré depuis 1921, service soigné et carte de tous les classiques belges — moules déclinées à l'infini, croquettes de crevettes, anguilles au vert.",s:[["MICHELIN","https://guide.michelin.com/be/en/bruxelles-capitale/bruxelles/restaurant/aux-armes-de-bruxelles"],["FODORS","https://www.fodors.com/world/europe/belgium/brussels/restaurants/reviews/aux-armes-de-bruxelles-35941"]]},
+{t:1,a:"BRU",n:"Les Brigittines",ad:"Place de la Chapelle 5, 1000 Bruxelles, Belgium",cz:["BEL"],la:50.84136,ln:4.35037,w:"Brasserie Belle Époque au pied de l'église de la Chapelle, référence de la cuisine belge de tradition croisée d'influences bordelaises ; recommandée au Guide Michelin.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/les-brigittines-aux-marches-de-la-chapelle"],["LEVIF","https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"]]},
+{t:2,a:"BRU",n:"Au Vieux Saint-Martin",ad:"Place du Grand Sablon 38, 1000 Bruxelles, Belgium",cz:["BEL"],la:50.84091,ln:4.35449,w:"Brasserie du Sablon où fut, dit-on, créé le filet américain ; institution de la cuisine belge servie non-stop dans un décor d'art contemporain.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/au-vieux-saint-martin"],["LEVIF","https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"]]},
+{t:2,a:"BRU",n:"Belga Queen",ad:"Rue du Fossé aux Loups 32, 1000 Bruxelles, Belgium",cz:["BEL","SEA"],la:50.85035,ln:4.35474,w:"Brasserie spectaculaire installée dans une ancienne banque du XVIIIe siècle (colonnes, vitrail), mêlant classiques belges et bar à fruits de mer ; sélectionnée au Guide Michelin.",s:[["MICHELIN","https://guide.michelin.com/be/en/bruxelles-capitale/bruxelles/restaurant/belga-queen"],["PUDLOWSKI","https://www.gillespudlowski.com/394941/restaurants/bruxelles-le-gout-de-la-belgique-au-belga-queen"]]},
+{t:3,a:"BRU",n:"Brasserie Ploegmans",ad:"Rue Haute 148, 1000 Bruxelles (Marolles), Belgium",cz:["BEL"],la:50.83885,ln:4.35053,w:"Café-brasserie populaire des Marolles au décor d'origine, adresse de stoemp et de plats bruxellois généreux ; recommandée au Guide Michelin.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/brasserie-ploegmans"],["LEVIF","https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"]]},
+{t:2,a:"BRU",n:"Le Roy d'Espagne",ad:"Grand-Place 1, 1000 Bruxelles, Belgium",cz:["BEL"],la:50.84712,ln:4.35208,w:"Brasserie-taverne installée dans la maison de guilde des boulangers sur la Grand-Place, cadre baroque du XVIIe siècle pour une cuisine belge et une terrasse imprenable.",s:[["ROYDESPAGNE","https://roydespagne.be/en/"],["VISITBRUSSELS","https://www.visit.brussels/en/place/le-roy-despagne"]]},
+{t:2,a:"BRU",n:"La Belle Maraîchère",ad:"Place Sainte-Catherine 11, 1000 Bruxelles, Belgium",cz:["SEA"],la:50.85056,ln:4.34778,w:"Maison de poisson familiale de Sainte-Catherine depuis 1973, adresse franco-belge de tradition (croquettes de crevettes, bouillabaisse) recommandée au Guide Michelin.",s:[["MICHELIN","https://guide.michelin.com/fr/fr/bruxelles-capitale/bruxelles/restaurant/la-belle-maraichere"],["LESOIR","https://www.lesoir.be/"]]},
+{t:2,a:"BRU",n:"Restaurant François",ad:"Quai aux Briques 2, 1000 Bruxelles (Sainte-Catherine), Belgium",cz:["SEA"],la:50.85109,ln:4.34837,w:"Table de poisson historique du Marché aux Poissons, tenue par la même famille de mareyeurs depuis plus de cent ans ; produits ultra-frais et écailler.",g:["MKT"],s:[["FRANCOIS","https://www.restaurant-francois.be/fr"],["PETITFUTE","https://www.petitfute.com/v40163-bruxelles-brussel/c1165-restaurants/c1248-specialites/c116-restaurant-fruits-de-mer-poissons/"]]},
+{t:2,a:"BRU",n:"Noordzee — Mer du Nord",ad:"Rue Sainte-Catherine 45, 1000 Bruxelles, Belgium",cz:["SEA"],la:50.85041,ln:4.34759,w:"Bar à poisson debout de Sainte-Catherine : poissonnerie et cuisine dans le même lieu, on commande au comptoir croquettes de crevettes, calamars frits et soupe de poisson, un verre de blanc à la main.",s:[["PETITFUTE","https://www.petitfute.com/v40163-bruxelles-brussel/c1165-restaurants/c1248-specialites/c116-restaurant-fruits-de-mer-poissons/1398293-la-mer-du-nord.html"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/where-to-eat"]]},
+{t:1,a:"BRU",n:"Comme Chez Soi",ad:"Place Rouppe 23, 1000 Bruxelles, Belgium",cz:["FINE","FR"],la:50.84230,ln:4.34590,w:"Institution bruxelloise fondée en 1926, deux étoiles Michelin, dans un intérieur Art nouveau intégralement conservé ; la table gastronomique historique de la ville sous Lionel Rigolet.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/comme-chez-soi113872"],["GAULTMILLAU","https://www.gaultmillau.be/en"]]},
+{t:1,a:"BRU",n:"Bozar Restaurant",ad:"Rue Baron Horta 3, 1000 Bruxelles, Belgium",cz:["FINE"],la:50.84420,ln:4.35991,w:"Table gastronomique installée dans le Palais des Beaux-Arts de Victor Horta, saluée pour sa cuisine belge classique revisitée (17,5/20 Gault&Millau) et son étoile Michelin.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurants"],["GAULTMILLAU","https://www.gaultmillau.be/en/news/gaultmillau-belgie-presenteert-23-editie-van-de-gids-2026"]]},
+{t:1,a:"BRU",n:"humus x hortense",ad:"Rue de Vergnies 2, 1050 Ixelles, Belgium",cz:["FINE"],la:50.82949,ln:4.37038,w:"Premier restaurant végétal étoilé de Belgique, le chef Nicolas Decloedt bâtit un menu de dégustation issu de la recherche botanique et de la cueillette ; 16,5/20 Gault&Millau.",s:[["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/ixelles/restaurant/humus-x-hortense"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/humus-x-hortense-bruxelles-ixelles"]]},
+{t:2,a:"BRU",n:"Old Boy",ad:"Rue de Tenbosch 110, 1050 Ixelles, Belgium",cz:["INT"],la:50.82093,ln:4.36127,w:"Table « smoky » d'inspiration sud-est-asiatique du quartier du Châtelain, produits belges au feu de bois ; recommandée au Guide Michelin.",s:[["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/ixelles/restaurant/old-boy"],["LEFOODING","https://lefooding.com/en/restaurants/old-boy-4"]]},
+{t:2,a:"BRU",n:"La Buvette",ad:"Chaussée d'Alsemberg 108, 1060 Saint-Gilles, Belgium",cz:["FR","BEL"],la:50.82335,ln:4.34306,w:"Ancienne boucherie Art déco classée transformée en table pointue de Saint-Gilles, menu unique jouant entre répertoire franco-belge et touches internationales.",s:[["LABUVETTE","https://la-buvette.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/La_Buvette"]]},
+{t:2,a:"BRU",n:"Inzia",ad:"Rue de la Paix 37, 1050 Ixelles (Matongé), Belgium",cz:["INT"],la:50.83601,ln:4.36572,w:"Institution de la gastronomie congolaise à Matongé (1976), réputée pour son poulet moambe onctueux et son buffet du week-end.",s:[["JEUNEAFRIQUE","https://www.jeuneafrique.com/mag/825504/culture/le-gout-de-lafrique-a-bruxelles-cinq-adresses-incontournables/"],["DOEATBETTER","https://doeatbetterexperience.com/blog/matonge-brussels-congolese-food-guide/"]]},
+{t:2,a:"BRU",n:"L'Horloge du Sud",ad:"Rue du Trône 141, 1050 Ixelles, Belgium",cz:["INT"],la:50.83589,ln:4.37117,w:"Haut lieu de la gastronomie africaine et subtropicale près de Matongé, voyageant du yassa au maafé et au kedjenou dans une ambiance musicale.",s:[["JEUNEAFRIQUE","https://www.jeuneafrique.com/mag/825504/culture/le-gout-de-lafrique-a-bruxelles-cinq-adresses-incontournables/"],["TRAVELTOMORROW","https://traveltomorrow.com/5-african-restaurants-in-brussels/"]]},
+{t:2,a:"BRU",n:"Kokob",ad:"Rue des Grands Carmes 10, 1000 Bruxelles, Belgium",cz:["INT"],la:50.84553,ln:4.34869,w:"Table éthiopienne du centre servant l'injera et ses ragoûts épicés à partager à la main ; l'une des adresses africaines de référence de Bruxelles.",s:[["TRAVELTOMORROW","https://traveltomorrow.com/5-african-restaurants-in-brussels/"],["AFAR","https://www.afar.com/places/kokob-brussels"]]},
+{t:2,a:"BRU",n:"Alley Mian",ad:"Bruxelles centre, 1000 Bruxelles, Belgium",cz:["INT"],la:50.84877,ln:4.35456,w:"Nouveau Bib Gourmand 2026, cette table met à l'honneur les bouillons et nouilles maison de la ville chinoise de Lanzhou ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["BX1","https://bx1.be/categories/news/trois-nouveaux-restaurants-bruxellois-bib-gourmand-dans-le-guide-michelin-2026/"]]},
+{t:2,a:"BRU",n:"ÔNGBÀ",ad:"Ixelles, 1050 Bruxelles, Belgium",cz:["INT"],la:50.82777,ln:4.36814,w:"Nouveau Bib Gourmand 2026 d'Ixelles, réinvention créative de la cuisine de rue vietnamienne ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["BX1","https://bx1.be/categories/news/trois-nouveaux-restaurants-bruxellois-bib-gourmand-dans-le-guide-michelin-2026/"]]},
+{t:2,a:"BRU",n:"ANJU",ad:"Saint-Gilles, 1060 Bruxelles, Belgium",cz:["INT"],la:50.83096,ln:4.35327,w:"Table coréenne de Saint-Gilles distinguée par le Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LALIBRE","https://www.lalibre.be/lifestyle/food/2026/04/27/voici-les-sept-nouveaux-bib-gourmand-belges-du-guide-michelin-trois-dentre-eux-se-trouvent-a-bruxelles-TIKCBTOA7FGYHAUVF7FPJA7EQM/"]]},
+{t:2,a:"BRU",n:"Lune Siamoise",ad:"Ixelles, 1050 Bruxelles, Belgium",cz:["INT"],la:50.82092,ln:4.36123,w:"Table thaïlandaise d'Ixelles distinguée par le Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:2,a:"BRU",n:"Osteria Bolognese",ad:"Ixelles, 1050 Bruxelles, Belgium",cz:["INT"],la:50.83632,ln:4.36615,w:"Trattoria italienne d'Ixelles au Bib Gourmand Michelin, spécialisée dans les pâtes fraîches à la bolognaise ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:2,a:"BRU",n:"Le Tournant",ad:"Ixelles, 1050 Bruxelles, Belgium",cz:["FR","BEL"],la:50.83565,ln:4.36946,w:"Bistro de produit d'Ixelles au Bib Gourmand Michelin, cuisine franco-belge de marché ; adresse précise à confirmer au géocodage.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:3,a:"BRU",n:"Strofilia",ad:"Bruxelles centre, 1000 Bruxelles, Belgium",cz:["INT"],la:50.85300,ln:4.34602,w:"Table grecque du centre distinguée par le Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:1,a:"BRUR",n:"Cantillon — Brasserie-Musée bruxellois de la Gueuze",ad:"Rue Gheude 56, 1070 Anderlecht, Belgium",cz:["BEER"],la:50.84163,ln:4.33584,w:"La dernière brasserie de lambic traditionnel encore en activité dans Bruxelles (fondée en 1900), musée vivant de la gueuze : on visite la salle de brassage et les foudres, puis on déguste lambic, gueuze et kriek non filtrés — un pèlerinage pour amateurs.",s:[["CANTILLON","https://www.cantillon.be/"],["BRUSSELSMUSEUMS","https://www.brusselsmuseums.be/en/museums/brussels-museum-of-the-gueuze"]]},
+{t:1,a:"BRUR",n:"La Paix",ad:"Rue Ropsy-Chaudron 49, 1070 Anderlecht, Belgium",cz:["FINE","SEA"],la:50.84372,ln:4.32827,w:"Table doublement étoilée du chef David Martin, face aux abattoirs d'Anderlecht depuis 1892, alliant tradition française et pureté japonaise. La maison déménage vers le centre de Bruxelles (Corinthia Grand Hotel Astoria) à partir de septembre 2026 — vérifier l'adresse.",s:[["MICHELIN","https://guide.michelin.com/be/en/bruxelles-capitale/anderlecht/restaurant/la-paix203164"],["LALIBRE","https://www.lalibre.be/lifestyle/food/2026/06/04/le-restaurant-doublement-etoile-la-paix-quitte-anderlecht-et-change-dadresse-LGYDR6IRLFAGDIBLSPLPE624RY/"]]},
+{t:1,a:"BRUR",n:"Le Chalet de la Forêt",ad:"Drève de Lorraine 43, 1180 Uccle, Belgium",cz:["FINE","FR"],la:50.78473,ln:4.38662,w:"Le refuge gastronomique de Pascal Devalkeneer à Uccle, deux étoiles Michelin et 17,5/20 Gault&Millau, cuisine de produit sur l'une des plus belles terrasses de Bruxelles.",s:[["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/uccle/restaurant/le-chalet-de-la-foret"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/le-chalet-de-la-foret-bruxelles-uccle"]]},
+{t:2,a:"BRUR",n:"Bouchéry",ad:"Chaussée d'Alsemberg 812A, 1180 Uccle, Belgium",cz:["FINE","BEL"],la:50.79782,ln:4.33643,w:"Table gastronomique d'Uccle centrée sur le produit belge, le fermenté et la cueillette, saluée par Gault&Millau et recommandée au Guide Michelin.",s:[["GAULTMILLAU","https://be.gaultmillau.com/restaurant/bouchery"],["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/uccle/restaurants"]]},
+{t:2,a:"BRUR",n:"Le Pigeon Noir",ad:"Uccle, 1180 Bruxelles, Belgium",cz:["FR"],la:50.79196,ln:4.34821,w:"Table franco-belge appréciée d'Uccle, notée par Gault&Millau et suivie par le Guide Michelin ; adresse de rue à confirmer au géocodage.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en"],["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/uccle/restaurants"]]},
+{t:2,a:"BRUR",n:"Babam",ad:"Watermael-Boitsfort, 1170 Bruxelles, Belgium",cz:["INT"],la:50.80961,ln:4.39573,w:"Table anatolienne de Watermael-Boitsfort distinguée par le Bib Gourmand Michelin — l'ancrage crédible de la cuisine turque de Bruxelles ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:2,a:"BRUR",n:"Maza'j",ad:"Auderghem, 1160 Bruxelles, Belgium",cz:["INT"],la:50.81565,ln:4.42650,w:"Table libanaise d'Auderghem au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:2,a:"BRUR",n:"Villa Singha",ad:"Auderghem, 1160 Bruxelles, Belgium",cz:["INT"],la:50.81868,ln:4.40511,w:"Table thaïlandaise d'Auderghem au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:3,a:"BRUR",n:"Yoka Tomo",ad:"Schaerbeek, 1030 Bruxelles, Belgium",cz:["INT"],la:50.85226,ln:4.38980,w:"Table japonaise de Schaerbeek au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:3,a:"BRUR",n:"La Branche d'Olivier",ad:"Uccle, 1180 Bruxelles, Belgium",cz:["FR"],la:50.78769,ln:4.33983,w:"Bistro français convivial d'Uccle au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",s:[["MICHELIN","https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"],["LAVENIR","https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"]]},
+{t:1,a:"BRUR",n:"Menssa",ad:"Avenue de Tervueren 453, 1150 Woluwe-Saint-Pierre, Belgium",cz:["FINE"],la:50.82282,ln:4.44656,w:"Le retour étoilé de Christophe Hardiquest (ex-Bon-Bon) à Woluwe-Saint-Pierre : une cuisine du terroir belge servie au comptoir, magnifiant le gibier, les champignons des bois et les produits sauvages ; une étoile Michelin.",s:[["MICHELIN","https://guide.michelin.com/be/en/bruxelles-capitale/woluwe-saint-pierre/restaurant/menssa"],["VISITBRUSSELS","https://www.visit.brussels/en/visitors/venue-details.Menssa.50000519"]]},
+{t:1,a:"BRU",n:"Kamo",ad:"Chaussée de Waterloo 550A, 1050 Ixelles, Belgium",cz:["FINE","INT"],la:50.81939,ln:4.36152,w:"La table japonaise du chef Tomoyasu Kamo à Ixelles, seule étoile Michelin japonaise du pays : sushis, sashimis et cuisine kaiseki d'une grande précision, saluée par Gault&Millau.",s:[["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/ixelles/restaurant/kamo"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/kamo-bruxelles-ixelles"]]},
+{t:1,a:"BRU",n:"La Villa in the Sky",ad:"Avenue Louise 480, 1050 Ixelles, Belgium",cz:["FINE","FR"],la:50.81725,ln:4.37200,w:"Restaurant étoilé perché au 25e étage de l'IT Tower sur l'avenue Louise, cuisine inventive d'Alexandre Dionisio et panorama à 120 m sur toute la capitale ; une adresse spectaculaire.",s:[["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/bruxelles/restaurant/la-villa-in-the-sky"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/la-villa-in-the-sky-bruxelles-ixelles"]]},
+{t:1,a:"BRU",n:"Barge",ad:"Boulevard d'Ypres 33, 1000 Bruxelles, Belgium",cz:["FINE","FR"],la:50.85691,ln:4.34690,w:"Table étoilée au bord du canal, récompensée d'une Étoile Verte pour sa démarche durable : cuisine bio et locavore de la ferme à l'assiette, dans un décor de béton brut et de design.",s:[["MICHELIN","https://guide.michelin.com/us/en/bruxelles-capitale/bruxelles/restaurant/barge"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/barge-bruxelles"]]},
+{t:2,a:"BRU",n:"San Sablon",ad:"Rue Joseph Stevens 12, 1000 Bruxelles, Belgium",cz:["FINE","INT"],la:50.84146,ln:4.35227,w:"La seconde table du chef Sang Hoon Degeimbre (L'Air du Temps) près du Sablon : une cuisine créative pensée autour du bol et de la cuillère, en hommage à ses origines coréennes ; sélectionnée au Guide Michelin.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/san-sablon"],["DHNET","https://www.dhnet.be/regions/bruxelles/2024/03/01/san-sablon-lautre-adresse-de-sang-hoon-degeimbre-ou-la-cuisine-a-ete-imaginee-autour-du-bol-et-de-la-cuillere-66XYKIAK6VBSFCKZF4ZE6NP3VQ/"]]},
+{t:1,a:"BRU",n:"Eliane",ad:"Rue Saint-Laurent 36, 1000 Bruxelles, Belgium",cz:["FINE","FR"],la:50.85063,ln:4.36003,w:"Le restaurant renversant de Kobe Desramaults (In de Wulf, Chambre Séparée) près de la Colonne du Congrès, installé dans les anciens locaux du label PIAS : cuisine au feu et produits pointus, une étoile Michelin décrochée six mois après l'ouverture.",s:[["MICHELIN","https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/eliane"],["LALIBRE","https://www.lalibre.be/lifestyle/food/2025/03/16/on-a-teste-eliane-le-nouveau-resto-renversant-de-kobe-desramaults-a-bruxelles-SKXDBLCOAVBJNNTVNUEWXAF5EY/"]]},
+{t:2,a:"BRU",n:"Nüetnigenough",ad:"Rue du Lombard 25, 1000 Bruxelles, Belgium",cz:["BEL","BEER"],la:50.84586,ln:4.34987,w:"Estaminet-bistrot du quartier Saint-Jacques près de la Bourse, au décor années 1920 : carbonnade flamande, boulets liégeois et plats à la bière, avec une carte pointue de 90 bières belges peu commerciales.",s:[["BRUSSELSLIFE","https://www.brusselslife.be/fr/article/hmmm-de-la-carbonade-flamande-decouvrez-les-meilleures-adresses-de-bruxelles"],["PETITFUTE","https://www.petitfute.com/v40163-bruxelles-brussel/c1165-restaurants/c1031-cuisines-du-monde/c1030-cuisine-d-europe/c71-restaurant-belge/1398005-nuetnigenough.html"]]},
+{t:2,a:"BRU",n:"La Fleur en Papier Doré",ad:"Rue des Alexiens 55, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84278,ln:4.35083,w:"Estaminet légendaire près du Sablon, repaire de Magritte, Scutenaire et Jacques Brel, sauvé après une faillite en 2022 : la VRT l'a désigné meilleur café en 2025. On y boit une gueuze parmi les murs couverts de dédicaces surréalistes.",s:[["VRT","https://www.vrt.be/vrtnws/fr/2025/01/28/l_estaminet-bruxellois-la-fleur-en-papier-dore-designe-meilleu/"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/La_Fleur_en_papier_dor%C3%A9"]]},
+{t:2,a:"BRU",n:"La Porte Noire",ad:"Rue des Alexiens 67, 1000 Bruxelles, Belgium",cz:["BEER"],la:50.84268,ln:4.35107,w:"Cave à bières installée dans les caves voûtées du XVIe siècle de l'ancien couvent des Alexiens, aux Marolles : plus de 120 bières artisanales belges, dont douze à la pression, dans une ambiance tamisée avec concerts et jam sessions.",s:[["VISITBRUSSELS","https://www.visit.brussels/en/visitors/venue-details.La-Porte-Noire.238071"],["PETITFUTE","https://www.petitfute.co.uk/v40163-bruxelles-brussel/c1169-s-amuser-sortir/c182-bar-cafe/c183-bar-a-biere/1396408-la-porte-noire.html"]]},
+{t:1,a:"BRU",n:"MOK",ad:"Rue Antoine Dansaert 196, 1000 Bruxelles, Belgium",cz:["CAFE"],la:50.85282,ln:4.34175,w:"Torréfacteur-bar de café de spécialité rue Dansaert (né à Louvain en 2012), classé parmi les meilleurs roasters d'Europe : grains single origin travaillés en filtre lent pour les amateurs de café pointu.",s:[["EUROPEANCOFFEETRIP","https://europeancoffeetrip.com/cafe/mok-brussels/"],["LEFOODING","https://lefooding.com/en/shops/mok"]]},
+{t:2,a:"BRU",n:"Renard Bakery",ad:"Place Fernand Cocq 3, 1050 Ixelles, Belgium",cz:["SWEET"],la:50.83339,ln:4.36620,w:"Boulangerie de quartier plébiscitée des Ixellois sur la place Fernand Cocq, réputée pour ses viennoiseries au vrai beurre — spécialité le croissant aux amandes — et ses pains au levain naturel.",s:[["LEFOODING","https://lefooding.com/en/shops/renard-bakery"],["INSIDEBRUSSELS","https://en.insidebrussels.be/V2/bruxelles/les-10-meilleurs-endroits-ou-acheter-des-bons-croissants-a-bruxelles/"]]},
+{t:2,a:"BRU",n:"Fine Bakery",ad:"Rue des Minimes 7, 1000 Bruxelles, Belgium",cz:["SWEET"],la:50.84112,ln:4.35353,w:"Micro-boulangerie ouverte en 2020, saluée pour ses croissants feuilletés au beurre, ses pains au levain croustillants et ses pâtisseries à la française ; régulièrement citée parmi les meilleurs croissants de Bruxelles.",s:[["ELLE","https://www.elle.be/fr/413939-ou-deguster-les-meilleurs-croissants-de-bruxelles.html"],["PETITFUTE","https://www.petitfute.co.uk/v40163-bruxelles-brussel/c650-produits-gourmands-vins/c1107-pains-gateaux-chocolats-glaces/c671-patisserie/1938731-fine-bakery.html"]]},
+{t:2,a:"BRU",n:"Titulus",ad:"Chaussée de Wavre 167A, 1050 Ixelles, Belgium",cz:["FR"],la:50.83557,ln:4.37070,w:"Caviste et bar à vin nature près de Saint-Boniface et Matongé, spécialisé dans les vins naturels et le saké : on déguste au comptoir de petites assiettes accompagnées d'une sélection pointue, avant d'emporter une bouteille.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/hip/titulus-bruxelles-ixelles"],["LEVENTAIL","https://www.eventail.be/bonnes-adresses/belgique/ixelles/gourmet/titulus-deguster-du-vin-nature"]]},
+{t:2,a:"BRU",n:"Café des Spores",ad:"Chaussée d'Alsemberg 103, 1060 Saint-Gilles, Belgium",cz:["FR"],la:50.82340,ln:4.34295,w:"Table cultissime de Saint-Gilles au concept unique : chaque plat, de l'entrée au dessert, met le champignon à l'honneur, dans un menu de saison. Encensée par Brussels' Kitchen, Le Soir et Gault&Millau.",s:[["BRUSSELSKITCHEN","https://www.brusselskitchen.com/en/addresses/le-cafe-des-spores/"],["GAULTMILLAU","https://www.gaultmillau.be/en"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('bru_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('bru_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('bru_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('bru_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Brussels')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {BRU:'#8E44AD',BRUR:'#E8973A'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([50.8421,4.3706],12);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Brussels centre", 50.8425, 4.3584], ["Around Brussels", 50.8288, 4.3731]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('brussels-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('brussels-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('brussels-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish or beer — a label alone doesn’t qualify. The Brussels canon: <b>moules-frites</b>, <b>stoofvlees/carbonnade</b>, the <b>gaufre de Bruxelles</b>, speculoos and chocolate — with the Senne-valley <b>lambic, gueuze &amp; kriek</b> (Cantillon). <b>Beer &amp; breweries are their own grouped layer.</b> A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in French &amp; Dutch and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, Le Soir, La Libre, RTBF, BX1, VRT NWS, visit.brussels, beer authorities and vetted local creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/RateBeer never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 139 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
