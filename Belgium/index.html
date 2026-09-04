@@ -35,6 +35,9 @@
   .city .nm{font-family:"Archivo Black",sans-serif;font-size:clamp(24px,3.2vw,32px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;overflow-wrap:anywhere;}
   .city .desc{color:var(--bone-dim);font-size:15.5px;margin:0 0 16px;}
   .city .go{display:inline-block;margin-top:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--rust);}
+  .city .stat{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.02em;color:var(--brass);margin:0 0 6px;}
+  a.city{transition:border-color .15s,transform .15s;}
+  a.city:hover{border-color:var(--rust);transform:translateY(-2px);}
   .city.soon{opacity:.72;}
   footer{padding:44px 0 80px;color:var(--bone-dim);font-size:14px;max-width:78ch;border-top:1px solid var(--hair);margin-top:44px;}
   footer p{margin:0 0 12px;} code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
@@ -48,28 +51,31 @@
     <p class="standfirst">Four separate maps — <strong>Antwerp</strong>, <strong>Ghent</strong>,
       <strong>Brussels</strong> and <strong>Bruges</strong>, each with its surrounding area — where the
       beer and breweries (Trappist, lambic &amp; gueuze, abbey and city brews) are a first-class layer of
-      the food guide, alongside frites, moules, stoverij, waffles and chocolate. Each is being built to a
-      deep, fully-sourced density through the pipeline (sources → fact-check → re-rank → location-verify)
-      before it goes live.</p>
+      the food guide, alongside frites, moules, stoverij, waffles and chocolate. <strong>Antwerp</strong>
+      and <strong>Ghent</strong> are live; Brussels and Bruges are being built to the same deep,
+      fully-sourced density through the pipeline (sources → fact-check → re-rank → location-verify)
+      before they go live.</p>
     <a class="back" href="../index.html">← all countries</a>
   </header>
 
-  <h2 class="sec">Cities · being built</h2>
+  <h2 class="sec">Cities · 2 live · 2 being built</h2>
   <div class="cities">
-    <div class="city soon">
+    <a class="city" href="../cities/antwerp.html">
       <p class="kicker">Antwerpen · Diamond District · Zurenborg · Mechelen</p>
       <p class="nm">Antwerp</p>
       <p class="desc">Cathedral, Grote Markt, Het Steen, MAS &amp; Rubens; De Koninck Bolleke and a deep
         beer-café scene; Antwerpse handjes, frites and moules — out to Berchem, Deurne and Mechelen.</p>
-      <span class="go">In the pipeline</span>
-    </div>
-    <div class="city soon">
+      <p class="stat">137 places · 59 sights · 78 food · beer grouped · 2 areas</p>
+      <span class="go">Open Antwerp →</span>
+    </a>
+    <a class="city" href="../cities/ghent.html">
       <p class="kicker">Gent · Gravensteen · Patershol · the Leie</p>
       <p class="nm">Ghent</p>
       <p class="desc">The Ghent Altarpiece, Gravensteen and the Graslei; waterzooi, Gentse stoverij,
         cuberdon and Tierenteyn mustard; Gruut city brewery and veggie-capital dining.</p>
-      <span class="go">In the pipeline</span>
-    </div>
+      <p class="stat">108 places · 53 sights · 55 food · beer grouped · 2 areas</p>
+      <span class="go">Open Ghent →</span>
+    </a>
     <div class="city soon">
       <p class="kicker">Bruxelles · Brussel · Grand-Place · Ixelles · Saint-Gilles</p>
       <p class="nm">Brussels</p>

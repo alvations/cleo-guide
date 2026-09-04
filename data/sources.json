@@ -9813,6 +9813,572 @@
         }
       ],
       "creators": []
+    },
+    "antwerp": {
+      "name": "antwerp",
+      "sources": [
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage Centre",
+          "type": "institutional authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia (EN)",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WIKIPEDIANL",
+          "name": "Wikipedia (NL)",
+          "type": "reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITANTWERPEN",
+          "name": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",
+          "type": "official city tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ANTWERPENBE",
+          "name": "Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PERSANTWERPEN",
+          "name": "Stad Antwerpen persdienst (pers.antwerpen.be)",
+          "type": "municipal / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ONROERENDERFGOED",
+          "name": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",
+          "type": "official heritage inventory",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VRT",
+          "name": "VRT NWS",
+          "type": "national public broadcaster",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "Michelin Gids België & Luxemburg",
+          "type": "institutional authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "GAULTMILLAU",
+          "name": "Gault&Millau België",
+          "type": "institutional authority (gastronomy)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITMECHELEN",
+          "name": "Visit Mechelen / Meet in Mechelen (officiële toerisme)",
+          "type": "official city tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MEETINMECHELEN",
+          "name": "Meet in Mechelen (Stad Mechelen)",
+          "type": "official city tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITLIER",
+          "name": "Visit Lier (officiële toerisme)",
+          "type": "official city tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "VISITFLANDERS",
+          "name": "Toerisme Vlaanderen (visitflanders.com)",
+          "type": "official regional tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "KMSKA",
+          "name": "Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)",
+          "type": "national museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "REDSTARLINE",
+          "name": "Red Star Line Museum (officieel, Stad Antwerpen)",
+          "type": "municipal museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MASBE",
+          "name": "MAS — Museum aan de Stroom (officieel)",
+          "type": "municipal museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PLANTINMORETUS",
+          "name": "Museum Plantin-Moretus (officieel, UNESCO)",
+          "type": "UNESCO / museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MAYERVDBERGH",
+          "name": "Museum Mayer van den Bergh (officieel)",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SNIJDERSROCKOX",
+          "name": "Het Snijders&Rockoxhuis (officieel)",
+          "type": "museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HOFVANBUSLEYDEN",
+          "name": "Museum Hof van Busleyden (officieel, Stad Mechelen)",
+          "type": "municipal museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HANDELSBEURS",
+          "name": "Handelsbeurs Antwerpen (officieel)",
+          "type": "heritage venue (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HETANKER",
+          "name": "Brouwerij Het Anker (officieel)",
+          "type": "brewery (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "DEKONINCK",
+          "name": "Brouwerij De Koninck / Antwerp City Brewery (officieel)",
+          "type": "brewery (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SEEF",
+          "name": "Antwerpse Brouw Compagnie / Seef (officieel)",
+          "type": "brewery (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "editorial (travel)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "APEN",
+          "name": "Apen.be — cultuur- en stadsgids Antwerpen",
+          "type": "editorial (city guide)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OKV",
+          "name": "Openbaar Kunstbezit in Vlaanderen (okv.be)",
+          "type": "editorial (art heritage)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ELLE",
+          "name": "ELLE België",
+          "type": "editorial (lifestyle)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "FEELING",
+          "name": "Feeling / Feeling Food (Roularta)",
+          "type": "editorial (lifestyle)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MADEIN",
+          "name": "Made in (regionale nieuwssite, o.a. Mechelen/Antwerpen)",
+          "type": "editorial (regional news)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "NJAM",
+          "name": "njam! (Vlaamse culinaire zender)",
+          "type": "editorial (food media)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "W50BEST",
+          "name": "The World's 50 Best — Discovery",
+          "type": "editorial (gastronomy)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OLIVEMAG",
+          "name": "Olive Magazine (UK)",
+          "type": "editorial (food travel)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "TIMETOMOMO",
+          "name": "Time to Momo (stadsgidsen)",
+          "type": "editorial (travel)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LEFOODING",
+          "name": "Le Fooding",
+          "type": "editorial (dining guide)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "FLEMISHMASTERS",
+          "name": "Flemish Masters in situ (Vlaamse erfgoedproject)",
+          "type": "official heritage project",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "STREEKPRODUCT",
+          "name": "Streekproduct.be (VLAM — Vlaamse streekproducten)",
+          "type": "official regional-product authority",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "KEMPENSKARAKTER",
+          "name": "Kempens Karakter (erfgoedorganisatie)",
+          "type": "heritage organisation",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SINTPAULUS",
+          "name": "Sint-Paulusparochie Antwerpen (officieel)",
+          "type": "parish (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PROVANTWERPEN",
+          "name": "Provincie Antwerpen (officiële provinciale domeinen)",
+          "type": "provincial / official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HERITA",
+          "name": "Herita vzw (erfgoedorganisatie)",
+          "type": "heritage organisation",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet",
+          "type": "editorial (travel)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ALLABOUTBEER",
+          "name": "All About Beer (bierjournalistiek)",
+          "type": "beer journalism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BIERSCHRIJVER",
+          "name": "De Bierschrijver (bierjournalistiek)",
+          "type": "beer journalism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EUROPEANBARGUIDE",
+          "name": "The European Bar Guide",
+          "type": "bar/beer journalism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "EUROPEANCOFFEE",
+          "name": "European Coffee Trip",
+          "type": "specialty-coffee editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PERSRUBENS",
+          "name": "Rubenshuis persdienst (officieel)",
+          "type": "municipal museum",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HAVENWERELD",
+          "name": "Havenwereld — Port of Antwerp-Bruges (officieel)",
+          "type": "port authority (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "JANMAG",
+          "name": "JAN Magazine",
+          "type": "editorial (lifestyle)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "DELREY",
+          "name": "DelReY Antwerpen (officieel; Relais Desserts-lid)",
+          "type": "patisserie (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "GRAANMARKT13",
+          "name": "Graanmarkt 13 (officieel)",
+          "type": "restaurant (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "KLEINBLATT",
+          "name": "Kleinblatt (officieel, koosjere bakkerij)",
+          "type": "bakery (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HOFFYS",
+          "name": "Hoffy's (officieel)",
+          "type": "restaurant (official)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "HISTORIEK",
+          "name": "Historiek — online geschiedenismagazine",
+          "type": "editorial/reference",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "OTOMAT",
+          "name": "Otomat (restaurant, officiële site)",
+          "type": "restaurant/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ANTWERPENTOERISME",
+          "name": "Antwerpen Toerisme (NL)",
+          "type": "tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "KNACK",
+          "name": "Knack Weekend",
+          "type": "editorial (magazine)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BIENSOIGNE",
+          "name": "Restaurant Bien Soigné (officiële site)",
+          "type": "restaurant/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BIZIELIZIE",
+          "name": "Brasserie Bizie Lizie (officiële site)",
+          "type": "restaurant/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "KOMMILFOO",
+          "name": "Restaurant Kommilfoo (officiële site)",
+          "type": "restaurant/official",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BRUSSELSTIMES",
+          "name": "The Brussels Times",
+          "type": "editorial (English)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "RUIEN",
+          "name": "De Ruien Antwerpen (officiële attractie)",
+          "type": "official attraction",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "UITINVLAANDEREN",
+          "name": "UiT in Vlaanderen (publiq)",
+          "type": "official agenda/tourism",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PARCUM",
+          "name": "PARCUM — museum & expertisecentrum religieus erfgoed",
+          "type": "museum/heritage",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "AMUZ",
+          "name": "AMUZ — Augustinus Muziekcentrum",
+          "type": "official venue",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BREENDONK",
+          "name": "Nationaal Gedenkteken Fort van Breendonk",
+          "type": "institutional authority (national memorial)",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MUSEUMPASS",
+          "name": "museumPASSmusées",
+          "type": "museum network",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "MECHELENBE",
+          "name": "Stad Mechelen",
+          "type": "municipal",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        }
+      ],
+      "creators": [
+        {
+          "key": "BIERSCHRIJVER",
+          "name": "De Bierschrijver (Peter Kennes e.a.)",
+          "platform": "Blog / bierjournalistiek",
+          "url": "https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/",
+          "note": "Nederlandstalige bierschrijver met een meerjarig, vindbaar oeuvre en specifieke stukken die Antwerpse biercafés bij naam noemen (o.a. 'De smaak van 't Stad: 14 tips voor bierdrinken in Antwerpen' en het Kulminator-tijdreisstuk). Hier enkel als corroborerende bron naast officiële/erfgoedbronnen gebruikt, nooit als enige aanbeveler."
+        }
+      ]
     }
   }
 }

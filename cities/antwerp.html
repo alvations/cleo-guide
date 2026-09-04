@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Antwerp field guide — 59 sights and 78 places to eat across Antwerp and its region (Mechelen, Lier, the Port), each traceable to its source (Michelin, UNESCO, Gazet van Antwerpen, De Standaard, VRT, Visit Antwerpen) on one interactive map with area, collection and cuisine filters — beer &amp; breweries a first-class layer — a trip builder and exports.">
+<title>Antwerp Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Antwerp &amp; its region, sourced</p>
+  <h1>Antwerp<span class="thin">&amp; its region — Cathedral · MAS · Zuid · Zurenborg · Mechelen · the Port</span></h1>
+  <p class="standfirst">59 sights and 78 places to eat across <strong>Antwerp</strong> and its region — from the Gothic <strong>Cathedral of Our Lady</strong>, the Grote Markt and <strong>Het Steen</strong> to the <strong>MAS</strong>, the Rubenshuis, the <strong>Diamond District</strong>, the art-quarter Zuid and Art-Nouveau <strong>Cogels-Osylei</strong>, out to Berchem, Deurne, the Port and <strong>Mechelen</strong>. A food canon all its own: <strong>Antwerpse handjes</strong>, a <strong>De Koninck Bolleke</strong> in a brown café, moules-frites and frietjes, and one of Europe’s great beer-bar scenes (Kulminator, Billie’s). <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (beer is its own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Belgium/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#2E6DA4"></i>Antwerp</span>
+  <span><i style="background:#C0504D"></i>Around Antwerp</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="handjes, Bolleke, Rubens, diamant, frietjes…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-09-04</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Dutch (Flemish) across Michelin, UNESCO, Gault&amp;Millau, Gazet van Antwerpen, De Standaard, Het Nieuwsblad, VRT NWS, Visit Antwerpen and vetted local creators, with beer &amp; breweries grouped as a first-class layer. Every coordinate is verified into data/geocodes.json and every place status-checked open. A batch of restaurants is pending a final coordinate pass before appearing.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AMUZ":{k:"AMUZ",t:"AMUZ — Augustinus Muziekcentrum",u:"https://amuz.be",l:"AMUZ — Augustinus Muziekcentrum"},
+  "ANTWERPENBE":{k:"ANTWERPENBE",t:"Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)",u:"https://www.antwerpen.be",l:"Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)"},
+  "APEN":{k:"APEN",t:"Apen.be — cultuur- en stadsgids Antwerpen",u:"https://apen.be",l:"Apen.be — cultuur- en stadsgids Antwerpen"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BREENDONK":{k:"BREENDONK",t:"Nationaal Gedenkteken Fort van Breendonk",u:"http://www.breendonk.be",l:"Nationaal Gedenkteken Fort van Breendonk"},
+  "FLEMISHMASTERS":{k:"FLEMISHMASTERS",t:"Flemish Masters in situ (Vlaamse erfgoedproject)",u:"https://www.flemishmastersinsitu.com",l:"Flemish Masters in situ (Vlaamse erfgoedproject)"},
+  "HANDELSBEURS":{k:"HANDELSBEURS",t:"Handelsbeurs Antwerpen (officieel)",u:"https://handelsbeursantwerpen.be",l:"Handelsbeurs Antwerpen (officieel)"},
+  "HAVENWERELD":{k:"HAVENWERELD",t:"Havenwereld — Port of Antwerp-Bruges (officieel)",u:"https://www.havenwereld.be",l:"Havenwereld — Port of Antwerp-Bruges (officieel)"},
+  "HERITA":{k:"HERITA",t:"Herita vzw (erfgoedorganisatie)",u:"https://www.herita.be",l:"Herita vzw (erfgoedorganisatie)"},
+  "HOFVANBUSLEYDEN":{k:"HOFVANBUSLEYDEN",t:"Museum Hof van Busleyden (officieel, Stad Mechelen)",u:"https://www.hofvanbusleyden.be",l:"Museum Hof van Busleyden (officieel, Stad Mechelen)"},
+  "KMSKA":{k:"KMSKA",t:"Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)",u:"https://kmska.be",l:"Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com",l:"Lonely Planet"},
+  "MASBE":{k:"MASBE",t:"MAS — Museum aan de Stroom (officieel)",u:"https://mas.be",l:"MAS — Museum aan de Stroom (officieel)"},
+  "MAYERVDBERGH":{k:"MAYERVDBERGH",t:"Museum Mayer van den Bergh (officieel)",u:"https://museummayervandenbergh.be",l:"Museum Mayer van den Bergh (officieel)"},
+  "MECHELENBE":{k:"MECHELENBE",t:"Stad Mechelen",u:"https://www.mechelen.be",l:"Stad Mechelen"},
+  "MEETINMECHELEN":{k:"MEETINMECHELEN",t:"Meet in Mechelen (Stad Mechelen)",u:"https://meetin.mechelen.be",l:"Meet in Mechelen (Stad Mechelen)"},
+  "MICHELIN":{k:"MICHELIN",t:"Michelin Gids België & Luxemburg",u:"https://guide.michelin.com",l:"Michelin Gids België & Luxemburg"},
+  "MUSEUMPASS":{k:"MUSEUMPASS",t:"museumPASSmusées",u:"https://www.museumpassmusees.be",l:"museumPASSmusées"},
+  "OKV":{k:"OKV",t:"Openbaar Kunstbezit in Vlaanderen (okv.be)",u:"https://www.okv.be",l:"Openbaar Kunstbezit in Vlaanderen (okv.be)"},
+  "ONROERENDERFGOED":{k:"ONROERENDERFGOED",t:"Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",u:"https://inventaris.onroerenderfgoed.be",l:"Agentschap Onroerend Erfgoed (inventaris Vlaanderen)"},
+  "PARCUM":{k:"PARCUM",t:"PARCUM — museum & expertisecentrum religieus erfgoed",u:"https://www.parcum.be",l:"PARCUM — museum & expertisecentrum religieus erfgoed"},
+  "PERSANTWERPEN":{k:"PERSANTWERPEN",t:"Stad Antwerpen persdienst (pers.antwerpen.be)",u:"https://pers.antwerpen.be",l:"Stad Antwerpen persdienst (pers.antwerpen.be)"},
+  "PERSRUBENS":{k:"PERSRUBENS",t:"Rubenshuis persdienst (officieel)",u:"https://pers.rubenshuis.be",l:"Rubenshuis persdienst (officieel)"},
+  "PLANTINMORETUS":{k:"PLANTINMORETUS",t:"Museum Plantin-Moretus (officieel, UNESCO)",u:"https://museumplantinmoretus.be",l:"Museum Plantin-Moretus (officieel, UNESCO)"},
+  "PROVANTWERPEN":{k:"PROVANTWERPEN",t:"Provincie Antwerpen (officiële provinciale domeinen)",u:"https://www.provincieantwerpen.be",l:"Provincie Antwerpen (officiële provinciale domeinen)"},
+  "REDSTARLINE":{k:"REDSTARLINE",t:"Red Star Line Museum (officieel, Stad Antwerpen)",u:"https://redstarline.be",l:"Red Star Line Museum (officieel, Stad Antwerpen)"},
+  "RUIEN":{k:"RUIEN",t:"De Ruien Antwerpen (officiële attractie)",u:"https://www.ruien.be",l:"De Ruien Antwerpen (officiële attractie)"},
+  "SINTPAULUS":{k:"SINTPAULUS",t:"Sint-Paulusparochie Antwerpen (officieel)",u:"https://www.sintpaulusantwerpen.be",l:"Sint-Paulusparochie Antwerpen (officieel)"},
+  "SNIJDERSROCKOX":{k:"SNIJDERSROCKOX",t:"Het Snijders&Rockoxhuis (officieel)",u:"https://www.snijdersrockoxhuis.be",l:"Het Snijders&Rockoxhuis (officieel)"},
+  "UITINVLAANDEREN":{k:"UITINVLAANDEREN",t:"UiT in Vlaanderen (publiq)",u:"https://www.uitinvlaanderen.be",l:"UiT in Vlaanderen (publiq)"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org",l:"UNESCO World Heritage Centre"},
+  "VISITANTWERPEN":{k:"VISIT ANTWERPEN",t:"Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",u:"https://visit.antwerpen.be",l:"Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be"},
+  "VISITFLANDERS":{k:"VISIT FLANDERS",t:"Toerisme Vlaanderen (visitflanders.com)",u:"https://www.visitflanders.com",l:"Toerisme Vlaanderen (visitflanders.com)"},
+  "VISITLIER":{k:"VISITLIER",t:"Visit Lier (officiële toerisme)",u:"https://www.visitlier.be",l:"Visit Lier (officiële toerisme)"},
+  "VISITMECHELEN":{k:"VISITMECHELEN",t:"Visit Mechelen / Meet in Mechelen (officiële toerisme)",u:"https://visit.mechelen.be",l:"Visit Mechelen / Meet in Mechelen (officiële toerisme)"},
+  "VRT":{k:"VRT NWS",t:"VRT NWS",u:"https://www.vrt.be/vrtnws",l:"VRT NWS"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (EN)",u:"https://en.wikipedia.org",l:"Wikipedia (EN)"},
+  "WIKIPEDIANL":{k:"WIKIPEDIANL",t:"Wikipedia (NL)",u:"https://nl.wikipedia.org",l:"Wikipedia (NL)"}
+};
+
+const AREAS = [
+  {id:"ANT",n:"Antwerp (Cathedral · Grote Markt · MAS · Zuid · Zurenborg · Diamond District)",c:"#2E6DA4"},
+  {id:"ANTR",n:"Around Antwerp (Berchem · Deurne · Hoboken · Mechelen · Lier · the Port)",c:"#C0504D"}
+];
+
+const P = [
+{t:1,a:"ANT",n:"Onze-Lieve-Vrouwekathedraal",ad:"Handschoenmarkt, 2000 Antwerpen, Belgium",la:51.22027,ln:4.40025,w:"De hoogste gotische kerk van de Lage Landen (toren ~123 m) met vier grote Rubens-werken, waaronder 'De Kruisafneming'. De kathedraaltoren staat als belfort op de UNESCO-Werelderfgoedlijst en beheerst de skyline van 't Stad.",k:"gotische kathedraal + 4 Rubensen",g:["ICON","HIST","ARCH","UNESCO"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Onze-Lieve-Vrouwekerk"],["VISITANTWERPEN","https://visit.antwerpen.be/activiteit/kathedraaltoren-beklimming"]]},
+{t:1,a:"ANT",n:"Grote Markt, Stadhuis & Brabofontein",ad:"Grote Markt 1, 2000 Antwerpen, Belgium",la:51.22112,ln:4.39969,w:"Het driehoekige hart van de oude stad: het Italiaans-Vlaamse renaissancestadhuis (voltooid 1565), rijke gildehuizen en de Brabofontein (1887) die de stichtingslegende van Silvius Brabo verbeeldt.",k:"renaissancestadhuis + gildehuizen",g:["ICON","HIST","ARCH","FREE"],s:[["ANTWERPENBE","https://www.antwerpen.be/stadhuis"],["LONELYPLANET","https://www.lonelyplanet.com/belgium/flanders/antwerp/attractions/grote-markt/a/poi-sig/1523564/358710"]]},
+{t:2,a:"ANT",n:"Het Steen",ad:"Steenplein 1, 2000 Antwerpen, Belgium",la:51.22278,ln:4.39750,w:"De middeleeuwse Scheldeburcht, het oudste bewaarde gebouw van Antwerpen, huisvest vandaag het bezoekerscentrum en de belevenis 'The Antwerp Story' aan de kaaien.",k:"middeleeuwse Scheldeburcht",g:["ICON","HIST","ARCH","CANAL"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Het_Steen"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:1,a:"ANT",n:"MAS — Museum aan de Stroom",ad:"Hanzestedenplaats 1, 2000 Antwerpen, Belgium",la:51.22900,ln:4.40480,w:"Het grootste museum van de stad (2011) op het Eilandje: negen verdiepingen over Antwerpen, de haven en de wereld, met een gratis toegankelijk dakterras dat het beste panorama van 't Stad biedt.",k:"stadsmuseum + gratis panorama",g:["ICON","MUS","ARCH","FREE"],s:[["MASBE","https://mas.be/en"],["ANTWERPENBE","https://www.antwerpen.be/info/53610431afa8a760418b460e/mas-museum-aan-de-stroom"]]},
+{t:2,a:"ANT",n:"Rubenshuis (in restauratie tot ~2030)",ad:"Wapper 9-11, 2000 Antwerpen, Belgium",la:51.21722,ln:4.40944,w:"Het stadspaleis, atelier en de tuin van Peter Paul Rubens. Het museum sloot in januari 2023 voor een grondige restauratie; door vertraging (asbest, prijzen) wordt heropening pas rond 2030 verwacht — het portaal en de barokgevel blijven de blikvanger aan de Wapper.",k:"stadspaleis van Rubens — gesloten voor restauratie",g:["ICON","HIST","ARCH","MUS"],s:[["PERSRUBENS","https://pers.rubenshuis.be/grondige-restauratie-kunstenaarswoning-maakt-masterplan-rubenshuis-compleet-museum-sluit-vanaf-9-januari-2023-en-heropent-in-2027"],["VRT","https://www.vrt.be/vrtnws/nl/2023/10/24/restauratie-rubenshuis-antwerpen-loopt-zeker-drie-jaar-vertragin/"]]},
+{t:1,a:"ANT",n:"Museum Plantin-Moretus",ad:"Vrijdagmarkt 22, 2000 Antwerpen, Belgium",la:51.21835,ln:4.39820,w:"Het enige museum ter wereld op de UNESCO-Werelderfgoedlijst (sinds 2005): het originele woonhuis en de drukkerij van de familie Plantin-Moretus, met de twee oudste bewaarde drukpersen ter wereld en Rubens-portretten.",k:"UNESCO — oudste drukkerij ter wereld",g:["UNESCO","MUS","HIST","ARCH"],s:[["PLANTINMORETUS","https://museumplantinmoretus.be/en/about-us"],["UNESCO","https://whc.unesco.org/en/list/1185/"]]},
+{t:1,a:"ANT",n:"KMSKA — Koninklijk Museum voor Schone Kunsten",ad:"Leopold de Waelplaats 1, 2000 Antwerpen, Belgium",la:51.20882,ln:4.39435,w:"Na elf jaar renovatie in 2022 heropend: de topcollectie Vlaamse meesters (Van Eyck, Memling, Rubens, Ensor) in een neoklassiek paleis met 40% extra ruimte in strakke witte patio's. Meteen een van de best bezochte musea van Vlaanderen.",k:"Vlaamse meesters, spectaculair heropend",g:["ICON","MUS","ARCH"],s:[["KMSKA","https://kmska.be/nl"],["VRT","https://www.vrt.be/vrtnws/nl/2022/09/15/na-elf-jaar-gaat-schatkamer-kmska-in-antwerpen-zaterdag-weer-ope/"]]},
+{t:2,a:"ANT",n:"M HKA — Museum van Hedendaagse Kunst",ad:"Leuvenstraat 32, 2000 Antwerpen, Belgium",la:51.21111,ln:4.38972,w:"Het Vlaamse museum voor hedendaagse kunst en beeldcultuur in een oud graansilo op het Zuid, met een sterke focus op Belgische naoorlogse en actuele kunst.",k:"hedendaagse kunst op 't Zuid",g:["MUS","ARCH","NIGHT"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Museum_van_Hedendaagse_Kunst_Antwerpen"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"FoMU — FotoMuseum Antwerpen",ad:"Waalsekaai 47, 2000 Antwerpen, Belgium",la:51.20884,ln:4.38733,w:"Het Vlaamse fotografiemuseum op het Zuid, met een rijke historische collectie en wisselende exposities van gevestigde en jonge fotografen.",k:"fotografiemuseum",g:["MUS","NIGHT"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/FotoMuseum_Antwerpen"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"Sint-Pauluskerk",ad:"Sint-Paulusstraat 22, 2000 Antwerpen, Belgium",la:51.22392,ln:4.40136,w:"Gotische kerk met een uitzonderlijk barokinterieur waar werken van de drie grootste Antwerpse barokschilders — Rubens, Van Dyck en Jordaens — broederlijk naast elkaar hangen, plus de opmerkelijke Calvarietuin.",k:"Rubens, Van Dyck én Jordaens",g:["HIST","ARCH","FREE","PARK"],s:[["SINTPAULUS","https://www.sintpaulusantwerpen.be/nieuws/met-rubens-op-zomerwandeling/"],["FLEMISHMASTERS","https://www.flemishmastersinsitu.com/nl/locaties/sint-pauluskerk-antwerpen"]]},
+{t:2,a:"ANT",n:"Sint-Jacobskerk",ad:"Lange Nieuwstraat 73, 2000 Antwerpen, Belgium",la:51.22021,ln:4.41056,w:"Rijke gotische kerk (1490-1656) met een overweldigend marmeren barokinterieur en 24 altaren. In de Rubenskapel bevindt zich de laatste rustplaats van Peter Paul Rubens, met zijn schilderij 'Madonna omringd door heiligen'.",k:"grafkerk van Rubens",g:["HIST","ARCH","NIGHT"],s:[["FLEMISHMASTERS","https://www.flemishmastersinsitu.com/nl/locaties/sint-jacobskerk-antwerpen"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Jacobskerk_(Antwerpen)"]]},
+{t:2,a:"ANT",n:"Sint-Carolus Borromeuskerk",ad:"Hendrik Conscienceplein 12, 2000 Antwerpen, Belgium",la:51.22096,ln:4.40478,w:"Meesterwerk van de barok (1615-1621) op het sfeervolle Hendrik Conscienceplein; Rubens werkte mee aan de gevel en leverde ooit 39 plafondschilderijen (verbrand in 1718). Een pronkstuk van de jezuïetenarchitectuur.",k:"barok, mee door Rubens ontworpen",g:["HIST","ARCH","MKT","NIGHT"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4118"],["OKV","https://www.okv.be/museum/sint-carolus-borromeuskerk"]]},
+{t:2,a:"ANT",n:"Sint-Annatunnel (voetgangerstunnel)",ad:"Sint-Jansvliet, 2000 Antwerpen, Belgium",la:51.21969,ln:4.39169,w:"De voetgangers- en fietstunnel onder de Schelde uit 1933, met authentieke houten roltrappen — tot de oudste nog werkende houten roltrappen van continentaal Europa — en aan de overkant een gratis panorama op de stad.",k:"tunnel onder de Schelde, houten roltrappen",g:["HIST","ICON","FREE","CANAL"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Annatunnel"],["VISITFLANDERS","https://www.visitflanders.com"]]},
+{t:2,a:"ANT",n:"MoMu — ModeMuseum",ad:"Nationalestraat 28, 2000 Antwerpen, Belgium",la:51.21700,ln:4.39961,w:"Het Vlaamse modemuseum in de Modenatie, kloppend hart van de Antwerpse modewijk en de erfenis van de 'Antwerp Six'. Wisselende topexposities rond mode en textiel.",k:"modemuseum in de modewijk",g:["MUS","ARCH","NIGHT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/ModeMuseum_Antwerpen"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"DIVA — museum voor diamant, juwelen en zilver",ad:"Suikerrui 17-19, 2000 Antwerpen, Belgium",la:51.22110,ln:4.39859,w:"Antwerpen is de wereldhoofdstad van de diamant; DIVA vertelt dat verhaal via een schitterende collectie diamant, juwelen en zilver in een parcours als een galadiner.",k:"diamant- en zilvercollectie",g:["MUS","PARK"],s:[["VISITANTWERPEN","https://visit.antwerpen.be/en/info/diva"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/DIVA_(museum)"]]},
+{t:2,a:"ANT",n:"Museum Mayer van den Bergh",ad:"Lange Gasthuisstraat 19, 2000 Antwerpen, Belgium",la:51.21552,ln:4.40532,w:"Kabinetmuseum met de wereldberoemde 'Dulle Griet' van Pieter Bruegel de Oude. Let op: het gebouw is (deels) gesloten voor restauratie; topstukken zijn tijdelijk elders (o.a. het Maagdenhuis) te zien — check vooraf.",k:"Bruegels 'Dulle Griet'",g:["MUS","HIST"],s:[["MAYERVDBERGH","https://museummayervandenbergh.be/en"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_Mayer_van_den_Bergh"]]},
+{t:2,a:"ANT",n:"Het Snijders&Rockoxhuis",ad:"Keizerstraat 10-12, 2000 Antwerpen, Belgium",la:51.22173,ln:4.40608,w:"De aaneengesloten patriciërswoningen van burgemeester Nicolaas Rockox en schilder Frans Snijders, ingericht als een 17de-eeuws kunstkabinet met werk van Rubens, Van Dyck en Snijders.",k:"barok kunstkabinet",g:["MUS","HIST","NIGHT"],s:[["SNIJDERSROCKOX","https://www.snijdersrockoxhuis.be/"],["OKV","https://www.okv.be"]]},
+{t:2,a:"ANT",n:"Red Star Line Museum",ad:"Montevideostraat 3, 2000 Antwerpen, Belgium",la:51.23291,ln:4.40305,w:"In de originele loodsen van de rederij vertelt dit museum het verhaal van bijna drie miljoen landverhuizers die tussen 1873 en 1935 via Antwerpen naar Amerika vertrokken — een aangrijpend migratiemuseum op het Eilandje.",k:"migratie naar de Nieuwe Wereld",g:["MUS","HIST","CANAL"],s:[["REDSTARLINE","https://redstarline.be/en/content/museum"],["ANTWERPENBE","https://www.antwerpen.be"]]},
+{t:2,a:"ANT",n:"ZOO Antwerpen",ad:"Koningin Astridplein 20-26, 2018 Antwerpen, Belgium",la:51.21639,ln:4.42333,w:"De oudste dierentuin van België (1843) pal naast het Centraal Station, geliefd om zijn 19de-eeuwse tuinarchitectuur — Egyptische tempel, art-decogebouwen — en meer dan 5.000 dieren midden in de stad.",k:"oudste zoo van België (1843)",g:["ICON","HIST","PARK","MUS"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Antwerpse_Zoo"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"Havenhuis (Port House) — Zaha Hadid",ad:"Zaha Hadidplein 1, 2030 Antwerpen, Belgium",la:51.24056,ln:4.40528,w:"Zaha Hadids laatste voltooide gebouw (2016): een glinsterende, diamantvormige cocon die boven een oude brandweerkazerne op het Eilandje zweeft. Van buiten vrij te bewonderen; binnen enkel met gegidste groepsrondleiding.",k:"iconische architectuur van Zaha Hadid",g:["ICON","ARCH","CANAL"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Havenhuis_(Antwerpen)"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"Boerentoren (KBC-toren)",ad:"Schoenmarkt 35, 2000 Antwerpen, Belgium",la:51.21864,ln:4.40408,w:"De eerste wolkenkrabber van Europa (1929-1931), bijna 100 m hoog en in art-decostijl. Ondergaat een transformatie tot kunst- en publieksplek; de silhouetstijl blijft een baken in de skyline.",k:"eerste wolkenkrabber van Europa",g:["ICON","ARCH","HIST","MUS"],s:[["VRT","https://www.vrt.be/vrtnws/nl/2020/11/19/de-boerentoren-de-eerste-belgische-wolkenkrabber/"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/3959"]]},
+{t:2,a:"ANT",n:"Paleis op de Meir",ad:"Meir 50, 2000 Antwerpen, Belgium",la:51.21781,ln:4.40861,w:"18de-eeuws rococopaleis aan de winkelstraat de Meir, ooit door Napoleon en later door de Belgische koningen gebruikt. Vandaag met een chocoladehuis en het Chocolate Story-museum.",k:"rococopaleis + chocoladehuis",g:["HIST","ARCH","MUS"],s:[["OKV","https://www.okv.be/museum/paleis-op-de-meir"],["HERITA","https://www.herita.be/en/meir-palace"]]},
+{t:3,a:"ANT",n:"Museum Vleeshuis — Klank van de Stad",ad:"Vleeshouwersstraat 38-40, 2000 Antwerpen, Belgium",la:51.22269,ln:4.39919,w:"Laatgotisch voormalig gildehuis van de vleeshouwers (1501-1504) in rode baksteen en witte zandsteen, sinds 2006 gewijd aan 800 jaar muziekleven in Antwerpen en de Lage Landen.",k:"muziekmuseum in een gildehuis",g:["MUS","HIST","ARCH"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Museum_Vleeshuis"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4678"]]},
+{t:3,a:"ANT",n:"Vlaeykensgang",ad:"Oude Koornmarkt 16, 2000 Antwerpen, Belgium",la:51.22036,ln:4.39942,w:"Verscholen 16de-eeuws steegje pal naast de Grote Markt: kasseien, lantaarns en stilte op wandelafstand van de kathedraalbeiaard. Een van de best bewaarde stukjes oud Antwerpen.",k:"verborgen 16de-eeuws steegje",g:["HIST","FREE","ICON","ARCH"],s:[["ATLASOBSCURA","https://www.atlasobscura.com"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"Zurenborg & Cogels-Osylei",ad:"Cogels-Osylei, 2600 Berchem (Antwerpen), Belgium",la:51.20373,ln:4.43340,w:"Een openluchtmuseum van fin-de-siècle-architectuur: straten vol art-nouveau-, neoclassicistische en eclectische burgerpaleizen. De Cogels-Osylei geldt als een van de mooiste straten van het land.",k:"fin-de-siècle-architectuurwijk",g:["ICON","ARCH","HIST","FREE"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Zurenborg"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:1,a:"ANT",n:"Antwerpen-Centraal (Centraal Station)",ad:"Koningin Astridplein 27, 2018 Antwerpen, Belgium",la:51.21722,ln:4.42111,w:"De 'spoorwegkathedraal' (1905) met haar monumentale stenen ontvangsthal, koepel en vier verdiepingen sporen wordt geregeld tot een van de mooiste stations ter wereld gerekend.",k:"de spoorwegkathedraal",g:["ICON","ARCH","HIST","FREE"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Station_Antwerpen-Centraal"],["VISITANTWERPEN","https://visit.antwerpen.be"]]},
+{t:2,a:"ANT",n:"Handelsbeurs",ad:"Twaalfmaandenstraat, 2000 Antwerpen, Belgium",la:51.21931,ln:4.40611,w:"De schitterend gerestaureerde neogotische beurshal op de plek van de eerste 'beurs' ter wereld (1531). Na twintig jaar leegstand in 2019 heropend als evenementenhal onder een spectaculair glazen dak.",k:"'s werelds eerste beurs, herrezen",g:["HIST","ARCH"],s:[["HANDELSBEURS","https://handelsbeursantwerpen.be/en/geschiedenis-handelsbeurs-antwerpen/"],["VISITANTWERPEN","https://press.visitantwerpen.be"]]},
+{t:3,a:"ANT",n:"Sint-Andrieskerk",ad:"Sint-Andriesstraat 5, 2000 Antwerpen, Belgium",la:51.21690,ln:4.39860,w:"De parochiekerk van de gelijknamige volkse-modieuze wijk, een van de vijf monumentale kerken van de stad, in het voorjaar van 2025 volledig uit de restauratiesteigers.",k:"kerk van de Sint-Andrieswijk",g:["HIST","ARCH","NIGHT"],s:[["PERSANTWERPEN","https://pers.antwerpen.be/sint-andrieskerk-in-voorjaar-2025-volledig-uit-de-stellingen"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Andrieskerk_(Antwerpen)"]]},
+{t:2,a:"ANT",n:"Het Eilandje",ad:"Willemdok / Bonapartedok, 2000 Antwerpen, Belgium",la:51.22950,ln:4.40580,w:"Het oudste, heropgeleefde havenkwartier ten noorden van de oude stad: rondom Bonapartedok, Willemdok en Kattendijkdok kwamen loft-, museum- en restaurantwijken tot bloei rond het MAS en het Havenhuis.",k:"heropgeleefd oud havenkwartier",g:["ARCH","MKT","NIGHT","FREE"],s:[["MICHELIN","https://guide.michelin.com/nl/nl/article/travel/t-eilandje-in-antwerpen-bruist-als-nooit-tevoren"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Het_Eilandje"]]},
+{t:1,a:"ANTR",n:"Middelheimmuseum",ad:"Middelheimlaan 61, 2020 Antwerpen, Belgium",la:51.18139,ln:4.41347,w:"Gratis openluchtmuseum voor moderne en hedendaagse beeldhouwkunst in het groene Nachtegalenpark, met meesterwerken van o.a. Rik Wouters, Rodin, Panamarenko en Giacometti.",k:"gratis beeldenpark",g:["MUS","PARK","FREE"],s:[["ANTWERPENBE","https://www.antwerpen.be/info/53675047aba8a70d7f8b4573/middelheimmuseum"],["VISITFLANDERS","https://www.visitflanders.com/nl/ontdek-vlaanderen/kunst-en-erfgoed/kastelen-en-tuinen-buiten-de-stadsmuren/kastelen-en-tuinen-8-1"]]},
+{t:2,a:"ANTR",n:"Provinciaal Groendomein Rivierenhof",ad:"Turnhoutsebaan 246, 2100 Deurne (Antwerpen), Belgium",la:51.21721,ln:4.46848,w:"Het grootste en oudste provinciedomein bij de stad in Deurne: een uitgestrekt landschapspark met kasteel, openluchttheater en waterpartijen, dagelijks gratis toegankelijk.",k:"grootste stadspark",g:["PARK","FREE","ARCH","MUS"],s:[["PROVANTWERPEN","https://www.provincieantwerpen.be/nl/locaties/rivierenhof"],["VISITFLANDERS","https://www.visitflanders.com/nl/ontdek-vlaanderen/kunst-en-erfgoed/kastelen-en-tuinen-buiten-de-stadsmuren/kastelen-en-tuinen-8-2"]]},
+{t:2,a:"ANTR",n:"Grenspark Kalmthoutse Heide",ad:"Putsesteenweg 129, 2920 Kalmthout, Belgium",la:51.37634,ln:4.44939,w:"Uitgestrekt grensoverschrijdend natuurgebied van heide, zandduinen, vennen en bossen ten noorden van de stad, gratis toegankelijk met wandelroutes en twee uitkijktorens.",k:"heide, duinen en vennen",g:["PARK","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/De_Zoom%E2%80%93Kalmthoutse_Heide_Cross-Border_Park"],["PROVANTWERPEN","https://www.provincieantwerpen.be"]]},
+{t:3,a:"ANTR",n:"Arboretum Kalmthout",ad:"Heuvel 8, 2920 Kalmthout, Belgium",la:51.39306,ln:4.46306,w:"Een van de oudste arboreta van Vlaanderen (1856) met meer dan 7.000 plantensoorten op 12,5 ha, wereldberoemd om zijn winterbloeiende toverhazelaars (grootste collectie van Europa).",k:"botanische tuin, toverhazelaars",g:["PARK"],s:[["PROVANTWERPEN","https://www.provincieantwerpen.be/nl/locaties/arboretum-kalmthout"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Arboretum_Kalmthout"]]},
+{t:1,a:"ANTR",n:"Sint-Romboutskathedraal & -toren",ad:"Onder-den-Toren, 2800 Mechelen, Belgium",la:51.02889,ln:4.47889,w:"De onvoltooide maar imposante toren (97 m, UNESCO-belfort) domineert Mechelen; 538 treden en een skywalk leiden naar een weids panorama over de Kempen en tot Brussel en Antwerpen.",k:"UNESCO-belforttoren, 538 treden",g:["ICON","UNESCO","HIST","ARCH"],s:[["VISITMECHELEN","https://visit.mechelen.be/toren"],["UNESCO","https://whc.unesco.org/en/list/943/"]]},
+{t:1,a:"ANTR",n:"Kazerne Dossin",ad:"Goswin de Stassartstraat 153, 2800 Mechelen, Belgium",la:51.03410,ln:4.47850,w:"Museum, memoriaal en documentatiecentrum over de Holocaust en mensenrechten, in de voormalige kazerne van waaruit meer dan 25.000 Joden en Roma naar Auschwitz werden gedeporteerd.",k:"Holocaustmemoriaal",g:["MUS","HIST","CANAL"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kazerne_Dossin"],["VISITMECHELEN","https://visit.mechelen.be"]]},
+{t:2,a:"ANTR",n:"Grote Markt & Stadhuis Mechelen",ad:"Grote Markt, 2800 Mechelen, Belgium",la:51.02781,ln:4.48031,w:"Een van de mooiste marktpleinen van Vlaanderen, met het historische stadhuis (voormalig lakenhal- en Schepenhuiscomplex) en zicht op de Sint-Romboutstoren.",k:"markt onder de toren",g:["HIST","ARCH","FREE","ICON"],s:[["VISITMECHELEN","https://visit.mechelen.be/top-10"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Grote_Markt_(Mechelen)"]]},
+{t:2,a:"ANTR",n:"Groot Begijnhof Mechelen",ad:"Begijnhof, 2800 Mechelen, Belgium",la:51.03111,ln:4.47331,w:"Het uitgestrekte Groot Begijnhof, met zijn typisch Vlaamse karakter en baksteenarchitectuur, staat op de UNESCO-Werelderfgoedlijst van de Vlaamse begijnhoven.",k:"UNESCO-begijnhof",g:["UNESCO","HIST","ARCH","FREE"],s:[["UNESCO","https://whc.unesco.org/en/list/855/"],["VISITMECHELEN","https://visit.mechelen.be"]]},
+{t:3,a:"ANTR",n:"Speelgoedmuseum Mechelen",ad:"Nekkerspoelstraat 21, 2800 Mechelen, Belgium",la:51.03064,ln:4.49130,w:"Groot familiemuseum met speelgoed van weleer tot vandaag — een van de populairste bezoektips van Mechelen voor gezinnen.",k:"speelgoed door de eeuwen",g:["MUS"],s:[["VISITMECHELEN","https://visit.mechelen.be/top-10"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Speelgoedmuseum_Mechelen"]]},
+{t:2,a:"ANTR",n:"Museum Hof van Busleyden",ad:"Frederik de Merodestraat 65, 2800 Mechelen, Belgium",la:51.03111,ln:4.48250,w:"Renaissancestadspaleis dat de bloeitijd van Mechelen als hoofdstad van de Bourgondische Nederlanden tot leven brengt, met een fraaie binnentuin en koffiebar in het gerestaureerde 'Schipke'.",k:"Bourgondisch stadspaleis",g:["MUS","HIST","ARCH","PARK"],s:[["HOFVANBUSLEYDEN","https://www.hofvanbusleyden.be/"],["VISITMECHELEN","https://visit.mechelen.be/museum-hof-van-busleyden"]]},
+{t:3,a:"ANTR",n:"Boottocht op de Binnendijle",ad:"Haverwerf, 2800 Mechelen, Belgium",la:51.02720,ln:4.47880,w:"Een rondvaart van ~45 minuten met de Malinska over de Binnendijle toont Mechelen van het water, langs de Vismarkt, de Grootbrug en de Kruidtuin (april-oktober dagelijks).",k:"Mechelen vanaf het water",g:["ICON","MUS","PARK","MKT"],s:[["VISITMECHELEN","https://www.visitmechelen.be/boottochtje-op-de-binnendijle"],["MEETINMECHELEN","https://meetin.mechelen.be/boottochtje-op-de-binnendijle"]]},
+{t:1,a:"ANTR",n:"Zimmertoren",ad:"Zimmerplein 18, 2500 Lier, Belgium",la:51.12917,ln:4.56972,w:"De middeleeuwse Corneliustoren kreeg in 1930 de wereldberoemde Jubelklok van klokkenmaker en amateurastronoom Louis Zimmer; binnen tonen de Wonderklok en het Zimmermuseum tijd en heelal.",k:"astronomische Jubelklok",g:["ICON","HIST","MUS"],s:[["VISITFLANDERS","https://www.visitflanders.com/nl/inspirerende-reisroutes/48-uur-lier-0"],["VISITLIER","https://www.visitlier.be"]]},
+{t:2,a:"ANTR",n:"Begijnhof van Lier",ad:"Begijnhofstraat, 2500 Lier, Belgium",la:51.12806,ln:4.56806,w:"Gesticht in 1258, met elf straatjes en 162 huizen rond een pandhof — een van de Vlaamse begijnhoven op de UNESCO-Werelderfgoedlijst en een oase van rust in Lier.",k:"UNESCO-begijnhof",g:["UNESCO","HIST","ARCH","FREE"],s:[["UNESCO","https://whc.unesco.org/en/list/855/"],["VISITFLANDERS","https://www.visitflanders.com/nl/inspirerende-reisroutes/48-uur-lier-0"]]},
+{t:2,a:"ANTR",n:"Sint-Gummaruskerk",ad:"Kardinaal Mercierplein, 2500 Lier, Belgium",la:51.13000,ln:4.57444,w:"Brabants-gotische hoofdkerk van Lier met beroemde glasramen (o.a. door keizer Maximiliaan geschonken) en een rijk interieur — een van de belangrijkste bezienswaardigheden van de Pallieterstad.",k:"gotische hoofdkerk met topglasramen",g:["HIST","ARCH"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Gummaruskerk_(Lier)"],["VISITLIER","https://www.visitlier.be"]]},
+{t:3,a:"ANTR",n:"Kasteel Sorghvliedt",ad:"Marneflaan 3, 2660 Hoboken (Antwerpen), Belgium",la:51.17100,ln:4.35331,w:"Rococokasteel (1745-1750) van architect Jan Pieter van Baurscheit de Jonge aan de rand van Hoboken, met park; vandaag districtshuis en overdag deels vrij te bezoeken.",k:"rococokasteel met park",g:["HIST","ARCH","PARK"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/11463"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sorghvliedt_Castle"]]},
+{t:3,a:"ANTR",n:"Fort Liefkenshoek",ad:"Fort Liefkenshoek, 9130 Kallo (Beveren), Belgium",la:51.29439,ln:4.28561,w:"16de-eeuws Scheldefort in het havengebied met belevingscentrum, wandelpaden en een uitkijktoren over de Schelde; vlot bereikbaar met de Waterbus vanuit de stad.",k:"Scheldefort in de haven",g:["HIST","PARK","CANAL"],s:[["HAVENWERELD","https://www.havenwereld.be/eropuit-in-de-haven/infopunten/fort-liefkenshoek/"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Fort_Liefkenshoek"]]},
+{t:1,a:"ANTR",n:"Nationaal Gedenkteken Fort van Breendonk",ad:"Brandstraat 57, 2830 Willebroek, Belgium",la:51.05639,ln:4.34139,w:"Een van de best bewaarde getuigenissen van de nazi-terreur: het fort, oorspronkelijk hoofdkwartier van het Belgische leger, werd door de Gestapo als doorgangskamp voor verzetsstrijders en Joden gebruikt. Slaapzalen, werkkoer, folterkamer en fusilladeplaats zijn te bezoeken. Nationaal monument sinds 1947.",k:"WOII-gedenkteken & doorgangskamp",g:["HIST","MUS","ICON","NIGHT"],s:[["BREENDONK","http://www.breendonk.be/NL/"],["MUSEUMPASS","https://www.museumpassmusees.be/nl/aanbod/museum/470a7fd6-b14b-4664-aac3-3464fdbf6b35/nationaal-gedenkteken-van-het-fort-van-breendonk"]]},
+{t:1,a:"ANTR",n:"ZOO Planckendael",ad:"Leuvensesteenweg 582, 2812 Muizen (Mechelen), Belgium",la:51.00139,ln:4.51639,w:"Ruime landschapsdierentuin in Muizen bij Mechelen (sinds 1956, deel van de KMDA net als ZOO Antwerpen), met continentaal opgebouwde, natuurlijke habitats en veel open ruimte — giraffen, olifanten, lemuren en meer.",k:"landschapsdierentuin",g:["PARK","ICON"],s:[["VISITMECHELEN","https://visit.mechelen.be/zoo-planckendael"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/ZOO_Planckendael"]]},
+{t:2,a:"ANTR",n:"Onze-Lieve-Vrouw-over-de-Dijlekerk",ad:"O.-L.-Vrouwestraat 25, 2800 Mechelen, Belgium",la:51.02311,ln:4.47883,w:"Mechelse Dijlekerk met Rubens' 'De Wonderbare Visvangst' (1618-19), besteld door het vissersgilde en een van de weinige Rubens-werken dat nog op zijn oorspronkelijke plaats hangt. Middenluik met Christus en de apostelen; zijluiken met Tobias en de muntvondst.",k:"Rubens' Wonderbare Visvangst in situ",g:["HIST","ARCH","ICON","NIGHT"],s:[["MECHELENBE","https://www.mechelen.be/o.l.vrouw-over-de-dijlekerk"],["VRT","https://www.vrt.be/vrtnws/nl/2020/09/28/restauratie-van-rubens-drieluik-gaat-van-start-in-mechelen-d/"]]},
+{t:2,a:"ANTR",n:"Sint-Janskerk (Mechelen)",ad:"Sint-Janskerkhof, 2800 Mechelen, Belgium",la:51.03045,ln:4.48094,w:"Mechelse gotische kerk met op het hoofdaltaar Rubens' drieluik 'De Aanbidding der Wijzen' (1617), dat de schilder ter plaatse nog retoucheerde. Achter de zijluiken zit een mechanisme om de panelen te draaien zodat alle taferelen zichtbaar worden.",k:"Rubens' Aanbidding der Wijzen",g:["HIST","ARCH","ICON"],s:[["MECHELENBE","https://www.mechelen.be/sint-jan-baptist-en-sint-jan-evangelistkerk"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Janskerk_(Mechelen)"]]},
+{t:2,a:"ANTR",n:"Technopolis",ad:"Technologielaan, 2800 Mechelen, Belgium",la:51.00214,ln:4.47006,w:"Het Vlaamse doe-centrum voor wetenschap en technologie in Mechelen: land een vliegtuig, lig op een spijkerbed of fiets vijf meter hoog over een kabel, met live demonstraties en een spectaculaire wetenschapsshow — voor nieuwsgierigen van 4 tot 104.",k:"wetenschapsdoe-centrum",g:["MUS","ICON"],s:[["VISITMECHELEN","https://visit.mechelen.be/nl/bezoek-technopolis"],["OKV","https://www.okv.be/museum/technopolis"]]},
+{t:2,a:"ANTR",n:"Brusselpoort (Mechelen)",ad:"Hoogstraat 83, 2800 Mechelen, Belgium",la:51.02167,ln:4.47361,w:"De laatst bewaarde stadspoort van Mechelen en een van de zeldzame middeleeuwse stadspoorten van Vlaanderen (13de eeuw), enige getuige van de tweede stadsomwalling (1264-68). Vandaag zetel van Het Firmament; imposant te bewonderen op de ring rond de stad.",k:"laatste middeleeuwse stadspoort",g:["HIST","ARCH"],s:[["VISITMECHELEN","https://visit.mechelen.be/nl/brusselpoort"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Brusselpoort_(Mechelen)"]]},
+{t:1,a:"ANT",n:"De Ruien",ad:"Ruihuis, Suikerrui 21, 2000 Antwerpen, Belgium",la:51.22107,ln:4.39837,w:"De oude, overwelfde stadskanalen van Antwerpen, sinds 2005 opengesteld: met beschermkledij en een tablet-gids (virtuele gids Pieter Embrechts) wandel je zo'n 90 minuten door de middeleeuwse gewelven, grachten en sluizen onder de stad.",k:"ondergrondse stadskanalen",g:["HIST","ICON","CANAL"],s:[["RUIEN","https://en.ruien.be/"],["UITINVLAANDEREN","https://www.uitinvlaanderen.be/agenda/e/bezoek-aan-de-ruien-van-antwerpen/2c54c6e1-3cc4-426d-97ad-020afe803dd2"]]},
+{t:2,a:"ANT",n:"Vlinderpaleis (Justitiepaleis)",ad:"Bolivarplaats 20, 2000 Antwerpen, Belgium",la:51.20389,ln:4.38750,w:"Het nieuwe gerechtsgebouw van Richard Rogers (2006), met zes puntdaken die van bovenaf op vlindervleugels lijken — vandaar de bijnaam 'Vlinderpaleis'. Poort tot de stad vanuit het zuiden en een architectuurhoogtepunt van 21ste-eeuws België.",k:"Richard Rogers' vlindergerechtsgebouw",g:["ARCH","ICON","NIGHT"],s:[["VRT","https://www.vrt.be/vrtnws/nl/2021/12/19/architect-vlinderpaleis-antwerpen-overleden/"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Gerechtsgebouw_(Antwerpen)"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/207950"]]},
+{t:2,a:"ANT",n:"Park Spoor Noord",ad:"Ellermanstraat, 2060 Antwerpen, Belgium",la:51.22970,ln:4.41350,w:"Populair stadspark (17 ha) op het voormalige NMBS-spoorwegemplacement 'Antwerpen-Dam', geopend in 2008. Speeltuinen, waterfonteinen, een skatepark en fiets- en wandelroutes verbinden de wijken Dam, Stuivenberg en Seefhoek; twee beschermde watertorens bleven bewaard.",k:"spoorwegemplacement → stadspark",g:["PARK","FREE","MKT","NIGHT"],s:[["ANTWERPENBE","https://www.antwerpen.be/nl/overzicht/district-antwerpen-1/groen/park-spoor-noord"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Park_Spoor_Noord"]]},
+{t:2,a:"ANT",n:"Felixarchief (Sint-Felixpakhuis)",ad:"Oudeleeuwenrui 29, 2000 Antwerpen, Belgium",la:51.22750,ln:4.40806,w:"Het stadsarchief van Antwerpen in het imposante 19de-eeuwse Sint-Felixpakhuis op het Eilandje (sinds 2006), met een overdekte, art-deco-glaskap over de binnenstraat. Meer dan dertig kilometer archief; gratis toegankelijk en met rondleidingen.",k:"art-decopakhuis + stadsarchief",g:["ARCH","HIST","FREE","MUS"],s:[["ANTWERPENBE","https://www.antwerpen.be/info/54eb3767cda8a7fe2e8b4b3b/felixarchief-stadsarchief"],["OKV","https://www.okv.be/museum/felixpakhuis-stadsarchief-antwerpen"]]},
+{t:2,a:"ANT",n:"AMUZ — Sint-Augustinuskerk",ad:"Kammenstraat 81, 2000 Antwerpen, Belgium",la:51.21630,ln:4.40170,w:"De barokke Sint-Augustinuskerk (ontworpen door Wenceslas Cobergher) is sinds 2006 concertzaal AMUZ, een internationaal centrum voor oude en klassieke muziek met sublieme akoestiek en het jaarlijkse festival Laus Polyphoniae.",k:"barokke kerk → concertzaal oude muziek",g:["ARCH","HIST","ICON","NIGHT"],s:[["PARCUM","https://www.parcum.be/nl/herbestemming-kerken/amuz-augustinus-muziekcentrum"],["AMUZ","https://amuz.be/en/amuz/"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Augustinuskerk_(Antwerpen)"]]},
+{t:2,a:"ANT",n:"Chinatown & Chinese Poort",ad:"Van Wesenbekestraat, 2060 Antwerpen, Belgium",la:51.21917,ln:4.42070,w:"De enige officieel erkende Chinatown van België (sinds 2001), rond de Van Wesenbekestraat bij het Centraal Station. Aan de zuidkant staat sinds 2010 een rijk versierde Chinese pagodepoort (paifang); de buurt is een pan-Aziatisch straatbeeld van restaurants en winkels.",k:"enige erkende Chinatown van België",g:["HIST","ICON","FREE","NIGHT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Van_Wesenbekestraat"],["APEN","https://apen.be/chinatown/1919"]]},
+{t:2,a:"ANT",n:"Stadspark",ad:"Rubenslei / Van Eycklei, 2018 Antwerpen, Belgium",la:51.21350,ln:4.41580,w:"Het bekendste park van Antwerpen (11 ha), in 1869 door landschapsarchitect Eduard Keilig aangelegd op de ontmantelde Spaanse vestingwerken. Romantische vijver, muziekkiosk en de restanten van de Promenade de Longchamps herinneren aan de oude wallen.",k:"romantisch park op oude vestingen",g:["PARK","HIST","FREE"],s:[["ANTWERPENBE","https://www.antwerpen.be/info/52d5051e39d8a6ec798b4780/stadspark"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Stadspark_(Antwerpen)"]]},
+{t:3,a:"ANT",n:"Sint-Annastrand (Sint-Anneke)",ad:"Beatrijslaan, 2050 Antwerpen, Belgium",la:51.23518,ln:4.39229,w:"Het Scheldestrand van Antwerpen op Linkeroever (Sint-Anneke), ontstaan door opspuiting bij de aanleg van de voetgangerstunnel. Geliefd zomers recreatiegebied om te zonnen, met de zomerbar De Plage en zicht op de skyline over de Schelde.",k:"Scheldestrand op Linkeroever",g:["PARK","FREE","CANAL","NIGHT"],s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Sint-Annastrand"],["VRT","https://www.vrt.be/vrtnws/nl/2026/04/14/sint-annastrand-op-linkeroever-krijgt-extra-laag-zand-voor-de-zo/"]]}
+];
+
+const FS = {
+  "ALLABOUTBEER":{k:"ALLABOUTBEER",t:"All About Beer (bierjournalistiek)",u:"https://allaboutbeer.com",l:"All About Beer (bierjournalistiek)"},
+  "ANTWERPENTOERISME":{k:"ANTWERPENTOERISME",t:"Antwerpen Toerisme (NL)",u:"https://www.antwerpentoerisme.nl",l:"Antwerpen Toerisme (NL)"},
+  "APEN":{k:"APEN",t:"Apen.be — cultuur- en stadsgids Antwerpen",u:"https://apen.be",l:"Apen.be — cultuur- en stadsgids Antwerpen"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BIENSOIGNE":{k:"BIENSOIGNE",t:"Restaurant Bien Soigné (officiële site)",u:"https://bien-soigne.be",l:"Restaurant Bien Soigné (officiële site)"},
+  "BIERSCHRIJVER":{k:"BIERSCHRIJVER",t:"De Bierschrijver (bierjournalistiek)",u:"https://www.bierschrijver.nl",l:"De Bierschrijver (bierjournalistiek)"},
+  "BIZIELIZIE":{k:"BIZIELIZIE",t:"Brasserie Bizie Lizie (officiële site)",u:"https://bizielizie.be",l:"Brasserie Bizie Lizie (officiële site)"},
+  "BRUSSELSTIMES":{k:"THE BRUSSELS TIMES",t:"The Brussels Times",u:"https://www.brusselstimes.com",l:"The Brussels Times"},
+  "DEKONINCK":{k:"DE KONINCK",t:"Brouwerij De Koninck / Antwerp City Brewery (officieel)",u:"https://www.dekoninck.be",l:"Brouwerij De Koninck / Antwerp City Brewery (officieel)"},
+  "DELREY":{k:"DELREY",t:"DelReY Antwerpen (officieel; Relais Desserts-lid)",u:"https://www.delrey.be",l:"DelReY Antwerpen (officieel; Relais Desserts-lid)"},
+  "ELLE":{k:"ELLE",t:"ELLE België",u:"https://www.elle.be",l:"ELLE België"},
+  "EUROPEANBARGUIDE":{k:"EUROPEANBARGUIDE",t:"The European Bar Guide",u:"https://theeuropeanbarguide.com",l:"The European Bar Guide"},
+  "EUROPEANCOFFEE":{k:"EUROPEANCOFFEE",t:"European Coffee Trip",u:"https://europeancoffeetrip.com",l:"European Coffee Trip"},
+  "FEELING":{k:"FEELING",t:"Feeling / Feeling Food (Roularta)",u:"https://www.feeling.be",l:"Feeling / Feeling Food (Roularta)"},
+  "GAULTMILLAU":{k:"GAULT&MILLAU",t:"Gault&Millau België",u:"https://www.gaultmillau.be",l:"Gault&Millau België"},
+  "GRAANMARKT13":{k:"GRAANMARKT13",t:"Graanmarkt 13 (officieel)",u:"https://www.graanmarkt13.com",l:"Graanmarkt 13 (officieel)"},
+  "HETANKER":{k:"HETANKER",t:"Brouwerij Het Anker (officieel)",u:"https://www.hetanker.be",l:"Brouwerij Het Anker (officieel)"},
+  "HISTORIEK":{k:"HISTORIEK",t:"Historiek — online geschiedenismagazine",u:"https://historiek.net",l:"Historiek — online geschiedenismagazine"},
+  "HOFFYS":{k:"HOFFYS",t:"Hoffy's (officieel)",u:"https://hoffys.be",l:"Hoffy's (officieel)"},
+  "JANMAG":{k:"JANMAG",t:"JAN Magazine",u:"https://www.jan-magazine.nl",l:"JAN Magazine"},
+  "KEMPENSKARAKTER":{k:"KEMPENSKARAKTER",t:"Kempens Karakter (erfgoedorganisatie)",u:"https://www.kempenskarakter.be",l:"Kempens Karakter (erfgoedorganisatie)"},
+  "KLEINBLATT":{k:"KLEINBLATT",t:"Kleinblatt (officieel, koosjere bakkerij)",u:"https://www.kleinblatt.be",l:"Kleinblatt (officieel, koosjere bakkerij)"},
+  "KNACK":{k:"KNACK",t:"Knack Weekend",u:"https://weekend.knack.be",l:"Knack Weekend"},
+  "KOMMILFOO":{k:"KOMMILFOO",t:"Restaurant Kommilfoo (officiële site)",u:"https://www.restaurantkommilfoo.be",l:"Restaurant Kommilfoo (officiële site)"},
+  "LEFOODING":{k:"LEFOODING",t:"Le Fooding",u:"https://lefooding.com",l:"Le Fooding"},
+  "MADEIN":{k:"MADEIN",t:"Made in (regionale nieuwssite, o.a. Mechelen/Antwerpen)",u:"https://www.made-in.be",l:"Made in (regionale nieuwssite, o.a. Mechelen/Antwerpen)"},
+  "MEETINMECHELEN":{k:"MEETINMECHELEN",t:"Meet in Mechelen (Stad Mechelen)",u:"https://meetin.mechelen.be",l:"Meet in Mechelen (Stad Mechelen)"},
+  "MICHELIN":{k:"MICHELIN",t:"Michelin Gids België & Luxemburg",u:"https://guide.michelin.com",l:"Michelin Gids België & Luxemburg"},
+  "NJAM":{k:"NJAM",t:"njam! (Vlaamse culinaire zender)",u:"https://njam.tv",l:"njam! (Vlaamse culinaire zender)"},
+  "OLIVEMAG":{k:"OLIVEMAG",t:"Olive Magazine (UK)",u:"https://www.olivemagazine.com",l:"Olive Magazine (UK)"},
+  "ONROERENDERFGOED":{k:"ONROERENDERFGOED",t:"Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",u:"https://inventaris.onroerenderfgoed.be",l:"Agentschap Onroerend Erfgoed (inventaris Vlaanderen)"},
+  "OTOMAT":{k:"OTOMAT",t:"Otomat (restaurant, officiële site)",u:"https://otomat.be",l:"Otomat (restaurant, officiële site)"},
+  "SEEF":{k:"SEEF",t:"Antwerpse Brouw Compagnie / Seef (officieel)",u:"https://seef.be",l:"Antwerpse Brouw Compagnie / Seef (officieel)"},
+  "STREEKPRODUCT":{k:"STREEKPRODUCT",t:"Streekproduct.be (VLAM — Vlaamse streekproducten)",u:"https://www.streekproduct.be",l:"Streekproduct.be (VLAM — Vlaamse streekproducten)"},
+  "TIMETOMOMO":{k:"TIMETOMOMO",t:"Time to Momo (stadsgidsen)",u:"https://www.timetomomo.com",l:"Time to Momo (stadsgidsen)"},
+  "VISITANTWERPEN":{k:"VISIT ANTWERPEN",t:"Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",u:"https://visit.antwerpen.be",l:"Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be"},
+  "VISITLIER":{k:"VISITLIER",t:"Visit Lier (officiële toerisme)",u:"https://www.visitlier.be",l:"Visit Lier (officiële toerisme)"},
+  "VISITMECHELEN":{k:"VISITMECHELEN",t:"Visit Mechelen / Meet in Mechelen (officiële toerisme)",u:"https://visit.mechelen.be",l:"Visit Mechelen / Meet in Mechelen (officiële toerisme)"},
+  "VRT":{k:"VRT NWS",t:"VRT NWS",u:"https://www.vrt.be/vrtnws",l:"VRT NWS"},
+  "W50BEST":{k:"W50BEST",t:"The World's 50 Best — Discovery",u:"https://www.theworlds50best.com/discovery",l:"The World's 50 Best — Discovery"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (EN)",u:"https://en.wikipedia.org",l:"Wikipedia (EN)"},
+  "WIKIPEDIANL":{k:"WIKIPEDIANL",t:"Wikipedia (NL)",u:"https://nl.wikipedia.org",l:"Wikipedia (NL)"}
+};
+
+const CUISINES = [
+  {id:"BEL",n:"Belgian & Flemish"},
+  {id:"FR",n:"French & Brasserie"},
+  {id:"BEER",n:"Beer & Breweries"},
+  {id:"SWEET",n:"Chocolate, Waffles & Sweets"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"CAFE",n:"Café & Brown Café"},
+  {id:"SEA",n:"North Sea & Seafood"},
+  {id:"VEG",n:"Vegetarian & Vegan"},
+  {id:"INT",n:"International & Student"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Belfries & Castles"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"CANAL",n:"Canals & Waterfront"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"ANT",n:"De Koninck — Antwerp City Brewery",ad:"Mechelsesteenweg 291, 2018 Antwerpen, Belgium",cz:["BEER"],la:51.19929,ln:4.41515,w:"Het bijna 200 jaar oude stadsbrouwerij achter het 'Bolleke', hét bier van Antwerpen sinds 1952, geserveerd in het typische bolvormige glas. De oude gebouwen herbergen een interactieve brouwerijbeleving met proeverij.",s:[["DEKONINCK","https://www.dekoninck.be/en/beers/bolleke"],["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Brouwerij_De_Koninck"]]},
+{t:2,a:"ANT",n:"Kulminator — CLOSED",ad:"Vleminckveld 32, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.21449,ln:4.40338,w:"Legendarisch biercafé/'biertempel' met een kelder vol gerijpte flessen die decennia teruggingen — door RateBeer ooit tot beste café ter wereld gekroond. Uitbaters Dirk en Leen sloten de zaak definitief in april 2026 (leeftijd). Blijft opgenomen, gemarkeerd als gesloten.",closed:1,s:[["BIERSCHRIJVER","https://www.bierschrijver.nl/2021/11/21/cafe-kulminator-bier-tijdreis-in-antwerpen/"],["APEN","https://apen.be/cafe-kulminator-antwerpen"]]},
+{t:1,a:"ANT",n:"Billie's Bier Kafétaria",ad:"Kammenstraat 12, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.21842,ln:4.40028,w:"Compact hoekcafé in de Kammenstraat dat op korte tijd tot de beste bieradressen van de stad ging horen: elf wisselende tapkranen met gastbieren en meer dan tweehonderd flessen en blikken.",s:[["ALLABOUTBEER","https://allaboutbeer.com/article/rediscovering-antwerp/"],["BIERSCHRIJVER","https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"]]},
+{t:2,a:"ANT",n:"'t Waagstuk",ad:"Stadswaag 20, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.22380,ln:4.40685,w:"Gerenommeerd biercafé aan de studentikoze Stadswaag met een indrukwekkende kaart Belgische speciaalbieren en een gezellig terras — een klassieker onder de Antwerpse bierkroegen.",s:[["BIERSCHRIJVER","https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"],["ALLABOUTBEER","https://allaboutbeer.com/article/rediscovering-antwerp/"]]},
+{t:2,a:"ANT",n:"'t Paters Vaetje",ad:"Blauwmoezelstraat 1, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.22064,ln:4.40053,w:"Historisch biercafé in de schaduw van de kathedraal, dat zichzelf 'bierhemel op aarde' noemt: een kaart van zo'n honderd bieren, van De Koninck over Trappisten tot geuzes.",s:[["VISITANTWERPEN","https://visit.antwerpen.be/en/have-fun-with-belgian-beer"],["BIERSCHRIJVER","https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"]]},
+{t:2,a:"ANT",n:"Oud Arsenaal",ad:"Maria Pijpelincxstraat 4, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.21625,ln:4.40907,w:"Authentiek, tijdloos volkscafé nabij het Centraal Station, geliefd bij bierliefhebbers om zijn eerlijke prijzen en klassieke Antwerpse cafésfeer.",s:[["BIERSCHRIJVER","https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"],["ALLABOUTBEER","https://allaboutbeer.com/article/rediscovering-antwerp/"]]},
+{t:1,a:"ANT",n:"Den Engel",ad:"Grote Markt 3, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.22150,ln:4.39964,w:"Kwintessentieel bruin volkscafé op de Grote Markt, naast het stadhuis, in een van de oudste bewaarde panden van de stad. Al generaties dé plek voor een bolleke — 'meer politiek beslist dan in het stadhuis'.",g:["MKT"],s:[["VISITANTWERPEN","https://visit.antwerpen.be/en/have-fun-with-belgian-beer"],["EUROPEANBARGUIDE","https://theeuropeanbarguide.com/den-engel-antwerp/"]]},
+{t:2,a:"ANT",n:"De Groote Witte Arend",ad:"Reyndersstraat 18, 2000 Antwerpen, Belgium",cz:["BEER","BEL"],la:51.21920,ln:4.39911,w:"Sfeervol café-restaurant rond een 16de-eeuwse binnenplaats met kapel: een bierkaart met alle Trappisten (behalve Westvleteren), veel geuze en klassieke Vlaamse gerechten.",s:[["BIERSCHRIJVER","https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"],["EUROPEANBARGUIDE","https://theeuropeanbarguide.com"]]},
+{t:2,a:"ANT",n:"Antwerpse Brouw Compagnie (Seef)",ad:"Indiëstraat 21, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.23478,ln:4.41029,w:"De onafhankelijke stadsbrouwerij die het historische Seefbier — eeuwenlang hét Antwerpse volksbier — in 2012 nieuw leven inblies. Café en brouwerij zijn vrij toegankelijk om ter plekke te proeven.",s:[["SEEF","https://seef.be/en/our-story/"],["VISITANTWERPEN","https://visit.antwerpen.be/en/info/experience-seef-in-the-antwerp-brewing-company"]]},
+{t:2,a:"ANT",n:"Stokerij De Beukelaer — Elixir d'Anvers",ad:"Haantjeslei 132, 2018 Antwerpen, Belgium",cz:["BEER"],la:51.20110,ln:4.40250,w:"Sinds 1863 stookt de familie De Beukelaer in het hart van Antwerpen de goudgele kruidenlikeur Elixir d'Anvers, op basis van tientallen planten, kruiden en saffraan — een echt Antwerps streekproduct.",s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Stokerij_De_Beukelaer"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/6829"]]},
+{t:1,a:"ANT",n:"Philip's Biscuits",ad:"Korte Gasthuisstraat 11, 2000 Antwerpen, Belgium",cz:["SWEET"],la:51.21670,ln:4.40460,w:"De maker van de authentieke Antwerpse handjes — amandelkoekjes in de vorm van een hand, verwijzend naar de Brabo-legende. Hét symboolzoetje van de stad, ook in blik als souvenir.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Antwerp_hands"],["ELLE","https://www.elle.be/nl/312318-10-hotspots-voor-zoetekauwen-in-antwerpen.html"]]},
+{t:2,a:"ANT",n:"Bakkerij Goossens",ad:"Korte Gasthuisstraat 31, 2000 Antwerpen, Belgium",cz:["SWEET"],la:51.21666,ln:4.40456,w:"Kleine familiebakkerij (meer dan een eeuw oud) in het hart van de stad, geliefd om haar rozijnenbrood en suikerbrood; het volledig chocoladen Antwerps handje werd in 2008 als Antwerps streekproduct erkend.",s:[["FEELING","https://www.feeling.be/lifestyle/food/van-bio-tot-zuurdesem-6-x-artisanale-bakkers-in-antwerpen/"],["ELLE","https://www.elle.be/nl/169186-10-lekkerste-bakkers-antwerpen.html"]]},
+{t:2,a:"ANT",n:"DelReY",ad:"Appelmansstraat 5, 2018 Antwerpen, Belgium",cz:["SWEET","CAFE"],la:51.21708,ln:4.41748,w:"Wereldberoemd chocolatier-patissier (sinds 1949) in de Diamantwijk, lid van Relais Desserts en bij de honderd beste patisseries ter wereld gerekend — pralines, taarten en een chocoladelounge.",s:[["DELREY","https://www.delrey.be/en"],["VISITANTWERPEN","https://press.visitantwerpen.be/culinary-hotspot"]]},
+{t:1,a:"ANT",n:"Désiré de Lille",ad:"Schrijnwerkersstraat 16, 2000 Antwerpen, Belgium",cz:["SWEET","CAFE"],la:51.21769,ln:4.40375,w:"Tearoom en wafelhuis sinds 1903, beroemd om de knapperige lacquemants (met siroop gevulde wafel) en smoutebollen — een Antwerpse zoete instelling. Tijdens verbouwing te vinden in een pop-up op de Suikerrui.",s:[["MADEIN","https://www.made-in.be/antwerpen/wafelhuis-desire-de-lille-viert-120ste-verjaardag-onze-lacquemants-zijn-nog-steeds-razend-populair/"],["ELLE","https://www.elle.be/nl/312318-10-hotspots-voor-zoetekauwen-in-antwerpen.html"]]},
+{t:2,a:"ANT",n:"Domestic",ad:"Steenbokstraat 37, 2018 Antwerpen, Belgium",cz:["SWEET","CAFE"],la:51.20641,ln:4.42655,w:"Ambachtelijke bakkerij-cuisinette, ontstaan als verlengstuk van sterrenrestaurant Dôme, met dikkorstig brood, brioche, gebak en een geliefde brunch/high tea.",s:[["FEELING","https://www.feeling.be/lifestyle/food/van-bio-tot-zuurdesem-6-x-artisanale-bakkers-in-antwerpen/"],["ELLE","https://www.elle.be/nl/169186-10-lekkerste-bakkers-antwerpen.html"]]},
+{t:1,a:"ANT",n:"Caffènation",ad:"Mechelsesteenweg 16, 2000 Antwerpen, Belgium",cz:["CAFE"],la:51.21148,ln:4.40745,w:"Pionier van de Antwerpse specialty-coffeegolf, met eigen branderij die half bierland van bonen voorziet; meerdere bars, waaronder de duurzame PAKT-site met daktuinen.",s:[["EUROPEANCOFFEE","https://europeancoffeetrip.com/cafe/caffenation-antwerp/"],["LEFOODING","https://lefooding.com/en/shops/caffenation"]]},
+{t:2,a:"ANT",n:"Normo",ad:"Minderbroedersrui 30, 2000 Antwerpen, Belgium",cz:["CAFE"],la:51.22245,ln:4.40419,w:"Gevestigde naam met een licht grungy interieur en een eigen microbranderij (barista Jens Oris) waarvan veel andere Antwerpse zaken hun bonen betrekken.",s:[["ELLE","https://www.elle.be/nl/110772-beste-koffiebars-in-antwerpen.html"],["EUROPEANCOFFEE","https://europeancoffeetrip.com/"]]},
+{t:1,a:"ANT",n:"Zilte",ad:"Hanzestedenplaats 5, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.22900,ln:4.40475,w:"Het driesterrenrestaurant van chef Viki Geunes op de bovenverdieping van het MAS, met uitzicht over stad en Schelde — het culinaire vlaggenschip van Antwerpen.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/t-zilte"],["VISITANTWERPEN","https://visit.antwerpen.be/en/starred-restaurants-in-antwerp"]]},
+{t:1,a:"ANT",n:"The Jane",ad:"Paradeplein 1, 2018 Antwerpen, Belgium",cz:["FINE"],la:51.20237,ln:4.42343,w:"Chef Nick Bril kookt in een omgebouwde militaire kapel in het Groen Kwartier, waar design en muziek centraal staan; in 2026 bekroond met een tweede Michelinster.",s:[["MICHELIN","https://guide.michelin.com/en/antwerpen/be-antwerpen/restaurant/the-jane-1244485"],["VISITANTWERPEN","https://visit.antwerpen.be/en/starred-restaurants-in-antwerp"]]},
+{t:2,a:"ANT",n:"Le Pristine",ad:"Kammenstraat 40, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.21720,ln:4.40090,w:"Sterchef Sergio Herman haalde met Le Pristine in de modewijk al na zes maanden een Michelinster; Italiaans-mediterraan geïnspireerd, met een sfeervolle café-ruimte.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/le-pristine"],["VISITANTWERPEN","https://press.visitantwerpen.be/culinary-hotspot"]]},
+{t:2,a:"ANT",n:"Bar Bulot",ad:"Leopoldstraat 26, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.21370,ln:4.40560,w:"Het tweede adres van Gert De Mangeleer en Joachim Boudens, in de Botanic Sanctuary: tijdloze brasserieklassiekers op sterrenniveau in een ontspannen kader.",s:[["MICHELIN","https://guide.michelin.com/be/nl/antwerpen/be-antwerpen/restaurant/bar-bulot-at-botanic"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:2,a:"ANT",n:"'t Fornuis",ad:"Reyndersstraat 24, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.21899,ln:4.39943,w:"Instituut van chef Johan Segers dat al sinds 1986 een Michelinster draagt: klassieke Frans-Belgische keuken in een historisch pand in het Sint-Andrieskwartier.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/t-fornuis"],["WIKIPEDIA","https://en.wikipedia.org/wiki/'t_Fornuis"]]},
+{t:1,a:"ANT",n:"Het Gebaar",ad:"Leopoldstraat 24, 2000 Antwerpen, Belgium",cz:["FINE","SWEET"],la:51.21397,ln:4.40711,w:"Het sterrenrestaurant van patissier Roger van Damme aan de rand van de Kruidtuin, wereldberoemd om zijn spectaculaire desserts — enkel lunch, reserveren lang op voorhand.",s:[["MICHELIN","https://guide.michelin.com/en/antwerpen/be-antwerpen/restaurant/het-gebaar"],["VISITANTWERPEN","https://press.visitantwerpen.be/culinary-hotspot"]]},
+{t:2,a:"ANT",n:"Nathan",ad:"Lange Koepoortstraat 13, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.22318,ln:4.40280,w:"Eensterrenrestaurant in de oude stad, waar chef Nathan Van Echelpoel een moderne Franse keuken met Aziatische invloeden brengt.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/nathan"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/nathan-antwerpen"]]},
+{t:2,a:"ANT",n:"Dôme",ad:"Grote Hondstraat 2, 2018 Antwerpen, Belgium",cz:["FINE"],la:51.20598,ln:4.42703,w:"Elegant sterrenrestaurant onder een koepel in Zurenborg, met een klassieke Frans-Belgische keuken; broer van visbistro Dôme sur Mer en bakkerij Domestic.",s:[["MICHELIN","https://guide.michelin.com"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/dome-antwerpen"]]},
+{t:2,a:"ANT",n:"Graanmarkt 13",ad:"Graanmarkt 13, 2000 Antwerpen, Belgium",cz:["BEL","FINE"],la:51.21598,ln:4.40876,w:"Restaurant, high-end conceptstore en appartement ineen, met een groentegedreven seizoenskeuken van chef Jan Keuppens — een gevestigde waarde in de Antwerpse fine dining.",g:["MKT"],s:[["GAULTMILLAU","https://be.gaultmillau.com/restaurants/graanmarkt-13"],["GRAANMARKT13","https://www.graanmarkt13.com/"]]},
+{t:2,a:"ANT",n:"Bourla",ad:"Graanmarkt 7, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21611,ln:4.40832,w:"Elegant grand café achter de neoklassieke Bourlaschouwburg: rood leer, marmeren tafels en Belgische klassiekers als mosselen, Vlaamse stoverij en tomaat-garnaal, met terras aan de Graanmarkt.",g:["MKT"],s:[["W50BEST","https://www.theworlds50best.com/discovery/Establishments/Belgium/Antwerp/Bourla.html"],["APEN","https://apen.be/bourla-brasserie-restaurant-antwerpen"]]},
+{t:2,a:"ANT",n:"Ciro's",ad:"Amerikalei 6, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.20911,ln:4.40214,w:"'Het meest Antwerpse restaurant van Antwerpen' aan de Amerikalei — sinds 1962 nagenoeg onveranderd, met een eerlijke burgerkeuken vol stadsklassiekers.",s:[["VISITANTWERPEN","https://press.visitantwerpen.be/culinary-hotspot"],["OLIVEMAG","https://www.olivemagazine.com/travel/europe/weekend-guide-to-antwerp-belgium-where-to-eat-and-drink/"]]},
+{t:2,a:"ANT",n:"Fiskebar",ad:"Marnixplaats 11, 2000 Antwerpen, Belgium",cz:["FR","BEL"],la:51.21007,ln:4.39727,w:"Geliefd visrestaurant op de Marnixplaats in Het Zuid, half woonkamer half bistro, met een uitgebreide kaart verse, duurzame vis en zeevruchten — van oesters tot gegrilde octopus.",s:[["OLIVEMAG","https://www.olivemagazine.com/travel/europe/weekend-guide-to-antwerp-belgium-where-to-eat-and-drink/"],["VISITANTWERPEN","https://press.visitantwerpen.be/culinary-hotspot"]]},
+{t:2,a:"ANT",n:"Dôme sur Mer",ad:"Arendstraat 1, 2018 Antwerpen, Belgium",cz:["FR","BEL"],la:51.20637,ln:4.42662,w:"Populaire visbistro in Zurenborg (broer van sterrenrestaurant Dôme), met een dagverse kaart vis en schaaldieren; Gault&Millau 13,5/20.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/dome-sur-mer-antwerpen"],["APEN","https://apen.be"]]},
+{t:2,a:"ANT",n:"Het Pomphuis",ad:"Siberiastraat, 2030 Antwerpen, Belgium",cz:["BEL","FR"],la:51.24168,ln:4.40846,w:"Sfeervol grand-caférestaurant in een gerestaureerd oud pomphuis bij het Havenhuis, met terras aan de dokken en Frans-Belgische klassiekers als côte à l'os en kreeftstoofpot.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/het-pomphuis-antwerpen"],["APEN","https://apen.be"]]},
+{t:3,a:"ANT",n:"Pazzo",ad:"Oudeleeuwenrui 12, 2000 Antwerpen, Belgium",cz:["FR","BEL"],la:51.22675,ln:4.40653,w:"Al jaren populaire bistro op het Eilandje met een mediterraan-Italiaans getinte keuken en een sterke wijnkaart; Gault&Millau 13,5/20.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/pazzo-antwerpen"],["APEN","https://apen.be"]]},
+{t:2,a:"ANT",n:"De Broers van Julienne",ad:"Kasteelpleinstraat 45-47, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21035,ln:4.40206,w:"Instituut voor vegetarisch en biologisch eten (sinds 1994) in een fraai pand met tuin, met een Frans-mediterraan geïnspireerde kaart en veel vegan opties.",s:[["TIMETOMOMO","https://www.timetomomo.com/nl/top-zeven-de-beste-vegetarische-restaurants-in-antwerpen/"],["APEN","https://apen.be/De-broers-van-Julienne-biologisch-vegetarisch-restaurant-antwerpen"]]},
+{t:1,a:"ANT",n:"Hoffy's",ad:"Lange Kievitstraat 52, 2018 Antwerpen, Belgium",cz:["BEL"],la:51.21288,ln:4.42003,w:"Gerenommeerd koosjer restaurant in de Joodse buurt, gerund door de gebroeders Hoffman, met traditioneel-Jiddische keuken (vis, vlees, vegetarisch). Gesloten op vrijdagnamiddag en zaterdag (sjabbat).",s:[["HOFFYS","https://hoffys.be/"],["FEELING","https://www.feeling.be"]]},
+{t:2,a:"ANT",n:"Kleinblatt",ad:"Provinciestraat 206, 2018 Antwerpen, Belgium",cz:["SWEET"],la:51.21148,ln:4.42593,w:"Beroemde koosjere bakkerij (tot ver buiten de landsgrenzen), met een breed aanbod broden, challe, hartig en zoet gebak — een instituut van Joods Antwerpen.",s:[["KLEINBLATT","https://www.kleinblatt.be/kosher/"],["FEELING","https://www.feeling.be"]]},
+{t:2,a:"ANT",n:"Fong Mei",ad:"Van Wesenbekestraat, 2060 Antwerpen, Belgium",cz:["BEL"],la:51.22103,ln:4.41972,w:"Dim-sum-adres in de Antwerpse Chinatown (Van Wesenbekestraat), al jaren geroemd om zijn versgemaakte dim sum — door velen als de beste van de stad beschouwd.",s:[["FEELING","https://www.feeling.be/cityguide/be/antwerpen/eten-drinken-antwerpen/de-beste-chinese-restaurants-in-antwerpen/"],["APEN","https://apen.be"]]},
+{t:2,a:"ANT",n:"Oriental Delight — CLOSED",ad:"Van Wesenbekestraat 21, 2060 Antwerpen, Belgium",cz:["BEL"],la:51.21970,ln:4.42080,w:"Ruime klassieker in Chinatown met een enorme kaart (400+ gerechten) van dim sum tot Kantonese specialiteiten; werd door Gault&Millau ooit tot Aziatisch restaurant van het jaar (2008) verkozen.",closed:1,s:[["GAULTMILLAU","https://www.gaultmillau.be"],["FEELING","https://www.feeling.be/cityguide/be/antwerpen/eten-drinken-antwerpen/de-beste-chinese-restaurants-in-antwerpen/"]]},
+{t:3,a:"ANT",n:"Lung Wah",ad:"Van Wesenbekestraat 39, 2060 Antwerpen, Belgium",cz:["BEL"],la:51.22022,ln:4.42103,w:"Onopvallend maar hooggewaardeerd Kantonees adres in Chinatown, waar chef Chan en zijn vrouw kwaliteit boven decor stellen — een favoriet van kenners.",s:[["FEELING","https://www.feeling.be/cityguide/be/antwerpen/eten-drinken-antwerpen/de-beste-chinese-restaurants-in-antwerpen/"],["APEN","https://apen.be"]]},
+{t:2,a:"ANT",n:"Frites Atelier",ad:"Korte Gasthuisstraat 32, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21670,ln:4.40435,w:"Het frietconcept van sterchef Sergio Herman: krokante frietjes met zeekraalzout en zelf ontwikkelde sauzen, pal tegenover bakkerij Goossens in de autovrije Korte Gasthuisstraat.",s:[["NJAM","https://njam.tv/blog/frites-atelier-van-sergio-herman-opent-in-antwerpen"],["VISITANTWERPEN","https://press.visitantwerpen.be/culinary-hotspot"]]},
+{t:3,a:"ANT",n:"Balls & Glory",ad:"Theaterplein, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21534,ln:4.40939,w:"Het balletjesconcept van tv-chef Wim Ballieu: ambachtelijke Vlaamse gehaktballen met een verrassende vulling, geserveerd met stoemp en seizoensgroenten.",s:[["WIKIPEDIANL","https://nl.wikipedia.org/wiki/Wim_Ballieu"],["JANMAG","https://www.jan-magazine.nl"]]},
+{t:2,a:"ANT",n:"Dogma Cocktails",ad:"Wijngaardstraat 5, 2000 Antwerpen, Belgium",cz:["CAFE"],la:51.22118,ln:4.40295,w:"Speakeasy-achtige cocktailbar waar barman Didier Van den Broeck vernieuwende drinks met bijzondere ingrediënten maakt; in 2020 tot beste cocktailbar van Europa verkozen.",s:[["W50BEST","https://www.theworlds50best.com/discovery/Establishments/Belgium/Antwerp/Dogma-Cocktails.html"],["ELLE","https://www.elle.be/nl/345953-cocktail-guide-beste-cocktailbars-antwerpen.html"]]},
+{t:3,a:"ANT",n:"Bar Burbure",ad:"Volkstraat, 2000 Antwerpen, Belgium",cz:["CAFE"],la:51.20969,ln:4.39084,w:"Verfijnde cocktail- en wijnbar op het chique Zuid (sinds 2016), met groene tegels en koperwerk, geraffineerde klassieke cocktails, wijnen en zelfs Trappisten.",s:[["ELLE","https://www.elle.be/nl/345953-cocktail-guide-beste-cocktailbars-antwerpen.html"],["JANMAG","https://www.jan-magazine.nl"]]},
+{t:3,a:"ANT",n:"Album",ad:"Gedempte Zuiderdokken, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21191,ln:4.39339,w:"Trendy adres op het Zuid in een voormalige herensociëteit, van Toon Craen (Broer Bretel) en ex-Veranda-souschef Joris Gielen — moderne deelgerechten in een mooi kader.",s:[["FEELING","https://www.feeling.be/lifestyle/food/restaurants-antwerpen-zuid/"],["JANMAG","https://www.jan-magazine.nl/lifestyle/hotspots/a23115945/restaurant-antwerpen-leuke-restaurants/"]]},
+{t:1,a:"ANTR",n:"Brouwerij Het Anker",ad:"Guido Gezellelaan 49, 2800 Mechelen, Belgium",cz:["BEER","BEL"],la:51.03162,ln:4.47283,w:"Een van de oudste brouwerijen van België (wortels tot 1471) in het Groot Begijnhof van Mechelen, met de vermaarde Gouden Carolus (naar Keizer Karel) en een eigen brasserie waar men de Mechelse koekoek met bier serveert.",s:[["HETANKER","https://www.hetanker.be"],["VISITMECHELEN","https://visit.mechelen.be/rondleiding-brouwerij-het-anker"]]},
+{t:1,a:"ANTR",n:"Tinèlle",ad:"Goswin De Stassartstraat 90, 2800 Mechelen, Belgium",cz:["FINE"],la:51.03365,ln:4.48010,w:"Het hoogst genoteerde restaurant van Mechelen: verfijnde Frans-Belgische keuken met een Michelinster en 14,5/20 bij Gault&Millau.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/mechelen/restaurant/tinelle"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/tinelle-mechelen"]]},
+{t:2,a:"ANTR",n:"Graspoort",ad:"Begijnenstraat 28, 2800 Mechelen, Belgium",cz:["FINE","FR"],la:51.02750,ln:4.47675,w:"Sfeervol restaurant in een doodlopend straatje tussen de Vismarkt en de Sint-Romboutskathedraal, waar chef Thibault Van Stratum een klassiek-Franse basis kleurt met Japanse en Latijns-Amerikaanse invloeden.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/graspoort-mechelen"],["MICHELIN","https://guide.michelin.com/us/en/antwerpen/mechelen/restaurant/graspoort"]]},
+{t:2,a:"ANTR",n:"Restaurant Emiel",ad:"Vismarkt 6, 2800 Mechelen, Belgium",cz:["FR"],la:51.02642,ln:4.47701,w:"Chef Bram Simons werkt op de Vismarkt met topvis en schaaldieren, esthetisch verwerkt tot elegante gerechten; 12,5/20 bij Gault&Millau.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/emiel-mechelen"],["MEETINMECHELEN","https://meetin.mechelen.be/emiel"]]},
+{t:2,a:"ANTR",n:"Lesco",ad:"Nauwstraat, 2800 Mechelen, Belgium",cz:["FINE","FR"],la:51.02599,ln:4.47736,w:"Gesmaakt restaurant in de Nauwstraat vlak bij de Vismarkt, met een seizoensgedreven, verfijnde keuken; 13,5/20 bij Gault&Millau.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/lesco-mechelen-mechelen"],["MADEIN","https://www.made-in.be/mechelen/deze-restaurants-in-het-mechelse-scoorden-bij-gaultmilau/"]]},
+{t:2,a:"ANTR",n:"De Gouden Vis",ad:"Nauwstraat 7, 2800 Mechelen, Belgium",cz:["BEER"],la:51.02607,ln:4.47706,w:"Populair art-nouveau bruin café op de trendy Vismarkt met een prachtig terras aan de Dijle, waar je lokaal gebrouwen bieren proeft — een van de gezelligste plekken van Mechelen.",g:["MKT"],s:[["MADEIN","https://www.made-in.be/mechelen/het-dna-van-de-mechelse-vismarkt/"],["VISITMECHELEN","https://visit.mechelen.be"]]},
+{t:3,a:"ANTR",n:"Makadam",ad:"Grote Markt, 2800 Mechelen, Belgium",cz:["BEER"],la:51.02842,ln:4.48059,w:"Populaire bar in het hart van de Grote Markt, bekend om zijn ruime selectie van zo'n 155 Belgische ambachtelijke bieren van grote en kleine brouwerijen.",g:["MKT"],s:[["MADEIN","https://www.made-in.be/mechelen/het-dna-van-de-mechelse-vismarkt/"],["VISITMECHELEN","https://visit.mechelen.be"]]},
+{t:1,a:"ANTR",n:"Soixante",ad:"Guldenvliesstraat 60, 2600 Berchem (Antwerpen), Belgium",cz:["FINE"],la:51.20184,ln:4.43311,w:"Hip, karaktervol restaurant in Berchem, opgenomen in de Michelingids: een creatieve, seizoensgebonden keuken met een zwak voor groenten en zeevruchten en verrassende combinaties.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/berchem/restaurant/soixante"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/soixante-antwerpen-berchem"]]},
+{t:3,a:"ANTR",n:"Somista",ad:"Driekoningenstraat, 2600 Berchem (Antwerpen), Belgium",cz:["CAFE"],la:51.19594,ln:4.42031,w:"Populaire koffiebar in de bruisende Driekoningenstraat die ook wijn en cocktails schenkt — geliefd bij buurtbewoners en jonge bezoekers voor ontbijt, lunch of tapas.",s:[["FEELING","https://www.feeling.be/lifestyle/food/koffie-lunch-apero-in-berchem"],["APEN","https://apen.be"]]},
+{t:3,a:"ANTR",n:"Brel",ad:"Statiestraat, 2600 Berchem (Antwerpen), Belgium",cz:["CAFE"],la:51.19792,ln:4.42519,w:"Trendy, gezellige apérobar in de lange Statiestraat bij station Berchem, met een industrieel interieur — een vaste stop in het opgeleefde Oud-Berchem.",s:[["FEELING","https://www.feeling.be/lifestyle/food/koffie-lunch-apero-in-berchem"],["APEN","https://apen.be"]]},
+{t:1,a:"ANTR",n:"Numerus Clausus",ad:"Keldermansstraat 2, 2500 Lier, Belgium",cz:["FINE","FR"],la:51.13153,ln:4.57610,w:"Wellicht het beste restaurant van Lier: chef Steven Persyn brengt een productgedreven, Frans-klassieke keuken die zowel de Michelingids als Gault&Millau (14/20) bekoort.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/lier/restaurant/numerus-clausus"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:2,a:"ANTR",n:"Brood en Banket Kesselaers",ad:"Lisperstraat 118, 2500 Lier, Belgium",cz:["SWEET"],la:51.13478,ln:4.57137,w:"Lierse bakkerij aangesloten bij de Orde van het Liers Vlaaike, waar je het meer dan 300 jaar oude, Europees erkende (BGA) streekgebak koopt: een kruidig taartje op basis van kandijsiroop en vierkruiden.",s:[["STREEKPRODUCT","https://www.streekproduct.be/producenten/orde-van-het-liers-vlaaike"],["KEMPENSKARAKTER","https://www.kempenskarakter.be/liers-vlaaike/"]]},
+{t:2,a:"ANTR",n:"Caves — het bier van Lier",ad:"Grote Markt, 2500 Lier, Belgium",cz:["BEER"],la:51.13140,ln:4.57050,w:"Caves is het geuze-achtige streekbier van Lier, voor het eerst vermeld in 1688 en in 1976 door de gilde 'De Heren van Lier' terug tot leven gewekt. In principe mag het enkel in Lier (en in de brouwerijcafés van Verhaeghe) worden geschonken — te proeven in de bruine cafés rond de Grote Markt.",g:["MKT"],s:[["VRT","https://www.vrt.be/vrtnws/nl/2026/01/09/caves-lier-bier-koninklijke-gilde-viert-50-jaar/"],["VISITLIER","https://www.visitlier.be/nl/caveswandeling"]]},
+{t:1,a:"ANTR",n:"Komaf",ad:"Schranshoevebaan 35, 2160 Wommelgem, Belgium",cz:["FINE"],la:51.20042,ln:4.50909,w:"Nieuw eensterrenrestaurant (Michelin 2026) in Wommelgem van chef Anthony Stoop: Franse hedendaagse keuken à la minute, met diepe sauzen en verrassende ideeën.",s:[["MICHELIN","https://guide.michelin.com/lt/en/vlaams-gewest/wommelgem_1063155/restaurant/komaf"],["BRUSSELSTIMES","https://www.brusselstimes.com/belgium/2112019/nine-new-restaurants-awarded-michelin-stars-in-belgium"]]},
+{t:1,a:"ANTR",n:"Vintage",ad:"Rijkerooistraat 14, 2550 Kontich, Belgium",cz:["FINE"],la:51.11561,ln:4.43783,w:"Eensterrenrestaurant in Kontich waar de liefde voor uitzonderlijke producten centraal staat: chef Cyril Moulin kookt speels, verfijnd en soms gedurfd, altijd met harmonie van smaken voorop.",s:[["MICHELIN","https://guide.michelin.com/be/nl/antwerpen/kontich/restaurant/vintage"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/vintage-kontich"]]},
+{t:1,a:"ANTR",n:"Bistro Vin d'Où",ad:"Terlinckstraat 2, 2600 Berchem, Belgium",cz:["FR","BEL"],la:51.19612,ln:4.41587,w:"Stijlvol herenhuis met mooie tuin in Berchem, waar een verfijnde bistrokeuken wordt geserveerd; met 15/20 een van de hoogst genoteerde adressen van het district bij Gault&Millau.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/bistro-vin-dou-antwerpen-berchem"]]},
+{t:2,a:"ANTR",n:"Decan",ad:"Prins Boudewijnlaan 20, 2600 Berchem, Belgium",cz:["FR","BEL"],la:51.18073,ln:4.42347,w:"Restaurant in Berchem met een verfijnde keuken die draait rond de bereiding van nobele producten; Gault&Millau 14/20.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/decan-antwerpen-berchem"]]},
+{t:2,a:"ANT",n:"De Vagant — CLOSED",ad:"Reyndersstraat 25, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.21920,ln:4.39920,w:"Legendarisch Antwerps jenevercafé/proeflokaal in het Sint-Andrieskwartier met meer dan tweehonderd jenevers. De zaak sloot definitief op 5 december 2021; de volledige collectie ging naar het Jenevermuseum in Hasselt. Blijft opgenomen, gemarkeerd als gesloten.",closed:1,s:[["VRT","https://www.vrt.be/vrtnws/nl/2021/12/01/jenevercafe-de-vagant-sluit-de-deuren-en-draagt-volledige-collec/"],["APEN","https://apen.be/vagant-antwerpen-jenever"]]},
+{t:2,a:"ANT",n:"Café Beveren",ad:"Vlasmarkt 2, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.21981,ln:4.39644,w:"Tijdloos volkscafé aan de Vlasmarkt, beroemd om zijn beschermd Decap-dansorgel uit 1937 (accordeon, drumstel en saxofoon): gooi een euro in de gleuf en het orgel komt tot leven. Bolleke, jenever en een authentieke, folkloristische sfeer.",g:["MKT"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/cafe-beveren"],["HISTORIEK","https://historiek.net/belgisch-erfgoed-dansorgels-van-decap-en-mortier/163313/"]]},
+{t:2,a:"ANT",n:"Brasserie Appelmans",ad:"Papenstraatje 1, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21982,ln:4.40057,w:"Sfeervolle brasserie in het Papenstraatje pal naast de kathedraal, met smaakvolle Belgische klassiekers (vis, vlees, vegetarisch) en een gekende absintbar voor het aperitief of de afsluiter. Gault&Millau 12/20.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/appelmans-antwerpen"],["APEN","https://apen.be/brasserie-Appelmans-Absinthbar-Antwerpen"]]},
+{t:3,a:"ANT",n:"Otomat",ad:"Van Schoonbekeplein 11, 2000 Antwerpen, Belgium",cz:["INT"],la:51.22735,ln:4.40533,w:"Eerste volwaardige Belgische pizzaconcept, aan de voet van het MAS op het Eilandje: krokant deeg gemaakt met dezelfde gist als Duvel, na drie dagen rijzen, met een uitgebreide bierkaart. De Margherita werd door Gazet van Antwerpen bij de drie beste pizza's van de stad gerekend.",s:[["GAULTMILLAU","https://gaultmillau.be/nl/pop/otomat-antwerpen"],["OTOMAT","https://otomat.be/nl/locations/antwerpen-mas"]]},
+{t:2,a:"ANT",n:"Burie",ad:"Korte Gasthuisstraat 3, 2000 Antwerpen, Belgium",cz:["SWEET"],la:51.21650,ln:4.40410,w:"Familiechocolatier (sinds 1964, nu Lieven Burie) in de winkelwandelstraat, legendarisch om zijn etalage die elke maand een nieuwe grote chocoladecreatie toont — van Pasen en Kerst tot Antwerpse gebouwen. Traditionele Belgische pralines.",s:[["ANTWERPENTOERISME","https://www.antwerpentoerisme.nl/eten-en-drinken/chocolade/burie/"],["APEN","https://apen.be/chocolatier/1064"]]},
+{t:2,a:"ANT",n:"Butchers Coffee",ad:"Generaal Eisenhowerlei 19, 2140 Borgerhout, Belgium",cz:["CAFE"],la:51.21648,ln:4.43605,w:"Op Australische koffiebars geïnspireerd adres waar kwaliteit boven alles gaat: specialty coffee (flat white) en een ambachtelijke brunch. Verhuisde van 't Zuid naar Borgerhout. Door Gault&Millau opgepikt.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/news/monin-mondays-butchers-coffee-antwerp"],["LEFOODING","https://lefooding.com/en/restaurants/butchers-coffee-3"]]},
+{t:3,a:"ANT",n:"Bier Central",ad:"De Keyserlei 25, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.21775,ln:4.41835,w:"Ruime bierbrasserie in jaren-1930-stijl op de De Keyserlei bij het Centraal Station, met meer dan 300 Belgische bieren, 24 tapkranen en typische Vlaamse gerechten als stoemp, stoverij en waterzooi.",s:[["APEN","https://apen.be/bier-central-keyserlei"],["EUROPEANBARGUIDE","https://theeuropeanbarguide.com/bier-central-antwerp/"]]},
+{t:1,a:"ANT",n:"Quinten Matsijs",ad:"Moriaanstraat 17, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.22147,ln:4.40369,w:"Het oudste café van Antwerpen: het pand uit 1565 is sindsdien onafgebroken herberg. Middeleeuwse lambrisering, oude schouw en glas-in-lood; schrijvers als Willem Elsschot en Paul van Ostaijen waren er kind aan huis. Verkozen tot favoriete bruine kroeg van de Antwerpenaren.",s:[["VRT","https://www.vrt.be/vrtnws/nl/2022/11/06/4500-tal-antwerpenaren-stemmen-op-hun-favoriete-bruine-kroeg-ter/"],["APEN","https://apen.be/quinten-matsijs-antwerpen-eetcafe"]]},
+{t:2,a:"ANT",n:"Café Pelikaan",ad:"Melkmarkt 14, 2000 Antwerpen, Belgium",cz:["BEER"],la:51.22060,ln:4.40258,w:"Typisch bruin café aan de Melkmarkt waar zowel locals als toeristen de weg vinden: negen tapkranen (o.a. De Koninck, Westmalle, Rodenbach) tegen eerlijke prijzen en een zomers terras. Een klassieker in de Knack-selectie van Antwerpse bruine cafés.",g:["MKT"],s:[["KNACK","https://weekend.knack.be/lifestyle/culinair/waar-bollekes-naar-meer-smaken-8-bruine-cafes-in-antwerpen/"],["APEN","https://apen.be/bruine-kroeg/3195"]]},
+{t:2,a:"ANT",n:"Bien Soigné",ad:"Kleine Markt 9, 2000 Antwerpen, Belgium",cz:["FR","BEL"],la:51.21526,ln:4.40231,w:"Gastronomisch buurtrestaurant (sinds 2007) aan de Kleine Markt met een verfijnd, puur en origineel marktmenu; de chef werkt met mooie producten en beheerst zijn bereidingen. Gault&Millau 13/20.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/bien-soigne-antwerpen"],["BIENSOIGNE","https://bien-soigne.be/"]]},
+{t:1,a:"ANT",n:"Fine Fleur",ad:"Lange Gasthuisstraat 41b, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.21389,ln:4.40525,w:"Eensterrenrestaurant (Michelin 2026, Gault&Millau 16/20) in het intieme, historische kader van het Botanic Sanctuary-hotel, waar chef Thomas Diepersloot verrast met lichte, gebalanceerde, moderne Franse creaties.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/fine-fleur"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/fine-fleur-antwerpen"]]},
+{t:1,a:"ANT",n:"Kommilfoo",ad:"Vlaamsekaai 17, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.20631,ln:4.38665,w:"Eensterrenrestaurant op de Vlaamse Kaai in Het Zuid, al meer dan vijftien jaar gerund door chef Olivier de Vinck en Inger Blancquaert: hedendaagse gerechten met de nieuwste technieken en een verfijnd, speels seizoensmenu.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/kommilfoo"],["KOMMILFOO","https://www.restaurantkommilfoo.be/"]]},
+{t:2,a:"ANT",n:"Bizie Lizie",ad:"Vlaamse Kaai 16, 2000 Antwerpen, Belgium",cz:["BEL"],la:51.21126,ln:4.39280,w:"Echte Belgische brasserie op de Vlaamse Kaai in Het Zuid met klassiekers als mosselen, steak en paling in 't groen; bekroond met de Michelin Bib Gourmand (goede kwaliteit tegen een faire prijs).",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/bizie-lizie"],["BIZIELIZIE","https://bizielizie.be/"]]},
+{t:1,a:"ANT",n:"Hertog Jan at Botanic",ad:"Lange Gasthuisstraat 51, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.21362,ln:4.40572,w:"Het Antwerpse tweesterrenrestaurant van Gert De Mangeleer en Joachim Boudens in het Botanic Sanctuary, dat na zes maanden twee Michelinsterren behaalde: een Aziatisch geïnspireerde omakase op topniveau.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/hertog-jan-at-botanic"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/hertog-jan-antwerpen"]]},
+{t:2,a:"ANT",n:"The Butcher's Son",ad:"Boomgaardstraat 1, 2018 Antwerpen, Belgium",cz:["FINE"],la:51.19947,ln:4.41598,w:"Eensterrenrestaurant (sinds 2018) van chef Bert-Jan Michielsen, ondergebracht in een foodhal met eigen slagerij en kaaswinkel: traditionele keuken rond vlees en grillgerechten.",s:[["MICHELIN","https://guide.michelin.com/en/antwerpen/be-antwerpen/restaurant/the-butcher-s-son"],["DEKONINCK","https://www.dekoninck.be/en/crafts/the-butchers-son"]]},
+{t:1,a:"ANT",n:"Bloesem",ad:"De Leescorfstraat 8, 2140 Borgerhout, Belgium",cz:["FINE"],la:51.20055,ln:4.44891,w:"Nieuw eensterrenrestaurant (Michelin 2026) in Borgerhout, verscholen achter een garagepoort: chefs Brend Geudens en Nebo Schamp koken moderne gastronomie voor slechts veertien gasten met zicht op de tuin.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/borgerhout/restaurant/bloesem"],["VRT","https://www.vrt.be/vrtnws/nl/2026/05/05/bloesem-michelinster-borgerhout/"]]},
+{t:2,a:"ANT",n:"Pont-Neuf",ad:"Verbindingsdok-Oostkaai 9, 2000 Antwerpen, Belgium",cz:["FINE"],la:51.23050,ln:4.40810,w:"Chic en gezellig eensterrenrestaurant op het Eilandje met een terras aan het dok, waar chef Tommy Bocklandt een uitgesproken voorkeur toont voor Noordzeevis en zeevruchten; Dominique Leroy deelt er haar liefde voor Italiaanse wijnen.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/pont-neuf"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/pont-neuf-antwerpen"]]},
+{t:2,a:"ANT",n:"Bistrot du Nord",ad:"Lange Dijkstraat 36, 2060 Antwerpen, Belgium",cz:["FINE"],la:51.22629,ln:4.41806,w:"Eensterrenrestaurant in de wijk rond het Centraal Station/Stuivenberg, waar chef Michaël Rewers een klassieke Belgische keuken met seizoensproducten brengt in een warm bistrokader.",s:[["MICHELIN","https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/bistrot-du-nord"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/bistrot-du-nord-antwerpen"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('ant_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('ant_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('ant_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('ant_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Antwerp')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {ANT:'#2E6DA4',ANTR:'#C0504D'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([51.1306,4.4531],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Antwerp", 51.2177, 4.4066], ["Around Antwerp", 51.109, 4.4717]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('antwerp-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('antwerp-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('antwerp-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish or beer — a label alone doesn’t qualify. The Antwerp canon: <b>Antwerpse handjes</b> (biscuits &amp; chocolates), a <b>De Koninck Bolleke</b>, moules-frites, frietjes, herring and Mechelse koekoek — with a deep beer-bar bench. <b>Beer &amp; breweries are their own grouped layer.</b> A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in-language and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, Gazet van Antwerpen, De Standaard, Het Nieuwsblad, VRT NWS, Visit Antwerpen, beer authorities and vetted local creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/RateBeer never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 137 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
