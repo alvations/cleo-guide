@@ -38,10 +38,14 @@ CMAP = {
  "Indian":"INT","Thai":"INT","Levantine":"INT","Middle Eastern":"INT","Moroccan":"INT","Congolese":"INT","African":"INT",
  "Student":"INT","Burger":"INT","Frituur":"BEL","Friture":"BEL","Frietjes":"BEL","Fries":"BEL","Chips":"BEL",
 }
+_CUIS_IDS = {c["id"] for c in CUISINES}
 def map_cz(raw):
     out=[]
     for c in raw:
-        i=CMAP.get(c) or CMAP.get(c.strip()) or CMAP.get(c.strip().title())
+        # accept a token that is ALREADY a valid cuisine id (agents emit bare ids like "SEA"/"BEER"),
+        # else map a human label via CMAP (exact / stripped / title-cased).
+        i = (c.strip().upper() if c.strip().upper() in _CUIS_IDS else None) \
+            or CMAP.get(c) or CMAP.get(c.strip()) or CMAP.get(c.strip().title())
         if i and i not in out: out.append(i)
     return out or ["BEL"]
 

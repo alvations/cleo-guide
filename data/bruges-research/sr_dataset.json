@@ -1,0 +1,2823 @@
+{
+ "areas": [
+  {
+   "id": "BRG",
+   "n": "Bruges (Markt & Belfry · Burg · Holy Blood · Groeninge · Béguinage · canals)"
+  },
+  {
+   "id": "BRGR",
+   "n": "Around Bruges (Damme · the coast — Ostend · Knokke · Zeebrugge)"
+  }
+ ],
+ "ac": {
+  "BRG": "#C0504D",
+  "BRGR": "#6A8D3F"
+ },
+ "cuisines": [
+  {
+   "id": "BEL",
+   "n": "Belgian & Flemish"
+  },
+  {
+   "id": "FR",
+   "n": "French & Brasserie"
+  },
+  {
+   "id": "BEER",
+   "n": "Beer & Breweries"
+  },
+  {
+   "id": "SWEET",
+   "n": "Chocolate, Waffles & Sweets"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "CAFE",
+   "n": "Café & Brown Café"
+  },
+  {
+   "id": "SEA",
+   "n": "North Sea & Seafood"
+  },
+  {
+   "id": "VEG",
+   "n": "Vegetarian & Vegan"
+  },
+  {
+   "id": "INT",
+   "n": "International & Student"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARCH",
+   "n": "Churches, Belfries & Castles"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "CANAL",
+   "n": "Canals & Waterfront"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Nature"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Squares"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife & Quarters"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Markt (Grote Markt)",
+   "ad": "Markt, 8000 Brugge, Belgium",
+   "w": "Het kloppend hart van Brugge: een gekasseide plein omzoomd door gildehuizen en overheerst door het Belfort, met de standbeelden van Jan Breydel en Pieter de Coninck in het midden. Alles in de historische stad ligt op tien minuten wandelen.",
+   "k": "Het centrale plein",
+   "g": [
+    "ICON",
+    "HIST",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ANWB",
+     "https://www.anwb.nl"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Belfort van Brugge",
+   "ad": "Markt 7, 8000 Brugge, Belgium",
+   "w": "De 83 meter hoge middeleeuwse belforttoren domineert de skyline sinds 1240; 366 treden voeren naar het beiaardklokkenspel en een panorama over de stad. UNESCO-werelderfgoed als deel van de Belforten van België en Frankrijk.",
+   "k": "83 m, sinds 1240",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "De Burg",
+   "ad": "Burg, 8000 Brugge, Belgium",
+   "w": "Het oudste plein van Brugge en eeuwenlang het bestuurlijke en religieuze hart, met per vierkante meter meer bouwstijlen dan waar ook in België — van gotisch stadhuis tot renaissance Brugse Vrije.",
+   "k": "Het bestuurlijke plein",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Stadhuis van Brugge",
+   "ad": "Burg 12, 8000 Brugge, Belgium",
+   "w": "Een van de oudste stadhuizen van de Lage Landen (1376-1420) met een pronkgevel vol nissen en beelden; binnen de spectaculaire gotische zaal met houten gewelf. Onderdeel van Musea Brugge.",
+   "k": "Gotisch, anno 1376",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Basiliek van het Heilig Bloed",
+   "ad": "Burg 13, 8000 Brugge, Belgium",
+   "w": "Bewaart de reliek van het Heilig Bloed die volgens de overlevering na de kruistochten naar Brugge kwam; de dubbelkapel combineert een sobere romaanse benedenkerk met een rijk versierde bovenkapel. De kapellen zijn gratis toegankelijk.",
+   "k": "De Heilig-Bloedreliek",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Groeningemuseum",
+   "ad": "Dijver 12, 8000 Brugge, Belgium",
+   "w": "Zes eeuwen Vlaamse en Belgische schilderkunst met 's werelds belangrijkste collectie Vlaamse Primitieven — Jan van Eyck, Hans Memling, Gerard David. Het vlaggenschip van Musea Brugge.",
+   "k": "De Vlaamse Primitieven",
+   "g": [
+    "MUS",
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Onze-Lieve-Vrouwekerk (Michelangelo's Madonna)",
+   "ad": "Mariastraat, 8000 Brugge, Belgium",
+   "w": "De bakstenen kerktoren is met 115,5 m een van de hoogste ter wereld; binnen staat de marmeren Madonna met Kind van Michelangelo, vermoedelijk het enige beeld dat Itali tijdens zijn leven verliet.",
+   "k": "Michelangelo in Brugge",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Sint-Janshospitaal & Memlingcollectie",
+   "ad": "Mariastraat 38, 8000 Brugge, Belgium",
+   "w": "Een van de oudst bewaarde ziekenhuisgebouwen van Europa (12de eeuw) met een middeleeuwse ziekenzaal en oude apotheek; huisvest zes meesterwerken van Hans Memling, waaronder het Ursulaschrijn.",
+   "k": "Memling in een 12de-eeuws hospitaal",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Begijnhof Ten Wijngaerde",
+   "ad": "Begijnhof 24-30, 8000 Brugge, Belgium",
+   "w": "Sereen 13de-eeuws begijnhof met witgekalkte huizen rond een boomrijke binnentuin, vandaag bewoond door benedictinessen. UNESCO-werelderfgoed als een van de Vlaamse begijnhoven.",
+   "k": "Wit, stil, UNESCO",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Rozenhoedkaai",
+   "ad": "Rozenhoedkaai, 8000 Brugge, Belgium",
+   "w": "Het meest gefotografeerde plekje van Brugge: waar het Groene- en Dijverrei samenkomen, met het Belfort achter de trapgevels. Beschermd stadsgezicht en klassiek vertrekpunt voor de rondvaart.",
+   "k": "De iconische reienhoek",
+   "g": [
+    "ICON",
+    "CANAL",
+    "FREE",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Boottocht op de Brugse reien",
+   "ad": "Rozenhoedkaai, 8000 Brugge, Belgium",
+   "w": "Een halfuur op de reien — het grachtennet dat Brugge de bijnaam Venetië van het Noorden gaf — glijdt langs boogbruggen, achtergevels en het Begijnhof tussen Jan van Eyckplein en Minnewater. Vijf aanlegsteigers in het centrum.",
+   "k": "Venetië van het Noorden",
+   "g": [
+    "ICON",
+    "CANAL",
+    "UNESCO",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "STADBRUGGE",
+     "https://www.stadbrugge.be"
+    ],
+    [
+     "REISROUTES",
+     "https://www.reisroutes.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Gruuthusemuseum",
+   "ad": "Dijver 17, 8000 Brugge, Belgium",
+   "w": "Het weelderige stadspaleis van de heren van Gruuthuse toont wandtapijten, glas-in-lood, kant en Bourgondische handschriften; het hoogtepunt is het laat-15de-eeuwse bidoratorium met zicht op het koor van de Onze-Lieve-Vrouwekerk.",
+   "k": "Bourgondisch stadspaleis",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Minnewater (Meer van Liefde)",
+   "ad": "Minnewater, 8000 Brugge, Belgium",
+   "w": "Romantische vijver en park aan de zuidrand van de historische stad, met zwanen en de 15de-eeuwse Poertoren; de rustige toegangspoort tot het aanpalende Begijnhof.",
+   "k": "Het Meer van Liefde",
+   "g": [
+    "PARK",
+    "CANAL",
+    "FREE",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ANWB",
+     "https://www.anwb.nl"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Sint-Janshuismolen & de Kruisvestmolens",
+   "ad": "Kruisvest, 8000 Brugge, Belgium",
+   "w": "Vier windmolens sieren de oostelijke stadswal; de Sint-Janshuismolen (1770) staat nog op zijn oorspronkelijke plek en maalt nog altijd graan — de enige die je vanbinnen kunt bezoeken.",
+   "k": "Malende molen sinds 1770",
+   "g": [
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "BRUGGE",
+     "https://www.brugge.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Sint-Salvatorskathedraal",
+   "ad": "Sint-Salvatorskoorstraat 8, 8000 Brugge, Belgium",
+   "w": "De oudste parochiekerk van Brugge (12de-13de eeuw) en sinds 1834 kathedraal, met een monumentale westtoren, Vlaamse wandtapijten en een schatkamer met Vlaamse Primitieven.",
+   "k": "De kathedraal van Brugge",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "SINTSALVATOR",
+     "https://www.sintsalvatorskathedraal.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Concertgebouw Brugge",
+   "ad": "'t Zand 34, 8000 Brugge, Belgium",
+   "w": "Markante concert- en congreszaal (2002) in okerrode terracotta aan 't Zand, wereldwijd geprezen om haar akoestiek; de Lantaarntoren biedt een klank- en kunstparcours met stadszicht.",
+   "k": "Akoestisch icoon",
+   "g": [
+    "ARCH",
+    "NIGHT",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Jan van Eyckplein",
+   "ad": "Jan van Eyckplein, 8000 Brugge, Belgium",
+   "w": "Het middeleeuwse handelshart van Brugge in de Hanzewijk, met het standbeeld van Jan van Eyck, het Tolhuis en de Poortersloge; van hieruit liepen de handelsroutes naar heel Europa.",
+   "k": "De Hanzewijk",
+   "g": [
+    "HIST",
+    "ARCH",
+    "CANAL",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Vismarkt",
+   "ad": "Vismarkt, 8000 Brugge, Belgium",
+   "w": "Overdekte vismarkt uit 1821 met dorische zuilengalerijen waar tot vandaag vis en streekproducten worden verkocht; een van de weinige plekken waar nog dagelijks leven en historie samenvallen.",
+   "k": "Vis sinds 1821",
+   "g": [
+    "MKT",
+    "HIST",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Huidenvettersplein",
+   "ad": "Huidenvettersplein, 8000 Brugge, Belgium",
+   "w": "Intiem pleintje van het huidenvettersgilde — ooit de Kleine Vismarkt — met een 17de-eeuws gildehuis en terrassen aan het water, pal naast de Rozenhoedkaai.",
+   "k": "Het gildeplein",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Choco-Story (Chocolademuseum)",
+   "ad": "Wijnzakstraat 2, 8000 Brugge, Belgium",
+   "w": "In het 16de-eeuwse Huis de Crone vertelt Choco-Story het verhaal van cacao van de Maya's tot de Belgische praline, met live demonstraties van een chocolatier. Iconisch voor de chocoladestad Brugge.",
+   "k": "Van cacao tot praline",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Adornesdomein & Jeruzalemkapel",
+   "ad": "Peperstraat 3, 8000 Brugge, Belgium",
+   "w": "Middeleeuws stadslandgoed van de Genuese koopmansfamilie Adornes met de unieke Jeruzalemkapel (15de eeuw), gebouwd naar het model van de Heilig-Grafkerk in Jeruzalem.",
+   "k": "Genuese kooplui in Brugge",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ADORNES",
+     "https://www.adornes.org"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Frietmuseum",
+   "ad": "Vlamingstraat 33, 8000 Brugge, Belgium",
+   "w": "Enige museum ter wereld gewijd aan de geschiedenis van de aardappel en de Belgische friet, in de gotische Saaihalle (1399), een van de oudste gebouwen van de stad.",
+   "k": "De friet in de kijker",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "'t Zand",
+   "ad": "'t Zand, 8000 Brugge, Belgium",
+   "w": "Het grote plein aan de westkant met tot 150 lindebomen, de centrale fontein en het Concertgebouw; zaterdag is er een grote markt en het is een gangbaar startpunt voor een stadswandeling.",
+   "k": "Het grote westplein",
+   "g": [
+    "MKT",
+    "FREE",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Middeleeuwse stadspoorten",
+   "ad": "Kruispoort, 8000 Brugge, Belgium",
+   "w": "Vier van de negen stadspoorten bleven bewaard — Kruispoort, Gentpoort, Smedenpoort en Ezelpoort — massieve overblijfselen van de 14de-eeuwse stadsomwalling langs de vesten.",
+   "k": "Vier poorten resten",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Onze-Lieve-Vrouw-ter-Potterie",
+   "ad": "Potterierei 79, 8000 Brugge, Belgium",
+   "w": "Beschermd hospitaal- en kloostercomplex (14de-17de eeuw) aan de Potterierei met een middeleeuwse ziekenzaal, kerk met een 14de-eeuws mirakelbeeld en een verrassend rijke museumcollectie. Musea Brugge.",
+   "k": "Verborgen hospitaalmuseum",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Volkskundemuseum",
+   "ad": "Balstraat 43, 8000 Brugge, Belgium",
+   "w": "In een rij 17de-eeuwse godshuizen tonen ingerichte kamers — klaslokaal, snoepwinkel, herberg De Zwarte Kat — het dagelijkse leven van weleer in West-Vlaanderen. Musea Brugge.",
+   "k": "Alledaags Brugge van vroeger",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Kantcentrum (Lace Centre)",
+   "ad": "Balstraat 16, 8000 Brugge, Belgium",
+   "w": "Museum en levende kantschool in een 19de-eeuws gebouw dat een van de originele Brugse kantscholen was; in de namiddag demonstreren kantklossters het vak dat Brugge wereldberoemd maakte.",
+   "k": "Brugse kant, levend",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Zwin Natuurpark",
+   "ad": "Graaf Léon Lippensdreef 8, 8300 Knokke-Heist, Belgium",
+   "w": "Het 'internationale luchthaven voor vogels' aan de Zwinvlakte: 150 ha slikken, schorren en duinen, een van de belangrijkste broedgebieden van de Noordwest-Europese kust, met interactief bezoekerscentrum, panoramatoren en ooievaarsnesten.",
+   "k": "Trekvogelparadijs",
+   "g": [
+    "PARK",
+    "ICON",
+    "FREE",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ],
+    [
+     "REISROUTES",
+     "https://www.reisroutes.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Damme (historisch stadje & boekendorp)",
+   "ad": "Markt, 8340 Damme, Belgium",
+   "w": "Middeleeuws polderstadje aan de Damse Vaart, ooit de voorhaven van Brugge en de geboorteplaats van volksheld Tijl Uilenspiegel; vandaag het Vlaamse boekendorp met een maandelijkse boekenmarkt en negen boekhandels.",
+   "k": "Uilenspiegel & boeken",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "James Ensorhuis",
+   "ad": "Vlaanderenstraat 27, 8400 Oostende, Belgium",
+   "w": "Het woonhuis boven de souvenirwinkel van zijn tante waar de Oostendse meester James Ensor tot zijn dood in 1949 woonde en werkte, recent gerestaureerd naar de originele staat — het atelier van de schilder van 'De intrede van Christus in Brussel'.",
+   "k": "Ensor thuis",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ENSORHUIS",
+     "https://www.ensorhuis.be"
+    ],
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Atlantikwall Raversyde",
+   "ad": "Nieuwpoortsesteenweg 636, 8400 Oostende, Belgium",
+   "w": "Een van de best bewaarde stukken van de Duitse Atlantikwall: meer dan zestig bunkers, gangen en geschutsopstellingen uit WO I en WO II in een provinciaal domein van 50 ha aan zee, samen met het middeleeuwse vissersdorp Walraversyde.",
+   "k": "Bunkers aan zee",
+   "g": [
+    "HIST",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITOOSTENDE",
+     "https://www.visitoostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Mu.ZEE (Kunstmuseum aan Zee)",
+   "ad": "Romestraat 11, 8400 Oostende, Belgium",
+   "w": "Het toonaangevende museum voor kunst van en over de Vlaamse kust, met Belgische schilderkunst van 1830 tot nu, waaronder Ensor en Spilliaert. (Gesloten voor renovatie tot circa 2028 — check vooraf.)",
+   "k": "Kust in kunst",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "De Haan — Concessie (belle-époquewijk)",
+   "ad": "Concessie, 8420 De Haan, Belgium",
+   "w": "De best bewaarde belle-époquebadplaats van de kust: een villapark van vernuftig ongelijnde witte cottages rond het pittoreske tramstation, waar zelfs Albert Einstein in 1933 verbleef. Geen hoogbouw, wel duinen en groen.",
+   "k": "Belle époque aan zee",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Onze-Lieve-Vrouw-Hemelvaartkerk Damme",
+   "ad": "Kerkstraat, 8340 Damme, Belgium",
+   "w": "Robuuste gotische kerk met een karakteristieke afgeknotte toren; 206 treden voeren naar een weids panorama over de 17de-eeuwse stadswallen, de Damse Vaart en het polderland.",
+   "k": "Panorama over de polders",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Damse Vaart",
+   "ad": "Damse Vaart-Zuid, 8340 Damme, Belgium",
+   "w": "Kaarsrecht, met populieren omzoomd kanaal dat Napoleon liet graven; het verbindt Brugge met het Nederlandse Sluis en is een geliefde fiets- en wandelroute langs het water.",
+   "k": "Napoleons kanaal",
+   "g": [
+    "CANAL",
+    "PARK",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Fort Napoleon",
+   "ad": "Vuurtorenweg, 8400 Oostende, Belgium",
+   "w": "Vijfhoekig kustfort dat Napoleon in 1811 tussen de duinen liet bouwen uit vrees voor een Britse invasie; goed bewaard en vandaag een bezoekbaar monument met brasserie en zicht op de haven.",
+   "k": "Napoleons duinfort",
+   "g": [
+    "HIST",
+    "ARCH",
+    "CANAL",
+    "PARK"
+   ],
+   "s": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Zeilschip Mercator",
+   "ad": "Graaf de Smet de Naeyerlaan, 8400 Oostende, Belgium",
+   "w": "De elegante driemaster die als opleidingsschip 41 reizen maakte, ligt sinds 1964 als museumschip in de jachthaven van Oostende — te bezoeken van dek tot kajuit.",
+   "k": "Het opleidingsschip",
+   "g": [
+    "HIST",
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "IJslandvaarder Amandine",
+   "ad": "Vindictivelaan 35Z, 8400 Oostende, Belgium",
+   "w": "De laatste Oostendse IJslandtreiler, die in 1995 voorgoed binnenvoer; nu een museumschip dat het harde leven van de IJslandvisserij tot in de machinekamer voelbaar maakt.",
+   "k": "Einde van de IJslandvaart",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Grand Casino Knokke (Magritte-muurschildering)",
+   "ad": "Zeedijk-Albertstrand 509, 8300 Knokke-Heist, Belgium",
+   "w": "In de ronde speelzaal loopt 'Het Betoverde Rijk' (1953), een 71 m lange muurschildering die René Magritte zelf superviseerde, onder een van de grootste luchters ter wereld — Knokke als kunststad aan zee.",
+   "k": "Magritte rondom",
+   "g": [
+    "HIST",
+    "ARCH",
+    "NIGHT",
+    "MUS"
+   ],
+   "s": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "FLANDERSTODAY",
+     "http://www.flanderstoday.eu"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Seafront Zeebrugge",
+   "ad": "Vismijnstraat 7, 8380 Zeebrugge, Belgium",
+   "w": "Maritiem belevingscentrum in de oude vismijn van Zeebrugge, met het Russische onderzeeboot-museum, een lichtschip en de geschiedenis van de vissersvloot en de haven.",
+   "k": "Onderzeeër & vismijn",
+   "g": [
+    "MUS",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Permekemuseum",
+   "ad": "Gistelsteenweg 341, 8490 Jabbeke, Belgium",
+   "w": "Het landhuis met teken- en beeldhouwateliers waar modernist Constant Permeke van 1929 tot 1952 woonde en werkte — het grootste ensemble van de Vlaamse expressionist, in een museumtuin met zijn monumentale beelden.",
+   "k": "Vlaams expressionisme",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "PERMEKE",
+     "https://www.permekemuseum.be"
+    ],
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Belle Epoque Centrum Blankenberge",
+   "ad": "Elisabethstraat 24, 8370 Blankenberge, Belgium",
+   "w": "Drie samengevoegde belle-époquevilla's onderdompelen de bezoeker in de gouden jaren (ca. 1870-1914) toen Blankenberge uitgroeide tot toonaangevende badplaats van de Europese bourgeoisie.",
+   "k": "De gouden badjaren",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "BLANKENBERGE",
+     "https://blankenberge.com"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Kusttram",
+   "ad": "Kusttram (De Panne–Knokke), Belgische Kust, Belgium",
+   "w": "De langste tramlijn ter wereld rijdt sinds 1885 over 67 km langs de volledige kust, van De Panne tot Knokke — langs de terrassen van Oostende, de haven van Zeebrugge en het belle-époquestation van De Haan. Een bezienswaardigheid op zich.",
+   "k": "67 km langs zee",
+   "g": [
+    "ICON",
+    "HIST",
+    "CANAL",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Huyse de Grote Sterre & Uilenspiegelmuseum",
+   "ad": "Jacob van Maerlantstraat 3, 8340 Damme, Belgium",
+   "w": "Statig laat-gotisch patriciërshuis (15de eeuw) op de markt van Damme, met het bezoekerscentrum van de Zwinstreek en het Uilenspiegelmuseum rond Charles De Costers volksheld die in Damme geboren zou zijn.",
+   "k": "Uilenspiegel in Damme",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH",
+    "ICON"
+   ],
+   "s": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "DAMMEONLINE",
+     "http://www.damme-online.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Pier & Sea Life Blankenberge",
+   "ad": "Koning Albert I-laan 116, 8370 Blankenberge, Belgium",
+   "w": "De levendige Blankenbergse pier uit de belle époque, ooit met casino en grote hotels, en het Sea Life-zeeaquarium — het familiegezicht van de badplaats.",
+   "k": "Pier & zeeaquarium",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "BLANKENBERGE",
+     "https://blankenberge.com"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Sincfala — Museum van de Zwinstreek",
+   "ad": "Pannenstraat 140, 8301 Knokke-Heist, Belgium",
+   "w": "In een neogotisch schoolgebouw in Heist schetst Sincfala het geologische, economische en culturele verleden van de Zwinstreek, met veel aandacht voor het oude vissersleven aan wal en op zee.",
+   "k": "Verleden van de Zwinstreek",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "SINCFALA",
+     "https://www.sincfala.be"
+    ],
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Lissewege (het witte polderdorp)",
+   "ad": "Lissewege, 8380 Brugge, Belgium",
+   "w": "Pittoresk wit gekalkt polderdorp tussen Brugge en de kust, gedomineerd door de machtige bakstenen O.-L.-Vrouwkerk en het Lisseweegs Vaartje — een stille contrapunt bij de drukke kust.",
+   "k": "Het witte dorp",
+   "g": [
+    "HIST",
+    "FREE",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "BRUGSEOMMELAND",
+     "https://www.brugseommeland.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Koninklijke & Venetiaanse Gaanderijen / Thermae Palace",
+   "ad": "Koninginnelaan, 8400 Oostende, Belgium",
+   "w": "Zuilengalerijen (1902-1906) van architect Charles Girault in opdracht van Leopold II langs de zeedijk, met het luxe Thermae Palace Hotel; de koninklijke gaanderijen werden recent gerestaureerd geopend.",
+   "k": "Leopolds zeedijkgalerijen",
+   "g": [
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Kunstgalerijen Het Zoute (Knokke)",
+   "ad": "Kustlaan, 8300 Knokke-Heist, Belgium",
+   "w": "Knokke-Heist als 'kunststad aan zee': tientallen galeries voor moderne en hedendaagse kunst, geconcentreerd rond de mondaine Kustlaan en Het Zoute.",
+   "k": "Galeries aan de kust",
+   "g": [
+    "FREE",
+    "ARCH",
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "MYKNOKKE",
+     "https://www.myknokke-heist.be"
+    ],
+    [
+     "FROMMERSKNOKKE",
+     "https://www.frommers.com/destinations/knokke-heist-and-het-zoute"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Schellemolen Damme",
+   "ad": "Damse Vaart-West, 8340 Damme, Belgium",
+   "w": "Beeldbepalende korenwindmolen op de westelijke oever van de Damse Vaart; de huidige molen dateert van 1867 maar op deze plek maalt al sinds 1479 een molen.",
+   "k": "Molen aan de vaart",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "MONUMENTENWACHT",
+     "https://www.monumentenwacht.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Sint-Janshospitaal Damme",
+   "ad": "Kerkstraat 33, 8340 Damme, Belgium",
+   "w": "Beschermd 13de-eeuws hospitaalcomplex in het hart van Damme, met kapel en museum die het rijke middeleeuwse verleden van de voorhaven van Brugge tonen.",
+   "k": "13de-eeuws hospitaal",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "DAMMEONLINE",
+     "http://www.damme-online.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Sint-Petrus-en-Pauluskerk Oostende",
+   "ad": "Sint-Petrus-en-Paulusplein, 8400 Oostende, Belgium",
+   "w": "Monumentale neogotische kerk (1899-1908) van architect Louis Delacenserie, geïnspireerd op de Dom van Keulen; met de bewaarde Peperbus-toren en het mausoleum van koningin Louise-Marie.",
+   "k": "Neogotiek van Delacenserie",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ],
+    [
+     "DEPLATE",
+     "https://www.deplate.be"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Brouwerij De Halve Maan",
+   "ad": "Walplein 26, 8000 Brugge, Belgium",
+   "w": "De laatste familiebrouwerij in het centrum, waar al zo'n 500 jaar bier wordt gebrouwen; de Brugse Zot en Straffe Hendrik stromen via een 3,3 km lange ondergrondse bierpijplijn naar de bottelarij. Rondleiding met proeverij.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HALVEMAAN",
+     "https://www.halvemaan.be/en"
+    ],
+    [
+     "CHANGEINC",
+     "https://www.change.inc"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Brouwerij Bourgogne des Flandres",
+   "ad": "Kartuizerinnenstraat 6, 8000 Brugge, Belgium",
+   "w": "Stadsbrouwerij aan de Dijver waar het roodbruine Bourgogne des Flandres wordt versneden met houtgerijpte lambiek volgens de Vlaamse blendtraditie — brouwerijbezoek met zicht op de reien.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BOURGOGNE",
+     "https://www.bourgognedesflandres.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "'t Brugs Beertje",
+   "ad": "Kemelstraat 5, 8000 Brugge, Belgium",
+   "w": "Legendarisch biercafé sinds 1983, meermaals verkozen tot een van de beste biercafés ter wereld; de boekdikke kaart telt ruim 300 Belgische bieren en het personeel kent ze stuk voor stuk.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "THEDISCOVERIESOF",
+     "https://www.thediscoveriesof.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Staminee De Garre",
+   "ad": "De Garre 1, 8000 Brugge, Belgium",
+   "w": "Verscholen in het smalste steegje van Brugge schenkt deze staminee sinds 1984 haar volle, fruitige huistripel van 11% met een schaaltje kaas — een goedbewaard bruges geheim over meerdere verdiepingen.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DEGARRE",
+     "https://degarre.be"
+    ],
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Brouwerij Fort Lapin",
+   "ad": "Fort Lapin 10, 8000 Brugge, Belgium",
+   "w": "Ambachtelijke microbrouwerij ten noorden van het centrum, genoemd naar een 17de-eeuws fort; bekend om de goudblonde Tripel 8 en de bruine Quadrupel 10, met proeverijen bij de brouwer.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FORTLAPIN",
+     "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/brouwerij-fort-lapin-brewery"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Le Trappiste",
+   "ad": "Kuipersstraat 33, 8000 Brugge, Belgium",
+   "w": "Kaarsverlichte gewelvenkelder onder een 800 jaar oud pand, met bakstenen catacombegewelven en een uitgebreide kaart vol klassiekers en zeldzame vondsten — een sfeer die uniek is in Brugge.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "THEDISCOVERIESOF",
+     "https://www.thediscoveriesof.com"
+    ],
+    [
+     "REBELATLAS",
+     "https://rebelatlas.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "'t Poatersgat",
+   "ad": "Vlamingstraat 82, 8000 Brugge, Belgium",
+   "w": "Ondergrondse gewelfde bierhal net buiten de toeristenroute, met booggewelven, late uren en een liefhebbersselectie flessen en tapbieren — enkel cash.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "THEDISCOVERIESOF",
+     "https://www.thediscoveriesof.com"
+    ],
+    [
+     "WORLDWIFE",
+     "https://www.worldwife.nl"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Bierbrasserie Cambrinus",
+   "ad": "Philipstockstraat 19, 8000 Brugge, Belgium",
+   "w": "Ongepretentieuze bierbrasserie met een lijvige kaart van ruim 400 Belgische bieren en degelijke streekgerechten zoals stoverij op bier — goed bier bij goed eten.",
+   "cz": [
+    "BEER",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GEOLIKE",
+     "https://secure.geo-like.com/__martins-brugge"
+    ],
+    [
+     "DISHNTHEKITCHEN",
+     "https://dishnthekitchen.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "The Chocolate Line",
+   "ad": "Simon Stevinplein 19, 8000 Brugge, Belgium",
+   "w": "Het chocoladelaboratorium van chocolatier Dominique Persoone, in 2023 door Gault&Millau tot beste chocoladezaak van België verkozen; klassieke pralines naast gedurfde smaken en de befaamde Chocolate Shooter.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "THECHOCOLATELINE",
+     "https://www.thechocolateline.be/en"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Chocolatier Dumon",
+   "ad": "Eiermarkt 6, 8000 Brugge, Belgium",
+   "w": "Familiechocolatier sinds 1992, geroemd om betaalbare, met de hand geschepte pralines volgens oude methodes; vaak genoemd als de lekkerste van Brugge.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HANDMADEINBRUGGE",
+     "https://www.handmadeinbrugge.be"
+    ],
+    [
+     "MARIECLAIRE",
+     "https://marieclaire.nl"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Chocolaterie Sukerbuyc",
+   "ad": "Katelijnestraat 5, 8000 Brugge, Belgium",
+   "w": "Klein maar fijn adres in de Katelijnestraat dat sinds 1977 met de hand chocolade maakt; een van de best bewaarde geheimen van Brugge, met een tearoom voor de warme chocomelk.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "The Old Chocolate House",
+   "ad": "Mariastraat 1c, 8000 Brugge, Belgium",
+   "w": "Familiezaak sinds 1997 met boven de chocoladewinkel een sfeervolle tearoom, waar je een kop warme melk krijgt met een blokje chocolade om er zelf in te laten smelten — plus verse wafels.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "INDAGARE",
+     "https://indagare.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Chez Albert",
+   "ad": "Breidelstraat 16, 8000 Brugge, Belgium",
+   "w": "Populair wafelhuis op een minuut van de Markt, bekend om de luchtige Brusselse wafel met krokante randjes — een klassieker voor onderweg.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WAFFLESNBEER",
+     "https://www.wafflesnbeer.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Zet'Joe by Geert Van Hecke",
+   "ad": "Langestraat 11, 8000 Brugge, Belgium",
+   "w": "Het restaurant van gerenommeerd chef Geert Van Hecke (ex-De Karmeliet), met één Michelinster in de gids 2026 voor zijn hoogstaande, klassiek verankerde keuken.",
+   "cz": [
+    "FINE",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Sans Cravate",
+   "ad": "Langestraat 159, 8000 Brugge, Belgium",
+   "w": "Chef Henk Van Oudenhove kookt in de Langestraat een creatieve Frans-Belgische keuken met oog voor topproducten, goed voor één Michelinster in 2026 — ontspannen bistro-sfeer.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Bar Bulot",
+   "ad": "Freren Fonteinstraat 1 (Hotel Jan Brito), 8000 Brugge, Belgium",
+   "w": "Luxebrasserie van sterrenchef Gert De Mangeleer (L.E.S.S.) met één Michelinster; de huisgemaakte garnaalkroketten met flinterdun krokant korstje gelden als referentie.",
+   "cz": [
+    "FINE",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Restaurant Patrick Devos",
+   "ad": "Zilverstraat 41, 8000 Brugge, Belgium",
+   "w": "Al meer dan 30 jaar gastronomie in een pand dat teruggaat tot 1261; chef Patrick Devos evolueerde naar een gezonde Frans-Belgische keuken en behoudt zijn Michelinster.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Den Gouden Harynck",
+   "ad": "Groeninge 25, 8000 Brugge, Belgium",
+   "w": "Tijdloos gastronomisch adres van chef Philippe Serruys in een 17de-eeuws pand (ooit een viswinkel) achter het Groeningemuseum; klassieke Franse keuken met Michelin- en Gault&Millau-erkenning.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "HUNGRYFORMORE",
+     "https://www.hungryformore-mag.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Rock-Fort",
+   "ad": "Langestraat 15, 8000 Brugge, Belgium",
+   "w": "Trendy tafel in de Langestraat, opgenomen in de Michelingids, met een op vis en zeevruchten toegespitste, eigentijdse keuken.",
+   "cz": [
+    "FINE",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Bistro Bruut",
+   "ad": "Meestraat 9, 8000 Brugge, Belgium",
+   "w": "Eigentijds bistro-restaurant aan het water, opgenomen in de Michelingids, dat klassieke gerechten met moderne technieken en smaken een verrassende draai geeft.",
+   "cz": [
+    "FINE",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Franco Belge",
+   "ad": "Langestraat 109, 8000 Brugge, Belgium",
+   "w": "In de Michelingids 2026 opgenomen adres in de Langestraat, met een moderne Franse keuken.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "De Mangerie",
+   "ad": "Oude Burg 20, 8000 Brugge, Belgium",
+   "w": "In de Michelingids 2026 opgenomen restaurant aan de Oude Burg met een wereldkeuken; ook door Gault&Millau bekroond.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Tou.Gou",
+   "ad": "Smedenstraat 47, 8000 Brugge, Belgium",
+   "w": "Bib Gourmand in de Michelingids 2026: eerlijke prijs-kwaliteit met een creatieve, farm-to-table Franse keuken in de Smedenstraat.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Locàle by Kok au Vin",
+   "ad": "Ezelstraat 21, 8000 Brugge, Belgium",
+   "w": "Ongedwongen bistro met Bib Gourmand in de Michelingids 2026, een casual tak van Kok au Vin met eerlijke, goed geprijsde gerechten.",
+   "cz": [
+    "FINE",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Bistro Refter",
+   "ad": "Molenmeers 2, 8000 Brugge, Belgium",
+   "w": "De ongedwongen bistro van sterrenchef Geert Van Hecke, met stevige Vlaams-Franse brasseriegerechten — van Vlaams varken in bier tot tartaar met friet — in de Michelingids opgenomen.",
+   "cz": [
+    "BEL",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Breydel-De Coninck",
+   "ad": "Breidelstraat 24, 8000 Brugge, Belgium",
+   "w": "Het oudste familierestaurant van Brugge (ruim 70 jaar), met de beste reputatie voor mosselen en kreeft; negen mosselbereidingen van natuur tot afrodisiacum.",
+   "cz": [
+    "BEL",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Onslow",
+   "ad": "Sint-Annadistrict, 8000 Brugge, Belgium",
+   "w": "Na jaren met restaurant Lieven verhuisden Lieven Vynck en Rebecca Vandekerckhove hun potten naar het serene Sint-Annadistrict; Onslow behaalde een Bib Gourmand en Gault&Millau-erkenning.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Frituur Chez Vincent",
+   "ad": "Sint-Salvatorskerkhof 1, 8000 Brugge, Belgium",
+   "w": "Kwaliteitsfrituur bij de Sint-Salvatorskathedraal, gepresenteerd als 's lands eerste luxefrituur, met dagvers gebakken frieten en echte grijze-garnaalkroketten.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VINDEENFRITUUR",
+     "https://www.vindeenfrituur.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Groot Vlaenderen",
+   "ad": "Vlamingstraat 94, 8000 Brugge, Belgium",
+   "w": "Elegante cocktailbar in een pand waar sinds 1879 de tijd stil lijkt te staan; elke cocktail wordt vakkundig voor je bereid — een Brugse institutie.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LEFOODING",
+     "https://lefooding.com"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Brouwerij Stene",
+   "ad": "Vismijn, Hendrik Baelskaai, 8400 Oostende, Belgium",
+   "w": "Oostendse stadsbrouwerij die samen met een tweede brouwer als eerste maritieme brouwerij aan de vismijn bier (en gedistilleerd) maakt, met een sterke link naar de zee.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KW",
+     "https://kw.be"
+    ],
+    [
+     "BROUWERIJSTENE",
+     "https://www.brouwerijstene.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "'t Vistrapje",
+   "ad": "Visserskaai, 8400 Oostende, Belgium",
+   "w": "Vlak bij de Oostendse Vistrap: een van de beste visrestaurants van de stad, met dagverse Noordzeevis en een Bib Gourmand in de Michelingids voor het gastronomische menu.",
+   "cz": [
+    "SEA",
+    "BEL",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "CULINAIREAMBIANCE",
+     "https://culinaireambiance.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Bistro Mathilda",
+   "ad": "Leopold II-laan 1, 8400 Oostende, Belgium",
+   "w": "Verfijnde brasserie opgenomen in de Michelingids 2026, met Noordzeevis rechtstreeks van lokale boten en eigentijdse brasseriegerechten; ook Gault&Millau-erkenning.",
+   "cz": [
+    "FINE",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Brasserie David",
+   "ad": "Christinastraat 45, 8400 Oostende, Belgium",
+   "w": "In de Michelingids opgenomen Oostendse brasserie waar de chef werkt met zeetong, zeebaars en grijze garnalen — klassieke kustvis, goed gebracht.",
+   "cz": [
+    "FINE",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITOOSTENDE",
+     "https://www.visitoostende.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Savarin",
+   "ad": "Albert I-Promenade 75, 8400 Oostende, Belgium",
+   "w": "Klassebrasserie op de zeedijk, geroemd om haar garnaalkroketten — culinaire trots van de kust — en gebakken tong met zeezicht.",
+   "cz": [
+    "BEL",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WOULDBECHEF",
+     "https://wouldbechef.be"
+    ],
+    [
+     "WIDEOYSTER",
+     "https://magazine.wideoyster.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "EAUst",
+   "ad": "Oosteroever, 8400 Oostende, Belgium",
+   "w": "Restaurant op de Oosteroever dat de versheid van de zee combineert met huisgemaakte klassiekers zoals royaal gevulde garnaalkroketten; Gault&Millau 12,5/20.",
+   "cz": [
+    "BEL",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ],
+    [
+     "OOSTENDELOKAAL",
+     "https://oostendelokaal.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "'t Werftje",
+   "ad": "Werfkaai, 8380 Zeebrugge, Belgium",
+   "w": "Vissershaven-café in Zeebrugge, alom bekend om Herlindes huisgemaakte garnaalkroketten met verse grijze Noordzeegarnaal — een begrip aan de kust.",
+   "cz": [
+    "BEL",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ],
+    [
+     "TWERFTJE",
+     "https://www.twerftje.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Bartholomeus",
+   "ad": "Zeedijk-Heist 267, 8301 Knokke-Heist, Belgium",
+   "w": "Chef Bart Desmidt behoudt in 2026 zijn twee Michelinsterren met een verfijnde, productgedreven keuken en zeezicht — het gastronomische vlaggenschip van de kust.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "MYKNOKKE",
+     "https://www.myknokke-heist.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Cuines 33",
+   "ad": "Smedenstraat 33, 8300 Knokke-Heist, Belgium",
+   "w": "Restaurant van chef Edwin Menue dat in 2026 een tweede Michelinster kreeg — een van de opvallendste stijgers van de Belgische gids.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Sel Gris",
+   "ad": "Zeedijk 314, 8301 Knokke-Heist, Belgium",
+   "w": "Chef Frederik Deceuninck (ex-De Karmeliet, Jardin Tropical) houdt zijn Michelinster met een creatieve, hedendaagse keuken pal aan de zeedijk.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "SELGRIS",
+     "https://www.selgris.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Boo Raan",
+   "ad": "Edward Verheyestraat 17, 8301 Knokke-Heist, Belgium",
+   "w": "Chef Dokkoon Kapueak behoudt in 2026 haar Michelinster met een authentieke Thaise keuken — een aparte noot in de kustgastronomie.",
+   "cz": [
+    "FINE",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "MYKNOKKE",
+     "https://www.myknokke-heist.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Brasserie Rubens",
+   "ad": "Zeedijk-Albertstrand 589, 8300 Knokke-Heist, Belgium",
+   "w": "Emblematische zeedijkbrasserie sinds 1926, geroemd om haar garnaalkroketten en tomaat-garnaal op het terras met zeezicht.",
+   "cz": [
+    "BEL",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LEFOODING",
+     "https://lefooding.com"
+    ],
+    [
+     "RUBENS",
+     "https://www.rubens-knokke.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Esmeralda",
+   "ad": "Zeedijk, 8300 Knokke-Heist, Belgium",
+   "w": "Vast visadres van Knokke waar Stefan Verhasselt sinds 1975 een geslaagd visverhaal schrijft — eerlijke Noordzeevis, klassiek gebracht.",
+   "cz": [
+    "SEA",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "CULINAIREAMBIANCE",
+     "https://culinaireambiance.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "'t Kantientje",
+   "ad": "Lippenslaan, 8300 Knokke-Heist, Belgium",
+   "w": "Aanrader voor liefhebbers van no-nonsense gerechten en eerlijke smaken, met de kreeft als specialiteit — een klassieker in Knokke.",
+   "cz": [
+    "SEA",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "CULINAIREAMBIANCE",
+     "https://culinaireambiance.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Brasserie Bristol",
+   "ad": "Zeedijk-Albertstrand, 8300 Knokke-Heist, Belgium",
+   "w": "Brasserie op de zeedijk van Knokke waar je de beste vis van de kaart op het terras kunt testen; ook geroemd om de garnaalkroketten en tomaat-garnaal.",
+   "cz": [
+    "BEL",
+    "SEA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "CULINAIREAMBIANCE",
+     "https://culinaireambiance.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "De Zuidkant",
+   "ad": "Kerkstraat, 8340 Damme, Belgium",
+   "w": "Sterrenrestaurant in Damme met een moderne keuken in een romantisch kader — één Michelinster.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Le Kok sur Mer",
+   "ad": "Zeedijk, 8420 De Haan, Belgium",
+   "w": "Restaurant van chef Jean-Philippe Furnemont in De Haan met een Bib Gourmand in de Michelingids — betaalbare gastronomie aan zee.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Restaurant Casanova",
+   "ad": "8420 De Haan, Belgium",
+   "w": "In De Haan gelegen restaurant met een Bib Gourmand in de Michelingids — eerlijke prijs-kwaliteit aan de belle-époquekust.",
+   "cz": [
+    "BEL",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "De Oesterput",
+   "ad": "Wenduinse Steenweg 16, 8370 Blankenberge, Belgium",
+   "w": "Het meest authentieke en nostalgische visrestaurant van de kust, met een oesterhandel-traditie over vijf generaties Devriendt — oesters, kreeft en schelpdieren aan de duinen.",
+   "cz": [
+    "SEA",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ],
+    [
+     "NJAM",
+     "https://njam.tv"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "De Goedendag",
+   "ad": "Lisseweegs Vaartje 2, 8380 Lissewege, Belgium",
+   "w": "Hostellerie en restaurant in het witte polderdorp Lissewege met een klassieke Vlaamse keuken in een authentiek kader; scoorde 95/100 in een culinaire test van de streekpers.",
+   "cz": [
+    "BEL",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BRUGSEOMMELAND",
+     "https://www.brugseommeland.be/en"
+    ],
+    [
+     "HETNIEUWSVWVL",
+     "https://www.hetnieuwsvanwestvlaanderen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Restaurant Goffin",
+   "ad": "Maalse Steenweg 2, 8310 Brugge (Sint-Kruis), Belgium",
+   "w": "Gastronomisch adres in Sint-Kruis aan de rand van Brugge, met een Gault&Millau-score van 15/20 — verfijnde keuken net buiten het centrum.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ADORNES": {
+   "k": "ADORNES",
+   "t": "Adornesdomein (official)",
+   "u": "https://www.adornes.org",
+   "l": "Adornesdomein (official)"
+  },
+  "ANWB": {
+   "k": "ANWB",
+   "t": "ANWB (travel)",
+   "u": "https://www.anwb.nl",
+   "l": "ANWB (travel)"
+  },
+  "BLANKENBERGE": {
+   "k": "BLANKENBERGE",
+   "t": "Blankenberge (official tourism)",
+   "u": "https://blankenberge.com",
+   "l": "Blankenberge (official tourism)"
+  },
+  "BRUGGE": {
+   "k": "BRUGGE",
+   "t": "Stad Brugge (official city)",
+   "u": "https://www.brugge.be",
+   "l": "Stad Brugge (official city)"
+  },
+  "BRUGSEOMMELAND": {
+   "k": "BRUGSEOMMELAND",
+   "t": "Brugse Ommeland (official regional tourism)",
+   "u": "https://www.brugseommeland.be/en",
+   "l": "Brugse Ommeland (official regional tourism)"
+  },
+  "DAMMEONLINE": {
+   "k": "DAMMEONLINE",
+   "t": "Damme Online (heritage)",
+   "u": "http://www.damme-online.com",
+   "l": "Damme Online (heritage)"
+  },
+  "DEKUST": {
+   "k": "DEKUST",
+   "t": "De Kust / Westtoer (coast tourism)",
+   "u": "https://www.dekust.be",
+   "l": "De Kust / Westtoer (coast tourism)"
+  },
+  "DEPLATE": {
+   "k": "DEPLATE",
+   "t": "De Plate (Oostende heritage society)",
+   "u": "https://www.deplate.be",
+   "l": "De Plate (Oostende heritage society)"
+  },
+  "ENSORHUIS": {
+   "k": "ENSORHUIS",
+   "t": "James Ensorhuis (official)",
+   "u": "https://www.ensorhuis.be",
+   "l": "James Ensorhuis (official)"
+  },
+  "FLANDERSTODAY": {
+   "k": "FLANDERSTODAY",
+   "t": "Flanders Today",
+   "u": "http://www.flanderstoday.eu",
+   "l": "Flanders Today"
+  },
+  "FLEMISHMASTERS": {
+   "k": "FLEMISHMASTERS",
+   "t": "Flemish Masters in situ (Visit Flanders)",
+   "u": "https://www.flemishmastersinsitu.com/en",
+   "l": "Flemish Masters in situ (Visit Flanders)"
+  },
+  "FROMMERSKNOKKE": {
+   "k": "FROMMERSKNOKKE",
+   "t": "Frommer's (Knokke-Heist)",
+   "u": "https://www.frommers.com/destinations/knokke-heist-and-het-zoute",
+   "l": "Frommer's (Knokke-Heist)"
+  },
+  "LONELYPLANET": {
+   "k": "LONELY PLANET",
+   "t": "Lonely Planet",
+   "u": "https://www.lonelyplanet.com",
+   "l": "Lonely Planet"
+  },
+  "MONUMENTENWACHT": {
+   "k": "MONUMENTENWACHT",
+   "t": "Monumentenwacht Vlaanderen",
+   "u": "https://www.monumentenwacht.be",
+   "l": "Monumentenwacht Vlaanderen"
+  },
+  "MUSEABRUGGE": {
+   "k": "MUSEABRUGGE",
+   "t": "Musea Brugge (municipal museums)",
+   "u": "https://www.museabrugge.be/en",
+   "l": "Musea Brugge (municipal museums)"
+  },
+  "MYKNOKKE": {
+   "k": "MYKNOKKE",
+   "t": "Visit Knokke-Heist (official)",
+   "u": "https://www.myknokke-heist.be",
+   "l": "Visit Knokke-Heist (official)"
+  },
+  "ONROERENDERFGOED": {
+   "k": "ONROERENDERFGOED",
+   "t": "Inventaris Onroerend Erfgoed (Flemish heritage)",
+   "u": "https://inventaris.onroerenderfgoed.be",
+   "l": "Inventaris Onroerend Erfgoed (Flemish heritage)"
+  },
+  "OOSTENDE": {
+   "k": "OOSTENDE",
+   "t": "Stad Oostende (official)",
+   "u": "https://www.oostende.be",
+   "l": "Stad Oostende (official)"
+  },
+  "PERMEKE": {
+   "k": "PERMEKE",
+   "t": "Permekemuseum (official)",
+   "u": "https://www.permekemuseum.be",
+   "l": "Permekemuseum (official)"
+  },
+  "REISROUTES": {
+   "k": "REISROUTES",
+   "t": "Reisroutes.be (travel editorial)",
+   "u": "https://www.reisroutes.be",
+   "l": "Reisroutes.be (travel editorial)"
+  },
+  "SINCFALA": {
+   "k": "SINCFALA",
+   "t": "Museum Sincfala (official)",
+   "u": "https://www.sincfala.be",
+   "l": "Museum Sincfala (official)"
+  },
+  "SINTSALVATOR": {
+   "k": "SINTSALVATOR",
+   "t": "Sint-Salvatorskathedraal (official)",
+   "u": "https://www.sintsalvatorskathedraal.be",
+   "l": "Sint-Salvatorskathedraal (official)"
+  },
+  "STADBRUGGE": {
+   "k": "STADBRUGGE",
+   "t": "Stad Brugge stadsgids",
+   "u": "https://www.stadbrugge.be",
+   "l": "Stad Brugge stadsgids"
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO World Heritage Centre",
+   "u": "https://whc.unesco.org",
+   "l": "UNESCO World Heritage Centre"
+  },
+  "VISITBRUGES": {
+   "k": "VISIT BRUGES",
+   "t": "Visit Bruges (official city tourism)",
+   "u": "https://www.visitbruges.be",
+   "l": "Visit Bruges (official city tourism)"
+  },
+  "VISITDAMME": {
+   "k": "VISITDAMME",
+   "t": "Toerisme Damme (official)",
+   "u": "https://www.visitdamme.be",
+   "l": "Toerisme Damme (official)"
+  },
+  "VISITFLANDERS": {
+   "k": "VISIT FLANDERS",
+   "t": "Visit Flanders (official)",
+   "u": "https://www.visitflanders.com",
+   "l": "Visit Flanders (official)"
+  },
+  "VISITOOSTENDE": {
+   "k": "VISITOOSTENDE",
+   "t": "Visit Oostende (official)",
+   "u": "https://www.visitoostende.be",
+   "l": "Visit Oostende (official)"
+  },
+  "VRT": {
+   "k": "VRT NWS",
+   "t": "VRT NWS (public broadcaster)",
+   "u": "https://www.vrt.be/vrtnws",
+   "l": "VRT NWS (public broadcaster)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (NL/EN, corroborating)",
+   "u": "https://nl.wikipedia.org",
+   "l": "Wikipedia (NL/EN, corroborating)"
+  }
+ },
+ "FS": {
+  "BIERSCHRIJVER": {
+   "k": "BIERSCHRIJVER",
+   "t": "Bierschrijver (beer journalism)",
+   "u": "https://www.bierschrijver.nl",
+   "l": "Bierschrijver (beer journalism)"
+  },
+  "BOURGOGNE": {
+   "k": "BOURGOGNE",
+   "t": "Bourgogne des Flandres (official)",
+   "u": "https://www.bourgognedesflandres.be/en",
+   "l": "Bourgogne des Flandres (official)"
+  },
+  "BROUWERIJSTENE": {
+   "k": "BROUWERIJSTENE",
+   "t": "Brouwerij Stene (official)",
+   "u": "https://www.brouwerijstene.be",
+   "l": "Brouwerij Stene (official)"
+  },
+  "BRUGSEOMMELAND": {
+   "k": "BRUGSEOMMELAND",
+   "t": "Brugse Ommeland (official regional tourism)",
+   "u": "https://www.brugseommeland.be/en",
+   "l": "Brugse Ommeland (official regional tourism)"
+  },
+  "CHANGEINC": {
+   "k": "CHANGEINC",
+   "t": "Change Inc. (trade press)",
+   "u": "https://www.change.inc",
+   "l": "Change Inc. (trade press)"
+  },
+  "CULINAIREAMBIANCE": {
+   "k": "CULINAIRE AMBIANCE",
+   "t": "Culinaire Ambiance",
+   "u": "https://culinaireambiance.com",
+   "l": "Culinaire Ambiance"
+  },
+  "DEGARRE": {
+   "k": "DEGARRE",
+   "t": "Staminee De Garre (official)",
+   "u": "https://degarre.be",
+   "l": "Staminee De Garre (official)"
+  },
+  "DEKUST": {
+   "k": "DEKUST",
+   "t": "De Kust / Westtoer (coast tourism)",
+   "u": "https://www.dekust.be",
+   "l": "De Kust / Westtoer (coast tourism)"
+  },
+  "DISHNTHEKITCHEN": {
+   "k": "DISHNTHEKITCHEN",
+   "t": "Dish 'n' the Kitchen (food editorial)",
+   "u": "https://dishnthekitchen.com",
+   "l": "Dish 'n' the Kitchen (food editorial)"
+  },
+  "FORTLAPIN": {
+   "k": "FORTLAPIN",
+   "t": "Brouwerij Fort Lapin (via Visit Bruges)",
+   "u": "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/brouwerij-fort-lapin-brewery",
+   "l": "Brouwerij Fort Lapin (via Visit Bruges)"
+  },
+  "FROMMERS": {
+   "k": "FROMMERS",
+   "t": "Frommer's",
+   "u": "https://www.frommers.com",
+   "l": "Frommer's"
+  },
+  "GAULTMILLAU": {
+   "k": "GAULT&MILLAU",
+   "t": "Gault&Millau Belgium",
+   "u": "https://www.gaultmillau.be",
+   "l": "Gault&Millau Belgium"
+  },
+  "GEOLIKE": {
+   "k": "GEOLIKE",
+   "t": "Martin's Brugge tourism listing",
+   "u": "https://secure.geo-like.com/__martins-brugge",
+   "l": "Martin's Brugge tourism listing"
+  },
+  "HALVEMAAN": {
+   "k": "DE HALVE MAAN",
+   "t": "Brouwerij De Halve Maan (official)",
+   "u": "https://www.halvemaan.be/en",
+   "l": "Brouwerij De Halve Maan (official)"
+  },
+  "HANDMADEINBRUGGE": {
+   "k": "HANDMADEINBRUGGE",
+   "t": "Handmade in Brugge (city crafts org)",
+   "u": "https://www.handmadeinbrugge.be",
+   "l": "Handmade in Brugge (city crafts org)"
+  },
+  "HETNIEUWSVWVL": {
+   "k": "HETNIEUWSVWVL",
+   "t": "Het Nieuws van West-Vlaanderen",
+   "u": "https://www.hetnieuwsvanwestvlaanderen.be",
+   "l": "Het Nieuws van West-Vlaanderen"
+  },
+  "HUNGRYFORMORE": {
+   "k": "HUNGRYFORMORE",
+   "t": "Hungry for More Magazine",
+   "u": "https://www.hungryformore-mag.com",
+   "l": "Hungry for More Magazine"
+  },
+  "INDAGARE": {
+   "k": "INDAGARE",
+   "t": "Indagare (travel editorial)",
+   "u": "https://indagare.com",
+   "l": "Indagare (travel editorial)"
+  },
+  "KW": {
+   "k": "KW",
+   "t": "Krant van West-Vlaanderen (kw.be)",
+   "u": "https://kw.be",
+   "l": "Krant van West-Vlaanderen (kw.be)"
+  },
+  "LEFOODING": {
+   "k": "LEFOODING",
+   "t": "Le Fooding (gastronomy guide)",
+   "u": "https://lefooding.com",
+   "l": "Le Fooding (gastronomy guide)"
+  },
+  "MARIECLAIRE": {
+   "k": "MARIECLAIRE",
+   "t": "Marie Claire",
+   "u": "https://marieclaire.nl",
+   "l": "Marie Claire"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "Michelin Guide Belgium",
+   "u": "https://guide.michelin.com",
+   "l": "Michelin Guide Belgium"
+  },
+  "MYKNOKKE": {
+   "k": "MYKNOKKE",
+   "t": "Visit Knokke-Heist (official)",
+   "u": "https://www.myknokke-heist.be",
+   "l": "Visit Knokke-Heist (official)"
+  },
+  "NJAM": {
+   "k": "NJAM",
+   "t": "Njam! (food media)",
+   "u": "https://njam.tv",
+   "l": "Njam! (food media)"
+  },
+  "OOSTENDELOKAAL": {
+   "k": "OOSTENDELOKAAL",
+   "t": "Oostende Lokaal",
+   "u": "https://oostendelokaal.be",
+   "l": "Oostende Lokaal"
+  },
+  "REBELATLAS": {
+   "k": "REBELATLAS",
+   "t": "Rebel Atlas (travel editorial)",
+   "u": "https://rebelatlas.com",
+   "l": "Rebel Atlas (travel editorial)"
+  },
+  "RUBENS": {
+   "k": "RUBENS",
+   "t": "Brasserie Rubens (official)",
+   "u": "https://www.rubens-knokke.be/en",
+   "l": "Brasserie Rubens (official)"
+  },
+  "SELGRIS": {
+   "k": "SELGRIS",
+   "t": "Restaurant Sel Gris (official)",
+   "u": "https://www.selgris.be/en",
+   "l": "Restaurant Sel Gris (official)"
+  },
+  "THECHOCOLATELINE": {
+   "k": "THECHOCOLATELINE",
+   "t": "The Chocolate Line (official)",
+   "u": "https://www.thechocolateline.be/en",
+   "l": "The Chocolate Line (official)"
+  },
+  "THEDISCOVERIESOF": {
+   "k": "THEDISCOVERIESOF",
+   "t": "The Discoveries Of (travel editorial)",
+   "u": "https://www.thediscoveriesof.com",
+   "l": "The Discoveries Of (travel editorial)"
+  },
+  "TWERFTJE": {
+   "k": "TWERFTJE",
+   "t": "'t Werftje (official)",
+   "u": "https://www.twerftje.be",
+   "l": "'t Werftje (official)"
+  },
+  "VINDEENFRITUUR": {
+   "k": "VINDEENFRITUUR",
+   "t": "Vindeenfrituur.be (editorial)",
+   "u": "https://www.vindeenfrituur.be",
+   "l": "Vindeenfrituur.be (editorial)"
+  },
+  "VISITBRUGES": {
+   "k": "VISIT BRUGES",
+   "t": "Visit Bruges (official city tourism)",
+   "u": "https://www.visitbruges.be",
+   "l": "Visit Bruges (official city tourism)"
+  },
+  "VISITDAMME": {
+   "k": "VISITDAMME",
+   "t": "Toerisme Damme (official)",
+   "u": "https://www.visitdamme.be",
+   "l": "Toerisme Damme (official)"
+  },
+  "VISITOOSTENDE": {
+   "k": "VISITOOSTENDE",
+   "t": "Visit Oostende (official)",
+   "u": "https://www.visitoostende.be",
+   "l": "Visit Oostende (official)"
+  },
+  "VRT": {
+   "k": "VRT NWS",
+   "t": "VRT NWS (public broadcaster)",
+   "u": "https://www.vrt.be/vrtnws",
+   "l": "VRT NWS (public broadcaster)"
+  },
+  "WAFFLESNBEER": {
+   "k": "WAFFLESNBEER",
+   "t": "Waffles & Beer (Bruges food guide)",
+   "u": "https://www.wafflesnbeer.be",
+   "l": "Waffles & Beer (Bruges food guide)"
+  },
+  "WIDEOYSTER": {
+   "k": "WIDEOYSTER",
+   "t": "WideOyster Magazine",
+   "u": "https://magazine.wideoyster.com",
+   "l": "WideOyster Magazine"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (NL/EN, corroborating)",
+   "u": "https://nl.wikipedia.org",
+   "l": "Wikipedia (NL/EN, corroborating)"
+  },
+  "WORLDWIFE": {
+   "k": "WORLDWIFE",
+   "t": "Worldwife (travel editorial)",
+   "u": "https://www.worldwife.nl",
+   "l": "Worldwife (travel editorial)"
+  },
+  "WOULDBECHEF": {
+   "k": "WOULDBECHEF",
+   "t": "Would Be Chef (food editorial)",
+   "u": "https://wouldbechef.be",
+   "l": "Would Be Chef (food editorial)"
+  }
+ }
+}

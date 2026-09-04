@@ -1,0 +1,676 @@
+{
+ "sources": [
+  {
+   "key": "BLANKENBERGE",
+   "name": "Blankenberge (official tourism)",
+   "url": "https://blankenberge.com"
+  },
+  {
+   "key": "BRUGSEOMMELAND",
+   "name": "Brugse Ommeland (official regional tourism)",
+   "url": "https://www.brugseommeland.be/en"
+  },
+  {
+   "key": "DAMMEONLINE",
+   "name": "Damme Online (heritage)",
+   "url": "http://www.damme-online.com"
+  },
+  {
+   "key": "DEKUST",
+   "name": "De Kust / Westtoer (coast tourism)",
+   "url": "https://www.dekust.be"
+  },
+  {
+   "key": "DEPLATE",
+   "name": "De Plate (Oostende heritage society)",
+   "url": "https://www.deplate.be"
+  },
+  {
+   "key": "ENSORHUIS",
+   "name": "James Ensorhuis (official)",
+   "url": "https://www.ensorhuis.be"
+  },
+  {
+   "key": "FLANDERSTODAY",
+   "name": "Flanders Today",
+   "url": "http://www.flanderstoday.eu"
+  },
+  {
+   "key": "FLEMISHMASTERS",
+   "name": "Flemish Masters in situ (Visit Flanders)",
+   "url": "https://www.flemishmastersinsitu.com/en"
+  },
+  {
+   "key": "FROMMERSKNOKKE",
+   "name": "Frommer's (Knokke-Heist)",
+   "url": "https://www.frommers.com/destinations/knokke-heist-and-het-zoute"
+  },
+  {
+   "key": "MONUMENTENWACHT",
+   "name": "Monumentenwacht Vlaanderen",
+   "url": "https://www.monumentenwacht.be"
+  },
+  {
+   "key": "MYKNOKKE",
+   "name": "Visit Knokke-Heist (official)",
+   "url": "https://www.myknokke-heist.be"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Inventaris Onroerend Erfgoed (Flemish heritage)",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "OOSTENDE",
+   "name": "Stad Oostende (official)",
+   "url": "https://www.oostende.be"
+  },
+  {
+   "key": "PERMEKE",
+   "name": "Permekemuseum (official)",
+   "url": "https://www.permekemuseum.be"
+  },
+  {
+   "key": "REISROUTES",
+   "name": "Reisroutes.be (travel editorial)",
+   "url": "https://www.reisroutes.be"
+  },
+  {
+   "key": "SINCFALA",
+   "name": "Museum Sincfala (official)",
+   "url": "https://www.sincfala.be"
+  },
+  {
+   "key": "VISITBRUGES",
+   "name": "Visit Bruges (official city tourism)",
+   "url": "https://www.visitbruges.be"
+  },
+  {
+   "key": "VISITDAMME",
+   "name": "Toerisme Damme (official)",
+   "url": "https://www.visitdamme.be"
+  },
+  {
+   "key": "VISITFLANDERS",
+   "name": "Visit Flanders (official)",
+   "url": "https://www.visitflanders.com"
+  },
+  {
+   "key": "VISITOOSTENDE",
+   "name": "Visit Oostende (official)",
+   "url": "https://www.visitoostende.be"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS (public broadcaster)",
+   "url": "https://www.vrt.be/vrtnws"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (NL/EN, corroborating)",
+   "url": "https://nl.wikipedia.org"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Zwin Natuurpark",
+   "address": "Graaf Léon Lippensdreef 8, 8300 Knokke-Heist, Belgium",
+   "w": "Het 'internationale luchthaven voor vogels' aan de Zwinvlakte: 150 ha slikken, schorren en duinen, een van de belangrijkste broedgebieden van de Noordwest-Europese kust, met interactief bezoekerscentrum, panoramatoren en ooievaarsnesten.",
+   "k": "Trekvogelparadijs",
+   "g": [
+    "PARK",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ],
+    [
+     "REISROUTES",
+     "https://www.reisroutes.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Damme (historisch stadje & boekendorp)",
+   "address": "Markt, 8340 Damme, Belgium",
+   "w": "Middeleeuws polderstadje aan de Damse Vaart, ooit de voorhaven van Brugge en de geboorteplaats van volksheld Tijl Uilenspiegel; vandaag het Vlaamse boekendorp met een maandelijkse boekenmarkt en negen boekhandels.",
+   "k": "Uilenspiegel & boeken",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "James Ensorhuis",
+   "address": "Vlaanderenstraat 27, 8400 Oostende, Belgium",
+   "w": "Het woonhuis boven de souvenirwinkel van zijn tante waar de Oostendse meester James Ensor tot zijn dood in 1949 woonde en werkte, recent gerestaureerd naar de originele staat — het atelier van de schilder van 'De intrede van Christus in Brussel'.",
+   "k": "Ensor thuis",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "ENSORHUIS",
+     "https://www.ensorhuis.be"
+    ],
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Atlantikwall Raversyde",
+   "address": "Nieuwpoortsesteenweg 636, 8400 Oostende, Belgium",
+   "w": "Een van de best bewaarde stukken van de Duitse Atlantikwall: meer dan zestig bunkers, gangen en geschutsopstellingen uit WO I en WO II in een provinciaal domein van 50 ha aan zee, samen met het middeleeuwse vissersdorp Walraversyde.",
+   "k": "Bunkers aan zee",
+   "g": [
+    "HIST",
+    "MUS",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "VISITOOSTENDE",
+     "https://www.visitoostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Mu.ZEE (Kunstmuseum aan Zee)",
+   "address": "Romestraat 11, 8400 Oostende, Belgium",
+   "w": "Het toonaangevende museum voor kunst van en over de Vlaamse kust, met Belgische schilderkunst van 1830 tot nu, waaronder Ensor en Spilliaert. (Gesloten voor renovatie tot circa 2028 — check vooraf.)",
+   "k": "Kust in kunst",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "De Haan — Concessie (belle-époquewijk)",
+   "address": "Concessie, 8420 De Haan, Belgium",
+   "w": "De best bewaarde belle-époquebadplaats van de kust: een villapark van vernuftig ongelijnde witte cottages rond het pittoreske tramstation, waar zelfs Albert Einstein in 1933 verbleef. Geen hoogbouw, wel duinen en groen.",
+   "k": "Belle époque aan zee",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Onze-Lieve-Vrouw-Hemelvaartkerk Damme",
+   "address": "Kerkstraat, 8340 Damme, Belgium",
+   "w": "Robuuste gotische kerk met een karakteristieke afgeknotte toren; 206 treden voeren naar een weids panorama over de 17de-eeuwse stadswallen, de Damse Vaart en het polderland.",
+   "k": "Panorama over de polders",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Damse Vaart",
+   "address": "Damse Vaart-Zuid, 8340 Damme, Belgium",
+   "w": "Kaarsrecht, met populieren omzoomd kanaal dat Napoleon liet graven; het verbindt Brugge met het Nederlandse Sluis en is een geliefde fiets- en wandelroute langs het water.",
+   "k": "Napoleons kanaal",
+   "g": [
+    "CANAL",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Fort Napoleon",
+   "address": "Vuurtorenweg, 8400 Oostende, Belgium",
+   "w": "Vijfhoekig kustfort dat Napoleon in 1811 tussen de duinen liet bouwen uit vrees voor een Britse invasie; goed bewaard en vandaag een bezoekbaar monument met brasserie en zicht op de haven.",
+   "k": "Napoleons duinfort",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Zeilschip Mercator",
+   "address": "Graaf de Smet de Naeyerlaan, 8400 Oostende, Belgium",
+   "w": "De elegante driemaster die als opleidingsschip 41 reizen maakte, ligt sinds 1964 als museumschip in de jachthaven van Oostende — te bezoeken van dek tot kajuit.",
+   "k": "Het opleidingsschip",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "IJslandvaarder Amandine",
+   "address": "Vindictivelaan 35Z, 8400 Oostende, Belgium",
+   "w": "De laatste Oostendse IJslandtreiler, die in 1995 voorgoed binnenvoer; nu een museumschip dat het harde leven van de IJslandvisserij tot in de machinekamer voelbaar maakt.",
+   "k": "Einde van de IJslandvaart",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "OOSTENDE",
+     "https://www.oostende.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Grand Casino Knokke (Magritte-muurschildering)",
+   "address": "Zeedijk-Albertstrand 509, 8300 Knokke-Heist, Belgium",
+   "w": "In de ronde speelzaal loopt 'Het Betoverde Rijk' (1953), een 71 m lange muurschildering die René Magritte zelf superviseerde, onder een van de grootste luchters ter wereld — Knokke als kunststad aan zee.",
+   "k": "Magritte rondom",
+   "g": [
+    "HIST",
+    "ARCH",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "FLANDERSTODAY",
+     "http://www.flanderstoday.eu"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Seafront Zeebrugge",
+   "address": "Vismijnstraat 7, 8380 Zeebrugge, Belgium",
+   "w": "Maritiem belevingscentrum in de oude vismijn van Zeebrugge, met het Russische onderzeeboot-museum, een lichtschip en de geschiedenis van de vissersvloot en de haven.",
+   "k": "Onderzeeër & vismijn",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Permekemuseum",
+   "address": "Gistelsteenweg 341, 8490 Jabbeke, Belgium",
+   "w": "Het landhuis met teken- en beeldhouwateliers waar modernist Constant Permeke van 1929 tot 1952 woonde en werkte — het grootste ensemble van de Vlaamse expressionist, in een museumtuin met zijn monumentale beelden.",
+   "k": "Vlaams expressionisme",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "PERMEKE",
+     "https://www.permekemuseum.be"
+    ],
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Belle Epoque Centrum Blankenberge",
+   "address": "Elisabethstraat 24, 8370 Blankenberge, Belgium",
+   "w": "Drie samengevoegde belle-époquevilla's onderdompelen de bezoeker in de gouden jaren (ca. 1870-1914) toen Blankenberge uitgroeide tot toonaangevende badplaats van de Europese bourgeoisie.",
+   "k": "De gouden badjaren",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "BLANKENBERGE",
+     "https://blankenberge.com"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Kusttram",
+   "address": "Kusttram (De Panne–Knokke), Belgische Kust, Belgium",
+   "w": "De langste tramlijn ter wereld rijdt sinds 1885 over 67 km langs de volledige kust, van De Panne tot Knokke — langs de terrassen van Oostende, de haven van Zeebrugge en het belle-époquestation van De Haan. Een bezienswaardigheid op zich.",
+   "k": "67 km langs zee",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Huyse de Grote Sterre & Uilenspiegelmuseum",
+   "address": "Jacob van Maerlantstraat 3, 8340 Damme, Belgium",
+   "w": "Statig laat-gotisch patriciërshuis (15de eeuw) op de markt van Damme, met het bezoekerscentrum van de Zwinstreek en het Uilenspiegelmuseum rond Charles De Costers volksheld die in Damme geboren zou zijn.",
+   "k": "Uilenspiegel in Damme",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "DAMMEONLINE",
+     "http://www.damme-online.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Pier & Sea Life Blankenberge",
+   "address": "Koning Albert I-laan 116, 8370 Blankenberge, Belgium",
+   "w": "De levendige Blankenbergse pier uit de belle époque, ooit met casino en grote hotels, en het Sea Life-zeeaquarium — het familiegezicht van de badplaats.",
+   "k": "Pier & zeeaquarium",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "BLANKENBERGE",
+     "https://blankenberge.com"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Sincfala — Museum van de Zwinstreek",
+   "address": "Pannenstraat 140, 8301 Knokke-Heist, Belgium",
+   "w": "In een neogotisch schoolgebouw in Heist schetst Sincfala het geologische, economische en culturele verleden van de Zwinstreek, met veel aandacht voor het oude vissersleven aan wal en op zee.",
+   "k": "Verleden van de Zwinstreek",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "SINCFALA",
+     "https://www.sincfala.be"
+    ],
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Lissewege (het witte polderdorp)",
+   "address": "Lissewege, 8380 Brugge, Belgium",
+   "w": "Pittoresk wit gekalkt polderdorp tussen Brugge en de kust, gedomineerd door de machtige bakstenen O.-L.-Vrouwkerk en het Lisseweegs Vaartje — een stille contrapunt bij de drukke kust.",
+   "k": "Het witte dorp",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "BRUGSEOMMELAND",
+     "https://www.brugseommeland.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Koninklijke & Venetiaanse Gaanderijen / Thermae Palace",
+   "address": "Koninginnelaan, 8400 Oostende, Belgium",
+   "w": "Zuilengalerijen (1902-1906) van architect Charles Girault in opdracht van Leopold II langs de zeedijk, met het luxe Thermae Palace Hotel; de koninklijke gaanderijen werden recent gerestaureerd geopend.",
+   "k": "Leopolds zeedijkgalerijen",
+   "g": [
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Kunstgalerijen Het Zoute (Knokke)",
+   "address": "Kustlaan, 8300 Knokke-Heist, Belgium",
+   "w": "Knokke-Heist als 'kunststad aan zee': tientallen galeries voor moderne en hedendaagse kunst, geconcentreerd rond de mondaine Kustlaan en Het Zoute.",
+   "k": "Galeries aan de kust",
+   "g": [
+    "FREE",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "MYKNOKKE",
+     "https://www.myknokke-heist.be"
+    ],
+    [
+     "FROMMERSKNOKKE",
+     "https://www.frommers.com/destinations/knokke-heist-and-het-zoute"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Schellemolen Damme",
+   "address": "Damse Vaart-West, 8340 Damme, Belgium",
+   "w": "Beeldbepalende korenwindmolen op de westelijke oever van de Damse Vaart; de huidige molen dateert van 1867 maar op deze plek maalt al sinds 1479 een molen.",
+   "k": "Molen aan de vaart",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "MONUMENTENWACHT",
+     "https://www.monumentenwacht.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Sint-Janshospitaal Damme",
+   "address": "Kerkstraat 33, 8340 Damme, Belgium",
+   "w": "Beschermd 13de-eeuws hospitaalcomplex in het hart van Damme, met kapel en museum die het rijke middeleeuwse verleden van de voorhaven van Brugge tonen.",
+   "k": "13de-eeuws hospitaal",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITDAMME",
+     "https://www.visitdamme.be"
+    ],
+    [
+     "DAMMEONLINE",
+     "http://www.damme-online.com"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Sint-Petrus-en-Pauluskerk Oostende",
+   "address": "Sint-Petrus-en-Paulusplein, 8400 Oostende, Belgium",
+   "w": "Monumentale neogotische kerk (1899-1908) van architect Louis Delacenserie, geïnspireerd op de Dom van Keulen; met de bewaarde Peperbus-toren en het mausoleum van koningin Louise-Marie.",
+   "k": "Neogotiek van Delacenserie",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ],
+    [
+     "DEPLATE",
+     "https://www.deplate.be"
+    ]
+   ]
+  }
+ ]
+}

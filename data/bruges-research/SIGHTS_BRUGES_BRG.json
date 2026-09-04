@@ -1,0 +1,685 @@
+{
+ "sources": [
+  {
+   "key": "ADORNES",
+   "name": "Adornesdomein (official)",
+   "url": "https://www.adornes.org"
+  },
+  {
+   "key": "ANWB",
+   "name": "ANWB (travel)",
+   "url": "https://www.anwb.nl"
+  },
+  {
+   "key": "BRUGGE",
+   "name": "Stad Brugge (official city)",
+   "url": "https://www.brugge.be"
+  },
+  {
+   "key": "LONELYPLANET",
+   "name": "Lonely Planet",
+   "url": "https://www.lonelyplanet.com"
+  },
+  {
+   "key": "MUSEABRUGGE",
+   "name": "Musea Brugge (municipal museums)",
+   "url": "https://www.museabrugge.be/en"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Inventaris Onroerend Erfgoed (Flemish heritage)",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "REISROUTES",
+   "name": "Reisroutes.be (travel editorial)",
+   "url": "https://www.reisroutes.be"
+  },
+  {
+   "key": "SINTSALVATOR",
+   "name": "Sint-Salvatorskathedraal (official)",
+   "url": "https://www.sintsalvatorskathedraal.be"
+  },
+  {
+   "key": "STADBRUGGE",
+   "name": "Stad Brugge stadsgids",
+   "url": "https://www.stadbrugge.be"
+  },
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "url": "https://whc.unesco.org"
+  },
+  {
+   "key": "VISITBRUGES",
+   "name": "Visit Bruges (official city tourism)",
+   "url": "https://www.visitbruges.be"
+  },
+  {
+   "key": "VISITFLANDERS",
+   "name": "Visit Flanders (official)",
+   "url": "https://www.visitflanders.com"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (NL/EN, corroborating)",
+   "url": "https://nl.wikipedia.org"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Markt (Grote Markt)",
+   "address": "Markt, 8000 Brugge, Belgium",
+   "w": "Het kloppend hart van Brugge: een gekasseide plein omzoomd door gildehuizen en overheerst door het Belfort, met de standbeelden van Jan Breydel en Pieter de Coninck in het midden. Alles in de historische stad ligt op tien minuten wandelen.",
+   "k": "Het centrale plein",
+   "g": [
+    "ICON",
+    "HIST",
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ANWB",
+     "https://www.anwb.nl"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Belfort van Brugge",
+   "address": "Markt 7, 8000 Brugge, Belgium",
+   "w": "De 83 meter hoge middeleeuwse belforttoren domineert de skyline sinds 1240; 366 treden voeren naar het beiaardklokkenspel en een panorama over de stad. UNESCO-werelderfgoed als deel van de Belforten van België en Frankrijk.",
+   "k": "83 m, sinds 1240",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "De Burg",
+   "address": "Burg, 8000 Brugge, Belgium",
+   "w": "Het oudste plein van Brugge en eeuwenlang het bestuurlijke en religieuze hart, met per vierkante meter meer bouwstijlen dan waar ook in België — van gotisch stadhuis tot renaissance Brugse Vrije.",
+   "k": "Het bestuurlijke plein",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Stadhuis van Brugge",
+   "address": "Burg 12, 8000 Brugge, Belgium",
+   "w": "Een van de oudste stadhuizen van de Lage Landen (1376-1420) met een pronkgevel vol nissen en beelden; binnen de spectaculaire gotische zaal met houten gewelf. Onderdeel van Musea Brugge.",
+   "k": "Gotisch, anno 1376",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Basiliek van het Heilig Bloed",
+   "address": "Burg 13, 8000 Brugge, Belgium",
+   "w": "Bewaart de reliek van het Heilig Bloed die volgens de overlevering na de kruistochten naar Brugge kwam; de dubbelkapel combineert een sobere romaanse benedenkerk met een rijk versierde bovenkapel. De kapellen zijn gratis toegankelijk.",
+   "k": "De Heilig-Bloedreliek",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Groeningemuseum",
+   "address": "Dijver 12, 8000 Brugge, Belgium",
+   "w": "Zes eeuwen Vlaamse en Belgische schilderkunst met 's werelds belangrijkste collectie Vlaamse Primitieven — Jan van Eyck, Hans Memling, Gerard David. Het vlaggenschip van Musea Brugge.",
+   "k": "De Vlaamse Primitieven",
+   "g": [
+    "MUS",
+    "ICON",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Onze-Lieve-Vrouwekerk (Michelangelo's Madonna)",
+   "address": "Mariastraat, 8000 Brugge, Belgium",
+   "w": "De bakstenen kerktoren is met 115,5 m een van de hoogste ter wereld; binnen staat de marmeren Madonna met Kind van Michelangelo, vermoedelijk het enige beeld dat Itali tijdens zijn leven verliet.",
+   "k": "Michelangelo in Brugge",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Sint-Janshospitaal & Memlingcollectie",
+   "address": "Mariastraat 38, 8000 Brugge, Belgium",
+   "w": "Een van de oudst bewaarde ziekenhuisgebouwen van Europa (12de eeuw) met een middeleeuwse ziekenzaal en oude apotheek; huisvest zes meesterwerken van Hans Memling, waaronder het Ursulaschrijn.",
+   "k": "Memling in een 12de-eeuws hospitaal",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Begijnhof Ten Wijngaerde",
+   "address": "Begijnhof 24-30, 8000 Brugge, Belgium",
+   "w": "Sereen 13de-eeuws begijnhof met witgekalkte huizen rond een boomrijke binnentuin, vandaag bewoond door benedictinessen. UNESCO-werelderfgoed als een van de Vlaamse begijnhoven.",
+   "k": "Wit, stil, UNESCO",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Rozenhoedkaai",
+   "address": "Rozenhoedkaai, 8000 Brugge, Belgium",
+   "w": "Het meest gefotografeerde plekje van Brugge: waar het Groene- en Dijverrei samenkomen, met het Belfort achter de trapgevels. Beschermd stadsgezicht en klassiek vertrekpunt voor de rondvaart.",
+   "k": "De iconische reienhoek",
+   "g": [
+    "ICON",
+    "CANAL",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRG",
+   "n": "Boottocht op de Brugse reien",
+   "address": "Rozenhoedkaai, 8000 Brugge, Belgium",
+   "w": "Een halfuur op de reien — het grachtennet dat Brugge de bijnaam Venetië van het Noorden gaf — glijdt langs boogbruggen, achtergevels en het Begijnhof tussen Jan van Eyckplein en Minnewater. Vijf aanlegsteigers in het centrum.",
+   "k": "Venetië van het Noorden",
+   "g": [
+    "ICON",
+    "CANAL"
+   ],
+   "sources": [
+    [
+     "STADBRUGGE",
+     "https://www.stadbrugge.be"
+    ],
+    [
+     "REISROUTES",
+     "https://www.reisroutes.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Gruuthusemuseum",
+   "address": "Dijver 17, 8000 Brugge, Belgium",
+   "w": "Het weelderige stadspaleis van de heren van Gruuthuse toont wandtapijten, glas-in-lood, kant en Bourgondische handschriften; het hoogtepunt is het laat-15de-eeuwse bidoratorium met zicht op het koor van de Onze-Lieve-Vrouwekerk.",
+   "k": "Bourgondisch stadspaleis",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Minnewater (Meer van Liefde)",
+   "address": "Minnewater, 8000 Brugge, Belgium",
+   "w": "Romantische vijver en park aan de zuidrand van de historische stad, met zwanen en de 15de-eeuwse Poertoren; de rustige toegangspoort tot het aanpalende Begijnhof.",
+   "k": "Het Meer van Liefde",
+   "g": [
+    "PARK",
+    "CANAL",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ANWB",
+     "https://www.anwb.nl"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Sint-Janshuismolen & de Kruisvestmolens",
+   "address": "Kruisvest, 8000 Brugge, Belgium",
+   "w": "Vier windmolens sieren de oostelijke stadswal; de Sint-Janshuismolen (1770) staat nog op zijn oorspronkelijke plek en maalt nog altijd graan — de enige die je vanbinnen kunt bezoeken.",
+   "k": "Malende molen sinds 1770",
+   "g": [
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "BRUGGE",
+     "https://www.brugge.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Sint-Salvatorskathedraal",
+   "address": "Sint-Salvatorskoorstraat 8, 8000 Brugge, Belgium",
+   "w": "De oudste parochiekerk van Brugge (12de-13de eeuw) en sinds 1834 kathedraal, met een monumentale westtoren, Vlaamse wandtapijten en een schatkamer met Vlaamse Primitieven.",
+   "k": "De kathedraal van Brugge",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SINTSALVATOR",
+     "https://www.sintsalvatorskathedraal.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Concertgebouw Brugge",
+   "address": "'t Zand 34, 8000 Brugge, Belgium",
+   "w": "Markante concert- en congreszaal (2002) in okerrode terracotta aan 't Zand, wereldwijd geprezen om haar akoestiek; de Lantaarntoren biedt een klank- en kunstparcours met stadszicht.",
+   "k": "Akoestisch icoon",
+   "g": [
+    "ARCH",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Jan van Eyckplein",
+   "address": "Jan van Eyckplein, 8000 Brugge, Belgium",
+   "w": "Het middeleeuwse handelshart van Brugge in de Hanzewijk, met het standbeeld van Jan van Eyck, het Tolhuis en de Poortersloge; van hieruit liepen de handelsroutes naar heel Europa.",
+   "k": "De Hanzewijk",
+   "g": [
+    "HIST",
+    "ARCH",
+    "CANAL",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Vismarkt",
+   "address": "Vismarkt, 8000 Brugge, Belgium",
+   "w": "Overdekte vismarkt uit 1821 met dorische zuilengalerijen waar tot vandaag vis en streekproducten worden verkocht; een van de weinige plekken waar nog dagelijks leven en historie samenvallen.",
+   "k": "Vis sinds 1821",
+   "g": [
+    "MKT",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Huidenvettersplein",
+   "address": "Huidenvettersplein, 8000 Brugge, Belgium",
+   "w": "Intiem pleintje van het huidenvettersgilde — ooit de Kleine Vismarkt — met een 17de-eeuws gildehuis en terrassen aan het water, pal naast de Rozenhoedkaai.",
+   "k": "Het gildeplein",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Choco-Story (Chocolademuseum)",
+   "address": "Wijnzakstraat 2, 8000 Brugge, Belgium",
+   "w": "In het 16de-eeuwse Huis de Crone vertelt Choco-Story het verhaal van cacao van de Maya's tot de Belgische praline, met live demonstraties van een chocolatier. Iconisch voor de chocoladestad Brugge.",
+   "k": "Van cacao tot praline",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Adornesdomein & Jeruzalemkapel",
+   "address": "Peperstraat 3, 8000 Brugge, Belgium",
+   "w": "Middeleeuws stadslandgoed van de Genuese koopmansfamilie Adornes met de unieke Jeruzalemkapel (15de eeuw), gebouwd naar het model van de Heilig-Grafkerk in Jeruzalem.",
+   "k": "Genuese kooplui in Brugge",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "ADORNES",
+     "https://www.adornes.org"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Frietmuseum",
+   "address": "Vlamingstraat 33, 8000 Brugge, Belgium",
+   "w": "Enige museum ter wereld gewijd aan de geschiedenis van de aardappel en de Belgische friet, in de gotische Saaihalle (1399), een van de oudste gebouwen van de stad.",
+   "k": "De friet in de kijker",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ],
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "'t Zand",
+   "address": "'t Zand, 8000 Brugge, Belgium",
+   "w": "Het grote plein aan de westkant met tot 150 lindebomen, de centrale fontein en het Concertgebouw; zaterdag is er een grote markt en het is een gangbaar startpunt voor een stadswandeling.",
+   "k": "Het grote westplein",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Middeleeuwse stadspoorten",
+   "address": "Kruispoort, 8000 Brugge, Belgium",
+   "w": "Vier van de negen stadspoorten bleven bewaard — Kruispoort, Gentpoort, Smedenpoort en Ezelpoort — massieve overblijfselen van de 14de-eeuwse stadsomwalling langs de vesten.",
+   "k": "Vier poorten resten",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Onze-Lieve-Vrouw-ter-Potterie",
+   "address": "Potterierei 79, 8000 Brugge, Belgium",
+   "w": "Beschermd hospitaal- en kloostercomplex (14de-17de eeuw) aan de Potterierei met een middeleeuwse ziekenzaal, kerk met een 14de-eeuws mirakelbeeld en een verrassend rijke museumcollectie. Musea Brugge.",
+   "k": "Verborgen hospitaalmuseum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Volkskundemuseum",
+   "address": "Balstraat 43, 8000 Brugge, Belgium",
+   "w": "In een rij 17de-eeuwse godshuizen tonen ingerichte kamers — klaslokaal, snoepwinkel, herberg De Zwarte Kat — het dagelijkse leven van weleer in West-Vlaanderen. Musea Brugge.",
+   "k": "Alledaags Brugge van vroeger",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "MUSEABRUGGE",
+     "https://www.museabrugge.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Kantcentrum (Lace Centre)",
+   "address": "Balstraat 16, 8000 Brugge, Belgium",
+   "w": "Museum en levende kantschool in een 19de-eeuws gebouw dat een van de originele Brugse kantscholen was; in de namiddag demonstreren kantklossters het vak dat Brugge wereldberoemd maakte.",
+   "k": "Brugse kant, levend",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org"
+    ]
+   ]
+  }
+ ]
+}
