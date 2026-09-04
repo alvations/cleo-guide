@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Ghent (Gent) field guide — 53 sights and 55 places to eat across Ghent and its region, each traceable to its source (Michelin, UNESCO, De Standaard, Het Nieuwsblad, VRT, Visit Gent) on one interactive map with area, collection and cuisine filters — beer &amp; breweries a first-class layer — a trip builder and exports.">
+<title>Ghent Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Ghent &amp; its region, sourced</p>
+  <h1>Ghent<span class="thin">&amp; its region — Gravensteen · the Ghent Altarpiece · Graslei · Patershol · the Leie</span></h1>
+  <p class="standfirst">53 sights and 55 places to eat across <strong>Ghent</strong> and its region — from the moated <strong>Gravensteen</strong> and St Bavo’s Cathedral with the <strong>Ghent Altarpiece</strong> (Van Eyck) to the Graslei/Korenlei quays, the Belfry, the medieval <strong>Patershol</strong>, SMAK/MSK and the <strong>Werregarenstraat</strong> graffiti alley, out to Sint-Martens-Latem and the Leie. A food canon all its own: <strong>Gentse waterzooi</strong> and <strong>stoverij</strong>, the purple <strong>cuberdon</strong> (neuzekes) carts, <strong>Tierenteyn mustard</strong>, the <strong>Gruut</strong> city brewery and the boot of beer at Dulle Griet — plus Europe’s veggie capital. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (beer is its own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Belgium/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#16A085"></i>Ghent</span>
+  <span><i style="background:#C0504D"></i>Around Ghent</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="waterzooi, stoverij, cuberdon, Gruut, Van Eyck…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-09-04</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Dutch (Flemish) across Michelin, UNESCO, Gault&amp;Millau, De Standaard, Het Nieuwsblad, VRT NWS, Visit Gent and vetted local creators, with beer &amp; breweries grouped as a first-class layer. Every coordinate is verified into data/geocodes.json and every place status-checked open. A batch of restaurants is pending a final coordinate pass before appearing.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "BOEKENTOREN":{k:"BOEKENTOREN",t:"Boekentoren UGent (officieel)",u:"https://boekentoren.gent",l:"Boekentoren UGent (officieel)"},
+  "CULTUURREGIO":{k:"CULTUURREGIO",t:"Cultuurregio Leie Schelde",u:"https://cultuurregioleieschelde.be",l:"Cultuurregio Leie Schelde"},
+  "DEGENTSEMUSEA":{k:"DEGENTSEMUSEA",t:"De Gentse Musea (stadsmusea-portaal)",u:"https://degentsemusea.be",l:"De Gentse Musea (stadsmusea-portaal)"},
+  "DEINZE":{k:"DEINZE",t:"Stad Deinze (officieel)",u:"https://www.deinze.be",l:"Stad Deinze (officieel)"},
+  "GENTDEKUIP":{k:"GENTDEKUIP",t:"Gent, De Kuip (lokale erfgoedgids)",u:"https://gentdekuip.com",l:"Gent, De Kuip (lokale erfgoedgids)"},
+  "HISTORIEK":{k:"HISTORIEK",t:"Historiek.net",u:"https://historiek.net",l:"Historiek.net"},
+  "INDUSTRIEMUSEUM":{k:"INDUSTRIEMUSEUM",t:"Industriemuseum Gent (officieel)",u:"https://www.industriemuseum.be",l:"Industriemuseum Gent (officieel)"},
+  "LANGSDELEIE":{k:"LANGSDELEIE",t:"Langs de Leie (regionaal toerisme)",u:"https://langsdeleie.be",l:"Langs de Leie (regionaal toerisme)"},
+  "MUDEL":{k:"MUDEL",t:"mudel — Museum van Deinze en de Leiestreek (officieel)",u:"https://www.mudel.be",l:"mudel — Museum van Deinze en de Leiestreek (officieel)"},
+  "MUSEUMDD":{k:"MUSEUMDD",t:"Museum Dhondt-Dhaenens (officieel)",u:"https://museumdd.be",l:"Museum Dhondt-Dhaenens (officieel)"},
+  "ONROEREND":{k:"ONROEREND",t:"Onroerend Erfgoed (Vlaamse erfgoedinventaris)",u:"https://inventaris.onroerenderfgoed.be",l:"Onroerend Erfgoed (Vlaamse erfgoedinventaris)"},
+  "SINTNIKLAAS":{k:"SINTNIKLAAS",t:"Sint-Niklaaskerk Gent (officieel)",u:"http://www.sintniklaaskerk.be",l:"Sint-Niklaaskerk Gent (officieel)"},
+  "SMAK":{k:"SMAK",t:"S.M.A.K. (officieel)",u:"https://smak.be",l:"S.M.A.K. (officieel)"},
+  "STADGENT":{k:"STAD GENT",t:"Stad Gent (stadsbestuur, officieel)",u:"https://stad.gent",l:"Stad Gent (stadsbestuur, officieel)"},
+  "STAMGENT":{k:"STAMGENT",t:"STAM Stadsmuseum Gent (officieel)",u:"https://stamgent.be",l:"STAM Stadsmuseum Gent (officieel)"},
+  "TOERISMELEIE":{k:"TOERISMELEIE",t:"Toerisme Leiestreek (officieel regionaal toerisme)",u:"https://www.toerisme-leiestreek.be",l:"Toerisme Leiestreek (officieel regionaal toerisme)"},
+  "UNESCOVL":{k:"UNESCOVL",t:"UNESCO Vlaanderen",u:"https://www.unesco-vlaanderen.be",l:"UNESCO Vlaanderen"},
+  "VISITFLANDERS":{k:"VISIT FLANDERS",t:"Toerisme Vlaanderen / VisitFlanders",u:"https://www.visitflanders.com",l:"Toerisme Vlaanderen / VisitFlanders"},
+  "VISITGENT":{k:"VISIT GENT",t:"Visit Gent (officiële stadstoerisme)",u:"https://visit.gent.be",l:"Visit Gent (officiële stadstoerisme)"},
+  "VRTNWS":{k:"VRT NWS",t:"VRT NWS (Vlaamse openbare omroep)",u:"https://www.vrt.be/vrtnws",l:"VRT NWS (Vlaamse openbare omroep)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (NL/EN)",u:"https://nl.wikipedia.org",l:"Wikipedia (NL/EN)"}
+};
+
+const AREAS = [
+  {id:"GEN",n:"Ghent (Gravensteen · St Bavo’s & the Altarpiece · Graslei · Patershol · SMAK)",c:"#16A085"},
+  {id:"GENR",n:"Around Ghent (Sint-Martens-Latem · the Leie · Deinze · student belt)",c:"#C0504D"}
+];
+
+const P = [
+{t:1,a:"GEN",n:"Gravensteen (Kasteel van de Graven van Vlaanderen)",ad:"Sint-Veerleplein 11, 9000 Gent, Belgium",la:51.05722,ln:3.72056,w:"The moated 12th-century castle of the Counts of Flanders in the very heart of the city — a rare intact medieval fortress with ramparts, towers and a torture-instrument collection, reached over its own drawbridge.",k:"Moated 12th-c. counts' castle",g:["ICON","HIST","ARCH","MUS"],s:[["VISITGENT","https://visit.gent.be/en/see-do/gravensteen"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Gravensteen"]]},
+{t:1,a:"GEN",n:"Sint-Baafskathedraal & het Lam Gods (Van Eyck)",ad:"Sint-Baafsplein, 9000 Gent, Belgium",la:51.05306,ln:3.72694,w:"Ghent's cathedral houses the world's most famous polyptych, Hubert and Jan van Eyck's 'Adoration of the Mystic Lamb' (Het Lam Gods, 1432) — still on view in situ, with a state-of-the-art visitor centre. The lower church and crypt add centuries of art.",k:"Home of the Ghent Altarpiece",g:["ICON","HIST","MUS","ARCH"],s:[["STADGENT","https://stad.gent/nl/muntenroute/sint-baafskathedraal-en-lam-gods"],["VISITFLANDERS","https://www.visitflanders.com/nl/verhalen/het-lam-gods-eeuwig-thuis-sint-baafs"],["VISITGENT","https://visit.gent.be/en/see-do/st-bavos-cathedral"]]},
+{t:1,a:"GEN",n:"Belfort van Gent (Belfry)",ad:"Sint-Baafsplein, 9000 Gent, Belgium",la:51.05389,ln:3.72528,w:"The 91-metre 14th-century belfry, a UNESCO World Heritage 'Belfry of Belgium and France', crowned by a gilded dragon; the middle tower of Ghent's famous three-tower row, with a glass lift to a panoramic viewing gallery.",k:"UNESCO belfry, gilded dragon",g:["UNESCO","ICON","HIST","ARCH"],s:[["UNESCOVL","https://www.unesco-vlaanderen.be/unesco-in-vlaanderen/werelderfgoed/belforten"],["VISITGENT","https://visit.gent.be/en/see-do/belfry"]]},
+{t:1,a:"GEN",n:"Graslei & Korenlei",ad:"Graslei, 9000 Gent, Belgium",la:51.05500,ln:3.72081,w:"The medieval inner harbour on the Leie, lined with guild houses spanning Romanesque to Baroque; Ghent's most photographed quays and, at dusk, the city's living room for a drink by the water.",k:"Guild-house harbour quays",g:["ICON","HIST","FREE","CANAL"],s:[["GENTDEKUIP","https://gentdekuip.com/graslei-korenlei/"],["VISITGENT","https://visit.gent.be/en/see-do/graslei-korenlei"]]},
+{t:1,a:"GEN",n:"Werregarenstraat (Graffitistraatje)",ad:"Werregarenstraat, 9000 Gent, Belgium",la:51.05549,ln:3.72463,w:"A cobbled alley opened to street artists in 1995 and repainted constantly — a free, ever-changing open-air gallery a few steps from the City Hall. You never see the same walls twice.",k:"Legal ever-changing graffiti alley",g:["ICON","FREE","MUS"],s:[["VISITGENT","https://visit.gent.be/en/street-art-ghent"],["ATLASOBSCURA","https://www.atlasobscura.com/places/graffiti-alley-ghent"]]},
+{t:1,a:"GEN",n:"Patershol",ad:"Patershol, 9000 Gent, Belgium",la:51.05781,ln:3.72250,w:"A pocket of winding medieval lanes and cobbles behind the Gravensteen — once a tanners' and weavers' quarter, now Ghent's most atmospheric restaurant-and-café district.",k:"Medieval restaurant quarter",g:["HIST","FREE","ICON","MUS"],s:[["VISITGENT","https://visit.gent.be/en/see-do/patershol"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:1,a:"GEN",n:"Vrijdagmarkt & standbeeld Jacob van Artevelde",ad:"Vrijdagmarkt, 9000 Gent, Belgium",la:51.05722,ln:3.72583,w:"Ghent's grand civic square, site of markets, joyous entries and bloody guild battles for seven centuries; at its centre the 1863 bronze of Jacob van Artevelde pointing toward England. The 14th-century Toreken guildhouse stands on the corner.",k:"Historic civic square",g:["HIST","MKT","FREE","ICON"],s:[["GENTDEKUIP","https://gentdekuip.com/vrijdagmarkt-3/"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Vrijdagmarkt_(Gent)"]]},
+{t:1,a:"GEN",n:"Sint-Niklaaskerk",ad:"Cataloniëstraat, 9000 Gent, Belgium",la:51.05389,ln:3.72278,w:"A pure example of Scheldt Gothic in blue Tournai stone, built from the 13th century by the merchants of the Graslei and dedicated to St Nicholas, patron of traders. The first of Ghent's three towers.",k:"Scheldt-Gothic merchants' church",g:["HIST","ARCH","CANAL"],s:[["SINTNIKLAAS","http://www.sintniklaaskerk.be/de-kerk/"],["VISITGENT","https://visit.gent.be/en/see-do/st-nicholas-church"]]},
+{t:1,a:"GEN",n:"S.M.A.K. (Stedelijk Museum voor Actuele Kunst)",ad:"Jan Hoetplein 1, 9000 Gent, Belgium",la:51.03817,ln:3.72202,w:"Ghent's museum of contemporary art, built by Jan Hoet into an international name — post-war and living artists from Bacon and Broodthaers to Panamarenko, with restlessly changing shows.",k:"Contemporary-art landmark",g:["MUS","ICON"],s:[["SMAK","https://smak.be/en/visit-smak"],["VISITGENT","https://visit.gent.be/en/see-do/smak"]]},
+{t:1,a:"GEN",n:"MSK Gent (Museum voor Schone Kunsten)",ad:"Fernand Scribedreef 1, 9000 Gent, Belgium",la:51.03830,ln:3.72380,w:"The Fine Arts Museum in Citadelpark: six centuries from Hieronymus Bosch and the Flemish Primitives to Ensor and the Symbolists, in a serene neoclassical building.",k:"Old masters to Ensor",g:["MUS","HIST","ARCH","PARK"],s:[["VISITGENT","https://visit.gent.be/en/see-do/museum-fine-arts-ghent-msk"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Museum_voor_Schone_Kunsten_(Gent)"]]},
+{t:1,a:"GEN",n:"STAM (Stadsmuseum Gent)",ad:"Godshuizenlaan 2, 9000 Gent, Belgium",la:51.04349,ln:3.71697,w:"The city museum set in the medieval Bijloke abbey and hospital, telling Ghent's story from Roman settlement to today — including a walk-on aerial photo of the whole city.",k:"The story of Ghent",g:["MUS","HIST","ARCH"],s:[["STAMGENT","https://stamgent.be/en/home"],["VISITGENT","https://visit.gent.be/en/see-do/stam-ghent-city-museum"]]},
+{t:1,a:"GEN",n:"Sint-Michielsbrug & Sint-Michielshelling",ad:"Sint-Michielshelling, 9000 Gent, Belgium",la:51.05389,ln:3.72056,w:"The stone bridge that frames Ghent's picture-postcard view — Graslei, Korenlei and the three towers all in one sweep. The single best free vantage point in the city.",k:"The three-tower viewpoint",g:["ICON","FREE","CANAL","PARK"],s:[["GENTDEKUIP","https://gentdekuip.com/graslei-korenlei/"],["VISITGENT","https://visit.gent.be/en/see-do/st-michaels-bridge"]]},
+{t:2,a:"GEN",n:"Stadhuis Gent (Pacificatiezaal)",ad:"Botermarkt 1, 9000 Gent, Belgium",la:51.05457,ln:3.72530,w:"Ghent's City Hall wears two faces on one block: flamboyant Late Gothic and sober Renaissance. Inside, the Pacificatiezaal recalls the 1576 Pacification of Ghent.",k:"Gothic-and-Renaissance city hall",g:["HIST","ARCH"],s:[["VISITGENT","https://visit.gent.be/en/see-do/town-hall"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Stadhuis_van_Gent"]]},
+{t:2,a:"GEN",n:"Groot Vleeshuis",ad:"Groentenmarkt 7, 9000 Gent, Belgium",la:51.05589,ln:3.72161,w:"A 15th-century covered meat market with a soaring timber roof, once where all the city's meat was inspected; now a showcase and tasting hall for East-Flemish regional products.",k:"15th-c. covered meat hall",g:["HIST","MKT"],s:[["GENTDEKUIP","https://gentdekuip.com/groot-vleeshuis/"],["VISITGENT","https://visit.gent.be/en/see-do/groot-vleeshuis"]]},
+{t:2,a:"GEN",n:"Het Groot Kanon (Dulle Griet)",ad:"Grootkanonplein, 9000 Gent, Belgium",la:51.05724,ln:3.72422,w:"A 12,500-kg wrought-iron bombard of the 15th century, five metres long — one of the largest siege guns of the Middle Ages, nicknamed the 'Mad Meg'. It stands on the square that bears its name.",k:"Giant medieval bombard",g:["HIST","FREE","MKT","NIGHT"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Groot_Kanon_(Gent)"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:2,a:"GEN",n:"Design Museum Gent",ad:"Jan Breydelstraat 5, 9000 Gent, Belgium",la:51.05583,ln:3.72014,w:"An international design collection from Art Nouveau and Art Deco to contemporary, spanning an 18th-century mansion and a bold new wing.",k:"Art Nouveau to now",g:["MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Design_Museum_Gent"],["VISITGENT","https://visit.gent.be/en/see-do/design-museum-gent"]]},
+{t:2,a:"GEN",n:"Boekentoren (Book Tower)",ad:"Rozier 9, 9000 Gent, Belgium",la:51.04469,ln:3.72581,w:"Henry van de Velde's modernist library tower for Ghent University (1930s–40s), a listed monument of stripped concrete recently restored, with a belvedere over the city.",k:"Van de Velde's library tower",g:["ARCH","HIST"],s:[["BOEKENTOREN","https://boekentoren.gent/en/directions"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Boekentoren"]]},
+{t:2,a:"GEN",n:"Klein Begijnhof Onze-Lieve-Vrouw ter Hoyen",ad:"Lange Violettenstraat 77, 9000 Gent, Belgium",la:51.04596,ln:3.73633,w:"A walled 13th-century beguinage of whitewashed houses, church and garden around a green — founded c.1234 by Joanna of Constantinople and inscribed on UNESCO's World Heritage List of Flemish Beguinages.",k:"UNESCO beguinage",g:["UNESCO","HIST","FREE","ARCH"],s:[["UNESCOVL","https://www.unesco-vlaanderen.be/unesco-in-vlaanderen/werelderfgoed/begijnhoven"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Klein_Begijnhof_Gent"]]},
+{t:2,a:"GEN",n:"Huis van Alijn",ad:"Kraanlei 65, 9000 Gent, Belgium",la:51.05751,ln:3.72350,w:"A museum of everyday 20th-century life set in Ghent's last surviving almshouse — reconstructed interiors, home movies and objects of ordinary Flemish lives, around a quiet courtyard.",k:"Museum of daily life",g:["MUS","HIST"],s:[["VISITGENT","https://visit.gent.be/en/see-do/house-alijn"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Huis_van_Alijn"]]},
+{t:2,a:"GEN",n:"Sint-Pietersabdij & Kunsthal",ad:"Sint-Pietersplein 9, 9000 Gent, Belgium",la:51.04214,ln:3.72669,w:"A Benedictine abbey founded in the 7th century by St Amandus, with a Baroque church, a vineyard garden and ruins, now the Kunsthal Sint-Pietersabdij exhibition space.",k:"7th-c. abbey & garden",g:["HIST","MUS","ARCH","PARK"],s:[["VISITGENT","https://visit.gent.be/en/see-do/st-peters-abbey"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Sint-Pietersabdij_(Gent)"]]},
+{t:2,a:"GEN",n:"De Vooruit / VIERNULVIER",ad:"Sint-Pietersnieuwstraat 23, 9000 Gent, Belgium",la:51.04778,ln:3.72778,w:"The socialist cooperative's 1913 festival hall, an eclectic Art Nouveau/Art Deco monument by Ferdinand Dierkens — reopened in 2026 after a major restoration as a landmark arts centre and café.",k:"1913 arts-centre monument",g:["ARCH","HIST","NIGHT","ICON"],s:[["HISTORIEK","https://historiek.net/de-vooruit-gent-unesco-werelderfgoed/180471/"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/De_Vooruit"]]},
+{t:2,a:"GEN",n:"De Krook",ad:"Miriam Makebaplein 1, 9000 Gent, Belgium",la:51.04889,ln:3.72861,w:"Ghent's award-winning riverside library and knowledge centre (2017), a striking angular building where the Schelde meets the city — free to enter, with terraces over the water.",k:"Riverside library landmark",g:["ARCH","FREE","ICON","CANAL"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/De_Krook"],["STADGENT","https://stad.gent/nl/bibliotheek-de-krook"]]},
+{t:2,a:"GEN",n:"Kraanlei (barokgevels)",ad:"Kraanlei, 9000 Gent, Belgium",la:51.05711,ln:3.72311,w:"A quay of richly carved Baroque façades facing the water — 'De Fluitspeler'/'Het Vliegend Hert' (1669) and the 'House of the Seven Works of Mercy' among the finest reliefs in the city.",k:"Carved Baroque façades",g:["HIST","ARCH","FREE","CANAL"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Kraanlei"],["VISITGENT","https://visit.gent.be/en/see-do/magical-ghent-evening"]]},
+{t:2,a:"GEN",n:"Oude Vismijn (Sint-Veerleplein)",ad:"Sint-Veerleplein 5, 9000 Gent, Belgium",la:51.05639,ln:3.72111,w:"The old fish market at the confluence of Leie and Lieve, its gate crowned by a Baroque Neptune; fish was sold here from the Middle Ages to the 1960s, now a brasserie and event venue facing the Gravensteen.",k:"Baroque fish-market gate",g:["HIST","ARCH","ICON","CANAL"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Oude_Vismijn_(Gent)"],["VISITGENT","https://visit.gent.be/en/see-do/magical-ghent-evening"]]},
+{t:2,a:"GEN",n:"Museum Dr. Guislain",ad:"Jozef Guislainstraat 43, 9000 Gent, Belgium",la:51.06679,ln:3.70326,w:"Set in Belgium's first purpose-built psychiatric hospital (1850s), a museum on the history of psychiatry and the shifting line between 'mad' and 'normal', with a notable outsider-art collection.",k:"History-of-psychiatry museum",g:["MUS","HIST"],s:[["VISITGENT","https://visit.gent.be/en/see-do/dr-guislain-museum"],["DEGENTSEMUSEA","https://degentsemusea.be/en/museums/museumdrguislain"]]},
+{t:2,a:"GEN",n:"Industriemuseum",ad:"Minnemeers 10, 9000 Gent, Belgium",la:51.05939,ln:3.72890,w:"Machines, people and the textile boom that made Ghent the 'Manchester of the continent', in a canalside former cotton mill — working looms and the story of industrial labour.",k:"Ghent's textile-industry museum",g:["MUS","HIST","CANAL"],s:[["INDUSTRIEMUSEUM","https://www.industriemuseum.be/en"],["VISITGENT","https://visit.gent.be/en/see-do/industriemuseum"]]},
+{t:3,a:"GEN",n:"Groot Begijnhof Sint-Amandsberg",ad:"Groot Begijnhof, 9040 Sint-Amandsberg, Gent, Belgium",la:51.05689,ln:3.74781,w:"A vast neo-Gothic beguinage village of some 80 houses and a central church, built 1873–76 when the beguines left the old city centre; UNESCO World Heritage and still remarkably intact.",k:"UNESCO neo-Gothic beguinage",g:["UNESCO","HIST","FREE","ARCH"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Groot_Begijnhof_Sint-Amandsberg"],["UNESCOVL","https://www.unesco-vlaanderen.be/unesco-in-vlaanderen/werelderfgoed/begijnhoven"]]},
+{t:3,a:"GEN",n:"Geeraard de Duivelsteen",ad:"Geraard de Duivelstraat 1, 9000 Gent, Belgium",la:51.05194,ln:3.72833,w:"A 13th-century Scheldt-Gothic stone castle named for the swarthy knight Geeraard 'the Devil' — over the centuries an armoury, monastery, seminary, asylum and prison, now a striking waterside landmark.",k:"13th-c. 'Devil's castle'",g:["HIST","ARCH","ICON","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Geeraard_de_Duivelsteen"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:3,a:"GEN",n:"Sint-Baafsabdij (ruïne)",ad:"Gandastraat 7, 9000 Gent, Belgium",la:51.05566,ln:3.73457,w:"The evocative ruins of the abbey where Ghent was born — cloister, refectory and lapidary museum of stone fragments, at the old confluence of Leie and Schelde.",k:"Ruins where Ghent began",g:["HIST","MUS","ARCH","CANAL"],s:[["GENTDEKUIP","https://gentdekuip.com/route/st-baafsabdij-spanjaardkasteel/"],["VISITGENT","https://visit.gent.be/en/see-do/st-bavos-abbey"]]},
+{t:3,a:"GEN",n:"Citadelpark & Plantentuin UGent",ad:"Citadelpark, 9000 Gent, Belgium",la:51.03687,ln:3.71940,w:"The city's largest 19th-century park — winding paths, a grotto, bandstand and, at its edge, the university's botanical garden with tropical glasshouses. Home to MSK and S.M.A.K.",k:"City park & botanical garden",g:["PARK","FREE","HIST","ARCH"],s:[["VISITGENT","https://visit.gent.be/en/see-do/citadelpark"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Citadelpark"]]},
+{t:3,a:"GEN",n:"Bloemenmarkt Kouter",ad:"Kouter, 9000 Gent, Belgium",la:51.05011,ln:3.72361,w:"Ghent's daily flower market on its most elegant square, at its liveliest on Sunday mornings when a brass kiosk plays and locals take an oyster-and-white-wine aperitif.",k:"Daily flower market",g:["MKT","FREE","ICON"],s:[["GENTDEKUIP","https://gentdekuip.com/markten/"],["VISITGENT","https://visit.gent.be/en/see-do/flower-market-kouter"]]},
+{t:3,a:"GEN",n:"Portus Ganda",ad:"Veermanplein, 9000 Gent, Belgium",la:51.05439,ln:3.73389,w:"A restored inner-city marina at the historic meeting of the rivers, ringed by cafés — Ghent's spot for a canoe or an electric boat and a swim at the Van Eyck baths nearby.",k:"Inner-city marina",g:["PARK","FREE","HIST","CANAL"],s:[["VISITGENT","https://visit.gent.be/en/see-do/portus-ganda"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:3,a:"GEN",n:"Rabot (Rabottorens)",ad:"Rabotplein, 9000 Gent, Belgium",la:51.06042,ln:3.71319,w:"A twin-towered 15th-century water gate that once defended the city's canals — a squat, castle-like brick landmark giving its name to the surrounding neighbourhood.",k:"15th-c. twin-tower water gate",g:["HIST","FREE","ICON","ARCH"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Rabot_(Gent)"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:3,a:"GEN",n:"De Wereld van Kina: het Huis",ad:"Sint-Pietersplein 14, 9000 Gent, Belgium",la:51.04149,ln:3.72688,w:"A family nature-and-science museum — cabinets of animals, minerals and the human body, plus a botanical garden across town — the former Michel Thiery school museum.",k:"Nature museum for families",g:["MUS","PARK"],s:[["DEGENTSEMUSEA","https://degentsemusea.be/musea/wereldvankina"],["VISITGENT","https://visit.gent.be/en/see-do/world-kina-house"]]},
+{t:3,a:"GEN",n:"Sint-Jacobskerk",ad:"Bij Sint-Jacobs, 9000 Gent, Belgium",la:51.05639,ln:3.72750,w:"A Romanesque-to-Gothic church with two western towers, at the heart of the Bij Sint-Jacobs square famed for its weekend flea market and its nightlife.",k:"Church of the flea-market square",g:["HIST","ARCH","MUS","MKT"],s:[["GENTDEKUIP","https://gentdekuip.com/historie/"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Sint-Jacobskerk_(Gent)"]]},
+{t:3,a:"GEN",n:"Achtersikkel & Grote Sikkel",ad:"Biezekapelstraat 1, 9000 Gent, Belgium",la:51.05397,ln:3.72641,w:"A cluster of medieval patrician 'stone houses' of the van der Sickelen family around a hidden galleried courtyard — the 'lovers' corner' — now part of the conservatory.",k:"Hidden medieval courtyard",g:["HIST","ARCH","FREE","MUS"],s:[["GENTDEKUIP","https://gentdekuip.com/grote-sikkel/"],["ONROEREND","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/25703"]]},
+{t:3,a:"GEN",n:"De Bijloke (voormalige abdij & hospitaal)",ad:"Jozef Kluyskensstraat 2, 9000 Gent, Belgium",la:51.04395,ln:3.71662,w:"A 13th-century Cistercian hospital and abbey complex with a magnificent painted timber ceiling, now the Bijloke music centre — one of Ghent's most beautiful medieval ensembles.",k:"Medieval hospital, now concert hall",g:["HIST","ARCH"],s:[["STAMGENT","https://stamgent.be/en/the-bijloke-site"],["ONROEREND","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/24856"]]},
+{t:3,a:"GEN",n:"Charlatan",ad:"Vlasmarkt 6, 9000 Gent, Belgium",la:51.05580,ln:3.72840,w:"The legendary music café and dance hall on the Vlasmarkt, epicentre of Ghent nightlife and the subject of Felix Van Groeningen's 2016 film 'Belgica'.",k:"Legendary music café ('Belgica')",g:["NIGHT","ICON","MUS","MKT"],s:[["VISITGENT","https://visit.gent.be/en/eat-drink/charlatan"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Charlatan_(zaal)"]]},
+{t:3,a:"GEN",n:"Korenmarkt",ad:"Korenmarkt, 9000 Gent, Belgium",la:51.05439,ln:3.72189,w:"Ghent's central square where the old grain market stood, ringed by the former post office, the Sint-Niklaaskerk and pavement cafés — the natural starting point for the tower row and the historic core.",k:"Central café square",g:["HIST","FREE","ICON","ARCH"],s:[["VISITGENT","https://visit.gent.be/en/see-do/korenmarkt"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:3,a:"GEN",n:"Groentenmarkt",ad:"Groentenmarkt, 9000 Gent, Belgium",la:51.05581,ln:3.72211,w:"A compact medieval market square wedged between the Groot Vleeshuis and the Leie — home to Tierenteyn's mustard shop, the rival cuberdon carts and the city's oldest bakery. Ghent's edible heart.",k:"The city's edible square",g:["HIST","MKT","FREE","ICON"],s:[["GENTDEKUIP","https://gentdekuip.com/pleinen/groentenmarkt/"],["VISITGENT","https://visit.gent.be/en/see-do/groentenmarkt"]]},
+{t:3,a:"GEN",n:"Aula Academica (UGent)",ad:"Voldersstraat 9, 9000 Gent, Belgium",la:51.05213,ln:3.72349,w:"Ghent University's ceremonial hall of 1826, a neoclassical temple with a Pantheon-inspired portico of eight Corinthian columns — the building in the UGent logo, by city architect Lodewijk Roelandt.",k:"Neoclassical university temple",g:["HIST","ARCH","CANAL","NIGHT"],s:[["ONROEREND","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/26028"],["VISITGENT","https://visit.gent.be/en/see-do/university-auditorium"]]},
+{t:3,a:"GEN",n:"Sint-Annakerk",ad:"Sint-Annaplein, 9000 Gent, Belgium",la:51.04889,ln:3.73472,w:"A monumental 19th-century church in a rare Romano-Byzantine revival style, its vast interior richly decorated with murals and marble — one of Ghent's grandest and least-expected sacred spaces.",k:"Romano-Byzantine revival church",g:["HIST","ARCH"],s:[["ONROEREND","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/25760"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Sint-Annakerk_(Gent)"]]},
+{t:1,a:"GENR",n:"Kasteel van Ooidonk",ad:"Ooidonkdreef 9, 9800 Bachte-Maria-Leerne (Deinze), Belgium",la:51.00130,ln:3.58350,w:"A moated Flemish-Renaissance water castle in a loop of the Leie south of Ghent — stepped gables, onion domes and a lavishly furnished interior, set in a 45-hectare park still inhabited by the same family.",k:"Flemish-Renaissance water castle",g:["ICON","HIST","ARCH","CANAL"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/Kasteel_Ooidonk"],["ONROEREND","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/135187"],["LANGSDELEIE","https://langsdeleie.be/en/ooidonk-castle/"]]},
+{t:1,a:"GENR",n:"Sint-Martens-Latem (kunstenaarsdorp)",ad:"Dorp, 9830 Sint-Martens-Latem, Belgium",la:51.02070,ln:3.63940,w:"The riverside village that gave its name to two schools of Flemish art — a postcard of the Leie, willows and whitewashed farms that drew Minne, Van de Woestyne, Permeke and the Latem expressionists.",k:"Cradle of Flemish expressionism",g:["HIST","PARK","MUS","CANAL"],s:[["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sint-Martens-Latem"]]},
+{t:2,a:"GENR",n:"Museum Dhondt-Dhaenens",ad:"Museumlaan 14, 9831 Deurle, Belgium",la:51.01040,ln:3.59879,w:"An internationally regarded museum of modern and contemporary art in Deurle, founded on the Dhondt-Dhaenens collection of Flemish masters and now known for adventurous temporary shows.",k:"Modern & contemporary art, Deurle",g:["MUS"],s:[["MUSEUMDD","https://museumdd.be/en"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"]]},
+{t:2,a:"GENR",n:"mudel — Museum van Deinze en de Leiestreek",ad:"Lucien Matthyslaan 3-5, 9800 Deinze, Belgium",la:50.98130,ln:3.52556,w:"Deinze's fine-arts and folklore museum, holding the region's richest collection of Leie-school painting — Emile Claus, Permeke, Gustave Van de Woestyne, Roger Raveel — alongside local ethnography.",k:"Leie-school painting collection",g:["MUS","CANAL"],s:[["MUDEL","https://www.mudel.be/en/visite"],["DEINZE","https://www.deinze.be/dienst/2775/museum-van-deinze-en-de-leiestreek"]]},
+{t:2,a:"GENR",n:"Museum Gust De Smet",ad:"Museumlaan, 9831 Deurle, Belgium",la:51.00975,ln:3.60366,w:"The house and studio of Flemish expressionist Gust De Smet, kept as he left it, with his paintings in the setting where they were made — one of Deurle's cluster of artist-museums.",k:"Expressionist's house-museum",g:["MUS","HIST"],s:[["CULTUURREGIO","https://cultuurregioleieschelde.be/erfgoedhalte/"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"]]},
+{t:3,a:"GENR",n:"Museum Gevaert-Minne",ad:"Edgar Gevaertdreef 4, 9830 Sint-Martens-Latem, Belgium",la:51.00818,ln:3.61943,w:"The former home and studio of painter Edgard Gevaert on a three-hectare domain, showing work by nearly all the great Latem artists — George Minne, Servaes, Valerius de Saedeleer.",k:"Latem artists' collection",g:["MUS","HIST"],s:[["CULTUURREGIO","https://cultuurregioleieschelde.be/erfgoedhalte/museum-gevaert-minne/"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"]]},
+{t:3,a:"GENR",n:"Museum Leon De Smet",ad:"Museumlaan 18, 9831 Deurle, Belgium",la:51.01060,ln:3.59900,w:"A small Deurle museum devoted to luminist painter Leon De Smet, Gust's brother — intimate portraits and interiors, open on a limited basis.",k:"Luminist painter's museum",g:["MUS","CANAL"],s:[["CULTUURREGIO","https://cultuurregioleieschelde.be/erfgoedhalte/"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"]]},
+{t:3,a:"GENR",n:"Sint-Martinuskerk (Sint-Martens-Latem)",ad:"Dorp, 9830 Sint-Martens-Latem, Belgium",la:51.02079,ln:3.64010,w:"The village's small parish church, a place of quiet that also holds art treasures by Latem masters Gustave Van de Woestyne and George Minne.",k:"Village church with Latem art",g:["HIST","ARCH","MUS","MKT"],s:[["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"],["ONROEREND","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/40563"]]},
+{t:3,a:"GENR",n:"Latemse Meersen & de Leie",ad:"Latemse Meersen, 9830 Sint-Martens-Latem, Belgium",la:51.02806,ln:3.62722,w:"The water meadows and willow-lined bends of the Leie that the Latem painters immortalised — a flat, luminous walking and cycling landscape, with a route tracing the very spots in their canvases.",k:"The painters' river landscape",g:["PARK","FREE","CANAL"],s:[["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"],["LANGSDELEIE","https://langsdeleie.be/"]]},
+{t:2,a:"GENR",n:"Roger Raveelmuseum",ad:"Gildestraat 2-8, 9870 Machelen-aan-de-Leie (Zulte), Belgium",la:50.95989,ln:3.48565,w:"A crisp white Stéphane Beel building in the artist's home village, one of the few Belgian artists to get his own museum in his lifetime — 300+ paintings and 550 drawings by the post-war master Roger Raveel.",k:"Post-war master's own museum",g:["MUS"],s:[["VRTNWS","https://www.vrt.be/vrtnws/nl/2025/02/01/roger-raveel-museum-zulte-tijdelijk-dicht-renovatiewerken/"],["CULTUURREGIO","https://cultuurregioleieschelde.be/erfgoedhalte/roger-raveelmuseum/"]]},
+{t:3,a:"GENR",n:"Recreatiedomein De Brielmeersen",ad:"Guido Gezellelaan 51, 9800 Deinze, Belgium",la:50.98180,ln:3.51990,w:"A free 27-hectare provincial park in the heart of Deinze between the Leie and the Schipdonk canal — playgrounds, a petting farm with deer and donkeys, mini-golf and riverside walks.",k:"Deinze's riverside park",g:["PARK","FREE","MUS","CANAL"],s:[["WIKIPEDIA","https://nl.wikipedia.org/wiki/De_Brielmeersen"],["DEINZE","https://www.deinze.be/site-brielmeersen"]]}
+];
+
+const FS = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com",l:"Atlas Obscura"},
+  "AUBERGEPECHEUR":{k:"AUBERGEPECHEUR",t:"Auberge du Pêcheur (officieel)",u:"https://www.auberge-du-pecheur.be",l:"Auberge du Pêcheur (officieel)"},
+  "BEVEGAN":{k:"BEVEGAN",t:"Be Vegan (België)",u:"https://bevegan.be",l:"Be Vegan (België)"},
+  "CULINAIREAMB":{k:"CULINAIREAMB",t:"Culinaire Ambiance",u:"https://culinaireambiance.com",l:"Culinaire Ambiance"},
+  "ELLE":{k:"ELLE",t:"ELLE België",u:"https://www.elle.be",l:"ELLE België"},
+  "FEELING":{k:"FEELING",t:"Feeling (Roularta magazine)",u:"https://www.feeling.be",l:"Feeling (Roularta magazine)"},
+  "GAULTMILLAU":{k:"GAULT&MILLAU",t:"Gault&Millau België",u:"https://www.gaultmillau.be",l:"Gault&Millau België"},
+  "GENTBLOGT":{k:"GENTBLOGT",t:"Gentblogt (stadsarchief, stad.gent)",u:"https://gentblogt-archief.stad.gent",l:"Gentblogt (stadsarchief, stad.gent)"},
+  "GENTDEKUIP":{k:"GENTDEKUIP",t:"Gent, De Kuip (lokale erfgoedgids)",u:"https://gentdekuip.com",l:"Gent, De Kuip (lokale erfgoedgids)"},
+  "GREENWAY":{k:"GREENWAY",t:"Greenway (officieel)",u:"https://greenway.be",l:"Greenway (officieel)"},
+  "GRUUT":{k:"GRUUT",t:"Gentse Stadsbrouwerij Gruut (officieel)",u:"https://www.gruut.be",l:"Gentse Stadsbrouwerij Gruut (officieel)"},
+  "HIPSTEADRESJES":{k:"HIPSTEADRESJES",t:"De Hipste Adresjes van Gent",u:"https://hipsteadresjes.gent",l:"De Hipste Adresjes van Gent"},
+  "HOPDUVEL":{k:"HOPDUVEL",t:"De Hopduvel (officieel)",u:"https://www.de-hopduvel-gent.be",l:"De Hopduvel (officieel)"},
+  "INDUSTRIEMUSEUM":{k:"INDUSTRIEMUSEUM",t:"Industriemuseum Gent (officieel)",u:"https://www.industriemuseum.be",l:"Industriemuseum Gent (officieel)"},
+  "JULIESHOUSE":{k:"JULIESHOUSE",t:"Julie's House (officieel)",u:"https://www.julieshouse.be",l:"Julie's House (officieel)"},
+  "JUNE":{k:"JUNE",t:"june. a travel magazine",u:"https://www.june.be",l:"june. a travel magazine"},
+  "KNACKWEEKEND":{k:"KNACKWEEKEND",t:"Knack Weekend",u:"https://weekend.knack.be",l:"Knack Weekend"},
+  "LANGSDELEIE":{k:"LANGSDELEIE",t:"Langs de Leie (regionaal toerisme)",u:"https://langsdeleie.be",l:"Langs de Leie (regionaal toerisme)"},
+  "LEFOODING":{k:"LEFOODING",t:"Le Fooding",u:"https://lefooding.com",l:"Le Fooding"},
+  "LOSTBEERS":{k:"LOSTBEERS",t:"Lost Beers (bierjournalistiek)",u:"https://lostbeers.com",l:"Lost Beers (bierjournalistiek)"},
+  "MARIECLAIRE":{k:"MARIECLAIRE",t:"Marie Claire België",u:"https://marieclaire.be",l:"Marie Claire België"},
+  "MICHELIN":{k:"MICHELIN",t:"Le Guide Michelin België",u:"https://guide.michelin.com",l:"Le Guide Michelin België"},
+  "MOKABON":{k:"MOKABON",t:"Mokabon (officieel)",u:"https://mokabon.myshopify.com",l:"Mokabon (officieel)"},
+  "NATGEONL":{k:"NATGEONL",t:"National Geographic Nederland",u:"https://www.nationalgeographic.nl",l:"National Geographic Nederland"},
+  "ORCOFFEE":{k:"ORCOFFEE",t:"OR Coffee Roasters (officieel)",u:"https://www.orcoffee.be",l:"OR Coffee Roasters (officieel)"},
+  "REIZENREISTIPS":{k:"REIZENREISTIPS",t:"Reizen & Reistips",u:"https://www.reizen-en-reistips.nl",l:"Reizen & Reistips"},
+  "RUTGERBAKT":{k:"RUTGERBAKT",t:"Rutger Bakt (Rutger van den Broek)",u:"https://rutgerbakt.nl",l:"Rutger Bakt (Rutger van den Broek)"},
+  "SENSUM":{k:"SENSUM",t:"Sensum (officieel)",u:"https://sensumgent.be",l:"Sensum (officieel)"},
+  "SOUVENIR":{k:"SOUVENIR",t:"Souvenir (officieel)",u:"https://souvenir.gent",l:"Souvenir (officieel)"},
+  "STREEKPRODUCT":{k:"STREEKPRODUCT",t:"Streekproduct.be (VLAM, erkende streekproducten)",u:"https://www.streekproduct.be",l:"Streekproduct.be (VLAM, erkende streekproducten)"},
+  "TIMETOMOMO":{k:"TIMETOMOMO",t:"time to momo (reisgids)",u:"https://www.timetomomo.com",l:"time to momo (reisgids)"},
+  "TOERISMELEIE":{k:"TOERISMELEIE",t:"Toerisme Leiestreek (officieel regionaal toerisme)",u:"https://www.toerisme-leiestreek.be",l:"Toerisme Leiestreek (officieel regionaal toerisme)"},
+  "VERLORENBIEREN":{k:"VERLORENBIEREN",t:"Verloren Bieren / Het Gentsche Kroegenboek",u:"https://verlorenbieren.nl",l:"Verloren Bieren / Het Gentsche Kroegenboek"},
+  "VISITGENT":{k:"VISIT GENT",t:"Visit Gent (officiële stadstoerisme)",u:"https://visit.gent.be",l:"Visit Gent (officiële stadstoerisme)"},
+  "VRIJMOED":{k:"VRIJMOED",t:"Vrijmoed (officieel)",u:"https://www.vrijmoed.be",l:"Vrijmoed (officieel)"},
+  "VRTNWS":{k:"VRT NWS",t:"VRT NWS (Vlaamse openbare omroep)",u:"https://www.vrt.be/vrtnws",l:"VRT NWS (Vlaamse openbare omroep)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (NL/EN)",u:"https://nl.wikipedia.org",l:"Wikipedia (NL/EN)"}
+};
+
+const CUISINES = [
+  {id:"BEL",n:"Belgian & Flemish"},
+  {id:"FR",n:"French & Brasserie"},
+  {id:"BEER",n:"Beer & Breweries"},
+  {id:"SWEET",n:"Chocolate, Waffles & Sweets"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"CAFE",n:"Café & Brown Café"},
+  {id:"SEA",n:"North Sea & Seafood"},
+  {id:"VEG",n:"Vegetarian & Vegan"},
+  {id:"INT",n:"International & Student"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Belfries & Castles"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"CANAL",n:"Canals & Waterfront"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"GEN",n:"De Dulle Griet",ad:"Vrijdagmarkt 50, 9000 Gent, Belgium",cz:["BEER"],la:51.05650,ln:3.72523,w:"Ghent's most famous beer café, with the city's largest Belgian-beer list (500+). Order the 1.2-litre house boot and you hand over a shoe as deposit, hoisted to the ceiling in a basket until you return the glass.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/de-dulle-griet"],["LOSTBEERS","https://lostbeers.com/a-pub-guide-to-ghent-32-years-later/"]]},
+{t:1,a:"GEN",n:"Het Waterhuis aan de Bierkant",ad:"Groentenmarkt 9, 9000 Gent, Belgium",cz:["BEER"],la:51.05640,ln:3.72245,w:"A canalside brown pub in a former riverside house with a waterfront terrace and around 175 beers, including its own Klokke Roeland. The classic Ghent beer stop, next to its jenever annex.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/waterhuis-aan-de-bierkant"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/en/het-waterhuis-aan-de-bierkant"]]},
+{t:1,a:"GEN",n:"'t Dreupelkot",ad:"Groentenmarkt 12, 9000 Gent, Belgium",cz:["BEER"],la:51.05638,ln:3.72206,w:"A tiny jenever house on the water beside the Waterhuis, pouring only genever — over 200 kinds, from cactus to vanilla to chocolate — served ice-cold and brimful.",s:[["TIMETOMOMO","https://www.timetomomo.com/nl/het-lekkerste-bier-van-gent/"],["REIZENREISTIPS","https://www.reizen-en-reistips.nl/en/leukste-biercafes-gent/"]]},
+{t:1,a:"GEN",n:"Gentse Gruut Stadsbrouwerij",ad:"Rembert Dodoensdreef 1, 9000 Gent, Belgium",cz:["BEER"],la:51.05727,ln:3.72999,w:"Annick De Splenter's city brewery revives 'gruut' — a medieval herb blend used instead of hops — in five house beers plus a rotating 'Maîtresse'. Tours and a canalside brewery bar in the centre.",s:[["GRUUT","https://www.gruut.be/"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Stadsbrouwerij_Gruut"]]},
+{t:2,a:"GEN",n:"De Hopduvel",ad:"Dok-Noord 7, 9000 Gent, Belgium",cz:["BEER"],la:51.06759,ln:3.73132,w:"A vast beer specialty shop and bar that commissions its own Gentse Tripel, alongside a huge range of Belgian and international beers, wines and spirits — the go-to for beer to take home.",s:[["HOPDUVEL","https://www.de-hopduvel-gent.be/"],["TIMETOMOMO","https://www.timetomomo.com/nl/het-lekkerste-bier-van-gent/"]]},
+{t:2,a:"GEN",n:"De Trollekelder",ad:"Bij Sint-Jacobs 17, 9000 Gent, Belgium",cz:["BEER"],la:51.05620,ln:3.72724,w:"A characterful troll-themed beer café by Sint-Jacobs with a deep, well-kept list of trappist and abbey beers and a quiet upstairs — a beer-lover's classic away from the tourist crush.",s:[["LOSTBEERS","https://lostbeers.com/a-pub-guide-to-ghent-32-years-later/"],["VERLORENBIEREN","https://verlorenbieren.nl/het-gentsche-kroegenboek-32-jaar-later/"]]},
+{t:2,a:"GEN",n:"Het Spijker",ad:"Pensmarkt 3, 9000 Gent, Belgium",cz:["BEER","CAFE"],la:51.05552,ln:3.72137,w:"A historic pub in a former granary right in the centre, with two terraces — one on the bustling street, one over the Leie — and a solid local beer list.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/het-spijker"],["REIZENREISTIPS","https://www.reizen-en-reistips.nl/en/leukste-biercafes-gent/"]]},
+{t:2,a:"GEN",n:"'t Galgenhuisje",ad:"Groentenmarkt 5, 9000 Gent, Belgium",cz:["BEER"],la:51.05565,ln:3.72215,w:"By far the smallest café in Ghent, an 18th-century brown pub on the Groentenmarkt pouring its own Galgenbier — squeeze in upstairs or take a stool on the market.",g:["MKT"],s:[["VISITGENT","https://visit.gent.be/en/eat-drink/t-galgenhuisje"],["GENTDEKUIP","https://gentdekuip.com/cuberdon-neuzeke/"]]},
+{t:3,a:"GEN",n:"Rococo",ad:"Corduwaniersstraat 57, 9000 Gent, Belgium",cz:["BEER","CAFE"],la:51.05784,ln:3.72309,w:"One of the last genuine brown cafés in the centre — candlelit, chamber-pots on the ceiling, a 1667 building full of stories in the heart of Patershol. Beer and conversation, nothing else.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink"],["REIZENREISTIPS","https://www.reizen-en-reistips.nl/en/leukste-biercafes-gent/"]]},
+{t:1,a:"GEN",n:"Brasserie 't Klokhuys",ad:"Corduwaniersstraat 65, 9000 Gent, Belgium",cz:["BEL"],la:51.05806,ln:3.72361,w:"An authentic Patershol brasserie that does the Ghent classics properly — creamy waterzooi of farm chicken and beef stoverij braised in beer — in a warm, cosy room.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/t-klokhuys"],["TIMETOMOMO","https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"]]},
+{t:2,a:"GEN",n:"Brasserie 't Vosken",ad:"Sint-Baafsplein 19, 9000 Gent, Belgium",cz:["BEL"],la:51.05352,ln:3.72612,w:"A typical Ghent brasserie in a striking black-and-white room directly below St Bavo's, with a big summer terrace on the square — the reliable address for stoverij and waterzooi in the centre.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/t-vosken"],["GENTDEKUIP","https://gentdekuip.com/historie/"]]},
+{t:2,a:"GEN",n:"Brasserie Pakhuis",ad:"Schuurkenstraat 4, 9000 Gent, Belgium",cz:["FR","BEL"],la:51.05333,ln:3.72168,w:"A grand belle-époque brasserie in a converted warehouse down an atmospheric alley — oysters, seafood and French-Italian classics under a soaring iron-and-glass roof.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/pakhuis"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants"]]},
+{t:2,a:"GEN",n:"Balls & Glory",ad:"Jakobijnenstraat 6, 9000 Gent, Belgium",cz:["BEL"],la:51.05225,ln:3.72018,w:"An open-kitchen canteen serving one thing brilliantly: handmade meatballs with a molten filling, from honestly sourced meat, with mash and greens. Walk-in, no reservations.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/balls-glory"],["FEELING","https://www.feeling.be/lifestyle/food/koffiebars-in-gent"]]},
+{t:2,a:"GEN",n:"Bord'Eau (Oude Vismijn)",ad:"Sint-Veerleplein 5, 9000 Gent, Belgium",cz:["BEL","FR"],la:51.05639,ln:3.72111,w:"A brasserie set in the Baroque old fish market at the foot of the Gravensteen, with a waterside terrace where the Leie and Lieve meet — classic dishes in one of Ghent's most scenic rooms.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/news/in-the-picture-genieten-aan-en-van-het-water"],["VISITGENT","https://visit.gent.be/en/see-do/magical-ghent-evening"]]},
+{t:1,a:"GEN",n:"Vrijmoed",ad:"Vlaanderenstraat 22, 9000 Gent, Belgium",cz:["FINE"],la:51.05107,ln:3.72889,w:"Chef Michaël Vrijmoed's two-Michelin-star restaurant, Ghent's culinary summit — precise, produce-driven tasting menus with a celebrated cellar.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/vrijmoed"],["VRIJMOED","https://www.vrijmoed.be/en/vrijmoed"]]},
+{t:1,a:"GEN",n:"Publiek",ad:"Ham 39, 9000 Gent, Belgium",cz:["FINE","VEG"],la:51.05775,ln:3.73300,w:"Chef Olly Ceulenaere's one-star restaurant, quietly one of Belgium's most influential kitchens — a set surprise menu built around vegetables, ferments and Flemish produce.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/publiek"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/publiek-gent"]]},
+{t:1,a:"GEN",n:"OAK",ad:"Burgstraat 16, 9000 Gent, Belgium",cz:["FINE"],la:51.05668,ln:3.71905,w:"Chef Marcelo Ballardin's one-star OAK — contemporary, personal cooking with surprising combinations, on a quiet street near the Gravensteen.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/oak"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/oak-gent"]]},
+{t:2,a:"GEN",n:"Souvenir — CLOSED",ad:"Brabantdam 134, 9000 Gent, Belgium",cz:["FINE"],la:51.04965,ln:3.73223,w:"Vilhjalmur Sigurdarson's intimate restaurant, holder of a Michelin Green Star for sustainable gastronomy — a tight seasonal menu rooted in Flemish and Nordic produce.",closed:1,s:[["SOUVENIR","https://souvenir.gent/"],["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurants"]]},
+{t:2,a:"GEN",n:"Karel de Stoute",ad:"Vrouwebroersstraat 2, 9000 Gent, Belgium",cz:["FINE","FR"],la:51.05815,ln:3.72255,w:"A refined modern-French, farm-to-table table in Patershol, selected by the Michelin Guide — a small, chef-led room with a strong seasonal menu.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/karel-de-stoute"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants"]]},
+{t:2,a:"GEN",n:"Roots",ad:"Vrouwebroersstraat 5, 9000 Gent, Belgium",cz:["FINE","BEL"],la:51.05824,ln:3.72229,w:"A Michelin-listed Patershol restaurant serving modern, creative Belgian cooking in a relaxed room — 3–4-course lunches, longer tasting menus at night.",s:[["MICHELIN","https://guide.michelin.com/be/nl/oost-vlaanderen/gent/restaurant/roots493600"],["FEELING","https://www.feeling.be/lifestyle/food/horecawandelen-14-x-take-out-koffie-in-de-beste-koffiebars-van-gent"]]},
+{t:2,a:"GEN",n:"Elders",ad:"Edmond Van Beverenplein 16, 9000 Gent, Belgium",cz:["BEL"],la:51.07282,ln:3.70936,w:"Chef Tom Pauweleyn's warm neighbourhood gastro-bistro, named Gault&Millau's Gastro-Bistro of the Year 2025 — creative, generous cooking off a lively square.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/news/gastro-bistro-van-het-jaar-elders-chef-tom-pauweleyn"],["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/elders"]]},
+{t:3,a:"GEN",n:"Fou d'O",ad:"Snepkaai 40, 9000 Gent, Belgium",cz:["FR"],la:51.03816,ln:3.69055,w:"A long-loved Gault&Millau restaurant on the banks of the Leie south of the centre, with a waterside terrace — refined seasonal cooking away from the crowds.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/fou-do-gent"],["VISITGENT","https://visit.gent.be/en/tag/gault-millau"]]},
+{t:3,a:"GEN",n:"Martino",ad:"Vlaanderenstraat 125, 9000 Gent, Belgium",cz:["BEL"],la:51.04893,ln:3.73141,w:"The Ghent institution that claims to have invented the broodje Martino — spicy raw-beef préparé — still serving it, plus its famous cheese-egg-burger, in a no-frills snackbar since decades.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/hip/martino-gent"],["LEFOODING","https://lefooding.com/en/restaurants/martino"]]},
+{t:1,a:"GEN",n:"Greenway",ad:"Nederkouter 42, 9000 Gent, Belgium",cz:["VEG"],la:51.04755,ln:3.72173,w:"Ghent's pioneering veg restaurant, open since 1996 and now fully vegan — burgers, bowls and daily specials that helped make the city Europe's self-styled veggie capital.",s:[["GREENWAY","https://greenway.be/en/restaurant/"],["TIMETOMOMO","https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"]]},
+{t:2,a:"GEN",n:"Le Botaniste",ad:"Hoornstraat 13, 9000 Gent, Belgium",cz:["VEG"],la:51.05210,ln:3.72114,w:"An organic plant-based canteen — buddha bowls, whole-food sushi, tonic wines — small, warm and central; the Ghent original of a concept now exported worldwide.",s:[["BEVEGAN","https://bevegan.be/nl/blog-vegan-gent-onze-hotspotguide/"],["TIMETOMOMO","https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"]]},
+{t:2,a:"GEN",n:"Lokaal",ad:"Brabantdam 100, 9000 Gent, Belgium",cz:["VEG","BEL"],la:51.04970,ln:3.73160,w:"A daylight bistro named for its ecological, local-produce philosophy — seasonal, largely vegetable-forward plates by the Glazen Straatje.",s:[["TIMETOMOMO","https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"],["FEELING","https://www.feeling.be/lifestyle/food/koffiebars-in-gent"]]},
+{t:2,a:"GEN",n:"Avalon",ad:"Geldmunt 32, 9000 Gent, Belgium",cz:["VEG"],la:51.05774,ln:3.72109,w:"A long-running vegetarian restaurant in a stepped-gable house opposite the Gravensteen, with a garden terrace — organic, seasonal lunches, a Ghent veggie fixture.",s:[["BEVEGAN","https://bevegan.be/nl/blog-vegan-gent-onze-hotspotguide/"],["TIMETOMOMO","https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"]]},
+{t:3,a:"GEN",n:"Amour",ad:"Sint-Salvatorstraat 18a, 9000 Gent, Belgium",cz:["VEG","CAFE"],la:51.06550,ln:3.72962,w:"A gentle lunch spot known for its generous, mostly-vegan buffet — spreads, salads and warm dishes that change with the season and the market.",g:["MKT"],s:[["FEELING","https://www.feeling.be/hotspots/eten/gent/amour-in-gent-de-perfecte-lunchplek"],["LEFOODING","https://lefooding.com/en/restaurants/amour"]]},
+{t:1,a:"GEN",n:"Cuberdon- & neuzekeskramen (Groentenmarkt)",ad:"Groentenmarkt 1, 9000 Gent, Belgium",cz:["SWEET"],la:51.05580,ln:3.72210,w:"Two rival carts side by side on the Groentenmarkt sell Ghent's raspberry cone-sweets, the cuberdon or 'neuzeke' — a decades-long feud (the viral 'war of the noses') that has become city folklore.",g:["MKT"],s:[["VRTNWS","https://www.vrt.be/vrtnws/nl/2024/09/23/neuzekesoorlog-gent-cuberdons-film/"],["NATGEONL","https://www.nationalgeographic.nl/reizen/2017/07/de-gentse-neuzekesoorlog-gaat-viraal"],["ATLASOBSCURA","https://www.atlasobscura.com/foods/cuberdons-war-of-the-noses-ghent-belgium"]]},
+{t:1,a:"GEN",n:"Tierenteyn-Verlent",ad:"Groentenmarkt 3, 9000 Gent, Belgium",cz:["SWEET"],la:51.05564,ln:3.72247,w:"A mustard shop unchanged since the 19th century, making Ghent's pungent mustard on the premises and scooping it, still fizzing, from a cellar barrel into stoneware pots before your eyes. Founded 1790.",s:[["STREEKPRODUCT","https://www.streekproduct.be/producenten/vve-tierenteyn-verlent"],["CULINAIREAMB","https://culinaireambiance.com/nl/articles/lekker-lokaal-gentse-mosterd"]]},
+{t:2,a:"GEN",n:"Julie's House",ad:"Kraanlei 13, 9000 Gent, Belgium",cz:["SWEET","CAFE"],la:51.05681,ln:3.72188,w:"A tiny, much-loved patisserie and breakfast spot on the Kraanlei overlooking the water — cheesecakes, pies and homemade granola in a doll's-house room.",s:[["JULIESHOUSE","https://www.julieshouse.be/en_GB"],["RUTGERBAKT","https://rutgerbakt.nl/inspiratie/12-tips-voor-de-beste-patissiers-chocolatiers-in-gent/"]]},
+{t:2,a:"GEN",n:"Yuzu",ad:"Walpoortstraat 11a, 9000 Gent, Belgium",cz:["SWEET"],la:51.04899,ln:3.72719,w:"Nicolas Vanaise's minimalist chocolate boutique, among Belgium's most admired — pralines built on unexpected flavours like yuzu, tonka, truffle and pepper. In the Gault&Millau chocolatier guide.",s:[["GAULTMILLAU","https://chocolatier.gaultmillau.be/en/chocolatiers/yuzu-gent"],["VISITGENT","https://visit.gent.be/en/see-do/yuzu-nicolas-vanaise-c"]]},
+{t:2,a:"GEN",n:"Mokabon",ad:"Donkersteeg 35, 9000 Gent, Belgium",cz:["CAFE"],la:51.05481,ln:3.72256,w:"A cosy coffee roastery in the heart of Ghent since 1937 — dark, nostalgic and beloved by locals as much as visitors for a proper espresso.",s:[["MOKABON","https://mokabon.myshopify.com/en"],["JUNE","https://www.june.be/food/koffie/de-7-leukste-koffiebars-in-gent/"]]},
+{t:3,a:"GEN",n:"Simon Says",ad:"Sluizeken 8, 9000 Gent, Belgium",cz:["CAFE"],la:51.05946,ln:3.72486,w:"A colourful 1904 Art Nouveau corner housing a welcoming specialty coffee bar and B&B on the edge of Patershol — organic, locally sourced, run by a British owner who fell for the city.",s:[["JUNE","https://www.june.be/food/koffie/de-beste-takeaway-koffie-in-gent-onze-keuze/"],["FEELING","https://www.feeling.be/lifestyle/food/koffiebars-in-gent"]]},
+{t:3,a:"GEN",n:"Bar Bidon",ad:"Bisdomkaai 25, 9000 Gent, Belgium",cz:["CAFE"],la:51.05390,ln:3.73069,w:"A coffee-and-bicycle bar near Portus Ganda where you sip a cappuccino among collectible bikes and gear — a cheerful spot on the water for cyclists and caffeine.",s:[["FEELING","https://www.feeling.be/lifestyle/food/koffiebars-in-gent"],["JUNE","https://www.june.be/food/koffie/de-7-leukste-koffiebars-in-gent/"]]},
+{t:3,a:"GEN",n:"OR Coffee",ad:"Sint-Pietersnieuwstraat 126A, 9000 Gent, Belgium",cz:["CAFE"],la:51.04799,ln:3.72727,w:"The Ghent bar of Belgian specialty roaster OR Coffee (founded here in 2009) — expertly pulled coffee, organic bread and cake, near the university quarter.",s:[["ORCOFFEE","https://www.orcoffee.be/pages/or-coffee-labs"],["JUNE","https://www.june.be/food/koffie/de-beste-takeaway-koffie-in-gent-onze-keuze/"]]},
+{t:2,a:"GEN",n:"De Superette",ad:"Guldenspoorstraat 29, 9000 Gent, Belgium",cz:["BEL"],la:51.04547,ln:3.73006,w:"Kobe Desramaults' bakery-restaurant — sourdough, wood-fired pizza and brunch from a Scandinavian oven — voted the country's best new concept when it opened and still a hotspot.",s:[["KNACKWEEKEND","https://weekend.knack.be/lifestyle/culinair/restaurantreviews/de-superette-in-gent-goed-voor-lichaam-en-planeet/"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Kobe_Desramaults"]]},
+{t:2,a:"GEN",n:"De Frietketel",ad:"Papegaaistraat 89, 9000 Gent, Belgium",cz:["BEL","VEG"],la:51.05058,ln:3.71136,w:"A student-belt frituur repeatedly voted Ghent's best, famed for crisp fries and an unusually broad range of vegetarian and vegan snacks.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/de-frietketel"],["GENTBLOGT","https://gentblogt-archief.stad.gent/2005/06/24/de-frietketel.html"]]},
+{t:3,a:"GEN",n:"Frituur De Papegaai",ad:"Sint-Michielsplein, 9000 Gent, Belgium",cz:["BEL","VEG"],la:51.05000,ln:3.71648,w:"A central frituur beside St Michael's, frying in vegetable oil with a wide vegetarian and vegan range — fries with a canal view.",s:[["VISITGENT","https://visit.gent.be/en/see-do/de-papegaai"],["GENTBLOGT","https://gentblogt-archief.stad.gent/2008/09/23/waar-in-gent-eet-u-de-lekkerste-frieten.html"]]},
+{t:3,a:"GEN",n:"Frituur De Gouden Saté (Julien) — CLOSED",ad:"Overpoortstraat 3, 9000 Gent, Belgium",cz:["BEL"],la:51.04130,ln:3.72580,w:"A near-legendary frituur at the top of student-nightlife street Overpoort, credited with inventing the 'julientje' — the late-night fix every Ghent student knows, meals under ten euros.",closed:1,s:[["ELLE","https://www.elle.be/nl/241020-snackbars-gent-uitgaan.html"],["TIMETOMOMO","https://www.timetomomo.com/nl/10x-uitgaan-in-gent/"]]},
+{t:2,a:"GEN",n:"Otomat",ad:"Kleine Vismarkt 3, 9000 Gent, Belgium",cz:["BEL"],la:51.05643,ln:3.72180,w:"A hip wood-fired pizzeria between the Gravensteen and the Groentenmarkt whose dough is raised with Duvel yeast — 'otomat' with red sauce, 'notomat' white; you can even moor a boat and order to the quay. In the Gault&Millau guide.",g:["MKT"],s:[["GAULTMILLAU","https://be.gaultmillau.com/restaurants/otomat-gent"],["TIMETOMOMO","https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"]]},
+{t:3,a:"GEN",n:"Alberte",ad:"Dendermondsesteenweg 78, 9000 Gent, Belgium",cz:["BEL"],la:51.05508,ln:3.74270,w:"A creative, seasonal neighbourhood restaurant near Dampoort with a Gault&Millau score — tight lunch and multi-course dinner menus in a warm room off the tourist track.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/alberte-gent"],["VISITGENT","https://visit.gent.be/en/eat-drink/alberte"]]},
+{t:3,a:"GEN",n:"Barista Coffee & Cake",ad:"Meerseniersstraat 16, 9000 Gent, Belgium",cz:["CAFE","SWEET"],la:51.05755,ln:3.72456,w:"A homely coffee-and-cake bar with organic artisan bread, art on the walls and a famous apple pie — a Ghent favourite for take-away or a slow morning by the Zuivelbrug.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/barista"],["MARIECLAIRE","https://marieclaire.be/nl/hotspots-koffiebars-om-in-gent-te-ontdekken/"]]},
+{t:2,a:"GEN",n:"Tasty World",ad:"Hoogpoort 1, 9000 Gent, Belgium",cz:["VEG"],la:51.05567,ln:3.72281,w:"A small order-at-the-counter veggie eatery a few blocks from the Gravensteen — multigrain veggie burgers, sweet-potato fries and thick shakes; a long-running Ghent meat-free staple.",s:[["GREENWAY","https://tastyworld.be/en"],["BEVEGAN","https://bevegan.be/nl/blog-vegan-gent-onze-hotspotguide/"]]},
+{t:3,a:"GEN",n:"Bakkerij Himschoot",ad:"Groentenmarkt 1, 9000 Gent, Belgium",cz:["SWEET"],la:51.05588,ln:3.72227,w:"Ghent's oldest bakery, baking in a 17th-century cellar workshop on the Groentenmarkt — tiny, nostalgic and known for mastellen and warm sausage rolls.",g:["MKT"],s:[["ELLE","https://www.elle.be/nl/169936-10-lekkerste-bakkers-gent.html"],["INDUSTRIEMUSEUM","https://www.industriemuseum.be/nl/collectie-item/etalage-van-bakkerij-himschoot-in-gent"]]},
+{t:3,a:"GEN",n:"Trefpunt",ad:"Bij Sint-Jacobs 18, 9000 Gent, Belgium",cz:["BEER","CAFE"],la:51.05614,ln:3.72711,w:"A café, concert hall and gallery run by the non-profit that relaunched the Gentse Feesten in 1970 — beers, live music and a terrace on the Sint-Jacobs square, open every day.",s:[["VISITGENT","https://visit.gent.be/en/eat-drink/trefpunt"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Trefpunt_(Gent)"]]},
+{t:1,a:"GENR",n:"Brasserie Latem",ad:"Kortrijksesteenweg 9, 9830 Sint-Martens-Latem, Belgium",cz:["FR","BEL"],la:51.01413,ln:3.64916,w:"A stylish, long-established brasserie in the artists' village — simple but refined cooking from the freshest produce (olive oil, organic meat, shellfish) and a phenomenal cellar. In the Michelin Guide.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/sint-martens-latem/restaurant/brasserie-latem"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/brasserie-latem-sint-martens-latem"]]},
+{t:2,a:"GENR",n:"Brasserie Boulevard",ad:"Kortrijksesteenweg 175, 9830 Sint-Martens-Latem, Belgium",cz:["FR","BEL"],la:51.00883,ln:3.63321,w:"A lively Sint-Martens-Latem brasserie whose cooking has gained focus and refinement — a second Gault&Millau toque and a place in the Michelin Guide.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/sint-martens-latem/restaurant/brasserie-boulevard"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/brasserie-boulevard-sint-martens-latem"]]},
+{t:2,a:"GENR",n:"d'Oude Schuur",ad:"Baarle-Frankrijkstraat 1, 9830 Sint-Martens-Latem, Belgium",cz:["FR"],la:51.02410,ln:3.62399,w:"A Michelin-listed Sint-Martens-Latem restaurant serving traditional, generous cooking in a converted barn — a Leie-region classic.",s:[["MICHELIN","https://guide.michelin.com/us/en/oost-vlaanderen/sint-martens-latem/restaurant/d-oude-schuur"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/en/brasserie-latem"]]},
+{t:1,a:"GENR",n:"Auberge du Pêcheur",ad:"Pontstraat 41, 9831 Deurle, Belgium",cz:["FR","BEL"],la:51.00429,ln:3.60221,w:"A refined riverside hotel-restaurant in Deurle right on the Leie, with a coveted summer terrace over the water — the region's classic address for a long lunch by the river.",s:[["AUBERGEPECHEUR","https://www.auberge-du-pecheur.be/en/brasserie"],["TOERISMELEIE","https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"]]},
+{t:2,a:"GENR",n:"Bachtekerke",ad:"Bachtekerkstraat 9, 9800 Bachte-Maria-Leerne (Deinze), Belgium",cz:["FR","BEL"],la:50.99902,ln:3.55045,w:"A comfortable Gault&Millau restaurant in a quiet green setting between the village square of Bachte and the banks of the Oude Leie, near Ooidonk Castle.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/bachtekerke-deinze-bachte-maria-leerne"],["LANGSDELEIE","https://langsdeleie.be/en/ooidonk-castle/"]]},
+{t:3,a:"GENR",n:"Gasthof Halifax",ad:"Emiel Clauslaan 143, 9800 Deinze, Belgium",cz:["FR"],la:50.99040,ln:3.59157,w:"A well-regarded Gault&Millau restaurant in Deinze serving polished seasonal cooking, on the avenue named for painter Emile Claus.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/gasthof-halifax-deinze"],["CULINAIREAMB","https://culinaireambiance.com/nl/articles/gaultmillau-2026-ontdek-alle-restaurants-met-minstens-1220-in-oost-vlaanderen"]]},
+{t:3,a:"GENR",n:"Au Bain Marie",ad:"Emiel Clauslaan 141, 9800 Deinze, Belgium",cz:["FR"],la:50.99014,ln:3.59062,w:"A Gault&Millau restaurant on the banks of the Leie in Deinze, with a terrace over the water and a market-driven seasonal menu.",g:["MKT"],s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/au-bain-marie-deinze"],["CULINAIREAMB","https://culinaireambiance.com/nl/articles/gaultmillau-2026-ontdek-alle-restaurants-met-minstens-1220-in-oost-vlaanderen"]]},
+{t:3,a:"GENR",n:"Bistro MaReine",ad:"Kapellestraat 18, 9800 Deinze, Belgium",cz:["FR","BEL"],la:50.98312,ln:3.55656,w:"A Gault&Millau bistro in central Deinze offering honest, well-executed dishes in a relaxed setting.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/bistro-mareine-deinze"],["CULINAIREAMB","https://culinaireambiance.com/nl/articles/gaultmillau-2026-ontdek-alle-restaurants-met-minstens-1220-in-oost-vlaanderen"]]},
+{t:3,a:"GENR",n:"Bachtecafe",ad:"Leernsesteenweg 58, 9800 Bachte-Maria-Leerne (Deinze), Belgium",cz:["CAFE","FR"],la:51.00350,ln:3.54890,w:"An intimate, cosy café-restaurant near Ooidonk in Bachte-Maria-Leerne, listed by Gault&Millau — a relaxed stop on a Leie-valley outing.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/bachtecafe-deinze-bachte-maria-leerne"],["LANGSDELEIE","https://langsdeleie.be/en/ooidonk-castle/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('gen_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('gen_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('gen_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('gen_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Ghent')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {GEN:'#16A085',GENR:'#C0504D'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([51.0249,3.6452],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Ghent", 51.0535, 3.7242], ["Around Ghent", 51.0025, 3.5894]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('ghent-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('ghent-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('ghent-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish or beer — a label alone doesn’t qualify. The Ghent canon: <b>waterzooi</b>, <b>Gentse stoverij</b>, the <b>cuberdon</b> (neuzekes), <b>Tierenteyn mustard</b> and a strong veg bench — with the <b>Gruut</b> brewery and jenever at ’t Dreupelkot. <b>Beer &amp; breweries are their own grouped layer.</b> A cuisine tag names the kitchen’s own tradition, never one dish it serves.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in-language and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, De Standaard, Het Nieuwsblad, VRT NWS, Visit Gent, beer authorities and vetted local creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/RateBeer never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 108 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>
