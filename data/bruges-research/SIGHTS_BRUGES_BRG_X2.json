@@ -1,0 +1,122 @@
+{
+ "sources": [
+  {
+   "key": "VISITBRUGES",
+   "name": "Visit Bruges (official city tourism)",
+   "url": "https://www.visitbruges.be"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Inventaris Onroerend Erfgoed (Flemish heritage)",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "LONELYPLANET",
+   "name": "Lonely Planet",
+   "url": "https://www.lonelyplanet.com"
+  },
+  {
+   "key": "FLEMISHMASTERS",
+   "name": "Flemish Masters in situ (Visit Flanders)",
+   "url": "https://www.flemishmastersinsitu.com/en"
+  },
+  {
+   "key": "FOCUSWTV",
+   "name": "Focus & WTV (West-Flanders regional broadcaster)",
+   "url": "https://focus-wtv.be"
+  }
+ ],
+ "sights": [
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Sint-Sebastiaansgilde",
+   "address": "Carmersstraat 174, 8000 Brugge, Belgium",
+   "w": "Meer dan 600 jaar oude Koninklijke Hoofdgilde van Sint-Sebastiaan, de oudste nog onafgebroken actieve handbooggilde ter wereld; sinds 1572 gevestigd op de Carmersstraat en sinds 1958 beschermd monument. Het gildehuis met zijn schuttershof en collectie is als museum te bezoeken.",
+   "k": "600 jaar handbooggilde",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be/en/things-to-do/culture-and-heritage/schuttersgilde-sint-sebastiaan-st-sebastians-archers-guild"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/83125"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Bonifaciusbrug",
+   "address": "Bonifaciusbrug (Arentshof), 8000 Brugge, Belgium",
+   "w": "Het meest gefotografeerde bruggetje van Brugge, in de volksmond de 'liefdesbrug', tussen het Gruuthusepaleis, de tuin van het Arentshof en de Onze-Lieve-Vrouwekerk. De brug dateert pas van 1910 maar oogt eeuwenoud in dit romantische decor aan het water.",
+   "k": "De romantische liefdesbrug",
+   "g": [
+    "ICON",
+    "CANAL",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://filmoffice.visitbruges.be/en/filming/locations/boniface-site"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/82343"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRG",
+   "n": "Historium Brugge",
+   "address": "Markt 1, 8000 Brugge, Belgium",
+   "w": "Cultuurhistorische belevingsattractie op de Markt die in zeven themaruimtes met film, decors en effecten het Brugge van de Gouden Eeuw ten tijde van Jan van Eyck (1435) tot leven brengt; met een virtual-reality-ervaring, een panoramaterras op de gotische toren en het Duvelorium-bierterras.",
+   "k": "Middeleeuws Brugge beleefd",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/nl/locaties/historium"
+    ],
+    [
+     "FOCUSWTV",
+     "https://focus-wtv.be/nieuws/voortaan-ook-virtuele-rondvaart-brugs-belevingsmuseum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRG",
+   "n": "Godshuizen (armenhuisjes)",
+   "address": "Nieuwe Gentweg, 8000 Brugge, Belgium",
+   "w": "Meer dan veertig historische godshuizen — witgekalkte armenhuisjes rond een stille binnentuin, gebouwd vanaf de 14de eeuw door rijke families en gilden voor behoeftige ouderen. De complexen de Meulenaere en Sint-Jozef in de Nieuwe Gentweg vormen het mooiste ensemble; ze dienen nog altijd als sociale woningen en droegen bij tot de UNESCO-erkenning van de binnenstad.",
+   "k": "40+ armenhuisjes rond een hof",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITBRUGES",
+     "https://www.visitbruges.be/en/godshuizen-almshouses"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/belgium/bruges/south-bruges/attractions/godshuis-de-vos/a/poi-sig/1261184/1342451"
+    ]
+   ]
+  }
+ ]
+}

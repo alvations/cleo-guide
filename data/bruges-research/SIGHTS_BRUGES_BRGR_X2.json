@@ -1,0 +1,243 @@
+{
+ "sources": [
+  {
+   "key": "UNESCO",
+   "name": "UNESCO Intangible Cultural Heritage",
+   "url": "https://ich.unesco.org"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS (public broadcaster)",
+   "url": "https://www.vrt.be/vrtnws"
+  },
+  {
+   "key": "TENDUINEN",
+   "name": "Abdijmuseum Ten Duinen (official)",
+   "url": "https://www.tenduinen.be"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Inventaris Onroerend Erfgoed (Flemish heritage)",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (NL/EN, corroborating)",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "DEPANNE",
+   "name": "Gemeente De Panne (official)",
+   "url": "https://www.depanne.be"
+  },
+  {
+   "key": "NAVIGO",
+   "name": "NAVIGO - Nationaal Visserijmuseum (official)",
+   "url": "https://www.navigomuseum.be/en"
+  },
+  {
+   "key": "OKV",
+   "name": "Openbaar Kunstbezit Vlaanderen (art heritage)",
+   "url": "https://www.okv.be"
+  },
+  {
+   "key": "VISITFLANDERS",
+   "name": "Visit Flanders (official)",
+   "url": "https://www.visitflanders.com"
+  },
+  {
+   "key": "DEKUST",
+   "name": "De Kust / Westtoer (coast tourism)",
+   "url": "https://www.dekust.be"
+  },
+  {
+   "key": "NIEUWPOORT",
+   "name": "Stad Nieuwpoort (official)",
+   "url": "https://www.nieuwpoort.be"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "Garnaalvissers te paard (Oostduinkerke)",
+   "address": "Strand, 8670 Oostduinkerke (Koksijde), Belgium",
+   "w": "Oostduinkerke is de enige plek ter wereld waar nog te paard op garnalen wordt gevist: van maart tot oktober trekken Brabantse trekpaarden een trechtervormig net door de branding zodat de grijze garnaal opspringt. De eeuwenoude praktijk staat sinds 2013 op de UNESCO-lijst van immaterieel werelderfgoed.",
+   "k": "UNESCO — enige ter wereld",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://ich.unesco.org"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2013/12/04/unesco_erkent_garnaalvisserstepaard-1-1794678/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRGR",
+   "n": "NAVIGO - Nationaal Visserijmuseum",
+   "address": "Pastoor Schmitzstraat 5, 8670 Oostduinkerke, Belgium",
+   "w": "Het nationale visserijmuseum in Oostduinkerke brengt het erfgoed, de ambachten en de natuur van de Noordzee samen: een vissershuisje, een visserscafé en sinds de vernieuwing (heropend in 2024) het 13 meter lange skelet van potvis Valentijn. Vertrekpunt om de paardenvissers en de kustvisserij te begrijpen.",
+   "k": "Nationaal Visserijmuseum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "NAVIGO",
+     "https://www.navigomuseum.be/en"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be/museum/navigo-nationaal-visserijmuseum-oostduinkerke"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Abdijmuseum Ten Duinen",
+   "address": "Koninklijke Prinslaan 8, 8670 Koksijde, Belgium",
+   "w": "Op de site van de machtige cisterciënzerabdij Onze-Lieve-Vrouw Ten Duinen (cisterciënzer sinds 1138, opgeheven in 1796) toont dit museum de geschiedenis van de duinabdij tussen haar geconsolideerde ruïnes; een archeologische site die je kunt bezoeken.",
+   "k": "Cisterciënzerabdij in ruïne",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "TENDUINEN",
+     "https://www.tenduinen.be/nl/info-ruines-bouwstenen-van-de-tijd"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/16323"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Grote Markt Veurne",
+   "address": "Grote Markt, 8630 Veurne, Belgium",
+   "w": "Een van de best bewaarde historische pleinen van België, omzoomd door 16de- en 17de-eeuwse Vlaamse-renaissancegevels: het stadhuis, het Landshuis met belfort, de Vleeshalle en het Spaans Paviljoen. Vertrekpunt van de beroemde Boeteprocessie, die sinds 1644 elk jaar op de laatste zondag van juli uittrekt.",
+   "k": "Vlaamse renaissance & boeteprocessie",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/themas/3658"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Grote_Markt_(Veurne)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Dumontwijk (De Panne)",
+   "address": "Dumontwijk, 8660 De Panne, Belgium",
+   "w": "Beschermd dorpsgezicht (sinds 1995) van ruim 500 witte bakstenen villa's en duincottages tussen het centrum van De Panne en de zee, met bouwstijlen van eclecticisme en art nouveau tot art deco en modernisme; pal naast het breedste strand van België (tot 450 m bij laag water).",
+   "k": "Belle-époque villawijk",
+   "g": [
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/302416"
+    ],
+    [
+     "DEPANNE",
+     "https://www.depanne.be/nl/omgeving-bouwen-verbouwen/onroerend-erfgoed/dumontwijk-beschermd-dorpsgezicht"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Beaufort Beeldenpark",
+   "address": "Belgische kustlijn (De Panne–Knokke), Belgium",
+   "w": "Permanent openluchtbeeldenpark dat groeide uit de driejaarlijkse kunsttriënnale Beaufort (sinds 2003): ruim vijftig hedendaagse kunstwerken verspreid over tien kustgemeenten en 67 km kust, gratis en 24/7 te bezoeken — waaronder de befaamde schildpad van Jan Fabre in Nieuwpoort.",
+   "k": "Permanente kustkunst",
+   "g": [
+    "ICON",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/verhalen/beaufort-kunst-aan-de-vlaamse-kust"
+    ],
+    [
+     "DEKUST",
+     "https://www.dekust.be/kunstwerk/beaufort-beeldenpark"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRGR",
+   "n": "Westfront Nieuwpoort & Koning Albert I-monument",
+   "address": "Kustweg, 8620 Nieuwpoort, Belgium",
+   "w": "Interactief bezoekerscentrum onder het ronde Koning Albert I-monument (1938) aan de Ganzepoot, het sluizencomplex waar zes waterlopen samenkomen. Het vertelt hoe de onderwaterzetting van de polders in oktober 1914 de Duitse opmars stopte — een sleutelplek van het WOI-front aan de IJzer.",
+   "k": "WOI aan de Ganzepoot",
+   "g": [
+    "HIST",
+    "MUS",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "NIEUWPOORT",
+     "https://www.nieuwpoort.be/westfrontnieuwpoort"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/213292"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRGR",
+   "n": "Plopsaland De Panne",
+   "address": "De Pannelaan 68, 8660 De Panne, Belgium",
+   "w": "Het grootste attractiepark van de Vlaamse kust, van Studio 100 op de plek van het vroegere Meli Park (heropend als Plopsaland in 2000): 37 attracties waaronder zeven achtbanen en twee waterattracties, met de figuren van Kabouter Plop, Samson & Gert en Mega Mindy. Goed voor ruim 1,4 miljoen bezoekers per jaar.",
+   "k": "Studio 100 pretpark",
+   "g": [
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2026/02/16/attractie-plopsaland-de-panne-nachtwacht-flyer-vast/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Plopsaland_De_Panne"
+    ]
+   ]
+  }
+ ]
+}
