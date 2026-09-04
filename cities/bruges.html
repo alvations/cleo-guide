@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Bruges (Brugge) field guide — 63 sights and 60 places to eat across Bruges and the Belgian coast (Damme, Ostend, Knokke), each traceable to its source (Michelin, UNESCO, De Standaard, VRT, Visit Bruges) on one interactive map with area, collection and cuisine filters — beer &amp; breweries a first-class layer — a trip builder and exports.">
+<title>Bruges Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Bruges &amp; the coast, sourced</p>
+  <h1>Bruges<span class="thin">&amp; the coast — Markt &amp; Belfry · Holy Blood · Groeninge · Béguinage · Damme · Ostend</span></h1>
+  <p class="standfirst">63 sights and 60 places to eat across <strong>Bruges</strong> and the coast — from the <strong>Markt</strong> and its Belfry, the Burg and the Basilica of the <strong>Holy Blood</strong> to the <strong>Groeningemuseum</strong>, the Béguinage and the canals, and the <strong>De Halve Maan</strong> brewery, out to <strong>Damme</strong> and the North-Sea resorts — <strong>Ostend</strong>, Knokke, Zeebrugge. A food canon all its own: a <strong>De Halve Maan Brugse Zot</strong>, Belgian chocolate (The Chocolate Line, Dumon), <strong>garnaalkroketten</strong> (grey-shrimp croquettes), moules, waffles and North-Sea fish. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (beer is its own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Belgium/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#C0504D"></i>Bruges</span>
+  <span><i style="background:#6A8D3F"></i>Around Bruges</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Brugse Zot, garnaalkroketten, chocolate, moules…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-09-04</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Dutch (Flemish) across Michelin, UNESCO, Gault&amp;Millau, De Standaard, Het Nieuwsblad, VRT NWS, Visit Bruges and vetted local creators, with beer &amp; breweries grouped as a first-class layer. Every coordinate is verified into data/geocodes.json and every place status-checked open. A batch of restaurants is pending a final coordinate pass before appearing.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "ADORNES":{k:"ADORNES",t:"Adornesdomein (official)",u:"https://www.adornes.org",l:"Adornesdomein (official)"},
+  "ANWB":{k:"ANWB",t:"ANWB (travel)",u:"https://www.anwb.nl",l:"ANWB (travel)"},
+  "BLANKENBERGE":{k:"BLANKENBERGE",t:"Blankenberge (official tourism)",u:"https://blankenberge.com",l:"Blankenberge (official tourism)"},
+  "BRUGGE":{k:"BRUGGE",t:"Stad Brugge (official city)",u:"https://www.brugge.be",l:"Stad Brugge (official city)"},
+  "BRUGSEOMMELAND":{k:"BRUGSEOMMELAND",t:"Brugse Ommeland (official regional tourism)",u:"https://www.brugseommeland.be/en",l:"Brugse Ommeland (official regional tourism)"},
+  "DAMMEONLINE":{k:"DAMMEONLINE",t:"Damme Online (heritage)",u:"http://www.damme-online.com",l:"Damme Online (heritage)"},
+  "DEKUST":{k:"DEKUST",t:"De Kust / Westtoer (coast tourism)",u:"https://www.dekust.be",l:"De Kust / Westtoer (coast tourism)"},
+  "DEPANNE":{k:"DEPANNE",t:"Gemeente De Panne (official)",u:"https://www.depanne.be",l:"Gemeente De Panne (official)"},
+  "DEPLATE":{k:"DEPLATE",t:"De Plate (Oostende heritage society)",u:"https://www.deplate.be",l:"De Plate (Oostende heritage society)"},
+  "ENSORHUIS":{k:"ENSORHUIS",t:"James Ensorhuis (official)",u:"https://www.ensorhuis.be",l:"James Ensorhuis (official)"},
+  "FLANDERSTODAY":{k:"FLANDERSTODAY",t:"Flanders Today",u:"http://www.flanderstoday.eu",l:"Flanders Today"},
+  "FLEMISHMASTERS":{k:"FLEMISHMASTERS",t:"Flemish Masters in situ (Visit Flanders)",u:"https://www.flemishmastersinsitu.com/en",l:"Flemish Masters in situ (Visit Flanders)"},
+  "FOCUSWTV":{k:"FOCUSWTV",t:"Focus & WTV (West-Flanders regional broadcaster)",u:"https://focus-wtv.be",l:"Focus & WTV (West-Flanders regional broadcaster)"},
+  "FROMMERSKNOKKE":{k:"FROMMERSKNOKKE",t:"Frommer's (Knokke-Heist)",u:"https://www.frommers.com/destinations/knokke-heist-and-het-zoute",l:"Frommer's (Knokke-Heist)"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com",l:"Lonely Planet"},
+  "MONUMENTENWACHT":{k:"MONUMENTENWACHT",t:"Monumentenwacht Vlaanderen",u:"https://www.monumentenwacht.be",l:"Monumentenwacht Vlaanderen"},
+  "MUSEABRUGGE":{k:"MUSEABRUGGE",t:"Musea Brugge (municipal museums)",u:"https://www.museabrugge.be/en",l:"Musea Brugge (municipal museums)"},
+  "MYKNOKKE":{k:"MYKNOKKE",t:"Visit Knokke-Heist (official)",u:"https://www.myknokke-heist.be",l:"Visit Knokke-Heist (official)"},
+  "NAVIGO":{k:"NAVIGO",t:"NAVIGO - Nationaal Visserijmuseum (official)",u:"https://www.navigomuseum.be/en",l:"NAVIGO - Nationaal Visserijmuseum (official)"},
+  "NIEUWPOORT":{k:"NIEUWPOORT",t:"Stad Nieuwpoort (official)",u:"https://www.nieuwpoort.be",l:"Stad Nieuwpoort (official)"},
+  "OKV":{k:"OKV",t:"Openbaar Kunstbezit Vlaanderen (art heritage magazine)",u:"https://www.okv.be",l:"Openbaar Kunstbezit Vlaanderen (art heritage magazine)"},
+  "ONROERENDERFGOED":{k:"ONROERENDERFGOED",t:"Inventaris Onroerend Erfgoed (Flemish heritage)",u:"https://inventaris.onroerenderfgoed.be",l:"Inventaris Onroerend Erfgoed (Flemish heritage)"},
+  "OOSTENDE":{k:"OOSTENDE",t:"Stad Oostende (official)",u:"https://www.oostende.be",l:"Stad Oostende (official)"},
+  "PERMEKE":{k:"PERMEKE",t:"Permekemuseum (official)",u:"https://www.permekemuseum.be",l:"Permekemuseum (official)"},
+  "REISROUTES":{k:"REISROUTES",t:"Reisroutes.be (travel editorial)",u:"https://www.reisroutes.be",l:"Reisroutes.be (travel editorial)"},
+  "SINCFALA":{k:"SINCFALA",t:"Museum Sincfala (official)",u:"https://www.sincfala.be",l:"Museum Sincfala (official)"},
+  "SINTSALVATOR":{k:"SINTSALVATOR",t:"Sint-Salvatorskathedraal (official)",u:"https://www.sintsalvatorskathedraal.be",l:"Sint-Salvatorskathedraal (official)"},
+  "STADBRUGGE":{k:"STADBRUGGE",t:"Stad Brugge stadsgids",u:"https://www.stadbrugge.be",l:"Stad Brugge stadsgids"},
+  "TENDUINEN":{k:"TENDUINEN",t:"Abdijmuseum Ten Duinen (official)",u:"https://www.tenduinen.be",l:"Abdijmuseum Ten Duinen (official)"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org",l:"UNESCO World Heritage Centre"},
+  "VISITBRUGES":{k:"VISIT BRUGES",t:"Visit Bruges (official city tourism)",u:"https://www.visitbruges.be",l:"Visit Bruges (official city tourism)"},
+  "VISITDAMME":{k:"VISITDAMME",t:"Toerisme Damme (official)",u:"https://www.visitdamme.be",l:"Toerisme Damme (official)"},
+  "VISITFLANDERS":{k:"VISIT FLANDERS",t:"Visit Flanders (official)",u:"https://www.visitflanders.com",l:"Visit Flanders (official)"},
+  "VISITOOSTENDE":{k:"VISITOOSTENDE",t:"Visit Oostende (official)",u:"https://www.visitoostende.be",l:"Visit Oostende (official)"},
+  "VRT":{k:"VRT NWS",t:"VRT NWS (public broadcaster)",u:"https://www.vrt.be/vrtnws",l:"VRT NWS (public broadcaster)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (NL/EN, corroborating)",u:"https://nl.wikipedia.org",l:"Wikipedia (NL/EN, corroborating)"}
+};
+
+const AREAS = [
+  {id:"BRG",n:"Bruges (Markt & Belfry · Burg · Holy Blood · Groeninge · Béguinage · canals)",c:"#C0504D"},
+  {id:"BRGR",n:"Around Bruges (Damme · the coast — Ostend · Knokke · Zeebrugge)",c:"#6A8D3F"}
+];
+
+const P = [
+{t:1,a:"BRG",n:"Markt (Grote Markt)",ad:"Markt, 8000 Brugge, Belgium",la:51.20866,ln:3.22411,w:"Het kloppend hart van Brugge: een gekasseide plein omzoomd door gildehuizen en overheerst door het Belfort, met de standbeelden van Jan Breydel en Pieter de Coninck in het midden. Alles in de historische stad ligt op tien minuten wandelen.",k:"Het centrale plein",g:["ICON","HIST","MKT","FREE"],s:[["VISITBRUGES","https://www.visitbruges.be"],["ANWB","https://www.anwb.nl"]]},
+{t:1,a:"BRG",n:"Belfort van Brugge",ad:"Markt 7, 8000 Brugge, Belgium",la:51.20823,ln:3.22478,w:"De 83 meter hoge middeleeuwse belforttoren domineert de skyline sinds 1240; 366 treden voeren naar het beiaardklokkenspel en een panorama over de stad. UNESCO-werelderfgoed als deel van de Belforten van België en Frankrijk.",k:"83 m, sinds 1240",g:["ICON","UNESCO","HIST","ARCH"],s:[["VISITBRUGES","https://www.visitbruges.be"],["UNESCO","https://whc.unesco.org"]]},
+{t:1,a:"BRG",n:"De Burg",ad:"Burg, 8000 Brugge, Belgium",la:51.20861,ln:3.22694,w:"Het oudste plein van Brugge en eeuwenlang het bestuurlijke en religieuze hart, met per vierkante meter meer bouwstijlen dan waar ook in België — van gotisch stadhuis tot renaissance Brugse Vrije.",k:"Het bestuurlijke plein",g:["HIST","ARCH","FREE","MUS"],s:[["VISITBRUGES","https://www.visitbruges.be"],["LONELYPLANET","https://www.lonelyplanet.com"]]},
+{t:1,a:"BRG",n:"Stadhuis van Brugge",ad:"Burg 12, 8000 Brugge, Belgium",la:51.20835,ln:3.22698,w:"Een van de oudste stadhuizen van de Lage Landen (1376-1420) met een pronkgevel vol nissen en beelden; binnen de spectaculaire gotische zaal met houten gewelf. Onderdeel van Musea Brugge.",k:"Gotisch, anno 1376",g:["HIST","ARCH","MUS"],s:[["VISITBRUGES","https://www.visitbruges.be"],["MUSEABRUGGE","https://www.museabrugge.be/en"]]},
+{t:1,a:"BRG",n:"Basiliek van het Heilig Bloed",ad:"Burg 13, 8000 Brugge, Belgium",la:51.20812,ln:3.22667,w:"Bewaart de reliek van het Heilig Bloed die volgens de overlevering na de kruistochten naar Brugge kwam; de dubbelkapel combineert een sobere romaanse benedenkerk met een rijk versierde bovenkapel. De kapellen zijn gratis toegankelijk.",k:"De Heilig-Bloedreliek",g:["ICON","HIST","FREE","ARCH"],s:[["VISITBRUGES","https://www.visitbruges.be"],["LONELYPLANET","https://www.lonelyplanet.com"]]},
+{t:1,a:"BRG",n:"Groeningemuseum",ad:"Dijver 12, 8000 Brugge, Belgium",la:51.20528,ln:3.22667,w:"Zes eeuwen Vlaamse en Belgische schilderkunst met 's werelds belangrijkste collectie Vlaamse Primitieven — Jan van Eyck, Hans Memling, Gerard David. Het vlaggenschip van Musea Brugge.",k:"De Vlaamse Primitieven",g:["MUS","ICON","HIST"],s:[["MUSEABRUGGE","https://www.museabrugge.be/en"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:1,a:"BRG",n:"Onze-Lieve-Vrouwekerk (Michelangelo's Madonna)",ad:"Mariastraat, 8000 Brugge, Belgium",la:51.20465,ln:3.22447,w:"De bakstenen kerktoren is met 115,5 m een van de hoogste ter wereld; binnen staat de marmeren Madonna met Kind van Michelangelo, vermoedelijk het enige beeld dat Itali tijdens zijn leven verliet.",k:"Michelangelo in Brugge",g:["ICON","HIST","MUS","ARCH"],s:[["VISITFLANDERS","https://www.visitflanders.com"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:1,a:"BRG",n:"Sint-Janshospitaal & Memlingcollectie",ad:"Mariastraat 38, 8000 Brugge, Belgium",la:51.20389,ln:3.22281,w:"Een van de oudst bewaarde ziekenhuisgebouwen van Europa (12de eeuw) met een middeleeuwse ziekenzaal en oude apotheek; huisvest zes meesterwerken van Hans Memling, waaronder het Ursulaschrijn.",k:"Memling in een 12de-eeuws hospitaal",g:["MUS","HIST"],s:[["MUSEABRUGGE","https://www.museabrugge.be/en"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:1,a:"BRG",n:"Begijnhof Ten Wijngaerde",ad:"Begijnhof 24-30, 8000 Brugge, Belgium",la:51.20122,ln:3.22256,w:"Sereen 13de-eeuws begijnhof met witgekalkte huizen rond een boomrijke binnentuin, vandaag bewoond door benedictinessen. UNESCO-werelderfgoed als een van de Vlaamse begijnhoven.",k:"Wit, stil, UNESCO",g:["UNESCO","HIST","PARK","FREE"],s:[["VISITBRUGES","https://www.visitbruges.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:1,a:"BRG",n:"Rozenhoedkaai",ad:"Rozenhoedkaai, 8000 Brugge, Belgium",la:51.20723,ln:3.22764,w:"Het meest gefotografeerde plekje van Brugge: waar het Groene- en Dijverrei samenkomen, met het Belfort achter de trapgevels. Beschermd stadsgezicht en klassiek vertrekpunt voor de rondvaart.",k:"De iconische reienhoek",g:["ICON","CANAL","FREE","UNESCO"],s:[["VISITBRUGES","https://www.visitbruges.be"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"]]},
+{t:1,a:"BRG",n:"Boottocht op de Brugse reien",ad:"Rozenhoedkaai, 8000 Brugge, Belgium",la:51.20723,ln:3.22764,w:"Een halfuur op de reien — het grachtennet dat Brugge de bijnaam Venetië van het Noorden gaf — glijdt langs boogbruggen, achtergevels en het Begijnhof tussen Jan van Eyckplein en Minnewater. Vijf aanlegsteigers in het centrum.",k:"Venetië van het Noorden",g:["ICON","CANAL","UNESCO","ARCH"],s:[["STADBRUGGE","https://www.stadbrugge.be"],["REISROUTES","https://www.reisroutes.be"]]},
+{t:2,a:"BRG",n:"Gruuthusemuseum",ad:"Dijver 17, 8000 Brugge, Belgium",la:51.20531,ln:3.22470,w:"Het weelderige stadspaleis van de heren van Gruuthuse toont wandtapijten, glas-in-lood, kant en Bourgondische handschriften; het hoogtepunt is het laat-15de-eeuwse bidoratorium met zicht op het koor van de Onze-Lieve-Vrouwekerk.",k:"Bourgondisch stadspaleis",g:["MUS","HIST","ARCH"],s:[["MUSEABRUGGE","https://www.museabrugge.be/en"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Minnewater (Meer van Liefde)",ad:"Minnewater, 8000 Brugge, Belgium",la:51.19970,ln:3.22399,w:"Romantische vijver en park aan de zuidrand van de historische stad, met zwanen en de 15de-eeuwse Poertoren; de rustige toegangspoort tot het aanpalende Begijnhof.",k:"Het Meer van Liefde",g:["PARK","CANAL","FREE","UNESCO"],s:[["VISITBRUGES","https://www.visitbruges.be"],["ANWB","https://www.anwb.nl"]]},
+{t:2,a:"BRG",n:"Sint-Janshuismolen & de Kruisvestmolens",ad:"Kruisvest, 8000 Brugge, Belgium",la:51.21545,ln:3.23806,w:"Vier windmolens sieren de oostelijke stadswal; de Sint-Janshuismolen (1770) staat nog op zijn oorspronkelijke plek en maalt nog altijd graan — de enige die je vanbinnen kunt bezoeken.",k:"Malende molen sinds 1770",g:["HIST","PARK","FREE"],s:[["MUSEABRUGGE","https://www.museabrugge.be/en"],["BRUGGE","https://www.brugge.be"]]},
+{t:2,a:"BRG",n:"Sint-Salvatorskathedraal",ad:"Sint-Salvatorskoorstraat 8, 8000 Brugge, Belgium",la:51.20556,ln:3.22167,w:"De oudste parochiekerk van Brugge (12de-13de eeuw) en sinds 1834 kathedraal, met een monumentale westtoren, Vlaamse wandtapijten en een schatkamer met Vlaamse Primitieven.",k:"De kathedraal van Brugge",g:["HIST","ARCH","FREE","ICON"],s:[["SINTSALVATOR","https://www.sintsalvatorskathedraal.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Concertgebouw Brugge",ad:"'t Zand 34, 8000 Brugge, Belgium",la:51.20379,ln:3.21842,w:"Markante concert- en congreszaal (2002) in okerrode terracotta aan 't Zand, wereldwijd geprezen om haar akoestiek; de Lantaarntoren biedt een klank- en kunstparcours met stadszicht.",k:"Akoestisch icoon",g:["ARCH","NIGHT","MUS","PARK"],s:[["VISITBRUGES","https://www.visitbruges.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRG",n:"Jan van Eyckplein",ad:"Jan van Eyckplein, 8000 Brugge, Belgium",la:51.21155,ln:3.22592,w:"Het middeleeuwse handelshart van Brugge in de Hanzewijk, met het standbeeld van Jan van Eyck, het Tolhuis en de Poortersloge; van hieruit liepen de handelsroutes naar heel Europa.",k:"De Hanzewijk",g:["HIST","ARCH","CANAL","FREE"],s:[["VISITBRUGES","https://www.visitbruges.be"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"]]},
+{t:2,a:"BRG",n:"Vismarkt",ad:"Vismarkt, 8000 Brugge, Belgium",la:51.20792,ln:3.22831,w:"Overdekte vismarkt uit 1821 met dorische zuilengalerijen waar tot vandaag vis en streekproducten worden verkocht; een van de weinige plekken waar nog dagelijks leven en historie samenvallen.",k:"Vis sinds 1821",g:["MKT","HIST","FREE","ICON"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Huidenvettersplein",ad:"Huidenvettersplein, 8000 Brugge, Belgium",la:51.20770,ln:3.22775,w:"Intiem pleintje van het huidenvettersgilde — ooit de Kleine Vismarkt — met een 17de-eeuws gildehuis en terrassen aan het water, pal naast de Rozenhoedkaai.",k:"Het gildeplein",g:["HIST","ARCH","FREE","ICON"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRG",n:"Choco-Story (Chocolademuseum)",ad:"Wijnzakstraat 2, 8000 Brugge, Belgium",la:51.21074,ln:3.22621,w:"In het 16de-eeuwse Huis de Crone vertelt Choco-Story het verhaal van cacao van de Maya's tot de Belgische praline, met live demonstraties van een chocolatier. Iconisch voor de chocoladestad Brugge.",k:"Van cacao tot praline",g:["MUS"],s:[["VISITBRUGES","https://www.visitbruges.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRG",n:"Adornesdomein & Jeruzalemkapel",ad:"Peperstraat 3, 8000 Brugge, Belgium",la:51.21219,ln:3.23439,w:"Middeleeuws stadslandgoed van de Genuese koopmansfamilie Adornes met de unieke Jeruzalemkapel (15de eeuw), gebouwd naar het model van de Heilig-Grafkerk in Jeruzalem.",k:"Genuese kooplui in Brugge",g:["HIST","MUS","ARCH"],s:[["ADORNES","https://www.adornes.org"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:3,a:"BRG",n:"Frietmuseum",ad:"Vlamingstraat 33, 8000 Brugge, Belgium",la:51.21111,ln:3.22389,w:"Enige museum ter wereld gewijd aan de geschiedenis van de aardappel en de Belgische friet, in de gotische Saaihalle (1399), een van de oudste gebouwen van de stad.",k:"De friet in de kijker",g:["MUS"],s:[["WIKIPEDIA","https://nl.wikipedia.org"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:3,a:"BRG",n:"'t Zand",ad:"'t Zand, 8000 Brugge, Belgium",la:51.20526,ln:3.21741,w:"Het grote plein aan de westkant met tot 150 lindebomen, de centrale fontein en het Concertgebouw; zaterdag is er een grote markt en het is een gangbaar startpunt voor een stadswandeling.",k:"Het grote westplein",g:["MKT","FREE","ICON","MUS"],s:[["VISITBRUGES","https://www.visitbruges.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:3,a:"BRG",n:"Middeleeuwse stadspoorten",ad:"Kruispoort, 8000 Brugge, Belgium",la:51.21250,ln:3.24000,w:"Vier van de negen stadspoorten bleven bewaard — Kruispoort, Gentpoort, Smedenpoort en Ezelpoort — massieve overblijfselen van de 14de-eeuwse stadsomwalling langs de vesten.",k:"Vier poorten resten",g:["HIST","ARCH","FREE","MUS"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:3,a:"BRG",n:"Onze-Lieve-Vrouw-ter-Potterie",ad:"Potterierei 79, 8000 Brugge, Belgium",la:51.21945,ln:3.23063,w:"Beschermd hospitaal- en kloostercomplex (14de-17de eeuw) aan de Potterierei met een middeleeuwse ziekenzaal, kerk met een 14de-eeuws mirakelbeeld en een verrassend rijke museumcollectie. Musea Brugge.",k:"Verborgen hospitaalmuseum",g:["MUS","HIST","ARCH"],s:[["MUSEABRUGGE","https://www.museabrugge.be/en"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"]]},
+{t:3,a:"BRG",n:"Volkskundemuseum",ad:"Balstraat 43, 8000 Brugge, Belgium",la:51.21330,ln:3.23325,w:"In een rij 17de-eeuwse godshuizen tonen ingerichte kamers — klaslokaal, snoepwinkel, herberg De Zwarte Kat — het dagelijkse leven van weleer in West-Vlaanderen. Musea Brugge.",k:"Alledaags Brugge van vroeger",g:["MUS","HIST"],s:[["MUSEABRUGGE","https://www.museabrugge.be/en"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:3,a:"BRG",n:"Kantcentrum (Lace Centre)",ad:"Balstraat 16, 8000 Brugge, Belgium",la:51.21316,ln:3.23362,w:"Museum en levende kantschool in een 19de-eeuws gebouw dat een van de originele Brugse kantscholen was; in de namiddag demonstreren kantklossters het vak dat Brugge wereldberoemd maakte.",k:"Brugse kant, levend",g:["MUS","HIST"],s:[["VISITBRUGES","https://www.visitbruges.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:1,a:"BRGR",n:"Zwin Natuurpark",ad:"Graaf Léon Lippensdreef 8, 8300 Knokke-Heist, Belgium",la:51.35841,ln:3.35053,w:"Het 'internationale luchthaven voor vogels' aan de Zwinvlakte: 150 ha slikken, schorren en duinen, een van de belangrijkste broedgebieden van de Noordwest-Europese kust, met interactief bezoekerscentrum, panoramatoren en ooievaarsnesten.",k:"Trekvogelparadijs",g:["PARK","ICON","FREE","CANAL"],s:[["DEKUST","https://www.dekust.be"],["REISROUTES","https://www.reisroutes.be"]]},
+{t:1,a:"BRGR",n:"Damme (historisch stadje & boekendorp)",ad:"Markt, 8340 Damme, Belgium",la:51.25162,ln:3.27956,w:"Middeleeuws polderstadje aan de Damse Vaart, ooit de voorhaven van Brugge en de geboorteplaats van volksheld Tijl Uilenspiegel; vandaag het Vlaamse boekendorp met een maandelijkse boekenmarkt en negen boekhandels.",k:"Uilenspiegel & boeken",g:["HIST","ICON","FREE","MUS"],s:[["VISITDAMME","https://www.visitdamme.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:1,a:"BRGR",n:"James Ensorhuis",ad:"Vlaanderenstraat 27, 8400 Oostende, Belgium",la:51.23318,ln:2.91612,w:"Het woonhuis boven de souvenirwinkel van zijn tante waar de Oostendse meester James Ensor tot zijn dood in 1949 woonde en werkte, recent gerestaureerd naar de originele staat — het atelier van de schilder van 'De intrede van Christus in Brussel'.",k:"Ensor thuis",g:["MUS","HIST"],s:[["ENSORHUIS","https://www.ensorhuis.be"],["OOSTENDE","https://www.oostende.be"]]},
+{t:1,a:"BRGR",n:"Atlantikwall Raversyde",ad:"Nieuwpoortsesteenweg 636, 8400 Oostende, Belgium",la:51.20099,ln:2.84637,w:"Een van de best bewaarde stukken van de Duitse Atlantikwall: meer dan zestig bunkers, gangen en geschutsopstellingen uit WO I en WO II in een provinciaal domein van 50 ha aan zee, samen met het middeleeuwse vissersdorp Walraversyde.",k:"Bunkers aan zee",g:["HIST","MUS","PARK"],s:[["VISITOOSTENDE","https://www.visitoostende.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:1,a:"BRGR",n:"Mu.ZEE (Kunstmuseum aan Zee) — CLOSED",ad:"Romestraat 11, 8400 Oostende, Belgium",la:51.22567,ln:2.91460,w:"Het toonaangevende museum voor kunst van en over de Vlaamse kust, met Belgische schilderkunst van 1830 tot nu, waaronder Ensor en Spilliaert. (Gesloten voor renovatie tot circa 2028 — check vooraf.)",k:"Kust in kunst",closed:1,g:["MUS","PARK"],s:[["OOSTENDE","https://www.oostende.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:1,a:"BRGR",n:"De Haan — Concessie (belle-époquewijk)",ad:"Concessie, 8420 De Haan, Belgium",la:51.27280,ln:3.03314,w:"De best bewaarde belle-époquebadplaats van de kust: een villapark van vernuftig ongelijnde witte cottages rond het pittoreske tramstation, waar zelfs Albert Einstein in 1933 verbleef. Geen hoogbouw, wel duinen en groen.",k:"Belle époque aan zee",g:["HIST","ARCH","FREE","PARK"],s:[["DEKUST","https://www.dekust.be"],["VISITFLANDERS","https://www.visitflanders.com"]]},
+{t:2,a:"BRGR",n:"Onze-Lieve-Vrouw-Hemelvaartkerk Damme",ad:"Kerkstraat, 8340 Damme, Belgium",la:51.24943,ln:3.28270,w:"Robuuste gotische kerk met een karakteristieke afgeknotte toren; 206 treden voeren naar een weids panorama over de 17de-eeuwse stadswallen, de Damse Vaart en het polderland.",k:"Panorama over de polders",g:["HIST","ARCH","MUS"],s:[["VISITDAMME","https://www.visitdamme.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRGR",n:"Damse Vaart",ad:"Damse Vaart-Zuid, 8340 Damme, Belgium",la:51.25060,ln:3.27750,w:"Kaarsrecht, met populieren omzoomd kanaal dat Napoleon liet graven; het verbindt Brugge met het Nederlandse Sluis en is een geliefde fiets- en wandelroute langs het water.",k:"Napoleons kanaal",g:["CANAL","PARK","FREE","MUS"],s:[["VISITDAMME","https://www.visitdamme.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRGR",n:"Fort Napoleon",ad:"Vuurtorenweg, 8400 Oostende, Belgium",la:51.23889,ln:2.93417,w:"Vijfhoekig kustfort dat Napoleon in 1811 tussen de duinen liet bouwen uit vrees voor een Britse invasie; goed bewaard en vandaag een bezoekbaar monument met brasserie en zicht op de haven.",k:"Napoleons duinfort",g:["HIST","ARCH","CANAL","PARK"],s:[["OOSTENDE","https://www.oostende.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRGR",n:"Zeilschip Mercator",ad:"Graaf de Smet de Naeyerlaan, 8400 Oostende, Belgium",la:51.22677,ln:2.91845,w:"De elegante driemaster die als opleidingsschip 41 reizen maakte, ligt sinds 1964 als museumschip in de jachthaven van Oostende — te bezoeken van dek tot kajuit.",k:"Het opleidingsschip",g:["HIST","MUS","CANAL"],s:[["OOSTENDE","https://www.oostende.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRGR",n:"IJslandvaarder Amandine",ad:"Vindictivelaan 35Z, 8400 Oostende, Belgium",la:51.22940,ln:2.92390,w:"De laatste Oostendse IJslandtreiler, die in 1995 voorgoed binnenvoer; nu een museumschip dat het harde leven van de IJslandvisserij tot in de machinekamer voelbaar maakt.",k:"Einde van de IJslandvaart",g:["HIST","MUS"],s:[["OOSTENDE","https://www.oostende.be"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRGR",n:"Grand Casino Knokke (Magritte-muurschildering)",ad:"Zeedijk-Albertstrand 509, 8300 Knokke-Heist, Belgium",la:51.34860,ln:3.27851,w:"In de ronde speelzaal loopt 'Het Betoverde Rijk' (1953), een 71 m lange muurschildering die René Magritte zelf superviseerde, onder een van de grootste luchters ter wereld — Knokke als kunststad aan zee.",k:"Magritte rondom",g:["HIST","ARCH","NIGHT","MUS"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"],["FLANDERSTODAY","http://www.flanderstoday.eu"]]},
+{t:2,a:"BRGR",n:"Seafront Zeebrugge",ad:"Vismijnstraat 7, 8380 Zeebrugge, Belgium",la:51.33257,ln:3.20248,w:"Maritiem belevingscentrum in de oude vismijn van Zeebrugge, met het Russische onderzeeboot-museum, een lichtschip en de geschiedenis van de vissersvloot en de haven.",k:"Onderzeeër & vismijn",g:["MUS","HIST","CANAL"],s:[["VISITBRUGES","https://www.visitbruges.be"],["DEKUST","https://www.dekust.be"]]},
+{t:2,a:"BRGR",n:"Permekemuseum",ad:"Gistelsteenweg 341, 8490 Jabbeke, Belgium",la:51.17920,ln:3.10009,w:"Het landhuis met teken- en beeldhouwateliers waar modernist Constant Permeke van 1929 tot 1952 woonde en werkte — het grootste ensemble van de Vlaamse expressionist, in een museumtuin met zijn monumentale beelden.",k:"Vlaams expressionisme",g:["MUS","HIST","PARK"],s:[["PERMEKE","https://www.permekemuseum.be"],["FLEMISHMASTERS","https://www.flemishmastersinsitu.com/en"]]},
+{t:2,a:"BRGR",n:"Belle Epoque Centrum Blankenberge",ad:"Elisabethstraat 24, 8370 Blankenberge, Belgium",la:51.31550,ln:3.13191,w:"Drie samengevoegde belle-époquevilla's onderdompelen de bezoeker in de gouden jaren (ca. 1870-1914) toen Blankenberge uitgroeide tot toonaangevende badplaats van de Europese bourgeoisie.",k:"De gouden badjaren",g:["MUS","HIST"],s:[["BLANKENBERGE","https://blankenberge.com"],["VISITFLANDERS","https://www.visitflanders.com"]]},
+{t:2,a:"BRGR",n:"Kusttram",ad:"Kusttram (De Panne–Knokke), Belgische Kust, Belgium",la:51.22850,ln:2.92650,w:"De langste tramlijn ter wereld rijdt sinds 1885 over 67 km langs de volledige kust, van De Panne tot Knokke — langs de terrassen van Oostende, de haven van Zeebrugge en het belle-époquestation van De Haan. Een bezienswaardigheid op zich.",k:"67 km langs zee",g:["ICON","HIST","CANAL","PARK"],s:[["VISITFLANDERS","https://www.visitflanders.com"],["DEKUST","https://www.dekust.be"]]},
+{t:2,a:"BRGR",n:"Huyse de Grote Sterre & Uilenspiegelmuseum",ad:"Jacob van Maerlantstraat 3, 8340 Damme, Belgium",la:51.25160,ln:3.27930,w:"Statig laat-gotisch patriciërshuis (15de eeuw) op de markt van Damme, met het bezoekerscentrum van de Zwinstreek en het Uilenspiegelmuseum rond Charles De Costers volksheld die in Damme geboren zou zijn.",k:"Uilenspiegel in Damme",g:["MUS","HIST","ARCH","ICON"],s:[["VISITDAMME","https://www.visitdamme.be"],["DAMMEONLINE","http://www.damme-online.com"]]},
+{t:3,a:"BRGR",n:"Pier & Sea Life Blankenberge",ad:"Koning Albert I-laan 116, 8370 Blankenberge, Belgium",la:51.31774,ln:3.14534,w:"De levendige Blankenbergse pier uit de belle époque, ooit met casino en grote hotels, en het Sea Life-zeeaquarium — het familiegezicht van de badplaats.",k:"Pier & zeeaquarium",g:["ICON","FREE"],s:[["BLANKENBERGE","https://blankenberge.com"],["VISITFLANDERS","https://www.visitflanders.com"]]},
+{t:3,a:"BRGR",n:"Lissewege (het witte polderdorp)",ad:"Lissewege, 8380 Brugge, Belgium",la:51.29418,ln:3.19908,w:"Pittoresk wit gekalkt polderdorp tussen Brugge en de kust, gedomineerd door de machtige bakstenen O.-L.-Vrouwkerk en het Lisseweegs Vaartje — een stille contrapunt bij de drukke kust.",k:"Het witte dorp",g:["HIST","FREE","ARCH","MUS"],s:[["VISITBRUGES","https://www.visitbruges.be"],["BRUGSEOMMELAND","https://www.brugseommeland.be/en"]]},
+{t:3,a:"BRGR",n:"Koninklijke & Venetiaanse Gaanderijen / Thermae Palace",ad:"Koninginnelaan, 8400 Oostende, Belgium",la:51.22826,ln:2.90724,w:"Zuilengalerijen (1902-1906) van architect Charles Girault in opdracht van Leopold II langs de zeedijk, met het luxe Thermae Palace Hotel; de koninklijke gaanderijen werden recent gerestaureerd geopend.",k:"Leopolds zeedijkgalerijen",g:["ARCH","HIST","FREE"],s:[["VRT","https://www.vrt.be/vrtnws"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be"]]},
+{t:3,a:"BRGR",n:"Kunstgalerijen Het Zoute (Knokke)",ad:"Kustlaan, 8300 Knokke-Heist, Belgium",la:51.34800,ln:3.29200,w:"Knokke-Heist als 'kunststad aan zee': tientallen galeries voor moderne en hedendaagse kunst, geconcentreerd rond de mondaine Kustlaan en Het Zoute.",k:"Galeries aan de kust",g:["FREE","ARCH","MUS","PARK"],s:[["MYKNOKKE","https://www.myknokke-heist.be"],["FROMMERSKNOKKE","https://www.frommers.com/destinations/knokke-heist-and-het-zoute"]]},
+{t:3,a:"BRGR",n:"Schellemolen Damme",ad:"Damse Vaart-West, 8340 Damme, Belgium",la:51.25046,ln:3.27748,w:"Beeldbepalende korenwindmolen op de westelijke oever van de Damse Vaart; de huidige molen dateert van 1867 maar op deze plek maalt al sinds 1479 een molen.",k:"Molen aan de vaart",g:["HIST","ARCH","FREE","MUS"],s:[["VISITDAMME","https://www.visitdamme.be"],["MONUMENTENWACHT","https://www.monumentenwacht.be"]]},
+{t:3,a:"BRGR",n:"Sint-Janshospitaal Damme",ad:"Kerkstraat 33, 8340 Damme, Belgium",la:51.25024,ln:3.28168,w:"Beschermd 13de-eeuws hospitaalcomplex in het hart van Damme, met kapel en museum die het rijke middeleeuwse verleden van de voorhaven van Brugge tonen.",k:"13de-eeuws hospitaal",g:["HIST","MUS","ARCH","CANAL"],s:[["VISITDAMME","https://www.visitdamme.be"],["DAMMEONLINE","http://www.damme-online.com"]]},
+{t:3,a:"BRGR",n:"Sint-Petrus-en-Pauluskerk Oostende",ad:"Sint-Petrus-en-Paulusplein, 8400 Oostende, Belgium",la:51.22972,ln:2.92167,w:"Monumentale neogotische kerk (1899-1908) van architect Louis Delacenserie, geïnspireerd op de Dom van Keulen; met de bewaarde Peperbus-toren en het mausoleum van koningin Louise-Marie.",k:"Neogotiek van Delacenserie",g:["HIST","ARCH","FREE"],s:[["WIKIPEDIA","https://nl.wikipedia.org"],["DEPLATE","https://www.deplate.be"]]},
+{t:1,a:"BRGR",n:"Garnaalvissers te paard (Oostduinkerke)",ad:"Strand, 8670 Oostduinkerke (Koksijde), Belgium",la:51.13240,ln:2.67137,w:"Oostduinkerke is de enige plek ter wereld waar nog te paard op garnalen wordt gevist: van maart tot oktober trekken Brabantse trekpaarden een trechtervormig net door de branding zodat de grijze garnaal opspringt. De eeuwenoude praktijk staat sinds 2013 op de UNESCO-lijst van immaterieel werelderfgoed.",k:"UNESCO — enige ter wereld",g:["ICON","UNESCO","FREE","ARCH"],s:[["UNESCO","https://ich.unesco.org"],["VRT","https://www.vrt.be/vrtnws/nl/2013/12/04/unesco_erkent_garnaalvisserstepaard-1-1794678/"]]},
+{t:1,a:"BRGR",n:"NAVIGO - Nationaal Visserijmuseum",ad:"Pastoor Schmitzstraat 5, 8670 Oostduinkerke, Belgium",la:51.11732,ln:2.68324,w:"Het nationale visserijmuseum in Oostduinkerke brengt het erfgoed, de ambachten en de natuur van de Noordzee samen: een vissershuisje, een visserscafé en sinds de vernieuwing (heropend in 2024) het 13 meter lange skelet van potvis Valentijn. Vertrekpunt om de paardenvissers en de kustvisserij te begrijpen.",k:"Nationaal Visserijmuseum",g:["MUS","HIST","ARCH","PARK"],s:[["NAVIGO","https://www.navigomuseum.be/en"],["OKV","https://www.okv.be/museum/navigo-nationaal-visserijmuseum-oostduinkerke"]]},
+{t:2,a:"BRGR",n:"Abdijmuseum Ten Duinen",ad:"Koninklijke Prinslaan 8, 8670 Koksijde, Belgium",la:51.10958,ln:2.62909,w:"Op de site van de machtige cisterciënzerabdij Onze-Lieve-Vrouw Ten Duinen (cisterciënzer sinds 1138, opgeheven in 1796) toont dit museum de geschiedenis van de duinabdij tussen haar geconsolideerde ruïnes; een archeologische site die je kunt bezoeken.",k:"Cisterciënzerabdij in ruïne",g:["MUS","HIST","ARCH","PARK"],s:[["TENDUINEN","https://www.tenduinen.be/nl/info-ruines-bouwstenen-van-de-tijd"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/16323"]]},
+{t:2,a:"BRGR",n:"Grote Markt Veurne",ad:"Grote Markt, 8630 Veurne, Belgium",la:51.07233,ln:2.66203,w:"Een van de best bewaarde historische pleinen van België, omzoomd door 16de- en 17de-eeuwse Vlaamse-renaissancegevels: het stadhuis, het Landshuis met belfort, de Vleeshalle en het Spaans Paviljoen. Vertrekpunt van de beroemde Boeteprocessie, die sinds 1644 elk jaar op de laatste zondag van juli uittrekt.",k:"Vlaamse renaissance & boeteprocessie",g:["HIST","ARCH","ICON","FREE"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/themas/3658"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Grote_Markt_(Veurne)"]]},
+{t:2,a:"BRGR",n:"Dumontwijk (De Panne)",ad:"Dumontwijk, 8660 De Panne, Belgium",la:51.09806,ln:2.58955,w:"Beschermd dorpsgezicht (sinds 1995) van ruim 500 witte bakstenen villa's en duincottages tussen het centrum van De Panne en de zee, met bouwstijlen van eclecticisme en art nouveau tot art deco en modernisme; pal naast het breedste strand van België (tot 450 m bij laag water).",k:"Belle-époque villawijk",g:["ARCH","HIST","FREE","MUS"],s:[["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/302416"],["DEPANNE","https://www.depanne.be/nl/omgeving-bouwen-verbouwen/onroerend-erfgoed/dumontwijk-beschermd-dorpsgezicht"]]},
+{t:2,a:"BRGR",n:"Beaufort Beeldenpark",ad:"Belgische kustlijn (De Panne–Knokke), Belgium",la:51.23570,ln:2.91836,w:"Permanent openluchtbeeldenpark dat groeide uit de driejaarlijkse kunsttriënnale Beaufort (sinds 2003): ruim vijftig hedendaagse kunstwerken verspreid over tien kustgemeenten en 67 km kust, gratis en 24/7 te bezoeken — waaronder de befaamde schildpad van Jan Fabre in Nieuwpoort.",k:"Permanente kustkunst",g:["ICON","PARK","FREE","MUS"],s:[["VISITFLANDERS","https://www.visitflanders.com/nl/verhalen/beaufort-kunst-aan-de-vlaamse-kust"],["DEKUST","https://www.dekust.be/kunstwerk/beaufort-beeldenpark"]]},
+{t:2,a:"BRGR",n:"Westfront Nieuwpoort & Koning Albert I-monument",ad:"Kustweg, 8620 Nieuwpoort, Belgium",la:51.13590,ln:2.75583,w:"Interactief bezoekerscentrum onder het ronde Koning Albert I-monument (1938) aan de Ganzepoot, het sluizencomplex waar zes waterlopen samenkomen. Het vertelt hoe de onderwaterzetting van de polders in oktober 1914 de Duitse opmars stopte — een sleutelplek van het WOI-front aan de IJzer.",k:"WOI aan de Ganzepoot",g:["HIST","MUS","ICON"],s:[["NIEUWPOORT","https://www.nieuwpoort.be/westfrontnieuwpoort"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/213292"]]},
+{t:3,a:"BRGR",n:"Plopsaland De Panne",ad:"De Pannelaan 68, 8660 De Panne, Belgium",la:51.08074,ln:2.59597,w:"Het grootste attractiepark van de Vlaamse kust, van Studio 100 op de plek van het vroegere Meli Park (heropend als Plopsaland in 2000): 37 attracties waaronder zeven achtbanen en twee waterattracties, met de figuren van Kabouter Plop, Samson & Gert en Mega Mindy. Goed voor ruim 1,4 miljoen bezoekers per jaar.",k:"Studio 100 pretpark",g:["ICON","PARK"],s:[["VRT","https://www.vrt.be/vrtnws/nl/2026/02/16/attractie-plopsaland-de-panne-nachtwacht-flyer-vast/"],["WIKIPEDIA","https://nl.wikipedia.org/wiki/Plopsaland_De_Panne"]]},
+{t:2,a:"BRG",n:"Sint-Sebastiaansgilde",ad:"Carmersstraat 174, 8000 Brugge, Belgium",la:51.21550,ln:3.23635,w:"Meer dan 600 jaar oude Koninklijke Hoofdgilde van Sint-Sebastiaan, de oudste nog onafgebroken actieve handbooggilde ter wereld; sinds 1572 gevestigd op de Carmersstraat en sinds 1958 beschermd monument. Het gildehuis met zijn schuttershof en collectie is als museum te bezoeken.",k:"600 jaar handbooggilde",g:["HIST","MUS","ARCH"],s:[["VISITBRUGES","https://www.visitbruges.be/en/things-to-do/culture-and-heritage/schuttersgilde-sint-sebastiaan-st-sebastians-archers-guild"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/83125"]]},
+{t:2,a:"BRG",n:"Bonifaciusbrug",ad:"Bonifaciusbrug (Arentshof), 8000 Brugge, Belgium",la:51.20490,ln:3.22535,w:"Het meest gefotografeerde bruggetje van Brugge, in de volksmond de 'liefdesbrug', tussen het Gruuthusepaleis, de tuin van het Arentshof en de Onze-Lieve-Vrouwekerk. De brug dateert pas van 1910 maar oogt eeuwenoud in dit romantische decor aan het water.",k:"De romantische liefdesbrug",g:["ICON","CANAL","FREE","HIST"],s:[["VISITBRUGES","https://filmoffice.visitbruges.be/en/filming/locations/boniface-site"],["ONROERENDERFGOED","https://inventaris.onroerenderfgoed.be/erfgoedobjecten/82343"]]},
+{t:2,a:"BRG",n:"Historium Brugge",ad:"Markt 1, 8000 Brugge, Belgium",la:51.20920,ln:3.22507,w:"Cultuurhistorische belevingsattractie op de Markt die in zeven themaruimtes met film, decors en effecten het Brugge van de Gouden Eeuw ten tijde van Jan van Eyck (1435) tot leven brengt; met een virtual-reality-ervaring, een panoramaterras op de gotische toren en het Duvelorium-bierterras.",k:"Middeleeuws Brugge beleefd",g:["MUS","HIST","ICON","MKT"],s:[["FLEMISHMASTERS","https://www.flemishmastersinsitu.com/nl/locaties/historium"],["FOCUSWTV","https://focus-wtv.be/nieuws/voortaan-ook-virtuele-rondvaart-brugs-belevingsmuseum"]]},
+{t:3,a:"BRG",n:"Godshuizen (armenhuisjes)",ad:"Nieuwe Gentweg, 8000 Brugge, Belgium",la:51.20323,ln:3.22667,w:"Meer dan veertig historische godshuizen — witgekalkte armenhuisjes rond een stille binnentuin, gebouwd vanaf de 14de eeuw door rijke families en gilden voor behoeftige ouderen. De complexen de Meulenaere en Sint-Jozef in de Nieuwe Gentweg vormen het mooiste ensemble; ze dienen nog altijd als sociale woningen en droegen bij tot de UNESCO-erkenning van de binnenstad.",k:"40+ armenhuisjes rond een hof",g:["HIST","ARCH","FREE","UNESCO"],s:[["VISITBRUGES","https://www.visitbruges.be/en/godshuizen-almshouses"],["LONELYPLANET","https://www.lonelyplanet.com/belgium/bruges/south-bruges/attractions/godshuis-de-vos/a/poi-sig/1261184/1342451"]]}
+];
+
+const FS = {
+  "BIERSCHRIJVER":{k:"BIERSCHRIJVER",t:"Bierschrijver (beer journalism)",u:"https://www.bierschrijver.nl",l:"Bierschrijver (beer journalism)"},
+  "BOURGOGNE":{k:"BOURGOGNE",t:"Bourgogne des Flandres (official)",u:"https://www.bourgognedesflandres.be/en",l:"Bourgogne des Flandres (official)"},
+  "BROUWERIJSTENE":{k:"BROUWERIJSTENE",t:"Brouwerij Stene (official)",u:"https://www.brouwerijstene.be",l:"Brouwerij Stene (official)"},
+  "BRUGSEOMMELAND":{k:"BRUGSEOMMELAND",t:"Brugse Ommeland (official regional tourism)",u:"https://www.brugseommeland.be/en",l:"Brugse Ommeland (official regional tourism)"},
+  "CHANGEINC":{k:"CHANGEINC",t:"Change Inc. (trade press)",u:"https://www.change.inc",l:"Change Inc. (trade press)"},
+  "CULINAIREAMBIANCE":{k:"CULINAIRE AMBIANCE",t:"Culinaire Ambiance",u:"https://culinaireambiance.com",l:"Culinaire Ambiance"},
+  "DEGARRE":{k:"DEGARRE",t:"Staminee De Garre (official)",u:"https://degarre.be",l:"Staminee De Garre (official)"},
+  "DEKUST":{k:"DEKUST",t:"De Kust / Westtoer (coast tourism)",u:"https://www.dekust.be",l:"De Kust / Westtoer (coast tourism)"},
+  "DISHNTHEKITCHEN":{k:"DISHNTHEKITCHEN",t:"Dish 'n' the Kitchen (food editorial)",u:"https://dishnthekitchen.com",l:"Dish 'n' the Kitchen (food editorial)"},
+  "EUROPEANCOFFEE":{k:"EUROPEANCOFFEE",t:"European Coffee Trip (specialty coffee guide)",u:"https://europeancoffeetrip.com",l:"European Coffee Trip (specialty coffee guide)"},
+  "FORTLAPIN":{k:"FORTLAPIN",t:"Brouwerij Fort Lapin (via Visit Bruges)",u:"https://www.visitbruges.be/en/things-to-do/culture-and-heritage/brouwerij-fort-lapin-brewery",l:"Brouwerij Fort Lapin (via Visit Bruges)"},
+  "FROMMERS":{k:"FROMMERS",t:"Frommer's",u:"https://www.frommers.com",l:"Frommer's"},
+  "GAULTMILLAU":{k:"GAULT&MILLAU",t:"Gault&Millau Belgium",u:"https://www.gaultmillau.be",l:"Gault&Millau Belgium"},
+  "GEOLIKE":{k:"GEOLIKE",t:"Martin's Brugge tourism listing",u:"https://secure.geo-like.com/__martins-brugge",l:"Martin's Brugge tourism listing"},
+  "HALVEMAAN":{k:"DE HALVE MAAN",t:"Brouwerij De Halve Maan (official)",u:"https://www.halvemaan.be/en",l:"Brouwerij De Halve Maan (official)"},
+  "HANDMADEINBRUGGE":{k:"HANDMADEINBRUGGE",t:"Handmade in Brugge (city crafts org)",u:"https://www.handmadeinbrugge.be",l:"Handmade in Brugge (city crafts org)"},
+  "HETNIEUWSVWVL":{k:"HETNIEUWSVWVL",t:"Het Nieuws van West-Vlaanderen",u:"https://www.hetnieuwsvanwestvlaanderen.be",l:"Het Nieuws van West-Vlaanderen"},
+  "HUNGRYFORMORE":{k:"HUNGRYFORMORE",t:"Hungry for More Magazine",u:"https://www.hungryformore-mag.com",l:"Hungry for More Magazine"},
+  "INDAGARE":{k:"INDAGARE",t:"Indagare (travel editorial)",u:"https://indagare.com",l:"Indagare (travel editorial)"},
+  "KENNISWEST":{k:"KENNISWEST",t:"KennisWest (West-Flanders heritage/knowledge platform)",u:"https://www.kenniswest.be",l:"KennisWest (West-Flanders heritage/knowledge platform)"},
+  "KNACK":{k:"KNACK",t:"Knack Weekend (national magazine)",u:"https://weekend.knack.be",l:"Knack Weekend (national magazine)"},
+  "KW":{k:"KW",t:"Krant van West-Vlaanderen (kw.be)",u:"https://kw.be",l:"Krant van West-Vlaanderen (kw.be)"},
+  "LEFOODING":{k:"LEFOODING",t:"Le Fooding (gastronomy guide)",u:"https://lefooding.com",l:"Le Fooding (gastronomy guide)"},
+  "LIBELLE":{k:"LIBELLE",t:"Libelle Lekker (national magazine)",u:"https://www.libelle-lekker.be",l:"Libelle Lekker (national magazine)"},
+  "MARIECLAIRE":{k:"MARIECLAIRE",t:"Marie Claire",u:"https://marieclaire.nl",l:"Marie Claire"},
+  "MICHELIN":{k:"MICHELIN",t:"Michelin Guide Belgium",u:"https://guide.michelin.com",l:"Michelin Guide Belgium"},
+  "MYKNOKKE":{k:"MYKNOKKE",t:"Visit Knokke-Heist (official)",u:"https://www.myknokke-heist.be",l:"Visit Knokke-Heist (official)"},
+  "NJAM":{k:"NJAM",t:"Njam! (food media)",u:"https://njam.tv",l:"Njam! (food media)"},
+  "OOSTENDELOKAAL":{k:"OOSTENDELOKAAL",t:"Oostende Lokaal",u:"https://oostendelokaal.be",l:"Oostende Lokaal"},
+  "REBELATLAS":{k:"REBELATLAS",t:"Rebel Atlas (travel editorial)",u:"https://rebelatlas.com",l:"Rebel Atlas (travel editorial)"},
+  "ROBBREPORT":{k:"ROBBREPORT",t:"Robb Report (luxury/press)",u:"https://robbreport.com",l:"Robb Report (luxury/press)"},
+  "RUBENS":{k:"RUBENS",t:"Brasserie Rubens (official)",u:"https://www.rubens-knokke.be/en",l:"Brasserie Rubens (official)"},
+  "SELGRIS":{k:"SELGRIS",t:"Restaurant Sel Gris (official)",u:"https://www.selgris.be/en",l:"Restaurant Sel Gris (official)"},
+  "THECHOCOLATELINE":{k:"THECHOCOLATELINE",t:"The Chocolate Line (official)",u:"https://www.thechocolateline.be/en",l:"The Chocolate Line (official)"},
+  "THEDISCOVERIESOF":{k:"THEDISCOVERIESOF",t:"The Discoveries Of (travel editorial)",u:"https://www.thediscoveriesof.com",l:"The Discoveries Of (travel editorial)"},
+  "TWERFTJE":{k:"TWERFTJE",t:"'t Werftje (official)",u:"https://www.twerftje.be",l:"'t Werftje (official)"},
+  "VINDEENFRITUUR":{k:"VINDEENFRITUUR",t:"Vindeenfrituur.be (editorial)",u:"https://www.vindeenfrituur.be",l:"Vindeenfrituur.be (editorial)"},
+  "VISITBRUGES":{k:"VISIT BRUGES",t:"Visit Bruges (official city tourism)",u:"https://www.visitbruges.be",l:"Visit Bruges (official city tourism)"},
+  "VISITDAMME":{k:"VISITDAMME",t:"Toerisme Damme (official)",u:"https://www.visitdamme.be",l:"Toerisme Damme (official)"},
+  "VISITOOSTENDE":{k:"VISITOOSTENDE",t:"Visit Oostende (official)",u:"https://www.visitoostende.be",l:"Visit Oostende (official)"},
+  "VRT":{k:"VRT NWS",t:"VRT NWS (public broadcaster)",u:"https://www.vrt.be/vrtnws",l:"VRT NWS (public broadcaster)"},
+  "WAFFLESNBEER":{k:"WAFFLESNBEER",t:"Waffles & Beer (Bruges food guide)",u:"https://www.wafflesnbeer.be",l:"Waffles & Beer (Bruges food guide)"},
+  "WIDEOYSTER":{k:"WIDEOYSTER",t:"WideOyster Magazine",u:"https://magazine.wideoyster.com",l:"WideOyster Magazine"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia (NL/EN, corroborating)",u:"https://nl.wikipedia.org",l:"Wikipedia (NL/EN, corroborating)"},
+  "WORLDWIFE":{k:"WORLDWIFE",t:"Worldwife (travel editorial)",u:"https://www.worldwife.nl",l:"Worldwife (travel editorial)"},
+  "WOULDBECHEF":{k:"WOULDBECHEF",t:"Would Be Chef (food editorial)",u:"https://wouldbechef.be",l:"Would Be Chef (food editorial)"}
+};
+
+const CUISINES = [
+  {id:"BEL",n:"Belgian & Flemish"},
+  {id:"FR",n:"French & Brasserie"},
+  {id:"BEER",n:"Beer & Breweries"},
+  {id:"SWEET",n:"Chocolate, Waffles & Sweets"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"CAFE",n:"Café & Brown Café"},
+  {id:"SEA",n:"North Sea & Seafood"},
+  {id:"VEG",n:"Vegetarian & Vegan"},
+  {id:"INT",n:"International & Student"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Belfries & Castles"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"CANAL",n:"Canals & Waterfront"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"BRG",n:"Brouwerij De Halve Maan",ad:"Walplein 26, 8000 Brugge, Belgium",cz:["BEER"],la:51.20240,ln:3.22418,w:"De laatste familiebrouwerij in het centrum, waar al zo'n 500 jaar bier wordt gebrouwen; de Brugse Zot en Straffe Hendrik stromen via een 3,3 km lange ondergrondse bierpijplijn naar de bottelarij. Rondleiding met proeverij.",s:[["HALVEMAAN","https://www.halvemaan.be/en"],["CHANGEINC","https://www.change.inc"]]},
+{t:1,a:"BRG",n:"Brouwerij Bourgogne des Flandres",ad:"Kartuizerinnenstraat 6, 8000 Brugge, Belgium",cz:["BEER"],la:51.20691,ln:3.22618,w:"Stadsbrouwerij aan de Dijver waar het roodbruine Bourgogne des Flandres wordt versneden met houtgerijpte lambiek volgens de Vlaamse blendtraditie — brouwerijbezoek met zicht op de reien.",s:[["BOURGOGNE","https://www.bourgognedesflandres.be/en"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:1,a:"BRG",n:"'t Brugs Beertje",ad:"Kemelstraat 5, 8000 Brugge, Belgium",cz:["BEER"],la:51.20682,ln:3.22172,w:"Legendarisch biercafé sinds 1983, meermaals verkozen tot een van de beste biercafés ter wereld; de boekdikke kaart telt ruim 300 Belgische bieren en het personeel kent ze stuk voor stuk.",s:[["VISITBRUGES","https://www.visitbruges.be"],["THEDISCOVERIESOF","https://www.thediscoveriesof.com"]]},
+{t:1,a:"BRG",n:"Staminee De Garre",ad:"De Garre 1, 8000 Brugge, Belgium",cz:["BEER"],la:51.20827,ln:3.22577,w:"Verscholen in het smalste steegje van Brugge schenkt deze staminee sinds 1984 haar volle, fruitige huistripel van 11% met een schaaltje kaas — een goedbewaard bruges geheim over meerdere verdiepingen.",s:[["DEGARRE","https://degarre.be"],["BIERSCHRIJVER","https://www.bierschrijver.nl"]]},
+{t:2,a:"BRG",n:"Brouwerij Fort Lapin",ad:"Fort Lapin 10, 8000 Brugge, Belgium",cz:["BEER"],la:51.23156,ln:3.22756,w:"Ambachtelijke microbrouwerij ten noorden van het centrum, genoemd naar een 17de-eeuws fort; bekend om de goudblonde Tripel 8 en de bruine Quadrupel 10, met proeverijen bij de brouwer.",s:[["FORTLAPIN","https://www.visitbruges.be/en/things-to-do/culture-and-heritage/brouwerij-fort-lapin-brewery"],["WIKIPEDIA","https://nl.wikipedia.org"]]},
+{t:2,a:"BRG",n:"Le Trappiste",ad:"Kuipersstraat 33, 8000 Brugge, Belgium",cz:["BEER"],la:51.21085,ln:3.22276,w:"Kaarsverlichte gewelvenkelder onder een 800 jaar oud pand, met bakstenen catacombegewelven en een uitgebreide kaart vol klassiekers en zeldzame vondsten — een sfeer die uniek is in Brugge.",s:[["THEDISCOVERIESOF","https://www.thediscoveriesof.com"],["REBELATLAS","https://rebelatlas.com"]]},
+{t:2,a:"BRG",n:"'t Poatersgat",ad:"Vlamingstraat 82, 8000 Brugge, Belgium",cz:["BEER"],la:51.21184,ln:3.22365,w:"Ondergrondse gewelfde bierhal net buiten de toeristenroute, met booggewelven, late uren en een liefhebbersselectie flessen en tapbieren — enkel cash.",s:[["THEDISCOVERIESOF","https://www.thediscoveriesof.com"],["WORLDWIFE","https://www.worldwife.nl"]]},
+{t:2,a:"BRG",n:"Bierbrasserie Cambrinus",ad:"Philipstockstraat 19, 8000 Brugge, Belgium",cz:["BEER","BEL"],la:51.20963,ln:3.22614,w:"Ongepretentieuze bierbrasserie met een lijvige kaart van ruim 400 Belgische bieren en degelijke streekgerechten zoals stoverij op bier — goed bier bij goed eten.",s:[["GEOLIKE","https://secure.geo-like.com/__martins-brugge"],["DISHNTHEKITCHEN","https://dishnthekitchen.com"]]},
+{t:1,a:"BRG",n:"The Chocolate Line",ad:"Simon Stevinplein 19, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20659,ln:3.22242,w:"Het chocoladelaboratorium van chocolatier Dominique Persoone, in 2023 door Gault&Millau tot beste chocoladezaak van België verkozen; klassieke pralines naast gedurfde smaken en de befaamde Chocolate Shooter.",s:[["THECHOCOLATELINE","https://www.thechocolateline.be/en"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:2,a:"BRG",n:"Chocolatier Dumon",ad:"Eiermarkt 6, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20942,ln:3.22317,w:"Familiechocolatier sinds 1992, geroemd om betaalbare, met de hand geschepte pralines volgens oude methodes; vaak genoemd als de lekkerste van Brugge.",s:[["HANDMADEINBRUGGE","https://www.handmadeinbrugge.be"],["MARIECLAIRE","https://marieclaire.nl"]]},
+{t:2,a:"BRG",n:"Chocolaterie Sukerbuyc",ad:"Katelijnestraat 5, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20367,ln:3.22481,w:"Klein maar fijn adres in de Katelijnestraat dat sinds 1977 met de hand chocolade maakt; een van de best bewaarde geheimen van Brugge, met een tearoom voor de warme chocomelk.",s:[["GAULTMILLAU","https://www.gaultmillau.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:3,a:"BRG",n:"The Old Chocolate House",ad:"Mariastraat 1c, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20604,ln:3.22302,w:"Familiezaak sinds 1997 met boven de chocoladewinkel een sfeervolle tearoom, waar je een kop warme melk krijgt met een blokje chocolade om er zelf in te laten smelten — plus verse wafels.",s:[["VISITBRUGES","https://www.visitbruges.be"],["INDAGARE","https://indagare.com"]]},
+{t:3,a:"BRG",n:"Chez Albert",ad:"Breidelstraat 16, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20851,ln:3.22584,w:"Populair wafelhuis op een minuut van de Markt, bekend om de luchtige Brusselse wafel met krokante randjes — een klassieker voor onderweg.",g:["MKT"],s:[["VISITBRUGES","https://www.visitbruges.be"],["WAFFLESNBEER","https://www.wafflesnbeer.be"]]},
+{t:1,a:"BRG",n:"Zet'Joe by Geert Van Hecke",ad:"Langestraat 11, 8000 Brugge, Belgium",cz:["FINE","BEL"],la:51.20972,ln:3.23216,w:"Het restaurant van gerenommeerd chef Geert Van Hecke (ex-De Karmeliet), met één Michelinster in de gids 2026 voor zijn hoogstaande, klassiek verankerde keuken.",s:[["MICHELIN","https://guide.michelin.com"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:1,a:"BRG",n:"Sans Cravate",ad:"Langestraat 159, 8000 Brugge, Belgium",cz:["FINE","FR"],la:51.21241,ln:3.23807,w:"Chef Henk Van Oudenhove kookt in de Langestraat een creatieve Frans-Belgische keuken met oog voor topproducten, goed voor één Michelinster in 2026 — ontspannen bistro-sfeer.",s:[["MICHELIN","https://guide.michelin.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:1,a:"BRG",n:"Bar Bulot",ad:"Freren Fonteinstraat 1 (Hotel Jan Brito), 8000 Brugge, Belgium",cz:["FINE","BEL"],la:51.20803,ln:3.23007,w:"Luxebrasserie van sterrenchef Gert De Mangeleer (L.E.S.S.) met één Michelinster; de huisgemaakte garnaalkroketten met flinterdun krokant korstje gelden als referentie.",s:[["MICHELIN","https://guide.michelin.com"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:2,a:"BRG",n:"Restaurant Patrick Devos",ad:"Zilverstraat 41, 8000 Brugge, Belgium",cz:["FINE","FR"],la:51.20660,ln:3.22087,w:"Al meer dan 30 jaar gastronomie in een pand dat teruggaat tot 1261; chef Patrick Devos evolueerde naar een gezonde Frans-Belgische keuken en behoudt zijn Michelinster.",s:[["GAULTMILLAU","https://www.gaultmillau.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Den Gouden Harynck",ad:"Groeninge 25, 8000 Brugge, Belgium",cz:["FINE","FR"],la:51.20489,ln:3.22588,w:"Tijdloos gastronomisch adres van chef Philippe Serruys in een 17de-eeuws pand (ooit een viswinkel) achter het Groeningemuseum; klassieke Franse keuken met Michelin- en Gault&Millau-erkenning.",s:[["VISITBRUGES","https://www.visitbruges.be"],["HUNGRYFORMORE","https://www.hungryformore-mag.com"]]},
+{t:2,a:"BRG",n:"Rock-Fort",ad:"Langestraat 15, 8000 Brugge, Belgium",cz:["FINE","SEA"],la:51.20967,ln:3.23225,w:"Trendy tafel in de Langestraat, opgenomen in de Michelingids, met een op vis en zeevruchten toegespitste, eigentijdse keuken.",s:[["MICHELIN","https://guide.michelin.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Bistro Bruut",ad:"Meestraat 9, 8000 Brugge, Belgium",cz:["FINE","BEL"],la:51.20890,ln:3.22924,w:"Eigentijds bistro-restaurant aan het water, opgenomen in de Michelingids, dat klassieke gerechten met moderne technieken en smaken een verrassende draai geeft.",s:[["MICHELIN","https://guide.michelin.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Franco Belge",ad:"Langestraat 109, 8000 Brugge, Belgium",cz:["FINE","FR"],la:51.21131,ln:3.23645,w:"In de Michelingids 2026 opgenomen adres in de Langestraat, met een moderne Franse keuken.",s:[["MICHELIN","https://guide.michelin.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"De Mangerie",ad:"Oude Burg 20, 8000 Brugge, Belgium",cz:["FINE"],la:51.20666,ln:3.22432,w:"In de Michelingids 2026 opgenomen restaurant aan de Oude Burg met een wereldkeuken; ook door Gault&Millau bekroond.",s:[["MICHELIN","https://guide.michelin.com"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:2,a:"BRG",n:"Tou.Gou",ad:"Smedenstraat 47, 8000 Brugge, Belgium",cz:["FINE","FR"],la:51.20510,ln:3.21439,w:"Bib Gourmand in de Michelingids 2026: eerlijke prijs-kwaliteit met een creatieve, farm-to-table Franse keuken in de Smedenstraat.",s:[["MICHELIN","https://guide.michelin.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Locàle by Kok au Vin",ad:"Ezelstraat 21, 8000 Brugge, Belgium",cz:["FINE","BEL"],la:51.21206,ln:3.21980,w:"Ongedwongen bistro met Bib Gourmand in de Michelingids 2026, een casual tak van Kok au Vin met eerlijke, goed geprijsde gerechten.",s:[["MICHELIN","https://guide.michelin.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:2,a:"BRG",n:"Bistro Refter",ad:"Molenmeers 2, 8000 Brugge, Belgium",cz:["BEL","FR"],la:51.20995,ln:3.23204,w:"De ongedwongen bistro van sterrenchef Geert Van Hecke, met stevige Vlaams-Franse brasseriegerechten — van Vlaams varken in bier tot tartaar met friet — in de Michelingids opgenomen.",s:[["MICHELIN","https://guide.michelin.com"],["FROMMERS","https://www.frommers.com"]]},
+{t:2,a:"BRG",n:"Breydel-De Coninck",ad:"Breidelstraat 24, 8000 Brugge, Belgium",cz:["BEL","SEA"],la:51.20849,ln:3.22616,w:"Het oudste familierestaurant van Brugge (ruim 70 jaar), met de beste reputatie voor mosselen en kreeft; negen mosselbereidingen van natuur tot afrodisiacum.",s:[["VISITBRUGES","https://www.visitbruges.be"],["FROMMERS","https://www.frommers.com"]]},
+{t:2,a:"BRG",n:"Onslow",ad:"Sint-Annadistrict, 8000 Brugge, Belgium",cz:["BEL"],la:51.21240,ln:3.23322,w:"Na jaren met restaurant Lieven verhuisden Lieven Vynck en Rebecca Vandekerckhove hun potten naar het serene Sint-Annadistrict; Onslow behaalde een Bib Gourmand en Gault&Millau-erkenning.",s:[["MICHELIN","https://guide.michelin.com"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:3,a:"BRG",n:"Frituur Chez Vincent",ad:"Sint-Salvatorskerkhof 1, 8000 Brugge, Belgium",cz:["BEL"],la:51.20603,ln:3.22168,w:"Kwaliteitsfrituur bij de Sint-Salvatorskathedraal, gepresenteerd als 's lands eerste luxefrituur, met dagvers gebakken frieten en echte grijze-garnaalkroketten.",s:[["VINDEENFRITUUR","https://www.vindeenfrituur.be"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:3,a:"BRG",n:"Groot Vlaenderen",ad:"Vlamingstraat 94, 8000 Brugge, Belgium",cz:["BEL"],la:51.21222,ln:3.22310,w:"Elegante cocktailbar in een pand waar sinds 1879 de tijd stil lijkt te staan; elke cocktail wordt vakkundig voor je bereid — een Brugse institutie.",s:[["LEFOODING","https://lefooding.com"],["VISITBRUGES","https://www.visitbruges.be"]]},
+{t:1,a:"BRGR",n:"'t Vistrapje",ad:"Visserskaai, 8400 Oostende, Belgium",cz:["SEA","BEL","FINE"],la:51.23320,ln:2.92171,w:"Vlak bij de Oostendse Vistrap: een van de beste visrestaurants van de stad, met dagverse Noordzeevis en een Bib Gourmand in de Michelingids voor het gastronomische menu.",s:[["MICHELIN","https://guide.michelin.com"],["CULINAIREAMBIANCE","https://culinaireambiance.com"]]},
+{t:1,a:"BRGR",n:"Bistro Mathilda",ad:"Leopold II-laan 1, 8400 Oostende, Belgium",cz:["FINE","SEA"],la:51.22990,ln:2.91476,w:"Verfijnde brasserie opgenomen in de Michelingids 2026, met Noordzeevis rechtstreeks van lokale boten en eigentijdse brasseriegerechten; ook Gault&Millau-erkenning.",s:[["MICHELIN","https://guide.michelin.com"],["GAULTMILLAU","https://www.gaultmillau.be"]]},
+{t:2,a:"BRGR",n:"Brasserie David",ad:"Christinastraat 45, 8400 Oostende, Belgium",cz:["FINE","SEA"],la:51.23135,ln:2.91646,w:"In de Michelingids opgenomen Oostendse brasserie waar de chef werkt met zeetong, zeebaars en grijze garnalen — klassieke kustvis, goed gebracht.",s:[["MICHELIN","https://guide.michelin.com"],["VISITOOSTENDE","https://www.visitoostende.be"]]},
+{t:2,a:"BRGR",n:"Savarin",ad:"Albert I-Promenade 75, 8400 Oostende, Belgium",cz:["BEL","SEA"],la:51.22940,ln:2.90844,w:"Klassebrasserie op de zeedijk, geroemd om haar garnaalkroketten — culinaire trots van de kust — en gebakken tong met zeezicht.",s:[["WOULDBECHEF","https://wouldbechef.be"],["WIDEOYSTER","https://magazine.wideoyster.com"]]},
+{t:2,a:"BRGR",n:"EAUst",ad:"Oosteroever, 8400 Oostende, Belgium",cz:["BEL","SEA"],la:51.23627,ln:2.93246,w:"Restaurant op de Oosteroever dat de versheid van de zee combineert met huisgemaakte klassiekers zoals royaal gevulde garnaalkroketten; Gault&Millau 12,5/20.",s:[["GAULTMILLAU","https://www.gaultmillau.be"],["OOSTENDELOKAAL","https://oostendelokaal.be"]]},
+{t:1,a:"BRGR",n:"'t Werftje",ad:"Werfkaai, 8380 Zeebrugge, Belgium",cz:["BEL","SEA"],la:51.32981,ln:3.19961,w:"Vissershaven-café in Zeebrugge, alom bekend om Herlindes huisgemaakte garnaalkroketten met verse grijze Noordzeegarnaal — een begrip aan de kust.",s:[["DEKUST","https://www.dekust.be"],["TWERFTJE","https://www.twerftje.be"]]},
+{t:1,a:"BRGR",n:"Bartholomeus",ad:"Zeedijk-Heist 267, 8301 Knokke-Heist, Belgium",cz:["FINE"],la:51.34177,ln:3.24362,w:"Chef Bart Desmidt behoudt in 2026 zijn twee Michelinsterren met een verfijnde, productgedreven keuken en zeezicht — het gastronomische vlaggenschip van de kust.",s:[["MICHELIN","https://guide.michelin.com"],["MYKNOKKE","https://www.myknokke-heist.be"]]},
+{t:1,a:"BRGR",n:"Cuines 33",ad:"Smedenstraat 33, 8300 Knokke-Heist, Belgium",cz:["FINE"],la:51.33940,ln:3.28786,w:"Restaurant van chef Edwin Menue dat in 2026 een tweede Michelinster kreeg — een van de opvallendste stijgers van de Belgische gids.",s:[["MICHELIN","https://guide.michelin.com"],["VRT","https://www.vrt.be/vrtnws"]]},
+{t:1,a:"BRGR",n:"Sel Gris",ad:"Zeedijk 314, 8301 Knokke-Heist, Belgium",cz:["FINE"],la:51.34411,ln:3.25632,w:"Chef Frederik Deceuninck (ex-De Karmeliet, Jardin Tropical) houdt zijn Michelinster met een creatieve, hedendaagse keuken pal aan de zeedijk.",s:[["MICHELIN","https://guide.michelin.com"],["SELGRIS","https://www.selgris.be/en"]]},
+{t:2,a:"BRGR",n:"Boo Raan",ad:"Edward Verheyestraat 17, 8301 Knokke-Heist, Belgium",cz:["FINE","SEA"],la:51.33952,ln:3.28935,w:"Chef Dokkoon Kapueak behoudt in 2026 haar Michelinster met een authentieke Thaise keuken — een aparte noot in de kustgastronomie.",s:[["MICHELIN","https://guide.michelin.com"],["MYKNOKKE","https://www.myknokke-heist.be"]]},
+{t:2,a:"BRGR",n:"Brasserie Rubens",ad:"Zeedijk-Albertstrand 589, 8300 Knokke-Heist, Belgium",cz:["BEL","SEA"],la:51.35189,ln:3.28424,w:"Emblematische zeedijkbrasserie sinds 1926, geroemd om haar garnaalkroketten en tomaat-garnaal op het terras met zeezicht.",s:[["LEFOODING","https://lefooding.com"],["RUBENS","https://www.rubens-knokke.be/en"]]},
+{t:2,a:"BRGR",n:"Esmeralda",ad:"Zeedijk, 8300 Knokke-Heist, Belgium",cz:["SEA","BEL"],la:51.34859,ln:3.27979,w:"Vast visadres van Knokke waar Stefan Verhasselt sinds 1975 een geslaagd visverhaal schrijft — eerlijke Noordzeevis, klassiek gebracht.",s:[["CULINAIREAMBIANCE","https://culinaireambiance.com"],["DEKUST","https://www.dekust.be"]]},
+{t:2,a:"BRGR",n:"'t Kantientje",ad:"Lippenslaan, 8300 Knokke-Heist, Belgium",cz:["SEA","BEL"],la:51.31489,ln:3.25065,w:"Aanrader voor liefhebbers van no-nonsense gerechten en eerlijke smaken, met de kreeft als specialiteit — een klassieker in Knokke.",s:[["CULINAIREAMBIANCE","https://culinaireambiance.com"],["DEKUST","https://www.dekust.be"]]},
+{t:2,a:"BRGR",n:"Brasserie Bristol",ad:"Zeedijk-Albertstrand, 8300 Knokke-Heist, Belgium",cz:["BEL","SEA"],la:51.33993,ln:3.22966,w:"Brasserie op de zeedijk van Knokke waar je de beste vis van de kaart op het terras kunt testen; ook geroemd om de garnaalkroketten en tomaat-garnaal.",s:[["CULINAIREAMBIANCE","https://culinaireambiance.com"],["DEKUST","https://www.dekust.be"]]},
+{t:1,a:"BRGR",n:"De Zuidkant",ad:"Kerkstraat, 8340 Damme, Belgium",cz:["FINE"],la:51.25188,ln:3.28237,w:"Sterrenrestaurant in Damme met een moderne keuken in een romantisch kader — één Michelinster.",s:[["MICHELIN","https://guide.michelin.com"],["VISITDAMME","https://www.visitdamme.be"]]},
+{t:2,a:"BRGR",n:"Le Kok sur Mer",ad:"Zeedijk, 8420 De Haan, Belgium",cz:["FR","BEL"],la:51.25627,ln:3.05614,w:"Restaurant van chef Jean-Philippe Furnemont in De Haan met een Bib Gourmand in de Michelingids — betaalbare gastronomie aan zee.",s:[["MICHELIN","https://guide.michelin.com"],["DEKUST","https://www.dekust.be"]]},
+{t:2,a:"BRGR",n:"Restaurant Casanova",ad:"8420 De Haan, Belgium",cz:["BEL","FR"],la:51.27780,ln:3.02939,w:"In De Haan gelegen restaurant met een Bib Gourmand in de Michelingids — eerlijke prijs-kwaliteit aan de belle-époquekust.",s:[["MICHELIN","https://guide.michelin.com"],["DEKUST","https://www.dekust.be"]]},
+{t:2,a:"BRGR",n:"De Oesterput",ad:"Wenduinse Steenweg 16, 8370 Blankenberge, Belgium",cz:["SEA","BEL"],la:51.31122,ln:3.11297,w:"Het meest authentieke en nostalgische visrestaurant van de kust, met een oesterhandel-traditie over vijf generaties Devriendt — oesters, kreeft en schelpdieren aan de duinen.",s:[["DEKUST","https://www.dekust.be"],["NJAM","https://njam.tv"]]},
+{t:2,a:"BRGR",n:"De Goedendag",ad:"Lisseweegs Vaartje 2, 8380 Lissewege, Belgium",cz:["BEL","FR"],la:51.29450,ln:3.19707,w:"Hostellerie en restaurant in het witte polderdorp Lissewege met een klassieke Vlaamse keuken in een authentiek kader; scoorde 95/100 in een culinaire test van de streekpers.",s:[["BRUGSEOMMELAND","https://www.brugseommeland.be/en"],["HETNIEUWSVWVL","https://www.hetnieuwsvanwestvlaanderen.be"]]},
+{t:2,a:"BRGR",n:"Restaurant Goffin",ad:"Maalse Steenweg 2, 8310 Brugge (Sint-Kruis), Belgium",cz:["FR","BEL"],la:51.21188,ln:3.24174,w:"Gastronomisch adres in Sint-Kruis aan de rand van Brugge, met een Gault&Millau-score van 15/20 — verfijnde keuken net buiten het centrum.",s:[["GAULTMILLAU","https://www.gaultmillau.be"],["MICHELIN","https://guide.michelin.com"]]},
+{t:1,a:"BRGR",n:"Estaminet De Peerdevisscher",ad:"Pastoor Schmitzstraat 4, 8670 Oostduinkerke, Belgium",cz:["SEA","BEL"],la:51.11680,ln:2.68329,w:"Replica van een vissersherberg uit de jaren 1920 naast het NAVIGO-Visserijmuseum, uitgebaat door een echte garnaalvisser die nog te paard de zee intrekt; bekend om superverse grijze garnalen en dagvers gebakken sliptongetjes in botersaus met friet.",s:[["KNACK","https://weekend.knack.be/lifestyle/culinair/restaurantreviews/estaminet-de-peerdevisscher/"],["DEKUST","https://www.dekust.be/de-peerdevisscher-estaminet"]]},
+{t:1,a:"BRGR",n:"De Vistrap (Visserskaai)",ad:"Visserskaai, 8400 Oostende, Belgium",cz:["SEA"],la:51.23360,ln:2.92215,w:"De openluchtvismarkt op de Visserskaai, sinds de 19de eeuw een Oostends begrip en de enige plek in België waar je grijze garnaal en platvis (schol, tong, tarbot) rechtstreeks van de visser koopt; vroeg in de ochtend het versst, behalve na storm op zee.",g:["MKT"],s:[["DEKUST","https://www.dekust.be/vistrap"],["VISITOOSTENDE","https://www.visitoostende.be"]]},
+{t:2,a:"BRGR",n:"Restaurant Julia",ad:"Koksijde, Belgium",cz:["SEA","BEL","FINE"],la:51.10980,ln:2.61042,w:"Maritieme bistro in Koksijde, verbonden aan vishandel Mare Nostrum, waar dagverse vis en zeevruchten royaal worden opgediend met de zee als hoofdrol; Gault&Millau 13,5/20.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/julia-koksijde"],["LIBELLE","https://www.libelle-lekker.be/artikelen/193545/17-adresjes-koksijde-oostduinkerke"]]},
+{t:2,a:"BRGR",n:"De Vierboete",ad:"Halvemaanstraat 2a, 8620 Nieuwpoort, Belgium",cz:["SEA","BEL"],la:51.14500,ln:2.74885,w:"Visrestaurant aan de vissershaven van Nieuwpoort met een uniek panorama over de grootste jachthaven van West-Europa; garnaalkroketten, Nieuwpoortse vissoep en gambas in nautische sfeer.",s:[["DEKUST","https://www.dekust.be/de-vierboete"],["CULINAIREAMBIANCE","https://culinaireambiance.com/nl/articles/hotspots-5x-lekkerste-vis-in-nieuwpoort"]]},
+{t:2,a:"BRGR",n:"Restaurant Olijfboom",ad:"Noordstraat 3, 8630 Veurne, Belgium",cz:["BEL","FR","FINE"],la:51.07293,ln:2.66277,w:"Gastronomisch adres net bij de Grote Markt van Veurne met een Bib Gourmand in de Michelingids en een Gault&Millau-score van 13/20 — eerlijke prijs-kwaliteit in het historische hart van de Westhoek.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/us/en/west-vlaanderen/veurne/restaurants"],["GAULTMILLAU","https://www.gaultmillau.be/en/restaurants/olijfboom-veurne"]]},
+{t:1,a:"BRG",n:"Café Vlissinghe",ad:"Blekersstraat 2, 8000 Brugge, Belgium",cz:["BEER","CAFE"],la:51.21290,ln:3.23020,w:"De oudste herberg van Vlaanderen, in het stille Sint-Annakwartier en sinds 1515 onafgebroken open; een authentiek 19de-eeuws estaminet met een houtvuur, oude schilderijen en een tuin, waar je Belgische streekbieren en trappist drinkt zoals eeuwen geleden.",s:[["KENNISWEST","https://www.kenniswest.be/artikel/cafe-vlissinghe-brugge-bestaat-sinds-1515-en-is-oudste-herberg-van-vlaanderen/246966"],["KNACK","https://weekend.knack.be/human-interest/cafe-vlissinghe-terug-naar-1870/"]]},
+{t:2,a:"BRG",n:"Café Rose Red",ad:"Cordoeaniersstraat 16, 8000 Brugge, Belgium",cz:["BEER"],la:51.21009,ln:3.22598,w:"Sfeervol biercafé op een steenworp van de Markt, met een houten plafond vol rode rozen en een besloten binnentuin; de specialiteit is het volledige gamma van de wereldberoemde trappistbieren, een aanrader voor elke bierliefhebber.",g:["MKT"],s:[["VISITBRUGES","https://www.visitbruges.be/en/eat-and-sleep/food-bars-cafes/hotel-bar-rose-red"],["INDAGARE","https://indagare.com/restaurant/cafe-rose-red"]]},
+{t:2,a:"BRG",n:"Chocolatier Depla",ad:"Mariastraat 20, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20542,ln:3.22330,w:"De oudste ambachtelijke chocolatier van Brugge (sinds 1958), lid van het Brugse chocolatiersgilde en al generaties een favoriet bij de Bruggelingen; officieel maker van het Brugs Swaentje, een praline met amandelpraliné, gruutkruiden en kletskoppen.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/chocolatiers/depla-chocolatier-brugge"],["VISITBRUGES","https://www.visitbruges.be/en/things-to-do/shopping/depla-chocolaterie"]]},
+{t:2,a:"BRG",n:"Chocolaterie Spegelaere",ad:"Ezelstraat 94, 8000 Brugge, Belgium",cz:["SWEET"],la:51.21431,ln:3.21703,w:"Door kenners omschreven als het best bewaarde geheim van Brugge, met de langste familietraditie in de chocolade (sinds 1954); ter plaatse vers gemaakt en geliefd bij de Bruggelingen om de befaamde chocolade druiventrossen gevuld met marsepein of praliné.",s:[["VISITBRUGES","https://www.visitbruges.be/en/things-to-do/shopping/spegelaere-chocolaterie"],["HANDMADEINBRUGGE","https://www.handmadeinbrugge.be/makers/chocolaterie-spegelaere"]]},
+{t:2,a:"BRG",n:"Vero Caffè",ad:"Sint-Jansplein 9, 8000 Brugge, Belgium",cz:["CAFE"],la:51.21073,ln:3.22570,w:"Fijne specialty-koffiebar aan het Sint-Jansplein, opgenomen in de Bruges Coffee Guide; uitstekende espresso, cappuccino en filterkoffie plus huisgemaakte iced teas, weg van de toeristendrukte.",s:[["VISITBRUGES","https://www.visitbruges.be/en/eat-and-sleep/food-bars-cafes/vero-caffe"],["EUROPEANCOFFEE","https://europeancoffeetrip.com/cafe/verocaffe-brugge/"]]},
+{t:3,a:"BRG",n:"BbyB Chocolates",ad:"Sint-Amandsstraat 39, 8000 Brugge, Belgium",cz:["SWEET"],la:51.20847,ln:3.22174,w:"Babelutte by Bartholomeus: een minimalistisch chocoladeconcept van tweesterrenchef Bart Desmidt (Bartholomeus, Knokke) en chocolatier Jan Verleye, met 22 genummerde smaken in zeven kleurfamilies — van kers en citroen tot wasabi en cola. Opgenomen bij Gault&Millau.",s:[["GAULTMILLAU","https://www.gaultmillau.be/en/chocolatiers/bbyb-chocolates-brugge"],["ROBBREPORT","https://robbreport.com/food-drink/dining/slideshow/best-belgian-chocolatiers-eg17/bbyb-bruges-belgium/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('brg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('brg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('brg_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('brg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Bruges')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {BRG:'#C0504D',BRGR:'#6A8D3F'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([51.2293,2.9769],10);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Bruges", 51.2089, 3.2264], ["Around Bruges", 51.2419, 3.0279]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('bruges-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('bruges-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('bruges-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish or beer — a label alone doesn’t qualify. The Bruges canon: a <b>De Halve Maan Brugse Zot</b>, Belgian <b>chocolate</b> (The Chocolate Line, Dumon), <b>garnaalkroketten</b>, moules, waffles and North-Sea fish. <b>Beer &amp; breweries are their own grouped layer.</b> A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in-language and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, De Standaard, Het Nieuwsblad, VRT NWS, Visit Bruges, beer authorities and vetted local creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/RateBeer never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 123 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

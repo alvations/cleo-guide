@@ -29,10 +29,14 @@ def research_dir(key):
     return os.path.join(ROOT, "data", f"{slug}-research"), slug
 
 def rename_research_record(rdir, slug, base_name, marked_name):
-    """Find the research record named base_name, rename to marked_name + set closed:true. Returns True if done."""
-    files = [p for p in glob.glob(os.path.join(rdir, "*.json"))
-             if not os.path.basename(p).startswith(("_", slug[:3] + "_", "geo_", "CREATORS"))
-             and "dataset" not in os.path.basename(p)]
+    """Rename the research record named base_name to marked_name + set closed:true, across EVERY source
+    file that carries it. Returns True if any file changed. Skips the generated sr_dataset/sr_worklist
+    files (they are rebuilt by consolidate — renaming them is lost on the next run) and uses a sorted,
+    deterministic file order."""
+    files = [p for p in sorted(glob.glob(os.path.join(rdir, "*.json")))
+             if not os.path.basename(p).startswith(("_", slug[:3] + "_", "geo_", "CREATORS", "sr_"))
+             and "dataset" not in os.path.basename(p) and "worklist" not in os.path.basename(p)]
+    any_changed = False
     for path in files:
         try:
             d = json.load(open(path, encoding="utf-8"))
@@ -45,8 +49,8 @@ def rename_research_record(rdir, slug, base_name, marked_name):
                 x["n"] = marked_name; x["closed"] = True; changed = True
         if changed:
             json.dump(d, open(path, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
-            return True
-    return False
+            any_changed = True
+    return any_changed
 
 def main():
     ap = argparse.ArgumentParser()
