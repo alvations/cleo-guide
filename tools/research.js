@@ -61,6 +61,10 @@ const PAGE_FOR = {
   'saarland': path.join(__dirname, '..', 'cities', 'saarland.html'),
   'aachen': path.join(__dirname, '..', 'cities', 'aachen.html'),
   'rhineland': path.join(__dirname, '..', 'cities', 'rhineland.html'),
+  'antwerp': path.join(__dirname, '..', 'cities', 'antwerp.html'),
+  'ghent': path.join(__dirname, '..', 'cities', 'ghent.html'),
+  'brussels': path.join(__dirname, '..', 'cities', 'brussels.html'),
+  'bruges': path.join(__dirname, '..', 'cities', 'bruges.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -78,6 +82,10 @@ const DATASET_FOR = {
   'saarland': path.join(__dirname, '..', 'data', 'saarland.dataset.json'),
   'aachen': path.join(__dirname, '..', 'data', 'aachen.dataset.json'),
   'rhineland': path.join(__dirname, '..', 'data', 'rhineland.dataset.json'),
+  'antwerp': path.join(__dirname, '..', 'data', 'antwerp.dataset.json'),
+  'ghent': path.join(__dirname, '..', 'data', 'ghent.dataset.json'),
+  'brussels': path.join(__dirname, '..', 'data', 'brussels.dataset.json'),
+  'bruges': path.join(__dirname, '..', 'data', 'bruges.dataset.json'),
 };
 
 function loadGeocodes() {

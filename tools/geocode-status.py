@@ -30,6 +30,10 @@ DATASETS = {
     "saarland": "data/saarland.dataset.json",
     "aachen": "data/aachen.dataset.json",
     "rhineland": "data/rhineland.dataset.json",
+    "antwerp": "data/antwerp.dataset.json",
+    "ghent": "data/ghent.dataset.json",
+    "brussels": "data/brussels.dataset.json",
+    "bruges": "data/bruges.dataset.json",
 }
 
 def sourced_ok(rec):

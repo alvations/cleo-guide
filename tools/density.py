@@ -24,6 +24,10 @@ RDIR = {
     "aachen":    "data/aachen-research",
     "saarland":  "data/saarland-research",
     "belgium":   "data/belgium-research",
+    "antwerp":   "data/antwerp-research",
+    "ghent":     "data/ghent-research",
+    "brussels":  "data/brussels-research",
+    "bruges":    "data/bruges-research",
 }
 # human labels for Singapore area codes (best-effort; unknown codes print the raw code)
 SG_LABELS = {"TPY":"Toa Payoh","BSH":"Bishan","AMK":"Ang Mo Kio","PPM":"Potong Pasir & MacPherson",
