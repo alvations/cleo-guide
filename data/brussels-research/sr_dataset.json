@@ -1,0 +1,3151 @@
+{
+ "areas": [
+  {
+   "id": "BRU",
+   "n": "Brussels centre & communes (Grand-Place · Sablon · Marolles · Ixelles · Saint-Gilles · EU quarter)"
+  },
+  {
+   "id": "BRUR",
+   "n": "Around Brussels (Uccle · Schaerbeek · Anderlecht · Tervuren · Waterloo)"
+  }
+ ],
+ "ac": {
+  "BRU": "#8E44AD",
+  "BRUR": "#E8973A"
+ },
+ "cuisines": [
+  {
+   "id": "BEL",
+   "n": "Belgian & Flemish"
+  },
+  {
+   "id": "FR",
+   "n": "French & Brasserie"
+  },
+  {
+   "id": "BEER",
+   "n": "Beer & Breweries"
+  },
+  {
+   "id": "SWEET",
+   "n": "Chocolate, Waffles & Sweets"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "CAFE",
+   "n": "Café & Brown Café"
+  },
+  {
+   "id": "SEA",
+   "n": "North Sea & Seafood"
+  },
+  {
+   "id": "VEG",
+   "n": "Vegetarian & Vegan"
+  },
+  {
+   "id": "INT",
+   "n": "International & Student"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARCH",
+   "n": "Churches, Belfries & Castles"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "CANAL",
+   "n": "Canals & Waterfront"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Nature"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Squares"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife & Quarters"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Grand-Place / Grote Markt",
+   "ad": "Grand-Place, 1000 Bruxelles, Belgium",
+   "w": "L'ensemble de maisons de guilde baroques et l'hôtel de ville gothique forment l'une des plus belles places d'Europe, inscrite à l'UNESCO depuis 1998. Gratuite et ouverte en permanence.",
+   "k": "UNESCO guildhall square",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/857/"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/grand-place"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Hôtel de Ville de Bruxelles",
+   "ad": "Grand-Place, 1000 Bruxelles, Belgium",
+   "w": "Chef-d'œuvre gothique brabançon commencé en 1401, coiffé d'une flèche de 96 m et de la statue de saint Michel — le seul bâtiment médiéval subsistant sur la Grand-Place. Visites guidées de l'intérieur.",
+   "k": "Brabantine Gothic town hall",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/857/"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/grand-place"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Maison du Roi — Musée de la Ville de Bruxelles",
+   "ad": "Grand-Place, 1000 Bruxelles, Belgium",
+   "w": "Le néogothique Broodhuis abrite le musée de la Ville, dont la célèbre garde-robe des costumes du Manneken Pis et l'histoire de la cité. Fermé le lundi.",
+   "k": "City museum & Manneken Pis wardrobe",
+   "g": [
+    "MUS",
+    "HIST",
+    "ICON"
+   ],
+   "s": [
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/brussels-city-museum-king-s-house"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_the_City_of_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Manneken Pis",
+   "ad": "Rue de l'Étuve 31 (angle Rue du Chêne), 1000 Bruxelles, Belgium",
+   "w": "La petite fontaine-statue de 1619, symbole de l'esprit frondeur bruxellois, régulièrement habillée d'un des plus de 1000 costumes de sa garde-robe. À cinq minutes de la Grand-Place.",
+   "k": "Brussels' cheeky icon",
+   "g": [
+    "ICON",
+    "FREE",
+    "HIST",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/manneken-pis"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Manneken_Pis"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "GardeRobe MannekenPis",
+   "ad": "Rue du Chêne 19, 1000 Bruxelles, Belgium",
+   "w": "Le musée gratuit qui expose une sélection tournante des costumes offerts au Manneken Pis depuis le XVIIe siècle — l'une des collections les plus insolites de la ville.",
+   "k": "Manneken Pis costume museum",
+   "g": [
+    "MUS",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/garderobe-mannekenpis"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Manneken_Pis"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Jeanneke Pis",
+   "ad": "Impasse de la Fidélité 10-12, 1000 Bruxelles, Belgium",
+   "w": "La contrepartie féminine du Manneken, installée en 1987 au fond de l'Impasse de la Fidélité, à deux pas du Delirium. Un clin d'œil folklorique.",
+   "k": "The female counterpart",
+   "g": [
+    "ICON",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/manneken-pis"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jeanneke_Pis"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Musée Magritte Museum",
+   "ad": "Place Royale 1, 1000 Bruxelles, Belgium",
+   "w": "La plus grande collection au monde de René Magritte — plus de 200 œuvres — dans l'hôtel du Lotto de la Place Royale, section des Musées royaux des Beaux-Arts.",
+   "k": "World's largest Magritte collection",
+   "g": [
+    "MUS",
+    "ICON",
+    "MKT"
+   ],
+   "s": [
+    [
+     "MAGRITTEMUSEUM",
+     "https://musee-magritte-museum.be/fr"
+    ],
+    [
+     "FINEARTS",
+     "https://fine-arts-museum.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Musées royaux des Beaux-Arts de Belgique",
+   "ad": "Rue de la Régence 3, 1000 Bruxelles, Belgium",
+   "w": "Le musée national d'art regroupant les maîtres anciens (Bruegel, Rubens, Van der Weyden) et le musée Fin-de-Siècle (Ensor, Khnopff, Art nouveau). Une institution incontournable.",
+   "k": "National fine-arts museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "FINEARTS",
+     "https://fine-arts-museum.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Royal_Museums_of_Fine_Arts_of_Belgium"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Musée des Instruments de Musique (MIM)",
+   "ad": "Rue Montagne de la Cour 2, 1000 Bruxelles, Belgium",
+   "w": "Près de 10 000 instruments dans l'ancien grand magasin Old England, joyau Art nouveau de Paul Saintenoy (1899). Casque infrarouge diffusant la musique de chaque salle ; terrasse-café panoramique.",
+   "k": "Instruments in an Art Nouveau icon",
+   "g": [
+    "MUS",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "MUSEUMPASS",
+     "https://www.museumpassmusees.be/en/museum/mim"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Musical_Instruments_Museum,_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Galeries Royales Saint-Hubert",
+   "ad": "Galerie du Roi 5, 1000 Bruxelles, Belgium",
+   "w": "L'un des plus anciens passages couverts vitrés d'Europe (1847, J.-P. Cluysenaer) : galeries de la Reine, du Roi et des Princes sous une verrière élégante, avec Neuhaus, le théâtre des Galeries et les cafés historiques.",
+   "k": "Europe's pioneering glazed arcade",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "GRSH",
+     "https://www.grsh.be/en/history/"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/venue-details.Galeries-Royales-Saint-Hubert.246324"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Cathédrale des Saints-Michel-et-Gudule",
+   "ad": "Place Sainte-Gudule, 1000 Bruxelles, Belgium",
+   "w": "Cathédrale gothique brabançonne (XIIIe-XVe s.) aux deux tours jumelles, vitraux du XVIe siècle et chaire baroque monumentale ; lieu des mariages et funérailles royaux.",
+   "k": "Brabantine Gothic cathedral",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/st-michael-and-st-gudula-cathedral"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cathedral_of_St._Michael_and_St._Gudula"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Bourse de Bruxelles — Belgian Beer World",
+   "ad": "Rue Henri Maus 2, 1000 Bruxelles, Belgium",
+   "w": "L'ancienne Bourse néo-Renaissance (1873), restaurée, abrite depuis 2023 « Belgian Beer World », l'expérience consacrée au patrimoine brassicole belge (UNESCO), avec bar-rooftop panoramique.",
+   "k": "Beer temple in the old exchange",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MUS",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/belgian-beer-world"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Brussels_Stock_Exchange"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Église Notre-Dame du Sablon",
+   "ad": "Rue de la Régence 3B, 1000 Bruxelles, Belgium",
+   "w": "Chef-d'œuvre du gothique flamboyant brabançon (XVe-XVIe s.), aux vitraux illuminés de l'intérieur le soir, cœur du quartier des antiquaires du Sablon.",
+   "k": "Flamboyant Gothic on the Sablon",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/plan-your-trip/the-sablon-and-marolles-districts-antiques-and-tradition"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Church_of_Our_Blessed_Lady_of_the_Sablon"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Place du Grand Sablon",
+   "ad": "Place du Grand Sablon, 1000 Bruxelles, Belgium",
+   "w": "Place raffinée bordée de chocolatiers (Marcolini, Wittamer, Neuhaus), galeries d'art et antiquaires, avec son marché d'antiquités et de livres le week-end.",
+   "k": "Antiques & chocolate square",
+   "g": [
+    "MKT",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/plan-your-trip/the-sablon-and-marolles-districts-antiques-and-tradition"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sablon,_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Marché aux Puces du Jeu de Balle",
+   "ad": "Place du Jeu de Balle, 1000 Bruxelles (Marolles), Belgium",
+   "w": "Le brocante quotidienne des Marolles, tenue tous les jours depuis près d'un siècle de l'aube à 14h (15h le week-end) — le cœur populaire et bohème du quartier.",
+   "k": "Daily Marolles flea market",
+   "g": [
+    "MKT",
+    "FREE",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/plan-your-trip/the-sablon-and-marolles-districts-antiques-and-tradition"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Place_du_Jeu_de_Balle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Palais de Justice de Bruxelles",
+   "ad": "Place Poelaert 1, 1000 Bruxelles, Belgium",
+   "w": "Colosse éclectique de Joseph Poelaert (1883), l'un des plus grands édifices du XIXe siècle, dominant les Marolles ; l'esplanade offre un panorama sur la ville.",
+   "k": "Poelaert's monumental courthouse",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/palace-of-justice"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palace_of_Justice,_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Centre Belge de la Bande Dessinée",
+   "ad": "Rue des Sables 20, 1000 Bruxelles, Belgium",
+   "w": "Le musée de la BD dans un magasin Art nouveau de Victor Horta (1906) : Tintin, Spirou, les Schtroumpfs et 4 200 m² dédiés au « neuvième art » belge.",
+   "k": "Comics in a Horta building",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CBBD",
+     "https://www.cbbd.be/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Belgian_Comic_Strip_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Parcours BD (Comic Book Route)",
+   "ad": "Centre-ville (Pentagone), 1000 Bruxelles, Belgium",
+   "w": "Plus de 50 fresques murales géantes disséminées dans la ville depuis 1991 — Tintin, Gaston, Lucky Luke, le Chat — transformant Bruxelles en musée à ciel ouvert.",
+   "k": "50+ street comic murals",
+   "g": [
+    "FREE",
+    "ICON",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BEBRUSSELS",
+     "https://be.brussels/en/leisure-events-sports/cultural-activities/comic-strips"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Brussels%27_Comic_Book_Route"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Théâtre Royal de Toone",
+   "ad": "Rue du Marché aux Herbes 66 (Impasse Sainte-Pétronille), 1000 Bruxelles, Belgium",
+   "w": "Le dernier théâtre de marionnettes à tringle de la tradition bruxelloise, actif depuis 1830, avec estaminet et musée. La marionnette de Toone est inscrite au patrimoine immatériel de l'UNESCO (2025).",
+   "k": "UNESCO puppet theatre & estaminet",
+   "g": [
+    "HIST",
+    "ICON",
+    "UNESCO",
+    "MUS"
+   ],
+   "s": [
+    [
+     "TOONE",
+     "https://www.toone.be/fr/"
+    ],
+    [
+     "LALIBRE",
+     "https://www.lalibre.be/regions/bruxelles/2025/12/09/bruxelles-celebre-ses-marionnettes-le-theatre-de-toone-inscrit-au-patrimoine-mondial-de-lunesco-QGGJFPRU2NCBBNUXIAXVWSVN7I/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Musée Horta",
+   "ad": "Rue Américaine 25, 1060 Saint-Gilles, Belgium",
+   "w": "La maison-atelier de Victor Horta (1898-1901), œuvre d'art total de l'Art nouveau (mobilier, ferronneries, cage d'escalier lumineuse), inscrite à l'UNESCO. Rénovation d'ampleur annoncée — vérifier l'ouverture.",
+   "k": "Horta's Art Nouveau home",
+   "g": [
+    "MUS",
+    "UNESCO",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1005/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Horta_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Hôtel Solvay",
+   "ad": "Avenue Louise 224, 1050 Bruxelles, Belgium",
+   "w": "L'une des maisons de maître les plus abouties de Victor Horta (1894), classée à l'UNESCO ; façade et intérieur Art nouveau d'une richesse exceptionnelle (visites limitées).",
+   "k": "Horta masterpiece on Louise",
+   "g": [
+    "ARCH",
+    "UNESCO",
+    "MUS"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1005/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C3%B4tel_Solvay"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Hôtel van Eetvelde",
+   "ad": "Avenue Palmerston 4, 1000 Bruxelles, Belgium",
+   "w": "Maison de maître de Horta (1895) à structure métallique apparente et coupole de verre, l'une des quatre inscrites à l'UNESCO, dans le quartier des Squares.",
+   "k": "Horta's glass-domed town house",
+   "g": [
+    "ARCH",
+    "UNESCO",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1005/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C3%B4tel_van_Eetvelde"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Maison Saint-Cyr",
+   "ad": "Square Ambiorix 11, 1000 Bruxelles, Belgium",
+   "w": "Façade Art nouveau la plus exubérante de Bruxelles, à peine 4 m de large, œuvre baroque de Gustave Strauven (1901-1903) au bord du Square Ambiorix.",
+   "k": "Strauven's baroque Art Nouveau facade",
+   "g": [
+    "ARCH",
+    "MUS",
+    "MKT",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "ADMIRABLEARTNOUVEAU",
+     "https://www.admirable-artnouveau.brussels/en/en-facades/saint-cyr-house/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Saint-Cyr_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Parc du Cinquantenaire",
+   "ad": "Parc du Cinquantenaire, 1000 Bruxelles, Belgium",
+   "w": "Parc monumental créé en 1880 pour le cinquantenaire de l'indépendance, dominé par les arcades triomphales et bordé de trois grands musées ; jardins à la française gratuits.",
+   "k": "Triumphal arch & museum park",
+   "g": [
+    "PARK",
+    "HIST",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/parc-du-cinquantenaire"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cinquantenaire"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Autoworld",
+   "ad": "Parc du Cinquantenaire 11, 1000 Bruxelles, Belgium",
+   "w": "Plus de 300 véhicules de 1896 à nos jours sous la grande halle métallique du Cinquantenaire — l'une des plus belles collections automobiles d'Europe.",
+   "k": "300+ classic cars",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "AUTOWORLD",
+     "https://www.autoworld.be/en/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Autoworld_(museum)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Musée Art & Histoire (Cinquantenaire)",
+   "ad": "Parc du Cinquantenaire 10, 1000 Bruxelles, Belgium",
+   "w": "Musée national encyclopédique : antiquités égyptiennes, gréco-romaines, trésors mérovingiens, arts décoratifs et un modèle réduit de Rome antique. Vaste et sous-visité.",
+   "k": "National antiquities & decorative arts",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "ARTANDHISTORY",
+     "https://www.artandhistory.museum/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Art_%26_History_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "War Heritage Institute — Musée royal de l'Armée",
+   "ad": "Parc du Cinquantenaire 3, 1000 Bruxelles, Belgium",
+   "w": "Immense musée militaire (armes, uniformes, aviation, blindés) dans une aile du Cinquantenaire ; l'accès à l'arcade offre l'un des meilleurs panoramas gratuits de la ville.",
+   "k": "Army museum & rooftop view",
+   "g": [
+    "MUS",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/war-heritage-institute"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Royal_Museum_of_the_Armed_Forces_and_Military_History"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Arcades du Cinquantenaire (Arc de Triomphe)",
+   "ad": "Parc du Cinquantenaire, 1000 Bruxelles, Belgium",
+   "w": "La triple arche surmontée d'un quadrige de bronze (1905), version belge de l'arc de triomphe, emblème du parc et de l'histoire nationale.",
+   "k": "Belgium's triumphal arch",
+   "g": [
+    "ARCH",
+    "ICON",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/parc-du-cinquantenaire"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cinquantenaire"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Étangs d'Ixelles",
+   "ad": "Étangs d'Ixelles, 1050 Ixelles, Belgium",
+   "w": "Deux étangs romantiques cernés de façades Art nouveau (dont plusieurs Horta et Blérot), oasis paisible à un pas de la place Flagey.",
+   "k": "Art Nouveau ponds",
+   "g": [
+    "PARK",
+    "FREE",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/ixelles-ponds"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ixelles_Ponds"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Place Flagey & Flagey (bâtiment)",
+   "ad": "Place Sainte-Croix, 1050 Ixelles, Belgium",
+   "w": "Le « paquebot » Art déco (1938), ancien Institut national de radiodiffusion, aujourd'hui centre culturel et salle de concert, cœur battant du quartier d'Ixelles avec son marché et ses cafés.",
+   "k": "Art Deco 'ocean liner'",
+   "g": [
+    "ARCH",
+    "NIGHT",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "FLAGEY",
+     "https://www.flagey.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Flagey_(building)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Matongé (quartier)",
+   "ad": "Galerie d'Ixelles / Chaussée de Wavre, 1050 Ixelles, Belgium",
+   "w": "Le quartier de la diaspora congolaise et africaine, coloré et vivant, autour de la Porte de Namur : épiceries, salons, musique et restaurants de moambe et de yassa.",
+   "k": "Brussels' African quarter",
+   "g": [
+    "HIST",
+    "FREE",
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "JEUNEAFRIQUE",
+     "https://www.jeuneafrique.com/mag/825504/culture/le-gout-de-lafrique-a-bruxelles-cinq-adresses-incontournables/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://fr.wikipedia.org/wiki/Matonge_(Ixelles)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Parlamentarium",
+   "ad": "Place du Luxembourg, 1047 Bruxelles, Belgium",
+   "w": "Le centre des visiteurs du Parlement européen : parcours interactif multilingue sur l'histoire et le fonctionnement de l'UE, gratuit et familial, au cœur du quartier européen.",
+   "k": "European Parliament visitor centre",
+   "g": [
+    "MUS",
+    "FREE",
+    "PARK",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/venue-details.Parlamentarium.251541"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Parlamentarium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "House of European History",
+   "ad": "Rue Belliard 135 (Parc Léopold), 1000 Bruxelles, Belgium",
+   "w": "Musée gratuit retraçant l'histoire européenne depuis 1789, dans l'écrin Art déco de l'ancien institut dentaire Eastman au parc Léopold ; disponible dans les 24 langues de l'UE.",
+   "k": "Europe's history, free",
+   "g": [
+    "MUS",
+    "FREE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "HISTORIAEUROPA",
+     "https://historia.europa.eu/en"
+    ],
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/house-of-european-history"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Atomium",
+   "ad": "Place de l'Atomium 1, 1020 Bruxelles (Laeken), Belgium",
+   "w": "Les neuf sphères d'acier de 102 m, cristal de fer agrandi 165 milliards de fois, vestige emblématique de l'Expo 58 ; ascenseur ultrarapide, expositions et restaurant panoramique.",
+   "k": "Expo 58 steel atom",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ATOMIUM",
+     "https://atomium.be/"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-atomium-brussels-belgium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Design Museum Brussels",
+   "ad": "Place de Belgique 1, 1020 Bruxelles, Belgium",
+   "w": "Au pied de l'Atomium, un musée consacré au design du XXe siècle et à la plus grande collection de plastique d'Europe (le « Plasticarium »).",
+   "k": "20th-century design & plastics",
+   "g": [
+    "MUS",
+    "ICON"
+   ],
+   "s": [
+    [
+     "DESIGNMUSEUM",
+     "https://designmuseum.brussels/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Design_Museum_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Mini-Europe",
+   "ad": "Avenue du Football 1, 1020 Bruxelles (Bruparck), Belgium",
+   "w": "Maquettes au 1/25e des monuments emblématiques de l'Union européenne, au pied de l'Atomium — sortie familiale populaire.",
+   "k": "Europe in miniature",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MINIEUROPE",
+     "https://www.minieurope.com/en/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mini-Europe"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Église Sainte-Catherine & Marché aux Poissons",
+   "ad": "Place Sainte-Catherine, 1000 Bruxelles, Belgium",
+   "w": "Église néogothique de Poelaert sur l'ancien port, cœur du quartier Sainte-Catherine et de ses maisons de poisson autour du bassin du Marché aux Poissons.",
+   "k": "Old fishing-port church",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/church-of-st-catherine"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Church_of_St._Catherine,_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Mont des Arts",
+   "ad": "Mont des Arts, 1000 Bruxelles, Belgium",
+   "w": "Jardin en terrasses reliant la ville basse au quartier royal, offrant l'une des plus belles vues sur les toits de Bruxelles et la tour de l'hôtel de ville. Gratuit.",
+   "k": "Terraced viewpoint garden",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/mont-des-arts"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mont_des_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "BELvue Museum",
+   "ad": "Place des Palais 7, 1000 Bruxelles, Belgium",
+   "w": "Musée d'histoire de la Belgique et de la démocratie dans l'ancien hôtel Bellevue, jouxtant le Palais royal ; billet combiné avec le site archéologique du Coudenberg.",
+   "k": "History of Belgium",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "BELVUE",
+     "https://www.belvue.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/BELvue_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Coudenberg — ancien Palais de Bruxelles",
+   "ad": "Place des Palais 7, 1000 Bruxelles, Belgium",
+   "w": "Les vestiges souterrains du palais des ducs de Bourgogne et de Charles Quint, détruit par un incendie en 1731 : rue médiévale, caves et chapelle sous la Place Royale.",
+   "k": "Underground Renaissance palace",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "COUDENBERG",
+     "https://coudenberg.brussels/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Coudenberg"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Palais Royal de Bruxelles",
+   "ad": "Place des Palais, 1000 Bruxelles, Belgium",
+   "w": "Résidence officielle de la monarchie (fonctions protocolaires), ouverte gratuitement au public chaque été, dont la spectaculaire salle des Glaces au plafond de scarabées de Wim Delvoye.",
+   "k": "The king's state palace",
+   "g": [
+    "HIST",
+    "ARCH",
+    "NIGHT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MONARCHIE",
+     "https://www.monarchie.be/en/heritage/royal-palace-of-brussels"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/royal-palace"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Parc de Bruxelles (Parc Royal)",
+   "ad": "Parc de Bruxelles, 1000 Bruxelles, Belgium",
+   "w": "Le parc néoclassique dessiné entre le Palais royal et le Parlement fédéral, à la géométrie maçonnique, poumon vert et théâtre de la révolution belge de 1830.",
+   "k": "Neoclassical royal park",
+   "g": [
+    "PARK",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/brussels-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Parc_de_Bruxelles"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "BOZAR — Palais des Beaux-Arts",
+   "ad": "Rue Ravenstein 23, 1000 Bruxelles, Belgium",
+   "w": "Centre pluridisciplinaire (expositions, concerts, cinéma) dans un palais Art déco de Victor Horta (1928) — l'un de ses derniers grands chantiers, à l'acoustique réputée.",
+   "k": "Horta's Art Deco arts palace",
+   "g": [
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/bozar-centre-for-fine-arts"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Centre_for_Fine_Arts,_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Théâtre Royal de la Monnaie",
+   "ad": "Place de la Monnaie, 1000 Bruxelles, Belgium",
+   "w": "L'opéra national, où la représentation de « La Muette de Portici » en 1830 déclencha la révolution belge ; l'une des grandes maisons lyriques d'Europe.",
+   "k": "National opera, cradle of 1830",
+   "g": [
+    "ARCH",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "LAMONNAIE",
+     "https://www.lamonnaie.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/La_Monnaie"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Choco-Story Brussels",
+   "ad": "Rue de l'Étuve 41, 1000 Bruxelles, Belgium",
+   "w": "Musée du chocolat retraçant le cacao des Mayas à la praline belge, avec démonstrations et dégustations, à deux pas du Manneken Pis.",
+   "k": "The chocolate museum",
+   "g": [
+    "MUS",
+    "ICON"
+   ],
+   "s": [
+    [
+     "CHOCOSTORY",
+     "https://www.choco-story-brussels.be/eng/home"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Choco-Story_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Villa Empain — Fondation Boghossian",
+   "ad": "Avenue Franklin Roosevelt 67, 1050 Ixelles, Belgium",
+   "w": "Chef-d'œuvre Art déco de Michel Polak (1934) magnifiquement restauré, aujourd'hui centre d'art et de dialogue entre Orient et Occident de la Fondation Boghossian.",
+   "k": "Restored Art Deco villa",
+   "g": [
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/boghossian-foundation-villa-empain"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Villa_Empain"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Porte de Hal (Hallepoort)",
+   "ad": "Boulevard du Midi 150, 1060 Saint-Gilles, Belgium",
+   "w": "La seule porte médiévale subsistante de la seconde enceinte de Bruxelles (XIVe s.), aujourd'hui musée sur la ville fortifiée, avec chemin de ronde panoramique.",
+   "k": "Surviving medieval gate",
+   "g": [
+    "HIST",
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/halle-gate"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Halle_Gate"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "AfricaMuseum — Musée royal de l'Afrique centrale",
+   "ad": "Leuvensesteenweg 13, 3080 Tervuren, Belgium",
+   "w": "Le musée national de l'Afrique centrale dans un palais de 1910 inspiré du Petit Palais, entièrement rénové en 2018 avec un regard critique et décolonial sur le passé colonial belge ; parc et étangs magnifiques.",
+   "k": "Central Africa, critically re-read",
+   "g": [
+    "MUS",
+    "PARK",
+    "HIST"
+   ],
+   "s": [
+    [
+     "AFRICAMUSEUM",
+     "https://www.africamuseum.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Royal_Museum_for_Central_Africa"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "Mémorial de Waterloo 1815 & Butte du Lion",
+   "ad": "Route du Lion 1815, 1420 Braine-l'Alleud, Belgium",
+   "w": "Le champ de bataille où Napoléon fut défait en 1815 : mémorial souterrain, panorama circulaire, ferme d'Hougoumont et la Butte du Lion aux 226 marches dominant le site.",
+   "k": "Napoleon's final battlefield",
+   "g": [
+    "HIST",
+    "MUS",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WATERLOO1815",
+     "https://www.waterloo1815.be/en/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lion%27s_Mound"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Maison d'Érasme",
+   "ad": "Rue du Chapitre 31, 1070 Anderlecht, Belgium",
+   "w": "Demeure gothique de 1515 où Érasme séjourna en 1521, l'une des plus anciennes d'Anderlecht : peintures des XVe-XVIIe s. (Dürer, Metsys), jardins des simples et philosophique de René Pechère.",
+   "k": "Erasmus' 1521 house",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "ANDERLECHT",
+     "https://www.anderlecht.be/fr/agenda/la-maison-d-erasme-une-demeure-de-500-ans"
+    ],
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/erasmus-house-and-beguinage-of-anderlecht"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRUR",
+   "n": "Béguinage d'Anderlecht",
+   "ad": "Rue du Chapelain 8, 1070 Anderlecht, Belgium",
+   "w": "Petit béguinage du XVIIe siècle, l'un des plus modestes et des mieux conservés du pays, retraçant la vie des béguines, à côté de la collégiale Saints-Pierre-et-Guidon.",
+   "k": "Tiny 17th-c beguinage",
+   "g": [
+    "HIST",
+    "ARCH",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/erasmus-house-and-beguinage-of-anderlecht"
+    ],
+    [
+     "HERITAGEBRUSSELS",
+     "https://monument.heritage.brussels/fr"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "Serres Royales de Laeken",
+   "ad": "Avenue du Parc Royal, 1020 Bruxelles (Laeken), Belgium",
+   "w": "Complexe de serres monumentales en fer et verre de Balat et Horta (1874-1905), abritant la plus importante collection de camélias au monde ; ouvertes au public seulement quelques semaines au printemps.",
+   "k": "Royal glasshouses (spring only)",
+   "g": [
+    "PARK",
+    "ARCH",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "HERITAGEBRUSSELS",
+     "https://monument.heritage.brussels/fr/buildings/36609"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Royal_Greenhouses_of_Laeken"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Musée René Magritte (Jette)",
+   "ad": "Rue Esseghem 135, 1090 Jette, Belgium",
+   "w": "La maison où René Magritte vécut et peignit de 1930 à 1954, reconstituée à l'identique — nombre de ses toiles célèbres y sont nées ; un lieu intimiste pour les amateurs du surréalisme.",
+   "k": "Where Magritte lived & painted",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "RENEMAGRITTE",
+     "https://www.magrittemuseum.be/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ren%C3%A9_Magritte_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Musée & Jardins van Buuren",
+   "ad": "Avenue Léo Errera 41, 1180 Uccle, Belgium",
+   "w": "Villa Art déco du banquier collectionneur David van Buuren, aux intérieurs intacts (Van Gogh, Ensor) et jardins remarquables dont un labyrinthe et un jardin du cœur.",
+   "k": "Art Deco house & gardens",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VANBUUREN",
+     "https://www.museumvanbuuren.com/en/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Van_Buuren_Museum_%26_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "Train World",
+   "ad": "Place Princesse Élisabeth 5, 1030 Schaerbeek, Belgium",
+   "w": "Le musée officiel du rail belge (SNCB), scénographié par François Schuiten, autour de la gare historique de Schaerbeek : 22 locomotives dont la plus vieille locomotive à vapeur conservée du continent.",
+   "k": "Belgium's railway museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "TRAINWORLD",
+     "https://www.trainworld.be/en/"
+    ],
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/train-world"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "Basilique du Sacré-Cœur de Koekelberg",
+   "ad": "Parvis de la Basilique 1, 1081 Koekelberg, Belgium",
+   "w": "La cinquième plus grande église du monde, colosse Art déco de 89 m de haut ; panorama sur Bruxelles depuis le dôme, plus musées et théâtre intégrés.",
+   "k": "Vast Art Deco basilica",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "ROUTARD",
+     "https://www.routard.com/fr/guide/europe/belgique/region-de-bruxelles-capitale/koekelberg/basilique-du-sacre-coeur"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Basilica_of_the_Sacred_Heart,_Brussels"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "WIELS",
+   "ad": "Avenue Van Volxem 354, 1190 Forest, Belgium",
+   "w": "L'un des grands centres d'art contemporain d'Europe, installé dans l'ancienne brasserie Wielemans-Ceuppens (bâtiment Blomme, 1930), à Forest.",
+   "k": "Contemporary art in a brewery",
+   "g": [
+    "MUS",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "WIELS",
+     "https://www.wiels.org/en"
+    ],
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/wiels"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Pavillon Chinois & Tour Japonaise",
+   "ad": "Avenue Van Praet 44, 1020 Bruxelles (Laeken), Belgium",
+   "w": "Deux folies exotiques commandées par Léopold II vers 1910 en bordure du domaine royal ; remarquables de l'extérieur (intérieurs fermés pour restauration).",
+   "k": "Leopold II's exotic follies",
+   "g": [
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "HERITAGEBRUSSELS",
+     "https://monument.heritage.brussels/fr/buildings/37912"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chinese_Pavilion_(Laeken)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Bois de la Cambre",
+   "ad": "Bois de la Cambre, 1000 Bruxelles, Belgium",
+   "w": "Grand parc paysager anglais prolongeant la ville vers la Forêt de Soignes, avec son lac, son île-chalet et ses pelouses — le rendez-vous vert des Bruxellois.",
+   "k": "City's great green lung",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/bois-de-la-cambre"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bois_de_la_Cambre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Forêt de Soignes (Zoniënwoud)",
+   "ad": "Forêt de Soignes, 1170 Watermael-Boitsfort, Belgium",
+   "w": "Vaste hêtraie cathédrale de 4 400  ha aux portes de la ville ; ses parcelles anciennes sont inscrites au patrimoine mondial de l'UNESCO (forêts primaires de hêtres).",
+   "k": "UNESCO cathedral beech forest",
+   "g": [
+    "PARK",
+    "FREE",
+    "ICON",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1133/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sonian_Forest"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Église Royale Sainte-Marie",
+   "ad": "Place de la Reine, 1030 Schaerbeek, Belgium",
+   "w": "Étonnante église romano-byzantine à plan octogonal et coupole étoilée (1845-1888), point de fuite de la longue perspective de la rue Royale à Schaerbeek.",
+   "k": "Byzantine-Romanesque dome",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "ROUTARD",
+     "https://www.routard.com/fr/guide/europe/belgique/region-de-bruxelles-capitale/schaerbeek"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Saint_Mary%27s_Royal_Church"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRUR",
+   "n": "Parc Josaphat",
+   "ad": "Parc Josaphat, 1030 Schaerbeek, Belgium",
+   "w": "Grand parc paysager à l'anglaise (classé) de Schaerbeek, avec ses étangs, sculptures, roseraie et kiosque — le poumon vert du « village » de Schaerbeek.",
+   "k": "Schaerbeek's romantic park",
+   "g": [
+    "PARK",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/plan-your-trip/10-000-steps-in-schaerbeek"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Josaphat_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Maison Autrique",
+   "ad": "Chaussée de Haecht 266, 1030 Schaerbeek, Belgium",
+   "w": "La toute première maison Art nouveau de Victor Horta (1893), commandée par l'ingénieur Eugène Autrique, restaurée et scénographiée avec l'univers de Schuiten et Peeters.",
+   "k": "Horta's first Art Nouveau house",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "AUTRIQUE",
+     "https://www.autrique.be/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Autrique_House"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Delirium Café",
+   "ad": "Impasse de la Fidélité 4A, 1000 Bruxelles, Belgium",
+   "w": "Le temple de la bière belge dans une impasse près de la Grand-Place, entré au Guinness des records pour sa carte pléthorique ; tout un « village » de bars sur plusieurs niveaux.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/beers-in-brussel-must-see-bars-and-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "À la Mort Subite",
+   "ad": "Rue Montagne-aux-Herbes-Potagères 7, 1000 Bruxelles, Belgium",
+   "w": "Estaminet Belle Époque de 1928 aux miroirs et banquettes d'origine, qui a donné son nom à la célèbre gueuze ; une institution figée dans le temps.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mort_Subite"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Moeder Lambic Fontainas",
+   "ad": "Place Fontainas 8, 1000 Bruxelles, Belgium",
+   "w": "Bar à bières de référence au centre-ville, prolongeant la légende de la maison de Saint-Gilles avec une sélection pointue de lambics et de brasseries craft belges.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"
+    ],
+    [
+     "MOEDERLAMBIC",
+     "https://moederlambic.com/?lang=en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Moeder Lambic Original",
+   "ad": "Rue de Savoie 68, 1060 Saint-Gilles, Belgium",
+   "w": "Le bar historique de la « Mecque de la bière » à Saint-Gilles, minuscule et culte, fondé dans les années 1980 par Jean Hummler, pour explorer le lambic hors des sentiers battus.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LEVIF",
+     "https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"
+    ],
+    [
+     "MOEDERLAMBIC",
+     "https://moederlambic.com/?lang=en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "À la Bécasse",
+   "ad": "Rue de Tabora 11, 1000 Bruxelles, Belgium",
+   "w": "Taverne cachée au fond d'une ruelle près de la Bourse, célèbre pour son lambic doux servi à l'ancienne dans des cruchons de grès, dans un décor de longues tables en bois.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/5-bars-a-biere-incontournables-en-plein-coeur-de-bruxelles-9082881"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/beers-in-brussel-must-see-bars-and-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Poechenellekelder",
+   "ad": "Rue du Chêne 5, 1000 Bruxelles, Belgium",
+   "w": "Estaminet bruxellois authentique face au Manneken Pis, tapissé de marionnettes et de curiosités, avec une belle carte de lambics et des plats typiques (rollmops, pottekeis, cervelas).",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/beers-in-brussel-must-see-bars-and-restaurants"
+    ],
+    [
+     "POECHENELLE",
+     "https://poechenellekelder.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Le Cirio",
+   "ad": "Rue de la Bourse 18, 1000 Bruxelles, Belgium",
+   "w": "L'une des plus anciennes tavernes de Bruxelles (1886), au décor Belle Époque intact, où l'on commande le rituel « half-en-half » à côté de la Bourse.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/time-travel-in-brussels-bars"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://fr.wikipedia.org/wiki/Le_Cirio"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "À l'Imaige Nostre-Dame",
+   "ad": "Impasse des Cadeaux 3 (Rue du Marché aux Herbes 8), 1000 Bruxelles, Belgium",
+   "w": "Trésor caché au fond d'une impasse : fondé en 1884 dans un bâtiment de 1682, ancien repaire de peintres et d'écrivains (Ghelderode), il conserve tout son charme d'estaminet.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/time-travel-in-brussels-bars"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://fr.wikipedia.org/wiki/Estaminet"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Au Bon Vieux Temps",
+   "ad": "Impasse Saint-Nicolas 4 (Rue du Marché aux Herbes), 1000 Bruxelles, Belgium",
+   "w": "L'un des plus vieux estaminets de la ville, dissimulé dans une impasse près de la Grand-Place, réputé pour dénicher parfois de la Westvleteren et son cadre boisé d'époque.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/what-to-do/time-travel-in-brussels-bars"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Estaminet"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Brasserie de la Senne",
+   "ad": "Drève Anna Boch 19-21, 1000 Bruxelles, Belgium",
+   "w": "À l'origine de la « nouvelle vague » brassicole bruxelloise, la brasserie s'est installée à Tour & Taxis avec son Zennebar, où déguster ses classiques Zinnebir et Taras Boulba à la source.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BRASSERIESENNE",
+     "https://www.brasseriedelasenne.be/"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/venue-details.Brasserie-de-La-Senne.275807"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Brussels Beer Project",
+   "ad": "Rue Antoine Dansaert 188, 1000 Bruxelles, Belgium",
+   "w": "Brasserie craft collaborative et pionnière rue Dansaert, célèbre pour sa Delta IPA et ses bières expérimentales dégustées sur place les jeudis-samedis.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BBP",
+     "https://www.beerproject.be/en"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/brussels-breweries"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "En Stoemelings",
+   "ad": "Rue du Miroir 1, 1000 Bruxelles (Marolles), Belgium",
+   "w": "Micro-brasserie née « en stoemelings » (en douce) dans une cave des Marolles, désormais adresse conviviale pour goûter ses créations houblonnées.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ENSTOEMELINGS",
+     "https://www.enstoemelings.be/"
+    ],
+    [
+     "BRUSSELSLIFE",
+     "https://www.brusselslife.be/fr/article/decouvrez-les-micro-brasseries-bruxelloises"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Pierre Marcolini",
+   "ad": "Rue des Minimes 1, 1000 Bruxelles (Sablon), Belgium",
+   "w": "Le chocolatier haute couture belge, pionnier du bean-to-bar, dont le flagship du Sablon aligne pralines, ganaches d'origine et le célèbre Cœur Framboise.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pierre_Marcolini"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Wittamer",
+   "ad": "Place du Grand Sablon 12-13, 1000 Bruxelles, Belgium",
+   "w": "Maison installée sur le Sablon depuis 1910, fournisseur breveté de la Cour royale, réputée pour ses pralines, sa haute pâtisserie et son café à l'étage.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WITTAMER",
+     "https://www.wittamer.com/"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://chocolatier.gaultmillau.be/en/chocolatiers/wittamer-bruxelles"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Neuhaus (Galeries Royales)",
+   "ad": "Galerie de la Reine 25-27, 1000 Bruxelles, Belgium",
+   "w": "Boutique historique dans les Galeries Royales où Jean Neuhaus inventa la praline fourrée en 1912 — le berceau du chocolat belge tel qu'on le connaît.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"
+    ],
+    [
+     "GRSH",
+     "https://www.grsh.be/en/store/neuhaus/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Mary Chocolatier",
+   "ad": "Rue Royale 73, 1000 Bruxelles, Belgium",
+   "w": "Maison élégante fondée en 1919, fournisseur de la Cour royale, aux pralines artisanales à l'ancienne — l'autre grand nom historique des Galeries et de la rue Royale.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mary_(chocolatier)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Laurent Gerbaud",
+   "ad": "Rue Ravenstein 2/D, 1000 Bruxelles, Belgium",
+   "w": "Chocolatier artisan près de Bozar, réputé pour ses chocolats aux fruits secs et épices, sans sucre ajouté, et son bar à chocolat chaud.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"
+    ],
+    [
+     "GERBAUD",
+     "https://www.chocolatsgerbaud.be/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Maison Dandoy",
+   "ad": "Rue au Beurre 31, 1000 Bruxelles, Belgium",
+   "w": "Biscuiterie bruxelloise fondée en 1829, institution du spéculoos et du pain à la grecque ; le salon de thé sert la véritable gaufre de Bruxelles croustillante.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GRSH",
+     "https://www.grsh.be/en/store/maison-dandoy/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maison_Dandoy"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Frederic Blondeel",
+   "ad": "Quai aux Briques 24, 1000 Bruxelles (Sainte-Catherine), Belgium",
+   "w": "Chocolatier-torréfacteur artisan de Sainte-Catherine qui travaille la fève de A à Z ; son chocolat chaud et ses glaces sont réputés.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat/the-best-places-to-buy-chocolate-in-brussels"
+    ],
+    [
+     "BLONDEEL",
+     "https://www.frederic-blondeel.be/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Maison Antoine",
+   "ad": "Place Jourdan 1, 1040 Etterbeek, Belgium",
+   "w": "La friterie-baraque emblématique de la place Jourdan (1948), dans le quartier européen : cornets de frites croustillantes cuites au blanc de bœuf, sacrées parmi les meilleures de la ville.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MAISONANTOINE",
+     "https://www.maisonantoine.be/"
+    ],
+    [
+     "BRUSSELSEXPRESS",
+     "https://brussels-express.eu/friterie-maison-antoine-modern-will-still-place-jourdan/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Chez Léon",
+   "ad": "Rue des Bouchers 18, 1000 Bruxelles, Belgium",
+   "w": "Friture bruxelloise familiale de l'Îlot Sacré, ouverte en 1893, qui a popularisé les moules servies dans leur casserole ; aussi carbonnade et waterzooi.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/venue-details.Chez-Leon-Friture-bruxelloise.260578"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/L%C3%A9on_de_Bruxelles"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Aux Armes de Bruxelles",
+   "ad": "Rue des Bouchers 13, 1000 Bruxelles, Belgium",
+   "w": "Véritable institution de l'Îlot Sacré depuis 1921, service soigné et carte de tous les classiques belges — moules déclinées à l'infini, croquettes de crevettes, anguilles au vert.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/en/bruxelles-capitale/bruxelles/restaurant/aux-armes-de-bruxelles"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/europe/belgium/brussels/restaurants/reviews/aux-armes-de-bruxelles-35941"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Les Brigittines",
+   "ad": "Place de la Chapelle 5, 1000 Bruxelles, Belgium",
+   "w": "Brasserie Belle Époque au pied de l'église de la Chapelle, référence de la cuisine belge de tradition croisée d'influences bordelaises ; recommandée au Guide Michelin.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/les-brigittines-aux-marches-de-la-chapelle"
+    ],
+    [
+     "LEVIF",
+     "https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Au Vieux Saint-Martin",
+   "ad": "Place du Grand Sablon 38, 1000 Bruxelles, Belgium",
+   "w": "Brasserie du Sablon où fut, dit-on, créé le filet américain ; institution de la cuisine belge servie non-stop dans un décor d'art contemporain.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/au-vieux-saint-martin"
+    ],
+    [
+     "LEVIF",
+     "https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Belga Queen",
+   "ad": "Rue du Fossé aux Loups 32, 1000 Bruxelles, Belgium",
+   "w": "Brasserie spectaculaire installée dans une ancienne banque du XVIIIe siècle (colonnes, vitrail), mêlant classiques belges et bar à fruits de mer ; sélectionnée au Guide Michelin.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/en/bruxelles-capitale/bruxelles/restaurant/belga-queen"
+    ],
+    [
+     "PUDLOWSKI",
+     "https://www.gillespudlowski.com/394941/restaurants/bruxelles-le-gout-de-la-belgique-au-belga-queen"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Brasserie Ploegmans",
+   "ad": "Rue Haute 148, 1000 Bruxelles (Marolles), Belgium",
+   "w": "Café-brasserie populaire des Marolles au décor d'origine, adresse de stoemp et de plats bruxellois généreux ; recommandée au Guide Michelin.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/brasserie-ploegmans"
+    ],
+    [
+     "LEVIF",
+     "https://weekend.levif.be/culinaire/restaurants/ou-manger-vraiment-belge-a-bruxelles/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Le Roy d'Espagne",
+   "ad": "Grand-Place 1, 1000 Bruxelles, Belgium",
+   "w": "Brasserie-taverne installée dans la maison de guilde des boulangers sur la Grand-Place, cadre baroque du XVIIe siècle pour une cuisine belge et une terrasse imprenable.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ROYDESPAGNE",
+     "https://roydespagne.be/en/"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/place/le-roy-despagne"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "La Belle Maraîchère",
+   "ad": "Place Sainte-Catherine 11, 1000 Bruxelles, Belgium",
+   "w": "Maison de poisson familiale de Sainte-Catherine depuis 1973, adresse franco-belge de tradition (croquettes de crevettes, bouillabaisse) recommandée au Guide Michelin.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/fr/fr/bruxelles-capitale/bruxelles/restaurant/la-belle-maraichere"
+    ],
+    [
+     "LESOIR",
+     "https://www.lesoir.be/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Restaurant François",
+   "ad": "Quai aux Briques 2, 1000 Bruxelles (Sainte-Catherine), Belgium",
+   "w": "Table de poisson historique du Marché aux Poissons, tenue par la même famille de mareyeurs depuis plus de cent ans ; produits ultra-frais et écailler.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "FRANCOIS",
+     "https://www.restaurant-francois.be/fr"
+    ],
+    [
+     "PETITFUTE",
+     "https://www.petitfute.com/v40163-bruxelles-brussel/c1165-restaurants/c1248-specialites/c116-restaurant-fruits-de-mer-poissons/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Noordzee — Mer du Nord",
+   "ad": "Rue Sainte-Catherine 45, 1000 Bruxelles, Belgium",
+   "w": "Bar à poisson debout de Sainte-Catherine : poissonnerie et cuisine dans le même lieu, on commande au comptoir croquettes de crevettes, calamars frits et soupe de poisson, un verre de blanc à la main.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "PETITFUTE",
+     "https://www.petitfute.com/v40163-bruxelles-brussel/c1165-restaurants/c1248-specialites/c116-restaurant-fruits-de-mer-poissons/1398293-la-mer-du-nord.html"
+    ],
+    [
+     "VISITBRUSSELS",
+     "https://www.visit.brussels/en/visitors/where-to-eat"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Comme Chez Soi",
+   "ad": "Place Rouppe 23, 1000 Bruxelles, Belgium",
+   "w": "Institution bruxelloise fondée en 1926, deux étoiles Michelin, dans un intérieur Art nouveau intégralement conservé ; la table gastronomique historique de la ville sous Lionel Rigolet.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurant/comme-chez-soi113872"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "Bozar Restaurant",
+   "ad": "Rue Baron Horta 3, 1000 Bruxelles, Belgium",
+   "w": "Table gastronomique installée dans le Palais des Beaux-Arts de Victor Horta, saluée pour sa cuisine belge classique revisitée (17,5/20 Gault&Millau) et son étoile Michelin.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/bruxelles-capitale/bruxelles/restaurants"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/news/gaultmillau-belgie-presenteert-23-editie-van-de-gids-2026"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRU",
+   "n": "humus x hortense",
+   "ad": "Rue de Vergnies 2, 1050 Ixelles, Belgium",
+   "w": "Premier restaurant végétal étoilé de Belgique, le chef Nicolas Decloedt bâtit un menu de dégustation issu de la recherche botanique et de la cueillette ; 16,5/20 Gault&Millau.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/bruxelles-capitale/ixelles/restaurant/humus-x-hortense"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/humus-x-hortense-bruxelles-ixelles"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Old Boy",
+   "ad": "Rue de Tenbosch 110, 1050 Ixelles, Belgium",
+   "w": "Table « smoky » d'inspiration sud-est-asiatique du quartier du Châtelain, produits belges au feu de bois ; recommandée au Guide Michelin.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/bruxelles-capitale/ixelles/restaurant/old-boy"
+    ],
+    [
+     "LEFOODING",
+     "https://lefooding.com/en/restaurants/old-boy-4"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "La Buvette",
+   "ad": "Chaussée d'Alsemberg 108, 1060 Saint-Gilles, Belgium",
+   "w": "Ancienne boucherie Art déco classée transformée en table pointue de Saint-Gilles, menu unique jouant entre répertoire franco-belge et touches internationales.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LABUVETTE",
+     "https://la-buvette.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/La_Buvette"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Inzia",
+   "ad": "Rue de la Paix 37, 1050 Ixelles (Matongé), Belgium",
+   "w": "Institution de la gastronomie congolaise à Matongé (1976), réputée pour son poulet moambe onctueux et son buffet du week-end.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JEUNEAFRIQUE",
+     "https://www.jeuneafrique.com/mag/825504/culture/le-gout-de-lafrique-a-bruxelles-cinq-adresses-incontournables/"
+    ],
+    [
+     "DOEATBETTER",
+     "https://doeatbetterexperience.com/blog/matonge-brussels-congolese-food-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "L'Horloge du Sud",
+   "ad": "Rue du Trône 141, 1050 Ixelles, Belgium",
+   "w": "Haut lieu de la gastronomie africaine et subtropicale près de Matongé, voyageant du yassa au maafé et au kedjenou dans une ambiance musicale.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JEUNEAFRIQUE",
+     "https://www.jeuneafrique.com/mag/825504/culture/le-gout-de-lafrique-a-bruxelles-cinq-adresses-incontournables/"
+    ],
+    [
+     "TRAVELTOMORROW",
+     "https://traveltomorrow.com/5-african-restaurants-in-brussels/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Kokob",
+   "ad": "Rue des Grands Carmes 10, 1000 Bruxelles, Belgium",
+   "w": "Table éthiopienne du centre servant l'injera et ses ragoûts épicés à partager à la main ; l'une des adresses africaines de référence de Bruxelles.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TRAVELTOMORROW",
+     "https://traveltomorrow.com/5-african-restaurants-in-brussels/"
+    ],
+    [
+     "AFAR",
+     "https://www.afar.com/places/kokob-brussels"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Alley Mian",
+   "ad": "Bruxelles centre, 1000 Bruxelles, Belgium",
+   "w": "Nouveau Bib Gourmand 2026, cette table met à l'honneur les bouillons et nouilles maison de la ville chinoise de Lanzhou ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "BX1",
+     "https://bx1.be/categories/news/trois-nouveaux-restaurants-bruxellois-bib-gourmand-dans-le-guide-michelin-2026/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "ÔNGBÀ",
+   "ad": "Ixelles, 1050 Bruxelles, Belgium",
+   "w": "Nouveau Bib Gourmand 2026 d'Ixelles, réinvention créative de la cuisine de rue vietnamienne ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "BX1",
+     "https://bx1.be/categories/news/trois-nouveaux-restaurants-bruxellois-bib-gourmand-dans-le-guide-michelin-2026/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "ANJU",
+   "ad": "Saint-Gilles, 1060 Bruxelles, Belgium",
+   "w": "Table coréenne de Saint-Gilles distinguée par le Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LALIBRE",
+     "https://www.lalibre.be/lifestyle/food/2026/04/27/voici-les-sept-nouveaux-bib-gourmand-belges-du-guide-michelin-trois-dentre-eux-se-trouvent-a-bruxelles-TIKCBTOA7FGYHAUVF7FPJA7EQM/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Lune Siamoise",
+   "ad": "Ixelles, 1050 Bruxelles, Belgium",
+   "w": "Table thaïlandaise d'Ixelles distinguée par le Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Osteria Bolognese",
+   "ad": "Ixelles, 1050 Bruxelles, Belgium",
+   "w": "Trattoria italienne d'Ixelles au Bib Gourmand Michelin, spécialisée dans les pâtes fraîches à la bolognaise ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRU",
+   "n": "Le Tournant",
+   "ad": "Ixelles, 1050 Bruxelles, Belgium",
+   "w": "Bistro de produit d'Ixelles au Bib Gourmand Michelin, cuisine franco-belge de marché ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRU",
+   "n": "Strofilia",
+   "ad": "Bruxelles centre, 1000 Bruxelles, Belgium",
+   "w": "Table grecque du centre distinguée par le Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "Cantillon — Brasserie-Musée bruxellois de la Gueuze",
+   "ad": "Rue Gheude 56, 1070 Anderlecht, Belgium",
+   "w": "La dernière brasserie de lambic traditionnel encore en activité dans Bruxelles (fondée en 1900), musée vivant de la gueuze : on visite la salle de brassage et les foudres, puis on déguste lambic, gueuze et kriek non filtrés — un pèlerinage pour amateurs.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "CANTILLON",
+     "https://www.cantillon.be/"
+    ],
+    [
+     "BRUSSELSMUSEUMS",
+     "https://www.brusselsmuseums.be/en/museums/brussels-museum-of-the-gueuze"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "La Paix",
+   "ad": "Rue Ropsy-Chaudron 49, 1070 Anderlecht, Belgium",
+   "w": "Table doublement étoilée du chef David Martin, face aux abattoirs d'Anderlecht depuis 1892, alliant tradition française et pureté japonaise. La maison déménage vers le centre de Bruxelles (Corinthia Grand Hotel Astoria) à partir de septembre 2026 — vérifier l'adresse.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/en/bruxelles-capitale/anderlecht/restaurant/la-paix203164"
+    ],
+    [
+     "LALIBRE",
+     "https://www.lalibre.be/lifestyle/food/2026/06/04/le-restaurant-doublement-etoile-la-paix-quitte-anderlecht-et-change-dadresse-LGYDR6IRLFAGDIBLSPLPE624RY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "BRUR",
+   "n": "Le Chalet de la Forêt",
+   "ad": "Drève de Lorraine 43, 1180 Uccle, Belgium",
+   "w": "Le refuge gastronomique de Pascal Devalkeneer à Uccle, deux étoiles Michelin et 17,5/20 Gault&Millau, cuisine de produit sur l'une des plus belles terrasses de Bruxelles.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/bruxelles-capitale/uccle/restaurant/le-chalet-de-la-foret"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/le-chalet-de-la-foret-bruxelles-uccle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Bouchéry",
+   "ad": "Chaussée d'Alsemberg 812A, 1180 Uccle, Belgium",
+   "w": "Table gastronomique d'Uccle centrée sur le produit belge, le fermenté et la cueillette, saluée par Gault&Millau et recommandée au Guide Michelin.",
+   "cz": [
+    "FINE",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://be.gaultmillau.com/restaurant/bouchery"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/bruxelles-capitale/uccle/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Le Pigeon Noir",
+   "ad": "Uccle, 1180 Bruxelles, Belgium",
+   "w": "Table franco-belge appréciée d'Uccle, notée par Gault&Millau et suivie par le Guide Michelin ; adresse de rue à confirmer au géocodage.",
+   "cz": [
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/bruxelles-capitale/uccle/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Babam",
+   "ad": "Watermael-Boitsfort, 1170 Bruxelles, Belgium",
+   "w": "Table anatolienne de Watermael-Boitsfort distinguée par le Bib Gourmand Michelin — l'ancrage crédible de la cuisine turque de Bruxelles ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Maza'j",
+   "ad": "Auderghem, 1160 Bruxelles, Belgium",
+   "w": "Table libanaise d'Auderghem au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BRUR",
+   "n": "Villa Singha",
+   "ad": "Auderghem, 1160 Bruxelles, Belgium",
+   "w": "Table thaïlandaise d'Auderghem au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRUR",
+   "n": "Yoka Tomo",
+   "ad": "Schaerbeek, 1030 Bruxelles, Belgium",
+   "w": "Table japonaise de Schaerbeek au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "BRUR",
+   "n": "La Branche d'Olivier",
+   "ad": "Uccle, 1180 Bruxelles, Belgium",
+   "w": "Bistro français convivial d'Uccle au Bib Gourmand Michelin ; adresse précise à confirmer au géocodage.",
+   "cz": [
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/fr/article/michelin-guide-ceremony/la-liste-complete-des-restaurants-bib-gourmand-dans-le-guide-michelin-belgique-et-luxembourg-2026"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/lifestyle/2026/05/04/guide-michelin-2026-voici-les-restaurants-etoiles-en-wallonie-et-bruxelles-par-province-455VUTFCVZE5PJYGHKUE7TM7L4/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ADMIRABLEARTNOUVEAU": {
+   "k": "ADMIRABLEARTNOUVEAU",
+   "t": "Admirable Façades / Art Nouveau Brussels",
+   "u": "https://www.admirable-artnouveau.brussels",
+   "l": "Admirable Façades / Art Nouveau Brussels"
+  },
+  "AFRICAMUSEUM": {
+   "k": "AFRICAMUSEUM",
+   "t": "AFRICAMUSEUM",
+   "u": "",
+   "l": ""
+  },
+  "ANDERLECHT": {
+   "k": "ANDERLECHT",
+   "t": "Commune d'Anderlecht",
+   "u": "https://www.anderlecht.be",
+   "l": "Commune d'Anderlecht"
+  },
+  "ARTANDHISTORY": {
+   "k": "ARTANDHISTORY",
+   "t": "ARTANDHISTORY",
+   "u": "",
+   "l": ""
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "ATOMIUM": {
+   "k": "ATOMIUM",
+   "t": "ATOMIUM",
+   "u": "",
+   "l": ""
+  },
+  "AUTOWORLD": {
+   "k": "AUTOWORLD",
+   "t": "AUTOWORLD",
+   "u": "",
+   "l": ""
+  },
+  "AUTRIQUE": {
+   "k": "AUTRIQUE",
+   "t": "AUTRIQUE",
+   "u": "",
+   "l": ""
+  },
+  "BEBRUSSELS": {
+   "k": "BEBRUSSELS",
+   "t": "be.brussels — Brussels-Capital Region",
+   "u": "https://be.brussels",
+   "l": "be.brussels — Brussels-Capital Region"
+  },
+  "BELVUE": {
+   "k": "BELVUE",
+   "t": "BELVUE",
+   "u": "",
+   "l": ""
+  },
+  "BRUSSELSMUSEUMS": {
+   "k": "BRUSSELSMUSEUMS",
+   "t": "Brussels Museums",
+   "u": "https://www.brusselsmuseums.be",
+   "l": "Brussels Museums"
+  },
+  "CBBD": {
+   "k": "CBBD",
+   "t": "CBBD",
+   "u": "",
+   "l": ""
+  },
+  "CHOCOSTORY": {
+   "k": "CHOCOSTORY",
+   "t": "CHOCOSTORY",
+   "u": "",
+   "l": ""
+  },
+  "COUDENBERG": {
+   "k": "COUDENBERG",
+   "t": "COUDENBERG",
+   "u": "",
+   "l": ""
+  },
+  "DESIGNMUSEUM": {
+   "k": "DESIGNMUSEUM",
+   "t": "DESIGNMUSEUM",
+   "u": "",
+   "l": ""
+  },
+  "FINEARTS": {
+   "k": "FINEARTS",
+   "t": "FINEARTS",
+   "u": "",
+   "l": ""
+  },
+  "FLAGEY": {
+   "k": "FLAGEY",
+   "t": "FLAGEY",
+   "u": "",
+   "l": ""
+  },
+  "GRSH": {
+   "k": "GRSH",
+   "t": "GRSH",
+   "u": "",
+   "l": ""
+  },
+  "HERITAGEBRUSSELS": {
+   "k": "HERITAGEBRUSSELS",
+   "t": "urban.brussels / heritage.brussels",
+   "u": "https://monument.heritage.brussels",
+   "l": "urban.brussels / heritage.brussels"
+  },
+  "HISTORIAEUROPA": {
+   "k": "HISTORIAEUROPA",
+   "t": "HISTORIAEUROPA",
+   "u": "",
+   "l": ""
+  },
+  "JEUNEAFRIQUE": {
+   "k": "JEUNEAFRIQUE",
+   "t": "Jeune Afrique",
+   "u": "https://www.jeuneafrique.com",
+   "l": "Jeune Afrique"
+  },
+  "LALIBRE": {
+   "k": "LA LIBRE",
+   "t": "La Libre Belgique",
+   "u": "https://www.lalibre.be",
+   "l": "La Libre Belgique"
+  },
+  "LAMONNAIE": {
+   "k": "LAMONNAIE",
+   "t": "LAMONNAIE",
+   "u": "",
+   "l": ""
+  },
+  "MAGRITTEMUSEUM": {
+   "k": "MAGRITTEMUSEUM",
+   "t": "MAGRITTEMUSEUM",
+   "u": "",
+   "l": ""
+  },
+  "MINIEUROPE": {
+   "k": "MINIEUROPE",
+   "t": "MINIEUROPE",
+   "u": "",
+   "l": ""
+  },
+  "MONARCHIE": {
+   "k": "MONARCHIE",
+   "t": "MONARCHIE",
+   "u": "",
+   "l": ""
+  },
+  "MUSEUMPASS": {
+   "k": "MUSEUMPASS",
+   "t": "Museum Pass Musées",
+   "u": "https://www.museumpassmusees.be",
+   "l": "Museum Pass Musées"
+  },
+  "RENEMAGRITTE": {
+   "k": "RENEMAGRITTE",
+   "t": "RENEMAGRITTE",
+   "u": "",
+   "l": ""
+  },
+  "ROUTARD": {
+   "k": "ROUTARD",
+   "t": "Le Routard",
+   "u": "https://www.routard.com",
+   "l": "Le Routard"
+  },
+  "TOONE": {
+   "k": "TOONE",
+   "t": "TOONE",
+   "u": "",
+   "l": ""
+  },
+  "TRAINWORLD": {
+   "k": "TRAINWORLD",
+   "t": "TRAINWORLD",
+   "u": "",
+   "l": ""
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO World Heritage Centre",
+   "u": "https://whc.unesco.org",
+   "l": "UNESCO World Heritage Centre"
+  },
+  "VANBUUREN": {
+   "k": "VANBUUREN",
+   "t": "VANBUUREN",
+   "u": "",
+   "l": ""
+  },
+  "VISITBRUSSELS": {
+   "k": "VISIT.BRUSSELS",
+   "t": "visit.brussels",
+   "u": "https://www.visit.brussels",
+   "l": "visit.brussels"
+  },
+  "WATERLOO1815": {
+   "k": "WATERLOO1815",
+   "t": "WATERLOO1815",
+   "u": "",
+   "l": ""
+  },
+  "WIELS": {
+   "k": "WIELS",
+   "t": "WIELS",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (FR/EN)",
+   "u": "https://fr.wikipedia.org",
+   "l": "Wikipedia (FR/EN)"
+  }
+ },
+ "FS": {
+  "AFAR": {
+   "k": "AFAR",
+   "t": "AFAR Media",
+   "u": "https://www.afar.com",
+   "l": "AFAR Media"
+  },
+  "BBP": {
+   "k": "BBP",
+   "t": "BBP",
+   "u": "",
+   "l": ""
+  },
+  "BLONDEEL": {
+   "k": "BLONDEEL",
+   "t": "BLONDEEL",
+   "u": "",
+   "l": ""
+  },
+  "BRASSERIESENNE": {
+   "k": "BRASSERIESENNE",
+   "t": "BRASSERIESENNE",
+   "u": "",
+   "l": ""
+  },
+  "BRUSSELSEXPRESS": {
+   "k": "BRUSSELSEXPRESS",
+   "t": "Brussels Express",
+   "u": "https://brussels-express.eu",
+   "l": "Brussels Express"
+  },
+  "BRUSSELSLIFE": {
+   "k": "BRUSSELSLIFE",
+   "t": "BrusselsLife.be",
+   "u": "https://www.brusselslife.be",
+   "l": "BrusselsLife.be"
+  },
+  "BRUSSELSMUSEUMS": {
+   "k": "BRUSSELSMUSEUMS",
+   "t": "Brussels Museums",
+   "u": "https://www.brusselsmuseums.be",
+   "l": "Brussels Museums"
+  },
+  "BX1": {
+   "k": "BX1",
+   "t": "BX1 (Brussels regional TV/news)",
+   "u": "https://bx1.be",
+   "l": "BX1 (Brussels regional TV/news)"
+  },
+  "CANTILLON": {
+   "k": "CANTILLON",
+   "t": "CANTILLON",
+   "u": "",
+   "l": ""
+  },
+  "DOEATBETTER": {
+   "k": "DOEATBETTER",
+   "t": "DOEATBETTER",
+   "u": "",
+   "l": ""
+  },
+  "ENSTOEMELINGS": {
+   "k": "ENSTOEMELINGS",
+   "t": "ENSTOEMELINGS",
+   "u": "",
+   "l": ""
+  },
+  "FODORS": {
+   "k": "FODORS",
+   "t": "Fodor's Travel",
+   "u": "https://www.fodors.com",
+   "l": "Fodor's Travel"
+  },
+  "FRANCOIS": {
+   "k": "FRANCOIS",
+   "t": "FRANCOIS",
+   "u": "",
+   "l": ""
+  },
+  "GAULTMILLAU": {
+   "k": "GAULT&MILLAU",
+   "t": "Gault&Millau België/Belgique",
+   "u": "https://www.gaultmillau.be",
+   "l": "Gault&Millau België/Belgique"
+  },
+  "GERBAUD": {
+   "k": "GERBAUD",
+   "t": "GERBAUD",
+   "u": "",
+   "l": ""
+  },
+  "GRSH": {
+   "k": "GRSH",
+   "t": "GRSH",
+   "u": "",
+   "l": ""
+  },
+  "JEUNEAFRIQUE": {
+   "k": "JEUNEAFRIQUE",
+   "t": "Jeune Afrique",
+   "u": "https://www.jeuneafrique.com",
+   "l": "Jeune Afrique"
+  },
+  "LABUVETTE": {
+   "k": "LABUVETTE",
+   "t": "LABUVETTE",
+   "u": "",
+   "l": ""
+  },
+  "LALIBRE": {
+   "k": "LA LIBRE",
+   "t": "La Libre Belgique",
+   "u": "https://www.lalibre.be",
+   "l": "La Libre Belgique"
+  },
+  "LAVENIR": {
+   "k": "LAVENIR",
+   "t": "L'Avenir",
+   "u": "https://www.lavenir.net",
+   "l": "L'Avenir"
+  },
+  "LEFOODING": {
+   "k": "LEFOODING",
+   "t": "Le Fooding",
+   "u": "https://lefooding.com",
+   "l": "Le Fooding"
+  },
+  "LESOIR": {
+   "k": "LE SOIR",
+   "t": "Le Soir",
+   "u": "https://www.lesoir.be",
+   "l": "Le Soir"
+  },
+  "LEVIF": {
+   "k": "LEVIF",
+   "t": "Le Vif Weekend",
+   "u": "https://weekend.levif.be",
+   "l": "Le Vif Weekend"
+  },
+  "MAISONANTOINE": {
+   "k": "MAISONANTOINE",
+   "t": "MAISONANTOINE",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "Le Guide Michelin Belgique/Luxembourg",
+   "u": "https://guide.michelin.com",
+   "l": "Le Guide Michelin Belgique/Luxembourg"
+  },
+  "MOEDERLAMBIC": {
+   "k": "MOEDERLAMBIC",
+   "t": "MOEDERLAMBIC",
+   "u": "",
+   "l": ""
+  },
+  "PETITFUTE": {
+   "k": "PETITFUTE",
+   "t": "Petit Futé",
+   "u": "https://www.petitfute.com",
+   "l": "Petit Futé"
+  },
+  "POECHENELLE": {
+   "k": "POECHENELLE",
+   "t": "POECHENELLE",
+   "u": "",
+   "l": ""
+  },
+  "PUDLOWSKI": {
+   "k": "PUDLOWSKI",
+   "t": "Le blog de Gilles Pudlowski",
+   "u": "https://www.gillespudlowski.com",
+   "l": "Le blog de Gilles Pudlowski"
+  },
+  "ROYDESPAGNE": {
+   "k": "ROYDESPAGNE",
+   "t": "ROYDESPAGNE",
+   "u": "",
+   "l": ""
+  },
+  "RTBF": {
+   "k": "RTBF",
+   "t": "RTBF (Radio-Télévision belge francophone)",
+   "u": "https://www.rtbf.be",
+   "l": "RTBF (Radio-Télévision belge francophone)"
+  },
+  "TRAVELTOMORROW": {
+   "k": "TRAVELTOMORROW",
+   "t": "Travel Tomorrow",
+   "u": "https://traveltomorrow.com",
+   "l": "Travel Tomorrow"
+  },
+  "VISITBRUSSELS": {
+   "k": "VISIT.BRUSSELS",
+   "t": "visit.brussels",
+   "u": "https://www.visit.brussels",
+   "l": "visit.brussels"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (FR/EN)",
+   "u": "https://fr.wikipedia.org",
+   "l": "Wikipedia (FR/EN)"
+  },
+  "WITTAMER": {
+   "k": "WITTAMER",
+   "t": "WITTAMER",
+   "u": "",
+   "l": ""
+  }
+ }
+}
