@@ -1,0 +1,249 @@
+{
+ "sources": [
+  {
+   "key": "RUIEN",
+   "name": "De Ruien Antwerpen (officiële attractie)",
+   "url": "https://www.ruien.be"
+  },
+  {
+   "key": "UITINVLAANDEREN",
+   "name": "UiT in Vlaanderen (publiq)",
+   "url": "https://www.uitinvlaanderen.be"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS",
+   "url": "https://www.vrt.be/vrtnws/"
+  },
+  {
+   "key": "WIKIPEDIANL",
+   "name": "Wikipedia (NL)",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Agentschap Onroerend Erfgoed",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "ANTWERPENBE",
+   "name": "Stad Antwerpen",
+   "url": "https://www.antwerpen.be"
+  },
+  {
+   "key": "OKV",
+   "name": "Openbaar Kunstbezit Vlaanderen",
+   "url": "https://www.okv.be"
+  },
+  {
+   "key": "PARCUM",
+   "name": "PARCUM — museum & expertisecentrum religieus erfgoed",
+   "url": "https://www.parcum.be"
+  },
+  {
+   "key": "AMUZ",
+   "name": "AMUZ — Augustinus Muziekcentrum",
+   "url": "https://amuz.be"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (EN)",
+   "url": "https://en.wikipedia.org"
+  },
+  {
+   "key": "APEN",
+   "name": "Apen.be — Antwerpse stadsgids",
+   "url": "https://apen.be"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "De Ruien",
+   "address": "Ruihuis, Suikerrui 21, 2000 Antwerpen, Belgium",
+   "w": "De oude, overwelfde stadskanalen van Antwerpen, sinds 2005 opengesteld: met beschermkledij en een tablet-gids (virtuele gids Pieter Embrechts) wandel je zo'n 90 minuten door de middeleeuwse gewelven, grachten en sluizen onder de stad.",
+   "k": "ondergrondse stadskanalen",
+   "g": [
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "RUIEN",
+     "https://en.ruien.be/"
+    ],
+    [
+     "UITINVLAANDEREN",
+     "https://www.uitinvlaanderen.be/agenda/e/bezoek-aan-de-ruien-van-antwerpen/2c54c6e1-3cc4-426d-97ad-020afe803dd2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Vlinderpaleis (Justitiepaleis)",
+   "address": "Bolivarplaats 20, 2000 Antwerpen, Belgium",
+   "w": "Het nieuwe gerechtsgebouw van Richard Rogers (2006), met zes puntdaken die van bovenaf op vlindervleugels lijken — vandaar de bijnaam 'Vlinderpaleis'. Poort tot de stad vanuit het zuiden en een architectuurhoogtepunt van 21ste-eeuws België.",
+   "k": "Richard Rogers' vlindergerechtsgebouw",
+   "g": [
+    "ARCH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2021/12/19/architect-vlinderpaleis-antwerpen-overleden/"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Gerechtsgebouw_(Antwerpen)"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/207950"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Park Spoor Noord",
+   "address": "Ellermanstraat, 2060 Antwerpen, Belgium",
+   "w": "Populair stadspark (17 ha) op het voormalige NMBS-spoorwegemplacement 'Antwerpen-Dam', geopend in 2008. Speeltuinen, waterfonteinen, een skatepark en fiets- en wandelroutes verbinden de wijken Dam, Stuivenberg en Seefhoek; twee beschermde watertorens bleven bewaard.",
+   "k": "spoorwegemplacement → stadspark",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/nl/overzicht/district-antwerpen-1/groen/park-spoor-noord"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Park_Spoor_Noord"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Felixarchief (Sint-Felixpakhuis)",
+   "address": "Oudeleeuwenrui 29, 2000 Antwerpen, Belgium",
+   "w": "Het stadsarchief van Antwerpen in het imposante 19de-eeuwse Sint-Felixpakhuis op het Eilandje (sinds 2006), met een overdekte, art-deco-glaskap over de binnenstraat. Meer dan dertig kilometer archief; gratis toegankelijk en met rondleidingen.",
+   "k": "art-decopakhuis + stadsarchief",
+   "g": [
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/info/54eb3767cda8a7fe2e8b4b3b/felixarchief-stadsarchief"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be/museum/felixpakhuis-stadsarchief-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "AMUZ — Sint-Augustinuskerk",
+   "address": "Kammenstraat 81, 2000 Antwerpen, Belgium",
+   "w": "De barokke Sint-Augustinuskerk (ontworpen door Wenceslas Cobergher) is sinds 2006 concertzaal AMUZ, een internationaal centrum voor oude en klassieke muziek met sublieme akoestiek en het jaarlijkse festival Laus Polyphoniae.",
+   "k": "barokke kerk → concertzaal oude muziek",
+   "g": [
+    "ARCH",
+    "HIST",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "PARCUM",
+     "https://www.parcum.be/nl/herbestemming-kerken/amuz-augustinus-muziekcentrum"
+    ],
+    [
+     "AMUZ",
+     "https://amuz.be/en/amuz/"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Augustinuskerk_(Antwerpen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Chinatown & Chinese Poort",
+   "address": "Van Wesenbekestraat, 2060 Antwerpen, Belgium",
+   "w": "De enige officieel erkende Chinatown van België (sinds 2001), rond de Van Wesenbekestraat bij het Centraal Station. Aan de zuidkant staat sinds 2010 een rijk versierde Chinese pagodepoort (paifang); de buurt is een pan-Aziatisch straatbeeld van restaurants en winkels.",
+   "k": "enige erkende Chinatown van België",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Van_Wesenbekestraat"
+    ],
+    [
+     "APEN",
+     "https://apen.be/chinatown/1919"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Stadspark",
+   "address": "Rubenslei / Van Eycklei, 2018 Antwerpen, Belgium",
+   "w": "Het bekendste park van Antwerpen (11 ha), in 1869 door landschapsarchitect Eduard Keilig aangelegd op de ontmantelde Spaanse vestingwerken. Romantische vijver, muziekkiosk en de restanten van de Promenade de Longchamps herinneren aan de oude wallen.",
+   "k": "romantisch park op oude vestingen",
+   "g": [
+    "PARK",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/info/52d5051e39d8a6ec798b4780/stadspark"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Stadspark_(Antwerpen)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Sint-Annastrand (Sint-Anneke)",
+   "address": "Beatrijslaan, 2050 Antwerpen, Belgium",
+   "w": "Het Scheldestrand van Antwerpen op Linkeroever (Sint-Anneke), ontstaan door opspuiting bij de aanleg van de voetgangerstunnel. Geliefd zomers recreatiegebied om te zonnen, met de zomerbar De Plage en zicht op de skyline over de Schelde.",
+   "k": "Scheldestrand op Linkeroever",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Annastrand"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2026/04/14/sint-annastrand-op-linkeroever-krijgt-extra-laag-zand-voor-de-zo/"
+    ]
+   ]
+  }
+ ]
+}

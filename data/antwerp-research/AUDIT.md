@@ -66,3 +66,121 @@ Supporting files: `SOURCES_ANTWERP.json` (54 outlets used), `CREATORS_ANTWERP.js
 - A few addresses are neighbourhood-level where a precise house number wasn't credibly confirmed (Fong Mei/Lung Wah on Van Wesenbekestraat; Het Pomphuis Siberiastraat; Bar Burbure/Patine on 't Zuid; Balls & Glory Theaterplein). Flag for the place-pin re-verify pass.
 - `cz` cuisine tags name the kitchen's own tradition (e.g. Chinatown = `Chinese`; kosher deli under `Belgian`/`SWEET` by form, not a nationality label). Beer venues all carry `cz:["Beer"]` so the beer filter surfaces the grouped set.
 - Postcodes reflect districts (2018 Diamant/Zuid-edge, 2020 Middelheim, 2030 Eilandje-north, 2060 Chinatown, 2600 Berchem, 2660 Hoboken, 2800 Mechelen, 2500 Lier, 2920 Kalmthout, 9130 Kallo/port).
+
+---
+
+# AUDIT — Antwerp — WAVE 2 (density deepening)
+
+Scope: DISCOVERY only (research JSON, NO coordinates, NO build). Goal: push Antwerp from wave-1's 101
+toward NYC-level density (~135+). Channel: WebSearch only, searched primarily in Dutch (Flemish),
+English where natural. All wave-1 names were loaded first and DEDUP was enforced — 0 name collisions.
+
+## Wave-2 new counts (NEW files, wave-1 untouched)
+
+| File | Area | Count |
+|---|---|---|
+| FOOD_ANTWERP_ANT_X2.json | ANT | 18 |
+| FOOD_ANTWERP_ANTR_X2.json | ANTR | 5 |
+| SIGHTS_ANTWERP_ANT_X2.json | ANT | 8 |
+| SIGHTS_ANTWERP_ANTR_X2.json | ANTR | 6 |
+| **WAVE-2 TOTAL** | | **37** |
+
+Running city total: **101 (wave 1) + 37 (wave 2) = 138**. Supporting: SOURCES_ANTWERP_X2.json
+(15 NEW outlet keys), CREATORS_ANTWERP_X2.json (0 new creators this wave — all adds cleared on
+institutional/native-outlet sourcing, no lone-creator pins needed).
+
+## Wave-1 HELD candidates — re-sourced this wave
+
+Cleared and ADDED (each now ≥2 credible OR a lone institutional authority):
+- **De Vagant** (jenever house) — now VRT + apen.be. BUT verified **permanently closed 5 Dec 2021**
+  (collection donated to Jenevermuseum Hasselt). Added `closed:true`, name "— CLOSED", per house rule.
+- **Café Beveren** — Atlas Obscura + Historiek (Decap/Mortier dansorgel-erfgoedstuk uit 1937, beschermd).
+- **Brasserie Appelmans** (+ absintbar) — Gault&Millau 12/20 (institutional) + apen.be. Address firmed:
+  **Papenstraatje 1** (not Grote Pieter Potstraat).
+- **Otomat** (Belgische pizza met Duvel-gist) — Gault&Millau listing + own site; Gazet van Antwerpen
+  named the Margherita among Antwerp's 3 best pizzas.
+- **Burie** (chocolatier) — antwerpentoerisme.nl (official) + apen.be. Korte Gasthuisstraat 3.
+- **Butchers Coffee** — Gault&Millau + Le Fooding. Address resolved: relocated from 't Zuid (Kasteelstraat)
+  to **Generaal Eisenhowerlei 19, 2140 Borgerhout**.
+- **Bier Central** — apen.be + The European Bar Guide. De Keyserlei 25.
+
+Re-checked and STILL HELD (couldn't clear the bar with a clean 2nd native-credible source):
+- **Grand Café Horta** — only own site + Petit Futé surfaced as non-review sources; no clean 2nd credible
+  native outlet. Held (the Horta/Maison-du-Peuple ironwork story is notable — worth a re-try).
+- **De Peerdestal** — only TheFork/TripAdvisor/own-site + a steak-listicle. No credible editorial. Held.
+- **Bar Paniek** — single-source (blogs/listings). Held.
+
+## Beer layer — brown cafés / bars added or held
+
+Added: Café Beveren, Bier Central, **Quinten Matsijs** (VRT + apen.be — Antwerp's oldest tavern, 1565,
+voted favourite bruine kroeg), **Café Pelikaan** (Knack Weekend "8 bruine cafés" + apen.be).
+- **Café Gollem** (Suikerrui 28) — HELD: a Yelp "CLOSED" flag (April 2026) appeared but no credible
+  closure source to confirm; not added rather than mis-flag a possibly-live/closed place.
+- **Den Uilenspiegel** (Suikerrui 27), **De Kat** — only 1 credible each (apen.be / the Knack list
+  partial); held pending a 2nd.
+- **Beers & Brains** — not found (only "Gollem's Beers & Burgers"). Skipped.
+
+## Under-covered quarters — Borgerhout / Congolese / Portuguese / Jewish deli
+
+Reached the Borgerhout/Turnhoutsebaan Moroccan-Turkish scene, the Antwerp African/Congolese kitchens,
+and Portuguese natas — but they surface **only** in listicles / resto.be / TripAdvisor / own sites, never
+≥2 credible native editorial (same wall wave 1 hit). HELD, not padded: Roma Nova, Churros, Tantines,
+Farafina (Malian, Kerkstraat 21), Paraiso do Paladar, Doce Tentação. NOTE: the quarter IS now represented
+credibly via **Bloesem** (Michelin star, Borgerhout) and **Butchers Coffee** (Borgerhout).
+
+## Michelin / Gault&Millau bench — big yield (institutional = single-source OK)
+
+From the **MICHELIN Belgium & Luxembourg 2026** official star list + Gault&Millau pages:
+- ANT: **Fine Fleur** (1*), **Kommilfoo** (1*), **Hertog Jan at Botanic** (2*, Gert De Mangeleer),
+  **The Butcher's Son** (1*), **Bloesem** (1*, NEW 2026, Borgerhout), **Pont-Neuf** (1*),
+  **Bistrot du Nord** (1*), **Bizie Lizie** (Bib Gourmand), **Bien Soigné** (G&M 13/20).
+- ANTR: **Komaf** (Wommelgem, 1* NEW 2026), **Vintage** (Kontich, 1*), **Bistro Vin d'Où**
+  (Berchem, G&M 15/20), **Decan** (Berchem, G&M 14/20).
+- EXCLUDED after fact-check: **Cuines 33** — the VRT "2 stars" headline groups it with The Jane, but it
+  is in **Knokke-Heist (West-Vlaanderen)**, not Antwerp. Not added. **Nebo** left out to avoid confusion
+  ("Nebo" the restaurant vs. chef Nebo Schamp now co-chef at Bloesem) — needs a dedicated verify.
+
+## Signature-food / ANTR
+
+- **Caves — het bier van Lier** (VRT 50-jaar-jubileumstuk 2026 + Visit Lier "Caveswandeling"): geuze-achtig
+  Liers streekbier sinds 1688, in principe enkel in Lier geschonken. Added as a drink specialty (address =
+  Grote Markt, Lier — served in the Markt's bruine cafés).
+- **'t Ankertje aan de Dijle** (Mechelen Vismarkt, Het Anker / Gouden Carolus) — HELD: only 1 credible
+  (European Bar Guide); Mechelen Vismarkt dining is already covered by wave-1 **Emiel**.
+- Mechelen G&M (Emiel, Graspoort, Lesco) confirmed already in wave 1 — NOT re-added.
+
+## New sights (mostly single-institution or municipal + reference = easy clears)
+
+- ANT: **De Ruien** (ruien.be + UiTinVlaanderen), **Vlinderpaleis/Justitiepaleis** (VRT + Wikipedia NL +
+  Onroerend Erfgoed), **Park Spoor Noord** (antwerpen.be + Wikipedia NL), **Felixarchief/Sint-Felixpakhuis**
+  (antwerpen.be + OKV), **AMUZ/Sint-Augustinuskerk** (PARCUM + AMUZ + Wikipedia NL), **Chinatown & Chinese
+  Poort** (Wikipedia + apen.be — België's enige erkende Chinatown), **Stadspark** (antwerpen.be + Wikipedia
+  NL), **Sint-Annastrand/Sint-Anneke** (Wikipedia NL + VRT).
+- ANTR: **Fort van Breendonk** (official + museumPASS — national WWII memorial), **ZOO Planckendael**
+  (Visit Mechelen + Wikipedia NL), **Onze-Lieve-Vrouw-over-de-Dijlekerk** (Rubens' Wonderbare Visvangst
+  in situ; mechelen.be + VRT), **Sint-Janskerk Mechelen** (Rubens' Aanbidding der Wijzen; mechelen.be +
+  Wikipedia NL), **Technopolis** (Visit Mechelen + OKV), **Brusselpoort** (Visit Mechelen + Wikipedia NL).
+- HELD sight: **Timmermans-Opsomerhuis (Lier)** — the house-museum **closed in 2018**; its collection
+  merged into **Stadsmuseum Lier**. Not added to avoid an unverified successor address; flag for a
+  targeted Stadsmuseum-Lier address pass.
+
+## Fact-check: OPEN/CLOSED (flag closures)
+
+- **De Vagant — CLOSED** (5 Dec 2021, permanent) — `closed:true`, name carries "— CLOSED".
+- **Kulminator** already flagged CLOSED in wave 1; **Rubenshuis** closed for restoration to ~2030 (wave 1).
+- **Brusselpoort** — the gate's interior is not publicly accessible (Het Firmament sits inside); noted in
+  `w`, kept as an exterior monument. All other wave-2 places checked OPEN at research time (Sept 2026).
+
+## Notes for downstream (geocode / build)
+
+- **No coordinates** anywhere, per contract. Addresses name street + town + Belgium.
+- Neighbourhood-level (flag for place-pin re-verify): **Caves** (Grote Markt, Lier — a town-beer, no single
+  venue), **Chinatown** (Van Wesenbekestraat, street-level), **Stadspark** (Rubenslei/Van Eycklei corner),
+  **Technopolis** (Technologielaan, no house number credibly fixed), **Park Spoor Noord** (Ellermanstraat
+  entrance). Fine-dining/Michelin addresses are house-number precise.
+- New outlet keys (SOURCES_ANTWERP_X2.json): HISTORIEK, OTOMAT, ANTWERPENTOERISME, KNACK, BIENSOIGNE,
+  BIZIELIZIE, KOMMILFOO, BRUSSELSTIMES, RUIEN, UITINVLAANDEREN, PARCUM, AMUZ, BREENDONK, MUSEUMPASS,
+  MECHELENBE. Reused wave-1 keys throughout (VRT, MICHELIN, GAULTMILLAU, APEN, WIKIPEDIA(NL), ANTWERPENBE,
+  VISITMECHELEN, VISITLIER, OKV, ATLASOBSCURA, EUROPEANBARGUIDE, LEFOODING, DEKONINCK, ONROERENDERFGOED).
+- `cz` tags name the kitchen's own tradition; jenever/liqueur and beer venues carry `cz:["Beer"]` so the
+  drinks layer surfaces the grouped set (mirrors wave-1's treatment of Elixir d'Anvers).

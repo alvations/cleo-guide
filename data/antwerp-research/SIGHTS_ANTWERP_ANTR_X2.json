@@ -1,0 +1,176 @@
+{
+ "sources": [
+  {
+   "key": "BREENDONK",
+   "name": "Nationaal Gedenkteken Fort van Breendonk",
+   "url": "http://www.breendonk.be"
+  },
+  {
+   "key": "MUSEUMPASS",
+   "name": "museumPASSmusées",
+   "url": "https://www.museumpassmusees.be"
+  },
+  {
+   "key": "VISITMECHELEN",
+   "name": "Visit Mechelen",
+   "url": "https://visit.mechelen.be"
+  },
+  {
+   "key": "WIKIPEDIANL",
+   "name": "Wikipedia (NL)",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "MECHELENBE",
+   "name": "Stad Mechelen",
+   "url": "https://www.mechelen.be"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS",
+   "url": "https://www.vrt.be/vrtnws/"
+  },
+  {
+   "key": "OKV",
+   "name": "Openbaar Kunstbezit Vlaanderen",
+   "url": "https://www.okv.be"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Nationaal Gedenkteken Fort van Breendonk",
+   "address": "Brandstraat 57, 2830 Willebroek, Belgium",
+   "w": "Een van de best bewaarde getuigenissen van de nazi-terreur: het fort, oorspronkelijk hoofdkwartier van het Belgische leger, werd door de Gestapo als doorgangskamp voor verzetsstrijders en Joden gebruikt. Slaapzalen, werkkoer, folterkamer en fusilladeplaats zijn te bezoeken. Nationaal monument sinds 1947.",
+   "k": "WOII-gedenkteken & doorgangskamp",
+   "g": [
+    "HIST",
+    "MUS",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "BREENDONK",
+     "http://www.breendonk.be/NL/"
+    ],
+    [
+     "MUSEUMPASS",
+     "https://www.museumpassmusees.be/nl/aanbod/museum/470a7fd6-b14b-4664-aac3-3464fdbf6b35/nationaal-gedenkteken-van-het-fort-van-breendonk"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "ZOO Planckendael",
+   "address": "Leuvensesteenweg 582, 2812 Muizen (Mechelen), Belgium",
+   "w": "Ruime landschapsdierentuin in Muizen bij Mechelen (sinds 1956, deel van de KMDA net als ZOO Antwerpen), met continentaal opgebouwde, natuurlijke habitats en veel open ruimte — giraffen, olifanten, lemuren en meer.",
+   "k": "landschapsdierentuin",
+   "g": [
+    "PARK",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/zoo-planckendael"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/ZOO_Planckendael"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Onze-Lieve-Vrouw-over-de-Dijlekerk",
+   "address": "O.-L.-Vrouwestraat 25, 2800 Mechelen, Belgium",
+   "w": "Mechelse Dijlekerk met Rubens' 'De Wonderbare Visvangst' (1618-19), besteld door het vissersgilde en een van de weinige Rubens-werken dat nog op zijn oorspronkelijke plaats hangt. Middenluik met Christus en de apostelen; zijluiken met Tobias en de muntvondst.",
+   "k": "Rubens' Wonderbare Visvangst in situ",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "MECHELENBE",
+     "https://www.mechelen.be/o.l.vrouw-over-de-dijlekerk"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2020/09/28/restauratie-van-rubens-drieluik-gaat-van-start-in-mechelen-d/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Sint-Janskerk (Mechelen)",
+   "address": "Sint-Janskerkhof, 2800 Mechelen, Belgium",
+   "w": "Mechelse gotische kerk met op het hoofdaltaar Rubens' drieluik 'De Aanbidding der Wijzen' (1617), dat de schilder ter plaatse nog retoucheerde. Achter de zijluiken zit een mechanisme om de panelen te draaien zodat alle taferelen zichtbaar worden.",
+   "k": "Rubens' Aanbidding der Wijzen",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "MECHELENBE",
+     "https://www.mechelen.be/sint-jan-baptist-en-sint-jan-evangelistkerk"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Janskerk_(Mechelen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Technopolis",
+   "address": "Technologielaan, 2800 Mechelen, Belgium",
+   "w": "Het Vlaamse doe-centrum voor wetenschap en technologie in Mechelen: land een vliegtuig, lig op een spijkerbed of fiets vijf meter hoog over een kabel, met live demonstraties en een spectaculaire wetenschapsshow — voor nieuwsgierigen van 4 tot 104.",
+   "k": "wetenschapsdoe-centrum",
+   "g": [
+    "MUS",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/nl/bezoek-technopolis"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be/museum/technopolis"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Brusselpoort (Mechelen)",
+   "address": "Hoogstraat 83, 2800 Mechelen, Belgium",
+   "w": "De laatst bewaarde stadspoort van Mechelen en een van de zeldzame middeleeuwse stadspoorten van Vlaanderen (13de eeuw), enige getuige van de tweede stadsomwalling (1264-68). Vandaag zetel van Het Firmament; imposant te bewonderen op de ring rond de stad.",
+   "k": "laatste middeleeuwse stadspoort",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/nl/brusselpoort"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Brusselpoort_(Mechelen)"
+    ]
+   ]
+  }
+ ]
+}
