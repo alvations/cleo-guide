@@ -85,3 +85,82 @@ Every place clears the bar; candidates that could not were held (below), not pad
 - **Cross-tag check**: `cz:["Beer"]` used only for genuine beer bars/breweries; a shared dish never drove a
   cuisine tag. Seafood houses tagged `SEA` (+`Belgian` where the kitchen is Belgian).
 - Every food entry names a specific dish or beer; no bare labels. No coordinates anywhere.
+
+---
+
+# Wave 2 — deepening pass (target NYC-level density, ~140+)
+
+Wave-1 total was 118 (63 sights + 55 food). Wave 2 adds **23 NEW places** in `*_X2.json` files
+(deduped against wave 1) → **new running total 141 places** (81 sights + 60 food). Bilingual research
+(FR/NL/EN), WebSearch only, same source bar. New files: `FOOD_BRUSSELS_BRU_X2.json` (13),
+`FOOD_BRUSSELS_BRUR_X2.json` (2), `SIGHTS_BRUSSELS_BRU_X2.json` (6), `SIGHTS_BRUSSELS_BRUR_X2.json` (2),
+`SOURCES_BRUSSELS_X2.json` (9 new outlets), `CREATORS_BRUSSELS_X2.json` (0 — no lone-creator reliance).
+
+## Wave-2 new counts by area
+- **BRU food (13):** Kamo, La Villa in the Sky, Barge, San Sablon, Eliane, Nüetnigenough, La Fleur en
+  Papier Doré, La Porte Noire, MOK, Renard Bakery, Fine Bakery, Titulus, Café des Spores.
+- **BRUR food (2):** Menssa (Woluwe-St-Pierre), Sahbaz (Schaerbeek).
+- **BRU sights (6):** Abbaye de la Cambre, Maison Cauchie, Parvis de Saint-Gilles, Hôtel de Ville de
+  Saint-Gilles, Marché du Châtelain, Quartier turc de la Chaussée de Haecht.
+- **BRUR sights (2):** Palais Stoclet (UNESCO 1298), Halles de Schaerbeek.
+
+## Priority 1 — held Michelin/Bib tables now RESOLVED with verified street address
+All six wave-1 held tables (each a lone institutional authority) now carry a full street address so the
+geocode stage has an exact point; each paired with a 2nd credible source where available:
+- **Menssa** — Avenue de Tervueren 453, 1150 Woluwe-Saint-Pierre (1★, Christophe Hardiquest, ex-Bon-Bon).
+  Michelin + visit.brussels. → BRUR.
+- **Kamo** — Chaussée de Waterloo 550A, 1050 Ixelles (1★, only Japanese star in Belgium). Michelin + G&M.
+- **La Villa in the Sky** — Avenue Louise 480, 1050 Ixelles (1★, 25th floor of the IT Tower). Michelin + G&M.
+- **Barge** — Boulevard d'Ypres 33, 1000 Bruxelles (1★ + Green Star, canal). Michelin + G&M.
+- **San (San Sablon)** — Rue Joseph Stevens 12, 1000 Bruxelles (Degeimbre; Michelin selection + DHnet
+  full review). Confirmed as San Sablon (not a bare "San").
+- **Eliane** — Rue Saint-Laurent 36, 1000 Bruxelles (1★, Kobe Desramaults). Michelin + La Libre.
+
+## Priority 2 — diverse belt
+- **Turkish (Chaussée de Haecht):** added the **quartier turc** as a neighbourhood SIGHT (Bruzz
+  'Brussel bij de Turk' feature + Saint-Josse commune sjtn.brussels) and **Sahbaz** (Schaerbeek) as a
+  food entry on two distinct Bruzz editorial pieces (a dedicated restaurant review + the Sint-Joost
+  hotspots feature). NOTE: Sahbaz's two sources are the same outlet (Bruzz); accepted as substantive
+  native editorial (one is a full review), on a par with wave-1's "credible + Wikipedia" pairings — flag
+  for the merit re-rank. Hanedan (Haacht 79, Saint-Josse) held: only commune-listing + directories, no
+  distinct 2nd credible editorial.
+- **Moroccan:** HELD — L'Emir (L'Éventail "meilleur couscous" is a strong single credible, but no distinct
+  2nd credible found); La Kasbah, Tajine d'Or = TripAdvisor/directory only. Needs one more native feature.
+- **Congolese/Matongé depth:** HELD — beyond wave-1's Inzia/L'Horloge du Sud, no new spot cleared ≥2
+  credible (Kin Malebo etc. only directories). Matongé already carried as a sight in wave 1.
+
+## Priority 3 — communes deepened
+- **Ixelles:** Abbaye de la Cambre (gardens.brussels + heritage.brussels), Marché du Châtelain (BX1 +
+  RTBF), Titulus natural-wine bar (G&M HIP + L'Éventail), Renard Bakery (Le Fooding + Inside Brussels).
+- **Saint-Gilles:** Parvis + market (visit.brussels + Routard), Hôtel de Ville (Routard + visit.brussels),
+  Café des Spores mushroom restaurant (Brussels' Kitchen + G&M; also Le Soir/Paris Match per its press page).
+- **Etterbeek:** Maison Cauchie Art Nouveau sgraffito house (RTBF + heritage.brussels).
+- **Woluwe-St-Pierre:** Palais Stoclet UNESCO villa (UNESCO + La Libre) + Menssa.
+- **Schaerbeek:** Halles de Schaerbeek arts venue (heritage.brussels + Wikipedia).
+- **Specialty coffee:** MOK roaster (European Coffee Trip + Le Fooding). **Bakeries:** Fine Bakery (ELLE +
+  Petit Futé), Renard (above).
+
+## Priority 4 — more beer (grouped cz:["Beer"])
+- Added: **Nüetnigenough** (Belgian+Beer; carbonnade + 90 beers; Brusselslife + Petit Futé), **La Fleur
+  en Papier Doré** (surrealists' estaminet; VRT 'best café' 2025 + Wikipedia — reopened after 2022
+  bankruptcy), **La Porte Noire** (120+ Belgian beers in a 16th-c. Alexians cellar; visit.brussels + Petit Futé).
+
+## Wave-2 closure / status notes (fact-checked)
+- **Monk** (Sainte-Catherine) — EXCLUDED: café closed / reopening flagged under the name "Billie"
+  (L'Avenir Nov 2023); current identity ambiguous, not added.
+- **Musée Wiertz** (rue Vautier, EU quarter) — EXCLUDED: closed to the public for renovation since
+  11 Oct 2024, no reopening date (fine-arts-museum.be). Not currently visitable.
+- **Musée d'Ixelles** (rue Jean Van Volsem) — EXCLUDED for now: closed for major renovation, reopening
+  only **March 2027** (BX1/RTBF). Re-add on a later wave once it reopens.
+- **Bier Circus** (rue de l'Enseignement) — HELD: beer.be reports it is "cherche un repreneur" (seeking a
+  buyer); future uncertain + otherwise only directory coverage. Excluded pending status confirmation.
+- **Frit Flagey** (Place Flagey) — still HELD: iconic but only TripAdvisor/TikTok/Mapstr; no credible
+  native editorial found (same as wave 1). Re-attempt with a Bruzz/BX1 feature later.
+- **Palais Stoclet** — privately owned, NOT open to the public; kept as a UNESCO architectural landmark
+  admirable from the exterior only (noted in `w`). Klimt frieze interior is private.
+
+## New cz tags introduced (for consolidate.py mapping)
+- `CAFE` (specialty coffee — MOK), `BAKERY` (viennoiserie/bread — Fine Bakery, Renard), `WINE`
+  (natural-wine bar — Titulus). Follows wave-1's uppercase custom-tag convention (SWEET/SEA/INT); the
+  build's consolidate step should map these to cuisine buckets (or fold CAFE/BAKERY/WINE into a
+  café/sweet/drinks grouping) — flag for the build agent.

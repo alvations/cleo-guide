@@ -30,6 +30,7 @@ CMAP = {
  "Pâtisserie":"SWEET","Bakery":"SWEET","Bakkerij":"SWEET","Cuberdon":"SWEET","Neuzekes":"SWEET","Speculoos":"SWEET",
  "Ice Cream":"SWEET","Confiserie":"SWEET","Biscuit":"SWEET","Koek":"SWEET",
  "Cafe":"CAFE","Café":"CAFE","Coffee":"CAFE","Koffie":"CAFE","Specialty Coffee":"CAFE","Kaffee":"CAFE","Tearoom":"CAFE",
+ "Wine":"FR","Wine Bar":"FR","Natural Wine":"FR","Vin":"FR","Wijn":"FR","Wijnbar":"FR",
  "Seafood":"SEA","Fish":"SEA","Vis":"SEA","North Sea":"SEA","Noordzee":"SEA","Mussels":"SEA","Moules":"SEA",
  "Moules-Frites":"SEA","Oysters":"SEA","Shrimp":"SEA","Garnaal":"SEA","Poisson":"SEA","Fruits de Mer":"SEA",
  "Vegetarian":"VEG","Vegan":"VEG","Veg":"VEG","Vegetarisch":"VEG","Plant-based":"VEG","Végétarien":"VEG",

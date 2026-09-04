@@ -1,0 +1,12 @@
+{
+ "sources": [
+  {"key":"UNESCO","name":"UNESCO World Heritage Centre","url":"https://whc.unesco.org"},
+  {"key":"LALIBRE","name":"La Libre Belgique","url":"https://www.lalibre.be"},
+  {"key":"HERITAGEBRUSSELS","name":"urban.brussels / monument.heritage.brussels (regional heritage, official)","url":"https://monument.heritage.brussels"},
+  {"key":"WIKIPEDIA","name":"Wikipedia (FR/EN, corroborating)","url":"https://fr.wikipedia.org"}
+ ],
+ "sights": [
+  {"t":1,"a":"BRUR","n":"Palais Stoclet","address":"Avenue de Tervueren 279-281, 1150 Woluwe-Saint-Pierre, Belgium","w":"Chef-d'œuvre total de la Sécession viennoise construit par Josef Hoffmann (1905-1911) pour le banquier Adolphe Stoclet, avec la célèbre frise de salle à manger de Gustav Klimt et les créations de la Wiener Werkstätte. Inscrit à l'UNESCO en 2009 ; propriété privée admirable de l'extérieur.","k":"Klimt-frescoed UNESCO villa","g":["ARCH","UNESCO","HIST"],"sources":[["UNESCO","https://whc.unesco.org/en/list/1298/"],["LALIBRE","https://www.lalibre.be/economie/immo/2025/02/01/les-plus-belles-demeures-de-bruxelles-le-palais-stoclet-5ZLKGAL3NFCGZISXUJMLOU25QA/"]]},
+  {"t":3,"a":"BRUR","n":"Halles de Schaerbeek","address":"Rue Royale Sainte-Marie 22a, 1030 Schaerbeek, Belgium","w":"Ancien marché couvert Sainte-Marie en fer et verre (reconstruit en 1901 après un incendie), devenu l'un des grands centres culturels de Bruxelles et d'Europe : concerts, cirque, théâtre et festivals sous une superbe halle métallique.","k":"Iron market hall turned arts venue","g":["ARCH","HIST","NIGHT"],"sources":[["HERITAGEBRUSSELS","https://monument.heritage.brussels/fr.Schaerbeek.Rue_Royale_Sainte-Marie.22a.html"],["WIKIPEDIA","https://fr.wikipedia.org/wiki/Les_Halles_de_Schaerbeek"]]}
+ ]
+}
