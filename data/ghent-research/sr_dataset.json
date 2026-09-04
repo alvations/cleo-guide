@@ -1,0 +1,2932 @@
+{
+ "areas": [
+  {
+   "id": "GEN",
+   "n": "Ghent (Gravensteen · St Bavo’s & the Altarpiece · Graslei · Patershol · SMAK)"
+  },
+  {
+   "id": "GENR",
+   "n": "Around Ghent (Sint-Martens-Latem · the Leie · Deinze · student belt)"
+  }
+ ],
+ "ac": {
+  "GEN": "#16A085",
+  "GENR": "#C0504D"
+ },
+ "cuisines": [
+  {
+   "id": "BEL",
+   "n": "Belgian & Flemish"
+  },
+  {
+   "id": "FR",
+   "n": "French & Brasserie"
+  },
+  {
+   "id": "BEER",
+   "n": "Beer & Breweries"
+  },
+  {
+   "id": "SWEET",
+   "n": "Chocolate, Waffles & Sweets"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "CAFE",
+   "n": "Café & Brown Café"
+  },
+  {
+   "id": "SEA",
+   "n": "North Sea & Seafood"
+  },
+  {
+   "id": "VEG",
+   "n": "Vegetarian & Vegan"
+  },
+  {
+   "id": "INT",
+   "n": "International & Student"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARCH",
+   "n": "Churches, Belfries & Castles"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "CANAL",
+   "n": "Canals & Waterfront"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Nature"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Squares"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife & Quarters"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Gravensteen (Kasteel van de Graven van Vlaanderen)",
+   "ad": "Sint-Veerleplein 11, 9000 Gent, Belgium",
+   "w": "The moated 12th-century castle of the Counts of Flanders in the very heart of the city — a rare intact medieval fortress with ramparts, towers and a torture-instrument collection, reached over its own drawbridge.",
+   "k": "Moated 12th-c. counts' castle",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/gravensteen"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Gravensteen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Sint-Baafskathedraal & het Lam Gods (Van Eyck)",
+   "ad": "Sint-Baafsplein, 9000 Gent, Belgium",
+   "w": "Ghent's cathedral houses the world's most famous polyptych, Hubert and Jan van Eyck's 'Adoration of the Mystic Lamb' (Het Lam Gods, 1432) — still on view in situ, with a state-of-the-art visitor centre. The lower church and crypt add centuries of art.",
+   "k": "Home of the Ghent Altarpiece",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "STADGENT",
+     "https://stad.gent/nl/muntenroute/sint-baafskathedraal-en-lam-gods"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/verhalen/het-lam-gods-eeuwig-thuis-sint-baafs"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/st-bavos-cathedral"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Belfort van Gent (Belfry)",
+   "ad": "Sint-Baafsplein, 9000 Gent, Belgium",
+   "w": "The 91-metre 14th-century belfry, a UNESCO World Heritage 'Belfry of Belgium and France', crowned by a gilded dragon; the middle tower of Ghent's famous three-tower row, with a glass lift to a panoramic viewing gallery.",
+   "k": "UNESCO belfry, gilded dragon",
+   "g": [
+    "UNESCO",
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCOVL",
+     "https://www.unesco-vlaanderen.be/unesco-in-vlaanderen/werelderfgoed/belforten"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/belfry"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Graslei & Korenlei",
+   "ad": "Graslei, 9000 Gent, Belgium",
+   "w": "The medieval inner harbour on the Leie, lined with guild houses spanning Romanesque to Baroque; Ghent's most photographed quays and, at dusk, the city's living room for a drink by the water.",
+   "k": "Guild-house harbour quays",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/graslei-korenlei/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/graslei-korenlei"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Werregarenstraat (Graffitistraatje)",
+   "ad": "Werregarenstraat, 9000 Gent, Belgium",
+   "w": "A cobbled alley opened to street artists in 1995 and repainted constantly — a free, ever-changing open-air gallery a few steps from the City Hall. You never see the same walls twice.",
+   "k": "Legal ever-changing graffiti alley",
+   "g": [
+    "ICON",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/street-art-ghent"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/graffiti-alley-ghent"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Patershol",
+   "ad": "Patershol, 9000 Gent, Belgium",
+   "w": "A pocket of winding medieval lanes and cobbles behind the Gravensteen — once a tanners' and weavers' quarter, now Ghent's most atmospheric restaurant-and-café district.",
+   "k": "Medieval restaurant quarter",
+   "g": [
+    "HIST",
+    "FREE",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/patershol"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Vrijdagmarkt & standbeeld Jacob van Artevelde",
+   "ad": "Vrijdagmarkt, 9000 Gent, Belgium",
+   "w": "Ghent's grand civic square, site of markets, joyous entries and bloody guild battles for seven centuries; at its centre the 1863 bronze of Jacob van Artevelde pointing toward England. The 14th-century Toreken guildhouse stands on the corner.",
+   "k": "Historic civic square",
+   "g": [
+    "HIST",
+    "MKT",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/vrijdagmarkt-3/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Vrijdagmarkt_(Gent)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Sint-Niklaaskerk",
+   "ad": "Cataloniëstraat, 9000 Gent, Belgium",
+   "w": "A pure example of Scheldt Gothic in blue Tournai stone, built from the 13th century by the merchants of the Graslei and dedicated to St Nicholas, patron of traders. The first of Ghent's three towers.",
+   "k": "Scheldt-Gothic merchants' church",
+   "g": [
+    "HIST",
+    "ARCH",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "SINTNIKLAAS",
+     "http://www.sintniklaaskerk.be/de-kerk/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/st-nicholas-church"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "S.M.A.K. (Stedelijk Museum voor Actuele Kunst)",
+   "ad": "Jan Hoetplein 1, 9000 Gent, Belgium",
+   "w": "Ghent's museum of contemporary art, built by Jan Hoet into an international name — post-war and living artists from Bacon and Broodthaers to Panamarenko, with restlessly changing shows.",
+   "k": "Contemporary-art landmark",
+   "g": [
+    "MUS",
+    "ICON"
+   ],
+   "s": [
+    [
+     "SMAK",
+     "https://smak.be/en/visit-smak"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/smak"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "MSK Gent (Museum voor Schone Kunsten)",
+   "ad": "Fernand Scribedreef 1, 9000 Gent, Belgium",
+   "w": "The Fine Arts Museum in Citadelpark: six centuries from Hieronymus Bosch and the Flemish Primitives to Ensor and the Symbolists, in a serene neoclassical building.",
+   "k": "Old masters to Ensor",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/museum-fine-arts-ghent-msk"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Museum_voor_Schone_Kunsten_(Gent)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "STAM (Stadsmuseum Gent)",
+   "ad": "Godshuizenlaan 2, 9000 Gent, Belgium",
+   "w": "The city museum set in the medieval Bijloke abbey and hospital, telling Ghent's story from Roman settlement to today — including a walk-on aerial photo of the whole city.",
+   "k": "The story of Ghent",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "STAMGENT",
+     "https://stamgent.be/en/home"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/stam-ghent-city-museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Sint-Michielsbrug & Sint-Michielshelling",
+   "ad": "Sint-Michielshelling, 9000 Gent, Belgium",
+   "w": "The stone bridge that frames Ghent's picture-postcard view — Graslei, Korenlei and the three towers all in one sweep. The single best free vantage point in the city.",
+   "k": "The three-tower viewpoint",
+   "g": [
+    "ICON",
+    "FREE",
+    "CANAL",
+    "PARK"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/graslei-korenlei/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/st-michaels-bridge"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Stadhuis Gent (Pacificatiezaal)",
+   "ad": "Botermarkt 1, 9000 Gent, Belgium",
+   "w": "Ghent's City Hall wears two faces on one block: flamboyant Late Gothic and sober Renaissance. Inside, the Pacificatiezaal recalls the 1576 Pacification of Ghent.",
+   "k": "Gothic-and-Renaissance city hall",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/town-hall"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Stadhuis_van_Gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Groot Vleeshuis",
+   "ad": "Groentenmarkt 7, 9000 Gent, Belgium",
+   "w": "A 15th-century covered meat market with a soaring timber roof, once where all the city's meat was inspected; now a showcase and tasting hall for East-Flemish regional products.",
+   "k": "15th-c. covered meat hall",
+   "g": [
+    "HIST",
+    "MKT"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/groot-vleeshuis/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/groot-vleeshuis"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Het Groot Kanon (Dulle Griet)",
+   "ad": "Grootkanonplein, 9000 Gent, Belgium",
+   "w": "A 12,500-kg wrought-iron bombard of the 15th century, five metres long — one of the largest siege guns of the Middle Ages, nicknamed the 'Mad Meg'. It stands on the square that bears its name.",
+   "k": "Giant medieval bombard",
+   "g": [
+    "HIST",
+    "FREE",
+    "MKT",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Groot_Kanon_(Gent)"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Design Museum Gent",
+   "ad": "Jan Breydelstraat 5, 9000 Gent, Belgium",
+   "w": "An international design collection from Art Nouveau and Art Deco to contemporary, spanning an 18th-century mansion and a bold new wing.",
+   "k": "Art Nouveau to now",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Design_Museum_Gent"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/design-museum-gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Boekentoren (Book Tower)",
+   "ad": "Rozier 9, 9000 Gent, Belgium",
+   "w": "Henry van de Velde's modernist library tower for Ghent University (1930s–40s), a listed monument of stripped concrete recently restored, with a belvedere over the city.",
+   "k": "Van de Velde's library tower",
+   "g": [
+    "ARCH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "BOEKENTOREN",
+     "https://boekentoren.gent/en/directions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Boekentoren"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Klein Begijnhof Onze-Lieve-Vrouw ter Hoyen",
+   "ad": "Lange Violettenstraat 77, 9000 Gent, Belgium",
+   "w": "A walled 13th-century beguinage of whitewashed houses, church and garden around a green — founded c.1234 by Joanna of Constantinople and inscribed on UNESCO's World Heritage List of Flemish Beguinages.",
+   "k": "UNESCO beguinage",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "UNESCOVL",
+     "https://www.unesco-vlaanderen.be/unesco-in-vlaanderen/werelderfgoed/begijnhoven"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Klein_Begijnhof_Gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Huis van Alijn",
+   "ad": "Kraanlei 65, 9000 Gent, Belgium",
+   "w": "A museum of everyday 20th-century life set in Ghent's last surviving almshouse — reconstructed interiors, home movies and objects of ordinary Flemish lives, around a quiet courtyard.",
+   "k": "Museum of daily life",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/house-alijn"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Huis_van_Alijn"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Sint-Pietersabdij & Kunsthal",
+   "ad": "Sint-Pietersplein 9, 9000 Gent, Belgium",
+   "w": "A Benedictine abbey founded in the 7th century by St Amandus, with a Baroque church, a vineyard garden and ruins, now the Kunsthal Sint-Pietersabdij exhibition space.",
+   "k": "7th-c. abbey & garden",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/st-peters-abbey"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Sint-Pietersabdij_(Gent)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "De Vooruit / VIERNULVIER",
+   "ad": "Sint-Pietersnieuwstraat 23, 9000 Gent, Belgium",
+   "w": "The socialist cooperative's 1913 festival hall, an eclectic Art Nouveau/Art Deco monument by Ferdinand Dierkens — reopened in 2026 after a major restoration as a landmark arts centre and café.",
+   "k": "1913 arts-centre monument",
+   "g": [
+    "ARCH",
+    "HIST",
+    "NIGHT",
+    "ICON"
+   ],
+   "s": [
+    [
+     "HISTORIEK",
+     "https://historiek.net/de-vooruit-gent-unesco-werelderfgoed/180471/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/De_Vooruit"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "De Krook",
+   "ad": "Miriam Makebaplein 1, 9000 Gent, Belgium",
+   "w": "Ghent's award-winning riverside library and knowledge centre (2017), a striking angular building where the Schelde meets the city — free to enter, with terraces over the water.",
+   "k": "Riverside library landmark",
+   "g": [
+    "ARCH",
+    "FREE",
+    "ICON",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/De_Krook"
+    ],
+    [
+     "STADGENT",
+     "https://stad.gent/nl/bibliotheek-de-krook"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Kraanlei (barokgevels)",
+   "ad": "Kraanlei, 9000 Gent, Belgium",
+   "w": "A quay of richly carved Baroque façades facing the water — 'De Fluitspeler'/'Het Vliegend Hert' (1669) and the 'House of the Seven Works of Mercy' among the finest reliefs in the city.",
+   "k": "Carved Baroque façades",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Kraanlei"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/magical-ghent-evening"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Oude Vismijn (Sint-Veerleplein)",
+   "ad": "Sint-Veerleplein 5, 9000 Gent, Belgium",
+   "w": "The old fish market at the confluence of Leie and Lieve, its gate crowned by a Baroque Neptune; fish was sold here from the Middle Ages to the 1960s, now a brasserie and event venue facing the Gravensteen.",
+   "k": "Baroque fish-market gate",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Oude_Vismijn_(Gent)"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/magical-ghent-evening"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Museum Dr. Guislain",
+   "ad": "Jozef Guislainstraat 43, 9000 Gent, Belgium",
+   "w": "Set in Belgium's first purpose-built psychiatric hospital (1850s), a museum on the history of psychiatry and the shifting line between 'mad' and 'normal', with a notable outsider-art collection.",
+   "k": "History-of-psychiatry museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/dr-guislain-museum"
+    ],
+    [
+     "DEGENTSEMUSEA",
+     "https://degentsemusea.be/en/museums/museumdrguislain"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Industriemuseum",
+   "ad": "Minnemeers 10, 9000 Gent, Belgium",
+   "w": "Machines, people and the textile boom that made Ghent the 'Manchester of the continent', in a canalside former cotton mill — working looms and the story of industrial labour.",
+   "k": "Ghent's textile-industry museum",
+   "g": [
+    "MUS",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "INDUSTRIEMUSEUM",
+     "https://www.industriemuseum.be/en"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/industriemuseum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Groot Begijnhof Sint-Amandsberg",
+   "ad": "Groot Begijnhof, 9040 Sint-Amandsberg, Gent, Belgium",
+   "w": "A vast neo-Gothic beguinage village of some 80 houses and a central church, built 1873–76 when the beguines left the old city centre; UNESCO World Heritage and still remarkably intact.",
+   "k": "UNESCO neo-Gothic beguinage",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "FREE",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Groot_Begijnhof_Sint-Amandsberg"
+    ],
+    [
+     "UNESCOVL",
+     "https://www.unesco-vlaanderen.be/unesco-in-vlaanderen/werelderfgoed/begijnhoven"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Geeraard de Duivelsteen",
+   "ad": "Geraard de Duivelstraat 1, 9000 Gent, Belgium",
+   "w": "A 13th-century Scheldt-Gothic stone castle named for the swarthy knight Geeraard 'the Devil' — over the centuries an armoury, monastery, seminary, asylum and prison, now a striking waterside landmark.",
+   "k": "13th-c. 'Devil's castle'",
+   "g": [
+    "HIST",
+    "ARCH",
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Geeraard_de_Duivelsteen"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Sint-Baafsabdij (ruïne)",
+   "ad": "Gandastraat 7, 9000 Gent, Belgium",
+   "w": "The evocative ruins of the abbey where Ghent was born — cloister, refectory and lapidary museum of stone fragments, at the old confluence of Leie and Schelde.",
+   "k": "Ruins where Ghent began",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/route/st-baafsabdij-spanjaardkasteel/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/st-bavos-abbey"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Citadelpark & Plantentuin UGent",
+   "ad": "Citadelpark, 9000 Gent, Belgium",
+   "w": "The city's largest 19th-century park — winding paths, a grotto, bandstand and, at its edge, the university's botanical garden with tropical glasshouses. Home to MSK and S.M.A.K.",
+   "k": "City park & botanical garden",
+   "g": [
+    "PARK",
+    "FREE",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/citadelpark"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Citadelpark"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Bloemenmarkt Kouter",
+   "ad": "Kouter, 9000 Gent, Belgium",
+   "w": "Ghent's daily flower market on its most elegant square, at its liveliest on Sunday mornings when a brass kiosk plays and locals take an oyster-and-white-wine aperitif.",
+   "k": "Daily flower market",
+   "g": [
+    "MKT",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/markten/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/flower-market-kouter"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Portus Ganda",
+   "ad": "Veermanplein, 9000 Gent, Belgium",
+   "w": "A restored inner-city marina at the historic meeting of the rivers, ringed by cafés — Ghent's spot for a canoe or an electric boat and a swim at the Van Eyck baths nearby.",
+   "k": "Inner-city marina",
+   "g": [
+    "PARK",
+    "FREE",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/portus-ganda"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Rabot (Rabottorens)",
+   "ad": "Rabotplein, 9000 Gent, Belgium",
+   "w": "A twin-towered 15th-century water gate that once defended the city's canals — a squat, castle-like brick landmark giving its name to the surrounding neighbourhood.",
+   "k": "15th-c. twin-tower water gate",
+   "g": [
+    "HIST",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Rabot_(Gent)"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "De Wereld van Kina: het Huis",
+   "ad": "Sint-Pietersplein 14, 9000 Gent, Belgium",
+   "w": "A family nature-and-science museum — cabinets of animals, minerals and the human body, plus a botanical garden across town — the former Michel Thiery school museum.",
+   "k": "Nature museum for families",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "DEGENTSEMUSEA",
+     "https://degentsemusea.be/musea/wereldvankina"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/world-kina-house"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Sint-Jacobskerk",
+   "ad": "Bij Sint-Jacobs, 9000 Gent, Belgium",
+   "w": "A Romanesque-to-Gothic church with two western towers, at the heart of the Bij Sint-Jacobs square famed for its weekend flea market and its nightlife.",
+   "k": "Church of the flea-market square",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Sint-Jacobskerk_(Gent)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Achtersikkel & Grote Sikkel",
+   "ad": "Biezekapelstraat 1, 9000 Gent, Belgium",
+   "w": "A cluster of medieval patrician 'stone houses' of the van der Sickelen family around a hidden galleried courtyard — the 'lovers' corner' — now part of the conservatory.",
+   "k": "Hidden medieval courtyard",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/grote-sikkel/"
+    ],
+    [
+     "ONROEREND",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/25703"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "De Bijloke (voormalige abdij & hospitaal)",
+   "ad": "Jozef Kluyskensstraat 2, 9000 Gent, Belgium",
+   "w": "A 13th-century Cistercian hospital and abbey complex with a magnificent painted timber ceiling, now the Bijloke music centre — one of Ghent's most beautiful medieval ensembles.",
+   "k": "Medieval hospital, now concert hall",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "STAMGENT",
+     "https://stamgent.be/en/the-bijloke-site"
+    ],
+    [
+     "ONROEREND",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/24856"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Charlatan",
+   "ad": "Vlasmarkt 6, 9000 Gent, Belgium",
+   "w": "The legendary music café and dance hall on the Vlasmarkt, epicentre of Ghent nightlife and the subject of Felix Van Groeningen's 2016 film 'Belgica'.",
+   "k": "Legendary music café ('Belgica')",
+   "g": [
+    "NIGHT",
+    "ICON",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/charlatan"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Charlatan_(zaal)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Korenmarkt",
+   "ad": "Korenmarkt, 9000 Gent, Belgium",
+   "w": "Ghent's central square where the old grain market stood, ringed by the former post office, the Sint-Niklaaskerk and pavement cafés — the natural starting point for the tower row and the historic core.",
+   "k": "Central café square",
+   "g": [
+    "HIST",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/korenmarkt"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Groentenmarkt",
+   "ad": "Groentenmarkt, 9000 Gent, Belgium",
+   "w": "A compact medieval market square wedged between the Groot Vleeshuis and the Leie — home to Tierenteyn's mustard shop, the rival cuberdon carts and the city's oldest bakery. Ghent's edible heart.",
+   "k": "The city's edible square",
+   "g": [
+    "HIST",
+    "MKT",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/pleinen/groentenmarkt/"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/groentenmarkt"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Aula Academica (UGent)",
+   "ad": "Voldersstraat 9, 9000 Gent, Belgium",
+   "w": "Ghent University's ceremonial hall of 1826, a neoclassical temple with a Pantheon-inspired portico of eight Corinthian columns — the building in the UGent logo, by city architect Lodewijk Roelandt.",
+   "k": "Neoclassical university temple",
+   "g": [
+    "HIST",
+    "ARCH",
+    "CANAL",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "ONROEREND",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/26028"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/university-auditorium"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Sint-Annakerk",
+   "ad": "Sint-Annaplein, 9000 Gent, Belgium",
+   "w": "A monumental 19th-century church in a rare Romano-Byzantine revival style, its vast interior richly decorated with murals and marble — one of Ghent's grandest and least-expected sacred spaces.",
+   "k": "Romano-Byzantine revival church",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ONROEREND",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/25760"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Sint-Annakerk_(Gent)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GENR",
+   "n": "Kasteel van Ooidonk",
+   "ad": "Ooidonkdreef 9, 9800 Bachte-Maria-Leerne (Deinze), Belgium",
+   "w": "A moated Flemish-Renaissance water castle in a loop of the Leie south of Ghent — stepped gables, onion domes and a lavishly furnished interior, set in a 45-hectare park still inhabited by the same family.",
+   "k": "Flemish-Renaissance water castle",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Kasteel_Ooidonk"
+    ],
+    [
+     "ONROEREND",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/135187"
+    ],
+    [
+     "LANGSDELEIE",
+     "https://langsdeleie.be/en/ooidonk-castle/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GENR",
+   "n": "Sint-Martens-Latem (kunstenaarsdorp)",
+   "ad": "Dorp, 9830 Sint-Martens-Latem, Belgium",
+   "w": "The riverside village that gave its name to two schools of Flemish art — a postcard of the Leie, willows and whitewashed farms that drew Minne, Van de Woestyne, Permeke and the Latem expressionists.",
+   "k": "Cradle of Flemish expressionism",
+   "g": [
+    "HIST",
+    "PARK",
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sint-Martens-Latem"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "Museum Dhondt-Dhaenens",
+   "ad": "Museumlaan 14, 9831 Deurle, Belgium",
+   "w": "An internationally regarded museum of modern and contemporary art in Deurle, founded on the Dhondt-Dhaenens collection of Flemish masters and now known for adventurous temporary shows.",
+   "k": "Modern & contemporary art, Deurle",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "MUSEUMDD",
+     "https://museumdd.be/en"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "mudel — Museum van Deinze en de Leiestreek",
+   "ad": "Lucien Matthyslaan 3-5, 9800 Deinze, Belgium",
+   "w": "Deinze's fine-arts and folklore museum, holding the region's richest collection of Leie-school painting — Emile Claus, Permeke, Gustave Van de Woestyne, Roger Raveel — alongside local ethnography.",
+   "k": "Leie-school painting collection",
+   "g": [
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "MUDEL",
+     "https://www.mudel.be/en/visite"
+    ],
+    [
+     "DEINZE",
+     "https://www.deinze.be/dienst/2775/museum-van-deinze-en-de-leiestreek"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "Museum Gust De Smet",
+   "ad": "Museumlaan, 9831 Deurle, Belgium",
+   "w": "The house and studio of Flemish expressionist Gust De Smet, kept as he left it, with his paintings in the setting where they were made — one of Deurle's cluster of artist-museums.",
+   "k": "Expressionist's house-museum",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "CULTUURREGIO",
+     "https://cultuurregioleieschelde.be/erfgoedhalte/"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Museum Gevaert-Minne",
+   "ad": "Edgar Gevaertdreef 4, 9830 Sint-Martens-Latem, Belgium",
+   "w": "The former home and studio of painter Edgard Gevaert on a three-hectare domain, showing work by nearly all the great Latem artists — George Minne, Servaes, Valerius de Saedeleer.",
+   "k": "Latem artists' collection",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "CULTUURREGIO",
+     "https://cultuurregioleieschelde.be/erfgoedhalte/museum-gevaert-minne/"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Museum Leon De Smet",
+   "ad": "Museumlaan 18, 9831 Deurle, Belgium",
+   "w": "A small Deurle museum devoted to luminist painter Leon De Smet, Gust's brother — intimate portraits and interiors, open on a limited basis.",
+   "k": "Luminist painter's museum",
+   "g": [
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "CULTUURREGIO",
+     "https://cultuurregioleieschelde.be/erfgoedhalte/"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Sint-Martinuskerk (Sint-Martens-Latem)",
+   "ad": "Dorp, 9830 Sint-Martens-Latem, Belgium",
+   "w": "The village's small parish church, a place of quiet that also holds art treasures by Latem masters Gustave Van de Woestyne and George Minne.",
+   "k": "Village church with Latem art",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS",
+    "MKT"
+   ],
+   "s": [
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"
+    ],
+    [
+     "ONROEREND",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/40563"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Latemse Meersen & de Leie",
+   "ad": "Latemse Meersen, 9830 Sint-Martens-Latem, Belgium",
+   "w": "The water meadows and willow-lined bends of the Leie that the Latem painters immortalised — a flat, luminous walking and cycling landscape, with a route tracing the very spots in their canvases.",
+   "k": "The painters' river landscape",
+   "g": [
+    "PARK",
+    "FREE",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/doen/kunst-sint-martens-latem"
+    ],
+    [
+     "LANGSDELEIE",
+     "https://langsdeleie.be/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "Roger Raveelmuseum",
+   "ad": "Gildestraat 2-8, 9870 Machelen-aan-de-Leie (Zulte), Belgium",
+   "w": "A crisp white Stéphane Beel building in the artist's home village, one of the few Belgian artists to get his own museum in his lifetime — 300+ paintings and 550 drawings by the post-war master Roger Raveel.",
+   "k": "Post-war master's own museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VRTNWS",
+     "https://www.vrt.be/vrtnws/nl/2025/02/01/roger-raveel-museum-zulte-tijdelijk-dicht-renovatiewerken/"
+    ],
+    [
+     "CULTUURREGIO",
+     "https://cultuurregioleieschelde.be/erfgoedhalte/roger-raveelmuseum/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Recreatiedomein De Brielmeersen",
+   "ad": "Guido Gezellelaan 51, 9800 Deinze, Belgium",
+   "w": "A free 27-hectare provincial park in the heart of Deinze between the Leie and the Schipdonk canal — playgrounds, a petting farm with deer and donkeys, mini-golf and riverside walks.",
+   "k": "Deinze's riverside park",
+   "g": [
+    "PARK",
+    "FREE",
+    "MUS",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/De_Brielmeersen"
+    ],
+    [
+     "DEINZE",
+     "https://www.deinze.be/site-brielmeersen"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "De Dulle Griet",
+   "ad": "Vrijdagmarkt 50, 9000 Gent, Belgium",
+   "w": "Ghent's most famous beer café, with the city's largest Belgian-beer list (500+). Order the 1.2-litre house boot and you hand over a shoe as deposit, hoisted to the ceiling in a basket until you return the glass.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/de-dulle-griet"
+    ],
+    [
+     "LOSTBEERS",
+     "https://lostbeers.com/a-pub-guide-to-ghent-32-years-later/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Het Waterhuis aan de Bierkant",
+   "ad": "Groentenmarkt 9, 9000 Gent, Belgium",
+   "w": "A canalside brown pub in a former riverside house with a waterfront terrace and around 175 beers, including its own Klokke Roeland. The classic Ghent beer stop, next to its jenever annex.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/waterhuis-aan-de-bierkant"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/en/het-waterhuis-aan-de-bierkant"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "'t Dreupelkot",
+   "ad": "Groentenmarkt 12, 9000 Gent, Belgium",
+   "w": "A tiny jenever house on the water beside the Waterhuis, pouring only genever — over 200 kinds, from cactus to vanilla to chocolate — served ice-cold and brimful.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/het-lekkerste-bier-van-gent/"
+    ],
+    [
+     "REIZENREISTIPS",
+     "https://www.reizen-en-reistips.nl/en/leukste-biercafes-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Gentse Gruut Stadsbrouwerij",
+   "ad": "Rembert Dodoensdreef 1, 9000 Gent, Belgium",
+   "w": "Annick De Splenter's city brewery revives 'gruut' — a medieval herb blend used instead of hops — in five house beers plus a rotating 'Maîtresse'. Tours and a canalside brewery bar in the centre.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GRUUT",
+     "https://www.gruut.be/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Stadsbrouwerij_Gruut"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "De Hopduvel",
+   "ad": "Dok-Noord 7, 9000 Gent, Belgium",
+   "w": "A vast beer specialty shop and bar that commissions its own Gentse Tripel, alongside a huge range of Belgian and international beers, wines and spirits — the go-to for beer to take home.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HOPDUVEL",
+     "https://www.de-hopduvel-gent.be/"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/het-lekkerste-bier-van-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "De Trollekelder",
+   "ad": "Bij Sint-Jacobs 17, 9000 Gent, Belgium",
+   "w": "A characterful troll-themed beer café by Sint-Jacobs with a deep, well-kept list of trappist and abbey beers and a quiet upstairs — a beer-lover's classic away from the tourist crush.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LOSTBEERS",
+     "https://lostbeers.com/a-pub-guide-to-ghent-32-years-later/"
+    ],
+    [
+     "VERLORENBIEREN",
+     "https://verlorenbieren.nl/het-gentsche-kroegenboek-32-jaar-later/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Het Spijker",
+   "ad": "Pensmarkt 3, 9000 Gent, Belgium",
+   "w": "A historic pub in a former granary right in the centre, with two terraces — one on the bustling street, one over the Leie — and a solid local beer list.",
+   "cz": [
+    "BEER",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/het-spijker"
+    ],
+    [
+     "REIZENREISTIPS",
+     "https://www.reizen-en-reistips.nl/en/leukste-biercafes-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "'t Galgenhuisje",
+   "ad": "Groentenmarkt 5, 9000 Gent, Belgium",
+   "w": "By far the smallest café in Ghent, an 18th-century brown pub on the Groentenmarkt pouring its own Galgenbier — squeeze in upstairs or take a stool on the market.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/t-galgenhuisje"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/cuberdon-neuzeke/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Rococo",
+   "ad": "Corduwaniersstraat 57, 9000 Gent, Belgium",
+   "w": "One of the last genuine brown cafés in the centre — candlelit, chamber-pots on the ceiling, a 1667 building full of stories in the heart of Patershol. Beer and conversation, nothing else.",
+   "cz": [
+    "BEER",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink"
+    ],
+    [
+     "REIZENREISTIPS",
+     "https://www.reizen-en-reistips.nl/en/leukste-biercafes-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Brasserie 't Klokhuys",
+   "ad": "Corduwaniersstraat 65, 9000 Gent, Belgium",
+   "w": "An authentic Patershol brasserie that does the Ghent classics properly — creamy waterzooi of farm chicken and beef stoverij braised in beer — in a warm, cosy room.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/t-klokhuys"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Brasserie 't Vosken",
+   "ad": "Sint-Baafsplein 19, 9000 Gent, Belgium",
+   "w": "A typical Ghent brasserie in a striking black-and-white room directly below St Bavo's, with a big summer terrace on the square — the reliable address for stoverij and waterzooi in the centre.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/t-vosken"
+    ],
+    [
+     "GENTDEKUIP",
+     "https://gentdekuip.com/historie/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Brasserie Pakhuis",
+   "ad": "Schuurkenstraat 4, 9000 Gent, Belgium",
+   "w": "A grand belle-époque brasserie in a converted warehouse down an atmospheric alley — oysters, seafood and French-Italian classics under a soaring iron-and-glass roof.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/pakhuis"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Balls & Glory",
+   "ad": "Jakobijnenstraat 6, 9000 Gent, Belgium",
+   "w": "An open-kitchen canteen serving one thing brilliantly: handmade meatballs with a molten filling, from honestly sourced meat, with mash and greens. Walk-in, no reservations.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/balls-glory"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffiebars-in-gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Bord'Eau (Oude Vismijn)",
+   "ad": "Sint-Veerleplein 5, 9000 Gent, Belgium",
+   "w": "A brasserie set in the Baroque old fish market at the foot of the Gravensteen, with a waterside terrace where the Leie and Lieve meet — classic dishes in one of Ghent's most scenic rooms.",
+   "cz": [
+    "BEL",
+    "FR"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/news/in-the-picture-genieten-aan-en-van-het-water"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/magical-ghent-evening"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Vrijmoed",
+   "ad": "Vlaanderenstraat 22, 9000 Gent, Belgium",
+   "w": "Chef Michaël Vrijmoed's two-Michelin-star restaurant, Ghent's culinary summit — precise, produce-driven tasting menus with a celebrated cellar.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/vrijmoed"
+    ],
+    [
+     "VRIJMOED",
+     "https://www.vrijmoed.be/en/vrijmoed"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Publiek",
+   "ad": "Ham 39, 9000 Gent, Belgium",
+   "w": "Chef Olly Ceulenaere's one-star restaurant, quietly one of Belgium's most influential kitchens — a set surprise menu built around vegetables, ferments and Flemish produce.",
+   "cz": [
+    "FINE",
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/publiek"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/publiek-gent"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "OAK",
+   "ad": "Burgstraat 16, 9000 Gent, Belgium",
+   "w": "Chef Marcelo Ballardin's one-star OAK — contemporary, personal cooking with surprising combinations, on a quiet street near the Gravensteen.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/oak"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/oak-gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Souvenir",
+   "ad": "Brabantdam 134, 9000 Gent, Belgium",
+   "w": "Vilhjalmur Sigurdarson's intimate restaurant, holder of a Michelin Green Star for sustainable gastronomy — a tight seasonal menu rooted in Flemish and Nordic produce.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SOUVENIR",
+     "https://souvenir.gent/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Sensum",
+   "ad": "Bennesteeg 3, 9000 Gent, Belgium",
+   "w": "A one-Michelin-star, small-room restaurant near the Kouter, praised for refined, well-balanced tasting menus and warm service.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurants"
+    ],
+    [
+     "SENSUM",
+     "https://sensumgent.be/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Karel de Stoute",
+   "ad": "Vrouwebroersstraat 2, 9000 Gent, Belgium",
+   "w": "A refined modern-French, farm-to-table table in Patershol, selected by the Michelin Guide — a small, chef-led room with a strong seasonal menu.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/karel-de-stoute"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Roots",
+   "ad": "Vrouwebroersstraat 5, 9000 Gent, Belgium",
+   "w": "A Michelin-listed Patershol restaurant serving modern, creative Belgian cooking in a relaxed room — 3–4-course lunches, longer tasting menus at night.",
+   "cz": [
+    "FINE",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/nl/oost-vlaanderen/gent/restaurant/roots493600"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/horecawandelen-14-x-take-out-koffie-in-de-beste-koffiebars-van-gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Elders",
+   "ad": "Edmond Van Beverenplein 16, 9000 Gent, Belgium",
+   "w": "Chef Tom Pauweleyn's warm neighbourhood gastro-bistro, named Gault&Millau's Gastro-Bistro of the Year 2025 — creative, generous cooking off a lively square.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/news/gastro-bistro-van-het-jaar-elders-chef-tom-pauweleyn"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/gent/restaurant/elders"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Fou d'O",
+   "ad": "Snepkaai 40, 9000 Gent, Belgium",
+   "w": "A long-loved Gault&Millau restaurant on the banks of the Leie south of the centre, with a waterside terrace — refined seasonal cooking away from the crowds.",
+   "cz": [
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/fou-do-gent"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/tag/gault-millau"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Martino",
+   "ad": "Vlaanderenstraat 125, 9000 Gent, Belgium",
+   "w": "The Ghent institution that claims to have invented the broodje Martino — spicy raw-beef préparé — still serving it, plus its famous cheese-egg-burger, in a no-frills snackbar since decades.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/hip/martino-gent"
+    ],
+    [
+     "LEFOODING",
+     "https://lefooding.com/en/restaurants/martino"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Greenway",
+   "ad": "Nederkouter 42, 9000 Gent, Belgium",
+   "w": "Ghent's pioneering veg restaurant, open since 1996 and now fully vegan — burgers, bowls and daily specials that helped make the city Europe's self-styled veggie capital.",
+   "cz": [
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GREENWAY",
+     "https://greenway.be/en/restaurant/"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Le Botaniste",
+   "ad": "Hoornstraat 13, 9000 Gent, Belgium",
+   "w": "An organic plant-based canteen — buddha bowls, whole-food sushi, tonic wines — small, warm and central; the Ghent original of a concept now exported worldwide.",
+   "cz": [
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BEVEGAN",
+     "https://bevegan.be/nl/blog-vegan-gent-onze-hotspotguide/"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Lokaal",
+   "ad": "Brabantdam 100, 9000 Gent, Belgium",
+   "w": "A daylight bistro named for its ecological, local-produce philosophy — seasonal, largely vegetable-forward plates by the Glazen Straatje.",
+   "cz": [
+    "VEG",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffiebars-in-gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Avalon",
+   "ad": "Geldmunt 32, 9000 Gent, Belgium",
+   "w": "A long-running vegetarian restaurant in a stepped-gable house opposite the Gravensteen, with a garden terrace — organic, seasonal lunches, a Ghent veggie fixture.",
+   "cz": [
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BEVEGAN",
+     "https://bevegan.be/nl/blog-vegan-gent-onze-hotspotguide/"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Amour",
+   "ad": "Sint-Salvatorstraat 18a, 9000 Gent, Belgium",
+   "w": "A gentle lunch spot known for its generous, mostly-vegan buffet — spreads, salads and warm dishes that change with the season and the market.",
+   "cz": [
+    "VEG",
+    "CAFE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/hotspots/eten/gent/amour-in-gent-de-perfecte-lunchplek"
+    ],
+    [
+     "LEFOODING",
+     "https://lefooding.com/en/restaurants/amour"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Cuberdon- & neuzekeskramen (Groentenmarkt)",
+   "ad": "Groentenmarkt 1, 9000 Gent, Belgium",
+   "w": "Two rival carts side by side on the Groentenmarkt sell Ghent's raspberry cone-sweets, the cuberdon or 'neuzeke' — a decades-long feud (the viral 'war of the noses') that has become city folklore.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VRTNWS",
+     "https://www.vrt.be/vrtnws/nl/2024/09/23/neuzekesoorlog-gent-cuberdons-film/"
+    ],
+    [
+     "NATGEONL",
+     "https://www.nationalgeographic.nl/reizen/2017/07/de-gentse-neuzekesoorlog-gaat-viraal"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/foods/cuberdons-war-of-the-noses-ghent-belgium"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GEN",
+   "n": "Tierenteyn-Verlent",
+   "ad": "Groentenmarkt 3, 9000 Gent, Belgium",
+   "w": "A mustard shop unchanged since the 19th century, making Ghent's pungent mustard on the premises and scooping it, still fizzing, from a cellar barrel into stoneware pots before your eyes. Founded 1790.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "STREEKPRODUCT",
+     "https://www.streekproduct.be/producenten/vve-tierenteyn-verlent"
+    ],
+    [
+     "CULINAIREAMB",
+     "https://culinaireambiance.com/nl/articles/lekker-lokaal-gentse-mosterd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Julie's House",
+   "ad": "Kraanlei 13, 9000 Gent, Belgium",
+   "w": "A tiny, much-loved patisserie and breakfast spot on the Kraanlei overlooking the water — cheesecakes, pies and homemade granola in a doll's-house room.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JULIESHOUSE",
+     "https://www.julieshouse.be/en_GB"
+    ],
+    [
+     "RUTGERBAKT",
+     "https://rutgerbakt.nl/inspiratie/12-tips-voor-de-beste-patissiers-chocolatiers-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Yuzu",
+   "ad": "Walpoortstraat 11a, 9000 Gent, Belgium",
+   "w": "Nicolas Vanaise's minimalist chocolate boutique, among Belgium's most admired — pralines built on unexpected flavours like yuzu, tonka, truffle and pepper. In the Gault&Millau chocolatier guide.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://chocolatier.gaultmillau.be/en/chocolatiers/yuzu-gent"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/yuzu-nicolas-vanaise-c"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Mokabon",
+   "ad": "Donkersteeg 35, 9000 Gent, Belgium",
+   "w": "A cosy coffee roastery in the heart of Ghent since 1937 — dark, nostalgic and beloved by locals as much as visitors for a proper espresso.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MOKABON",
+     "https://mokabon.myshopify.com/en"
+    ],
+    [
+     "JUNE",
+     "https://www.june.be/food/koffie/de-7-leukste-koffiebars-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Simon Says",
+   "ad": "Sluizeken 8, 9000 Gent, Belgium",
+   "w": "A colourful 1904 Art Nouveau corner housing a welcoming specialty coffee bar and B&B on the edge of Patershol — organic, locally sourced, run by a British owner who fell for the city.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JUNE",
+     "https://www.june.be/food/koffie/de-beste-takeaway-koffie-in-gent-onze-keuze/"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffiebars-in-gent"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Bar Bidon",
+   "ad": "Bisdomkaai 25, 9000 Gent, Belgium",
+   "w": "A coffee-and-bicycle bar near Portus Ganda where you sip a cappuccino among collectible bikes and gear — a cheerful spot on the water for cyclists and caffeine.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffiebars-in-gent"
+    ],
+    [
+     "JUNE",
+     "https://www.june.be/food/koffie/de-7-leukste-koffiebars-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "OR Coffee",
+   "ad": "Sint-Pietersnieuwstraat 126A, 9000 Gent, Belgium",
+   "w": "The Ghent bar of Belgian specialty roaster OR Coffee (founded here in 2009) — expertly pulled coffee, organic bread and cake, near the university quarter.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ORCOFFEE",
+     "https://www.orcoffee.be/pages/or-coffee-labs"
+    ],
+    [
+     "JUNE",
+     "https://www.june.be/food/koffie/de-beste-takeaway-koffie-in-gent-onze-keuze/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Ribas",
+   "ad": "Kortrijksepoortstraat 220, 9000 Gent, Belgium",
+   "w": "A coffee-and-art bar on the lively Kortrijksepoortstraat run by artist Dominique Ribas — coffee by day, aperitivo and tapas as the street's hip strip wakes up.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HIPSTEADRESJES",
+     "http://hipsteadresjes.gent/nieuw/ribas-tussen-koffie-kunst/"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffiebars-in-gent"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "De Superette",
+   "ad": "Guldenspoorstraat 29, 9000 Gent, Belgium",
+   "w": "Kobe Desramaults' bakery-restaurant — sourdough, wood-fired pizza and brunch from a Scandinavian oven — voted the country's best new concept when it opened and still a hotspot.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KNACKWEEKEND",
+     "https://weekend.knack.be/lifestyle/culinair/restaurantreviews/de-superette-in-gent-goed-voor-lichaam-en-planeet/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Kobe_Desramaults"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "De Frietketel",
+   "ad": "Papegaaistraat 89, 9000 Gent, Belgium",
+   "w": "A student-belt frituur repeatedly voted Ghent's best, famed for crisp fries and an unusually broad range of vegetarian and vegan snacks.",
+   "cz": [
+    "BEL",
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/de-frietketel"
+    ],
+    [
+     "GENTBLOGT",
+     "https://gentblogt-archief.stad.gent/2005/06/24/de-frietketel.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Frituur De Papegaai",
+   "ad": "Sint-Michielsplein, 9000 Gent, Belgium",
+   "w": "A central frituur beside St Michael's, frying in vegetable oil with a wide vegetarian and vegan range — fries with a canal view.",
+   "cz": [
+    "BEL",
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/see-do/de-papegaai"
+    ],
+    [
+     "GENTBLOGT",
+     "https://gentblogt-archief.stad.gent/2008/09/23/waar-in-gent-eet-u-de-lekkerste-frieten.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Frituur De Gouden Saté (Julien)",
+   "ad": "Overpoortstraat 3, 9000 Gent, Belgium",
+   "w": "A near-legendary frituur at the top of student-nightlife street Overpoort, credited with inventing the 'julientje' — the late-night fix every Ghent student knows, meals under ten euros.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ELLE",
+     "https://www.elle.be/nl/241020-snackbars-gent-uitgaan.html"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-uitgaan-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Otomat",
+   "ad": "Kleine Vismarkt 3, 9000 Gent, Belgium",
+   "w": "A hip wood-fired pizzeria between the Gravensteen and the Groentenmarkt whose dough is raised with Duvel yeast — 'otomat' with red sauce, 'notomat' white; you can even moor a boat and order to the quay. In the Gault&Millau guide.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://be.gaultmillau.com/restaurants/otomat-gent"
+    ],
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/10x-vegetarische-restaurants-in-gent/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Alberte",
+   "ad": "Dendermondsesteenweg 78, 9000 Gent, Belgium",
+   "w": "A creative, seasonal neighbourhood restaurant near Dampoort with a Gault&Millau score — tight lunch and multi-course dinner menus in a warm room off the tourist track.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/alberte-gent"
+    ],
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/alberte"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Barista Coffee & Cake",
+   "ad": "Meerseniersstraat 16, 9000 Gent, Belgium",
+   "w": "A homely coffee-and-cake bar with organic artisan bread, art on the walls and a famous apple pie — a Ghent favourite for take-away or a slow morning by the Zuivelbrug.",
+   "cz": [
+    "CAFE",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/barista"
+    ],
+    [
+     "MARIECLAIRE",
+     "https://marieclaire.be/nl/hotspots-koffiebars-om-in-gent-te-ontdekken/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GEN",
+   "n": "Tasty World",
+   "ad": "Hoogpoort 1, 9000 Gent, Belgium",
+   "w": "A small order-at-the-counter veggie eatery a few blocks from the Gravensteen — multigrain veggie burgers, sweet-potato fries and thick shakes; a long-running Ghent meat-free staple.",
+   "cz": [
+    "VEG"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GREENWAY",
+     "https://tastyworld.be/en"
+    ],
+    [
+     "BEVEGAN",
+     "https://bevegan.be/nl/blog-vegan-gent-onze-hotspotguide/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Bakkerij Himschoot",
+   "ad": "Groentenmarkt 1, 9000 Gent, Belgium",
+   "w": "Ghent's oldest bakery, baking in a 17th-century cellar workshop on the Groentenmarkt — tiny, nostalgic and known for mastellen and warm sausage rolls.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "ELLE",
+     "https://www.elle.be/nl/169936-10-lekkerste-bakkers-gent.html"
+    ],
+    [
+     "INDUSTRIEMUSEUM",
+     "https://www.industriemuseum.be/nl/collectie-item/etalage-van-bakkerij-himschoot-in-gent"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GEN",
+   "n": "Trefpunt",
+   "ad": "Bij Sint-Jacobs 18, 9000 Gent, Belgium",
+   "w": "A café, concert hall and gallery run by the non-profit that relaunched the Gentse Feesten in 1970 — beers, live music and a terrace on the Sint-Jacobs square, open every day.",
+   "cz": [
+    "BEER",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITGENT",
+     "https://visit.gent.be/en/eat-drink/trefpunt"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://nl.wikipedia.org/wiki/Trefpunt_(Gent)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GENR",
+   "n": "Brasserie Latem",
+   "ad": "Kortrijksesteenweg 9, 9830 Sint-Martens-Latem, Belgium",
+   "w": "A stylish, long-established brasserie in the artists' village — simple but refined cooking from the freshest produce (olive oil, organic meat, shellfish) and a phenomenal cellar. In the Michelin Guide.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/sint-martens-latem/restaurant/brasserie-latem"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/brasserie-latem-sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "Brasserie Boulevard",
+   "ad": "Kortrijksesteenweg 175, 9830 Sint-Martens-Latem, Belgium",
+   "w": "A lively Sint-Martens-Latem brasserie whose cooking has gained focus and refinement — a second Gault&Millau toque and a place in the Michelin Guide.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/sint-martens-latem/restaurant/brasserie-boulevard"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/brasserie-boulevard-sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "d'Oude Schuur",
+   "ad": "Baarle-Frankrijkstraat 1, 9830 Sint-Martens-Latem, Belgium",
+   "w": "A Michelin-listed Sint-Martens-Latem restaurant serving traditional, generous cooking in a converted barn — a Leie-region classic.",
+   "cz": [
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/oost-vlaanderen/sint-martens-latem/restaurant/d-oude-schuur"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/en/brasserie-latem"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GENR",
+   "n": "Auberge du Pêcheur",
+   "ad": "Pontstraat 41, 9831 Deurle, Belgium",
+   "w": "A refined riverside hotel-restaurant in Deurle right on the Leie, with a coveted summer terrace over the water — the region's classic address for a long lunch by the river.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "AUBERGEPECHEUR",
+     "https://www.auberge-du-pecheur.be/en/brasserie"
+    ],
+    [
+     "TOERISMELEIE",
+     "https://www.toerisme-leiestreek.be/nl/bestemmingen/sint-martens-latem"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GENR",
+   "n": "Bachtekerke",
+   "ad": "Bachtekerkstraat 9, 9800 Bachte-Maria-Leerne (Deinze), Belgium",
+   "w": "A comfortable Gault&Millau restaurant in a quiet green setting between the village square of Bachte and the banks of the Oude Leie, near Ooidonk Castle.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/bachtekerke-deinze-bachte-maria-leerne"
+    ],
+    [
+     "LANGSDELEIE",
+     "https://langsdeleie.be/en/ooidonk-castle/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Gasthof Halifax",
+   "ad": "Emiel Clauslaan 143, 9800 Deinze, Belgium",
+   "w": "A well-regarded Gault&Millau restaurant in Deinze serving polished seasonal cooking, on the avenue named for painter Emile Claus.",
+   "cz": [
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/gasthof-halifax-deinze"
+    ],
+    [
+     "CULINAIREAMB",
+     "https://culinaireambiance.com/nl/articles/gaultmillau-2026-ontdek-alle-restaurants-met-minstens-1220-in-oost-vlaanderen"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Au Bain Marie",
+   "ad": "Emiel Clauslaan 141, 9800 Deinze, Belgium",
+   "w": "A Gault&Millau restaurant on the banks of the Leie in Deinze, with a terrace over the water and a market-driven seasonal menu.",
+   "cz": [
+    "FR"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/au-bain-marie-deinze"
+    ],
+    [
+     "CULINAIREAMB",
+     "https://culinaireambiance.com/nl/articles/gaultmillau-2026-ontdek-alle-restaurants-met-minstens-1220-in-oost-vlaanderen"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Bistro MaReine",
+   "ad": "Kapellestraat 18, 9800 Deinze, Belgium",
+   "w": "A Gault&Millau bistro in central Deinze offering honest, well-executed dishes in a relaxed setting.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/bistro-mareine-deinze"
+    ],
+    [
+     "CULINAIREAMB",
+     "https://culinaireambiance.com/nl/articles/gaultmillau-2026-ontdek-alle-restaurants-met-minstens-1220-in-oost-vlaanderen"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GENR",
+   "n": "Bachtecafe",
+   "ad": "Leernsesteenweg 58, 9800 Bachte-Maria-Leerne (Deinze), Belgium",
+   "w": "An intimate, cosy café-restaurant near Ooidonk in Bachte-Maria-Leerne, listed by Gault&Millau — a relaxed stop on a Leie-valley outing.",
+   "cz": [
+    "CAFE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/bachtecafe-deinze-bachte-maria-leerne"
+    ],
+    [
+     "LANGSDELEIE",
+     "https://langsdeleie.be/en/ooidonk-castle/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "BOEKENTOREN": {
+   "k": "BOEKENTOREN",
+   "t": "Boekentoren UGent (officieel)",
+   "u": "https://boekentoren.gent",
+   "l": "Boekentoren UGent (officieel)"
+  },
+  "CULTUURREGIO": {
+   "k": "CULTUURREGIO",
+   "t": "Cultuurregio Leie Schelde",
+   "u": "https://cultuurregioleieschelde.be",
+   "l": "Cultuurregio Leie Schelde"
+  },
+  "DEGENTSEMUSEA": {
+   "k": "DEGENTSEMUSEA",
+   "t": "De Gentse Musea (stadsmusea-portaal)",
+   "u": "https://degentsemusea.be",
+   "l": "De Gentse Musea (stadsmusea-portaal)"
+  },
+  "DEINZE": {
+   "k": "DEINZE",
+   "t": "Stad Deinze (officieel)",
+   "u": "https://www.deinze.be",
+   "l": "Stad Deinze (officieel)"
+  },
+  "GENTDEKUIP": {
+   "k": "GENTDEKUIP",
+   "t": "Gent, De Kuip (lokale erfgoedgids)",
+   "u": "https://gentdekuip.com",
+   "l": "Gent, De Kuip (lokale erfgoedgids)"
+  },
+  "HISTORIEK": {
+   "k": "HISTORIEK",
+   "t": "Historiek.net",
+   "u": "https://historiek.net",
+   "l": "Historiek.net"
+  },
+  "INDUSTRIEMUSEUM": {
+   "k": "INDUSTRIEMUSEUM",
+   "t": "Industriemuseum Gent (officieel)",
+   "u": "https://www.industriemuseum.be",
+   "l": "Industriemuseum Gent (officieel)"
+  },
+  "LANGSDELEIE": {
+   "k": "LANGSDELEIE",
+   "t": "Langs de Leie (regionaal toerisme)",
+   "u": "https://langsdeleie.be",
+   "l": "Langs de Leie (regionaal toerisme)"
+  },
+  "MUDEL": {
+   "k": "MUDEL",
+   "t": "mudel — Museum van Deinze en de Leiestreek (officieel)",
+   "u": "https://www.mudel.be",
+   "l": "mudel — Museum van Deinze en de Leiestreek (officieel)"
+  },
+  "MUSEUMDD": {
+   "k": "MUSEUMDD",
+   "t": "Museum Dhondt-Dhaenens (officieel)",
+   "u": "https://museumdd.be",
+   "l": "Museum Dhondt-Dhaenens (officieel)"
+  },
+  "ONROEREND": {
+   "k": "ONROEREND",
+   "t": "Onroerend Erfgoed (Vlaamse erfgoedinventaris)",
+   "u": "https://inventaris.onroerenderfgoed.be",
+   "l": "Onroerend Erfgoed (Vlaamse erfgoedinventaris)"
+  },
+  "SINTNIKLAAS": {
+   "k": "SINTNIKLAAS",
+   "t": "Sint-Niklaaskerk Gent (officieel)",
+   "u": "http://www.sintniklaaskerk.be",
+   "l": "Sint-Niklaaskerk Gent (officieel)"
+  },
+  "SMAK": {
+   "k": "SMAK",
+   "t": "S.M.A.K. (officieel)",
+   "u": "https://smak.be",
+   "l": "S.M.A.K. (officieel)"
+  },
+  "STADGENT": {
+   "k": "STAD GENT",
+   "t": "Stad Gent (stadsbestuur, officieel)",
+   "u": "https://stad.gent",
+   "l": "Stad Gent (stadsbestuur, officieel)"
+  },
+  "STAMGENT": {
+   "k": "STAMGENT",
+   "t": "STAM Stadsmuseum Gent (officieel)",
+   "u": "https://stamgent.be",
+   "l": "STAM Stadsmuseum Gent (officieel)"
+  },
+  "TOERISMELEIE": {
+   "k": "TOERISMELEIE",
+   "t": "Toerisme Leiestreek (officieel regionaal toerisme)",
+   "u": "https://www.toerisme-leiestreek.be",
+   "l": "Toerisme Leiestreek (officieel regionaal toerisme)"
+  },
+  "UNESCOVL": {
+   "k": "UNESCOVL",
+   "t": "UNESCO Vlaanderen",
+   "u": "https://www.unesco-vlaanderen.be",
+   "l": "UNESCO Vlaanderen"
+  },
+  "VISITFLANDERS": {
+   "k": "VISIT FLANDERS",
+   "t": "Toerisme Vlaanderen / VisitFlanders",
+   "u": "https://www.visitflanders.com",
+   "l": "Toerisme Vlaanderen / VisitFlanders"
+  },
+  "VISITGENT": {
+   "k": "VISIT GENT",
+   "t": "Visit Gent (officiële stadstoerisme)",
+   "u": "https://visit.gent.be",
+   "l": "Visit Gent (officiële stadstoerisme)"
+  },
+  "VRTNWS": {
+   "k": "VRT NWS",
+   "t": "VRT NWS (Vlaamse openbare omroep)",
+   "u": "https://www.vrt.be/vrtnws",
+   "l": "VRT NWS (Vlaamse openbare omroep)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (NL/EN)",
+   "u": "https://nl.wikipedia.org",
+   "l": "Wikipedia (NL/EN)"
+  }
+ },
+ "FS": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "AUBERGEPECHEUR": {
+   "k": "AUBERGEPECHEUR",
+   "t": "Auberge du Pêcheur (officieel)",
+   "u": "https://www.auberge-du-pecheur.be",
+   "l": "Auberge du Pêcheur (officieel)"
+  },
+  "BEVEGAN": {
+   "k": "BEVEGAN",
+   "t": "Be Vegan (België)",
+   "u": "https://bevegan.be",
+   "l": "Be Vegan (België)"
+  },
+  "CULINAIREAMB": {
+   "k": "CULINAIREAMB",
+   "t": "Culinaire Ambiance",
+   "u": "https://culinaireambiance.com",
+   "l": "Culinaire Ambiance"
+  },
+  "ELLE": {
+   "k": "ELLE",
+   "t": "ELLE België",
+   "u": "https://www.elle.be",
+   "l": "ELLE België"
+  },
+  "FEELING": {
+   "k": "FEELING",
+   "t": "Feeling (Roularta magazine)",
+   "u": "https://www.feeling.be",
+   "l": "Feeling (Roularta magazine)"
+  },
+  "GAULTMILLAU": {
+   "k": "GAULT&MILLAU",
+   "t": "Gault&Millau België",
+   "u": "https://www.gaultmillau.be",
+   "l": "Gault&Millau België"
+  },
+  "GENTBLOGT": {
+   "k": "GENTBLOGT",
+   "t": "Gentblogt (stadsarchief, stad.gent)",
+   "u": "https://gentblogt-archief.stad.gent",
+   "l": "Gentblogt (stadsarchief, stad.gent)"
+  },
+  "GENTDEKUIP": {
+   "k": "GENTDEKUIP",
+   "t": "Gent, De Kuip (lokale erfgoedgids)",
+   "u": "https://gentdekuip.com",
+   "l": "Gent, De Kuip (lokale erfgoedgids)"
+  },
+  "GREENWAY": {
+   "k": "GREENWAY",
+   "t": "Greenway (officieel)",
+   "u": "https://greenway.be",
+   "l": "Greenway (officieel)"
+  },
+  "GRUUT": {
+   "k": "GRUUT",
+   "t": "Gentse Stadsbrouwerij Gruut (officieel)",
+   "u": "https://www.gruut.be",
+   "l": "Gentse Stadsbrouwerij Gruut (officieel)"
+  },
+  "HIPSTEADRESJES": {
+   "k": "HIPSTEADRESJES",
+   "t": "De Hipste Adresjes van Gent",
+   "u": "https://hipsteadresjes.gent",
+   "l": "De Hipste Adresjes van Gent"
+  },
+  "HOPDUVEL": {
+   "k": "HOPDUVEL",
+   "t": "De Hopduvel (officieel)",
+   "u": "https://www.de-hopduvel-gent.be",
+   "l": "De Hopduvel (officieel)"
+  },
+  "INDUSTRIEMUSEUM": {
+   "k": "INDUSTRIEMUSEUM",
+   "t": "Industriemuseum Gent (officieel)",
+   "u": "https://www.industriemuseum.be",
+   "l": "Industriemuseum Gent (officieel)"
+  },
+  "JULIESHOUSE": {
+   "k": "JULIESHOUSE",
+   "t": "Julie's House (officieel)",
+   "u": "https://www.julieshouse.be",
+   "l": "Julie's House (officieel)"
+  },
+  "JUNE": {
+   "k": "JUNE",
+   "t": "june. a travel magazine",
+   "u": "https://www.june.be",
+   "l": "june. a travel magazine"
+  },
+  "KNACKWEEKEND": {
+   "k": "KNACKWEEKEND",
+   "t": "Knack Weekend",
+   "u": "https://weekend.knack.be",
+   "l": "Knack Weekend"
+  },
+  "LANGSDELEIE": {
+   "k": "LANGSDELEIE",
+   "t": "Langs de Leie (regionaal toerisme)",
+   "u": "https://langsdeleie.be",
+   "l": "Langs de Leie (regionaal toerisme)"
+  },
+  "LEFOODING": {
+   "k": "LEFOODING",
+   "t": "Le Fooding",
+   "u": "https://lefooding.com",
+   "l": "Le Fooding"
+  },
+  "LOSTBEERS": {
+   "k": "LOSTBEERS",
+   "t": "Lost Beers (bierjournalistiek)",
+   "u": "https://lostbeers.com",
+   "l": "Lost Beers (bierjournalistiek)"
+  },
+  "MARIECLAIRE": {
+   "k": "MARIECLAIRE",
+   "t": "Marie Claire België",
+   "u": "https://marieclaire.be",
+   "l": "Marie Claire België"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "Le Guide Michelin België",
+   "u": "https://guide.michelin.com",
+   "l": "Le Guide Michelin België"
+  },
+  "MOKABON": {
+   "k": "MOKABON",
+   "t": "Mokabon (officieel)",
+   "u": "https://mokabon.myshopify.com",
+   "l": "Mokabon (officieel)"
+  },
+  "NATGEONL": {
+   "k": "NATGEONL",
+   "t": "National Geographic Nederland",
+   "u": "https://www.nationalgeographic.nl",
+   "l": "National Geographic Nederland"
+  },
+  "ORCOFFEE": {
+   "k": "ORCOFFEE",
+   "t": "OR Coffee Roasters (officieel)",
+   "u": "https://www.orcoffee.be",
+   "l": "OR Coffee Roasters (officieel)"
+  },
+  "REIZENREISTIPS": {
+   "k": "REIZENREISTIPS",
+   "t": "Reizen & Reistips",
+   "u": "https://www.reizen-en-reistips.nl",
+   "l": "Reizen & Reistips"
+  },
+  "RUTGERBAKT": {
+   "k": "RUTGERBAKT",
+   "t": "Rutger Bakt (Rutger van den Broek)",
+   "u": "https://rutgerbakt.nl",
+   "l": "Rutger Bakt (Rutger van den Broek)"
+  },
+  "SENSUM": {
+   "k": "SENSUM",
+   "t": "Sensum (officieel)",
+   "u": "https://sensumgent.be",
+   "l": "Sensum (officieel)"
+  },
+  "SOUVENIR": {
+   "k": "SOUVENIR",
+   "t": "Souvenir (officieel)",
+   "u": "https://souvenir.gent",
+   "l": "Souvenir (officieel)"
+  },
+  "STREEKPRODUCT": {
+   "k": "STREEKPRODUCT",
+   "t": "Streekproduct.be (VLAM, erkende streekproducten)",
+   "u": "https://www.streekproduct.be",
+   "l": "Streekproduct.be (VLAM, erkende streekproducten)"
+  },
+  "TIMETOMOMO": {
+   "k": "TIMETOMOMO",
+   "t": "time to momo (reisgids)",
+   "u": "https://www.timetomomo.com",
+   "l": "time to momo (reisgids)"
+  },
+  "TOERISMELEIE": {
+   "k": "TOERISMELEIE",
+   "t": "Toerisme Leiestreek (officieel regionaal toerisme)",
+   "u": "https://www.toerisme-leiestreek.be",
+   "l": "Toerisme Leiestreek (officieel regionaal toerisme)"
+  },
+  "VERLORENBIEREN": {
+   "k": "VERLORENBIEREN",
+   "t": "Verloren Bieren / Het Gentsche Kroegenboek",
+   "u": "https://verlorenbieren.nl",
+   "l": "Verloren Bieren / Het Gentsche Kroegenboek"
+  },
+  "VISITGENT": {
+   "k": "VISIT GENT",
+   "t": "Visit Gent (officiële stadstoerisme)",
+   "u": "https://visit.gent.be",
+   "l": "Visit Gent (officiële stadstoerisme)"
+  },
+  "VRIJMOED": {
+   "k": "VRIJMOED",
+   "t": "Vrijmoed (officieel)",
+   "u": "https://www.vrijmoed.be",
+   "l": "Vrijmoed (officieel)"
+  },
+  "VRTNWS": {
+   "k": "VRT NWS",
+   "t": "VRT NWS (Vlaamse openbare omroep)",
+   "u": "https://www.vrt.be/vrtnws",
+   "l": "VRT NWS (Vlaamse openbare omroep)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (NL/EN)",
+   "u": "https://nl.wikipedia.org",
+   "l": "Wikipedia (NL/EN)"
+  }
+ }
+}
