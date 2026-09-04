@@ -1,0 +1,328 @@
+{
+ "outlets": [
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "type": "institutional authority",
+   "url": "https://whc.unesco.org"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (EN)",
+   "type": "reference",
+   "url": "https://en.wikipedia.org"
+  },
+  {
+   "key": "WIKIPEDIANL",
+   "name": "Wikipedia (NL)",
+   "type": "reference",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "VISITANTWERPEN",
+   "name": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",
+   "type": "official city tourism",
+   "url": "https://visit.antwerpen.be"
+  },
+  {
+   "key": "ANTWERPENBE",
+   "name": "Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)",
+   "type": "municipal / official",
+   "url": "https://www.antwerpen.be"
+  },
+  {
+   "key": "PERSANTWERPEN",
+   "name": "Stad Antwerpen persdienst (pers.antwerpen.be)",
+   "type": "municipal / official",
+   "url": "https://pers.antwerpen.be"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",
+   "type": "official heritage inventory",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS",
+   "type": "national public broadcaster",
+   "url": "https://www.vrt.be/vrtnws"
+  },
+  {
+   "key": "MICHELIN",
+   "name": "Michelin Gids België & Luxemburg",
+   "type": "institutional authority",
+   "url": "https://guide.michelin.com"
+  },
+  {
+   "key": "GAULTMILLAU",
+   "name": "Gault&Millau België",
+   "type": "institutional authority (gastronomy)",
+   "url": "https://www.gaultmillau.be"
+  },
+  {
+   "key": "VISITMECHELEN",
+   "name": "Visit Mechelen / Meet in Mechelen (officiële toerisme)",
+   "type": "official city tourism",
+   "url": "https://visit.mechelen.be"
+  },
+  {
+   "key": "MEETINMECHELEN",
+   "name": "Meet in Mechelen (Stad Mechelen)",
+   "type": "official city tourism",
+   "url": "https://meetin.mechelen.be"
+  },
+  {
+   "key": "VISITLIER",
+   "name": "Visit Lier (officiële toerisme)",
+   "type": "official city tourism",
+   "url": "https://www.visitlier.be"
+  },
+  {
+   "key": "VISITFLANDERS",
+   "name": "Toerisme Vlaanderen (visitflanders.com)",
+   "type": "official regional tourism",
+   "url": "https://www.visitflanders.com"
+  },
+  {
+   "key": "KMSKA",
+   "name": "Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)",
+   "type": "national museum",
+   "url": "https://kmska.be"
+  },
+  {
+   "key": "REDSTARLINE",
+   "name": "Red Star Line Museum (officieel, Stad Antwerpen)",
+   "type": "municipal museum",
+   "url": "https://redstarline.be"
+  },
+  {
+   "key": "MASBE",
+   "name": "MAS — Museum aan de Stroom (officieel)",
+   "type": "municipal museum",
+   "url": "https://mas.be"
+  },
+  {
+   "key": "PLANTINMORETUS",
+   "name": "Museum Plantin-Moretus (officieel, UNESCO)",
+   "type": "UNESCO / museum",
+   "url": "https://museumplantinmoretus.be"
+  },
+  {
+   "key": "MAYERVDBERGH",
+   "name": "Museum Mayer van den Bergh (officieel)",
+   "type": "museum",
+   "url": "https://museummayervandenbergh.be"
+  },
+  {
+   "key": "SNIJDERSROCKOX",
+   "name": "Het Snijders&Rockoxhuis (officieel)",
+   "type": "museum",
+   "url": "https://www.snijdersrockoxhuis.be"
+  },
+  {
+   "key": "HOFVANBUSLEYDEN",
+   "name": "Museum Hof van Busleyden (officieel, Stad Mechelen)",
+   "type": "municipal museum",
+   "url": "https://www.hofvanbusleyden.be"
+  },
+  {
+   "key": "HANDELSBEURS",
+   "name": "Handelsbeurs Antwerpen (officieel)",
+   "type": "heritage venue (official)",
+   "url": "https://handelsbeursantwerpen.be"
+  },
+  {
+   "key": "HETANKER",
+   "name": "Brouwerij Het Anker (officieel)",
+   "type": "brewery (official)",
+   "url": "https://www.hetanker.be"
+  },
+  {
+   "key": "DEKONINCK",
+   "name": "Brouwerij De Koninck / Antwerp City Brewery (officieel)",
+   "type": "brewery (official)",
+   "url": "https://www.dekoninck.be"
+  },
+  {
+   "key": "SEEF",
+   "name": "Antwerpse Brouw Compagnie / Seef (officieel)",
+   "type": "brewery (official)",
+   "url": "https://seef.be"
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "type": "editorial (travel)",
+   "url": "https://www.atlasobscura.com"
+  },
+  {
+   "key": "APEN",
+   "name": "Apen.be — cultuur- en stadsgids Antwerpen",
+   "type": "editorial (city guide)",
+   "url": "https://apen.be"
+  },
+  {
+   "key": "OKV",
+   "name": "Openbaar Kunstbezit in Vlaanderen (okv.be)",
+   "type": "editorial (art heritage)",
+   "url": "https://www.okv.be"
+  },
+  {
+   "key": "ELLE",
+   "name": "ELLE België",
+   "type": "editorial (lifestyle)",
+   "url": "https://www.elle.be"
+  },
+  {
+   "key": "FEELING",
+   "name": "Feeling / Feeling Food (Roularta)",
+   "type": "editorial (lifestyle)",
+   "url": "https://www.feeling.be"
+  },
+  {
+   "key": "MADEIN",
+   "name": "Made in (regionale nieuwssite, o.a. Mechelen/Antwerpen)",
+   "type": "editorial (regional news)",
+   "url": "https://www.made-in.be"
+  },
+  {
+   "key": "NJAM",
+   "name": "njam! (Vlaamse culinaire zender)",
+   "type": "editorial (food media)",
+   "url": "https://njam.tv"
+  },
+  {
+   "key": "W50BEST",
+   "name": "The World's 50 Best — Discovery",
+   "type": "editorial (gastronomy)",
+   "url": "https://www.theworlds50best.com/discovery"
+  },
+  {
+   "key": "OLIVEMAG",
+   "name": "Olive Magazine (UK)",
+   "type": "editorial (food travel)",
+   "url": "https://www.olivemagazine.com"
+  },
+  {
+   "key": "TIMETOMOMO",
+   "name": "Time to Momo (stadsgidsen)",
+   "type": "editorial (travel)",
+   "url": "https://www.timetomomo.com"
+  },
+  {
+   "key": "LEFOODING",
+   "name": "Le Fooding",
+   "type": "editorial (dining guide)",
+   "url": "https://lefooding.com"
+  },
+  {
+   "key": "FLEMISHMASTERS",
+   "name": "Flemish Masters in situ (Vlaamse erfgoedproject)",
+   "type": "official heritage project",
+   "url": "https://www.flemishmastersinsitu.com"
+  },
+  {
+   "key": "STREEKPRODUCT",
+   "name": "Streekproduct.be (VLAM — Vlaamse streekproducten)",
+   "type": "official regional-product authority",
+   "url": "https://www.streekproduct.be"
+  },
+  {
+   "key": "KEMPENSKARAKTER",
+   "name": "Kempens Karakter (erfgoedorganisatie)",
+   "type": "heritage organisation",
+   "url": "https://www.kempenskarakter.be"
+  },
+  {
+   "key": "SINTPAULUS",
+   "name": "Sint-Paulusparochie Antwerpen (officieel)",
+   "type": "parish (official)",
+   "url": "https://www.sintpaulusantwerpen.be"
+  },
+  {
+   "key": "PROVANTWERPEN",
+   "name": "Provincie Antwerpen (officiële provinciale domeinen)",
+   "type": "provincial / official",
+   "url": "https://www.provincieantwerpen.be"
+  },
+  {
+   "key": "HERITA",
+   "name": "Herita vzw (erfgoedorganisatie)",
+   "type": "heritage organisation",
+   "url": "https://www.herita.be"
+  },
+  {
+   "key": "LONELYPLANET",
+   "name": "Lonely Planet",
+   "type": "editorial (travel)",
+   "url": "https://www.lonelyplanet.com"
+  },
+  {
+   "key": "ALLABOUTBEER",
+   "name": "All About Beer (bierjournalistiek)",
+   "type": "beer journalism",
+   "url": "https://allaboutbeer.com"
+  },
+  {
+   "key": "BIERSCHRIJVER",
+   "name": "De Bierschrijver (bierjournalistiek)",
+   "type": "beer journalism",
+   "url": "https://www.bierschrijver.nl"
+  },
+  {
+   "key": "EUROPEANBARGUIDE",
+   "name": "The European Bar Guide",
+   "type": "bar/beer journalism",
+   "url": "https://theeuropeanbarguide.com"
+  },
+  {
+   "key": "EUROPEANCOFFEE",
+   "name": "European Coffee Trip",
+   "type": "specialty-coffee editorial",
+   "url": "https://europeancoffeetrip.com"
+  },
+  {
+   "key": "PERSRUBENS",
+   "name": "Rubenshuis persdienst (officieel)",
+   "type": "municipal museum",
+   "url": "https://pers.rubenshuis.be"
+  },
+  {
+   "key": "HAVENWERELD",
+   "name": "Havenwereld — Port of Antwerp-Bruges (officieel)",
+   "type": "port authority (official)",
+   "url": "https://www.havenwereld.be"
+  },
+  {
+   "key": "JANMAG",
+   "name": "JAN Magazine",
+   "type": "editorial (lifestyle)",
+   "url": "https://www.jan-magazine.nl"
+  },
+  {
+   "key": "DELREY",
+   "name": "DelReY Antwerpen (officieel; Relais Desserts-lid)",
+   "type": "patisserie (official)",
+   "url": "https://www.delrey.be"
+  },
+  {
+   "key": "GRAANMARKT13",
+   "name": "Graanmarkt 13 (officieel)",
+   "type": "restaurant (official)",
+   "url": "https://www.graanmarkt13.com"
+  },
+  {
+   "key": "KLEINBLATT",
+   "name": "Kleinblatt (officieel, koosjere bakkerij)",
+   "type": "bakery (official)",
+   "url": "https://www.kleinblatt.be"
+  },
+  {
+   "key": "HOFFYS",
+   "name": "Hoffy's (officieel)",
+   "type": "restaurant (official)",
+   "url": "https://hoffys.be"
+  }
+ ]
+}

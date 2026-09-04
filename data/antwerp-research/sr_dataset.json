@@ -1,0 +1,2724 @@
+{
+ "areas": [
+  {
+   "id": "ANT",
+   "n": "Antwerp (Cathedral · Grote Markt · MAS · Zuid · Zurenborg · Diamond District)"
+  },
+  {
+   "id": "ANTR",
+   "n": "Around Antwerp (Berchem · Deurne · Hoboken · Mechelen · Lier · the Port)"
+  }
+ ],
+ "ac": {
+  "ANT": "#2E6DA4",
+  "ANTR": "#C0504D"
+ },
+ "cuisines": [
+  {
+   "id": "BEL",
+   "n": "Belgian & Flemish"
+  },
+  {
+   "id": "FR",
+   "n": "French & Brasserie"
+  },
+  {
+   "id": "BEER",
+   "n": "Beer & Breweries"
+  },
+  {
+   "id": "SWEET",
+   "n": "Chocolate, Waffles & Sweets"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "CAFE",
+   "n": "Café & Brown Café"
+  },
+  {
+   "id": "SEA",
+   "n": "North Sea & Seafood"
+  },
+  {
+   "id": "VEG",
+   "n": "Vegetarian & Vegan"
+  },
+  {
+   "id": "INT",
+   "n": "International & Student"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARCH",
+   "n": "Churches, Belfries & Castles"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "CANAL",
+   "n": "Canals & Waterfront"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Nature"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Squares"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife & Quarters"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Onze-Lieve-Vrouwekathedraal",
+   "ad": "Handschoenmarkt, 2000 Antwerpen, Belgium",
+   "w": "De hoogste gotische kerk van de Lage Landen (toren ~123 m) met vier grote Rubens-werken, waaronder 'De Kruisafneming'. De kathedraaltoren staat als belfort op de UNESCO-Werelderfgoedlijst en beheerst de skyline van 't Stad.",
+   "k": "gotische kathedraal + 4 Rubensen",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "UNESCO"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Onze-Lieve-Vrouwekerk"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/activiteit/kathedraaltoren-beklimming"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Grote Markt, Stadhuis & Brabofontein",
+   "ad": "Grote Markt 1, 2000 Antwerpen, Belgium",
+   "w": "Het driehoekige hart van de oude stad: het Italiaans-Vlaamse renaissancestadhuis (voltooid 1565), rijke gildehuizen en de Brabofontein (1887) die de stichtingslegende van Silvius Brabo verbeeldt.",
+   "k": "renaissancestadhuis + gildehuizen",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/stadhuis"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/belgium/flanders/antwerp/attractions/grote-markt/a/poi-sig/1523564/358710"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Steen",
+   "ad": "Steenplein 1, 2000 Antwerpen, Belgium",
+   "w": "De middeleeuwse Scheldeburcht, het oudste bewaarde gebouw van Antwerpen, huisvest vandaag het bezoekerscentrum en de belevenis 'The Antwerp Story' aan de kaaien.",
+   "k": "middeleeuwse Scheldeburcht",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Het_Steen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "MAS — Museum aan de Stroom",
+   "ad": "Hanzestedenplaats 1, 2000 Antwerpen, Belgium",
+   "w": "Het grootste museum van de stad (2011) op het Eilandje: negen verdiepingen over Antwerpen, de haven en de wereld, met een gratis toegankelijk dakterras dat het beste panorama van 't Stad biedt.",
+   "k": "stadsmuseum + gratis panorama",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MASBE",
+     "https://mas.be/en"
+    ],
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/info/53610431afa8a760418b460e/mas-museum-aan-de-stroom"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Rubenshuis (in restauratie tot ~2030)",
+   "ad": "Wapper 9-11, 2000 Antwerpen, Belgium",
+   "w": "Het stadspaleis, atelier en de tuin van Peter Paul Rubens. Het museum sloot in januari 2023 voor een grondige restauratie; door vertraging (asbest, prijzen) wordt heropening pas rond 2030 verwacht — het portaal en de barokgevel blijven de blikvanger aan de Wapper.",
+   "k": "stadspaleis van Rubens — gesloten voor restauratie",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "PERSRUBENS",
+     "https://pers.rubenshuis.be/grondige-restauratie-kunstenaarswoning-maakt-masterplan-rubenshuis-compleet-museum-sluit-vanaf-9-januari-2023-en-heropent-in-2027"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2023/10/24/restauratie-rubenshuis-antwerpen-loopt-zeker-drie-jaar-vertragin/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Museum Plantin-Moretus",
+   "ad": "Vrijdagmarkt 22, 2000 Antwerpen, Belgium",
+   "w": "Het enige museum ter wereld op de UNESCO-Werelderfgoedlijst (sinds 2005): het originele woonhuis en de drukkerij van de familie Plantin-Moretus, met de twee oudste bewaarde drukpersen ter wereld en Rubens-portretten.",
+   "k": "UNESCO — oudste drukkerij ter wereld",
+   "g": [
+    "UNESCO",
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "PLANTINMORETUS",
+     "https://museumplantinmoretus.be/en/about-us"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1185/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "KMSKA — Koninklijk Museum voor Schone Kunsten",
+   "ad": "Leopold de Waelplaats 1, 2000 Antwerpen, Belgium",
+   "w": "Na elf jaar renovatie in 2022 heropend: de topcollectie Vlaamse meesters (Van Eyck, Memling, Rubens, Ensor) in een neoklassiek paleis met 40% extra ruimte in strakke witte patio's. Meteen een van de best bezochte musea van Vlaanderen.",
+   "k": "Vlaamse meesters, spectaculair heropend",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "KMSKA",
+     "https://kmska.be/nl"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2022/09/15/na-elf-jaar-gaat-schatkamer-kmska-in-antwerpen-zaterdag-weer-ope/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "M HKA — Museum van Hedendaagse Kunst",
+   "ad": "Leuvenstraat 32, 2000 Antwerpen, Belgium",
+   "w": "Het Vlaamse museum voor hedendaagse kunst en beeldcultuur in een oud graansilo op het Zuid, met een sterke focus op Belgische naoorlogse en actuele kunst.",
+   "k": "hedendaagse kunst op 't Zuid",
+   "g": [
+    "MUS",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Museum_van_Hedendaagse_Kunst_Antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "FoMU — FotoMuseum Antwerpen",
+   "ad": "Waalsekaai 47, 2000 Antwerpen, Belgium",
+   "w": "Het Vlaamse fotografiemuseum op het Zuid, met een rijke historische collectie en wisselende exposities van gevestigde en jonge fotografen.",
+   "k": "fotografiemuseum",
+   "g": [
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/FotoMuseum_Antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Pauluskerk",
+   "ad": "Sint-Paulusstraat 22, 2000 Antwerpen, Belgium",
+   "w": "Gotische kerk met een uitzonderlijk barokinterieur waar werken van de drie grootste Antwerpse barokschilders — Rubens, Van Dyck en Jordaens — broederlijk naast elkaar hangen, plus de opmerkelijke Calvarietuin.",
+   "k": "Rubens, Van Dyck én Jordaens",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "PARK"
+   ],
+   "s": [
+    [
+     "SINTPAULUS",
+     "https://www.sintpaulusantwerpen.be/nieuws/met-rubens-op-zomerwandeling/"
+    ],
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/nl/locaties/sint-pauluskerk-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Jacobskerk",
+   "ad": "Lange Nieuwstraat 73, 2000 Antwerpen, Belgium",
+   "w": "Rijke gotische kerk (1490-1656) met een overweldigend marmeren barokinterieur en 24 altaren. In de Rubenskapel bevindt zich de laatste rustplaats van Peter Paul Rubens, met zijn schilderij 'Madonna omringd door heiligen'.",
+   "k": "grafkerk van Rubens",
+   "g": [
+    "HIST",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/nl/locaties/sint-jacobskerk-antwerpen"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Jacobskerk_(Antwerpen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Carolus Borromeuskerk",
+   "ad": "Hendrik Conscienceplein 12, 2000 Antwerpen, Belgium",
+   "w": "Meesterwerk van de barok (1615-1621) op het sfeervolle Hendrik Conscienceplein; Rubens werkte mee aan de gevel en leverde ooit 39 plafondschilderijen (verbrand in 1718). Een pronkstuk van de jezuïetenarchitectuur.",
+   "k": "barok, mee door Rubens ontworpen",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MKT",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4118"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be/museum/sint-carolus-borromeuskerk"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Annatunnel (voetgangerstunnel)",
+   "ad": "Sint-Jansvliet, 2000 Antwerpen, Belgium",
+   "w": "De voetgangers- en fietstunnel onder de Schelde uit 1933, met authentieke houten roltrappen — tot de oudste nog werkende houten roltrappen van continentaal Europa — en aan de overkant een gratis panorama op de stad.",
+   "k": "tunnel onder de Schelde, houten roltrappen",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Annatunnel"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "MoMu — ModeMuseum",
+   "ad": "Nationalestraat 28, 2000 Antwerpen, Belgium",
+   "w": "Het Vlaamse modemuseum in de Modenatie, kloppend hart van de Antwerpse modewijk en de erfenis van de 'Antwerp Six'. Wisselende topexposities rond mode en textiel.",
+   "k": "modemuseum in de modewijk",
+   "g": [
+    "MUS",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/ModeMuseum_Antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "DIVA — museum voor diamant, juwelen en zilver",
+   "ad": "Suikerrui 17-19, 2000 Antwerpen, Belgium",
+   "w": "Antwerpen is de wereldhoofdstad van de diamant; DIVA vertelt dat verhaal via een schitterende collectie diamant, juwelen en zilver in een parcours als een galadiner.",
+   "k": "diamant- en zilvercollectie",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/info/diva"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/DIVA_(museum)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Museum Mayer van den Bergh",
+   "ad": "Lange Gasthuisstraat 19, 2000 Antwerpen, Belgium",
+   "w": "Kabinetmuseum met de wereldberoemde 'Dulle Griet' van Pieter Bruegel de Oude. Let op: het gebouw is (deels) gesloten voor restauratie; topstukken zijn tijdelijk elders (o.a. het Maagdenhuis) te zien — check vooraf.",
+   "k": "Bruegels 'Dulle Griet'",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MAYERVDBERGH",
+     "https://museummayervandenbergh.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_Mayer_van_den_Bergh"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Snijders&Rockoxhuis",
+   "ad": "Keizerstraat 10-12, 2000 Antwerpen, Belgium",
+   "w": "De aaneengesloten patriciërswoningen van burgemeester Nicolaas Rockox en schilder Frans Snijders, ingericht als een 17de-eeuws kunstkabinet met werk van Rubens, Van Dyck en Snijders.",
+   "k": "barok kunstkabinet",
+   "g": [
+    "MUS",
+    "HIST",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "SNIJDERSROCKOX",
+     "https://www.snijdersrockoxhuis.be/"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Red Star Line Museum",
+   "ad": "Montevideostraat 3, 2000 Antwerpen, Belgium",
+   "w": "In de originele loodsen van de rederij vertelt dit museum het verhaal van bijna drie miljoen landverhuizers die tussen 1873 en 1935 via Antwerpen naar Amerika vertrokken — een aangrijpend migratiemuseum op het Eilandje.",
+   "k": "migratie naar de Nieuwe Wereld",
+   "g": [
+    "MUS",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "REDSTARLINE",
+     "https://redstarline.be/en/content/museum"
+    ],
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "ZOO Antwerpen",
+   "ad": "Koningin Astridplein 20-26, 2018 Antwerpen, Belgium",
+   "w": "De oudste dierentuin van België (1843) pal naast het Centraal Station, geliefd om zijn 19de-eeuwse tuinarchitectuur — Egyptische tempel, art-decogebouwen — en meer dan 5.000 dieren midden in de stad.",
+   "k": "oudste zoo van België (1843)",
+   "g": [
+    "ICON",
+    "HIST",
+    "PARK",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Antwerpse_Zoo"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Havenhuis (Port House) — Zaha Hadid",
+   "ad": "Zaha Hadidplein 1, 2030 Antwerpen, Belgium",
+   "w": "Zaha Hadids laatste voltooide gebouw (2016): een glinsterende, diamantvormige cocon die boven een oude brandweerkazerne op het Eilandje zweeft. Van buiten vrij te bewonderen; binnen enkel met gegidste groepsrondleiding.",
+   "k": "iconische architectuur van Zaha Hadid",
+   "g": [
+    "ICON",
+    "ARCH",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Havenhuis_(Antwerpen)"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Boerentoren (KBC-toren)",
+   "ad": "Schoenmarkt 35, 2000 Antwerpen, Belgium",
+   "w": "De eerste wolkenkrabber van Europa (1929-1931), bijna 100 m hoog en in art-decostijl. Ondergaat een transformatie tot kunst- en publieksplek; de silhouetstijl blijft een baken in de skyline.",
+   "k": "eerste wolkenkrabber van Europa",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2020/11/19/de-boerentoren-de-eerste-belgische-wolkenkrabber/"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/3959"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Paleis op de Meir",
+   "ad": "Meir 50, 2000 Antwerpen, Belgium",
+   "w": "18de-eeuws rococopaleis aan de winkelstraat de Meir, ooit door Napoleon en later door de Belgische koningen gebruikt. Vandaag met een chocoladehuis en het Chocolate Story-museum.",
+   "k": "rococopaleis + chocoladehuis",
+   "g": [
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "OKV",
+     "https://www.okv.be/museum/paleis-op-de-meir"
+    ],
+    [
+     "HERITA",
+     "https://www.herita.be/en/meir-palace"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Museum Vleeshuis — Klank van de Stad",
+   "ad": "Vleeshouwersstraat 38-40, 2000 Antwerpen, Belgium",
+   "w": "Laatgotisch voormalig gildehuis van de vleeshouwers (1501-1504) in rode baksteen en witte zandsteen, sinds 2006 gewijd aan 800 jaar muziekleven in Antwerpen en de Lage Landen.",
+   "k": "muziekmuseum in een gildehuis",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Museum_Vleeshuis"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4678"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Vlaeykensgang",
+   "ad": "Oude Koornmarkt 16, 2000 Antwerpen, Belgium",
+   "w": "Verscholen 16de-eeuws steegje pal naast de Grote Markt: kasseien, lantaarns en stilte op wandelafstand van de kathedraalbeiaard. Een van de best bewaarde stukjes oud Antwerpen.",
+   "k": "verborgen 16de-eeuws steegje",
+   "g": [
+    "HIST",
+    "FREE",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Zurenborg & Cogels-Osylei",
+   "ad": "Cogels-Osylei, 2600 Berchem (Antwerpen), Belgium",
+   "w": "Een openluchtmuseum van fin-de-siècle-architectuur: straten vol art-nouveau-, neoclassicistische en eclectische burgerpaleizen. De Cogels-Osylei geldt als een van de mooiste straten van het land.",
+   "k": "fin-de-siècle-architectuurwijk",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Zurenborg"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Antwerpen-Centraal (Centraal Station)",
+   "ad": "Koningin Astridplein 27, 2018 Antwerpen, Belgium",
+   "w": "De 'spoorwegkathedraal' (1905) met haar monumentale stenen ontvangsthal, koepel en vier verdiepingen sporen wordt geregeld tot een van de mooiste stations ter wereld gerekend.",
+   "k": "de spoorwegkathedraal",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Station_Antwerpen-Centraal"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Handelsbeurs",
+   "ad": "Twaalfmaandenstraat, 2000 Antwerpen, Belgium",
+   "w": "De schitterend gerestaureerde neogotische beurshal op de plek van de eerste 'beurs' ter wereld (1531). Na twintig jaar leegstand in 2019 heropend als evenementenhal onder een spectaculair glazen dak.",
+   "k": "'s werelds eerste beurs, herrezen",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "HANDELSBEURS",
+     "https://handelsbeursantwerpen.be/en/geschiedenis-handelsbeurs-antwerpen/"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Sint-Andrieskerk",
+   "ad": "Sint-Andriesstraat 5, 2000 Antwerpen, Belgium",
+   "w": "De parochiekerk van de gelijknamige volkse-modieuze wijk, een van de vijf monumentale kerken van de stad, in het voorjaar van 2025 volledig uit de restauratiesteigers.",
+   "k": "kerk van de Sint-Andrieswijk",
+   "g": [
+    "HIST",
+    "ARCH",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "PERSANTWERPEN",
+     "https://pers.antwerpen.be/sint-andrieskerk-in-voorjaar-2025-volledig-uit-de-stellingen"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Andrieskerk_(Antwerpen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Eilandje",
+   "ad": "Willemdok / Bonapartedok, 2000 Antwerpen, Belgium",
+   "w": "Het oudste, heropgeleefde havenkwartier ten noorden van de oude stad: rondom Bonapartedok, Willemdok en Kattendijkdok kwamen loft-, museum- en restaurantwijken tot bloei rond het MAS en het Havenhuis.",
+   "k": "heropgeleefd oud havenkwartier",
+   "g": [
+    "ARCH",
+    "MKT",
+    "NIGHT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/nl/nl/article/travel/t-eilandje-in-antwerpen-bruist-als-nooit-tevoren"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Het_Eilandje"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Middelheimmuseum",
+   "ad": "Middelheimlaan 61, 2020 Antwerpen, Belgium",
+   "w": "Gratis openluchtmuseum voor moderne en hedendaagse beeldhouwkunst in het groene Nachtegalenpark, met meesterwerken van o.a. Rik Wouters, Rodin, Panamarenko en Giacometti.",
+   "k": "gratis beeldenpark",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/info/53675047aba8a70d7f8b4573/middelheimmuseum"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/ontdek-vlaanderen/kunst-en-erfgoed/kastelen-en-tuinen-buiten-de-stadsmuren/kastelen-en-tuinen-8-1"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Provinciaal Groendomein Rivierenhof",
+   "ad": "Turnhoutsebaan 246, 2100 Deurne (Antwerpen), Belgium",
+   "w": "Het grootste en oudste provinciedomein bij de stad in Deurne: een uitgestrekt landschapspark met kasteel, openluchttheater en waterpartijen, dagelijks gratis toegankelijk.",
+   "k": "grootste stadspark",
+   "g": [
+    "PARK",
+    "FREE",
+    "ARCH",
+    "MUS"
+   ],
+   "s": [
+    [
+     "PROVANTWERPEN",
+     "https://www.provincieantwerpen.be/nl/locaties/rivierenhof"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/ontdek-vlaanderen/kunst-en-erfgoed/kastelen-en-tuinen-buiten-de-stadsmuren/kastelen-en-tuinen-8-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Grenspark Kalmthoutse Heide",
+   "ad": "Putsesteenweg 129, 2920 Kalmthout, Belgium",
+   "w": "Uitgestrekt grensoverschrijdend natuurgebied van heide, zandduinen, vennen en bossen ten noorden van de stad, gratis toegankelijk met wandelroutes en twee uitkijktorens.",
+   "k": "heide, duinen en vennen",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/De_Zoom%E2%80%93Kalmthoutse_Heide_Cross-Border_Park"
+    ],
+    [
+     "PROVANTWERPEN",
+     "https://www.provincieantwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Arboretum Kalmthout",
+   "ad": "Heuvel 8, 2920 Kalmthout, Belgium",
+   "w": "Een van de oudste arboreta van Vlaanderen (1856) met meer dan 7.000 plantensoorten op 12,5 ha, wereldberoemd om zijn winterbloeiende toverhazelaars (grootste collectie van Europa).",
+   "k": "botanische tuin, toverhazelaars",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "PROVANTWERPEN",
+     "https://www.provincieantwerpen.be/nl/locaties/arboretum-kalmthout"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arboretum_Kalmthout"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Sint-Romboutskathedraal & -toren",
+   "ad": "Onder-den-Toren, 2800 Mechelen, Belgium",
+   "w": "De onvoltooide maar imposante toren (97 m, UNESCO-belfort) domineert Mechelen; 538 treden en een skywalk leiden naar een weids panorama over de Kempen en tot Brussel en Antwerpen.",
+   "k": "UNESCO-belforttoren, 538 treden",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/toren"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/943/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Kazerne Dossin",
+   "ad": "Goswin de Stassartstraat 153, 2800 Mechelen, Belgium",
+   "w": "Museum, memoriaal en documentatiecentrum over de Holocaust en mensenrechten, in de voormalige kazerne van waaruit meer dan 25.000 Joden en Roma naar Auschwitz werden gedeporteerd.",
+   "k": "Holocaustmemoriaal",
+   "g": [
+    "MUS",
+    "HIST",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kazerne_Dossin"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Grote Markt & Stadhuis Mechelen",
+   "ad": "Grote Markt, 2800 Mechelen, Belgium",
+   "w": "Een van de mooiste marktpleinen van Vlaanderen, met het historische stadhuis (voormalig lakenhal- en Schepenhuiscomplex) en zicht op de Sint-Romboutstoren.",
+   "k": "markt onder de toren",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/top-10"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Grote_Markt_(Mechelen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Groot Begijnhof Mechelen",
+   "ad": "Begijnhof, 2800 Mechelen, Belgium",
+   "w": "Het uitgestrekte Groot Begijnhof, met zijn typisch Vlaamse karakter en baksteenarchitectuur, staat op de UNESCO-Werelderfgoedlijst van de Vlaamse begijnhoven.",
+   "k": "UNESCO-begijnhof",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/855/"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Speelgoedmuseum Mechelen",
+   "ad": "Nekkerspoelstraat 21, 2800 Mechelen, Belgium",
+   "w": "Groot familiemuseum met speelgoed van weleer tot vandaag — een van de populairste bezoektips van Mechelen voor gezinnen.",
+   "k": "speelgoed door de eeuwen",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/top-10"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Speelgoedmuseum_Mechelen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Museum Hof van Busleyden",
+   "ad": "Frederik de Merodestraat 65, 2800 Mechelen, Belgium",
+   "w": "Renaissancestadspaleis dat de bloeitijd van Mechelen als hoofdstad van de Bourgondische Nederlanden tot leven brengt, met een fraaie binnentuin en koffiebar in het gerestaureerde 'Schipke'.",
+   "k": "Bourgondisch stadspaleis",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "HOFVANBUSLEYDEN",
+     "https://www.hofvanbusleyden.be/"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/museum-hof-van-busleyden"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Boottocht op de Binnendijle",
+   "ad": "Haverwerf, 2800 Mechelen, Belgium",
+   "w": "Een rondvaart van ~45 minuten met de Malinska over de Binnendijle toont Mechelen van het water, langs de Vismarkt, de Grootbrug en de Kruidtuin (april-oktober dagelijks).",
+   "k": "Mechelen vanaf het water",
+   "g": [
+    "ICON",
+    "MUS",
+    "PARK",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITMECHELEN",
+     "https://www.visitmechelen.be/boottochtje-op-de-binnendijle"
+    ],
+    [
+     "MEETINMECHELEN",
+     "https://meetin.mechelen.be/boottochtje-op-de-binnendijle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Zimmertoren",
+   "ad": "Zimmerplein 18, 2500 Lier, Belgium",
+   "w": "De middeleeuwse Corneliustoren kreeg in 1930 de wereldberoemde Jubelklok van klokkenmaker en amateurastronoom Louis Zimmer; binnen tonen de Wonderklok en het Zimmermuseum tijd en heelal.",
+   "k": "astronomische Jubelklok",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/inspirerende-reisroutes/48-uur-lier-0"
+    ],
+    [
+     "VISITLIER",
+     "https://www.visitlier.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Begijnhof van Lier",
+   "ad": "Begijnhofstraat, 2500 Lier, Belgium",
+   "w": "Gesticht in 1258, met elf straatjes en 162 huizen rond een pandhof — een van de Vlaamse begijnhoven op de UNESCO-Werelderfgoedlijst en een oase van rust in Lier.",
+   "k": "UNESCO-begijnhof",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/855/"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/inspirerende-reisroutes/48-uur-lier-0"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Sint-Gummaruskerk",
+   "ad": "Kardinaal Mercierplein, 2500 Lier, Belgium",
+   "w": "Brabants-gotische hoofdkerk van Lier met beroemde glasramen (o.a. door keizer Maximiliaan geschonken) en een rijk interieur — een van de belangrijkste bezienswaardigheden van de Pallieterstad.",
+   "k": "gotische hoofdkerk met topglasramen",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Gummaruskerk_(Lier)"
+    ],
+    [
+     "VISITLIER",
+     "https://www.visitlier.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Kasteel Sorghvliedt",
+   "ad": "Marneflaan 3, 2660 Hoboken (Antwerpen), Belgium",
+   "w": "Rococokasteel (1745-1750) van architect Jan Pieter van Baurscheit de Jonge aan de rand van Hoboken, met park; vandaag districtshuis en overdag deels vrij te bezoeken.",
+   "k": "rococokasteel met park",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/11463"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sorghvliedt_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Fort Liefkenshoek",
+   "ad": "Fort Liefkenshoek, 9130 Kallo (Beveren), Belgium",
+   "w": "16de-eeuws Scheldefort in het havengebied met belevingscentrum, wandelpaden en een uitkijktoren over de Schelde; vlot bereikbaar met de Waterbus vanuit de stad.",
+   "k": "Scheldefort in de haven",
+   "g": [
+    "HIST",
+    "PARK",
+    "CANAL"
+   ],
+   "s": [
+    [
+     "HAVENWERELD",
+     "https://www.havenwereld.be/eropuit-in-de-haven/infopunten/fort-liefkenshoek/"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Fort_Liefkenshoek"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "De Koninck — Antwerp City Brewery",
+   "ad": "Mechelsesteenweg 291, 2018 Antwerpen, Belgium",
+   "w": "Het bijna 200 jaar oude stadsbrouwerij achter het 'Bolleke', hét bier van Antwerpen sinds 1952, geserveerd in het typische bolvormige glas. De oude gebouwen herbergen een interactieve brouwerijbeleving met proeverij.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DEKONINCK",
+     "https://www.dekoninck.be/en/beers/bolleke"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Brouwerij_De_Koninck"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Kulminator — CLOSED",
+   "ad": "Vleminckveld 32, 2000 Antwerpen, Belgium",
+   "w": "Legendarisch biercafé/'biertempel' met een kelder vol gerijpte flessen die decennia teruggingen — door RateBeer ooit tot beste café ter wereld gekroond. Uitbaters Dirk en Leen sloten de zaak definitief in april 2026 (leeftijd). Blijft opgenomen, gemarkeerd als gesloten.",
+   "closed": true,
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl/2021/11/21/cafe-kulminator-bier-tijdreis-in-antwerpen/"
+    ],
+    [
+     "APEN",
+     "https://apen.be/cafe-kulminator-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Billie's Bier Kafétaria",
+   "ad": "Kammenstraat 12, 2000 Antwerpen, Belgium",
+   "w": "Compact hoekcafé in de Kammenstraat dat op korte tijd tot de beste bieradressen van de stad ging horen: elf wisselende tapkranen met gastbieren en meer dan tweehonderd flessen en blikken.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ALLABOUTBEER",
+     "https://allaboutbeer.com/article/rediscovering-antwerp/"
+    ],
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "'t Waagstuk",
+   "ad": "Stadswaag 20, 2000 Antwerpen, Belgium",
+   "w": "Gerenommeerd biercafé aan de studentikoze Stadswaag met een indrukwekkende kaart Belgische speciaalbieren en een gezellig terras — een klassieker onder de Antwerpse bierkroegen.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"
+    ],
+    [
+     "ALLABOUTBEER",
+     "https://allaboutbeer.com/article/rediscovering-antwerp/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "'t Paters Vaetje",
+   "ad": "Blauwmoezelstraat 1, 2000 Antwerpen, Belgium",
+   "w": "Historisch biercafé in de schaduw van de kathedraal, dat zichzelf 'bierhemel op aarde' noemt: een kaart van zo'n honderd bieren, van De Koninck over Trappisten tot geuzes.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/have-fun-with-belgian-beer"
+    ],
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Oud Arsenaal",
+   "ad": "Maria Pijpelincxstraat 4, 2000 Antwerpen, Belgium",
+   "w": "Authentiek, tijdloos volkscafé nabij het Centraal Station, geliefd bij bierliefhebbers om zijn eerlijke prijzen en klassieke Antwerpse cafésfeer.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"
+    ],
+    [
+     "ALLABOUTBEER",
+     "https://allaboutbeer.com/article/rediscovering-antwerp/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Den Engel",
+   "ad": "Grote Markt 3, 2000 Antwerpen, Belgium",
+   "w": "Kwintessentieel bruin volkscafé op de Grote Markt, naast het stadhuis, in een van de oudste bewaarde panden van de stad. Al generaties dé plek voor een bolleke — 'meer politiek beslist dan in het stadhuis'.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/have-fun-with-belgian-beer"
+    ],
+    [
+     "EUROPEANBARGUIDE",
+     "https://theeuropeanbarguide.com/den-engel-antwerp/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "De Groote Witte Arend",
+   "ad": "Reyndersstraat 18, 2000 Antwerpen, Belgium",
+   "w": "Sfeervol café-restaurant rond een 16de-eeuwse binnenplaats met kapel: een bierkaart met alle Trappisten (behalve Westvleteren), veel geuze en klassieke Vlaamse gerechten.",
+   "cz": [
+    "BEER",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BIERSCHRIJVER",
+     "https://www.bierschrijver.nl/2022/03/09/bier-drinken-in-antwerpen/"
+    ],
+    [
+     "EUROPEANBARGUIDE",
+     "https://theeuropeanbarguide.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Antwerpse Brouw Compagnie (Seef)",
+   "ad": "Indiëstraat 21, 2000 Antwerpen, Belgium",
+   "w": "De onafhankelijke stadsbrouwerij die het historische Seefbier — eeuwenlang hét Antwerpse volksbier — in 2012 nieuw leven inblies. Café en brouwerij zijn vrij toegankelijk om ter plekke te proeven.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SEEF",
+     "https://seef.be/en/our-story/"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/info/experience-seef-in-the-antwerp-brewing-company"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Stokerij De Beukelaer — Elixir d'Anvers",
+   "ad": "Haantjeslei 132, 2018 Antwerpen, Belgium",
+   "w": "Sinds 1863 stookt de familie De Beukelaer in het hart van Antwerpen de goudgele kruidenlikeur Elixir d'Anvers, op basis van tientallen planten, kruiden en saffraan — een echt Antwerps streekproduct.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Stokerij_De_Beukelaer"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/6829"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Philip's Biscuits",
+   "ad": "Korte Gasthuisstraat 11, 2000 Antwerpen, Belgium",
+   "w": "De maker van de authentieke Antwerpse handjes — amandelkoekjes in de vorm van een hand, verwijzend naar de Brabo-legende. Hét symboolzoetje van de stad, ook in blik als souvenir.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Antwerp_hands"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/nl/312318-10-hotspots-voor-zoetekauwen-in-antwerpen.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Bakkerij Goossens",
+   "ad": "Korte Gasthuisstraat 31, 2000 Antwerpen, Belgium",
+   "w": "Kleine familiebakkerij (meer dan een eeuw oud) in het hart van de stad, geliefd om haar rozijnenbrood en suikerbrood; het volledig chocoladen Antwerps handje werd in 2008 als Antwerps streekproduct erkend.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/van-bio-tot-zuurdesem-6-x-artisanale-bakkers-in-antwerpen/"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/nl/169186-10-lekkerste-bakkers-antwerpen.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "DelReY",
+   "ad": "Appelmansstraat 5, 2018 Antwerpen, Belgium",
+   "w": "Wereldberoemd chocolatier-patissier (sinds 1949) in de Diamantwijk, lid van Relais Desserts en bij de honderd beste patisseries ter wereld gerekend — pralines, taarten en een chocoladelounge.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "DELREY",
+     "https://www.delrey.be/en"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be/culinary-hotspot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Désiré de Lille",
+   "ad": "Schrijnwerkersstraat 16, 2000 Antwerpen, Belgium",
+   "w": "Tearoom en wafelhuis sinds 1903, beroemd om de knapperige lacquemants (met siroop gevulde wafel) en smoutebollen — een Antwerpse zoete instelling. Tijdens verbouwing te vinden in een pop-up op de Suikerrui.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MADEIN",
+     "https://www.made-in.be/antwerpen/wafelhuis-desire-de-lille-viert-120ste-verjaardag-onze-lacquemants-zijn-nog-steeds-razend-populair/"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/nl/312318-10-hotspots-voor-zoetekauwen-in-antwerpen.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Domestic",
+   "ad": "Steenbokstraat 37, 2018 Antwerpen, Belgium",
+   "w": "Ambachtelijke bakkerij-cuisinette, ontstaan als verlengstuk van sterrenrestaurant Dôme, met dikkorstig brood, brioche, gebak en een geliefde brunch/high tea.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/van-bio-tot-zuurdesem-6-x-artisanale-bakkers-in-antwerpen/"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/nl/169186-10-lekkerste-bakkers-antwerpen.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Caffènation",
+   "ad": "Mechelsesteenweg 16, 2000 Antwerpen, Belgium",
+   "w": "Pionier van de Antwerpse specialty-coffeegolf, met eigen branderij die half bierland van bonen voorziet; meerdere bars, waaronder de duurzame PAKT-site met daktuinen.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "EUROPEANCOFFEE",
+     "https://europeancoffeetrip.com/cafe/caffenation-antwerp/"
+    ],
+    [
+     "LEFOODING",
+     "https://lefooding.com/en/shops/caffenation"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Normo",
+   "ad": "Minderbroedersrui 30, 2000 Antwerpen, Belgium",
+   "w": "Gevestigde naam met een licht grungy interieur en een eigen microbranderij (barista Jens Oris) waarvan veel andere Antwerpse zaken hun bonen betrekken.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ELLE",
+     "https://www.elle.be/nl/110772-beste-koffiebars-in-antwerpen.html"
+    ],
+    [
+     "EUROPEANCOFFEE",
+     "https://europeancoffeetrip.com/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Zilte",
+   "ad": "Hanzestedenplaats 5, 2000 Antwerpen, Belgium",
+   "w": "Het driesterrenrestaurant van chef Viki Geunes op de bovenverdieping van het MAS, met uitzicht over stad en Schelde — het culinaire vlaggenschip van Antwerpen.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/t-zilte"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/starred-restaurants-in-antwerp"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "The Jane",
+   "ad": "Paradeplein 1, 2018 Antwerpen, Belgium",
+   "w": "Chef Nick Bril kookt in een omgebouwde militaire kapel in het Groen Kwartier, waar design en muziek centraal staan; in 2026 bekroond met een tweede Michelinster.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/antwerpen/be-antwerpen/restaurant/the-jane-1244485"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/starred-restaurants-in-antwerp"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Le Pristine",
+   "ad": "Kammenstraat 40, 2000 Antwerpen, Belgium",
+   "w": "Sterchef Sergio Herman haalde met Le Pristine in de modewijk al na zes maanden een Michelinster; Italiaans-mediterraan geïnspireerd, met een sfeervolle café-ruimte.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/le-pristine"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be/culinary-hotspot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Bar Bulot",
+   "ad": "Leopoldstraat 26, 2000 Antwerpen, Belgium",
+   "w": "Het tweede adres van Gert De Mangeleer en Joachim Boudens, in de Botanic Sanctuary: tijdloze brasserieklassiekers op sterrenniveau in een ontspannen kader.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/be/nl/antwerpen/be-antwerpen/restaurant/bar-bulot-at-botanic"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "'t Fornuis",
+   "ad": "Reyndersstraat 24, 2000 Antwerpen, Belgium",
+   "w": "Instituut van chef Johan Segers dat al sinds 1986 een Michelinster draagt: klassieke Frans-Belgische keuken in een historisch pand in het Sint-Andrieskwartier.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/t-fornuis"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/'t_Fornuis"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Het Gebaar",
+   "ad": "Leopoldstraat 24, 2000 Antwerpen, Belgium",
+   "w": "Het sterrenrestaurant van patissier Roger van Damme aan de rand van de Kruidtuin, wereldberoemd om zijn spectaculaire desserts — enkel lunch, reserveren lang op voorhand.",
+   "cz": [
+    "FINE",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/antwerpen/be-antwerpen/restaurant/het-gebaar"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be/culinary-hotspot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Nathan",
+   "ad": "Lange Koepoortstraat 13, 2000 Antwerpen, Belgium",
+   "w": "Eensterrenrestaurant in de oude stad, waar chef Nathan Van Echelpoel een moderne Franse keuken met Aziatische invloeden brengt.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/be-antwerpen/restaurant/nathan"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/nathan-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Dôme",
+   "ad": "Grote Hondstraat 2, 2018 Antwerpen, Belgium",
+   "w": "Elegant sterrenrestaurant onder een koepel in Zurenborg, met een klassieke Frans-Belgische keuken; broer van visbistro Dôme sur Mer en bakkerij Domestic.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/dome-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Graanmarkt 13",
+   "ad": "Graanmarkt 13, 2000 Antwerpen, Belgium",
+   "w": "Restaurant, high-end conceptstore en appartement ineen, met een groentegedreven seizoenskeuken van chef Jan Keuppens — een gevestigde waarde in de Antwerpse fine dining.",
+   "cz": [
+    "BEL",
+    "FINE"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://be.gaultmillau.com/restaurants/graanmarkt-13"
+    ],
+    [
+     "GRAANMARKT13",
+     "https://www.graanmarkt13.com/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Bourla",
+   "ad": "Graanmarkt 7, 2000 Antwerpen, Belgium",
+   "w": "Elegant grand café achter de neoklassieke Bourlaschouwburg: rood leer, marmeren tafels en Belgische klassiekers als mosselen, Vlaamse stoverij en tomaat-garnaal, met terras aan de Graanmarkt.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "W50BEST",
+     "https://www.theworlds50best.com/discovery/Establishments/Belgium/Antwerp/Bourla.html"
+    ],
+    [
+     "APEN",
+     "https://apen.be/bourla-brasserie-restaurant-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Ciro's",
+   "ad": "Amerikalei 6, 2000 Antwerpen, Belgium",
+   "w": "'Het meest Antwerpse restaurant van Antwerpen' aan de Amerikalei — sinds 1962 nagenoeg onveranderd, met een eerlijke burgerkeuken vol stadsklassiekers.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be/culinary-hotspot"
+    ],
+    [
+     "OLIVEMAG",
+     "https://www.olivemagazine.com/travel/europe/weekend-guide-to-antwerp-belgium-where-to-eat-and-drink/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Fiskebar",
+   "ad": "Marnixplaats 11, 2000 Antwerpen, Belgium",
+   "w": "Geliefd visrestaurant op de Marnixplaats in Het Zuid, half woonkamer half bistro, met een uitgebreide kaart verse, duurzame vis en zeevruchten — van oesters tot gegrilde octopus.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OLIVEMAG",
+     "https://www.olivemagazine.com/travel/europe/weekend-guide-to-antwerp-belgium-where-to-eat-and-drink/"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be/culinary-hotspot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Dôme sur Mer",
+   "ad": "Arendstraat 1, 2018 Antwerpen, Belgium",
+   "w": "Populaire visbistro in Zurenborg (broer van sterrenrestaurant Dôme), met een dagverse kaart vis en schaaldieren; Gault&Millau 13,5/20.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/dome-sur-mer-antwerpen"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Pomphuis",
+   "ad": "Siberiastraat, 2030 Antwerpen, Belgium",
+   "w": "Sfeervol grand-caférestaurant in een gerestaureerd oud pomphuis bij het Havenhuis, met terras aan de dokken en Frans-Belgische klassiekers als côte à l'os en kreeftstoofpot.",
+   "cz": [
+    "BEL",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/het-pomphuis-antwerpen"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Pazzo",
+   "ad": "Oudeleeuwenrui 12, 2000 Antwerpen, Belgium",
+   "w": "Al jaren populaire bistro op het Eilandje met een mediterraan-Italiaans getinte keuken en een sterke wijnkaart; Gault&Millau 13,5/20.",
+   "cz": [
+    "FR",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/pazzo-antwerpen"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "De Broers van Julienne",
+   "ad": "Kasteelpleinstraat 45-47, 2000 Antwerpen, Belgium",
+   "w": "Instituut voor vegetarisch en biologisch eten (sinds 1994) in een fraai pand met tuin, met een Frans-mediterraan geïnspireerde kaart en veel vegan opties.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMETOMOMO",
+     "https://www.timetomomo.com/nl/top-zeven-de-beste-vegetarische-restaurants-in-antwerpen/"
+    ],
+    [
+     "APEN",
+     "https://apen.be/De-broers-van-Julienne-biologisch-vegetarisch-restaurant-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Hoffy's",
+   "ad": "Lange Kievitstraat 52, 2018 Antwerpen, Belgium",
+   "w": "Gerenommeerd koosjer restaurant in de Joodse buurt, gerund door de gebroeders Hoffman, met traditioneel-Jiddische keuken (vis, vlees, vegetarisch). Gesloten op vrijdagnamiddag en zaterdag (sjabbat).",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HOFFYS",
+     "https://hoffys.be/"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Kleinblatt",
+   "ad": "Provinciestraat 206, 2018 Antwerpen, Belgium",
+   "w": "Beroemde koosjere bakkerij (tot ver buiten de landsgrenzen), met een breed aanbod broden, challe, hartig en zoet gebak — een instituut van Joods Antwerpen.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KLEINBLATT",
+     "https://www.kleinblatt.be/kosher/"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Fong Mei",
+   "ad": "Van Wesenbekestraat, 2060 Antwerpen, Belgium",
+   "w": "Dim-sum-adres in de Antwerpse Chinatown (Van Wesenbekestraat), al jaren geroemd om zijn versgemaakte dim sum — door velen als de beste van de stad beschouwd.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/cityguide/be/antwerpen/eten-drinken-antwerpen/de-beste-chinese-restaurants-in-antwerpen/"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Oriental Delight",
+   "ad": "Van Wesenbekestraat 21, 2060 Antwerpen, Belgium",
+   "w": "Ruime klassieker in Chinatown met een enorme kaart (400+ gerechten) van dim sum tot Kantonese specialiteiten; werd door Gault&Millau ooit tot Aziatisch restaurant van het jaar (2008) verkozen.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ],
+    [
+     "FEELING",
+     "https://www.feeling.be/cityguide/be/antwerpen/eten-drinken-antwerpen/de-beste-chinese-restaurants-in-antwerpen/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Lung Wah",
+   "ad": "Van Wesenbekestraat 39, 2060 Antwerpen, Belgium",
+   "w": "Onopvallend maar hooggewaardeerd Kantonees adres in Chinatown, waar chef Chan en zijn vrouw kwaliteit boven decor stellen — een favoriet van kenners.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/cityguide/be/antwerpen/eten-drinken-antwerpen/de-beste-chinese-restaurants-in-antwerpen/"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Frites Atelier",
+   "ad": "Korte Gasthuisstraat 32, 2000 Antwerpen, Belgium",
+   "w": "Het frietconcept van sterchef Sergio Herman: krokante frietjes met zeekraalzout en zelf ontwikkelde sauzen, pal tegenover bakkerij Goossens in de autovrije Korte Gasthuisstraat.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "NJAM",
+     "https://njam.tv/blog/frites-atelier-van-sergio-herman-opent-in-antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be/culinary-hotspot"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Balls & Glory",
+   "ad": "Theaterplein, 2000 Antwerpen, Belgium",
+   "w": "Het balletjesconcept van tv-chef Wim Ballieu: ambachtelijke Vlaamse gehaktballen met een verrassende vulling, geserveerd met stoemp en seizoensgroenten.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Wim_Ballieu"
+    ],
+    [
+     "JANMAG",
+     "https://www.jan-magazine.nl"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Dogma Cocktails",
+   "ad": "Wijngaardstraat 5, 2000 Antwerpen, Belgium",
+   "w": "Speakeasy-achtige cocktailbar waar barman Didier Van den Broeck vernieuwende drinks met bijzondere ingrediënten maakt; in 2020 tot beste cocktailbar van Europa verkozen.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "W50BEST",
+     "https://www.theworlds50best.com/discovery/Establishments/Belgium/Antwerp/Dogma-Cocktails.html"
+    ],
+    [
+     "ELLE",
+     "https://www.elle.be/nl/345953-cocktail-guide-beste-cocktailbars-antwerpen.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Bar Burbure",
+   "ad": "Volkstraat, 2000 Antwerpen, Belgium",
+   "w": "Verfijnde cocktail- en wijnbar op het chique Zuid (sinds 2016), met groene tegels en koperwerk, geraffineerde klassieke cocktails, wijnen en zelfs Trappisten.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ELLE",
+     "https://www.elle.be/nl/345953-cocktail-guide-beste-cocktailbars-antwerpen.html"
+    ],
+    [
+     "JANMAG",
+     "https://www.jan-magazine.nl"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Patine",
+   "ad": "Léon Stynenstraat, 2000 Antwerpen, Belgium",
+   "w": "Sfeervolle wijnbistro op het Zuid waar je je meteen thuis voelt: seizoensgebonden gerechtjes bij een goed gekozen (natuur)wijnkaart.",
+   "cz": [
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/restaurants-antwerpen-zuid/"
+    ],
+    [
+     "JANMAG",
+     "https://www.jan-magazine.nl/lifestyle/hotspots/a23115945/restaurant-antwerpen-leuke-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Album",
+   "ad": "Gedempte Zuiderdokken, 2000 Antwerpen, Belgium",
+   "w": "Trendy adres op het Zuid in een voormalige herensociëteit, van Toon Craen (Broer Bretel) en ex-Veranda-souschef Joris Gielen — moderne deelgerechten in een mooi kader.",
+   "cz": [
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/restaurants-antwerpen-zuid/"
+    ],
+    [
+     "JANMAG",
+     "https://www.jan-magazine.nl/lifestyle/hotspots/a23115945/restaurant-antwerpen-leuke-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Brouwerij Het Anker",
+   "ad": "Guido Gezellelaan 49, 2800 Mechelen, Belgium",
+   "w": "Een van de oudste brouwerijen van België (wortels tot 1471) in het Groot Begijnhof van Mechelen, met de vermaarde Gouden Carolus (naar Keizer Karel) en een eigen brasserie waar men de Mechelse koekoek met bier serveert.",
+   "cz": [
+    "BEER",
+    "BEL"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HETANKER",
+     "https://www.hetanker.be"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/rondleiding-brouwerij-het-anker"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Tinèlle",
+   "ad": "Goswin De Stassartstraat 90, 2800 Mechelen, Belgium",
+   "w": "Het hoogst genoteerde restaurant van Mechelen: verfijnde Frans-Belgische keuken met een Michelinster en 14,5/20 bij Gault&Millau.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/mechelen/restaurant/tinelle"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/tinelle-mechelen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Graspoort",
+   "ad": "Begijnenstraat 28, 2800 Mechelen, Belgium",
+   "w": "Sfeervol restaurant in een doodlopend straatje tussen de Vismarkt en de Sint-Romboutskathedraal, waar chef Thibault Van Stratum een klassiek-Franse basis kleurt met Japanse en Latijns-Amerikaanse invloeden.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/graspoort-mechelen"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/mechelen/restaurant/graspoort"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Restaurant Emiel",
+   "ad": "Vismarkt 6, 2800 Mechelen, Belgium",
+   "w": "Chef Bram Simons werkt op de Vismarkt met topvis en schaaldieren, esthetisch verwerkt tot elegante gerechten; 12,5/20 bij Gault&Millau.",
+   "cz": [
+    "FR"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/emiel-mechelen"
+    ],
+    [
+     "MEETINMECHELEN",
+     "https://meetin.mechelen.be/emiel"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Lesco",
+   "ad": "Nauwstraat, 2800 Mechelen, Belgium",
+   "w": "Gesmaakt restaurant in de Nauwstraat vlak bij de Vismarkt, met een seizoensgedreven, verfijnde keuken; 13,5/20 bij Gault&Millau.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/lesco-mechelen-mechelen"
+    ],
+    [
+     "MADEIN",
+     "https://www.made-in.be/mechelen/deze-restaurants-in-het-mechelse-scoorden-bij-gaultmilau/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "De Gouden Vis",
+   "ad": "Nauwstraat 7, 2800 Mechelen, Belgium",
+   "w": "Populair art-nouveau bruin café op de trendy Vismarkt met een prachtig terras aan de Dijle, waar je lokaal gebrouwen bieren proeft — een van de gezelligste plekken van Mechelen.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MADEIN",
+     "https://www.made-in.be/mechelen/het-dna-van-de-mechelse-vismarkt/"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Makadam",
+   "ad": "Grote Markt, 2800 Mechelen, Belgium",
+   "w": "Populaire bar in het hart van de Grote Markt, bekend om zijn ruime selectie van zo'n 155 Belgische ambachtelijke bieren van grote en kleine brouwerijen.",
+   "cz": [
+    "BEER"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MADEIN",
+     "https://www.made-in.be/mechelen/het-dna-van-de-mechelse-vismarkt/"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Soixante",
+   "ad": "Guldenvliesstraat 60, 2600 Berchem (Antwerpen), Belgium",
+   "w": "Hip, karaktervol restaurant in Berchem, opgenomen in de Michelingids: een creatieve, seizoensgebonden keuken met een zwak voor groenten en zeevruchten en verrassende combinaties.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/berchem/restaurant/soixante"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be/en/restaurants/soixante-antwerpen-berchem"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Somista",
+   "ad": "Driekoningenstraat, 2600 Berchem (Antwerpen), Belgium",
+   "w": "Populaire koffiebar in de bruisende Driekoningenstraat die ook wijn en cocktails schenkt — geliefd bij buurtbewoners en jonge bezoekers voor ontbijt, lunch of tapas.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffie-lunch-apero-in-berchem"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Brel",
+   "ad": "Statiestraat, 2600 Berchem (Antwerpen), Belgium",
+   "w": "Trendy, gezellige apérobar in de lange Statiestraat bij station Berchem, met een industrieel interieur — een vaste stop in het opgeleefde Oud-Berchem.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELING",
+     "https://www.feeling.be/lifestyle/food/koffie-lunch-apero-in-berchem"
+    ],
+    [
+     "APEN",
+     "https://apen.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Numerus Clausus",
+   "ad": "Keldermansstraat 2, 2500 Lier, Belgium",
+   "w": "Wellicht het beste restaurant van Lier: chef Steven Persyn brengt een productgedreven, Frans-klassieke keuken die zowel de Michelingids als Gault&Millau (14/20) bekoort.",
+   "cz": [
+    "FINE",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/antwerpen/lier/restaurant/numerus-clausus"
+    ],
+    [
+     "GAULTMILLAU",
+     "https://www.gaultmillau.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Brood en Banket Kesselaers",
+   "ad": "Lisperstraat 118, 2500 Lier, Belgium",
+   "w": "Lierse bakkerij aangesloten bij de Orde van het Liers Vlaaike, waar je het meer dan 300 jaar oude, Europees erkende (BGA) streekgebak koopt: een kruidig taartje op basis van kandijsiroop en vierkruiden.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "STREEKPRODUCT",
+     "https://www.streekproduct.be/producenten/orde-van-het-liers-vlaaike"
+    ],
+    [
+     "KEMPENSKARAKTER",
+     "https://www.kempenskarakter.be/liers-vlaaike/"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ANTWERPENBE": {
+   "k": "ANTWERPENBE",
+   "t": "Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)",
+   "u": "https://www.antwerpen.be",
+   "l": "Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)"
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com",
+   "l": "Atlas Obscura"
+  },
+  "FLEMISHMASTERS": {
+   "k": "FLEMISHMASTERS",
+   "t": "Flemish Masters in situ (Vlaamse erfgoedproject)",
+   "u": "https://www.flemishmastersinsitu.com",
+   "l": "Flemish Masters in situ (Vlaamse erfgoedproject)"
+  },
+  "HANDELSBEURS": {
+   "k": "HANDELSBEURS",
+   "t": "Handelsbeurs Antwerpen (officieel)",
+   "u": "https://handelsbeursantwerpen.be",
+   "l": "Handelsbeurs Antwerpen (officieel)"
+  },
+  "HAVENWERELD": {
+   "k": "HAVENWERELD",
+   "t": "Havenwereld — Port of Antwerp-Bruges (officieel)",
+   "u": "https://www.havenwereld.be",
+   "l": "Havenwereld — Port of Antwerp-Bruges (officieel)"
+  },
+  "HERITA": {
+   "k": "HERITA",
+   "t": "Herita vzw (erfgoedorganisatie)",
+   "u": "https://www.herita.be",
+   "l": "Herita vzw (erfgoedorganisatie)"
+  },
+  "HOFVANBUSLEYDEN": {
+   "k": "HOFVANBUSLEYDEN",
+   "t": "Museum Hof van Busleyden (officieel, Stad Mechelen)",
+   "u": "https://www.hofvanbusleyden.be",
+   "l": "Museum Hof van Busleyden (officieel, Stad Mechelen)"
+  },
+  "KMSKA": {
+   "k": "KMSKA",
+   "t": "Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)",
+   "u": "https://kmska.be",
+   "l": "Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)"
+  },
+  "LONELYPLANET": {
+   "k": "LONELY PLANET",
+   "t": "Lonely Planet",
+   "u": "https://www.lonelyplanet.com",
+   "l": "Lonely Planet"
+  },
+  "MASBE": {
+   "k": "MASBE",
+   "t": "MAS — Museum aan de Stroom (officieel)",
+   "u": "https://mas.be",
+   "l": "MAS — Museum aan de Stroom (officieel)"
+  },
+  "MAYERVDBERGH": {
+   "k": "MAYERVDBERGH",
+   "t": "Museum Mayer van den Bergh (officieel)",
+   "u": "https://museummayervandenbergh.be",
+   "l": "Museum Mayer van den Bergh (officieel)"
+  },
+  "MEETINMECHELEN": {
+   "k": "MEETINMECHELEN",
+   "t": "Meet in Mechelen (Stad Mechelen)",
+   "u": "https://meetin.mechelen.be",
+   "l": "Meet in Mechelen (Stad Mechelen)"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "Michelin Gids België & Luxemburg",
+   "u": "https://guide.michelin.com",
+   "l": "Michelin Gids België & Luxemburg"
+  },
+  "OKV": {
+   "k": "OKV",
+   "t": "Openbaar Kunstbezit in Vlaanderen (okv.be)",
+   "u": "https://www.okv.be",
+   "l": "Openbaar Kunstbezit in Vlaanderen (okv.be)"
+  },
+  "ONROERENDERFGOED": {
+   "k": "ONROERENDERFGOED",
+   "t": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",
+   "u": "https://inventaris.onroerenderfgoed.be",
+   "l": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)"
+  },
+  "PERSANTWERPEN": {
+   "k": "PERSANTWERPEN",
+   "t": "Stad Antwerpen persdienst (pers.antwerpen.be)",
+   "u": "https://pers.antwerpen.be",
+   "l": "Stad Antwerpen persdienst (pers.antwerpen.be)"
+  },
+  "PERSRUBENS": {
+   "k": "PERSRUBENS",
+   "t": "Rubenshuis persdienst (officieel)",
+   "u": "https://pers.rubenshuis.be",
+   "l": "Rubenshuis persdienst (officieel)"
+  },
+  "PLANTINMORETUS": {
+   "k": "PLANTINMORETUS",
+   "t": "Museum Plantin-Moretus (officieel, UNESCO)",
+   "u": "https://museumplantinmoretus.be",
+   "l": "Museum Plantin-Moretus (officieel, UNESCO)"
+  },
+  "PROVANTWERPEN": {
+   "k": "PROVANTWERPEN",
+   "t": "Provincie Antwerpen (officiële provinciale domeinen)",
+   "u": "https://www.provincieantwerpen.be",
+   "l": "Provincie Antwerpen (officiële provinciale domeinen)"
+  },
+  "REDSTARLINE": {
+   "k": "REDSTARLINE",
+   "t": "Red Star Line Museum (officieel, Stad Antwerpen)",
+   "u": "https://redstarline.be",
+   "l": "Red Star Line Museum (officieel, Stad Antwerpen)"
+  },
+  "SINTPAULUS": {
+   "k": "SINTPAULUS",
+   "t": "Sint-Paulusparochie Antwerpen (officieel)",
+   "u": "https://www.sintpaulusantwerpen.be",
+   "l": "Sint-Paulusparochie Antwerpen (officieel)"
+  },
+  "SNIJDERSROCKOX": {
+   "k": "SNIJDERSROCKOX",
+   "t": "Het Snijders&Rockoxhuis (officieel)",
+   "u": "https://www.snijdersrockoxhuis.be",
+   "l": "Het Snijders&Rockoxhuis (officieel)"
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO World Heritage Centre",
+   "u": "https://whc.unesco.org",
+   "l": "UNESCO World Heritage Centre"
+  },
+  "VISITANTWERPEN": {
+   "k": "VISIT ANTWERPEN",
+   "t": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",
+   "u": "https://visit.antwerpen.be",
+   "l": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be"
+  },
+  "VISITFLANDERS": {
+   "k": "VISIT FLANDERS",
+   "t": "Toerisme Vlaanderen (visitflanders.com)",
+   "u": "https://www.visitflanders.com",
+   "l": "Toerisme Vlaanderen (visitflanders.com)"
+  },
+  "VISITLIER": {
+   "k": "VISITLIER",
+   "t": "Visit Lier (officiële toerisme)",
+   "u": "https://www.visitlier.be",
+   "l": "Visit Lier (officiële toerisme)"
+  },
+  "VISITMECHELEN": {
+   "k": "VISITMECHELEN",
+   "t": "Visit Mechelen / Meet in Mechelen (officiële toerisme)",
+   "u": "https://visit.mechelen.be",
+   "l": "Visit Mechelen / Meet in Mechelen (officiële toerisme)"
+  },
+  "VRT": {
+   "k": "VRT NWS",
+   "t": "VRT NWS",
+   "u": "https://www.vrt.be/vrtnws",
+   "l": "VRT NWS"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (EN)",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia (EN)"
+  },
+  "WIKIPEDIANL": {
+   "k": "WIKIPEDIANL",
+   "t": "Wikipedia (NL)",
+   "u": "https://nl.wikipedia.org",
+   "l": "Wikipedia (NL)"
+  }
+ },
+ "FS": {
+  "ALLABOUTBEER": {
+   "k": "ALLABOUTBEER",
+   "t": "All About Beer (bierjournalistiek)",
+   "u": "https://allaboutbeer.com",
+   "l": "All About Beer (bierjournalistiek)"
+  },
+  "APEN": {
+   "k": "APEN",
+   "t": "Apen.be — cultuur- en stadsgids Antwerpen",
+   "u": "https://apen.be",
+   "l": "Apen.be — cultuur- en stadsgids Antwerpen"
+  },
+  "BIERSCHRIJVER": {
+   "k": "BIERSCHRIJVER",
+   "t": "De Bierschrijver (bierjournalistiek)",
+   "u": "https://www.bierschrijver.nl",
+   "l": "De Bierschrijver (bierjournalistiek)"
+  },
+  "DEKONINCK": {
+   "k": "DE KONINCK",
+   "t": "Brouwerij De Koninck / Antwerp City Brewery (officieel)",
+   "u": "https://www.dekoninck.be",
+   "l": "Brouwerij De Koninck / Antwerp City Brewery (officieel)"
+  },
+  "DELREY": {
+   "k": "DELREY",
+   "t": "DelReY Antwerpen (officieel; Relais Desserts-lid)",
+   "u": "https://www.delrey.be",
+   "l": "DelReY Antwerpen (officieel; Relais Desserts-lid)"
+  },
+  "ELLE": {
+   "k": "ELLE",
+   "t": "ELLE België",
+   "u": "https://www.elle.be",
+   "l": "ELLE België"
+  },
+  "EUROPEANBARGUIDE": {
+   "k": "EUROPEANBARGUIDE",
+   "t": "The European Bar Guide",
+   "u": "https://theeuropeanbarguide.com",
+   "l": "The European Bar Guide"
+  },
+  "EUROPEANCOFFEE": {
+   "k": "EUROPEANCOFFEE",
+   "t": "European Coffee Trip",
+   "u": "https://europeancoffeetrip.com",
+   "l": "European Coffee Trip"
+  },
+  "FEELING": {
+   "k": "FEELING",
+   "t": "Feeling / Feeling Food (Roularta)",
+   "u": "https://www.feeling.be",
+   "l": "Feeling / Feeling Food (Roularta)"
+  },
+  "GAULTMILLAU": {
+   "k": "GAULT&MILLAU",
+   "t": "Gault&Millau België",
+   "u": "https://www.gaultmillau.be",
+   "l": "Gault&Millau België"
+  },
+  "GRAANMARKT13": {
+   "k": "GRAANMARKT13",
+   "t": "Graanmarkt 13 (officieel)",
+   "u": "https://www.graanmarkt13.com",
+   "l": "Graanmarkt 13 (officieel)"
+  },
+  "HETANKER": {
+   "k": "HETANKER",
+   "t": "Brouwerij Het Anker (officieel)",
+   "u": "https://www.hetanker.be",
+   "l": "Brouwerij Het Anker (officieel)"
+  },
+  "HOFFYS": {
+   "k": "HOFFYS",
+   "t": "Hoffy's (officieel)",
+   "u": "https://hoffys.be",
+   "l": "Hoffy's (officieel)"
+  },
+  "JANMAG": {
+   "k": "JANMAG",
+   "t": "JAN Magazine",
+   "u": "https://www.jan-magazine.nl",
+   "l": "JAN Magazine"
+  },
+  "KEMPENSKARAKTER": {
+   "k": "KEMPENSKARAKTER",
+   "t": "Kempens Karakter (erfgoedorganisatie)",
+   "u": "https://www.kempenskarakter.be",
+   "l": "Kempens Karakter (erfgoedorganisatie)"
+  },
+  "KLEINBLATT": {
+   "k": "KLEINBLATT",
+   "t": "Kleinblatt (officieel, koosjere bakkerij)",
+   "u": "https://www.kleinblatt.be",
+   "l": "Kleinblatt (officieel, koosjere bakkerij)"
+  },
+  "LEFOODING": {
+   "k": "LEFOODING",
+   "t": "Le Fooding",
+   "u": "https://lefooding.com",
+   "l": "Le Fooding"
+  },
+  "MADEIN": {
+   "k": "MADEIN",
+   "t": "Made in (regionale nieuwssite, o.a. Mechelen/Antwerpen)",
+   "u": "https://www.made-in.be",
+   "l": "Made in (regionale nieuwssite, o.a. Mechelen/Antwerpen)"
+  },
+  "MEETINMECHELEN": {
+   "k": "MEETINMECHELEN",
+   "t": "Meet in Mechelen (Stad Mechelen)",
+   "u": "https://meetin.mechelen.be",
+   "l": "Meet in Mechelen (Stad Mechelen)"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "Michelin Gids België & Luxemburg",
+   "u": "https://guide.michelin.com",
+   "l": "Michelin Gids België & Luxemburg"
+  },
+  "NJAM": {
+   "k": "NJAM",
+   "t": "njam! (Vlaamse culinaire zender)",
+   "u": "https://njam.tv",
+   "l": "njam! (Vlaamse culinaire zender)"
+  },
+  "OLIVEMAG": {
+   "k": "OLIVEMAG",
+   "t": "Olive Magazine (UK)",
+   "u": "https://www.olivemagazine.com",
+   "l": "Olive Magazine (UK)"
+  },
+  "ONROERENDERFGOED": {
+   "k": "ONROERENDERFGOED",
+   "t": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",
+   "u": "https://inventaris.onroerenderfgoed.be",
+   "l": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)"
+  },
+  "SEEF": {
+   "k": "SEEF",
+   "t": "Antwerpse Brouw Compagnie / Seef (officieel)",
+   "u": "https://seef.be",
+   "l": "Antwerpse Brouw Compagnie / Seef (officieel)"
+  },
+  "STREEKPRODUCT": {
+   "k": "STREEKPRODUCT",
+   "t": "Streekproduct.be (VLAM — Vlaamse streekproducten)",
+   "u": "https://www.streekproduct.be",
+   "l": "Streekproduct.be (VLAM — Vlaamse streekproducten)"
+  },
+  "TIMETOMOMO": {
+   "k": "TIMETOMOMO",
+   "t": "Time to Momo (stadsgidsen)",
+   "u": "https://www.timetomomo.com",
+   "l": "Time to Momo (stadsgidsen)"
+  },
+  "VISITANTWERPEN": {
+   "k": "VISIT ANTWERPEN",
+   "t": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",
+   "u": "https://visit.antwerpen.be",
+   "l": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be"
+  },
+  "VISITMECHELEN": {
+   "k": "VISITMECHELEN",
+   "t": "Visit Mechelen / Meet in Mechelen (officiële toerisme)",
+   "u": "https://visit.mechelen.be",
+   "l": "Visit Mechelen / Meet in Mechelen (officiële toerisme)"
+  },
+  "W50BEST": {
+   "k": "W50BEST",
+   "t": "The World's 50 Best — Discovery",
+   "u": "https://www.theworlds50best.com/discovery",
+   "l": "The World's 50 Best — Discovery"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia (EN)",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia (EN)"
+  },
+  "WIKIPEDIANL": {
+   "k": "WIKIPEDIANL",
+   "t": "Wikipedia (NL)",
+   "u": "https://nl.wikipedia.org",
+   "l": "Wikipedia (NL)"
+  }
+ }
+}

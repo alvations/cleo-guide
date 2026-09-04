@@ -1,0 +1,785 @@
+{
+ "sources": [
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "url": "https://whc.unesco.org"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (EN)",
+   "url": "https://en.wikipedia.org"
+  },
+  {
+   "key": "WIKIPEDIANL",
+   "name": "Wikipedia (NL)",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "VISITANTWERPEN",
+   "name": "Visit Antwerpen (officiële toerisme) / press.visitantwerpen.be",
+   "url": "https://visit.antwerpen.be"
+  },
+  {
+   "key": "ANTWERPENBE",
+   "name": "Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)",
+   "url": "https://www.antwerpen.be"
+  },
+  {
+   "key": "PERSANTWERPEN",
+   "name": "Stad Antwerpen persdienst (pers.antwerpen.be)",
+   "url": "https://pers.antwerpen.be"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "VRT",
+   "name": "VRT NWS",
+   "url": "https://www.vrt.be/vrtnws"
+  },
+  {
+   "key": "MICHELIN",
+   "name": "Michelin Gids België & Luxemburg",
+   "url": "https://guide.michelin.com"
+  },
+  {
+   "key": "VISITFLANDERS",
+   "name": "Toerisme Vlaanderen (visitflanders.com)",
+   "url": "https://www.visitflanders.com"
+  },
+  {
+   "key": "KMSKA",
+   "name": "Koninklijk Museum voor Schone Kunsten Antwerpen (officieel)",
+   "url": "https://kmska.be"
+  },
+  {
+   "key": "REDSTARLINE",
+   "name": "Red Star Line Museum (officieel, Stad Antwerpen)",
+   "url": "https://redstarline.be"
+  },
+  {
+   "key": "MASBE",
+   "name": "MAS — Museum aan de Stroom (officieel)",
+   "url": "https://mas.be"
+  },
+  {
+   "key": "PLANTINMORETUS",
+   "name": "Museum Plantin-Moretus (officieel, UNESCO)",
+   "url": "https://museumplantinmoretus.be"
+  },
+  {
+   "key": "MAYERVDBERGH",
+   "name": "Museum Mayer van den Bergh (officieel)",
+   "url": "https://museummayervandenbergh.be"
+  },
+  {
+   "key": "SNIJDERSROCKOX",
+   "name": "Het Snijders&Rockoxhuis (officieel)",
+   "url": "https://www.snijdersrockoxhuis.be"
+  },
+  {
+   "key": "HANDELSBEURS",
+   "name": "Handelsbeurs Antwerpen (officieel)",
+   "url": "https://handelsbeursantwerpen.be"
+  },
+  {
+   "key": "ATLASOBSCURA",
+   "name": "Atlas Obscura",
+   "url": "https://www.atlasobscura.com"
+  },
+  {
+   "key": "OKV",
+   "name": "Openbaar Kunstbezit in Vlaanderen (okv.be)",
+   "url": "https://www.okv.be"
+  },
+  {
+   "key": "FLEMISHMASTERS",
+   "name": "Flemish Masters in situ (Vlaamse erfgoedproject)",
+   "url": "https://www.flemishmastersinsitu.com"
+  },
+  {
+   "key": "SINTPAULUS",
+   "name": "Sint-Paulusparochie Antwerpen (officieel)",
+   "url": "https://www.sintpaulusantwerpen.be"
+  },
+  {
+   "key": "HERITA",
+   "name": "Herita vzw (erfgoedorganisatie)",
+   "url": "https://www.herita.be"
+  },
+  {
+   "key": "LONELYPLANET",
+   "name": "Lonely Planet",
+   "url": "https://www.lonelyplanet.com"
+  },
+  {
+   "key": "PERSRUBENS",
+   "name": "Rubenshuis persdienst (officieel)",
+   "url": "https://pers.rubenshuis.be"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Onze-Lieve-Vrouwekathedraal",
+   "address": "Handschoenmarkt, 2000 Antwerpen, Belgium",
+   "w": "De hoogste gotische kerk van de Lage Landen (toren ~123 m) met vier grote Rubens-werken, waaronder 'De Kruisafneming'. De kathedraaltoren staat als belfort op de UNESCO-Werelderfgoedlijst en beheerst de skyline van 't Stad.",
+   "k": "gotische kathedraal + 4 Rubensen",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "UNESCO"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Onze-Lieve-Vrouwekerk"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/activiteit/kathedraaltoren-beklimming"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Grote Markt, Stadhuis & Brabofontein",
+   "address": "Grote Markt 1, 2000 Antwerpen, Belgium",
+   "w": "Het driehoekige hart van de oude stad: het Italiaans-Vlaamse renaissancestadhuis (voltooid 1565), rijke gildehuizen en de Brabofontein (1887) die de stichtingslegende van Silvius Brabo verbeeldt.",
+   "k": "renaissancestadhuis + gildehuizen",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/stadhuis"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/belgium/flanders/antwerp/attractions/grote-markt/a/poi-sig/1523564/358710"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Steen",
+   "address": "Steenplein 1, 2000 Antwerpen, Belgium",
+   "w": "De middeleeuwse Scheldeburcht, het oudste bewaarde gebouw van Antwerpen, huisvest vandaag het bezoekerscentrum en de belevenis 'The Antwerp Story' aan de kaaien.",
+   "k": "middeleeuwse Scheldeburcht",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Het_Steen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "MAS — Museum aan de Stroom",
+   "address": "Hanzestedenplaats 1, 2000 Antwerpen, Belgium",
+   "w": "Het grootste museum van de stad (2011) op het Eilandje: negen verdiepingen over Antwerpen, de haven en de wereld, met een gratis toegankelijk dakterras dat het beste panorama van 't Stad biedt.",
+   "k": "stadsmuseum + gratis panorama",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "MASBE",
+     "https://mas.be/en"
+    ],
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/info/53610431afa8a760418b460e/mas-museum-aan-de-stroom"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Rubenshuis (in restauratie tot ~2030)",
+   "address": "Wapper 9-11, 2000 Antwerpen, Belgium",
+   "w": "Het stadspaleis, atelier en de tuin van Peter Paul Rubens. Het museum sloot in januari 2023 voor een grondige restauratie; door vertraging (asbest, prijzen) wordt heropening pas rond 2030 verwacht — het portaal en de barokgevel blijven de blikvanger aan de Wapper.",
+   "k": "stadspaleis van Rubens — gesloten voor restauratie",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "PERSRUBENS",
+     "https://pers.rubenshuis.be/grondige-restauratie-kunstenaarswoning-maakt-masterplan-rubenshuis-compleet-museum-sluit-vanaf-9-januari-2023-en-heropent-in-2027"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2023/10/24/restauratie-rubenshuis-antwerpen-loopt-zeker-drie-jaar-vertragin/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Museum Plantin-Moretus",
+   "address": "Vrijdagmarkt 22, 2000 Antwerpen, Belgium",
+   "w": "Het enige museum ter wereld op de UNESCO-Werelderfgoedlijst (sinds 2005): het originele woonhuis en de drukkerij van de familie Plantin-Moretus, met de twee oudste bewaarde drukpersen ter wereld en Rubens-portretten.",
+   "k": "UNESCO — oudste drukkerij ter wereld",
+   "g": [
+    "UNESCO",
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "PLANTINMORETUS",
+     "https://museumplantinmoretus.be/en/about-us"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1185/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "KMSKA — Koninklijk Museum voor Schone Kunsten",
+   "address": "Leopold de Waelplaats 1, 2000 Antwerpen, Belgium",
+   "w": "Na elf jaar renovatie in 2022 heropend: de topcollectie Vlaamse meesters (Van Eyck, Memling, Rubens, Ensor) in een neoklassiek paleis met 40% extra ruimte in strakke witte patio's. Meteen een van de best bezochte musea van Vlaanderen.",
+   "k": "Vlaamse meesters, spectaculair heropend",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "KMSKA",
+     "https://kmska.be/nl"
+    ],
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2022/09/15/na-elf-jaar-gaat-schatkamer-kmska-in-antwerpen-zaterdag-weer-ope/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "M HKA — Museum van Hedendaagse Kunst",
+   "address": "Leuvenstraat 32, 2000 Antwerpen, Belgium",
+   "w": "Het Vlaamse museum voor hedendaagse kunst en beeldcultuur in een oud graansilo op het Zuid, met een sterke focus op Belgische naoorlogse en actuele kunst.",
+   "k": "hedendaagse kunst op 't Zuid",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Museum_van_Hedendaagse_Kunst_Antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "FoMU — FotoMuseum Antwerpen",
+   "address": "Waalsekaai 47, 2000 Antwerpen, Belgium",
+   "w": "Het Vlaamse fotografiemuseum op het Zuid, met een rijke historische collectie en wisselende exposities van gevestigde en jonge fotografen.",
+   "k": "fotografiemuseum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/FotoMuseum_Antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Pauluskerk",
+   "address": "Sint-Paulusstraat 22, 2000 Antwerpen, Belgium",
+   "w": "Gotische kerk met een uitzonderlijk barokinterieur waar werken van de drie grootste Antwerpse barokschilders — Rubens, Van Dyck en Jordaens — broederlijk naast elkaar hangen, plus de opmerkelijke Calvarietuin.",
+   "k": "Rubens, Van Dyck én Jordaens",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "SINTPAULUS",
+     "https://www.sintpaulusantwerpen.be/nieuws/met-rubens-op-zomerwandeling/"
+    ],
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/nl/locaties/sint-pauluskerk-antwerpen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Jacobskerk",
+   "address": "Lange Nieuwstraat 73, 2000 Antwerpen, Belgium",
+   "w": "Rijke gotische kerk (1490-1656) met een overweldigend marmeren barokinterieur en 24 altaren. In de Rubenskapel bevindt zich de laatste rustplaats van Peter Paul Rubens, met zijn schilderij 'Madonna omringd door heiligen'.",
+   "k": "grafkerk van Rubens",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "FLEMISHMASTERS",
+     "https://www.flemishmastersinsitu.com/nl/locaties/sint-jacobskerk-antwerpen"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Jacobskerk_(Antwerpen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Carolus Borromeuskerk",
+   "address": "Hendrik Conscienceplein 12, 2000 Antwerpen, Belgium",
+   "w": "Meesterwerk van de barok (1615-1621) op het sfeervolle Hendrik Conscienceplein; Rubens werkte mee aan de gevel en leverde ooit 39 plafondschilderijen (verbrand in 1718). Een pronkstuk van de jezuïetenarchitectuur.",
+   "k": "barok, mee door Rubens ontworpen",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4118"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be/museum/sint-carolus-borromeuskerk"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Sint-Annatunnel (voetgangerstunnel)",
+   "address": "Sint-Jansvliet, 2000 Antwerpen, Belgium",
+   "w": "De voetgangers- en fietstunnel onder de Schelde uit 1933, met authentieke houten roltrappen — tot de oudste nog werkende houten roltrappen van continentaal Europa — en aan de overkant een gratis panorama op de stad.",
+   "k": "tunnel onder de Schelde, houten roltrappen",
+   "g": [
+    "HIST",
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Annatunnel"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "MoMu — ModeMuseum",
+   "address": "Nationalestraat 28, 2000 Antwerpen, Belgium",
+   "w": "Het Vlaamse modemuseum in de Modenatie, kloppend hart van de Antwerpse modewijk en de erfenis van de 'Antwerp Six'. Wisselende topexposities rond mode en textiel.",
+   "k": "modemuseum in de modewijk",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/ModeMuseum_Antwerpen"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "DIVA — museum voor diamant, juwelen en zilver",
+   "address": "Suikerrui 17-19, 2000 Antwerpen, Belgium",
+   "w": "Antwerpen is de wereldhoofdstad van de diamant; DIVA vertelt dat verhaal via een schitterende collectie diamant, juwelen en zilver in een parcours als een galadiner.",
+   "k": "diamant- en zilvercollectie",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be/en/info/diva"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/DIVA_(museum)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Museum Mayer van den Bergh",
+   "address": "Lange Gasthuisstraat 19, 2000 Antwerpen, Belgium",
+   "w": "Kabinetmuseum met de wereldberoemde 'Dulle Griet' van Pieter Bruegel de Oude. Let op: het gebouw is (deels) gesloten voor restauratie; topstukken zijn tijdelijk elders (o.a. het Maagdenhuis) te zien — check vooraf.",
+   "k": "Bruegels 'Dulle Griet'",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "MAYERVDBERGH",
+     "https://museummayervandenbergh.be/en"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_Mayer_van_den_Bergh"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Snijders&Rockoxhuis",
+   "address": "Keizerstraat 10-12, 2000 Antwerpen, Belgium",
+   "w": "De aaneengesloten patriciërswoningen van burgemeester Nicolaas Rockox en schilder Frans Snijders, ingericht als een 17de-eeuws kunstkabinet met werk van Rubens, Van Dyck en Snijders.",
+   "k": "barok kunstkabinet",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "SNIJDERSROCKOX",
+     "https://www.snijdersrockoxhuis.be/"
+    ],
+    [
+     "OKV",
+     "https://www.okv.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Red Star Line Museum",
+   "address": "Montevideostraat 3, 2000 Antwerpen, Belgium",
+   "w": "In de originele loodsen van de rederij vertelt dit museum het verhaal van bijna drie miljoen landverhuizers die tussen 1873 en 1935 via Antwerpen naar Amerika vertrokken — een aangrijpend migratiemuseum op het Eilandje.",
+   "k": "migratie naar de Nieuwe Wereld",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "REDSTARLINE",
+     "https://redstarline.be/en/content/museum"
+    ],
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "ZOO Antwerpen",
+   "address": "Koningin Astridplein 20-26, 2018 Antwerpen, Belgium",
+   "w": "De oudste dierentuin van België (1843) pal naast het Centraal Station, geliefd om zijn 19de-eeuwse tuinarchitectuur — Egyptische tempel, art-decogebouwen — en meer dan 5.000 dieren midden in de stad.",
+   "k": "oudste zoo van België (1843)",
+   "g": [
+    "ICON",
+    "HIST",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Antwerpse_Zoo"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Havenhuis (Port House) — Zaha Hadid",
+   "address": "Zaha Hadidplein 1, 2030 Antwerpen, Belgium",
+   "w": "Zaha Hadids laatste voltooide gebouw (2016): een glinsterende, diamantvormige cocon die boven een oude brandweerkazerne op het Eilandje zweeft. Van buiten vrij te bewonderen; binnen enkel met gegidste groepsrondleiding.",
+   "k": "iconische architectuur van Zaha Hadid",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Havenhuis_(Antwerpen)"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Boerentoren (KBC-toren)",
+   "address": "Schoenmarkt 35, 2000 Antwerpen, Belgium",
+   "w": "De eerste wolkenkrabber van Europa (1929-1931), bijna 100 m hoog en in art-decostijl. Ondergaat een transformatie tot kunst- en publieksplek; de silhouetstijl blijft een baken in de skyline.",
+   "k": "eerste wolkenkrabber van Europa",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VRT",
+     "https://www.vrt.be/vrtnws/nl/2020/11/19/de-boerentoren-de-eerste-belgische-wolkenkrabber/"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/3959"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Paleis op de Meir",
+   "address": "Meir 50, 2000 Antwerpen, Belgium",
+   "w": "18de-eeuws rococopaleis aan de winkelstraat de Meir, ooit door Napoleon en later door de Belgische koningen gebruikt. Vandaag met een chocoladehuis en het Chocolate Story-museum.",
+   "k": "rococopaleis + chocoladehuis",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OKV",
+     "https://www.okv.be/museum/paleis-op-de-meir"
+    ],
+    [
+     "HERITA",
+     "https://www.herita.be/en/meir-palace"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Museum Vleeshuis — Klank van de Stad",
+   "address": "Vleeshouwersstraat 38-40, 2000 Antwerpen, Belgium",
+   "w": "Laatgotisch voormalig gildehuis van de vleeshouwers (1501-1504) in rode baksteen en witte zandsteen, sinds 2006 gewijd aan 800 jaar muziekleven in Antwerpen en de Lage Landen.",
+   "k": "muziekmuseum in een gildehuis",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Museum_Vleeshuis"
+    ],
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/4678"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Vlaeykensgang",
+   "address": "Oude Koornmarkt 16, 2000 Antwerpen, Belgium",
+   "w": "Verscholen 16de-eeuws steegje pal naast de Grote Markt: kasseien, lantaarns en stilte op wandelafstand van de kathedraalbeiaard. Een van de best bewaarde stukjes oud Antwerpen.",
+   "k": "verborgen 16de-eeuws steegje",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Zurenborg & Cogels-Osylei",
+   "address": "Cogels-Osylei, 2600 Berchem (Antwerpen), Belgium",
+   "w": "Een openluchtmuseum van fin-de-siècle-architectuur: straten vol art-nouveau-, neoclassicistische en eclectische burgerpaleizen. De Cogels-Osylei geldt als een van de mooiste straten van het land.",
+   "k": "fin-de-siècle-architectuurwijk",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Zurenborg"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANT",
+   "n": "Antwerpen-Centraal (Centraal Station)",
+   "address": "Koningin Astridplein 27, 2018 Antwerpen, Belgium",
+   "w": "De 'spoorwegkathedraal' (1905) met haar monumentale stenen ontvangsthal, koepel en vier verdiepingen sporen wordt geregeld tot een van de mooiste stations ter wereld gerekend.",
+   "k": "de spoorwegkathedraal",
+   "g": [
+    "ICON",
+    "ARCH",
+    "HIST",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Station_Antwerpen-Centraal"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://visit.antwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Handelsbeurs",
+   "address": "Twaalfmaandenstraat, 2000 Antwerpen, Belgium",
+   "w": "De schitterend gerestaureerde neogotische beurshal op de plek van de eerste 'beurs' ter wereld (1531). Na twintig jaar leegstand in 2019 heropend als evenementenhal onder een spectaculair glazen dak.",
+   "k": "'s werelds eerste beurs, herrezen",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "HANDELSBEURS",
+     "https://handelsbeursantwerpen.be/en/geschiedenis-handelsbeurs-antwerpen/"
+    ],
+    [
+     "VISITANTWERPEN",
+     "https://press.visitantwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANT",
+   "n": "Sint-Andrieskerk",
+   "address": "Sint-Andriesstraat 5, 2000 Antwerpen, Belgium",
+   "w": "De parochiekerk van de gelijknamige volkse-modieuze wijk, een van de vijf monumentale kerken van de stad, in het voorjaar van 2025 volledig uit de restauratiesteigers.",
+   "k": "kerk van de Sint-Andrieswijk",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "PERSANTWERPEN",
+     "https://pers.antwerpen.be/sint-andrieskerk-in-voorjaar-2025-volledig-uit-de-stellingen"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Andrieskerk_(Antwerpen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANT",
+   "n": "Het Eilandje",
+   "address": "Willemdok / Bonapartedok, 2000 Antwerpen, Belgium",
+   "w": "Het oudste, heropgeleefde havenkwartier ten noorden van de oude stad: rondom Bonapartedok, Willemdok en Kattendijkdok kwamen loft-, museum- en restaurantwijken tot bloei rond het MAS en het Havenhuis.",
+   "k": "heropgeleefd oud havenkwartier",
+   "g": [
+    "ARCH",
+    "MKT",
+    "NIGHT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/nl/nl/article/travel/t-eilandje-in-antwerpen-bruist-als-nooit-tevoren"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Het_Eilandje"
+    ]
+   ]
+  }
+ ]
+}

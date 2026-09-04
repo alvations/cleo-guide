@@ -1,0 +1,425 @@
+{
+ "sources": [
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "url": "https://whc.unesco.org"
+  },
+  {
+   "key": "WIKIPEDIA",
+   "name": "Wikipedia (EN)",
+   "url": "https://en.wikipedia.org"
+  },
+  {
+   "key": "WIKIPEDIANL",
+   "name": "Wikipedia (NL)",
+   "url": "https://nl.wikipedia.org"
+  },
+  {
+   "key": "ANTWERPENBE",
+   "name": "Stad Antwerpen (antwerpen.be / magazine.antwerpen.be)",
+   "url": "https://www.antwerpen.be"
+  },
+  {
+   "key": "ONROERENDERFGOED",
+   "name": "Agentschap Onroerend Erfgoed (inventaris Vlaanderen)",
+   "url": "https://inventaris.onroerenderfgoed.be"
+  },
+  {
+   "key": "VISITMECHELEN",
+   "name": "Visit Mechelen / Meet in Mechelen (officiële toerisme)",
+   "url": "https://visit.mechelen.be"
+  },
+  {
+   "key": "MEETINMECHELEN",
+   "name": "Meet in Mechelen (Stad Mechelen)",
+   "url": "https://meetin.mechelen.be"
+  },
+  {
+   "key": "VISITLIER",
+   "name": "Visit Lier (officiële toerisme)",
+   "url": "https://www.visitlier.be"
+  },
+  {
+   "key": "VISITFLANDERS",
+   "name": "Toerisme Vlaanderen (visitflanders.com)",
+   "url": "https://www.visitflanders.com"
+  },
+  {
+   "key": "HOFVANBUSLEYDEN",
+   "name": "Museum Hof van Busleyden (officieel, Stad Mechelen)",
+   "url": "https://www.hofvanbusleyden.be"
+  },
+  {
+   "key": "PROVANTWERPEN",
+   "name": "Provincie Antwerpen (officiële provinciale domeinen)",
+   "url": "https://www.provincieantwerpen.be"
+  },
+  {
+   "key": "HAVENWERELD",
+   "name": "Havenwereld — Port of Antwerp-Bruges (officieel)",
+   "url": "https://www.havenwereld.be"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Middelheimmuseum",
+   "address": "Middelheimlaan 61, 2020 Antwerpen, Belgium",
+   "w": "Gratis openluchtmuseum voor moderne en hedendaagse beeldhouwkunst in het groene Nachtegalenpark, met meesterwerken van o.a. Rik Wouters, Rodin, Panamarenko en Giacometti.",
+   "k": "gratis beeldenpark",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "ANTWERPENBE",
+     "https://www.antwerpen.be/info/53675047aba8a70d7f8b4573/middelheimmuseum"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/ontdek-vlaanderen/kunst-en-erfgoed/kastelen-en-tuinen-buiten-de-stadsmuren/kastelen-en-tuinen-8-1"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Provinciaal Groendomein Rivierenhof",
+   "address": "Turnhoutsebaan 246, 2100 Deurne (Antwerpen), Belgium",
+   "w": "Het grootste en oudste provinciedomein bij de stad in Deurne: een uitgestrekt landschapspark met kasteel, openluchttheater en waterpartijen, dagelijks gratis toegankelijk.",
+   "k": "grootste stadspark",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "PROVANTWERPEN",
+     "https://www.provincieantwerpen.be/nl/locaties/rivierenhof"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/ontdek-vlaanderen/kunst-en-erfgoed/kastelen-en-tuinen-buiten-de-stadsmuren/kastelen-en-tuinen-8-2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Grenspark Kalmthoutse Heide",
+   "address": "Putsesteenweg 129, 2920 Kalmthout, Belgium",
+   "w": "Uitgestrekt grensoverschrijdend natuurgebied van heide, zandduinen, vennen en bossen ten noorden van de stad, gratis toegankelijk met wandelroutes en twee uitkijktorens.",
+   "k": "heide, duinen en vennen",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/De_Zoom%E2%80%93Kalmthoutse_Heide_Cross-Border_Park"
+    ],
+    [
+     "PROVANTWERPEN",
+     "https://www.provincieantwerpen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Arboretum Kalmthout",
+   "address": "Heuvel 8, 2920 Kalmthout, Belgium",
+   "w": "Een van de oudste arboreta van Vlaanderen (1856) met meer dan 7.000 plantensoorten op 12,5 ha, wereldberoemd om zijn winterbloeiende toverhazelaars (grootste collectie van Europa).",
+   "k": "botanische tuin, toverhazelaars",
+   "g": [
+    "PARK"
+   ],
+   "sources": [
+    [
+     "PROVANTWERPEN",
+     "https://www.provincieantwerpen.be/nl/locaties/arboretum-kalmthout"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arboretum_Kalmthout"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Sint-Romboutskathedraal & -toren",
+   "address": "Onder-den-Toren, 2800 Mechelen, Belgium",
+   "w": "De onvoltooide maar imposante toren (97 m, UNESCO-belfort) domineert Mechelen; 538 treden en een skywalk leiden naar een weids panorama over de Kempen en tot Brussel en Antwerpen.",
+   "k": "UNESCO-belforttoren, 538 treden",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/toren"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/943/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Kazerne Dossin",
+   "address": "Goswin de Stassartstraat 153, 2800 Mechelen, Belgium",
+   "w": "Museum, memoriaal en documentatiecentrum over de Holocaust en mensenrechten, in de voormalige kazerne van waaruit meer dan 25.000 Joden en Roma naar Auschwitz werden gedeporteerd.",
+   "k": "Holocaustmemoriaal",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kazerne_Dossin"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Grote Markt & Stadhuis Mechelen",
+   "address": "Grote Markt, 2800 Mechelen, Belgium",
+   "w": "Een van de mooiste marktpleinen van Vlaanderen, met het historische stadhuis (voormalig lakenhal- en Schepenhuiscomplex) en zicht op de Sint-Romboutstoren.",
+   "k": "markt onder de toren",
+   "g": [
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/top-10"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Grote_Markt_(Mechelen)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Groot Begijnhof Mechelen",
+   "address": "Begijnhof, 2800 Mechelen, Belgium",
+   "w": "Het uitgestrekte Groot Begijnhof, met zijn typisch Vlaamse karakter en baksteenarchitectuur, staat op de UNESCO-Werelderfgoedlijst van de Vlaamse begijnhoven.",
+   "k": "UNESCO-begijnhof",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/855/"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Speelgoedmuseum Mechelen",
+   "address": "Nekkerspoelstraat 21, 2800 Mechelen, Belgium",
+   "w": "Groot familiemuseum met speelgoed van weleer tot vandaag — een van de populairste bezoektips van Mechelen voor gezinnen.",
+   "k": "speelgoed door de eeuwen",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/top-10"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Speelgoedmuseum_Mechelen"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Museum Hof van Busleyden",
+   "address": "Frederik de Merodestraat 65, 2800 Mechelen, Belgium",
+   "w": "Renaissancestadspaleis dat de bloeitijd van Mechelen als hoofdstad van de Bourgondische Nederlanden tot leven brengt, met een fraaie binnentuin en koffiebar in het gerestaureerde 'Schipke'.",
+   "k": "Bourgondisch stadspaleis",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "HOFVANBUSLEYDEN",
+     "https://www.hofvanbusleyden.be/"
+    ],
+    [
+     "VISITMECHELEN",
+     "https://visit.mechelen.be/museum-hof-van-busleyden"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Boottocht op de Binnendijle",
+   "address": "Haverwerf, 2800 Mechelen, Belgium",
+   "w": "Een rondvaart van ~45 minuten met de Malinska over de Binnendijle toont Mechelen van het water, langs de Vismarkt, de Grootbrug en de Kruidtuin (april-oktober dagelijks).",
+   "k": "Mechelen vanaf het water",
+   "g": [
+    "ICON"
+   ],
+   "sources": [
+    [
+     "VISITMECHELEN",
+     "https://www.visitmechelen.be/boottochtje-op-de-binnendijle"
+    ],
+    [
+     "MEETINMECHELEN",
+     "https://meetin.mechelen.be/boottochtje-op-de-binnendijle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "ANTR",
+   "n": "Zimmertoren",
+   "address": "Zimmerplein 18, 2500 Lier, Belgium",
+   "w": "De middeleeuwse Corneliustoren kreeg in 1930 de wereldberoemde Jubelklok van klokkenmaker en amateurastronoom Louis Zimmer; binnen tonen de Wonderklok en het Zimmermuseum tijd en heelal.",
+   "k": "astronomische Jubelklok",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/inspirerende-reisroutes/48-uur-lier-0"
+    ],
+    [
+     "VISITLIER",
+     "https://www.visitlier.be"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Begijnhof van Lier",
+   "address": "Begijnhofstraat, 2500 Lier, Belgium",
+   "w": "Gesticht in 1258, met elf straatjes en 162 huizen rond een pandhof — een van de Vlaamse begijnhoven op de UNESCO-Werelderfgoedlijst en een oase van rust in Lier.",
+   "k": "UNESCO-begijnhof",
+   "g": [
+    "UNESCO",
+    "HIST",
+    "ARCH",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/855/"
+    ],
+    [
+     "VISITFLANDERS",
+     "https://www.visitflanders.com/nl/inspirerende-reisroutes/48-uur-lier-0"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "ANTR",
+   "n": "Sint-Gummaruskerk",
+   "address": "Kardinaal Mercierplein, 2500 Lier, Belgium",
+   "w": "Brabants-gotische hoofdkerk van Lier met beroemde glasramen (o.a. door keizer Maximiliaan geschonken) en een rijk interieur — een van de belangrijkste bezienswaardigheden van de Pallieterstad.",
+   "k": "gotische hoofdkerk met topglasramen",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Sint-Gummaruskerk_(Lier)"
+    ],
+    [
+     "VISITLIER",
+     "https://www.visitlier.be"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Kasteel Sorghvliedt",
+   "address": "Marneflaan 3, 2660 Hoboken (Antwerpen), Belgium",
+   "w": "Rococokasteel (1745-1750) van architect Jan Pieter van Baurscheit de Jonge aan de rand van Hoboken, met park; vandaag districtshuis en overdag deels vrij te bezoeken.",
+   "k": "rococokasteel met park",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "ONROERENDERFGOED",
+     "https://inventaris.onroerenderfgoed.be/erfgoedobjecten/11463"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sorghvliedt_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "ANTR",
+   "n": "Fort Liefkenshoek",
+   "address": "Fort Liefkenshoek, 9130 Kallo (Beveren), Belgium",
+   "w": "16de-eeuws Scheldefort in het havengebied met belevingscentrum, wandelpaden en een uitkijktoren over de Schelde; vlot bereikbaar met de Waterbus vanuit de stad.",
+   "k": "Scheldefort in de haven",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "sources": [
+    [
+     "HAVENWERELD",
+     "https://www.havenwereld.be/eropuit-in-de-haven/infopunten/fort-liefkenshoek/"
+    ],
+    [
+     "WIKIPEDIANL",
+     "https://nl.wikipedia.org/wiki/Fort_Liefkenshoek"
+    ]
+   ]
+  }
+ ]
+}
