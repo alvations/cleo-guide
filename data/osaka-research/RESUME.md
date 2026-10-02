@@ -41,7 +41,7 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
   coords (3/query); geocode Michelin pins (2-3 names/query). Search count this session tracked in `## Search log`.
 
 ## Search log
-- session 2 searches used: main 46 + G1 13 + S1 29 + M1 45 = 133
+- session 2 searches used: main 58 + G1 13 + S1 29 + M1 45 = 145 (M2 worker running, ≤25)
 
 ## Next actions
 0. Geocode the 23 W1 Michelin restaurants (Michelin-domain lat/lng) + resolve the 3 held Bib addresses.
