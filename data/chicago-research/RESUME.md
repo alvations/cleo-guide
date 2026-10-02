@@ -33,7 +33,9 @@
   (the remaining Wikipedia-pinnable landmarks are mostly used up; the next wave must be food + the geocode helper).
 
 ## In-flight wave
-(none — W11 committed). 
+**Session 3 (2026-10-02, food & drink first, §2b):** W12 food batches → `FOOD_W12.json` (+ later `FOOD_W13.json`…),
+geocode via background agents → `geo/_geoout_w12.json`, backlog pins → `geo/_geoout_backlog.json`. Lead ledger:
+`_chi_w12_leads.md`. Searches used this session: ~27 (main).
 
 ## Next actions (ordered)
 1. Pin the 29 UNVERIFIED restaurants with `tools/geocode-helper.html` (browser) → re-run `--build`; that alone lifts

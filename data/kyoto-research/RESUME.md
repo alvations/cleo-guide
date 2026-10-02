@@ -33,7 +33,11 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 - Search budget used this session: ~180 (main 162 + pin worker 18). Per-batch counts are in AUDIT.md.
 
 ## In-flight wave
-- none (W2 closed cleanly at each batch).
+- **W3 (2026-10-02, relaunch, own budget) — FOOD & DRINK FIRST + ANIME.** Files: FOOD_KYOTO_W5.json (food batches),
+  SIGHTS_KYOTO_ANIME1.json (anime wave), geo/_geoout_kyoto_food_w5.json, geo/_geoout_kyoto_anime1.json.
+  Queries planned: Michelin Bib by ward → pins; Tabelog 百名店 genre lists (ramen/udon-soba/喫茶/パン/和菓子/バー) + KT/JG 2nd source;
+  Fushimi sake breweries; Nishiki stalls; kissaten; craft beer; Pontochō/Kiyamachi bars; creators; anime wave.
+  Search counter (this session): 0.
 
 ## Next wave plan (W3) — ordered, with the cheapest proven techniques
 1. **Held leads first (1 search each, or fewer):** Shōkoku-ji, Rozan-ji, Daihōon-ji, Honnō-ji, Shinsen-en, Tōji-in, Seigan-ji, Goō Shrine,
