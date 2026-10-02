@@ -9,6 +9,9 @@ import japan_build as B
 CFG = {
  "KEY": "okinawa", "OUT": "okinawa.html", "DATASET": "okinawa.dataset.json", "PFX": "oki",
  "FALLBACK": (26.2124, 127.6809, 9), "VERIFIED": "2026-10-02",
+ # Frame the main island (Naha→Yanbaru); the derived 5–95% centre (~25.57,126.16) lands in the sea between the
+ # main island and Miyako. Kerama/Miyako/Yaeyama stay reachable by panning/zooming out.
+ "VIEW": (26.45, 127.85, 9),
  "TITLE": "Okinawa Field Guide — Sourced",
  "EYEBROW": "Field guide · Okinawa (沖縄), sourced",
  "H1_MAIN": "Okinawa",
