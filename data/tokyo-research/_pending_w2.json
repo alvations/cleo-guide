@@ -188,16 +188,34 @@
    "need": "current open/closed status (closed for renovation from 2022; reopening not confirmed in hand)"
   },
   {
-   "n": "Fukagawa Fudoson",
-   "a": "SMKT",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/things-to-do/fukagawa-fudoson; Wikidata Q11495650 coords 35.672917,139.798333",
-   "need": "2nd"
-  },
-  {
    "n": "Blue Bottle Coffee Kiyosumi-Shirakawa",
    "a": "SMKT",
    "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/blue-bottle-coffee; WIKIPEDIA Blue Bottle (first Japan store 2015); 1-4-8 Hirano",
    "need": "coords"
+  },
+  {
+   "n": "Yamashita Park (Yokohama)",
+   "a": "KANTO",
+   "have": "WIKIPEDIA + JAPANGUIDE https://www.japan-guide.com/e/e3204.html",
+   "need": "pin — returned 35.2644,139.3859 is ~25 km off (REJECTED)"
+  },
+  {
+   "n": "Shitamachi Museum",
+   "a": "TAITO",
+   "have": "WIKIPEDIA coords 35.7102,139.7726; TIMEOUT https://www.timeout.com/tokyo/museums/shitamachi-museum",
+   "need": "current status (renovation closure 2023–? not confirmed in hand)"
+  },
+  {
+   "n": "Natsume Soseki Memorial Museum",
+   "a": "SJK",
+   "have": "Wikidata Q24862403 coords 35.709444,139.729167",
+   "need": "2 sources"
+  },
+  {
+   "n": "Akagi Shrine",
+   "a": "SJK",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/attractions/akagi-shrine",
+   "need": "pin (returned point = Kagurazaka district, rejected) + 2nd"
   }
  ]
 }
