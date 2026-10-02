@@ -24,29 +24,26 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - `EAST` East Orlando / UCF / Oviedo ~10
 - `SPACE` Space Coast ~25
 
-## State (session 2, 2026-10-02)
-- **LIVE**: `cities/orlando.html` built, 4 gates green (sourcecheck FAILs only on HELD single-source records, which the
-  build drops by design), `npm run validate` + `npm test` green; index card `CARD:orlando-fl` live; CITIES.md row LIVE.
-- 208 places researched (153 sights + 55 food); 142 pinned (136 sights + 6 food) on the page (almost all sights — theme-park rides/pavilions/resorts pinned from
-  Wikipedia/Wikidata/Coasterpedia; Atlas Obscura; city museums/springs/Space Coast). Restaurants: ~60 researched, few
-  pinned — WebSearch never surfaces restaurant place-pin decimals (Google/Apple/mapcarta tested) → UNVERIFIED with
-  address for `tools/geocode-helper.html`; only Wikipedia-article restaurants get pins (pin-pass agent `foodpins1`).
-- Search budget: ≈ 75 main + ≈ 70 by pin-pass agents (parkpins1-3, pinpass4, foodpins1) ≈ 145 used this session.
-- Files: FOOD_{MICHELIN,MICHELINREC,VN1,PARKEATS1,JBF1,DDD1,LOCAL1,UNIEATS1}.json · SIGHTS_{PARKS1-4,EPIC2,RESORTS1,
-  SEAWORLD1,CITY1-2,DTO1,NATURE1-2,SPACE1-2,KISS1,WEST1}.json · SOURCES_W2..W15.json · geo/_geoout_*.json (agent pin
-  files: parkpins1-3, pinpass4, foodpins1). Helpers: `_orl_lib.py` (append records), `_orl_push.sh` (commit+push),
-  `_orl_golive.py` (refresh card + CITIES row from the built page).
-- HELD single-source (need a 2nd credible source): Disney Springs, Race Through New York, CityWalk, Kia Center, Inter&Co
-  Stadium, Greenwood Cemetery, Dr. Phillips House, Osceola County Courthouse, Gaylord Palms, Central Florida Zoo,
-  Cocoa Beach Pier (also UNVERIFIED), Lake Nona Sculpture Garden, Randall Knife Museum, Epic McD, Global Convergence.
-- Closures flagged: Dinosaur (DAK, Feb 2026), Ethos Vegan Kitchen (2024). Seen but not added: Fast & Furious –
-  Supercharged (closed Aug 2026), Wet 'n Wild (2017), Skeletons museum, Exploration Tower (not reopened Jan 2026).
-- Status to re-check: Willie's Pinchos (DDD 2017; no 2026 confirmation found).
+## State (session 3, 2026-10-02)
+- **LIVE**: `cities/orlando.html`; 4 gates OK (sourcecheck FAILs only on 9 HELD single-source records, dropped by the build);
+  npm validate + test green; card `CARD:orlando-fl` + CITIES row refreshed.
+- **284 researched (131 food + 153 sights) — food share 46%** (session 2: 26%). On page: 141 sights + 6 food pinned.
+- Per area (food+sights / target): CWALK 2/10 · DAK 13/22 · DHS 12/20 · DSP 11/25 · DTO 24/50 · EAST 5/10 · EPCOT 25/35 · EPIC 14/20 ·
+  IDR 13/45 · IOA 10/20 · KISS 17/35 · MILLS 39/60 · MK 26/30 · SPACE 14/25 · SPRNG 17/30 · USF 10/20 · WEST 6/15 · WPK 26/45.
+- Session 3 files: FOOD_S3{BAR,PARK,CITY,PR,SPACE,NORTH,IDR,LOCAL,MICH}.json, SOURCES_S3*.json, geo/_geoout_s3*.json; helper
+  `_orl_addsrc.py` (append corroborating sources to an existing record); worker brief `_S3_AGENT_TASK.md` (reuse for next waves).
+- Search budget: 200/200 used (hard session cap).
 
 ## In-flight wave
-- (none — session 2 closed cleanly; W8 food-pin pass finished: 2/42 resolved, rest → helper)
+- (none — session 3 closed cleanly)
 
-## Next actions (ordered) — next-wave plan
+## Next actions (ordered) — next-wave plan (session 4)
+0. **Restaurant pins are the #1 gap**: ~125 restaurants UNVERIFIED → run `tools/geocode-helper.html` (addresses in geo/_geoout_*.json).
+0b. **Single-search corroborations** from `_PENDING_LEADS.md` Session 3 section (≈60 leads: Kissimmee Latin, @somehowimnotfat list,
+   Space Coast, Sanford/Oviedo, Disney resort dining Sanaa/Jiko/Topolino's/'Ohana/Trader Sam's, Universal Hog's Head/Bigfire/
+   Toothsome/Duff, Epic Burning Blade/Das Stakehaus) → food share >50% everywhere; then sights for IDR/DSP/CWALK/EAST/WEST.
+0c. Re-corroborate Via Napoli, Takumi-Tei, Spice Road Table (Food Network + DisneyBizJournal only).
+0d. Run ≥3 creator queries per wave (Disney Food Blog YouTube, Orlando Informer, TikTok) — none vetted in session 3.
 1. **Restaurant pins (biggest gap)**: run `tools/geocode-helper.html` in a browser over the ~50 UNVERIFIED restaurants
    (addresses are in geo/_geoout_{michelin,michelinrec,vn1,jbf1,ddd1,local1,parkeats1,unieats1}.json) → `_geoout_helper1.json`.
 2. **Corroborate HELD single-source** (14; list in State) — one search each or a shared round-up (Orlando Sentinel/

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Tokyo field guide — 241 sights and 141 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Tokyo field guide — 242 sights and 145 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Tokyo Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Tokyo (東京), sourced</p>
   <h1>Tokyo<span class="thin">ward by ward · Jōnan · Jōsai · Jōhoku · Jōtō · Tama · Kantō day trips</span></h1>
-  <p class="standfirst">241 sights and 141 places to eat across <strong>Tokyo</strong>, organised the way Tokyoites think about the city — the big special wards (Chiyoda, Chūō, Minato, Shinjuku, Shibuya, Taitō, Sumida-Kōtō) as their own areas, the rest by the old compass terms <strong>Jōnan, Jōsai, Jōhoku and Jōtō</strong>, then the <strong>Tama</strong> hills and the <strong>Kantō day-trip ring</strong> (Kamakura, Hakone, Nikkō, Kawagoe, Fuji Five Lakes, Yokohama). The food list starts from what is Tokyo's own — Kanda soba, Edomae sushi and unagi, monjayaki, dozeu loach, yōshoku omurice, tonkatsu and shōyu ramen — with the Michelin bench and century-old shinise beside each other. Every place is traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">242 sights and 145 places to eat across <strong>Tokyo</strong>, organised the way Tokyoites think about the city — the big special wards (Chiyoda, Chūō, Minato, Shinjuku, Shibuya, Taitō, Sumida-Kōtō) as their own areas, the rest by the old compass terms <strong>Jōnan, Jōsai, Jōhoku and Jōtō</strong>, then the <strong>Tama</strong> hills and the <strong>Kantō day-trip ring</strong> (Kamakura, Hakone, Nikkō, Kawagoe, Fuji Five Lakes, Yokohama). The food list starts from what is Tokyo's own — Kanda soba, Edomae sushi and unagi, monjayaki, dozeu loach, yōshoku omurice, tonkatsu and shōyu ramen — with the Michelin bench and century-old shinise beside each other. Every place is traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -315,10 +315,15 @@
 <script>
 
 const S = {
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
   "GOTOKYO":{k:"GO TOKYO",t:"GO TOKYO",u:"",l:""},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JAPANTIMES":{k:"THE JAPAN TIMES",t:"THE JAPAN TIMES",u:"",l:""},
+  "NIPPONCOM":{k:"NIPPONCOM",t:"nippon.com",u:"https://www.nippon.com/en/",l:"nippon.com"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
+  "TOFUGU":{k:"TOFUGU",t:"Tofugu",u:"https://www.tofugu.com/",l:"Tofugu"},
+  "TOKYOCHEAPO":{k:"TOKYO CHEAPO",t:"TOKYO CHEAPO",u:"",l:""},
   "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""}
 };
@@ -580,22 +585,37 @@ const P = [
 {t:2,a:"TAITO",n:"Shinobazu Pond",ad:"Uenokōen, Taitō-ku, Tokyo (south-west corner of Ueno Park)",la:35.71139,ln:139.77000,w:"Ueno Park's large pond at the park's south-west corner — a lakeside loop past the Shitamachi Museum.",k:"Ueno Park pond",g:["NATURE","FREE","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Shinobazu_Pond"],["TIMEOUT","https://www.timeout.com/tokyo/museums/shinobazu-pond"],["JAPANGUIDE","https://www.japan-guide.com/e/e3019.html"]]},
 {t:3,a:"TAITO",n:"Asakusa Culture Tourist Information Center",ad:"Opposite Kaminarimon, Asakusa, Taitō-ku, Tokyo",la:35.71069,ln:139.79650,w:"Asakusa's tourist information centre facing Kaminarimon — free help desk for the Sensō-ji area.",k:"free info centre",g:["FREE","TEMPLE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Asakusa_Culture_Tourist_Information_Center"],["TIMEOUT","https://www.timeout.com/tokyo/travel/asakusa-culture-tourist-information-center"]]},
 {t:2,a:"JHOKU",n:"Yushima Tenmangū",ad:"Yushima, Bunkyō-ku, Tokyo",la:35.70777,ln:139.76823,w:"Bunkyō shrine whose ~300 plum trees make the Feb 8 – Mar 8 ume festival one of Tokyo's favourite late-winter events.",k:"plum-blossom shrine",g:["TEMPLE","FREE"],s:[["GOTOKYO","https://www.gotokyo.org/en/spot/116/index.html"],["TIMEOUT","https://www.timeout.com/tokyo/things-to-do/yushima-tenjin-ume-matsuri"]]},
-{t:3,a:"TAITO",n:"Imado Shrine",ad:"Imado, Taitō-ku, Tokyo (north of Asakusa)",la:35.71931,ln:139.80353,w:"Small shrine on Asakusa's northern edge said to be the birthplace of the maneki-neko beckoning cat; it enshrines the deity couple Izanagi and Izanami, so it's a magnet for love-luck prayers.",k:"maneki-neko shrine",g:["TEMPLE","FREE"],s:[["TIMEOUT","https://www.timeout.com/tokyo/attractions/imado-shrine"],["GOTOKYO","https://www.gotokyo.org/book/wp-content/uploads/2024/06/2406_sumidagawa_EN_low.pdf"]]}
+{t:3,a:"TAITO",n:"Imado Shrine",ad:"Imado, Taitō-ku, Tokyo (north of Asakusa)",la:35.71931,ln:139.80353,w:"Small shrine on Asakusa's northern edge said to be the birthplace of the maneki-neko beckoning cat; it enshrines the deity couple Izanagi and Izanami, so it's a magnet for love-luck prayers.",k:"maneki-neko shrine",g:["TEMPLE","FREE"],s:[["TIMEOUT","https://www.timeout.com/tokyo/attractions/imado-shrine"],["GOTOKYO","https://www.gotokyo.org/book/wp-content/uploads/2024/06/2406_sumidagawa_EN_low.pdf"]]},
+{t:2,a:"CYD",n:"Super Potato Akihabara (スーパーポテト 秋葉原店)",ad:"Kitabayashi Bldg 3F–5F, 1-11-2 Sotokanda, Chiyoda City, Tokyo 〒101-0021",la:35.69936,ln:139.77070,w:"Three floors of retro consoles, cartridges and memorabilia in a Mario-decorated building; Time Out calls the Akihabara flagship the chain's most famous location, 'almost like a museum'.",k:"★ Anime & pop culture — Retro video games — Akihabara's best-known shrine to Famicom/Super Famicom-era Nintendo, Sega and arcade culture · Retro-game shop",g:["ANIME","POP","MKT","MUS"],s:[["TIMEOUT","https://www.timeout.com/tokyo/news/tokyos-vintage-video-game-store-super-potato-is-now-on-ebay-051021"],["TOKYOCHEAPO","https://tokyocheapo.com/place/super-potato/"]]}
 ];
 
 const FS = {
+  "CNN":{k:"CNN TRAVEL",t:"CNN Travel",u:"https://edition.cnn.com/travel",l:"CNN Travel"},
   "GOTOKYO":{k:"GO TOKYO",t:"GO TOKYO",u:"",l:""},
+  "INFATUATION":{k:"THE INFATUATION",t:"The Infatuation",u:"https://www.theinfatuation.com/tokyo",l:"The Infatuation"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JAPANTIMES":{k:"THE JAPAN TIMES",t:"THE JAPAN TIMES",u:"",l:""},
+  "JNTO":{k:"JNTO",t:"JNTO",u:"",l:""},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
+  "METROPOLIS":{k:"METROPOLIS",t:"Metropolis Japan",u:"https://metropolisjapan.com/",l:"Metropolis Japan"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN BIB",u:"",l:""},
   "MICHELIN_EDITORIAL":{k:"MICHELIN EDITORIAL",t:"MICHELIN_EDITORIAL",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN ★",u:"",l:""},
+  "MONOCLE":{k:"MONOCLE",t:"Monocle",u:"https://monocle.com/",l:"Monocle"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
   "PAOLOFROMTOKYO":{k:"PAOLOFROMTOKYO",t:"Paolo fromTOKYO",u:"https://www.youtube.com/@paolofromtokyo",l:"Paolo fromTOKYO"},
+  "PUNCH":{k:"PUNCH",t:"PUNCH (drinks magazine)",u:"https://punchdrink.com/",l:"PUNCH (drinks magazine)"},
   "RAMENADVENTURES":{k:"RAMENADVENTURES",t:"Ramen Adventures (Brian MacDuckston)",u:"https://ramenadventures.com/",l:"Ramen Adventures (Brian MacDuckston)"},
+  "RAMENBEAST":{k:"RAMENBEAST",t:"RAMENBEAST",u:"",l:""},
   "SAVORJAPAN":{k:"SAVOR JAPAN",t:"SAVOR JAPAN",u:"",l:""},
+  "SPRUDGE":{k:"SPRUDGE",t:"Sprudge",u:"https://sprudge.com/",l:"Sprudge"},
+  "TABELOG100":{k:"TABELOG HYAKUMEITEN",t:"TABELOG HYAKUMEITEN",u:"",l:""},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""}
+  "TOKYOCHEAPO":{k:"TOKYO CHEAPO",t:"TOKYO CHEAPO",u:"",l:""},
+  "TOKYOWEEKENDER":{k:"TOKYOWEEKENDER",t:"Tokyo Weekender",u:"https://www.tokyoweekender.com/",l:"Tokyo Weekender"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
+  "WORLD50":{k:"WORLD'S 50 BEST",t:"The World's 50 Best Bars / Asia's 50 Best Bars",u:"https://www.theworlds50best.com/bars/",l:"The World's 50 Best Bars / Asia's 50 Best Bars"}
 };
 
 const CUISINES = [
@@ -777,7 +797,11 @@ const F = [
 {t:1,a:"SJK",n:"Ichirin",ad:"3F, 3-4 Fukuromachi, Shinjuku-ku, Tokyo 162-0828",cz:["KAISEKI","FINE"],la:35.70118,ln:139.73866,w:"Kagurazaka-side (Fukuromachi) Japanese restaurant with one Michelin star.",s:[["MICHELIN_STAR","https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/ichirin"],["MICHELIN_EDITORIAL","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelinguide-tokyo-2024-en"]]},
 {t:1,a:"CHUO",n:"Ginza Kitagawa",ad:"3F, 2-10-11 Ginza, Chūō-ku, Tokyo 104-0061",cz:["KAISEKI","FINE"],la:35.67203,ln:139.76833,w:"Ginza Japanese restaurant holding one Michelin star in the 2026 guide.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/ginza-kitagawa"],["MICHELIN_EDITORIAL","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelinguide-tokyo-2024-en"]]},
 {t:1,a:"MNT",n:"Nishiazabu Noguchi",ad:"1-10-16 Nishi-Azabu, Minato-ku, Tokyo 106-0031",cz:["KAISEKI","FINE"],la:35.66143,ln:139.72422,w:"Nishi-Azabu Japanese restaurant first starred in the 2024 Michelin Tokyo guide.",s:[["MICHELIN","https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/nishiazabu-noguchi"],["MICHELIN_EDITORIAL","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelinguide-tokyo-2024-en"]]},
-{t:2,a:"CHUO",n:"Hamacho Kaneko",ad:"3-7-3 Nihombashi-Hamachō, Chūō-ku, Tokyo 103-0007",cz:["NOODLE"],la:35.68400,ln:139.78827,w:"Soba house a short walk from Suitengū with a wide soba-mae spread — sake snacks and hot tempura from the counter before the noodles. Michelin Bib Gourmand 2026 and one of Michelin's six Tokyo soba-mae picks.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/hamacho-kaneko"],["MICHELIN_EDITORIAL","https://guide.michelin.com/us/en/best-of/soba-in-tokyo-en"]]}
+{t:2,a:"CHUO",n:"Hamacho Kaneko",ad:"3-7-3 Nihombashi-Hamachō, Chūō-ku, Tokyo 103-0007",cz:["NOODLE"],la:35.68400,ln:139.78827,w:"Soba house a short walk from Suitengū with a wide soba-mae spread — sake snacks and hot tempura from the counter before the noodles. Michelin Bib Gourmand 2026 and one of Michelin's six Tokyo soba-mae picks.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/hamacho-kaneko"],["MICHELIN_EDITORIAL","https://guide.michelin.com/us/en/best-of/soba-in-tokyo-en"]]},
+{t:1,a:"SJK",n:"Bar Benfiddich",ad:"Yamatoya Bldg 9F, 1-13-7 Nishishinjuku, Shinjuku City, Tokyo",cz:["SAKE"],la:35.68948,ln:139.69661,w:"Hiroyasu Kayama's apothecary-style bar with no printed menu — cocktails built from herbs and botanicals, many grown on his family farm in Saitama. World's 50 Best Bars 2025 No 18 and Asia's 50 Best No 9.",s:[["TIMEOUT","https://www.timeout.com/tokyo/news/3-tokyo-bars-named-in-the-worlds-50-best-bars-2025-list-100925"],["TIMEOUT","https://www.timeout.com/tokyo/bars-and-pubs/best-bars-in-tokyo"],["WORLD50","https://www.theworlds50best.com/bars/the-list/bar-benfiddich.html"],["PUNCH","https://punchdrink.com/venues/ben-fiddich/"]]},
+{t:1,a:"SBY",n:"The Bellwood",ad:"41-31 Udagawacho, Shibuya City, Tokyo 150-0042",cz:["SAKE"],la:35.66310,ln:139.69500,w:"Shibuya cocktail bar whose Yakiniku Bloody (smoked vodka, wagyu fat, yellow tomato, black garlic) shows its Japanese-food-inspired drinks; first entry on World's 50 Best Bars in 2025 at No 48.",s:[["TIMEOUT","https://www.timeout.com/tokyo/news/3-tokyo-bars-named-in-the-worlds-50-best-bars-2025-list-100925"],["WORLD50","https://www.theworlds50best.com/bars/the-list/the-bellwood.html"],["TIMEOUT","https://www.timeout.com/tokyo/bars-and-pubs/the-bellwood"]]},
+{t:2,a:"CYD",n:"Glitch Coffee & Roasters",ad:"Kayamura Bldg 1F (香村ビル１階), 3-16 Kanda Nishikicho, Chiyoda City, Tokyo 101-0054",cz:["CAFE"],la:35.69374,ln:139.76130,w:"Light-roast specialty roaster in Kanda-Nishikichō pouring about 15 single origins by hand drip; owner Kiyokazu Suzuki is a former Japan AeroPress champion.",s:[["TIMEOUT","https://www.timeout.com/tokyo/restaurants/glitch-coffee-roasters"],["TIMEOUT","https://www.timeout.jp/tokyo/ja/レストラン/glitch-tokyo"],["OFFICIAL","https://visit-chiyoda.tokyo/app/en/spot/detail/838"],["TOKYOWEEKENDER","https://www.tokyoweekender.com/food-and-drink/best-coffee-shops-jimbocho/"]]},
+{t:1,a:"MNT",n:"Toraya Akasaka flagship (とらや 赤坂店)",ad:"4-9-22 Akasaka, Minato-ku, Tokyo 〒107-8401",cz:["SWEET"],la:35.67540,ln:139.73259,w:"Flagship of Toraya, the 500-year-old former Imperial Court confectioner, rebuilt in 2018 by architect Hiroshi Naito with a shop, factory, Toraya café and gallery; the signature is yōkan.",s:[["TIMEOUT","https://www.timeout.com/tokyo/restaurants/toraya-akasaka"],["GOTOKYO","https://www.gotokyo.org/en/spot/3HMQzDA4Zas8wYuowqoCSg/"],["LONELYPLANET","https://www.lonelyplanet.com/japan/tokyo/shopping/toraya/a/poi-sho/1607487/356817"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -886,7 +910,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Chiyoda-ku", 35.6895, 139.759], ["Chūō-ku", 35.6743, 139.7714], ["Minato-ku", 35.6582, 139.7348], ["Shinjuku-ku", 35.6973, 139.7164], ["Shibuya-ku", 35.6617, 139.7057], ["Taitō-ku", 35.7146, 139.7854], ["Sumida-ku", 35.6857, 139.8028], ["Jōnan — Shinagawa · Meguro · Ōta", 35.6151, 139.709], ["Jōsai — Setagaya · Nakano · Suginami", 35.672, 139.6427], ["Jōhoku — Toshima · Bunkyō · Kita · Arakawa · Itabashi · Nerima", 35.7254, 139.7241], ["Jōtō — Katsushika · Edogawa · Adachi", 35.7377, 139.8491], ["Tama area", 35.6914, 139.3825], ["Kantō day trips", 35.6701, 139.4176]];
+const LABELS=[["Chiyoda-ku", 35.69, 139.7595], ["Chūō-ku", 35.6743, 139.7714], ["Minato-ku", 35.6586, 139.7348], ["Shinjuku-ku", 35.6971, 139.7158], ["Shibuya-ku", 35.6617, 139.7054], ["Taitō-ku", 35.7146, 139.7854], ["Sumida-ku", 35.6857, 139.8028], ["Jōnan — Shinagawa · Meguro · Ōta", 35.6151, 139.709], ["Jōsai — Setagaya · Nakano · Suginami", 35.672, 139.6427], ["Jōhoku — Toshima · Bunkyō · Kita · Arakawa · Itabashi · Nerima", 35.7254, 139.7241], ["Jōtō — Katsushika · Edogawa · Adachi", 35.7377, 139.8491], ["Tama area", 35.6914, 139.3825], ["Kantō day trips", 35.6701, 139.4176]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1229,7 +1253,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 382 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 387 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
