@@ -77,3 +77,28 @@
   Gaylord Palms, Central Florida Zoo, Cocoa Beach Pier. Held food leads → `_PENDING_LEADS.md`.
 - Channel mix (this wave): creators/fan sites 6 (AllEars, DFB, TouringPlans, Laughing Place, Orlando Informer, MickeyBlog,
   SheBuysTravel) · travel 5 (Frommer's, CNN Travel, SmarterTravel, Time Out, Food Network) · official 2 · editorial 1.
+
+## 2026-10-02 · Session 2 · W6 (downtown venues, Michelin Recommended, James Beard, DDD, creator probe)
+- Searches main ≈ 64 cumulative (+40 agents). `SIGHTS_DTO1` (8 downtown venues; Wikipedia coords from pin-pass 3 +
+  Brit on the Move / Atlas Obscura / Florida Citrus Sports official; 5 held single-source: Kia Center, Inter&Co, Greenwood
+  Cemetery, Dr. Phillips House). Leu Gardens + Atlas Obscura.
+- `FOOD_MICHELINREC` (12 MICHELIN Recommended: Four Flamingos, Knife & Spoon, Morimoto Asia, Pizza Bruno, Prato, Citricos,
+  + the 6 new 2026 picks) — MICHELIN + Visit Orlando + Bungalower/Tasty Chomps. Street addresses not surfaced → locality only.
+- `FOOD_JBF1` (Kaya — Lalicon 2025 JBF Best Chef South semifinalist; Reyes Mezcaleria — Wendy Lopez 2026 semifinalist);
+  JAMESBEARD added to Domu (Sonny Nguyen 2025), ÔMO (2025 Best New Restaurant finalist), Sparrow (Lopez 2026).
+- `FOOD_DDD1` (Willie's Pinchos — Puerto Rican mofongo, DDD S26E11; Se7en Bites — DDD S26E10): FOX 35 + Orlando Weekly.
+  Status NOT re-checked since the 2017 feature → flagged for the closure pass.
+- Creator probe ("Orlando food tour YouTube Mark Wiens / Best Ever Food Review / Sonny Side"): no findable Orlando video
+  surfaced → dead end recorded; DDD (Food Network TV) used as the creator/TV channel this wave.
+
+## 2026-10-02 · Session 2 · W7 (pin-pass 4: oddities, Epic rest, Space Coast, north springs)
+- Pin-pass agent 4 (16 searches) → `_geoout_pinpass4.json` 27/30 (Atlas Obscura place pages, Coasterpedia, Wikipedia,
+  hmdb, USFS). Closures: Skeletons: Museum of Osteology (closed, Atlas Obscura); Singing Runway (grooves removed 2008);
+  Exploration Tower (Port Canaveral) not reopened as of Jan 2026 per Wikipedia → none added as pins.
+- Research: `SIGHTS_EPIC2` (5 → all 11 Epic rides now in), `SIGHTS_SPACE2` (5: Apollo/Saturn V Center, Ron Jon, Brevard
+  Zoo, Space View Park, Jetty Park), `SIGHTS_NATURE2` (Cassadaga — Bungalower + Victor Block; Hontoon Island — reopened
+  Oct 20 after 3-year closure), `SIGHTS_CITY2` (Kerouac House + 4 Atlas-Obscura-only oddities HELD single-source).
+- Re-verify catch: Cocoa Beach Pier's coordinate was identical to Ron Jon Surf Shop's Wikipedia point → pier set UNVERIFIED.
+- Status: 79 agent pin records had empty statusSource and sorted after the research geo files (last-write-wins) → patched
+  to carry the research record's status source; statuscheck CONSISTENT.
+- Main searches ≈ 68; agents 56 → ≈ 124 this session.

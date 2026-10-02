@@ -206,3 +206,16 @@ pins), Tsukudajima (GO TOKYO + Wikipedia; district point for a district sight). 
 Mitsukoshimae Station point), Kachidoki Bridge (whole-second point not confirmed on the span), Eitai Bridge (coords
 without a page in hand), Tokyo Stock Exchange (one source). → **382 discovered / 377 rendered (237 sights + 140 food)**;
 all gates green, validate + npm test pass.
+
+## 2026-10-02 — W4: discovery in front, placement re-check in background
+**Process decision (logged per protocol):** the orchestrating session relayed the instruction to keep discovery running
+and background the CLAUDE.md 4b placement pass. A background subagent re-checked the 8 venue-level `med` pins (11
+searches; results in `_placement_w4.json`, applied via `_pin.py`): **keep** Wakō (Wikidata Q1355621 is the building),
+Shitamachi Museum, Akagi Shrine, Suehirotei; **upgrade** Toyama Park → Hakoneyama summit (ja.wikipedia 箱根山, old
+point ~800 m west), Gyosen Park (~60 m), Natsume Sōseki Memorial Museum (ja.wikipedia 早稲田南町7 — old Wikidata pin
+~700 m off, i.e. misplaced), Shōwa Kinen Park (~300 m). District/lake/street `med` pins left as-is (district sights).
+**Discovery:** TAITO Shinobazu Pond (Wikipedia + Time Out + japan-guide), Asakusa Culture Tourist Information Center
+(Wikipedia + Time Out), Imado Shrine (Time Out + GO TOKYO Sumida map; Wikidata pin); JHOKU Yushima Tenmangū (GO TOKYO +
+Time Out; Wikidata pin); CHUO Hamacho Kaneko (Bib 2026 + Michelin soba-mae feature). Held: Matsuchiyama Shōden (one
+source), Kan'ei-ji, Yanaka Ginza (no street pin). Prose on new cards trimmed to what the sources state.
+**Build:** 387 discovered / 382 rendered (241 sights + 141 food); all gates green; validate + npm test pass.
