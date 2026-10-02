@@ -217,3 +217,6 @@ Shokudō Wakkanai (rurubu only), Isoyakitei Rishiri (rishiri-plus only). "Otomar
 kept generic ("ferry terminal") rather than correct it from memory.
 **W52:** Michi-no-eki Mukawa (shishamo; rurubu + wiki pin), Sarufutsu Kōen (scallops; visit-hokkaido + rurubu + wiki pin). Swan 44
 Nemuro pin read (43.26175,145.43847) but no signature food sourced → not added.
+**W53:** Shikabe Kanketsusen Kōen (geyser steam-cooking + tarako; visit-hokkaido + rurubu + wiki pin), Pia 21 Shihoro (Shihoro beef;
+rurubu + wiki pin). 道の駅しらおい: no wiki coords surfaced. **W54 NSK:** 230 Rusutsu (rurubu feature + MAPPLE + visit-hokkaido + wiki
+pin), Makkari Flower Center (yuri-ne; rurubu + visit-hokkaido + wiki pin). Niseko Distillery: no coords (adjacent to Iroha onsen — held).
