@@ -1,0 +1,498 @@
+{
+ "sources": [
+  {
+   "key": "UNESCO",
+   "name": "UNESCO World Heritage Centre",
+   "url": "https://whc.unesco.org/"
+  }
+ ],
+ "sights": [
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kamigamo Shrine (Kamo-wake-ikazuchi Jinja)",
+   "address": "Kamigamo, Kita-ku, Kyoto, Japan",
+   "w": "One of Kyoto's oldest Shinto shrines, older than the city itself, with its two sand cones (tatesuna) before the Hosodono hall; UNESCO-listed component 688-001.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Shimogamo Shrine (Kamo-mioya Jinja)",
+   "address": "Shimogamo, Sakyō-ku, Kyoto, Japan",
+   "w": "Ancient shrine at the meeting of the Kamo and Takano rivers, reached through the Tadasu-no-Mori primeval forest; UNESCO-listed component 688-002.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Tō-ji (Kyō-ō-gokoku-ji)",
+   "address": "Kujō-chō, Minami-ku, Kyoto, Japan",
+   "w": "Founded in 796 as the guardian temple at the old capital's south gate; its five-storey pagoda is Japan's tallest wooden pagoda, and a flea market fills the grounds on the 21st of each month. UNESCO 688-003.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "MKT"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Enryaku-ji (Mount Hiei)",
+   "address": "Sakamoto-honmachi, Ōtsu, Shiga, Japan",
+   "w": "Head temple of Tendai Buddhism, founded on Mount Hiei in 788 and spread across the forested summit above Lake Biwa; UNESCO 688-005 (coordinate is the property centre of a 498 ha precinct).",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Daigo-ji",
+   "address": "Daigo, Fushimi-ku, Kyoto, Japan",
+   "w": "Vast Shingon temple complex whose five-storey pagoda (951) is the oldest building in Kyoto; Toyotomi Hideyoshi's famous cherry-blossom party was held here. UNESCO 688-006.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Ninna-ji",
+   "address": "Omuro, Ukyō-ku, Kyoto, Japan",
+   "w": "Former imperial temple (founded 888) known for its late-blooming Omuro dwarf cherry trees and five-storey pagoda; UNESCO 688-007.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Byōdō-in",
+   "address": "Uji-renge, Uji, Kyoto, Japan",
+   "w": "The 11th-century Phoenix Hall pictured on the 10-yen coin, reflected in its Pure Land garden pond; UNESCO 688-008.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Ujigami Shrine",
+   "address": "Uji-yamada, Uji, Kyoto, Japan",
+   "w": "Small shrine across the Uji River from Byōdō-in whose main hall is regarded as Japan's oldest surviving shrine building; UNESCO 688-009.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Kōzan-ji",
+   "address": "Umegahata-Toganoo-chō, Ukyō-ku, Kyoto, Japan",
+   "w": "Mountain temple in Toganoo above Takao, keeper of the Chōjū-giga animal scrolls often called Japan's first manga; UNESCO 688-010.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Saihō-ji (Koke-dera, Moss Temple)",
+   "address": "Matsuo-jingatani-chō, Nishikyō-ku, Kyoto, Japan",
+   "w": "The 'Moss Temple' — a garden carpeted with over a hundred kinds of moss; visits are by advance reservation only. UNESCO 688-011.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Tenryū-ji",
+   "address": "Saga-Tenryūji, Ukyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Rinzai Tenryū-ji school, founded 1339, with Musō Soseki's Sōgen pond garden borrowing the Arashiyama hills; UNESCO 688-012.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kinkaku-ji (Rokuon-ji)",
+   "address": "Kinkakuji-chō, Kita-ku, Kyoto, Japan",
+   "w": "The Golden Pavilion — a gold-leafed Zen reliquary hall over a mirror pond, rebuilt in 1955 after arson; UNESCO 688-013.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Ginkaku-ji (Jishō-ji)",
+   "address": "Ginkakuji-chō, Sakyō-ku, Kyoto, Japan",
+   "w": "The Silver Pavilion, Ashikaga Yoshimasa's retirement villa turned Zen temple, with its raked-sand garden and moss paths at the head of the Philosopher's Path; UNESCO 688-014.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Ryōan-ji",
+   "address": "Ryōanji Goryōnoshita-chō, Ukyō-ku, Kyoto, Japan",
+   "w": "Home of Japan's most famous dry rock garden — fifteen stones on raked gravel; UNESCO 688-015.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nishi Hongan-ji",
+   "address": "Hommonzen-chō, Shimogyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Jōdo Shinshū Hongwanji-ha, a short walk from Kyoto Station, with vast Founder's and Amida halls and Momoyama-era gates; UNESCO 688-016.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nijō Castle",
+   "address": "Nijōjō-chō, Nakagyō-ku, Kyoto, Japan",
+   "w": "The Tokugawa shoguns' Kyoto residence (1603), whose Ninomaru Palace 'nightingale floors' chirp underfoot; UNESCO 688-017.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "CASTLE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Tōdai-ji",
+   "address": "Zōshi-chō, Nara, Japan",
+   "w": "Nara's great temple, whose Daibutsuden houses the 15-metre bronze Great Buddha; UNESCO 'Historic Monuments of Ancient Nara' 870-001.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kōfuku-ji",
+   "address": "Noboriōji-chō, Nara, Japan",
+   "w": "Fujiwara clan temple whose five-storey pagoda rises over Nara Park, with a National Treasure Hall of Buddhist sculpture including the Ashura statue; UNESCO 870-002.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kasuga Taisha",
+   "address": "Kasugano-chō, Nara, Japan",
+   "w": "Vermilion shrine of the Fujiwara famed for its thousands of stone and bronze lanterns, set against the protected Kasugayama Primeval Forest; UNESCO 870-003.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Gangō-ji",
+   "address": "Chūin-chō, Nara, Japan",
+   "w": "Successor to Asuka-dera, Japan's first full-scale Buddhist temple; some roof tiles date to the 6th century. In the Naramachi old town. UNESCO 870-004.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Yakushi-ji",
+   "address": "Nishinokyō-chō, Nara, Japan",
+   "w": "Seventh-century imperial temple in western Nara whose East Pagoda is one of Japan's oldest; UNESCO 870-005.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Tōshōdai-ji",
+   "address": "Gojō-chō, Nara, Japan",
+   "w": "Founded in 759 by the Chinese monk Ganjin (Jianzhen); its Golden Hall is the finest surviving Nara-period main hall. UNESCO 870-006.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Heijō Palace Site",
+   "address": "Saki-chō, Nara, Japan",
+   "w": "The excavated site of the 8th-century imperial palace of Heijō-kyō, with the reconstructed Daigokuden and Suzakumon gate; UNESCO 870-007 (coordinate = centre of a 129 ha site).",
+   "g": [
+    "UNESCO",
+    "CASTLE",
+    "FREE",
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  }
+ ]
+}
