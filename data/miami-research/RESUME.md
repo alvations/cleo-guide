@@ -29,6 +29,8 @@ municipality/neighbourhood (address).
   Search log continues in `_miami_searchlog.md` (§ Session 3). Restaurant pin probes via WebSearch: 4 tries, 0 coords (dead).
 
 ## State
+- 2026-10-02 session 3 build 2 — 340 discovered (218 food & drink, 64%) → 103 pinned (91 sights + 12 food). Gates green.
+  Density: CGCG 50/55 · DTB 31/55 · FTL 44/75 · GLADE 34/40 · LHAV 41/55 · MBCH 45/65 · NMIA 23/40 · SDADE 24/55 · WYN 48/60.
 - 2026-10-02 session 3 — 277 discovered (177 food & drink, 64%) → 92 pinned (80 sights + 12 food). Gates + validate + test green.
   Density: CGCG 42/55 · DTB 30/55 · FTL 38/75 · GLADE 19/40 · LHAV 35/55 · MBCH 30/65 · NMIA 20/40 · SDADE 23/55 · WYN 40/60.
   New files: FOOD_F5.json, SIGHTS_S6.json, CREATORS_F5.json, SOURCES_S3.json, geo/_geoout_w4.json, _geoout_w5.json, _geoout_zz_status1.json.

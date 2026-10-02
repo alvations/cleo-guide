@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Miami field guide — 80 sights and 12 places to eat across Miami-Dade, Fort Lauderdale/Broward and the Everglades, each traceable to its source (Michelin, James Beard, the Miami Herald, Miami New Times, the Sun Sentinel, Eater Miami, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Miami field guide — 91 sights and 12 places to eat across Miami-Dade, Fort Lauderdale/Broward and the Everglades, each traceable to its source (Michelin, James Beard, the Miami Herald, Miami New Times, the Sun Sentinel, Eater Miami, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Miami Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Miami, Fort Lauderdale &amp; the Everglades, sourced</p>
   <h1>Miami<span class="thin">Fort Lauderdale to the Everglades — ventanitas, Art Deco &amp; the River of Grass</span></h1>
-  <p class="standfirst">80 sights and 12 places to eat from Fort Lauderdale down through Miami-Dade to Everglades and Biscayne national parks, each traceable to the source that named it. The food runs on what South Florida does best: the Cuban sandwich and a ventanita cafecito, croquetas and pastelitos, stone crab, Haitian griot, Peruvian ceviche, arepas, key lime pie, Redland tropical fruit, and gator and frog legs at the edge of the Glades. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">91 sights and 12 places to eat from Fort Lauderdale down through Miami-Dade to Everglades and Biscayne national parks, each traceable to the source that named it. The food runs on what South Florida does best: the Cuban sandwich and a ventanita cafecito, croquetas and pastelitos, stone crab, Haitian griot, Peruvian ceviche, arepas, key lime pie, Redland tropical fruit, and gator and frog legs at the edge of the Glades. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -332,12 +332,15 @@ const S = {
   "NATGEO":{k:"NATIONAL GEOGRAPHIC",t:"NATIONAL GEOGRAPHIC",u:"",l:""},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/ever/",l:"National Park Service"},
   "NRHP":{k:"NATIONAL REGISTER",t:"NATIONAL REGISTER",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site",u:"",l:"Official site"},
   "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"ROADSIDEAMERICA",u:"",l:""},
   "SHAKAGUIDE":{k:"SHAKAGUIDE",t:"SHAKAGUIDE",u:"",l:""},
   "TIMEOUT":{k:"TIME OUT MIAMI",t:"Time Out Miami",u:"https://www.timeout.com/miami",l:"Time Out Miami"},
   "VISITFLORIDA":{k:"VISIT FLORIDA",t:"Visit Florida",u:"https://www.visitflorida.com",l:"Visit Florida"},
   "VISITLAUDERDALE":{k:"VISIT LAUDERDALE",t:"Visit Lauderdale (Greater Fort Lauderdale CVB)",u:"https://www.visitlauderdale.com",l:"Visit Lauderdale (Greater Fort Lauderdale CVB)"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"}
+  "WGCU":{k:"WGCU",t:"WGCU Public Media",u:"https://www.wgcu.org/",l:"WGCU Public Media"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"},
+  "WLRN":{k:"WLRN",t:"WLRN (South Florida public media)",u:"https://www.wlrn.org",l:"WLRN (South Florida public media)"}
 };
 
 const AREAS = [
@@ -432,7 +435,18 @@ const P = [
 {t:2,a:"FTL",n:"Deerfield Beach",ad:"Deerfield Beach, FL",la:26.31645,ln:-80.07417,w:"Broward's north-end beach with the International Fishing Pier and a laid-back boardwalk.",g:["BEACH"],s:[["TIMEOUT","https://www.timeout.com/fort-lauderdale/things-to-do/best-beaches-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Deerfield_Beach,_Florida"]]},
 {t:2,a:"FTL",n:"Pompano Beach",ad:"Pompano Beach, FL",la:26.23524,ln:-80.08739,w:"Wide beach with the rebuilt Fisher Family Pier and some of Broward's best shore diving and fishing.",g:["BEACH","FAM"],s:[["TIMEOUT","https://www.timeout.com/fort-lauderdale/things-to-do/best-beaches-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pompano_Beach,_Florida"]]},
 {t:2,a:"FTL",n:"Hillsboro Beach & Hillsboro Inlet Light",ad:"Hillsboro Beach, FL",la:26.25889,ln:-80.08083,w:"Quiet barrier-island beach beneath the 1907 Hillsboro Inlet lighthouse, one of the most powerful on the East Coast.",g:["BEACH","HIST","BOAT"],s:[["TIMEOUT","https://www.timeout.com/fort-lauderdale/things-to-do/best-beaches-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hillsboro_Inlet_Light"]]},
-{t:2,a:"FTL",n:"Dania Beach",ad:"Dania Beach, FL",la:26.05828,ln:-80.11151,w:"Old-Florida beach town with a fishing pier and quiet sand between Port Everglades and Hollywood.",g:["BEACH","WILD"],s:[["TIMEOUT","https://www.timeout.com/fort-lauderdale/things-to-do/best-beaches-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Dania_Beach,_Florida"]]}
+{t:2,a:"FTL",n:"Dania Beach",ad:"Dania Beach, FL",la:26.05828,ln:-80.11151,w:"Old-Florida beach town with a fishing pier and quiet sand between Port Everglades and Hollywood.",g:["BEACH","WILD"],s:[["TIMEOUT","https://www.timeout.com/fort-lauderdale/things-to-do/best-beaches-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Dania_Beach,_Florida"]]},
+{t:2,a:"WYN",n:"Bakehouse Art Complex",ad:"561 NW 32nd St, Miami, FL",la:25.80694,ln:-80.20500,w:"A 1920s industrial bakery turned (since 1985) into ~100 artists' studios and galleries — open studios show Wynwood before the murals.",g:["ART","HIST"],s:[["TIMEOUT","https://www.timeout.com/miami/things-to-do/things-to-do-in-wynwood-and-design-district"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bakehouse_Art_Complex"]]},
+{t:1,a:"GLADE",n:"Nike Missile Site HM-69",ad:"Everglades National Park (Long Pine Key area), FL",la:25.37361,ln:-80.68444,w:"Cold War Nike Hercules 'Alpha Battery' frozen since 1979 — barracks, missile barns and a real missile; ranger-led tours in season.",g:["HIST"],s:[["NPS","https://www.nps.gov/ever/learn/historyculture/hm69.htm"]]},
+{t:2,a:"GLADE",n:"Gumbo Limbo Trail",ad:"Royal Palm, Everglades National Park, FL",la:25.38278,ln:-80.60972,w:"Shaded, jungle-like paved loop through a hardwood hammock beside the Anhinga Trail at Royal Palm.",g:["ICON","PARK","WILD"],s:[["NPS","https://www.nps.gov/ever/planyourvisit/gumbo-limbo-trail.htm"]]},
+{t:1,a:"GLADE",n:"Gulf Coast Visitor Center (Everglades City)",ad:"815 Oyster Bar Ln, Everglades City, FL",la:25.84517,ln:-81.38643,w:"The park's western gateway — boat tours into the Ten Thousand Islands mangrove maze and backcountry paddling routes.",g:["BEACH","PARK","WILD","BOAT"],s:[["NPS","https://www.nps.gov/ever/planyourvisit/placestogo.htm"]]},
+{t:2,a:"GLADE",n:"Elliott Key",ad:"Biscayne National Park (boat access), FL",la:25.44306,ln:-80.19722,w:"Largest island of Biscayne NP — a former pioneer pineapple-farming and sponging community; camping, a loop trail, bayside picnics (check NPS for current access).",g:["BEACH","HIST","BOAT"],s:[["NPS","https://www.nps.gov/bisc/planyourvisit/elliottkey.htm"]]},
+{t:3,a:"GLADE",n:"Adams Key",ad:"Biscayne National Park (boat access), FL",la:25.40000,ln:-80.23306,w:"Day-use island on swift Caesar Creek with a short hardwood-hammock trail, picnic pavilion and dawn-to-dusk access.",g:["PARK","BOAT"],s:[["NPS","https://www.nps.gov/bisc/planyourvisit/adamskey.htm"]]},
+{t:2,a:"GLADE",n:"H.P. Williams Roadside Park",ad:"Tamiami Trail & Turner River Rd, Ochopee, FL",la:25.85793,ln:-81.03318,w:"200-m boardwalk over a cypress waterway packed with gators, turtles and wading birds — the gateway to Turner River Road.",g:["BEACH","PARK","WILD"],s:[["NPS","https://www.nps.gov/bicy/planyourvisit/hp-williams-roadside-park.htm"]]},
+{t:2,a:"GLADE",n:"Turner River Road Scenic Drive",ad:"Turner River Rd (CR 839), Big Cypress National Preserve, FL",la:25.85793,ln:-81.03318,w:"17-mile gravel loop through wet prairies and cypress — one of South Florida's best drive-up gator and wading-bird routes.",g:["WILD"],s:[["NPS","https://www.nps.gov/bicy/planyourvisit/scenic-drives.htm"]]},
+{t:1,a:"MBCH",n:"Lummus Park Beach",ad:"Ocean Dr, 5th–15th St, Miami Beach, FL",la:25.78042,ln:-80.12990,w:"The classic South Beach strand in front of Ocean Drive's Art Deco row — lifeguard towers, volleyball, the people-watching beach.",g:["ICON","BEACH","DECO","ART"],s:[["TIMEOUT","https://www.timeout.com/miami/things-to-do/best-miami-beaches"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lummus_Park"]]},
+{t:1,a:"GLADE",n:"Ted Smallwood Store",ad:"360 Mamie St, Chokoloskee, FL",la:25.81278,ln:-81.36250,w:"1917 stilt-built trading post and post office at the end of the road on Chokoloskee — now a museum of frontier and Seminole trade (NRHP).",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Ted_Smallwood_Store"],["FLORIDARAMBLER","https://www.floridarambler.com/?p=2167"],["WLRN","https://www.wlrn.org/news/2014-08-20/inside-the-oldest-store-in-the-everglades-and-why-it-depends-on-one-road"]]},
+{t:2,a:"GLADE",n:"Museum of the Everglades",ad:"105 W Broadway, Everglades City, FL",la:25.85667,ln:-81.38556,w:"Collier County museum in the 1927 Everglades Laundry — Calusa, Seminole, pioneer and Barron Collier history of the southwest Glades.",g:["MUS","HIST","WILD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Everglades_Laundry"],["OFFICIAL","https://www.colliermuseums.com/Locations/Museum-of-the-Everglades"]]}
 ];
 
 const FS = {
@@ -446,7 +460,7 @@ const FS = {
   "GULFSHOREBUSINESS":{k:"GULFSHOREBUSINESS",t:"GULFSHOREBUSINESS",u:"",l:""},
   "INFATUATION":{k:"THE INFATUATION",t:"The Infatuation (Miami)",u:"https://www.theinfatuation.com/miami",l:"The Infatuation (Miami)"},
   "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation Awards",u:"https://www.jamesbeard.org/awards",l:"James Beard Foundation Awards"},
-  "JOSIAHEATS":{k:"JOSIAHEATS",t:"JOSIAHEATS",u:"",l:""},
+  "JOSIAHEATS":{k:"JOSIAHEATS",t:"Josiah Eats (Josiah Cafiero)",u:"https://miaminewtimes.com/restaurants/miamis-top-influencers-share-their-favorite-hidden-miami-restaurants-19154935",l:"Josiah Eats (Josiah Cafiero)"},
   "LOCAL10":{k:"LOCAL 10 (WPLG)",t:"WPLG Local 10",u:"https://www.local10.com",l:"WPLG Local 10"},
   "LONELYPLANET":{k:"LONELYPLANET",t:"LONELYPLANET",u:"",l:""},
   "MARKWIENS":{k:"MARKWIENS",t:"MARKWIENS",u:"",l:""},
@@ -542,7 +556,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([25.7808,-80.1905],9);
+  map = L.map('map',{scrollWheelZoom:false}).setView([25.7808,-80.1953],9);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -626,7 +640,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Fort Lauderdale", 26.147, -80.139], ["North Miami", 25.9207, -80.1708], ["Wynwood", 25.813, -80.2001], ["Downtown", 25.7771, -80.1912], ["Little Havana", 25.8068, -80.2486], ["Miami Beach", 25.7891, -80.1326], ["Coral Gables", 25.7187, -80.228], ["South Dade — Kendall", 25.5261, -80.4162], ["Everglades NP", 25.594, -80.7248]];
+const LABELS=[["Fort Lauderdale", 26.147, -80.139], ["North Miami", 25.9207, -80.1708], ["Wynwood", 25.8121, -80.2008], ["Downtown", 25.7771, -80.1912], ["Little Havana", 25.8068, -80.2486], ["Miami Beach", 25.7885, -80.1324], ["Coral Gables", 25.7187, -80.228], ["South Dade — Kendall", 25.5261, -80.4162], ["Everglades NP", 25.6195, -80.7986]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -965,7 +979,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 92 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 103 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
