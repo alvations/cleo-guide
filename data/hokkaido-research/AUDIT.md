@@ -285,3 +285,7 @@ NOBORIBETSUTOURISM + visit-hokkaido; "大湯沼" coord rejected — no own artic
 **W77 IBURI:** Soba-dokoro Fukuan (promoted: rurubu + MAPPLE Noboribetsu list; caveat).
 **W78 NSK:** Niseko Goshiki Onsen (promoted from held: visit-hokkaido + wiki pin), Niseko Yumoto Onsen & Ōyunuma (niseko-ta.jp + wiki;
 med — onsen-area point). Town names left generic (Rankoshi not read in results). Chisenupuri pin read (42.88806,140.59667) — no 2nd source.
+**W79 TKC:** Banei Tokachi / Obihiro Racecourse (visit-hokkaido + wiki pin), Obihiro Centennial City Museum (rurubu + wiki pin).
+Sushi Miyakawa (Michelin 3★ 2017) — no address/2nd source surfaced (held).
+**Closing build (session 3):** 334 discovered → 189 rendered (161 sights + 28 food). sourcecheck PASS 334 · geocheck PASS · statuscheck
+CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 145 UNVERIFIED held. Food 154/334 = 46%. ANIME 7. Searches ≈178.
