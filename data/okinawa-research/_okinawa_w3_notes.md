@@ -52,3 +52,6 @@
 79. oHacorté rurubu spot 80042843 (citation corrected — an earlier draft wrongly pointed at Transit Cafe's rurubu page); OT news 1869468/1721915 (Hirami lemon cake)
 80-81. OT 0100 north cafés: Kouri Ocean Tower, Cafe Kokuu (Nakijin Moroshi 2031-138; held), Kajinhō (Yamazato 1153-2; rurubu 17944 — kept), Ice Crin Cafe Ark, Cafe ichara (rurubu 80043180 + Mapple 47011162 — kept), fuu cafe, Shiisa-en (Izumi 1439; rurubu article/32 — kept), cafe Hakoniwa; rurubu forest cafés 24862; Mapple Itoman Makabe Chinā (Makabe 223, registered tangible cultural property; held)
 82. rurubu forest cafés 24862: CASA SOL, BLOOM HOUSE, Kissa Agachi-mori, Shiisa-en, ichara; south sea-view (kids.rurubu 3235): Yabusachi (kept w/ OT 0099), Hamabe no Chaya, Rakusui
+83-84. Mapple 29444 Ishigaki izakaya 5: Umanchu Izakaya Gen Sohonten, Maguro Hitoshi Ishiganto (47011623), Ichigyo Ichie, Kotteppen (47013317), Natsuya; Adan-tei (Ōkawa 430; OT 91324 + pref cert) kept; Mori no Kenja (rurubu only)
+85-87. ANIME: One Piece Card Game shop @ San-A Naha Main Place (RS 1731935), Kemono Friends × Wattaa Naha Meshi Walk (2026 event, not a place); Pokémon Center Okinawa (Rycom, opened 2022-08-11; OT news 1006026 + Game Watch 1409089 + official) kept
+88. Rycom coords search — no coordinate (GLTJP/malls.com only) → Pokémon Center UNVERIFIED
