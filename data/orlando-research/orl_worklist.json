@@ -1,5 +1,125 @@
 [
 {
+"n": "Lake Eola Park",
+"addr": "Lake Eola, Downtown Orlando, FL",
+"a": "DTO"
+},
+{
+"n": "Harry P. Leu Gardens",
+"addr": "Lake Rowena, Orlando, FL",
+"a": "MILLS"
+},
+{
+"n": "Orlando Museum of Art",
+"addr": "Loch Haven Park, Orlando, FL",
+"a": "MILLS"
+},
+{
+"n": "Orlando Science Center",
+"addr": "777 E Princeton St, Orlando, FL 32803",
+"a": "MILLS"
+},
+{
+"n": "Mennello Museum of American Art",
+"addr": "Lake Formosa, Loch Haven Park, Orlando, FL",
+"a": "MILLS"
+},
+{
+"n": "Wells'Built Museum of African American History and Culture",
+"addr": "Parramore District, Downtown Orlando, FL",
+"a": "DTO"
+},
+{
+"n": "Orange County Regional History Center",
+"addr": "Downtown Orlando, FL",
+"a": "DTO"
+},
+{
+"n": "Charles Hosmer Morse Museum of American Art",
+"addr": "445 N Park Ave, Winter Park, FL 32789",
+"a": "WPK"
+},
+{
+"n": "Albin Polasek Museum & Sculpture Gardens",
+"addr": "633 Osceola Ave, Winter Park, FL 32789",
+"a": "WPK"
+},
+{
+"n": "Knowles Memorial Chapel",
+"addr": "Rollins College, Winter Park, FL",
+"a": "WPK"
+},
+{
+"n": "Rollins Museum of Art",
+"addr": "1000 Holt Ave, Winter Park, FL 32789",
+"a": "WPK"
+},
+{
+"n": "Maitland Art Center",
+"addr": "231 W Packwood Ave, Maitland, FL 32751",
+"a": "WPK"
+},
+{
+"n": "Zora Neale Hurston National Museum of Fine Arts",
+"addr": "Eatonville, FL",
+"a": "WPK"
+},
+{
+"n": "Winter Park Scenic Boat Tour",
+"addr": "Winter Park, FL",
+"a": "WPK"
+},
+{
+"n": "Kraft Azalea Garden",
+"addr": "Winter Park, FL",
+"a": "WPK"
+},
+{
+"n": "Park Avenue (Winter Park)",
+"addr": "Park Ave, Winter Park, FL 32789",
+"a": "WPK"
+},
+{
+"n": "Gatorland",
+"addr": "Orlando–Kissimmee line, S Orange Blossom Trail, FL",
+"a": "KISS"
+},
+{
+"n": "Old Town Kissimmee",
+"addr": "US-192, Kissimmee, FL",
+"a": "KISS"
+},
+{
+"n": "Wekiwa Springs State Park",
+"addr": "Apopka, FL",
+"a": "SPRNG"
+},
+{
+"n": "Blue Spring State Park",
+"addr": "Orange City, FL",
+"a": "SPRNG"
+},
+{
+"n": "Kelly Park (Rock Springs)",
+"addr": "Apopka, FL",
+"a": "SPRNG"
+},
+{
+"n": "De Leon Springs State Park",
+"addr": "De Leon Springs, FL",
+"a": "SPRNG"
+},
+{
+"n": "Mount Dora Historic District",
+"addr": "Mount Dora, FL",
+"a": "SPRNG"
+},
+{
+"n": "Central Florida Zoo and Botanical Gardens",
+"addr": "Sanford, FL",
+"a": "SPRNG"
+},
+{
 "n": "Cinderella Castle",
 "addr": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
 "a": "MK"
@@ -108,6 +228,111 @@
 "n": "Dinosaur — CLOSED",
 "addr": "DinoLand U.S.A., Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
 "a": "DAK"
+},
+{
+"n": "Harry Potter and the Escape from Gringotts",
+"addr": "Diagon Alley, Universal Studios Florida, Universal Orlando Resort, Orlando, FL",
+"a": "USF"
+},
+{
+"n": "Hogwarts Express (King's Cross Station)",
+"addr": "King's Cross Station, London, Universal Studios Florida, Universal Orlando Resort, Orlando, FL",
+"a": "USF"
+},
+{
+"n": "Revenge of the Mummy",
+"addr": "New York, Universal Studios Florida, Universal Orlando Resort, Orlando, FL",
+"a": "USF"
+},
+{
+"n": "The Incredible Hulk Coaster",
+"addr": "Marvel Super Hero Island, Universal Islands of Adventure, Universal Orlando Resort, Orlando, FL",
+"a": "IOA"
+},
+{
+"n": "Jurassic World VelociCoaster",
+"addr": "Jurassic Park, Universal Islands of Adventure, Universal Orlando Resort, Orlando, FL",
+"a": "IOA"
+},
+{
+"n": "Hagrid's Magical Creatures Motorbike Adventure",
+"addr": "The Wizarding World of Harry Potter – Hogsmeade, Universal Islands of Adventure, Universal Orlando Resort, Orlando, FL",
+"a": "IOA"
+},
+{
+"n": "Harry Potter and the Forbidden Journey",
+"addr": "Hogwarts Castle, Hogsmeade, Universal Islands of Adventure, Universal Orlando Resort, Orlando, FL",
+"a": "IOA"
+},
+{
+"n": "The Amazing Adventures of Spider-Man",
+"addr": "Marvel Super Hero Island, Universal Islands of Adventure, Universal Orlando Resort, Orlando, FL",
+"a": "IOA"
+},
+{
+"n": "Stardust Racers",
+"addr": "Celestial Park, Universal Epic Universe, Universal Orlando Resort, Orlando, FL",
+"a": "EPIC"
+},
+{
+"n": "Harry Potter and the Battle at the Ministry",
+"addr": "The Wizarding World of Harry Potter – Ministry of Magic, Universal Epic Universe, Universal Orlando Resort, Orlando, FL",
+"a": "EPIC"
+},
+{
+"n": "Mario Kart: Bowser's Challenge (Epic Universe)",
+"addr": "Super Nintendo World, Universal Epic Universe, Universal Orlando Resort, Orlando, FL",
+"a": "EPIC"
+},
+{
+"n": "Mine-Cart Madness",
+"addr": "Donkey Kong Country, Super Nintendo World, Universal Epic Universe, Universal Orlando Resort, Orlando, FL",
+"a": "EPIC"
+},
+{
+"n": "Monsters Unchained: The Frankenstein Experiment",
+"addr": "Dark Universe, Universal Epic Universe, Universal Orlando Resort, Orlando, FL",
+"a": "EPIC"
+},
+{
+"n": "Hiccup's Wing Gliders",
+"addr": "How to Train Your Dragon – Isle of Berk, Universal Epic Universe, Universal Orlando Resort, Orlando, FL",
+"a": "EPIC"
+},
+{
+"n": "Kennedy Space Center Visitor Complex",
+"addr": "Merritt Island, FL",
+"a": "SPACE"
+},
+{
+"n": "Vehicle Assembly Building",
+"addr": "Kennedy Space Center, Merritt Island, FL",
+"a": "SPACE"
+},
+{
+"n": "Merritt Island National Wildlife Refuge (Black Point Wildlife Drive)",
+"addr": "Merritt Island, FL",
+"a": "SPACE"
+},
+{
+"n": "Canaveral National Seashore (Playalinda Beach)",
+"addr": "Titusville, FL",
+"a": "SPACE"
+},
+{
+"n": "Valiant Air Command Warbird Museum",
+"addr": "Space Coast Regional Airport, Titusville, FL",
+"a": "SPACE"
+},
+{
+"n": "American Space Museum & Space Walk of Fame",
+"addr": "Downtown Titusville, FL",
+"a": "SPACE"
+},
+{
+"n": "Cocoa Beach Pier",
+"addr": "Cocoa Beach, FL",
+"a": "SPACE"
 },
 {
 "n": "Sorekara",
