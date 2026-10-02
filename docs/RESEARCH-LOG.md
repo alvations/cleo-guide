@@ -384,3 +384,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   Settlement) are not printed by any search-visible page; 28 geocoder searches yielded 0 → browser helper only. Wikipedia coords of a
   co-located landmark (Punggol Regional Library → One Punggol; Guan Kee Fried Kway Teow infobox → Ghim Moh MFC) worked.
 - Food King (NOC) deleted all videos in 2022 — not citable. Timbre exits One Punggol HC management in 2026 (Mothership) — re-check stalls.
+
+## 2026-10-02 — Kyoto W2 (relaunch)
+- UNESCO WHC maps pages (688 Kyoto, 870 Nara, 660 Hōryū-ji) → component coordinates for 23 sights in 2 searches.
+- `allowed_domains` per outlet (japan-guide.com, kyoto.travel, en/ja.wikipedia.org, guide.michelin.com) makes each search return ~10 citable pages of ONE outlet, so attribution is exact. Mixed-outlet or 8+-name queries cause internal retries costing 3–6 searches.
+- Michelin: ward+genre list queries ("Kyoto Nakagyo-ku One MICHELIN Star Japanese restaurant address") give 3–7 venues with addresses. Pins come from a separate "<A>; <B>; <C> Kyoto address latitude longitude" query (3 pins per search). Asking for dish and lat/lng together loses the lat/lng.
+- Dead end: creator channel (YouTube-filtered, general, timeout.com) surfaced tour vendors and unattributed videos, with no verifiable Kyoto creator. Time Out's Kyoto coverage on timeout.com sits under /tokyo and is thin.
