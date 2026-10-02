@@ -58,7 +58,11 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- none (W3 closed and committed).
+- **W4 (2026-10-02, fresh session budget)** — pin-first + discovery + anime. Background subagents, each writing ONLY its
+  tagged file: geocoders `W4G1` sights (31), `W4G2` NAHA+CHUBU food (39), `W4G3` NANBU+HOKBU+KRM food (30), `W4G4` MYK+YAEYA
+  food (25) → `geo/_geoout_okinawa_W4G*.json` (worklists `_okinawa_geo_todo_W4G*.json`); discovery `W4D1` Naha food & drink,
+  `W4D2` Chūbu+Nanbu, `W4D3` Hokubu+islands, `W4A` anime → `FOOD/SIGHTS/SOURCES/CREATORS_OKINAWA_W4D*.json` + `geo/_geoout_okinawa_W4D*.json`.
+  If cut off: whatever is in those files is valid; re-run `python3 tools/rebuild-city.py okinawa --build` and continue.
 
 ## Next actions (W4 plan, ordered)
 0. **Pins are the bottleneck (89 of 186 render).** ~95 places (≈70 restaurants) are UNVERIFIED: run
