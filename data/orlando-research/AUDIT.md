@@ -41,3 +41,19 @@
   summary returned Rock 'n' Roller Coaster's exact coordinate → rejected as a summariser error).
 - Closure: Dinosaur (DAK) closed 2026-02-02 per Wikipedia → kept flagged `Dinosaur — CLOSED`.
 - Channel mix: institutional 1 (Michelin) · editorial 5 · travel 1 (Frommer's) · creators/fan sites 2 (AllEars, DisneyBlog).
+
+## 2026-10-02 · Session 2 · W3b UNIVERSAL + W4 CITY/NATURE/SPACE sights (+ pin-pass agent)
+- Searches: main 13 more (cumulative ~31) + background pin-pass agent 9 → ~40 total this session.
+- `SIGHTS_PARKS2.json` (14): USF 3, IOA 5, Epic 6 — WIKIPEDIA + Theme Park Insider/Attractions Magazine (Epic,
+  all-11 ranking), TravelPulse, Never Ending Voyage, Orlando Informer.
+- Pin-pass agent → `geo/_geoout_parkpins1.json`: 15/15 previously-UNVERIFIED attractions resolved (13 high, 2 med:
+  Frozen Ever After, Rise of the Resistance) from Coasterpedia/Wikipedia published coords; all inside per-park
+  sanity boxes, all distinct (Slinky Dog Dash no longer shares RnRC's point). Addresses normalised to research records.
+- `SIGHTS_CITY1.json` (16: Downtown/Loch Haven/Winter Park/Maitland/Eatonville) — Wikipedia coords + Visit Orlando
+  museums page, Time Out, City of Winter Park '25 things', Fathom, VISIT FLORIDA, Orlando Weekly.
+  LESSON: street addresses only when a search result printed them; otherwise a sourced locality ("Loch Haven Park,
+  Orlando") — 10 memory-typed street addresses were replaced before commit.
+- `SIGHTS_NATURE1.json` (6 springs/Sanford/Mount Dora), `SIGHTS_SPACE1.json` (7), `SIGHTS_KISS1.json` (2).
+- HELD single-source (build drops): Mount Dora Historic District, Central Florida Zoo, Cocoa Beach Pier, Old Town Kissimmee.
+- Channel mix: institutional 1 (NPS) · editorial 3 · travel 8 (Time Out, NatGeo, Lonely Planet, Fathom, Frommer's,
+  TravelPulse, TravelMole, Florida Guidebook) · creators 4 (Never Ending Voyage, Orlando Informer, Miss Tourist, Attractions Mag YT) · official 2.

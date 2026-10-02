@@ -375,3 +375,12 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Watch-outs found: Ann Sather is relocating (Time Out, Apr 2026) and Maxwell Street Depot was forced to move
   (Time Out, May 2026) — Wikipedia coords would be stale; both held back. Obama Presidential Center opened 2026-06-19.
 
+
+## 2026-10-02 — SG 4-town relaunch (Punggol, Balestier, Novena & Newton, Holland Village)
+- Extended-mode queries that NAME the guides ("stalls in Eatbook 13 best, Seth Lui 11 best, Women's Weekly 10 best") return per-guide
+  stall lists — 3-6 two-source places per call vs ~1 in standard mode.
+- Domain-filtered (`allowed_domains`) OR-queries over held names give exact attribution (see AGENT-PROMPTS lesson).
+- Dead end: hawker-centre BUILDING coordinates (Whampoa Makan Place, Balestier Market, Holland Village MFC, Punggol Coast HC, Punggol
+  Settlement) are not printed by any search-visible page; 28 geocoder searches yielded 0 → browser helper only. Wikipedia coords of a
+  co-located landmark (Punggol Regional Library → One Punggol; Guan Kee Fried Kway Teow infobox → Ghim Moh MFC) worked.
+- Food King (NOC) deleted all videos in 2022 — not citable. Timbre exits One Punggol HC management in 2026 (Mothership) — re-check stalls.
