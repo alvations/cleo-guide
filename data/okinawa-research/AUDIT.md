@@ -109,3 +109,21 @@ Sakimoto & Yamakawa distilleries (Stripes only), Tiandaa / Kenpa no Subaya / Han
 Araha, Yoshino — the summary gave a coordinate without a confirmable source page → stay UNVERIFIED). Kept 7:
 Fukushū-en, Chinen, Tsuboya Museum, Okuma Beach (high); Higashi-hennazaki, Enkaku-ji/Benzaitendō (med); Iriomote (low,
 island coordinate). 33 still UNVERIFIED → geocode-helper (restaurants never print GPS in search summaries).
+**Batches 3–7.** Rurubu (`RURUBU`, JTB るるぶ&more) ↔ Mapple pairs proved the most efficient channel (one list
+search → 4–8 names): Miyako soba (Irabu Soba Kame, Maruyoshi, Yamato, Minato, Jinku-ya), Yaeyama (Kimi Shokudō,
+Shiraho Shokudō, Takenoko on Taketomi), Ishigaki beef (Yamamoto, Ishigaki-ya), Kume (Nantō Shokurakuen, Sukeroku
+kamaboko), Nakamoto Tempura (Ōjima; Stripes GPS), Tomigusuku Taco Rice, Tacoloco, Itoman Osakana Center, coffee
+(Tamagusuku Coffee Roasters, Hibari-ya, rokkan Shuri), drinks (Orion Happy Park — JG + Stripes, Stripes GPS;
+Chatan Harbor Brewery — Mapple + Culture Trip; Helios Distillery — Mapple + Beer Tengoku; Dachibin Kumoji).
+**ANIME wave:** Aquatope on White Sand → Nanjō named an Anime Tourism Association "88" site (Ryukyu Shimpo): Nirai
+Kanai Bridge (new; gov-online + Ryukyu Shimpo; Stripes GPS med) and Azama Sun Sun Beach (W2 record tagged `anime`).
+Okitsura (Uruma) manholes and Okinawa's 16 Poké Lids: no per-site location surfaced → held. ANIME count: 2.
+**Creator query:** SUSURU TV (ramen YouTuber) — no Okinawa-soba video surfaced → 0 creator attachments again.
+**MEASURED & held (single source):** Kihachi & Yan-kō (Kume; Yan-kō only a Ryukyu Shimpo PR entry), Kanifu &
+Shidamē-kan (Taketomi), Iriomote cafés, COFFEE potohoto, HUU'S, oHacorté, Transit Café, VONGO & ANCHOR, BEEFY'S,
+Kijimunaa (branch mismatch between sources), Tacomaria, Gringo, Sunny Tacos, Kitauchi Bokujō (branch mismatch),
+Tsubame (Makishi 2F mochiage — Mapple article not confirmed to name it), Steakhouse Shiki (rurubu only), Sam's
+Sailor Inn (chain).
+**Build (mid-W3):** `rebuild-city.py okinawa --build` → 155 discovered (93 sights + 62 food = **40 % food**, up from
+22 %), 85 pinned; sourcecheck PASS 155/155, geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK;
+npm test ALL PASS. 70 places (mostly restaurants) await coordinates → geocode-helper.
