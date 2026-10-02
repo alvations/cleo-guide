@@ -10379,6 +10379,168 @@
           "note": "Nederlandstalige bierschrijver met een meerjarig, vindbaar oeuvre en specifieke stukken die Antwerpse biercafés bij naam noemen (o.a. 'De smaak van 't Stad: 14 tips voor bierdrinken in Antwerpen' en het Kulminator-tijdreisstuk). Hier enkel als corroborerende bron naast officiële/erfgoedbronnen gebruikt, nooit als enige aanbeveler."
         }
       ]
+    },
+    "indianapolis-in": {
+      "name": "indianapolis-in",
+      "label": "Indianapolis, IN",
+      "researchedVia": "WebSearch (WebFetch blocked by org egress policy)",
+      "lastUpdated": "2026-10-02",
+      "sources": [
+        {
+          "key": "INDYSTAR",
+          "name": "IndyStar (The Indianapolis Star)",
+          "type": "daily-newspaper",
+          "rank": 1,
+          "url": "https://www.indystar.com/",
+          "verified": false,
+          "credible": "Indianapolis's daily newspaper of record (Gannett); staff dining critics and annual best-restaurant lists."
+        },
+        {
+          "key": "INDYMONTHLY",
+          "name": "Indianapolis Monthly",
+          "type": "city-magazine",
+          "rank": 1,
+          "url": "https://www.indianapolismonthly.com/",
+          "verified": false,
+          "credible": "The city magazine since 1977 (Emmis); annual Best Restaurants and Best of Indy editorial rankings by named food editors."
+        },
+        {
+          "key": "IBJ",
+          "name": "Indianapolis Business Journal",
+          "type": "business-weekly",
+          "rank": 1,
+          "url": "https://www.ibj.com/",
+          "verified": false,
+          "credible": "Weekly business paper of record; long-running bylined dining column (Lou Harry et al.) and restaurant-industry reporting."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation",
+          "type": "award",
+          "rank": 1,
+          "url": "https://www.jamesbeard.org/",
+          "verified": false,
+          "credible": "Institutional authority — Awards semifinalists/finalists/America's Classics; a lone JB distinction suffices."
+        },
+        {
+          "key": "WFYI",
+          "name": "WFYI Public Media (NPR/PBS Indianapolis)",
+          "type": "public-media",
+          "rank": 2,
+          "url": "https://www.wfyi.org/",
+          "verified": false,
+          "credible": "Indianapolis NPR+PBS member station; editorial news and culture reporting."
+        },
+        {
+          "key": "MIRROR",
+          "name": "Mirror Indy",
+          "type": "nonprofit-newsroom",
+          "rank": 2,
+          "url": "https://mirrorindy.org/",
+          "verified": false,
+          "credible": "Nonprofit local newsroom (Indianapolis, 2023–) with bylined neighborhood/food coverage."
+        },
+        {
+          "key": "VISITINDY",
+          "name": "Visit Indy",
+          "type": "cvb",
+          "rank": 2,
+          "url": "https://www.visitindy.com/",
+          "verified": false,
+          "credible": "Official destination-marketing organization; vetted listings and the factual record for attractions."
+        },
+        {
+          "key": "EATER",
+          "name": "Eater",
+          "type": "national-food-desk",
+          "rank": 2,
+          "url": "https://www.eater.com/",
+          "verified": false,
+          "credible": "National food publication (Vox Media); city maps and national best-of lists as corroboration."
+        },
+        {
+          "key": "WTHR",
+          "name": "WTHR 13 (NBC Indianapolis)",
+          "type": "local-tv",
+          "rank": 2,
+          "url": "https://www.wthr.com/",
+          "verified": false,
+          "credible": "Indianapolis NBC affiliate newsroom; openings/closings and local-favorite features."
+        },
+        {
+          "key": "WISH",
+          "name": "WISH-TV 8",
+          "type": "local-tv",
+          "rank": 3,
+          "url": "https://www.wishtv.com/",
+          "verified": false,
+          "credible": "Indianapolis TV newsroom; local food features and closings."
+        },
+        {
+          "key": "FOX59",
+          "name": "FOX59 / CBS4 Indianapolis",
+          "type": "local-tv",
+          "rank": 3,
+          "url": "https://fox59.com/",
+          "verified": false,
+          "credible": "Indianapolis TV newsroom; local food features and closings."
+        },
+        {
+          "key": "NUVO",
+          "name": "NUVO (Indianapolis alt-weekly, archive)",
+          "type": "alt-weekly",
+          "rank": 3,
+          "url": "https://nuvo.net/",
+          "verified": false,
+          "credible": "Indianapolis's alt-weekly (1990–2020 print; archive) — Best of Indy readers' poll and critics."
+        },
+        {
+          "key": "NPS",
+          "name": "National Park Service",
+          "type": "institutional",
+          "rank": 1,
+          "url": "https://www.nps.gov/",
+          "verified": false,
+          "credible": "Federal authority for NPS-administered units and National Register/NHL designations."
+        },
+        {
+          "key": "INDNR",
+          "name": "Indiana Department of Natural Resources",
+          "type": "state-agency",
+          "rank": 2,
+          "url": "https://www.in.gov/dnr/",
+          "verified": false,
+          "credible": "State authority for state parks, reservoirs, nature preserves and historic sites."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia",
+          "type": "encyclopedic",
+          "rank": 3,
+          "url": "https://en.wikipedia.org/",
+          "verified": false,
+          "credible": "Notability + published coordinates for landmarks; never a lone food recommender."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "Atlas Obscura",
+          "type": "curated-oddities",
+          "rank": 2,
+          "url": "https://www.atlasobscura.com/",
+          "verified": false,
+          "credible": "Curated, editor-reviewed catalogue of unusual places."
+        },
+        {
+          "key": "HAMILTONCOUNTY",
+          "name": "Visit Hamilton County (Carmel/Fishers/Noblesville/Westfield CVB)",
+          "type": "cvb",
+          "rank": 3,
+          "url": "https://www.visithamiltoncounty.com/",
+          "verified": false,
+          "credible": "Official Hamilton County tourism board for the north suburbs."
+        }
+      ],
+      "creators": []
     }
   }
 }

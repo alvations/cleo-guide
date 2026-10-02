@@ -25,3 +25,9 @@ Total target ≈ 210.
 
 ## State
 - 2026-10-02 — scaffold (consolidate.py, brief, audit, resume, tools/build-indianapolis.py, sources.json entry).
+
+## In-flight wave
+- **W1 (food canon + core sights)** — files: `FOOD_CANON.json`, `SIGHTS_CORE.json`, `SOURCES_W1.json`,
+  `CREATORS_W1.json`. Queries: tenderloin (IndyStar/Indy Monthly lists), sugar cream pie, St. Elmo/JB,
+  Shapiro's, Burmese/Chin south side, International Marketplace, fried biscuits; sights: Speedway, Children's
+  Museum, Newfields, War Memorial, Monument Circle, Cultural Trail, Crown Hill, Eiteljorg, Vonnegut, Conner Prairie.
