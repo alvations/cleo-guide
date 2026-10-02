@@ -38,7 +38,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Le Cirio
 
 ## chicago-il
-- registry entries: **113** · verified pins: **91** (high 89 · med 2 · low 0)
+- registry entries: **130** · verified pins: **108** (high 106 · med 2 · low 0)
 - ⛔ ship-worthy but **NOT yet geocoded** (7) — need a place-pin:
     - Birrieria Zaragoza
     - Borinquen Lounge
@@ -1041,7 +1041,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Talleyrand Park & the Big Spring
 
 ## tokyo
-- registry entries: **363** · verified pins: **358** (high 332 · med 26 · low 0)
+- registry entries: **379** · verified pins: **374** (high 348 · med 26 · low 0)
 - ⚠️ **UNVERIFIED** in registry (5) — held by the gate, need the helper:
     - Afuri Ebisu
     - Amazake-chaya, Hakone (甘酒茶屋)

@@ -137,6 +137,7 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-10-02 | Liège | discovery W1 (partial) | LIE sights + boulets/gaufre canon | 5 (1 geocoded) | halted: WebSearch session budget 200/200 after 11 searches; ~20 leads held in _PENDING_LEADS.md | liege-research/SIGHTS_LIEGE_LIE, FOOD_LIEGE_LIE, geo/_geoout_liege_w1 |
 | 2026-10-02 | Tokyo | sights W1 (CYD) | sights backbone via Wikipedia/GO TOKYO/japan-guide/Time Out | 9 (all geocoded) | halted: shared WebSearch budget 200/200 exhausted | SIGHTS_TOKYO_W1.json, geo/_geoout_tokyo_w1.json |
 | 2026-10-02 | Tokyo | W2 relaunch (own budget, 166 searches) | Michelin venue pins, Wikipedia/Wikidata coords, GO TOKYO/japan-guide/Time Out/Japan Times corroboration, 2 creators | 314 discovered / 294 rendered (212 sights + 82 food) — LIVE | 20 Michelin UNVERIFIED (no coords on page); 39 held (`_pending_w2.json`); Unicorn Gundam flagged CLOSED; 31 memory-typed kanji names stripped | FOOD/SIGHTS/CREATORS_TOKYO_W2.json, geo/_geoout_tokyo_w2.json, _tokyo_golive.py |
+| 2026-10-02 | Tokyo | W3 continuation (~155 searches) | UNVERIFIED Michelin pins re-run; address-verify pass on all 222 sights; status re-checks; Michelin by ward ("<Ward>-ku" "Bib Gourmand" "2026 MICHELIN Guide Japan") + 2024–26 star/Bib announcement lists; Wikidata pins for held sights | 379 discovered / 374 rendered (234 sights + 140 food) — LIVE | 5 UNVERIFIED (Abe Honten, Afuri Ebisu, Tamahide, Iseya, Amazake-chaya → geocode-helper); 25 held; addresses 130 verified · 8 fixed · 55 coarsened | FOOD/SIGHTS_TOKYO_W3.json, geo/_geoout_tokyo_w3.json, _addrcheck_w3.json, _addrmark.py |
 | 2026-10-02 | Chicago | scaffold + food canon W1 | areas/taxonomy/build + canon | 0 (BLOCKED) | session WebSearch cap 200/200 exhausted by concurrent agents after 3 calls; 7 partial leads in _PENDING_LEADS.md | consolidate.py, build-chicago.py, SOURCES_BASE.json |
 | 2026-10-02 | Akron-Kent-Canton | scaffold + W1 food canon | Barberton chicken | 1 | blocked: shared WebSearch session cap 200/200 hit at 2nd query; Milich's held 1-src | FOOD_W1CANON/SOURCES_W1.json, geo/_geoout_w1_canon.json |
 | 2026-10-02 | Singapore BLS | food canon (W1, partial) | Balestier Rd + Whampoa Makan Place | 13 | 545 Whampoa (relocation?) + 20 single-source held; stopped at session WebSearch cap 200/200 | FOOD/SOURCES/CREATORS_BALESTIER.json, _note_BALESTIER.md |
@@ -222,3 +223,13 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
 - **Never type a Japanese-script name or street address from memory** (Tokyo W2 self-correction): 31 kanji/kana names
   added "for flavour" had to be stripped back to the sourced romanized name. Add native script only when a source in
   hand shows it; queue an address-verify pass for any address not re-read from a cited page.
+
+- **An address-verify query must not contain the address being verified** (Tokyo W3): putting "2-3-1 Asakusa" in the
+  query made the search summary echo it back as confirmed. Query the venue names only ("GO TOKYO spot address: A; B;
+  C; D", 4 names, `gotokyo.org`), compare the returned address to the record, and coarsen to the sourced locality when
+  the page gives none or sources disagree. Log per-place results (`_addrcheck_w3.json` pattern).
+- **Michelin discovery by ward** (Tokyo W3): `"Shibuya-ku" "Bib Gourmand" "2026 MICHELIN Guide Japan"` (one ward per
+  query, `guide.michelin.com`) lists that ward's current Bibs with addresses; the annual "new Bib Gourmands" / "newly
+  starred" / "inspectors' favourite dishes" articles give named-dish candidates. Pins: 2–3 exact names + "Michelin
+  restaurant page latitude longitude coordinates" — adding "dish"/"description" to that query drops the coords, so
+  fetch dishes in a separate query.
