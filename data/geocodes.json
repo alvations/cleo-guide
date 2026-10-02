@@ -15491,11 +15491,11 @@
    },
    "Chase Center": {
     "address": "Chase Center, Mission Bay, San Francisco, CA 94158",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.76806,
+    "lng": -122.3875,
+    "source": "https://en.wikipedia.org/wiki/Chase_Center (Wikipedia published coordinates)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.sftravel.com/article/things-to-do-along-san-franciscos-central-subway (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
@@ -15535,22 +15535,22 @@
    },
    "Seward Street Slides": {
     "address": "Seward Mini Park, Seward St / 70 Corwin St, San Francisco, CA 94114",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.757643,
+    "lng": -122.440046,
+    "source": "https://www.atlasobscura.com/places/seward-street-slides (Atlas Obscura place coordinates)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.mentalfloss.com/article/58562/15-hidden-gems-san-francisco (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
    },
    "Blue Heron Lake (Stow Lake) & Strawberry Hill": {
     "address": "Blue Heron Lake (formerly Stow Lake), Golden Gate Park, San Francisco, CA 94118",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.7685412,
+    "lng": -122.4755271,
+    "source": "https://en.wikipedia.org/wiki/Strawberry_Hill_(San_Francisco) (Wikipedia published coordinates of Strawberry Hill, the lake's island)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.afar.com/magazine/the-best-free-things-to-do-in-san-francisco (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
@@ -16414,7 +16414,7 @@
     "statusChecked": "2026-10-02"
    },
    "Ina Coolbrith Park": {
-    "address": "Ina Coolbrith Park, Russian Hill, San Francisco, CA 94133",
+    "address": "Ina Coolbrith Park, 1715 Taylor St, Russian Hill, San Francisco, CA 94133",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -17005,6 +17005,17 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "https://www.timeout.com/san-francisco/museums/tenderloin-museum (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Tin How Temple": {
+    "address": "125 Waverly Pl (4th floor), San Francisco, CA 94108",
+    "lat": 37.79457,
+    "lng": -122.4071,
+    "source": "https://en.wikipedia.org/wiki/Tin_How_Temple (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/san-francisco/things-to-do/tin-how-temple (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
    }
   },

@@ -12,21 +12,21 @@
 - `PEN` Peninsula & SFO (Daly City → San Mateo) ~35
 
 ## Session 2026-10-02 (modernisation run) — search counter
-- WebSearch used this session: ~168 main (per tool call) + 18 pin agent A ≈ 186+ (fan-out may push the platform count to the cap).
+- WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
 (none — the 2026-10-02 modernisation session closed cleanly; see State.)
 
 ## State — 2026-10-02 modernisation session (FINAL)
-- **289 researched / 261 rendered** (was 148 / 141). Food 181 = 62.6% (food-first ✓). 4 gates + validate + test green.
+- **290 researched / 265 rendered** (was 148 / 141). Food 181 = 62.4% (food-first ✓). 4 gates + validate + test green.
   Per area (food+sights = total / target): AVE 16+18=34/70 · DTN 29+17=46/80 · HAI 13+8=21/45 · MIS 32+11=43/75 ·
-  NECN 31+15=46/75 · NOB 15+8=23/40 · NW 20+12=32/50 · PEN 18+11=29/35 · SE 7+8=15/30.
-- Searches: ~168 main (counted per tool call; several multi-name queries visibly fanned out internally, so the
+  NECN 31+16=47/75 · NOB 15+8=23/40 · NW 20+12=32/50 · PEN 18+11=29/35 · SE 7+8=15/30.
+- Searches: ~173 main (counted per tool call; several multi-name queries visibly fanned out internally, so the
   platform count is likely higher) + 18 (pin agent A).
 - New files: FOOD_W3A (16 stars/Bibs), FOOD_W3B (55 Michelin by ZIP/cuisine), FOOD_W3C (19 JB/editorial/bars),
-  SIGHTS_W3A (51); geo/_geoout_w3a/_w3b/_w3c/_s3a/_fixold; helpers _sf_add/_sf_geo/_sf_mich/_sf_sights/_sf_fix_m2/
+  SIGHTS_W3A (52); geo/_geoout_w3a/_w3b/_w3c/_s3a/_fixold; helpers _sf_add/_sf_geo/_sf_mich/_sf_sights/_sf_fix_m2/
   _sf_rerank/_sf_push.sh/_sf_counts.sh.
-- Pins: 261 verified; 28 UNVERIFIED held (docs/GEOCODE-BACKLOG.md): old 6 (Boudin, It's-It, Chibog, Bread Basket,
+- Pins: 265 on the map (registry: 236 high / 28 med / 1 low / 25 UNVERIFIED held) held (docs/GEOCODE-BACKLOG.md): old 6 (Boudin, It's-It, Chibog, Bread Basket,
   Basque CC, Wursthall) + new non-Michelin restaurants/bars + 7 sights. ~20 old med pins (non-Michelin) remain med.
 - Closed flagged (unchanged): PEZ Museum, Contemporary Jewish Museum, The Mill, Wursthall. Newly found closed and NOT
   added: Prelude (Sept 2026), Auntie April's, Café Jacqueline, Lord Stanley.
