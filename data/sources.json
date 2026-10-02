@@ -11088,7 +11088,28 @@
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "PORTNOY",
+          "name": "Dave Portnoy (One Bite pizza reviews)",
+          "platform": "YouTube/TikTok/Instagram",
+          "handle": "@stoolpresidente",
+          "url": "https://www.youtube.com/@onebite",
+          "scale": "millions of followers across platforms (Barstool Sports founder)",
+          "niche": "pizza reviews scored out of 10",
+          "credible": "Verifiably the most-watched pizza reviewer in the US; scores widely reported by press. Counts as ONE corroborating source, never institutional."
+        },
+        {
+          "key": "KEITHLEE",
+          "name": "Keith Lee",
+          "platform": "TikTok",
+          "handle": "@keith_lee125",
+          "url": "https://www.tiktok.com/@keith_lee125",
+          "scale": "~16M+ TikTok followers",
+          "niche": "independent-restaurant food reviews; Chicago tour covered by Fox32/NBC Chicago",
+          "credible": "Verifiably huge following with a documented 'Keith Lee effect' reported by mainstream press; ONE corroborating source."
+        }
+      ]
     },
     "akron-oh": {
       "name": "akron-oh",
@@ -11651,6 +11672,70 @@
           "rank": 3,
           "verified": true,
           "credible": "Long-running English Japan travel media with named on-the-ground writers; one source."
+        },
+        {
+          "key": "MACARONI",
+          "name": "macaroni (macaro-ni.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major Japanese food-lifestyle media with bylined writers; one source."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "Michelin Guide Hokkaido — star",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (Michelin star) — lone-solo per the gate."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage Centre",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (World Heritage inscription) — lone-solo per the gate."
+        },
+        {
+          "key": "JOMONJAPAN",
+          "name": "Jomon Prehistoric Sites in Northern Japan (official site, Jomon World Heritage Promotion Office)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the World Heritage property's managing prefectures (Hokkaido/Aomori/Iwate/Akita); institutional, one source."
+        },
+        {
+          "key": "RURUBU",
+          "name": "rurubu&more. (JTB Publishing)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Web edition of JTB Publishing's rurubu guidebooks — Japan's best-selling guidebook brand; editor-written spot and dining features. One source."
+        },
+        {
+          "key": "OTARUTOURISM",
+          "name": "Otaru Tourism Association (otaru.gr.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city tourism association of Otaru — tourism body of record for the city."
+        },
+        {
+          "key": "HAKODATETRAVEL",
+          "name": "Hakodate Travel (hakodate.travel) — official Hakodate city tourism site",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism site of the City of Hakodate / Hakodate International Tourism & Convention Association — tourism body of record."
+        },
+        {
+          "key": "HOKKAIDOSHIMBUN",
+          "name": "Hokkaido Shimbun (北海道新聞)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Hokkaido's regional newspaper of record (Japan brief: HOKKAIDOSHIMBUN)."
         }
       ],
       "creators": [

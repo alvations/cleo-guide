@@ -513,5 +513,124 @@
   ],
   "dish": "",
   "closed": false
+ },
+ {
+  "t": 2,
+  "a": "LOOP",
+  "n": "Next",
+  "address": "953 W Fulton Market, Chicago, IL 60607",
+  "w": "Grant Achatz's Fulton Market restaurant that reinvents its whole menu and theme every few months — in the Michelin Guide.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/illinois/chicago/restaurant/next"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Next_(restaurant)"
+   ]
+  ],
+  "cz": [
+   "Tasting Menu",
+   "Contemporary"
+  ],
+  "dish": "",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "LOOP",
+  "n": "Elske",
+  "address": "1350 W Randolph St, Chicago, IL 60607",
+  "w": "David and Anna Posey's Danish-inflected West Loop restaurant with an open-air fireplace courtyard — in the Michelin Guide.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/illinois/chicago/restaurant/elske"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Elske"
+   ]
+  ],
+  "cz": [
+   "Scandinavian",
+   "Contemporary"
+  ],
+  "dish": "",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "LOOP",
+  "n": "Kumiko",
+  "address": "630 W Lake St, Chicago, IL 60661",
+  "w": "Julia Momosé's Japanese cocktail bar and dining room in the West Loop — in the Michelin Guide.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/illinois/chicago/restaurants"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Kumiko_(bar)"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar",
+   "Japanese"
+  ],
+  "dish": "",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NW",
+  "n": "Daisies",
+  "address": "2375 N Milwaukee Ave, Chicago, IL 60647",
+  "w": "Joe Frillman's farm-driven Logan Square pasta restaurant (own 30-acre farm) — Michelin Bib Gourmand and Green Star.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/gb/en/illinois/chicago/restaurant/daisies"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/daisies"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Daisies_(restaurant)"
+   ]
+  ],
+  "cz": [
+   "Italian",
+   "Pasta"
+  ],
+  "dish": "",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Irazu",
+  "address": "1865 N Milwaukee Ave, Chicago, IL 60647",
+  "w": "Bucktown's family-run Costa Rican restaurant — casados, gallo pinto, oatmeal shakes; 'extremely affordable and incredibly good' (Infatuation).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/irazu"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Irazu_Costa_Rican_Restaurant"
+   ]
+  ],
+  "cz": [
+   "Latin American",
+   "Costa Rican"
+  ],
+  "dish": "",
+  "closed": false
  }
 ]

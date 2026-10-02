@@ -104,3 +104,27 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   (35.031550,135.723469), Shōkoku-ji (35.03306,135.762347), Rozan-ji (35.0232,135.7640), Daihōon-ji (35.0319,135.7399),
   Umekōji Steam Locomotive Museum (now part of the Railway Museum — not separate). Myōshin-ji (JG mention only).
 - Searches used: 92.
+
+### batch 7 (2026-10-02) — Nara/Uji food, Fushimi, held corroborations
+- UJI food: Kiminami (soba), Kushizukushi (kushiage), toi Inshokuten (Indian thali) — MICHELIN_BIB (Nara region pages);
+  Tsuen Tea (est. 1160) and Nakamura Tokichi Honten (est. 1859) — JAPANGUIDE e3977 + WIKIPEDIA_JA (new key).
+- FSHMI: Jikkokubune Canal Cruise (JAPANGUIDE e3938 + KYOTOTOURISM); pin held (pier coordinate not surfaced).
+- HGS: Mimizuka (national Historic Site list + Wikipedia; pin from Wikipedia). SAKYO: Keage Incline (JG e3951 + Wikipedia).
+- Held: Taihōan municipal tea house (japan-guide only; the Japanese mention could not be tied to a specific page), Kizakura Kappa Country and
+  Fushimi Yume Hyakushu (could not tell which outlet said what → not attributed), Myōshin-ji (JG e3961; no coordinate yet),
+  Shimabara/Sumiya (Wikipedia only), Ike Edoyakiunagi Asahitei (Nara, no address).
+- Searches used: 100.
+
+### batch 8 (2026-10-02) — Michelin starred kaiseki + izakaya (FOOD_KYOTO_W3) and KYFU ring
+- FOOD W3 (16): One-star Nakagyō kaiseki ×7 (Ogawa, Tsujifusa, Kiyama, Miyawaki, Nijo Minami, Muromachi Wakuden, Jiki Miyazawa);
+  Gion: Gion Maruyama ★★, Gion Nishikawa ★★, Gion Fukushi/Kida/Owatari ★; Sushi Kappo Nakaichi ★; Kyokaiseki Kichisen ★★ (Shimogamo);
+  Pontocho Masuda (obanzai, MICHELIN); Saketosakana DNA (Bib izakaya).
+- **MEASURED & DROPPED (padding):** Gion Nishimura and Gion Rohan are Michelin-listed only, with no distinction surfaced. They would have been
+  a fifth and sixth near-identical Gion kaiseki counter, so they were dropped. **Held (no named dish / cuisine unclear):** Sambongi Shoten, Eitaroya, Muromachi Kaji
+  (izakaya, no dish); Higashiyama Yoshihisa ★★, Kyoboshi, TOKI, Kyo Seika ★, Higashiyama Ogata ★, Nishijin Hashimoto, Shimogamo
+  Saryo, Shimogamo Ichima, middle, ristorante DONO. Their cuisine or dish was not stated in the summary, and guessing would risk a cuisine mis-tag.
+- KYFU +7: Ishiyama-dera, Mii-dera, Hiyoshi Taisha (National Treasure designations via the Wikipedia NT lists + articles),
+  Nariai-ji (JG e3995 + WIKI), Kono Shrine (JG e3990 + WIKI), Jōruri-ji, Kaijūsen-ji (NT + WIKI). Pins from Wikipedia.
+- Rejected coordinate: "Kasagi-dera" was offered the Siege-of-Kasagi coordinate, which is not the temple, so it was not used. Held: Ōmi Jingū
+  (35.032444,135.851222), Ukimidō, Fukuchiyama Castle (35.296753,135.129625) — Wikipedia only.
+- Searches used: 117.
