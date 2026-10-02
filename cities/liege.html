@@ -3,29 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Newton & Novena (Singapore) field guide — 3 sights and 12 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
-<title>Newton & Novena — Singapore &amp; SEA field guide</title>
+<meta name="description" content="Liège field guide — 34 sights and 9 places to eat across Liège and the Meuse valley (Spa, Huy, Herve, Val-Dieu, Blegny-Mine), each traceable to its source (Michelin, UNESCO, Le Soir, RTBF, La Meuse, Visit Liège) on one interactive map with area, collection and cuisine filters — beer &amp; breweries a first-class layer — a trip builder and exports.">
+<title>Liège Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
   :root{
-    color-scheme: light dark;
-    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
-    --patina:#3E9A88; --patina-dim:#BFE0D8;
-    --brass:#B9863A; --rust:#C56F73;
-    --bone:#2E2838; --bone-dim:#6E6480;
-    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
   }
-  @media (prefers-color-scheme:dark){:root{
-    --iron:#191521; --slab:#241E30; --hair:#382E48;
-    --patina:#93D6C6; --patina-dim:#3E5D53;
-    --brass:#E8C57C; --rust:#E4989B;
-    --bone:#ECE7F2; --bone-dim:#A79FB8;
-  }}
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
@@ -53,12 +45,11 @@
   .maplegend span{display:flex;align-items:center;gap:6px;}
   .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
   /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
-  .osmdark .leaflet-tile-pane{filter:none;}
-  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
   #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
     border-left:3px solid var(--rust);font-size:14.5px;}
   #tilewarn button{margin-left:8px;}
-  .leaflet-container{background:var(--slab);}
+  .leaflet-container{background:#0E1316;}
   .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
   .leaflet-popup-tip{background:var(--slab);}
   .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
@@ -229,10 +220,10 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Neighbourhood guide · Singapore</p>
-  <h1>Newton & Novena<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">3 sights and 12 places to eat in <strong>Newton & Novena</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
-  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+  <p class="eyebrow">Field guide · Liège &amp; the Meuse valley, sourced</p>
+  <h1>Liège<span class="thin">&amp; the Meuse — Montagne de Bueren · Palais · Batte · Guillemins · Spa · Huy · Val-Dieu</span></h1>
+  <p class="standfirst">34 sights and 9 places to eat across <strong>Liège</strong> and the Meuse valley — from the 374 steps of the <strong>Montagne de Bueren</strong>, the <strong>Prince-Bishops' Palace</strong>, the <strong>Grand Curtius</strong> and La Boverie to the Sunday <strong>Batte</strong> market, Outremeuse and Calatrava's <strong>Guillemins</strong> station, out to <strong>Spa</strong>, Francorchamps, <strong>Huy</strong>, the abbey of <strong>Val-Dieu</strong> and the UNESCO coal mine at <strong>Blegny</strong>. A food canon all its own: <strong>boulets à la liégeoise</strong> in sauce lapin, the pearl-sugar <strong>gaufre de Liège</strong>, salade liégeoise, <strong>péket</strong>, sirop de Liège and <strong>Herve</strong> cheese. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (beer is its own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Belgium/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
 <div id="map"></div>
@@ -242,7 +233,8 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#BCA7E6"></i>Newton & Novena</span>
+  <span><i style="background:#C0504D"></i>Liège</span>
+  <span><i style="background:#6A8D3F"></i>Around Liège</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -257,7 +249,7 @@
     <div class="chips" id="cuisineFilter"></div>
   </div>
   <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <input id="search" type="search" placeholder="boulets, gaufre de Liège, péket, Val-Dieu, Herve…" autocomplete="off">
   <p class="ctrl-label">Filter by source</p>
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
@@ -300,8 +292,8 @@
 <footer>
   Hours, admission and opening days change — verify before you drive.<br>
   A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
-  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
-  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  Compiled August 2026 · <strong>last verified 2026-09-04</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in French across Michelin, UNESCO, Gault&amp;Millau, Le Soir, La Libre, RTBF, La Meuse, L'Avenir, Visit Liège, Wallonie Belgique Tourisme and the Walloon heritage agency, with beer &amp; breweries grouped as a first-class layer. Every coordinate is verified into data/geocodes.json and every place status-checked. Places whose exact pin could not be verified are held back until a final coordinate pass.</span><br><br>
   <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
   <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
 </footer>
@@ -312,92 +304,133 @@
 <script>
 
 const S = {
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
-  "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal",u:"https://thesmartlocal.com",l:"TheSmartLocal"},
-  "URA":{k:"URA",t:"Urban Redevelopment Authority",u:"https://www.ura.gov.sg",l:"Urban Redevelopment Authority"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"},
-  "WONDERWALL":{k:"WONDERWALL",t:"Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)",u:"https://wonderwall.sg",l:"Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)"}
+  "AWAP":{k:"AWAP",t:"AWAP",u:"",l:""},
+  "COE":{k:"COE",t:"COE",u:"",l:""},
+  "ERIH":{k:"ERIH",t:"ERIH",u:"",l:""},
+  "EUROPEANWATERFALLS":{k:"EUROPEANWATERFALLS",t:"EUROPEANWATERFALLS",u:"",l:""},
+  "KIKIRPA":{k:"KIKIRPA",t:"KIKIRPA",u:"",l:""},
+  "LADH":{k:"LA DH",t:"LA DH",u:"",l:""},
+  "LALIBRE":{k:"LA LIBRE",t:"La Libre Belgique",u:"https://www.lalibre.be",l:"La Libre Belgique"},
+  "LAVENIR":{k:"LAVENIR",t:"LAVENIR",u:"",l:""},
+  "LIEGECITY":{k:"LIEGECITY",t:"LIEGECITY",u:"",l:""},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet (FR edition)",u:"https://www.lonelyplanet.fr",l:"Lonely Planet (FR edition)"},
+  "MUSEUMDE":{k:"MUSEUMDE",t:"MUSEUMDE",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "PARISMATCHBE":{k:"PARISMATCHBE",t:"Paris Match Belgique",u:"https://www.parismatch.be",l:"Paris Match Belgique"},
+  "PROVINCELIEGE":{k:"PROVINCELIEGE",t:"PROVINCELIEGE",u:"",l:""},
+  "ROUTARD":{k:"ROUTARD",t:"Le Guide du Routard (FR travel guide of record)",u:"https://www.routard.com",l:"Le Guide du Routard (FR travel guide of record)"},
+  "RTBF":{k:"RTBF",t:"RTBF (Belgian public broadcaster)",u:"https://www.rtbf.be",l:"RTBF (Belgian public broadcaster)"},
+  "SHOWCAVES":{k:"SHOWCAVES",t:"SHOWCAVES",u:"",l:""},
+  "SNCB":{k:"SNCB",t:"SNCB/NMBS — Discover Belgium editorial (national railway)",u:"https://www.belgiantrain.be",l:"SNCB/NMBS — Discover Belgium editorial (national railway)"},
+  "ULIEGE":{k:"ULIEGE",t:"Université de Liège — campus guide (curated local-cuisine selection)",u:"https://www.campus.uliege.be",l:"Université de Liège — campus guide (curated local-cuisine selection)"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
+  "VISITLIEGE":{k:"VISITLIEGE",t:"Visit Liège — Maison du Tourisme du Pays de Liège (official)",u:"https://www.visitezliege.be",l:"Visit Liège — Maison du Tourisme du Pays de Liège (official)"},
+  "WBT":{k:"WBT",t:"Wallonie Belgique Tourisme (official regional tourism)",u:"https://walloniabelgiumtourism.co.uk",l:"Wallonie Belgique Tourisme (official regional tourism)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""}
 };
 
 const AREAS = [
-  {id:"NEWTONNOVENA",n:"Newton & Novena",c:"#BCA7E6"}
+  {id:"LIE",n:"Liège (Carré · Outremeuse · Batte · Montagne de Bueren · Guillemins · Palais · Curtius · Boverie)",c:"#C0504D"},
+  {id:"LIER",n:"Around Liège (Spa & Francorchamps · Huy · the Meuse · Herve plateau · Val-Dieu · Blegny-Mine)",c:"#6A8D3F"}
 ];
 
 const P = [
-{t:1,a:"NEWTONNOVENA",n:"Newton Food Centre",ad:"500 Clemenceau Avenue North, Singapore 229495",la:1.31199,ln:103.83957,w:"Newton Circus Food Centre opened in 1971 as a tourist-friendly open-air hawker centre at the Newton roundabout; rebuilt in 2006 and immortalised as the satay-and-chilli-crab feast in Crazy Rich Asians. With close to 100 stalls it placed five on the 2025 MICHELIN Bib Gourmand list — the most of any hawker centre — and is the gastronomic heart of Newton.",k:"Mostly evening stalls; open late",g:["MKT","PARK"],s:[["ROOTSSG","https://www.roots.gov.sg/stories-landing/stories/Hawker-Centres/Newton-Circus-Food-Centre"],["EATBOOK","https://eatbook.sg/newton-food-centre/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]},
-{t:1,a:"NEWTONNOVENA",n:"Novena Church (Church of St Alphonsus)",ad:"300 Thomson Road, Singapore 307653",la:1.32181,ln:103.84279,w:"The Redemptorist church that gave Novena its name — and its MRT station: built 1950 to a Swan & Maclaren design, eclectic-Modern with a triple-arched front pediment and circular stained-glass window, conserved in 2011, with a Gothic-style worship hall added in 2017. Its Saturday Perpetual Novena to Our Mother of Perpetual Help draws worshippers of every faith.",k:"Catholic church; Saturday novena services are its busiest hours",g:["TEMPLE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Novena_Church"],["URA","https://www.ura.gov.sg/conservation/find-a-building/conservation-portal/nctr-00001/"],["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/balestier-heritage-trail-building-balestier/Church-of-St-Alphonsus-Novena-Church"]]},
-{t:1,a:"NEWTONNOVENA",n:"Goodwood Park Hotel (Tower Wing)",ad:"22 Scotts Road, Singapore 228221",la:1.30847,ln:103.83439,w:"A turreted, Rhineland-castle-style clubhouse built in 1900 as the Deutsches Haus of the German Teutonia Club, confiscated in WWI, bought in 1918 by the Manasseh brothers as Goodwood Hall and opened as a hotel in 1929 — gazetted the 22nd National Monument (1989). Its café is the city's famous durian-dessert address.",k:"National Monument; working hotel — the Tower Wing is viewable from the grounds",g:["PARK","VIEW","ARCH"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/goodwood-park-hotel-tower-block"],["WONDERWALL","https://wonderwall.sg/Places/national-monuments-of-singapore-goodwood-park-hotel-tower-block"],["THESMARTLOCAL","https://thesmartlocal.com/read/goodwood-park-hotel/"]]}
+{t:1,a:"LIE",n:"Grand Curtius",ad:"Quai de Maastricht 13, 4000 Liège, Belgium",la:50.64742,ln:5.58394,w:"The early-17th-c. red-brick mansion of the arms merchant Jean Curtius on the Meuse, reopened in 2009 as one museum merging archaeology, weaponry, glass, decorative arts and Mosan religious art over 5,000 m².",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Curtius_Museum"],["VISITLIEGE","https://visitezliege.be/en/grand-curtius"],["OFFICIAL","https://grandcurtius.be/en/museum"]]},
+{t:1,a:"LIE",n:"Palais des Princes-Évêques",ad:"Place Saint-Lambert, 4000 Liège, Belgium",la:50.64620,ln:5.57345,w:"The 16th-c. palace of the Prince-Bishops who ruled Liège for eight centuries, dominating Place Saint-Lambert; today the Palais de Justice, its arcaded first courtyard is open to walk through.",g:["ICON","HIST","ARCH","MKT"],s:[["LONELYPLANET","https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"]]},
+{t:1,a:"LIE",n:"Collégiale Saint-Barthélemy",ad:"Place Saint-Barthélemy, 4000 Liège, Belgium",la:50.64790,ln:5.58280,w:"Romanesque collegiate church with a twin-towered westwork, home to Renier de Huy's baptismal font (c. 1107–1118) — a lost-wax brass basin on ten oxen, a masterpiece of Mosan art.",g:["ARCH","HIST","MUS","NIGHT"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/collegiale-saint-barthelemy"],["WBT","https://walloniabelgiumtourism.co.uk/en-gb/content/collegiate-church-saint-barthelemy-and-its-baptismal-fonts"]]},
+{t:1,a:"LIE",n:"Montagne de Bueren",ad:"Montagne de Bueren, 4000 Liège, Belgium",la:50.64794,ln:5.57759,w:"The 374-step stairway (1881) cut straight up the hillside from Hors-Château to the Citadelle, built so soldiers could reach town without the alleys — Liège's emblem and its best free climb, with a panorama over the roofs and the Meuse.",g:["ICON","HIST","FREE","ARCH"],s:[["VISITLIEGE","https://visitezliege.be/en/offre/montagne-de-bueren"],["LONELYPLANET","https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"],["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege"]]},
+{t:1,a:"LIE",n:"Gare de Liège-Guillemins",ad:"Place des Guillemins 2, 4000 Liège, Belgium",la:50.62472,ln:5.56694,w:"Santiago Calatrava's white steel-and-glass vault (2009) — a station with no façade, just a 160 m canopy over the tracks; worth the detour even if you arrive by car.",g:["ICON","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Li%C3%A8ge-Guillemins_railway_station"],["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"]]},
+{t:1,a:"LIE",n:"La Boverie",ad:"Parc de la Boverie 3, 4020 Liège, Belgium",la:50.62750,ln:5.57750,w:"The city's fine-arts museum in a 1905 Exhibition palace on the Boverie island park, with a glass extension for blockbuster shows run in partnership with the Louvre; Ingres, Monet, Picasso and the Walloon school.",g:["MUS","PARK"],s:[["LONELYPLANET","https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"],["WIKIPEDIA","https://en.wikipedia.org/wiki/La_Boverie"],["LIEGECITY","https://www.liege.be/en/discover/culture/museums/la-boverie/the-park-de-la-boverie/"]]},
+{t:1,a:"LIE",n:"Cathédrale Saint-Paul et son Trésor",ad:"Place de la Cathédrale, 4000 Liège, Belgium",la:50.64019,ln:5.57106,w:"Gothic cathedral since 1802 (after the revolutionaries razed Saint-Lambert); its Trésor holds the reliquary bust of Saint Lambert and the gold reliquary Charles the Bold gave in penance for sacking the city.",g:["ARCH","MUS","HIST","ICON"],s:[["VISITLIEGE","https://www.visitezliege.be/en/offre/la-cathedrale-saint-paul"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/cathedrale-st-paul/1262164"],["LADH","https://www.dhnet.be/regions/liege/2025/10/24/liege-la-cathedrale-saint-paul-va-etre-restauree-IKMF2ZZMUNDJ3P5U622OEGDANI/"]]},
+{t:2,a:"LIE",n:"La Cité Miroir",ad:"Place Xavier Neujean 22, 4000 Liège, Belgium",la:50.64344,ln:5.56815,w:"The 1930s Sauvenière swimming baths, an Art Deco modernist landmark, reborn as a civic culture centre with exhibitions on memory and citizenship (incl. the permanent 'Plus jamais ça!' Holocaust route).",g:["MUS","ARCH","HIST","ICON"],s:[["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-cultural"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"]]},
+{t:2,a:"LIE",n:"Musée de la Vie wallonne",ad:"Cour des Mineurs, 4000 Liège, Belgium",la:50.64681,ln:5.57614,w:"The Province's folk-life museum in the 17th-c. Friars Minor convent — a century of Walloon everyday life, crafts, dialect and the Liège puppets (with marionnette shows).",g:["MUS","HIST"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/musee-de-la-vie-wallonne/462124"],["ERIH","https://www.erih.net/i-want-to-go-there/site/museum-of-walloon-life"],["PROVINCELIEGE","https://www.provincedeliege.be/sites/default/files/media/6041/Dossierdepresse_100ans_Mus%C3%A9eViewallonne.pdf"]]},
+{t:1,a:"LIER",n:"Blegny-Mine",ad:"Blegny-Mine, Blegny, Belgium",la:50.68646,ln:5.72210,w:"One of the four UNESCO 'Major Mining Sites of Wallonia' and one of only a handful of European coal mines you can still descend — ex-miners guide you 30 and 60 m down the shafts of the Trembleur colliery (closed 1980).",g:["UNESCO","HIST","MUS"],s:[["UNESCO","https://whc.unesco.org/en/list/1344"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Blegny-Mine"]]},
+{t:1,a:"LIER",n:"Fort de Huy",ad:"Fort de Huy, Huy, Belgium",la:50.51730,ln:5.23710,w:"The Dutch-built (1818–23) citadel crowning the rock above the Meuse at Huy — a Nazi prison and Gestapo jail in WWII, now a memorial museum with sweeping river views.",g:["HIST","ARCH","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Citadel_of_Huy"],["PARISMATCHBE","https://www.parismatch.be/lifestyle/voyages/2021/03/28/le-fort-de-huy-un-colosse-mosan-FAHATFOALNHW7IJYIZUHRGBDDY/"]]},
+{t:1,a:"LIER",n:"Collégiale Notre-Dame de Huy",ad:"Huy, Belgium",la:50.51882,ln:5.23817,w:"Gothic collegiate church on the Meuse with the great rose window 'Li Rondia' and a treasury holding Mosan reliquary shrines of the 12th–13th c.",g:["ARCH","HIST","MUS"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/collegiale-notre-dame-de-huy/1261573"],["KIKIRPA","https://www.kikirpa.be/files/Publicaties/Publications-for-download/Others/La-coll%C3%A9giale-de-Huy.pdf"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Huy"]]},
+{t:1,a:"LIER",n:"Pouhon Pierre-le-Grand",ad:"Spa, Belgium",la:50.49357,ln:5.86694,w:"Victor Besme's 1880 octagonal pavilion over Spa's most famous iron-rich spring, named for Peter the Great who took the cure here in 1717 — taste the water, see the Livre d'Or painting of famous curistes.",g:["ICON","HIST"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/pouhon-pierre-le-grand/1262310"],["WBT","https://visitwallonia.com/en-gb/produit/attractions/activites/museum-discovery/the-pouhon-pierre-le-grand-monument-in-spa/13462"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Spa,_Belgium"]]},
+{t:1,a:"LIER",n:"Circuit de Spa-Francorchamps",ad:"Route du Circuit, Francorchamps (Stavelot), Belgium",la:50.43722,ln:5.97139,w:"The 7 km Ardennes circuit of the Belgian Grand Prix since 1921 and its legendary Eau Rouge–Raidillon climb; tours, a museum in Stavelot abbey and race weekends all season.",g:["ICON","ARCH","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/pois/1334292"],["OFFICIAL","https://www.spagrandprix.com/en/le-circuit"]]},
+{t:1,a:"LIE",n:"Archéoforum",ad:"Place Saint-Lambert, 4000 Liège, Belgium",la:50.64530,ln:5.57330,w:"Under Place Saint-Lambert: the excavated foundations of the vanished Cathedral of Saint-Lambert (razed 1794), a Gallo-Roman villa and finds back to the Mesolithic — the city's birthplace, walked underground.",g:["MUS","HIST","ICON","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Arch%C3%A9oforum"],["MUSEUMDE","https://www.museum.de/en/museen/archeoforum"]]},
+{t:1,a:"LIE",n:"Église Saint-Jacques",ad:"Place Saint-Jacques, 4000 Liège, Belgium",la:50.63699,ln:5.57043,w:"Former Benedictine abbey church with a flamboyant-Gothic nave under a dazzling painted star vault, a Romanesque westwork and a Renaissance portal — Liège's most beautiful interior.",g:["ARCH","HIST","CANAL"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/St_James%27s_Church,_Li%C3%A8ge"],["VISITLIEGE","https://www.visitezliege.be/en/offre/eglise-saint-jacques"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/eglise-st-jacques/1600671"]]},
+{t:2,a:"LIE",n:"Musée Tchantchès",ad:"Rue Surlet 56, 4020 Liège, Belgium",la:50.63919,ln:5.58156,w:"Museum of the 'Free Republic of Outremeuse' devoted to Tchantchès, Liège's cheeky wooden-puppet hero — his costumes, the Bisscheroux marionettes and puppet shows in season.",g:["MUS","NIGHT","FREE"],s:[["VISITLIEGE","https://visitezliege.be/en/offre/musee-tchantches"],["MUSEUMDE","https://www.museum.de/en/museen/musee-tchantches"],["LADH","https://www.dhnet.be/regions/liege/tchantches-et-sa-legende-5989ddc2cd706e263f450dc7"]]},
+{t:2,a:"LIE",n:"Opéra royal de Wallonie",ad:"Place de l'Opéra, 4000 Liège, Belgium",la:50.64333,ln:5.57028,w:"The 1820 neoclassical Théâtre royal, Wallonia's opera house, with a modern rooftop extension; Grétry's heart is in an urn at the foot of his statue outside.",g:["ARCH","NIGHT","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Op%C3%A9ra_Royal_de_Wallonie"],["VISITLIEGE","https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"]]},
+{t:2,a:"LIE",n:"Aquarium-Muséum",ad:"Quai Édouard Van Beneden 22, 4020 Liège, Belgium",la:50.63836,ln:5.57950,w:"The University of Liège's aquarium (2,500 fish in some 50 tanks) and zoological museum in the 19th-c. Institut de Zoologie on the Meuse — a whale skeleton, dioramas and a cabinet of curiosities.",g:["MUS","PARK"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/gateway-towns/liege/must-sees-/lieges-aquarium-museum-dive-in-a-magical-world/13220"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/institut-zoologique/1600675"]]},
+{t:2,a:"LIE",n:"Collégiale Saint-Denis",ad:"Place Saint-Denis, 4000 Liège, Belgium",la:50.64290,ln:5.57462,w:"One of Liège's seven collegiate churches (founded c. 987) with a fortress-like Romanesque tower; inside, a carved Brabant altarpiece of the Passion of St Denis (early 16th c.).",g:["ARCH","HIST","ICON"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/eglise-saint-denis"],["AWAP","https://lampspw.wallonie.be/dgo4/site_ipic/index.php/pdf/fiche/62063-INV-0341-01"]]},
+{t:1,a:"LIE",n:"Coteaux de la Citadelle",ad:"Coteaux de la Citadelle, 4000 Liège, Belgium",la:50.64700,ln:5.57294,w:"86 ha of terraced hillside orchards, vineyards, stairways and alleys between Hors-Château and the Citadelle — Liège's green lung, laureate of the Council of Europe Landscape Award; walk the Terrasses des Minimes for the views.",g:["PARK","HIST","FREE","ARCH"],s:[["VISITLIEGE","https://www.visitezliege.be/en/offre/les-coteaux-de-la-citadelle"],["COE","https://rm.coe.int/16806f5b22"]]},
+{t:1,a:"LIE",n:"Place du Marché & le Perron",ad:"Place du Marché, 4000 Liège, Belgium",la:50.64554,ln:5.57573,w:"The old market square in front of the 18th-c. town hall 'La Violette', ringed by café terraces; the Perron fountain at its centre is the symbol of Liège's civic liberties since the Middle Ages.",g:["ICON","MKT","HIST","FREE"],s:[["ROUTARD","https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/place-du-marche"],["VISITLIEGE","https://visitezliege.be/en/offre/place-du-marche"],["AWAP","https://lampspw.wallonie.be/dgo4/site_ipic/index.php/pdf/fiche/62063-INV-0700-01"]]},
+{t:2,a:"LIE",n:"Musée d'Ansembourg",ad:"En Féronstrée, 4000 Liège, Belgium",la:50.64698,ln:5.58216,w:"An 18th-c. merchant-banker's mansion on Féronstrée kept as a period house museum — Liège furniture, Cordoba leather wall-hangings, tapestries and stucco ceilings of the prince-bishops' golden age.",g:["MUS","HIST","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Ansembourg_Museum"],["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/musee-d-ansembourg/462120"],["AWAP","https://lampspw.wallonie.be/dgo4/site_ipic/index.php/pdf/fiche/62063-INV-0486-01"]]},
+{t:2,a:"LIE",n:"Maison de la Métallurgie et de l'Industrie de Liège",ad:"Boulevard Raymond Poincaré 17, 4020 Liège, Belgium",la:50.63083,ln:5.57972,w:"Industrial-heritage museum in the old Espérance-Longdoz steelworks — a working 17th-c.-style forge, blast-furnace models and the story of the coal and steel that made Liège.",g:["MUS","HIST"],s:[["ERIH","https://www.erih.net/i-want-to-go-there/the-house-of-metallurgy-and-industry-of-liege"],["VISITLIEGE","https://visitezliege.be/en/offre/maison-de-la-metallurgie-et-de-l-industrie-de-liege"],["RTBF","https://www.rtbf.be/article/un-projet-de-10-millions-deuros-pour-renover-le-musee-de-la-metallurgie-a-liege-10931611"]]},
+{t:3,a:"LIE",n:"Musée des Transports en commun de Wallonie",ad:"Rue Richard Heintz 9, 4020 Liège, Belgium",la:50.62902,ln:5.58328,w:"Old Vennes tram depot full of Liège trams, trolleybuses and buses from horse-drawn days on — a nostalgic stop now the city's new tram is running again.",g:["MUS","CANAL"],s:[["ERIH","https://www.erih.net/i-want-to-go-there/site/wallonia-public-transport-museum"],["VISITLIEGE","https://www.visitezliege.be/en/offre/musee-des-transports-en-commun-de-wallonie"],["LADH","https://www.dhnet.be/regions/liege/2024/09/02/la-renovation-du-musee-des-transports-est-relancee-II7PR7W3PRCRTP43A5BSXSSDUE/"]]},
+{t:2,a:"LIE",n:"Mémorial interallié de Cointe",ad:"Cointe, 4000 Liège, Belgium",la:50.61965,ln:5.56924,w:"The Interallied Memorial on the Cointe hill: a 75 m tower and a basilica raised in the 1930s by the WWI Allies to honour the 1914 defence of Liège — the lift up the tower gives the city's best panorama.",g:["HIST","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Interallied_Memorial_of_Cointe"],["WBT","https://walloniabelgiumtourism.co.uk/en-gb/content/cointe-inter-allied-memorial-liege"]]},
+{t:1,a:"LIER",n:"Grottes de Remouchamps",ad:"Remouchamps, Aywaille, Belgium",la:50.48004,ln:5.71202,w:"Show cave on the Amblève at Aywaille, visited since 1828 — a walk through the Cathedral chamber ending in what is billed as the longest underground boat ride in the world (≈600 m on the Rubicon).",g:["PARK","ICON","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cave_of_Remouchamps"],["SHOWCAVES","https://www.showcaves.com/english/be/showcaves/Remouchamps.html"],["RTBF","https://www.rtbf.be/article/12-adresses-au-fil-de-l-ambleve-coo-remouchamps-et-trois-ponts-10352669"]]},
+{t:2,a:"LIER",n:"Cascade de Coo",ad:"Coo, Stavelot, Belgium",la:50.39350,ln:5.87674,w:"Belgium's best-known waterfall, a 15 m double cascade of the Amblève created by monks cutting a meander in the 18th c.; a chairlift climbs to the Montagne de Lancre viewpoint above.",g:["PARK","FREE"],s:[["RTBF","https://www.rtbf.be/article/12-adresses-au-fil-de-l-ambleve-coo-remouchamps-et-trois-ponts-10352669"],["EUROPEANWATERFALLS","https://www.europeanwaterfalls.com/?p=3830"]]},
+{t:2,a:"LIER",n:"Château de Franchimont",ad:"Theux, Belgium",la:50.52767,ln:5.82424,w:"Ruined 11th–16th-c. fortress on a rock above Theux, seat of the marquisate of Franchimont — remembered for the 600 Franchimontois who tried to kill Charles the Bold in 1468; climbable casemates and towers.",g:["ARCH","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Franchimont_Castle"],["OFFICIAL","https://chateau-franchimont.be/?p=362"]]},
+{t:2,a:"LIER",n:"Signal de Botrange",ad:"Signal de Botrange, Waimes, Belgium",la:50.50167,ln:6.09278,w:"Belgium's highest point (694 m) on the Hautes Fagnes plateau — the gateway to the raised-bog boardwalks of the High Fens nature reserve.",g:["PARK"],s:[["WIKIPEDIA","https://en.wikipedia.com/wiki/Botrange"],["LALIBRE","https://www.lalibre.be/lifestyle/voyages/2009/08/22/les-hautes-fagnes-HOQODEMMV5G3TFOQCDOHFUB42I/"]]},
+{t:1,a:"LIER",n:"Château du Val-Saint-Lambert (Cristal Discovery)",ad:"Esplanade du Val, Seraing, Belgium",la:50.59329,ln:5.48266,w:"The former Cistercian abbey on the Meuse at Seraing where Val-Saint-Lambert has blown lead crystal since 1826 — the Cristal Discovery visit shows glassblowers at work and two centuries of pieces.",g:["MUS","HIST","ARCH"],s:[["LONELYPLANET","https://www.nonprod.lonelyplanet.com/points-of-interest/val-st-lambert/1262652"],["WBT","https://visitwallonia.com/en-gb/content/cristal-discovery-chateau-du-val-saint-lambert-seraing"],["VISITLIEGE","https://www.visitezliege.be/en/page/seraing"]]},
+{t:1,a:"LIE",n:"Marché de la Batte",ad:"Quai de la Batte, 4000 Liège, Belgium",la:50.64477,ln:5.57922,w:"Every Sunday morning since 1561: Belgium's oldest and biggest street market stretches 2 km along the Meuse quays — fruit, Herve cheese, live poultry, flowers, books, and péket and gaufres to keep you going.",g:["ICON","MKT","FREE","CANAL"],s:[["PARISMATCHBE","https://www.parismatch.be/actualites/societe/2024/09/02/vetements-animaux-alimentation-accessoires-ce-marche-historique-est-le-plus-grand-de-belgique-AJCJUJBCTJBO5CSNJH6R6226GI/"],["RTBF","https://www.rtbf.be/article/liege-a-90-ans-et-apres-65-ans-de-marches-isy-prend-sa-retraite-11404915"],["LADH","https://www.dhnet.be/regions/liege/2020/03/21/la-batte-et-le-tram-aussi-en-mode-confinement-TCHNNNNA65BEDDP43YE2T74GUE/"]]},
+{t:1,a:"LIER",n:"Thermes de Spa",ad:"Colline d'Annette et Lubin, Spa, Belgium",la:50.49417,ln:5.86417,w:"The modern glass thermal baths on Annette-et-Lubin hill, reached by funicular from the town centre — naturally carbonated Spa waters in the town that gave every 'spa' its name, a UNESCO Great Spa Town of Europe since 2021.",g:["ICON","UNESCO"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"],["LONELYPLANET","https://www.lonelyplanet.fr/destinations/europe/belgique/que-faire/la-ville-de-spa"],["LAVENIR","https://www.lavenir.net/cnt/dmf20210724_01599937/la-ville-de-spa-officiellement-inscrite-sur-la-liste-du-patrimoine-mondial-de-l-unesco"]]},
+{t:2,a:"LIER",n:"Musée de la Ville d'eaux (Villa Royale)",ad:"Villa Royale Marie-Henriette, Spa, Belgium",la:50.49167,ln:5.85750,w:"In Queen Marie-Henriette's Villa Royale: the story of Spa as Europe's 'Café of Europe' resort, with the painted-wood 'Jolités de Spa' souvenirs; the Spa horse museum is in the stables.",g:["MUS","HIST","NIGHT"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"],["LONELYPLANET","https://www.lonelyplanet.fr/destinations/europe/belgique/que-faire/la-ville-de-spa"]]}
 ];
 
 const FS = {
-  "ASIAONE":{k:"ASIAONE",t:"AsiaOne",u:"https://www.asiaone.com",l:"AsiaOne"},
-  "CITYNOMADS":{k:"CITYNOMADS",t:"City Nomads (Singapore city guide)",u:"https://citynomads.com",l:"City Nomads (Singapore city guide)"},
-  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
-  "DFD":{k:"DFD",t:"Daniel Food Diary",u:"https://danielfooddiary.com/",l:"Daniel Food Diary"},
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
-  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
-  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
-  "MTC":{k:"MTC",t:"Miss Tam Chiak (misstamchiak.com)",u:"https://www.misstamchiak.com/",l:"Miss Tam Chiak (misstamchiak.com)"},
-  "ORDINARYPATRONS":{k:"ORDINARYPATRONS",t:"Ordinary Patrons",u:"https://ordinarypatrons.com",l:"Ordinary Patrons"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
-  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+  "AUBEL":{k:"AUBEL",t:"AUBEL",u:"",l:""},
+  "BOULETTES":{k:"BOULETTES",t:"BOULETTES",u:"",l:""},
+  "BRUSSELSTIMES":{k:"THE BRUSSELS TIMES",t:"The Brussels Times (Hidden Belgium)",u:"https://brusselstimes.com",l:"The Brussels Times (Hidden Belgium)"},
+  "COE":{k:"COE",t:"COE",u:"",l:""},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"CULTURETRIP",u:"",l:""},
+  "DARLEYNEWMAN":{k:"DARLEYNEWMAN",t:"Darley Newman — Travels with Darley (PBS)",u:"https://www.darley-newman.com",l:"Darley Newman — Travels with Darley (PBS)"},
+  "EUROPEANBARGUIDE":{k:"EUROPEANBARGUIDE",t:"EUROPEANBARGUIDE",u:"",l:""},
+  "FORBES":{k:"FORBES",t:"FORBES",u:"",l:""},
+  "INFOLUX":{k:"INFOLUX",t:"INFOLUX",u:"",l:""},
+  "LADH":{k:"LA DH",t:"LA DH",u:"",l:""},
+  "LALIBRE":{k:"LA LIBRE",t:"La Libre Belgique",u:"https://www.lalibre.be",l:"La Libre Belgique"},
+  "LAVENIR":{k:"LAVENIR",t:"LAVENIR",u:"",l:""},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet (FR edition)",u:"https://www.lonelyplanet.fr",l:"Lonely Planet (FR edition)"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "PARISMATCHBE":{k:"PARISMATCHBE",t:"Paris Match Belgique",u:"https://www.parismatch.be",l:"Paris Match Belgique"},
+  "RTBF":{k:"RTBF",t:"RTBF (Belgian public broadcaster)",u:"https://www.rtbf.be",l:"RTBF (Belgian public broadcaster)"},
+  "SNCB":{k:"SNCB",t:"SNCB/NMBS — Discover Belgium editorial (national railway)",u:"https://www.belgiantrain.be",l:"SNCB/NMBS — Discover Belgium editorial (national railway)"},
+  "ULIEGE":{k:"ULIEGE",t:"Université de Liège — campus guide (curated local-cuisine selection)",u:"https://www.campus.uliege.be",l:"Université de Liège — campus guide (curated local-cuisine selection)"},
+  "VISITLIEGE":{k:"VISITLIEGE",t:"Visit Liège — Maison du Tourisme du Pays de Liège (official)",u:"https://www.visitezliege.be",l:"Visit Liège — Maison du Tourisme du Pays de Liège (official)"},
+  "WBT":{k:"WBT",t:"Wallonie Belgique Tourisme (official regional tourism)",u:"https://walloniabelgiumtourism.co.uk",l:"Wallonie Belgique Tourisme (official regional tourism)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""}
 };
 
 const CUISINES = [
-  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
-  {id:"LAKSA",n:"Laksa & Curry Noodles"},
-  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
-  {id:"BKT",n:"Bak Kut Teh & Soups"},
-  {id:"HAWKER",n:"Hawker & Zi Char"},
-  {id:"MALAY",n:"Malay & Nasi Padang"},
-  {id:"INDIAN",n:"Indian & Roti Prata"},
-  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
-  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
-  {id:"THAI",n:"Thai"},
-  {id:"VIET",n:"Vietnamese"},
-  {id:"INDO",n:"Indonesian, Satay & Rendang"},
-  {id:"FILIPINO",n:"Filipino"},
-  {id:"KHMER",n:"Khmer (Cambodian)"},
-  {id:"LAO",n:"Lao"},
-  {id:"BURMESE",n:"Burmese"},
-  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
-  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
-  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
-  {id:"CAFE",n:"Cafés & Modern"},
-  {id:"VIRAL",n:"Viral / Social"}
+  {id:"BEL",n:"Belgian & Flemish"},
+  {id:"FR",n:"French & Brasserie"},
+  {id:"BEER",n:"Beer & Breweries"},
+  {id:"SWEET",n:"Chocolate, Waffles & Sweets"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"CAFE",n:"Café & Brown Café"},
+  {id:"SEA",n:"North Sea & Seafood"},
+  {id:"VEG",n:"Vegetarian & Vegan"},
+  {id:"INT",n:"International & Student"}
 ];
 
 const CATS = [
   {id:"ICON",n:"Iconic & Must-See"},
-  {id:"HERITAGE",n:"Heritage & Culture"},
-  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
-  {id:"MKT",n:"Markets & Hawker Centres"},
-  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"ARCH",n:"Churches, Belfries & Castles"},
   {id:"MUS",n:"Museums & Galleries"},
-  {id:"VIEW",n:"Views & Skyline"},
-  {id:"ARCH",n:"Architecture & Landmarks"},
-  {id:"FAM",n:"Family & Kids"},
-  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"CANAL",n:"Canals & Waterfront"},
+  {id:"PARK",n:"Parks & Nature"},
+  {id:"MKT",n:"Markets & Squares"},
+  {id:"NIGHT",n:"Nightlife & Quarters"},
   {id:"FREE",n:"Free to Visit"}
 ];
 
 const F = [
-{t:1,a:"NEWTONNOVENA",n:"Heng Carrot Cake",ad:"#01-28 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"A Newton fixture since 1971 and a MICHELIN Bib Gourmand stall: the owner has 50+ years at the wok and still steams the radish cake in-house rather than buying it factory-made, frying black and white versions (plus oyster omelette) with vegetable oil only — no pork or lard.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/heng"],["EATBOOK","https://eatbook.sg/heng-carrot-cake/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/heng-carrot-cake-something-in-newton-worth-going-for/"]]},
-{t:1,a:"NEWTONNOVENA",n:"Kwee Heng Duck Noodle",ad:"#01-13 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"A 40-year-old braised-duck stall whose boneless, herbal-braised duck — over rice, congee or noodles — earned back-to-back MICHELIN Bib Gourmand listings (2023–2025); one of five Newton stalls that made the 2025 Bib list, the most of any hawker centre.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/en/singapore-region/singapore/restaurant/kwee-heng"],["EATBOOK","https://eatbook.sg/newton-food-centre/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Kwang Kee Teochew Fish Porridge",ad:"#01-20 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE"],la:1.31199,ln:103.83957,w:"A 60-year-old Teochew fish-porridge stall now run by the second generation — fresh-sliced fish in a clean broth, as porridge or soup — MICHELIN Bib Gourmand 2021–2023 and on Seth Lui's Newton best-of (Oct 2024 update).",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/kwang-kee-teochew-fish-porridge"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Newton Old Signboard 25 Fried Hokkien Prawn Noodle",ad:"#01-25 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["NOODLE","HAWKER"],la:1.31199,ln:103.83957,w:"Newton's Hokkien mee benchmark: a smoky, lard-laced tangle of bee hoon and yellow noodles simmered down in a generous prawn stock — singled out by Eatbook for its wok hei and reviewed by the Ordinary Patrons blog.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["ORDINARYPATRONS","https://ordinarypatrons.com/2023/07/18/newton-old-signboard-25-9-fried-kway-teow/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/newton-food-centre-10-best-hawker-stalls"]]},
-{t:3,a:"NEWTONNOVENA",n:"Bee Heng Satay, BBQ Prawn & Otah",ad:"#01-12 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["MALAY","HAWKER"],la:1.31199,ln:103.83957,w:"The family business behind Bee Heng Popiah (founded 1930, at Newton since 1977, now third-generation Gary Tan) — long Newton's resident popiah roll, written up by ieatishootipost and Miss Tam Chiak; since 2023 the stall has stopped the popiah and trades as Bee Heng Satay, BBQ Prawn & Otah.",g:["MKT"],s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/bee-heng-poh-piah-what-is-your-opinion-of-newton-food-centre/"],["MISSTAMCHIAK","https://www.misstamchiak.com/newton-food-centre-singapore/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/newton-food-centre-10-best-hawker-stalls"]]},
-{t:2,a:"NEWTONNOVENA",n:"XO Minced Meat Noodles (Newton)",ad:"#01-10 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"Bak chor mee given a luxe twist with XO sauce — one of the Newton stalls that the local food press point to beyond the tourist seafood row (Daniel Food Diary's 12 Newton stalls; City Nomads' 8-stall guide).",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2022/06/03/newtonfoodcentre/"],["CITYNOMADS","https://citynomads.com/newton-food-centre-hawker-guide-8-stalls-to-visit-this-iconic-hawker-hub-for/"]]},
-{t:3,a:"NEWTONNOVENA",n:"88 San Ren Cold and Hot Dessert",ad:"Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495 (unit to confirm)",cz:["CHINESE","DESSERT"],la:1.31199,ln:103.83957,w:"The dessert stop to end a Newton supper — a broad board of hot and cold Chinese sweets — listed by both Eatbook and Daniel Food Diary in their Newton Food Centre guides.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["DANIELFOOD","https://danielfooddiary.com/2022/06/03/newtonfoodcentre/"]]},
-{t:3,a:"NEWTONNOVENA",n:"31 Heng Heng BBQ",ad:"#01-31 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"One of Newton's evening barbecue-seafood stalls, picked out by both Seth Lui's 16-best (Oct 2024 update) and Eatbook's 15-best Newton guides.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"],["EATBOOK","https://eatbook.sg/newton-food-centre/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Wee Nam Kee Chicken Rice",ad:"#01-08 United Square, 101 Thomson Road, Novena",cz:["CHICKENRICE"],la:1.31741,ln:103.84362,w:"Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",s:[["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"],["SETHLUI","https://sethlui.com/best-chicken-rice-singapore/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Hup Kee Fried Oyster Omelette",ad:"#01-73 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"],["DFD","https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Song Kee Teochew Fish Porridge",ad:"#01-91 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
-{t:2,a:"NEWTONNOVENA",n:"Alliance Seafood (Newton Food Centre)",ad:"#01-27 Newton Food Centre, 500 Clemenceau Avenue North",cz:["MALAY"],la:1.31199,ln:103.83957,w:"Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["MTC","https://www.misstamchiak.com/newton-food-centre-singapore/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]}
+{t:1,a:"LIE",n:"Café Lequet",ad:"Quai sur Meuse 17, 4000 Liège, Belgium",cz:["BEL","FR"],la:50.64238,ln:5.57686,w:"One of Liège's oldest cafés and the locals' answer to 'where for boulets?' — boulet-frites in sauce lapin is the house institution; a past Diamond Boulet winner of the Gay Boulet brotherhood.",s:[["ULIEGE","https://www.campus.uliege.be/cms/c_9316882/en/liege-downtown-a-selection-of-restaurants-serving-liege-and-regional-cuisine"],["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/restaurants"],["BOULETTES","https://www.boulettesmagazine.be/?p=6795"]]},
+{t:1,a:"LIE",n:"Une Gaufrette Saperlipopette",ad:"Rue des Mineurs 6, 4000 Liège, Belgium",cz:["SWEET"],la:50.64605,ln:5.57683,w:"Artisan waffle shop in the Mineurs quarter since 2010, making traditional pearl-sugar Liège waffles with good butter and eggs; also a house range of ice creams.",s:[["BRUSSELSTIMES","https://brusselstimes.com/199724/hidden-belgium-une-gaufrette-saperlipopette"],["RTBF","https://www.rtbf.be/article/la-gaufrette-saperlipopette-lance-un-assortiment-de-glaces-10225236"],["CULTURETRIP","https://www.theculturetrip.com/europe/belgium/articles/9-of-the-best-lunch-places-in-liege-belgium"],["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/gateway-towns/liege/must-sees-/une-gaufrette-saperlipopette/34037"]]},
+{t:1,a:"LIER",n:"Abbaye du Val-Dieu",ad:"Val-Dieu, Aubel, Belgium",cz:["BEER"],la:50.69792,ln:5.80500,w:"The only abbey brewery still brewing inside its abbey walls in Wallonia's Pays de Herve — Val-Dieu ales poured in the abbey tavern; Saturday guided abbey + brewery tours with beer and Herve cheese.",s:[["OFFICIAL","https://val-dieu.com/en"],["WBT","https://walloniabelgiumtourism.co.uk/content/brasserie-du-val-dieu-and-its-abbey-aubel"],["RTBF","https://www.rtbf.be/article/4-abbayes-a-visiter-en-wallonie-entre-histoire-nature-et-ressourcement-11553773"],["COE","https://coe.int/en/web/cultural-routes/-/val-dieu-abbey"],["INFOLUX","https://www.info-lux.com/?p=1696588"]]},
+{t:2,a:"LIE",n:"Le Cabochon",ad:"Boulevard Émile de Laveleye 191, 4020 Liège, Belgium",cz:["FINE","FR"],la:50.61960,ln:5.59190,w:"Michelin Bib Gourmand in Longdoz — a good-value, market-driven bistro menu across the river from the centre.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/sg/zh_CN/liege/restaurants"]]},
+{t:1,a:"LIE",n:"Brasserie C",ad:"Impasse des Ursulines 14, 4000 Liège, Belgium",cz:["BEER"],la:50.64757,ln:5.57742,w:"Liège's own city microbrewery since 2012, tucked at the foot of the Montagne de Bueren — brews Curtius (the city's blonde), Black {C} and Smash {C}; tours and tasting workshops, taproom Thu–Sun.",s:[["VISITLIEGE","https://visitezliege.be/en/offre/brasserie-c-curtius"],["RTBF","https://www.rtbf.be/article/liege-la-biere-curtius-fete-ses-10-ans-11009065"],["SNCB","https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"]]},
+{t:1,a:"LIE",n:"La Maison du Péket",ad:"Rue de l'Épée 2, 4000 Liège, Belgium",cz:["FR","BEL"],la:50.64494,ln:5.57605,w:"The péket temple in restored 18th-c. houses off Place du Marché — dozens of flavoured jenevers by the glass, and in its Amon Nanesse restaurant Liège dishes cooked with péket; the boulets here were filmed for Darley Newman's PBS travel series.",g:["MKT"],s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/destinations/liege/a-taste-of-liege"],["DARLEYNEWMAN","https://www.darley-newman.com/blog/are-these-the-greatest-meatballs-ever"],["CULTURETRIP","https://theculturetrip.com/europe/belgium/articles/top-10-things-to-do-and-see-in-liege"]]},
+{t:1,a:"LIE",n:"Tchantchès et Nanesse",ad:"Rue Grande-Bêche 35, 4020 Liège, Belgium",cz:["FR","BEL"],la:50.64039,ln:5.58093,w:"Outremeuse taverne named for the city's puppet hero and his wife — terroir cooking, boulets in sauce lapin and the folklore of the 'free republic' quarter.",s:[["WBT","https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/destinations/liege/a-taste-of-liege"],["ULIEGE","https://www.campus.uliege.be/cms/c_9316882/en/liege-downtown-a-selection-of-restaurants-serving-liege-and-regional-cuisine"]]},
+{t:2,a:"LIE",n:"Taverne Saint-Paul",ad:"Rue Saint-Paul 8, 4000 Liège, Belgium",cz:["BEER"],la:50.64005,ln:5.57267,w:"Old-world tavern a few steps from the cathedral, ranked #76 in The European Bar Guide's Top 100 European bars — a charming room from another era.",s:[["PARISMATCHBE","https://www.parismatch.be/lifestyle/food/2025/01/17/ce-mythique-bar-situe-a-liege-fait-partie-des-10-meilleurs-deurope-IIY3AWZFWRACBFA427GTNVM5OY/"],["EUROPEANBARGUIDE","https://theeuropeanbarguide.com/tag/belgium/"]]},
+{t:2,a:"LIE",n:"Au Point de Vue",ad:"Place Verte 10, 4000 Liège, Belgium",cz:["FR"],la:50.64416,ln:5.57053,w:"Old-school brasserie looking onto the Opéra royal; its boulets won the Confrérie du Gay Boulet's Diamond Boulet in 2008.",s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/belgium/wallonia/liege/restaurants"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Boulets_%C3%A0_la_Li%C3%A9geoise"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -408,21 +441,21 @@ const SRCOF = p => p.kind==='food' ? FS : S;
 
 /* ── trip list, persisted where possible ── */
 let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
-try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
-try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
-function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
-function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+try{const r=localStorage.getItem('lie_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('lie_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('lie_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('lie_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Newton & Novena')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Liège')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {NEWTONNOVENA:'#BCA7E6'};
+const AC = {LIE:'#C0504D',LIER:'#6A8D3F'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.31199,103.83957],15);
+  map = L.map('map',{scrollWheelZoom:false}).setView([50.5832,5.6797],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -491,7 +524,7 @@ map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
 window.addEventListener('resize',()=>map.invalidateSize());
 
 /* ── Always-on vector backdrop ──────────────────────────────────────────────
-   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
 const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
  [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
  [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
@@ -506,12 +539,13 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[];
+const LABELS=[["Liège", 50.6402, 5.5764], ["Around Liège", 50.5256, 5.7347]];
 
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
 LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
   html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
-   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
   iconSize:[0,0]})}).addTo(backdrop));
 backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
 
@@ -530,7 +564,7 @@ ALL.forEach((p,i)=>{
   m._id = p.id; markers.push(m);
 });
   map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
-  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  setBase('dark'); markBaseChips();
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
 
   /* ── "Show my location" ──────────────────────────────────────────────────
@@ -817,16 +851,16 @@ document.getElementById('tripKml').onclick=()=>{
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
     +'</Document></kml>';
-  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  dl('liege-my-list.kml','application/vnd.google-earth.kml+xml',kml);
   alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
 };
 document.getElementById('tripJson').onclick=()=>{
-  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+  dl('liege-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
     ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
       google:gmaps(p),apple:amaps(p)})),null,2));
 };
 document.getElementById('saveGuide').onclick=()=>{
-  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+  dl('liege-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
 };
 
 document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
@@ -834,14 +868,17 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
   +'<span>'+s.l+'</span></div></div>').join('')
   + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
-  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish or beer — a label alone doesn’t qualify. The Liège canon: <b>boulets à la liégeoise</b> (sauce lapin with sirop de Liège), the pearl-sugar <b>gaufre de Liège</b>, salade liégeoise, <b>péket</b>, sirop de Liège and <b>Herve</b> cheese. <b>Beer &amp; breweries are their own grouped layer</b> (Val-Dieu, Brasserie C, Jupiler’s Jupille). A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in French and fact-checked'
+  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, Gault&amp;Millau, Le Soir, La Libre, RTBF, La Meuse, L’Avenir, Visit Liège, Wallonie Belgique Tourisme, beer authorities and vetted creators — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked. Yelp/TripAdvisor/RateBeer never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 43 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

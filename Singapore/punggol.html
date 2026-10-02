@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Newton & Novena (Singapore) field guide — 3 sights and 12 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
-<title>Newton & Novena — Singapore &amp; SEA field guide</title>
+<meta name="description" content="Punggol (Singapore) field guide — 5 sights and 8 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<title>Punggol — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,8 +230,8 @@
 
 <header>
   <p class="eyebrow">Neighbourhood guide · Singapore</p>
-  <h1>Newton & Novena<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">3 sights and 12 places to eat in <strong>Newton & Novena</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <h1>Punggol<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
+  <p class="standfirst">5 sights and 8 places to eat in <strong>Punggol</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -242,7 +242,7 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#BCA7E6"></i>Newton & Novena</span>
+  <span><i style="background:#BCA7E6"></i>Punggol</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -312,39 +312,39 @@
 <script>
 
 const S = {
+  "CITYNOMADS":{k:"CITYNOMADS",t:"City Nomads (Singapore city guide)",u:"https://citynomads.com",l:"City Nomads (Singapore city guide)"},
   "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
+  "LITTLEDAYOUT":{k:"LITTLEDAYOUT",t:"Little Day Out",u:"https://www.littledayout.com",l:"Little Day Out"},
+  "NHB":{k:"NHB",t:"National Heritage Board",u:"https://www.nhb.gov.sg",l:"National Heritage Board"},
+  "NPARKS":{k:"NPARKS",t:"NParks (National Parks Board)",u:"https://www.nparks.gov.sg",l:"NParks (National Parks Board)"},
   "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
+  "SG101":{k:"SG101",t:"SG101 (Singapore government heritage/education portal)",u:"https://www.sg101.gov.sg",l:"SG101 (Singapore government heritage/education portal)"},
   "THESMARTLOCAL":{k:"THESMARTLOCAL",t:"TheSmartLocal",u:"https://thesmartlocal.com",l:"TheSmartLocal"},
+  "TIMEOUTSG":{k:"TIME OUT SINGAPORE",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
   "URA":{k:"URA",t:"Urban Redevelopment Authority",u:"https://www.ura.gov.sg",l:"Urban Redevelopment Authority"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"},
-  "WONDERWALL":{k:"WONDERWALL",t:"Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)",u:"https://wonderwall.sg",l:"Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)"}
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"}
 };
 
 const AREAS = [
-  {id:"NEWTONNOVENA",n:"Newton & Novena",c:"#BCA7E6"}
+  {id:"PUNGGOL",n:"Punggol",c:"#BCA7E6"}
 ];
 
 const P = [
-{t:1,a:"NEWTONNOVENA",n:"Newton Food Centre",ad:"500 Clemenceau Avenue North, Singapore 229495",la:1.31199,ln:103.83957,w:"Newton Circus Food Centre opened in 1971 as a tourist-friendly open-air hawker centre at the Newton roundabout; rebuilt in 2006 and immortalised as the satay-and-chilli-crab feast in Crazy Rich Asians. With close to 100 stalls it placed five on the 2025 MICHELIN Bib Gourmand list — the most of any hawker centre — and is the gastronomic heart of Newton.",k:"Mostly evening stalls; open late",g:["MKT","PARK"],s:[["ROOTSSG","https://www.roots.gov.sg/stories-landing/stories/Hawker-Centres/Newton-Circus-Food-Centre"],["EATBOOK","https://eatbook.sg/newton-food-centre/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]},
-{t:1,a:"NEWTONNOVENA",n:"Novena Church (Church of St Alphonsus)",ad:"300 Thomson Road, Singapore 307653",la:1.32181,ln:103.84279,w:"The Redemptorist church that gave Novena its name — and its MRT station: built 1950 to a Swan & Maclaren design, eclectic-Modern with a triple-arched front pediment and circular stained-glass window, conserved in 2011, with a Gothic-style worship hall added in 2017. Its Saturday Perpetual Novena to Our Mother of Perpetual Help draws worshippers of every faith.",k:"Catholic church; Saturday novena services are its busiest hours",g:["TEMPLE","ARCH"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Novena_Church"],["URA","https://www.ura.gov.sg/conservation/find-a-building/conservation-portal/nctr-00001/"],["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/landmarks/balestier-heritage-trail-building-balestier/Church-of-St-Alphonsus-Novena-Church"]]},
-{t:1,a:"NEWTONNOVENA",n:"Goodwood Park Hotel (Tower Wing)",ad:"22 Scotts Road, Singapore 228221",la:1.30847,ln:103.83439,w:"A turreted, Rhineland-castle-style clubhouse built in 1900 as the Deutsches Haus of the German Teutonia Club, confiscated in WWI, bought in 1918 by the Manasseh brothers as Goodwood Hall and opened as a hotel in 1929 — gazetted the 22nd National Monument (1989). Its café is the city's famous durian-dessert address.",k:"National Monument; working hotel — the Tower Wing is viewable from the grounds",g:["PARK","VIEW","ARCH"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/national-monuments/goodwood-park-hotel-tower-block"],["WONDERWALL","https://wonderwall.sg/Places/national-monuments-of-singapore-goodwood-park-hotel-tower-block"],["THESMARTLOCAL","https://thesmartlocal.com/read/goodwood-park-hotel/"]]}
+{t:1,a:"PUNGGOL",n:"Coney Island Park (Pulau Serangoon)",ad:"Coney Island, Punggol, Singapore (West entrance off Punggol Promenade / East entrance off Pasir Ris side; to confirm at geocode)",la:1.40947,ln:103.92167,w:"A 133-hectare island off Punggol, once owned by the Aw brothers of Tiger Balm. In 1950 it was sold to a businessman who planned a resort modelled on New York's Coney Island. Since October 2015 a 50-hectare NParks park has kept it deliberately rustic: casuarina woods, a 2.5 km car-free trail, hidden beaches and bridges at both ends to the mainland.",k:"Open 7am–7pm, free",g:["PARK","ARCH","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Coney_Island,_Singapore"],["NPARKS","https://nparks.gov.sg/-/media/cuge/ebook/citygreen/cg12/cg12_coney_island.pdf"],["LITTLEDAYOUT","https://www.littledayout.com/ten-things-you-need-to-know-before-visiting-coney-island-park/"],["CITYNOMADS","https://citynomads.com/guide-to-coney-island-singapore-review/"],["THESMARTLOCAL","https://thesmartlocal.com/read/punggol-things-to-do/"]]},
+{t:1,a:"PUNGGOL",n:"Punggol Beach Massacre Site",ad:"Punggol Point foreshore (Punggol Point Park), Punggol, Singapore",la:1.42114,ln:103.91083,w:"A National Heritage Board historic site. On 23 February 1942, during the Japanese Sook Ching operation, a Hojo Kempei firing squad killed some 300–400 Chinese civilians on the Punggol foreshore. Human remains turned up in the sand in 1977 and 1997. An NHB marker set up in 1995, for the 50th anniversary of the end of WWII, records the killings.",k:"Open-air memorial marker, free",g:["HERITAGE","PARK","FREE"],s:[["ROOTSSG","https://www.roots.gov.sg/places/places-landing/Places/historic-sites/punggol-beach-massacre"],["SG101","https://www.sg101.gov.sg/resources/archives/onthisday-punggol-beach-sookching-site/"],["NHB","https://www.nhb.gov.sg/~/media/nhb/files/places/trails/world%20war%20ii/wwii-text.pdf"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Punggol_Point_Park"]]},
+{t:2,a:"PUNGGOL",n:"Punggol Point Park",ad:"Punggol Point Road, Punggol, Singapore",la:1.42114,ln:103.91083,w:"A seafront park at the northern tip of Punggol, opened on 20 November 2011 at the old Punggol Point fishing-village beach. People come for the sunset over the Strait of Johor, the jetty views across to Malaysia, and the WWII Sook Ching memorial on its foreshore.",k:"Open 24h, free",g:["PARK","VIEW","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Punggol_Point_Park"],["TIMEOUTSG","https://www.timeout.com/singapore/attractions/punggol-beach"],["THESMARTLOCAL","https://thesmartlocal.com/read/punggol-things-to-do/"]]},
+{t:3,a:"PUNGGOL",n:"Waterway Point",ad:"Waterway Point, beside Punggol MRT/Punggol Waterway, Punggol, Singapore (street + postal to confirm at geocode)",la:1.40667,ln:103.90194,w:"Punggol's main mall, with more than 200 stores, on the banks of Punggol Waterway next to the MRT. It is the town's main food cluster, covered in its own Eatbook food guide, and the jumping-off point for the waterway park.",g:["TEMPLE","PARK"],s:[["THESMARTLOCAL","https://thesmartlocal.com/read/punggol-things-to-do/"],["EATBOOK","https://eatbook.sg/waterway-point-food/"]]},
+{t:2,a:"PUNGGOL",n:"Matilda House",ad:"78 Punggol Walk, Singapore",la:1.40514,ln:103.89875,w:"One of Singapore's oldest houses: a 1902 single-storey tropical bungalow built for Alexander Cashin and named for his mother Josephine Matilda — the Cashins being the Eurasian family whose patriarch became Singapore's first Eurasian millionaire. Conserved by URA in Feb 2000 and restored (façade and interior) as the clubhouse of the 'A Treasure Trove' condominium in 2015; view from Punggol Walk.",k:"Conserved 1902 bungalow; condo clubhouse — exterior view only",g:["VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Matilda_House"],["URA","https://www.ura.gov.sg/conservation/find-a-building/conservation-portal/pglrd-00001/"]]}
 ];
 
 const FS = {
-  "ASIAONE":{k:"ASIAONE",t:"AsiaOne",u:"https://www.asiaone.com",l:"AsiaOne"},
-  "CITYNOMADS":{k:"CITYNOMADS",t:"City Nomads (Singapore city guide)",u:"https://citynomads.com",l:"City Nomads (Singapore city guide)"},
   "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
-  "DFD":{k:"DFD",t:"Daniel Food Diary",u:"https://danielfooddiary.com/",l:"Daniel Food Diary"},
   "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
+  "LADYIRONCHEF":{k:"LADYIRONCHEF",t:"ladyironchef (Brad Lau)",u:"https://www.ladyironchef.com",l:"ladyironchef (Brad Lau)"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
-  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
-  "MTC":{k:"MTC",t:"Miss Tam Chiak (misstamchiak.com)",u:"https://www.misstamchiak.com/",l:"Miss Tam Chiak (misstamchiak.com)"},
-  "ORDINARYPATRONS":{k:"ORDINARYPATRONS",t:"Ordinary Patrons",u:"https://ordinarypatrons.com",l:"Ordinary Patrons"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
-  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+  "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"}
 };
 
 const CUISINES = [
@@ -386,18 +386,14 @@ const CATS = [
 ];
 
 const F = [
-{t:1,a:"NEWTONNOVENA",n:"Heng Carrot Cake",ad:"#01-28 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"A Newton fixture since 1971 and a MICHELIN Bib Gourmand stall: the owner has 50+ years at the wok and still steams the radish cake in-house rather than buying it factory-made, frying black and white versions (plus oyster omelette) with vegetable oil only — no pork or lard.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/heng"],["EATBOOK","https://eatbook.sg/heng-carrot-cake/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/heng-carrot-cake-something-in-newton-worth-going-for/"]]},
-{t:1,a:"NEWTONNOVENA",n:"Kwee Heng Duck Noodle",ad:"#01-13 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"A 40-year-old braised-duck stall whose boneless, herbal-braised duck — over rice, congee or noodles — earned back-to-back MICHELIN Bib Gourmand listings (2023–2025); one of five Newton stalls that made the 2025 Bib list, the most of any hawker centre.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/en/singapore-region/singapore/restaurant/kwee-heng"],["EATBOOK","https://eatbook.sg/newton-food-centre/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Kwang Kee Teochew Fish Porridge",ad:"#01-20 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE"],la:1.31199,ln:103.83957,w:"A 60-year-old Teochew fish-porridge stall now run by the second generation — fresh-sliced fish in a clean broth, as porridge or soup — MICHELIN Bib Gourmand 2021–2023 and on Seth Lui's Newton best-of (Oct 2024 update).",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/kwang-kee-teochew-fish-porridge"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Newton Old Signboard 25 Fried Hokkien Prawn Noodle",ad:"#01-25 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["NOODLE","HAWKER"],la:1.31199,ln:103.83957,w:"Newton's Hokkien mee benchmark: a smoky, lard-laced tangle of bee hoon and yellow noodles simmered down in a generous prawn stock — singled out by Eatbook for its wok hei and reviewed by the Ordinary Patrons blog.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["ORDINARYPATRONS","https://ordinarypatrons.com/2023/07/18/newton-old-signboard-25-9-fried-kway-teow/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/newton-food-centre-10-best-hawker-stalls"]]},
-{t:3,a:"NEWTONNOVENA",n:"Bee Heng Satay, BBQ Prawn & Otah",ad:"#01-12 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["MALAY","HAWKER"],la:1.31199,ln:103.83957,w:"The family business behind Bee Heng Popiah (founded 1930, at Newton since 1977, now third-generation Gary Tan) — long Newton's resident popiah roll, written up by ieatishootipost and Miss Tam Chiak; since 2023 the stall has stopped the popiah and trades as Bee Heng Satay, BBQ Prawn & Otah.",g:["MKT"],s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/bee-heng-poh-piah-what-is-your-opinion-of-newton-food-centre/"],["MISSTAMCHIAK","https://www.misstamchiak.com/newton-food-centre-singapore/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/newton-food-centre-10-best-hawker-stalls"]]},
-{t:2,a:"NEWTONNOVENA",n:"XO Minced Meat Noodles (Newton)",ad:"#01-10 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"Bak chor mee given a luxe twist with XO sauce — one of the Newton stalls that the local food press point to beyond the tourist seafood row (Daniel Food Diary's 12 Newton stalls; City Nomads' 8-stall guide).",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2022/06/03/newtonfoodcentre/"],["CITYNOMADS","https://citynomads.com/newton-food-centre-hawker-guide-8-stalls-to-visit-this-iconic-hawker-hub-for/"]]},
-{t:3,a:"NEWTONNOVENA",n:"88 San Ren Cold and Hot Dessert",ad:"Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495 (unit to confirm)",cz:["CHINESE","DESSERT"],la:1.31199,ln:103.83957,w:"The dessert stop to end a Newton supper — a broad board of hot and cold Chinese sweets — listed by both Eatbook and Daniel Food Diary in their Newton Food Centre guides.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["DANIELFOOD","https://danielfooddiary.com/2022/06/03/newtonfoodcentre/"]]},
-{t:3,a:"NEWTONNOVENA",n:"31 Heng Heng BBQ",ad:"#01-31 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"One of Newton's evening barbecue-seafood stalls, picked out by both Seth Lui's 16-best (Oct 2024 update) and Eatbook's 15-best Newton guides.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"],["EATBOOK","https://eatbook.sg/newton-food-centre/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Wee Nam Kee Chicken Rice",ad:"#01-08 United Square, 101 Thomson Road, Novena",cz:["CHICKENRICE"],la:1.31741,ln:103.84362,w:"Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",s:[["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"],["SETHLUI","https://sethlui.com/best-chicken-rice-singapore/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Hup Kee Fried Oyster Omelette",ad:"#01-73 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"],["DFD","https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Song Kee Teochew Fish Porridge",ad:"#01-91 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
-{t:2,a:"NEWTONNOVENA",n:"Alliance Seafood (Newton Food Centre)",ad:"#01-27 Newton Food Centre, 500 Clemenceau Avenue North",cz:["MALAY"],la:1.31199,ln:103.83957,w:"Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["MTC","https://www.misstamchiak.com/newton-food-centre-singapore/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]}
+{t:1,a:"PUNGGOL",n:"Kwang Kee Teochew Fish Porridge (One Punggol)",ad:"One Punggol Hawker Centre, #02-19, Punggol, Singapore (street + postal to confirm at geocode)",cz:["CHINESE"],la:1.40860,ln:103.90240,w:"Punggol branch of a Teochew fish-porridge stall founded in 1962 and on the MICHELIN Bib Gourmand list every year since 2021. Known for a light, clean, sweet-savoury broth and fresh fish slices; the original is at Newton Food Centre.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/kwang-kee-teochew-fish-porridge"],["EATBOOK","https://eatbook.sg/one-punggol-hawker-centre/"],["HERWORLD","https://www.herworld.com/life/the-10-hawker-stalls-to-try-at-one-punggol-hawker-centre"]]},
+{t:2,a:"PUNGGOL",n:"Botak Cantonese Porridge (One Punggol)",ad:"One Punggol Hawker Centre, #02-14, Punggol, Singapore (street + postal to confirm at geocode)",cz:["CHINESE"],la:1.40860,ln:103.90240,w:"Silky Cantonese congee in more than 10 versions. The signature mixed porridge comes loaded with century egg, chicken, pork liver, cuttlefish, meatball and fried you tiao. This is the second stall, after Our Tampines Hub.",s:[["SETHLUI","https://sethlui.com/one-punggol-hawker-centre-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-hawker-stalls-to-try-at-one-punggol-hawker-centre"]]},
+{t:2,a:"PUNGGOL",n:"Lim Bo Rojak",ad:"One Punggol Hawker Centre, #02-11, Punggol, Singapore (street + postal to confirm at geocode)",cz:["HAWKER"],la:1.40860,ln:103.90240,w:"Penang-style rojak from a Malaysian family recipe: tropical fruit, crunchy vegetables and fried dough fritters tossed in a thick sweet-spicy paste. It moved here from Joo Chiat Place when One Punggol opened.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/one-punggol-hawker-centre-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-hawker-stalls-to-try-at-one-punggol-hawker-centre"]]},
+{t:2,a:"PUNGGOL",n:"No.25 Minced Meat Noodles (One Punggol)",ad:"One Punggol Hawker Centre, #02-28, Punggol, Singapore (street + postal to confirm at geocode)",cz:["CHINESE","HAWKER"],la:1.40860,ln:103.90240,w:"One Punggol's bak chor mee specialist: springy noodles tossed in vinegar-chilli with minced pork, plus a seafood-abalone version — picked by both Seth Lui and Her World in their One Punggol Hawker Centre top-10s.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/one-punggol-hawker-centre-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/the-10-hawker-stalls-to-try-at-one-punggol-hawker-centre"]]},
+{t:3,a:"PUNGGOL",n:"Buddy Hoagies Cafe & Grill (Waterway Point)",ad:"Waterway Point (top floor), 83 Punggol Central, Singapore (unit to confirm at geocode)",cz:["CAFE"],la:1.40667,ln:103.90194,w:"Straightforward, meaty Western plates — ribeye, flame-grilled chicken — on Waterway Point's top floor; on both Lady Iron Chef's and Eatbook's Punggol food lists.",s:[["EATBOOK","https://eatbook.sg/punggol-food-singapore/"],["LADYIRONCHEF","https://www.ladyironchef.com/2018/07/punggol-food-guide/"]]},
+{t:2,a:"PUNGGOL",n:"Eng Kee Chicken Wings (One Punggol)",ad:"One Punggol Hawker Centre, #02-34, 1 Punggol Drive, Singapore 828629",cz:["CHINESE","HAWKER"],la:1.40860,ln:103.90240,w:"The beloved wing stall's sixth outlet: wings marinated through, coated in a light, crunchy batter and fried super-crisp and juicy, about $1.70 each — the One Punggol stall that Seth Lui, Her World, Daniel Food Diary and Mothership all name.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/one-punggol-hawker-centre-food-guide-singapore/"],["HERWORLD","https://www.herworld.com/life/what-eat-one-punggol-hawker-centre-10-best-hawker-stalls-try"],["DANIELFOOD","https://danielfooddiary.com/2022/10/31/onepunggolhawkercentre/"],["MOTHERSHIP","https://mothership.sg/2022/11/punggol-hawker-centre/"]]},
+{t:3,a:"PUNGGOL",n:"Souperb! (One Punggol)",ad:"One Punggol Hawker Centre, 1 Punggol Drive, Singapore 828629 (unit to confirm)",cz:["CHINESE","HAWKER"],la:1.40860,ln:103.90240,w:"A steamed-food stall run by a hawker who spent years in the kitchens of the Ah Yat restaurant group — first on Eatbook's 11 best One Punggol stalls, and in Mothership's opening line-up.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/one-punggol-hawker-centre/"],["MOTHERSHIP","https://mothership.sg/2022/11/punggol-hawker-centre/"]]},
+{t:3,a:"PUNGGOL",n:"Zi Jia Yong Tau Foo (One Punggol)",ad:"One Punggol Hawker Centre, 1 Punggol Drive, Singapore 828629 (unit to confirm)",cz:["CHINESE","HAWKER"],la:1.40860,ln:103.90240,w:"House-made yong tau foo — vegetables, ngoh hiang, fish cake — boiled or deep-fried to order, with nine noodle options from mee sua to claypot noodles (Eatbook's One Punggol 11; Mothership's opening list).",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/one-punggol-hawker-centre/"],["MOTHERSHIP","https://mothership.sg/2022/11/punggol-hawker-centre/"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -413,16 +409,16 @@ try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}
 function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
 function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Newton & Novena')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Punggol')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {NEWTONNOVENA:'#BCA7E6'};
+const AC = {PUNGGOL:'#BCA7E6'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.31199,103.83957],15);
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.4086,103.9024],14);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
