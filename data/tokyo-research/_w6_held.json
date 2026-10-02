@@ -1,1 +1,97 @@
-[]
+[
+ {
+  "n": "Ozasa",
+  "from": "_w6_outer_verified.json",
+  "why": "GO TOKYO only; Tabelog-100 claim via a secondary aggregator",
+  "rec": {
+   "t": 2,
+   "a": "TAMA",
+   "cz": [
+    "SWEET"
+   ],
+   "dish": "yōkan (limited daily batch) and monaka",
+   "n": "Ozasa",
+   "address": "1-1-8 Kichijoji-honcho, Musashino-shi, Tokyo",
+   "w": "Tiny Kichijōji wagashi shop (est. 1951) selling only yōkan and monaka; queues form before opening for its yōkan, limited to about 150 pieces a day.",
+   "sources": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/book/wp-content/uploads/2019/12/1912_kitijoji_EN.pdf"
+    ],
+    [
+     "TABELOG100",
+     "https://joinpearl.co/restaurants/tokyo/ozasa"
+    ]
+   ],
+   "st": "open",
+   "sts": "Tabelog 100 sweets selection as reported by joinpearl.co (seen 2026-10-02); TABELOG100 URL is a secondary report, not award.tabelog.com",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "UNVERIFIED",
+   "kind": "food"
+  }
+ },
+ {
+  "n": "Kameido Gyoza — Honten",
+  "from": "_w6_outer_verified.json",
+  "why": "2nd source (Savor Japan gyoza list) mention unconfirmed — Time Out alone",
+  "rec": {
+   "t": 1,
+   "a": "SMKT",
+   "cz": [
+    "KONAMON"
+   ],
+   "dish": "pan-fried gyōza (pork, domestic vegetables and Tokiwa garlic; gyōza-only menu, 5 per plate, min. 2 plates)",
+   "n": "Kameido Gyoza — Honten",
+   "address": "5-3-4 Kameido, Koto-ku, Tokyo",
+   "w": "Gyōza-only Kameido institution serving since 1955: five crisp dumplings of pork, domestic vegetables and Tokiwa garlic per plate, with a two-plate minimum.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/kameido-gyoza"
+    ],
+    [
+     "SAVORJAPAN",
+     "https://savorjapan.com/contents/discover-oishii-japan/10-restaurants-serving-delicious-gyoza-in-japan"
+    ]
+   ],
+   "st": "open",
+   "sts": "Time Out venue page (hours 11am-6:30pm daily; seen 2026-10-02). Savor Japan gyoza list surfaced for the name but its text was not shown — second source to confirm",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "UNVERIFIED",
+   "kind": "food"
+  }
+ },
+ {
+  "n": "Kiyosumi Takahara",
+  "from": "_w6_outer_verified.json",
+  "why": "Michelin listed but no named dish in any result (card rule)",
+  "rec": {
+   "t": 2,
+   "a": "SMKT",
+   "cz": [
+    "KAISEKI"
+   ],
+   "dish": "Japanese cuisine (MICHELIN-listed; specific dish not printed in result)",
+   "n": "Kiyosumi Takahara",
+   "address": "2-15-4 Kiyosumi, Koto-ku, Tokyo, 135-0024",
+   "w": "MICHELIN Guide-listed Japanese restaurant in Kiyosumi (Kōtō), noted as good for solo dining; open for lunch Mon–Sat and dinner daily.",
+   "sources": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/kiyosumi-takahara"
+    ]
+   ],
+   "st": "open",
+   "sts": "MICHELIN Guide venue page with current hours (seen 2026-10-02). Award level (star/Bib/Selected) not shown in result — confirm before tiering; Japanese name not printed",
+   "lat": null,
+   "lng": null,
+   "conf": "unverified",
+   "gs": "UNVERIFIED",
+   "kind": "food"
+  }
+ }
+]
