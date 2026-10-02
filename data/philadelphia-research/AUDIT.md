@@ -45,3 +45,30 @@
   (Provenance, Ambra, Illata, Little Water, Roxanne, Del Rossi's) — the geocode pass verifies/corrects every address.
 - Counts after batch 1: food 60 (Michelin 34, canon 26), sights 24 (CC). Channel mix: institutional 37, editorial 47, creator 1.
 - Dead end: 'Wikipedia coordinates A; B; C' for PMA/Barnes/ESP returned addresses only (no coords) — budget 1 search/pin.
+
+## 2026-10-02 · W1 batch 2 + W2 — discover, fact-check, geocode, build
+- Sources (researchedVia WebSearch): Atlas Obscura Philadelphia; Visit Philly area guides (Fairmount Park, West Philly,
+  University City, Northwest, Germantown, Bella Vista, East Passyunk, South Philly, Fishtown, Northeast, Media, Jenkintown,
+  sacred-sites trail, Black-history guide, Underground Railroad guide, historic district, Parkway, Penn's Landing, day trips,
+  road trips, theater venues, architecture); NPS Independence 'Places to go'; Frommer's + Uncovering PA (Bucks County);
+  SJ Magazine + Rutgers–Camden (Camden); Main Line Today + Valley Forge Tourism (Main Line, Bryn Athyn); Northeast Times;
+  Philly Mag Best of Philly 2024 + Inquirer (soft pretzel); Infatuation/Visit Philly (Fishtown).
+- Creator channel: Philly food TikTok scan (Inquirer 2023 + Philly Mag 2022 influencer pieces): @tanaradoublechocolate (3.7M,
+  cooking — no place content), @chefchrischo (2.2M, owns Serabol — not independent), @phillyfoodladies (33K — below scale bar),
+  @godfatherofmeat (302K — no findable place video found). None attached this wave; Mark Wiens (Tubi Taste Tour USA) → Angelo's.
+- DROPPED: East Passyunk Singing Fountain (only Visit Philly; 2 VP pages = 1 outlet). Casa Mexico merged into South Philly
+  Barbacoa (same building/business per geocode W1) — EXCLUDE in consolidate.py.
+- CLOSED (flagged, kept): Hiroki — CLOSED (Inquirer 2026-08-02), Laurel — CLOSED (Inquirer 2025-11-19).
+- Address/area corrections from geocode W1 agent: Honeysuckle → 631 N Broad St (NPH); Provenance 408 S 2nd St (CC);
+  Little Water 261 S 20th St (CC); Illata 2241 Grays Ferry Ave (CC); Roxanne 607 S 2nd St (SPH); Ambra 705 S 4th St;
+  Del Rossi's 538 N 4th St; Siddiq's 264 S 60th St; Castellino's 1255 E Palmer St; Antonio's 1014 Federal St;
+  Farina Di Vita 250 Catharine St; South Philly Barbacoa 1134 S 9th St.
+- Geocode results: sights 89 pinned (high 81 · med 8) via Wikipedia infobox coords (en.wikipedia.org-restricted batches) +
+  1 latlong.net (PMA); Wyck + Germantown White House left unpinned (Wyck's Wikipedia point sits ~2 km south of 6026
+  Germantown Ave — rejected). Food 15 pinned (6 Wikipedia high, 3 more Wikipedia high in W2, 5 RTM stalls med on the
+  market building pin, Valley Green Inn med via Commons geotag); ~49 food UNVERIFIED (no place pin surfaced by WebSearch).
+  REJECTED: Vetri Cucina 'interpolated' coordinate from neighbouring philadelphiabuildings.org addresses (interpolation ≠ pin).
+- Build: 170 sourced → 106 on page (91 sights + 15 food); 4 gates PASS; npm validate + test PASS. Card live ('first edition').
+- Channel mix (170): institutional (Michelin 34, NPS 9, JBF 3, UNESCO 1) · editorial/tourism (Visit Philly, Inquirer,
+  Philly Mag, Infatuation, Billy Penn, Main Line Today, SJ Mag, Northeast Times…) · travel (Atlas Obscura, Frommer's,
+  Lonely Planet, Time Out, Uncovering PA) · creator 1 (Mark Wiens) · reference (Wikipedia, every sight).
