@@ -88,5 +88,190 @@
   "statusSource": "Time Out SF best dim sum (current listing with hours)",
   "lng": null,
   "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Cinderella Bakery & Café",
+  "address": "436 Balboa St, San Francisco, CA 94118",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation current review + SF Legacy Business registry 2024",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Old Mandarin Islamic Restaurant",
+  "address": "3132 Vicente St, San Francisco, CA 94116",
+  "lat": null,
+  "status": "open",
+  "statusSource": "zabihah halal listing (2024 record) + KQED Check Please; no closure reported",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Camera Obscura (Giant Camera)",
+  "address": "1096 Point Lobos Ave, San Francisco, CA 94121",
+  "lat": 37.7782278,
+  "lng": -122.5142111,
+  "geoSource": "WIKIPEDIA published coords (Camera_Obscura_(San_Francisco))",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Wikipedia + 7x7; no closure reported (checked 2026-10-02)"
+ },
+ {
+  "n": "Spreckels Temple of Music",
+  "address": "Music Concourse, Golden Gate Park, San Francisco, CA 94118",
+  "lat": 37.76972,
+  "lng": -122.46833,
+  "geoSource": "WIKIPEDIA published coords",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Funcheap: 2026 Sunday concert season"
+ },
+ {
+  "n": "National AIDS Memorial Grove",
+  "address": "Nancy Pelosi Dr & Bowling Green Dr, Golden Gate Park, San Francisco, CA 94117",
+  "lat": 37.77,
+  "lng": -122.46139,
+  "geoSource": "WIKIPEDIA published coords (AIDS_Memorial_Grove)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Wikipedia (National Memorial) + Funcheap 2026 park guide"
+ },
+ {
+  "n": "The Old Clam House",
+  "address": "299 Bayshore Blvd, San Francisco, CA 94124",
+  "lat": null,
+  "status": "open",
+  "statusSource": "SF Standard: reopened after 2-yr COVID closure; Time Out current listing",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Sam's Grill & Seafood Restaurant",
+  "address": "374 Bush St, San Francisco, CA 94104",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Time Out current listing + InsideHook old-school round-up; no closure reported",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Pink Triangle Park",
+  "address": "Market St at 17th St & Castro St, San Francisco, CA 94114",
+  "lat": 37.762353,
+  "lng": -122.436203,
+  "geoSource": "HMDB marker 134661 (37°45'44.469\"N 122°26'10.329\"W), consistent with Wikipedia",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Wikipedia + HMDB; public park, no closure reported"
+ },
+ {
+  "n": "Roxie Theater",
+  "address": "3117 16th St, San Francisco, CA 94103",
+  "lat": 37.76472,
+  "lng": -122.4225,
+  "geoSource": "WIKIPEDIA published coords",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "roxie.com visit page + Mission Local venue listing (current)"
+ },
+ {
+  "n": "Twin Peaks Tavern",
+  "address": "401 Castro St, San Francisco, CA 94114",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Time Out LGBTQ spots (current) + Funcheap pub-crawl listing",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Gialina Pizzeria",
+  "address": "2842 Diamond St, San Francisco, CA 94131",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation best-pizza guide + Time Out best pizza (current 2026 versions)",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Flour + Water Pizzeria",
+  "address": "532 Columbus Ave, San Francisco, CA 94133",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation best-pizza guide + Time Out best pizza (current 2026 versions)",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Liguria Bakery",
+  "address": "1700 Stockton St, San Francisco, CA 94133",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation review (current, hours Tue–Sat) + Time Out best bakeries 2026",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Neighbor Bakehouse",
+  "address": "2343 3rd St, San Francisco, CA 94107",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Time Out best bakeries (current) + Infatuation review",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Golden Gate Bakery",
+  "address": "1029 Grant Ave, San Francisco, CA 94133",
+  "lat": null,
+  "status": "open",
+  "statusSource": "SF Chronicle 'back open' + Time Out best bakeries (current); irregular hours noted",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Black Jet Baking Co.",
+  "address": "833 Cortland Ave, San Francisco, CA 94110",
+  "lat": null,
+  "status": "open",
+  "statusSource": "SF Travel best bakeries by neighbourhood (current) + Infatuation review",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Suppenküche",
+  "address": "525 Laguna St, San Francisco, CA 94102",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation Hayes Valley guide (current 2026)",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "4505 Burgers & BBQ",
+  "address": "705 Divisadero St, San Francisco, CA 94117",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation review + Time Out burgers list (current)",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Horsefeather",
+  "address": "528 Divisadero St, San Francisco, CA 94117",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation review (current) + SF Travel NOPA",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "The Happy Crane",
+  "address": "451 Gough St, San Francisco, CA 94102",
+  "lat": null,
+  "status": "open",
+  "statusSource": "Infatuation Hayes Valley guide (current 2026)",
+  "lng": null,
+  "confidence": "UNVERIFIED"
  }
 ]

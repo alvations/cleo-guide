@@ -246,3 +246,15 @@ Bakery, Yuanbao Jiaozi (AVE); Fù Huì Huá, La Vaca Birria (MIS); Sandy's (HAI)
 marks closed); Dumpling King Clement, Hook Fish Co, Gaspare's, Han Il Kwan, Hong Kong Lounge II (single credible source
 so far — held); destination.com 'guides' rejected as AI/SEO content; parkhill/splitmetrics/genera 'best of' pages rejected
 (content farms). Eater SF 38 surfaced only in a 2024 snapshot → used as ONE source only, with fresh status required.
+**Discovery batch 2 (searches 23–50, main):** technique that works — `allowed_domains` per outlet (Infatuation guide ×
+Time Out list × SF Travel neighbourhood article) and intersect the names; one multi-name `OR` query against the outlet
+domains returns addresses for 3–5 candidates. Added: Cinderella Bakery & Café, Old Mandarin Islamic (AVE); Twin Peaks
+Tavern (MIS bar); The Old Clam House, Gialina, Neighbor Bakehouse, Black Jet Baking (SE); Sam's Grill (DTN); Flour + Water
+Pizzeria, Liguria, Golden Gate Bakery (NECN); Suppenküche, 4505 Burgers & BBQ, Horsefeather, The Happy Crane (HAI —
+Happy Crane was on the held list, now Infatuation + SF Chronicle). Sights (Wikipedia coords + a 2nd outlet): Camera
+Obscura, Spreckels Temple of Music, National AIDS Memorial Grove (AVE); Pink Triangle Park (HMDB pin), Roxie Theater (MIS).
+**DROPPED / held:** Mr. Holmes Bakehouse (Infatuation: permanently closed — Time Out list stale); Cha Cha Cha (Mission
+branch closed 2025, Haight status unconfirmed); The Slanted Door (Valencia reopening announced for 2025, opening not
+confirmed); Una Pizza Napoletana (SF status unclear); Craftsman & Wolves (Valencia shop status unclear — now 'the Den');
+John's Grill, Papalote, Butter & Crumble, Thorough Bread, Bar Crudo, Beretta (2 sources, no street address yet);
+Hook Fish Co, Pizzetta 211, Katsuo + Kombu, Dumpling King (single source).
