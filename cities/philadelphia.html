@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Philadelphia field guide — 105 sights and 15 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Philadelphia field guide — 107 sights and 15 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Philadelphia Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Philadelphia, the Main Line, South Jersey &amp; the Brandywine, sourced</p>
   <h1>Philadelphia<span class="thin">Independence Hall, the mural city &amp; the sandwich capital</span></h1>
-  <p class="standfirst">105 sights and 15 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">107 sights and 15 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -318,6 +318,7 @@ const S = {
   "INFATUATION":{k:"THE INFATUATION",t:"THE INFATUATION",u:"",l:""},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
   "MAINLINETODAY":{k:"MAIN LINE TODAY",t:"Main Line Today",u:"https://mainlinetoday.com/",l:"Main Line Today"},
+  "NJMONTHLY":{k:"NEW JERSEY MONTHLY",t:"New Jersey Monthly",u:"https://njmonthly.com/",l:"New Jersey Monthly"},
   "NORTHEASTTIMES":{k:"NORTHEASTTIMES",t:"Northeast Times",u:"https://northeasttimes.com/",l:"Northeast Times"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service — Independence NHP",u:"https://www.nps.gov/inde/",l:"National Park Service — Independence NHP"},
   "PHILAGOV":{k:"PHILAGOV",t:"City of Philadelphia (phila.gov)",u:"https://www.phila.gov/",l:"City of Philadelphia (phila.gov)"},
@@ -450,7 +451,9 @@ const P = [
 {t:2,a:"DAY",n:"Peddler's Village",ad:"2400 Street Rd, Lahaska, PA 18931",la:40.34770,ln:-75.03270,w:"A colonial-style village of 70+ shops, restaurants and pubs with Giggleberry Fair for kids and seasonal festivals, just outside New Hope.",k:"shopping village",g:["HIST"],s:[["VISITPHILLY","https://www.visitphilly.com/areas/bucks-county/new-hope/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Peddler%27s_Village"]]},
 {t:2,a:"MAIN",n:"Sesame Place Philadelphia",ad:"100 Sesame Rd, Langhorne, PA 19047",la:40.18500,ln:-74.87194,w:"Sesame Street theme park for young kids — rides, water play and shows; the first theme park designated a Certified Autism Center.",k:"theme park",g:["PARK"],s:[["VISITPHILLY","https://www.visitphilly.com/areas/bucks-county/new-hope/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sesame_Place_Philadelphia"]]},
 {t:2,a:"MAIN",n:"Andalusia Historic House & Gardens",ad:"1237 State Rd, Bensalem, PA 19020",la:40.06194,ln:-74.95833,w:"The Biddle family's Greek Revival mansion (early 19th c.) and 65 acres of formal gardens and woods on the Delaware.",k:"historic house",g:["HIST","ARCH","PARK"],s:[["VISITPHILLY","https://www.visitphilly.com/areas/bucks-county/new-hope/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Andalusia_(estate)"]]},
-{t:2,a:"DAY",n:"Colonial Theatre (Phoenixville)",ad:"227 Bridge St, Phoenixville, PA 19460",la:40.13410,ln:-75.51750,w:"The 1903 movie palace where the audience fled the theatre in 1958's The Blob — every July it hosts Blobfest and re-stages the run-out; arthouse films year-round on Phoenixville's Bridge Street.",k:"venue",g:["HIST","ARCH","ARTS"],s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/greater-philadelphia-main-streets/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Colonial_Theatre_(Phoenixville,_Pennsylvania)"]]}
+{t:2,a:"DAY",n:"Colonial Theatre (Phoenixville)",ad:"227 Bridge St, Phoenixville, PA 19460",la:40.13410,ln:-75.51750,w:"The 1903 movie palace where the audience fled the theatre in 1958's The Blob — every July it hosts Blobfest and re-stages the run-out; arthouse films year-round on Phoenixville's Bridge Street.",k:"venue",g:["HIST","ARCH","ARTS"],s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/greater-philadelphia-main-streets/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Colonial_Theatre_(Phoenixville,_Pennsylvania)"]]},
+{t:1,a:"SJ",n:"Walt Whitman's Tomb (Harleigh Cemetery)",ad:"1640 Haddon Ave, Camden, NJ 08103",la:39.92389,ln:-75.08972,w:"The 'plain massive stone temple' Whitman designed for himself after Blake's 'Death's Door' — its door kept ajar so his soul is free — in 130-acre Harleigh Cemetery on the Cooper River.",k:"cemetery",g:["ARCH","WATER","FREE"],s:[["SJMAGAZINE","https://sjmagazine.net/featured/4-things-to-know-about-harleigh-cemetery"],["NJMONTHLY","https://njmonthly.com/articles/things-to-do/visit-these-new-jersey-cemeteries-for-a-fascinating-walk-through-history/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Harleigh_Cemetery"]]},
+{t:2,a:"SJ",n:"Hadrosaurus Foulkii Leidy Site",ad:"Maple Ave, Haddonfield, NJ 08033",la:39.91018,ln:-75.02856,w:"Where one of the world's first nearly complete dinosaur skeletons was dug up in 1858 — a National Historic Landmark marker in a Haddonfield ravine (the town also has a Hadrosaurus statue downtown).",k:"historic site",g:["HIST","ARCH","SPORT"],s:[["NJMONTHLY","https://njmonthly.com/articles/news/things-you-dont-know-about-new-jersey/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hadrosaurus_Foulkii_Leidy_Site"]]}
 ];
 
 const FS = {
@@ -552,7 +555,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.1592],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.159],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -636,7 +639,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Center City", 39.9525, -75.1582], ["South Philly", 39.9214, -75.1614], ["Fishtown", 39.9708, -75.131], ["University City", 39.9464, -75.2002], ["North Philly", 39.983, -75.2005], ["Northwest", 40.0468, -75.1997], ["Northeast Philly", 40.0669, -75.0449], ["The Main Line", 40.0736, -75.1527], ["South Jersey", 39.9314, -75.1045], ["Brandywine", 40.1006, -75.2916]];
+const LABELS=[["Center City", 39.9525, -75.1582], ["South Philly", 39.9214, -75.1614], ["Fishtown", 39.9708, -75.131], ["University City", 39.9464, -75.2002], ["North Philly", 39.983, -75.2005], ["Northwest", 40.0468, -75.1997], ["Northeast Philly", 40.0669, -75.0449], ["The Main Line", 40.0736, -75.1527], ["South Jersey", 39.9266, -75.0894], ["Brandywine", 40.1006, -75.2916]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -975,7 +978,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 120 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 122 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

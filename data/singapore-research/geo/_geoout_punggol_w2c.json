@@ -38,5 +38,65 @@
   "geoSource": "UNVERIFIED — no published pin read yet for Northshore Plaza II; queued for geocode-helper",
   "status": "open",
   "statusSource": "Eatbook review + Women's Weekly new-openings list"
+ },
+ {
+  "n": "Punggol Regional Library",
+  "address": "One Punggol, 1 Punggol Drive, #01-12, Singapore 828629",
+  "lat": 1.4086,
+  "lng": 103.9024,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Punggol Regional Library' published coordinates (the same point geo/_geoout_punggol_w2.json reused for One Punggol): Wikipedia 'Punggol Regional Library' coords 1°24′31″N 103°54′09″E (1.4086,103.9024) — library is co-located in the One Punggol building (1 Punggol Drive), so building pin reused at med (WebSearch 2026-10-02)",
+  "status": "open",
+  "statusSource": "NLB official launch release 2023 + NLB library services page (current)"
+ },
+ {
+  "n": "Hakka Leipopo (Punggol Coast)",
+  "address": "Punggol Coast Hawker Centre, 84 Punggol Way, Singapore 829911",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Punggol Coast Hawker Centre building pin not found via search (geo/_geoout_punggol_w2.json); queued for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Seth Lui / Honeycombers / Eatbook / Time Out Punggol Coast HC guides (opened 25 Jul 2025)"
+ },
+ {
+  "n": "Kedai Salima (Punggol Coast)",
+  "address": "Punggol Coast Hawker Centre, 84 Punggol Way, Singapore 829911",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Punggol Coast Hawker Centre building pin not found via search (geo/_geoout_punggol_w2.json); queued for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Seth Lui / Honeycombers / Eatbook / Time Out Punggol Coast HC guides (opened 25 Jul 2025)"
+ },
+ {
+  "n": "Huay Kwang Thai Wanton Mee (Punggol Coast)",
+  "address": "Punggol Coast Hawker Centre, 84 Punggol Way, Singapore 829911",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Punggol Coast Hawker Centre building pin not found via search (geo/_geoout_punggol_w2.json); queued for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Seth Lui / Honeycombers / Eatbook / Time Out Punggol Coast HC guides (opened 25 Jul 2025)"
+ },
+ {
+  "n": "Uncle Penyet (One Punggol)",
+  "address": "One Punggol Hawker Centre, 1 Punggol Drive, Singapore 828629",
+  "lat": 1.4086,
+  "lng": 103.9024,
+  "confidence": "med",
+  "geoSource": "stall within One Punggol Hawker Centre; building pin reused: Wikipedia 'Punggol Regional Library' coords 1°24′31″N 103°54′09″E (1.4086,103.9024) — library is co-located in the One Punggol building (1 Punggol Drive), so building pin reused at med (WebSearch 2026-10-02)",
+  "status": "open",
+  "statusSource": "Eatbook 30-best Punggol (current) + Mothership opening list; NOTE Timbre stops managing One Punggol HC in 2026 (Mothership Dec 2025) — re-check stall line-up"
+ },
+ {
+  "n": "Georges by the Bay (Punggol Settlement)",
+  "address": "The Punggol Settlement, 3 Punggol Point Road, Singapore 828694",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — Punggol Settlement building pin not found via search; queued for helper",
+  "status": "open",
+  "statusSource": "Eatbook 30-best Punggol guide (current)"
  }
 ]
