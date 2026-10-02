@@ -66,7 +66,7 @@ def map_cz(raw):
     return out or ["KAISEKI"]
 
 # ---- Collections (CATS) + keyword rules (English + romanized Japanese) ----
-CATS=[{"id":"ICON","n":"Iconic & Must-See"},{"id":"UNESCO","n":"UNESCO World Heritage"},
+CATS=[{"id":"ANIME","n":"★ Anime, Manga & Pop Culture"},{"id":"ICON","n":"Iconic & Must-See"},{"id":"UNESCO","n":"UNESCO World Heritage"},
       {"id":"TEMPLE","n":"Temples & Shrines"},{"id":"CASTLE","n":"Castles, Palaces & History"},
       {"id":"GARDEN","n":"Gardens & Teahouses"},{"id":"MUS","n":"Museums & Galleries"},
       {"id":"NATURE","n":"Nature, Parks & Coast"},{"id":"ONSEN","n":"Onsen & Sentō"},
@@ -97,6 +97,30 @@ KW={
  "VIEW":["observation","observatory","view","viewpoint","lookout","skyline","tower","sky","deck","night view","yakei",
          "ropeway","panorama","summit"],
 }
+# ANIME — the dedicated anime / manga / games / tokusatsu layer on every Japan map (user instruction 2026-10-02).
+# Matched on name/description/note for sights AND food (themed cafés count), always placed FIRST so the 4-collection
+# cap never drops it. A record may also carry "anime": "<franchise — why it matters>" → forced into ANIME and shown
+# as a special note on the card (see anime_note()).
+ANIME_KW=["anime","manga","pokemon","pokémon","pikachu","gundam","ghibli","totoro","one piece","dragon ball","evangelion",
+          "sailor moon","doraemon","hello kitty","sanrio","nintendo","super mario","mario kart","kirby","zelda",
+          "animate","mandarake","jump shop","shonen jump","shōnen jump","detective conan","slam dunk","jujutsu",
+          "demon slayer","kimetsu","naruto shippuden","naruto uzumaki","ultraman","godzilla","kamen rider","tokusatsu","seichi","anime pilgrimage",
+          "capcom","square enix","sega","tamagotchi","gachapon","gashapon","cosplay","maid café","maid cafe",
+          "otaku","vtuber","hololive","character café","character cafe","tezuka","astro boy","anpanman","chiikawa",
+          "rilakkuma","gudetama","yu-gi-oh","digimon","spy x family","attack on titan","your name","makoto shinkai",
+          "kyoto animation","haikyu","lupin the third","miffy","snoopy museum"]
+_ANIME_RE=re.compile(r"(?<![a-z])(?:"+"|".join(re.escape(k) for k in ANIME_KW)+r")(?![a-z])")
+def is_anime(x, hay):
+    """Whole-word match only ('sega' must not fire inside 'Hasegawa'); an explicit "anime" field always wins."""
+    return bool(x.get("anime")) or bool(_ANIME_RE.search(hay))
+
+def anime_note(x):
+    """Special card note for anime/pop-culture places: '★ Anime & pop culture — <x['anime']>' prepended to k."""
+    a=(x.get("anime") or "").strip()
+    if not a: return x.get("k")
+    note="★ Anime & pop culture — "+a
+    return note+(" · "+x["k"] if x.get("k") else "")
+
 def collections(x, is_food):
     g=list(x.get("g",[]))
     hay=(x.get("n","")+" "+x.get("w","")+" "+x.get("k","")+" "+" ".join(x.get("cz",[]))).lower()
@@ -106,7 +130,8 @@ def collections(x, is_food):
         for cid,kws in KW.items():
             if any(k in hay for k in kws): g.append(cid)
         if re.search(r'\bfree\b|free admission|no admission|free entry|admission free', hay): g.append("FREE")
-        if not g: g.append("CASTLE")
+        if not g and not is_anime(x, hay): g.append("CASTLE")
+    if is_anime(x, hay): g.insert(0,"ANIME")
     out=[]
     for c in g:
         if c not in out: out.append(c)
@@ -206,7 +231,7 @@ def build(D, AREAS, AC):
     P=[]; F=[]; used_S=set(); used_F=set()
     for x in sights:
         r={"t":int(x.get("t",2)),"a":x["a"],"n":x["n"],"ad":x["address"],"w":x["w"]}
-        if x.get("k"): r["k"]=x["k"]
+        if anime_note(x): r["k"]=anime_note(x)
         if x.get("closed"): r["closed"]=True
         r["g"]=collections(x,False)
         r["s"]=norm_sources(x)
@@ -214,7 +239,7 @@ def build(D, AREAS, AC):
         P.append(r)
     for x in food:
         r={"t":int(x.get("t",2)),"a":x["a"],"n":x["n"],"ad":x["address"],"w":x["w"]}
-        if x.get("k"): r["k"]=x["k"]
+        if anime_note(x): r["k"]=anime_note(x)
         if x.get("closed"): r["closed"]=True
         r["cz"]=map_cz(x.get("cz",[]))
         if x.get("michelin") and "FINE" not in r["cz"]: r["cz"].append("FINE")

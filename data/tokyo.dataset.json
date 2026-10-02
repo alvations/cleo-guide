@@ -144,6 +144,10 @@
  ],
  "cats": [
   {
+   "id": "ANIME",
+   "n": "★ Anime, Manga & Pop Culture"
+  },
+  {
    "id": "ICON",
    "n": "Iconic & Must-See"
   },
@@ -258,6 +262,7 @@
    "ad": "2-16-2 Sotokanda, Chiyoda-ku, Tokyo 101-0021",
    "w": "1,300-year-old shrine of Edo's merchants, home of the Kanda Matsuri — and, a block from Akihabara, an anime pilgrimage stop (Love Live!) with IT-blessing omamori.",
    "g": [
+    "ANIME",
     "TEMPLE",
     "POP",
     "CASTLE"
@@ -331,10 +336,10 @@
    "ad": "Sotokanda 1-chome, Chiyoda-ku, Tokyo",
    "w": "Tokyo's electronics-and-otaku quarter — multi-storey arcades, figure shops, retro-game dens and maid cafés around Chūō-dōri.",
    "g": [
+    "ANIME",
     "POP",
     "ICON",
-    "MKT",
-    "MUS"
+    "MKT"
    ],
    "s": [
     [
@@ -1031,10 +1036,10 @@
    "w": "1966 shopping-and-apartment complex turned otaku mecca — four floors of Mandarake, vintage toys, manga, idol goods and watch dealers at the end of Nakano Sun Mall.",
    "k": "Mandarake, vintage toys",
    "g": [
+    "ANIME",
     "POP",
     "MKT",
-    "FREE",
-    "MUS"
+    "FREE"
    ],
    "s": [
     [
@@ -1123,10 +1128,10 @@
    "w": "Hayao Miyazaki's own whimsical museum on the edge of Inokashira Park — animation workshops, a Catbus room, a rooftop Laputa robot and short films shown only here. Advance tickets only.",
    "k": "Laputa robot, exclusive shorts",
    "g": [
+    "ANIME",
     "ICON",
     "MUS",
-    "POP",
-    "NATURE"
+    "POP"
    ],
    "s": [
     [
@@ -1147,10 +1152,10 @@
    "w": "Kichijōji's beloved park — swan boats on a cherry-lined pond, the Benzaiten shrine and weekend craft stalls, a short walk from the Ghibli Museum.",
    "k": "swan boats, hanami",
    "g": [
+    "ANIME",
     "NATURE",
     "FREE",
-    "TEMPLE",
-    "MUS"
+    "TEMPLE"
    ],
    "s": [
     [
@@ -1676,6 +1681,7 @@
    "w": "Ikebukuro's mega-complex — the rooftop Sunshine Aquarium with its 'sky penguins', Namjatown, the Pokémon Center Mega Tokyo and the Sunshine 60 observatory — next to Otome Road.",
    "k": "rooftop aquarium, Pokémon Center",
    "g": [
+    "ANIME",
     "POP",
     "VIEW",
     "MUS"
@@ -2262,10 +2268,10 @@
    "w": "2023 entertainment tower in the heart of Kabukichō — theatre, a neon 'Shinjuku Kabuki Hall' food hall of yokochō stalls and rooftop views; the Godzilla head looms next door.",
    "k": "Kabuki Hall food hall",
    "g": [
+    "ANIME",
     "NIGHT",
     "POP",
-    "MUS",
-    "VIEW"
+    "MUS"
    ],
    "s": [
     [
@@ -2881,6 +2887,7 @@
    "w": "Compact museum for Osamu Akimoto's 200-volume manga 'KochiKame: Tokyo Beat Cops', recreating the Kameari Park police box — start of a trail of bronze statues of Ryōtsu and friends around Kameari Station.",
    "k": "Kochikame statue trail",
    "g": [
+    "ANIME",
     "MUS",
     "POP",
     "NATURE"
@@ -3076,6 +3083,7 @@
    "k": "retired 2026",
    "closed": true,
    "g": [
+    "ANIME",
     "POP"
    ],
    "s": [
@@ -3097,6 +3105,7 @@
    "w": "A life-size Godzilla head glowering over Kabukichō from the Shinjuku Tōhō Building's 8th-floor terrace — it roars and glows on the hour.",
    "k": "roars on the hour",
    "g": [
+    "ANIME",
     "POP",
     "FREE",
     "NIGHT"
@@ -3216,6 +3225,7 @@
    "w": "Akihabara's ten floors of otaku culture by the station — figures, trading cards, model kits, gacha machines and K-Books.",
    "k": "figures, model kits",
    "g": [
+    "ANIME",
     "POP",
     "MKT",
     "FREE"
@@ -4920,6 +4930,7 @@
    "w": "Museum of Doraemon's creator in Kawasaki — original manga drawings, a rooftop 'Dokodemo Door' and the Doraemon café; timed advance tickets.",
    "k": "Doraemon",
    "g": [
+    "ANIME",
     "MUS",
     "POP"
    ],
@@ -4992,6 +5003,7 @@
    "w": "'Cyberspace Shibuya' on PARCO's 6th floor — Nintendo's only official Tokyo store beside the Pokémon Center with its life-size Mewtwo; expect queues.",
    "k": "Nintendo store, Pokémon Center",
    "g": [
+    "ANIME",
     "POP",
     "MKT",
     "ONSEN"
@@ -5038,10 +5050,10 @@
    "w": "Ikebukuro's 'Maiden Road' behind Sunshine City — the heart of women's otaku culture, with Animate, K-Books, butler cafés and character-goods stores.",
    "k": "female otaku street",
    "g": [
+    "ANIME",
     "POP",
     "MKT",
-    "FREE",
-    "MUS"
+    "FREE"
    ],
    "s": [
     [
@@ -6222,7 +6234,9 @@
    "cz": [
     "RAMEN"
    ],
-   "g": [],
+   "g": [
+    "ANIME"
+   ],
    "s": [
     [
      "MICHELIN_BIB",
