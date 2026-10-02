@@ -34,7 +34,9 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 - Searches used this session: main ~101 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 193.
 
 ## In-flight wave
-- none (W3 closed cleanly; every batch committed and pushed).
+- **W4 (2026-10-02, relaunch, own budget)** — food-first fill of NEED areas: SAKYO +26, RKSAI +19, FSHMI +18, RKHKU +13,
+  HGS +12, KITA +12, KYFU +7, UJI +6, CTR +2. Files: FOOD_KYOTO_W6.json, SIGHTS_KYOTO_W4S.json, SOURCES_KYOTO_W4.json,
+  CREATORS_KYOTO_W4.json, geo/_geoout_kyoto_w6.json. Searches counted in `_kyoto_w4_searchlog.txt`.
 
 ## Next wave plan (W4) — ordered, cheapest proven techniques first
 1. **Michelin pins + new names (best yield: ~3 pinned/search):** allowed_domains guide.michelin.com, "<A>; <B>; <C>; <D> Kyoto MICHELIN
