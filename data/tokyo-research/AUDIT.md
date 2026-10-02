@@ -55,3 +55,28 @@ wave). Held sights in `_pending_w2.json` (Omoide Yokochō, Ameyoko, Takeshita-d�
 pass scheduled for the next wave). **Closures:** none found (all Michelin 2026/current listings).
 **Build + gates (58 rendered / 63 discovered):** sourcecheck PASS (63; 39 lone authority) · geocheck PASS ·
 statuscheck CONSISTENT · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS.
+
+## 2026-10-02 — W2 batches 7–20 (searches 30–58)
+**Kept — sights (+43):** CHUO Kabuki-za, Nihonbashi Bridge, Hama-rikyū; MNT Zōjō-ji, Roppongi Hills Mori Tower,
+Tokyo Tower, Sengaku-ji, Nezu Museum, National Art Center, Kyū-Shiba-rikyū, Rainbow Bridge, Teien Art Museum; SMKT
+teamLab Planets, Toyosu Market, Tomioka Hachimangū, MOT; JOSAI Nakano Broadway, Shimokitazawa (med, district point),
+Gōtoku-ji; TAMA Ghibli Museum, Inokashira Park, Mt Takao (summit), Jindai-ji; KANTO Kōtoku-in Daibutsu, Tsurugaoka
+Hachimangū, Nikkō Tōshō-gū (WIKIPEDIA + UNESCO 913); JOTO Shibamata Taishakuten, Kasai Rinkai Park; JHOKU Rikugien,
+Koishikawa Kōrakuen, Kyū-Furukawa, Sunshine City, Jiyū Gakuen Myōnichikan; CYD Nikolai-dō, Tokyo International Forum;
+SBY Shibuya Sky, Hachikō, Yebisu Garden Place, Omotesandō Hills; TAITO National Museum of Western Art, Kyū-Iwasaki-tei,
+Yanaka Cemetery, Asakusa Shrine; JONAN Meguro Parasitological Museum, Ikegami Honmon-ji.
+**Kept — food (+19, Michelin):** Yakitori Abe, Jimbocho Gokita, Bird Land Ginza, Yakitori Omino, Yakitori Sanka,
+Asagaya Bird Land, Tempura Ginya, Tempura Taku, Ginza Kojyu, Unagi Tokito, Sobakappo Nagano; UNVERIFIED pin (held off
+map): Ginza Katsukami II, Shutei Tanaka, Yoshoku Edoya, Sézanne, Mutsukari, Tempura Abe Honten, Jinbo Minami Aoyama,
+Aoyama Ototo. Newly-listed 2026 Michelin pages never surface coords; 4+ names per query drops coords; the word
+"cuisine" in the query seems to make the engine summarise list pages instead of venue pages.
+**REJECTED coordinates:** Tsukiji Outer Market — Wikipedia "Tsukiji fish market" point is the demolished inner
+market (~400 m off) → held. Jinbo / Aoyama Ototo — engine returned an *area estimate*, not the page pin → UNVERIFIED.
+Google-Maps-restricted search (Ponta Honke) returned an unrelated place → method abandoned (1 search wasted).
+**Creators (channel mix):** Ramen Adventures (Brian MacDuckston) attached to Konjiki Hototogisu, Muginae, Nakiryu,
+Yakumo (`CREATORS_TOKYO_W2.json`). Time Out Tokyo attraction pages added as 2nd source (Gōtoku-ji, Ikegami Honmon-ji).
+**Held:** `_pending_w2.json` (17: Omoide Yokochō, Ameyoko, Takeshita-dōri, Harmonica Yokochō, Chidorigafuchi, Tsukiji
+Outer Market, Tsukishima Monja St, Tokyo Dome, Gokoku-ji, Yushima Seidō, Todoroki Valley, Taishakuten-sandō,
+Kochikame statues, Nishiarai Daishi, Kawagoe Toki no Kane, Togoshi Ginza, Meguro River).
+**Build (127 discovered / 114 rendered, 13 UNVERIFIED):** sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
+buildcheck PASS · validate DATA OK · npm test ALL PASS. Closures: none.

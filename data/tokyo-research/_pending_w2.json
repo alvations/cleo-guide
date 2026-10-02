@@ -2,24 +2,6 @@
  "note": "held sights — need coords and/or a 2nd credible source; do not write until both exist",
  "items": [
   {
-   "n": "Shinjuku Golden Gai",
-   "a": "SJK",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai coords 35.69389,139.70472",
-   "need": "2nd source"
-  },
-  {
-   "n": "Meiji Jingu",
-   "a": "SBY",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Meiji_Shrine coords 35.67611,139.69917",
-   "need": "2nd source"
-  },
-  {
-   "n": "Tokyo Skytree",
-   "a": "SMKT",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Tokyo_Skytree coords 35.7101,139.8107",
-   "need": "2nd source"
-  },
-  {
    "n": "Omoide Yokocho",
    "a": "SJK",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/63/index.html",
@@ -46,7 +28,7 @@
   {
    "n": "Chidorigafuchi",
    "a": "CYD",
-   "have": "GOTOKYO+japan-guide+Time Out (W1)",
+   "have": "GOTOKYO+japan-guide+Time Out (W1); GOTOKYO https://www.gotokyo.org/en/spot/45/index.html; nearest Wikipedia point = Chidorigafuchi National Cemetery 35.69,139.74694 (adjacent, not the moat walk)",
    "need": "coords"
   },
   {
@@ -71,24 +53,6 @@
    "n": "Gokoku-ji",
    "a": "JHOKU",
    "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Gokoku-ji coords 35.72175,139.725639",
-   "need": "2nd"
-  },
-  {
-   "n": "Tokyo Tower",
-   "a": "MNT",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Tokyo_Tower coords 35.65861,139.74556",
-   "need": "2nd"
-  },
-  {
-   "n": "Sengaku-ji",
-   "a": "MNT",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sengaku-ji coords 35.63772,139.7363",
-   "need": "2nd"
-  },
-  {
-   "n": "Gotoku-ji",
-   "a": "JOSAI",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji coords 35.648778,139.647417",
    "need": "2nd"
   },
   {
@@ -120,6 +84,24 @@
    "a": "JOTO",
    "have": "GOTOKYO ev159; address 1-15-1 Nishi-Arai, Adachi",
    "need": "coords"
+  },
+  {
+   "n": "Yushima Seido",
+   "a": "CYD",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Yushima_Seid%C5%8D coords 35.70083,139.76639",
+   "need": "2nd"
+  },
+  {
+   "n": "Togoshi Ginza",
+   "a": "JONAN",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/174/index.html; station point 35.61602,139.71501 (Togoshi-ginza Station)",
+   "need": "2nd + street pin"
+  },
+  {
+   "n": "Meguro River (Nakameguro)",
+   "a": "JONAN",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/103/",
+   "need": "coords + 2nd"
   }
  ]
 }

@@ -11873,9 +11873,28 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "RAMENADVENTURES",
+          "name": "Ramen Adventures (Brian MacDuckston)",
+          "platform": "blog + YouTube",
+          "handle": "ramenadventures",
+          "url": "https://ramenadventures.com/",
+          "scale": "Tokyo's best-known English ramen blog since 2009; author of 'Ramen at Home'; long-running YouTube channel",
+          "niche": "Tokyo/Japan ramen",
+          "credible": "Named-author specialist with a 15-year track record and annual Tokyo top-100 roundups; corroborating source only"
+        }
+      ]
     }
   }
 }

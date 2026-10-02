@@ -33,7 +33,7 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
 **W2 (relaunch 2026-10-02, own ~200-search budget)** — food canon (Michelin Bib/star lists, Tabelog Hyakumeiten,
 Time Out/Eater lists) in CHUO/TAITO/SJK/SBY/MNT, then sights backbone per area via batched Wikipedia-coords queries.
 Files: `FOOD_TOKYO_W2.json`, `SIGHTS_TOKYO_W2.json`, `geo/_geoout_tokyo_w2.json`, `CREATORS_TOKYO_W2.json` (via `_add.py`).
-Search count this run: 40 (after batch 12; see AUDIT for the per-batch log). Discovered 63 (58 rendered, 5 UNVERIFIED). Per area: CHUO 5 · CYD 10 · JHOKU 4 · JONAN 4 · JOSAI 2 · JOTO 0 · KANTO 0 · MNT 7 · SBY 5 · SJK 9 · SMKT 4 · TAITO 13 · TAMA 0.
+Search count this run: 58 (after batch 20). Discovered 127 (114 rendered, 13 UNVERIFIED). Per area: CHUO 13 · CYD 14 · JHOKU 9 · JONAN 7 · JOSAI 6 · JOTO 2 · KANTO 3 · MNT 20 · SBY 10 · SJK 11 · SMKT 11 · TAITO 17 · TAMA 4.
 Held sights: `_pending_w2.json`. Methods: see AUDIT W2 section (3-name Michelin pin queries; 4-name Wikipedia coord queries + one japan-guide corroboration query).
 
 ## Next actions
