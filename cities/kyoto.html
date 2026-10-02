@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Kyoto field guide — 178 sights and 123 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Kyoto field guide — 201 sights and 123 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
 <title>Kyoto Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Kyoto (京都), sourced</p>
   <h1>Kyoto<span class="thin">Gion & Higashiyama · Rakuchū · Sakyō · Kita · Arashiyama · Fushimi · the mountains · Uji & Nara</span></h1>
-  <p class="standfirst">178 sights and 123 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">201 sights and 123 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -319,14 +319,18 @@ const S = {
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JNTO":{k:"JNTO",t:"JNTO",u:"",l:""},
   "JTA":{k:"JTA",t:"Japan Tourism Agency multilingual commentary database (MLIT)",u:"https://www.mlit.go.jp/tagengo-db/",l:"Japan Tourism Agency multilingual commentary database (MLIT)"},
+  "KANPAI":{k:"KANPAI",t:"Kanpai (kanpai-japan.com)",u:"https://www.kanpai-japan.com/",l:"Kanpai (kanpai-japan.com)"},
   "KYOHAKU":{k:"KYOHAKU",t:"Kyoto National Museum",u:"https://www.kyohaku.go.jp/eng/",l:"Kyoto National Museum"},
   "KYOTOCITY":{k:"KYOTOCITY",t:"KYOTOCITY",u:"",l:""},
   "KYOTOMUSEUMS":{k:"KYOTOMUSEUMS",t:"Kyoto Museums Council (kyoto-museums.jp)",u:"https://www.kyoto-museums.jp/en/",l:"Kyoto Museums Council (kyoto-museums.jp)"},
   "KYOTOTOURISM":{k:"KYOTO CITY TOURISM",t:"KYOTO CITY TOURISM",u:"",l:""},
+  "LEAFKYOTO":{k:"LEAFKYOTO",t:"Leaf Kyoto (京都リーフ)",u:"https://www.leafkyoto.net/",l:"Leaf Kyoto (京都リーフ)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
+  "MATCHA":{k:"MATCHA",t:"MATCHA — Japan Travel Guide",u:"https://matcha-jp.com/en/",l:"MATCHA — Japan Travel Guide"},
   "METI":{k:"METI",t:"METI",u:"",l:""},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "RURUBU":{k:"RURUBU",t:"Rurubu (JTB Publishing, rurubu.jp)",u:"https://rurubu.jp/",l:"Rurubu (JTB Publishing, rurubu.jp)"},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
   "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
   "VISITNARA":{k:"VISITNARA",t:"Official Nara Travel Guide (visitnara.jp)",u:"https://www.visitnara.jp/",l:"Official Nara Travel Guide (visitnara.jp)"},
@@ -524,20 +528,50 @@ const P = [
 {t:2,a:"UJI",n:"Kasugayama Primeval Forest (春日山原始林)",ad:"Kasugayama, Nara",la:34.68431,ln:135.86453,w:"Sacred forest on Mount Kasuga behind Kasuga Taisha — a component of the UNESCO 'Historic Monuments of Ancient Nara'.",g:["UNESCO","NATURE","TEMPLE","CASTLE"],s:[["UNESCO","https://whc.unesco.org/en/list/870"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/春日山原始林"]]},
 {t:2,a:"KYFU",n:"Chion-ji (智恩寺), Amanohashidate",ad:"Monju, Miyazu, Kyoto Prefecture (south end of the Amanohashidate sandbar)",la:35.55858,ln:135.18378,w:"Rinzai Zen temple at the sandbar's southern entrance housing one of Japan's 'Three Important Monju Bosatsu' statues — students pray here for wisdom; 1500s two-storey tahōtō pagoda.",g:["TEMPLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3993.html"],["AMANOHASHIDATE","https://www.amanohashidate.jp/lang/en/spots/chionji/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/智恩寺_(宮津市)"]]},
 {t:3,a:"KYFU",n:"Moto-Ise Naikū Kōtai Jinja (元伊勢内宮皇大神社)",ad:"Fukuchiyama, Kyoto Prefecture",la:35.43014,ln:135.15450,w:"Said to have held Amaterasu's sacred mirror before it settled at Ise Jingū; keeps a tradition of prayers to repel oni.",g:["TEMPLE","NATURE"],s:[["KYOTOTOURISM","https://global.kyoto.travel/en/faq/detail.php?faq_id=507"],["JNTO","https://www.japan.travel/en/destinations/kansai/kyoto/another-kyoto/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/皇大神社_(福知山市)"]]},
-{t:3,a:"KYFU",n:"Fukuchiyama Castle (福知山城)",ad:"Fukuchiyama, Kyoto Prefecture",la:35.29681,ln:135.12967,w:"Castle of the town Akechi Mitsuhide built while ruling the Tanba region under Oda Nobunaga.",g:["CASTLE","NIGHT"],s:[["KYOTOTOURISM","https://global.kyoto.travel/en/faq/detail.php?faq_id=508"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/福知山城"]]}
+{t:3,a:"KYFU",n:"Fukuchiyama Castle (福知山城)",ad:"Fukuchiyama, Kyoto Prefecture",la:35.29681,ln:135.12967,w:"Castle of the town Akechi Mitsuhide built while ruling the Tanba region under Oda Nobunaga.",g:["CASTLE","NIGHT"],s:[["KYOTOTOURISM","https://global.kyoto.travel/en/faq/detail.php?faq_id=508"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/福知山城"]]},
+{t:2,a:"SAKYO",n:"Konkai Kōmyō-ji / Kurodani (金戒光明寺)",ad:"Kurodani-chō, Sakyō-ku, Kyoto",la:35.01964,ln:135.78803,w:"A large Jōdo temple on Yoshida-yama hill near the Philosopher's Path, loved by locals for strolls and rarely busy with tourists; its huge San-mon gate is a frequent film location.",g:["TEMPLE","FREE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%87%91%E6%88%92%E5%85%89%E6%98%8E%E5%AF%BA"],["INSIDEKYOTO","https://www.insidekyoto.com/kurodani-temple-konkai-komyo-ji-temple-northern-higashiyama"],["LONELYPLANET","https://www.lonelyplanet.com/japan/kansai/kyoto/northern-higashiyama/attractions/kurodani-temple/a/poi-sig/1317318/1323321"]]},
+{t:3,a:"SAKYO",n:"Sekizan Zen-in (赤山禅院)",ad:"Shūgakuin, Sakyō-ku, Kyoto",la:35.05586,ln:135.80133,w:"Tendai temple at the western foot of Mt Hiei, founded in 864 by Ennin's disciple An'e and rebuilt in 884, enshrining the deity Sekizan Myōjin.",g:["TEMPLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E8%B5%A4%E5%B1%B1%E7%A6%85%E9%99%A2"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sekizan_My%C5%8Djin"]]},
+{t:2,a:"SAKYO",n:"Hakusasonsō Hashimoto Kansetsu Garden & Museum (白沙村荘)",ad:"Jōdo-ji, Sakyō-ku, Kyoto",la:35.02688,ln:135.79367,w:"Former home and studio of Taishō–Shōwa painter Hashimoto Kansetsu: a pond-stroll garden framed by Mt Daimonji, a National Place of Scenic Beauty, with a museum of his work and collection.",g:["GARDEN","MUS"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E7%99%BD%E6%B2%99%E6%9D%91%E8%8D%98"],["KYOTOTOURISM","https://kyoto.travel/en/travel-inspiration/hakusasonso-hashimoto-kansetsu-garden-museum-kyoto/"]]},
+{t:3,a:"SAKYO",n:"Hosomi Museum (細見美術館)",ad:"Okazaki, Sakyō-ku, Kyoto",la:35.01383,ln:135.77964,w:"Private art museum of the industrialist Hosomi family's collection spanning Shintō and Buddhist art, tea-ceremony objects and Edo-period painting.",g:["MUS","TEMPLE","CASTLE","ONSEN"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E7%B4%B0%E8%A6%8B%E7%BE%8E%E8%A1%93%E9%A4%A8"],["MATCHA","https://matcha-jp.com/en/19714"]]},
+{t:3,a:"SAKYO",n:"Konpuku-ji (金福寺)",ad:"Ichijōji, Sakyō-ku, Kyoto",la:35.04223,ln:135.79521,w:"Small Rinzai temple founded 864; Matsuo Bashō stayed in a thatched hut in its garden, later named Bashō-an.",g:["TEMPLE","GARDEN"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%87%91%E7%A6%8F%E5%AF%BA"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Konpuku-ji"]]},
+{t:3,a:"SAKYO",n:"Ōtoyo Shrine (大豊神社)",ad:"Shishigatani, Sakyō-ku, Kyoto",la:35.01831,ln:135.79633,w:"Small shrine just off the Philosopher's Path whose sub-shrine to Ōkuninushi is guarded by komainu mice instead of dogs or foxes.",g:["FREE","TEMPLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%A4%A7%E8%B1%8A%E7%A5%9E%E7%A4%BE"],["INSIDEKYOTO","https://www.insidekyoto.com/walking-the-path-of-philosophy"]]},
+{t:3,a:"SAKYO",n:"Anraku-ji (安楽寺)",ad:"Shishigatani, Sakyō-ku, Kyoto",la:35.02164,ln:135.79653,w:"Tiny temple off the Philosopher's Path, open to the public only on limited days — worth it if you are in town when it opens.",g:["TEMPLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%AE%89%E6%A5%BD%E5%AF%BA_(%E4%BA%AC%E9%83%BD%E5%B8%82)"],["INSIDEKYOTO","https://www.insidekyoto.com/northern-higashiyama"]]},
+{t:3,a:"SAKYO",n:"Kyoto City Zoo (京都市動物園)",ad:"Okazaki, Sakyō-ku, Kyoto",la:35.01278,ln:135.78611,w:"Opened 1903 as Japan's second zoo, in Okazaki a short walk from Heian Jingū and Nanzen-ji.",g:["NATURE","TEMPLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E4%BA%AC%E9%83%BD%E5%B8%82%E5%8B%95%E7%89%A9%E5%9C%92"],["KYOTOTOURISM","https://kyoto.travel/en/travel-inspiration/an-adventure-for-the-entire-family-the-kyoto-city-zoo/"]]},
+{t:3,a:"SAKYO",n:"Nomura Art Museum (野村美術館)",ad:"Nanzen-ji area, Sakyō-ku, Kyoto",la:35.01292,ln:135.79333,w:"Museum of scrolls, paintings, tea-ceremony implements and ceramics bequeathed by the business magnate Nomura.",g:["MUS"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%87%8E%E6%9D%91%E7%BE%8E%E8%A1%93%E9%A4%A8"],["LONELYPLANET","https://lonelyplanet.com/japan/kansai/kyoto/northern-higashiyama/attractions/nomura-museum/a/poi-sig/1428747/1323321"]]},
+{t:3,a:"SAKYO",n:"Takaragaike Park (宝が池公園)",ad:"Kamitakano, Sakyō-ku, Kyoto",la:35.05828,ln:135.78300,w:"Edo-period agricultural reservoir turned popular park with a lakeside running loop and the Kodomo no Rakuen children's play area.",g:["NATURE","FREE","CASTLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%AE%9D%E3%81%8C%E6%B1%A0%E5%85%AC%E5%9C%92"],["MATCHA","https://matcha-jp.com/en/place-master/13933"],["KYOTOTOURISM","https://kyoto.travel/en/destinations/running-course-around-takaragaike-park/"]]},
+{t:2,a:"FSHMI",n:"Sanbō-in, Daigo-ji (醍醐寺 三宝院)",ad:"Daigo, Fushimi-ku, Kyoto",la:34.95228,ln:135.81944,w:"Former head-priest residence of Daigo-ji, first built 1115; the present buildings and landscape garden date from 1598, when Toyotomi Hideyoshi rebuilt it for his Daigo cherry-blossom party — a Special Historic Site and Special Place of Scenic Beauty.",g:["TEMPLE","GARDEN","CASTLE","MUS"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E4%B8%89%E5%AE%9D%E9%99%A2"],["KYOTOTOURISM","https://kyoto.travel/en/shrine_temple/179.html"],["JAPANGUIDE","https://www.japan-guide.com/e/e3916.html"]]},
+{t:3,a:"FSHMI",n:"Kyoto Racecourse (京都競馬場)",ad:"Fushimi-ku, Kyoto",la:34.90707,ln:135.72472,w:"JRA racecourse opened at this site in 1925 (capacity 120,000), home of the Kikuka Shō, the last leg of Japan's Triple Crown; reopened April 2023 after a grandstand rebuild.",g:["VIEW"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E4%BA%AC%E9%83%BD%E7%AB%B6%E9%A6%AC%E5%A0%B4"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kyoto_Racecourse"]]},
+{t:3,a:"FSHMI",n:"Rajōmon Gate Site (羅城門跡)",ad:"Karahashi Rajōmon-chō, Minami-ku, Kyoto",la:34.97924,ln:135.74284,w:"Site of Heian-kyō's great southern gate (built 789) at the end of Suzaku Avenue; nothing survives but a stone pillar near Kujō and Senbon streets.",g:["FREE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E7%BE%85%E5%9F%8E%E9%96%80"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Raj%C5%8Dmon"]]},
+{t:3,a:"FSHMI",n:"Fushimi Port Park (伏見港公園)",ad:"Chūshojima, Fushimi-ku, Kyoto",la:34.92337,ln:135.75605,w:"Park on the filled-in site of the old Fushimi river port near Chūshojima, known for cherry blossoms, with a walking course, pools and lawns.",g:["NATURE","FREE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E6%B8%AF"],["KYOTOTOURISM","https://kyoto.travel/en/families-kids/"]]},
+{t:2,a:"KITA",n:"Ryōgen-in, Daitoku-ji (龍源院)",ad:"Murasakino, Kita-ku, Kyoto",la:35.04208,ln:135.74608,w:"Daitoku-ji sub-temple built in 1502, head of the temple's southern school, with as many as five different dry-landscape gardens around its main hall.",g:["TEMPLE","GARDEN","NATURE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%BE%8D%E6%BA%90%E9%99%A2"],["JAPANGUIDE","https://www.japan-guide.com/e/e3910.html"],["LONELYPLANET","https://www.lonelyplanet.com/japan/kansai/kyoto/central-kyoto/attractions/ryogen-in/a/poi-sig/1428629/1323313"]]},
+{t:3,a:"KITA",n:"Zuihō-in, Daitoku-ji (瑞峯院)",ad:"Murasakino Daitokuji-chō, Kita-ku, Kyoto",la:35.04215,ln:135.74539,w:"Daitoku-ji sub-temple honouring Christian daimyō Ōtomo Sōrin; in the early 1960s Shigemori Mirei set the rear rock garden's stones in the shape of a cross.",g:["TEMPLE","GARDEN"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E7%91%9E%E5%B3%AF%E9%99%A2"],["LONELYPLANET","https://lonelyplanet.com/japan/kansai/kyoto/attractions/zuiho-in/a/poi-sig/1428616/356698"],["INSIDEKYOTO","https://www.insidekyoto.com/exploring-daitoku-ji"]]},
+{t:3,a:"KITA",n:"Ōbai-in, Daitoku-ji (黄梅院)",ad:"Murasakino Daitokuji-chō, Kita-ku, Kyoto",la:35.04172,ln:135.74606,w:"Daitoku-ji sub-temple founded 1562 with interlinked gardens — a rich moss garden and a stark kare-sansui; open to the public only in some seasons (notably autumn).",g:["TEMPLE","GARDEN"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%BB%84%E6%A2%85%E9%99%A2_(%E4%BA%AC%E9%83%BD%E5%B8%82)"],["LONELYPLANET","https://www.lonelyplanet.com/japan/kansai/kyoto/central-kyoto/attractions/obai-in/a/poi-sig/1428621/1323313"],["INSIDEKYOTO","https://www.insidekyoto.com/daitoku-ji-temple"]]},
+{t:3,a:"KITA",n:"Kenkun Shrine & Funaoka-yama (建勲神社・船岡山)",ad:"Funaoka-yama, Kita-ku, Kyoto",la:35.03861,ln:135.74306,w:"Shrine on Funaoka hill dedicated to the spirit of unifier Oda Nobunaga; the small hill park near Daitoku-ji gives views over the city.",g:["FREE","VIEW","TEMPLE","NATURE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%BB%BA%E5%8B%B2%E7%A5%9E%E7%A4%BE"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E8%88%B9%E5%B2%A1%E5%B1%B1"],["MATCHA","https://matcha-jp.com/en/1582"]]},
+{t:3,a:"KITA",n:"Ōta Shrine (大田神社), Kamigamo",ad:"Kamigamo, Kita-ku, Kyoto",la:35.05983,ln:135.75850,w:"Small shrine near Kamigamo Shrine famous for its pond of irises, on a route through the old shrine-priest (shake) quarter.",g:["NATURE","FREE","TEMPLE","MUS"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%A4%A7%E7%94%B0%E7%A5%9E%E7%A4%BE_(%E4%BA%AC%E9%83%BD%E5%B8%82)"],["KYOTOTOURISM","https://kyoto.travel/en/travel-inspiration/five-runs/"]]},
+{t:2,a:"RKSAI",n:"Rakushisha (落柿舎), Sagano",ad:"Saga-Ogurayama, Ukyō-ku, Kyoto",la:35.02061,ln:135.67089,w:"The thatched hut of the 17th-century haiku poet Mukai Kyorai, a disciple of Bashō, set among Sagano's fields. Small entry fee.",g:["GARDEN","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3912.html"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/落柿舎"]]},
+{t:2,a:"RKSAI",n:"Saga-Toriimoto Preserved Street (嵯峨鳥居本)",ad:"Saga-Toriimoto, Ukyō-ku, Kyoto",la:35.02704,ln:135.66557,w:"A Meiji-period street of preserved machiya at the far end of Sagano, below the torii of Atago Shrine. Many of the houses are now tea houses and shops. Free.",g:["MKT","FREE","TEMPLE","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3912.html"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/嵯峨鳥居本"]]},
+{t:3,a:"RKSAI",n:"Kameyama-kōen Park (亀山公園), Arashiyama",ad:"Saga-Kamenoo-chō, Ukyō-ku, Kyoto (top of the Arashiyama bamboo grove path)",la:35.01517,ln:135.67081,w:"A hilltop park at the top of the bamboo grove path, with a lookout over the Hozu gorge and fewer crowds. Free.",g:["NATURE","VIEW","FREE","GARDEN"],s:[["LONELYPLANET","https://lonelyplanet.com/japan/kansai/kyoto/arashiyama-sagano/attractions/kameyama-koen/a/poi-sig/1231860/1323332"],["INSIDEKYOTO","https://www.insidekyoto.com/kameyama-koen-park"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/亀山公園_(京都市)"]]},
+{t:3,a:"RKSAI",n:"Umenomiya Taisha (梅宮大社)",ad:"Umezu, Ukyō-ku, Kyoto",la:35.00417,ln:135.69500,w:"An ancient shrine to the gods of sake brewing and of childbirth, with a celebrated plum garden and a pond garden of irises and azaleas.",g:["TEMPLE","GARDEN"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Umenomiya_Taisha"],["KANPAI","https://www.kanpai-japan.com/kyoto/umenomiya-taisha"]]}
 ];
 
 const FS = {
   "AMANOHASHIDATE":{k:"AMANOHASHIDATE",t:"Amanohashidate Tourism Association (amanohashidate.jp)",u:"https://www.amanohashidate.jp/lang/en/",l:"Amanohashidate Tourism Association (amanohashidate.jp)"},
   "ASIA50":{k:"ASIA'S 50 BEST",t:"ASIA'S 50 BEST",u:"",l:""},
+  "BYFOOD":{k:"BYFOOD",t:"byFood (byfood.com)",u:"https://www.byfood.com/",l:"byFood (byfood.com)"},
+  "COTRIP":{k:"COTRIP",t:"co-trip (Shobunsha)",u:"https://co-trip.jp/",l:"co-trip (Shobunsha)"},
   "CULTURETRIP":{k:"CULTURETRIP",t:"Culture Trip",u:"https://theculturetrip.com/",l:"Culture Trip"},
   "FODORS":{k:"FODORS",t:"Fodor's Travel",u:"https://www.fodors.com/",l:"Fodor's Travel"},
+  "GLTJP":{k:"GLTJP",t:"Good Luck Trip (gltjp.com)",u:"https://www.gltjp.com/",l:"Good Luck Trip (gltjp.com)"},
+  "INEKANKOU":{k:"INEKANKOU",t:"Ine Town Tourism Association (ine-kankou.jp)",u:"https://www.ine-kankou.jp/",l:"Ine Town Tourism Association (ine-kankou.jp)"},
   "INSIDEKYOTO":{k:"INSIDEKYOTO",t:"Inside Kyoto (Chris Rowthorn)",u:"https://www.insidekyoto.com/",l:"Inside Kyoto (Chris Rowthorn)"},
   "JALONTRIP":{k:"JALONTRIP",t:"OnTrip JAL (Japan Airlines)",u:"https://ontrip.jal.co.jp/",l:"OnTrip JAL (Japan Airlines)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JAPANTIMES":{k:"THE JAPAN TIMES",t:"THE JAPAN TIMES",u:"",l:""},
+  "JOINPEARL":{k:"JOINPEARL",t:"Pearl (joinpearl.co)",u:"https://joinpearl.co/",l:"Pearl (joinpearl.co)"},
   "KANSAIAIRPORT":{k:"KANSAIAIRPORT",t:"Kansai International Airport — Explore Kansai",u:"https://www.kansai-airport.or.jp/explorekansai/",l:"Kansai International Airport — Explore Kansai"},
+  "KEIHAN":{k:"KEIHAN",t:"Keihan Electric Railway — Kyoto navi",u:"https://www.keihan.co.jp/",l:"Keihan Electric Railway — Kyoto navi"},
   "KYOTOPREF":{k:"KYOTOPREF",t:"Visit Kyoto Yamashiro (Kyoto Prefectural Government)",u:"https://www.pref.kyoto.jp/kyotoyamashiro/en/",l:"Visit Kyoto Yamashiro (Kyoto Prefectural Government)"},
+  "KYOTOSHIMBUN":{k:"KYOTO SHIMBUN",t:"KYOTO SHIMBUN",u:"",l:""},
   "KYOTOTOURISM":{k:"KYOTO CITY TOURISM",t:"KYOTO CITY TOURISM",u:"",l:""},
   "LEAFKYOTO":{k:"LEAFKYOTO",t:"Leaf Kyoto (京都リーフ)",u:"https://www.leafkyoto.net/",l:"Leaf Kyoto (京都リーフ)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
@@ -546,9 +580,15 @@ const FS = {
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN BIB",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN ★",u:"",l:""},
+  "RURUBU":{k:"RURUBU",t:"Rurubu (JTB Publishing, rurubu.jp)",u:"https://rurubu.jp/",l:"Rurubu (JTB Publishing, rurubu.jp)"},
   "SAVORJAPAN":{k:"SAVOR JAPAN",t:"SAVOR JAPAN",u:"https://savorjapan.com/",l:"SAVOR JAPAN"},
+  "SERAI":{k:"SERAI",t:"Serai (Shogakukan)",u:"https://serai.jp/",l:"Serai (Shogakukan)"},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
+  "UMINOKYOTO":{k:"UMINOKYOTO",t:"Umi no Kyoto (uminokyoto.jp) — Kyoto Prefecture northern tourism DMO",u:"https://www.uminokyoto.jp/",l:"Umi no Kyoto (uminokyoto.jp) — Kyoto Prefecture northern tourism DMO"},
   "VISITNARA":{k:"VISITNARA",t:"Official Nara Travel Guide (visitnara.jp)",u:"https://www.visitnara.jp/",l:"Official Nara Travel Guide (visitnara.jp)"},
+  "VOGUEHK":{k:"VOGUEHK",t:"Vogue Hong Kong",u:"https://voguehk.com/",l:"Vogue Hong Kong"},
+  "WALKERPLUS":{k:"WALKERPLUS",t:"Walkerplus (KADOKAWA)",u:"https://www.walkerplus.com/",l:"Walkerplus (KADOKAWA)"},
+  "WARAKU":{k:"WARAKU",t:"Wa-raku / intojapanwaraku (Shogakukan)",u:"https://intojapanwaraku.com/",l:"Wa-raku / intojapanwaraku (Shogakukan)"},
   "WIKIPEDIA_JA":{k:"WIKIPEDIA JA",t:"Japanese Wikipedia (ja.wikipedia.org)",u:"https://ja.wikipedia.org/",l:"Japanese Wikipedia (ja.wikipedia.org)"}
 };
 
@@ -738,7 +778,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([34.9031,135.7528],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([34.9027,135.7526],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -822,7 +862,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Higashiyama-ku", 35.0, 135.7771], ["Sakyō-ku", 35.0267, 135.7874], ["Central — Nakagyō", 35.0052, 135.7602], ["Kita", 35.036, 135.7491], ["Rakusai — Ukyō", 35.0129, 135.6841], ["Fushimi", 34.9547, 135.784], ["Rakuhoku mountains", 35.1217, 135.771], ["Uji", 34.7397, 135.8219], ["Kyoto Prefecture", 35.2879, 135.4784]];
+const LABELS=[["Higashiyama-ku", 35.0, 135.7771], ["Sakyō-ku", 35.0271, 135.7884], ["Central — Nakagyō", 35.0052, 135.7602], ["Kita", 35.0371, 135.7489], ["Rakusai — Ukyō", 35.0133, 135.6831], ["Fushimi", 34.9521, 135.7798], ["Rakuhoku mountains", 35.1217, 135.771], ["Uji", 34.7397, 135.8219], ["Kyoto Prefecture", 35.2879, 135.4784]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1161,7 +1201,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 301 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 324 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
