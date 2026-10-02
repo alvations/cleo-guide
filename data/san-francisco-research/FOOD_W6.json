@@ -30,7 +30,7 @@
   "a": "HAI",
   "n": "Toronado",
   "address": "547 Haight St, San Francisco, CA 94117",
-  "w": "Lower Haight beer bar SFGATE calls king among beer bars in the city and across California — a pre-tech-boom holdout with the largest sour-beer selection in town.",
+  "w": "Lower Haight beer bar SFGATE calls king among beer bars in the city and across California — an all-cash, pre-tech-boom holdout; sold in 2026 to longtime regular Bill Lewis and Cicerone Wall Pringle, who reopened it in late June promising to keep it as it was.",
   "closed": false,
   "sources": [
    [
@@ -39,11 +39,15 @@
    ],
    [
     "SFCHRON",
-    "https://www.sfchronicle.com/food/wine/article/toronado-bar-orion-parrott-20340961.php"
+    "https://www.sfchronicle.com/food/wine/article/toronado-bar-sf-new-owner-22218844.php"
    ],
    [
     "TIMEOUT",
     "https://www.timeout.com/san-francisco/bars/toronado"
+   ],
+   [
+    "HOODLINE",
+    "https://hoodline.com/2026/04/lower-haight-beer-shrine-toronado-sold-to-bar-regular-and-his-brother-in-law/"
    ]
   ],
   "cz": [
@@ -264,5 +268,101 @@
    "Peruvian"
   ],
   "dish": "pollo a la brasa with ají verde"
+ },
+ {
+  "t": 2,
+  "a": "NECN",
+  "n": "Il Pollaio",
+  "address": "555 Columbus Ave, San Francisco, CA 94133",
+  "w": "Family-run North Beach counter for chargrilled chicken — a half bird with chimichurri, plus rabbit and lamb chops; a pros' pick on SF Standard's 2026 cheap-eats panel.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/il-pollaio"
+   ]
+  ],
+  "cz": [
+   "Italian"
+  ],
+  "dish": "half chargrilled chicken with chimichurri"
+ },
+ {
+  "t": 2,
+  "a": "HAI",
+  "n": "Palmyra",
+  "address": "700 Haight St, San Francisco, CA 94117",
+  "w": "Lower Haight counter-service Syrian spot — chicken shawarma wraps and big spice-slathered chicken platters with house garlic paste; on SF Standard's 2026 cheap-eats panel.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/palmyra"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/restaurants/bargainbites/article/Palmyra-S-F-2290990.php"
+   ]
+  ],
+  "cz": [
+   "Middle Eastern"
+  ],
+  "dish": "chicken shawarma wrap; garlic-paste chicken"
+ },
+ {
+  "t": 2,
+  "a": "DTN",
+  "n": "Peaches Patties (Ferry Building)",
+  "address": "1 Ferry Building, Suite 50, San Francisco, CA 94111",
+  "w": "First brick-and-mortar of a SF Jamaican caterer named for the owner's mother — flaky Jamaican beef patties at the Ferry Building; on SF Standard's 2026 cheap-eats panel and the Chronicle's hand-pie round-up.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/sf-ferry-building-new-restaurants-17767398.php"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/food/restaurants/article/peaches-patties-reems-el-porteno-19482646.php"
+   ]
+  ],
+  "cz": [
+   "Jamaican"
+  ],
+  "dish": "Jamaican beef patty"
+ },
+ {
+  "t": 2,
+  "a": "HAI",
+  "n": "Hayes Valley Bakeworks",
+  "address": "550 Gough St (at Fulton St), San Francisco, CA 94102",
+  "w": "Nonprofit bakery-café whose culinary training program employs people with disabilities who are homeless or at risk — jalapeño cornmeal biscuit breakfast sandwiches; on SF Standard's 2026 cheap-eats panel.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/"
+   ],
+   [
+    "SFGATE",
+    "https://sfgate.com/restaurants/article/what-s-new-hayes-valley-bakeworks-3674623.php"
+   ]
+  ],
+  "cz": [
+   "Bakery"
+  ],
+  "dish": "jalapeño cornmeal biscuit breakfast sandwich"
  }
 ]
