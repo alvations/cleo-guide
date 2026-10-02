@@ -41,7 +41,7 @@ SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is
 JOTO 1, KANTO 2.
 
 ## In-flight wave
-**W3 (2026-10-02, continuation) — CLOSED.** Last full build: **379 discovered / 374 rendered (234 sights + 140
+**W3 (2026-10-02, continuation) — CLOSED.** Last full build: **382 discovered / 377 rendered (237 sights + 140
 food)**, 13/13 areas, all 4 gates green, validate + npm test pass, hub card refreshed. Searches W3: ~155.
 Still UNVERIFIED (5 → run `tools/geocode-helper.html`, place pin `!3d!4d`): Tempura Abe Honten (Michelin page shows Bib
 2021 only — also re-check status), Afuri Ebisu, Tamahide, Iseya Kichijōji, Amazake-chaya. Held queue `_pending_w2.json`:
