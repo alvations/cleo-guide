@@ -304,3 +304,22 @@ Per area: AVE 31+21=52/70 · DTN 42+20=62/80 · HAI 21+12=33/45 · MIS 40+13=53/
 NW 28+15=43/50 · PEN 18+11=29/35 · SE 16+8=24/30 — food ≥50% in every area (lowest AVE 60%).
 Searches this session: ~113 main + 30 (pin agent 1) + 22 (pin agent 2) ≈ 165.
 - Post-final (searches 114–115): +Prubechu, Tartine Manufactory (MIS; Infatuation 25-best-Mission × Eater SF 38 / Time Out) → 385 researched.
+
+## Stage W5 — wave 3 of 2026-10-02 (session_013SchN5xr8QFAgVqjZY37dr)
+**Pin pass (background agent, 30 searches) → `geo/_geoout_w5pin.json`: 5 of 87 pinned** — SF Masonic Auditorium (Wikipedia,
+high), Prubechu (Atlas Obscura place page w/ matching 2224 Mission #A, high), Ebiko (Salesforce Tower Wikipedia coord, med —
+inside the tower), The Rotunda (City of Paris/Neiman Marcus bldg Wikipedia coord, med), The Interval (Atlas Obscura 'Long Now
+Orrery', Fort Mason Bldg A, med). REJECTED: Boudin coordinate traced to an aggregator (frankiapp); It's-It Wikipedia gave only the
+Burlingame city centroid; Golden Gate Bakery's Atlas coordinate belonged to the Fortune Cookie Factory (different business).
+Lesson: Atlas/Gastro Obscura place pages are the only WebSearch channel that still yields restaurant pins; Michelin/mapcarta/
+latlong coords never surface in result summaries. The other 82 stay UNVERIFIED → tools/geocode-helper.html.
+**Sights batch 1 (searches 1–13, main) — Wikipedia coordinate batches × a 2nd outlet (SF Travel / Time Out / Atlas Obscura /
+NPS / SFGATE / Hoodline / Mission Local / SF Standard):** Portsmouth Square, Columbus Tower, USS Pampanito, Aquarium of the Bay
+(NECN); Sutro Tower, 826 Valencia Pirate Supply Store (Atlas coords), New Mission Theater/Alamo, Precita Eyes (unpinned) (MIS);
+Sunset Dunes (opened Apr 2025), Grandview Park, Kezar Stadium (med, 3-decimal coord) (AVE); Rincon Center Refregier murals,
+Cupid's Span (DTN); Westerfeld House, The Panhandle (med) (HAI); St. John Coltrane Church — now at Fort Mason's Magic Theatre annex
+per Wikipedia 2026 + SFGATE (NW, med).
+**MEASURED & DROPPED / held:** Mission Cultural Center for Latino Arts — CLOSED permanently 2026-01-28 (Wikipedia) → not added;
+SS Jeremiah O'Brien — Wikipedia coordinate is Pier 35, ship berths at Pier 45 → held (pin conflict); Vaillancourt Fountain —
+Embarcadero Plaza redesign/removal, status unclear → not added; Holy Virgin Cathedral, Jack Kerouac Alley, Chinese Historical
+Society of America (single source / no coordinate in hand) → held; Davies Symphony Hall (no coordinate surfaced) → held.

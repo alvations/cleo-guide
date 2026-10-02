@@ -15,7 +15,12 @@
 - WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
-(none — W4 closed cleanly 2026-10-02; see State W4.)
+**W5 (wave 3 of 2026-10-02, session_013SchN5xr8QFAgVqjZY37dr)** — (1) background pin agent (≤30 searches) on the
+87 unpinned listed in `_sf_unpinned_w5.txt` → `geo/_geoout_w5pin.json`; (2) main: sights-first discovery per area
+(MIS, AVE, DTN, NECN, HAI, NOB, NW, PEN, SE) via batched Wikipedia-coordinate queries + a 2nd outlet → `SIGHTS_W5.json`
++ `geo/_geoout_w5.json`; food top-ups → `FOOD_W5.json`; creators → `CREATORS_W5.json` if any qualify.
+Search counter (main): 13 · pin agent: 30 (done — 5/87 pinned → geo/_geoout_w5pin.json).
+Progress: batch 1 = 16 sights (SIGHTS_W5.json) — NECN 4, MIS 4, AVE 3, DTN 2, HAI 2, NW 1.
 
 ## State — W4 FINAL (2026-10-02 wave 2, session_0159tKUL6tQ8pvUJRBHa67Nx)
 - **385 researched / 298 on the map (122 sights + 176 food)** (+Prubechu, Tartine Manufactory, unpinned); 4 gates + validate + test green. Food ≈67% overall, ≥50% per area.
