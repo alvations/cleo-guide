@@ -269,3 +269,41 @@ statues Yotsugi. Not reached: Ultraman Soshigaya, Sanrio Puroland, Toei Animatio
 Kamakura-kōkōmae, Anpanman Museum. **ANIME layer: 24 records** on the dataset (15 before W5).
 **Final W5 build:** 433 discovered / 387 rendered; all 4 gates PASS; validate DATA OK; npm test ALL PASS; hub refreshed.
 Session searches: lead 9 + agents ~154 + bars agent 44 → the 200 cap (shared with subagents) — W5 closed.
+
+## 2026-10-02 — W6 (session_01S4xkEp3ybvSczLJTRuA3Xb) — FOOD FIRST + anime — batches 1–3
+**Method decisions (logged per run protocol).** (1) Michelin Bib/Selected is largely mined by W2/W3 (dup-checks on
+Sobakappo Nagano, Jiyusan, Gigio, Omino, Narikura, Nanaido, Hinata, Enraku, Taiyo, Katsukami all hit) — W6 pivots to
+genre lists cross-corroborated across outlets (Time Out best-of lists + Ramen Adventures / Tokyo Cheapo / Japan Times /
+Savor Japan / Tokyo Weekender). (2) **Pins:** Google `!3d!4d` via WebSearch failed again (Rokurinsha: 0 hits, and the
+tool chained 4–5 sub-searches); department-store queries to Wikipedia return district points only (REJECTED); an
+openstreetmap.org-restricted search returns only wiki pages. So W6 records places with a sourced address and an
+UNVERIFIED pin (gate holds them off the map) unless Michelin/Wikipedia coords surface free; a capped background
+geocode agent works the UNVERIFIED list. (3) Multi-name queries (≥4 names or mixed domains) make the search tool chain
+3–5 internal searches — keep corroboration to ≤3 names.
+**Kept (batch 1–3): 39 food + 10 sights.**
+- Ramen (8): Rokurinsha (TOKYOCHEAPO+RAMENADVENTURES+TIMEOUT), Kiraku Dōgenzaka (TIMEOUT+RA+RAMENBEAST), Gonokami
+  Seisakusho (TIMEOUT+TOKYOCHEAPO+RA), Akanoren (TIMEOUT+RA+SAVORJAPAN), Shibire Noodles Rousokuya (TIMEOUT+RA),
+  Ramenya Shima (RA best-100 2025 #1 + TOKYOWEEKENDER — clears W5 one-source hold), Chūka Soba Shibata (TIMEOUT+RA #4),
+  Kamofuku (TIMEOUT+RA #5 — clears hold), Ichiran Shibuya (TIMEOUT+WIKIPEDIA, W2 held item).
+- Shinise/other: Asakusa Oden Otafuku (TIMEOUT+TOKYOCHEAPO+GOTOKYO), Unagi Komagata Maekawa (TIMEOUT+SAVORJAPAN),
+  Daikokuya Tempura (TOKYOCHEAPO+JAPANGUIDE; W2 Wikidata point stays REJECTED), Takemura (TIMEOUT+JAPANTIMES),
+  Dashin Soan (TIMEOUT+JAPANTIMES), Blue Bottle Kiyosumi (TIMEOUT+WIKIPEDIA), Isetan Shinjuku & Ginza Mitsukoshi
+  depachika (TIMEOUT depachika list + GOTOKYO + WIKIPEDIA/TOKYOCHEAPO), Kirby Café (TIMEOUT+TOKYOWEEKENDER, anime).
+- Drinks agent (17, all TIMEOUT + JAPANTIMES/LONELYPLANET/TOKYOCHEAPO/TOKYOWEEKENDER/SPRUDGE/MONOCLE): Ladrio, Sabouru,
+  Kayaba Coffee, Arise, Zoetrope, Goodbeer Faucets, Baird Nakameguro, Azuki to Kouri, Mamatoko, Utsura Utsura, Lion,
+  Coffee Lawn, JBS, Gunrindo, Lonich, Dandelion Kuramae (t3, US chain), Obscura Sangenjaya. Dropped: DUG (closed 27 Jun
+  2026 per Time Out), Milonga Nueva / Chap / Mitsuki / Violon / Know by Moto / Jules Verne / Poppins (one source),
+  Allpress/Kurand (chains), Cream of the Crop/Lucent/Coffee Wrights (padding).
+- Outer-area agent (4 kept): Tonkatsu Hasegawa (MICHELIN_BIB — result cited 2023; re-check current selection),
+  Yoshimuraya Yokohama (RA+JAPANGUIDE), Ogawakiku Kawagoe (SAVORJAPAN+TIMEOUT), Hōtō Fudō Kawaguchiko (TOKYOCHEAPO+JNTO).
+  HELD → `_w6_held.json`: Kameido Gyoza (2nd source unconfirmed), Kiyosumi Takahara (no named dish), Ozasa (GO TOKYO only).
+  Dropped one-source: Monzen Toraya, Kawachiya, Ojigi Chaya, Uchida, Kaburaya, Satou, Takahashiya, Hatsuhana, Takeyabu,
+  Wasai Yakura, Cafe Torocco.
+- Anime (7 sights + Kirby Café): Sanrio Puroland (WIKIPEDIA coords high), Kamakurakōkōmae Slam Dunk crossing (station
+  infobox coords, med), Animate Ikebukuro, Ultraman Shopping Street, Anime Tokyo Station, Tokyo Anime Center (Shibuya),
+  Toei Animation Museum. Other sights (W2 held, 2 sources, pin UNVERIFIED): Todoroki Valley, Koiwa Iris Garden,
+  Nihombashi Mitsukoshi Main Store.
+**Channel mix:** editorial/travel sites (Time Out, GO TOKYO, japan-guide, Tokyo Cheapo, Japan Times, Savor Japan, Weekender,
+Lonely Planet, Monocle, Sprudge) on every place; creators: Ramen Adventures on 9, RamenBeast 1; Michelin 1; Wikipedia 5.
+**Build (after batch 3):** 482 discovered / 389 rendered (244 sights + 145 food on map); food 223/482 = 46.3%;
+UNVERIFIED held 93; sourcecheck PASS (482) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; validate + test green.
