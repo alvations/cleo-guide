@@ -20,7 +20,7 @@ S(2,"DONAN","Cape Tachimachi (立待岬)","South side of Mount Hakodate, Hakodat
   O,"hakodate.travel official listing (current)",k="cape strait view",g=["VIEW","FREE"])
 S(2,"SPR","Hokkaido Museum (北海道博物館)","53-2 Konopporo, Atsubetsu-chō, Atsubetsu-ku, Sapporo, Hokkaido, Japan",
   "The prefecture's museum of nature and history beside the Historical Village — five themes including Ainu culture, history and wildlife.",
-  [("JAPANGUIDE","https://www.japan-guide.com/e/e5303.html"),ja("%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8")],43.053000,141.496611,"high",wj("北海道博物館","北緯43度3分10.8秒 東経141度29分47.8秒"),
+  [("JAPANGUIDE","https://www.japan-guide.com/e/e5303.html"),("SAPPOROTRAVEL","https://www.sapporo.travel/en/spot/facility/hokkaido-museum/"),ja("%E5%8C%97%E6%B5%B7%E9%81%93%E5%8D%9A%E7%89%A9%E9%A4%A8")],43.053000,141.496611,"high",wj("北海道博物館","北緯43度3分10.8秒 東経141度29分47.8秒"),
   O,"japan-guide.com e5303 (current)",k="history nature museum",g=["MUS"])
 S(2,"IBURI","Lake Utonai (ウトナイ湖)","Tomakomai, Hokkaido, Japan",
   "Japan's first bird sanctuary (1981) on the edge of Tomakomai — whooper swans and white-fronted geese stop over from autumn to spring.",
