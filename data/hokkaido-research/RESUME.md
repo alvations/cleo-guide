@@ -32,8 +32,9 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - 145 UNVERIFIED held for `tools/geocode-helper.html`: ~125 restaurants (every one has a sourced address/landmark; Hokkaido has no
   Michelin venue pages and `<shop> 緯度経度` returns only centroids) + ~18 sights without infobox coords.
 - 2026-10-02 **session 4** (≈141 searches; local clone reset to origin — backup branch `backup-stale-local`): W80 pins, W81 anime,
-  W82–W84 discovery, W85 SPR sights → **427 discovered (51% food), 244 rendered** (187 sights + 57 food), ANIME 18, all gates green.
-  Discovered vs target: SPR 114/130 · OTARU 45/50 · DONAN 63/75 · DHOKU 48/60 · DOTO 47/55 · TKC 32/35 · IBURI 36/40 · NSK 22/35 · SOYA 20/20 OK.
+  W82–W84 discovery, W85–W87 (sights + promotions), G04 pin → **435 discovered (50% food), 252 rendered** (194 sights + 58 food), ANIME 18,
+  all 4 gates + validate + test green (build B2). 183 UNVERIFIED held (restaurants).
+  Discovered vs target: SPR 114/130 · OTARU 45/50 · DONAN 66/75 · DHOKU 50/60 · DOTO 47/55 · TKC 32/35 · IBURI 36/40 · NSK 25/35 · SOYA 20/20 OK.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
@@ -55,20 +56,18 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Dead ends: guide.michelin.com (no Hokkaido venue pages), Michelin 2017 Bib list, Tabelog 百名店 lists, Time Out "10 things to eat",
   SAVOR JAPAN (Gurunavi), visit-hokkaido dish pages (no shop names), corporate plants' wiki coords.
 
-## Next-wave plan (session 4)
-1. **Restaurant pins (biggest lever: +125 rendered):** run `tools/geocode-helper.html` over the hokkaido UNVERIFIED backlog
-   (`docs/GEOCODE-BACKLOG.md`) — addresses are sourced.
-2. **Promote held singles** (each needs ONE more outlet; list in AUDIT session-3 "Held" lines): Matsuo Jingisukan Ekimae, Okami Soup,
-   Iso-chan, Uni Marukawa, Kitaushi, Fuhdo, Asari sukiyaki, Misuzu coffee, Snaffle's, Uomasa, Ushi no Sato, Toridatsu, Fukuan,
-   Niseko Cheese Kōbō, Niseko Gelato, Karafuto Shokudō, Isoyakitei, Kani no Shōya, Shiretoko Shokudō, Tenkin, Hanatokachi, Kitakaro
-   Otaru, Koshimizu Natural Flower Garden (pin read), Sapporo City Archives (pin read).
-3. **Area order by gap:** SPR (+41: sights via sapporo.travel facility pages + wiki pins; food via GoodLuckTrip/Time Out lists) →
-   DONAN (+22) → DHOKU (+21) → NSK (+21; English sources: niseko-ta.jp + Japan Times/Time Out for Niseko dining) → DOTO (+20) →
-   OTARU (+17) → IBURI (+16) → TKC (+10) → SOYA (+5).
-4. Food share is 47% overall; IBURI 38%, SOYA 33%, NSK 43% → food first there.
-5. Anime wave 2: visit-hokkaido.jp/stamprally (film/anime location stamp rally), Sabō Kikuizumi (Saint Snow café, Hakodate),
-   Tsukigata Kabato Museum (Golden Kamuy), Animate/Mandarake Sapporo (need editorial source).
-6. Re-verify med pins (W60 Nukabira/Noshappu, W61 Hokkaido University campus point) and the merged-attribution caveats (W33, W44, W74).
+## Next-wave plan (session 5)
+1. **Restaurant pins (biggest lever, 183 UNVERIFIED → map):** WebSearch cannot surface shop coordinates (re-confirmed s4: mapion/OSM/
+   `!3d`/緯度経度 all fail). Run `tools/geocode-helper.html` over `docs/GEOCODE-BACKLOG.md` (hokkaido) in a browser — addresses are sourced.
+   Remaining WebSearch-reachable pins: host-landmark coords only (see `_note_W80.md` for what was tried; re-verify Okushiba/Ichiryūan lot 1-1 vs 1-3).
+2. **Gaps by area (discovered):** SPR +16 · NSK +10 · DHOKU +10 · DONAN +9 · DOTO +8 · OTARU +5 · IBURI +4 · TKC +3. Pinnable-first:
+   ja.wikipedia 3-name coord queries for sights + michi-no-eki/breweries/wineries; restaurants via rurubu+mapple 2-in-1 queries.
+3. **Promote held singles** (one more exact outlet page each): W82 held 4 (Hotei, nano.femto, Kakizaki, Shakotan Blue), Misuzu coffee
+   Daimon, Snaffle's, Tenkin (branch), Katsuyamadate, Snow Crystal Museum, Sapporo Science Center, Hoshioki Falls, Salmon Museum,
+   Makkarina, Kumagera, Shiraoi-beef shops, Kyōdō Gakusha, Tokachino Fromage, Wakoto, Sumikai (see `_note_W8x.md`).
+4. **Anime wave 3:** Animate/Mandarake Sapporo (need editorial), Kitami 'Dosanko Gal', Hokkaido Gokoku Shrine (Golden Kamuy), Snow Miku events;
+   give Sabō Kikuizumi a pin (host: Motomachi building).
+5. Keep food ≥50% (now 50.1%): every new sight should be matched by a food place in the same area.
 
 ## Acceptance
 - [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
