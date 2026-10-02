@@ -1,0 +1,183 @@
+{
+ "areas": [
+  {
+   "id": "HGS",
+   "n": "Higashiyama-ku (Gion · Kiyomizu-dera · Sannenzaka · Kennin-ji · Yasaka · Tōfuku-ji)"
+  },
+  {
+   "id": "SAKYO",
+   "n": "Sakyō-ku (Ginkaku-ji · Philosopher's Path · Nanzen-ji · Okazaki · Demachiyanagi · Shimogamo)"
+  },
+  {
+   "id": "CTR",
+   "n": "Central — Nakagyō & Shimogyō (Nishiki · Pontochō · Kawaramachi · Karasuma · Nijō Castle · Kyoto Station)"
+  },
+  {
+   "id": "KITA",
+   "n": "Kita & Kamigyō (Kinkaku-ji · Daitoku-ji · Imperial Palace · Nishijin · Kamigamo)"
+  },
+  {
+   "id": "RKSAI",
+   "n": "Rakusai — Ukyō & Nishikyō (Arashiyama · Sagano · Ryōan-ji · Katsura · Koke-dera)"
+  },
+  {
+   "id": "FSHMI",
+   "n": "Fushimi & Minami (Fushimi Inari · Tō-ji · Fushimi sake district · Daigo-ji)"
+  },
+  {
+   "id": "RKHKU",
+   "n": "Rakuhoku mountains (Ōhara · Kurama · Kibune · Takao · Miyama)"
+  },
+  {
+   "id": "UJI",
+   "n": "Uji & Nara (Byōdō-in · Uji tea · Tōdai-ji · Kasuga Taisha · Nara Park)"
+  },
+  {
+   "id": "KYFU",
+   "n": "Kyoto Prefecture & Lake Biwa (Amanohashidate · Ine no Funaya · Kameoka · Ōtsu · Hiei-zan)"
+  }
+ ],
+ "ac": {
+  "HGS": "#D9534F",
+  "SAKYO": "#9B5DE5",
+  "CTR": "#E8B04B",
+  "KITA": "#5B8DEF",
+  "RKSAI": "#3D9970",
+  "FSHMI": "#E07A5F",
+  "RKHKU": "#7D8C38",
+  "UJI": "#00A6A6",
+  "KYFU": "#B5651D"
+ },
+ "cuisines": [
+  {
+   "id": "SUSHI",
+   "n": "Sushi & Kaisen-don"
+  },
+  {
+   "id": "RAMEN",
+   "n": "Ramen & Tsukemen"
+  },
+  {
+   "id": "NOODLE",
+   "n": "Soba & Udon"
+  },
+  {
+   "id": "KAISEKI",
+   "n": "Kaiseki, Kyō-ryōri & Ryōtei"
+  },
+  {
+   "id": "IZAKAYA",
+   "n": "Izakaya, Yakitori & Yokochō"
+  },
+  {
+   "id": "TEMPURA",
+   "n": "Tempura, Tonkatsu & Agemono"
+  },
+  {
+   "id": "KONAMON",
+   "n": "Okonomiyaki, Takoyaki & Kushikatsu"
+  },
+  {
+   "id": "WAGYU",
+   "n": "Wagyu, Yakiniku & Sukiyaki"
+  },
+  {
+   "id": "TEISHOKU",
+   "n": "Teishoku, Curry & Yōshoku"
+  },
+  {
+   "id": "OKINAWA",
+   "n": "Okinawan & Ryūkyū"
+  },
+  {
+   "id": "HOKKAIDO",
+   "n": "Hokkaido Seafood, Jingisukan & Ainu"
+  },
+  {
+   "id": "TOFU",
+   "n": "Tofu, Shōjin & Vegetarian"
+  },
+  {
+   "id": "SWEET",
+   "n": "Wagashi, Matcha & Sweets"
+  },
+  {
+   "id": "CAFE",
+   "n": "Kissaten & Coffee"
+  },
+  {
+   "id": "SAKE",
+   "n": "Sake, Awamori, Whisky & Bars"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets, Depachika & Street Food"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "INT",
+   "n": "International & Fusion"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "TEMPLE",
+   "n": "Temples & Shrines"
+  },
+  {
+   "id": "CASTLE",
+   "n": "Castles, Palaces & History"
+  },
+  {
+   "id": "GARDEN",
+   "n": "Gardens & Teahouses"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "NATURE",
+   "n": "Nature, Parks & Coast"
+  },
+  {
+   "id": "ONSEN",
+   "n": "Onsen & Sentō"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Shopping Streets"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife, Yokochō & Districts"
+  },
+  {
+   "id": "POP",
+   "n": "Anime, Pop Culture & Oddities"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Observation Decks"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

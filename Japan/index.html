@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan — Field Guides</title>
+<meta name="description" content="Source-traceable field guides to Japan — Tokyo (ward by ward), Kyoto, Osaka, Okinawa and Hokkaido, each on its own interactive map, every place sourced, geocoded and status-checked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --slab-2:#232C31;
+    --patina:#74AE99; --patina-dim:#3E5D53; --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2; --hair:#2E393E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  body{margin:0;background:var(--iron);color:var(--bone);font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased;}
+  a{color:var(--patina);text-decoration:none;} a:hover{text-decoration:underline;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;}
+  header{padding:76px 0 30px;border-bottom:1px solid var(--hair);}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--patina);margin:0 0 22px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(40px,8vw,84px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 6px;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;color:var(--patina);font-size:clamp(28px,5.5vw,58px);line-height:1.05;margin-top:6px;}
+  .standfirst{max-width:64ch;margin:26px 0 6px;color:var(--bone);font-size:19px;}
+  .standfirst strong{font-weight:500;}
+  .back{display:inline-block;margin:18px 0 0;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-dim);}
+  .back:hover{color:var(--patina);}
+  h2.sec{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:44px 0 16px;font-weight:500;}
+  .cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+  .city{display:block;background:var(--slab);border:1px solid var(--hair);border-radius:14px;padding:26px 26px 22px;color:var(--bone);}
+  .city .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--patina);margin:0 0 8px;}
+  .city .nm{font-family:"Archivo Black",sans-serif;font-size:clamp(24px,3.2vw,32px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 10px;overflow-wrap:anywhere;}
+  .city .desc{color:var(--bone-dim);font-size:15.5px;margin:0 0 16px;}
+  .city .go{display:inline-block;margin-top:8px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--rust);}
+  .city .stat{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.02em;color:var(--brass);margin:0 0 6px;}
+  a.city{transition:border-color .15s,transform .15s;}
+  a.city:hover{border-color:var(--rust);transform:translateY(-2px);}
+  .city.soon{opacity:.72;}
+  footer{padding:44px 0 80px;color:var(--bone-dim);font-size:14px;max-width:78ch;border-top:1px solid var(--hair);margin-top:44px;}
+  footer p{margin:0 0 12px;} code{font-family:"JetBrains Mono",monospace;font-size:.9em;color:var(--brass);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Field Guides · Japan · Sourced · On a map</p>
+    <h1>Japan<span class="thin">five maps — Tokyo ward by ward, Kyoto, Osaka, Okinawa and Hokkaido</span></h1>
+    <p class="standfirst">Five separate maps, each driven to <strong>New York density</strong> before it goes
+      live — <strong>Tokyo</strong> organised by its special wards (and the Jōnan / Jōsai / Jōhoku / Jōtō
+      groupings, the Tama area and the Kantō day-trip ring), <strong>Kyoto</strong>, <strong>Osaka</strong>,
+      <strong>Okinawa</strong> and <strong>Hokkaido</strong>. Every place sourced in Japanese and English
+      through the pipeline (sources → fact-check → re-rank → location-verify), every coordinate verified and
+      every open/closed status checked.</p>
+    <a class="back" href="../index.html">← all countries</a>
+  </header>
+
+  <h2 class="sec">Maps · in the pipeline</h2>
+  <div class="cities">
+    <!-- CARD:tokyo -->
+    <div class="city soon">
+      <p class="kicker">東京 · 23 special wards · Tama · Kantō day trips</p>
+      <p class="nm">Tokyo</p>
+      <p class="desc">Ward by ward like New York's boroughs — Chiyoda, Chūō, Minato, Shinjuku, Shibuya, Taitō, Sumida-Kōtō, then Jōnan, Jōsai, Jōhoku and Jōtō, the Tama area and the Kantō day-trip ring. Edomae sushi, soba, monjayaki, yokochō and the deepest Michelin bench anywhere.</p>
+      <p class="stat">in the pipeline · discovery under way</p>
+      <span class="go">Being built</span>
+    </div>
+    <!-- /CARD:tokyo -->
+    <!-- CARD:kyoto -->
+    <div class="city soon">
+      <p class="kicker">京都 · Rakuchū · Higashiyama · Arashiyama · Uji &amp; Nara</p>
+      <p class="nm">Kyoto</p>
+      <p class="desc">The 17 UNESCO monuments, Gion and Pontochō, the Philosopher's Path and Arashiyama; kaiseki and obanzai, yudofu and yuba, Uji matcha and the Fushimi sake district.</p>
+      <p class="stat">in the pipeline · discovery under way</p>
+      <span class="go">Being built</span>
+    </div>
+    <!-- /CARD:kyoto -->
+    <!-- CARD:osaka -->
+    <div class="city soon">
+      <p class="kicker">大阪 · Kita · Minami · Tennōji · Kansai day trips</p>
+      <p class="nm">Osaka</p>
+      <p class="desc">Kuidaore: takoyaki, okonomiyaki, kushikatsu and kitsune udon; Dōtonbori, Shinsekai, Osaka Castle and Tsuruhashi — out to Kobe, Himeji and Kōya-san.</p>
+      <p class="stat">in the pipeline · discovery under way</p>
+      <span class="go">Being built</span>
+    </div>
+    <!-- /CARD:osaka -->
+    <!-- CARD:okinawa -->
+    <div class="city soon">
+      <p class="kicker">沖縄 · Naha · Chūbu · Nanbu · Hokubu · Miyako · Yaeyama</p>
+      <p class="nm">Okinawa</p>
+      <p class="desc">The Ryūkyū gusuku (UNESCO), Churaumi and Yanbaru; Okinawa soba, champurū, taco rice, awamori and Blue Seal — out to the Kerama, Miyako and Yaeyama islands.</p>
+      <p class="stat">in the pipeline · discovery under way</p>
+      <span class="go">Being built</span>
+    </div>
+    <!-- /CARD:okinawa -->
+    <!-- CARD:hokkaido -->
+    <div class="city soon">
+      <p class="kicker">北海道 · Sapporo · Otaru · Hakodate · Furano · Shiretoko</p>
+      <p class="nm">Hokkaido</p>
+      <p class="desc">Miso ramen, soup curry, jingisukan and the morning-market kaisendon; Upopoy and Ainu culture, lavender fields, Shiretoko (UNESCO) and the drift ice.</p>
+      <p class="stat">in the pipeline · discovery under way</p>
+      <span class="go">Being built</span>
+    </div>
+    <!-- /CARD:hokkaido -->
+  </div>
+
+  <footer>
+    <p>Sourced &amp; fact-checked via the pipeline — every place ≥2 credible sources (or a lone Michelin /
+      UNESCO / Agency for Cultural Affairs designation), searched in Japanese &amp; English, every coordinate
+      verified into <code>data/geocodes.json</code>, every open/closed status checked, and each map driven to
+      full density (<code>docs/DENSITY.md</code>) before it goes live. Tabelog and Retty scores measure
+      popularity only — they never count as a source.</p>
+    <p><a href="../index.html">← all countries</a></p>
+  </footer>
+</div>
+</body>
+</html>

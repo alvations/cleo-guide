@@ -23,13 +23,14 @@ PLACES = [
  ("ang-mo-kio","Ang Mo Kio","Singapore",["__AREA_AMK__"],15),
  ("potong-pasir-macpherson","Potong Pasir &amp; MacPherson","Singapore",["__AREA_PPM__"],15),
  ("upper-serangoon","Upper Serangoon","Singapore",["__AREA_USG__"],15),
+ ("punggol","Punggol","Singapore",["__AREA_PGL__","Punggol"],14),
  ("chinatown","Chinatown & CBD","Singapore",["Chinatown","South Bridge","Smith Street","Pagoda Street","Keong Saik","Telok Ayer","Maxwell","Kadayanallur","Hong Lim","Upper Cross Street","China Street","Far East Square","Riverside Point","Merchant Road","New Bridge Road","Lau Pa Sat","Raffles Quay","Boon Tat"],16),
  ("marina-bay","Marina Bay","Singapore",["Marina Bay","Bayfront","Marina Gardens","Raffles Avenue","Fullerton","Esplanade Drive"],15),
  ("civic-district","Civic District","Singapore",["St Andrew","Empress Place","Stamford Road","Fort Canning","River Valley","1 Beach Road","Civic District"],16),
  ("kampong-glam","Kampong Glam","Singapore",["Kampong Glam","Muscat Street","North Bridge Road","Jalan Pisang"],16),
  ("little-india","Little India","Singapore",["Little India","Serangoon Road","Race Course Road","Buffalo Road","Kerbau Road","Tekka"],16),
  ("tiong-bahru","Tiong Bahru","Singapore",["Tiong Bahru","Seng Poh"],16),
- ("newton-novena","Newton & Novena","Singapore",["Newton Food","Clemenceau Avenue","United Square","Thomson Road","Novena"],15),
+ ("newton-novena","Newton & Novena","Singapore",["__AREA_NVN__","Newton Food","Clemenceau Avenue","United Square","Thomson Road","Novena"],15),
  ("jalan-besar","Jalan Besar & Lavender","Singapore",["Jalan Besar","Kitchener","Foch Road","Crawford Lane","Cambridge Road","Kallang Avenue","Pek Kio"],15),
  ("katong-joo-chiat","Katong & Joo Chiat","Singapore",["Katong","Joo Chiat","East Coast Road","Koon Seng"],16),
  ("old-airport-road","Old Airport Road","Singapore",["Old Airport Road"],16),
@@ -39,9 +40,9 @@ PLACES = [
  ("marine-parade","Marine Parade & East Coast","Singapore",["East Coast Park","Marine Parade","East Coast Parkway","East Coast Lagoon"],14),
  ("dempsey-hill","Dempsey Hill","Singapore",["Dempsey"],16),
  ("bukit-timah","Bukit Timah","Singapore",["Bukit Timah","Cluny","Hindhede","Adam Road"],14),
- ("balestier","Balestier","Singapore",["Balestier"],16),
+ ("balestier","Balestier","Singapore",["__AREA_BLS__","Balestier"],16),
  ("mandai","Mandai","Singapore",["Mandai"],14),
- ("holland-village","Holland Village","Singapore",["Holland Drive","Holland Village","Lorong Mambong"],16),
+ ("holland-village","Holland Village","Singapore",["__AREA_HLV__","Holland Drive","Holland Village","Lorong Mambong"],16),
  ("southern-ridges","Southern Ridges","Singapore",["Henderson","Mount Faber","Telok Blangah","Pasir Panjang"],15),
  ("queenstown","Queenstown & Redhill","Singapore",["Alexandra Village","Bukit Merah","Redhill","Commonwealth","Depot Road"],15),
  ("jurong","Jurong","Singapore",["Jurong","Boon Lay"],14),
@@ -129,6 +130,10 @@ def assign(r):
     if r["a"]=="AMK": return "ang-mo-kio"
     if r["a"]=="PPM": return "potong-pasir-macpherson"
     if r["a"]=="USG": return "upper-serangoon"
+    if r["a"]=="PGL": return "punggol"
+    if r["a"]=="BLS": return "balestier"
+    if r["a"]=="NVN": return "newton-novena"
+    if r["a"]=="HLV": return "holland-village"
     for slug,name,region,kws,zoom in PLACES:
         # core identity keywords (PLACES) + the metro's outskirts/day-trip keywords (data/metros.json)
         for kw in list(kws)+metro_keywords(slug):

@@ -28,10 +28,21 @@ RDIR = {
     "ghent":     "data/ghent-research",
     "brussels":  "data/brussels-research",
     "bruges":    "data/bruges-research",
+    "tokyo": "data/tokyo-research",
+    "kyoto": "data/kyoto-research",
+    "osaka": "data/osaka-research",
+    "okinawa": "data/okinawa-research",
+    "hokkaido": "data/hokkaido-research",
+    "akron-oh": "data/akron-research",
+    "chicago-il": "data/chicago-research",
+    "harrisburg-pa": "data/harrisburg-research",
+    "madison-wi": "data/madison-research",
+    "miami-fl": "data/miami-research",
+    "orlando-fl": "data/orlando-research",
 }
 # human labels for Singapore area codes (best-effort; unknown codes print the raw code)
 SG_LABELS = {"TPY":"Toa Payoh","BSH":"Bishan","AMK":"Ang Mo Kio","PPM":"Potong Pasir & MacPherson",
-             "USG":"Upper Serangoon","PPS":"(retired combined PP/Mac/Serangoon)"}
+             "USG":"Upper Serangoon","PGL":"Punggol","BLS":"Balestier","NVN":"Novena & Newton","HLV":"Holland Village","PPS":"(retired combined PP/Mac/Serangoon)"}
 # SCALE-TO-SIZE: the benchmark is Toa Payoh; every town's target scales by its resident population
 # relative to Toa Payoh's (a larger, older town must be denser — the user's rule made concrete/auditable).
 # Populations are ~2020 census planning-area/subzone estimates for the ground each guide actually covers.
@@ -42,6 +53,10 @@ SG_POP = {  # thousands of residents on the ground the guide covers
     "USG": 175,   # Upper Serangoon: Serangoon Gardens + Kovan + the Hougang edge
     "BSH": 88,    # Bishan — a compact town
     "PPM": 95,    # Potong Pasir + MacPherson + Bidadari/Woodleigh
+    "PGL": 200,   # Punggol planning area — a large, fast-growing new town (Punggol Digital District, Coney Island)
+    "BLS": 30,    # Balestier — the Balestier Road/Whampoa strip (floor applies)
+    "HLV": 40,    # Holland Village + Holland Rd/Chip Bee/Jalan Merah Saga (floor applies)
+    "NVN": 50,    # Novena + Newton planning areas, incl. the Thomson Rd/Newton Circus belt (floor applies)
 }
 SG_FLOOR = 55     # no SG neighbourhood target below this, however small
 

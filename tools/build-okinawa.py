@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+# Build cities/okinawa.html from the Cleveland engine + the Okinawa dataset. Thin wrapper over
+# tools/japan_build.build(). Coordinates injected from geocodes.json["cities"]["okinawa"]; build FAILS on any
+# missing/UNVERIFIED pin. Areas with no gated+geocoded place are dropped.
+# The prose below is a SCAFFOLD — the Okinawa agent rewrites it once the dataset has real depth.
+import japan_build as B
+
+CFG = {
+ "KEY": "okinawa", "OUT": "okinawa.html", "DATASET": "okinawa.dataset.json", "PFX": "oki",
+ "FALLBACK": (26.2124, 127.6809, 9), "VERIFIED": "2026-10-02",
+ "TITLE": "Okinawa Field Guide — Sourced",
+ "EYEBROW": "Field guide · Okinawa (沖縄), sourced",
+ "H1_MAIN": "Okinawa",
+ "H1_THIN": "Naha · Central Okinawa · Southern Okinawa · Northern Okinawa · Kerama & nearby islands",
+ "CITY_ADDR": "Okinawa", "MYLIST": "Okinawa",
+ "PH_ONE": "ramen, sushi, temple, onsen…",
+ "PH_FOOD": "ramen, sushi, izakaya, matcha…",
+ "PH_SIGHT": "temple, shrine, castle, garden…",
+ "STANDFIRST": lambda nP, nF: (
+   "%d sights and %d places to eat across <strong>Okinawa</strong>, every one traceable to its source. "
+   "<strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or "
+   "<strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps." % (nP, nF)),
+ "META": lambda nP, nF: (
+   "Okinawa field guide — %d sights and %d places to eat, each traceable to its source (Michelin, UNESCO, "
+   "Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters." % (nP, nF)),
+ "REFRESH_NOTE": (
+   "Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Japanese "
+   "and English across Michelin, UNESCO, Japanese national and regional press, official tourism bodies and vetted "
+   "creators. Every coordinate is verified into data/geocodes.json and every place status-checked open."),
+}
+CFG["SR_APPENDIX"] = B.sr_appendix([
+ ("FOOD RULES", "How the cuisine filters were policed",
+  "Every food card names a specific dish — a label alone doesn’t qualify. A cuisine tag names the kitchen’s own "
+  "tradition, never one dish it serves. Tabelog and Retty scores may measure popularity but never count as a source."),
+ ("HOW SOURCED", "Web-searched in Japanese and English, fact-checked",
+  "Every place is traceable to two credible sources, or a lone Michelin / UNESCO / Agency for Cultural Affairs "
+  "designation — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every "
+  "place status-checked open. Yelp/TripAdvisor/Tabelog never count toward the two-source bar."),
+])
+B.build(CFG)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # belgium_build.py — shared builder for the four Belgian dataset cities (Antwerp · Ghent · Brussels ·
-# Bruges). Each city's tools/build-<city>.py is a thin wrapper that fills a CFG dict and calls build(CFG).
+# Bruges), reused by tools/japan_build.py for the Japan maps (CFG["HUB"] sets the back-link). Each city's tools/build-<city>.py is a thin wrapper that fills a CFG dict and calls build(CFG).
 # Mirrors tools/build-aachen.py exactly (same gates, same trimmed-bounds centring, same engine_guard
 # scrub, same pin-centroid fallback labels); only the city prose/config differs. Coordinates injected from
 # geocodes.json["cities"][KEY]; build FAILS on any missing/UNVERIFIED pin. Areas with no gated+geocoded
@@ -9,8 +9,8 @@ import re, os, json
 from collections import defaultdict as _dd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-_OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS", "RATEBEER", "UNTAPPD", "RESTOBE"}
-_ELITE_SOLO = {"MICHELIN", "MICHELINBE", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "GAULTMILLAU", "UNESCO"}
+_OPEN_CHECK_ONLY = {"YELP", "TRIPADVISOR", "OPENTABLE", "GOOGLE", "GOOGLEMAPS", "RATEBEER", "UNTAPPD", "RESTOBE", "TABELOG", "RETTY"}
+_ELITE_SOLO = {"MICHELIN", "MICHELINBE", "MICHELINJP", "MICHELIN_BIB", "MICHELIN_STAR", "MICHELIN_GREEN", "GAULTMILLAU", "UNESCO", "BUNKACHO"}
 
 def _sourced_ok(r):
     c = {t[0] for t in r.get("s", []) if t[0] not in _OPEN_CHECK_ONLY}
@@ -182,8 +182,8 @@ LABELS.forEach(''')
     new = new.replace('placeholder="witchcraft, waterfall, chess, kielbasa…"', 'placeholder="%s"' % CFG["PH_ONE"])
     new = new.replace("? 'laksa, dim sum, pastrami, cannoli…' : 'witchcraft, waterfall, chess, kielbasa…'",
                       "? '%s' : '%s'" % (CFG["PH_FOOD"], CFG["PH_SIGHT"]))
-    new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="../Belgium/index.html" style="color:var(--bone-dim)')
-    new = new.replace("last verified 2026-08-08", "last verified 2026-09-04")
+    new = new.replace('href="index.html" style="color:var(--bone-dim)', 'href="%s" style="color:var(--bone-dim)' % CFG.get("HUB", "../Belgium/index.html"))
+    new = new.replace("last verified 2026-08-08", "last verified %s" % CFG.get("VERIFIED", "2026-09-04"))
     new = new.replace(
 '''  <span style="opacity:.8">Refresh check (Aug 2026, via the pipeline): Sokolowski's University Inn confirmed still closed (kept, flagged); West Side Market open amid a $70M renovation, produce arcade reopened Jan 2026; newly opened since build — Rock &amp; Roll Hall of Fame expansion, Cleveland Metroparks Zoo Primate Forest, Irishtown Bend Park. Findings logged in data/sources.json.</span><br><br>''',
         '  <span style="opacity:.8">%s</span><br><br>' % CFG["REFRESH_NOTE"])

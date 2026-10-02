@@ -1,0 +1,183 @@
+{
+ "areas": [
+  {
+   "id": "SPR",
+   "n": "Sapporo (Ōdōri · Susukino · Nijō Market · Maruyama · Moiwa · Jōzankei)"
+  },
+  {
+   "id": "OTARU",
+   "n": "Otaru & Shakotan (canal · Sushi-ya Dōri · Yoichi Nikka · Shakotan uni)"
+  },
+  {
+   "id": "NSK",
+   "n": "Niseko & Yōtei (Niseko · Kutchan · Rusutsu · Makkari · Kyōgoku)"
+  },
+  {
+   "id": "DONAN",
+   "n": "Hakodate & Dōnan (Morning Market · Goryōkaku · Mt Hakodate · Motomachi · Ōnuma · Matsumae)"
+  },
+  {
+   "id": "IBURI",
+   "n": "Shikotsu-Tōya & Iburi (Noboribetsu Jigokudani · Lake Tōya · Upopoy · Shiraoi · Tomakomai)"
+  },
+  {
+   "id": "DHOKU",
+   "n": "Dōhoku — Central Hokkaido (Asahikawa · Biei · Furano · Daisetsuzan · Sōunkyō)"
+  },
+  {
+   "id": "TKC",
+   "n": "Tokachi (Obihiro · Tokachi Plain · Nakasatsunai · Ikeda)"
+  },
+  {
+   "id": "DOTO",
+   "n": "Dōtō — Eastern Hokkaido (Kushiro · Akan · Mashū · Shiretoko · Abashiri · Nemuro)"
+  },
+  {
+   "id": "SOYA",
+   "n": "Far North (Wakkanai · Cape Sōya · Rishiri · Rebun)"
+  }
+ ],
+ "ac": {
+  "SPR": "#D9534F",
+  "OTARU": "#5B8DEF",
+  "NSK": "#9B5DE5",
+  "DONAN": "#E07A5F",
+  "IBURI": "#00A6A6",
+  "DHOKU": "#3D9970",
+  "TKC": "#E8B04B",
+  "DOTO": "#7D8C38",
+  "SOYA": "#6A8CAF"
+ },
+ "cuisines": [
+  {
+   "id": "SUSHI",
+   "n": "Sushi & Kaisen-don"
+  },
+  {
+   "id": "RAMEN",
+   "n": "Ramen & Tsukemen"
+  },
+  {
+   "id": "NOODLE",
+   "n": "Soba & Udon"
+  },
+  {
+   "id": "KAISEKI",
+   "n": "Kaiseki, Kyō-ryōri & Ryōtei"
+  },
+  {
+   "id": "IZAKAYA",
+   "n": "Izakaya, Yakitori & Yokochō"
+  },
+  {
+   "id": "TEMPURA",
+   "n": "Tempura, Tonkatsu & Agemono"
+  },
+  {
+   "id": "KONAMON",
+   "n": "Okonomiyaki, Takoyaki & Kushikatsu"
+  },
+  {
+   "id": "WAGYU",
+   "n": "Wagyu, Yakiniku & Sukiyaki"
+  },
+  {
+   "id": "TEISHOKU",
+   "n": "Teishoku, Curry & Yōshoku"
+  },
+  {
+   "id": "OKINAWA",
+   "n": "Okinawan & Ryūkyū"
+  },
+  {
+   "id": "HOKKAIDO",
+   "n": "Hokkaido Seafood, Jingisukan & Ainu"
+  },
+  {
+   "id": "TOFU",
+   "n": "Tofu, Shōjin & Vegetarian"
+  },
+  {
+   "id": "SWEET",
+   "n": "Wagashi, Matcha & Sweets"
+  },
+  {
+   "id": "CAFE",
+   "n": "Kissaten & Coffee"
+  },
+  {
+   "id": "SAKE",
+   "n": "Sake, Awamori, Whisky & Bars"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets, Depachika & Street Food"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "INT",
+   "n": "International & Fusion"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "TEMPLE",
+   "n": "Temples & Shrines"
+  },
+  {
+   "id": "CASTLE",
+   "n": "Castles, Palaces & History"
+  },
+  {
+   "id": "GARDEN",
+   "n": "Gardens & Teahouses"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "NATURE",
+   "n": "Nature, Parks & Coast"
+  },
+  {
+   "id": "ONSEN",
+   "n": "Onsen & Sentō"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Shopping Streets"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife, Yokochō & Districts"
+  },
+  {
+   "id": "POP",
+   "n": "Anime, Pop Culture & Oddities"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Observation Decks"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

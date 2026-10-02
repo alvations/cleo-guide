@@ -34,6 +34,17 @@ DATASETS = {
     "ghent": "data/ghent.dataset.json",
     "brussels": "data/brussels.dataset.json",
     "bruges": "data/bruges.dataset.json",
+    "tokyo": "data/tokyo.dataset.json",
+    "kyoto": "data/kyoto.dataset.json",
+    "osaka": "data/osaka.dataset.json",
+    "okinawa": "data/okinawa.dataset.json",
+    "hokkaido": "data/hokkaido.dataset.json",
+    "akron-oh": "data/akron.dataset.json",
+    "chicago-il": "data/chicago.dataset.json",
+    "harrisburg-pa": "data/harrisburg.dataset.json",
+    "madison-wi": "data/madison.dataset.json",
+    "miami-fl": "data/miami.dataset.json",
+    "orlando-fl": "data/orlando.dataset.json",
 }
 
 def sourced_ok(rec):

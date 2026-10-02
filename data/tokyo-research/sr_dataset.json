@@ -1,0 +1,203 @@
+{
+ "areas": [
+  {
+   "id": "CYD",
+   "n": "Chiyoda-ku (Imperial Palace · Marunouchi · Akihabara · Kanda · Jimbōchō)"
+  },
+  {
+   "id": "CHUO",
+   "n": "Chūō-ku (Ginza · Nihonbashi · Tsukiji · Tsukishima · Ningyōchō)"
+  },
+  {
+   "id": "MNT",
+   "n": "Minato-ku (Roppongi · Azabu-Jūban · Akasaka · Shimbashi · Shiba · Odaiba)"
+  },
+  {
+   "id": "SJK",
+   "n": "Shinjuku-ku (Kabukichō · Golden Gai · Omoide Yokochō · Shinjuku Gyoen · Kagurazaka · Shin-Ōkubo)"
+  },
+  {
+   "id": "SBY",
+   "n": "Shibuya-ku (Shibuya · Harajuku · Omotesandō · Ebisu · Yoyogi · Daikanyama)"
+  },
+  {
+   "id": "TAITO",
+   "n": "Taitō-ku (Asakusa · Ueno · Yanaka · Kappabashi · Okachimachi)"
+  },
+  {
+   "id": "SMKT",
+   "n": "Sumida-ku & Kōtō-ku (Skytree · Ryōgoku · Kiyosumi-Shirakawa · Monzen-Nakachō · Toyosu)"
+  },
+  {
+   "id": "JONAN",
+   "n": "Jōnan — Shinagawa · Meguro · Ōta (Nakameguro · Togoshi-Ginza · Kamata · Haneda)"
+  },
+  {
+   "id": "JOSAI",
+   "n": "Jōsai — Setagaya · Nakano · Suginami (Shimokitazawa · Sangenjaya · Gōtokuji · Nakano Broadway · Kōenji · Ogikubo)"
+  },
+  {
+   "id": "JHOKU",
+   "n": "Jōhoku — Toshima · Bunkyō · Kita · Arakawa · Itabashi · Nerima (Ikebukuro · Sugamo · Nezu · Akabane · Nippori)"
+  },
+  {
+   "id": "JOTO",
+   "n": "Jōtō — Katsushika · Edogawa · Adachi (Shibamata · Kameari · Kita-Senju · Kasai)"
+  },
+  {
+   "id": "TAMA",
+   "n": "Tama area (Kichijōji · Mitaka & Ghibli · Takao-san · Okutama · Hachiōji · Chōfu)"
+  },
+  {
+   "id": "KANTO",
+   "n": "Kantō day trips (Yokohama · Kamakura · Hakone · Nikkō · Kawagoe · Fuji Five Lakes)"
+  }
+ ],
+ "ac": {
+  "CYD": "#E8B04B",
+  "CHUO": "#D9534F",
+  "MNT": "#5B8DEF",
+  "SJK": "#C05780",
+  "SBY": "#9B5DE5",
+  "TAITO": "#E07A5F",
+  "SMKT": "#00A6A6",
+  "JONAN": "#3D9970",
+  "JOSAI": "#7D8C38",
+  "JHOKU": "#B5651D",
+  "JOTO": "#6A8CAF",
+  "TAMA": "#A6588C",
+  "KANTO": "#D4A017"
+ },
+ "cuisines": [
+  {
+   "id": "SUSHI",
+   "n": "Sushi & Kaisen-don"
+  },
+  {
+   "id": "RAMEN",
+   "n": "Ramen & Tsukemen"
+  },
+  {
+   "id": "NOODLE",
+   "n": "Soba & Udon"
+  },
+  {
+   "id": "KAISEKI",
+   "n": "Kaiseki, Kyō-ryōri & Ryōtei"
+  },
+  {
+   "id": "IZAKAYA",
+   "n": "Izakaya, Yakitori & Yokochō"
+  },
+  {
+   "id": "TEMPURA",
+   "n": "Tempura, Tonkatsu & Agemono"
+  },
+  {
+   "id": "KONAMON",
+   "n": "Okonomiyaki, Takoyaki & Kushikatsu"
+  },
+  {
+   "id": "WAGYU",
+   "n": "Wagyu, Yakiniku & Sukiyaki"
+  },
+  {
+   "id": "TEISHOKU",
+   "n": "Teishoku, Curry & Yōshoku"
+  },
+  {
+   "id": "OKINAWA",
+   "n": "Okinawan & Ryūkyū"
+  },
+  {
+   "id": "HOKKAIDO",
+   "n": "Hokkaido Seafood, Jingisukan & Ainu"
+  },
+  {
+   "id": "TOFU",
+   "n": "Tofu, Shōjin & Vegetarian"
+  },
+  {
+   "id": "SWEET",
+   "n": "Wagashi, Matcha & Sweets"
+  },
+  {
+   "id": "CAFE",
+   "n": "Kissaten & Coffee"
+  },
+  {
+   "id": "SAKE",
+   "n": "Sake, Awamori, Whisky & Bars"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets, Depachika & Street Food"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "INT",
+   "n": "International & Fusion"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "TEMPLE",
+   "n": "Temples & Shrines"
+  },
+  {
+   "id": "CASTLE",
+   "n": "Castles, Palaces & History"
+  },
+  {
+   "id": "GARDEN",
+   "n": "Gardens & Teahouses"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "NATURE",
+   "n": "Nature, Parks & Coast"
+  },
+  {
+   "id": "ONSEN",
+   "n": "Onsen & Sentō"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Shopping Streets"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife, Yokochō & Districts"
+  },
+  {
+   "id": "POP",
+   "n": "Anime, Pop Culture & Oddities"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Observation Decks"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

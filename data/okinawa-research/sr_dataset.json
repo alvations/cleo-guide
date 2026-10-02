@@ -1,0 +1,173 @@
+{
+ "areas": [
+  {
+   "id": "NAHA",
+   "n": "Naha (Kokusai-dōri · Makishi Public Market · Tsuboya · Shuri Castle · Naminoue · Sakaemachi)"
+  },
+  {
+   "id": "CHUBU",
+   "n": "Chūbu — Central Okinawa (Chatan & American Village · Okinawa City/Koza · Ginowan · Urasoe · Yomitan)"
+  },
+  {
+   "id": "NANBU",
+   "n": "Nanbu — Southern Okinawa (Itoman · Nanjō & Sēfa-utaki · Peace Memorial Park · Tomigusuku)"
+  },
+  {
+   "id": "HOKBU",
+   "n": "Hokubu — Northern Okinawa (Nago · Motobu & Churaumi · Kouri Island · Onna · Yanbaru)"
+  },
+  {
+   "id": "KRM",
+   "n": "Kerama & nearby islands (Tokashiki · Zamami · Aka · Kume-jima · Iheya)"
+  },
+  {
+   "id": "MYK",
+   "n": "Miyako Islands (Miyako-jima · Irabu · Ikema · Kurima)"
+  },
+  {
+   "id": "YAEYA",
+   "n": "Yaeyama Islands (Ishigaki · Iriomote · Taketomi · Hateruma · Yonaguni)"
+  }
+ ],
+ "ac": {
+  "NAHA": "#D9534F",
+  "CHUBU": "#5B8DEF",
+  "NANBU": "#3D9970",
+  "HOKBU": "#00A6A6",
+  "KRM": "#9B5DE5",
+  "MYK": "#E8B04B",
+  "YAEYA": "#E07A5F"
+ },
+ "cuisines": [
+  {
+   "id": "SUSHI",
+   "n": "Sushi & Kaisen-don"
+  },
+  {
+   "id": "RAMEN",
+   "n": "Ramen & Tsukemen"
+  },
+  {
+   "id": "NOODLE",
+   "n": "Soba & Udon"
+  },
+  {
+   "id": "KAISEKI",
+   "n": "Kaiseki, Kyō-ryōri & Ryōtei"
+  },
+  {
+   "id": "IZAKAYA",
+   "n": "Izakaya, Yakitori & Yokochō"
+  },
+  {
+   "id": "TEMPURA",
+   "n": "Tempura, Tonkatsu & Agemono"
+  },
+  {
+   "id": "KONAMON",
+   "n": "Okonomiyaki, Takoyaki & Kushikatsu"
+  },
+  {
+   "id": "WAGYU",
+   "n": "Wagyu, Yakiniku & Sukiyaki"
+  },
+  {
+   "id": "TEISHOKU",
+   "n": "Teishoku, Curry & Yōshoku"
+  },
+  {
+   "id": "OKINAWA",
+   "n": "Okinawan & Ryūkyū"
+  },
+  {
+   "id": "HOKKAIDO",
+   "n": "Hokkaido Seafood, Jingisukan & Ainu"
+  },
+  {
+   "id": "TOFU",
+   "n": "Tofu, Shōjin & Vegetarian"
+  },
+  {
+   "id": "SWEET",
+   "n": "Wagashi, Matcha & Sweets"
+  },
+  {
+   "id": "CAFE",
+   "n": "Kissaten & Coffee"
+  },
+  {
+   "id": "SAKE",
+   "n": "Sake, Awamori, Whisky & Bars"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets, Depachika & Street Food"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "INT",
+   "n": "International & Fusion"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "TEMPLE",
+   "n": "Temples & Shrines"
+  },
+  {
+   "id": "CASTLE",
+   "n": "Castles, Palaces & History"
+  },
+  {
+   "id": "GARDEN",
+   "n": "Gardens & Teahouses"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "NATURE",
+   "n": "Nature, Parks & Coast"
+  },
+  {
+   "id": "ONSEN",
+   "n": "Onsen & Sentō"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Shopping Streets"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife, Yokochō & Districts"
+  },
+  {
+   "id": "POP",
+   "n": "Anime, Pop Culture & Oddities"
+  },
+  {
+   "id": "VIEW",
+   "n": "Views & Observation Decks"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [],
+ "S": {},
+ "FS": {}
+}

@@ -87,6 +87,27 @@ Each pass writes standard artifacts that `tools/rebuild-city.py <key> [--build]`
 
 ---
 
+## Concurrent multi-city runs — the shared-lock protocol (2026-10-02)
+
+When several long-running city agents work in ONE clone at once (e.g. the Japan ×5 + Singapore ×4 + US ×6 run),
+everything they share is serialized through ONE lock so no read-modify-write is lost:
+
+```bash
+LOCK=/home/user/cleo-guide/.git/cleo-shared.lock
+flock -w 1800 $LOCK python3 tools/rebuild-city.py <key> --build      # touches geocodes.json, sources.json, backlog
+flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/sources.json docs/GEOCODE-BACKLOG.md \
+  && git commit -m "<msg>" && git push -u origin <branch>'                       # commit + push your wave
+```
+- Inside your own `data/<city>-research/` you may write freely; **every** write to a shared file (`data/geocodes.json`,
+  `data/sources.json`, `docs/*`, `index.html`, a country hub, `data/countries.json`, `tools/*`) happens under the lock,
+  and is a minimal, targeted edit (never rewrite a whole shared file from a stale copy).
+- Hubs/indexes carry `<!-- CARD:<key> --> … <!-- /CARD:<key> -->` markers — edit ONLY your own card.
+- `git add` explicit paths only (never `-A`/`.`) — other agents' half-written files must not ride your commit.
+  If the push is rejected, `git pull --no-rebase origin <branch>` under the lock, then push again.
+- WebSearch is shared across all agents: expect rate limits; back off and resume, never fabricate to fill a gap.
+
+---
+
 ## Run log (append one row per launched agent; keep updated after each run completes)
 
 | Date | Map | Pass | Focus | Kept | Notable drops / closed | Artifacts |
