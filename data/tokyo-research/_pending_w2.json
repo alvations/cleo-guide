@@ -198,6 +198,24 @@
    "a": "SJK",
    "have": "TIMEOUT https://www.timeout.com/tokyo/attractions/akagi-shrine",
    "need": "pin (returned point = Kagurazaka district, rejected) + 2nd"
+  },
+  {
+   "n": "Harajuku Gyoza Rou",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/harajuku-gyoza-lou; 6-2-4 Jingumae",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Uogashi Nihon-ichi Shibuya Dogenzaka",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/uogashi-nihon-ichi-shibuya-dogenzaka; 2-9-1 Dogenzaka",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Kawasaki Daishi",
+   "a": "KANTO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Kawasaki_Daishi coords 35.534,139.729",
+   "need": "2nd"
   }
  ]
 }
