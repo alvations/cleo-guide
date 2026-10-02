@@ -693,7 +693,7 @@
    "Burgers",
    "Tavern"
   ],
-  "dish": "",
+  "dish": "The double cheezborger",
   "closed": false
  },
  {
@@ -715,7 +715,7 @@
   "cz": [
    "Deep-Dish"
   ],
-  "dish": "",
+  "dish": "Cornmeal-crust deep dish with a sausage patty",
   "closed": false
  },
  {
@@ -737,7 +737,7 @@
   "cz": [
    "Italian Beef"
   ],
-  "dish": "",
+  "dish": "Italian beef, dipped, with hot giardiniera",
   "closed": false
  },
  {
@@ -782,7 +782,7 @@
   "cz": [
    "New American"
   ],
-  "dish": "",
+  "dish": "Wood-oven pig face with a sunny egg; goat empanadas",
   "closed": false
  },
  {
@@ -805,7 +805,7 @@
    "Mediterranean",
    "Wine Bar"
   ],
-  "dish": "",
+  "dish": "Chorizo-stuffed, bacon-wrapped Medjool dates; focaccia",
   "closed": false
  },
  {
@@ -827,7 +827,7 @@
   "cz": [
    "Greek"
   ],
-  "dish": "",
+  "dish": "Flaming saganaki ('Opa!'), lamb, grilled octopus",
   "closed": false
  },
  {
@@ -850,7 +850,33 @@
    "Jewish Deli",
    "Bagels"
   ],
-  "dish": "",
+  "dish": "Bagel and lox; corned beef",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "n": "The Wieners Circle",
+  "address": "2622 N Clark St, Chicago, IL 60614",
+  "w": "Lincoln Park's late-night char-dog stand (to 4am weekends), as famous for the staff's good-natured verbal abuse as for its dogs.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/reviews/the-wieners-circle"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/chicago/restaurants/the-wieners-circle"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/The_Wieners_Circle"
+   ]
+  ],
+  "cz": [
+   "Hot Dogs"
+  ],
+  "dish": "Char dog with everything; cheddar fries",
   "closed": false
  }
 ]
