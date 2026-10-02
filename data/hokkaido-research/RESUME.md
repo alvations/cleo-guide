@@ -38,7 +38,7 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 ## Search ledger` below.
 
 ## Search ledger
-- session 2: ≈159 used (me ~126 + G01 18 + G02 15)
+- session 2: ≈165 used (me ~132 + G01 18 + G02 15)
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.

@@ -35,6 +35,7 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
   named dish, so nothing builds yet; `cities/orlando.html` is NOT built and the index card stays "being built".
 
 ## In-flight wave
+- **Session 2 (2026-10-02, relaunch)** — searches used this session: tracked in AUDIT.md per wave. Plan: finish W1 Michelin → W2 Mills 50 VN → W3 park sights (Wikipedia coords) → W4 PR/Cuban/Florida → sights per area.
 - **W1 MICHELIN (food opening move)** — half-done. Remaining queries: full 2026 Orlando Recommended list;
   address + one named dish for each starred/Bib place; Natsu/Capa/Papa Llama status. Then write
   `FOOD_MICHELIN.json` (MICHELIN + a 2nd source where possible), then W2 Mills 50 Vietnamese.
