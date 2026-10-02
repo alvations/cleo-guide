@@ -36,7 +36,7 @@ F(1,"DONAN",["RAMEN"],"Hakodate shio ramen (Ajisai shio — kelp-clear broth)","
   [("TABELOG100","https://www.gltjp.com/ja/directory/item/13744/"),("HOKKAIDOTOURISM",VHE+"destinations/foodie-tours-in-hakodate-checking-out-the-local-favorites"),("HOKKAIDOTOURISM",VH+"spot/detail_12825.html")],
   status=O,ssrc="Tabelog Ramen HOKKAIDO 百名店 selection (current) via Good Luck Trip directory")
 F(2,"DONAN",["INT"],"Chinese Chicken Burger","Lucky Pierrot Bay Area Honten (ラッキーピエロ ベイエリア本店)",
-  "Bay Area waterfront (Suehiro-chō), Hakodate, Hokkaido, Japan",
+  "Bay Area waterfront, Hakodate, Hokkaido, Japan",
   "Hakodate's own clown-themed burger chain (17 branches, all in the city) — the Chinese Chicken Burger, curry rice and soft-serve; the waterfront flagship.",
   [("HOKKAIDOTOURISM",VHE+"destinations/foodie-tours-in-hakodate-checking-out-the-local-favorites"),jg("e5312.html")],
   status=O,ssrc="visit-hokkaido.jp Hakodate foodie feature (current)")

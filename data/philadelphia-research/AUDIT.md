@@ -72,3 +72,11 @@
 - Channel mix (170): institutional (Michelin 34, NPS 9, JBF 3, UNESCO 1) · editorial/tourism (Visit Philly, Inquirer,
   Philly Mag, Infatuation, Billy Penn, Main Line Today, SJ Mag, Northeast Times…) · travel (Atlas Obscura, Frommer's,
   Lonely Planet, Time Out, Uncovering PA) · creator 1 (Mark Wiens) · reference (Wikipedia, every sight).
+
+## 2026-10-02 · W2b — day trips + Bucks + Brandywine pins, rebuild
+- Added (2 credible + Wikipedia pin each): Winterthur, Hagley, Nemours (Lonely Planet + Visit Delaware), Bucks County Playhouse,
+  Peddler's Village, Sesame Place, Andalusia (Visit Philly New Hope + Visit Bucks County), Colonial Theatre Phoenixville
+  (Visit Philly main streets). Pins added for already-sourced Smith Playground, Wissahickon (park point, med), Mann Center,
+  Glencairn, Rocky Statue (Rocky Steps point, med), Ryerss (Ryerss Mansion).
+- Rejected: New Hope borough point (town centroid — not a place pin); Race Street 'pier' hit was the street's own coordinate.
+- Build: 178 sourced → 120 on page (105 sights + 15 food); 4 gates PASS; validate + test PASS; card + CITIES refreshed.

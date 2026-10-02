@@ -12,11 +12,7 @@
  {
   "n": "Une Gaufrette Saperlipopette",
   "address": "Rue des Mineurs 6, 4000 Liège, Belgium",
-  "lat": 50.64605,
-  "lng": 5.57683,
-  "confidence": "med",
-  "geoSource": "Mapcarta (OSM) listing 'Une Gaufrette Saperlipopette — La cuisine', Rue des Mineurs 6: 50.64605, 5.57683",
-  "status": "open",
-  "statusSource": "OSM entry live; RTBF ice-cream range launch article"
+  "confidence": "UNVERIFIED",
+  "geoSource": "DOWNGRADED 2026-10-02: the 50.64605,5.57683 point was the OSM node of Cabale (N9093622617, Rue des Mineurs 6), not a Saperlipopette node — re-geocode"
  }
 ]

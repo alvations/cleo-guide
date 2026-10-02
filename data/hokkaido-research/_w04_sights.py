@@ -42,7 +42,7 @@ S(1,"DOTO","Abashiri Prison Museum (博物館 網走監獄)","Yobito, Abashiri, 
   O,"japan-guide.com e6867 (current)",k="prison museum",g=["MUS","ICON"])
 S(1,"DOTO","Kushiro Marsh — Kushiro-shitsugen National Park (釧路湿原)","Hosooka Observatory (細岡展望台), Kushiro-chō, Kushiro District, Hokkaido, Japan",
   "Japan's largest wetland and first Ramsar site (1980) — the stronghold of the red-crowned crane, seen from the Hosooka and marsh observatories.",
-  [wp("Kushiro_Shitsugen_National_Park"),("JAPANGUIDE","https://www.japan-guide.com/ad/kushiro/"),vh("plan/detail_24.html")],status=O,ssrc="visit-hokkaido.jp sample itinerary 24 (current)",k="marsh crane wetland",g=["NATURE","VIEW"])
+  [wp("Kushiro_Shitsugen_National_Park"),jg("e6792.html"),vh("plan/detail_24.html")],status=O,ssrc="visit-hokkaido.jp sample itinerary 24 (current)",k="marsh crane wetland",g=["NATURE","VIEW"])
 # ---- DONAN ----
 S(2,"DONAN","Kanemori Red Brick Warehouses (金森赤レンガ倉庫)","Suehiro-chō, Hakodate, Hokkaido, Japan",
   "1909 harbour warehouses (founded 1887) turned shops, beer hall and event space in 1988 — Hakodate's waterfront landmark.",
