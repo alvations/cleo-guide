@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Kyoto field guide — 152 sights and 64 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Kyoto field guide — 153 sights and 79 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
 <title>Kyoto Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Kyoto (京都), sourced</p>
   <h1>Kyoto<span class="thin">Gion & Higashiyama · Rakuchū · Sakyō · Kita · Arashiyama · Fushimi · the mountains · Uji & Nara</span></h1>
-  <p class="standfirst">152 sights and 64 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">153 sights and 79 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -316,8 +316,13 @@ const S = {
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JTA":{k:"JTA",t:"Japan Tourism Agency multilingual commentary database (MLIT)",u:"https://www.mlit.go.jp/tagengo-db/",l:"Japan Tourism Agency multilingual commentary database (MLIT)"},
   "KYOHAKU":{k:"KYOHAKU",t:"Kyoto National Museum",u:"https://www.kyohaku.go.jp/eng/",l:"Kyoto National Museum"},
+  "KYOTOCITY":{k:"KYOTOCITY",t:"KYOTOCITY",u:"",l:""},
   "KYOTOMUSEUMS":{k:"KYOTOMUSEUMS",t:"Kyoto Museums Council (kyoto-museums.jp)",u:"https://www.kyoto-museums.jp/en/",l:"Kyoto Museums Council (kyoto-museums.jp)"},
   "KYOTOTOURISM":{k:"KYOTO CITY TOURISM",t:"KYOTO CITY TOURISM",u:"",l:""},
+  "METI":{k:"METI",t:"METI",u:"",l:""},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
   "UNESCO":{k:"UNESCO",t:"UNESCO",u:"",l:""},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"WIKIPEDIA",u:"",l:""},
   "WIKIPEDIA_JA":{k:"WIKIPEDIA JA",t:"Japanese Wikipedia (ja.wikipedia.org)",u:"https://ja.wikipedia.org/",l:"Japanese Wikipedia (ja.wikipedia.org)"}
@@ -336,6 +341,7 @@ const AREAS = [
 ];
 
 const P = [
+{t:1,a:"UJI",n:"Nintendo Museum (ニンテンドーミュージアム)",ad:"Kaguraden-56, Ogura-chō, Uji, Kyoto Prefecture",la:34.89290,ln:135.78419,w:"Nintendo's own museum, opened 2 Oct 2024 in the former Uji Ogura plant where it made hanafuda cards and repaired consoles — 135 years from playing cards to Switch, with hands-on exhibits.",k:"★ Anime & pop culture — Nintendo (Mario, Zelda, Pokémon) — the company's only museum, in its Kyoto home turf.",g:["ANIME","POP","MUSEUM","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Nintendo_Museum"],["OFFICIAL","https://museum.nintendo.com/"]]},
 {t:1,a:"CTR",n:"Nishiki Market",ad:"Nakagyō-ku, Kyoto, Japan",la:35.00503,ln:135.76614,w:"'Kyoto's Kitchen' — a narrow five-block covered street of more than a hundred food shops (the first opened around 1310): pickles, fresh yuba, dashi-maki tamago, seasonal Kyoto produce and knives.",g:["ICON","MKT","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3931.html"],["KYOTOTOURISM","https://kyoto.travel/en/areas/central/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nishiki_Market"]]},
 {t:1,a:"CTR",n:"Pontochō",ad:"Nakagyō-ku, Kyoto, Japan",la:35.00797,ln:135.77111,w:"Lantern-lit lane of teahouses and restaurants squeezed between the Kamo River and Kiyamachi — one of Kyoto's five geisha districts, with summer kawayuka dining platforms over the river.",g:["ICON","NIGHT","FREE","GARDEN"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e2158_central.html"],["KYOTOTOURISM","https://kyoto.travel/en/areas/central/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ponto-ch%C5%8D"]]},
 {t:1,a:"CTR",n:"Higashi Hongan-ji",ad:"Shimogyō-ku, Kyoto, Japan",la:34.99102,ln:135.75846,w:"Head temple of the Ōtani branch of Jōdo Shinshū near Kyoto Station; its Goeidō founder's hall is Kyoto's largest wooden structure. Free to enter.",g:["TEMPLE","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3920.html"],["KYOTOTOURISM","https://kyoto.travel/en/areas/around-kyoto-station/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Higashi_Hongan-ji"]]},
@@ -491,14 +497,25 @@ const P = [
 ];
 
 const FS = {
+  "ASIA50":{k:"ASIA'S 50 BEST",t:"ASIA'S 50 BEST",u:"",l:""},
   "CULTURETRIP":{k:"CULTURETRIP",t:"Culture Trip",u:"https://theculturetrip.com/",l:"Culture Trip"},
+  "FODORS":{k:"FODORS",t:"Fodor's Travel",u:"https://www.fodors.com/",l:"Fodor's Travel"},
+  "INSIDEKYOTO":{k:"INSIDEKYOTO",t:"Inside Kyoto (Chris Rowthorn)",u:"https://www.insidekyoto.com/",l:"Inside Kyoto (Chris Rowthorn)"},
+  "JALONTRIP":{k:"JALONTRIP",t:"OnTrip JAL (Japan Airlines)",u:"https://ontrip.jal.co.jp/",l:"OnTrip JAL (Japan Airlines)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
+  "JAPANTIMES":{k:"THE JAPAN TIMES",t:"THE JAPAN TIMES",u:"",l:""},
+  "KANSAIAIRPORT":{k:"KANSAIAIRPORT",t:"Kansai International Airport — Explore Kansai",u:"https://www.kansai-airport.or.jp/explorekansai/",l:"Kansai International Airport — Explore Kansai"},
   "KYOTOTOURISM":{k:"KYOTO CITY TOURISM",t:"KYOTO CITY TOURISM",u:"",l:""},
   "LEAFKYOTO":{k:"LEAFKYOTO",t:"Leaf Kyoto (京都リーフ)",u:"https://www.leafkyoto.net/",l:"Leaf Kyoto (京都リーフ)"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
+  "MAPPLE":{k:"MAPPLE",t:"MAPPLE (Shobunsha)",u:"https://www.mapple.net/",l:"MAPPLE (Shobunsha)"},
+  "MATCHA":{k:"MATCHA",t:"MATCHA — Japan Travel Guide",u:"https://matcha-jp.com/en/",l:"MATCHA — Japan Travel Guide"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN",u:"",l:""},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN BIB",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN ★",u:"",l:""},
+  "SAVORJAPAN":{k:"SAVOR JAPAN",t:"SAVOR JAPAN",u:"https://savorjapan.com/",l:"SAVOR JAPAN"},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
+  "VISITNARA":{k:"VISITNARA",t:"Official Nara Travel Guide (visitnara.jp)",u:"https://www.visitnara.jp/",l:"Official Nara Travel Guide (visitnara.jp)"},
   "WIKIPEDIA_JA":{k:"WIKIPEDIA JA",t:"Japanese Wikipedia (ja.wikipedia.org)",u:"https://ja.wikipedia.org/",l:"Japanese Wikipedia (ja.wikipedia.org)"}
 };
 
@@ -542,6 +559,20 @@ const CATS = [
 
 const F = [
 {t:1,a:"HGS",n:"Gion Yorozuya",ad:"555-1 Komatsu-chō, Higashiyama-ku, Kyoto, Japan",cz:["NOODLE"],la:35.00275,ln:135.77399,w:"Michelin Bib Gourmand udon house that began delivering meals to Gion teahouses and playhouses; queues form before opening for the onion udon heaped with Kyoto's Kujō spring onion.",s:[["MICHELIN_BIB","https://guide.michelin.com/at/en/kyoto-region/kyoto/restaurant/gion-yorozuya"]]},
+{t:2,a:"KITA",n:"KOKAGE",ad:"56-2 Murasakino Monzencho, Kita-ku, Kyoto, 603-8216, Japan",cz:["NOODLE"],la:35.04364,ln:135.74870,w:"New Bib Gourmand 2026 — the chef mills his own buckwheat for 100% soba, near Daitoku-ji.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kokage"]]},
+{t:1,a:"HGS",n:"LURRA°",ad:"396 Sekisenincho, Higashiyama-ku, Kyoto, 605-0021, Japan",cz:["INT","FINE"],la:35.01004,ln:135.78064,w:"One MICHELIN Star — innovative hearth cooking off Sanjō near Shirakawa, Kyoto-farm vegetables at the centre.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/lurra%CB%9A"]]},
+{t:1,a:"KITA",n:"KOGA",ad:"230 Nakaogawacho, Kamigyo-ku, Kyoto, 602-0053, Japan",cz:["INT","FINE"],la:35.03016,ln:135.75427,w:"One MICHELIN Star (2026; an inspectors' favourite dish) — French in Kamigyō, with ~30 Takagamine vegetables and charcoal-grilled meat.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/koga"]]},
+{t:2,a:"HGS",n:"Oito",ad:"253 Giommachi Kitagawa, Higashiyama-ku, Kyoto, 605-0073, Japan",cz:["IZAKAYA"],la:35.00409,ln:135.77430,w:"Bib Gourmand oden counter in Gion; the long-simmered eggs and daikon are the draw.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/oito"]]},
+{t:2,a:"HGS",n:"Tan",ad:"106-13 Gokencho, Higashiyama-ku, Kyoto, 605-0036, Japan",cz:["KAISEKI"],la:35.00891,ln:135.78081,w:"Bib Gourmand by the Shirakawa canal — Kyoto home cooking built around donabe rice.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/tan"]]},
+{t:2,a:"CTR",n:"Eitaroya",ad:"448 Tatsunoikecho, Nakagyo-ku, Kyoto, 604-8176, Japan",cz:["IZAKAYA"],la:35.01107,ln:135.75852,w:"Bib Gourmand izakaya near Karasuma-Oike, famous for its iced sashimi bowl.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/eitaroya"]]},
+{t:2,a:"CTR",n:"Muromachi Kaji",ad:"185 Nakanonocho, Shimogyo-ku, Kyoto, 600-8435, Japan",cz:["KAISEKI"],la:34.99882,ln:135.75778,w:"Bib Gourmand Japanese course in the Muromachi textile quarter — affordable Kyoto kappō.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/muromachi-kaji"]]},
+{t:2,a:"CTR",n:"Shinka",ad:"534-39 Ebisucho, Nakagyo-ku, Kyoto, 604-8005, Japan",cz:["INT"],la:35.00959,ln:135.76971,w:"Added by MICHELIN inspectors July 2026 — contemporary cooking 'expressing Japanese spirit through Western technique'.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/shinka"]]},
+{t:1,a:"HGS",n:"Kikunoi Sushi Ao",ad:"463-30 Shimokawaracho, Higashiyama-ku, Kyoto, 605-0825, Japan",cz:["SUSHI","FINE"],la:34.99990,ln:135.77967,w:"One MICHELIN Star — the ryōtei Kikunoi's 'sushi kappō'; its chutoro nigiri is an inspectors' must-try.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-sushi-ao"]]},
+{t:2,a:"KITA",n:"Sushi Hayashi",ad:"31-1 Omotecho, Kamigyo-ku, Kyoto, 602-0825, Japan",cz:["SUSHI"],la:35.02980,ln:135.76797,w:"MICHELIN-listed Kamigyō sushi-ya keeping true Kyo-zushi — saba-zushi and warm steamed sushi.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/sushi-hayashi"]]},
+{t:1,a:"HGS",n:"Jean-Georges at The Shinmonzen",ad:"1F, The Shinmonzen, 235 Nishinocho, Higashiyama-ku, Kyoto, 605-0088, Japan",cz:["INT","FINE"],la:35.00627,ln:135.77467,w:"One MICHELIN Star (2026) — Jean-Georges Vongerichten's Kyoto room on Shinmonzen-dōri beside the Shirakawa.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/jean-georges-at-the-shinmonzen"]]},
+{t:2,a:"SAKYO",n:"Pizzeria da Ciro",ad:"75 Jodoji Nishidacho, Sakyo-ku, Kyoto, 606-8417, Japan",cz:["INT"],la:35.02795,ln:135.79060,w:"Bib Gourmand pizzeria near Ginkaku-ji — the chef imported an Italian oven-builder for his oven.",s:[["MICHELIN_BIB","https://guide.michelin.com/gb/en/kyoto-region/kyoto/restaurant/pizzeria-da-ciro"]]},
+{t:2,a:"SAKYO",n:"Shimogamo Ichima",ad:"93-1 Shimogamo Nishihangicho, Sakyo-ku, Kyoto, 606-0827, Japan",cz:["SUSHI"],la:35.04351,ln:135.76605,w:"MICHELIN-listed Shimogamo sushi house keeping the bite-size temari-zushi tradition alive.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/shimogamo-ichima"]]},
+{t:2,a:"KITA",n:"Nishijin Hashimoto",ad:"109 Kanzecho, Kamigyo-ku, Kyoto, 602-8441, Japan",cz:["NOODLE","TOFU"],la:35.03101,ln:135.74878,w:"MICHELIN-listed Nishijin restaurant where one chef makes both soba and sushi; the sesame tofu is renowned.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/nishijin-hashimoto"]]},
 {t:1,a:"SAKYO",n:"Ramen Touhichi",ad:"8-6 Yamabana Itchoda-chō, Sakyō-ku, Kyoto 606-8007, Japan",cz:["RAMEN"],la:35.05002,ln:135.79138,w:"Michelin Bib Gourmand ramen shop in Ichijōji; the signature soy-sauce ramen uses a dashi of locally raised free-range chicken and water only, finished with a raw soy-sauce kaeshi.",s:[["MICHELIN_BIB","https://guide.michelin.com/ae-az/en/kyoto-region/kyoto/restaurant/ramen-touhichi"]]},
 {t:1,a:"KITA",n:"Noodle Shop Rennosuke",ad:"116-2 Higashitate-chō, Kamigyō-ku, Kyoto 602-8377, Japan",cz:["RAMEN"],la:35.02635,ln:135.73608,w:"Michelin Bib Gourmand noodle bar, relocated from Murasakino (Kita-ku) to Kamigyō-ku; house noodles of Kyoto wheat in a clear seafood-dashi broth seasoned with pure soy sauce.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/noodle-shop-rennosuke"]]},
 {t:1,a:"CTR",n:"Kyogoku Kaneyo",ad:"456 Matsugae-chō, Nakagyō-ku, Kyoto, Japan",cz:["SUSHI"],la:35.00763,ln:135.76793,w:"Seven-generation eel house (Michelin Bib Gourmand); Kantō-style steamed-then-grilled kabayaki, famous for the kinshi-don.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/kyogoku-kaneyo"]]},
@@ -604,7 +635,8 @@ const F = [
 {t:2,a:"HGS",n:"Kikunoi Mugesambo",ad:"524 Washio-chō, Higashiyama-ku, Kyoto 605-0072, Japan",cz:["KAISEKI"],la:35.00182,ln:135.78155,w:"Michelin Bib Gourmand casual offshoot of the three-star Kikunoi; its house speciality is shigure-meshi rice topped with sea bream sashimi in sesame sauce.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-mugesambo"]]},
 {t:2,a:"HGS",n:"Canton Shunsai Ikki",ad:"17-5 Tsukimi-chō, Higashiyama-ku, Kyoto 605-0829, Japan",cz:["INT"],la:35.00090,ln:135.77797,w:"Michelin Bib Gourmand Cantonese kitchen — shrimp wontons, stir-fried squid with asparagus, seasonal soups.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/canton-shunsai-ikki"]]},
 {t:1,a:"CTR",n:"Inoda Coffee Honten",ad:"140 Dōyū-chō, Sakaimachi-dōri Sanjō-sagaru, Nakagyō-ku, Kyoto 604-8118, Japan",cz:["CAFE"],la:35.00819,ln:135.76306,w:"Kyoto's classic kissaten, in business since 1940; the retro main shop serves a 'Kyoto breakfast' available only at the flagship.",s:[["KYOTOTOURISM","https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2527"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%8E%E3%83%80%E3%82%B3%E3%83%BC%E3%83%92"]]},
-{t:1,a:"UJI",n:"NARA NIKON",ad:"3 Nabeya-chō, Nara 630-8264, Japan",cz:["KAISEKI","FINE"],la:34.68690,ln:135.82938,w:"Two MICHELIN Stars Japanese restaurant in Nara showcasing traditional cuisine shaped by the seasons.",s:[["MICHELIN_STAR","https://guide.michelin.com/en/nara-region/nara/restaurant/nara-nikon"]]}
+{t:1,a:"UJI",n:"NARA NIKON",ad:"3 Nabeya-chō, Nara 630-8264, Japan",cz:["KAISEKI","FINE"],la:34.68690,ln:135.82938,w:"Two MICHELIN Stars Japanese restaurant in Nara showcasing traditional cuisine shaped by the seasons.",s:[["MICHELIN_STAR","https://guide.michelin.com/en/nara-region/nara/restaurant/nara-nikon"]]},
+{t:2,a:"CTR",n:"Tempura Mizuki",ad:"B1F The Ritz-Carlton Kyoto, Nakagyō-ku, Kyoto",cz:["TEMPURA","FINE"],la:35.01370,ln:135.77088,w:"One MICHELIN Star tempura counter by the Kamo River, in the Ritz-Carlton.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/tempura-mizuki"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -629,7 +661,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([34.9022,135.755],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([34.9019,135.7546],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -713,7 +745,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Higashiyama-ku", 34.9986, 135.7769], ["Sakyō-ku", 35.0252, 135.7879], ["Central — Nakagyō", 35.0041, 135.7591], ["Kita", 35.036, 135.7468], ["Rakusai — Ukyō", 35.0173, 135.6849], ["Fushimi", 34.955, 135.7856], ["Rakuhoku mountains", 35.1256, 135.754], ["Uji", 34.7392, 135.8185], ["Kyoto Prefecture", 35.1791, 135.6012]];
+const LABELS=[["Higashiyama-ku", 34.9994, 135.777], ["Sakyō-ku", 35.026, 135.7871], ["Central — Nakagyō", 35.0045, 135.7596], ["Kita", 35.0357, 135.748], ["Rakusai — Ukyō", 35.0173, 135.6849], ["Fushimi", 34.955, 135.7856], ["Rakuhoku mountains", 35.1256, 135.754], ["Uji", 34.7449, 135.8172], ["Kyoto Prefecture", 35.1791, 135.6012]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1052,7 +1084,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 216 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 232 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
