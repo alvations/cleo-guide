@@ -594,7 +594,7 @@
    "a": "LIER",
    "n": "Grottes de Remouchamps",
    "address": "Remouchamps, Aywaille, Belgium",
-   "w": "Show cave on the Amblève at Aywaille, visited since 1828 — a walk through the Cathedral chamber ending in what is billed as the longest underground boat ride in the world (≈600 m on the Rubicon).",
+   "w": "Show cave on the Amblève at Aywaille — a walk through vast chambers ending in what the caves bill as one of the longest underground boat rides in Europe.",
    "g": [
     "PARK"
    ],
@@ -618,7 +618,7 @@
    "a": "LIER",
    "n": "Cascade de Coo",
    "address": "Coo, Stavelot, Belgium",
-   "w": "Belgium's best-known waterfall, a 15 m double cascade of the Amblève created by monks cutting a meander in the 18th c.; a chairlift climbs to the Montagne de Lancre viewpoint above.",
+   "w": "Belgium's best-known waterfall on the Amblève near Stavelot, with a chairlift up to the Montagne de Lancre viewpoint above.",
    "g": [
     "PARK",
     "FREE"
@@ -639,7 +639,7 @@
    "a": "LIER",
    "n": "Château de Franchimont",
    "address": "Theux, Belgium",
-   "w": "Ruined 11th–16th-c. fortress on a rock above Theux, seat of the marquisate of Franchimont — remembered for the 600 Franchimontois who tried to kill Charles the Bold in 1468; climbable casemates and towers.",
+   "w": "Ruined medieval fortress on a rock above Theux, seat of the old marquisate of Franchimont; its towers and casemates can be explored.",
    "g": [
     "ARCH",
     "HIST"
@@ -723,6 +723,78 @@
     [
      "LADH",
      "https://www.dhnet.be/regions/liege/2020/03/21/la-batte-et-le-tram-aussi-en-mode-confinement-TCHNNNNA65BEDDP43YE2T74GUE/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LIER",
+   "n": "Thermes de Spa",
+   "address": "Colline d'Annette et Lubin, Spa, Belgium",
+   "w": "The modern glass thermal baths on Annette-et-Lubin hill, reached by funicular from the town centre — naturally carbonated Spa waters in the town that gave every 'spa' its name, a UNESCO Great Spa Town of Europe since 2021.",
+   "g": [
+    "ICON",
+    "UNESCO"
+   ],
+   "sources": [
+    [
+     "WBT",
+     "https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.fr/destinations/europe/belgique/que-faire/la-ville-de-spa"
+    ],
+    [
+     "LAVENIR",
+     "https://www.lavenir.net/cnt/dmf20210724_01599937/la-ville-de-spa-officiellement-inscrite-sur-la-liste-du-patrimoine-mondial-de-l-unesco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LIER",
+   "n": "Musée de la Ville d'eaux (Villa Royale)",
+   "address": "Villa Royale Marie-Henriette, Spa, Belgium",
+   "w": "In Queen Marie-Henriette's Villa Royale: the story of Spa as Europe's 'Café of Europe' resort, with the painted-wood 'Jolités de Spa' souvenirs; the Spa horse museum is in the stables.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "sources": [
+    [
+     "WBT",
+     "https://visitwallonia.com/en-gb/3/where-to-go-in-wallonia/walloon-towns-and-cities/spa/must-sees"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.fr/destinations/europe/belgique/que-faire/la-ville-de-spa"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LIER",
+   "n": "Abbaye de Stavelot",
+   "address": "Abbaye de Stavelot, Stavelot, Belgium",
+   "w": "The former prince-abbey of Stavelot-Malmedy, its 11th-c. church foundations laid open, now three museums: the Principality's history, Guillaume Apollinaire, and the Spa-Francorchamps circuit museum of F1 cars and bikes.",
+   "g": [
+    "MUS",
+    "HIST",
+    "ARCH"
+   ],
+   "sources": [
+    [
+     "OFFICIAL",
+     "https://abbayedestavelot.be/en/musee/musee-historique-de-la-principaute-de-stavelot-malmedy/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_protected_heritage_sites_in_Stavelot"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/belgium/the-ardennes/attractions"
     ]
    ]
   }

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Chicago field guide — 50 sights and 22 places to eat across the Loop, the North, Northwest, West, South and Far South Sides, the suburbs and day trips, each traceable to its source (Michelin, James Beard, the Chicago Tribune, Sun-Times, Chicago Magazine, Eater Chicago, Block Club Chicago, WTTW, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Chicago Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · the Loop, the neighborhoods &amp; Chicagoland, sourced</p>
+  <h1>Chicago<span class="thin">deep-dish to tavern-cut, the Loop to Pullman</span></h1>
+  <p class="standfirst">50 sights and 22 places to eat from the Loop out through the North, West and South Sides to the suburbs and the Indiana Dunes, each traceable to the source that named it. The architecture &mdash; the Rookery, Robie House, the river and the lakefront &mdash; anchors the map; the food runs on what Chicago does that nowhere else does: deep-dish and tavern-cut thin crust, Italian beef, the dragged-through-the-garden hot dog and the Maxwell Street Polish, the jibarito, mild-sauce chicken, the Rainbow Cone, and the immigrant corridors of Pilsen, Chinatown, Devon Avenue, Argyle and Little Village. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#C0504D"></i>The Loop & Downtown (River North, Streeterville, Gold Coast, South Loop, Museum Campus, West Loop)</span>
+  <span><i style="background:#4F81BD"></i>North Side (Lincoln Park, Lakeview, Lincoln Square, Uptown & Argyle, Andersonville, Rogers Park & Devon)</span>
+  <span><i style="background:#9BBB59"></i>Northwest Side (Wicker Park, Bucktown, Ukrainian Village, Logan Square, Humboldt Park, Avondale, Albany Park)</span>
+  <span><i style="background:#E8973A"></i>West Side (Pilsen, Little Village, Little Italy & Taylor St, Garfield Park, Austin)</span>
+  <span><i style="background:#8064A2"></i>South Side (Chinatown, Bridgeport, Bronzeville, Hyde Park, Woodlawn, South Shore)</span>
+  <span><i style="background:#4BACC6"></i>Far South (Pullman, Beverly & Morgan Park, Chatham, Roseland, the Calumet)</span>
+  <span><i style="background:#2C7FB8"></i>Suburbs & North Shore (Evanston, Oak Park, Skokie, Wilmette, Glencoe, Berwyn, the western suburbs)</span>
+  <span><i style="background:#F2A900"></i>Day Trips (Indiana Dunes, Starved Rock, Milwaukee, the Lake Michigan shore)</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Robie House, the Bean, blues, Pullman…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin, James Beard, the Chicago Tribune, the Chicago Sun-Times, Chicago Magazine, Eater Chicago, The Infatuation, Block Club Chicago, WTTW, Time Out, Choose Chicago, Atlas Obscura and the National Park Service, plus vetted creators and official sites. Every place is merit-measured before it earns a pin; every coordinate is verified into data/geocodes.json and every place status-checked. Places whose exact pin could not be verified are held back for a final coordinate pass.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "CAC":{k:"CHICAGO ARCHITECTURE CTR",t:"Chicago Architecture Center",u:"https://www.architecture.org/",l:"Chicago Architecture Center"},
+  "CHOOSECHI":{k:"CHOOSE CHICAGO",t:"Choose Chicago (official CVB)",u:"https://www.choosechicago.com/",l:"Choose Chicago (official CVB)"},
+  "FLWTRUST":{k:"FLW TRUST",t:"FLW TRUST",u:"",l:""},
+  "ILDNR":{k:"ILLINOIS DNR",t:"ILLINOIS DNR",u:"",l:""},
+  "INFATUATION":{k:"INFATUATION",t:"The Infatuation Chicago",u:"https://www.theinfatuation.com/chicago",l:"The Infatuation Chicago"},
+  "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/",l:"National Park Service"},
+  "TIMEOUT":{k:"TIME OUT CHICAGO",t:"Time Out Chicago",u:"https://www.timeout.com/chicago",l:"Time Out Chicago"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage — The 20th-Century Architecture of Frank Lloyd Wright",u:"https://whc.unesco.org/en/list/1496/",l:"UNESCO World Heritage — The 20th-Century Architecture of Frank Lloyd Wright"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"LOOP",n:"The Loop & Downtown (River North, Streeterville, Gold Coast, South Loop, Museum Campus, West Loop)",c:"#C0504D"},
+  {id:"NORTH",n:"North Side (Lincoln Park, Lakeview, Lincoln Square, Uptown & Argyle, Andersonville, Rogers Park & Devon)",c:"#4F81BD"},
+  {id:"NW",n:"Northwest Side (Wicker Park, Bucktown, Ukrainian Village, Logan Square, Humboldt Park, Avondale, Albany Park)",c:"#9BBB59"},
+  {id:"WEST",n:"West Side (Pilsen, Little Village, Little Italy & Taylor St, Garfield Park, Austin)",c:"#E8973A"},
+  {id:"SOUTH",n:"South Side (Chinatown, Bridgeport, Bronzeville, Hyde Park, Woodlawn, South Shore)",c:"#8064A2"},
+  {id:"FAR",n:"Far South (Pullman, Beverly & Morgan Park, Chatham, Roseland, the Calumet)",c:"#4BACC6"},
+  {id:"SUB",n:"Suburbs & North Shore (Evanston, Oak Park, Skokie, Wilmette, Glencoe, Berwyn, the western suburbs)",c:"#2C7FB8"},
+  {id:"DAY",n:"Day Trips (Indiana Dunes, Starved Rock, Milwaukee, the Lake Michigan shore)",c:"#F2A900"}
+];
+
+const P = [
+{t:1,a:"LOOP",n:"Art Institute of Chicago",ad:"111 S Michigan Ave, Chicago, IL 60603",la:41.87944,ln:-87.62389,w:"One of the world's great art museums — 300,000 works including Seurat's La Grande Jatte, Hopper's Nighthawks and Wood's American Gothic.",k:"museum art gallery",g:["MUS"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Art_Institute_of_Chicago"]]},
+{t:1,a:"LOOP",n:"Field Museum",ad:"1400 S DuSable Lake Shore Dr, Chicago, IL 60605",la:41.86611,ln:-87.61694,w:"The 1893-born natural history museum on the Museum Campus — home of SUE the T. rex and Máximo the titanosaur.",k:"museum family dinosaurs",g:["MUS","SPORT","FAM"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History"]]},
+{t:1,a:"LOOP",n:"Willis Tower Skydeck",ad:"233 S Wacker Dr, Chicago, IL 60606",la:41.87890,ln:-87.63580,w:"The 103rd-floor observation deck of the former Sears Tower, with The Ledge glass boxes 1,353 ft over Wacker Drive.",k:"skydeck observation icon skyline",g:["ROOF","ICON","ARCH"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Willis_Tower"]]},
+{t:1,a:"LOOP",n:"Cloud Gate (The Bean)",ad:"Millennium Park, 201 E Randolph St, Chicago, IL 60602",la:41.88270,ln:-87.62333,w:"Anish Kapoor's mirror-polished 'Bean' in Millennium Park — the requisite Chicago selfie, beside Gehry's Pritzker Pavilion and the Lurie Garden. Free.",k:"public art sculpture icon park free",g:["PARK","ICON","ARTS","MURAL"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions/millennium-park-chicago-il"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Cloud_Gate"]]},
+{t:1,a:"LOOP",n:"Navy Pier",ad:"600 E Grand Ave, Chicago, IL 60611",la:41.89139,ln:-87.59972,w:"The 1916 pier stretching into Lake Michigan, with the 200-ft Centennial Wheel, the Chicago Children's Museum and boat departures.",k:"pier lake michigan icon family",g:["MUS","ICON","WATER","FAM"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Navy_Pier"]]},
+{t:1,a:"LOOP",n:"Buckingham Fountain",ad:"301 S Columbus Dr, Chicago, IL 60605",la:41.87579,ln:-87.61894,w:"Grant Park's 1927 Versailles-inspired fountain, one of the largest in the world, with summer light-and-water shows. Free.",k:"fountain park icon free",g:["PARK","ICON","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Buckingham_Fountain"]]},
+{t:1,a:"LOOP",n:"Adler Planetarium",ad:"1300 S DuSable Lake Shore Dr, Chicago, IL 60605",la:41.86639,ln:-87.60667,w:"The first planetarium in the Western Hemisphere (1930), at the tip of Northerly Island's peninsula with a classic skyline view.",k:"planetarium museum family skyline",g:["ROOF","MUS","ICON","FAM"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/museums-art/chicagos-museum-campus/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Adler_Planetarium"]]},
+{t:2,a:"LOOP",n:"Chicago Water Tower",ad:"806 N Michigan Ave, Chicago, IL 60611",la:41.89717,ln:-87.62442,w:"The 1869 limestone water tower that survived the Great Chicago Fire, now a free city art gallery on the Mag Mile.",k:"historic landmark gallery free",g:["MUS","ICON","ARCH","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Water_Tower"]]},
+{t:1,a:"SOUTH",n:"Museum of Science and Industry",ad:"5700 S DuSable Lake Shore Dr, Chicago, IL 60637",la:41.79056,ln:-87.58278,w:"The largest science centre in the Western Hemisphere, in the 1893 World's Fair Palace of Fine Arts — U-505 submarine, coal mine, Pioneer Zephyr.",k:"museum science family",g:["MUS","FAM"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_of_Science_and_Industry_(Chicago)"]]},
+{t:1,a:"NORTH",n:"Wrigley Field",ad:"1060 W Addison St, Chicago, IL 60613",la:41.94806,ln:-87.65556,w:"The Cubs' ivy-walled ballpark (1914), the second-oldest in the majors, with its hand-turned scoreboard and Wrigleyville rooftops.",k:"ballpark stadium cubs sport",g:["ROOF","PARK","ICON","SPORT"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wrigley_Field"]]},
+{t:1,a:"WEST",n:"Garfield Park Conservatory",ad:"300 N Central Park Ave, Chicago, IL 60624",la:41.88639,ln:-87.71722,w:"Jens Jensen's 1908 'landscape art under glass' — one of the largest conservatories in the US, with free admission.",k:"conservatory garden free",g:["PARK","SPORT","FREE"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Garfield_Park_Conservatory"]]},
+{t:1,a:"NORTH",n:"Lincoln Park Zoo",ad:"2001 N Clark St, Chicago, IL 60614",la:41.92139,ln:-87.63389,w:"One of the country's oldest zoos (1868) and still free, with the Farm-in-the-Zoo and Nature Boardwalk.",k:"zoo park family free",g:["PARK","FAM","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/parks-outdoors/things-to-do-at-chicagos-parks-gardens-and-beaches/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lincoln_Park_Zoo"]]},
+{t:1,a:"SOUTH",n:"Frederick C. Robie House",ad:"5757 S Woodlawn Ave, Chicago, IL 60637",la:41.78983,ln:-87.59592,w:"Frank Lloyd Wright's 1910 Prairie School masterpiece in Hyde Park, inscribed by UNESCO in The 20th-Century Architecture of Frank Lloyd Wright. Tours by the FLW Trust.",k:"frank lloyd wright prairie school house",g:["PARK","ARCH","FLW"],s:[["UNESCO","https://whc.unesco.org/en/list/1496"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Robie_House"]]},
+{t:1,a:"LOOP",n:"Chicago Cultural Center",ad:"78 E Washington St, Chicago, IL 60602",la:41.88389,ln:-87.62500,w:"The 1897 former public library, now the nation's first free municipal cultural center — under the world's largest Tiffany glass dome (38 ft, ~30,000 pieces).",k:"cultural center architecture free tiffany",g:["MUS","ARCH","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Cultural_Center"]]},
+{t:1,a:"LOOP",n:"The Rookery",ad:"209 S LaSalle St, Chicago, IL 60604",la:41.87908,ln:-87.63211,w:"Burnham & Root's 1888 LaSalle Street landmark, whose skylit light court was remodelled by Frank Lloyd Wright in 1905 — the spiral oriel staircase is the money shot.",k:"architecture building frank lloyd wright landmark",g:["ARCH","FLW"],s:[["CAC","https://www.architecture.org/city-tours/rookery-building"],["CHOOSECHI","https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rookery_Building"]]},
+{t:2,a:"LOOP",n:"Chicago Theatre",ad:"175 N State St, Chicago, IL 60601",la:41.88528,ln:-87.62778,w:"The 1921 French Baroque movie palace under the six-storey C-H-I-C-A-G-O marquee on State Street.",k:"theatre historic landmark",g:["POP","ICON","ARCH","ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Theatre"],["CHOOSECHI","https://www.choosechicago.com/articles/chicago-music/30-must-see-chicago-live-music-venues/"]]},
+{t:1,a:"LOOP",n:"Tribune Tower",ad:"435 N Michigan Ave, Chicago, IL 60611",la:41.89040,ln:-87.62370,w:"Hood & Howells' 1925 Gothic tower from the 'most beautiful building in the world' competition, its base studded with ~150 fragments of famous buildings (Westminster Abbey, the Great Wall, the Parthenon).",k:"architecture tower gothic landmark",g:["ICON","ARCH"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tribune_Tower"]]},
+{t:1,a:"LOOP",n:"360 Chicago (875 North Michigan Avenue)",ad:"875 N Michigan Ave, Chicago, IL 60611",la:41.89880,ln:-87.62300,w:"The tapering, X-braced former John Hancock Center (1969), with the 94th-floor 360 Chicago observation deck and TILT.",k:"observation skyline tower icon",g:["ROOF","ICON","ARCH"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/most-amazing-views-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/875_North_Michigan_Avenue"]]},
+{t:1,a:"LOOP",n:"Marina City",ad:"300 N State St, Chicago, IL 60654",la:41.88799,ln:-87.62876,w:"Bertrand Goldberg's 1963 'corncob' towers on the river — at opening the tallest residential and tallest concrete buildings in the world.",k:"architecture river tower landmark",g:["ICON","ARCH","WATER"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Marina_City"]]},
+{t:2,a:"LOOP",n:"Jay Pritzker Pavilion",ad:"201 E Randolph St, Chicago, IL 60602",la:41.88306,ln:-87.62194,w:"Frank Gehry's ribbon-steel bandshell in Millennium Park — free summer concerts (Grant Park Music Festival) and movies on the lawn.",k:"music concert park free pavilion",g:["POP","PARK","ARTS","FREE"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions/millennium-park-chicago-il"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Jay_Pritzker_Pavilion"]]},
+{t:1,a:"SUB",n:"Unity Temple",ad:"875 Lake St, Oak Park, IL 60301",la:41.88800,ln:-87.79700,w:"Frank Lloyd Wright's 1908 poured-concrete temple in Oak Park — part of UNESCO's 20th-Century Architecture of Frank Lloyd Wright inscription.",k:"frank lloyd wright temple architecture",g:["PARK","ARCH","FLW"],s:[["UNESCO","https://whc.unesco.org/en/list/1496"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Unity_Temple"]]},
+{t:1,a:"SUB",n:"Frank Lloyd Wright Home and Studio",ad:"951 Chicago Ave, Oak Park, IL 60302",la:41.89417,ln:-87.79972,w:"Where Wright lived and worked 1889–1909 and developed the Prairie style; a National Historic Landmark, toured by the Frank Lloyd Wright Trust.",k:"frank lloyd wright prairie school house",g:["ARCH","FLW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Frank_Lloyd_Wright_Home_and_Studio"],["FLWTRUST","https://flwright.org/"]]},
+{t:1,a:"FAR",n:"Pullman National Historical Park",ad:"11141 S Cottage Grove Ave, Chicago, IL 60628",la:41.69722,ln:-87.60944,w:"George Pullman's 1880s company town — the clock-tower factory, Hotel Florence and rowhouses; site of the 1894 strike and the Pullman porters' story. NPS unit since 2015.",k:"national park historic district pullman",g:["PARK","ARCH"],s:[["NPS","https://www.nps.gov/pull/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pullman_National_Historical_Park"]]},
+{t:1,a:"SUB",n:"Baháʼí House of Worship",ad:"100 Linden Ave, Wilmette, IL 60091",la:42.07417,ln:-87.68417,w:"The lace-domed 1953 Baháʼí temple on the Wilmette lakefront — the oldest surviving Baháʼí House of Worship in the world, with formal gardens.",k:"temple architecture gardens free",g:["PARK","ARCH","WATER","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Bah%C3%A1%CA%BC%C3%AD_House_of_Worship_(Wilmette,_Illinois)"],["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"]]},
+{t:1,a:"WEST",n:"National Museum of Mexican Art",ad:"1852 W 19th St, Chicago, IL 60608",la:41.85616,ln:-87.67295,w:"Pilsen's free museum of Mexican art — one of the largest Latinx cultural institutions in the US (10,000+ works); its Día de Muertos show is a city ritual.",k:"museum art free",g:["MUS","FREE"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Museum_of_Mexican_Art"]]},
+{t:1,a:"SOUTH",n:"DuSable Black History Museum",ad:"740 E 56th Pl, Chicago, IL 60637",la:41.79194,ln:-87.60722,w:"Founded 1961 in Washington Park — the oldest independent African American museum in the country.",k:"museum history",g:["MUS","PARK"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/DuSable_Black_History_Museum"]]},
+{t:1,a:"LOOP",n:"Museum of Contemporary Art Chicago",ad:"220 E Chicago Ave, Chicago, IL 60611",la:41.89720,ln:-87.62120,w:"One of the largest contemporary art museums in the world, in Streeterville off the Mag Mile; Tuesday summer jazz on the terrace.",k:"museum art gallery",g:["MUS","ARTS"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_of_Contemporary_Art_Chicago"]]},
+{t:2,a:"NORTH",n:"Chicago History Museum",ad:"1601 N Clark St, Chicago, IL 60614",la:41.91200,ln:-87.63131,w:"The city's history museum at the south end of Lincoln Park — Lincoln's deathbed, the Great Fire, and an exhibit on the Chicago hot dog.",k:"museum history",g:["MUS","PARK"],s:[["TIMEOUT","https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_History_Museum"]]},
+{t:1,a:"NORTH",n:"Kingston Mines",ad:"2548 N Halsted St, Chicago, IL 60614",la:41.92870,ln:-87.64910,w:"Chicago's oldest and largest continuously running blues club (1968) — two stages, alternating sets until 4 a.m.",k:"blues club music",g:["ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/listing/kingston-mines/"],["INFATUATION","https://www.theinfatuation.com/chicago/reviews/kingston-mines"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kingston_Mines_(blues_club)"]]},
+{t:1,a:"LOOP",n:"Buddy Guy's Legends",ad:"700 S Wabash Ave, Chicago, IL 60605",la:41.87297,ln:-87.62621,w:"The South Loop blues club owned by Buddy Guy himself — live blues every night and his own January residency.",k:"blues club music",g:["ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/listing/buddy-guys-legends/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Buddy_Guy's_Legends"]]},
+{t:2,a:"LOOP",n:"Andy's Jazz Club",ad:"11 E Hubbard St, Chicago, IL 60611",la:41.88990,ln:-87.62740,w:"One of the city's best-known jazz rooms, two blocks off the Mag Mile, with nightly sets and jam sessions.",k:"jazz club music",g:["ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Andy's_Jazz_Club"]]},
+{t:1,a:"NORTH",n:"Green Mill Cocktail Lounge",ad:"4802 N Broadway, Chicago, IL 60640",la:41.96920,ln:-87.65990,w:"Uptown's 1907 former Capone-era speakeasy, one of the oldest continuously operating jazz clubs in the country; home of the Uptown Poetry Slam.",k:"jazz club speakeasy cocktail bar music",g:["SPEAK","ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Green_Mill_Cocktail_Lounge"]]},
+{t:1,a:"NORTH",n:"The Second City",ad:"1616 N Wells St, Chicago, IL 60614",la:41.91151,ln:-87.63506,w:"Old Town's improv theatre (1959) that launched Belushi, Murray, Fey, Colbert and Carell.",k:"comedy theater improv",g:["ARTS"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/music/live-music-concerts-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Second_City"]]},
+{t:1,a:"SUB",n:"Chicago Botanic Garden",ad:"1000 Lake Cook Rd, Glencoe, IL 60022",la:42.14833,ln:-87.79000,w:"385 acres on nine islands in the Cook County Forest Preserves at Glencoe — 24 gardens, prairies and greenhouses; the winter Orchid Show.",k:"botanic garden park",g:["PARK","ARCH"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/parks-outdoors/chicago-conservatories-and-winter-gardens/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Botanic_Garden"]]},
+{t:1,a:"SUB",n:"Brookfield Zoo",ad:"8400 31st St, Brookfield, IL 60513",la:41.83267,ln:-87.83346,w:"The 216-acre Chicago Zoological Park in Brookfield — polar bears, the Seven Seas dolphins, Tropic World.",k:"zoo family",g:["PARK","SPORT","FAM"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/tours-and-attractions/discover-nearby-sights-and-attractions/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Brookfield_Zoo"]]},
+{t:1,a:"NW",n:"The 606 (Bloomingdale Trail)",ad:"1805 N Ridgeway Ave, Chicago, IL 60647",la:41.91380,ln:-87.70200,w:"The 2.7-mile elevated rail-trail through Logan Square, Humboldt Park, Wicker Park and Bucktown. Free.",k:"trail park free",g:["PARK","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_606"]]},
+{t:1,a:"SOUTH",n:"Garden of the Phoenix",ad:"6401 S Stony Island Ave (Wooded Island, Jackson Park), Chicago, IL 60637",la:41.78640,ln:-87.58280,w:"The Japanese garden on Jackson Park's Wooded Island, rooted in Japan's 1893 World's Fair pavilion; 160 cherry trees in spring. Free.",k:"garden park free",g:["PARK","ARTS","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/tours-attractions/24-hours-in-hyde-park-chicago/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Garden_of_the_Phoenix"]]},
+{t:2,a:"NORTH",n:"Graceland Cemetery",ad:"4001 N Clark St, Chicago, IL 60613",la:41.95460,ln:-87.66180,w:"Victorian garden cemetery (1860) of Chicago's builders — Burnham, Sullivan, Mies, Marshall Field, Roger Ebert — with Lorado Taft's 'Eternal Silence'.",k:"cemetery historic architecture",g:["PARK","ARCH","FLW","SPORT"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Graceland_Cemetery"]]},
+{t:2,a:"LOOP",n:"Soldier Field",ad:"1410 Special Olympics Dr, Chicago, IL 60605",la:41.86230,ln:-87.61670,w:"The Bears' colonnaded 1924 lakefront stadium (with its 2003 'spaceship' bowl), also home of the Chicago Fire.",k:"stadium bears sport",g:["POP","SPORT","WATER"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Soldier_Field"]]},
+{t:1,a:"SOUTH",n:"Institute for the Study of Ancient Cultures Museum",ad:"1155 E 58th St, Chicago, IL 60637",la:41.78944,ln:-87.59778,w:"The University of Chicago's free museum of the ancient Near East (ex-Oriental Institute) — the 40-ton Khorsabad lamassu, Egypt, Persia, Mesopotamia.",k:"museum free",g:["MUS","FREE"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/the-oriental-institute-museum"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures"]]},
+{t:2,a:"SOUTH",n:"Rockefeller Memorial Chapel",ad:"5850 S Woodlawn Ave, Chicago, IL 60637",la:41.78850,ln:-87.59700,w:"The University of Chicago's soaring Gothic chapel, with a 72-bell carillon among the largest instruments ever built.",k:"church chapel architecture",g:["ARCH"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/rockefeller-memorial-chapel-university-of-chicago"],["CHOOSECHI","https://www.choosechicago.com/listing/rockefeller-memorial-chapel/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rockefeller_Chapel"]]},
+{t:1,a:"SOUTH",n:"Promontory Point",ad:"5491 S DuSable Lake Shore Dr, Chicago, IL 60615",la:41.79583,ln:-87.57694,w:"Alfred Caldwell's limestone-stepped peninsula with a castle-like field house — a downtown-skyline view, swimming off the rocks and fire pits. Free.",k:"park lakefront skyline view free",g:["ROOF","PARK","ICON","ARCH"],s:[["TIMEOUT","https://www.timeout.com/chicago/things-to-do/promontory-point"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Promontory_Point_(Chicago)"]]},
+{t:2,a:"SOUTH",n:"South Shore Cultural Center",ad:"7059 S South Shore Dr, Chicago, IL 60649",la:41.76972,ln:-87.56278,w:"The 1906 South Shore Country Club, now a Park District cultural center with a beach, nature sanctuary and golf — the Obamas held their wedding reception here.",k:"cultural center park beach",g:["MUS","PARK","ARCH","WATER"],s:[["CHOOSECHI","https://www.choosechicago.com/listing/south-shore-cultural-center/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/South_Shore_Cultural_Center"]]},
+{t:2,a:"LOOP",n:"Glessner House",ad:"1800 S Prairie Ave, Chicago, IL 60616",la:41.85761,ln:-87.62105,w:"H. H. Richardson's 1887 Romanesque fortress-house on Prairie Avenue, a museum of the Gilded Age.",k:"house museum architecture historic",g:["MUS","ARCH"],s:[["CHOOSECHI","https://www.choosechicago.com/blog/architecture-history/explore-the-fascinating-architecture-around-chicagos-south-loop/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/John_J._Glessner_House"]]},
+{t:1,a:"LOOP",n:"Auditorium Theatre",ad:"50 E Ida B. Wells Dr, Chicago, IL 60605",la:41.87611,ln:-87.62528,w:"Adler & Sullivan's 1889 Auditorium Building — a National Historic Landmark with a gold-leafed arched hall and famous acoustics.",k:"theatre architecture sullivan landmark",g:["ARCH","FLW","ARTS"],s:[["CAC","https://www.architecture.org/city-tours"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Auditorium_Building"]]},
+{t:2,a:"LOOP",n:"Monadnock Building",ad:"53 W Jackson Blvd, Chicago, IL 60604",la:41.87750,ln:-87.62944,w:"Burnham & Root's 1891 load-bearing brick skyscraper — 'the first modern building' — with Holabird & Roche's steel-frame 1893 addition.",k:"architecture building landmark",g:["ARCH"],s:[["CAC","https://www.architecture.org/city-tours/monadnock-building"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Monadnock_Building"]]},
+{t:2,a:"LOOP",n:"Chicago Union Station",ad:"225 S Canal St, Chicago, IL 60606",la:41.87860,ln:-87.64020,w:"The 1925 Beaux-Arts station whose Great Hall rises under a 219-ft barrel-vaulted skylight — the Untouchables staircase.",k:"station architecture movie",g:["POP","ARCH"],s:[["CAC","https://www.architecture.org/online-resources/buildings-of-chicago/union-station"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Chicago_Union_Station"]]},
+{t:1,a:"NORTH",n:"Lincoln Park Conservatory",ad:"2391 N Stockton Dr, Chicago, IL 60614",la:41.92400,ln:-87.63530,w:"The 1890s Victorian glasshouse in Lincoln Park — palms, ferns and orchids, free and open year-round.",k:"conservatory garden park free",g:["PARK","ARCH","FREE"],s:[["CHOOSECHI","https://www.choosechicago.com/articles/parks-outdoors/chicago-conservatories-and-winter-gardens/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lincoln_Park_Conservatory"]]},
+{t:1,a:"DAY",n:"Indiana Dunes National Park",ad:"1215 N State Road 49, Porter, IN 46304",la:41.64806,ln:-87.10806,w:"15 miles of Lake Michigan beaches and towering dunes an hour from the Loop by the South Shore Line — Mount Baldy, the West Beach dune trails.",k:"national park dunes beach trail",g:["PARK","ARCH","WATER"],s:[["NPS","https://www.nps.gov/indu/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Indiana_Dunes_National_Park"]]},
+{t:1,a:"DAY",n:"Starved Rock State Park",ad:"2668 E 875th Rd, Oglesby, IL 61348",la:41.32139,ln:-88.99028,w:"Sandstone canyons and seasonal waterfalls on the Illinois River, 90 minutes south-west of Chicago — Illinois's most-visited state park.",k:"state park canyons trail waterfalls",g:["PARK","WATER"],s:[["ILDNR","https://dnr.illinois.gov/parks/park.starvedrock.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Starved_Rock_State_Park"]]}
+];
+
+const FS = {
+  "ABC7":{k:"ABC7 CHICAGO",t:"ABC7 CHICAGO",u:"",l:""},
+  "BLOCKCLUB":{k:"BLOCK CLUB CHICAGO",t:"Block Club Chicago",u:"https://blockclubchicago.org/",l:"Block Club Chicago"},
+  "CHIMAG":{k:"CHICAGO MAGAZINE",t:"Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)",u:"https://www.chicagomag.com/",l:"Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)"},
+  "CHOOSECHI":{k:"CHOOSE CHICAGO",t:"Choose Chicago (official CVB)",u:"https://www.choosechicago.com/",l:"Choose Chicago (official CVB)"},
+  "CHOWHOUND":{k:"CHOWHOUND",t:"CHOWHOUND",u:"",l:""},
+  "INFATUATION":{k:"INFATUATION",t:"The Infatuation Chicago",u:"https://www.theinfatuation.com/chicago",l:"The Infatuation Chicago"},
+  "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation Awards (incl. America's Classics)",u:"https://www.jamesbeard.org/awards",l:"James Beard Foundation Awards (incl. America's Classics)"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Chicago (stars + Bib Gourmand)",u:"https://guide.michelin.com/us/en/illinois/chicago",l:"MICHELIN Guide Chicago (stars + Bib Gourmand)"},
+  "NBC5":{k:"NBC 5 CHICAGO",t:"NBC 5 CHICAGO",u:"",l:""},
+  "TIMEOUT":{k:"TIME OUT CHICAGO",t:"Time Out Chicago",u:"https://www.timeout.com/chicago",l:"Time Out Chicago"},
+  "WBEZ":{k:"WBEZ",t:"WBEZ Chicago (NPR)",u:"https://www.wbez.org/",l:"WBEZ Chicago (NPR)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
+  "WTTW":{k:"WTTW",t:"WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!",u:"https://news.wttw.com/",l:"WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!"}
+};
+
+const CUISINES = [
+  {id:"PZ",n:"Pizza (deep-dish, tavern-style thin, stuffed)"},
+  {id:"BEEF",n:"Italian Beef & Chicago Sandwiches"},
+  {id:"DOG",n:"Hot Dogs, Maxwell Street Polish & Burgers"},
+  {id:"CHX",n:"Fried Chicken, Mild Sauce, BBQ & Soul Food"},
+  {id:"US",n:"New American, Fine Dining & Steakhouses"},
+  {id:"DELI",n:"Delis, Diners & Breakfast"},
+  {id:"IT",n:"Italian"},
+  {id:"MEX",n:"Mexican (Pilsen & Little Village)"},
+  {id:"PR",n:"Puerto Rican, Caribbean & Latin American"},
+  {id:"CN",n:"Chinese (Chinatown & beyond)"},
+  {id:"VN",n:"Vietnamese, Thai & Southeast Asian (Argyle)"},
+  {id:"KR",n:"Korean"},
+  {id:"JP",n:"Japanese"},
+  {id:"IN",n:"Indian & Pakistani (Devon Ave)"},
+  {id:"ME",n:"Middle Eastern, Greek & Mediterranean"},
+  {id:"EEU",n:"Polish, Ukrainian & Eastern European"},
+  {id:"EU",n:"Swedish, German, French & European"},
+  {id:"AF",n:"African & Ethiopian"},
+  {id:"SEAF",n:"Seafood & Fish Shacks"},
+  {id:"BAR",n:"Taverns, Bars, Cocktails & Breweries"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"DES",n:"Desserts, Bakeries, Rainbow Cone & Popcorn"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"PARK",n:"Parks, Beaches & Gardens"},
+  {id:"ICON",n:"Iconic Landmarks & Skyline Views"},
+  {id:"ARCH",n:"Architecture & History"},
+  {id:"FLW",n:"Frank Lloyd Wright & Prairie School"},
+  {id:"MKT",n:"Markets & Food Halls"},
+  {id:"ARTS",n:"Blues, Jazz, Theater & Comedy"},
+  {id:"SPORT",n:"Sports & Stadiums"},
+  {id:"WATER",n:"Lakefront, River & Water"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"},
+  {id:"ROOF",n:"Rooftops & Views"},
+  {id:"SPEAK",n:"Speakeasies & Cocktail Bars"},
+  {id:"POP",n:"Pop Culture & Screen"},
+  {id:"MURAL",n:"Murals & Public Art"}
+];
+
+const F = [
+{t:1,a:"LOOP",n:"Lou Malnati's Pizzeria (River North)",ad:"439 N Wells St, Chicago, IL 60654",cz:["PZ"],la:41.89008,ln:-87.63401,w:"The family that helped invent deep dish (Lou worked at Uno before opening his own in 1971); Infatuation calls it the best version of the classic Chicago pie — sauce on top, flaky buttery crust.",s:[["INFATUATION","https://www.theinfatuation.com/chicago/guides/best-deep-dish-pizza-chicago"],["TIMEOUT","https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/chicago-classic-at-lou-malnatis/"]]},
+{t:1,a:"NW",n:"Superdawg Drive-In",ad:"6363 N Milwaukee Ave, Chicago, IL 60646",cz:["DOG"],la:41.99676,ln:-87.78706,w:"The 1948 carhop drive-in under the two giant hot-dog mascots on the roof — on both the Infatuation and Time Out best-hot-dog lists.",s:[["INFATUATION","https://www.theinfatuation.com/chicago/guides/best-chicago-dog"],["TIMEOUT","https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"],["INFATUATION","https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"]]},
+{t:1,a:"SUB",n:"Gene & Jude's",ad:"2720 N River Rd, River Grove, IL 60171",cz:["DOG"],la:41.93005,ln:-87.84661,w:"River Grove stand (1946; here since 1950) — no seats, no ketchup; the gold standard of the Depression dog on both the Infatuation and Time Out hot-dog lists.",s:[["INFATUATION","https://www.theinfatuation.com/chicago/guides/best-chicago-dog"],["TIMEOUT","https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"]]},
+{t:1,a:"NORTH",n:"Wolfy's",ad:"2734 W Peterson Ave, Chicago, IL 60659",cz:["DOG"],la:41.99077,ln:-87.69856,w:"West Ridge stand famous since 1967 for its sign — a giant hot dog on a fork — and a char dog both the Infatuation and Time Out rank among the city's best.",s:[["INFATUATION","https://www.theinfatuation.com/chicago/guides/best-chicago-dog"],["TIMEOUT","https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"]]},
+{t:1,a:"SOUTH",n:"Lem's Bar-B-Q",ad:"311 E 75th St, Chicago, IL 60619",cz:["CHX"],la:41.75820,ln:-87.61764,w:"Founded 1954 by the Lemons brothers and still family-run; South Side aquarium-smoker rib tips. 2025 James Beard America's Classics award.",s:[["JAMESBEARD","https://www.jamesbeard.org/stories/announcing-the-2025-restaurant-and-chef-americas-classics-winners"],["WBEZ","https://www.wbez.org/chicago-james-beard-award-winning-restaurants"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"]]},
+{t:1,a:"NORTH",n:"Sun Wah Bar-B-Q",ad:"5039 N Broadway, Chicago, IL 60640",cz:["CN"],la:41.97397,ln:-87.65958,w:"Uptown Hong Kong barbecue house near Argyle, family-run since 1987; 2018 James Beard America's Classics award.",s:[["JAMESBEARD","https://archive.jamesbeard.org/chicago"],["WBEZ","https://www.wbez.org/chicago-james-beard-award-winning-restaurants"],["CHOOSECHI","https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"]]},
+{t:1,a:"LOOP",n:"The Berghoff",ad:"17 W Adams St, Chicago, IL 60603",cz:["EU","BAR"],la:41.87931,ln:-87.62839,w:"German restaurant and bar in the Loop since 1898 — its bar held Chicago's first post-Prohibition liquor license. A James Beard America's Classics honoree.",s:[["JAMESBEARD","https://archive.jamesbeard.org/chicago"],["CHOOSECHI","https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/"]]},
+{t:1,a:"FAR",n:"Calumet Fisheries",ad:"3259 E 95th St, Chicago, IL 60617",cz:["SEAF"],la:41.72264,ln:-87.54398,w:"Smokehouse shack by the 95th Street bridge on the Calumet River since 1948, wood-smoking fish on site. A James Beard America's Classics honoree.",s:[["JAMESBEARD","https://archive.jamesbeard.org/chicago"],["CHOOSECHI","https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"]]},
+{t:1,a:"LOOP",n:"Manny's Cafeteria & Delicatessen",ad:"1141 S Jefferson St, Chicago, IL 60607",cz:["DELI"],la:41.86790,ln:-87.64190,w:"South Loop cafeteria deli since 1942, lunchroom of generations of politicians — reviewed by the Infatuation ('still great after 80 years') and on Chicago Magazine's Iconic Eats for its corned beef.",s:[["INFATUATION","https://www.theinfatuation.com/chicago/reviews/mannys-cafeteria-delicatessen"],["CHIMAG","https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"]]},
+{t:1,a:"LOOP",n:"Billy Goat Tavern",ad:"430 N Michigan Ave (lower level), Chicago, IL 60611",cz:["DOG","BAR"],la:41.89028,ln:-87.62449,w:"Lower Michigan Avenue newspapermen's tavern since 1934 — 'cheezborger, cheezborger, no Pepsi, Coke' of SNL fame and the Cubs' goat curse.",s:[["INFATUATION","https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Billy_Goat_Tavern"]]},
+{t:1,a:"LOOP",n:"Gino's East (Superior St)",ad:"162 E Superior St, Chicago, IL 60611",cz:["PZ"],la:41.89602,ln:-87.62303,w:"Deep-dish institution since 1966 near the Mag Mile, its cornmeal-crust pies served in graffiti-covered booths diners are invited to sign.",s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Gino's_East"],["CHOWHOUND","https://www.chowhound.com/2103756/ginos-east-chicago-deep-dish-pizza/"]]},
+{t:1,a:"LOOP",n:"Mr. Beef",ad:"666 N Orleans St, Chicago, IL 60654",cz:["BEEF"],la:41.89446,ln:-87.63736,w:"The River North beef stand (since 1979) that inspired The Bear's Original Beef of Chicagoland — dipped beef with hot giardiniera.",g:["POP"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mr._Beef"],["INFATUATION","https://www.theinfatuation.com/chicago/guides/bear-restaurants-chicago"]]},
+{t:1,a:"LOOP",n:"Smyth",ad:"177 N Ada St, Chicago, IL 60607",cz:["US"],la:41.88528,ln:-87.66058,w:"West Loop tasting-menu restaurant tied to a family farm — Chicago's only three-Michelin-star restaurant in the 2025 guide.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"]]},
+{t:1,a:"NORTH",n:"Alinea",ad:"1723 N Halsted St, Chicago, IL 60614",cz:["US"],la:41.91340,ln:-87.64820,w:"Grant Achatz's Lincoln Park landmark of modernist cooking, 20 years old — two Michelin stars in 2025 (down from three).",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"],["WTTW","https://www.wttw.com/playlist/2025/11/18/michelin-guide-knife-edge-show"]]},
+{t:1,a:"LOOP",n:"Ever",ad:"1340 W Fulton St, Chicago, IL 60607",cz:["US"],la:41.88694,ln:-87.66042,w:"Curtis Duffy's Fulton Market tasting room — two Michelin stars; its GM Amy Cordell won Michelin's 2025 service award.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"]]},
+{t:1,a:"NW",n:"Kasama",ad:"1001 N Winchester Ave, Chicago, IL 60622",cz:["VN","US"],la:41.89969,ln:-87.67565,w:"Ukrainian Village Filipino bakery-by-day, tasting-menu-by-night — raised to two Michelin stars in 2025.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"],["ABC7","https://abc7chicago.com/amp/post/michelin-announcement-chicago-restaurants-will-guide-earn-star-alinea-loses-1-3/18170571/"]]},
+{t:2,a:"NORTH",n:"Esmé",ad:"2200 N Clark St, Chicago, IL 60614",cz:["US"],la:41.92208,ln:-87.63875,w:"Jenner Tomaska and Katrina Bravo's Lincoln Park 'atelier' restaurant — one Michelin star.",s:[["MICHELIN","https://guide.michelin.com/us/en/illinois/chicago/restaurant/esme"]]},
+{t:1,a:"LOOP",n:"Topolobampo",ad:"445 N Clark St, Chicago, IL 60654",cz:["MEX","US"],la:41.89061,ln:-87.63092,w:"Rick Bayless's fine-dining room behind Frontera Grill in River North — one Michelin star.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"]]},
+{t:2,a:"LOOP",n:"Moody Tongue",ad:"2515 S Wabash Ave, Chicago, IL 60616",cz:["US","BAR"],la:41.84694,ln:-87.62500,w:"South Loop brewery whose dining room above the brewhouse holds one Michelin star.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"]]},
+{t:2,a:"NW",n:"Schwa",ad:"1466 N Ashland Ave, Chicago, IL 60622",cz:["US"],la:41.90894,ln:-87.66786,w:"Wicker Park's punk tasting counter — no servers, loud rap, wild cooking; one Michelin star.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"]]},
+{t:2,a:"LOOP",n:"Indienne",ad:"217 W Huron St, Chicago, IL 60654",cz:["IN","US"],la:41.89456,ln:-87.63506,w:"Sujan Sarkar's River North modern-Indian tasting room — one Michelin star.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"]]},
+{t:2,a:"NW",n:"Feld",ad:"2018 W Chicago Ave, Chicago, IL 60622",cz:["US"],la:41.89610,ln:-87.67785,w:"Chicago's newest one-star in the 2025 Michelin guide, which also gave it a Green Star for sustainable practice.",s:[["MICHELIN","https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"],["ABC7","https://abc7chicago.com/amp/post/michelin-announcement-chicago-restaurants-will-guide-earn-star-alinea-loses-1-3/18170571/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('chi_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('chi_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('chi_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('chi_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Chicago IL')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {LOOP:'#C0504D',NORTH:'#4F81BD',NW:'#9BBB59',WEST:'#E8973A',SOUTH:'#8064A2',FAR:'#4BACC6',SUB:'#2C7FB8',DAY:'#F2A900'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([41.8869,-87.6294],10);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle neighborhood labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["The Loop", 41.8818, -87.6277], ["North Side (Lincoln Park", 41.9391, -87.6506], ["Northwest Side (Wicker Park", 41.9231, -87.7021], ["West Side (Pilsen", 41.8713, -87.6951], ["South Side (Chinatown", 41.7845, -87.5912], ["Far South (Pullman", 41.7099, -87.5767], ["Suburbs", 41.9612, -87.7918], ["Day Trips (Indiana Dunes", 41.4847, -88.0492]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('chicago-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('chicago-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('chicago-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Discovery started from what is unique to Chicago: <b>deep-dish</b> and <b>tavern-style thin crust</b>, <b>Italian beef</b>, the <b>Chicago-style hot dog</b> and the <b>Maxwell Street Polish</b>, the Puerto Rican <b>jibarito</b>, <b>mild-sauce</b> chicken and rib tips, the <b>Rainbow Cone</b> and <b>Garrett</b> popcorn — then the immigrant corridors: Pilsen and Little Village (Mexican), Chinatown, Devon Avenue (Indian &amp; Pakistani), Argyle (Vietnamese), Ukrainian Village and the Polish Northwest Side, Swedish Andersonville. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched, merit-measured and fact-checked'
+  + '<span>Every place is traceable to at least two credible sources — or one institutional authority (Michelin, James Beard, the National Park Service, UNESCO) — recorded in data/sources.json: the Chicago Tribune, Sun-Times, Chicago Magazine, Eater Chicago, The Infatuation, Block Club Chicago, WTTW, Time Out, Choose Chicago, Atlas Obscura and vetted creators (direct page fetches are blocked in the build environment, so sources were confirmed via search). Yelp and TripAdvisor never count. Every coordinate is verified into data/geocodes.json and every place status-checked.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 72 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

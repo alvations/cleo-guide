@@ -1,0 +1,3451 @@
+{
+ "areas": [
+  {
+   "id": "CC",
+   "n": "Center City, Old City & the Parkway"
+  },
+  {
+   "id": "SPH",
+   "n": "South Philly (Italian Market, Passyunk, Washington Ave)"
+  },
+  {
+   "id": "FISH",
+   "n": "Fishtown, Northern Liberties & Kensington"
+  },
+  {
+   "id": "UCW",
+   "n": "University City & West Philly"
+  },
+  {
+   "id": "NPH",
+   "n": "North Philly, Fairmount Park & Brewerytown"
+  },
+  {
+   "id": "NW",
+   "n": "Northwest (Germantown, Chestnut Hill, Manayunk)"
+  },
+  {
+   "id": "NE",
+   "n": "Northeast Philly (Port Richmond, Little Brazil, Cottman Ave)"
+  },
+  {
+   "id": "MAIN",
+   "n": "The Main Line & suburbs"
+  },
+  {
+   "id": "SJ",
+   "n": "South Jersey & the Camden edge"
+  },
+  {
+   "id": "DAY",
+   "n": "Brandywine, Valley Forge & day trips"
+  }
+ ],
+ "ac": {
+  "CC": "#C0504D",
+  "SPH": "#E8973A",
+  "FISH": "#4F81BD",
+  "UCW": "#9BBB59",
+  "NPH": "#8064A2",
+  "NW": "#4BACC6",
+  "NE": "#D99694",
+  "MAIN": "#2C7FB8",
+  "SJ": "#F2A900",
+  "DAY": "#7BA05B"
+ },
+ "cuisines": [
+  {
+   "id": "CHS",
+   "n": "Cheesesteaks & Roast Pork"
+  },
+  {
+   "id": "HOAG",
+   "n": "Hoagies, Delis & Sandwiches"
+  },
+  {
+   "id": "PZ",
+   "n": "Pizza & Tomato Pie"
+  },
+  {
+   "id": "IT",
+   "n": "Italian & Italian-American"
+  },
+  {
+   "id": "US",
+   "n": "American, New American & Fine Dining"
+  },
+  {
+   "id": "DIN",
+   "n": "Diners, Scrapple & Breakfast"
+  },
+  {
+   "id": "SOUL",
+   "n": "Soul Food, BBQ & Southern"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood & Oysters"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican"
+  },
+  {
+   "id": "LAT",
+   "n": "Latin American & Caribbean"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnamese"
+  },
+  {
+   "id": "SEA",
+   "n": "Cambodian, Indonesian, Thai & Southeast Asian"
+  },
+  {
+   "id": "CN",
+   "n": "Chinese & Taiwanese"
+  },
+  {
+   "id": "JK",
+   "n": "Japanese & Korean"
+  },
+  {
+   "id": "IN",
+   "n": "South Asian"
+  },
+  {
+   "id": "ME",
+   "n": "Middle Eastern, Israeli & Mediterranean"
+  },
+  {
+   "id": "AFR",
+   "n": "African"
+  },
+  {
+   "id": "DES",
+   "n": "Bakeries, Soft Pretzels, Water Ice & Desserts"
+  },
+  {
+   "id": "BREW",
+   "n": "Bars, Breweries & Cocktails"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "HIST",
+   "n": "Revolutionary & Colonial History"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "ART",
+   "n": "Murals & Public Art"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & Landmarks"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks, Gardens & Trails"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Food Halls"
+  },
+  {
+   "id": "ARTS",
+   "n": "Performing Arts & Music"
+  },
+  {
+   "id": "WATER",
+   "n": "Riverfront & Waterfront"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "SPORT",
+   "n": "Sports & Rocky"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Independence Hall",
+   "ad": "520 Chestnut St, Philadelphia, PA 19106",
+   "w": "Where the Declaration of Independence (1776) and the Constitution (1787) were debated and signed — a UNESCO World Heritage Site run by the National Park Service; free timed tickets.",
+   "k": "historic site",
+   "g": [
+    "ICON",
+    "HIST",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/independencehall.htm"
+    ],
+    [
+     "UNESCO",
+     "https://www.nps.gov/articles/000/independence-hall-world-heritage-site.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Independence_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Liberty Bell Center",
+   "ad": "526 Market St, Philadelphia, PA 19106",
+   "w": "The 2,080-lb cracked bell, an abolitionist-adopted icon of liberty, displayed in an NPS pavilion facing Independence Hall; free.",
+   "k": "historic site",
+   "g": [
+    "ICON",
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/000/liberty-bell-center.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Liberty_Bell"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Congress Hall",
+   "ad": "S 6th St & Chestnut St, Philadelphia, PA 19106",
+   "w": "Where the US Congress met for ten years (1790–1800) while Philadelphia was the nation's capital; Washington's second and Adams' inauguration happened here. NPS-ranger tours.",
+   "k": "historic site",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/placestogo.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Congress_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Carpenters' Hall",
+   "ad": "320 Chestnut St, Philadelphia, PA 19106",
+   "w": "The 1770s guild hall where the First Continental Congress met in 1774; free, still owned by the Carpenters' Company.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/placestogo.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Carpenters%27_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Benjamin Franklin Museum & Franklin Court",
+   "ad": "317 Chestnut St, Philadelphia, PA 19106",
+   "w": "Franklin Court: Robert Venturi's steel 'ghost structures' outlining Franklin's lost house, the underground Benjamin Franklin Museum and a working 18th-century printing office.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/placestogo.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Franklin_Court"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "President's House Site",
+   "ad": "S 6th St & Market St, Philadelphia, PA 19106",
+   "w": "Open-air memorial on the footprint of the house where Washington and Adams lived in the 1790s — and where Washington held nine enslaved Africans; exhibits on liberty and slavery. Free.",
+   "k": "memorial",
+   "g": [
+    "HIST",
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/placestogo.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/President%27s_House_(Philadelphia)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Second Bank of the United States Portrait Gallery",
+   "ad": "420 Chestnut St, Philadelphia, PA 19106",
+   "w": "A Greek Revival marvel (1824) housing 150+ portraits of the founding era's politicians, explorers and society leaders, many by Charles Willson Peale.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/placestogo.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Second_Bank_of_the_United_States"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Christ Church",
+   "ad": "20 N American St, Philadelphia, PA 19106",
+   "w": "Built 1727–44, the Anglican church where George Washington, Benjamin Franklin and Betsy Ross worshipped; its steeple was once the tallest structure in the colonies.",
+   "k": "church",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/inde/planyourvisit/placestogo.htm"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/must-see-historic-attractions-in-historic-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Christ_Church,_Philadelphia"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Christ Church Burial Ground",
+   "ad": "340 N 5th St, Philadelphia, PA 19106",
+   "w": "Benjamin Franklin's grave — visitors toss pennies on it for luck — among five signers of the Declaration buried here.",
+   "k": "cemetery",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/must-see-historic-attractions-in-historic-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Christ_Church_Burial_Ground"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Elfreth's Alley",
+   "ad": "126 Elfreth's Alley, Philadelphia, PA 19106",
+   "w": "Continuously inhabited since 1720 — one of America's oldest residential streets: 32 craftsmen's houses, two of them a small museum.",
+   "k": "historic street",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/old-city/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Elfreth%27s_Alley"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Betsy Ross House",
+   "ad": "239 Arch St, Philadelphia, PA 19106",
+   "w": "The 1740s home of America's most famous upholsterer and flag-maker; tiny rooms, tight stairs and the story of the flag.",
+   "k": "historic house",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/old-city/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Betsy_Ross_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Museum of the American Revolution",
+   "ad": "101 S 3rd St, Philadelphia, PA 19106",
+   "w": "Steps from Independence Hall, it traces the colonies from unrest to independence; centrepiece is George Washington's original headquarters tent.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/old-city/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_the_American_Revolution"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "National Constitution Center",
+   "ad": "525 Arch St, Philadelphia, PA 19106",
+   "w": "The world's only museum dedicated to the US Constitution, with Signers' Hall's 42 life-size bronze framers.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/old-city/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Constitution_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Philadelphia Museum of Art & the Rocky Steps",
+   "ad": "2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+   "w": "One of the largest art museums in the US (Renaissance to Duchamp) atop the 72 steps Rocky Balboa ran in 1976 — the Rocky statue stands at the bottom.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/philadelphia-museum-of-art/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Philadelphia_Museum_of_Art"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Barnes Foundation",
+   "ad": "2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+   "w": "Albert Barnes' collection hung in his idiosyncratic 'ensembles': one of the world's greatest holdings of Renoir, Cézanne and Matisse beside African art and ironwork.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/benjamin-franklin-parkway/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Barnes_Foundation"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Eastern State Penitentiary",
+   "ad": "2027 Fairmount Ave, Philadelphia, PA 19130",
+   "w": "Opened 1829 as the world's first true 'penitentiary' (solitary reform), closed 1971, now a crumbling, haunting museum — Al Capone's cell is furnished.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/fairmount/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Eastern_State_Penitentiary"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Philadelphia's Magic Gardens",
+   "ad": "1020 South St, Philadelphia, PA 19147",
+   "w": "Isaiah Zagar's labyrinthine folk-art environment of mirror, tile and bottle mosaics — half a block of it — on South Street.",
+   "k": "art",
+   "g": [
+    "ART",
+    "PARK",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Philadelphia%27s_Magic_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Reading Terminal Market",
+   "ad": "51 N 12th St, Philadelphia, PA 19107",
+   "w": "America's great public market, under a former railroad trainshed since 1893: roast pork, Amish counters, Bassetts ice cream and 70-plus merchants.",
+   "k": "market",
+   "g": [
+    "ICON",
+    "MKT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-in-reading-terminal-market"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/pois/1110229"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Reading_Terminal_Market"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Rodin Museum",
+   "ad": "2151 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+   "w": "One of the largest public Rodin collections outside Paris, fronted by bronze casts of The Thinker and The Gates of Hell; garden free.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/rodin-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rodin_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "The Franklin Institute",
+   "ad": "222 N 20th St, Philadelphia, PA 19103",
+   "w": "Philadelphia's hands-on science museum — walk-through Giant Heart, Baldwin locomotive, planetarium — and home of the national Benjamin Franklin Memorial.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/benjamin-franklin-parkway/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Franklin_Institute"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Academy of Natural Sciences of Drexel University",
+   "ad": "1900 Benjamin Franklin Pkwy, Philadelphia, PA 19103",
+   "w": "America's oldest natural-science research institution (1812): Dinosaur Hall and a live butterfly room.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/benjamin-franklin-parkway/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Academy_of_Natural_Sciences_of_Drexel_University"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CC",
+   "n": "Parkway Central Library",
+   "ad": "1901 Vine St, Philadelphia, PA 19103",
+   "w": "The Free Library's Beaux-Arts flagship on Logan Square; its Rare Book Department and rooftop terrace are open to visitors.",
+   "k": "library",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/benjamin-franklin-parkway/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Free_Library_of_Philadelphia"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Swann Memorial Fountain",
+   "ad": "Logan Square, Philadelphia, PA 19103",
+   "w": "Alexander Stirling Calder's 1924 fountain whose three Native American figures represent the Delaware, Schuylkill and Wissahickon — the centrepiece of Logan Circle.",
+   "k": "fountain",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/benjamin-franklin-parkway/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Swann_Memorial_Fountain"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Rocky Statue",
+   "ad": "2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130",
+   "w": "The bronze Rocky Balboa from Rocky III, at the foot of the Art Museum steps — the city's most-photographed statue. Free.",
+   "k": "statue",
+   "g": [
+    "ICON",
+    "MUS",
+    "SPORT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/the-rocky-statue-and-the-rocky-steps/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rocky_Statue"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Mütter Museum",
+   "ad": "19 S 22nd St, Philadelphia, PA 19103",
+   "w": "The College of Physicians' museum of medical oddities — America's most famous — with slides of Einstein's brain, the Soap Lady and a wall of skulls.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/M%C3%BCtter_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Edgar Allan Poe National Historic Site",
+   "ad": "532 N 7th St, Philadelphia, PA 19123",
+   "w": "The only surviving Philadelphia home of Poe, with the cobwebbed cellar that may have inspired 'The Black Cat'; NPS-run, free.",
+   "k": "historic house",
+   "g": [
+    "HIST",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/edal/"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Edgar_Allan_Poe_National_Historic_Site"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Wagner Free Institute of Science",
+   "ad": "1700 W Montgomery Ave, Philadelphia, PA 19121",
+   "w": "A Victorian natural-history museum preserved intact since the 1890s — cherrywood cases, the first American saber-toothed-cat fossil found by Joseph Leidy; free.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "FAM",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wagner_Free_Institute_of_Science"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NPH",
+   "n": "Shofuso Japanese House and Garden",
+   "ad": "Lansdowne Dr & Horticultural Dr, Philadelphia, PA 19131",
+   "w": "A 17th-century-style shoin house sent from Japan as a postwar gift of peace, with a tiered waterfall and koi pond; open late March–October, Wed–Sun.",
+   "k": "garden",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fairmount-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shofuso_Japanese_House_and_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Boathouse Row",
+   "ad": "1 Boathouse Row, Philadelphia, PA 19130",
+   "w": "Fifteen 19th-century rowing-club boathouses on the east bank of the Schuylkill, outlined in LED lights after dark — the city's postcard view from Kelly Drive.",
+   "k": "landmark",
+   "g": [
+    "ARCH",
+    "PARK",
+    "ARTS",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fairmount-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Boathouse_Row"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NPH",
+   "n": "Philadelphia Zoo",
+   "ad": "3400 W Girard Ave, Philadelphia, PA 19104",
+   "w": "America's first zoo (1874): ~1,900 animals on 42 Victorian-garden acres, with Zoo360 trails letting big cats and primates cross above visitors.",
+   "k": "zoo",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fairmount-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Philadelphia_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Please Touch Museum",
+   "ad": "4231 Avenue of the Republic, Philadelphia, PA 19131",
+   "w": "Children's museum inside Memorial Hall, the Beaux-Arts survivor of the 1876 Centennial Exposition, with a restored 1908 Dentzel carousel.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fairmount-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Please_Touch_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NPH",
+   "n": "Mann Center for the Performing Arts",
+   "ad": "5201 Parkside Ave, Philadelphia, PA 19131",
+   "w": "Open-air amphitheatre in West Fairmount Park, the Philadelphia Orchestra's summer home, with lawn seats facing the skyline.",
+   "k": "venue",
+   "g": [
+    "PARK",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fairmount-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mann_Center_for_the_Performing_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Smith Memorial Playground & Playhouse",
+   "ad": "3500 Reservoir Dr, Philadelphia, PA 19121",
+   "w": "One of America's oldest playgrounds, home of the c.1899 Ann Newman Giant Wooden Slide (60 ft long) — free.",
+   "k": "playground",
+   "g": [
+    "ARTS",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "FAIRMOUNTPARK",
+     "https://myphillypark.org/explore/parks/smith-memorial-playground/"
+    ],
+    [
+     "PHILAGOV",
+     "https://www.phila.gov/2018-04-23-city-officials-celebrate-opening-of-renovated-smith-playground/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Historic Strawberry Mansion",
+   "ad": "2450 Strawberry Mansion Dr, Philadelphia, PA 19121",
+   "w": "Largest of Fairmount Park's historic houses, built 1789 by abolitionist judge William Lewis, Greek Revival wings c.1828, with an antique-doll collection.",
+   "k": "historic house",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/historic-strawberry-mansion/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Strawberry_Mansion_(house)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UCW",
+   "n": "Penn Museum",
+   "ad": "3260 South St, Philadelphia, PA 19104",
+   "w": "The University of Pennsylvania's museum of archaeology and anthropology: 1M+ artifacts incl. Queen Puabi's gold-and-lapis headdress from Ur (c.2550 BC), a 12-ton Sphinx and the largest set of Maya stelae in the US.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/must-see-attractions-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Penn_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UCW",
+   "n": "Bartram's Garden",
+   "ad": "5400 Lindbergh Blvd, Philadelphia, PA 19143",
+   "w": "North America's oldest surviving botanic garden, John Bartram's 18th-century riverside farm — 45+ acres on the Schuylkill with the continent's oldest living ginkgo; free.",
+   "k": "garden",
+   "g": [
+    "HIST",
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/bartrams-garden/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bartram%27s_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "UCW",
+   "n": "Institute of Contemporary Art (ICA)",
+   "ad": "118 S 36th St, Philadelphia, PA 19104",
+   "w": "Penn's free contemporary-art museum (1963), which gave Andy Warhol his first museum show and keeps championing emerging artists.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/must-see-attractions-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Institute_of_Contemporary_Art,_Philadelphia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Wissahickon Valley Park",
+   "ad": "Valley Green Rd, Philadelphia, PA 19128",
+   "w": "2,000 wooded acres of gorge along Wissahickon Creek inside the city: 50 miles of trails, Forbidden Drive, a covered bridge and the 1850 Valley Green Inn.",
+   "k": "park",
+   "g": [
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/wissahickon-valley-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wissahickon_Valley_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Morris Arboretum & Gardens",
+   "ad": "100 E Northwestern Ave, Philadelphia, PA 19118",
+   "w": "Penn's 92-acre teaching arboretum on the former Morris estate — Japanese, English and wildflower gardens, the Out on a Limb canopy walk and a seasonal garden railway.",
+   "k": "garden",
+   "g": [
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northwest-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Morris_Arboretum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Cliveden",
+   "ad": "6401 Germantown Ave, Philadelphia, PA 19144",
+   "w": "The 1760s Chew family estate that British troops fortified during the 1777 Battle of Germantown — re-enacted every October at the Revolutionary Germantown Festival.",
+   "k": "historic house",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northwest-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cliveden_(Benjamin_Chew_House)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Woodmere Art Museum",
+   "ad": "9201 Germantown Ave, Philadelphia, PA 19118",
+   "w": "A Chestnut Hill estate bequeathed as a museum devoted to Philadelphia artists, from the founder's collection to temporary shows.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northwest-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Woodmere_Art_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NW",
+   "n": "Historic RittenhouseTown",
+   "ad": "208 Lincoln Dr, Philadelphia, PA 19144",
+   "w": "Site of British North America's first paper mill (1690) — a cluster of 17th–18th-century stone houses in the Wissahickon.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/wissahickon-valley-park/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/RittenhouseTown"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Valley Forge National Historical Park",
+   "ad": "1400 N Outer Line Dr, King of Prussia, PA 19406",
+   "w": "Site of the Continental Army's 1777–78 winter encampment: 3,500 acres with Washington's original headquarters, reconstructed huts, the National Memorial Arch and miles of trails.",
+   "k": "national park",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/vafo/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-attractions-philadelphia-countryside/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Valley_Forge_National_Historical_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Longwood Gardens",
+   "ad": "1001 Longwood Rd, Kennett Square, PA 19348",
+   "w": "Pierre S. du Pont's 1,000-acre showpiece: a grand conservatory, Italian water garden and illuminated fountain shows, 9,000+ plant species.",
+   "k": "garden",
+   "g": [
+    "ICON",
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-attractions-philadelphia-countryside/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Longwood_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Brandywine Museum of Art",
+   "ad": "1 Hoffman's Mill Rd, Chadds Ford, PA 19317",
+   "w": "A converted 19th-century grist mill on the Brandywine holding three generations of Wyeths (N.C., Andrew, Jamie), with tours of the N.C. Wyeth House & Studio.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-attractions-philadelphia-countryside/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Brandywine_Museum_of_Art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Brandywine Battlefield Park",
+   "ad": "1491 Baltimore Pike, Chadds Ford, PA 19317",
+   "w": "Park on the field of the Revolution's largest land battle (Sept 11, 1777), with Washington's and Lafayette's quarters.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "PARK",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/road-trips-of-greater-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Brandywine_Battlefield"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Fonthill Castle",
+   "ad": "525 E Court St, Doylestown, PA 18901",
+   "w": "Henry Chapman Mercer's eccentric hand-poured-concrete castle (1908–12): 44 rooms, 32 staircases and 18 fireplaces, built without plans and lined with his own tiles.",
+   "k": "castle",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fonthill-museum/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/bucks-county/things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-in-bucks-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fonthill_(Doylestown,_Pennsylvania)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Mercer Museum",
+   "ad": "84 S Pine St, Doylestown, PA 18901",
+   "w": "Mercer's six-storey concrete castle of pre-industrial America — thousands of tools, vehicles and looms hung from a soaring central court.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/bucks-county/things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-in-bucks-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mercer_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Moravian Pottery and Tile Works",
+   "ad": "130 E Swamp Rd, Doylestown, PA 18901",
+   "w": "Mercer's mission-style tile factory, still making his Moravian tiles by hand; the third stop on the 'Mercer Mile'.",
+   "k": "historic site",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/bucks-county/things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-in-bucks-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Moravian_Pottery_and_Tile_Works"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Michener Art Museum",
+   "ad": "138 S Pine St, Doylestown, PA 18901",
+   "w": "Bucks County art — the New Hope Pennsylvania Impressionists above all — in the renovated 19th-century county jail.",
+   "k": "museum",
+   "g": [
+    "ICON",
+    "MUS"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/bucks-county/things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-in-bucks-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/James_A._Michener_Art_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Washington Crossing Historic Park",
+   "ad": "1112 River Rd, Washington Crossing, PA 18977",
+   "w": "Where Washington's army crossed the icy Delaware on Christmas night 1776 before Trenton; re-enacted every December 25.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/bucks-county/things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-in-bucks-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_Crossing_Historic_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Pennsbury Manor",
+   "ad": "400 Pennsbury Memorial Rd, Morrisville, PA 19067",
+   "w": "William Penn's reconstructed country estate on the Delaware, with living-history farm and gardens.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/bucks-county/things-to-do/"
+    ],
+    [
+     "UNCOVERINGPA",
+     "https://uncoveringpa.com/things-to-do-in-bucks-county-pa"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pennsbury_Manor"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Adventure Aquarium",
+   "ad": "1 Riverside Dr, Camden, NJ 08103",
+   "w": "Camden waterfront aquarium with hippos, penguins, sharks and the Shark Bridge — rated one of the best US aquariums by Travel Channel.",
+   "k": "aquarium",
+   "g": [
+    "ARCH",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "SJMAGAZINE",
+     "https://sjmagazine.net/family-kids/10-cool-reasons-to-visit-camden"
+    ],
+    [
+     "RUTGERSCAMDEN",
+     "https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adventure_Aquarium"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJ",
+   "n": "Battleship New Jersey",
+   "ad": "100 Clinton St, Camden, NJ 08103",
+   "w": "The Iowa-class USS New Jersey — built at the Philadelphia Navy Yard and launched in 1942, America's most decorated battleship — a museum ship since 2001.",
+   "k": "museum ship",
+   "g": [
+    "HIST",
+    "MUS"
+   ],
+   "s": [
+    [
+     "SJMAGAZINE",
+     "https://sjmagazine.net/family-kids/10-cool-reasons-to-visit-camden"
+    ],
+    [
+     "RUTGERSCAMDEN",
+     "https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/USS_New_Jersey_(BB-62)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Walt Whitman House",
+   "ad": "330 Mickle Blvd, Camden, NJ 08103",
+   "w": "The modest 1848 house where Walt Whitman lived from 1884 until his death in 1892, still holding his belongings; free tours.",
+   "k": "historic house",
+   "g": [
+    "HIST",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SJMAGAZINE",
+     "https://sjmagazine.net/family-kids/10-cool-reasons-to-visit-camden"
+    ],
+    [
+     "RUTGERSCAMDEN",
+     "https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walt_Whitman_House"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Wiggins Park & Marina",
+   "ad": "Riverside Dr, Camden, NJ 08103",
+   "w": "Camden's riverfront promenade with the best straight-on view of the Philadelphia skyline across the Delaware.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "SJMAGAZINE",
+     "https://sjmagazine.net/family-kids/10-cool-reasons-to-visit-camden"
+    ],
+    [
+     "RUTGERSCAMDEN",
+     "https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SJ",
+   "n": "Camden Children's Garden",
+   "ad": "3 Riverside Dr, Camden, NJ 08103",
+   "w": "Four-acre interactive garden for kids on the Camden waterfront, next to the aquarium.",
+   "k": "garden",
+   "g": [
+    "PARK",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "SJMAGAZINE",
+     "https://sjmagazine.net/family-kids/10-cool-reasons-to-visit-camden"
+    ],
+    [
+     "RUTGERSCAMDEN",
+     "https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJ",
+   "n": "Indian King Tavern Museum",
+   "ad": "233 Kings Hwy E, Haddonfield, NJ 08033",
+   "w": "1750 tavern where New Jersey's legislature met in 1777 and adopted the state seal — now a free state-run museum in downtown Haddonfield.",
+   "k": "historic site",
+   "g": [
+    "HIST",
+    "MUS",
+    "SPORT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SJMAGAZINE",
+     "https://sjmagazine.net/things-to-do/5-things-to-see-when-you-visit-camden-county"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indian_King_Tavern"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Italian Market (South 9th Street)",
+   "ad": "S 9th St & Christian St, Philadelphia, PA 19147",
+   "w": "America's oldest open-air street market: awning-covered blocks of family butchers, fishmongers, cheese shops and bakeries, now with Mexican, Vietnamese and Korean kitchens alongside.",
+   "k": "market",
+   "g": [
+    "ICON",
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/bella-vista/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Italian_Market"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Mummers Museum",
+   "ad": "1100 S 2nd St, Philadelphia, PA 19147",
+   "w": "Year-round home of the sequined New Year's Day Mummers Parade, on 'Two Street' near the clubhouses.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/south-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mummers_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPH",
+   "n": "Fleisher Art Memorial",
+   "ad": "719 Catharine St, Philadelphia, PA 19147",
+   "w": "One of the oldest community art schools in the US (1898), with a Romanesque-revival sanctuary gallery open free.",
+   "k": "art center",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/attractions/fleisher-art-memorial/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fleisher_Art_Memorial"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Washington Avenue Pier (Pier 53)",
+   "ad": "1301 S Columbus Blvd, Philadelphia, PA 19147",
+   "w": "The immigrant landing pier once called Philadelphia's Ellis Island, now a wetland boardwalk with Jody Pinto's 55-ft 'Land Buoy' lookout.",
+   "k": "waterfront",
+   "g": [
+    "HIST",
+    "ARTS",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/south-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_Avenue_Green"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAIN",
+   "n": "Barnes Arboretum at Saint Joseph's University",
+   "ad": "50 Lapsley Ln, Merion, PA 19066",
+   "w": "Laura Barnes' 12-acre arboretum at the Barnes Foundation's original Merion home — 2,500+ species, some planted in the 1880s.",
+   "k": "garden",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/things-to-do/main-line-parks-gardens-preserves/"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/gardens-arboretums/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAIN",
+   "n": "Chanticleer Garden",
+   "ad": "786 Church Rd, Wayne, PA 19087",
+   "w": "A 35-acre 'pleasure garden' on a Main Line estate, named among America's top-10 public gardens; open Wed–Sun in season.",
+   "k": "garden",
+   "g": [
+    "ARCH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/life-style/7-main-line-area-arboretums-and-gardens-to-visit-this-spring/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chanticleer_(garden)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MAIN",
+   "n": "Glencairn Museum",
+   "ad": "1001 Cathedral Rd, Bryn Athyn, PA 19009",
+   "w": "Raymond Pitcairn's medieval-style castle-home, one of the nation's largest museums of religious art (~8,000 works) — part of the Bryn Athyn National Historic Landmark district.",
+   "k": "museum",
+   "g": [
+    "HIST",
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VALLEYFORGE",
+     "https://www.valleyforge.org/listing/bryn-athyn-historic-district/16164/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Glencairn_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MAIN",
+   "n": "Bryn Athyn Cathedral",
+   "ad": "900 Cathedral Rd, Bryn Athyn, PA 19009",
+   "w": "A Gothic-Romanesque cathedral built by medieval craft methods (1913–19), centrepiece of the Bryn Athyn Historic District.",
+   "k": "church",
+   "g": [
+    "HIST",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VALLEYFORGE",
+     "https://www.valleyforge.org/listing/bryn-athyn-historic-district/16164/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bryn_Athyn_Cathedral"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MAIN",
+   "n": "Bryn Mawr Film Institute",
+   "ad": "824 W Lancaster Ave, Bryn Mawr, PA 19010",
+   "w": "A restored 1926 movie house turned nonprofit art cinema — one of the Main Line's signature institutions.",
+   "k": "venue",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "MAINLINETODAY",
+     "https://mainlinetoday.com/life-style/main-line-towns-guide/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bryn_Mawr_Film_Institute"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NE",
+   "n": "Pennypack Park",
+   "ad": "8600 Verree Rd, Philadelphia, PA 19115",
+   "w": "1,600 acres of creek valley woods and meadows in the Northeast — trails, horseback riding, birding at the Pennypack Environmental Center and the 1697 Frankford Avenue Bridge, the oldest stone road bridge in the US.",
+   "k": "park",
+   "g": [
+    "ARCH",
+    "PARK",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pennypack_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NE",
+   "n": "Glen Foerd on the Delaware",
+   "ad": "5001 Grant Ave, Philadelphia, PA 19114",
+   "w": "The city's last 19th-century riverfront estate open to the public: a Torresdale mansion and 18 acres of gardens where Poquessing Creek meets the Delaware.",
+   "k": "historic house",
+   "g": [
+    "HIST",
+    "ARCH",
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Glen_Foerd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NE",
+   "n": "Ryerss Museum & Library",
+   "ad": "7370 Central Ave, Philadelphia, PA 19111",
+   "w": "A free Victorian villa museum in Burholme Park with the Ryerss family's eclectic collection of Asian art, paintings and heirlooms; open Fri–Sun.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "NORTHEASTTIMES",
+     "https://northeasttimes.com/2026/07/30/fox-chase-s-ryerss-museum-remains-a-hidden-gem-for-neighbors/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NE",
+   "n": "Fox Chase Farm",
+   "ad": "8500 Pine Rd, Philadelphia, PA 19111",
+   "w": "One of the few working farms left inside a major US city — sheep shearing, Maple Sugar Day and Applefest.",
+   "k": "farm",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fox_Chase_Farm"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Penn Treaty Park",
+   "ad": "1199 N Delaware Ave, Philadelphia, PA 19125",
+   "w": "Riverfront park on the spot where, by legend, William Penn made his 1683 treaty with the Lenape under an elm; skyline views and an obelisk.",
+   "k": "park",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/fishtown/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Penn_Treaty_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "The Fillmore Philadelphia",
+   "ad": "29 E Allen St, Philadelphia, PA 19123",
+   "w": "Fishtown's big concert hall in a converted foundry, with the smaller Foundry upstairs — touring acts and dance parties.",
+   "k": "venue",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/media-center/press-releases/neighborhood-guide-fishtown-river-wards/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Fillmore_Philadelphia"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "John's Roast Pork",
+   "ad": "14 E Snyder Ave, Philadelphia, PA 19148",
+   "w": "The South Philly shack (open since the 1930s) that Craig LaBan named the city's best cheesesteak in 2002 and that finished second in the Inquirer's 2023 bracket; its juicy roast pork with sautéed spinach earned a James Beard America's Classics award.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://inquirer.com/food/inq2/best-philly-cheesesteak-winner-dalessandros-20230404.html"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.visitphilly.com/articles/philadelphia/the-best-roast-pork-sandwiches-in-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-roast-pork-sandwich-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "DiNic's Roast Pork",
+   "ad": "Reading Terminal Market, 51 N 12th St, Philadelphia, PA 19107",
+   "w": "Reading Terminal Market's roast-pork counter — #1 on Philadelphia Magazine's roast-pork list and The Infatuation's pick for the best sandwich in the market.",
+   "cz": [
+    "CHS",
+    "HOAG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-roast-pork-sandwich-philadelphia/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-in-reading-terminal-market"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/the-best-roast-pork-sandwiches-in-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "George's Sandwich Shop",
+   "ad": "900 S 9th St, Philadelphia, PA 19147",
+   "w": "Italian Market sandwich counter serving roast pork on Sarcone's rolls with a choice of American, mild or sharp provolone, or Whiz — on both Visit Philly's and Philly Mag's roast-pork lists.",
+   "cz": [
+    "CHS",
+    "HOAG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/the-best-roast-pork-sandwiches-in-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-roast-pork-sandwich-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Sarcone's Bakery",
+   "ad": "758 S 9th St, Philadelphia, PA 19147",
+   "w": "Century-old 9th Street bakery whose tomato pie, baked in a brick hearth oven, is crisp at the edges and juicy in the middle; its seeded rolls carry half the city's hoagies and roast pork.",
+   "cz": [
+    "PZ",
+    "DES"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/best-tomato-pie-philadelphia-20250902.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/tomato-pie-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Iannelli's Bakery",
+   "ad": "1155 E Passyunk Ave, Philadelphia, PA 19147",
+   "w": "Tomato pie pulled from a 115-year-old, 21-foot-deep brick oven, topped with a classic South Philly red gravy balanced with garlic, oregano and Pecorino Romano. Note: open only on a few announced days a year — check before going.",
+   "cz": [
+    "PZ",
+    "DES"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/best-tomato-pie-philadelphia-20250902.html"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/tomato-pie-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "John's Water Ice",
+   "ad": "701 Christian St, Philadelphia, PA 19147",
+   "w": "On the corner of 7th and Christian since 1945, making water ice from nothing but water, sugar and fresh fruit.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-spots-for-water-ice-in-philadelphia/"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2022/06/04/the-billy-penn-philadelphia-water-ice-finder-16-spots-to-get-your-sweet-fix/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UCW",
+   "n": "Siddiq's Real Fruit Water Ice",
+   "ad": "264 S 60th St, Philadelphia, PA 19139",
+   "w": "Started in 1995 by a Temple student; a West Philly favourite for water ice loaded with chunks of real fruit.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/top-spots-for-water-ice-in-philadelphia/"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2022/06/04/the-billy-penn-philadelphia-water-ice-finder-16-spots-to-get-your-sweet-fix/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Bassetts Ice Cream",
+   "ad": "Reading Terminal Market, 51 N 12th St, Philadelphia, PA 19107",
+   "w": "America's oldest ice-cream company (1861), run by the fifth and sixth generations of L.D. Bassett's family — it predates the market itself.",
+   "cz": [
+    "DES"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-in-reading-terminal-market"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/reading-terminal-market-best-vendors.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Beiler's Doughnuts",
+   "ad": "Reading Terminal Market, 51 N 12th St, Philadelphia, PA 19107",
+   "w": "Pennsylvania Dutch doughnuts since 1985 — around 40 varieties a day, stuffed, topped and drizzled, worth the line.",
+   "cz": [
+    "DES",
+    "DIN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-in-reading-terminal-market"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/reading-terminal-market-best-vendors.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Dutch Eating Place",
+   "ad": "Reading Terminal Market, 51 N 12th St, Philadelphia, PA 19107",
+   "w": "Amish-family Pennsylvania Dutch counter where you sit elbow-to-elbow; get the plate-sized blueberry pancakes.",
+   "cz": [
+    "DIN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-in-reading-terminal-market"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/reading-terminal-market-best-vendors.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Miller's Twist",
+   "ad": "Reading Terminal Market, 51 N 12th St, Philadelphia, PA 19107",
+   "w": "Fluffier-than-usual soft pretzels with crisp, big-salted crusts that rip like cinnamon buns fresh from the oven.",
+   "cz": [
+    "DES",
+    "DIN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-in-reading-terminal-market"
+    ],
+    [
+     "INQUIRER",
+     "https://www.inquirer.com/food/reading-terminal-market-best-vendors.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Pat's King of Steaks",
+   "ad": "1237 E Passyunk Ave, Philadelphia, PA 19147",
+   "w": "Where the cheesesteak began: hot-dog vendor Pat Olivieri started selling thin-sliced steak on a roll here in the 1930s (cheese came in the '40s). Measured honestly: it is the historic origin and a 24-hour 9th-and-Passyunk spectacle rather than critics' best steak — go for the history, go to Angelo's/Dalessandro's/John's for the sandwich.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "CBSPHILLY",
+     "https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cheesesteak"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Geno's Steaks",
+   "ad": "1219 S 9th St, Philadelphia, PA 19147",
+   "w": "Pat's neon-lit rival across the 9th-and-Passyunk intersection since 1966, also open 24/7 — part of the city's most famous food rivalry; kept as an icon, not as a critics' pick.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "CBSPHILLY",
+     "https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cheesesteak"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Jim's South St.",
+   "ad": "400 South St, Philadelphia, PA 19147",
+   "w": "Jim's (founded 1939 in West Philly) opened its Art Deco South Street shop on July 5, 1976 — the line on 4th and South is a South Street landmark.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "CBSPHILLY",
+     "https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cheesesteak"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Tony Luke's",
+   "ad": "39 E Oregon Ave, Philadelphia, PA 19148",
+   "w": "The original East Oregon Avenue stand under the I-95 overpass; Craig LaBan's 2002 cheesesteak survey rated it among the city's best.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "INQUIRER",
+     "https://inquirer.com/philly/news/breaking/20080404_After_45_cheesesteaks__the_best_were____.html"
+    ],
+    [
+     "CBSPHILLY",
+     "https://www.cbsnews.com/philadelphia/news/philadelphia-cheesesteaks-history-pats-genos-angelos-jims/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Castellino's Italian Market",
+   "ad": "1255 E Palmer St, Philadelphia, PA 19125",
+   "w": "Craig LaBan used this Fishtown Italian market to explain what makes a great hoagie; Visit Philly lists its sliced-to-order hoagies including the Fig Pig (fig jam, prosciutto, mascarpone).",
+   "cz": [
+    "HOAG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "LABAN",
+     "https://www.inquirer.com/food/craig-laban/best-hoagies-philadelphia-craig-laban-20210422.html"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/where-to-find-the-best-hoagies-in-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Antonio's Deli",
+   "ad": "1014 Federal St, Philadelphia, PA 19147",
+   "w": "A fifth-generation Italian deli in South Philly building hoagies of coteghino, mortadella, soppressata, capicola and prosciutto on Sarcone's rolls.",
+   "cz": [
+    "HOAG"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/where-to-find-the-best-hoagies-in-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/hoagie-shops/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Farina Di Vita",
+   "ad": "250 Catharine St, Philadelphia, PA 19147",
+   "w": "Queen Village deli at the top of recent best-hoagie rankings, with a dozen cold hoagies on Cacia's rolls.",
+   "cz": [
+    "HOAG"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/where-to-find-the-best-hoagies-in-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/hoagie-shops/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Middle Child",
+   "ad": "248 S 11th St, Philadelphia, PA 19107",
+   "w": "Matt Cahn's Washington Square West sandwich shop (with a Fishtown sibling) that rose fast into the city's best-hoagie ranks.",
+   "cz": [
+    "HOAG"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/where-to-find-the-best-hoagies-in-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/hoagie-shops/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Paesano's",
+   "ad": "1017 S 9th St, Philadelphia, PA 19147",
+   "w": "Chef Peter McAndrews' Italian Market sandwich shop of big, chef-driven hoagies like the Daddy Wad.",
+   "cz": [
+    "HOAG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/where-to-find-the-best-hoagies-in-philadelphia/"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/foobooz/hoagie-shops/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Pho 75",
+   "ad": "1122 Washington Ave, Philadelphia, PA 19147",
+   "w": "Philly's baseline pho — the benchmark the rest are judged against — in the Washington Avenue plaza; Anthony Bourdain ate breakfast pho here on The Layover.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/guides/best-pho-in-philly"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-pho-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Ba Le Bakery",
+   "ad": "606 Washington Ave, Philadelphia, PA 19147",
+   "w": "Little Saigon institution: bakery, market and bánh mì counter whose crisp-shelled, fluffy house baguette makes the sandwich.",
+   "cz": [
+    "VN",
+    "DES"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/philadelphia/guides/best-vietnamese-philly"
+    ],
+    [
+     "PHILLYMAG",
+     "https://www.phillymag.com/restaurants/best-pho-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Nam Phuong",
+   "ad": "1100 Washington Ave, Philadelphia, PA 19147",
+   "w": "The giant, old-school dining room in the Washington Avenue plaza with the area's most expansive Vietnamese menu — the lunch stop for Vietnamese tour groups visiting Philadelphia.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/philadelphia/guides/best-vietnamese-philly"
+    ],
+    [
+     "INQUIRER",
+     "https://inquirer.com/news/vietnamese-tourists-philadelphia-nam-phuong-20190617.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "South Philly Barbacoa",
+   "ad": "1134 S 9th St, Philadelphia, PA 19147",
+   "w": "Cristina Martinez's weekend barbacoa counter on South 9th Street; Martinez won the 2022 James Beard Best Chef: Mid-Atlantic. Weekends only, early, until the lamb runs out. Now operates from the Casa Mexico building at 1134 S 9th St (the two merged).",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.visitphilly.com/features/philadelphias-cristina-martinez-named-best-chef-in-the-mid-atlantic-region-at-2022-james-beard-awards/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/philadelphia/restaurants/barbacoa-south-philly"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/the-best-tacos-taquerias-and-taco-trucks-in-philadelphia/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Hardena",
+   "ad": "1754 S Hicks St, Philadelphia, PA 19145",
+   "w": "The Widjojo family's no-menu Indonesian steam-table in South Philly — Philadelphia has the second-largest Indonesian community in the US — a James Beard semifinalist (2018) famed for rendang and greens.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.34st.com/article/2019/03/hardena-indonesia-south-philly-review"
+    ],
+    [
+     "FOODREPUBLIC",
+     "https://www.foodrepublic.com/2015/12/10/where-to-eat-southeast-asian-food-in-philadelphia"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Valley Green Inn",
+   "ad": "7 Valley Green Rd, Philadelphia, PA 19128",
+   "w": "An 1850 roadhouse deep in the Wissahickon on Forbidden Drive, the only restaurant inside the park — hikers in trail gear welcome.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/things-to-do/food-drink/valley-green-inn/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Valley_Green_Inn"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Friday Saturday Sunday",
+   "ad": "261 S 21st St, Philadelphia, PA 19103",
+   "w": "One MICHELIN Star in the inaugural 2025 Michelin Guide Northeast Cities (Philadelphia) selection. Also the 2023 James Beard Outstanding Restaurant winner; its upstairs Lover's Bar was a 2025 JBF Outstanding Bar semifinalist.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.visitphilly.com/articles/philadelphia/guide-to-philadelphias-james-beard-award-honored-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Her Place Supper Club",
+   "ad": "1740 Sansom St, Philadelphia, PA 19103",
+   "w": "One MICHELIN Star in the inaugural 2025 Michelin Guide Northeast Cities (Philadelphia) selection. Amanda Shulman's tiny reservation-only supper club; Shulman was a 2025 James Beard Best Chef Mid-Atlantic semifinalist.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Provenance",
+   "ad": "408 S 2nd St, Philadelphia, PA 19147",
+   "w": "One MICHELIN Star in the inaugural 2025 Michelin Guide Northeast Cities (Philadelphia) selection. An intimate tasting-menu room, one of only three Philadelphia restaurants starred in the first guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Angelo's Pizzeria",
+   "ad": "736 S 9th St, Philadelphia, PA 19147",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Michelin singled out its 'serious, hefty cheesesteaks bound with Cooper Sharp cheese or long hot whiz'; third in the Inquirer's 2023 best-cheesesteak bracket.",
+   "cz": [
+    "CHS",
+    "PZ"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ],
+    [
+     "INQUIRER",
+     "https://inquirer.com/food/inq2/best-philly-cheesesteak-winner-dalessandros-20230404.html"
+    ],
+    [
+     "MARKWIENS",
+     "https://tubitv.com/en-gb/tv-shows/200290449/s01-e16-philadelphia-part-2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Dalessandro's Steaks",
+   "ad": "600 Wendover St, Philadelphia, PA 19128",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. The Roxborough corner shop famous for finely chopped beef; won the Inquirer's 2023 best-cheesesteak reader bracket (~23% of the vote) and made Craig LaBan's 2002 top ten.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ],
+    [
+     "INQUIRER",
+     "https://inquirer.com/food/inq2/best-philly-cheesesteak-winner-dalessandros-20230404.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Del Rossi's Cheesesteak Co.",
+   "ad": "538 N 4th St, Philadelphia, PA 19123",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. One of only two cheesesteak shops (with Angelo's and Dalessandro's) to make the inaugural Bib list.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Dizengoff",
+   "ad": "1625 Sansom St, Philadelphia, PA 19103",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Michael Solomonov and Steve Cook's Israeli hummusiya off Rittenhouse.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "El Chingón",
+   "ad": "1524 S 10th St, Philadelphia, PA 19147",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Juan Carlos Aparicio's Pueblan spot in Passyunk Square; Aparicio was a 2025 James Beard Best Chef Mid-Atlantic semifinalist.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/15826947"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Famous 4th Street Delicatessen",
+   "ad": "700 S 4th St, Philadelphia, PA 19147",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Queen Village's century-plus Jewish deli on Fourth Street.",
+   "cz": [
+    "HOAG"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Fiorella",
+   "ad": "817 Christian St, Philadelphia, PA 19147",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Marc Vetri's pasta bar in a former Italian Market sausage shop.",
+   "cz": [
+    "IT"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Pizzeria Beddia",
+   "ad": "1313 N Lee St, Philadelphia, PA 19122",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Joe Beddia's Fishtown pizzeria, the shop Bon Appétit once named America's best pizza.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Royal Sushi & Izakaya",
+   "ad": "780 S 2nd St, Philadelphia, PA 19147",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. Jesse Ito's Queen Village izakaya with a hidden omakase counter; Ito was a 2025 James Beard Best Chef Mid-Atlantic semifinalist.",
+   "cz": [
+    "JK"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ],
+    [
+     "6ABC",
+     "https://6abc.com/15826947"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Sally",
+   "ad": "2229 Spruce St, Philadelphia, PA 19103",
+   "w": "Michelin Bib Gourmand (2025, inaugural Philadelphia selection) — strong food at good value. A neighbourhood wine bar/restaurant in Fitler Square.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Pietramala",
+   "ad": "614 N 2nd St, Philadelphia, PA 19123",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Also Philadelphia's first MICHELIN Green Star (sustainability), for Ian Graye's Northern Liberties vegan kitchen.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Ambra",
+   "ad": "705 S 4th St, Philadelphia, PA 19147",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. The Southwark team's small Italian tasting-menu room.",
+   "cz": [
+    "IT",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Forsythia",
+   "ad": "233 Chestnut St, Philadelphia, PA 19106",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Chris Kearse's modern French restaurant in Old City.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "High Street Philly",
+   "ad": "101 S 9th St, Philadelphia, PA 19107",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Ellen Yin's bakery-restaurant; Yin won the 2023 James Beard Outstanding Restaurateur award.",
+   "cz": [
+    "US",
+    "DES",
+    "DIN"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Hiroki — CLOSED",
+   "ad": "1355 N Front St, Philadelphia, PA 19122",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Hiroyuki 'Hiroki' Fujiyama's Fishtown omakase counter. CLOSED: Hiroki's last service was Aug 8, 2026 (Inquirer, 2026-08-02).",
+   "closed": true,
+   "cz": [
+    "JK"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NPH",
+   "n": "Honeysuckle",
+   "ad": "631 N Broad St, Philadelphia, PA 19123",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Omar Tate and Cybille St. Aude-Tate's West Philadelphia restaurant.",
+   "cz": [
+    "SOUL"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Illata",
+   "ad": "2241 Grays Ferry Ave, Philadelphia, PA 19146",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Kalaya",
+   "ad": "4 W Palmer St, Philadelphia, PA 19125",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Nok Suntaranon's Fishtown Thai restaurant; she won the 2023 James Beard Best Chef Mid-Atlantic and Kalaya was a 2025 Outstanding Restaurant semifinalist.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Laser Wolf",
+   "ad": "1301 N Howard St, Philadelphia, PA 19122",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Michael Solomonov's Israeli grill-house (shipudiya) in Kensington.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Laurel — CLOSED",
+   "ad": "1617 E Passyunk Ave, Philadelphia, PA 19148",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Nicholas Elmi's East Passyunk tasting room. CLOSED: shut permanently in Nov 2025, the same week Michelin listed it (Inquirer, 2025-11-19).",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "Little Water",
+   "ad": "261 S 20th St, Philadelphia, PA 19103",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Mish Mish",
+   "ad": "1046 Tasker St, Philadelphia, PA 19148",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CC",
+   "n": "My Loup",
+   "ad": "2005 Walnut St, Philadelphia, PA 19103",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. A Rittenhouse bistro.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "River Twice",
+   "ad": "1601 E Passyunk Ave, Philadelphia, PA 19148",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Randy Rucker's East Passyunk tasting-menu restaurant.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPH",
+   "n": "Roxanne",
+   "ad": "607 S 2nd St, Philadelphia, PA 19147",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Southwark",
+   "ad": "701 S 4th St, Philadelphia, PA 19147",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Queen Village restaurant and cocktail bar.",
+   "cz": [
+    "US",
+    "BREW"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Suraya",
+   "ad": "1528 Frankford Ave, Philadelphia, PA 19125",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Fishtown Lebanese café-restaurant with a garden.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Vedge",
+   "ad": "1221 Locust St, Philadelphia, PA 19107",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Rich Landau and Kate Jacoby's vegan restaurant in a Locust Street mansion.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Vernick Food & Drink",
+   "ad": "2031 Walnut St, Philadelphia, PA 19103",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Greg Vernick's Rittenhouse restaurant; Vernick is a past James Beard Best Chef Mid-Atlantic winner and a 2025 Outstanding Chef semifinalist.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Vetri Cucina",
+   "ad": "1312 Spruce St, Philadelphia, PA 19107",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Marc Vetri's flagship in a Spruce Street townhouse.",
+   "cz": [
+    "IT",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CC",
+   "n": "Zahav",
+   "ad": "237 St James Pl, Philadelphia, PA 19106",
+   "w": "Michelin Selected (Recommended) in the inaugural 2025 Philadelphia guide. Michael Solomonov and Steve Cook's Society Hill Israeli restaurant, the 2019 James Beard Outstanding Restaurant winner.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN_REC",
+     "https://www.fox29.com/news/2025-philadelphia-michelin-guide-full-list-winners"
+    ],
+    [
+     "BILLYPENN",
+     "https://billypenn.com/2025/11/19/michelin-star-restaurants-philadelphia-awards/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPH",
+   "n": "Center City Soft Pretzel Co.",
+   "ad": "816 Washington Ave, Philadelphia, PA 19147",
+   "w": "Family-run since 1981 — bakes thousands of pretzels a day on Washington Avenue by the Italian Market; reopened after a devastating fire and took Philly Mag's 2024 Best of Philly soft pretzel.",
+   "cz": [
+    "DES"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "PHILLYMAG",
+     "https://phillymag.com/best-of-philly-archive/awards/soft-pretzel"
+    ],
+    [
+     "INQUIRER",
+     "https://inquirer.com/food/best-soft-pretzels-philadelphia.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Kensington Quarters",
+   "ad": "1310 Frankford Ave, Philadelphia, PA 19125",
+   "w": "Frankford Avenue restaurant reborn as a seafood house with a well-sourced raw bar.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/reviews/kensington-quarters"
+    ],
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-fishtown/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Joe's Steaks + Soda Shop",
+   "ad": "6030 Torresdale Ave, Philadelphia, PA 19135",
+   "w": "Around since the 1940s (the old Chink's) — retro soda-fountain cheesesteaks; Craig LaBan rated the original among his 2002 favourites.",
+   "cz": [
+    "CHS"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-fishtown/"
+    ],
+    [
+     "INQUIRER",
+     "https://inquirer.com/philly/news/breaking/20080404_After_45_cheesesteaks__the_best_were____.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "Murph's Bar",
+   "ad": "202 E Girard Ave, Philadelphia, PA 19125",
+   "w": "An Irish corner bar with a half-secret back dining room where Italian chef Francesco Bellastelli cooks cash-only handmade pasta.",
+   "cz": [
+    "IT",
+    "BREW"
+   ],
+   "s": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-fishtown/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/philadelphia/neighborhoods/fishtown"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura — Philadelphia",
+   "u": "https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania",
+   "l": "Atlas Obscura — Philadelphia"
+  },
+  "FAIRMOUNTPARK": {
+   "k": "PHILA. PARKS & REC",
+   "t": "Fairmount Park Conservancy",
+   "u": "https://myphillypark.org/",
+   "l": "Fairmount Park Conservancy"
+  },
+  "FROMMERS": {
+   "k": "FROMMERS",
+   "t": "Frommer's — Bucks County",
+   "u": "https://www.frommers.com/destinations/bucks-county/things-to-do/",
+   "l": "Frommer's — Bucks County"
+  },
+  "INFATUATION": {
+   "k": "THE INFATUATION",
+   "t": "THE INFATUATION",
+   "u": "",
+   "l": ""
+  },
+  "LONELYPLANET": {
+   "k": "LONELY PLANET",
+   "t": "LONELY PLANET",
+   "u": "",
+   "l": ""
+  },
+  "MAINLINETODAY": {
+   "k": "MAIN LINE TODAY",
+   "t": "Main Line Today",
+   "u": "https://mainlinetoday.com/",
+   "l": "Main Line Today"
+  },
+  "NORTHEASTTIMES": {
+   "k": "NORTHEASTTIMES",
+   "t": "Northeast Times",
+   "u": "https://northeasttimes.com/",
+   "l": "Northeast Times"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service — Independence NHP",
+   "u": "https://www.nps.gov/inde/",
+   "l": "National Park Service — Independence NHP"
+  },
+  "PHILAGOV": {
+   "k": "PHILAGOV",
+   "t": "City of Philadelphia (phila.gov)",
+   "u": "https://www.phila.gov/",
+   "l": "City of Philadelphia (phila.gov)"
+  },
+  "RUTGERSCAMDEN": {
+   "k": "RUTGERSCAMDEN",
+   "t": "Rutgers University–Camden: Explore Camden",
+   "u": "https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden",
+   "l": "Rutgers University–Camden: Explore Camden"
+  },
+  "SJMAGAZINE": {
+   "k": "SJMAGAZINE",
+   "t": "SJ Magazine",
+   "u": "https://sjmagazine.net/",
+   "l": "SJ Magazine"
+  },
+  "UNCOVERINGPA": {
+   "k": "UNCOVERINGPA",
+   "t": "Uncovering PA (Jim Cheney)",
+   "u": "https://uncoveringpa.com/",
+   "l": "Uncovering PA (Jim Cheney)"
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO",
+   "u": "",
+   "l": ""
+  },
+  "VALLEYFORGE": {
+   "k": "VALLEY FORGE TOURISM",
+   "t": "Valley Forge Tourism & Convention Board (Montco)",
+   "u": "https://www.valleyforge.org/",
+   "l": "Valley Forge Tourism & Convention Board (Montco)"
+  },
+  "VISITPHILLY": {
+   "k": "VISIT PHILADELPHIA",
+   "t": "Visit Philadelphia",
+   "u": "https://www.visitphilly.com/",
+   "l": "Visit Philadelphia"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "6ABC": {
+   "k": "6ABC ACTION NEWS",
+   "t": "6ABC ACTION NEWS",
+   "u": "",
+   "l": ""
+  },
+  "BILLYPENN": {
+   "k": "BILLY PENN / WHYY",
+   "t": "BILLY PENN / WHYY",
+   "u": "",
+   "l": ""
+  },
+  "CBSPHILLY": {
+   "k": "CBS PHILADELPHIA",
+   "t": "CBS PHILADELPHIA",
+   "u": "",
+   "l": ""
+  },
+  "FOODREPUBLIC": {
+   "k": "FOODREPUBLIC",
+   "t": "FOODREPUBLIC",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "THE INFATUATION",
+   "t": "THE INFATUATION",
+   "u": "",
+   "l": ""
+  },
+  "INQUIRER": {
+   "k": "PHILADELPHIA INQUIRER",
+   "t": "PHILADELPHIA INQUIRER",
+   "u": "",
+   "l": ""
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "JAMES BEARD",
+   "u": "",
+   "l": ""
+  },
+  "LABAN": {
+   "k": "INQUIRER · CRAIG LABAN",
+   "t": "INQUIRER · CRAIG LABAN",
+   "u": "",
+   "l": ""
+  },
+  "MARKWIENS": {
+   "k": "MARKWIENS",
+   "t": "MARKWIENS",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB GOURMAND",
+   "t": "MICHELIN BIB GOURMAND",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_REC": {
+   "k": "MICHELIN RECOMMENDED",
+   "t": "MICHELIN RECOMMENDED",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN STAR",
+   "t": "MICHELIN STAR",
+   "u": "",
+   "l": ""
+  },
+  "PHILLYMAG": {
+   "k": "PHILADELPHIA MAGAZINE",
+   "t": "PHILADELPHIA MAGAZINE",
+   "u": "",
+   "l": ""
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "TIME OUT",
+   "u": "",
+   "l": ""
+  },
+  "VISITPHILLY": {
+   "k": "VISIT PHILADELPHIA",
+   "t": "Visit Philadelphia",
+   "u": "https://www.visitphilly.com/",
+   "l": "Visit Philadelphia"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  }
+ }
+}
