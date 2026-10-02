@@ -118,3 +118,15 @@ the 2026 star list (sfist 2026-06-25). Status = current Michelin listing (checke
   Hai Ky Mi Gia (707 Ellis — single source SF Standard), Udon Mugizo (single source Infatuation), Long Bridge Pizza.
 - Pins: restaurant place-pins are rarely in search snippets — Atelier Crenn pinned (latlong.net POI); the rest are
   recorded with address + status and `UNVERIFIED` coords (gate holds them) pending a pin wave / the browser helper.
+- W3B cont. (searches 29–58): 94123/94121/94105, Peninsula (San Mateo/Millbrae/Burlingame/San Bruno), cuisine
+  sweeps (Thai/Vietnamese, Chinese/Sichuan, Mexican, Bib list) → +16 (FOOD_W3B now 53). Michelin venue pages expose
+  **place-pin lat/lng** in search summaries: 4 names/query (`"A; B; C; D San Francisco restaurant latitude longitude"`,
+  allowed_domains guide.michelin.com) → Benu, Quince, Saison, Lazy Bear, Wolfsbane pinned (high). Background pin
+  agent A (≤18 searches) launched for the remaining 61 Michelin records → `geo/_pinA_raw.json`.
+  Held: Mabel's Gone Fishing, Lord Stanley, La Folie, Fiorella, Bird & Buffalo, Palette Tea House, Ngon, Kan Kiin,
+  Tasty Place (2025 listing only — status unclear), Dol Ho (808 Pacific — single source), Arizmendi Valencia,
+  Jane the Bakery (no address), Crab House at Pier 39 / Cioppino's (only self-published sources — rejected).
+- `SIGHTS_W3A.json` (9; 5 pinned via Wikipedia published coords): Oracle Park, Salesforce Park (pin = Transit
+  Center, med), Yerba Buena Gardens, Chase Center, Sutro Heights Park, Lyon Street Steps, Tank Hill, Seward Street
+  Slides, Blue Heron (Stow) Lake. Sources: SF Travel / NPS / AFAR / Mental Floss + Wikipedia. Held single-source:
+  SF Columbarium, Vulcan Stairway (Mental Floss only); City Hall / Old Mint (Wikipedia only so far).
