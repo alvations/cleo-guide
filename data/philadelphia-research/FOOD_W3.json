@@ -29,29 +29,6 @@
  {
   "t": 2,
   "a": "FISH",
-  "n": "Cheu Fishtown",
-  "address": "1416 Frankford Ave, Philadelphia, PA 19125",
-  "w": "Noodle-and-dumpling bar from Shawn Darragh and Ben Puchowitz, still serving its signature brisket ramen with a matzo ball — on Philly Mag's Fishtown guide and the Infatuation's 'start a night out' pick.",
-  "sources": [
-   [
-    "INFATUATION",
-    "https://www.theinfatuation.com/philadelphia/neighborhoods/fishtown"
-   ],
-   [
-    "PHILLYMAG",
-    "https://www.phillymag.com/restaurants/fishtown-restaurant-bar-philadelphia/"
-   ]
-  ],
-  "cz": [
-   "Japanese",
-   "Noodles"
-  ],
-  "dish": "brisket ramen with a matzo ball; dumplings",
-  "closed": false
- },
- {
-  "t": 2,
-  "a": "FISH",
   "n": "Fette Sau",
   "address": "1208 Frankford Ave, Philadelphia, PA 19125",
   "w": "Brooklyn's barbecue hall's Philly outpost — meats smoked in-house, picnic-table seating and 100+ American whiskeys; the Infatuation calls it some of the best barbecue in Philly.",
@@ -724,6 +701,521 @@
    "Spanish"
   ],
   "dish": "60+ tapas; squid-ink seafood paella",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Ralph's Italian Restaurant",
+  "address": "760 S 9th St, Philadelphia, PA 19147",
+  "w": "Open since 1900 — the nation's oldest red-gravy Italian restaurant, one of the Italian Market's 'Holy Trinity' (Infatuation old-school Italian ranking; Philly Mag Italian Market Bible).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-old-school-italian-restaurants-in-philly-ranked"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/"
+   ]
+  ],
+  "cz": [
+   "Italian-American",
+   "Red Gravy"
+  ],
+  "dish": "spaghetti in red gravy; shrimp scampi",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Dante & Luigi's",
+  "address": "762 S 10th St, Philadelphia, PA 19147",
+  "w": "Bella Vista red-gravy house since 1899 — on Philly Mag's 50 Best Restaurants (nonna-style cooking) and the Infatuation's old-school Italian ranking.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/foobooz/50-best-restaurants/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-old-school-italian-restaurants-in-philly-ranked"
+   ]
+  ],
+  "cz": [
+   "Italian-American",
+   "Red Gravy"
+  ],
+  "dish": "baked lasagna; penne alla vodka; osso buco",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SPH",
+  "n": "Villa di Roma",
+  "address": "936 S 9th St, Philadelphia, PA 19147",
+  "w": "1960s Italian Market red-gravy joint where servers call you 'hon' (Infatuation old-school Italian ranking; Philly Mag Italian Market guide).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-old-school-italian-restaurants-in-philly-ranked"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/foobooz/italian-market-9th-street-bella-vista-restaurant-philadelphia/"
+   ]
+  ],
+  "cz": [
+   "Italian-American",
+   "Red Gravy"
+  ],
+  "dish": "softball-sized meatballs; chicken parm",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Termini Bros. Bakery",
+  "address": "1523 S 8th St, Philadelphia, PA 19147",
+  "w": "Brothers' bakery founded 1921 (this flagship since 1938), famed for its thin-shelled, citrus-forward cannoli (Billy Penn 2026 Italian-bakery guide; Philly Mag Italian Market Bible).",
+  "sources": [
+   [
+    "BILLYPENN",
+    "https://billypenn.com/2026/07/06/italian-bakeries-south-philadelphia-isgro-city-guide/"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/2026/07/01/italian-market-philadelphia/"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Cannoli"
+  ],
+  "dish": "cannoli; musticciolli Christmas cookies",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Isgro Pastries",
+  "address": "1009 Christian St, Philadelphia, PA 19147",
+  "w": "Century-old Bella Vista pasticceria that ships nationwide (Billy Penn Italian-bakery guide; Visit Philly Italian Market guide).",
+  "sources": [
+   [
+    "BILLYPENN",
+    "https://billypenn.com/2026/07/06/italian-bakeries-south-philadelphia-isgro-city-guide/"
+   ],
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/things-to-do/food-drink/the-italian-market/"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Cannoli"
+  ],
+  "dish": "cannoli filled to order; ricotta cookies; rum cake",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Di Bruno Bros. (Italian Market)",
+  "address": "930 S 9th St, Philadelphia, PA 19147",
+  "w": "The 1939 Italian Market cheese shop that grew into a five-shop Philly brand (Visit Philly; Infatuation review).",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/things-to-do/food-drink/di-bruno-bros/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/di-bruno-bros"
+   ]
+  ],
+  "cz": [
+   "Italian Deli",
+   "Cheese"
+  ],
+  "dish": "500+ cheeses; Italian cured meats",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Le Virtù",
+  "address": "1927 E Passyunk Ave, Philadelphia, PA 19148",
+  "w": "East Passyunk's love letter to Abruzzo — LaBan's 2025 re-review, Philly Mag Best of Philly (Best Italian, Best Pasta) and the 50 Best list.",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/craig-laban/le-virtu-review-andrew-wood-abruzzo-south-philly-20250226.html"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/le-virt-4/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/le-virtu"
+   ]
+  ],
+  "cz": [
+   "Italian",
+   "Pasta"
+  ],
+  "dish": "Abruzzese handmade pasta; house-cured salumi; panarda feast",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Mike's BBQ",
+  "address": "1703 S 11th St, Philadelphia, PA 19148",
+  "w": "Tiny South Philly smokehouse — Philly Mag Best of Philly (Best Barbecue), LaBan's best-BBQ survey, Infatuation review.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/mikes-bbq/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/columnists/craig_laban/the-best-bbq-in-philadelphia-craig-laban-20180312.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/mikes-bbq"
+   ]
+  ],
+  "cz": [
+   "BBQ"
+  ],
+  "dish": "pink-ringed brisket; spare ribs; smoked chicken",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SPH",
+  "n": "Ray's Happy Birthday Bar",
+  "address": "1200 E Passyunk Ave, Philadelphia, PA 19147",
+  "w": "Near-century-old East Passyunk dive around the corner from Pat's & Geno's — a South Philly rite of passage (Inquirer; Infatuation; Philly Mag).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/food/bar-code/rays-happy-birthday-bar-philly-dive-cheesesteaks-pats-genos-20171129.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/rays-happy-birthday-bar"
+   ]
+  ],
+  "cz": [
+   "Dive Bar"
+  ],
+  "dish": "free cake-vodka shot on your birthday; cheap drinks",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SPH",
+  "n": "Los Cuatro Soles",
+  "address": "1801 S Chadwick St, Philadelphia, PA 19145",
+  "w": "Karina and Angel Jimenez's Newbold Mexican kitchen (2016) — Infatuation review; Visit Philly best Mexican restaurants.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/los-cuatro-soles"
+   ],
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/articles/philadelphia/best-mexican-restaurants-in-philadelphia/"
+   ]
+  ],
+  "cz": [
+   "Mexican",
+   "Pueblan"
+  ],
+  "dish": "mole poblano; tacos; tortas",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SPH",
+  "n": "Mole Poblano",
+  "address": "1144 S 9th St, Philadelphia, PA 19147",
+  "w": "South 9th St storefront a step above the average taqueria — Philly Mag Best of Philly (Best Tacos); Inquirer.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/mole-poblano/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/photo/mole-poblano-20140419.html"
+   ]
+  ],
+  "cz": [
+   "Mexican",
+   "Tacos"
+  ],
+  "dish": "tacos; mole poblano",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SPH",
+  "n": "Café y Chocolate",
+  "address": "South Philadelphia, PA",
+  "w": "Deep-South-Philly Mexican breakfast/brunch café famed for its chilaquiles (Inquirer; Visit Philly Latino-owned restaurants).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/news/mexican-south-philly-brunch-cafe-y-chocolate-chilaqiles-huevos-rancheros-20200111.html"
+   ],
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/articles/philadelphia/latino-owned-restaurants-in-philadelphia/"
+   ]
+  ],
+  "cz": [
+   "Mexican",
+   "Breakfast"
+  ],
+  "dish": "chilaquiles; cajetuccino; Mexican brunch",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "FISH",
+  "n": "Hello Vietnam",
+  "address": "Northern Liberties, Philadelphia, PA 19123",
+  "w": "Chef Tri Tan's Northern Liberties restaurant, opened after his two-time Best of Philly bánh-mì bakery Nam Son was displaced from Washington Ave (Inquirer; Infatuation review).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/michael-klein/hello-vietnam-northern-liberties-new-restaurants-philadephia-20191211.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/hello-vietnam"
+   ]
+  ],
+  "cz": [
+   "Vietnamese",
+   "Banh Mi"
+  ],
+  "dish": "bánh mì; pho",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NW",
+  "n": "McNally's Tavern",
+  "address": "8634 Germantown Ave, Philadelphia, PA 19118",
+  "w": "Chestnut Hill tavern since 1921 where Hugh McNally invented the Schmitter in the '60s — fourth-generation run; on Visit Philly's alternative-cheesesteak list, the Infatuation's Chestnut Hill guide and an Inquirer 'Spot' column.",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/articles/philadelphia/alternative-cheesesteaks/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/blogs/the_spot/Why-home-at-McNallys-Chestnut-Hill-Phila.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/5-great-spots-in-chestnut-hill"
+   ]
+  ],
+  "cz": [
+   "Sandwiches",
+   "Cheesesteak"
+  ],
+  "dish": "the Schmitter (steak, grilled salami, fried onions, extra cheese, special sauce)",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NW",
+  "n": "Jansen",
+  "address": "7402 Germantown Ave, Philadelphia, PA 19119",
+  "w": "Mt. Airy's French-leaning fine-dining destination (Inquirer listing; Infatuation's best of Germantown & Mt. Airy).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/restaurants/jansen/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
+   ]
+  ],
+  "cz": [
+   "American",
+   "French",
+   "Fine Dining"
+  ],
+  "dish": "Beef Wellington for two carved tableside; sauce work",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Cake",
+  "address": "8501 Germantown Ave, Philadelphia, PA 19118",
+  "w": "Chestnut Hill's brunch destination in a former greenhouse (Philly Mag Chestnut Hill guide; Infatuation Chestnut Hill guide).",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/restaurants-chestnut-hill/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/5-great-spots-in-chestnut-hill"
+   ]
+  ],
+  "cz": [
+   "Brunch",
+   "Breakfast"
+  ],
+  "dish": "garden frittata with smoked gouda; Sunday brunch",
+  "closed": false
+ },
+ {
+  "t": 3,
+  "a": "NW",
+  "n": "El Poquito",
+  "address": "8201 Germantown Ave, Philadelphia, PA 19118",
+  "w": "Where Chestnut Hill goes for happy hour and Mexican (Philly Mag Chestnut Hill guide; Infatuation).",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/restaurants-chestnut-hill/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/5-great-spots-in-chestnut-hill"
+   ]
+  ],
+  "cz": [
+   "Mexican"
+  ],
+  "dish": "grilled shrimp tacos; mole chicken enchiladas; margaritas",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Töska",
+  "address": "7136 Germantown Ave, Philadelphia, PA 19119",
+  "w": "The Osmanollaj brothers' brewery-pizzeria in the former Earth Bread + Brewery (Philly Mag 2024 review; Infatuation Mt. Airy guide).",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://phillymag.com/foobooz/2024/02/21/toska-mount-airy"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
+   ]
+  ],
+  "cz": [
+   "Brewery",
+   "Pizza"
+  ],
+  "dish": "Albanian-leaning mezze and pizza with house beer",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Night Kitchen Bakery",
+  "address": "7725 Germantown Ave, Philadelphia, PA 19118",
+  "w": "Family-run Chestnut Hill bakery on Germantown Ave (Visit Philly 30 must-try bakeries; Philly Mag Chestnut Hill guide).",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/philly-bakeries/"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/restaurants-chestnut-hill/"
+   ]
+  ],
+  "cz": [
+   "Bakery"
+  ],
+  "dish": "sticky buns; award-winning brownies; lemon curd cake",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Bredenbeck's Bakery & Ice Cream Parlor",
+  "address": "8126 Germantown Ave, Philadelphia, PA 19118",
+  "w": "Chestnut Hill's full-line scratch bakery and ice-cream parlour, open since 1889 (Visit Philly bakeries; Philly Mag Chestnut Hill guide).",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/philly-bakeries/"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/restaurants-chestnut-hill/"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Ice Cream"
+  ],
+  "dish": "scratch cakes and ice cream since 1889",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "White Yak",
+  "address": "Ridge Ave, Roxborough, Philadelphia, PA 19128",
+  "w": "Roxborough's Tibetan momo house — on Philly Mag's 50 Best Restaurants list and the Infatuation's Chestnut Hill & Roxborough guide.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/foobooz/50-best-restaurants/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/5-great-spots-in-chestnut-hill"
+   ]
+  ],
+  "cz": [
+   "Himalayan",
+   "Tibetan"
+  ],
+  "dish": "momos; tingmo steamed buns",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Liberty Kitchen (Market at the Fairway)",
+  "address": "Market at the Fairway, Chestnut Hill, Philadelphia, PA 19118",
+  "w": "Hoagie specialist on Visit Philly's best roast-pork list and the Infatuation's Chestnut Hill & Roxborough guide (stall inside the Market at the Fairway).",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/articles/philadelphia/the-best-roast-pork-sandwiches-in-philadelphia/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/5-great-spots-in-chestnut-hill"
+   ]
+  ],
+  "cz": [
+   "Hoagies",
+   "Roast Pork"
+  ],
+  "dish": "hoagies on seeded long rolls; roast pork; cutlet sandwiches",
   "closed": false
  }
 ]
