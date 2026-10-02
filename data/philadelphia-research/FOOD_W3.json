@@ -1453,11 +1453,11 @@
   "closed": false
  },
  {
-  "t": 1,
+  "t": 3,
   "a": "NE",
-  "n": "Tony's Place",
-  "address": "Frankford Ave, Mayfair, Philadelphia, PA 19136",
-  "w": "Mayfair bar-pizzeria whose tomato pie Philly Mag called 'probably the best in the city' (Philly Mag appreciation; Inquirer).",
+  "n": "Tony's Place — CLOSED",
+  "address": "6300 block Frankford Ave, Philadelphia, PA 19135",
+  "w": "Mayfair bar-pizzeria whose tomato pie Philly Mag called 'probably the best in the city' (Philly Mag appreciation; Inquirer). CLOSED: the Mayfair shop closed in 2022 (Philly Grub 2026-03-30); the family runs a separate Tony's Place in Ivyland, Bucks County.",
   "sources": [
    [
     "PHILLYMAG",
@@ -1473,13 +1473,13 @@
    "Pizza"
   ],
   "dish": "Northeast-style 'tomato pie' (cheese under the sauce)",
-  "closed": false
+  "closed": true
  },
  {
   "t": 1,
   "a": "NE",
   "n": "Georgian Bread",
-  "address": "Bustleton Ave, Philadelphia, PA 19116",
+  "address": "10865 Bustleton Ave, Philadelphia, PA 19116",
   "w": "Bustleton Ave bakery-café of the Northeast's former-Soviet food belt — in LaBan's Northeast Philly guide and the Infatuation's 20 best spots in Northeast Philly.",
   "sources": [
    [
@@ -1548,7 +1548,7 @@
   "t": 2,
   "a": "NE",
   "n": "Picanha Brazilian Steakhouse",
-  "address": "Castor Ave, Philadelphia, PA 19149",
+  "address": "6501 Castor Ave, Philadelphia, PA 19149",
   "w": "Little Brazil's churrascaria carving meats tableside (Visit Philly Northeast guide; Inquirer).",
   "sources": [
    [
@@ -1669,7 +1669,7 @@
   "t": 2,
   "a": "SJ",
   "n": "Kiko's Peruvian Kitchen",
-  "address": "Collingswood, NJ 08108",
+  "address": "624 W Collings Ave, Collingswood, NJ 08107",
   "w": "Small Collingswood Peruvian BYOB (Infatuation review; Inquirer Collingswood neighbourhood guide).",
   "sources": [
    [
@@ -1691,7 +1691,7 @@
   "t": 2,
   "a": "SJ",
   "n": "Norma's Eastern Mediterranean",
-  "address": "Barclay Farms Shopping Center, Cherry Hill, NJ 08034",
+  "address": "145 Barclay Farms Shopping Center, Cherry Hill, NJ 08034",
   "w": "The Bitar family's Lebanese kitchen since 1992 (Inquirer Cherry Hill guide; Infatuation South Jersey).",
   "sources": [
    [
@@ -1737,7 +1737,7 @@
   "t": 2,
   "a": "SJ",
   "n": "Indeblue",
-  "address": "Cherry Hill, NJ 08002",
+  "address": "65 Barclay Farms Shopping Center, Cherry Hill, NJ 08034",
   "w": "Beloved modern Indian that ping-ponged between Philly and South Jersey before settling in Cherry Hill (Inquirer Cherry Hill guide; Infatuation).",
   "sources": [
    [
@@ -1759,7 +1759,7 @@
   "t": 2,
   "a": "SJ",
   "n": "Radin's Delicatessen",
-  "address": "Cherry Hill, NJ 08034",
+  "address": "486 E Evesham Rd, Cherry Hill, NJ 08003",
   "w": "Russ Cowan's Cherry Hill deli — he was a 2026 James Beard semifinalist (Best Chef: Mid-Atlantic) (Infatuation review; Inquirer Cherry Hill guide).",
   "sources": [
    [
@@ -1786,7 +1786,7 @@
   "t": 2,
   "a": "SJ",
   "n": "Steak 38",
-  "address": "Route 38, Cherry Hill, NJ 08002",
+  "address": "515 NJ-38 E, Cherry Hill, NJ 08002",
   "w": "Old-school, moody Cherry Hill steakhouse (Infatuation review; Inquirer Cherry Hill guide).",
   "sources": [
    [
@@ -1808,7 +1808,7 @@
   "t": 2,
   "a": "SJ",
   "n": "Gass & Main",
-  "address": "Haddonfield, NJ 08033",
+  "address": "7 Kings Ct, Haddonfield, NJ 08033",
   "w": "Dane DeMarco's Haddonfield restaurant (2023; he was a 2024 James Beard Best Chef Mid-Atlantic nominee per NJ Monthly) — Infatuation South Jersey; NJ Monthly best of Haddonfield.",
   "sources": [
    [
@@ -1939,7 +1939,7 @@
   "t": 2,
   "a": "DAY",
   "n": "Sly Fox Brewing Company",
-  "address": "Pottstown, PA 19464",
+  "address": "331 Circle of Progress Dr, Pottstown, PA 19464",
   "w": "One of the region's original craft breweries (1995), with tasting rooms in Pottstown, Phoenixville and Malvern (Main Line Today; Visit Philly essential breweries).",
   "sources": [
    [
@@ -2110,7 +2110,7 @@
   "t": 1,
   "a": "CC",
   "n": "Federal Donuts & Chicken",
-  "address": "1632 Sansom St, Philadelphia, PA 19103",
+  "address": "Philadelphia, PA (several locations)",
   "w": "The CookNSolo chain that 'made Philly a doughnut destination' — Philly Mag doughnut guide, Infatuation, Inquirer (2024 South Philly flagship), Visit Philly.",
   "sources": [
    [
@@ -2272,7 +2272,7 @@
   "t": 2,
   "a": "CC",
   "n": "Goldie",
-  "address": "1526 Sansom St, Philadelphia, PA 19102",
+  "address": "1911 Sansom St, Philadelphia, PA 19103",
   "w": "Michael Solomonov's vegan falafel shop — Philly Mag Best of Philly (Best Falafel), LaBan's best-falafel survey, Infatuation.",
   "sources": [
    [
@@ -2594,33 +2594,10 @@
   "closed": false
  },
  {
-  "t": 2,
-  "a": "SPH",
-  "n": "Italiano's Water Ice",
-  "address": "Lower Moyamensing, South Philadelphia, PA 19148",
-  "w": "Long-running Lower Moyamensing stand credited as the originator of the gelati (Visit Philly 21 best water ice; Inquirer best water ice & gelati 2026).",
-  "sources": [
-   [
-    "VISITPHILLY",
-    "https://www.visitphilly.com/articles/philadelphia/top-spots-for-water-ice-in-philadelphia/"
-   ],
-   [
-    "INQUIRER",
-    "https://www.inquirer.com/food/best-water-ice-gelati-philadelphia-suburbs-20260429.html"
-   ]
-  ],
-  "cz": [
-   "Water Ice",
-   "Ice Cream"
-  ],
-  "dish": "gelati (water ice layered with ice cream) — its claimed invention",
-  "closed": false
- },
- {
   "t": 1,
   "a": "FISH",
   "n": "Fiore",
-  "address": "Kensington, Philadelphia, PA 19125",
+  "address": "2413 Frankford Ave, Philadelphia, PA 19125",
   "w": "Italian bakery-café whose pastry chef Justine MacNeil was a 2026 James Beard finalist for Outstanding Pastry Chef or Baker (Inquirer; Billy Penn).",
   "sources": [
    [
@@ -2644,7 +2621,7 @@
   "t": 1,
   "a": "FISH",
   "n": "Amá",
-  "address": "Front St & Oxford St, Philadelphia, PA 19122",
+  "address": "101 W Oxford St, Philadelphia, PA 19122",
   "w": "Chef Frankie Ramirez's Fishtown/Kensington-edge Italian — 2026 James Beard semifinalist (Emerging Chef) and an Eater 38 summer-2026 addition (per Northeast Times).",
   "sources": [
    [
@@ -2666,7 +2643,7 @@
   "t": 2,
   "a": "CC",
   "n": "Almanac",
-  "address": "Old City, Philadelphia, PA 19106",
+  "address": "310 Market St, Philadelphia, PA 19106",
   "w": "Cocktail bar upstairs at Ogawa in Old City — 2026 James Beard semifinalist for Best New Bar; an Inquirer 'best things we ate' pick.",
   "sources": [
    [
@@ -2875,7 +2852,7 @@
   "t": 1,
   "a": "SPH",
   "n": "Kampar",
-  "address": "Bella Vista, Philadelphia, PA 19147",
+  "address": "611 S 7th St, Philadelphia, PA 19147",
   "w": "Ange Branca's Bella Vista Malaysian restaurant, whose Kampar Kongsi bar was a 2025 James Beard semifinalist (Outstanding New Bar).",
   "sources": [
    [
@@ -2965,7 +2942,7 @@
   "t": 2,
   "a": "SPH",
   "n": "Heavy Metal Sausage Co.",
-  "address": "South Philadelphia, PA 19148",
+  "address": "1527 W Porter St, Philadelphia, PA 19145",
   "w": "Patrick Alfiero and Melissa Pellegrino's sausage shop/trattoria — a 2023 James Beard semifinalist for Best New Restaurant in the US.",
   "sources": [
    [
@@ -2988,7 +2965,7 @@
   "t": 1,
   "a": "NPH",
   "n": "Denise's Delicacies",
-  "address": "North Philadelphia, PA 19132",
+  "address": "2916 N 22nd St, Philadelphia, PA 19132",
   "w": "Denise Gause's North Philadelphia bakery — a 2023 James Beard semifinalist for Outstanding Bakery.",
   "sources": [
    [
@@ -3011,7 +2988,7 @@
   "t": 2,
   "a": "SPH",
   "n": "Mighty Bread Co.",
-  "address": "South Philadelphia, PA 19148",
+  "address": "1211 Gerritt St, Philadelphia, PA 19147",
   "w": "Chris DiPiazza's South Philly bakery — a 2023 James Beard semifinalist for Outstanding Bakery.",
   "sources": [
    [
@@ -3031,9 +3008,9 @@
  },
  {
   "t": 2,
-  "a": "CC",
+  "a": "SPH",
   "n": "Le Caveau",
-  "address": "Center City, Philadelphia, PA 19103",
+  "address": "614 S 7th St, Philadelphia, PA 19147",
   "w": "Center City wine cellar bar — a 2023 James Beard semifinalist for Outstanding Bar.",
   "sources": [
    [
@@ -3050,6 +3027,77 @@
    "Bar"
   ],
   "dish": "natural and French wines in a cellar bar",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "UCW",
+  "n": "Doro Bet",
+  "address": "4533 Baltimore Ave, Philadelphia, PA 19143",
+  "w": "Mebruka Kane's Ethiopian fried-chicken counter — Philly Mag Best of Philly (Best Fried Chicken), LaBan ('a winner on Philly's international fried chicken scene'), Infatuation West Philly guide.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/doro-bet/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/craig-laban/ethiopian-fried-chicken-gluten-free-west-philadelpha-20221025.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-west-philly"
+   ]
+  ],
+  "cz": [
+   "Ethiopian",
+   "Fried Chicken"
+  ],
+  "dish": "teff-battered fried chicken, berbere or alicha (gluten-free)",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "CC",
+  "n": "Vietnam Restaurant",
+  "address": "221 N 11th St, Philadelphia, PA 19107",
+  "w": "The Lai family's Chinatown restaurant since 1984 — James Beard America's Classics award 2024 (Inquirer); Visit Philly Chinatown guide.",
+  "sources": [
+   [
+    "JAMESBEARD",
+    "https://www.inquirer.com/food/restaurants/vietnam-restaurant-philadelphia-james-beard-20240228.html"
+   ],
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/articles/philadelphia/best-restaurants-philadelphia-chinatown/"
+   ]
+  ],
+  "cz": [
+   "Vietnamese"
+  ],
+  "dish": "bún, grilled-meat vermicelli platters, spring rolls",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "UCW",
+  "n": "Vietnam Cafe",
+  "address": "816 S 47th St, Philadelphia, PA 19143",
+  "w": "Benny Lai's 47th St sibling to the James Beard-honoured Vietnam Restaurant (Infatuation West Philly guide; Philly Mag).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-west-philly"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/foobooz/2024/04/18/benny-lai-vietnam-restaurant/"
+   ]
+  ],
+  "cz": [
+   "Vietnamese"
+  ],
+  "dish": "the Vietnam Restaurant menu in a bigger West Philly room",
   "closed": false
  }
 ]
