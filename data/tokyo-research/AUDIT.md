@@ -219,3 +219,42 @@ point ~800 m west), Gyosen Park (~60 m), Natsume Sōseki Memorial Museum (ja.wik
 Time Out; Wikidata pin); CHUO Hamacho Kaneko (Bib 2026 + Michelin soba-mae feature). Held: Matsuchiyama Shōden (one
 source), Kan'ei-ji, Yanaka Ginza (no street pin). Prose on new cards trimmed to what the sources state.
 **Build:** 387 discovered / 382 rendered (241 sights + 141 food); all gates green; validate + npm test pass.
+
+## 2026-10-02 — W5: FOOD & DRINK FIRST + ANIME (session_01VQaxQ69L5PmZRFY3PnAJQQ)
+**Process decision:** discovery split into category waves run by background agents (bars & coffee, ramen/noodles,
+izakaya/drinks, sweets/bakeries, anime) under one brief (`_w5_agent_brief.md`); each writes `_w5_<cat>_verified.json`;
+the lead vets every record with `_tokyo_w5_ingest.py` (≥2 distinct credible outlets or a Michelin award; OFFICIAL never
+counts for food; named dish; pin only from `!3d!4d` matching lat/lng or Michelin/Wikipedia; dedup) → FOOD/SIGHTS_TOKYO_W5 +
+`geo/_geoout_tokyo_w5.json`; failures logged in `_w5_held.json`.
+**Lesson (search channel):** multi-name `google.com` place queries return hotels, not the bars; Wikidata has no items
+for small yokochō — one Google place query per venue is the only pin channel, and bars/kissaten often return only
+`cid=` or no-`!3d` links (bars wave: 3 of 21 pinned in 44 searches). Unpinned but well-sourced places are kept as
+UNVERIFIED (discovered, held off the map for `tools/geocode-helper.html`).
+### Batch 1 — bars & kissaten / specialty coffee (44 agent searches + 9 lead searches)
+**Kept (14):** Bar Benfiddich (pin), Virtù, Punch Room Tokyo, Bar Libre, The Bellwood (pin), Bar High Five, Bar Trench —
+World's/Asia's 50 Best Bars + Time Out (+ CNN/PUNCH); Café de l'Ambre (Monocle + Time Out), Chatei Hatou (Monocle +
+Infatuation), Koffee Mameya Kakeru (Time Out + Tokyo Weekender + Sprudge), Glitch Coffee (pin; Time Out + Tokyo
+Weekender), Fuglen Tokyo, Onibus Nakameguro (Time Out + Tokyo Weekender), Tajimaya (Time Out + Metropolis).
+New outlets (SOURCES_TOKYO_W5.json): WORLD50, MONOCLE, PUNCH, TOKYOWEEKENDER, METROPOLIS, SPRUDGE, INFATUATION, CNN.
+**Held:** Gen Yamamoto (no 50 Best URL in hand; possible relocation), Tokyo Confidential, Cafe Bon, Monozuki, Satella
+(Time Out only), Higashi-Mukojima Coffee-Ten (Time Out + unconfirmed municipal PDF), The SG Club (no named drink).
+Stars and Stripes dropped as a source (not editorial of record). Lead's Shibamata/Kamakura probes: Savor Japan (a
+Gurunavi reservation site's advertorial) not counted; Taishakuten-sandō held (no place pin).
+Pins: 3 high, 11 UNVERIFIED → helper.
+### Batch 2 — izakaya/drinks, ramen/noodles, sweets (agents ~30 + ~24 + ~33 searches) → session cap hit (200/200)
+**Kept (23):** yokochō & drinks — Nonbei Yokochō (Time Out + Tokyo Cheapo + GO TOKYO), Harmonica Yokochō (GO TOKYO + Time
+Out + Lonely Planet), Hoppy Street, Yūrakuchō Gādo-shita (japan-guide + Tokyo Cheapo), Beer Club Popeye (Time Out + Japan
+Times), Ushitora Shimokitazawa (Time Out + Tokyo Cheapo; the two give different addresses — confirm in the helper pass),
+Gem by Moto, Shinsuke Yushima (Lonely Planet + Japan Times + Izakaya Hyakumeiten), Sasagin. Ramen/noodles — Harukiya
+Ogikubo, Fuunji (address 2-14-3 Yoyogi → SBY), Menya Itto (JOTO), Chinchintei abura soba (TAMA), Tsukemen Michi (JOTO;
+status not separately checked), Sanukiya udon (Michelin Bib venue page). Sweets — Usagiya, Toraya Akasaka (pin), Naniwaya
+Sōhonten, Kūya, Ginza Kimuraya, Himitsudō, Asakusa Kagetsudō, Bricolage Bread & Co.
+**Held (lead's vetting):** Shuko Takigiya & Kisaiya Hide (still no specific dish — W3 reason stands), Tanako (Michelin
+source is a 2017 article; current Bib unconfirmed), Chūka Soba Ibuki (no source describes the bowl), Baikatei (Hyakumeiten
+claim only via an aggregator). Agent drops: Kurand Sake Market Ikebukuro (a directory says closed — status unclear),
+Yakiton Tatsuya / Ebisu Yokochō / Itakuraya / Kameju / Comme'N / Truffle Bakery (one source), Daihashi & Yusui (no
+credible source). Not reached: depachika, Akabane/Tateishi senbero, Rokurinsha/Mutekiya/Taishoken/Nagi.
+**Channel mix W5:** 50 Best (7), Time Out (30), Japan Times (6), Lonely Planet (5), Tokyo Cheapo (8), GO TOKYO (3),
+Monocle (2), Tokyo Weekender (4), Tabelog Hyakumeiten (4), Michelin (1), creators — Ramen Adventures (4), Ramen Beast (1).
+**Build:** 424 discovered / 386 rendered (241 sights + 183 food → food share 43%, up from 37%); sourcecheck PASS ·
+geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 33 W5 pins UNVERIFIED.

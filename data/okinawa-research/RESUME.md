@@ -40,7 +40,11 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 7 | 30 | +23 |
 
 ## In-flight wave
-- none (W2 closed and committed).
+- **W3 (2026-10-02, food & drink first + ANIME)** — files `FOOD_OKINAWA_W3.json`, `SIGHTS_OKINAWA_W3.json`,
+  `SOURCES/CREATORS_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3.json` (discovery pins), `geo/_geoout_okinawa_W3G.json`
+  (background geocoder for the 45 held, worklist `_okinawa_geo_todo_W3.json`), raw log `_okinawa_w3_notes.md`.
+  Queries: Michelin/Bib Okinawa list, Tabelog 百名店 soba/okinawa, Okinawa Times poll leftovers via Mapple, Stripes
+  food articles (steak, A&W, Blue Seal, zenzai, awamori, coffee, craft beer, izakaya), creator queries, anime wave.
 
 ## Next actions (W3 plan, ordered)
 0. **Geocode the 45 UNVERIFIED** (list: `grep -B2 unverified geo/_geoout_okinawa_W*.json`) — mostly Naha/Miyako/Ishigaki
