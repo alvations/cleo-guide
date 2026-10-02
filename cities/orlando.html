@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Orlando &amp; Central Florida field guide — 118 sights and 4 places to eat: Walt Disney World and Universal Orlando pinned attraction by attraction, Mills 50 Vietnamese, Winter Park, Kissimmee, the springs and the Space Coast, each traceable to its source (Michelin, Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Orlando &amp; Central Florida field guide — 122 sights and 4 places to eat: Walt Disney World and Universal Orlando pinned attraction by attraction, Mills 50 Vietnamese, Winter Park, Kissimmee, the springs and the Space Coast, each traceable to its source (Michelin, Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Orlando &amp; Central Florida Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Orlando, the parks &amp; Central Florida, sourced</p>
   <h1>Orlando<span class="thin">the parks ride by ride, Mills 50, the springs &amp; the Space Coast</span></h1>
-  <p class="standfirst">118 sights and 4 places to eat across <strong>Orlando &amp; Central Florida</strong> &mdash; <strong>Walt Disney World</strong> and <strong>Universal</strong> pinned ride by ride inside each park, and the real city beyond them: Downtown and Lake Eola, the <strong>Mills 50</strong> Vietnamese corridor, Winter Park, Restaurant Row, Puerto Rican Kissimmee, the crystal-blue <strong>springs</strong> and the <strong>Space Coast</strong>. Each is traceable to the source that named it &mdash; Michelin, the Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks and the park operators themselves. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (theme-park signature eats are their own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">122 sights and 4 places to eat across <strong>Orlando &amp; Central Florida</strong> &mdash; <strong>Walt Disney World</strong> and <strong>Universal</strong> pinned ride by ride inside each park, and the real city beyond them: Downtown and Lake Eola, the <strong>Mills 50</strong> Vietnamese corridor, Winter Park, Restaurant Row, Puerto Rican Kissimmee, the crystal-blue <strong>springs</strong> and the <strong>Space Coast</strong>. Each is traceable to the source that named it &mdash; Michelin, the Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks and the park operators themselves. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (theme-park signature eats are their own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -320,7 +320,9 @@
 
 const S = {
   "ALLEARS":{k:"ALLEARS",t:"AllEars.net",u:"https://allears.net/",l:"AllEars.net"},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/things-to-do/orlando-florida",l:"Atlas Obscura"},
   "ATTRACTIONSMAG":{k:"ATTRACTIONSMAG",t:"Attractions Magazine",u:"https://attractionsmagazine.com/",l:"Attractions Magazine"},
+  "BRITONTHEMOVE":{k:"BRITONTHEMOVE",t:"Brit on the Move",u:"https://britonthemove.com/",l:"Brit on the Move"},
   "CNNTRAVEL":{k:"CNNTRAVEL",t:"CNN Travel",u:"https://edition.cnn.com/travel",l:"CNN Travel"},
   "DISNEYBLOG":{k:"DISNEYBLOG",t:"DisneyBlog",u:"https://disneyblog.com/",l:"DisneyBlog"},
   "DISNEYFOODBLOG":{k:"DISNEY FOOD BLOG",t:"Disney Food Blog (AJ Wolfe)",u:"https://www.disneyfoodblog.com/",l:"Disney Food Blog (AJ Wolfe)"},
@@ -372,7 +374,7 @@ const AREAS = [
 
 const P = [
 {t:1,a:"DTO",n:"Lake Eola Park",ad:"Lake Eola, Downtown Orlando, FL",la:28.54361,ln:-81.37278,w:"Downtown Orlando's signature park: the lit Linton E. Allen Memorial Fountain, swan boats and a resident swan flock, and the Sunday farmers market.",k:"park lake fountain icon free",g:["FREE","ICON","SPRNG","MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Lake_Eola_Park"],["TIMEOUT","https://www.timeout.com/orlando/things-to-do/best-things-to-do-in-orlando-besides-theme-parks"]]},
-{t:1,a:"MILLS",n:"Harry P. Leu Gardens",ad:"Lake Rowena, Orlando, FL",la:28.56738,ln:-81.35732,w:"50-acre botanical garden on Lake Rowena with the largest camellia collection in eastern North America and the historic Leu House.",k:"garden nature",g:["SPRNG","MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Harry_P._Leu_Gardens"],["TIMEOUT","https://www.timeout.com/orlando/things-to-do/best-things-to-do-in-orlando-besides-theme-parks"]]},
+{t:1,a:"MILLS",n:"Harry P. Leu Gardens",ad:"Lake Rowena, Orlando, FL",la:28.56738,ln:-81.35732,w:"50-acre botanical garden on Lake Rowena with the largest camellia collection in eastern North America and the historic Leu House.",k:"garden nature",g:["SPRNG","MUS","HIST","ODD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Harry_P._Leu_Gardens"],["TIMEOUT","https://www.timeout.com/orlando/things-to-do/best-things-to-do-in-orlando-besides-theme-parks"],["ATLASOBSCURA","https://www.atlasobscura.com/things-to-do/orlando-florida"]]},
 {t:1,a:"MILLS",n:"Orlando Museum of Art",ad:"Loch Haven Park, Orlando, FL",la:28.57271,ln:-81.36444,w:"Loch Haven Park's art museum, with rotating exhibitions and permanent American, African and ancient-Americas collections.",k:"museum gallery",g:["MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Orlando_Museum_of_Art"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/attractions/museums/"]]},
 {t:1,a:"MILLS",n:"Orlando Science Center",ad:"777 E Princeton St, Orlando, FL 32803",la:28.57232,ln:-81.36839,w:"Four floors of hands-on science and the Crosby Observatory, in Loch Haven Park.",k:"museum science center family kids",g:["SPACE","MUS","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Orlando_Science_Center"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/attractions/museums/"]]},
 {t:2,a:"MILLS",n:"Mennello Museum of American Art",ad:"Lake Formosa, Loch Haven Park, Orlando, FL",la:28.57000,ln:-81.36728,w:"Small museum on Lake Formosa built around folk artist Earl Cunningham, with an outdoor sculpture garden.",k:"museum gallery",g:["SPRNG","MUS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mennello_Museum_of_American_Art"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/attractions/museums/"],["ORLANDOWEEKLY","https://www.orlandoweekly.com/orlando-guides/make-a-date-to-get-your-fill-of-the-arts-both-visual-and-performing-33972264/"]]},
@@ -384,6 +386,10 @@ const P = [
 {t:2,a:"WPK",n:"Rollins Museum of Art",ad:"1000 Holt Ave, Winter Park, FL 32789",la:28.59234,ln:-81.34862,w:"Rollins College's art museum (formerly Cornell Fine Arts Museum), free admission.",k:"museum gallery free",g:["MUS","HIST","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cornell_Fine_Arts_Museum"],["WINTERPARKCITY","https://winterpark.org/25-things-to-see-do"]]},
 {t:2,a:"WPK",n:"Maitland Art Center",ad:"231 W Packwood Ave, Maitland, FL 32751",la:28.62556,ln:-81.36750,w:"1937 Mayan-Revival artists' colony by André Smith — a National Historic Landmark.",k:"museum gallery historic architecture",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Maitland_Art_Center"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/beyond-theme-parks/arts-entertainment/"]]},
 {t:2,a:"WPK",n:"Zora Neale Hurston National Museum of Fine Arts",ad:"Eatonville, FL",la:28.61851,ln:-81.38204,w:"Gallery in Eatonville, one of the first incorporated Black towns in the US and Zora Neale Hurston's hometown.",k:"museum gallery history",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Zora_Neale_Hurston_Museum_of_Fine_Arts"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/attractions/museums/"]]},
+{t:1,a:"DTO",n:"Dr. Phillips Center for the Performing Arts",ad:"Downtown Orlando, FL",la:28.53803,ln:-81.37819,w:"Glass-walled performing-arts centre (2014) hosting Broadway tours, the Orlando Ballet and concerts.",k:"performing arts theater concert",g:["ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dr._Phillips_Center_for_the_Performing_Arts"],["BRITONTHEMOVE","https://britonthemove.com/things-to-do-in-downtown-orlando/"]]},
+{t:2,a:"DTO",n:"Church Street Station (Orlando)",ad:"Church St, Downtown Orlando, FL",la:28.54000,ln:-81.38056,w:"1889 railroad depot with a conical tower at the heart of the Church Street bar-and-restaurant district.",k:"historic nightlife bars",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_Street_Station"],["BRITONTHEMOVE","https://britonthemove.com/things-to-do-in-downtown-orlando/"]]},
+{t:2,a:"DTO",n:"Orlando Public Library (Downtown)",ad:"101 E Central Blvd, Orlando, FL",la:28.54225,ln:-81.37703,w:"John Johansen's 1966 Brutalist library; a corner upstairs holds the Disney Collection of park history (Atlas Obscura).",k:"architecture odd free museum collection",g:["ODD","FREE","MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Orange_County_Library_System"],["ATLASOBSCURA","https://www.atlasobscura.com/things-to-do/orlando-florida"]]},
+{t:3,a:"DTO",n:"Camping World Stadium",ad:"Parramore, Orlando, FL",la:28.53889,ln:-81.40278,w:"1936 stadium, home of the Citrus Bowl and Pop-Tarts Bowl.",k:"stadium",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Camping_World_Stadium"],["OFFICIAL","https://floridacitrussports.com/things-to-do/things-to-do-in-downtown-orlando"]]},
 {t:1,a:"KISS",n:"Gatorland",ad:"Orlando–Kissimmee line, S Orange Blossom Trail, FL",la:28.35570,ln:-81.40400,w:"Founded 1949 by Owen Godwin, Orlando's oldest theme park — 'Alligator Capital of the World' with 2,000+ gators and crocs, a breeding marsh, a zip line and the 1961 Gatorland Express railroad.",k:"gator alligator wildlife zoo family historic",g:["WILD","HIST","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Gatorland"],["ORLANDOWEEKLY","https://www.orlandoweekly.com/arts/classic-florida-attraction-gatorland-celebrates-70th-anniversary-with-gatorpalooza-on-saturday-25331938/"],["TIMEOUT","https://www.timeout.com/orlando/things-to-do/best-things-to-do-in-orlando-besides-theme-parks"]]},
 {t:2,a:"KISS",n:"Old Town Kissimmee",ad:"US-192, Kissimmee, FL",la:28.33161,ln:-81.51584,w:"Retro entertainment strip on US-192 with 70+ shops and rides; free Friday Muscle Car Show and the Saturday Night Classic Car Show & Cruise — America's longest-running weekly car show.",k:"shopping family free",g:["RIDE","SHOW","MKT","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Old_Town_(amusement_park)"],["EXPERIENCEKISSIMMEE","https://www.experiencekissimmee.com/article/free-things-to-do-kissimmee"]]},
 {t:2,a:"KISS",n:"Monument of States",ad:"Downtown Kissimmee, FL",la:28.29168,ln:-81.40460,w:"1943 roadside folly built of stones and objects sent from every US state — a free downtown oddity.",k:"odd historic free",g:["ODD","FREE","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Monument_of_States"],["EXPERIENCEKISSIMMEE","https://www.experiencekissimmee.com/article/free-things-to-do-kissimmee"]]},
@@ -492,16 +498,20 @@ const P = [
 ];
 
 const FS = {
+  "BUNGALOWER":{k:"BUNGALOWER",t:"Bungalower",u:"https://bungalower.com/",l:"Bungalower"},
   "CLICKORLANDO":{k:"NEWS 6 (WKMG)",t:"News 6 WKMG (ClickOrlando)",u:"https://www.clickorlando.com/",l:"News 6 WKMG (ClickOrlando)"},
   "DISNEYFOODBLOG":{k:"DISNEY FOOD BLOG",t:"Disney Food Blog (AJ Wolfe)",u:"https://www.disneyfoodblog.com/",l:"Disney Food Blog (AJ Wolfe)"},
   "FOODNETWORK":{k:"FOODNETWORK",t:"Food Network",u:"https://www.foodnetwork.com/",l:"Food Network"},
+  "FOX35":{k:"FOX 35",t:"FOX 35 Orlando (WOFL)",u:"https://www.fox35orlando.com/",l:"FOX 35 Orlando (WOFL)"},
   "FROMMERS":{k:"FROMMERS",t:"Frommer's",u:"https://www.frommers.com/",l:"Frommer's"},
   "INFATUATION":{k:"INFATUATION",t:"The Infatuation — Orlando",u:"https://www.theinfatuation.com/orlando",l:"The Infatuation — Orlando"},
   "ISLANDS":{k:"ISLANDS",t:"Islands.com",u:"https://www.islands.com/",l:"Islands.com"},
+  "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation Awards",u:"https://www.jamesbeard.org/awards",l:"James Beard Foundation Awards"},
   "LONELYPLANET":{k:"LONELYPLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/",l:"Lonely Planet"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Florida (Orlando selection)",u:"https://guide.michelin.com/us/en/florida/orlando/restaurants",l:"MICHELIN Guide Florida (Orlando selection)"},
   "MICKEYBLOG":{k:"MICKEYBLOG",t:"MickeyBlog",u:"https://mickeyblog.com/",l:"MickeyBlog"},
   "ORLANDOWEEKLY":{k:"ORLANDO WEEKLY",t:"Orlando Weekly",u:"https://www.orlandoweekly.com/",l:"Orlando Weekly"},
+  "TASTYCHOMPS":{k:"TASTY CHOMPS",t:"Tasty Chomps (Ricky Ly)",u:"https://tastychomps.com/",l:"Tasty Chomps (Ricky Ly)"},
   "TIMEOUT":{k:"TIME OUT",t:"Time Out Orlando",u:"https://www.timeout.com/orlando",l:"Time Out Orlando"},
   "TOURINGPLANS":{k:"TOURINGPLANS",t:"TouringPlans",u:"https://touringplans.com/",l:"TouringPlans"},
   "TRAVELPULSE":{k:"TRAVELPULSE",t:"TravelPulse",u:"https://www.travelpulse.com/",l:"TravelPulse"},
@@ -583,7 +593,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([28.4887,-81.4004],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([28.5797,-81.1367],9);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -667,7 +677,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Downtown Orlando", 28.5416, -81.3788], ["Mills 50", 28.5706, -81.3644], ["Winter Park", 28.6044, -81.357], ["International Drive", 28.4105, -81.4613], ["Magic Kingdom", 28.4172, -81.5809], ["EPCOT", 28.3707, -81.5497], ["Disney's Hollywood Studios", 28.3571, -81.5601], ["Disney's Animal Kingdom", 28.3577, -81.5916], ["Disney Springs", 28.3584, -81.5516], ["Universal Studios Florida", 28.4787, -81.4685], ["Universal Islands of Adventure", 28.4709, -81.4714], ["Universal Epic Universe", 28.4406, -81.4478], ["Universal CityWalk", 28.4614, -81.4731], ["Kissimmee", 28.3064, -81.4171], ["Winter Garden", 28.5661, -81.5835], ["Sanford", 28.8843, -81.4713], ["Space Coast", 28.5879, -80.7295]];
+const LABELS=[["Downtown Orlando", 28.5406, -81.3822], ["Mills 50", 28.5706, -81.3644], ["Winter Park", 28.6044, -81.357], ["International Drive", 28.4105, -81.4613], ["Magic Kingdom", 28.4172, -81.5809], ["EPCOT", 28.3707, -81.5497], ["Disney's Hollywood Studios", 28.3571, -81.5601], ["Disney's Animal Kingdom", 28.3577, -81.5916], ["Disney Springs", 28.3584, -81.5516], ["Universal Studios Florida", 28.4787, -81.4685], ["Universal Islands of Adventure", 28.4709, -81.4714], ["Universal Epic Universe", 28.4406, -81.4478], ["Universal CityWalk", 28.4614, -81.4731], ["Kissimmee", 28.3064, -81.4171], ["Winter Garden", 28.5661, -81.5835], ["Sanford", 28.8843, -81.4713], ["Space Coast", 28.5879, -80.7295]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1006,7 +1016,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 122 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 126 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
