@@ -4,9 +4,9 @@ from _hk import F, emit
 ST="https://www.sapporo.travel/gourmet/"; RU="https://rurubu.jp/andmore/"; MP="https://www.mapple.net/"
 O="open"
 F(1,"SPR",["RAMEN"],"the original Sapporo miso ramen (1955)","Aji no Sanpei (味の三平)",
-  "Chuo-ku, Sapporo, Hokkaido, Japan",
+  "Daimaru Fujii Central 4F, Minami 1-jō Nishi 3-chōme 2, Chuo-ku, Sapporo, Hokkaido 060-0061, Japan",
   "Where miso ramen was born in 1955 — the owner took his cue from miso soup.",
-  [("SAPPOROTRAVEL",ST+"shop/shop_130-2/"),("SAPPOROTRAVEL",ST+"feature/miso-ramen/"),("RURUBU",RU+"article/22377")],status=O,ssrc="sapporo.travel shop listing (current)")
+  [("SAPPOROTRAVEL",ST+"shop/shop_130-2/"),("WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%91%B3%E3%81%AE%E4%B8%89%E5%B9%B3"),("SAPPOROTRAVEL",ST+"feature/miso-ramen/"),("RURUBU",RU+"article/22377")],status=O,ssrc="sapporo.travel shop listing (current)")
 F(1,"SPR",["RAMEN"],"clear miso ramen (pork genkotsu and hen broth, 10+ hours)","Sapporo Miso Ramen Senmonten Keyaki Susukino Honten (けやき すすきの本店)",
   "Susukino, Chuo-ku, Sapporo, Hokkaido, Japan",
   "The miso-only Susukino counter with a permanent queue — an unclouded broth of pork knuckle, stewing hen and vegetables simmered over ten hours.",
