@@ -258,3 +258,33 @@ branch closed 2025, Haight status unconfirmed); The Slanted Door (Valencia reope
 confirmed); Una Pizza Napoletana (SF status unclear); Craftsman & Wolves (Valencia shop status unclear — now 'the Den');
 John's Grill, Papalote, Butter & Crumble, Thorough Bread, Bar Crudo, Beretta (2 sources, no street address yet);
 Hook Fish Co, Pizzetta 211, Katsuo + Kombu, Dumpling King (single source).
+**Discovery batches 3–6 (searches 51–100, main):** Tenderloin/Little Saigon (Hai Ky Mi Gia, Outta Sight, Pho 2000, Phở Tân Hòa,
+Mộng Thu — Infatuation × SF Standard/SFGATE/Time Out/Chronicle), SoMa/FiDi (Mashaallah Halal, Square Pie Guys, Smish Smash,
+Ebiko, Palio, Udon Time, Dumpling Time), Hayes/NoPa (Bar Crudo, Minnie Bell's [Chronicle Top 100 #31], Anina), Japantown
+(Sobakatsu), Chinatown/North Beach (Empress by Boon [MICHELIN], City View, Hon's Wun-Tun [was held], Golden Star, Italian
+Homemade Co., Moongate Lounge), Marina/Cow Hollow (Balboa Cafe 1913, Blue Whale, Rose's Cafe, Terzo, Woodhouse Fish Co.,
+The Interval, Bar Darling), Noe/Bernal (La Ciccia, Bones Bagels, Go Duck Yourself [Hing Lung's successor — was held],
+Komaaj, Tilak, Emmy's Spaghetti Shack), Richmond/Sunset (Rose Pizzeria, The Laundromat, Lung Fung, Moku Yakitori-Ya,
+Yummy Yummy, Gao Viet, White Cap), Mission tacos (Tacos Del Barrio, Tacos El Patrón, Papalote), Propagation (NOB bar).
+Sights with Wikipedia/Atlas Obscura/OSM pins: SFJAZZ, War Memorial Opera House, MoAD, St. Mary's Cathedral, Amoeba Music
+(mapcarta OSM way), Grateful Dead House (unpinned), Presidio Pet Cemetery, Yoda Fountain, Swedenborgian Church.
+**MEASURED & DROPPED / held:** Casaro Osteria (dropped — 2nd mid-tier Union St Italian, first-taste coverage only; Rose's
+kept); 15 Romolo (closed since 2024, reopening announced Oct 2026 — re-check next wave); Naadam (Hoodline May 2026: SF's
+only Mongolian restaurant shut by health dept); Mongol Cafe (closed May 2026); Lou's (the Chronicle hit was San Rafael's
+Lou's Takeaway — wrong place); Anh Hong, Komaaj-cafe address conflict (Infatuation 20 29th St used — the wine bar),
+Katsuo + Kombu, Hook Fish Co, Bones/Tilak initially single → resolved with Chronicle; Kezar Stadium, Sutro Tower,
+Flood Mansion, 826 Valencia Pirate Store (single source in-hand); PEN Millbrae openings (Falafio, Han Sang, Laka Spicy,
+Stick & Steam — Chronicle 2023 only). Mix: Infatuation (primary list channel) × SF Chronicle (incl. 2026 Top 100) ×
+Time Out × SF Standard × SFGATE × SF Travel × 7x7 × Mission Local × Michelin (1) × Wikipedia/Atlas Obscura/HMDB (sights).
+**Creator query (wave requirement):** SF Travel's "How I See San Francisco: YouTuber Joey Yee" — a micro-documentary
+filmmaker, but no follower scale and no specific place recommendation surfaced → not attached (logged, not padded).
+**Pin pass 2 (background agent, 22 searches) → `geo/_geoout_w4pin2.json`:** only 4 of 46 new restaurants pinned (Empress
+by Boon via Michelin; Twin Peaks Tavern, Old Clam House, Liguria via Wikipedia). mapcarta returns nothing for most small
+restaurants; Michelin pages for La Ciccia, Bar Crudo, Lily, Gialina, Fù Huì Huá, Sobakatsu, Hon's showed no coords.
+Wing Lee Bakery NOT pinned: the only OSM object is Wing Lee B.B.Q. at 501 Clement (different business). → ~70 new
+restaurants are held UNVERIFIED for `tools/geocode-helper.html` (browser) — WebSearch cannot place-pin them here.
+
+## Stage 6 — BUILD W4-1 (2026-10-02, session_0159tKUL6tQ8pvUJRBHa67Nx)
+**375 researched → 291 on the map (121 sights + 170 food)**, was 290 → 265. sourcecheck PASS 375/375 (61 on a lone
+authority) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test PASS. 8 auto-registered
+keys given real rationales (CLIO, HMDB, INSIDEHOOK, NOEHILL, SFFUNCHEAP, SFGATE, STREETSBLOG, RICHMONDSUNSETNEWS).

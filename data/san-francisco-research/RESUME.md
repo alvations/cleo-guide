@@ -15,10 +15,17 @@
 - WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
-**W4 (session_0159tKUL6tQ8pvUJRBHa67Nx, wave 2 of 2026-10-02)** — (a) background pin agent → `geo/_geoout_w4pin.json`
-for the 25 UNVERIFIED (≤30 searches); (b) discovery weakest-first AVE → MIS → DTN → NECN → HAI → SE (+NOB/NW/PEN),
-food ≥50%/area; files `FOOD_W4.json`, `SIGHTS_W4.json`, geo `geo/_geoout_w4.json` (force-added, geo/_*.json is
-gitignored). Search counter (main): see AUDIT "Stage W4".
+W4 continuing (session_0159tKUL6tQ8pvUJRBHa67Nx) — see State W4 below; files FOOD_W4.json, SIGHTS_W4.json,
+geo/_geoout_w4.json, geo/_geoout_w4pin.json, geo/_geoout_w4pin2.json (force-added; geo/_*.json is gitignored).
+
+## State — W4 (2026-10-02 wave 2) after build W4-1
+- **375 researched / 291 on the map (121 sights + 170 food)**; 4 gates + validate + test green.
+- Per area (food+sights=total/target): AVE 31+21=52/70 · DTN 37+19=56/80 · HAI 21+12=33/45 · MIS 40+13=53/75 ·
+  NECN 41+16=57/75 · NOB 21+8=29/40 · NW 28+15=43/50 · PEN 18+11=29/35 · SE 15+8=23/30. Food share ≈ 67%.
+- Searches: ~100 main + 30 (pin agent 1) + 22 (pin agent 2).
+- Pins: held 25 → 9 resolved (agent 1) + 4 new restaurants (agent 2) + all new sights but Grateful Dead House pinned.
+  ~70 new restaurants UNVERIFIED → browser geocode-helper (docs/GEOCODE-BACKLOG.md). WebSearch can't place-pin small
+  restaurants here (mapcarta/Michelin return nothing) — don't spend more searches on it; use the helper.
 
 ## State — 2026-10-02 modernisation session (FINAL)
 - **290 researched / 265 rendered** (was 148 / 141). Food 181 = 62.4% (food-first ✓). 4 gates + validate + test green.

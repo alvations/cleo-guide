@@ -1478,5 +1478,230 @@
    "Tacos"
   ],
   "dish": "quesabirria tacos"
+ },
+ {
+  "t": 2,
+  "a": "DTN",
+  "n": "Palio",
+  "address": "640 Sacramento St, San Francisco, CA 94111",
+  "w": "Long-running Financial District Italian with a pasta station and pizza oven in view — wild boar ragù and aperitivo-hour cocktails.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/best-new-restaurants-san-francisco"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/palio"
+   ]
+  ],
+  "cz": [
+   "Italian"
+  ],
+  "dish": "wild boar ragù"
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Woodhouse Fish Co.",
+  "address": "1914 Fillmore St, San Francisco, CA 94115",
+  "w": "Casual Pacific Heights New England-style seafood bar — buttery Maine lobster roll, Dungeness crab linguine and (per Infatuation) the city's best clam chowder.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/the-best-seafood-restaurants-in-san-francisco"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/woodhouse-fish-co-fillmore"
+   ]
+  ],
+  "cz": [
+   "Seafood"
+  ],
+  "dish": "clam chowder & lobster roll"
+ },
+ {
+  "t": 3,
+  "a": "DTN",
+  "n": "Udon Time",
+  "address": "55 Division St, San Francisco, CA 94103",
+  "w": "Dumpling Time's counter-service sibling — homemade, aged udon served hot, cold or as salad down a cafeteria-style line.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/best-new-restaurants-san-francisco"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/food/article/Dumpling-Time-spinoff-Udon-Time-opens-along-with-13556013.php"
+   ]
+  ],
+  "cz": [
+   "Japanese",
+   "Noodles"
+  ],
+  "dish": "aged udon"
+ },
+ {
+  "t": 2,
+  "a": "DTN",
+  "n": "Dumpling Time",
+  "address": "11 Division St, San Francisco, CA 94103",
+  "w": "Always-packed SoMa dumpling bar — xiao long bao, har gow and crisp potstickers in a lively room near CCA.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/dumpling-time"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/food/article/Dumpling-Time-spinoff-Udon-Time-opens-along-with-13556013.php"
+   ]
+  ],
+  "cz": [
+   "Dim Sum"
+  ],
+  "dish": "xiao long bao"
+ },
+ {
+  "t": 1,
+  "a": "NECN",
+  "n": "Moongate Lounge",
+  "address": "28 Waverly Pl, San Francisco, CA 94108",
+  "w": "Mister Jiu's upstairs cocktail lounge (2019) — plush pink-and-blue room, drinks keyed to the Chinese lunar calendar with black garlic, plum and oolong.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/guides/cocktail-bars-sf"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/bars/moongate-lounge"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/projects/best-cocktail-bars-sf/"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar"
+  ],
+  "dish": "lunar-calendar cocktails"
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "The Interval at Long Now",
+  "address": "2 Marina Blvd, Fort Mason Building A, San Francisco, CA 94123",
+  "w": "Bar-café-library of the Long Now Foundation (co-founded by Brian Eno) at Fort Mason — gin and daiquiri flights under the 10,000-year clock prototype.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/guides/cocktail-bars-sf"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/projects/best-cocktail-bars-sf/"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar"
+  ],
+  "dish": "gin & daiquiri flights"
+ },
+ {
+  "t": 2,
+  "a": "AVE",
+  "n": "White Cap",
+  "address": "3608 Taraval St, San Francisco, CA 94116",
+  "w": "Outer Sunset cocktail bar 'by surfers, for surfers' a few blocks from Ocean Beach — serious drinks in a beach-shack mood.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/guides/cocktail-bars-sf"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/projects/best-cocktail-bars-sf/"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar"
+  ],
+  "dish": "cocktails"
+ },
+ {
+  "t": 2,
+  "a": "NOB",
+  "n": "Propagation",
+  "address": "895 Post St, San Francisco, CA 94109",
+  "w": "Heather Hoffman's plant-filled, 'garden-centric' Lower Nob Hill cocktail bar — botanical drinks among the greenery.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/guides/cocktail-bars-sf"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/Propagation-Bar-San-Francisco-cocktails-Nob-Hill-16033339.php"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar"
+  ],
+  "dish": "botanical cocktails"
+ },
+ {
+  "t": 3,
+  "a": "HAI",
+  "n": "Anina",
+  "address": "482 Hayes St, San Francisco, CA 94102",
+  "w": "Hayes Valley patio bar of light, low-ABV drinks built on sherry and vermouth — the neighbourhood's sunny-afternoon move.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/guides/cocktail-bars-sf"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/projects/best-cocktail-bars-sf/"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar"
+  ],
+  "dish": "sherry & vermouth spritzes"
+ },
+ {
+  "t": 3,
+  "a": "NW",
+  "n": "Bar Darling",
+  "address": "2263 Chestnut St, San Francisco, CA 94123",
+  "w": "Marina cocktail bar with a huge native-plant back patio — one of the city's best hidden patios.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/guides/cocktail-bars-sf"
+   ],
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2024/07/17/bars-hidden-patios/"
+   ]
+  ],
+  "cz": [
+   "Cocktail Bar"
+  ],
+  "dish": "cocktails on the patio"
  }
 ]
