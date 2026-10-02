@@ -105,3 +105,8 @@
 104 NT ten best North Miami (Steve's Pizza, Cane a Sucre, Petit Rouge, Vega's, Little Havana, Fish Fish, Cheen-Huaye, Bulldog BBQ, Ricky's Thai, Captain Jim's) → 2 added
 105 GMCVB Sunny Isles/Aventura (Newport Pier, Sunny Isles Beach, Aventura Mall Slide Tower) → 3 sights (SIGHTS_S6)
 106 Everglades City food (Fodor's Everglades + Sarasota Magazine 'Glades Grub' + visitevergladescity: Havana Café, Camellia Street Grill, Triad) → 3 added
+107 NT Homestead/Florida City [3 sub-searches] (Rosita's, Shiver's Best BBQ 2025/2013/2003, Capri, Mutineer, Mario's, Casita Tejas, El Santo Coyote, Chefs on the Run)
+108 Fodor's Homestead/Florida City/Everglades City → 5 intersections added
+109 Infatuation Downtown listings (Tâm Tâm, ViceVersa, Over Under, Miami Slice, Café Fenicia, Manolo & Rene, Right Hand, Cotoita, Garcia's, Jolene Sound Room…)
+110 Time Out Brickell + downtown (LPM, NAOE, Felice, Claudie, Zeru, River Oyster Bar, Kaori, Delilah, Lafayette; Zuma, Area 31, Seaspice, Il Gabbiano) → Claudie, Kaori (∩ NT Required Eating)
+111 Time Out things to do Downtown (23) + Brickell (17) → 5 sights + La Sandwicherie, Jaguar Sun
