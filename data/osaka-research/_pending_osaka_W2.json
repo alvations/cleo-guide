@@ -220,6 +220,27 @@
      "https://osaka-info.jp/en/spot/kinguemon-dotonbori/"
     ]
    ]
+  },
+  {
+   "n": "Dotonbori Imai (kitsune udon)",
+   "a": "MINAM",
+   "src": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/special/dc/event/detail666/"
+    ]
+   ]
+  },
+  {
+   "n": "551 Hōrai Ebisubashi Honten (butaman)",
+   "a": "MINAM",
+   "address": "3-6-3 Namba, Chuo-ku, Osaka 542-0076 (ja.wikipedia 蓬萊 (飲食店))",
+   "src": [
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E8%93%AC%E8%90%8A_(%E9%A3%B2%E9%A3%9F%E5%BA%97)"
+    ]
+   ]
   }
  ],
  "single_source_sight": [
@@ -243,16 +264,6 @@
    "note": "CLOSED for renovation until 2027-01-05 per japan-guide e4024 — do not add as live"
   },
   {
-   "n": "Sennichimae Doguyasuji",
-   "a": "MINAM",
-   "src": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/experience/en/osaka/spot/212"
-    ]
-   ]
-  },
-  {
    "n": "Osaka Tsuruhashi Market",
    "a": "EAST",
    "src": [
@@ -264,16 +275,6 @@
    "note": "~800 stalls; needs 2nd source + coord"
   },
   {
-   "n": "Jan Jan Yokochō (Shinsekai)",
-   "a": "TNJ",
-   "src": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/experience/en/osaka/spot?area=4"
-    ]
-   ]
-  },
-  {
    "n": "Isshin-ji",
    "a": "TNJ",
    "coord": [
@@ -281,6 +282,20 @@
     135.510861
    ],
    "note": "jawiki coord; OSAKA-INFO listing only vaguely surfaced"
+  },
+  {
+   "n": "Osaka Shochikuza (kabuki theatre, Dōtonbori)",
+   "a": "MINAM",
+   "src": [
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E6%9D%BE%E7%AB%B9%E5%BA%A7"
+    ]
+   ],
+   "coord": [
+    34.6685,
+    135.500889
+   ]
   }
  ],
  "timeout_area_lists_to_mine": [
