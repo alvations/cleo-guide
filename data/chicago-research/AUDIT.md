@@ -131,3 +131,19 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   La Bomba, Pearl's Place, St. Rest, Sweet Mandy B's, Svea, Mr. Greek Gyros, Queen Mary, Nine Bar, Lemon, Sportsman's Club, Delilah's.
 - Density after W14: food 152 / 298 discovered (51%); per-area food share LOOP 48% · NORTH 56% · NW 82% · WEST 50% · SOUTH 34% ·
   SW 43% · FAR 63% · SUB 21% · DAY 0%.
+
+## 2026-10-02 (session 3) · build, closures, close-out
+- Geocode W12b/W13 (agent, cut off by the 200 cap after 13 records): +5 high pins (Hopleaf, Virtue, Momotaro, Omakase Yume — Apple Maps place
+  links; Ricobene's — latlong.net). 20 records returned with memory-only addresses + "unchecked" status → **removed** from _geoout_w13.json
+  and from data/geocodes.json (never ship a memory address); they stay UNVERIFIED for session 4.
+- Closures: Les Nomades (closed Oct 2025, Time Out + Wikipedia) → kept flagged CLOSED (notable). **MEASURED & DROPPED** (closed, only basis
+  for inclusion was a stale Michelin listing): Home Bistro (moved to Cleveland), etta (Bucktown, closed Oct 2025), Daguan Noodle (Yelp CLOSED
+  Sept 2026, single status source). Dear Margaret, The Violet Hour kept flagged CLOSED.
+- Build: 295 researched / 209 rendered (146 sights + 63 food); sourcecheck 298→295 PASS (43 lone institutional), geocheck PASS,
+  statuscheck CONSISTENT, buildcheck PASS; npm run validate DATA OK; npm test ALL PASS.
+- Food share: 149/295 = 50.5% overall (≥50% met overall); per area still below 50% in LOOP (48%), SOUTH (32%), SUB (21%), DAY (0%).
+- Channel mix (session 3, 75 places): institutional (Michelin/JB) ≈40 · editorial/travel (Infatuation, Time Out, Chicago Mag, Tribune/
+  Sun-Times, NBC5/ABC7, Axios, Punch, Paste, Resy, Tasting Table, Chowhound) ≈33 · local press (Block Club/DNAinfo/South Side Weekly/
+  Gozamos/WBEZ) ≈6 · creators: Keith Lee (Soul Prime), Ramen Lord/Mike Satinover is the chef (Akahoshi) — creator channel remains thin.
+- Searches: 200/200 session cap reached (main ≈75; geocode agents ≈125). Lesson: geocode agents spent ~60% of the budget for ~35% pin
+  yield — next session cap them at ~30 searches and spend the rest on discovery (discovery is what moves density).

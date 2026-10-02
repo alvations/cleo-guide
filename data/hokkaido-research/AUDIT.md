@@ -178,3 +178,11 @@ to the search agent (400) — don't put them in allowed_domains.
 Akkeshi Conchiglie, Michi-no-eki Utoro (all ja.wikipedia pins, high). Held: Ginsui (MAPPLE only).
 **W39 NSK:** roadside stations with a named signature food — Bōyō Nakayama (age-imo), Niseko View Plaza, Akaigawa (ja.wikipedia pins).
 Decision: a michi-no-eki counts as food & drink only when a source names its signature dish/produce.
+**W41 IBURI:** Marutoma Shokudō hokki curry (rurubu + MAPPLE + visit-hokkaido plan), Yakitori Ippei Nakajima Honten (promoted:
+visit-hokkaido travel-navi + MAPPLE Muroran yakitori list). Held: Restaurant Cowbell Shiraoi beef (rurubu only). Not added:
+Michi-no-eki Date Rekishi no Mori (42.47061,140.8755) and Tōya-ko (42.6645,140.82183) — pins read but no signature food sourced.
+**W42 SPR coffee:** MORIHICO main store (sapporo.travel + visit-hokkaido "Hometown Coffee"), Baristart (visit-hokkaido + Time Out).
+Held: Miyakoshiya Maruyama (sapporo.travel only), Ishida Coffee. Tabelog kissaten-100 query → no Hokkaido names (dead end).
+**Build #4 (s3):** 241 discovered → 144 rendered (130 sights + 14 food). sourcecheck PASS 241 · geocheck PASS · statuscheck
+CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. 97 UNVERIFIED held (restaurants → helper).
+Searches so far this session ≈ 76 (me ~61 + W40 agent 15).

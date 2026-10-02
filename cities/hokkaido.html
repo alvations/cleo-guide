@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Hokkaido field guide — 128 sights and 4 places to eat, Sapporo to Shiretoko, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Hokkaido field guide — 130 sights and 14 places to eat, Sapporo to Shiretoko, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Hokkaido Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Hokkaido (北海道), sourced</p>
   <h1>Hokkaido<span class="thin">Sapporo · Otaru · Niseko · Hakodate · Tōya · Furano & Biei · Tokachi · Shiretoko · Wakkanai</span></h1>
-  <p class="standfirst">128 sights and 4 places to eat across <strong>Hokkaido</strong> — from Sapporo's Clock Tower and Moiwa night view to the onsen, lakes and coasts beyond — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">130 sights and 14 places to eat across <strong>Hokkaido</strong> — from Sapporo's Clock Tower and Moiwa night view to the onsen, lakes and coasts beyond — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -311,8 +311,12 @@
 <script>
 
 const S = {
+  "ANIMETOURISM88":{k:"ANIMETOURISM88",t:"ANIMETOURISM88",u:"",l:""},
+  "FUNJAPAN":{k:"FUNJAPAN",t:"FUN! JAPAN",u:"https://www.fun-japan.jp/",l:"FUN! JAPAN"},
+  "GAMER4":{k:"GAMER4",t:"GAMER4",u:"",l:""},
   "HAKODATETRAVEL":{k:"HAKODATETRAVEL",t:"Hakodate Travel (hakodate.travel) — official Hakodate city tourism site",u:"https://www.hakodate.travel/",l:"Hakodate Travel (hakodate.travel) — official Hakodate city tourism site"},
   "HOKKAIDODIGITALMUSEUM":{k:"HOKKAIDODIGITALMUSEUM",t:"Hokkaido Digital Museum (hokkaido-digital-museum.jp)",u:"https://hokkaido-digital-museum.jp/en/",l:"Hokkaido Digital Museum (hokkaido-digital-museum.jp)"},
+  "HOKKAIDOSHIMBUN":{k:"HOKKAIDO SHIMBUN",t:"Hokkaido Shimbun (北海道新聞)",u:"https://www.hokkaido-np.co.jp/",l:"Hokkaido Shimbun (北海道新聞)"},
   "HOKKAIDOTOURISM":{k:"HOKKAIDO TOURISM",t:"HOKKAIDO LOVE! — Hokkaido Official Tourism Site (visit-hokkaido.jp)",u:"https://www.visit-hokkaido.jp/en/",l:"HOKKAIDO LOVE! — Hokkaido Official Tourism Site (visit-hokkaido.jp)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"japan-guide.com",u:"https://www.japan-guide.com/",l:"japan-guide.com"},
   "JNTO":{k:"JNTO",t:"Japan National Tourism Organization (japan.travel)",u:"https://www.japan.travel/",l:"Japan National Tourism Organization (japan.travel)"},
@@ -324,6 +328,8 @@ const S = {
   "RURUBU":{k:"RURUBU",t:"rurubu&more. (JTB Publishing)",u:"https://rurubu.jp/andmore/",l:"rurubu&more. (JTB Publishing)"},
   "SAPPOROTRAVEL":{k:"SAPPOROTRAVEL",t:"Sapporo Travel (Sapporo City official tourism site)",u:"https://www.sapporo.travel/en/",l:"Sapporo Travel (Sapporo City official tourism site)"},
   "TOKYOARTBEAT":{k:"TOKYOARTBEAT",t:"Tokyo Art Beat",u:"https://tokyoartbeat.com/en/",l:"Tokyo Art Beat"},
+  "TRAVELJP":{k:"TRAVELJP",t:"TRAVELJP",u:"",l:""},
+  "TRAVELWATCH":{k:"TRAVELWATCH",t:"TRAVELWATCH",u:"",l:""},
   "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org/",l:"UNESCO World Heritage Centre"},
   "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
   "WIKIPEDIA_JA":{k:"WIKIPEDIA JA",t:"Wikipedia (Japanese)",u:"https://ja.wikipedia.org/",l:"Wikipedia (Japanese)"},
@@ -470,7 +476,9 @@ const P = [
 {t:2,a:"SPR",n:"Sapporo Dome (札幌ドーム)",ad:"Hitsujigaoka, Toyohira-ku, Sapporo, Hokkaido, Japan",la:43.01513,ln:141.40977,w:"The silver dome stadium of football and concerts, with an observatory over the city.",k:"stadium observatory",g:["VIEW"],s:[["SAPPOROTRAVEL","https://www.sapporo.travel/en/barrier-free/sapporo-barrier-free-sightseeing-spots/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E6%9C%AD%E5%B9%8C%E3%83%89%E3%83%BC%E3%83%A0"]]},
 {t:2,a:"NSK",n:"Niseko Tokyu Grand Hirafu (ニセコ東急 グラン・ヒラフ)",ad:"Hirafu, Kutchan, Abuta District, Hokkaido, Japan",la:42.86278,ln:140.70000,w:"The biggest of the Niseko United resorts on Annupuri's east face — powder runs, backcountry gates and the Hirafu village of restaurants and bars.",k:"ski resort powder",g:["NATURE","CASTLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%BB%E3%82%B3%E6%9D%B1%E6%80%A5_%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%BB%E3%83%92%E3%83%A9%E3%83%95"],["JAPANGUIDE","https://www.japan-guide.com/e/e6720.html"]]},
 {t:2,a:"NSK",n:"Niseko HANAZONO Resort (ニセコHANAZONOリゾート)",ad:"Kutchan, Abuta District, Hokkaido, Japan",la:42.89306,ln:140.69972,w:"Grand Hirafu's satellite base on the north-east flank of Annupuri, reached by bus from Kutchan Station.",k:"ski resort",g:["NATURE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%BB%E3%82%B3HANAZONO%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88"],["JAPANGUIDE","https://www.japan-guide.com/e/e6720.html"]]},
-{t:2,a:"NSK",n:"Rusutsu Resort (ルスツリゾート)",ad:"Rusutsu, Abuta District, Hokkaido, Japan",la:42.74750,ln:140.89639,w:"One of Hokkaido's best ski areas across three mountains — long groomers, powder and trees in winter; an amusement park with seven roller coasters, pools and onsen in summer.",k:"ski resort amusement park",g:["NATURE","POP","ONSEN"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%83%AB%E3%82%B9%E3%83%84%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88"],["JAPANGUIDE","https://www.japan-guide.com/e/e6715.html"]]}
+{t:2,a:"NSK",n:"Rusutsu Resort (ルスツリゾート)",ad:"Rusutsu, Abuta District, Hokkaido, Japan",la:42.74750,ln:140.89639,w:"One of Hokkaido's best ski areas across three mountains — long groomers, powder and trees in winter; an amusement park with seven roller coasters, pools and onsen in summer.",k:"ski resort amusement park",g:["NATURE","POP","ONSEN"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E3%83%AB%E3%82%B9%E3%83%84%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88"],["JAPANGUIDE","https://www.japan-guide.com/e/e6715.html"]]},
+{t:2,a:"DHOKU",n:"Hokuchin Memorial Museum, Asahikawa (北鎮記念館)",ad:"Shunkō-chō, Asahikawa, Hokkaido, Japan",la:43.78839,ln:142.36486,w:"Free JGSDF museum at Camp Asahikawa on the Imperial Army's 7th Division and Meiji-era Asahikawa — uniforms and bayonets that Golden Kamuy fans come to see.",k:"★ Anime & pop culture — Golden Kamuy — the real 7th Division's museum; Noda Satoru's uniform references, a core fan pilgrimage · military history museum",g:["ANIME","MUS","FREE","CASTLE"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%8C%97%E9%8E%AE%E8%A8%98%E5%BF%B5%E9%A4%A8"],["TRAVELJP","https://www.travel.co.jp/guide/matome/7456/"],["OFFICIAL","https://www.mod.go.jp/gsdf/nae/2d/hokutin2/mission.html"]]},
+{t:3,a:"DONAN",n:"Hakodate Arena (函館アリーナ)",ad:"Yunokawa-chō 1-32-2, Hakodate, Hokkaido, Japan",la:41.78194,ln:140.78333,w:"Hakodate's arena by Yunokawa Onsen — the Love Live! regional-preliminary venue in Sunshine!! S2 and the real home of the 2018 Saint Snow-hosted Hakodate Unit Carnival.",k:"★ Anime & pop culture — Love Live! Sunshine!! — the Hakodate venue of the S2 regional preliminaries (Saint Snow's home city) · arena · anime pilgrimage",g:["ANIME","ONSEN","NIGHT","POP"],s:[["ANIMETOURISM88","https://animetourism88.com/en/places/love-live-sunshine/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%87%BD%E9%A4%A8%E3%82%A2%E3%83%AA%E3%83%BC%E3%83%8A"],["GAMER4","https://www.4gamer.net/games/999/G999905/20201102123/"]]}
 ];
 
 const FS = {
@@ -478,11 +486,13 @@ const FS = {
   "CULTURETRIP":{k:"CULTURETRIP",t:"Culture Trip",u:"https://theculturetrip.com/",l:"Culture Trip"},
   "FUNJAPAN":{k:"FUNJAPAN",t:"FUN! JAPAN",u:"https://www.fun-japan.jp/",l:"FUN! JAPAN"},
   "GOODLUCKTRIP":{k:"GOODLUCKTRIP",t:"Good Luck Trip (gltjp.com) — inbound Japan travel magazine",u:"https://www.gltjp.com/en/",l:"Good Luck Trip (gltjp.com) — inbound Japan travel magazine"},
+  "HAKODATEASAICHI":{k:"HAKODATEASAICHI",t:"HAKODATEASAICHI",u:"",l:""},
   "HAKODATETRAVEL":{k:"HAKODATETRAVEL",t:"Hakodate Travel (hakodate.travel) — official Hakodate city tourism site",u:"https://www.hakodate.travel/",l:"Hakodate Travel (hakodate.travel) — official Hakodate city tourism site"},
   "HOKKAIDOSHIMBUN":{k:"HOKKAIDO SHIMBUN",t:"Hokkaido Shimbun (北海道新聞)",u:"https://www.hokkaido-np.co.jp/",l:"Hokkaido Shimbun (北海道新聞)"},
   "HOKKAIDOTOURISM":{k:"HOKKAIDO TOURISM",t:"HOKKAIDO LOVE! — Hokkaido Official Tourism Site (visit-hokkaido.jp)",u:"https://www.visit-hokkaido.jp/en/",l:"HOKKAIDO LOVE! — Hokkaido Official Tourism Site (visit-hokkaido.jp)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"japan-guide.com",u:"https://www.japan-guide.com/",l:"japan-guide.com"},
   "JAPANTRAVEL":{k:"JAPANTRAVEL",t:"Japan Travel (en.japantravel.com)",u:"https://en.japantravel.com/",l:"Japan Travel (en.japantravel.com)"},
+  "KUSHIROTOURISM":{k:"KUSHIROTOURISM",t:"KUSHIROTOURISM",u:"",l:""},
   "MACARONI":{k:"MACARONI",t:"macaroni (macaro-ni.jp)",u:"https://macaro-ni.jp/",l:"macaroni (macaro-ni.jp)"},
   "MAPPLE":{k:"MAPPLE",t:"MAPPLE (Shobunsha) — まっぷるトラベルガイド",u:"https://www.mapple.net/",l:"MAPPLE (Shobunsha) — まっぷるトラベルガイド"},
   "MICHELIN_BIB":{k:"MICHELIN BIB",t:"Michelin Guide Hokkaido 2017 (special edition) — Bib Gourmand",u:"https://guide.michelin.com/sg/en/article/news-and-views/hokkaido-guide-2017",l:"Michelin Guide Hokkaido 2017 (special edition) — Bib Gourmand"},
@@ -492,6 +502,7 @@ const FS = {
   "RURUBU":{k:"RURUBU",t:"rurubu&more. (JTB Publishing)",u:"https://rurubu.jp/andmore/",l:"rurubu&more. (JTB Publishing)"},
   "SAPPOROTRAVEL":{k:"SAPPOROTRAVEL",t:"Sapporo Travel (Sapporo City official tourism site)",u:"https://www.sapporo.travel/en/",l:"Sapporo Travel (Sapporo City official tourism site)"},
   "TABELOG100":{k:"TABELOG HYAKUMEITEN",t:"Tabelog 百名店 (Hyakumeiten) annual selections",u:"https://award.tabelog.com/hyakumeiten",l:"Tabelog 百名店 (Hyakumeiten) annual selections"},
+  "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
   "WIKIPEDIA_JA":{k:"WIKIPEDIA JA",t:"Wikipedia (Japanese)",u:"https://ja.wikipedia.org/",l:"Wikipedia (Japanese)"}
 };
 
@@ -537,7 +548,17 @@ const F = [
 {t:1,a:"DHOKU",n:"Asahikawa Ramen Village (あさひかわラーメン村)",ad:"Nagayama, Asahikawa, Hokkaido, Japan",cz:["RAMEN"],la:43.78194,ln:142.41444,w:"Eight of Asahikawa's best-known shops under one roof — the city's shōyu style: pork-bone and seafood double broth sealed under a film of lard, thin, firm, wavy noodles.",s:[["JAPANGUIDE","https://www.japan-guide.com/e/e6893.html"],["HOKKAIDOTOURISM","https://en.visit-hokkaido.jp/destinations/the-tastiest-village-in-hokkaido-the-asahikawa-ramen-village"],["HOKKAIDOSHIMBUN","https://www.hokkaido-np.co.jp/article/1332973/"]]},
 {t:1,a:"DOTO",n:"Kushiro Washō Market (釧路和商市場)",ad:"Kushiro, Hokkaido, Japan",cz:["SUSHI","MKT"],la:42.98917,ln:144.38000,w:"Kushiro's 1954 indoor fish market of ~60 stalls, home of the katte-don — buy a bowl of rice, then walk the stalls choosing each topping.",g:["MKT"],s:[["RURUBU","https://rurubu.jp/andmore/article/20081"],["HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/tw/spot/detail_10020.html"],["MAPPLE","https://www.mapple.net/article/80905/"]]},
 {t:1,a:"SPR",n:"Sapporo Beer Garden (サッポロビール園)",ad:"Higashi-ku, Sapporo, Hokkaido, Japan (beside the Sapporo Beer Museum)",cz:["HOKKAIDO","SAKE"],la:43.07111,ln:141.36944,w:"Restaurants spread through the garden serve fresh-lamb jingisukan and seasonal Hokkaido produce with Sapporo draught — Kessel Hall does all-you-can-eat-and-drink.",s:[["RURUBU","https://rurubu.jp/andmore/spot/80000281"],["CULTURETRIP","https://theculturetrip.com/asia/japan/sapporo/articles/the-best-restaurants-in-sapporo"]]},
-{t:2,a:"SPR",n:"Ganso Sapporo Ramen Yokochō (元祖さっぽろラーメン横丁)",ad:"Susukino, Chuo-ku, Sapporo, Hokkaido, Japan",cz:["RAMEN"],la:43.05477,ln:141.35430,w:"The narrow Susukino alley of a dozen-plus tiny ramen counters, open into the small hours — the classic post-drinking miso bowl.",g:["MKT"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e5312.html"],["CULTURETRIP","https://theculturetrip.com/asia/japan/sapporo/articles/the-best-restaurants-in-sapporo"],["SAPPOROTRAVEL","https://www.sapporo.travel/gourmet/shop/shop_139-2/"]]}
+{t:2,a:"SPR",n:"Ganso Sapporo Ramen Yokochō (元祖さっぽろラーメン横丁)",ad:"Susukino, Chuo-ku, Sapporo, Hokkaido, Japan",cz:["RAMEN"],la:43.05477,ln:141.35430,w:"The narrow Susukino alley of a dozen-plus tiny ramen counters, open into the small hours — the classic post-drinking miso bowl.",g:["MKT"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e5312.html"],["CULTURETRIP","https://theculturetrip.com/asia/japan/sapporo/articles/the-best-restaurants-in-sapporo"],["SAPPOROTRAVEL","https://www.sapporo.travel/gourmet/shop/shop_139-2/"]]},
+{t:2,a:"DHOKU",n:"Otokoyama Sake Park, Asahikawa (男山 OTOKOYAMA SAKE PARK)",ad:"Nagayama 2-jō 7-1-33, Asahikawa, Hokkaido, Japan",cz:["SAKE"],la:43.79583,ln:142.40917,w:"The 350-year-old 'Otokoyama' label's Asahikawa brewery and museum, reopened in 2024 as a sake park — Edo-era records, winter brewing on view, free tastings.",s:[["HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/spot/detail_10118.html"],["RURUBU","https://rurubu.jp/andmore/spot/80000726"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E7%94%B7%E5%B1%B1_(%E9%85%92%E9%80%A0%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC)"]]},
+{t:2,a:"DHOKU",n:"Takasago Shuzō, Asahikawa (高砂酒造)",ad:"Miyashita-dōri 17-chōme, Asahikawa, Hokkaido, Japan",cz:["SAKE"],la:43.76083,ln:142.37278,w:"Asahikawa's flagship brewery since 1899, maker of 'Kokushi Musō' — a direct shop with free tastings and a small museum; winter tours by reservation.",s:[["HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/spot/detail_10120.html"],["RURUBU","https://rurubu.jp/andmore/spot/80000739"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%AB%98%E7%A0%82%E9%85%92%E9%80%A0_(%E5%8C%97%E6%B5%B7%E9%81%93)"]]},
+{t:2,a:"DHOKU",n:"Kunimare Shuzō, Mashike (國稀酒造)",ad:"Inaba-chō 1-17, Mashike, Mashike District, Hokkaido 077-0204, Japan",cz:["SAKE"],la:43.85786,ln:141.52314,w:"Japan's northernmost sake brewery, 140+ years in the herring port of Mashike — tour the stone kura, then taste three brewery-only sakes free.",s:[["HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/spot/detail_12196.html"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%9C%8B%E7%A8%80%E9%85%92%E9%80%A0"]]},
+{t:2,a:"OTARU",n:"Otaru Sankaku Market (小樽三角市場)",ad:"Beside JR Otaru Station, Otaru, Hokkaido, Japan",cz:["MKT","SUSHI"],la:43.19906,ln:140.99392,w:"The triangular fish market beside Otaru Station — crab, scallops and sea urchin over the counter, and fishmonger-run donburi canteens like Takinami Shokudō.",g:["MKT"],s:[["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E5%B0%8F%E6%A8%BD%E4%B8%89%E8%A7%92%E5%B8%82%E5%A0%B4"],["OTARUTOURISM","https://otaru.gr.jp/shop/takinamisyokudou"]]},
+{t:1,a:"DOTO",n:"Kushiro Fisherman's Wharf MOO & Ganpeki Robata (釧路フィッシャーマンズワーフMOO・岸壁炉ばた)",ad:"At the foot of Nusamai Bridge, Kushiro, Hokkaido, Japan",cz:["HOKKAIDO","IZAKAYA","MKT"],la:42.98175,ln:144.38350,w:"Kushiro's harbour hall by Nusamai Bridge — a fish market downstairs, the retro 'Minato no Yatai' upstairs, and in summer the open-air quayside robata where you grill your own catch.",g:["MKT"],s:[["HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/spot/detail_10066.html"],["KUSHIROTOURISM","http://en.kushiro-lakeakan.com/eat_souvenir/7530/"],["MAPPLE","https://www.mapple.net/spot/1001253/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%87%A7%E8%B7%AF%E3%83%95%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%BA%E3%83%AF%E3%83%BC%E3%83%95MOO"]]},
+{t:1,a:"DOTO",n:"Akkeshi Mikaku Terminal Conchiglie — Michi-no-eki Akkeshi Gourmet Park (厚岸味覚ターミナル コンキリエ)",ad:"Akkeshi, Akkeshi District, Hokkaido, Japan",cz:["HOKKAIDO","SUSHI"],la:43.05767,ln:144.84411,w:"The roadside station of Japan's year-round oyster town — oyster restaurants, a grill-it-yourself seafood shop and oyster sweets above Akkeshi Bay.",s:[["HOKKAIDOTOURISM","https://visit-hokkaido.jp/line/akkeshi/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E5%8E%9A%E5%B2%B8%E3%82%B0%E3%83%AB%E3%83%A1%E3%83%91%E3%83%BC%E3%82%AF"]]},
+{t:2,a:"DOTO",n:"Michi-no-eki Utoro Shiretoku restaurant (道の駅うとろ・シリエトク)",ad:"Utoro, Shari, Shari District, Hokkaido, Japan",cz:["HOKKAIDO","SUSHI"],la:44.06903,ln:144.99069,w:"The Utoro roadside station's local-catch restaurant: spring tokishirazu, summer pink salmon, autumn-winter prime chum — Shiretoko seafood at fair prices.",s:[["MAPPLE","https://www.mapple.net/article/81226/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E3%81%86%E3%81%A8%E3%82%8D%E3%83%BB%E3%82%B7%E3%83%AA%E3%82%A8%E3%83%88%E3%82%AF"]]},
+{t:1,a:"NSK",n:"Michi-no-eki Bōyō Nakayama, Nakayama Pass (道の駅 望羊中山)",ad:"Nakayama Pass (Route 230), Kimobetsu, Abuta District, Hokkaido, Japan",cz:["MKT","HOKKAIDO"],la:42.85581,ln:141.09667,w:"The pass-top stop where Sapporo drivers first see Mt Yōtei — famous for battered, fried Danshaku potatoes from the Yōtei foothills, plus Nakayama chicken and Rusutsu-pork butadon.",s:[["RURUBU","https://rurubu.jp/andmore/spot/80001374"],["HOKKAIDOSHIMBUN","https://tripeat.hokkaido-np.co.jp/doushin/66515/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E6%9C%9B%E7%BE%8A%E4%B8%AD%E5%B1%B1"]]},
+{t:2,a:"NSK",n:"Michi-no-eki Niseko View Plaza (道の駅 ニセコビュープラザ)",ad:"Niseko, Abuta District, Hokkaido, Japan",cz:["MKT","HOKKAIDO"],la:42.79942,ln:140.70233,w:"Niseko's roadside farm market — local vegetables and fruit straight from the growers, handmade ham and ice cream, with Yōtei and Annupuri views.",g:["MKT"],s:[["RURUBU","https://rurubu.jp/andmore/spot/80001351"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E3%83%8B%E3%82%BB%E3%82%B3%E3%83%93%E3%83%A5%E3%83%BC%E3%83%97%E3%83%A9%E3%82%B6"]]},
+{t:3,a:"NSK",n:"Michi-no-eki Akaigawa (道の駅 あかいがわ)",ad:"Maple Kaidō, Akaigawa, Yoichi District, Hokkaido, Japan",cz:["SWEET","MKT"],la:43.05103,ln:140.84478,w:"A newer roadside station on the Maple Kaidō between Kiroro and Niseko — bread baked on site from local ingredients, Akaigawa milk, and gelato made with the village's rice.",s:[["HOKKAIDOTOURISM","https://travel-navi.visit-hokkaido.jp/tourism/8213/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E3%81%82%E3%81%8B%E3%81%84%E3%81%8C%E3%82%8F"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -562,7 +583,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([42.9447,142.6046],8);
+  map = L.map('map',{scrollWheelZoom:false}).setView([42.9311,142.7576],8);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -646,7 +667,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Sapporo", 43.039, 141.3412], ["Otaru", 43.2122, 140.9051], ["Niseko", 42.8525, 140.7471], ["Hakodate", 41.8066, 140.6864], ["Shikotsu-Tōya", 42.5483, 141.1306], ["Dōhoku — Central Hokkaido", 43.6079, 142.6098], ["Tokachi", 42.878, 143.1512], ["Dōtō — Eastern Hokkaido", 43.655, 144.5995], ["Far North", 45.3754, 141.4694]];
+const LABELS=[["Sapporo", 43.039, 141.3412], ["Otaru", 43.2109, 140.914], ["Niseko", 42.8674, 140.7874], ["Hakodate", 41.8056, 140.6904], ["Shikotsu-Tōya", 42.5483, 141.1306], ["Dōhoku — Central Hokkaido", 43.6533, 142.5057], ["Tokachi", 42.878, 143.1512], ["Dōtō — Eastern Hokkaido", 43.6142, 144.6195], ["Far North", 45.3754, 141.4694]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -985,7 +1006,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 132 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 144 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
