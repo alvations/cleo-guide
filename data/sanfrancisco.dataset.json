@@ -2276,6 +2276,380 @@
      "https://en.wikipedia.org/wiki/Glen_Canyon_Park"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "San Francisco City Hall",
+   "ad": "San Francisco City Hall, Van Ness Ave, Civic Center, San Francisco, CA 94102",
+   "w": "Beaux-Arts City Hall on Van Ness Avenue, the grand centrepiece of the Civic Center.",
+   "k": "architecture landmark history free",
+   "g": [
+    "ARCH",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/civic-center"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_City_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Union Square",
+   "ad": "Union Square, Downtown, San Francisco, CA 94108",
+   "w": "The 2.6-acre plaza at the heart of the shopping and hotel district, ringed by department stores. Free.",
+   "k": "shopping square landmark free",
+   "g": [
+    "ARCH",
+    "SHOP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/union-square"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Union_Square,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Maiden Lane",
+   "ad": "Maiden Lane, off Union Square, San Francisco, CA 94108",
+   "w": "Pedestrian-only alley off Union Square — once a notorious red-light street, now boutiques and cocktail bars. Free.",
+   "k": "shopping hidden gem history free",
+   "g": [
+    "SHOP",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/take-luxurious-stroll-through-san-franciscos-maiden-lane"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maiden_Lane_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Lotta's Fountain",
+   "ad": "Lotta's Fountain, Market St / Geary St / Kearny St, San Francisco, CA 94103",
+   "w": "1875 cast-iron fountain where survivors of the 1906 earthquake used to meet — said to be haunted by them still. Free.",
+   "k": "history landmark oddity free",
+   "g": [
+    "ARCH",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/haunted-spooky-places-around-san-francisco"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lotta's_Fountain"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTN",
+   "n": "Palace Hotel & the Garden Court",
+   "ad": "2 New Montgomery St, San Francisco, CA 94105",
+   "w": "The 1875 Palace (rebuilt 1909 after the quake) — step into the Garden Court under 80,000 panes of stained glass.",
+   "k": "historic hotel architecture landmark",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/famous-historic-hotels-san-francisco"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palace_Hotel,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Old San Francisco Mint",
+   "ad": "Old San Francisco Mint, SoMa, San Francisco, CA",
+   "w": "Greek Revival landmark (1874) that minted gold coins until 1937 — now used for exhibitions and events.",
+   "k": "history architecture landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/get-spooked-san-francisco-mint-this-halloween"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Old_San_Francisco_Mint"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Wild Parrots of Telegraph Hill",
+   "ad": "Pioneer Park / Filbert Steps, Telegraph Hill, San Francisco, CA 94133",
+   "w": "A feral flock of cherry-headed conures (descended from escapees c.1990) wheeling over the Filbert Steps gardens below Coit Tower. Free.",
+   "k": "oddity nature hidden gem free",
+   "g": [
+    "ICON",
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/parrots-telegraph-hill"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/things-to-do/attractions/iconic-sf/coit-tower"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Japan Center",
+   "ad": "Japan Center (Kinokuniya, Japan Center West & East malls), Geary Blvd / Post St, Japantown, San Francisco, CA 94115",
+   "w": "The 1968 three-mall heart of the oldest Japantown in the US — Kinokuniya books, ramen and udon counters, beside the Peace Pagoda.",
+   "k": "shopping japantown culture",
+   "g": [
+    "SHOP"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/japantown"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japan_Center_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "The Fillmore",
+   "ad": "1805 Geary Blvd, San Francisco, CA 94115",
+   "w": "Historic 1912 music hall — the Fillmore Auditorium that hosted the Grateful Dead and James Brown, epicentre of 1960s psychedelic rock, and still a working venue.",
+   "k": "music venue history landmark",
+   "g": [
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/fillmore"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Fillmore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Haas-Lilienthal House",
+   "ad": "Haas-Lilienthal House, Pacific Heights, San Francisco, CA",
+   "w": "Authentic 1886 Queen Anne Victorian by architect Peter Schmidt, listed on the National Register of Historic Places.",
+   "k": "architecture victorian museum history",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/meetings/article/historic-san-francisco-venues"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haas%E2%80%93Lilienthal_House"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "San Francisco Columbarium",
+   "ad": "1 Loraine Ct, San Francisco, CA 94118",
+   "w": "Neoclassical domed columbarium — the last remnant of the Richmond's Odd Fellows Cemetery — restored after decades of ruin, with a stained-glass dome over two balconied rings of niches.",
+   "k": "oddity architecture history hidden gem",
+   "g": [
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/san-francisco-columbarium"
+    ],
+    [
+     "MENTALFLOSS",
+     "https://www.mentalfloss.com/article/58562/15-hidden-gems-san-francisco"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Columbarium_&_Funeral_Home"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Golden Gate Park Bison Paddock",
+   "ad": "Bison Paddock, west of Spreckels Lake on John F. Kennedy Dr, Golden Gate Park, San Francisco, CA",
+   "w": "A small herd of American bison grazing in western Golden Gate Park — a city institution since 1892. Free.",
+   "k": "park animals oddity free family",
+   "g": [
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/golden-gate-parks-hidden-treasures"
+    ],
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1116/Golden-Gate-Park-Points-of-Interest"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Beach Chalet (WPA murals)",
+   "ad": "1000 Great Highway, San Francisco, CA 94121",
+   "w": "1925 seaside chalet at the foot of Golden Gate Park whose ground floor is wrapped in 1936-37 WPA fresco murals of everyday San Francisco.",
+   "k": "murals history art free",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/beach-chalet-wpa-murals"
+    ],
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1116/Golden-Gate-Park-Points-of-Interest"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Beach_Chalet"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "John McLaren Park",
+   "ad": "John McLaren Park, Excelsior / Visitacion Valley, San Francisco, CA 94134",
+   "w": "SF's second-largest park (1927) — meadows and wetland Natural Area, McNab Lake, the Jerry Garcia Amphitheater and a stretch of Philosopher's Way. Free.",
+   "k": "park hike music free",
+   "g": [
+    "PARK",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1204/McLaren-Recreation-Activities"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/hike-along-san-franciscos-crosstown-trail"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_McLaren_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "Candlestick Point State Recreation Area",
+   "ad": "Candlestick Point SRA (entrance off Gilman Ave), Bayview–Hunters Point, San Francisco, CA 94134",
+   "w": "California's first urban state park on the bay shore — trails, bird-watching, kayaking and Sunrise Point Fishing Pier, start of the Crosstown Trail. Free.",
+   "k": "park waterfront birds free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/candlestickpoint/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/hike-along-san-franciscos-crosstown-trail"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Candlestick_Point_State_Recreation_Area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Tenderloin Museum",
+   "ad": "398 Eddy St, San Francisco, CA 94102",
+   "w": "Small museum telling the Tenderloin's story as a hub of arts, music and LGBTQ life well before the Castro; Saturday walking tours.",
+   "k": "museum history LGBTQ",
+   "g": [
+    "MUS",
+    "ENT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/museums/tenderloin-museum"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-tenderloin-museum-san-francisco-california"
+    ]
+   ]
   }
  ],
  "F": [
@@ -2360,7 +2734,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "R&G Lounge",
    "ad": "631 Kearny St, San Francisco, CA 94108",
@@ -2436,7 +2810,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "AVE",
    "n": "Dragon Beaux",
    "ad": "5700 Geary Blvd, San Francisco, CA 94121",
@@ -2456,7 +2830,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "AVE",
    "n": "San Tung",
    "ad": "1031 Irving St, San Francisco, CA 94122",
@@ -2476,7 +2850,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Turtle Tower",
    "ad": "220 California St, San Francisco, CA 94111",
@@ -2496,7 +2870,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Bodega SF",
    "ad": "138 Mason St, San Francisco, CA 94102",
@@ -2536,7 +2910,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "DTN",
    "n": "Lers Ros",
    "ad": "730 Larkin St, San Francisco, CA 94109",
@@ -2556,7 +2930,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Kin Khao",
    "ad": "55 Cyril Magnin St, San Francisco, CA 94102",
@@ -2624,7 +2998,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "MIS",
    "n": "Burma Love",
    "ad": "211 Valencia St, San Francisco, CA 94103",
@@ -2644,7 +3018,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NW",
    "n": "Marufuku Ramen",
    "ad": "1581 Webster St Suite 235, San Francisco, CA 94115",
@@ -2680,7 +3054,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "AVE",
    "n": "Um.ma",
    "ad": "1220 9th Ave, San Francisco, CA 94122",
@@ -2700,7 +3074,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Abacá",
    "ad": "2700 Jones St, San Francisco, CA 94133",
@@ -2720,7 +3094,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Blue Bottle Coffee (Ferry Building)",
    "ad": "1 Ferry Building #7, San Francisco, CA 94111",
@@ -2763,7 +3137,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Sightglass Coffee",
    "ad": "270 7th St, San Francisco, CA 94103",
@@ -2783,7 +3157,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "MIS",
    "n": "Four Barrel Coffee",
    "ad": "375 Valencia St, San Francisco, CA 94103",
@@ -2803,7 +3177,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NOB",
    "n": "Saint Frank Coffee",
    "ad": "2340 Polk St, San Francisco, CA 94109",
@@ -2823,7 +3197,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "AVE",
    "n": "Andytown Coffee Roasters",
    "ad": "3655 Lawton St, San Francisco, CA 94122",
@@ -2843,7 +3217,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NW",
    "n": "Wrecking Ball Coffee Roasters",
    "ad": "2271 Union St, San Francisco, CA 94123",
@@ -2863,7 +3237,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "Trick Dog",
    "ad": "3010 20th St, San Francisco, CA 94110",
@@ -2907,7 +3281,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Bourbon & Branch",
    "ad": "501 Jones St, San Francisco, CA 94102",
@@ -2927,7 +3301,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Comstock Saloon",
    "ad": "155 Columbus Ave, San Francisco, CA 94133",
@@ -2947,7 +3321,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "MIS",
    "n": "ABV",
    "ad": "3174 16th St, San Francisco, CA 94103",
@@ -2967,7 +3341,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "MIS",
    "n": "True Laurel",
    "ad": "753 Alabama St, San Francisco, CA 94110",
@@ -3011,7 +3385,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "AVE",
    "n": "Arsicault Bakery",
    "ad": "397 Arguello Blvd, San Francisco, CA 94118",
@@ -3031,7 +3405,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NW",
    "n": "b. Patisserie",
    "ad": "2821 California St, San Francisco, CA 94115",
@@ -3051,7 +3425,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "AVE",
    "n": "Devil's Teeth Baking Company",
    "ad": "3876 Noriega St, San Francisco, CA 94122",
@@ -3071,7 +3445,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Tony's Pizza Napoletana",
    "ad": "1570 Stockton St, San Francisco, CA 94133",
@@ -3091,7 +3465,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Golden Boy Pizza",
    "ad": "542 Green St, San Francisco, CA 94133",
@@ -3111,7 +3485,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Molinari Delicatessen",
    "ad": "373 Columbus Ave, San Francisco, CA 94133",
@@ -3132,7 +3506,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NECN",
    "n": "Original Joe's",
    "ad": "601 Union St, San Francisco, CA 94133",
@@ -3152,7 +3526,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NECN",
    "n": "Tosca Cafe",
    "ad": "242 Columbus Ave, San Francisco, CA 94133",
@@ -3172,7 +3546,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NECN",
    "n": "Il Casaro Pizzeria & Mozzarella Bar",
    "ad": "348 Columbus Ave, San Francisco, CA 94133",
@@ -3256,7 +3630,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NW",
    "n": "Bansang",
    "ad": "1560 Fillmore St, San Francisco, CA 94115",
@@ -3296,7 +3670,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "HAI",
    "n": "Nopa",
    "ad": "560 Divisadero St, San Francisco, CA 94117",
@@ -3316,7 +3690,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "HAI",
    "n": "Rich Table",
    "ad": "199 Gough St, San Francisco, CA 94102",
@@ -3336,7 +3710,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 1,
    "a": "HAI",
    "n": "Nightbird",
    "ad": "330 Gough St, San Francisco, CA 94102",
@@ -3384,7 +3758,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "Frances",
    "ad": "3870 17th St, San Francisco, CA 94114",
@@ -3404,7 +3778,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "Bi-Rite Creamery",
    "ad": "3692 18th St, San Francisco, CA 94110",
@@ -3484,7 +3858,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Kokkari Estiatorio",
    "ad": "200 Jackson St, San Francisco, CA 94111",
@@ -3565,7 +3939,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NOB",
    "n": "Swensen's Ice Cream",
    "ad": "1999 Hyde St, San Francisco, CA 94109",
@@ -3625,7 +3999,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "MIS",
    "n": "Taqueria Cancun",
    "ad": "2288 Mission St, San Francisco, CA 94110",
@@ -3645,7 +4019,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "MIS",
    "n": "La Palma Mexicatessen",
    "ad": "2884 24th St, San Francisco, CA 94110",
@@ -3665,7 +4039,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "Anchor Oyster Bar",
    "ad": "579 Castro St, San Francisco, CA 94114",
@@ -3746,7 +4120,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NECN",
    "n": "Scoma's",
    "ad": "1965 Al Scoma Way, San Francisco, CA 94133",
@@ -3930,7 +4304,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 1,
    "a": "PEN",
    "n": "It's-It Ice Cream Factory Shop",
    "ad": "865 Burlway Rd, Burlingame, CA 94010",
@@ -4120,7 +4494,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Okane",
    "ad": "669 Townsend St, San Francisco, CA 94103",
@@ -4248,7 +4622,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NW",
    "n": "A16",
    "ad": "2355 Chestnut St, San Francisco, CA 94123",
@@ -4268,7 +4642,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 1,
    "a": "MIS",
    "n": "The Morris",
    "ad": "2501 Mariposa St, San Francisco, CA 94110",
@@ -4288,7 +4662,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "El Buen Comer",
    "ad": "3435 Mission St, San Francisco, CA 94110",
@@ -4304,7 +4678,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 1,
    "a": "MIS",
    "n": "Mijoté",
    "ad": "2400 Harrison St, San Francisco, CA 94110",
@@ -4324,7 +4698,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "Flour + Water",
    "ad": "2401 Harrison St, San Francisco, CA 94110",
@@ -4340,7 +4714,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "San Ho Won",
    "ad": "2170 Bryant St, San Francisco, CA 94110",
@@ -4404,7 +4778,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "DTN",
    "n": "Rooh",
    "ad": "333 Brannan St, San Francisco, CA 94107",
@@ -4420,7 +4794,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NOB",
    "n": "Nisei",
    "ad": "2316 Polk St, San Francisco, CA 94109",
@@ -4452,7 +4826,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NOB",
    "n": "Sorella",
    "ad": "1760 Polk St, San Francisco, CA 94109",
@@ -4484,7 +4858,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Cotogna",
    "ad": "490 Pacific Ave, San Francisco, CA 94133",
@@ -4532,7 +4906,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NOB",
    "n": "Azalina's",
    "ad": "499 Ellis St, San Francisco, CA 94102",
@@ -4548,7 +4922,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NOB",
    "n": "Sungho",
    "ad": "250 Hyde St, San Francisco, CA 94102",
@@ -4600,7 +4974,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NW",
    "n": "Sorrel",
    "ad": "3228 Sacramento St, San Francisco, CA 94115",
@@ -4681,7 +5055,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NW",
    "n": "Yuji",
    "ad": "1700 Post St, Unit K, San Francisco, CA 94115",
@@ -4732,7 +5106,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "DTN",
    "n": "Kusakabe",
    "ad": "584 Washington St, San Francisco, CA 94111",
@@ -4748,7 +5122,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "DTN",
    "n": "Verjus",
    "ad": "550 Washington St, San Francisco, CA 94111",
@@ -4765,7 +5139,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NECN",
    "n": "Four Kings",
    "ad": "710 Commercial St, San Francisco, CA 94108",
@@ -4781,7 +5155,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "HAI",
    "n": "Nopalito",
    "ad": "306 Broderick St, San Francisco, CA 94117",
@@ -4797,7 +5171,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "HAI",
    "n": "jū-ni",
    "ad": "1335 Fulton St, San Francisco, CA 94117",
@@ -4829,7 +5203,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "HAI",
    "n": "Che Fico",
    "ad": "838 Divisadero St, San Francisco, CA 94117",
@@ -4877,7 +5251,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "NW",
    "n": "Tiya",
    "ad": "3213 Scott St, San Francisco, CA 94123",
@@ -4909,7 +5283,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "AVE",
    "n": "Pearl 6101",
    "ad": "6101 California St, San Francisco, CA 94121",
@@ -4925,7 +5299,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "DTN",
    "n": "Prospect",
    "ad": "300 Spear St, San Francisco, CA 94105",
@@ -4990,7 +5364,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "PEN",
    "n": "Pausa",
    "ad": "223 E 4th Ave, San Mateo, CA 94401",
@@ -5098,54 +5472,6 @@
   },
   {
    "t": 2,
-   "a": "AVE",
-   "n": "Sichuan Home",
-   "ad": "5037 Geary Blvd, San Francisco, CA 94118",
-   "w": "MICHELIN Bib Gourmand (2024 guide) — Sichuan in the Outer Richmond.",
-   "cz": [
-    "CANT"
-   ],
-   "s": [
-    [
-     "MICHELIN_BIB",
-     "https://guide.michelin.com/gb/en/california/san-francisco/restaurant/sichuan-home"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "PEN",
-   "n": "Sichuan Chong Qing",
-   "ad": "211 S San Mateo Dr, San Mateo, CA 94401",
-   "w": "MICHELIN-listed Chongqing-Sichuan in downtown San Mateo.",
-   "cz": [
-    "CANT"
-   ],
-   "s": [
-    [
-     "MICHELIN",
-     "https://guide.michelin.com/us/san-francisco/sichuan-chong-qing/restaurant"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "PEN",
-   "n": "Yummy Szechuan",
-   "ad": "1661 El Camino Real, Millbrae, CA 94030",
-   "w": "MICHELIN-listed Sichuan on El Camino in Millbrae.",
-   "cz": [
-    "CANT"
-   ],
-   "s": [
-    [
-     "MICHELIN",
-     "https://guide.michelin.com/us/san-francisco/yummy-szechuan/restaurant"
-    ]
-   ]
-  },
-  {
-   "t": 2,
    "a": "DTN",
    "n": "Miller & Lux",
    "ad": "700 Terry A Francois Blvd, San Francisco, CA 94158",
@@ -5161,7 +5487,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "DTN",
    "n": "Via Aurelia",
    "ad": "300 Toni Stone Xing, San Francisco, CA 94158",
@@ -5205,6 +5531,22 @@
     [
      "MICHELIN",
      "https://guide.michelin.com/us/en/california/san-francisco/restaurant/la-cigale-1245358"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Noodle in a Haystack",
+   "ad": "4601 Geary Blvd, San Francisco, CA 94118",
+   "w": "MICHELIN-listed ramen-focused tasting counter in the Richmond.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/gb/en/california/san-francisco/restaurant/noodle-in-a-haystack"
     ]
    ]
   },
@@ -5301,7 +5643,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 1,
    "a": "DTN",
    "n": "The Valley Club",
    "ad": "398 Geary St (Hotel G; entrance on Mason St), San Francisco, CA 94102",
@@ -5329,7 +5671,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "NOB",
    "n": "Friends Only",
    "ad": "1501 California St, San Francisco, CA 94109",
@@ -5349,7 +5691,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "MIS",
    "n": "Delfina",
    "ad": "3621 18th St, San Francisco, CA 94110",
@@ -5409,7 +5751,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "AVE",
    "n": "Good Luck Dim Sum",
    "ad": "736 Clement St, San Francisco, CA 94118",
@@ -5453,6 +5795,170 @@
    ]
   },
   {
+   "t": 2,
+   "a": "SE",
+   "n": "3rd Cousin",
+   "ad": "919 Cortland Ave, San Francisco, CA 94110",
+   "w": "Chef-owner Greg Lutes's eclectic seasonal Californian on Bernal Heights' Cortland Ave (born of pop-ups) — MICHELIN-listed.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/3rd-cousin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "Piccino",
+   "ad": "1001 Minnesota St, San Francisco, CA 94107",
+   "w": "Dogpatch neighbourhood staple in a yellow Victorian for 20 years — seasonal pizzas and pastas.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/piccino"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2025/04/22/piccino-presidio-opens/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SE",
+   "n": "Marcella's Lasagneria",
+   "ad": "1099 Tennessee St, San Francisco, CA 94107",
+   "w": "Dogpatch lasagna specialist — ultra-thin pasta sheets, creamy béchamel.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/restaurants/marcellas-lasagneria"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/guides/best-restaurants-in-dogpatch-sf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SE",
+   "n": "Gumbo Social",
+   "ad": "5176 3rd St, San Francisco, CA 94124",
+   "w": "Bayview's gumbo-and-po'boy spot on Third Street — Infatuation-reviewed and on the Eater SF 38.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/gumbo-social"
+    ],
+    [
+     "EATERSF",
+     "https://admin.goldenstate.is/california-venues-top-eaters-list-of-38-essential-restaurants/ (Eater SF 38, May-2024 edition as reproduced)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Specs' Twelve Adler Museum Cafe",
+   "ad": "Specs' Twelve Adler Museum Cafe, Adler Place off Columbus Ave, North Beach, San Francisco, CA 94133",
+   "w": "North Beach dive since 1968 — half nautical bar, half museum of oddities; cheap stiff drinks for sailors and poets.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/bars/specs"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2024/11/30/best-dive-bars-san-francisco/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Specs'_Twelve_Adler_Museum_Cafe"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Li Po Cocktail Lounge",
+   "ad": "916 Grant Ave, San Francisco, CA 94108",
+   "w": "Chinatown dive (1937) that still looks as it did on opening night — known for its lethal Chinese mai tai.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/li-po-cocktail-lounge"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2024/11/30/best-dive-bars-san-francisco/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Mitchell's Ice Cream",
+   "ad": "688 San Jose Ave, San Francisco, CA 94110",
+   "w": "Family scoop shop open since 1952 and an SF Legacy Business — a Mission/Bernal institution.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2023/09/08/san-francisco-mitchells-ice-cream-legacy-business/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/mitchells-ice-cream"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Hang Ah Tea Room",
+   "ad": "1 Pagoda Pl (at Sacramento St), San Francisco, CA 94108",
+   "w": "Opened 1920 down a Chinatown alley off Sacramento St — widely billed as the oldest dim sum restaurant in the US.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://atlasobscura.com/places/hang-ah-tea-room"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://tastingtable.com/1397641/san-francisco-america-oldest-dim-sum-restaurant"
+    ],
+    [
+     "SFCHRON",
+     "https://preview-prod.w.sfchronicle.com/food/restaurants/article/S-F-s-100-year-old-Hang-Ah-the-country-s-15941254.php"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "PEN",
    "n": "The Kitchen",
@@ -5469,7 +5975,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "PEN",
    "n": "Fil-Am Cuisine",
    "ad": "66 School St, Daly City, CA 94014",
@@ -5489,7 +5995,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "PEN",
    "n": "Chibog",
    "ad": "2055 Gellert Blvd, Ste 5, Daly City, CA 94015",
@@ -5509,7 +6015,7 @@
    ]
   },
   {
-   "t": 2,
+   "t": 3,
    "a": "PEN",
    "n": "The Bread Basket",
    "ad": "7099 Mission St, Daly City, CA 94014",
@@ -5530,7 +6036,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "PEN",
    "n": "Basque Cultural Center",
    "ad": "599 Railroad Ave, South San Francisco, CA 94080",
@@ -5566,7 +6072,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "PEN",
    "n": "Ramen Dojo",
    "ad": "805 S B St, San Mateo, CA 94401",
@@ -5586,7 +6092,7 @@
    ]
   },
   {
-   "t": 1,
+   "t": 2,
    "a": "PEN",
    "n": "Rasa",
    "ad": "209 Park Rd, Burlingame, CA 94010",

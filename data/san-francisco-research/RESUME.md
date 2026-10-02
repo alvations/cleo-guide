@@ -12,12 +12,42 @@
 - `PEN` Peninsula & SFO (Daly City → San Mateo) ~35
 
 ## Session 2026-10-02 (modernisation run) — search counter
-- WebSearch used this session: **66** (main) + **18** (pin agent A) = **84**; after W3E: main **128** + 18 = **146** (note: some multi-name queries visibly fan out into several internal searches — the true count may be higher) / ~200 (session cap). Update after every wave.
+- WebSearch used this session: ~168 main (per tool call) + 18 pin agent A ≈ 186+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
-- **M1 plumbing + credibility/key-hygiene audit (offline)** — density.py RDIR, CARD markers, `_sf_add.py`,
-  `_sf_push.sh`, `_sf_counts.sh`, this Targets block. Next: re-source Mandalay / Foreign Cinema / Chibog /
-  Basque Cultural Center; closure sweep (Aug→Oct 2026); then food-first discovery waves (FOOD_W3*.json).
+(none — the 2026-10-02 modernisation session closed cleanly; see State.)
+
+## State — 2026-10-02 modernisation session (FINAL)
+- **289 researched / 261 rendered** (was 148 / 141). Food 181 = 62.6% (food-first ✓). 4 gates + validate + test green.
+  Per area (food+sights = total / target): AVE 16+18=34/70 · DTN 29+17=46/80 · HAI 13+8=21/45 · MIS 32+11=43/75 ·
+  NECN 31+15=46/75 · NOB 15+8=23/40 · NW 20+12=32/50 · PEN 18+11=29/35 · SE 7+8=15/30.
+- Searches: ~168 main (counted per tool call; several multi-name queries visibly fanned out internally, so the
+  platform count is likely higher) + 18 (pin agent A).
+- New files: FOOD_W3A (16 stars/Bibs), FOOD_W3B (55 Michelin by ZIP/cuisine), FOOD_W3C (19 JB/editorial/bars),
+  SIGHTS_W3A (51); geo/_geoout_w3a/_w3b/_w3c/_s3a/_fixold; helpers _sf_add/_sf_geo/_sf_mich/_sf_sights/_sf_fix_m2/
+  _sf_rerank/_sf_push.sh/_sf_counts.sh.
+- Pins: 261 verified; 28 UNVERIFIED held (docs/GEOCODE-BACKLOG.md): old 6 (Boudin, It's-It, Chibog, Bread Basket,
+  Basque CC, Wursthall) + new non-Michelin restaurants/bars + 7 sights. ~20 old med pins (non-Michelin) remain med.
+- Closed flagged (unchanged): PEZ Museum, Contemporary Jewish Museum, The Mill, Wursthall. Newly found closed and NOT
+  added: Prelude (Sept 2026), Auntie April's, Café Jacqueline, Lord Stanley.
+
+## Next-wave plan (ordered)
+1. **Pins first (cheap, all on the map):** Michelin-page pin retry for 3rd Cousin, Noodle in a Haystack (+ any new
+   Michelin adds); then `tools/geocode-helper.html` (browser) for the 28 UNVERIFIED.
+2. **Michelin channel is ~exhausted by ZIP**; next food sources: Infatuation neighbourhood guides × SF Standard
+   "panel of pros" lists (2 independent outlets), SF Travel "iconic eats every neighborhood" + "oldest bars" +
+   "best bakeries by neighborhood", Michelin inspector/editorial articles (MICHELIN_EDITORIAL = 1 source) for the
+   held list in AUDIT.md (Rosamunde, St. Francis Fountain, Wing Lee, Noe Valley Bakery, Hon's Wun-Tun, Hing Lung,
+   Little Swan, Spicy Shrimp, Lai Hong, House of Dim Sum, Dol Ho, Zeitgeist, Toronado, Elixir, Long Bridge Pizza,
+   Old Skool Cafe, Bayview Oyster Bar, Happy Crane, Anchovy Bar, Jane the Bakery, Rize Up).
+3. **Thin areas:** HAI (+26), SE (+17), AVE (+39), NOB (+18): sights via SF Travel neighbourhood page × Wikipedia
+   coordinate batch (2 searches → 4–6 pinned sights): Japantown (Japan Center, Peace Plaza done), Fillmore Auditorium,
+   St. Mary's Cathedral, Alamo Square (done), Lafayette Park, Haas-Lilienthal, Holy Virgin Cathedral, Columbarium,
+   Spreckels Temple of Music, Bison Paddock, Beach Chalet, McLaren Park, Candlestick Point SRA, Glide Memorial,
+   Tenderloin Museum, Portsmouth Square, Tin How Temple (pins already found: 37.79457,-122.40710).
+4. **Creators:** two creator queries this run found no qualifying SF creator piece — try named creators next
+   (e.g. SF Travel's "How I See San Francisco: YouTuber Joey Yee" surfaced — vet following + a findable video).
+5. Give the 13 remaining AUTO-registered keys real rationales in data/sources.json.
 
 ## Commands
 ```
@@ -47,7 +77,7 @@ starts ~Menlo Park/Redwood City). 9 areas — see `_AGENT_BRIEF.md`.
       sourcecheck PASS · npm test unaffected · jsdom render-verify (markers>0, 0 JS errors, degrades w/o CDN).
 - [ ] **Audit complete** in `AUDIT.md`; `index.html` card relinked & counts finalized.
 
-## State (update every wave)
+## State history (Aug 2026 build, superseded by the State section above)
 - **2026-08-14 scaffold:** `consolidate.py`, `build-sanfrancisco.py`, `sources.json` (11 SF outlets),
   `_AGENT_BRIEF.md`, geocodes entry, research.js + geocode-status.py registration, index "being built" card.
 - **2026-08-14 discovery wave 1: 86 places, `--sourcecheck` PASS 86/86** (46 sights + 40 food). Files:

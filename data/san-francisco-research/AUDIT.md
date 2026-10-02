@@ -191,3 +191,34 @@ PASS · statuscheck CONSISTENT · buildcheck PASS · validate + test green. 25 h
   Home, Sichuan Chong Qing, Yummy Szechuan — only legacy-format Michelin pages (2024-or-earlier listings) surfaced;
   removed from FOOD_W3B + their orphan UNVERIFIED registry rows. Held: Long Bridge Pizza, Zeitgeist, Toronado,
   Elixir (no full street address surfaced), Tsubasa (2019 Bib only), Lord Stanley (the Bleases moved to Wolfsbane).
+- Searches 129–157: Mitchell's Ice Cream (SF Standard Legacy-Business story + Infatuation); Palace Hotel, Old Mint
+  (SF Travel + Wikipedia pins); Wild Parrots of Telegraph Hill (Atlas Obscura + SF Travel); Noodle in a Haystack
+  (Michelin); Hang Ah Tea Room (Atlas Obscura + Tasting Table + SF Chronicle — status from 2020–23-era coverage,
+  re-check next wave); pins for Miller & Lux, Via Aurelia, La Cigale (Michelin venue pages). Held: St. Francis
+  Fountain (no address), Rincon Annex murals (single source), Portsmouth Square (SF Travel only); Hyde Street Pier is
+  closed for its rebuild (NPS) — already a caveat on the Maritime NHP record.
+
+## Stage 4-R — RE-RANK (2026-10-02) — `_sf_rerank.py` (deterministic, idempotent)
+Problem: ~60% of food was tier 1 in every area (wave-1/2 agents graded generously) → the must-see filter was useless.
+Fix: FOOD tiers re-graded **within each area** by measured merit — award weight (MICHELIN_STAR 3 · JAMESBEARD 2.5 ·
+MICHELIN_BIB 2 · MICHELIN listing 1) + 0.75 per extra distinct credible source (cap 3) + 1.5 for the brief's SF-canon
+icons (La Taqueria, El Farolito, Swan, Tadich, Buena Vista, Boudin, Tartine, Hog Island, It's-It, Mandalay, Burma
+Superstar, Yank Sing, Mister Jiu's, House of Prime Rib, Zuni, Hang Ah, Thanh Long, Sotto Mare, Saigon Sandwich,
+Tonga Room, Vesuvio, the 3 third-wave roasters, Fortune Cookie Factory) + the curator's original tier as a signal
+(kept in `t0`). Positional cut per area: top 35% → t1, next 45% → t2, rest → t3; closed places keep their tier.
+Result: every area keeps ≥3 food tier-1s (SE 3 … DTN/NECN/MIS 11–12); sights untouched (already area-graded, each
+area ≥3 sight tier-1s). Ratings were not used.
+
+## Stage 6 — BUILD #3 (2026-10-02)
+**280 researched → 252 rendered (91 sights + 161 food on the map); food = 181/280 = 64.6%.** sourcecheck PASS
+280/280 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+28 UNVERIFIED held (geocode backlog). data/sources.json: 25 auto-registered SF keys given real `credible`
+rationales (13 older wave-1/2 keys still carry the AUTO note — next wave).
+- Searches 158–168 (W3F): Japan Center (3-decimal → med), The Fillmore, Haas-Lilienthal House, SF Columbarium,
+  Bison Paddock (unpinned), Beach Chalet WPA murals, John McLaren Park, Candlestick Point SRA, Tenderloin Museum
+  (unpinned); Michelin pins for 3rd Cousin + Noodle in a Haystack. Held: St. Mary's Cathedral, Glide Memorial,
+  Holy Virgin Cathedral, Portsmouth Square, Tin How Temple (single source so far).
+
+## Stage 6 — BUILD #4 / FINAL of this session (2026-10-02)
+**289 researched → 261 on the map (98 sights + 163 food); food 181/289 = 62.6%.** All 4 gates PASS/CONSISTENT ·
+validate DATA OK · npm test ALL PASS. 28 UNVERIFIED held. Card + CITIES row refreshed by `_sf_counts.sh`.

@@ -2153,19 +2153,19 @@
         },
         {
           "key": "AAA",
-          "name": "AAA",
-          "type": "editorial",
+          "name": "AAA TripCanvas",
+          "type": "travel_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "AAA's editorial attraction guide (inspected listings)."
         },
         {
           "key": "AFAR",
           "name": "AFAR",
-          "type": "editorial",
+          "type": "travel_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "National travel magazine with bylined destination features."
         },
         {
           "key": "ALMANAC",
@@ -2177,19 +2177,19 @@
         },
         {
           "key": "AXIOS",
-          "name": "AXIOS",
+          "name": "Axios San Francisco",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Bylined local newsroom (Axios Local SF); used for the James Beard semifinalist roundups and food news."
         },
         {
           "key": "BAKEMAG",
-          "name": "BAKEMAG",
-          "type": "editorial",
+          "name": "Bake Magazine",
+          "type": "trade_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Baking-trade magazine with bylined profiles."
         },
         {
           "key": "CASTATEPARKS",
@@ -2201,19 +2201,19 @@
         },
         {
           "key": "EATERSF",
-          "name": "EATERSF",
-          "type": "editorial",
+          "name": "Eater SF",
+          "type": "food_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Eater SF 38 essential list (crawler-blocked; cited via a reproduction of the May-2024 edition)."
         },
         {
           "key": "ELITETRAVELER",
-          "name": "ELITETRAVELER",
-          "type": "editorial",
+          "name": "Elite Traveler",
+          "type": "travel_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Luxury travel magazine; Michelin-star restaurant roundups (corroborating only)."
         },
         {
           "key": "FOUNDSF",
@@ -2233,51 +2233,51 @@
         },
         {
           "key": "JOINPEARL",
-          "name": "JOINPEARL",
-          "type": "editorial",
+          "name": "Pearl (joinpearl.co)",
+          "type": "directory",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Aggregator list site — DEPRECATED here (A16's citation replaced by its Michelin page); not a recommender."
         },
         {
           "key": "KRON4",
           "name": "KRON4",
-          "type": "editorial",
+          "type": "tv_news",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Bay Area TV newsroom."
         },
         {
           "key": "MENTALFLOSS",
-          "name": "MENTALFLOSS",
+          "name": "Mental Floss",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Long-running national magazine; bylined hidden-gems feature."
         },
         {
           "key": "MICHELIN_BIB",
-          "name": "MICHELIN_BIB",
-          "type": "editorial",
+          "name": "MICHELIN Guide — Bib Gourmand",
+          "type": "guide_of_record",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Institutional award (lone authority)."
         },
         {
           "key": "MICHELIN_STAR",
-          "name": "MICHELIN_STAR",
-          "type": "editorial",
+          "name": "MICHELIN Guide — Stars",
+          "type": "guide_of_record",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Institutional award (lone authority)."
         },
         {
           "key": "NBCBAY",
-          "name": "NBCBAY",
-          "type": "editorial",
+          "name": "NBC Bay Area",
+          "type": "tv_news",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Bay Area TV newsroom; Michelin Bib list coverage."
         },
         {
           "key": "NICHIBEI",
@@ -2297,19 +2297,19 @@
         },
         {
           "key": "NPS",
-          "name": "NPS",
-          "type": "editorial",
+          "name": "National Park Service",
+          "type": "official",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Federal agency; GGNRA/Presidio/Maritime NHP official pages (institutional authority)."
         },
         {
           "key": "OFFICIAL",
-          "name": "OFFICIAL",
-          "type": "editorial",
+          "name": "Official site",
+          "type": "official",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "The venue's own site — address/hours/status only; never counted as merit."
         },
         {
           "key": "PALOALTOONLINE",
@@ -2337,43 +2337,43 @@
         },
         {
           "key": "SFCHRON",
-          "name": "SFCHRON",
-          "type": "editorial",
+          "name": "San Francisco Chronicle",
+          "type": "newspaper",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Paper of record; Top 100 and critic coverage (crawler-blocked — cited only where a title surfaced)."
         },
         {
           "key": "SFEXAMINER",
-          "name": "SFEXAMINER",
-          "type": "editorial",
+          "name": "San Francisco Examiner",
+          "type": "newspaper",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Long-running SF daily; bylined food & drink coverage."
         },
         {
           "key": "SFPARKS",
-          "name": "SFPARKS",
-          "type": "editorial",
+          "name": "SF Recreation & Parks",
+          "type": "official",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "City parks department official pages."
         },
         {
           "key": "SFSTATION",
-          "name": "SFSTATION",
-          "type": "editorial",
+          "name": "SF Station",
+          "type": "local_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Local SF listings/culture site; corroborating only."
         },
         {
           "key": "SFTRAVEL",
-          "name": "SFTRAVEL",
-          "type": "editorial",
+          "name": "San Francisco Travel (official visitor bureau)",
+          "type": "official",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "The city's official destination-marketing org — neighbourhood and attraction guides; used for sights, never as a lone recommender for restaurants."
         },
         {
           "key": "SFWEEKLY",
@@ -2409,51 +2409,51 @@
         },
         {
           "key": "SUNSET",
-          "name": "SUNSET",
+          "name": "Sunset Magazine",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "The West's regional magazine of record for travel & food."
         },
         {
           "key": "TABLEJOURNEY",
-          "name": "TABLEJOURNEY",
-          "type": "editorial",
+          "name": "TableJourney",
+          "type": "directory",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Restaurant directory used only to corroborate an address; never a recommender."
         },
         {
           "key": "VOGUEPH",
-          "name": "VOGUEPH",
+          "name": "Vogue Philippines",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Condé Nast title; bylined Filipino-diaspora restaurant feature."
         },
         {
           "key": "WIKIPEDIA",
-          "name": "WIKIPEDIA",
-          "type": "editorial",
+          "name": "Wikipedia",
+          "type": "reference",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Published coordinates (GeoHack) and history; notability corroboration."
         },
         {
           "key": "MICHELIN_EDITORIAL",
-          "name": "MICHELIN_EDITORIAL",
+          "name": "MICHELIN Guide editorial (articles)",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Michelin magazine/inspector articles — ONE ordinary source, never a lone authority (run protocol key hygiene)."
         },
         {
           "key": "TASTINGTABLE",
-          "name": "TASTINGTABLE",
-          "type": "editorial",
+          "name": "Tasting Table",
+          "type": "food_media",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "National food site with bylined local roundups (corroborating)."
         }
       ],
       "creators": [],
