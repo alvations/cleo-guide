@@ -18,8 +18,9 @@
 **W6 (2026-10-02 session 4, session_01Hg5dmhczkVf2CSHxgwBCVu)** — start: 488 researched (density NEED: AVE+2 DTN+4 HAI+1 MIS+2 NECN+3 NOB+1).
 (1) background pin agent (≤30 searches) on `_sf_pin_w6_A.txt` (133 UNVERIFIED; Wikipedia/Michelin-sourced first) → `geo/_geoout_w6pin.json`;
 (2) main: close every NEED area, then keep expanding past target with credible canon (Michelin/Bib, Chronicle Top 100, Infatuation × SF Standard,
-creators) → `FOOD_W6.json`, `SIGHTS_W6.json`, `geo/_geoout_w6.json`, `CREATORS_W6.json`. Search counter (main): 17 · pin agent: 30 (8 pinned).
+creators) → `FOOD_W6.json`, `SIGHTS_W6.json`, `geo/_geoout_w6.json`, `CREATORS_W6.json`. Search counter (main): 72 · pin agent: 30 (8 pinned).
 Build W6-1: 503 researched / 368 on map (179 sights + 189 food); ALL 9 areas at target; 4 gates + validate + test green.
+Build W6-2: 543 researched / 378 on map (187 sights + 191 food); 4 gates + validate + test green.
 Now: expanding past target — prefer pinnable places (Wikipedia-coord sights, restaurants with a Wikipedia page) + creator channel.
 
 ## State — W5 (wave 3 of 2026-10-02, session_013SchN5xr8QFAgVqjZY37dr) — DONE (ended at batch 15)

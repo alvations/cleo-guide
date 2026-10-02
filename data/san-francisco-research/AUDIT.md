@@ -432,3 +432,26 @@ Pioneer Park — duplicate of the Coit Tower card.
 **BUILD W6-1:** 503 researched → **368 on the map (179 sights + 189 food)**. sourcecheck PASS 503/503 (61 lone authority) · geocheck PASS ·
 statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. **Every area now meets its density target** (AVE 70, DTN 81,
 HAI 45, MIS 76, NECN 75, NOB 40, NW 50, PEN 36, SE 30). Source keys RICHMONDSUNSET, TCLF given rationales.
+**Batches 3–9 (searches 18–72).** Channel: **SF Standard "panel of pros" lists** (cheap eats Jan 2026, Chinese takeout Sep 2025,
+big groups Sep 2026, diners Jun 2025, best new of 2025, nightcap Apr 2025, tacos Jan 2025, dive bars Nov 2024) — each prints
+addresses, then one `allowed_domains` cross-check query (Infatuation / Chronicle / SFGATE / 7x7 / Mission Local) supplies the
+independent 2nd source. Plus the Chronicle "classic bars that make SF" guide, SFGATE Inner Richmond guide, Wikipedia/Atlas sight pins.
+Added — food: Il Pollaio, Palmyra, Peaches Patties (Ferry Bldg med pin), Hayes Valley Bakeworks, House of Pancakes (SF Standard 837
+Taraval vs SFGATE's older 937 — recent address used, noted on card), Dumpling Kitchen, MuuKaTa6395, Casements, L&G Vietnamese Sandwich,
+Dabao Singapore (tagged Singaporean = kitchen origin), Wako (MICHELIN listing), B Star Bar, Clementina, Orphan Andy's, Pork Store Cafe,
+Pinecrest Diner, Art's Cafe, Bar Brucato, Arquet (Ferry Bldg med pin; Chronicle's negative review stated on card), Stookey's Club
+Moderne, 20 Spot, Taqueria La Cumbre, Loló, El Gallo Giro, Little Shamrock, Lone Palm, Club Waziema, The Homestead, Wild Side West,
+Shotwell's. Sights (pinned unless noted): Old Vedanta Temple, Cottage Row Mini Park (med, district point), Salesforce Tower & Day for
+Night, Pacific Telephone Building, Feusier Octagon House, Sunnyside Conservatory (Atlas pin), Cayuga Park, Spreckels Lake; Audium and
+Church of 8 Wheels (unpinned).
+Toronado record updated: sold Apr 2026 to Bill Lewis & Wall Pringle, reopened late June (Hoodline, Chronicle, SF Standard Jul 2026).
+MEASURED & DROPPED / NOT ADDED: Chili House — permanently closed (Infatuation); Bettola — became Clementina; Anchor Brewing — dormant,
+reopening unconfirmed (SF Standard May 2026, Chronicle); Tenderloin National Forest — reopening status unconfirmed; Presidio Officers'
+Club — the only coordinate found was the Presidio's general point (not a place pin); Bay Bridge — pin falls outside SF; Mamahuhu —
+two locations, recommended one not confirmed; Chome, Coffee Out There — no full street address in hand; Riverside Seafood, Zzan,
+Panchita's #2, Taishoken, Philosopher's Club, Cinch Saloon, The Snug, Bocconcino — single credible outlet or unconfirmed 2026 status
+(held); Hong Kong Palace (Millbrae) — no address. Creator channel: 3 searches (Mark Wiens, YouTube SF food tours, Strictly Dumpling)
+surfaced no findable SF video naming a specific place → no creator attachments this wave.
+**BUILD W6-2:** 543 researched → **378 on the map (187 sights + 191 food)**. sourcecheck PASS 543/543 · geocheck PASS · statuscheck
+CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. Density: every area OK (AVE 79, DTN 87, HAI 50, MIS 86, NECN 76,
+NOB 44, NW 52, PEN 36, SE 33); food 64% overall, ≥50% in every area.
