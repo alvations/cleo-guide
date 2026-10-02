@@ -1,0 +1,607 @@
+{
+ "sights": [
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Art Institute of Chicago",
+   "address": "111 S Michigan Ave, Chicago, IL 60603",
+   "w": "One of the world's great art museums — 300,000 works including Seurat's La Grande Jatte, Hopper's Nighthawks and Wood's American Gothic.",
+   "k": "museum art gallery",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Field Museum",
+   "address": "1400 S DuSable Lake Shore Dr, Chicago, IL 60605",
+   "w": "The 1893-born natural history museum on the Museum Campus — home of SUE the T. rex and Máximo the titanosaur.",
+   "k": "museum family dinosaurs",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Willis Tower Skydeck",
+   "address": "233 S Wacker Dr, Chicago, IL 60606",
+   "w": "The 103rd-floor observation deck of the former Sears Tower, with The Ledge glass boxes 1,353 ft over Wacker Drive.",
+   "k": "skydeck observation icon skyline",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Willis_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Cloud Gate (The Bean)",
+   "address": "Millennium Park, 201 E Randolph St, Chicago, IL 60602",
+   "w": "Anish Kapoor's mirror-polished 'Bean' in Millennium Park — the requisite Chicago selfie, beside Gehry's Pritzker Pavilion and the Lurie Garden. Free.",
+   "k": "public art sculpture icon park free",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/millennium-park-chicago-il"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cloud_Gate"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Navy Pier",
+   "address": "600 E Grand Ave, Chicago, IL 60611",
+   "w": "The 1916 pier stretching into Lake Michigan, with the 200-ft Centennial Wheel, the Chicago Children's Museum and boat departures.",
+   "k": "pier lake michigan icon family",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Navy_Pier"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Buckingham Fountain",
+   "address": "301 S Columbus Dr, Chicago, IL 60605",
+   "w": "Grant Park's 1927 Versailles-inspired fountain, one of the largest in the world, with summer light-and-water shows. Free.",
+   "k": "fountain park icon free",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buckingham_Fountain"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Adler Planetarium",
+   "address": "1300 S DuSable Lake Shore Dr, Chicago, IL 60605",
+   "w": "The first planetarium in the Western Hemisphere (1930), at the tip of Northerly Island's peninsula with a classic skyline view.",
+   "k": "planetarium museum family skyline",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/chicagos-museum-campus/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adler_Planetarium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Chicago Water Tower",
+   "address": "806 N Michigan Ave, Chicago, IL 60611",
+   "w": "The 1869 limestone water tower that survived the Great Chicago Fire, now a free city art gallery on the Mag Mile.",
+   "k": "historic landmark gallery free",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Water_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Museum of Science and Industry",
+   "address": "5700 S DuSable Lake Shore Dr, Chicago, IL 60637",
+   "w": "The largest science centre in the Western Hemisphere, in the 1893 World's Fair Palace of Fine Arts — U-505 submarine, coal mine, Pioneer Zephyr.",
+   "k": "museum science family",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Science_and_Industry_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Wrigley Field",
+   "address": "1060 W Addison St, Chicago, IL 60613",
+   "w": "The Cubs' ivy-walled ballpark (1914), the second-oldest in the majors, with its hand-turned scoreboard and Wrigleyville rooftops.",
+   "k": "ballpark stadium cubs sport",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wrigley_Field"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Garfield Park Conservatory",
+   "address": "300 N Central Park Ave, Chicago, IL 60624",
+   "w": "Jens Jensen's 1908 'landscape art under glass' — one of the largest conservatories in the US, with free admission.",
+   "k": "conservatory garden free",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Garfield_Park_Conservatory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Lincoln Park Zoo",
+   "address": "2001 N Clark St, Chicago, IL 60614",
+   "w": "One of the country's oldest zoos (1868) and still free, with the Farm-in-the-Zoo and Nature Boardwalk.",
+   "k": "zoo park family free",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/things-to-do-at-chicagos-parks-gardens-and-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lincoln_Park_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Frederick C. Robie House",
+   "address": "5757 S Woodlawn Ave, Chicago, IL 60637",
+   "w": "Frank Lloyd Wright's 1910 Prairie School masterpiece in Hyde Park, inscribed by UNESCO in The 20th-Century Architecture of Frank Lloyd Wright. Tours by the FLW Trust.",
+   "k": "frank lloyd wright prairie school house",
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1496"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Robie_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Chicago Cultural Center",
+   "address": "78 E Washington St, Chicago, IL 60602",
+   "w": "The 1897 former public library, now the nation's first free municipal cultural center — under the world's largest Tiffany glass dome (38 ft, ~30,000 pieces).",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Cultural_Center"
+    ]
+   ],
+   "k": "cultural center architecture free tiffany"
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "The Rookery",
+   "address": "209 S LaSalle St, Chicago, IL 60604",
+   "w": "Burnham & Root's 1888 LaSalle Street landmark, whose skylit light court was remodelled by Frank Lloyd Wright in 1905 — the spiral oriel staircase is the money shot.",
+   "sources": [
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours/rookery-building"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rookery_Building"
+    ]
+   ],
+   "k": "architecture building frank lloyd wright landmark"
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Chicago Theatre",
+   "address": "175 N State St, Chicago, IL 60601",
+   "w": "The 1921 French Baroque movie palace under the six-storey C-H-I-C-A-G-O marquee on State Street.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Theatre"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/30-must-see-chicago-live-music-venues/"
+    ]
+   ],
+   "k": "theatre historic landmark"
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Tribune Tower",
+   "address": "435 N Michigan Ave, Chicago, IL 60611",
+   "w": "Hood & Howells' 1925 Gothic tower from the 'most beautiful building in the world' competition, its base studded with ~150 fragments of famous buildings (Westminster Abbey, the Great Wall, the Parthenon).",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tribune_Tower"
+    ]
+   ],
+   "k": "architecture tower gothic landmark"
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "360 Chicago (875 North Michigan Avenue)",
+   "address": "875 N Michigan Ave, Chicago, IL 60611",
+   "w": "The tapering, X-braced former John Hancock Center (1969), with the 94th-floor 360 Chicago observation deck and TILT.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/most-amazing-views-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/875_North_Michigan_Avenue"
+    ]
+   ],
+   "k": "observation skyline tower icon"
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Marina City",
+   "address": "300 N State St, Chicago, IL 60654",
+   "w": "Bertrand Goldberg's 1963 'corncob' towers on the river — at opening the tallest residential and tallest concrete buildings in the world.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Marina_City"
+    ]
+   ],
+   "k": "architecture river tower landmark"
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Jay Pritzker Pavilion",
+   "address": "201 E Randolph St, Chicago, IL 60602",
+   "w": "Frank Gehry's ribbon-steel bandshell in Millennium Park — free summer concerts (Grant Park Music Festival) and movies on the lawn.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/millennium-park-chicago-il"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jay_Pritzker_Pavilion"
+    ]
+   ],
+   "k": "music concert park free pavilion"
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Unity Temple",
+   "address": "875 Lake St, Oak Park, IL 60301",
+   "w": "Frank Lloyd Wright's 1908 poured-concrete temple in Oak Park — part of UNESCO's 20th-Century Architecture of Frank Lloyd Wright inscription.",
+   "sources": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1496"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Unity_Temple"
+    ]
+   ],
+   "k": "frank lloyd wright temple architecture"
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Frank Lloyd Wright Home and Studio",
+   "address": "951 Chicago Ave, Oak Park, IL 60302",
+   "w": "Where Wright lived and worked 1889–1909 and developed the Prairie style; a National Historic Landmark, toured by the Frank Lloyd Wright Trust.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Frank_Lloyd_Wright_Home_and_Studio"
+    ],
+    [
+     "FLWTRUST",
+     "https://flwright.org/"
+    ]
+   ],
+   "k": "frank lloyd wright prairie school house"
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "Pullman National Historical Park",
+   "address": "11141 S Cottage Grove Ave, Chicago, IL 60628",
+   "w": "George Pullman's 1880s company town — the clock-tower factory, Hotel Florence and rowhouses; site of the 1894 strike and the Pullman porters' story. NPS unit since 2015.",
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/pull/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pullman_National_Historical_Park"
+    ]
+   ],
+   "k": "national park historic district pullman"
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Baháʼí House of Worship",
+   "address": "100 Linden Ave, Wilmette, IL 60091",
+   "w": "The lace-domed 1953 Baháʼí temple on the Wilmette lakefront — the oldest surviving Baháʼí House of Worship in the world, with formal gardens.",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bah%C3%A1%CA%BC%C3%AD_House_of_Worship_(Wilmette,_Illinois)"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ]
+   ],
+   "k": "temple architecture gardens free"
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "National Museum of Mexican Art",
+   "address": "1852 W 19th St, Chicago, IL 60608",
+   "w": "Pilsen's free museum of Mexican art — one of the largest Latinx cultural institutions in the US (10,000+ works); its Día de Muertos show is a city ritual.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Mexican_Art"
+    ]
+   ],
+   "k": "museum art free"
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "DuSable Black History Museum",
+   "address": "740 E 56th Pl, Chicago, IL 60637",
+   "w": "Founded 1961 in Washington Park — the oldest independent African American museum in the country.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/DuSable_Black_History_Museum"
+    ]
+   ],
+   "k": "museum history"
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Museum of Contemporary Art Chicago",
+   "address": "220 E Chicago Ave, Chicago, IL 60611",
+   "w": "One of the largest contemporary art museums in the world, in Streeterville off the Mag Mile; Tuesday summer jazz on the terrace.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Contemporary_Art_Chicago"
+    ]
+   ],
+   "k": "museum art gallery"
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Chicago History Museum",
+   "address": "1601 N Clark St, Chicago, IL 60614",
+   "w": "The city's history museum at the south end of Lincoln Park — Lincoln's deathbed, the Great Fire, and an exhibit on the Chicago hot dog.",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_History_Museum"
+    ]
+   ],
+   "k": "museum history"
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Kingston Mines",
+   "address": "2548 N Halsted St, Chicago, IL 60614",
+   "w": "Chicago's oldest and largest continuously running blues club (1968) — two stages, alternating sets until 4 a.m.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/kingston-mines/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/kingston-mines"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kingston_Mines_(blues_club)"
+    ]
+   ],
+   "k": "blues club music"
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Buddy Guy's Legends",
+   "address": "700 S Wabash Ave, Chicago, IL 60605",
+   "w": "The South Loop blues club owned by Buddy Guy himself — live blues every night and his own January residency.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/buddy-guys-legends/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buddy_Guy's_Legends"
+    ]
+   ],
+   "k": "blues club music"
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Andy's Jazz Club",
+   "address": "11 E Hubbard St, Chicago, IL 60611",
+   "w": "One of the city's best-known jazz rooms, two blocks off the Mag Mile, with nightly sets and jam sessions.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Andy's_Jazz_Club"
+    ]
+   ],
+   "k": "jazz club music"
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Green Mill Cocktail Lounge",
+   "address": "4802 N Broadway, Chicago, IL 60640",
+   "w": "Uptown's 1907 former Capone-era speakeasy, one of the oldest continuously operating jazz clubs in the country; home of the Uptown Poetry Slam.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Green_Mill_Cocktail_Lounge"
+    ]
+   ],
+   "k": "jazz club speakeasy cocktail bar music"
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "The Second City",
+   "address": "1616 N Wells St, Chicago, IL 60614",
+   "w": "Old Town's improv theatre (1959) that launched Belushi, Murray, Fey, Colbert and Carell.",
+   "sources": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/music/live-music-concerts-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Second_City"
+    ]
+   ],
+   "k": "comedy theater improv"
+  }
+ ],
+ "sources": []
+}

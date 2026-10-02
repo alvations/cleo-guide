@@ -41,3 +41,32 @@ viewport/centroid/memory coordinates. **Status:** 12 open (sources per record); 
 sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS (centre 43.0615,141.4024 z11 — Sapporo-only
 for now; will widen to the whole island as other areas land) · `npm run validate` DATA OK · `npm test` ALL PASS.
 **Not live:** 9 pins is not "substantial density" — Japan hub card + root `CARD:japan` left as "being built".
+
+## 2026-10-02 — session 2 · W02–W05 + G01 geocode + build #1 (searches: 73 = 55 discovery + 18 geocode agent)
+**Technique upgrade (record for every Japan map):** `allowed_domains:["en.wikipedia.org"]` (or `ja.wikipedia.org` with
+Japanese names) + 3 names per query returns the infobox coordinate for ~2–3 of 3 (vs ~1 of 3 unrestricted).
+`allowed_domains:["japan-guide.com"]` / `["visit-hokkaido.jp"]` area queries return 10 staff/official URLs per call —
+the cheap 2nd source. Restaurants: no lat/lng surfaces for any Sapporo restaurant (G01 tried 3 — gltjp/mapple give
+address only) → food held UNVERIFIED for the browser helper.
+**Sources by channel (W02–W05):** official tourism (SAPPOROTRAVEL, HOKKAIDOTOURISM, JNTO) · notable travel sites
+(JAPANGUIDE, CULTURETRIP, CATHAYPACIFIC, NAVITIMETRAVEL, FUNJAPAN, JAPANTRAVEL, GOODLUCKTRIP, MAPPLE) · award
+lists (MICHELIN_BIB Hokkaido 2017, TABELOG100 Ramen HOKKAIDO 2024/25) · encyclopedic (WIKIPEDIA, WIKIPEDIA_JA,
+WIKIVOYAGE — corroborating only). **Creators:** 2 queries (Paolo fromTOKYO/Abroad in Japan; Ramen Beast/Only in
+Japan/Life Where I'm From) surfaced no findable Hokkaido piece naming a place — 0 creator attachments this round.
+**Rejected:** tablejourney.com (unattributed/AI-style listicles), magical-trip.com + japanactivity (tour sellers),
+hamoni.jp/wanderlog/foodle.pro (aggregators), livelyhotels (hotel blog), nta tripa / hankyu-travel (agency SEO).
+**Extracted + kept (W02 food 8, W03 sights 20, W04 sights 15, W05 9 sights + 1 food):** see the `_w0N_*.py` ledgers —
+every record lists its sources inline. Tiers: t1 = area-defining icon with ≥2 strong sources; t2 otherwise.
+**Held single-source / not added:** Fujiya Noodle (Michelin Bib 2017, no address in results), Soup Curry Picante
+(Tabelog-100 claim only via tablejourney), Soup Curry Yellow / Farm to Table Terra / Sushi Ikko (Cathay only), Kessel
+Hall beer garden, Soup Curry Cocoro (Michelin 2017 claim via gltjp only), Tabelog Curry-100 picks Hiri Hiri Ōdōri /
+Hige Danshaku / Pole Pole / Delhi Sapporo (one source each), Trappistine Convent (Wikipedia only), Lake Akan Ainu Kotan
+(visit-hokkaido only — re-query), Shōwa-shinzan (Wikipedia only), Shikisai-no-oka / Hokusei Hill / Patchwork Road
+(japan-guide e6828 only), Rusutsu Resort (japan-guide only).
+**Rejected coordinates:** Jigokudani "42°25′N 141°6′E" (= Noboribetsu city article, a centroid); Lake Shikaribetsu
+"43.31222,143.09556" (= the volcanic group, not the lake).
+**G01 geocode agent:** 12/16 pinned (all 12 sights; 0/4 restaurants). med: Jōzankei (resort-area point), Jigokudani
+(Wikipedia photo geotag in the valley), Motomachi (district article), Sakaimachi (junction at south end — source page
+unconfirmed, caveat in geoSource → re-verify). Kushiro Marsh pinned to the Hosooka Observatory (ja.wikipedia 細岡展望台).
+**Build #1:** 65 discovered → 53 rendered (sights 53, food 0). sourcecheck PASS 65 · geocheck PASS · statuscheck
+CONSISTENT (0 unchecked) · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS. 12 UNVERIFIED held (9 food + 3 TKC/sights).

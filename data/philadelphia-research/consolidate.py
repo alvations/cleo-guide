@@ -133,7 +133,7 @@ ALIAS = {"PHILAMAG":"PHILLYMAG","PHILLYMAGAZINE":"PHILLYMAG","EATER":"EATERPHILL
 def canon(k): return ALIAS.get(k, k)
 
 # places confirmed permanently CLOSED + non-notable, or not a visitable place, during fact-check/geocode
-EXCLUDE = set()
+EXCLUDE = {"Casa Mexico"}  # merged with South Philly Barbacoa at 1134 S 9th St (geocode W1, OpenTable) — one card
 sights = []; food = []; srcmeta = {}; seen_names = set()
 def _take(x, bucket):
     n = x.get("n")
