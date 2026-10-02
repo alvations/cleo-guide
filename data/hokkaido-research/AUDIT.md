@@ -224,3 +224,6 @@ pin), Makkari Flower Center (yuri-ne; rurubu + visit-hokkaido + wiki pin). Nisek
 zangi-don; rurubu + MAPPLE + visit-hokkaido + wiki pin), Mashū Onsen (venison burger; rurubu + wiki pin).
 **W56 (0 searches — reuse):** Ekini Ichiba squid-fishing (hakodate.travel gourmet page + rurubu spot, both read in W33/W45 sets),
 Hakodate Kaisen Ichiba (hakodate.travel + rurubu spot).
+**W57:** Utonai-ko (hokki curry, Tomakomai miso-curry ramen; visit-hokkaido + wiki pin), Biei Shirogane Birke (Biei-wheat burgers;
+visit-hokkaido + rurubu + wiki pin). Not added (no signature food sourced): Date Rekishi no Mori, Tōya-ko, Asahikawa (pin 43.75992,
+142.34853 read), Okhotsk Monbetsu (44.32839,143.37494). **W58:** Mochigome no Sato Nayoro soft daifuku (rurubu + TripEat + wiki pin; DHOKU).

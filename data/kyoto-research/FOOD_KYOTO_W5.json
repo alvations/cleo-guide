@@ -1299,24 +1299,98 @@
   ]
  },
  {
-  "t": 1,
-  "a": "HGS",
+  "t": 2,
+  "a": "CTR",
   "cz": [
    "IZAKAYA"
   ],
-  "dish": "Yakitori over charcoal and wood fire from its own-farm Wabiya chicken; oyakodon at lunch",
-  "n": "Wabiya Korekidō (侘家古暦堂)",
-  "address": "Hanami-kōji, Gion, Higashiyama-ku, Kyoto",
-  "w": "MICHELIN-listed Gion yakitori house on Hanami-kōji, grilling its own free-range chicken over charcoal and wood flame.",
+  "dish": "Yakitori and chicken specialities",
+  "n": "wabiya (Shimogyō)",
+  "address": "554 Sangen-chō, Shimogyō-ku, Kyoto 600-8097",
+  "w": "MICHELIN-listed yakitori and chicken-speciality restaurant.",
   "closed": false,
   "sources": [
    [
     "MICHELIN",
     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/wabiya"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CTR",
+  "cz": [
+   "KAISEKI",
+   "FINE"
+  ],
+  "dish": "Counter kaiseki — an unorthodox take on classic Kyoto kaiseki",
+  "n": "Kikunoi Roan (菊乃井 露庵)",
+  "address": "118 Saitō-chō, Shimogyō-ku, Kyoto 600-8012",
+  "w": "Two MICHELIN Stars (2026): the Kikunoi house's counter restaurant — Inside Kyoto calls it the more affordable, less orthodox of the two.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-roan"
    ],
    [
     "INSIDEKYOTO",
-    "https://www.insidekyoto.com/best-yakitori-in-kyoto"
+    "https://www.insidekyoto.com/best-kaiseki-japanese-haute-cuisine-in-kyoto"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "HGS",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "Kyoto oden",
+  "n": "Takocho (蛸長)",
+  "address": "1-237 Miyagawa-suji, Higashiyama-ku, Kyoto 605-0801",
+  "w": "MICHELIN-listed (2026) oden counter in the Miyagawa-chō geisha quarter.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/takocho"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "CTR",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "Yakitori",
+  "n": "Torisho sai",
+  "address": "237 Daimonji-chō, Nakagyō-ku, Kyoto 604-8315",
+  "w": "MICHELIN-listed yakitori counter in Nakagyō.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisho-sai"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CTR",
+  "cz": [
+   "INT",
+   "FINE"
+  ],
+  "dish": "Monthly-changing Italian prix fixe built on Japanese ingredients ('dodici' = 12 menus a year)",
+  "n": "DODICI",
+  "address": "239 Kamihakusan-chō, Nakagyō-ku, Kyoto 604-0943",
+  "w": "One MICHELIN Star (2026) Italian: a chef trained in Italy giving the cooking a Japanese essence.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/dodici"
    ]
   ]
  }

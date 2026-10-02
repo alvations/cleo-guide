@@ -262,3 +262,7 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   block — plausible, flagged for re-verify); Gion Yorozuya/Chōshoku Kishin 6 m apart (Komatsu-chō 555-1 / 555 — consistent).
 - **Build: 348 discovered (180 sights + 168 food = 48%) / 288 rendered (175 + 113).** All 4 gates PASS (high 269 · med 19);
   validate DATA OK; npm test ALL PASS. Searches: main ~72 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 164.
+- Correction (batch 9→10): "Wabiya Korekidō" (Gion, Hanami-kōji; Inside Kyoto) was first cited with the MICHELIN "wabiya" page — the
+  Michelin venue is a DIFFERENT shop (554 Sangen-chō, Shimogyō-ku). Korekidō was removed (held: Inside Kyoto only; the Savor Japan
+  "Wabiya Korekido" listing is an Osaka-Namba branch). Michelin "wabiya (Shimogyō)" added on its own, pinned from its venue page.
+  Kikunoi Roan ★★ added (Michelin pin + Inside Kyoto).
