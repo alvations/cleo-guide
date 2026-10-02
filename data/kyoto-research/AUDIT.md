@@ -289,3 +289,27 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - Per-area discovered/target: CTR 93/95 · HGS 63/75 · UJI 44/50 · KITA 38/50 · RKSAI 36/55 · SAKYO 34/60 · FSHMI 27/45 ·
   KYFU 18/25 · RKHKU 17/30. Food share by area: CTR 77% · HGS 67% · KITA 50% · SAKYO 44% · UJI 36% · FSHMI 30% · RKSAI 28% ·
   KYFU 17% · RKHKU 12% — outer areas stay sight-heavy because Michelin covers Kyoto city + Nara only.
+
+## 2026-10-02 — W4 (relaunch, own budget) — food-first fill of NEED areas
+**Technique change (logged decision):** English area queries gave about 0.15 kept places per search, because Inside Kyoto lists
+have no second outlet. Japanese queries with `allowed_domains` restricted to credible JA outlets (ja.kyoto.travel / 京都観光Navi, Rurubu (JTB), MAPPLE (Shobunsha), Walkerplus (KADOKAWA), Serai and Wa-raku (Shogakukan),
+Leaf, Kyoto Shimbun, Savor Japan, Keihan, plus the Ine and Umi-no-Kyoto official tourism bodies) give about 1.5 kept per search, with two outlets
+in one result set. Same-publisher pairs are never counted as two sources (MAPPLE + co-trip are both Shobunsha).
+New outlet keys are in SOURCES_KYOTO_W4.json, each with a credible rationale. Tabelog/Retty/4travel/aumo/macaro-ni/nap-camp were seen and not used (0 weight).
+**Kept, food (FOOD_KYOTO_W6.json, 47):** RKHKU: Yōshūji, Kibune Hiroya, Kifune Ugenta, Nakayoshi, Kibune Fujiya, Kibune Kiraku, Kibune Beniya, Takao Momijiya.
+FSHMI: Fushimi Sakagura Kōji, Abura-chō, Nezameya (1540), Uosaburō (1764), Sōhonke Hōgyokudō. RKSAI: Shōraian, Kotokiki Chaya, Saga Tofu Morika,
+Oimatsu Arashiyama, Ayu-jaya Hiranoya, Seizan Sōdō, Ryōan-ji Seigen-in. SAKYO: Tenkaippin Sōhonten, Tentenyū, Kamo Mitarashi Chaya, Yamamoto Menzō, Grill
+Kodakara, Rokusei, Shinshindō Kitamonmae, Blue Bottle Kyoto, Kanō Shōjuan chashitsu. KITA: Awamochi Sawaya, Toyouke Chaya, Shinba (1934 sakaba),
+Daitokuji Ikkyū, Murasakino Wakuden, Sarasa Nishijin. HGS: Hisago, Okaru, Gion Komori, Gion Izuju, Tempura Yasaka Endō, Shichimiya Honpo. UJI: Tamaki-tei,
+Tatsumiya. KYFU: Torimatsu (barazushi), Funaya Shokudō, Restaurant Funaya, Aburaya (Ine).
+**Kept, sights:** SIGHTS_KYOTO_W4S (main, 5): Rakushisha, Saga-Toriimoto, Kameyama-kōen, Umenomiya Taisha, Funaoka Onsen. SIGHTS_KYOTO_W4B
+(worker, 25 searches, 22 kept after review): SAKYO 10, FSHMI 6, KITA 6; 18 ja-Wikipedia pins.
+**Held (_kyoto_w4_held.json + below):** worker: Ōishi Shrine, Nogi Shrine, Kamigoryō (second source was only a passing en-wiki mention); Yamashina Canal (both
+sources kyoto.travel = one outlet; caught by sourcecheck). Main, single outlet: Jinbadō and Aoi-ya yakimochi (only Shobunsha surfaced), Ichijōji Nakatani,
+Ryōtei Yachiyo, Rengetsu-jaya, Daigin Shokudō, Yudofu Takemura, Saganoya, Komichi, Kibune Tochigiku, Ugetsu Chaya (Daigo), Tsutaya (Toriimoto), Takao
+Kinsuitei, Gion Kinana, Tambaya (Tōfuku-ji), Kijiya and Sasaya Moriei (Kinkaku-ji), Unagi Hirokawa (Michelin claim unverifiable).
+**Rule-4a hygiene:** three facts first drafted from memory were removed before commit: Tenkaippin's broth base, a hiryōzu mention for Morika, and
+a reopening year for Kanō Shōjuan.
+**Closures:** none found. **Pins:** sights from ja-Wikipedia; W4 food is UNVERIFIED, because restaurant place-pins do not surface via WebSearch.
+**Build (W4 checkpoint):** 444 discovered (210 sights + 234 food = 53% food) / 324 rendered (201 + 123). sourcecheck / geocheck (high 299 · med 25) /
+statuscheck / buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Searches: main ~61 + worker 25 = ~86.
