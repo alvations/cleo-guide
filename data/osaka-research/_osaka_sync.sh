@@ -33,7 +33,7 @@ PY
           python3 - "$f" <<'PY'
 import re,sys
 f=sys.argv[1]; s=open(f).read()
-s=re.sub(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", lambda m: m.group(1)+m.group(2), s, flags=re.S|re.M)
+s=re.sub(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", lambda m: m.group(1)+"".join(l for l in m.group(2).splitlines(True) if not (l.startswith("| Osaka") and "| Osaka" in m.group(1))), s, flags=re.S|re.M)
 open(f,"w").write(s)
 PY
           git add "$f";;

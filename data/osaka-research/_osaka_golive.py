@@ -26,7 +26,9 @@ row = ('| Osaka (JP) | `cities/osaka.html` (linked from the Japan hub) | `data/o
        'Konamon street-food canon (Kogaryū, Wanaka, Daruma, Aizuya…) discovered but UNVERIFIED (geocode-helper). Below the ~460 target (MINAM/SOUTH/BAY thinnest) — continue from `data/osaka-research/RESUME.md`. '
        'Rebuild: `python3 tools/rebuild-city.py osaka --build`. |') % (n, n, s, f)
 lines = c.split('\n'); idx = [i for i, l in enumerate(lines) if l.startswith('| Osaka')]
-if idx: lines[idx[0]] = row
+if idx:
+    lines[idx[0]] = row
+    lines = [l for i, l in enumerate(lines) if i == idx[0] or not l.startswith('| Osaka')]
 else:
     t = [i for i, l in enumerate(lines) if l.startswith('| Tokyo')][0]; lines.insert(t + 1, row)
 open(C, 'w').write('\n'.join(lines)); print('live maps:', live)
