@@ -58,8 +58,8 @@
   {
    "n": "Tomoegata (chanko)",
    "a": "SMKT",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tomoegata; 2-17-6 Ryogoku",
-   "need": "coords + 2nd"
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tomoegata; 2-17-6 Ryogoku; TIMEOUT https://www.timeout.com/tokyo/things-to-do/ryogoku-area-guide (on the Tomozuna stable premises); GOTOKYO sumo feature https://www.gotokyo.org/en/new-and-now/new-and-trending/260113/topics.html (mention unconfirmed)",
+   "need": "pin (Wikidata has none) — geocode-helper"
   },
   {
    "n": "Hantei (kushiage)",
@@ -132,6 +132,24 @@
    "a": "JOTO",
    "have": "TIMEOUT https://www.timeout.com/tokyo/things-to-do/tower-hall-funabori; Wikidata Q85872174 coords 35.684389,139.864861",
    "need": "2nd"
+  },
+  {
+   "n": "Fukagawajuku (Fukagawa-meshi)",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/fukagawajuku-tomioka-hachiman-branch + https://www.timeout.com/tokyo/restaurants/best-fukagawa-meshi-in-tokyo (bukkake + takikomi Fukagawa-meshi)",
+   "need": "2nd non-Time-Out source + pin (Wikidata none) — geocode-helper"
+  },
+  {
+   "n": "Kichijoji Satou (maru menchi)",
+   "a": "TAMA",
+   "have": "GOTOKYO comfort-food story https://www.gotokyo.org/en/story/guide/japanese-comfort-food/index.html; japan-guide Kichijoji e3080 (mention unconfirmed)",
+   "need": "pin (Wikidata none) — geocode-helper"
+  },
+  {
+   "n": "Funabashiya Kameido (kuzumochi)",
+   "a": "SMKT",
+   "have": "Wikidata Q11614131 (company, no shop pin); TIMEOUT Funabashiya Koyomi (branch)",
+   "need": "main-shop pin + 2nd source"
   }
  ]
 }
