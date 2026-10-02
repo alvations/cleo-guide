@@ -58,12 +58,11 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- W4G5 (Kerama/Miyako pins, worklist `_okinawa_geo_todo_W4G5.json`, output `geo/_geoout_okinawa_W4G5.json`) — last ~12 searches.
-  If cut off: rebuild and commit whatever landed.
+- none (W4 closed; W4G5 added 3 NAVITIME pins → 130 pinned).
 
 - 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
-  **258 discovered (128 sights + 130 food & drink = 50 % food), 127 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
-  NANBU 21 · HOKBU 34 · KRM 4 · MYK 9 · YAEYA 17. ANIME 6 (+Cape Chinen/Aquatope, Okitsura Gushikawa). 4 gates PASS,
+  **258 discovered (128 sights + 130 food & drink = 50 % food), 130 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
+  NANBU 21 · HOKBU 34 · KRM 5 · MYK 11 · YAEYA 17. ANIME 6 (+Cape Chinen/Aquatope, Okitsura Gushikawa). 4 gates PASS,
   validate + test ALL PASS. Card stat + CITIES.md refreshed; **not live** (go-live bar: ≥150 pins, every area ≥10).
   Geocoders: W4G1 sights 15/31 (11 high JA-Wikipedia), W4G2 Naha/Chūbu food 2/39, W4G3 south/north food 10/30 (aggregator
   coords → `low`, AUDIT policy), W4G4 islands food 1/25. Discovery: W4D1 Naha +12 (Ukishima → held), W4D2 Chūbu/Nanbu +11,
@@ -83,7 +82,7 @@ CHUBU food is only 41 % → next Chūbu discovery is food-only.
 
 ## Next actions (W5 plan, ordered)
 W5 lessons (W4): restaurant GPS almost never surfaces in search → (a) **browser `tools/geocode-helper.html` run on the 132
-UNVERIFIED is the fastest way to ~250 pins / go-live**; (b) in search, the only productive patterns were extended-mode ONE name per
+UNVERIFIED is the fastest way to ~250 pins / go-live**; (b) in search, `site:travel.navitime.com <日本語名> 緯度 経度` (med, one page per point) plus the only other productive patterns were extended-mode ONE name per
 query: `<日本語名> wikipedia 座標` (sights, high) and `<name> tripadvisor latitude longitude` (restaurants → `low`, must match the
 sourced address); Stripes `GPS` searches rarely hit. (c) Discovery: most Naha list leads were single-source — pair Rurubu ↔ Mapple ↔
 Okinawa Traveler deliberately; held leads per agent are in `_okinawa_W4D*_notes.md`. (d) Re-verify the 13 `low` pins to `!3d!4d`.
