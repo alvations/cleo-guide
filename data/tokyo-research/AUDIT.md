@@ -397,3 +397,13 @@ geocheck after build: high 403 · med 36 · **low 0** → nothing to upgrade.
 discovered); UNVERIFIED held 113; sourcecheck PASS (552, 118 lone authority) · geocheck PASS · statuscheck CONSISTENT
 (0 unchecked, 1 closed) · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS. Japan hub CARD:tokyo,
 root CARD:japan, CITIES.md row refreshed (Tokyo marked **DENSE**).
+
+### W7 addendum — pin batch 3 + final build
++2 pins: Pokémon Café (med — 日本橋髙島屋三井ビルディング article; café on 5F of the adjoining East Building,
+2-11-2 Nihonbashi) and Ladrio (high — ラドリオ article; address 1-3 Kanda-Jimbōchō). Single-article and 3-name queries
+for 空也, うさぎや, さぼうる, ホッピー通り, 有楽町ガード下, 三角地帯, まんだらけ, 你好, Starbucks Roastery, 亀戸餃子,
+東京ラーメンストリート returned no venue coordinate (only district/station centroids — rejected). Pin channel exhausted for
+WebSearch. **W7 pins total 26 (high 16 · med 10).**
+Final build: **552 discovered / 441 rendered (260 sights + 181 food); UNVERIFIED 111**; placement high 404 · med 37 · low 0;
+4 gates PASS; validate DATA OK; npm test ALL PASS; density all 13 OK; cards + CITIES.md refreshed (DENSE).
+Searches this session: ~75 (discovery/corroboration ~30, pins ~45).

@@ -476,3 +476,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   published coordinate at **med** confidence with a note — never a neighbourhood centroid.
 - Year-end closure round-ups (SF Standard "saddest closures of 2025", Chronicle "restaurants that closed in 2025") are a
   cheap 1-search closure sweep across the whole dataset.
+
+## 2026-10-02 — Tokyo W7 (finishing pass)
+- Closed the last 7 NEED areas food-first (Kameido Gyoza, Kamata hanetsuki gyoza at Hoanyon, Bear Pond, Tsunahachi, noura, two Meguro Bibs) + anime statues/pilgrimages (Captain Tsubasa Yotsugi, Whisper of the Heart Seiseki-Sakuragaoka, Oizumi Anime Gate). Municipal tourism sites (Ōta 'Unique Ota', Visit Sumida) are good second sources for ward-canon food.
+- Pinning: ja.wikipedia `座標` 3-name queries are the only productive WebSearch pin channel left for Tokyo (18 pins); beware coordinate cross-contamination in the summary (see AGENT-PROMPTS lessons). Dead ends measured: Google `!3d!4d` for kissaten/bars, Michelin venue pages (no coords in summary), Apple Maps / OSM node pages.
+- Allpress Espresso Tokyo Roastery (Kiyosumi) closes autumn 2026 → not added.
+
