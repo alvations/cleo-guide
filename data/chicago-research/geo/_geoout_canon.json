@@ -1,0 +1,233 @@
+[
+ {
+  "n": "Al's #1 Italian Beef",
+  "address": "1079 W Taylor St, Chicago, IL 60607",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Time Out Chicago (timeout.com/chicago/restaurants/als-1-italian-beef) confirms address 1079 W Taylor St (between Carpenter & Aberdeen); no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Time Out Chicago / Chicago Magazine listings in 2026-10-02 search results present it as operating; no closure reported (no dated 2025-26 confirmation)",
+  "note": "address confirmed; no sourced coordinate on single search"
+ },
+ {
+  "n": "Johnnie's Beef",
+  "address": "7500 W North Ave, Elmwood Park, IL 60707",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Visit Oak Park (explore.visitoakpark.com/eat-drink/johnnies-beef), Infatuation confirm 7500 W North Ave; no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Visit Oak Park / Tasting Table listing (search 2026-10-02) shows current hours Mon-Fri 11am-11:59pm; no closure reported",
+  "note": "address confirmed; no sourced coordinate"
+ },
+ {
+  "n": "Pequod's Pizza",
+  "address": "2207 N Clybourn Ave, Chicago, IL 60614",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: official pequodspizza.com/chicago/pequods-chicago-directions confirms 2207 N Clybourn Ave; no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Official site pequodspizza.com live with Chicago directions page (search 2026-10-02); no closure reported",
+  "note": "address confirmed by official site"
+ },
+ {
+  "n": "Lou Malnati's Pizzeria (River North)",
+  "address": "439 N Wells St, Chicago, IL 60654",
+  "lat": 41.890076,
+  "lng": -87.63401,
+  "geoSource": "https://www.findlatitudeandlongitude.com/r/439+N+Wells+St%2C+Chicago%2C+IL%2C+USA/574101/ — address-geocode page for 439 N Wells St showed 41.890076, -87.63401 (street-address geocode, not a business place pin)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "Choose Chicago listing (choosechicago.com/listing/lou-malnatis-pizzeria-chicago-river-north) in 2026-10-02 search; no closure reported",
+  "note": "address geocode, consistent with Wells between Hubbard & Illinois; upgrade to place pin if possible"
+ },
+ {
+  "n": "George's Deep Dish",
+  "address": "6221 N Clark St, Chicago, IL 60660",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Infatuation/Time Out confirm 6221 N Clark St; no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "Infatuation/Time Out listings present in search 2026-10-02 but no dated 2025-26 open confirmation",
+  "note": "address confirmed"
+ },
+ {
+  "n": "Milly's Pizza in the Pan",
+  "address": "1005 W Argyle St, Chicago, IL 60640",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: ABC7 Chicago (abc7chicago.com/millys-pizza-in-the-pan-chicago-uptown/12283408/), Infatuation, Loyola Phoenix place Milly's at 1005 W Argyle St (Uptown/Edgewater); no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Food Republic piece (foodrepublic.com/2194048) describes it selling out daily; ABC7 Uptown coverage; no closure reported in 2026-10-02 search",
+  "note": "ADDRESS CORRECTED: input '1005 N Western Ave' is wrong; sources give 1005 W Argyle St (Uptown)"
+ },
+ {
+  "n": "Vito & Nick's Pizzeria",
+  "address": "8433 S Pulaski Rd, Chicago, IL 60652",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: WTTW Check Please (checkplease.wttw.com/restaurants/vito-nick-s) confirms 8433 S Pulaski; only nearby-address geocodes in results (not used)",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Spotted by Locals entry dated Apr 6, 2025 (spottedbylocals.com/chicago/vito-nicks) presents it as operating",
+  "note": "address confirmed"
+ },
+ {
+  "n": "Pat's Pizza & Ristorante",
+  "address": "638 W Diversey Pkwy, Chicago, IL 60614",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Time Out Chicago (timeout.com/chicago/restaurants/pats-pizza-and-ristorante) lists 2679 N Lincoln Ave, 60614 — conflicts with input 638 W Diversey; no coordinate",
+  "confidence": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "No dated 2025-26 status evidence in search; Time Out listing may be stale",
+  "note": "ADDRESS CONFLICT: Time Out gives 2679 N Lincoln Ave; input 638 W Diversey Pkwy kept pending verification of which is current"
+ },
+ {
+  "n": "Pizz'amici",
+  "address": "1215 W Grand Ave, Chicago, IL 60642",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Food Republic (foodrepublic.com/2124515), NBC Chicago, Time Out (timeout.com/chicago/restaurants/pizzamici), Axios Nov 25 2024 place it at 1215 W Grand Ave, West Town; no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Food Republic / NBC Chicago 'toughest reservation' coverage (opened Nov 2024; Wed-Sun 4-9pm); no closure reported in 2026-10-02 search",
+  "note": "ADDRESS CORRECTED: input '1600 W Chicago Ave' wrong; sources give 1215 W Grand Ave (zip not stated in results — 60642 assumed, verify)"
+ },
+ {
+  "n": "Middle Brow Bungalow",
+  "address": "2840 W Armitage Ave, Chicago, IL 60647",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Spotted by Locals (spottedbylocals.com/chicago/middlebrow, dated Jul 27 2025) describes Bungalow by Middle Brow, Logan Square; street number not shown in result summary; no coordinate",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Spotted by Locals entry dated Jul 27, 2025 presents it as operating",
+  "note": "address not independently confirmed in result text"
+ },
+ {
+  "n": "Superdawg Drive-In",
+  "address": "6363 N Milwaukee Ave, Chicago, IL 60646",
+  "lat": 41.996763,
+  "lng": -87.78706,
+  "geoSource": "https://en.wikipedia.org/wiki/Superdawg — Wikipedia infobox coordinates 41°59′48″N 87°47′13″W / 41.996763, -87.78706 (Milwaukee/Devon/Nagle)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Wikipedia + Time Out/Spotted by Locals listings in 2026-10-02 search describe it as operating since 1948; no closure reported (no dated 2025-26 confirmation)",
+  "note": "address confirmed by Wikipedia"
+ },
+ {
+  "n": "Gene & Jude's",
+  "address": "2720 N River Rd, River Grove, IL 60171",
+  "lat": 41.93005,
+  "lng": -87.84661,
+  "geoSource": "https://en.wikipedia.org/wiki/Gene_%26_Jude%27s — Wikipedia coordinates 41°55′48″N 87°50′48″W / 41.93005, -87.84661",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Official site geneandjudes.com live with news page (search 2026-10-02); no closure reported",
+  "note": "official address is 2720 N River Rd (adds 'N')"
+ },
+ {
+  "n": "Wolfy's",
+  "address": "2734 W Peterson Ave, Chicago, IL 60659",
+  "lat": 41.99077,
+  "lng": -87.6985569,
+  "geoSource": "https://www.latlong.net/poi/wolfy-s-573542 — latlong.net POI 'Wolfy's Fast Food', 2734 W Peterson Ave, Chicago 60659: 41.9907700, -87.6985569",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Uber Eats store page + Time Out listing present in 2026-10-02 search; no closure reported (no dated 2025-26 confirmation)",
+  "note": "address confirmed by latlong.net POI"
+ },
+ {
+  "n": "Redhot Ranch (Bucktown)",
+  "address": "2449 W Armitage Ave, Chicago, IL 60647",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Wikipedia (en.wikipedia.org/wiki/Redhot_Ranch) and Infatuation confirm 2449 W Armitage Ave; no coordinate shown in result text",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Wikipedia/Infatuation in 2026-10-02 search describe it as one of three operating locations; no closure reported",
+  "note": "address confirmed; Wikipedia article exists — coords may be on it but not shown"
+ },
+ {
+  "n": "Byron's Hot Dogs",
+  "address": "1017 W Irving Park Rd, Chicago, IL 60613",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Time Out (timeout.com/chicago/restaurants/byrons-hot-dogs), MenuPages confirm 1017 W Irving Park Rd; no coordinate in results",
+  "confidence": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "DNAinfo May 31 2017 reported reopening after a fire; no dated 2025-26 evidence in search",
+  "note": "address confirmed; 2017 fire closure then reopened — current status needs check"
+ },
+ {
+  "n": "Fat Johnnie's Famous Red Hots",
+  "address": "7242 S Western Ave, Chicago, IL 60636",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Infatuation (theinfatuation.com/chicago/reviews/fat-johnnies-famous-red-hots) confirms 7242 S Western Ave; no coordinate",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Cozymeal '15 Favorite Hot Dogs in Chicago for 2025' (cozymeal.com/magazine/hot-dogs-chicago) lists it as operating",
+  "note": "address confirmed"
+ },
+ {
+  "n": "Lem's Bar-B-Q",
+  "address": "311 E 75th St, Chicago, IL 60619",
+  "lat": null,
+  "lng": null,
+  "geoSource": "WebSearch 2026-10-02: Wikipedia (en.wikipedia.org/wiki/Lem%27s_Bar-B-Q) confirms 311 E 75th St; no coordinate shown in result text",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Axios Chicago Jun 17 2025 / Sun-Times Jun 11 2025 / Fox32: named 2025 James Beard America's Classic — operating",
+  "note": "address confirmed; James Beard America's Classics 2025"
+ },
+ {
+  "n": "Sun Wah Bar-B-Q",
+  "address": "5039 N Broadway, Chicago, IL 60640",
+  "lat": 41.973972,
+  "lng": -87.659583,
+  "geoSource": "https://en.wikipedia.org/wiki/Sun_Wah_BBQ — Wikipedia coordinates 41°58′26.3″N 87°39′34.5″W / 41.973972, -87.659583",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Wikipedia/Time Out/Food Network listings in 2026-10-02 search; no closure reported (no dated 2025-26 confirmation)",
+  "note": "address confirmed by Wikipedia"
+ },
+ {
+  "n": "The Berghoff",
+  "address": "17 W Adams St, Chicago, IL 60603",
+  "lat": 41.879306,
+  "lng": -87.628389,
+  "geoSource": "https://en.wikipedia.org/wiki/The_Berghoff_(restaurant) — Wikipedia coordinates 41°52′45.5″N 87°37′42.2″W / 41.879306, -87.628389",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Choose Chicago listing + OpenTable profile + Open House Chicago site in 2026-10-02 search; no closure reported (no dated 2025-26 confirmation)",
+  "note": "address confirmed by Wikipedia"
+ },
+ {
+  "n": "Calumet Fisheries",
+  "address": "3259 E 95th St, Chicago, IL 60617",
+  "lat": 41.7226369,
+  "lng": -87.5439847,
+  "geoSource": "https://en.wikipedia.org/wiki/Calumet_Fisheries — Wikipedia coordinates 41°43′21″N 87°32′38″W / 41.7226369, -87.5439847 (beside 95th St bridge)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Unearth the Voyage feature on 'Chicago's last wood-fire fish shack' + listings in 2026-10-02 search; no closure reported (no dated 2025-26 confirmation)",
+  "note": "address confirmed by Wikipedia; James Beard America's Classic"
+ },
+ {
+  "n": "Billy Goat Tavern",
+  "address": "430 N Michigan Ave (lower level), Chicago, IL 60611",
+  "lat": 41.890284,
+  "lng": -87.624488,
+  "geoSource": "https://en.wikipedia.org/wiki/Billy_Goat_Tavern (Wikipedia/GeoHack published coordinates)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants (current 2025-26 listing)",
+  "note": "Wikipedia published coordinates"
+ }
+]

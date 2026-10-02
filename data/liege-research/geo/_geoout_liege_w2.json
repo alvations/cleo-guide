@@ -188,5 +188,86 @@
   "geoSource": "trek.zone/Sygic POI 'Le Perron' 50.6455419, 5.5757332",
   "status": "open",
   "statusSource": "visitezliege.be — public square"
+ },
+ {
+  "n": "Palais des Princes-Évêques",
+  "address": "Place Saint-Lambert, 4000 Liège, Belgium",
+  "lat": 50.6462,
+  "lng": 5.57345,
+  "confidence": "high",
+  "geoSource": "Wikipedia — Palace of the Prince-Bishops (Liège) 50°38′46.32″N 5°34′24.42″E",
+  "status": "open",
+  "statusSource": "Palais de Justice — first courtyard publicly accessible (visitezliege)"
+ },
+ {
+  "n": "Collégiale Saint-Barthélemy",
+  "address": "Place Saint-Barthélemy, 4000 Liège, Belgium",
+  "lat": 50.6479,
+  "lng": 5.5828,
+  "confidence": "high",
+  "geoSource": "latitude.to (Wikipedia-derived) — Collegiate Church of St. Bartholomew 50°38′52.44″N 5°34′58.08″E",
+  "status": "open",
+  "statusSource": "walloniabelgiumtourism — church & fonts visitable"
+ },
+ {
+  "n": "Musée d'Ansembourg",
+  "address": "En Féronstrée, 4000 Liège, Belgium",
+  "lat": 50.64698,
+  "lng": 5.58216,
+  "confidence": "high",
+  "geoSource": "Wikipedia — Ansembourg Museum 50°38′49″N 5°34′56″E",
+  "status": "open",
+  "statusSource": "debue.wallonie.be — restoration works 2023 (museum pages); verify reopening",
+  "statusChecked": "2026-10-02"
+ },
+ {
+  "n": "Musée des Transports en commun de Wallonie",
+  "address": "Rue Richard Heintz 9, 4020 Liège, Belgium",
+  "lat": 50.62902,
+  "lng": 5.583283,
+  "confidence": "med",
+  "geoSource": "automuseums.info listing coords 50.62902, 5.5832828",
+  "status": "open",
+  "statusSource": "erih.net — museum listing live"
+ },
+ {
+  "n": "Grottes de Remouchamps",
+  "address": "Remouchamps, Aywaille, Belgium",
+  "lat": 50.480043,
+  "lng": 5.712017,
+  "confidence": "high",
+  "geoSource": "Wikipedia — Cave of Remouchamps 50.480043, 5.712017",
+  "status": "open",
+  "statusSource": "lesgrottes.be — 2024 education dossier, show cave operating"
+ },
+ {
+  "n": "Cascade de Coo",
+  "address": "Coo, Stavelot, Belgium",
+  "lat": 50.393496,
+  "lng": 5.87674,
+  "confidence": "med",
+  "geoSource": "wikiloc waypoint 'Cascade de Coo' 50.393496, 5.876740",
+  "status": "open",
+  "statusSource": "rtbf.be — public natural site"
+ },
+ {
+  "n": "Château de Franchimont",
+  "address": "Theux, Belgium",
+  "lat": 50.527673,
+  "lng": 5.824241,
+  "confidence": "high",
+  "geoSource": "Wikipedia — Franchimont Castle 50°31′40″N 5°49′27″E",
+  "status": "open",
+  "statusSource": "chateau-franchimont.be — visits"
+ },
+ {
+  "n": "Signal de Botrange",
+  "address": "Signal de Botrange, Waimes, Belgium",
+  "lat": 50.50167,
+  "lng": 6.09278,
+  "confidence": "high",
+  "geoSource": "Wikipedia — Botrange 50°30′06″N 6°05′34″E",
+  "status": "open",
+  "statusSource": "public summit/nature reserve"
  }
 ]

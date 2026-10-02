@@ -41,7 +41,15 @@ SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is
 JOTO 1, KANTO 2.
 
 ## In-flight wave
-**W3 (2026-10-02, continuation):** executing the W3 plan below in order. Files: `FOOD_TOKYO_W3.json`, `SIGHTS_TOKYO_W3.json`, `geo/_geoout_tokyo_w3.json`, `_addrcheck_w3.json`. Search count W3: 14 (held queue + Michelin pin retries).
+**W3 (2026-10-02, continuation):** steps 2, 4, 5, 6 DONE; steps 1 & 3 partially. Last full build: **347 discovered /
+342 rendered (224 sights + 118 food)**, all 4 gates green, validate + npm test pass, hub card refreshed. Files:
+`FOOD_TOKYO_W3.json`, `SIGHTS_TOKYO_W3.json`, `geo/_geoout_tokyo_w3.json`, `_addrcheck_w3.json` (per-sight address
+result + URL), `_addrmark.py` (records address results). Search count W3: ~95.
+Still UNVERIFIED (5, need `tools/geocode-helper.html`): Tempura Abe Honten (Michelin page shows Bib 2021 only), Afuri
+Ebisu, Tamahide, Iseya Kichijōji, Amazake-chaya. Held queue `_pending_w2.json`: 27 items (Edo-Tokyo + Shitamachi cleared).
+**Next:** keep running food density (SBY, SJK, TAITO, CHUO, JOSAI, SMKT, JONAN, TAMA, JOTO) via Michelin venue
+pages (3 exact names + "Michelin restaurant page latitude longitude coordinates"; if coords drop, retry the name
+alone) and sights for SBY/SJK/JONAN/JOSAI via GO TOKYO spot pages + Wikipedia coords.
 
 ## Next wave (W3) — exact plan, in order
 1. **Clear the held queue first** (`_pending_w2.json`, 39 items): most need ONE more source or ONE pin. Use the
@@ -71,4 +79,4 @@ JOTO 1, KANTO 2.
 
 ## Acceptance
 - [ ] every area ≥ target (KANTO 34/35 closest) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT
-- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row · [ ] address-verify pass
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row · [x] address-verify pass (W3: 130 verified · 8 fixed · 55 coarsened · 29 locality-only)
