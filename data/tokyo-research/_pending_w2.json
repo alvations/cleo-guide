@@ -74,12 +74,6 @@
    "need": "coords (try wikidata)"
   },
   {
-   "n": "Shinjuku Suehirotei",
-   "a": "SJK",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/theatre/suehirotei; Wikidata Q11501852 coords 35.691167,139.705806; JAPANTIMES rakugo book review 2008 (mention unconfirmed)",
-   "need": "2nd"
-  },
-  {
    "n": "Komachi-dori Kamakura",
    "a": "KANTO",
    "have": "Wikidata Q65263822 coords 35.32153,139.55232",
@@ -104,16 +98,10 @@
    "need": "coords"
   },
   {
-   "n": "Gyosen Park",
-   "a": "JOTO",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/museums/gyosen-park; Wikidata Q11626195 coords 35.671,139.8584",
-   "need": "2nd"
-  },
-  {
    "n": "Senzokuike Park",
    "a": "JONAN",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/379/",
-   "need": "coords + 2nd"
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/379/; Wikidata Q11555793 Senzoku-ike P625 35.601611,139.690333",
+   "need": "2nd source"
   },
   {
    "n": "Blue Bottle Coffee Kiyosumi-Shirakawa",
@@ -126,18 +114,6 @@
    "a": "KANTO",
    "have": "WIKIPEDIA + JAPANGUIDE https://www.japan-guide.com/e/e3204.html",
    "need": "pin — returned 35.2644,139.3859 is ~25 km off (REJECTED)"
-  },
-  {
-   "n": "Natsume Soseki Memorial Museum",
-   "a": "SJK",
-   "have": "Wikidata Q24862403 coords 35.709444,139.729167",
-   "need": "2 sources"
-  },
-  {
-   "n": "Akagi Shrine",
-   "a": "SJK",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/attractions/akagi-shrine",
-   "need": "pin (returned point = Kagurazaka district, rejected) + 2nd"
   },
   {
    "n": "Harajuku Gyoza Rou",
