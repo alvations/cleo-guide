@@ -434,3 +434,16 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - **Same name ≠ same restaurant:** the Michelin "wabiya" (Shimogyō) is not Gion's "Wabiya Korekidō", and Savor Japan's
   "Wabiya Korekido" listing is an Osaka branch. Check the venue address before merging sources.
 - Tabelog 百名店 list queries return image pages, not names — skip them; Japanese pickles/tsukemono queries returned only generic pages.
+
+### 2026-10-02 — San Francisco modernisation (lessons)
+- **Michelin venue pages carry the place pin.** A `guide.michelin.com`-restricted WebSearch naming 4 venues +
+  "latitude longitude" returns each venue page's address AND lat/lng (≈4 pins/search; ~half the batches need one
+  retry). Bounding-box sanity checks must cover the whole region (San Mateo is lng −122.32 — a −122.35 cut wrongly
+  rejected 4 good pins). It also re-verifies old address-level pins: Yank Sing's was 176 m off.
+- **ZIP-code sweeps** (`"Michelin Guide restaurant San Francisco 941xx"`, domain-filtered) list 4–9 venues per search
+  with the guide's own address + cuisine — the most efficient lone-authority discovery channel; it saturates after
+  ~25 ZIP/cuisine queries for SF.
+- **A Michelin page is not open-proof**: Café Jacqueline (closed) and several legacy-format pages
+  (`/us/san-francisco/<slug>/restaurant`) persist — treat legacy-format URLs as "listing not confirmed current".
+- Multi-name queries for names that lack a Wikipedia/Michelin page make the search tool fan out into several
+  internal searches — query only names you expect to resolve.
