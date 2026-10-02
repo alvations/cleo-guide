@@ -100,3 +100,13 @@
 99 NT ten best pastelitos (Pastelmania, Vicky, Lucerne, Versailles, Karla, El Brazo Fuerte; Ricky, La Nueva Fe, Breadman) → 3 added
 100 Infatuation 20 iconic Miami dishes (Fritanga Caña Brava, Piononos, Miracle Fry conch fritters, El Rey de las Fritas, B&M roti, Sanguich, A.C.'s Icees, Zak, Islas Canarias, Knaus Berry Farm, Ricky, La Uchireña, Flanigan's Grove, Chef Creole, Versailles, Graziano's)
 101 NT Knaus Berry Farm / A.C.'s Icees / B&M → 2 added
+102 Infatuation North Miami / NMB / 163rd St / North Beach guides (Barra Callao, King Palace, Korean Kitchen, Panya Thai, Lutong Pinoy, Farofa, Mutra, Edan Bistro, Bon Bagay, Boteco do Manolo…)
+103 NT ten best NMB (Panya Thai #3, King Palace #5, Korean Kitchen) → 3 added
+104 NT ten best North Miami (Steve's Pizza, Cane a Sucre, Petit Rouge, Vega's, Little Havana, Fish Fish, Cheen-Huaye, Bulldog BBQ, Ricky's Thai, Captain Jim's) → 2 added
+105 GMCVB Sunny Isles/Aventura (Newport Pier, Sunny Isles Beach, Aventura Mall Slide Tower) → 3 sights (SIGHTS_S6)
+106 Everglades City food (Fodor's Everglades + Sarasota Magazine 'Glades Grub' + visitevergladescity: Havana Café, Camellia Street Grill, Triad) → 3 added
+107 NT Homestead/Florida City [3 sub-searches] (Rosita's, Shiver's Best BBQ 2025/2013/2003, Capri, Mutineer, Mario's, Casita Tejas, El Santo Coyote, Chefs on the Run)
+108 Fodor's Homestead/Florida City/Everglades City → 5 intersections added
+109 Infatuation Downtown listings (Tâm Tâm, ViceVersa, Over Under, Miami Slice, Café Fenicia, Manolo & Rene, Right Hand, Cotoita, Garcia's, Jolene Sound Room…)
+110 Time Out Brickell + downtown (LPM, NAOE, Felice, Claudie, Zeru, River Oyster Bar, Kaori, Delilah, Lafayette; Zuma, Area 31, Seaspice, Il Gabbiano) → Claudie, Kaori (∩ NT Required Eating)
+111 Time Out things to do Downtown (23) + Brickell (17) → 5 sights + La Sandwicherie, Jaguar Sun

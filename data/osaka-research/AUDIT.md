@@ -141,3 +141,19 @@ Wiens video search (use migrationology.com domain instead — works). Creator ch
 ~11M YouTube) — attached to Yoshinosushi; his guide also names Kogaryu, Kushikatsu Daruma, Endo Sushi, Ramen Yashichi.
 Restaurant pins for non-Michelin W3M places: UNVERIFIED (no place pin surfaced) → geocode helper.
 Mid-wave rebuild: 293 discovered; 4 gates PASS; validate + npm test PASS.
+
+**W3 close-out:** W3C +41 sights (held back Nanshū-ji, Mizuma-dera → `_held_W3C.json`: their OSAKA-INFO pages did not name
+them; Osaka Museum of Housing and Living card notes renovation closure until 2027-01-05). W3F +5 (Daiko Sushi, Tsuruhashi
+Fugetsu, Minoh Beer WAREHOUSE, Kanbukuro, Kappo Matsuya — SERAI (Shogakukan) accepted as a national magazine), all pins
+UNVERIFIED; stopped at the cap. W3G (MINAM editorial) partial. Session hit **200/200 searches**.
+**Final build:** 319 discovered (114 sights + 205 food, 64% food), 266 rendered (104 + 162); sourcecheck PASS, geocheck PASS,
+statuscheck CONSISTENT, buildcheck PASS; validate + npm test PASS. ANIME 10. Channel mix W3: Michelin 64 · editorial/
+official (Time Out, OSAKA-INFO, Inside Osaka, LP, japan-guide, Feel Kobe, Visit Hyogo, Wikipedia, Asia's 50 Best, World's
+100 Best Coffee Shops, Netflix) ~70 · creators 1 (Mark Wiens, 3 attachments).
+W3G (MINAM editorial, 13 searches before the cap): +10 — Meoto Zenzai, Kani Doraku Dōtonbori Honten, Kinryu Ramen,
+Harijyu (high pin, jawiki), Dōtonbori Kamukura, Kinguemon Dōtonbori (promoted), Chitose (nikusui birthplace), Rikuro
+Ojisan Namba Honten, Takoya Dōtonbori Kukuru, Bible Club Osaka (promoted). Caveats to re-verify next wave: Meoto Zenzai's
+2nd source is the ja.wikipedia 夫婦善哉 page (may be the novel/disambiguation, weakest link); the Time Out Dōtonbori guide
+URL for Kani Doraku/Harijyu/Kukuru came from a search summary. Held (single-source): Dotonbori Akaoni (Bib 2016–18 lapsed),
+Takotako King, Daitako, Tiger Lily, Winestand Perche, Stand Umineko, Bar Jazz, Ajinoya, Shimauchi Fujimaru Brewery,
+Sennariya, Kurogin Maguroya.
