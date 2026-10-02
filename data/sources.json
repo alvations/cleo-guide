@@ -2438,6 +2438,22 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_EDITORIAL",
+          "name": "MICHELIN_EDITORIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TASTINGTABLE",
+          "name": "TASTINGTABLE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [],
@@ -12457,9 +12473,84 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ASIA50",
+          "name": "ASIA50",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "ATLASOBSCURA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CREATOR_MARKWIENS",
+          "name": "CREATOR_MARKWIENS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "DAILYSPORTS",
+          "name": "DAILYSPORTS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "HYOGOTOURISM",
+          "name": "HYOGOTOURISM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NETFLIX",
+          "name": "NETFLIX",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SILICONERA",
+          "name": "SILICONERA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WORLD100COFFEE",
+          "name": "WORLD100COFFEE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "CREATOR_MARKWIENS",
+          "name": "Mark Wiens (Migrationology)",
+          "platform": "YouTube + blog",
+          "handle": "@MarkWiens",
+          "url": "https://migrationology.com/osaka-food-guide-japan/",
+          "scale": "~11M YouTube subscribers",
+          "niche": "street food / food travel",
+          "credible": "one of the most-followed food-travel creators worldwide; long-running blog with specific named-venue Osaka posts (food guide, Kushikatsu Daruma, Kuromon, Harukoma)"
+        }
+      ]
     },
     "orlando-fl": {
       "name": "orlando-fl",
