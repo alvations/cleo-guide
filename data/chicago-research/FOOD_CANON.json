@@ -125,15 +125,15 @@
  },
  {
   "t": 1,
-  "a": "NW",
+  "a": "NORTH",
   "cz": [
    "Pan Pizza",
    "Deep-Dish"
   ],
   "dish": "Pan pizza with a caramelized crust",
   "n": "Milly's Pizza in the Pan",
-  "address": "1005 N Western Ave, Chicago, IL 60622",
-  "w": "Pandemic-born West Town pan-pizza shop in the Pequod's lineage — #2 on Time Out's citywide pizza ranking and on the Infatuation deep-dish list.",
+  "address": "1005 W Argyle St, Chicago, IL 60640",
+  "w": "Pandemic-born Uptown pan-pizza shop in the Pequod's lineage — #2 on Time Out's citywide pizza ranking and on the Infatuation deep-dish list.",
   "closed": false,
   "sources": [
    [
@@ -209,7 +209,7 @@
   ],
   "dish": "Tavern-style pies on a six-day fermented sourdough crust",
   "n": "Pizz'amici",
-  "address": "1600 W Chicago Ave, Chicago, IL 60622",
+  "address": "1215 W Grand Ave, Chicago, IL 60642",
   "w": "Tiny West Town pizzeria in a former barbershop from veteran Chicago pizza makers — #3 on Time Out's citywide ranking, #1 on Chowhound's tavern list and an Esquire Best New Restaurant 2025.",
   "closed": false,
   "sources": [
@@ -285,7 +285,7 @@
   ],
   "dish": "The Depression dog (mustard, onion, relish, sport peppers) buried in fresh-cut fries — no ketchup",
   "n": "Gene & Jude's",
-  "address": "2720 River Rd, River Grove, IL 60171",
+  "address": "2720 N River Rd, River Grove, IL 60171",
   "w": "River Grove stand (1946; here since 1950) — no seats, no ketchup; the gold standard of the Depression dog on both the Infatuation and Time Out hot-dog lists.",
   "closed": false,
   "sources": [
@@ -660,5 +660,28 @@
     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
    ]
   ]
+ },
+ {
+  "t": 1,
+  "a": "LOOP",
+  "n": "Billy Goat Tavern",
+  "address": "430 N Michigan Ave (lower level), Chicago, IL 60611",
+  "w": "Lower Michigan Avenue newspapermen's tavern since 1934 — 'cheezborger, cheezborger, no Pepsi, Coke' of SNL fame and the Cubs' goat curse.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Billy_Goat_Tavern"
+   ]
+  ],
+  "cz": [
+   "Burgers",
+   "Tavern"
+  ],
+  "dish": "",
+  "closed": false
  }
 ]
