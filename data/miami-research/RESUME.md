@@ -24,7 +24,9 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- none (session 2 ended cleanly at the WebSearch budget: ~67 discovery + 101 geocode calls).
+- **Session 3 wave F5/S6 (in progress):** food-first discovery into `FOOD_F5.json` (+ `SIGHTS_S6.json`), every NEED area,
+  FTL first; background geocode subagent → `geo/_geoout_w4.json` (23 unpinned sights + notable restaurants, ≤30 searches).
+  Search log continues in `_miami_searchlog.md` (§ Session 3). Restaurant pin probes via WebSearch: 4 tries, 0 coords (dead).
 
 ## State
 - 2026-10-02 session 2 — **LIVE (growing)**: 166 discovered (all sourcecheck PASS, 31 on a lone authority) →

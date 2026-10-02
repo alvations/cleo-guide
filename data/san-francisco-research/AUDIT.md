@@ -130,3 +130,20 @@ the 2026 star list (sfist 2026-06-25). Status = current Michelin listing (checke
   Center, med), Yerba Buena Gardens, Chase Center, Sutro Heights Park, Lyon Street Steps, Tank Hill, Seward Street
   Slides, Blue Heron (Stow) Lake. Sources: SF Travel / NPS / AFAR / Mental Floss + Wikipedia. Held single-source:
   SF Columbarium, Vulcan Stairway (Mental Floss only); City Hall / Old Mint (Wikipedia only so far).
+- SE wave (searches 59–62): `SIGHTS_W3A` +4 — Crane Cove Park, Heron's Head Park (pin = 3-decimal Wikipedia coords →
+  med), Bayview Opera House, India Basin Shoreline Park (unpinned). Bayview food: **Auntie April's found CLOSED**
+  (Infatuation) → not added; Gumbo Social (5176 3rd St), Old Skool Cafe (1429 Mendell St), Limon Rotisserie,
+  Bayview Oyster Bar held — only one clearly-attributable credible source each (Infatuation).
+- James Beard channel (searches 63–66; axios 2026-01-23 + 2025-01-22 semifinalist lists = award source, lone-OK):
+  `FOOD_W3C.json` +5 — Ernest, Dalida (both pinned from Michelin venue pages), Lunette, House of Prime Rib, The
+  Valley Club. JB 2026 semifinalist award entries added to existing Foreign Cinema (now properly sourced — replaces
+  the self-claim), Smuggler's Cove, PCH, The Progress, The Morris, Nightbird, Sons & Daughters, Mijoté, Quince,
+  State Bird Provisions (re-rank evidence). Held: The Happy Crane, The Anchovy Bar (no address found).
+- **Pin agent A** (18 searches): 56/61 Michelin pins; +4 San Mateo pins it withheld only because MY bounding box was
+  too tight (lng −122.35; San Mateo is −122.32) — addresses matched → accepted high; Nari pin returned twice from its
+  venue page without an address echo → med. A16's JOINPEARL (aggregator) source replaced by its Michelin Bib page.
+
+## Stage 6 — BUILD #1 of this run (2026-10-02)
+`rebuild-city.py san-francisco-ca --build`: **235 researched → 218 rendered (65 sights + 153 food)** (was 141).
+sourcecheck PASS 235/235 (57 on a lone Michelin/JB authority) · geocheck PASS · statuscheck CONSISTENT · buildcheck
+PASS · npm validate DATA OK · npm test ALL PASS. 17 held UNVERIFIED (gate drops them). Card + CITIES row refreshed.
