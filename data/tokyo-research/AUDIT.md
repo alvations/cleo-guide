@@ -241,3 +241,20 @@ New outlets (SOURCES_TOKYO_W5.json): WORLD50, MONOCLE, PUNCH, TOKYOWEEKENDER, ME
 Stars and Stripes dropped as a source (not editorial of record). Lead's Shibamata/Kamakura probes: Savor Japan (a
 Gurunavi reservation site's advertorial) not counted; Taishakuten-sandō held (no place pin).
 Pins: 3 high, 11 UNVERIFIED → helper.
+### Batch 2 — izakaya/drinks, ramen/noodles, sweets (agents ~30 + ~24 + ~33 searches) → session cap hit (200/200)
+**Kept (23):** yokochō & drinks — Nonbei Yokochō (Time Out + Tokyo Cheapo + GO TOKYO), Harmonica Yokochō (GO TOKYO + Time
+Out + Lonely Planet), Hoppy Street, Yūrakuchō Gādo-shita (japan-guide + Tokyo Cheapo), Beer Club Popeye (Time Out + Japan
+Times), Ushitora Shimokitazawa (Time Out + Tokyo Cheapo; the two give different addresses — confirm in the helper pass),
+Gem by Moto, Shinsuke Yushima (Lonely Planet + Japan Times + Izakaya Hyakumeiten), Sasagin. Ramen/noodles — Harukiya
+Ogikubo, Fuunji (address 2-14-3 Yoyogi → SBY), Menya Itto (JOTO), Chinchintei abura soba (TAMA), Tsukemen Michi (JOTO;
+status not separately checked), Sanukiya udon (Michelin Bib venue page). Sweets — Usagiya, Toraya Akasaka (pin), Naniwaya
+Sōhonten, Kūya, Ginza Kimuraya, Himitsudō, Asakusa Kagetsudō, Bricolage Bread & Co.
+**Held (lead's vetting):** Shuko Takigiya & Kisaiya Hide (still no specific dish — W3 reason stands), Tanako (Michelin
+source is a 2017 article; current Bib unconfirmed), Chūka Soba Ibuki (no source describes the bowl), Baikatei (Hyakumeiten
+claim only via an aggregator). Agent drops: Kurand Sake Market Ikebukuro (a directory says closed — status unclear),
+Yakiton Tatsuya / Ebisu Yokochō / Itakuraya / Kameju / Comme'N / Truffle Bakery (one source), Daihashi & Yusui (no
+credible source). Not reached: depachika, Akabane/Tateishi senbero, Rokurinsha/Mutekiya/Taishoken/Nagi.
+**Channel mix W5:** 50 Best (7), Time Out (30), Japan Times (6), Lonely Planet (5), Tokyo Cheapo (8), GO TOKYO (3),
+Monocle (2), Tokyo Weekender (4), Tabelog Hyakumeiten (4), Michelin (1), creators — Ramen Adventures (4), Ramen Beast (1).
+**Build:** 424 discovered / 386 rendered (241 sights + 183 food → food share 43%, up from 37%); sourcecheck PASS ·
+geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 33 W5 pins UNVERIFIED.
