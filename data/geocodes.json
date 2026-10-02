@@ -15491,11 +15491,11 @@
    },
    "Chase Center": {
     "address": "Chase Center, Mission Bay, San Francisco, CA 94158",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.76806,
+    "lng": -122.3875,
+    "source": "https://en.wikipedia.org/wiki/Chase_Center (Wikipedia published coordinates)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.sftravel.com/article/things-to-do-along-san-franciscos-central-subway (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
@@ -15535,22 +15535,22 @@
    },
    "Seward Street Slides": {
     "address": "Seward Mini Park, Seward St / 70 Corwin St, San Francisco, CA 94114",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.757643,
+    "lng": -122.440046,
+    "source": "https://www.atlasobscura.com/places/seward-street-slides (Atlas Obscura place coordinates)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.mentalfloss.com/article/58562/15-hidden-gems-san-francisco (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
    },
    "Blue Heron Lake (Stow Lake) & Strawberry Hill": {
     "address": "Blue Heron Lake (formerly Stow Lake), Golden Gate Park, San Francisco, CA 94118",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.7685412,
+    "lng": -122.4755271,
+    "source": "https://en.wikipedia.org/wiki/Strawberry_Hill_(San_Francisco) (Wikipedia published coordinates of Strawberry Hill, the lake's island)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://www.afar.com/magazine/the-best-free-things-to-do-in-san-francisco (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
@@ -16414,7 +16414,7 @@
     "statusChecked": "2026-10-02"
    },
    "Ina Coolbrith Park": {
-    "address": "Ina Coolbrith Park, Russian Hill, San Francisco, CA 94133",
+    "address": "Ina Coolbrith Park, 1715 Taylor St, Russian Hill, San Francisco, CA 94133",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -16811,22 +16811,22 @@
    },
    "Noodle in a Haystack": {
     "address": "4601 Geary Blvd, San Francisco, CA 94118",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.780737,
+    "lng": -122.4686149,
+    "source": "https://guide.michelin.com/hr/en/california/san-francisco/restaurant/noodle-in-a-haystack (Michelin venue-page place pin; address matched)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://guide.michelin.com/gb/en/california/san-francisco/restaurant/noodle-in-a-haystack — current MICHELIN Guide listing (checked 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "3rd Cousin": {
     "address": "919 Cortland Ave, San Francisco, CA 94110",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.7390026,
+    "lng": -122.4136903,
+    "source": "https://guide.michelin.com/us/en/california/san-francisco/restaurant/3rd-cousin (Michelin venue-page place pin; address matched)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://guide.michelin.com/us/en/california/san-francisco/restaurant/3rd-cousin (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
@@ -16906,6 +16906,116 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "https://atlasobscura.com/places/hang-ah-tea-room (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Japan Center": {
+    "address": "Japan Center (Kinokuniya, Japan Center West & East malls), Geary Blvd / Post St, Japantown, San Francisco, CA 94115",
+    "lat": 37.785,
+    "lng": -122.43,
+    "source": "https://en.wikipedia.org/wiki/Japan_Center_(San_Francisco) (Wikipedia published coordinates, 3-decimal → med)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://www.sftravel.com/neighborhoods/japantown (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "The Fillmore": {
+    "address": "1805 Geary Blvd, San Francisco, CA 94115",
+    "lat": 37.784098,
+    "lng": -122.433132,
+    "source": "https://en.wikipedia.org/wiki/The_Fillmore (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.sftravel.com/neighborhoods/fillmore (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Haas-Lilienthal House": {
+    "address": "Haas-Lilienthal House, Pacific Heights, San Francisco, CA",
+    "lat": 37.7930083,
+    "lng": -122.4245889,
+    "source": "https://en.wikipedia.org/wiki/Haas%E2%80%93Lilienthal_House (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.sftravel.com/meetings/article/historic-san-francisco-venues (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "San Francisco Columbarium": {
+    "address": "1 Loraine Ct, San Francisco, CA 94118",
+    "lat": 37.78056,
+    "lng": -122.45694,
+    "source": "https://en.wikipedia.org/wiki/San_Francisco_Columbarium_&_Funeral_Home (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.atlasobscura.com/places/san-francisco-columbarium (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Golden Gate Park Bison Paddock": {
+    "address": "Bison Paddock, west of Spreckels Lake on John F. Kennedy Dr, Golden Gate Park, San Francisco, CA",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.sftravel.com/article/golden-gate-parks-hidden-treasures (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Beach Chalet (WPA murals)": {
+    "address": "1000 Great Highway, San Francisco, CA 94121",
+    "lat": 37.76944,
+    "lng": -122.51,
+    "source": "https://en.wikipedia.org/wiki/Beach_Chalet (Wikipedia published coordinates, 4-decimal)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.atlasobscura.com/places/beach-chalet-wpa-murals (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "John McLaren Park": {
+    "address": "John McLaren Park, Excelsior / Visitacion Valley, San Francisco, CA 94134",
+    "lat": 37.7180842,
+    "lng": -122.4190721,
+    "source": "https://en.wikipedia.org/wiki/John_McLaren_Park (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://sfrecpark.org/1204/McLaren-Recreation-Activities (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Candlestick Point State Recreation Area": {
+    "address": "Candlestick Point SRA (entrance off Gilman Ave), Bayview–Hunters Point, San Francisco, CA 94134",
+    "lat": 37.7096537,
+    "lng": -122.3802486,
+    "source": "https://en.wikipedia.org/wiki/Candlestick_Point_State_Recreation_Area (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.parks.ca.gov/candlestickpoint/ (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Tenderloin Museum": {
+    "address": "398 Eddy St, San Francisco, CA 94102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/san-francisco/museums/tenderloin-museum (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Tin How Temple": {
+    "address": "125 Waverly Pl (4th floor), San Francisco, CA 94108",
+    "lat": 37.79457,
+    "lng": -122.4071,
+    "source": "https://en.wikipedia.org/wiki/Tin_How_Temple (Wikipedia published coordinates)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.timeout.com/san-francisco/things-to-do/tin-how-temple (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
    }
   },
@@ -84057,7 +84167,7 @@
     "statusChecked": "2026-10-02"
    },
    "Las Olas Boulevard": {
-    "address": "Las Olas Blvd, Fort Lauderdale, FL",
+    "address": "Las Olas Blvd, Fort Lauderdale",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -84068,14 +84178,14 @@
     "statusChecked": "2026-10-02"
    },
    "Riverwalk Fort Lauderdale": {
-    "address": "Riverwalk, New River, Fort Lauderdale, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "New River, Fort Lauderdale",
+    "lat": 26.119983,
+    "lng": -80.145733,
+    "source": "HMDB 'Fort Lauderdale' marker at Hoch Heritage Center, 219 SW 2nd Ave (https://www.hmdb.org/m.asp?m=172079) printed 26° 7.199′ N, 80° 8.744′ W - History Fort Lauderdale complex beside the Riverwalk/New River; proxy point on a 1+ mile linear walk",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "public riverfront promenade; listed as current attraction by Visit Lauderdale/Time Out (session-2 sources), 2026",
     "statusChecked": "2026-10-02"
    },
    "Stranahan House": {
@@ -84090,7 +84200,7 @@
     "statusChecked": "2026-10-02"
    },
    "Fort Lauderdale Beach": {
-    "address": "Fort Lauderdale Beach Blvd (A1A), Fort Lauderdale, FL",
+    "address": "A1A, Fort Lauderdale",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -84574,14 +84684,14 @@
     "statusChecked": "2026-10-02"
    },
    "Versailles Restaurant": {
-    "address": "3555 SW 8th St, Miami, FL 33135",
+    "address": "3555 SW 8th St, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Operating hours published (8am–1am Mon–Thu etc.) per Versailles official/TimeOut/GMCVB listing (miamiandbeaches.com/l/restaurants/versailles-restaurant/2472), 2026 search; address confirmed by Wikipedia/official site. No place-pin coord surfaced in search.",
+    "statusSource": "Michelin Guide 2023 recommendation reported by Cubanet; miamiandbeaches.com listing (searched 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "Havana Harry's": {
@@ -84739,25 +84849,25 @@
     "statusChecked": "2026-10-02"
    },
    "Robert Is Here": {
-    "address": "19200 SW 344th St, Homestead, FL 33034",
+    "address": "19200 SW 344th St, Homestead",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "robertishere.com official site live (our-story/about-us pages)",
+    "statusSource": "Official site robertishere.com (our-story/about-us pages live, searched 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "Schnebly Redland's Winery": {
-    "address": "30205 SW 217th Ave, Homestead, FL 33030",
+    "address": "30205 SW 217th Ave, Homestead",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "schneblywinery.com 'start 2026' post; event scheduled 2026-04-04",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "El Brazo Fuerte Bakery": {
@@ -84860,36 +84970,36 @@
     "statusChecked": "2026-10-02"
    },
    "Coopertown Restaurant": {
-    "address": "22700 SW 8th St, Miami, FL 33194",
+    "address": "22700 SW 8th St, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "miamiandbeaches.com Coopertown Airboat Tour & Restaurant listing (open daily 9–5)",
+    "statusSource": "miamiandbeaches.com official listing: open daily 9am-5pm (searched 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "City Seafood": {
-    "address": "702 Begonia St, Everglades City, FL 34139",
+    "address": "702 Begonia St, Everglades City",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "paradisecoast.com Where to Eat in Everglades City; Infatuation review",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Joanie's Blue Crab Cafe": {
-    "address": "39395 Tamiami Trail E, Ochopee, FL 34141",
+    "address": "39395 Tamiami Trail E, Ochopee",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "The Infatuation review; posted hours Thu–Tue 10am–5pm",
+    "statusSource": "floridafoodsafety.org inspection record 2025-05-08; Infatuation review (searched 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "Biscayne National Park — Dante Fascell Visitor Center": {
@@ -84915,58 +85025,58 @@
     "statusChecked": "2026-10-02"
    },
    "Stiltsville": {
-    "address": "Biscayne Bay, ~1 mi S of Cape Florida, Biscayne National Park, FL (boat access only)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Biscayne Bay",
+    "lat": 25.6535,
+    "lng": -80.171501,
+    "source": "Wikipedia 'Stiltsville' coord (via DBpedia mirror dbpedia.org/page/Stiltsville; https://en.wikipedia.org/wiki/Stiltsville): 25.653500, -80.171501 (25°39'12\"N 80°10'17\"W) - district-level coord for the stilt-house cluster",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Listed in NPS bisc places-to-go (nps.gov/bisc/planyourvisit/placestogo.htm)",
+    "statusSource": "Biscayne National Park Institute tours Thu–Sun year-round from Dinner Key (Florida Rambler / npplan, 2026 search)",
     "statusChecked": "2026-10-02"
    },
    "Big Cypress Oasis Visitor Center": {
-    "address": "52105 Tamiami Trail E, Ochopee, FL 34141",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "52105 Tamiami Trail E, Ochopee",
+    "lat": 25.8575,
+    "lng": -81.034333,
+    "source": "confluence.org (https://confluence.org/confluence.php?id=745) prints 'Oasis Ranger Station ... 25°51.450N 81°02.06W'; corroborated by Wikipedia Big Cypress National Preserve infobox coord 25°51′32″N 81°02′02″W (25.85889,-81.03389) which sits at the Oasis VC; address per NPS https://www.nps.gov/places/oasis-visitor-center.htm",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "recreation.gov Oasis Visitor Center POI; miamiandbeaches listing",
+    "statusSource": "NPS places page lists Oasis Visitor Center hours Tue-Sat 9:00-4:30 (searched 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "Kirby Storter Roadside Park Boardwalk": {
-    "address": "48900 Tamiami Trail E, Ochopee, FL 34141 (US-41 between MM 62-63)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "48900 Tamiami Trail E, Ochopee",
+    "lat": 25.868247,
+    "lng": -81.154278,
+    "source": "USF Florida Educational Technology Clearinghouse Clippix photo page for Kirby Storter boardwalk (https://etc.usf.edu/clippix/picture/kirby-s-storter-park-sign-in-rock.html) prints GPS 25°52'5.69\"N 81°9'15.40\"W (photo GPS, not an official POI coord)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "NPS bicy kirby-storter-roadside-park page",
+    "statusSource": "NPS Big Cypress Roadside Parks page: boardwalk reopened 4 Nov 2024 (partial length; rebuild pending)",
     "statusChecked": "2026-10-02"
    },
    "Clyde Butcher's Big Cypress Gallery": {
-    "address": "52388 Tamiami Trail E, Ochopee, FL 34141",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "visitevergladescity/paradisecoast listings; gallery event scheduled 2026-02-07",
-    "statusChecked": "2026-10-02"
-   },
-   "Loop Road Scenic Drive": {
-    "address": "Loop Road (CR 94), Big Cypress National Preserve, FL",
+    "address": "52388 Tamiami Trail E, Ochopee",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Loop Road Scenic Drive": {
+    "address": "CR 94, Big Cypress",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Ochopee Post Office": {
@@ -84981,14 +85091,14 @@
     "statusChecked": "2026-10-02"
    },
    "Skunk Ape Research Headquarters": {
-    "address": "40904 Tamiami Trail E, Ochopee, FL",
+    "address": "40904 Tamiami Trail E, Ochopee",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Fruit & Spice Park": {
@@ -85075,8 +85185,8 @@
     "source": "Coords 25.735959,-80.155953 from FIU dPanther Virginia Key Beach records (dpanther.fiu.edu/record/80200)",
     "verified": "2026-10-02",
     "confidence": "med",
-    "status": "unknown",
-    "statusSource": "not checked",
+    "status": "open",
+    "statusSource": "virginiakeybeachpark.net: hours daily 7am–1hr before sunset; 80th-anniversary festival Aug 1–3 2025",
     "statusChecked": "2026-10-02"
    },
    "Haulover Beach": {
@@ -85091,14 +85201,14 @@
     "statusChecked": "2026-10-02"
    },
    "South Beach": {
-    "address": "Ocean Dr & Collins Ave, Miami Beach, FL",
+    "address": "Miami Beach",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Biltmore Hotel": {
@@ -85124,14 +85234,14 @@
     "statusChecked": "2026-10-02"
    },
    "Miracle Mile (Coral Gables)": {
-    "address": "Miracle Mile, Coral Gables, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "Miracle Mile, Coral Gables",
+    "lat": 25.749573,
+    "lng": -80.258605,
+    "source": "Printed coord 25°44'58.463\"N 80°15'30.979\"W in search results for Miracle Mile (travel.sygic.com/ko/poi/miracle-mile-poi:33433557 result set; Wikipedia https://en.wikipedia.org/wiki/Miracle_Mile_(Coral_Gables) confirms Coral Way between SW 37th-42nd Ave) - point on a linear street",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "public shopping street; current Coral Gables listings (session-2 sources), 2026",
     "statusChecked": "2026-10-02"
    },
    "Lowe Art Museum": {
@@ -85146,47 +85256,47 @@
     "statusChecked": "2026-10-02"
    },
    "Calle Ocho (SW 8th Street)": {
-    "address": "SW 8th St, Little Havana, Miami, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "SW 8th St, Little Havana, Miami",
+    "lat": 25.765617,
+    "lng": -80.21895,
+    "source": "HMDB marker 'Little Havana Honors Our Veterans' (https://www.hmdb.org/m.asp?m=134732) printed 25° 45.937′ N, 80° 13.137′ W, on 8th Street east of 15th Avenue - a point ON Calle Ocho at Domino Park block; linear street",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "public street; GMCVB Little Havana historic sites page (session-2 source), 2026",
     "statusChecked": "2026-10-02"
    },
    "Domino Park (Máximo Gómez Park)": {
-    "address": "801 SW 15th Ave, Miami, FL 33135 (corner SW 8th St & SW 15th Ave)",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "miamiandbeaches.com Domino Park listing: open 9am-6pm daily",
-    "statusChecked": "2026-10-02"
-   },
-   "Tower Theater": {
-    "address": "1508 SW 8th St, Miami, FL 33135",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "WLRN 2026-01-08: Miami agrees to hand Tower Theater back to Miami Dade College; MIFF grand re-opening announcement",
-    "statusChecked": "2026-10-02"
-   },
-   "Cuban Memorial Boulevard": {
-    "address": "SW 13th Ave, Little Havana, Miami, FL",
+    "address": "801 SW 15th Ave, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Tower Theater": {
+    "address": "1508 SW 8th St, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "WLRN 2023-01-31 (https://www.wlrn.org/arts-culture/2023-01-31/whats-next-for-the-tower-theater-in-little-havana): MDC handed keys to City of Miami, which has plans for the theater - building extant; current programming not confirmed",
+    "statusChecked": "2026-10-02"
+   },
+   "Cuban Memorial Boulevard": {
+    "address": "SW 13th Ave, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Freedom Tower": {
@@ -85234,25 +85344,25 @@
     "statusChecked": "2026-10-02"
    },
    "Historic Lyric Theater (Black Archives)": {
-    "address": "819 NW 2nd Ave, Miami, FL",
+    "address": "819 NW 2nd Ave, Miami",
+    "lat": 25.781889,
+    "lng": -80.198,
+    "source": "Wikipedia 'Lyric Theater (Miami)' NRHP infobox (https://en.wikipedia.org/wiki/Lyric_Theater_(Miami)), NRHP #88002965: 25°46′54.8″N 80°11′52.8″W",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "GMCVB event 'Historic Lyric Theater Unlocked: Open House Miami' (Mar 2026) + WLRN 2024 jazz series",
+    "statusChecked": "2026-10-02"
+   },
+   "Black Police Precinct and Courthouse Museum": {
+    "address": "480 NW 11th St, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget)",
-    "statusChecked": "2026-10-02"
-   },
-   "Black Police Precinct and Courthouse Museum": {
-    "address": "480 NW 11th St, Miami, FL 33136",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "miamiandbeaches.com listing + givemiamiday org page",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Ancient Spanish Monastery": {
@@ -85295,85 +85405,85 @@
     "source": "Wikipedia 'Arch Creek, Florida' (the natural bridge in the park) coords 25°54′04″N 80°09′41″W (https://en.wikipedia.org/wiki/Arch_Creek,_Florida)",
     "verified": "2026-10-02",
     "confidence": "med",
-    "status": "unknown",
-    "statusSource": "not checked",
+    "status": "open",
+    "statusSource": "GMCVB event listing 'In Community: Meet at the Bridge with Arch Creek Park' (miamiandbeaches.com/event/…/38431, Apr 2026) + HistoryMiami walking tours; 2026 search",
     "statusChecked": "2026-10-02"
    },
    "Greynolds Park": {
-    "address": "17530 W Dixie Hwy, North Miami Beach, FL",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "address": "17530 W Dixie Hwy, North Miami Beach",
+    "lat": 25.945981,
+    "lng": -80.156247,
+    "source": "FWC Great Florida Birding & Wildlife Trail site page (https://floridabirdingtrail.com/site/greynolds-park/) GPS 25.945981, -80.156247 - park entrance/parking point, 17530 W Dixie Hwy (not Arch Creek)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Miami-Dade Parks official page https://www.miamidade.gov/parks/greynolds.asp lists park as active (searched 2026-10-02)",
     "statusChecked": "2026-10-02"
    },
    "Rubell Museum": {
-    "address": "1100 NW 23rd St, Miami, FL 33127",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Operating museum; hoodline 2026-06 reports Rubells sold an adjacent Allapattah lot to Neology (not a museum closure) — recheck",
-    "statusChecked": "2026-10-02"
-   },
-   "Margulies Collection at the Warehouse": {
-    "address": "591 NW 27th St, Miami, FL 33127",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "margulieswarehouse.com: open to public October–April seasonally",
-    "statusChecked": "2026-10-02"
-   },
-   "Institute of Contemporary Art, Miami (ICA Miami)": {
-    "address": "61 NE 41st St, Miami, FL 33137",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Permanent Design District home (Miami New Times); no closure reported",
-    "statusChecked": "2026-10-02"
-   },
-   "Museum of Graffiti": {
-    "address": "276 NW 26th St, Miami, FL 33127",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
-    "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "2026 exhibitions 'Origins' & 'Pixação' (thebettervacation); WYPR 2025-12-01 feature",
-    "statusChecked": "2026-10-02"
-   },
-   "Miami Design District": {
-    "address": "NE 39th–41st St, Miami, FL",
+    "address": "1100 NW 23rd St, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget)",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
-   "Hollywood Beach Broadwalk": {
-    "address": "Hollywood Beach Broadwalk (Sherman St to Jefferson St), Hollywood, FL",
+   "Margulies Collection at the Warehouse": {
+    "address": "591 NW 27th St, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Institute of Contemporary Art, Miami (ICA Miami)": {
+    "address": "61 NE 41st St, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Museum of Graffiti": {
+    "address": "276 NW 26th St, Miami",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Miami Design District": {
+    "address": "Miami Design District, Miami",
+    "lat": 25.812778,
+    "lng": -80.192222,
+    "source": "Wikipedia 'Miami Design District' infobox coord (https://en.wikipedia.org/wiki/Miami_Design_District): 25°48′46″N 80°11′32″W (25.81278,-80.19222) - neighborhood-level",
+    "verified": "2026-10-02",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "Public beachfront promenade (planning.org Great Places; Lonely Planet POI)",
+    "statusSource": "public neighbourhood; Time Out 'things to do in Wynwood & Design District' (2026)",
+    "statusChecked": "2026-10-02"
+   },
+   "Hollywood Beach Broadwalk": {
+    "address": "Hollywood FL",
+    "lat": 26.008833,
+    "lng": -80.114976,
+    "source": "Sygic POI 'Hollywood Beach' (https://travel.sygic.com/en/poi/hollywood-beach-poi:15425) printed 26°0'31.799\"N 80°6'53.912\"W - beach-level point; Broadwalk runs ~100-150 m west of it, re-verify placement (4b)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "public promenade; Visit Lauderdale/Time Out 7 best beaches near FTL (Hollywood Beach), 2026",
     "statusChecked": "2026-10-02"
    },
    "Hugh Taylor Birch State Park": {
@@ -85575,14 +85685,14 @@
     "statusChecked": "2026-10-02"
    },
    "Zak the Baker": {
-    "address": "295 NW 26th St, Miami, FL 33127",
+    "address": "295 NW 26th St, Miami",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "Michelin Guide mention 2025; MNT 'Zak the Baker's Wynwood Bakery and Cafe Now Open' after relocation (2026 search). Address correction: record had only 'Wynwood'",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    },
    "Lung Yai Thai Tapas": {
@@ -85803,6 +85913,204 @@
     "confidence": "UNVERIFIED",
     "status": "unknown",
     "statusSource": "UNCHECKED — search budget exhausted (wave 3)",
+    "statusChecked": "2026-10-02"
+   },
+   "Lester's Diner": {
+    "address": "250 W State Road 84, Fort Lauderdale",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Southport Raw Bar": {
+    "address": "1536 Cordova Rd, Fort Lauderdale",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Newport Fishing Pier": {
+    "address": "16701 Collins Ave, Sunny Isles Beach",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "sibfl.gov 'Newport Fishing Pier' https://www.sibfl.gov/Parks-Recreation/Beach/Newport-Fishing-Pier (city page for operating pier)",
+    "statusChecked": "2026-10-02"
+   },
+   "Sunny Isles Beach": {
+    "address": "Sunny Isles Beach",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Aventura Mall & Slide Tower": {
+    "address": "19501 Biscayne Blvd, Aventura",
+    "lat": 25.95806,
+    "lng": -80.14306,
+    "source": "Wikipedia 'Aventura Mall' https://en.wikipedia.org/wiki/Aventura_Mall prints 25°57′29″N 80°08′35″W (25.95806°N 80.14306°W) — mall coord; Slide Tower is inside the mall complex",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Wikipedia 'Aventura Mall': operating regional mall at 19501 Biscayne Blvd",
+    "statusChecked": "2026-10-02"
+   },
+   "Adrienne Arsht Center for the Performing Arts": {
+    "address": "1300 Biscayne Blvd, Miami",
+    "lat": 25.7875,
+    "lng": -80.19222,
+    "source": "Wikipedia 'Adrienne Arsht Center for the Performing Arts' https://en.wikipedia.org/wiki/Adrienne_Arsht_Center_for_the_Performing_Arts prints 25°47′15″N 80°11′32″W",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Wikipedia + arshtcenter.org fact sheet describe it as an operating performing-arts center",
+    "statusChecked": "2026-10-02"
+   },
+   "Kaseya Center": {
+    "address": "601 Biscayne Blvd, Miami",
+    "lat": 25.78139,
+    "lng": -80.18806,
+    "source": "Wikipedia 'Kaseya Center' https://en.wikipedia.org/wiki/Kaseya_Center prints 25°46′53″N 80°11′17″W (25.78139°N 80.18806°W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "Wikipedia: home arena of the Miami Heat (operating)",
+    "statusChecked": "2026-10-02"
+   },
+   "Metromover": {
+    "address": "downtown Miami",
+    "lat": 25.77583,
+    "lng": -80.19583,
+    "source": "Wikipedia 'Government Center station (Miami)' https://en.wikipedia.org/wiki/Government_Center_station_(Miami) prints 25°46′33″N 80°11′45″W (25.77583°N 80.19583°W) — Metromover/Metrorail hub station used as system anchor",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Wikipedia 'Metromover': fare-free people mover with 21 operating stations",
+    "statusChecked": "2026-10-02"
+   },
+   "Brickell Key": {
+    "address": "Miami",
+    "lat": 25.76917,
+    "lng": -80.18694,
+    "source": "Wikipedia 'Carbonell Condominium' https://en.wikipedia.org/wiki/Carbonell_Condominium prints 25°46′09″N 80°11′13″W — a building on Brickell Key (Wikipedia's Brickell Key article coord 25°49′28″N 80°11′27″W is erroneous, lands ~6 km north in Edgewater, so rejected)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "public island/neighborhood (Wikipedia 'Brickell Key')",
+    "statusChecked": "2026-10-02"
+   },
+   "The Underline": {
+    "address": "Brickell",
+    "lat": 25.76361,
+    "lng": -80.19528,
+    "source": "Wikipedia 'Brickell station' https://en.wikipedia.org/wiki/Brickell_station prints 25°45′49″N 80°11′43″W (25.76361°N 80.19528°W) — Underline Phase 1 (Brickell Backyard) runs beneath this station; no Wikipedia coord found for the park itself",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "TimeOut Miami 2024 + traillink: 2.8 mi open Miami River–SW 19th Ave",
+    "statusChecked": "2026-10-02"
+   },
+   "Broward Center for the Performing Arts": {
+    "address": "201 SW 5th Ave, Fort Lauderdale",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "browardcenter.org/about + Wikipedia: 700+ performances/yr",
+    "statusChecked": "2026-10-02"
+   },
+   "Seminole Hard Rock Hotel & Casino (Guitar Hotel)": {
+    "address": "1 Seminole Way, Hollywood FL",
+    "lat": 26.051809,
+    "lng": -80.211464,
+    "source": "latlong.net 'Seminole Hard Rock Hotel & Casino Hollywood, FL, USA' https://www.latlong.net/place/seminole-hard-rock-hotel-casino-hollywood-fl-usa-657.html prints 26.051809, -80.211464 (no Wikipedia coord surfaced)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Wikipedia 'Seminole Hard Rock Hotel & Casino Hollywood' describes operating resort",
+    "statusChecked": "2026-10-02"
+   },
+   "Jungle Queen Riverboat": {
+    "address": "801 Seabreeze Blvd, Fort Lauderdale (Bahia Mar dock)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
+    "statusChecked": "2026-10-02"
+   },
+   "Deerfield Beach": {
+    "address": "Deerfield Beach FL",
+    "lat": 26.3164522,
+    "lng": -80.074169,
+    "source": "Deerfield Beach International Fishing Pier (beach POI, not city centroid): Dive Against Debris survey submissions https://diveagainstdebris.org/debris-data/deerfield-beach-pier-7 print 26.3164522, -80.074169",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "visitflorida.com Deerfield Beach beach guide; pier remodeled 976-ft and operating",
+    "statusChecked": "2026-10-02"
+   },
+   "Pompano Beach": {
+    "address": "Pompano Beach FL",
+    "lat": 26.235243743368,
+    "lng": -80.087390644503,
+    "source": "Pompano Beach Fishing Pier (beach POI, not city centroid): Dive Against Debris survey https://diveagainstdebris.org/debris-data/pompano-beach-pier prints 26.235243743368, -80.087390644503 (Dixie Divers, 2022-09-03; 2023 survey 26.235197,-80.087394 agrees)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "pompanobeacharts.org fishing/water sports page describes pier operating",
+    "statusChecked": "2026-10-02"
+   },
+   "Hillsboro Beach & Hillsboro Inlet Light": {
+    "address": "Hillsboro Inlet Light",
+    "lat": 26.25889,
+    "lng": -80.08083,
+    "source": "Wikipedia 'Hillsboro Inlet Light' https://en.wikipedia.org/wiki/Hillsboro_Inlet_Light prints 26°15′32″N 80°4′51″W (26.25889°N 80.08083°W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "USCG history page: active aid to navigation (lighthouse); grounds by tour only",
+    "statusChecked": "2026-10-02"
+   },
+   "Dania Beach": {
+    "address": "Dania Beach FL",
+    "lat": 26.058277,
+    "lng": -80.111511,
+    "source": "Dania Beach Pier (beach POI, not city centroid): Dive Against Debris survey https://diveagainstdebris.org/debris-survey/dania-beach-pier-1 prints 26.058277, -80.111511",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "beach/pier public; survey describes active pier",
+    "statusChecked": "2026-10-02"
+   },
+   "Hallandale Beach": {
+    "address": "Hallandale Beach FL",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "unknown",
+    "statusSource": "",
     "statusChecked": "2026-10-02"
    }
   }

@@ -214,3 +214,18 @@ area ≥3 sight tier-1s). Ratings were not used.
 280/280 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
 28 UNVERIFIED held (geocode backlog). data/sources.json: 25 auto-registered SF keys given real `credible`
 rationales (13 older wave-1/2 keys still carry the AUTO note — next wave).
+- Searches 158–168 (W3F): Japan Center (3-decimal → med), The Fillmore, Haas-Lilienthal House, SF Columbarium,
+  Bison Paddock (unpinned), Beach Chalet WPA murals, John McLaren Park, Candlestick Point SRA, Tenderloin Museum
+  (unpinned); Michelin pins for 3rd Cousin + Noodle in a Haystack. Held: St. Mary's Cathedral, Glide Memorial,
+  Holy Virgin Cathedral, Portsmouth Square, Tin How Temple (single source so far).
+
+## Stage 6 — BUILD #4 / FINAL of this session (2026-10-02)
+**289 researched → 261 on the map (98 sights + 163 food); food 181/289 = 62.6%.** All 4 gates PASS/CONSISTENT ·
+validate DATA OK · npm test ALL PASS. 28 UNVERIFIED held. Card + CITIES row refreshed by `_sf_counts.sh`.
+- Searches 169–170 (pin pass for unpinned sights): Chase Center (Wikipedia), Blue Heron/Stow Lake → Strawberry Hill
+  island coords (Wikipedia), Seward Street Slides (Atlas Obscura place coords). India Basin Shoreline Park NOT pinned
+  — the only coordinate found is the India Basin *neighbourhood* centroid (rule: never centroids).
+- Searches 171–173: Tin How Temple (Time Out + Wikipedia pin) added; Holy Virgin / St. Mary's / Lafayette Park
+  second-source query returned only other cities → still held.
+- **FINAL (build #5): 290 researched → 265 on the map (102 sights + 163 food); food 62.4%.** Registry for SF:
+  236 high / 28 med / 1 low / 25 UNVERIFIED. All 4 gates + validate + test green.

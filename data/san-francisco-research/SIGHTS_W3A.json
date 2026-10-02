@@ -153,6 +153,10 @@
     [
      "AAA",
      "https://ww2.aaa.com/tripcanvas/attraction/seward-street-slides-VA20729"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/seward-street-slides"
     ]
    ]
   },
@@ -320,7 +324,7 @@
    "t": 2,
    "a": "NOB",
    "n": "Ina Coolbrith Park",
-   "address": "Ina Coolbrith Park, Russian Hill, San Francisco, CA 94133",
+   "address": "Ina Coolbrith Park, 1715 Taylor St, Russian Hill, San Francisco, CA 94133",
    "w": "Tiny terraced Russian Hill park with a sweeping view over the Financial District and the Bay Bridge. Free.",
    "k": "park view free",
    "closed": false,
@@ -929,6 +933,90 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Beach_Chalet"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "John McLaren Park",
+   "address": "John McLaren Park, Excelsior / Visitacion Valley, San Francisco, CA 94134",
+   "w": "SF's second-largest park (1927) — meadows and wetland Natural Area, McNab Lake, the Jerry Garcia Amphitheater and a stretch of Philosopher's Way. Free.",
+   "k": "park hike music free",
+   "closed": false,
+   "sources": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1204/McLaren-Recreation-Activities"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/hike-along-san-franciscos-crosstown-trail"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_McLaren_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "Candlestick Point State Recreation Area",
+   "address": "Candlestick Point SRA (entrance off Gilman Ave), Bayview–Hunters Point, San Francisco, CA 94134",
+   "w": "California's first urban state park on the bay shore — trails, bird-watching, kayaking and Sunrise Point Fishing Pier, start of the Crosstown Trail. Free.",
+   "k": "park waterfront birds free",
+   "closed": false,
+   "sources": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/candlestickpoint/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/hike-along-san-franciscos-crosstown-trail"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Candlestick_Point_State_Recreation_Area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Tenderloin Museum",
+   "address": "398 Eddy St, San Francisco, CA 94102",
+   "w": "Small museum telling the Tenderloin's story as a hub of arts, music and LGBTQ life well before the Castro; Saturday walking tours.",
+   "k": "museum history LGBTQ",
+   "closed": false,
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/museums/tenderloin-museum"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-tenderloin-museum-san-francisco-california"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Tin How Temple",
+   "address": "125 Waverly Pl (4th floor), San Francisco, CA 94108",
+   "w": "Claimed as the oldest Chinese temple in the US — a fourth-floor shrine to Tin How, Empress of Heaven and goddess of seafarers, hung with hundreds of red lanterns. Free; no photos inside.",
+   "k": "temple history culture free hidden gem",
+   "closed": false,
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/things-to-do/tin-how-temple"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tin_How_Temple"
     ]
    ]
   }

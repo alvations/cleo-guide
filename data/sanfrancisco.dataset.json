@@ -1644,6 +1644,10 @@
     [
      "AAA",
      "https://ww2.aaa.com/tripcanvas/attraction/seward-street-slides-VA20729"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/seward-street-slides"
     ]
    ]
   },
@@ -1844,7 +1848,7 @@
    "t": 2,
    "a": "NOB",
    "n": "Ina Coolbrith Park",
-   "ad": "Ina Coolbrith Park, Russian Hill, San Francisco, CA 94133",
+   "ad": "Ina Coolbrith Park, 1715 Taylor St, Russian Hill, San Francisco, CA 94133",
    "w": "Tiny terraced Russian Hill park with a sweeping view over the Financial District and the Bay Bridge. Free.",
    "k": "park view free",
    "g": [
@@ -2433,6 +2437,243 @@
     [
      "SFTRAVEL",
      "https://www.sftravel.com/things-to-do/attractions/iconic-sf/coit-tower"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Japan Center",
+   "ad": "Japan Center (Kinokuniya, Japan Center West & East malls), Geary Blvd / Post St, Japantown, San Francisco, CA 94115",
+   "w": "The 1968 three-mall heart of the oldest Japantown in the US — Kinokuniya books, ramen and udon counters, beside the Peace Pagoda.",
+   "k": "shopping japantown culture",
+   "g": [
+    "SHOP"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/japantown"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japan_Center_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "The Fillmore",
+   "ad": "1805 Geary Blvd, San Francisco, CA 94115",
+   "w": "Historic 1912 music hall — the Fillmore Auditorium that hosted the Grateful Dead and James Brown, epicentre of 1960s psychedelic rock, and still a working venue.",
+   "k": "music venue history landmark",
+   "g": [
+    "ARCH",
+    "ENT"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/fillmore"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Fillmore"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Haas-Lilienthal House",
+   "ad": "Haas-Lilienthal House, Pacific Heights, San Francisco, CA",
+   "w": "Authentic 1886 Queen Anne Victorian by architect Peter Schmidt, listed on the National Register of Historic Places.",
+   "k": "architecture victorian museum history",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/meetings/article/historic-san-francisco-venues"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haas%E2%80%93Lilienthal_House"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "San Francisco Columbarium",
+   "ad": "1 Loraine Ct, San Francisco, CA 94118",
+   "w": "Neoclassical domed columbarium — the last remnant of the Richmond's Odd Fellows Cemetery — restored after decades of ruin, with a stained-glass dome over two balconied rings of niches.",
+   "k": "oddity architecture history hidden gem",
+   "g": [
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/san-francisco-columbarium"
+    ],
+    [
+     "MENTALFLOSS",
+     "https://www.mentalfloss.com/article/58562/15-hidden-gems-san-francisco"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Columbarium_&_Funeral_Home"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Golden Gate Park Bison Paddock",
+   "ad": "Bison Paddock, west of Spreckels Lake on John F. Kennedy Dr, Golden Gate Park, San Francisco, CA",
+   "w": "A small herd of American bison grazing in western Golden Gate Park — a city institution since 1892. Free.",
+   "k": "park animals oddity free family",
+   "g": [
+    "PARK",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/golden-gate-parks-hidden-treasures"
+    ],
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1116/Golden-Gate-Park-Points-of-Interest"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Beach Chalet (WPA murals)",
+   "ad": "1000 Great Highway, San Francisco, CA 94121",
+   "w": "1925 seaside chalet at the foot of Golden Gate Park whose ground floor is wrapped in 1936-37 WPA fresco murals of everyday San Francisco.",
+   "k": "murals history art free",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/beach-chalet-wpa-murals"
+    ],
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1116/Golden-Gate-Park-Points-of-Interest"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Beach_Chalet"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "John McLaren Park",
+   "ad": "John McLaren Park, Excelsior / Visitacion Valley, San Francisco, CA 94134",
+   "w": "SF's second-largest park (1927) — meadows and wetland Natural Area, McNab Lake, the Jerry Garcia Amphitheater and a stretch of Philosopher's Way. Free.",
+   "k": "park hike music free",
+   "g": [
+    "PARK",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFPARKS",
+     "https://sfrecpark.org/1204/McLaren-Recreation-Activities"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/hike-along-san-franciscos-crosstown-trail"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_McLaren_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "Candlestick Point State Recreation Area",
+   "ad": "Candlestick Point SRA (entrance off Gilman Ave), Bayview–Hunters Point, San Francisco, CA 94134",
+   "w": "California's first urban state park on the bay shore — trails, bird-watching, kayaking and Sunrise Point Fishing Pier, start of the Crosstown Trail. Free.",
+   "k": "park waterfront birds free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CASTATEPARKS",
+     "https://www.parks.ca.gov/candlestickpoint/"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/hike-along-san-franciscos-crosstown-trail"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Candlestick_Point_State_Recreation_Area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Tenderloin Museum",
+   "ad": "398 Eddy St, San Francisco, CA 94102",
+   "w": "Small museum telling the Tenderloin's story as a hub of arts, music and LGBTQ life well before the Castro; Saturday walking tours.",
+   "k": "museum history LGBTQ",
+   "g": [
+    "MUS",
+    "ENT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/museums/tenderloin-museum"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-tenderloin-museum-san-francisco-california"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Tin How Temple",
+   "ad": "125 Waverly Pl (4th floor), San Francisco, CA 94108",
+   "w": "Claimed as the oldest Chinese temple in the US — a fourth-floor shrine to Tin How, Empress of Heaven and goddess of seafarers, hung with hundreds of red lanterns. Free; no photos inside.",
+   "k": "temple history culture free hidden gem",
+   "g": [
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/things-to-do/tin-how-temple"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tin_How_Temple"
     ]
    ]
   }
