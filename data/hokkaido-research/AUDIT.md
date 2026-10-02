@@ -137,3 +137,24 @@ PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA
 SAPPOROTRAVEL, HAKODATETRAVEL, OTARUTOURISM, JNTO), guidebook editorial ~25% (RURUBU, MAPPLE), travel sites ~15%
 (JAPANGUIDE, CULTURETRIP, JAPANTRAVEL, MACARONI, CATHAYPACIFIC, NAVITIMETRAVEL, FUNJAPAN, GOODLUCKTRIP), press (HOKKAIDOSHIMBUN),
 institutional (UNESCO, JOMONJAPAN, MICHELIN 2017); creators 0 (3 queries, nothing vettable — stated, not filled).
+
+## 2026-10-02 — session 3 · food-first (RUN §2b) · W31–W33 (searches ≈20)
+**Pin-channel test (3 searches):** Hokkaido has no guide.michelin.com venue pages (2017 special edition only — article
+pages, no venue geo) and a direct `<shop> 緯度 経度` query returns only city centroids → restaurant pins stay
+UNVERIFIED for `tools/geocode-helper.html`. Pinned food & drink comes from **facilities with ja.wikipedia infobox
+coords** (breweries, markets) — 3-name batched queries.
+**W31 SPR soup curry + jingisukan:** Magic Spice (MAPPLE spot + rurubu), Okushiba Shōten Ekimae (sapporo.travel + rurubu),
+Rakkyo Kotoni (sapporo.travel + MAPPLE), Itadakimasu (promoted from held: sapporo.travel + rurubu spot + MAPPLE spot),
+Tsukisappu Jingisukan Club, Shibetsu BBQ (sapporo.travel + rurubu 12-list). Held single (sapporo.travel only): Lavi
+Hiragishi, Curry Shokudō Kokoro, Aiiro, Curryshop S, Juttetsu, Kiwami Yu-hi.
+**W32 drink & markets:** Otokoyama Sake Park, Takasago Shuzō, Kunimare Shuzō (visit-hokkaido + rurubu + ja.wikipedia
+pins, high); Otaru Sankaku Market (ja.wikipedia pin + otaru.gr.jp); Kita no Yatai (rurubu + MAPPLE); Daimon Yokochō
+(rurubu + MAPPLE). **Rejected coordinate:** Kita no Yatai "42.918000,143.202056" — surfaced via the 帯広駅 article (station
+point, not the alley) → UNVERIFIED. Mashike (Rumoi) filed under DHOKU (nearest Dōhoku area). Missed: Hokkaido Wine, Furano
+Wine, Akkeshi Distillery have no infobox coords in results (address Akkeshi Miyazono 4-109-2 / Asarigawa Onsen 1-130 read).
+**W33 DONAN:** shio ramen Jiyōken, Yūmin, Hōran, Shinano (MAPPLE 53509 + rurubu 10390 — merged result set; per-outlet
+attribution caveat recorded in the script); Donburi Yokochō Chamu, Tabiji, Akebono (rurubu spot + **HAKODATEASAICHI** =
+the Hakodate Morning Market cooperative's member directory; decision: a market body curating its members counts as one
+corroborating local source, not the shop's own site).
+**Address hygiene:** three W32 street numbers written from memory were caught on self-review and stripped to the
+landmark actually read (Sankaku Market, Kita no Yatai, Daimon Yokochō).
