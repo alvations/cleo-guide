@@ -65,3 +65,13 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 ### In-flight wave (HLV)
 - none. W1 DONE (truncated by the 200/200 session WebSearch cap): 13 discovered (10 food + 3 sights) / target 55;
   7 pins on the (greyed) page; 8 UNVERIFIED for the helper. Next = W2 plan in `_note_HOLLANDV.md` "Next actions".
+
+## 4-town relaunch session (PGL/BLS/NVN/HLV, 2026-10-02) — checkpoint
+- One session does all four towns (shared dir). Helper: `_sg4_add.py` (dedupe + >=2-credible assert); search log: `_sg4_searchlog.md`.
+- Files this session: FOOD_PUNGGOL2, SIGHTS_PUNGGOL2, FOOD_BALESTIER2, SIGHTS_BALESTIER (+), FOOD_NOVENA2, SIGHTS_NOVENA2, FOOD_HOLLANDV2, SIGHTS_HOLLANDV2,
+  SOURCES_BALESTIER2/3, SOURCES_NOVENA2; geo/_geoout_punggol_w2(+c), _geoout_sg4_w2b, _geoout_hollandv_w2, _geoout_novena_w2.
+- Lessons: EXTENDED-mode list queries naming 3+ guides yield 3-6 two-source places per call; standard mode ~1. Geocoding hawker-centre
+  BUILDINGS by WebSearch mostly fails (Whampoa Makan Place, HV MFC, Punggol Coast HC, Punggol Settlement: no published pin) -> UNVERIFIED for
+  tools/geocode-helper.html. Women's Weekly + Her World lists appear syndicated -> counted as ONE voice (2 Ghim Moh stalls held).
+### In-flight wave (4-town)
+- W2 continuing: extended list queries per town; next build at ~+40 places. Then go-live check per town (`python3 tools/density.py singapore --area <CODE>`).
