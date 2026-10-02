@@ -91,3 +91,12 @@
 90 Time Out best bars South Beach (Shelborne bar, Brother's Keeper, Bay Club, Sweet Liberty, Swizzle, Monterrey, Mac's Club Deuce, Medium Cool, Watr, Abbey Brewing, Ted's Hideaway, ScapeGoat)
 91 Time Out 23 best bars Miami (ViceVersa, Gramps Getaway, Over Under, Medium Cool, Dante's HiFi, Swizzle, Gramps, Sweet Liberty, Café La Trova, Bar Kaiju, Kaori, The Corner, The Sylvester, Mac's, Kaona, Ball & Chain, Brother's Keeper, Lost Boy, Mama Tried)
 92 Infatuation bar guides (cocktail/best bars/downtown/South Beach/outdoor) → 15 intersections added
+93 Infatuation Little Havana neighbourhood listings (~50 names)
+94 Time Out 18 best Little Havana restaurants (+ things to do, Bistro Ocho review) → 11 intersections added
+95 NT best Kendall/Pinecrest/South Miami (Café Bonjour, Two Chefs, Pla-Tu, Ghee, Shaddai, Keg South, Hole in the Wall, Pisco y Nazca, Cafe Oriental)
+96 NT Best Restaurant (South Miami-Dade) 2023 Pla-Tu, 2024 Cafe Oriental, 2025 Café Bonjour
+97 Infatuation Kendall/Pinecrest/South Miami neighbourhood listings [2 sub-searches] → Cafe Oriental, Pla-Tu, Shaddai, Keg South added
+98 Infatuation Pastelito Power Rankings (Ricky Coral Way, Cakeland, La Nueva Fe, Versailles, Party Cake, Pinecrest, Breadman, Las Delicias)
+99 NT ten best pastelitos (Pastelmania, Vicky, Lucerne, Versailles, Karla, El Brazo Fuerte; Ricky, La Nueva Fe, Breadman) → 3 added
+100 Infatuation 20 iconic Miami dishes (Fritanga Caña Brava, Piononos, Miracle Fry conch fritters, El Rey de las Fritas, B&M roti, Sanguich, A.C.'s Icees, Zak, Islas Canarias, Knaus Berry Farm, Ricky, La Uchireña, Flanigan's Grove, Chef Creole, Versailles, Graziano's)
+101 NT Knaus Berry Farm / A.C.'s Icees / B&M → 2 added
