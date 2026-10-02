@@ -9,7 +9,13 @@
   1 geocoded (Grand Curtius). **Blocked: WebSearch session budget (200/200) exhausted after 11 searches** — needs a
   fresh session / raised CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION. Not built; card still "being built".
 
+## Search log
+- Session 2: lead ~33 + agent 12 = 45 (after batch 1).
+
 ## In-flight wave
+- W2 (session 2, 2026-10-02): resume W1 remainder → Michelin/G&M Liège lists, boulets/péket/beer, LIER sights,
+  LIER food, creator pass. Files: FOOD_LIEGE_W2.json, SIGHTS_LIEGE_W2.json, SOURCES_LIEGE_W2.json,
+  CREATORS_LIEGE_W2.json, geo/_geoout_liege_w2*.json. Search count this session tracked under ## Search log.
 - W1 remainder (resume here): run the "Not yet searched" list in `_PENDING_LEADS.md`, then corroborate/address the
   held leads there. Append to FOOD_LIEGE_LIE.json / SIGHTS_LIEGE_LIE.json and create *_LIER.json files.
 
