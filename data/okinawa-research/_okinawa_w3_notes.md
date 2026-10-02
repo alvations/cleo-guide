@@ -77,3 +77,5 @@
 115. Zamami: Marumi-ya (rurubu 80043360 + Mapple 50726) kept; Boku no Mise Ojisan (Mapple 50726; rurubu URL not surfaced) held; Tokashiki Teruyama observatory 47012367, folk museum 47013069; Mapple 50958 Tokashiki guide
 116-117. Tokashiki: rurubu Sea Friend (Aharen 155), Sound Beach Cafe (Aharen 122), Kuinomiya Barakku (OT 0066), Marine Box (Tokashiki 1779-2; rurubu + OT kept), Aharen-enchi (rurubu 80043341 + OT kept), Tokashiku Beach, West/East observatories; Aka Island 80043357 (Nishibama), Shiratama-no-To 80043333
 118. Miyako sights: 17END (rurubu 2432 + Mapple tourism/miyakojima) kept; Ryūgūjō observatory (Kurima) Mapple only; rurubu 24511 Hirara walk; Sunayama rurubu 80042984
+119. Mapple tourism/okinawa/02 Kokusai 19: Okinawa Daiichi Hotel (breakfast), Cafe Nifēra, Pork Tamago Onigiri Honten, C&C Breakfast, Hibari-ya, Tasokare Coffee, Cafe Planula, Vita Smoothies, Sekka no Sato, Ball Donut Park, Adachiya, Ten Shiisa, Sangoza Kitchen, Uotomo, Urizun, Karakara, Ryōji — confirm search for Pork Tamago/Daiichi Hotel/C&C BLOCKED
+120. WebSearch cap reached (200/200 counted by the harness; ~222 incl. background agents' share as logged). W3 closed.
