@@ -46,7 +46,11 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
 SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~530**; food 184 (42.5%). (CYD 36, JHOKU 32 after anime.) Weakest food: TAMA 3, JOTO 3, KANTO 3, SMKT 8.
 
 ## In-flight wave
-None — W5 closed (see State). Next session starts with the W6 plan below.
+**W6 (2026-10-02, session_01S4xkEp3ybvSczLJTRuA3Xb) — FOOD FIRST + anime completion.** Files: `FOOD_TOKYO_W6.json`,
+`SIGHTS_TOKYO_W6.json`, `geo/_geoout_tokyo_w6.json`, `CREATORS_TOKYO_W6.json`; helper `_tokyo_w6_add.py` (= _add.py).
+Queries: Michelin venue pages by ward/genre for weak food areas (CYD, SMKT, JONAN, JOSAI, JOTO, TAMA, KANTO, SJK, TAITO),
+creator queries each batch, anime remaining list (step 4 below). Search count tracked below.
+- searches used: ~27 calls (~40 incl. tool-chained sub-searches) after batch 1
 
 ## W6 plan (next session — fresh search budget; ~200 searches)
 **Budget lesson (W5):** the 200-search cap is per SESSION and shared with subagents — 5 parallel agents burned it in

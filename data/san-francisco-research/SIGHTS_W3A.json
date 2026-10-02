@@ -42,7 +42,7 @@
    "t": 2,
    "a": "DTN",
    "n": "Yerba Buena Gardens",
-   "address": "Yerba Buena Gardens, Mission St between 3rd & 4th St, San Francisco, CA 94103",
+   "address": "Yerba Buena Gardens, SoMa, San Francisco, CA 94103",
    "w": "Three city blocks of gardens, public art and free concerts; walk behind the falling-water curtain of the Martin Luther King Jr. Memorial.",
    "k": "park garden free art",
    "closed": false,
@@ -80,7 +80,7 @@
    "t": 1,
    "a": "AVE",
    "n": "Sutro Heights Park",
-   "address": "Sutro Heights Park, Point Lobos Ave & 48th Ave, San Francisco, CA 94121",
+   "address": "Sutro Heights Park, above the Cliff House / Ocean Beach, San Francisco, CA 94121",
    "w": "Adolph Sutro's 1885 hilltop garden above the Cliff House — the parapet, stone wall and statue plinths, with views over Ocean Beach. Free, part of the GGNRA.",
    "k": "park view history free",
    "closed": false,
@@ -99,7 +99,7 @@
    "t": 1,
    "a": "NW",
    "n": "Lyon Street Steps",
-   "address": "Lyon Street Steps, Lyon St between Broadway & Green St, San Francisco, CA 94123",
+   "address": "Lyon Street Steps, Lyon St (Pacific Heights–Cow Hollow, at the Presidio's Broadway Gate), San Francisco, CA 94123",
    "w": "Nearly 300 hedge-lined steps linking Pacific Heights and Cow Hollow to the Presidio's Broadway Gate, with bay views. Free.",
    "k": "stairway view free",
    "closed": false,
@@ -179,7 +179,7 @@
    "t": 1,
    "a": "SE",
    "n": "Crane Cove Park",
-   "address": "Crane Cove Park, Illinois St & 19th St, Dogpatch, San Francisco, CA 94107",
+   "address": "Crane Cove Park, Dogpatch waterfront, San Francisco, CA 94107",
    "w": "Seven-acre Port park in Dogpatch on the old Union Iron Works shipyard — a small public beach for kayaks and paddleboards, the historic cranes, a big playground and grills. Free.",
    "k": "park waterfront beach free",
    "closed": false,
@@ -202,7 +202,7 @@
    "t": 1,
    "a": "SE",
    "n": "Heron's Head Park",
-   "address": "Heron's Head Park, Jennings St & Cargo Way, San Francisco, CA 94124",
+   "address": "Heron's Head Park, Bayview waterfront, San Francisco, CA 94124",
    "w": "22-acre restored wetland on a Bayview pier spit — shoreline trails thick with migratory birds and the off-grid EcoCenter. Free.",
    "k": "park nature waterfront birds free",
    "closed": false,
@@ -225,7 +225,7 @@
    "t": 2,
    "a": "SE",
    "n": "Bayview Opera House",
-   "address": "Bayview Opera House, 4705 3rd St, San Francisco, CA 94124",
+   "address": "Bayview Opera House, 3rd St, Bayview, San Francisco, CA 94124",
    "w": "SF's oldest theater building (1888), survivor of the 1906 quake — now the Bayview's community arts hub.",
    "k": "theatre history landmark",
    "closed": false,
@@ -244,7 +244,7 @@
    "t": 2,
    "a": "SE",
    "n": "India Basin Shoreline Park",
-   "address": "India Basin Shoreline Park, Hunters Point Blvd, San Francisco, CA 94124",
+   "address": "India Basin Shoreline Park, Bayview waterfront, San Francisco, CA 94124",
    "w": "10-acre Bayview waterfront park (opened 2024-25) — paths, food gardens, amphitheaters and a food pavilion for chef pop-ups. Free.",
    "k": "park waterfront free",
    "closed": false,
@@ -256,6 +256,253 @@
     [
      "SFSTANDARD",
      "https://sfstandard.com/2024/10/22/san-francisco-opens-two-new-waterfront-parks/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Huntington Park",
+   "address": "Huntington Park, 1050 Taylor St, San Francisco, CA 94108",
+   "w": "1.3-acre Nob Hill square between Grace Cathedral and the Fairmont, centred on its Fountain of the Tortoises. Free.",
+   "k": "park nob hill free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Huntington_Park_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Fairmont San Francisco",
+   "address": "950 Mason St, San Francisco, CA 94108",
+   "w": "The 1907 grand hotel crowning Nob Hill, where the UN Charter was drafted in 1945 — lobby and view terraces open to all.",
+   "k": "historic hotel landmark nob hill",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fairmont_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Macondray Lane",
+   "address": "Macondray Lane (stairs at Taylor St), Russian Hill, San Francisco, CA 94133",
+   "w": "Leafy two-block pedestrian lane on Russian Hill — Armistead Maupin's model for Barbary Lane in Tales of the City. Free.",
+   "k": "hidden gem stairway lane free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Macondray_Lane"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Ina Coolbrith Park",
+   "address": "Ina Coolbrith Park, Russian Hill, San Francisco, CA 94133",
+   "w": "Tiny terraced Russian Hill park with a sweeping view over the Financial District and the Bay Bridge. Free.",
+   "k": "park view free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Russian_Hill,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Haight & Ashbury (Haight-Ashbury)",
+   "address": "Haight St & Ashbury St, San Francisco, CA 94117",
+   "w": "The corner where 1960s flower power blossomed — Victorian hillsides, vintage and record shops along Upper Haight.",
+   "k": "historic district shopping music free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/haight-ashbury"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haight-Ashbury"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Buena Vista Park",
+   "address": "Buena Vista Park, Haight-Ashbury, San Francisco, CA 94117",
+   "w": "SF's oldest official park (1867) — a wooded hill above the Haight with city and bay views. Free.",
+   "k": "park view free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/haight-ashbury"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buena_Vista_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Corona Heights Park",
+   "address": "Corona Heights Park (by the Randall Museum), San Francisco, CA 94114",
+   "w": "Red-chert rock outcrop above the Castro and the Haight with a 360-degree view (and the Randall Museum at its foot). Free.",
+   "k": "park view free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/haight-ashbury"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Corona_Heights_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Fort Mason",
+   "address": "Fort Mason Center, Marina waterfront, San Francisco, CA 94123",
+   "w": "Former Army post turned waterfront arts and community campus between the Marina and Aquatic Park — piers, galleries, theatres and the Great Meadow. Free to wander.",
+   "k": "waterfront history park free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/marina-pacific-heights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fort_Mason"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Crissy Field",
+   "address": "Crissy Field, Presidio, San Francisco, CA 94129",
+   "w": "Former military airfield turned restored tidal marsh and bayfront promenade, with the Golden Gate dead ahead. Free.",
+   "k": "park waterfront view beach free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/marina-pacific-heights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Crissy_Field"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Alta Plaza Park",
+   "address": "Alta Plaza Park, Pacific Heights, San Francisco, CA 94115",
+   "w": "Terraced Pacific Heights hilltop park — from the top you see clear across the bay to Sausalito. Free.",
+   "k": "park view free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/pacific-heights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alta_Plaza_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "City Lights Bookstore",
+   "address": "City Lights Bookstore, Columbus Ave at Jack Kerouac Alley, North Beach, San Francisco, CA 94133",
+   "w": "Lawrence Ferlinghetti's 1953 bookstore and publisher — ground zero of the Beat movement, three floors of books and poetry.",
+   "k": "bookstore beat history landmark",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/best-bookstores-san-francisco"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/City_Lights_Bookstore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Washington Square",
+   "address": "Washington Square, North Beach (facing Saints Peter and Paul Church), San Francisco, CA 94133",
+   "w": "North Beach's green heart under the twin spires of Saints Peter and Paul — morning tai chi, focaccia from the corner bakery. Free.",
+   "k": "park north beach free",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/north-beach"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_Square_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Old St. Mary's Cathedral",
+   "address": "Old St. Mary's Cathedral, California St, Chinatown, San Francisco, CA 94108",
+   "w": "California's first cathedral (1854), built of granite quarried in China and brick shipped round Cape Horn, at the edge of Chinatown.",
+   "k": "church history landmark cathedral",
+   "closed": false,
+   "sources": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/itinerary/explore-chinatown-nob-hill-north-beach-self-guided-walking-tour"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Old_St._Mary's_Cathedral"
     ]
    ]
   }
