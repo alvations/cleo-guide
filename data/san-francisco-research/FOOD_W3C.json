@@ -127,5 +127,95 @@
    "Cocktail Bar"
   ],
   "dish": "cocktails"
+ },
+ {
+  "t": 1,
+  "a": "NOB",
+  "n": "Friends Only",
+  "address": "1501 California St, San Francisco, CA 94109",
+  "w": "Tiny Japanese omakase counter on Nob Hill/Polk — MICHELIN-listed and on the Eater SF 38.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/california/san-francisco/restaurant/friends-only"
+   ],
+   [
+    "EATERSF",
+    "https://admin.goldenstate.is/california-venues-top-eaters-list-of-38-essential-restaurants/ (Eater SF 38, May-2024 edition as reproduced)"
+   ]
+  ],
+  "cz": [
+   "Sushi",
+   "Japanese"
+  ],
+  "dish": "omakase"
+ },
+ {
+  "t": 1,
+  "a": "MIS",
+  "n": "Delfina",
+  "address": "3621 18th St, San Francisco, CA 94110",
+  "w": "The Mission's long-running neighbourhood Italian by Dolores Park (spaghetti, roast chicken) — MICHELIN-listed and on the Eater SF 38.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/br/pt_BR/california/san-francisco/restaurant/delfina"
+   ],
+   [
+    "EATERSF",
+    "https://admin.goldenstate.is/california-venues-top-eaters-list-of-38-essential-restaurants/ (Eater SF 38, May-2024 edition as reproduced)"
+   ]
+  ],
+  "cz": [
+   "Italian"
+  ],
+  "dish": "spaghetti and roast chicken"
+ },
+ {
+  "t": 1,
+  "a": "NOB",
+  "n": "Tonga Room & Hurricane Bar",
+  "address": "950 Mason St (Fairmont San Francisco), San Francisco, CA 94108",
+  "w": "Legendary 1945 tiki bar in the Fairmont's old pool — a band on a floating barge and an indoor rainstorm every half hour.",
+  "closed": false,
+  "sources": [
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/neighborhoods/nob-hill"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Tonga_Room"
+   ]
+  ],
+  "cz": [
+   "Tiki",
+   "Bar"
+  ],
+  "dish": "tiki cocktails"
+ },
+ {
+  "t": 1,
+  "a": "NECN",
+  "n": "Vesuvio Cafe",
+  "address": "Vesuvio Cafe, Columbus Ave at Jack Kerouac Alley, North Beach, San Francisco, CA 94133",
+  "w": "The Beat Generation's bar (1948) across Jack Kerouac Alley from City Lights — poetry, jazz and stained glass.",
+  "closed": false,
+  "sources": [
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/neighborhoods/north-beach"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Vesuvio_Cafe"
+   ]
+  ],
+  "cz": [
+   "Bar"
+  ],
+  "dish": "Beat-era bar drinks"
  }
 ]

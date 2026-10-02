@@ -147,3 +147,16 @@ the 2026 star list (sfist 2026-06-25). Status = current Michelin listing (checke
 `rebuild-city.py san-francisco-ca --build`: **235 researched → 218 rendered (65 sights + 153 food)** (was 141).
 sourcecheck PASS 235/235 (57 on a lone Michelin/JB authority) · geocheck PASS · statuscheck CONSISTENT · buildcheck
 PASS · npm validate DATA OK · npm test ALL PASS. 17 held UNVERIFIED (gate drops them). Card + CITIES row refreshed.
+- Searches 85–104: Eater SF 38 (May-2024 edition, via a reproduction — EATERSF used only as a 2nd source on
+  Michelin-listed places), Chronicle Top 100 (no list surfaced — names only), creator query #1 (Mark Wiens /
+  Strictly Dumpling SF — **no findable SF piece surfaced → no creator attached**), old-UNVERIFIED pin retry (Boudin
+  coord came only from frankiapp/Airbnb aggregators → REJECTED, stays UNVERIFIED; Basque Cultural Center found on
+  KQED Check Please). Michelin lookups of non-Michelin Eater names fail (lesson: the venue-page pin trick only
+  works for Michelin-listed names). +Friends Only, Delfina (W3C), Miller & Lux, Via Aurelia, Kan Kiin, La Cigale (W3B).
+- Sights wave W3D (SF Travel neighbourhood pages as the 2nd source + Wikipedia coordinate batches): Huntington Park,
+  Fairmont, Macondray Lane, Ina Coolbrith Park (unpinned), Haight & Ashbury (district coord → med), Buena Vista Park,
+  Corona Heights Park, Fort Mason, Crissy Field, Alta Plaza Park, City Lights, Washington Square, Old St. Mary's;
+  bars Tonga Room, Vesuvio (W3C). Held (Wikipedia-only so far): Lafayette Park, Haas-Lilienthal House, Tin How Temple,
+  Portsmouth Square, Japan Center, Patricia's Green.
+- **Self-audit fix (rule 4a):** street numbers / cross-streets I had typed for 16 sights from memory were replaced
+  with descriptive addresses grounded in the search text (pins are Wikipedia's published coords, unaffected).

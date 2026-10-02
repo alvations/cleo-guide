@@ -732,8 +732,9 @@
    "n": "Upopoy — National Ainu Museum & Park (ウポポイ)",
    "ad": "Wakakusa-chō, Shiraoi, Shiraoi District, Hokkaido, Japan",
    "w": "Japan's national centre for Ainu culture on Lake Poroto — the museum, a kotan of chise houses, dance, music and Ainu cooking.",
-   "k": "ainu museum",
+   "k": "★ Anime & pop culture — Golden Kamuy — partner of the official 'Golden Kamuy × Hokkaido' campaign; the National Ainu Museum held a Golden Kamuy special exhibition · ainu museum",
    "g": [
+    "ANIME",
     "ICON",
     "MUS",
     "NATURE"
@@ -746,6 +747,14 @@
     [
      "JAPANGUIDE",
      "https://www.japan-guide.com/e/e5375.html"
+    ],
+    [
+     "OFFICIAL",
+     "https://kamuy-anime.com/news/index06220000.html"
+    ],
+    [
+     "BIJUTSUTECHO",
+     "https://bijutsutecho.com/exhibitions/8339"
     ]
    ]
   },
@@ -755,12 +764,12 @@
    "n": "Noboribetsu Jigokudani (登別地獄谷)",
    "ad": "Noboribetsu Onsen-chō, Noboribetsu, Hokkaido, Japan",
    "w": "'Hell Valley' above Hokkaido's most famous onsen town — a steaming crater of sulphur vents feeding nine kinds of spring water, boardwalk to Oyunuma.",
-   "k": "hell valley onsen",
+   "k": "★ Anime & pop culture — Golden Kamuy — Noboribetsu Onsen is the 7th Division's convalescent spa in the story; 2024 Hell Festival collaboration · hell valley onsen",
    "g": [
+    "ANIME",
     "ICON",
     "ONSEN",
-    "NATURE",
-    "FREE"
+    "NATURE"
    ],
    "s": [
     [
@@ -770,6 +779,10 @@
     [
      "JNTO",
      "https://www.japan.travel/en/destinations/hokkaido/hokkaido/noboribetsu-upopoy-and-around/"
+    ],
+    [
+     "FAMITSU",
+     "https://www.famitsu.com/article/202407/12219"
     ]
    ]
   },
@@ -1132,8 +1145,9 @@
    "n": "Abashiri Prison Museum (博物館 網走監獄)",
    "ad": "Yobito, Abashiri, Hokkaido, Japan",
    "w": "The Meiji prison that built Hokkaido's roads, rebuilt as an open-air museum — the five-winged radial cell block, court, bathhouse and punishment cells.",
-   "k": "prison museum",
+   "k": "★ Anime & pop culture — Golden Kamuy — Abashiri Prison is a central setting of the manga/anime, drawing a wave of younger visitors · prison museum",
    "g": [
+    "ANIME",
     "MUS",
     "ICON",
     "ONSEN"
@@ -1146,6 +1160,10 @@
     [
      "JAPANGUIDE",
      "https://www.japan-guide.com/e/e6867.html"
+    ],
+    [
+     "GENDAI",
+     "https://gendai.media/articles/-/58057"
     ]
    ]
   },
@@ -4016,6 +4034,341 @@
     [
      "WIKIPEDIA_JA",
      "https://ja.wikipedia.org/wiki/%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Maeda Forest Park (前田森林公園)",
+   "ad": "Teine-ku, Sapporo, Hokkaido, Japan",
+   "w": "A 1980s–90s landscape park whose 600 m-long, 15 m-wide canal runs dead straight toward Mt Teine.",
+   "k": "landscape park",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "FREE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/maeda_forest_park/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%89%8D%E7%94%B0%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Yurigahara Park (百合が原公園)",
+   "ad": "Kita-ku, Sapporo, Hokkaido, Japan",
+   "w": "A 25.4 ha flower park of some 6,400 plant varieties — the World Lily Gardens and gardens built with sister cities Portland, Munich and Shenyang.",
+   "k": "flower park",
+   "g": [
+    "NATURE",
+    "GARDEN",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/yurigahara_park/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E7%99%BE%E5%90%88%E3%81%8C%E5%8E%9F%E5%85%AC%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Hokkaido Governor's Official Residence (北海道知事公館)",
+   "ad": "Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A 1936 Mitsui villa, state property since 1953 — its lawn garden, with millennium-old pit-dwelling remains, is open year round.",
+   "k": "historic villa & garden",
+   "g": [
+    "HISTORY",
+    "GARDEN",
+    "FREE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/governors_official_residence/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%8C%97%E6%B5%B7%E9%81%93%E7%9F%A5%E4%BA%8B%E5%85%AC%E9%A4%A8"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Former Nagayama Takeshirō Residence (旧永山武四郎邸)",
+   "ad": "Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "The c.1880 home of Hokkaido's second governor — a forerunner of pioneer-era houses joining a pure Japanese study and reception rooms to Western-style building.",
+   "k": "Meiji residence",
+   "g": [
+    "HISTORY",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/bunkazaisanpo/kaitakushi/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E6%97%A7%E6%B0%B8%E5%B1%B1%E6%AD%A6%E5%9B%9B%E9%83%8E%E9%82%B8"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Sapporo Satoland (サッポロさとらんど)",
+   "ad": "Okadama-chō 584-2, Higashi-ku, Sapporo, Hokkaido, Japan",
+   "w": "A 74.3 ha agricultural park of flower fields, farm animals and lawns — pick potatoes, onions and corn from mid-June to early November.",
+   "k": "farm park",
+   "g": [
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/satoland/"
+    ],
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spot/detail_10078.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%83%E3%83%9D%E3%83%AD%E3%81%95%E3%81%A8%E3%82%89%E3%82%93%E3%81%A9"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Hiraoka Park plum grove (平岡公園 梅林)",
+   "ad": "Kiyota-ku, Sapporo, Hokkaido, Japan",
+   "w": "About 1,200 red and white plum trees — one of Sapporo's largest groves — whose May bloom draws some 100,000 visitors and announces spring.",
+   "k": "plum blossom park",
+   "g": [
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/hiraoka-park/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%B9%B3%E5%B2%A1%E5%85%AC%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Seikatei (清華亭)",
+   "ad": "Kita 7-jō Nishi 7-chōme, Kita-ku, Sapporo, Hokkaido, Japan",
+   "w": "An 1880 rest house built for Emperor Meiji's Hokkaido visit — a Western-style building blended with Japanese rooms; a city-designated cultural property.",
+   "k": "Meiji pavilion",
+   "g": [
+    "HISTORY",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/bunkazaisanpo/kaitakushi/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E6%B8%85%E8%8F%AF%E4%BA%AD"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Jōzankei Dam & Sapporo Lake (定山渓ダム・さっぽろ湖)",
+   "ad": "Jōzankei, Minami-ku, Sapporo, Hokkaido, Japan",
+   "w": "The 117.5 m dam of 1989 that formed deep-blue Sapporo Lake — look up at it from the downstream park, with a dam museum and seasonal inside tours.",
+   "k": "dam & lake",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "JOZANKEITOURISM",
+     "https://jozankei.jp/en/spot/jozankeidam/"
+    ],
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spot/detail_11184.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%AE%9A%E5%B1%B1%E6%B8%93%E3%83%80%E3%83%A0"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SPR",
+   "n": "Mount Hakken — Kannon-iwa (八剣山)",
+   "ad": "Minami-ku, Sapporo, Hokkaido, Japan",
+   "w": "A 498 m jagged ridge on the way to Jōzankei — about an hour up with ropes on the steep upper half, for a 360° summit view.",
+   "k": "hike",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JOZANKEITOURISM",
+     "https://jozankei.jp/en/enjoy/hiking/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E8%A6%B3%E9%9F%B3%E5%B2%A9%E5%B1%B1"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DOTO",
+   "n": "Nusamai Bridge, Kushiro (幣舞橋)",
+   "ad": "Over the Kushiro River from JR Kushiro Station, Kushiro, Hokkaido, Japan",
+   "w": "One of Hokkaido's three famous bridges (1889, rebuilt 1976) with bronze statues of the four seasons — the stage for Kushiro's famous sunsets.",
+   "k": "bridge & sunset",
+   "g": [
+    "VIEW",
+    "NIGHT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spot/detail_10121.html"
+    ],
+    [
+     "KUSHIROTOURISM",
+     "http://en.kushiro-lakeakan.com/overview/3747/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%B9%A3%E8%88%9E%E6%A9%8B"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DOTO",
+   "n": "Kamuiwakka Hot Falls, Shiretoko (カムイワッカ湯の滝)",
+   "ad": "Kamuiwakka River, Shari, Shari District, Hokkaido, Japan",
+   "w": "A river heated by the active Mt Shiretoko-Iō — wade upstream through warm water to falls whose basins are natural hot baths; 'Water of the Gods' in Ainu.",
+   "k": "hot-spring waterfall",
+   "g": [
+    "NATURE",
+    "ONSEN",
+    "UNESCO",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spot/detail_10412.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%A0%E3%82%A4%E3%83%AF%E3%83%83%E3%82%AB%E6%B9%AF%E3%81%AE%E6%BB%9D"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHOKU",
+   "n": "Asahibashi Bridge, Asahikawa (旭橋)",
+   "ad": "Over the Ishikari River, Asahikawa, Hokkaido, Japan",
+   "w": "The 1932 steel arch (224.82 m) over the Ishikari — one of Hokkaido's Three Great Bridges and the only one still in its original form; a Hokkaido Heritage site.",
+   "k": "historic bridge",
+   "g": [
+    "HISTORY",
+    "VIEW",
+    "FREE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "HOKKAIDOTOURISM",
+     "https://en.visit-hokkaido.jp/destinations/asahibashi-bridge-a-bridge-with-a-beautiful-arch-designated-a-hokkaido-heritage-site"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E6%97%AD%E6%A9%8B_(%E6%97%AD%E5%B7%9D%E5%B8%82)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHOKU",
+   "n": "Fukiage Onsen open-air bath, Kamifurano (吹上温泉 吹上露天の湯)",
+   "ad": "Slopes of Mt Tokachi, Kamifurano, Sorachi District, Hokkaido, Japan",
+   "w": "A free, wild open-air hot spring about 1,000 m up the flank of Mt Tokachi, kept up for anyone to soak in.",
+   "k": "wild onsen",
+   "g": [
+    "ONSEN",
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spa/spot/detail_10635.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%90%B9%E4%B8%8A%E6%B8%A9%E6%B3%89_(%E5%8C%97%E6%B5%B7%E9%81%93)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DHOKU",
+   "n": "Biei Shirogane Onsen (白金温泉)",
+   "ad": "Shirogane, Biei, Kamikawa District, Hokkaido, Japan",
+   "w": "A quiet spa village at the foot of the Tokachidake range, named in 1950 for water 'as precious as platinum' — base for the Blue Pond and Shirahige Falls.",
+   "k": "onsen village",
+   "g": [
+    "ONSEN",
+    "NATURE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spa/spot/detail_10617.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E7%99%BD%E9%87%91%E6%B8%A9%E6%B3%89"
     ]
    ]
   }
@@ -7197,14 +7550,403 @@
      "https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E3%82%82%E3%81%A1%E7%B1%B3%E3%81%AE%E9%87%8C%E2%98%86%E3%81%AA%E3%82%88%E3%82%8D"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "IBURI",
+   "n": "Restaurant Bōyōtei, Tōyako Onsen (レストラン望羊蹄)",
+   "ad": "Tōyako Onsen 36-12, Tōyako, Abuta District, Hokkaido 049-5721, Japan",
+   "w": "A 1946 Western-food house in Tōyako Onsen still cooking to its original recipes — named for the view of Mt Yōtei it once had; the hamburg set is the order.",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80001719"
+    ],
+    [
+     "LAKETOYA",
+     "https://www.laketoya.com/news/%E3%80%90%E7%AC%AC24%E5%9B%9E%E3%80%91youtube%E4%B8%8A%E3%81%8C%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%99%EF%BC%81%E6%9C%9B%E7%BE%8A%E8%B9%84%E3%81%95%E3%82%93%E3%81%AB%E3%81%8A%E9%82%AA%E9%AD%94%E3%81%97/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Curry Shop S, Susukino (カレーショップ S)",
+   "ad": "Silver Bldg B1F, Minami 3-jō Nishi 4-chōme, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A basement soup-curry counter in the middle of Susukino, on both the city tourism board's and GoodLuckTrip's Susukino lists.",
+   "cz": [
+    "HOKKAIDO"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/gourmet/shop/shop_117-3/"
+    ],
+    [
+     "GOODLUCKTRIP",
+     "https://www.gltjp.com/en/article/item/21517/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPR",
+   "n": "Umi Hachikyō Honten, Susukino (海味はちきょう 本店)",
+   "ad": "Miyako Bldg 1F, Minami 3-jō Nishi 3, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A Susukino seafood izakaya, open 365 days a year until midnight.",
+   "cz": [
+    "IZAKAYA",
+    "SUSHI",
+    "HOKKAIDO"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/gourmet/shop/shop_194-3/"
+    ],
+    [
+     "GOODLUCKTRIP",
+     "https://www.gltjp.com/en/article/item/21517/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Night Parfait Nanakamado (夜パフェ専門店 ななかまど)",
+   "ad": "Dai-4 Fujii Bldg 2F, Minami 4-jō Nishi 5-10, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A dedicated night-parfait bar in Susukino — the after-dinner, after-drinks parfait until late.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://visit.sapporo.travel/discover/cuisine/shime-parfait/"
+    ],
+    [
+     "GOODLUCKTRIP",
+     "https://www.gltjp.com/en/article/item/21517/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Parfaiteria PaL (パフェテリア パル)",
+   "ad": "Susukino, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A second night-parfait specialist in Susukino, open every night of the year until midnight or later.",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://visit.sapporo.travel/discover/cuisine/shime-parfait/"
+    ],
+    [
+     "GOODLUCKTRIP",
+     "https://www.gltjp.com/en/article/item/21517/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Kiwami Shio-Jukusei Jingisukan Yūhi, Susukino (極 塩熟成ジンギスカン 夕陽)",
+   "ad": "Susukino, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A Susukino jingisukan specialising in salt-aged lamb, on both the city tourism board's shop list and GoodLuckTrip's Hokkaido jingisukan twelve.",
+   "cz": [
+    "HOKKAIDO"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/gourmet/shop/shop_577-3/"
+    ],
+    [
+     "GOODLUCKTRIP",
+     "https://www.gltjp.com/en/article/item/21090/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPR",
+   "n": "Rokkatei Sapporo Honten (六花亭 札幌本店)",
+   "ad": "5 minutes' walk from JR Sapporo Station (south exit), Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "Tokachi confectioner Rokkatei's Sapporo flagship — the shop below, and a café above serving store-only desserts; home of the Marusei Butter Sand (white chocolate, raisins, Hokkaido butter).",
+   "cz": [
+    "SWEET",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/15117"
+    ],
+    [
+     "HOKKAIDOTOURISM",
+     "https://en.visit-hokkaido.jp/destinations/go-crazy-for-desserts-in-rokkatei-sapporo-main-store"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Kinotoya Ōdōri Kōen & KINOTOYA Café (きのとや 大通公園店)",
+   "ad": "Ōdōri Kōen area, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "Sapporo patissier Kinotoya's Ōdōri café — the fresh, silky milk soft-serve that topped New Chitose Airport's ice-cream election two years running.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000013"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/19714"
+    ],
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/gourmet/feature/softcream/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPR",
+   "n": "Ōdōri BISSE (大通ビッセ)",
+   "ad": "Directly connected to Ōdōri subway station, Chuo-ku, Sapporo, Hokkaido, Japan",
+   "w": "A station-linked complex whose ground floor gathers famous Hokkaido confectioners and farm-milk soft-serve and gelato counters.",
+   "cz": [
+    "SWEET",
+    "MKT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "SAPPOROTRAVEL",
+     "https://www.sapporo.travel/en/spot/facility/odoribisse/"
+    ],
+    [
+     "HOKKAIDOTOURISM",
+     "https://www.visit-hokkaido.jp/en/spot/detail_11261.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OTARU",
+   "n": "Michi-no-eki Space Apple Yoichi (道の駅 スペース・アップルよいち)",
+   "ad": "Yoichi, Yoichi District, Hokkaido, Japan",
+   "w": "Yoichi's roadside station in apple country — orchard juice, house-made ice cream and apple pie from local fruit.",
+   "cz": [
+    "SWEET",
+    "MKT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80084534"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9%E3%83%BB%E3%82%A2%E3%83%83%E3%83%97%E3%83%AB%E3%82%88%E3%81%84%E3%81%A1"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DONAN",
+   "n": "Michi-no-eki Misogi no Sato Kikonai (道の駅 みそぎの郷 きこない)",
+   "ad": "At JR Kikonai Station (Hokkaido Shinkansen), Kikonai, Kamiiso District, Hokkaido, Japan",
+   "w": "The roadside station at the first Hokkaido Shinkansen stop — sweets and bread built on the salt of Kikonai's midwinter Kanchū Misogi festival, and the town's own sake.",
+   "cz": [
+    "SWEET",
+    "SAKE",
+    "MKT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HOKKAIDOTOURISM",
+     "https://visit-hokkaido.jp/line/dounanmitinoeki/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E9%81%93%E3%81%AE%E9%A7%85%E3%81%BF%E3%81%9D%E3%81%8E%E3%81%AE%E9%83%B7_%E3%81%8D%E3%81%93%E3%81%AA%E3%81%84"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DOTO",
+   "n": "Kushiro Rāmen Maruhira (釧路ラーメン まるひら)",
+   "ad": "Urami 8-1-13, Kushiro, Hokkaido, Japan",
+   "w": "A 60-plus-year Kushiro counter with a two-item menu, shōyu or shio, open mornings to early afternoon — No. 66 in Ramen Adventures' Hokkaido top 100.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000832"
+    ],
+    [
+     "RAMENADVENTURES",
+     "https://ramenadventures.com/2025/01/09/hokkaido-best-ramen-2024/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DOTO",
+   "n": "Uocchi Rāmen Kōbō, Tanchō Market (魚一らーめん工房)",
+   "ad": "Kushiro, Hokkaido, Japan",
+   "w": "A Kushiro market ramen counter whose soup layers niboshi and kombu with its own saury and herring fish sauce.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000836"
+    ],
+    [
+     "KUSHIROTOURISM",
+     "http://en.kushiro-lakeakan.com/eat_souvenir/7871/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHOKU",
+   "n": "Tsuruya, Asahikawa (つるや)",
+   "ad": "Central Asahikawa, Hokkaido, Japan",
+   "w": "A downtown Asahikawa ramen shop ranked No. 40 in Ramen Adventures' 2024 Hokkaido top 100.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000772"
+    ],
+    [
+     "RAMENADVENTURES",
+     "https://ramenadventures.com/2025/01/09/hokkaido-best-ramen-2024/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "OTARU",
+   "n": "Kama-ei Factory Store, Otaru (かま栄 工場直売店)",
+   "ad": "Sakaimachi 3-7, Otaru, Hokkaido, Japan",
+   "w": "Otaru's kamaboko house since 1905 — the pan-roll is, sold only here because it can't be shipped; café on site.",
+   "cz": [
+    "MKT",
+    "HOKKAIDO"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/1013436/"
+    ],
+    [
+     "OTARUTOURISM",
+     "https://otaru.gr.jp/guidemap/gourmet-kamaboko"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "OTARU",
+   "n": "Kitaichi Hall, Otaru (北一ホール)",
+   "ad": "Kitaichi Glass No. 3 building, Sakaimachi 7-26, Otaru, Hokkaido, Japan",
+   "w": "The café in Kitaichi Glass's Meiji stone warehouse, lit by 167 oil lamps that staff light one by one after the 9am opening.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000582"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/24728"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/41455/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DONAN",
+   "n": "Sushi-dokoro Kihara, Yunokawa (鮨処 木はら)",
+   "ad": "Yunokawa Onsen area, Hakodate, Hokkaido, Japan",
+   "w": "A Yunokawa sushi counter whose chef grew up in a fishing family and buys the day's best catch — serious sushi without ceremony.",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "HAKODATETRAVEL",
+     "https://www.hakodate.travel/en/sightseeing-spots/food-drink-sushi-seafood-rice-bowl/hakodate-sushi-restaurant-kihara/"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80000347"
+    ]
+   ]
   }
  ],
  "S": {
   "ANIMETOURISM88": {
    "k": "ANIMETOURISM88",
-   "t": "ANIMETOURISM88",
-   "u": "",
-   "l": ""
+   "t": "Anime Tourism Association — '88 Anime Spots' (animetourism88.com)",
+   "u": "https://animetourism88.com/",
+   "l": "Anime Tourism Association — '88 Anime Spots' (animetourism88.com)"
+  },
+  "BIJUTSUTECHO": {
+   "k": "BIJUTSUTECHO",
+   "t": "Bijutsu Techō (bijutsutecho.com)",
+   "u": "https://bijutsutecho.com/",
+   "l": "Bijutsu Techō (bijutsutecho.com)"
+  },
+  "FAMITSU": {
+   "k": "FAMITSU",
+   "t": "Famitsu (famitsu.com)",
+   "u": "https://www.famitsu.com/",
+   "l": "Famitsu (famitsu.com)"
   },
   "FUNJAPAN": {
    "k": "FUNJAPAN",
@@ -7214,9 +7956,15 @@
   },
   "GAMER4": {
    "k": "GAMER4",
-   "t": "GAMER4",
-   "u": "",
-   "l": ""
+   "t": "4Gamer.net",
+   "u": "https://www.4gamer.net/",
+   "l": "4Gamer.net"
+  },
+  "GENDAI": {
+   "k": "GENDAI",
+   "t": "Gendai Business / gendai.media (Kodansha)",
+   "u": "https://gendai.media/",
+   "l": "Gendai Business / gendai.media (Kodansha)"
   },
   "HAKODATETRAVEL": {
    "k": "HAKODATETRAVEL",
@@ -7260,11 +8008,23 @@
    "u": "https://jomon-japan.jp/",
    "l": "Jomon Prehistoric Sites in Northern Japan (official site, Jomon World Heritage Promotion Office)"
   },
+  "JOZANKEITOURISM": {
+   "k": "JOZANKEITOURISM",
+   "t": "JOZANKEITOURISM",
+   "u": "",
+   "l": ""
+  },
   "JUSTONECOOKBOOK": {
    "k": "JUSTONECOOKBOOK",
    "t": "Just One Cookbook (Namiko Chen)",
    "u": "https://www.justonecookbook.com/hokkaido-sapporo-travel-guide",
    "l": "Just One Cookbook (Namiko Chen)"
+  },
+  "KUSHIROTOURISM": {
+   "k": "KUSHIROTOURISM",
+   "t": "Kushiro & Lake Akan Tourism (kushiro-lakeakan.com)",
+   "u": "https://en.kushiro-lakeakan.com/",
+   "l": "Kushiro & Lake Akan Tourism (kushiro-lakeakan.com)"
   },
   "MAPPLE": {
    "k": "MAPPLE",
@@ -7274,21 +8034,21 @@
   },
   "NISEKOTOURISM": {
    "k": "NISEKOTOURISM",
-   "t": "NISEKOTOURISM",
-   "u": "",
-   "l": ""
+   "t": "Niseko Promotion Board (niseko-ta.jp)",
+   "u": "https://www.niseko-ta.jp/",
+   "l": "Niseko Promotion Board (niseko-ta.jp)"
   },
   "OBIKAN": {
    "k": "OBIKAN",
-   "t": "OBIKAN",
-   "u": "",
-   "l": ""
+   "t": "Obihiro Tourism & Convention Association (obikan.jp)",
+   "u": "https://obikan.jp/",
+   "l": "Obihiro Tourism & Convention Association (obikan.jp)"
   },
   "OFFICIAL": {
    "k": "OFFICIAL SITE",
-   "t": "OFFICIAL SITE",
-   "u": "",
-   "l": ""
+   "t": "The place's / franchise's own official site",
+   "u": "https://www.japan.travel/",
+   "l": "The place's / franchise's own official site"
   },
   "OTARUTOURISM": {
    "k": "OTARUTOURISM",
@@ -7316,15 +8076,15 @@
   },
   "TRAVELJP": {
    "k": "TRAVELJP",
-   "t": "TRAVELJP",
-   "u": "",
-   "l": ""
+   "t": "トラベルjp (travel.co.jp)",
+   "u": "https://www.travel.co.jp/",
+   "l": "トラベルjp (travel.co.jp)"
   },
   "TRAVELWATCH": {
    "k": "TRAVELWATCH",
-   "t": "TRAVELWATCH",
-   "u": "",
-   "l": ""
+   "t": "Impress Travel Watch",
+   "u": "https://travel.watch.impress.co.jp/",
+   "l": "Impress Travel Watch"
   },
   "UNESCO": {
    "k": "UNESCO",
@@ -7378,9 +8138,9 @@
   },
   "HAKODATEASAICHI": {
    "k": "HAKODATEASAICHI",
-   "t": "HAKODATEASAICHI",
-   "u": "",
-   "l": ""
+   "t": "Hakodate Morning Market cooperative (hakodate-asaichi.com)",
+   "u": "https://www.hakodate-asaichi.com/",
+   "l": "Hakodate Morning Market cooperative (hakodate-asaichi.com)"
   },
   "HAKODATETRAVEL": {
    "k": "HAKODATETRAVEL",
@@ -7414,15 +8174,15 @@
   },
   "KUSHIROTOURISM": {
    "k": "KUSHIROTOURISM",
-   "t": "KUSHIROTOURISM",
-   "u": "",
-   "l": ""
+   "t": "Kushiro & Lake Akan Tourism (kushiro-lakeakan.com)",
+   "u": "https://en.kushiro-lakeakan.com/",
+   "l": "Kushiro & Lake Akan Tourism (kushiro-lakeakan.com)"
   },
   "LAKETOYA": {
    "k": "LAKETOYA",
-   "t": "LAKETOYA",
-   "u": "",
-   "l": ""
+   "t": "Tōyako Onsen Tourism Association (laketoya.com)",
+   "u": "https://www.laketoya.com/",
+   "l": "Tōyako Onsen Tourism Association (laketoya.com)"
   },
   "MACARONI": {
    "k": "MACARONI",
@@ -7456,9 +8216,9 @@
   },
   "OBIKAN": {
    "k": "OBIKAN",
-   "t": "OBIKAN",
-   "u": "",
-   "l": ""
+   "t": "Obihiro Tourism & Convention Association (obikan.jp)",
+   "u": "https://obikan.jp/",
+   "l": "Obihiro Tourism & Convention Association (obikan.jp)"
   },
   "OTARUTOURISM": {
    "k": "OTARUTOURISM",
@@ -7474,9 +8234,9 @@
   },
   "RISHIRIPLUS": {
    "k": "RISHIRIPLUS",
-   "t": "RISHIRIPLUS",
-   "u": "",
-   "l": ""
+   "t": "Rishiri Plus (rishiri-plus.jp) — Rishiri Island tourism portal",
+   "u": "https://www.rishiri-plus.jp/",
+   "l": "Rishiri Plus (rishiri-plus.jp) — Rishiri Island tourism portal"
   },
   "RURUBU": {
    "k": "RURUBU",
@@ -7498,9 +8258,9 @@
   },
   "TIMEOUT": {
    "k": "TIME OUT",
-   "t": "TIME OUT",
-   "u": "",
-   "l": ""
+   "t": "Time Out (Tokyo/Japan)",
+   "u": "https://www.timeout.com/tokyo",
+   "l": "Time Out (Tokyo/Japan)"
   },
   "WIKIPEDIA_JA": {
    "k": "WIKIPEDIA JA",
