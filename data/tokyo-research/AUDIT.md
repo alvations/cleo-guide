@@ -116,3 +116,10 @@ Shinkyō, Ōwakudani, Nonbei Yokochō, Shinjuku Suehirotei, Ichiran Shibuya.
 **Build (198 discovered / 185 rendered, 13 UNVERIFIED):** all four gates PASS/CONSISTENT; validate DATA OK; npm test
 ALL PASS. Channel mix to date: Michelin 50 · Wikipedia ~120 · GO TOKYO ~85 · japan-guide ~40 · Time Out ~35 ·
 Japan Times 7 · Savor Japan 3 · UNESCO 2 · creators: Ramen Adventures (4 attachments).
+
+## 2026-10-02 — self-correction: Japanese-script names
+Some W2 food records carried a Japanese-script name in parentheses typed from memory rather than read from a source.
+That is unverified content, so 31 of them were stripped back to the sourced romanized name (map in
+`_renamed_w2.json`; registry keys in `data/geocodes.json` renamed in place, no coordinates changed). Japanese names are
+kept only where the shop/landmark name is unambiguous and well attested (e.g. 神田まつや, いせ源, 駒形どぜう, 浅草寺).
+Rule for later waves: add the kanji/kana only when a source in hand shows it.
