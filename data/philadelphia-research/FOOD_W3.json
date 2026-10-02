@@ -2622,7 +2622,7 @@
   "a": "FISH",
   "n": "Amá",
   "address": "101 W Oxford St, Philadelphia, PA 19122",
-  "w": "Chef Frankie Ramirez's Fishtown/Kensington-edge Italian — 2026 James Beard semifinalist (Emerging Chef) and an Eater 38 summer-2026 addition (per Northeast Times).",
+  "w": "Chef Frankie Ramirez's Fishtown/Kensington-edge Italian — 2026 James Beard semifinalist (Emerging Chef) and an Eater 38 summer-2026 addition (per Northeast Times). Named to the New York Times' greatest Mexican restaurants list (Inquirer, Aug 2026).",
   "sources": [
    [
     "JAMESBEARD",
@@ -2631,6 +2631,10 @@
    [
     "NORTHEASTTIMES",
     "https://northeasttimes.com/2026/08/23/eater-38-summer-update-spotlights-fishtown-kensington-dining-boom/"
+   ],
+   [
+    "NYT",
+    "https://www.inquirer.com/news/ama-philadelphia-greatest-mexican-restaurants-times-20260816.html"
    ]
   ],
   "cz": [
@@ -2713,7 +2717,7 @@
   "a": "SPH",
   "n": "Mawn",
   "address": "764 S 9th St, Philadelphia, PA 19147",
-  "w": "Phila Lorn's Bella Vista Cambodian noodle shop — he WON the 2025 James Beard Emerging Chef award (Philly Mag); #5 on Philly Mag's 50 Best and a LaBan top-10.",
+  "w": "Phila Lorn's Bella Vista Cambodian noodle shop — he WON the 2025 James Beard Emerging Chef award (Philly Mag); #5 on Philly Mag's 50 Best and a LaBan top-10. New York Times best restaurants in America 2025; Food & Wine Best New Chef 2025 (Phila Lorn).",
   "sources": [
    [
     "JAMESBEARD",
@@ -2726,6 +2730,10 @@
    [
     "INQUIRER",
     "https://www.inquirer.com/food/craig-laban-best-restaurants-2024-philadelphia-map-20250307.html"
+   ],
+   [
+    "NYT",
+    "https://www.inquirer.com/food/philly-restaurants-nyt-best-mawn-meetinghouse-2025-20250909.html"
    ]
   ],
   "cz": [
@@ -3864,6 +3872,119 @@
    "Tomato Pie"
   ],
   "dish": "Trenton-style tomato pie with hot honey",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Bomb Bomb Bar",
+  "address": "1026 Wolf St, Philadelphia, PA 19148",
+  "w": "The 1936 South Philly tavern (named for a 1936 firebombing) revived by Joey Baldino in 2025 — Philadelphia's only entry on the New York Times' 2026 best-restaurants-in-America list (Inquirer); LaBan review; Infatuation.",
+  "sources": [
+   [
+    "NYT",
+    "https://www.inquirer.com/food/restaurants/bomb-bomb-bar-best-restaurant-philadelphia-20260915.html"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/craig-laban/joey-baldino-bomb-bomb-bar-review-20260224.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-south-philly"
+   ]
+  ],
+  "cz": [
+   "Italian-American",
+   "Seafood"
+  ],
+  "dish": "calamari and old-school South Philly Italian seafood",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SPH",
+  "n": "Blue Corn",
+  "address": "940 S 9th St, Philadelphia, PA 19147",
+  "w": "The Sandoval family's Italian Market Mexican (2014) — Philly Mag Best of Philly (Best Mexican), LaBan review, Visit Philly best Mexican, Infatuation 9.2.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/blue-corn/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/columnists/craig_laban/20161002_LaBan_review_Blue_Corn_Mexican_South_Philadelphia.html"
+   ],
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/articles/philadelphia/best-mexican-restaurants-in-philadelphia/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-south-philly"
+   ]
+  ],
+  "cz": [
+   "Mexican",
+   "Pueblan"
+  ],
+  "dish": "blue-corn tortillas from San Mateo Ozolco; huitlacoche quesadillas",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SPH",
+  "n": "Scampi",
+  "address": "617 S 3rd St, Philadelphia, PA 19147",
+  "w": "Liz Grothe's Queen Village 'Italian history restaurant' BYOB (from her Couch Cafe supper club) — Inquirer 2026 review, Philly Mag, Infatuation 8.6. HELD lead cleared.",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/scampi-liz-grothe-italian-couch-cafe-oklahoma-20260514.html"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/2024/11/20/couch-cafe-scampi-queen-village-opens/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-south-philly"
+   ]
+  ],
+  "cz": [
+   "Italian",
+   "Pasta",
+   "BYOB"
+  ],
+  "dish": "regional-Italian pasta tasting menus; standout burger",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "FISH",
+  "n": "Meetinghouse",
+  "address": "Kensington, Philadelphia, PA 19125",
+  "w": "Kensington tavern (2023) named to the New York Times' 2025 list of the best restaurants in America (Inquirer; PhillyVoice); has its own Wikipedia article.",
+  "sources": [
+   [
+    "NYT",
+    "https://www.inquirer.com/food/philly-restaurants-nyt-best-mawn-meetinghouse-2025-20250909.html"
+   ],
+   [
+    "PHILLYVOICE",
+    "https://www.phillyvoice.com/mawn-meetinghouse-best-restaurants-new-york-times/"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Meetinghouse_(restaurant)"
+   ]
+  ],
+  "cz": [
+   "Tavern",
+   "American"
+  ],
+  "dish": "roast beef sandwich; pork and beans; the towering green salad",
   "closed": false
  }
 ]
