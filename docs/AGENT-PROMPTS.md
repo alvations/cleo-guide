@@ -259,3 +259,6 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
   starred" / "inspectors' favourite dishes" articles give named-dish candidates. Pins: 2–3 exact names + "Michelin
   restaurant page latitude longitude coordinates" — adding "dish"/"description" to that query drops the coords, so
   fetch dishes in a separate query.
+- **Overlay waves (Japan maps, 2026-10-02, Hokkaido s3):** to add a corroborating source or an `"anime"` note to a place already
+  in the dataset, emit a record with the SAME `n` (and area), only the new `sources` + `anime`, and NO geo file.
+  `tools/japan_consolidate.py` `_overlay()` merges just sources + a missing anime note — prose/area/pin are never rewritten.

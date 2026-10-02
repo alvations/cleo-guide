@@ -255,3 +255,15 @@ Association + visit-hokkaido). Chi-Ka-Ho underground walkway: no own coord (only
 sapporo.travel soft-serve feature; promoted from held), Ōdōri BISSE sweets hall (sapporo.travel + visit-hokkaido). Held: ISHIYA Café Ōdōri.
 **W68:** Space Apple Yoichi (rurubu + wiki pin), Misogi no Sato Kikonai (visit-hokkaido Dōnan feature + wiki pin). Biei Oka no Kura
 (43.59214,142.46378) — no named dish → not added.
+**W69 DOTO:** Kushiro Rāmen Maruhira (rurubu + Ramen Adventures top-100 #66), Uocchi Rāmen Kōbō (rurubu + kushiro-lakeakan).
+Held: Kadoya, Hokuto, Junsui Harutori (kushiro-lakeakan only); Teshikaga Ramen (only the Kitahiroshima branch surfaced).
+**W70 DHOKU:** Tsuruya Asahikawa (rurubu + RA #40). Held: Tenkin Yonjō (RA #33 + unattributed listing), Furarīto shinko-yaki alley
+(visit-hokkaido only), Rāmen Kura, Mikazuki, Kusabi (rurubu only).
+**NSK food — exhaustion note:** Niseko Cheese Kōbō, Niseko Gelato, Takahashi MANDRIANO / PRATIVO, Ange de Fromage each surfaced in only
+ONE outlet (rurubu or niseko-ta.jp) across 4 Niseko food queries this session → held, not filled. visit-hokkaido dish pages
+(室蘭やきとり / 白老牛 / 豚丼) name no shops → no 2nd source for Toridatsu / Ushi no Sato / Hanatokachi.
+**W71 ANIME overlay (2 searches):** Golden Kamuy notes added to Abashiri Prison Museum (Gendai), Upopoy (kamuy-anime.com official
+campaign + Bijutsu Techō exhibition), Noboribetsu Jigokudani (Famitsu: 2024 Hell Festival collab) → ANIME collection 4 → 7.
+**Tooling (lesson → code):** `tools/japan_consolidate.py` `_take()` dropped exact-name duplicates silently, so an overlay record
+could not add sources/notes to an existing place. New `_overlay()` merges ONLY sources + a missing "anime" note (never prose,
+area or pin). Verified behaviour-neutral for Tokyo/Kyoto/Osaka/Okinawa (their consolidated outputs byte-identical).
