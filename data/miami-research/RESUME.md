@@ -24,15 +24,8 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- **Wave F1 (food canon, all areas)** — planned, NOT started: 0 places written. Blocked at the first query:
-  the WebSearch tool returned "this session has used its web search budget (200 of 200 WebSearch calls)" —
-  the per-session cap (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION) is shared by every concurrent agent in this
-  session and was already exhausted when Miami discovery began. One search succeeded (a geocode probe that
-  confirmed google.com `!3d!4d` place pins surface for US restaurants, e.g. Versailles 25.7650774,-80.2527872).
-- Queries to run first when budget is available: Michelin Florida Miami stars/Bib list · Miami New Times best
-  Cuban sandwich / croquetas / ventanita · Eater Miami 38 · Infatuation Miami Cuban · stone crab (Joe's) ·
-  Haitian griot Little Haiti · Peruvian ceviche · arepas Doral · key lime pie · frita · Robert Is Here/Redland ·
-  Everglades NP things to do (NPS) · Coopertown frog legs · Biscayne NP.
+- **Wave F1 (food canon + Michelin, all areas)** — RUNNING 2026-10-02 (session 2). Files: `FOOD_F1.json`,
+  `SIGHTS_S1.json`, `CREATORS_F1.json`, `geo/_geoout_w1.json`. Search log: `_miami_searchlog.md`.
 
 ## State
 - 2026-10-02 scaffolded: consolidate.py (9 areas, Miami cuisine taxonomy, 13 collections), build-miami.py,

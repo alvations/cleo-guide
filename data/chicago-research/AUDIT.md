@@ -59,3 +59,26 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
 - **Build:** tools/build-chicago.py now hides an area with zero pinned places (SW) instead of failing the
   tier-1 assert; areas with pins still must carry a tier-1. Gates: sourcecheck/geocheck/statuscheck/buildcheck
   PASS; npm run validate + npm test PASS.
+
+## 2026-10-02 (session 2) · waves S3–S8 + W5–W9 (sights everywhere, more Michelin/Iconic-Eats food, creators)
+- **Method:** Wikipedia coordinate batches (4 names/query) → pins; one themed 2nd-source query per batch
+  (Choose Chicago listings/neighbourhood guides, Time Out listings, CAC "Buildings of Chicago", WTTW "Most Beautiful
+  Places"/South Side guides, Atlas Obscura, Visit Milwaukee, Travel Wisconsin, NPS, Block Club).
+- **Added:** 86 sights (Loop architecture & public art, Hyde Park/Bronzeville, West Side churches & Jensen parks,
+  SW (Stock Yard Gate, Marquette Park MLK memorial, Balzekas, McKinley Park), Far South (Ridge Historic District,
+  Wolf Lake), suburbs (Oak Park FLW/Hemingway/Pleasant Home, Evanston, Skokie, Wheaton, Naperville, Batavia,
+  Brookfield, Glencoe, Highland Park), day trips (Milwaukee ×6, Racine SC Johnson, Yerkes, Dunes/Mount Baldy,
+  Michigan City, Starved Rock, Matthiessen), music rooms, beaches) + 19 food (Iconic Eats + Wikipedia-pinned:
+  Girl & the Goat, Avec, Greek Islands, Kaufman's, Gino's East, Mr. Beef, Wieners Circle; Michelin: Oriole, Atelier,
+  Sepia, Next, Elske, Kumiko, North Pond, Frontera, Lou Mitchell's, EL Ideas, Daisies, Irazu).
+- **Creators:** CREATORS_W1.json — Dave Portnoy (One Bite scores for Vito & Nick's 8.1, Pequod's 7.4, via a radio-site
+  roundup), Keith Lee (Chicago tour per Fox32: Lou Malnati's; Soul Prime/Cleo's/Sharks/Uncle Remus/Harold's pending a
+  2nd credible). Channel mix now: editorial/travel ≈150 · institutional ≈35 · local press (WTTW/Block Club) ≈15 ·
+  creators 3 attaches.
+- **Closures / status:** Uptown Theatre flagged `— CLOSED` (shuttered since 1981, CAC). Obama Presidential Center
+  confirmed open (2026-06-19, WTTW/Block Club). Held back for stale-location risk: Ann Sather (relocating per Time Out
+  Apr 2026), Maxwell Street Depot (forced to move per Time Out May 2026).
+- **MEASURED & DROPPED:** Calumet Park (2nd source did not actually name it); Golden Nugget Pancake House (multi-location,
+  Wikipedia pin's branch unclear); Café Brauer (now a private-events venue); Givins Castle, Indiana Dunes State Park,
+  Douglass Park (Wikipedia coords only to 0.1′/1′ — too coarse to pin).
+- **Build:** 175 rendered; gates PASS; Chicago card live on index.html; CITIES.md row updated.
