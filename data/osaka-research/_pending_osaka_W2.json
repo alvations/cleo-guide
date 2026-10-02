@@ -224,30 +224,6 @@
  ],
  "single_source_sight": [
   {
-   "n": "Keitakuen Garden",
-   "a": "TNJ",
-   "src": [
-    [
-     "JAPANGUIDE",
-     "https://www.japan-guide.com/e/e4025.html"
-    ]
-   ]
-  },
-  {
-   "n": "Abeno Harukas 300",
-   "a": "TNJ",
-   "src": [
-    [
-     "WIKIPEDIA",
-     "https://en.wikipedia.org/wiki/Abeno_Harukas"
-    ]
-   ],
-   "coord": [
-    34.646,
-    135.513389
-   ]
-  },
-  {
    "n": "Osaka Museum of History",
    "a": "CHUO",
    "src": [
@@ -286,6 +262,25 @@
     ]
    ],
    "note": "~800 stalls; needs 2nd source + coord"
+  },
+  {
+   "n": "Jan Jan Yokochō (Shinsekai)",
+   "a": "TNJ",
+   "src": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot?area=4"
+    ]
+   ]
+  },
+  {
+   "n": "Isshin-ji",
+   "a": "TNJ",
+   "coord": [
+    34.653028,
+    135.510861
+   ],
+   "note": "jawiki coord; OSAKA-INFO listing only vaguely surfaced"
   }
  ],
  "timeout_area_lists_to_mine": [
