@@ -22,8 +22,8 @@
   {
    "n": "Harmonica Alley Kichijoji",
    "a": "TAMA",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/165/index.html",
-   "need": "coords + 2nd"
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/165/index.html; TIMEOUT https://www.timeout.com/tokyo/restaurants/harmonica-yokocho",
+   "need": "coords"
   },
   {
    "n": "Chidorigafuchi",
@@ -58,7 +58,7 @@
   {
    "n": "Todoroki Valley",
    "a": "JOSAI",
-   "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?",
+   "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?; TIMEOUT https://www.timeout.com/tokyo/things-to-do/todoroki-valley; address 1-22-26 Todoroki",
    "need": "coords"
   },
   {
@@ -92,12 +92,6 @@
    "need": "2nd + street pin"
   },
   {
-   "n": "Meguro River (Nakameguro)",
-   "a": "JONAN",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/103/",
-   "need": "coords + 2nd"
-  },
-  {
    "n": "Yokohama Chinatown",
    "a": "KANTO",
    "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Yokohama_Chinatown coords 35.442815,139.645929",
@@ -120,6 +114,54 @@
    "a": "KANTO",
    "have": "JAPANGUIDE https://www.japan-guide.com/e/e3814.html; WIKIPEDIA Shinkyo",
    "need": "bridge coords"
+  },
+  {
+   "n": "Nihombashi Mitsukoshi Main Store",
+   "a": "CHUO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/82/index.html; TIMEOUT https://www.timeout.com/tokyo/shopping/nihombashi-mitsukoshi-main-store",
+   "need": "store coords (returned point = Nihonbashi district, rejected)"
+  },
+  {
+   "n": "Kanda Yabu Soba",
+   "a": "CYD",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/kanda-yabu-soba; address 2-10 Kanda-Awajicho",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Ichiran Shibuya",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/ichiran-shibuya; WIKIPEDIA https://en.wikipedia.org/wiki/Ichiran; B1F 1-22-7 Jinnan",
+   "need": "coords"
+  },
+  {
+   "n": "Horikiri Shobuen Iris Garden",
+   "a": "JOTO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/860/index.html; 2-19-1 Horikiri",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Katsushika Shibamata Tora-san Museum",
+   "a": "JOTO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/985/index.html; 6-22-19 Shibamata",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Shoin Shrine",
+   "a": "JOSAI",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sh%C5%8Din_shrine coords 35.6472333,139.6560889 (35°38′50.04″N 139°39′21.92″E)",
+   "need": "2nd"
+  },
+  {
+   "n": "Setagaya Boro-ichi",
+   "a": "JOSAI",
+   "have": "GOTOKYO ev114; TIMEOUT setagaya-boroichi-market",
+   "need": "coords (event street)"
+  },
+  {
+   "n": "Kuhonbutsu Joshin-ji",
+   "a": "JOSAI",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Kuhonbutsu_J%C5%8Dshin-ji coords 35.6082,139.6608",
+   "need": "2nd"
   }
  ]
 }
