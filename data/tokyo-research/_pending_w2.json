@@ -56,12 +56,6 @@
    "need": "store coords (returned point = Nihonbashi district, rejected)"
   },
   {
-   "n": "Kanda Yabu Soba",
-   "a": "CYD",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/kanda-yabu-soba; address 2-10 Kanda-Awajicho",
-   "need": "coords + 2nd"
-  },
-  {
    "n": "Ichiran Shibuya",
    "a": "SBY",
    "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/ichiran-shibuya; WIKIPEDIA https://en.wikipedia.org/wiki/Ichiran; B1F 1-22-7 Jinnan",
@@ -89,6 +83,66 @@
    "n": "Kuhonbutsu Joshin-ji",
    "a": "JOSAI",
    "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Kuhonbutsu_J%C5%8Dshin-ji coords 35.6082,139.6608",
+   "need": "2nd"
+  },
+  {
+   "n": "Botan (torisuki)",
+   "a": "CYD",
+   "have": "JAPANTIMES 2012 Kanda article; Wikidata Q22019484 coords 35.695,139.771389",
+   "need": "2nd + current status"
+  },
+  {
+   "n": "Takemura (sweets)",
+   "a": "CYD",
+   "have": "JAPANTIMES 2012 Kanda article; 1-19 Kanda-Sudacho",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Asakusa Imahan",
+   "a": "TAITO",
+   "have": "Wikidata Q11557218 coords 35.713969,139.792111",
+   "need": "2 sources"
+  },
+  {
+   "n": "Daikokuya Tempura",
+   "a": "TAITO",
+   "have": "Wikidata Q22017198 coords 35.713333,139.8 (whole-second precision, ~400 m east of the shop — REJECTED)",
+   "need": "exact pin + 2 sources"
+  },
+  {
+   "n": "Tamahide",
+   "a": "CHUO",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tamahide; SAVORJAPAN https://savorjapan.com/0006085680",
+   "need": "coords (Wikidata Q11572349 had none in results)"
+  },
+  {
+   "n": "Chomeiji Sakuramochi",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/shopping/chomeiji-sakuramochi; Wikidata Q22034161 coords 35.715833,139.809167; 5-1-14 Mukojima",
+   "need": "2nd"
+  },
+  {
+   "n": "Tomoegata (chanko)",
+   "a": "SMKT",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/tomoegata; 2-17-6 Ryogoku",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Hantei (kushiage)",
+   "a": "JHOKU",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/hantei; 2-12-15 Nezu; registered tangible cultural property",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Nonbei Yokocho",
+   "a": "SBY",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/nonbei-yokocho; GOTOKYO yokocho guide; 1-25 Shibuya",
+   "need": "coords (try wikidata)"
+  },
+  {
+   "n": "Shinjuku Suehirotei",
+   "a": "SJK",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/theatre/suehirotei; Wikidata Q11501852 coords 35.691167,139.705806",
    "need": "2nd"
   }
  ]

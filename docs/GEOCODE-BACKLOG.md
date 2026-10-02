@@ -862,7 +862,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Talleyrand Park & the Big Spring
 
 ## tokyo
-- registry entries: **127** · verified pins: **114** (high 110 · med 4 · low 0)
+- registry entries: **198** · verified pins: **185** (high 169 · med 16 · low 0)
 - ⚠️ **UNVERIFIED** in registry (13) — held by the gate, need the helper:
     - Aoyama Ototo (青山 おとと)
     - Ginza Katsukami II (銀座かつかみ II)

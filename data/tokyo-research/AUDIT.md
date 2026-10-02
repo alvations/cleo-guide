@@ -80,3 +80,39 @@ Outer Market, Tsukishima Monja St, Tokyo Dome, Gokoku-ji, Yushima Seidō, Todoro
 Kochikame statues, Nishiarai Daishi, Kawagoe Toki no Kane, Togoshi Ginza, Meguro River).
 **Build (127 discovered / 114 rendered, 13 UNVERIFIED):** sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
 buildcheck PASS · validate DATA OK · npm test ALL PASS. Closures: none.
+
+## 2026-10-02 — W2 batches 21–48 (searches 59–95)
+**New method — Wikidata P625 (record for every later wave).** A `wikidata.org`-restricted query "A latitude
+longitude; B latitude longitude; …" (4 names) returns each item's `coordinate location` (P625) — it covers streets,
+alleys and *historic restaurants* (ja-wiki shinise) that en.wikipedia infoboxes lack. Wikidata is used for the PIN
+only, never as one of the two sources; the sources come from a separate Time Out / Japan Times / Savor Japan /
+GO TOKYO / japan-guide corroboration query naming the same places. Rejected Wikidata points: Daikokuya Tempura
+(whole-second precision, ~400 m east of the shop), Tamahide/Harmonica Yokochō/Shin-Ōkubo (only the district or
+station point came back — Shin-Ōkubo kept at `med` as an explicit station-hub point, the others held).
+**Kept — sights (+56):** KANTO (Yokohama: CupNoodles Museum, Landmark Tower, Sankei-en, Chinatown; Hakone Shrine,
+Open-Air Museum; Kamakura: Hase-dera, Engaku-ji, Kenchō-ji, Hōkoku-ji, Enoshima (med); Nikkō: Kegon Falls, Rinnō-ji,
+Lake Chūzenji (med); Fuji: Chūreitō, Lake Kawaguchi (med), Oshino Hakkai; Kawagoe: Kita-in, Toki no Kane);
+SJK Yayoi Kusama Museum, Hanazono Shrine, Kabukichō Tower, Kagurazaka (med), Omoide Yokochō, Godzilla Head,
+Shin-Ōkubo (med); CHUO Tsukiji Hongan-ji, Suitengū, Wakō (med); TAMA Edo-Tokyo Open Air Architectural Museum,
+Shōwa Kinen Park (med), Nippara Caves; JOTO Mizumoto Park, Tora-san Museum, KochiKame Museum, Nishiarai Daishi;
+JONAN Nakameguro (med), Jiyūgaoka (med), Meguro Sky Garden; JOSAI Kōenji (med); JHOKU Gokoku-ji, Tokyo Dome City,
+Yushima Seidō; CYD Hibiya Park, National Diet Building, Kitanomaru Park; TAITO Ameyoko; SBY Takeshita-dōri,
+Yoyogi National Gymnasium, Daikanyama T-Site, Miyashita Park; MNT Meiji Jingū Gaien ginkgo avenue (med);
+SMKT Fukagawa Edo Museum, Mukōjima-Hyakkaen, Tokyo Big Sight, Unicorn Gundam statue (CLOSED).
+**Kept — food (+15):** Michelin: Nihombashi Kakigaracho Sugita, Ishibashi, Hashimoto, Sushi Hashimoto, Sasaki
+Seimenjo, Sushi Miyuki; non-Michelin heritage (Wikidata pin + 2 editorial): Sukiyabashi Jiro Honten (Wikipedia +
+Time Out), Kanda Yabu Soba (Time Out + Japan Times), Kanda Matsuya, Isegen (Savor Japan + Japan Times), Komagata
+Dozeu (Time Out + Japan Times), Rengatei (Time Out + Japan Times), Taimeiken (Time Out + Savor Japan), Kamiya Bar
+(Time Out + Japan Times), Sasanoyuki (Time Out + Japan Times).
+**CLOSURE (4c):** Unicorn Gundam statue, DiverCity — Time Out Tokyo news (May 2026) reports retirement in August
+2026 → kept, flagged `— CLOSED`, statusSource recorded.
+**MEASURED & DROPPED:** Shintomicho Yuasa, Kutan (Michelin, pinned, but cuisine not returned → no named dish; also
+a 4th/5th Shintomi counter would be padding); Taishakuten-sandō (would duplicate the Taishakuten pin — folded into it
+as JAPANGUIDE/TIMEOUT sources); Nihombashi Mitsukoshi (returned point = Nihonbashi district → rejected, held).
+**Held (single source or no pin):** see `_pending_w2.json` — Botan, Takemura, Tamahide, Hantei, Tomoegata, Chōmeiji
+Sakuramochi, Asakusa Imahan, Daikokuya, Kanda-area Chidorigafuchi, Tsukiji Outer Market, Tsukishima Monja St,
+Harmonica Yokochō, Todoroki Valley, Togoshi Ginza, Horikiri Shōbuen, Shōin Shrine, Kuhonbutsu, Setagaya Boro-ichi,
+Shinkyō, Ōwakudani, Nonbei Yokochō, Shinjuku Suehirotei, Ichiran Shibuya.
+**Build (198 discovered / 185 rendered, 13 UNVERIFIED):** all four gates PASS/CONSISTENT; validate DATA OK; npm test
+ALL PASS. Channel mix to date: Michelin 50 · Wikipedia ~120 · GO TOKYO ~85 · japan-guide ~40 · Time Out ~35 ·
+Japan Times 7 · Savor Japan 3 · UNESCO 2 · creators: Ramen Adventures (4 attachments).
