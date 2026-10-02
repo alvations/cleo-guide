@@ -22,20 +22,20 @@
  {
   "n": "François Kissashitsu (フランソア喫茶室)",
   "address": "Nishikiyamachi-dōri by the Takase-gawa, Shimogyō-ku, Kyoto (1 min from Kyoto-Kawaramachi Stn)",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "lat": 35.0033583,
+  "lng": 135.7701806,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia article coordinates (フランソア喫茶室), https://ja.wikipedia.org/wiki/%E3%83%95%E3%83%A9%E3%83%B3%E3%82%BD%E3%82%A2%E5%96%AB%E8%8C%B6%E5%AE%A4",
   "status": "open",
   "statusSource": "Kyoto City Official Travel Guide feature — operating; checked 2026-10-02"
  },
  {
   "n": "Rokuyōsha (六曜社珈琲店)",
   "address": "Sanjō-Kawaramachi, Nakagyō-ku, Kyoto",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "lat": 35.008528,
+  "lng": 135.769278,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia article coordinates (六曜社 (喫茶店)), https://ja.wikipedia.org/wiki/%E5%85%AD%E6%9B%9C%E7%A4%BE_(%E5%96%AB%E8%8C%B6%E5%BA%97)",
   "status": "open",
   "statusSource": "Leaf KYOTO store feature (2023-09) — operating; checked 2026-10-02"
  },
@@ -162,10 +162,10 @@
  {
   "n": "Torisaki",
   "address": "292-1 Takoyakushicho, Nakagyo-ku, Kyoto, 604-0021, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "MICHELIN Guide venue page address only; lat/lng not surfaced via WebSearch — UNVERIFIED, held for tools/geocode-helper.html https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisaki",
+  "lat": 35.012312,
+  "lng": 135.758388,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page lat/lng, https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisaki",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
  },
@@ -182,10 +182,10 @@
  {
   "n": "Yakitori Kyoto Tachibana",
   "address": "B1F, 612 Tachibanacho, Nakagyo-ku, Kyoto, 604-0944, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "MICHELIN Guide venue page address only; lat/lng not surfaced via WebSearch — UNVERIFIED, held for tools/geocode-helper.html https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/yakitori-kyoto-tachibana",
+  "lat": 35.012102,
+  "lng": 135.76593,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page lat/lng, https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/yakitori-kyoto-tachibana",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
  },
@@ -492,10 +492,10 @@
  {
   "n": "Mukai Shuzō (向井酒造), Ine",
   "address": "Ine Bay (by the funaya), Ine-chō, Yosa-gun, Kyoto Prefecture",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "lat": 35.67475,
+  "lng": 135.28639,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia article coordinates (向井酒造, 本社 伊根町平田67), https://ja.wikipedia.org/wiki/%E5%90%91%E4%BA%95%E9%85%92%E9%80%A0",
   "status": "open",
   "statusSource": "MATCHA Tango sake-brewery tour feature — operating; checked 2026-10-02"
  },
@@ -518,5 +518,25 @@
   "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
   "status": "open",
   "statusSource": "Leaf KYOTO (2024-09, opened second branch) — operating; checked 2026-10-02"
+ },
+ {
+  "n": "Kitcho Arashiyama Honten (吉兆 嵐山本店)",
+  "address": "Arashiyama, Ukyō-ku, Kyoto",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Savor Japan reservable listing + Inside Kyoto — operating; checked 2026-10-02"
+ },
+ {
+  "n": "% Arabica Kyoto Arashiyama",
+  "address": "Upstream of Togetsukyō Bridge, Saga, Ukyō-ku, Kyoto",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Inside Kyoto venue page + MATCHA Arashiyama cafés — operating; checked 2026-10-02"
  }
 ]
