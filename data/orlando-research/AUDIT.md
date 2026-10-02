@@ -117,3 +117,36 @@
 - FINAL this session: 208 researched (153 sights + 55 food); page 136 sights + 6 food; 52 UNVERIFIED held for the helper;
   14 single-source held; 2 closed flagged. Gates: sourcecheck (held only) / geocheck PASS / statuscheck CONSISTENT /
   buildcheck PASS; npm validate DATA OK; npm test ALL PASS. Searches ≈ 79 main + ≈ 84 agents ≈ 163.
+
+## 2026-10-02 · Session 3 · §2b FOOD & DRINK FIRST (lead + 4 background discovery workers)
+- **Searches:** 200/200 session cap reached (lead ≈ 45; workers S3PR 27, S3BAR ≈ 45, S3PARK ≈ 27, S3CITY ≈ 35). Hard cap, not a rate limit.
+- **Added 76 food & drink places** (+0 sights): S3BAR 21 (breweries, cocktail/dive bars, coffee roasters, bakeries — OW Best of
+  Orlando 2026 winners: Ivanhoe Park Brewing, The Moderne, Hideaway Bar, Glass Knife, Jeff's Bagel Run; Sentinel Central FL Favorites:
+  Brewlando), S3PARK 18 (Disney Springs/EPCOT/DAK/MK/USF/Epic dining & snack icons — OW 2025 Best Theme Park Restaurant, Sentinel 2025
+  Foodie Awards via DisneyBizJournal, Food Network, TouringPlans, DFB), S3CITY 14 (OW 2026 neighbourhood winners, Michelin Recommended
+  Kabooki/Luke's/AVA, Mills 50 essentials), S3PR 9 (Kissimmee Puerto Rican/Cuban/Latin + Lake Nona Wave Hotel Michelin), lead 14
+  (S3SPACE Dixie Crossroads, River Rocks; S3NORTH Pisces Rising, Goblin Market, Black Hammock, Hollerbach's, Yellow Dog Eats, Chef's
+  Table at the Edgewater; S3IDR A Land Remembered, Norman's; S3LOCAL Beefy King, Linda's La Cantina; S3MICH Capa (Michelin Recommended
+  2026, ex-star), Papa Llama — CLOSED (2× Michelin star; OW closure Sept 2026)).
+- **Corroborated held sights:** Kia Center, Inter&Co Stadium (Visit Orlando downtown itinerary), Greenwood Cemetery (News 6),
+  Lake Nona Sculpture Garden (Visit Orlando), Central Florida Zoo (AAA). Single-source now 9 (build drops them).
+- **Channel mix (citations):** editorial/press ≈ 120 (Orlando Weekly incl. Best of Orlando polls, Scott Joseph, Tasty Chomps,
+  Infatuation, Time Out, Food Network, Frommer's, Roadfood, Florida Rambler, Space Coast Living, Orange Observer); local TV ≈ 20
+  (FOX 35, WFTV, News 6, Spectrum 13); institutional Michelin ≈ 8; tourism ≈ 10 (Visit Orlando, Experience Kissimmee, Visit
+  Florida, AAA); creators 4 (@somehowimnotfat via FOX 35 — 61k IG; Burger Beast); Disney/Universal fan press ≈ 25 (DFB, TouringPlans,
+  AllEars, MickeyBlog, WDWInfo, WDWMagic-open-check only). Creator queries returned mostly SEO pages — no TikTok/YouTube creator
+  vetted this session.
+- **New outlets registered (with credible rationale):** SPACECOASTLIVING, ROADFOOD, FLORIDARAMBLER, AAA, LIFEINLAKE, ORANGEOBSERVER,
+  SOMEHOWIMNOTFAT, FOX35, BURGERBEAST, WUSF, WINTERPARKMAG, DAILYCOFFEENEWS, SANFORDHERALD, DAYTONABEACHCVB, WDWINFO, WDWMAGIC,
+  DISNEYBIZJOURNAL. **Weak-source note:** DISNEYBIZJOURNAL (Substack) is the only reachable report of the Sentinel 2025 Foodie
+  Awards (orlandosentinel.com doesn't surface); Via Napoli, Takumi-Tei, Spice Road Table rest on Food Network + it → re-corroborate
+  next wave. The Moderne's Tasty Chomps citation and Kōri Bakery's boba award came from summaries (tier 2 / caveat in `w`).
+- **Memory hygiene:** lead caught and stripped 3 from-memory details before commit (an Edgewater street number, a Rosen Shingle
+  Creek street number, a Norman's signature dish) — only source-shown facts kept.
+- **Closures:** Papa Llama (kept, flagged). Seen, not added: Deadwords Brewing (closed Apr 2024), Persimmon Hollow Lake Eola
+  taproom (May 2024), Downtown Credo Rollins St (2023), Finnegan's USF (temporary refurb to late 2026). Moved: The Courtesy →
+  1288 N Orange Ave Winter Park; Austin's Coffee → 2240 W Fairbanks; Hideaway → 523 Virginia Dr.
+- **Geocode:** all 76 new restaurants UNVERIFIED (no place-pin decimals surfaced) → `tools/geocode-helper.html`.
+- **Build:** rebuild-city --build OK; sourcecheck FAIL only on 9 HELD single-source (dropped by build), geocheck PASS,
+  statuscheck CONSISTENT; npm validate DATA OK; npm test ALL PASS. Page: 141 sights + 6 food pinned; 284 researched.
+- **Density / food share:** 131 food / 284 = **46%** (was 26%). Held leads in `_PENDING_LEADS.md` (Session 3 section).

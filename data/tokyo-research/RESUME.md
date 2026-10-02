@@ -35,20 +35,39 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
   `CREATORS_TOKYO_W2.json` (Ramen Adventures, Paolo fromTOKYO), `_pending_w2.json` (39 held: single-source or no pin),
   `_renamed_w2.json` (31 Japanese-script names stripped — see AUDIT), `_tokyo_golive.py` (refresh go-live surfaces).
 
+- **2026-10-02 W5 (session_01VQaxQ69L5PmZRFY3PnAJQQ) — food & drink first + anime.** +38 food & drink + 8 anime sights (50 Best bars,
+  kissaten & specialty coffee, yokochō, craft beer, sake bars, ramen/tsukemen/udon, wagashi & bakeries) in
+  `FOOD_TOKYO_W5.json`; only 4 pinned (rest UNVERIFIED → helper). Build: **433 discovered / 387 rendered; food 184 of
+  433 discovered = 42.5% (was 37%); ANIME layer 24 records (+9)**; 4 gates PASS; validate + test green; hub refreshed. Whole session budget (200 searches) used.
+  Vetting helper `_tokyo_w5_ingest.py`; held candidates `_w5_held.json`; agent brief `_w5_agent_brief.md`.
+
 ### Density (discovered, `python3 tools/density.py tokyo`) vs target
-CHUO 28/50 · CYD 29/45 · JHOKU 25/35 · JONAN 17/35 · JOSAI 19/40 · JOTO 10/20 · KANTO 34/35 · MNT 34/50 · SBY 25/50 ·
-SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is the gap (102 vs 212 sights); TAMA has 0 food,
-JOTO 1, KANTO 2.
+(after W5) CHUO 43/50 · CYD 33/45 · JHOKU 30/35 · JONAN 22/35 · JOSAI 26/40 · JOTO 14/20 · KANTO 37/35 OK · MNT 51/50 OK ·
+SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~530**; food 184 (42.5%). (CYD 36, JHOKU 32 after anime.) Weakest food: TAMA 3, JOTO 3, KANTO 3, SMKT 8.
 
 ## In-flight wave
-**W5 (2026-10-02, session_01VQaxQ69L5PmZRFY3PnAJQQ) — FOOD & DRINK FIRST + ANIME wave.** Writes `FOOD_TOKYO_W5.json`,
-`SIGHTS_TOKYO_W5.json` (anime/pop-culture sights), `geo/_geoout_tokyo_w5.json`, `CREATORS_TOKYO_W5.json`, helper
-`_tokyo_w5_add.py` (= `_add.py`). Searches used this session: 0 (updated per batch below).
-Query plan: (1) bars — World's/Asia's 50 Best Bars Tokyo, Time Out best cocktail/whisky/sake bars, craft beer, tachinomi;
-(2) coffee — Time Out/Eater best kissaten & specialty coffee; (3) bakeries, wagashi, depachika; (4) Michelin Bib by ward
-for SBY/SJK/SMKT/JONAN/JOSAI/CYD/TAITO food; (5) ANIME — Pokémon Café/Center Mega, Gundam Base, Jump Shop, Animate
-Ikebukuro, Mandarake, Suga Shrine stairs, Ghibli/Donguri, Sanrio Puroland, Ultraman Soshigaya, Tezuka/Tokiwasō;
-(6) TAMA/JOTO/KANTO food (Jindai-ji soba, Kawagoe, Kamakura). Creator query ≥1 per batch.
+None — W5 closed (see State). Next session starts with the W6 plan below.
+
+## W6 plan (next session — fresh search budget; ~200 searches)
+**Budget lesson (W5):** the 200-search cap is per SESSION and shared with subagents — 5 parallel agents burned it in
+~10 minutes. Run at most 2 agents at once and give each a hard search allowance (e.g. 35) in its prompt.
+**Pin lesson:** Google place pins for bars/kissaten/wagashi rarely surface `!3d!4d` via WebSearch (≈1 in 6). Spend
+pins on Michelin venue pages (coords printed, 3 per query) and Wikipedia/Wikidata items; leave small venues to
+`tools/geocode-helper.html` (browser) — 33 W5 food records are UNVERIFIED and waiting there (list: geo/_geoout_tokyo_w5.json
+where confidence = unverified).
+1. **Helper pass first (no searches):** run `tools/geocode-helper.html` for the 33 UNVERIFIED W5 pins + the 5 older ones.
+2. **Clear `_w5_held.json`** — each needs ONE more source: Gen Yamamoto (50 Best URL), Tokyo Confidential, Cafe Bon,
+   Monozuki, Satella, Higashi-Mukojima Coffee-Ten, Baikatei; ramen one-source list in AUDIT (Ramenya Shima, Menya Shiki,
+   Niboshi Himawari, Tagano, Kagura-ya, Nara Seimen, Menya Nanigashi, Kamofuku).
+3. **Food still needed (food share 43% → ≥50%):** SJK (Rokurinsha? no — Shinjuku: Nagi Golden Gai, Ramenya Shima, Tsunahachi
+   tempura, Isetan depachika), CYD (Kanda Sudachō shinise: Botan, Takemura, Isegen on map), SMKT (Menya Shiki, chanko —
+   Tomoegata held for pin, Fukagawa-meshi), JONAN (Tagano, Togoshi Ginza), JOSAI (Ozasa? TAMA), TAMA (Jindai-ji soba, Satou,
+   Ozasa, Kamofuku), JOTO (Kita-Senju/Tateishi senbero, Kawachiya Shibamata).
+4. **ANIME wave completion** — W5 landed Super Potato, Mandarake Complex, Pokémon Café, Gundam Base Tokyo, Tokiwasō Manga
+   Museum, Suginami Animation Museum, Suga Shrine stairs, @home cafe, Pokémon Center Mega Tokyo (8 of 9 UNVERIFIED pins). Remaining: Animate Ikebukuro, Tokyo Anime Center, Ultraman Soshigaya, Sanrio Puroland, Toei
+   Animation Museum, Kirby Café, Gashapon Dept Store, Kamakura-kōkōmae (Slam Dunk).
+5. Every ~50: `flock … python3 tools/rebuild-city.py tokyo --build` → 4 gates → `cd tools && npm run validate && npm test`
+   → `flock … python3 data/tokyo-research/_tokyo_golive.py` → commit + push.
 
 ## Previous wave (W3/W4)
 **W3 (2026-10-02, continuation) — CLOSED.** Last full build: **387 discovered / 382 rendered (241 sights + 141

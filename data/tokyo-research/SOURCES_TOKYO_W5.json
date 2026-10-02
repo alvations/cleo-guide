@@ -1,10 +1,64 @@
-{"outlets":[
- {"key":"WORLD50","name":"The World's 50 Best Bars / Asia's 50 Best Bars","url":"https://www.theworlds50best.com/bars/","credible":"Annual ranking voted by an academy of bar professionals; one source (not a lone authority)."},
- {"key":"MONOCLE","name":"Monocle","url":"https://monocle.com/","credible":"International affairs & design magazine with a Tokyo bureau; signed city coverage."},
- {"key":"PUNCH","name":"PUNCH (drinks magazine)","url":"https://punchdrink.com/","credible":"James Beard-recognised drinks publication with bylined reporting."},
- {"key":"TOKYOWEEKENDER","name":"Tokyo Weekender","url":"https://www.tokyoweekender.com/","credible":"English-language Tokyo magazine published since 1970; bylined local editorial."},
- {"key":"METROPOLIS","name":"Metropolis Japan","url":"https://metropolisjapan.com/","credible":"Tokyo's long-running English city magazine (since 1994); bylined features."},
- {"key":"SPRUDGE","name":"Sprudge","url":"https://sprudge.com/","credible":"Leading specialty-coffee trade publication; bylined café reporting."},
- {"key":"INFATUATION","name":"The Infatuation","url":"https://www.theinfatuation.com/tokyo","credible":"Restaurant-review publication with a Tokyo guide by named critics."},
- {"key":"CNN","name":"CNN Travel","url":"https://edition.cnn.com/travel","credible":"National news outlet travel desk."}
-]}
+{
+ "outlets": [
+  {
+   "key": "WORLD50",
+   "name": "The World's 50 Best Bars / Asia's 50 Best Bars",
+   "url": "https://www.theworlds50best.com/bars/",
+   "credible": "Annual ranking voted by an academy of bar professionals; one source (not a lone authority)."
+  },
+  {
+   "key": "MONOCLE",
+   "name": "Monocle",
+   "url": "https://monocle.com/",
+   "credible": "International affairs & design magazine with a Tokyo bureau; signed city coverage."
+  },
+  {
+   "key": "PUNCH",
+   "name": "PUNCH (drinks magazine)",
+   "url": "https://punchdrink.com/",
+   "credible": "James Beard-recognised drinks publication with bylined reporting."
+  },
+  {
+   "key": "TOKYOWEEKENDER",
+   "name": "Tokyo Weekender",
+   "url": "https://www.tokyoweekender.com/",
+   "credible": "English-language Tokyo magazine published since 1970; bylined local editorial."
+  },
+  {
+   "key": "METROPOLIS",
+   "name": "Metropolis Japan",
+   "url": "https://metropolisjapan.com/",
+   "credible": "Tokyo's long-running English city magazine (since 1994); bylined features."
+  },
+  {
+   "key": "SPRUDGE",
+   "name": "Sprudge",
+   "url": "https://sprudge.com/",
+   "credible": "Leading specialty-coffee trade publication; bylined café reporting."
+  },
+  {
+   "key": "INFATUATION",
+   "name": "The Infatuation",
+   "url": "https://www.theinfatuation.com/tokyo",
+   "credible": "Restaurant-review publication with a Tokyo guide by named critics."
+  },
+  {
+   "key": "CNN",
+   "name": "CNN Travel",
+   "url": "https://edition.cnn.com/travel",
+   "credible": "National news outlet travel desk."
+  },
+  {
+   "key": "NIPPONCOM",
+   "name": "nippon.com",
+   "url": "https://www.nippon.com/en/",
+   "credible": "Nippon Communications Foundation's English-language editorial site on Japan; bylined features."
+  },
+  {
+   "key": "TOFUGU",
+   "name": "Tofugu",
+   "url": "https://www.tofugu.com/",
+   "credible": "Long-running Japan culture & language publication with bylined, researched features (corroborating only)."
+  }
+ ]
+}

@@ -241,3 +241,31 @@ New outlets (SOURCES_TOKYO_W5.json): WORLD50, MONOCLE, PUNCH, TOKYOWEEKENDER, ME
 Stars and Stripes dropped as a source (not editorial of record). Lead's Shibamata/Kamakura probes: Savor Japan (a
 Gurunavi reservation site's advertorial) not counted; Taishakuten-sandō held (no place pin).
 Pins: 3 high, 11 UNVERIFIED → helper.
+### Batch 2 — izakaya/drinks, ramen/noodles, sweets (agents ~30 + ~24 + ~33 searches) → session cap hit (200/200)
+**Kept (23):** yokochō & drinks — Nonbei Yokochō (Time Out + Tokyo Cheapo + GO TOKYO), Harmonica Yokochō (GO TOKYO + Time
+Out + Lonely Planet), Hoppy Street, Yūrakuchō Gādo-shita (japan-guide + Tokyo Cheapo), Beer Club Popeye (Time Out + Japan
+Times), Ushitora Shimokitazawa (Time Out + Tokyo Cheapo; the two give different addresses — confirm in the helper pass),
+Gem by Moto, Shinsuke Yushima (Lonely Planet + Japan Times + Izakaya Hyakumeiten), Sasagin. Ramen/noodles — Harukiya
+Ogikubo, Fuunji (address 2-14-3 Yoyogi → SBY), Menya Itto (JOTO), Chinchintei abura soba (TAMA), Tsukemen Michi (JOTO;
+status not separately checked), Sanukiya udon (Michelin Bib venue page). Sweets — Usagiya, Toraya Akasaka (pin), Naniwaya
+Sōhonten, Kūya, Ginza Kimuraya, Himitsudō, Asakusa Kagetsudō, Bricolage Bread & Co.
+**Held (lead's vetting):** Shuko Takigiya & Kisaiya Hide (still no specific dish — W3 reason stands), Tanako (Michelin
+source is a 2017 article; current Bib unconfirmed), Chūka Soba Ibuki (no source describes the bowl), Baikatei (Hyakumeiten
+claim only via an aggregator). Agent drops: Kurand Sake Market Ikebukuro (a directory says closed — status unclear),
+Yakiton Tatsuya / Ebisu Yokochō / Itakuraya / Kameju / Comme'N / Truffle Bakery (one source), Daihashi & Yusui (no
+credible source). Not reached: depachika, Akabane/Tateishi senbero, Rokurinsha/Mutekiya/Taishoken/Nagi.
+**Channel mix W5:** 50 Best (7), Time Out (30), Japan Times (6), Lonely Planet (5), Tokyo Cheapo (8), GO TOKYO (3),
+Monocle (2), Tokyo Weekender (4), Tabelog Hyakumeiten (4), Michelin (1), creators — Ramen Adventures (4), Ramen Beast (1).
+**Build:** 424 discovered / 386 rendered (241 sights + 183 food → food share 43%, up from 37%); sourcecheck PASS ·
+geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 33 W5 pins UNVERIFIED.
+### Batch 3 — ANIME & pop culture (agent ~23 searches; cap reached)
+**Kept (9, each with `"anime"`):** Super Potato Akihabara (Time Out + Tokyo Cheapo; pin), Mandarake Complex, @home cafe
+Akihabara (sight — no source names a dish), Pokémon Café Nihonbashi (food; reopened 17 Jun 2026 after renovation, Time
+Out), The Gundam Base Tokyo (still operating after the Unicorn statue's retirement), Pokémon Center Mega Tokyo (own store
+inside Sunshine City — distinct place), Tokiwasō Manga Museum (GO TOKYO + japan-guide; Google Arts & Culture point
+rejected as a pin → UNVERIFIED), Suginami Animation Museum, Suga Shrine stairs (*Your Name.*; Atlas Obscura + nippon.com).
+**Dropped (one outlet):** Kirby Café, Gachapon Kaikan / Gashapon Dept Store, Jump Shop/Character Street, Captain Tsubasa
+statues Yotsugi. Not reached: Ultraman Soshigaya, Sanrio Puroland, Toei Animation, Animate Ikebukuro, Tokyo Anime Center,
+Kamakura-kōkōmae, Anpanman Museum. **ANIME layer: 24 records** on the dataset (15 before W5).
+**Final W5 build:** 433 discovered / 387 rendered; all 4 gates PASS; validate DATA OK; npm test ALL PASS; hub refreshed.
+Session searches: lead 9 + agents ~154 + bars agent 44 → the 200 cap (shared with subagents) — W5 closed.
