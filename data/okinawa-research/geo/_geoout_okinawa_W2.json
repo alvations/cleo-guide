@@ -858,5 +858,95 @@
   "geoSource": "helper queue",
   "status": "open",
   "statusSource": "Visit Okinawa beach page"
+ },
+ {
+  "n": "Hamabe no Chaya (浜辺の茶屋)",
+  "address": "2-1 Tamagusuku, Tamagusuku, Nanjō, Okinawa, Japan",
+  "lat": 26.13355,
+  "lng": 127.784689,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes Hamabe no Chaya article printed GPS",
+  "status": "open",
+  "statusSource": "Mapple Nanjo list (2026 hours 10–17)"
+ },
+ {
+  "n": "Café Kurukuma (カフェくるくま)",
+  "address": "1190 Chinen, Chinen, Nanjō, Okinawa 901-1513, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address only — helper queue",
+  "status": "open",
+  "statusSource": "Mapple Nanjo list (2026)"
+ },
+ {
+  "n": "Ginowan Tropical Beach (宜野湾トロピカルビーチ)",
+  "address": "Mashiki, Ginowan, Okinawa, Japan",
+  "lat": 26.281481,
+  "lng": 127.731782,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes beach list printed GPS",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach list"
+ },
+ {
+  "n": "Toyosaki Chura-Sun Beach (豊崎美らSUNビーチ)",
+  "address": "Toyosaki, Tomigusuku, Okinawa, Japan",
+  "lat": 26.157011,
+  "lng": 127.647582,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes beach list printed GPS ('Oirion Chura-Sun Beach')",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach list"
+ },
+ {
+  "n": "Araha Beach, Chatan (アラハビーチ)",
+  "address": "Araha, Chatan, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "Stripes BBQ GPS summary (26.156294,127.647378) is in Tomigusuku, not Chatan — rejected as misattributed; helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Araha page (swim season Apr 11–Oct 31)"
+ },
+ {
+  "n": "Azama Sun Sun Beach (あざまサンサンビーチ)",
+  "address": "Azama, Chinen, Nanjō, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Nanjo itinerary"
+ },
+ {
+  "n": "Mibaru Beach & glass-bottom boats (新原ビーチ)",
+  "address": "Hyakuna, Tamagusuku, Nanjō, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach list"
+ },
+ {
+  "n": "Toguchi Beach, Yomitan (渡具知ビーチ) — US landing beach",
+  "address": "Toguchi, Yomitan, Okinawa, Japan",
+  "lat": 26.3634965,
+  "lng": 127.7393802,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes battle-sites article printed GPS",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach list"
+ },
+ {
+  "n": "Aharen Beach, Tokashiki Island (阿波連ビーチ)",
+  "address": "Aharen, Tokashiki, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Aharen page"
  }
 ]
