@@ -267,3 +267,10 @@ campaign + Bijutsu Techō exhibition), Noboribetsu Jigokudani (Famitsu: 2024 Hel
 **Tooling (lesson → code):** `tools/japan_consolidate.py` `_take()` dropped exact-name duplicates silently, so an overlay record
 could not add sources/notes to an existing place. New `_overlay()` merges ONLY sources + a missing "anime" note (never prose,
 area or pin). Verified behaviour-neutral for Tokyo/Kyoto/Osaka/Okinawa (their consolidated outputs byte-identical).
+**W72 DOTO:** Nusamai Bridge (visit-hokkaido + kushiro-lakeakan + wiki pin), Kamuiwakka Hot Falls (visit-hokkaido + ja.wikipedia; no
+coords in infobox → UNVERIFIED). Held: Koshimizu Natural Flower Garden (pin 43.94194,144.413417 read; 2nd source not attributable).
+**W73 DHOKU:** Asahibashi Bridge, Fukiage Onsen (visit-hokkaido + wiki pins), Biei Shirogane Onsen (visit-hokkaido + wiki; no coords → UNVERIFIED).
+**W74 OTARU:** Kama-ei factory store pan-roll (MAPPLE + otaru.gr.jp kamaboko guide), Kitaichi Hall lamp café (rurubu + MAPPLE retro-café
+round-up; caveat). Held: Kitakaro Otaru Honkan (unattributed).
+**W75 DONAN:** Sushi-dokoro Kihara (hakodate.travel + rurubu). Dropped: Kantarō (chain, branch not named in sources). Held: Uomasa
+Goryōkaku (rurubu only), Kaikōbō, Bingoya (hakodate.travel only).

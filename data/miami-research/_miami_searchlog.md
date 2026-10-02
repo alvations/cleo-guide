@@ -86,3 +86,8 @@
 85 Visit Lauderdale breweries guide (Invasive Species, Funky Buddha, Tripping Animals)
 86 Hollywood/Dania best restaurants — junk (OpenTable/SEO) → nothing kept
 87 Michelin Florida 2026 full Miami list [tool ran 4 sub-searches] — new: Krüs Kitchen (Green Star) ; Bistro Ocho, Mano Libera still location-unknown
+88 Time Out 24 best South Beach restaurants (Macchialina, Kissaki, Casa Isola, Queen, Byblos, Orilla, Planta, Abbalé, Carbone, Tropezón, RED, Prime Italian, MILA, Joliet, Taquiza, Stiltsville Fish Bar)
+89 Infatuation South Beach guides (49 names: Macchialina, Prime 112, Mac's Club Deuce, CJ's, Tropezón, Orilla, La Sandwicherie, Sweet Liberty, Ted's Hideaway, Papi Steak, Big Pink…)
+90 Time Out best bars South Beach (Shelborne bar, Brother's Keeper, Bay Club, Sweet Liberty, Swizzle, Monterrey, Mac's Club Deuce, Medium Cool, Watr, Abbey Brewing, Ted's Hideaway, ScapeGoat)
+91 Time Out 23 best bars Miami (ViceVersa, Gramps Getaway, Over Under, Medium Cool, Dante's HiFi, Swizzle, Gramps, Sweet Liberty, Café La Trova, Bar Kaiju, Kaori, The Corner, The Sylvester, Mac's, Kaona, Ball & Chain, Brother's Keeper, Lost Boy, Mama Tried)
+92 Infatuation bar guides (cocktail/best bars/downtown/South Beach/outdoor) → 15 intersections added
