@@ -323,3 +323,9 @@ per Wikipedia 2026 + SFGATE (NW, med).
 SS Jeremiah O'Brien — Wikipedia coordinate is Pier 35, ship berths at Pier 45 → held (pin conflict); Vaillancourt Fountain —
 Embarcadero Plaza redesign/removal, status unclear → not added; Holy Virgin Cathedral, Jack Kerouac Alley, Chinese Historical
 Society of America (single source / no coordinate in hand) → held; Davies Symphony Hall (no coordinate surfaced) → held.
+**Sights batch 2 (searches 14–21):** Glide Memorial Church, Great American Music Hall (NOB); Lafayette Park, McElroy Octagon House
+(NW); Precita Park (pinned), Vermont Street + Pier 70 (unpinned — no published coordinate surfaced) (SE); Cypress Lawn/Colma (med),
+Sánchez Adobe (Wikipedia + San Mateo County Parks), Cow Palace (PEN).
+**DROPPED / held:** ICA San Francisco — left Dogpatch for FiDi Oct 2024 (Wikipedia) → not added; Carolands — closed to the public
+(lottery tours only) → not added; Andy Goldsworthy's Spire — presidio.gov lists coords but post-2020-fire status not confirmed →
+not added; Flood Mansion & Golden Gate Theatre (Wikipedia pin, no 2nd outlet in-hand) → held.
