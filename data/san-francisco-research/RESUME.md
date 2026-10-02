@@ -20,6 +20,7 @@
 (MIS, AVE, DTN, NECN, HAI, NOB, NW, PEN, SE) via batched Wikipedia-coordinate queries + a 2nd outlet → `SIGHTS_W5.json`
 + `geo/_geoout_w5.json`; food top-ups → `FOOD_W5.json`; creators → `CREATORS_W5.json` if any qualify.
 Search counter (main): 42 · pin agent: 30 (done — 5/87 pinned → geo/_geoout_w5pin.json).
+Build W5-1 (after batch 4): 430 researched / 328 on map (146 sights + 182 food); 4 gates + validate + test green. Density: AVE+13 DTN+12 HAI+7 MIS+12 NECN+10 NOB+6 NW+4 PEN+3 SE+3.
 Progress: batch 4 = +9 food (HAI 3, NOB 2, DTN 2, NECN 2) + CREATORS_W5 (Bourdain, 4 attachments). batch 3 = 10 food (FOOD_W5.json; 2 pinned via Atlas Obscura). batch 2 = +10 sights (NOB 2, NW 2, SE 3, PEN 3) → 26 in SIGHTS_W5. batch 1 = 16 sights (SIGHTS_W5.json) — NECN 4, MIS 4, AVE 3, DTN 2, HAI 2, NW 1.
 
 ## State — W4 FINAL (2026-10-02 wave 2, session_0159tKUL6tQ8pvUJRBHa67Nx)

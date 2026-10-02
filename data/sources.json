@@ -2518,9 +2518,30 @@
           "rank": 3,
           "verified": true,
           "credible": "The Richmond and Sunset districts' community newspaper (since 1980s); local-of-record for the west side."
+        },
+        {
+          "key": "LIVINGNEWDEAL",
+          "name": "LIVINGNEWDEAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": [],
+      "creators": [
+        {
+          "key": "BOURDAIN",
+          "name": "Anthony Bourdain (The Layover: San Francisco, Travel Channel 2011)",
+          "type": "creator",
+          "platform": "TV / Travel Channel",
+          "handle": "The Layover S1 'San Francisco'",
+          "url": "https://www.sfstation.com/2012/01/11/layover-sf-list/amp/",
+          "scale": "Internationally famous chef-TV host (No Reservations, Parts Unknown, The Layover); multi-million audience; Emmy/Peabody-winning",
+          "niche": "food & bars",
+          "verified": true,
+          "credible": "Verifiably famous food creator with a specific, findable episode naming SF places (episode guide reported by SF Station, NBC Bay Area, Miami New Times recap). Counts as ONE corroborating source, never institutional; every attached place already clears ≥2 credible sources without it."
+        }
+      ],
       "refreshLog": [
         "2026-08-14 — region scaffolded: SF + northern Peninsula to San Mateo incl. SFO corridor; same pipeline + >=2-credible-source gate as SV/NYC."
       ]

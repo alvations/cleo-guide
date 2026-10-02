@@ -347,3 +347,9 @@ status unclear, held; Waterbar (Infatuation only) and Top of the Mark (address-o
 Channel; episode guide via SF Station + NBC Bay Area) → `CREATORS_W5.json`, key BOURDAIN attached to Swan Oyster Depot, House of Prime
 Rib, Tonga Room, Comstock Saloon (each already ≥2 credible). Channel mix this wave so far: Wikipedia+outlet sights 26 · editorial food
 19 (SF Standard, SFGATE, Infatuation, Time Out, SF Travel, Hoodline, Chronicle, 7x7, Michelin 1, Atlas Obscura 2) · creator 1 (4 attaches).
+
+## Stage 6 — BUILD W5-1 (2026-10-02, session_013SchN5xr8QFAgVqjZY37dr)
+**430 researched → 328 on the map (146 sights + 182 food)** (was 385 → 298). sourcecheck PASS 430/430 (61 on a lone authority) ·
+geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. merge-creators: 4 BOURDAIN attachments.
+Per area: AVE 33+24=57/70 · DTN 46+22=68/80 · HAI 24+14=38/45 · MIS 46+17=63/75 · NECN 45+20=65/75 · NOB 23+11=34/40 · NW 28+18=46/50 ·
+PEN 18+14=32/35 · SE 16+11=27/30 — food ≥50% every area (lowest PEN 56%, NW 61%).
