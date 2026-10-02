@@ -184,3 +184,10 @@ Boudin (aggregator-only coords rejected), It's-It, Chibog, The Bread Basket, Bas
 ## Stage 6 — BUILD #2 (2026-10-02)
 **267 researched → 242 rendered (sights 92 researched; food 175 = 65.5%)**; sourcecheck PASS 267/267 · geocheck
 PASS · statuscheck CONSISTENT · buildcheck PASS · validate + test green. 25 held UNVERIFIED.
+- Searches 120–128 (W3E): DTN sights City Hall, Union Square, Maiden Lane, Lotta's Fountain (SF Travel + Wikipedia
+  pins). SE food: 3rd Cousin (Michelin), Piccino (Infatuation + SF Standard 2025), Marcella's Lasagneria (Time Out +
+  Infatuation), Gumbo Social (Infatuation + Eater SF 38). Bars: Specs' (Time Out + SF Standard dive-bar panel 2024 +
+  Wikipedia pin), Li Po (Atlas Obscura + SF Standard 2024). **MEASURED & DROPPED (status unconfirmed):** Sichuan
+  Home, Sichuan Chong Qing, Yummy Szechuan — only legacy-format Michelin pages (2024-or-earlier listings) surfaced;
+  removed from FOOD_W3B + their orphan UNVERIFIED registry rows. Held: Long Bridge Pizza, Zeitgeist, Toronado,
+  Elixir (no full street address surfaced), Tsubasa (2019 Bib only), Lord Stanley (the Bleases moved to Wolfsbane).
