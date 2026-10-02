@@ -48,7 +48,7 @@ F(1,"DHOKU",["RAMEN"],"Asahikawa shōyu ramen (oily-sealed double broth, thin wa
 F(1,"TKC",["HOKKAIDO"],"butadon (charcoal-grilled pork bowl, the 1933 original)","Ganso Butadon no Panchō, Obihiro (元祖豚丼のぱんちょう)",
   "In front of Obihiro Station, Obihiro, Hokkaido, Japan",
   "The 1933 Obihiro shop credited with inventing butadon — sweet-soy charcoal-grilled pork on rice, the Tokachi soul food. The name is from the Chinese 'fan ting'.",
-  [("GOODLUCKTRIP","https://www.gltjp.com/ja/directory/item/15300/"),("HOKKAIDOTOURISM",VH+"spot/detail_12868.html")],
+  [("GOODLUCKTRIP","https://www.gltjp.com/ja/directory/item/15300/"),("HOKKAIDOTOURISM",VH+"spot/detail_12868.html"),("RURUBU","https://rurubu.jp/andmore/article/10392")],
   status=O,ssrc="Good Luck Trip directory (operating, 90+ years) — current")
 F(2,"TKC",["HOKKAIDO"],"butadon","Butadon no Tonta, Obihiro (ぶた丼のとん田)",
   "Obihiro, Hokkaido, Japan",
