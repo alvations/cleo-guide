@@ -476,3 +476,10 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   published coordinate at **med** confidence with a note — never a neighbourhood centroid.
 - Year-end closure round-ups (SF Standard "saddest closures of 2025", Chronicle "restaurants that closed in 2025") are a
   cheap 1-search closure sweep across the whole dataset.
+
+## 2026-10-02 — Okinawa W4 (pin-first)
+- Restaurant GPS almost never appears in WebSearch summaries (W4: 13/94 food pinned). What worked, one name per extended-mode query:
+  `<日本語名> wikipedia 座標` (sights → high), `site:travel.navitime.com <日本語名> 緯度 経度` (NAVITIME spot pages print lat/lng and tie the
+  point to one page → med), `<name> tripadvisor latitude longitude` (aggregator → graded low, must match the sourced address).
+- Unrestricted searches often return a coordinate without saying which page printed it — unusable under rule 4a (5 demoted).
+- Batched multi-name coordinate queries mostly fail; Stars and Stripes GPS searches rarely hit outside the main island.
