@@ -24,3 +24,24 @@
   limit (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION), not a rate limit, so waiting does not restore it. W1 not started;
   0 places discovered, 0 geocoded. Scaffold (consolidate.py, build-philadelphia.py, brief, targets, registry entry)
   is committed and ready; the next launch with search budget starts W1 directly from RESUME.md "Next actions".
+
+## 2026-10-02 · W1 relaunch — Stage 1-3 discover/extract/fact-check (fresh search budget)
+- Sources found per query (researchedVia WebSearch; WebFetch blocked): Michelin 2025 Philadelphia list via FOX29 + Billy Penn
+  (3 stars, 10 Bib, 1 Green Star, 21 Selected — Pietramala counted once) → 34 places, lone-authority MICHELIN_* keys.
+  Inquirer 2023 cheesesteak bracket + LaBan 2002/2008; Visit Philly + Philly Mag roast pork; Inquirer + Philly Mag tomato pie;
+  Visit Philly + Billy Penn water ice; Infatuation + Inquirer Reading Terminal Market vendors; Visit Philly + Philly Mag
+  hoagies (+ LaBan on Castellino's); Infatuation + Philly Mag pho/Vietnamese; JBF 2022 (Cristina Martinez) + Time Out +
+  Visit Philly tacos; NPS Independence 'Places to go'; Visit Philly Old City / Historic District / Parkway guides.
+- MEASURED (cheesesteak): Inquirer 2023 reader bracket (Dalessandro's 23%, John's 19.2%, Angelo's 17%) + Michelin Bib
+  (Angelo's, Dalessandro's, Del Rossi's) = the standouts (t1). Pat's kept t1 as the historic ORIGIN (1930s, CBS + Wikipedia),
+  explicitly described as history-not-best; Geno's / Jim's South St / Tony Luke's kept t2 as icons. Steve's Prince of Steaks
+  HELD (only an SEO/blog listing; no credible 2nd source yet). Sonny's HELD (GQ 2014 claim seen only second-hand).
+- Creators: Mark Wiens Taste Tour USA Philadelphia Pt 2 (Tubi) → attached to Angelo's (CREATORS_W1.json).
+- HELD single-source (not added): Jean-Georges Philadelphia (Infatuation), Scampi, Griddle & Rice (Infatuation 2025 new),
+  Amá + Emilia (Eater 38 summer 2026 mention only), June BYOB + White Yak (Philly Mag 50 Best mention only), Frida Cantina
+  (6abc only), D'Jakarta Cafe (Food Republic 2015 only), Corropolese (Inquirer only — 2 Inquirer pieces = 1 outlet),
+  Liberty Kitchen (Visit Philly roast pork only), Sonny's, Steve's.
+- Address note: discovery addresses are best-known street addresses; several Michelin addresses were left partial
+  (Provenance, Ambra, Illata, Little Water, Roxanne, Del Rossi's) — the geocode pass verifies/corrects every address.
+- Counts after batch 1: food 60 (Michelin 34, canon 26), sights 24 (CC). Channel mix: institutional 37, editorial 47, creator 1.
+- Dead end: 'Wikipedia coordinates A; B; C' for PMA/Barnes/ESP returned addresses only (no coords) — budget 1 search/pin.

@@ -35,7 +35,13 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- none (W1 closed early — see State).
+- W2 (2026-10-02, session 2): files `FOOD_OSAKA_W2.json`, `SIGHTS_OSAKA_W2.json`, `SOURCES_OSAKA_W2.json`,
+  `CREATORS_OSAKA_W2.json`, `geo/_geoout_osaka_W2*.json`. Plan: resolve held Bibs; Michelin Osaka-region lists by
+  genre; konamon/kushikatsu/horumon canon via editorial + creators; sights via japan-guide/OSAKA-INFO + Wikipedia
+  coords (3/query); geocode Michelin pins (2-3 names/query). Search count this session tracked in `## Search log`.
+
+## Search log
+- session 2 searches used: main 36 + G1 13 (+M1, S1 workers running)
 
 ## Next actions
 0. Geocode the 23 W1 Michelin restaurants (Michelin-domain lat/lng) + resolve the 3 held Bib addresses.

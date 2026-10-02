@@ -31,3 +31,25 @@ Princes-Évêques (LP+ROUTARD+VISITLIEGE), Collégiale Saint-Barthélemy (ROUTAR
 **Held:** see `_PENDING_LEADS.md` (≈20 leads: single-source, or no confirmed street address).
 **Geocode:** Grand Curtius 50.64742, 5.58394 — high (Wikipedia protected-heritage list, published DMS). Others not
 geocoded. **Build:** not run — 1 pin is not a map; card stays "being built".
+
+## 2026-10-02 (session 2) — Wave 2 batch 1 — discovery + geocode
+**Searches:** ~33 by the lead + 12 by a background geocode agent. FR-first.
+**Sources discovered:** MICHELIN venue pages (lone authority — ¡Toma! 1★, Héliport Brasserie 1★, Bib Gourmand: Bistrot d'en
+Face, Le Cabochon, La Cuisine de Yannick, Sébastian; Caudalie selected), INFOLUX (info-lux.com province food guide — editorial,
+corroboration), LAVENIR, LADH, EUROPEANBARGUIDE (Top-100 European bars), COE (Council of Europe cultural routes + Landscape
+Award), KIKIRPA (Royal Institute for Cultural Heritage), AWAP (Walloon heritage inventory, lampspw.wallonie.be), ERIH, MUSEUMDE,
+PROVINCELIEGE, LIEGECITY (liege.be), CULTURETRIP, OFFICIAL (spagrandprix.com).
+**Creators:** DARLEYNEWMAN (PBS 'Travels with Darley', Emmy-winning host) — filmed the Confrérie du Gay Boulet in Liège,
+names Amon Nanesse / Maison du Péket. Rejected: generationvoyage, lemagvoyage, stategroup 'Top 5 foodie' (content farms).
+**Records (≥2 credible or lone Michelin/UNESCO):** LIE sights +14 (Montagne de Bueren, Guillemins, La Boverie, Cathédrale
+St-Paul, Cité Miroir, Vie wallonne, Archéoforum, St-Jacques, Musée Tchantchès, Opéra, Aquarium-Muséum, St-Denis, Coteaux,
+Place du Marché/Perron); LIER sights +6 (Blegny-Mine UNESCO, Val-Dieu, Fort de Huy, Collégiale de Huy, Pouhon, Circuit);
+LIE food +12 (7 Michelin, Pot au Lait, Taverne St-Paul, Brasserie C, Maison du Péket, Tchantchès et Nanesse).
+**Channel mix:** institutional (Michelin/UNESCO/AWaP/COE/KIK-IRPA) 11 · editorial/tourism 19 · travel sites (LP/Routard/
+Culture Trip) 12 · creators 1 · local (ULiège) 1.
+**Geocode:** sights 19 pinned (17 high, 2 med: La Boverie Wikipedia rounded, Coteaux area point); Musée Tchantchès UNVERIFIED.
+Food: 4 pinned med via Mapcarta/OSM (Cabochon, Brasserie C, Taverne St-Paul, Maison du Péket); 7 UNVERIFIED (Toma,
+Héliport, Bistrot d'en Face, Yannick, Sébastian, Caudalie, Pot au Lait) — no published coordinate found; queued.
+**Corrections from geocode:** Maison du Péket = Rue de l'Épée 2 (OSM node) not 4; Brasserie C = Impasse des Ursulines 14.
+**Held:** Le Dernier Ragot (Diamond Boulet 2005–06, single source), Sandwicherie Pollux (mapstr only), Thermes de Spa (needs
+2nd credible), Chez Nathalie / Côté cour-Côté jardin (Boulet de cristal 2021 — rankeat/mapstr only).

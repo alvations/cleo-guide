@@ -1,0 +1,321 @@
+{
+ "sources": [],
+ "sights": [
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "Osaka Castle",
+   "address": "1-1 Osakajo, Chuo-ku, Osaka 540-0002, Japan",
+   "w": "Hideyoshi's 1583 castle, rebuilt in 1931 — the main keep (a museum with a top-floor lookout) rises from stone walls and moats in a vast park famous for plum and cherry blossom.",
+   "k": "castle, museum, park",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "MUS",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Dōtonbori",
+   "address": "Dōtonbori, Chuo-ku, Osaka, Japan",
+   "w": "The canal-side heart of kuidaore Osaka: neon, mechanised signs (the Glico Running Man, the Kani Doraku crab) and street food that barely closes.",
+   "k": "nightlife, street food",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/D%C5%8Dtonbori"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Kuromon Market",
+   "address": "2-4-1 Nipponbashi, Chuo-ku, Osaka 542-0073, Japan",
+   "w": "\"Osaka's Kitchen\": a several-hundred-metre covered arcade of fishmongers, butchers, greengrocers and grill-it-on-the-spot stalls.",
+   "k": "market",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4031.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Shinsaibashi-suji Shopping Arcade",
+   "address": "Shinsaibashi-suji, Chuo-ku, Osaka, Japan",
+   "w": "Osaka's premier shopping street — a ~600 m covered arcade mixing chain stores, boutiques and department stores, running north from Dōtonbori.",
+   "k": "shopping arcade",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shinsaibashi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Amerikamura (Amemura)",
+   "address": "Nishishinsaibashi, Chuo-ku, Osaka, Japan",
+   "w": "Osaka's answer to Harajuku: thrift stores, cafes and youth fashion around Triangle Park, west of Mido-suji.",
+   "k": "youth culture, shopping",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4001.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Amerikamura"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TNJ",
+   "n": "Shinsekai & Tsūtenkaku",
+   "address": "1-18-6 Ebisuhigashi, Naniwa-ku, Osaka 556-0002, Japan",
+   "w": "The 'New World' district built after the 1903 Expo — half Paris, half Coney Island — around Tsūtenkaku, the 103 m tower rebuilt in 1956; the home of Osaka kushikatsu.",
+   "k": "retro district, tower",
+   "g": [
+    "ICON",
+    "VIEW",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4012.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TNJ",
+   "n": "Shitennō-ji",
+   "address": "1-11-18 Shitennoji, Tennoji-ku, Osaka 543-0051, Japan",
+   "w": "Founded by Prince Shōtoku in 593 — one of Japan's oldest temples and the first built by the state, with its five-storey pagoda on the classic straight-line layout.",
+   "k": "temple",
+   "g": [
+    "TEMPLE",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shitenn%C5%8D-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Tennōji Zoo",
+   "address": "1-108 Chausuyamacho, Tennoji-ku, Osaka 543-0063, Japan",
+   "w": "Osaka's city zoo (1915) in Tennōji Park, below Tsūtenkaku.",
+   "k": "zoo",
+   "g": [
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Osaka City Museum of Fine Arts",
+   "address": "1-82 Chausuyamacho, Tennoji-ku, Osaka 543-0063, Japan",
+   "w": "The 1936 municipal art museum in Tennōji Park, with Keitakuen garden behind it.",
+   "k": "art museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4025.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_City_Museum_of_Fine_Arts"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CHUO",
+   "n": "Osaka Museum of History",
+   "address": "4-1-32 Otemae, Chuo-ku, Osaka 540-0008, Japan",
+   "w": "Opened 2001 in a tower beside NHK Osaka, across from the castle: large-scale models chronicle the city from its days as Japan's first capital to the early Shōwa era, with views over the castle park.",
+   "k": "history museum",
+   "g": [
+    "MUS",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4014.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_Museum_of_History"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "National Museum of Art, Osaka",
+   "address": "4-2-55 Nakanoshima, Kita-ku, Osaka 530-0005, Japan",
+   "w": "Contemporary Japanese and international art on two underground floors of Nakanoshima; the 2007 building's entrance structure is designed to evoke growing bamboo.",
+   "k": "art museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4016.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KITA",
+   "n": "Osaka Science Museum",
+   "address": "4-2-1 Nakanoshima, Kita-ku, Osaka 530-0005, Japan",
+   "w": "Hands-on science museum and planetarium on Nakanoshima, next to the National Museum of Art.",
+   "k": "science museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4015.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osaka_Science_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Nakanoshima Museum of Art, Osaka",
+   "address": "4-3-1 Nakanoshima, Kita-ku, Osaka 530-0005, Japan",
+   "w": "The city art museum that opened on Nakanoshima in February 2022 — modern and contemporary art and design, part of the island's museum cluster.",
+   "k": "art museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/area_kita/"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4017.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nakanoshima_Museum_of_Art,_Osaka"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Tenjinbashi-suji Shopping Street",
+   "address": "Tenjinbashi 1-7 chōme, Kita-ku, Osaka, Japan",
+   "w": "Claimed as Japan's longest covered shopping street — 2.6 km of shops and eateries running north from the Tenmangū approach.",
+   "k": "shopping arcade",
+   "g": [
+    "POP",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/204"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4024.html"
+    ]
+   ]
+  }
+ ]
+}
