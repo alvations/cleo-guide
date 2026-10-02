@@ -259,5 +259,30 @@ is disguised as sourced.
 
 
 ### 2026-10-02 — Osaka W1 (Japan): Michelin venue pages are a geocoding channel; the session search cap is shared
--  queries return per-restaurant venue pages with full addresses, and a follow-up "<name> <street> latitude longitude" on that domain surfaces the venue page lat/lng — a real place pin for Japanese restaurants, which otherwise never geocode via WebSearch.
-- Dead end: the WebSearch cap (200/session) is shared by ALL concurrent agents in one session; with ~16 agents it ran out ~22 searches into Osaka W1. Plan concurrent runs with a raised  or one session per city.
+- `allowed_domains:["guide.michelin.com"]` queries return per-restaurant venue pages with full addresses, and a follow-up "<name> <street> latitude longitude" on that domain surfaces the venue page lat/lng — a real place pin for Japanese restaurants, which otherwise never geocode via WebSearch.
+- Dead end: the WebSearch cap (200/session) is shared by ALL concurrent agents in one session; with ~16 agents it ran out ~22 searches into Osaka W1. Plan concurrent runs with a raised `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` or one session per city.
+
+### 2026-10-02 — Singapore Punggol (PGL), W1
+- Productive: Eatbook/SethLui/Her World hawker-centre guides (One Punggol HC, Punggol Coast HC opened 25 Jul 2025) give
+  stall-level lists with stall numbers; Roots.gov.sg + SG101 + NHB WWII trail cover the Punggol Beach (Sook Ching) site.
+- Dead end / lesson: ~16 concurrent agents share ONE session WebSearch cap (200 calls); it was exhausted ~17 searches into
+  this wave, blocking geocode + status entirely. Budget-heavy towns should geocode early in the wave (pins are the
+  scarcest stage), and the orchestrator should raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION before a 16-agent run.
+
+
+### 2026-10-02 — Orlando (orlando-fl): the session WebSearch cap is shared and finite
+With ~16 concurrent agents in one session, `WebSearch` returned "this session has used its web search budget (200 of 200)" after Orlando's 8th call; a retry confirmed a hard cap (raise `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`), not a rate limit. Lesson: a NYC-density (~500) city needs on the order of 500+ discovery and ~500 geocode searches — far beyond a 200-call budget split 16 ways. Budget per agent must be planned (or the cap raised) before launching density targets. Probes also showed park attractions geocode in one call (Wikipedia/latitude.to) while Orlando restaurant place-pins do not surface (Apple returns place-id URLs only).
+
+- 2026-10-02 (Singapore NVN): the session WebSearch cap (200) is shared across all concurrent agents and was exhausted
+  after ~14 Novena queries. Lesson: hawker stalls inside an already-pinned hawker centre (Newton FC) can reuse the sourced
+  building place pin (med, "stall within") without new searches — the geocode stage cost nothing; discovery is the bottleneck.
+
+## Hokkaido (2026-10-02) — W01 Sapporo sights; discovery blocked by the shared search cap
+- Batched landmark query `Wikipedia coordinates A; B; C; D; E` DOES return per-place infobox coords for well-known
+  Japanese landmarks (5/5 on the first Sapporo batch: Clock Tower, Hokkaido Shrine, Moiwa, Akarenga, Historical
+  Village) plus Wikipedia + japan-guide + sapporo.travel + visit-hokkaido URLs — discovery and geocode in one call.
+  Hit rate falls to ~0–50% for less-famous names; `extended` mode recovered one more. Use exact en.wikipedia titles.
+- Status catch: the Former Hokkaido Government Office (Akarenga) was closed for restoration 2019→2025 and **reopened
+  2025-07-25** (rurubu.jp) — older guides still say "closed for renovation".
+- Dead end: the session's 200-call WebSearch cap was exhausted after ~14 Hokkaido calls; W01 checkpointed in
+  data/hokkaido-research/RESUME.md (W01b query list).

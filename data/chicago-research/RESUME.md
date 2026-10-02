@@ -16,7 +16,19 @@
   data/sources.json `chicago-il` entry). No places yet.
 
 ## In-flight wave
-(none)
+**W1 FOOD_CANON (BLOCKED, not started)** — 2026-10-02: the session-wide WebSearch cap was already exhausted
+("this session has used its web search budget (200 of 200 WebSearch calls)") after only 3 calls by this agent —
+the ~16 concurrent agents share one 200-call budget. WebFetch is blocked by policy. No places can be sourced,
+status-checked or geocoded without search, and nothing may be added from memory (CLAUDE.md 4a/4c, D1).
+- Files it will write: `FOOD_CANON.json`, `geo/_geoout_canon.json`.
+- Queries still to run (all): Italian beef (Tribune/Chicago Mag/Eater rankings: Al's #1, Johnnie's, Mr. Beef,
+  Bari, Jay's, Portillo's); deep-dish (Lou Malnati's, Pequod's, Gino's East, Uno); tavern-style (Vito & Nick's,
+  Pat's, Marie's, Phil's, Candlelite); hot dog + Maxwell St Polish (Superdawg, Gene & Jude's, Jim's Original,
+  Wolfy's); jibarito (Borinquen, Papa's Cache Sabroso, Jibaritos y Más); Harold's/mild sauce + rib tips (Lem's,
+  Uncle John's); Rainbow Cone; Garrett; Michelin Chicago Bib + stars list; James Beard America's Classics Chicago.
+- Partial leads saved in `_PENDING_LEADS.md` (7 places; none complete).
+- **Resume condition:** relaunch with a fresh/raised WebSearch budget (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION)
+  — ideally a dedicated session for Chicago, since ~500 places needs ~700–900 searches (discovery + pin + status).
 
 ## Next actions (ordered)
 1. Wave 1 food canon (FOOD_CANON.json) → wave 2 Michelin/JB (FOOD_MICHELIN.json) → sights per area (SIGHTS_<AREA>.json)
