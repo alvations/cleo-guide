@@ -380,3 +380,6 @@ best-pizza × SFGATE), Kingdom of Dumpling (Infatuation × SFGATE Taraval 'dumpl
 (AVE). Devil's Teeth Baking already in the dataset.
 **Copy audit (no searches):** re-read every W5 card against its cited sources; 19 food + 20 sight blurbs/dishes trimmed to what the sources
 actually state (removed remembered menu details, dates and names that no cited source carried).
+**Batch 10 (searches 70–74):** Le Central (Infatuation × SF Travel × SFGATE 2025 revival), Sears Fine Food (SF Travel × SFGATE) (DTN food);
+Davies Symphony Hall, Bill Graham Civic Auditorium, Orpheum Theatre (Wikipedia pins × SFGATE / Time Out / SF Travel) (DTN sights).
+Held: Wayfare Tavern (moved to Pine St in 2025 — new address not in-hand), Perbacco (Infatuation only), Hallidie Building (no 2nd outlet).
