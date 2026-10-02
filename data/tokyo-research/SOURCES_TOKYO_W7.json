@@ -1,11 +1,70 @@
-{"outlets":[
- {"key":"ANN","name":"Anime News Network","url":"https://www.animenewsnetwork.com/","credible":"The English-language anime trade news site of record since 1998; bylined news desk."},
- {"key":"JAPANTRAVEL","name":"Japan Travel (japantravel.com)","url":"https://en.japantravel.com/","credible":"Long-running Japan travel publisher (JAL partner edition) with named on-the-ground writers; one corroborating source."},
- {"key":"KANPAI","name":"Kanpai Japan","url":"https://www.kanpai-japan.com/","credible":"Independent Japan travel guide published since 2010 in French and English by Tokyo-based editors; first-hand visits."},
- {"key":"FUNJAPAN","name":"FUN! JAPAN (JTB)","url":"https://fun-japan.jp/en","credible":"Travel magazine of JTB, Japan's largest travel company; edited, bylined features."},
- {"key":"JAPANFOUNDATION","name":"Japan Foundation (JFF Theater)","url":"https://en.jff.jpf.go.jp/","credible":"Japan's government cultural-exchange foundation; edited film-culture articles. One ordinary source."},
- {"key":"OTACITY","name":"Ota City official tourism ('Unique Ota')","url":"https://unique-ota.city.ota.tokyo.jp/en/","credible":"Ōta ward government's official tourism site — municipal, like GO TOKYO; one source."},
- {"key":"VISITSUMIDA","name":"Visit Sumida (Sumida City Tourism Association)","url":"https://visit-sumida.jp/","credible":"Official tourism association of Sumida ward; one source."},
- {"key":"CULTURETRIP","name":"Culture Trip","url":"https://theculturetrip.com/","credible":"International travel publisher with bylined city guides; one corroborating source only."},
- {"key":"FROMMERS","name":"Frommer's","url":"https://www.frommers.com/","credible":"Guidebook publisher since 1957; edited venue reviews."}
-]}
+{
+ "outlets": [
+  {
+   "key": "ANN",
+   "name": "Anime News Network",
+   "url": "https://www.animenewsnetwork.com/",
+   "credible": "The English-language anime trade news site of record since 1998; bylined news desk."
+  },
+  {
+   "key": "JAPANTRAVEL",
+   "name": "Japan Travel (japantravel.com)",
+   "url": "https://en.japantravel.com/",
+   "credible": "Long-running Japan travel publisher (JAL partner edition) with named on-the-ground writers; one corroborating source."
+  },
+  {
+   "key": "KANPAI",
+   "name": "Kanpai Japan",
+   "url": "https://www.kanpai-japan.com/",
+   "credible": "Independent Japan travel guide published since 2010 in French and English by Tokyo-based editors; first-hand visits."
+  },
+  {
+   "key": "FUNJAPAN",
+   "name": "FUN! JAPAN (JTB)",
+   "url": "https://fun-japan.jp/en",
+   "credible": "Travel magazine of JTB, Japan's largest travel company; edited, bylined features."
+  },
+  {
+   "key": "JAPANFOUNDATION",
+   "name": "Japan Foundation (JFF Theater)",
+   "url": "https://en.jff.jpf.go.jp/",
+   "credible": "Japan's government cultural-exchange foundation; edited film-culture articles. One ordinary source."
+  },
+  {
+   "key": "OTACITY",
+   "name": "Ota City official tourism ('Unique Ota')",
+   "url": "https://unique-ota.city.ota.tokyo.jp/en/",
+   "credible": "Ōta ward government's official tourism site — municipal, like GO TOKYO; one source."
+  },
+  {
+   "key": "VISITSUMIDA",
+   "name": "Visit Sumida (Sumida City Tourism Association)",
+   "url": "https://visit-sumida.jp/",
+   "credible": "Official tourism association of Sumida ward; one source."
+  },
+  {
+   "key": "CULTURETRIP",
+   "name": "Culture Trip",
+   "url": "https://theculturetrip.com/",
+   "credible": "International travel publisher with bylined city guides; one corroborating source only."
+  },
+  {
+   "key": "FROMMERS",
+   "name": "Frommer's",
+   "url": "https://www.frommers.com/",
+   "credible": "Guidebook publisher since 1957; edited venue reviews."
+  },
+  {
+   "key": "WEBJAPAN",
+   "name": "Web Japan (Ministry of Foreign Affairs)",
+   "url": "https://web-japan.org/",
+   "credible": "Japan's Ministry of Foreign Affairs public-information site; edited trend features. One source."
+  },
+  {
+   "key": "UNSEENJAPAN",
+   "name": "Unseen Japan",
+   "url": "https://unseen-japan.com/",
+   "credible": "Bylined English-language Japan news & culture magazine with named Japan-based writers; one corroborating source."
+  }
+ ]
+}

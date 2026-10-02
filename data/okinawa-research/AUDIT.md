@@ -170,3 +170,8 @@ reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaur
   Aeon Mall Rycom infobox, Mamoru-kun (one of ~20 figures, Atlas Obscura), Emerald Beach Stripes lat + beach-on-map ≤20 m);
   Ryūtan / Tamatorizaki / Aragusuku / Azama Sun Sun demoted to UNVERIFIED (coordinate provenance unidentifiable). Tip: one name per
   extended-mode query `<日本語名> wikipedia 座標` surfaces infobox coords; batched names don't.
+- **Discovery W4D1 (Naha) / W4D2 (Chūbu+Nanbu) / W4D3 (Hokubu+islands) / W4A (anime):** +13 / +11 / +19 / +2. Orchestrator review:
+  Ukishima Garden **moved to held** (its Lonely Planet URL was constructed from a logged place id, not seen in a result → one
+  verified source left); Chibichiri Gama pin demoted to UNVERIFIED (provenance unidentifiable). Mutsumibashi Kadoya closure
+  (2024-06-20) held — single source (Ryukyu Shimpo); place was a held lead, not on the map. Creators: 4 searches, 0 kept
+  (Mark Wiens, Okinawa Hai, two Naha queries — rejections in CREATORS_OKINAWA_W4D*.json). Per-agent notes: `_okinawa_W4*_notes.md`.
