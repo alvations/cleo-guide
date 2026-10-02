@@ -106,5 +106,61 @@
   "geoSource": "Stripes Kouri article surfaced GPS only for Cafe Paru Paro (26.698235,128.018997), not for KOURI SHRIMP; not pinned",
   "status": "open",
   "statusSource": "GLTJP directory 14833 (current listing)"
+ },
+ {
+  "n": "Seifuku Shuzō awamori distillery, Ishigaki (請福酒造)",
+  "address": "959 Miyara, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu/YVB); mapion/navitime coordinate search returned nothing",
+  "status": "open",
+  "statusSource": "Yaeyama VB page (tours 11:00/13:30/16:00) + Ryukyu Shimpo 2024 'Coole' launch"
+ },
+ {
+  "n": "Yaesen Shuzō awamori distillery, Ishigaki (八重泉酒造)",
+  "address": "1834 Ishigaki, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (YVB/jalan); no printed coordinate",
+  "status": "open",
+  "statusSource": "Yaeyama VB factory-shop page; Ryukyu Shimpo PR on 70th anniversary site"
+ },
+ {
+  "n": "Takamine Shuzōsho awamori distillery, Kabira (高嶺酒造所)",
+  "address": "930-2 Kabira, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 80042743); no printed coordinate",
+  "status": "open",
+  "statusSource": "rurubu spot 80042743 (hours 9-17, closed Sun)"
+ },
+ {
+  "n": "Yakiniku Takesan-tei, Ishigaki (焼肉 たけさん亭)",
+  "address": "2-2-4 Hamasaki-chō, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 24755); Stripes has no Ishigaki GPS coverage",
+  "status": "open",
+  "statusSource": "rurubu article 24755 (current hours, closed Tue)"
+ },
+ {
+  "n": "Yakiniku Kingyū, Ishigaki (焼肉 金牛)",
+  "address": "8-8 Misaki-chō, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 24755)",
+  "status": "open",
+  "statusSource": "rurubu article 24755 (current hours, closed Thu)"
+ },
+ {
+  "n": "Taragawa awamori distillery, Miyako (多良川)",
+  "address": "85 Sunagawa, Gusukube, Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 80043046); coordinate search returned nothing",
+  "status": "open",
+  "statusSource": "rurubu spot 80043046 (cave tours 3x daily)"
+ },
+ {
+  "n": "Yukishio Museum, Miyako (雪塩ミュージアム)",
+  "address": "191 Karimata, Hirara, Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 80129718)",
+  "status": "open",
+  "statusSource": "rurubu spot 80129718 (open daily, free)"
  }
 ]
