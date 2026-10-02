@@ -182,3 +182,21 @@
 - Restaurant place pins (Wikipedia infoboxes, geo/_geoout_w3_foodpins.json): Meetinghouse, Mish Mish, Her Place, Dalessandro's,
   McGillin's, El Chingón, Max's (status unknown — sale in progress Jan 2026). Pat's/Geno's/Jim's were already pinned (W1).
 - Build (after batch 14): 341 sourced → 152 on page; 4 gates PASS; validate + test PASS; card + CITIES refreshed.
+
+## 2026-10-02 · W3 batches 25-29 + final build (session ended at the 200-search cap)
+- FISH: Bastia (HELD lead cleared — #1 Philly Mag 50 Best 2025 + LaBan), R&D, Les & Doreen's, Kostas, Lloyd, Barcade (Philly Mag Where
+  to Drink in Fishtown × Infatuation/Inquirer/Visit Philly). DAY: Vecchia, Domani Star, River House at Odette's; Washington Memorial
+  Chapel, Mill Grove, Newlin Grist Mill, Baldwin's Book Barn (pinned). MAIN: Coyote Crossing, Conshohocken Brewing, Autograph, Rosalie,
+  La Belle Epoque (Main Line Today every-town guide × Inquirer/Infatuation/Philly Mag). CC: Han Dynasty, K'Far, Via Locusta, DanDan,
+  Heung Fa Chun, Bud & Marilyn's, The Olde Bar (Philly Mag Center City guide × Infatuation/Inquirer/Visit Philly). NW: Santucci's
+  (Roxborough), Schuylkill Center. SJ: Pomona Hall (pinned), Red Bank Battlefield, Cooper River Park, Barclay Farmstead (Visit NJ ×
+  Inquirer/NJ Monthly/SJ Magazine). New registry outlets: VISITNJ (SOURCES_W3.json).
+- NOT presented: Devil's Pool (swimming is illegal — pollutant levels), Graffiti Pier (2024 partial collapse).
+- Status pass 3 (26 searches before the cap): 21 checked → 12 open, 9 unknown, 0 closed (3 closings round-ups clean); 15 address fixes
+  applied (Sao 1710 E Passyunk, Tesiny 719 Dickinson, La Jefa 1605 Latimer, Kostas 15 W Girard, Vietnam Cafe 814 S 47th, …).
+- FINAL BUILD: 422 sourced → 170 on page (149 sights + 21 food); --sourcecheck/--geocheck/--statuscheck/--buildcheck PASS; npm
+  validate + test PASS; index card + CITIES row refreshed; AGENT-PROMPTS run-log row + RESEARCH-LOG notes added.
+- W3 channel mix (242 new places): editorial of record (Inquirer ~120, Philly Mag ~95), Infatuation ~110, Visit Philly ~85, award
+  bodies (James Beard 30, NYT 4, NPS 7), regional (Main Line Today 20, Northeast Times 9, NJ Monthly 5, SJ Mag 3, Visit NJ 4, Valley
+  Forge Tourism 6, Visit Bucks 4), travel (Atlas Obscura 5), local (Billy Penn ~12, Hidden City 5, 6abc 1, PhillyVoice 1), creator 1
+  (Portnoy). Wikipedia = coordinates/notability for ~50 sights + 7 restaurants.

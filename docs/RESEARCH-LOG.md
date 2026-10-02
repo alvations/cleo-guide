@@ -404,3 +404,17 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   statusSource that sorts after the research geo file silently blanks the closure check (79 records patched).
 - **Addresses**: only use a street address printed in a result; otherwise a sourced locality (10 memory-typed addresses
   were caught and replaced before commit).
+
+### 2026-10-02 · Philadelphia W3 — technique notes
+- **density.py double-count bug (fixed):** a research dir with a list-shaped worklist file (phi_worklist.json, _chi_worklist.json,
+  …) was counted as food, inflating totals (Philadelphia showed 297 when 180 were real). density.py now skips *worklist* files.
+- **Two-outlet neighbourhood method:** pull an Infatuation neighbourhood guide (names only), then ONE domain-restricted query
+  (phillymag/inquirer/visitphilly) naming 5-7 of those places — each place the second outlet confirms goes in (~4-6 per search).
+- **Award lists are the highest-yield queries:** James Beard semifinalist/finalist round-ups (Inquirer/Philly Mag/Billy Penn) and
+  NYT best-in-America notes each cleared 3-8 lone-authority places per search.
+- **Long multi-name queries fan out** into up to 7 hidden searches ("max_uses_exceeded" seen) — the 200-search session cap was hit
+  after ~125 visible calls + 3 status agents (~91). Keep verification queries to 3-6 names.
+- **Restaurant pins:** only restaurants with their own Wikipedia article pin (Meetinghouse, Mish Mish, Her Place, Dalessandro's,
+  McGillin's, El Chingón, Max's); the rest stay UNVERIFIED for tools/geocode-helper.html.
+- **Rejected pins:** Old City Hall's returned Wikipedia point sat ~150 m off 5th & Chestnut (it matched Todd House) — left unpinned;
+  Upsala's returned point was ~4 km east of Germantown Ave.

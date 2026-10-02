@@ -24,54 +24,52 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-W3 (session_013h32337aVQ9QKB7DKgSPdW, 2026-10-02): food discovery by area — FISH → SPH → UCW → NW → MAIN/NE → CC → NPH → SJ → DAY.
-Files: FOOD_W3.json, SIGHTS_W3.json, CREATORS_W3.json, geo/_geoout_w3_*.json. Method: two-outlet neighbourhood lists
-(Infatuation/Eater/Philly Mag/Inquirer/Visit Philly) — a place on ≥2 outlets is added; 1-outlet → HELD in AUDIT.
-NOTE: density.py previously counted phi_worklist.json as food (297 was inflated); fixed — true W2 count = 180.
-Searches used this session: ~110 main calls (most fan out to 2-7 internal searches) + 65 in two status agents. Files: FOOD_W3 166, SIGHTS_W3 45, CREATORS_W3, geo/_geoout_w3_{food,sights,foodpins}.json. Last build: 341 sourced/152 on map (before batches 15-24).
+(none — W3 complete and committed 2026-10-02, session_013h32337aVQ9QKB7DKgSPdW; ended at the 200-search session cap)
 
-## State (2026-10-02, after W1+W2)
-- Discovered + sourced: **180** (116 sights, 64 food) — sourcecheck PASS 180/180. Page: **122 on map** (107 sights + 15 food).
-- Per area (sourced / target): CC 65/125 · SPH 37/85 · FISH 13/55 · UCW 7/40 · NPH 9/30 · NW 12/45 · NE 4/25 ·
-  MAIN 9/35 · SJ 8/25 · DAY 16/35. Every area has a pinned tier-1 (build assert).
-- Gates: --sourcecheck / --geocheck / --statuscheck / --buildcheck all PASS; npm validate + test PASS. Index card LIVE.
-- Pins: sights ~95% (Wikipedia infobox via `allowed_domains:["en.wikipedia.org"]` batches); restaurants only 15/64 —
-  **~49 food places are UNVERIFIED** (addresses verified, coords null) → finish with `tools/geocode-helper.html` (browser).
-- Closures: Hiroki — CLOSED (last service 2026-08-08), Laurel — CLOSED (Nov 2025). Casa Mexico merged into South Philly
-  Barbacoa (EXCLUDE). Roxanne status unknown (city cease-ops order, chef says temporary).
-- Search budget: this session used its ~200 WebSearch calls (main ≈ 145 incl. tool-internal follow-ups + geocode agent 28).
+## State (2026-10-02, after W3)
+- Discovered + sourced: **422** (170 sights, 252 food) — sourcecheck PASS 422/422. Page: **170 on map** (149 sights + 21 food).
+- Per area (discovered / target, from `python3 tools/density.py philadelphia-pa`): CC 117/125 (+8) · SPH 74/85 (+11) ·
+  FISH 41/55 (+14) · UCW 31/40 (+9) · NPH 23/30 (+7) · NW 35/45 (+10) · NE 18/25 (+7) · MAIN 28/35 (+7) · SJ 24/25 (+1) ·
+  DAY 32/35 (+3). **~80 to go.** (density.py previously double-counted phi_worklist.json — fixed in W3; numbers above are real.)
+- Gates: --sourcecheck / --geocheck / --statuscheck / --buildcheck all PASS; npm validate + test PASS; card + CITIES refreshed.
+- Closures flagged: Hiroki — CLOSED, Laurel — CLOSED, Tony's Place — CLOSED (Mayfair 2022). Dropped (non-notable closed): Cheu
+  Fishtown, Jansen, Italiano's, Pizza Brain Fishtown, Lunar Inn, Martha, Syrenka, Krakus, Nam Son, Rangoon, Earth Bread, Bing Bing.
+- Food status: geo/_geoout_w3_food.json holds 98 W3 statuses (41 open · 56 unknown · 1 closed); **~88 W3 food records still have
+  no status/address check** (list = FOOD_W3 names not in geo/_geoout_w3_food.json or _geoout_w3_foodpins.json).
+- Search budget: this session's 200 WebSearch calls are used (~125 main visible calls, many fanning out; 3 status agents ~91).
 
 ## Files
-FOOD_MICHELIN.json (34) · FOOD_CANON.json (27) · FOOD_W1B.json (4) · SIGHTS_W1.json (73) · SIGHTS_W2.json (33) ·
-CREATORS_W1.json · geo/_geoout_w1_food.json · geo/_geoout_w1_sights.json · geo/_geoout_w2_sights.json ·
-helpers: _phi_add.py (append + dedupe), _phi_geo.py (append geoout), _phi_sg.py (sight + Wikipedia pin in one step).
+W1/W2: FOOD_MICHELIN.json (34) · FOOD_CANON.json (27) · FOOD_W1B.json (4) · SIGHTS_W1.json (73) · SIGHTS_W2.json (43) · CREATORS_W1.json
+W3: FOOD_W3.json (188) · SIGHTS_W3.json (54) · SOURCES_W3.json (Visit NJ, Northeast Times, Valley Forge Tourism) · CREATORS_W3.json
+(Portnoy → Angelo's) · geo/_geoout_w3_food.json (statuses) · geo/_geoout_w3_sights.json (42 Wikipedia pins) ·
+geo/_geoout_w3_foodpins.json (7 restaurant Wikipedia pins). Helpers: _phi_add.py (append + dedupe), _phi_w3f.py (pipe-line → records),
+_phi_sg.py (sight + pin), _phi_geo.py (geoout append), _phi_card.py (index card + CITIES row), _phi_docs_w3.py (run-log/notes).
 
-## Next actions (ordered)
-0. Leads from the last searches (W2c): Philadelphia Brewing Company (2440 Frankford Ave; Visit Philly only — needs a 2nd outlet),
-   Syrenka Luncheonette (Port Richmond Polish; Visit Philly only), Pomona Hall (Camden; Wikipedia 39.93083,-75.09444 — needs a 2nd source),
-   Cooper River Park (only the river's coordinate surfaced — not a pin), Lemon Hill (Wikipedia 39.97083,-75.18722 — needs 2nd source).
-1. Restaurant pins: run `tools/geocode-helper.html` on the UNVERIFIED list in docs/GEOCODE-BACKLOG.md (philadelphia-pa);
-   WebSearch does NOT surface Philly restaurant place pins (0/3 single-name probes; latlong.net only has big POIs).
-   Restaurants WITH a Wikipedia article pin fine (Kalaya, Friday Saturday Sunday, South Philly Barbacoa, Vedge, Zahav).
-2. Status pass for pinned/unpinned food still 'unknown' (George's, Sarcone's Bakery, Iannelli's, John's Water Ice, Tony Luke's,
-   Middle Child, Paesano's, Antonio's, Hardena, Roxanne) — one Inquirer/Philly Mag closings query each wave.
-3. Sight pairs (2 searches ≈ 4-5 pinned places: Visit Philly query for the 2nd source, then
-   `A; B; C; D; E coordinates` on en.wikipedia.org). Queued: Winterthur / Hagley / Nemours (Wikipedia coords already
-   found: 39.80583,-75.60083 / 39.78056,-75.57500 / 39.7766,-75.5580 — need a 2nd source), Race/Cherry Street Piers,
-   Old St. Joseph's (Wikipedia 39.946445,-75.147597 — needs 2nd source), Lemon Hill (39.97083,-75.18722), Mount Pleasant,
-   Cedar Grove, Ryerss (no Wikipedia pin yet), Wyck (Wikipedia point looked ~2 km off — re-verify), Germantown White House,
-   Mann Center, Smith Playground, Boathouse Row, Wissahickon, Rocky Statue, Mummers Museum, Washington Ave Pier,
-   Barnes Arboretum, Glencairn, Camden Children's Garden, Wiggins Park — all sourced, need pins.
-   New areas to grow: NE (Little Brazil/Castor Ave food, Frankford), MAIN (Ardmore/Narberth food), SJ (Collingswood BYOBs,
-   Haddonfield), DAY (Kennett Square mushrooms, New Hope, Phoenixville), FISH/Kensington bars + breweries, UCW Baltimore Ave
-   (Ethiopian/West African), NPH (Puerto Rican Fairhill), Chinatown (Nan Zhou, Dim Sum Garden held 1-src).
-4. HELD single-source leads (AUDIT.md W1): Jean-Georges, Scampi, Griddle & Rice, Amá, Emilia, June BYOB, White Yak, Frida Cantina,
-   D'Jakarta Cafe, Corropolese, Liberty Kitchen, Sonny's, Steve's, Nan Zhou, Dim Sum Garden, A&A Soft Pretzels, Down Home Diner,
-   Sulimay's, Stockyard, Elwood, Emmett, Aether, Bastia, Amy's Pastelillos, Mawn, Kissho, Ayat — each needs one more credible source.
-5. Every ~50 places: `flock … python3 tools/rebuild-city.py philadelphia-pa --build` → gates → npm validate/test → refresh card counts.
+## Next wave (W4) — ordered plan
+1. **Status/address pass on the ~88 unchecked W3 food** (short 1-2-name queries; start with 2026 closings round-ups). Several
+   addresses are partial (Bastia, Fiore-area done, White Yak, Liberty Kitchen, Eshkol, Phil & Jim's, Federal Donuts, Hello Vietnam…).
+2. **FISH +14** (fewest sights: 4): Graffiti Pier (re-check access after the 2024 partial collapse), Liberty Lands, St. Adalbert,
+   Norris Square / Las Parcelas, Penn Treaty Museum; food leads HELD: Izakaya Fishtown, Nunu, Jean, Ekta, Primary Plant Based,
+   Cake Life, Philly Style Bagels, Stock's Bakery (Port Richmond), Sor Ynez, Next of Kin, Caletta, Bottle Bar East, Interstate Drafthouse.
+3. **SPH +11**: Little Saigon (Pho Ha, Cafe Diem, BB Tee House), Point Breeze/Newbold, Pennsport (2nd Street Brewhouse, Pennsport Beer
+   Boutique), Mancuso's, D'Emilio's, Stina, La Llorona, Barcelona Wine Bar, Juana Tamale; sights: Shot Tower, Bok Building rooftop.
+4. **NW +10**: Chestnut Hill Brewing, New Era Indian, CinCin, Tokyo Sushi, Trolley Car Cafe, Mt Airy Tap Room, Bar Lizette, Downtime
+   Bakery, Hot Clucks, Tyemeka's, Zion's Cuisine; sights: Germantown White House + Wyck pins, Woodward houses, Andorra.
+5. **UCW +9**: Buna Cafe, Tacos Don Memo, Lil Pop Shop, Green Line Cafe, Mood Cafe, Kabobeesh, Nafi, Corio; sights: Paul Robeson
+   House, Malcolm X Park, Penn campus (Fisher done), Cira Green, Woodland Ave African corridor.
+6. **CC +8 / NPH +7 / NE +7 / MAIN +7 / DAY +3 / SJ +1**: CC — Little Nonna's, Barbuzzo, El Vez, Morimoto, Buddakan, Trattoria
+   Carina, Uchi, Rail Park (2nd source), Fireman's Hall (2nd outlet), Old St. Joseph's, Cherry/Race St Piers; NPH — Church of the
+   Advocate, Smith Memorial Arch, Uptown Theater, Temple; NE — Ipanema, Passage, Sergio's, Insectarium, Holy Redeemer; MAIN — Grey Towers
+   Castle, Manorah, Mary (Ambler), Daisy Tavern, Ambler Theater; DAY — Marsha Brown, 1906 at Longwood, Portabello's; SJ — Collingswood
+   Farmers Market, Haddonfield downtown.
+7. Creator channel: Portnoy 2026 Philly stops (Johnny's Bryn Mawr, Marina's Fishtown, Liguria) — attach only if scores are findable;
+   Mark Wiens Philly Pt 1; Philly TikTok food creators with verifiable scale (W1 scan found none qualifying).
+8. Restaurant pins: run tools/geocode-helper.html on the UNVERIFIED backlog (~230) — WebSearch only pins restaurants with Wikipedia articles.
+9. Every ~50 places: `flock … python3 tools/rebuild-city.py philadelphia-pa --build` → gates → npm validate/test →
+   `python3 data/philadelphia-research/_phi_card.py <sights_on> <food_on> <sourced> <date> "<note>"` (under the lock).
 
 ## Acceptance checklist
-- [ ] every area OK in density.py
+- [ ] every area OK in density.py (W3: ~80 short — SJ/DAY nearly there)
 - [x] --sourcecheck / --geocheck / --statuscheck / --buildcheck green (2026-10-02)
 - [x] npm run validate && npm test green (2026-10-02)
 - [x] index card live with counts; CITIES.md row; AGENT-PROMPTS run-log rows (2026-10-02)
