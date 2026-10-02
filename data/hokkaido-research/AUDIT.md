@@ -193,3 +193,10 @@ Jazz Café Bossa (sapporo.travel + Hokkaido Shimbun 50-year profile + Time Out),
 set, caveat in script); Tanaka Shuzō Kikkōgura, Otaru Sōko No.1 (Otaru Beer), Niikuraya Hanazono dango, Amatō cream zenzai
 (otaru.gr.jp guidemaps + visit-hokkaido / rurubu / MAPPLE). Prose hygiene: stripped unsourced colour (founding year, a
 product name, brewing-law claim) on self-review.
+**W45 DONAN:** California Baby Cisco rice (rurubu + MAPPLE B-gourmet), Numa no Ya Ōnuma dango (rurubu + MAPPLE spots), Hakodate Beer
+(rurubu + MAPPLE craft-beer list), Hakodate Beer Hall (promoted from held: rurubu + hakodate.travel). Held: Asari Honten sukiyaki
+(rurubu only), Misuzu coffee Daimon (MAPPLE only), Snaffle's (MAPPLE only). Two street names from memory stripped on review.
+**W46 SOYA:** Rebun — Kaisen-dokoro Kafuka, Robata Chidori (rurubu spots + MAPPLE Rebun list). Held: Satō Shokudō Rishiri (MAPPLE only).
+**W47 creators:** Ramen Adventures (Brian MacDuckston; named in the Japan brief) — attached to Menya Saimi and Menya Yukikaze;
+Fujiya NOODLE promoted (Michelin Bib 2017 + Ramen Adventures). Rejected attaching the negative airport-branch Ichigen review.
+Creator queries this session: 1 (yield 3).
