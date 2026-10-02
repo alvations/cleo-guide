@@ -26,10 +26,13 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ## In-flight wave
 W1 (sights backbone + food canon) — BLOCKED before any query ran: the session-wide WebSearch budget
 (200/200, shared by all concurrent agents) was already exhausted at 2026-10-02 when this agent started research.
-No discovery files written yet. On relaunch: start W1 from scratch (Next actions 1-2).
+Retried after a 10-min back-off: still 200/200 — a hard per-session cap (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION),
+not a rate limit. No discovery files written yet. On relaunch (with fresh search budget): start W1 from scratch
+(Next actions 1-2). Nothing to resume mid-wave.
 
 ## State
-- 2026-10-02 scaffold: consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, tools/build-philadelphia.py.
+- 2026-10-02 scaffold: consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, SOURCES_core.json, tools/build-philadelphia.py;
+  data/sources.json entry (27 outlets) + empty data/geocodes.json entry. Discovered: 0 / ~500 (all areas NEED).
 
 ## Next actions (ordered)
 1. W1 sights backbone (Wikipedia/NPS/Visit Philly) per area — anchors a tier-1 per area.

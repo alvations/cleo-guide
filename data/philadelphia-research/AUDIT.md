@@ -20,3 +20,7 @@
 - First WebSearch calls returned "this session has used its web search budget (200 of 200 WebSearch calls)" —
   the cap is session-wide and shared by all ~17 concurrent agents, already exhausted before this agent's first
   query. Backed off 10 min and retried (see next entry). NOTHING was added from memory (CLAUDE.md 4a; no-fabrication).
+- Retry after a 10-minute back-off (2026-10-02): still "200 of 200 WebSearch calls" — the cap is a hard per-session
+  limit (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION), not a rate limit, so waiting does not restore it. W1 not started;
+  0 places discovered, 0 geocoded. Scaffold (consolidate.py, build-philadelphia.py, brief, targets, registry entry)
+  is committed and ready; the next launch with search budget starts W1 directly from RESUME.md "Next actions".
