@@ -4339,6 +4339,106 @@
     ]
    ],
    "closed": false
+  },
+  {
+   "t": 2,
+   "a": "MNT",
+   "n": "Odaiba Marine Park (お台場海浜公園)",
+   "address": "1-4-1 Daiba, Minato-ku, Tokyo 135-0091",
+   "w": "Artificial beach on Tokyo Bay facing Rainbow Bridge and the skyline — a mini Statue of Liberty, sunset strolls and the night view back over the water.",
+   "k": "Rainbow Bridge night view",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/odaiba-seaside-park"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/39/index.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "MNT",
+   "n": "Fuji TV Building — Hachitama observation sphere (フジテレビ本社ビル)",
+   "address": "2-4-8 Daiba, Minato-ku, Tokyo 137-8088",
+   "w": "Kenzo Tange's lattice HQ in Odaiba with the 1.2-ton titanium 'Hachitama' sphere — a 270° view over Tokyo Bay and Rainbow Bridge.",
+   "k": "titanium sphere deck",
+   "g": [
+    "VIEW",
+    "POP"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fuji_Broadcasting_Center"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/591/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/fuji-tv-building"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "MNT",
+   "n": "Institute for Nature Study (国立科学博物館附属自然教育園)",
+   "address": "5-21-5 Shirokanedai, Minato-ku, Tokyo 108-0071",
+   "w": "A fenced-off fragment of primeval Musashino forest and marsh near Meguro Station — admission is capped so the trails stay quiet.",
+   "k": "wild forest in the city",
+   "g": [
+    "NATURE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Institute_for_Nature_Study"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3044.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/institute-for-nature-study"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JOSAI",
+   "n": "Nakano Sun Mall (中野サンモール)",
+   "address": "Nakano 5-chōme, Nakano-ku, Tokyo 164-0001",
+   "w": "224 m covered shopping arcade running from Nakano Station's north exit straight into Nakano Broadway.",
+   "k": "covered arcade",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/destinations/western-tokyo/nakano/index.html"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3069.html"
+    ]
+   ],
+   "closed": false
   }
  ]
 }
