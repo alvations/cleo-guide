@@ -41,6 +41,16 @@ SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is
 JOTO 1, KANTO 2.
 
 ## In-flight wave
+**W5 (2026-10-02, session_01VQaxQ69L5PmZRFY3PnAJQQ) — FOOD & DRINK FIRST + ANIME wave.** Writes `FOOD_TOKYO_W5.json`,
+`SIGHTS_TOKYO_W5.json` (anime/pop-culture sights), `geo/_geoout_tokyo_w5.json`, `CREATORS_TOKYO_W5.json`, helper
+`_tokyo_w5_add.py` (= `_add.py`). Searches used this session: 0 (updated per batch below).
+Query plan: (1) bars — World's/Asia's 50 Best Bars Tokyo, Time Out best cocktail/whisky/sake bars, craft beer, tachinomi;
+(2) coffee — Time Out/Eater best kissaten & specialty coffee; (3) bakeries, wagashi, depachika; (4) Michelin Bib by ward
+for SBY/SJK/SMKT/JONAN/JOSAI/CYD/TAITO food; (5) ANIME — Pokémon Café/Center Mega, Gundam Base, Jump Shop, Animate
+Ikebukuro, Mandarake, Suga Shrine stairs, Ghibli/Donguri, Sanrio Puroland, Ultraman Soshigaya, Tezuka/Tokiwasō;
+(6) TAMA/JOTO/KANTO food (Jindai-ji soba, Kawagoe, Kamakura). Creator query ≥1 per batch.
+
+## Previous wave (W3/W4)
 **W3 (2026-10-02, continuation) — CLOSED.** Last full build: **387 discovered / 382 rendered (241 sights + 141
 food)**, 13/13 areas, all 4 gates green, validate + npm test pass, hub card refreshed. Searches W3: ~155.
 Still UNVERIFIED (5 → run `tools/geocode-helper.html`, place pin `!3d!4d`): Tempura Abe Honten (Michelin page shows Bib
