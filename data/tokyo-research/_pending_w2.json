@@ -1,11 +1,125 @@
-{"note":"held sights — need coords and/or a 2nd credible source; do not write until both exist",
- "items":[
- {"n":"Shinjuku Golden Gai","a":"SJK","have":"WIKIPEDIA https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai coords 35.69389,139.70472","need":"2nd source"},
- {"n":"Meiji Jingu","a":"SBY","have":"WIKIPEDIA https://en.wikipedia.org/wiki/Meiji_Shrine coords 35.67611,139.69917","need":"2nd source"},
- {"n":"Tokyo Skytree","a":"SMKT","have":"WIKIPEDIA https://en.wikipedia.org/wiki/Tokyo_Skytree coords 35.7101,139.8107","need":"2nd source"},
- {"n":"Omoide Yokocho","a":"SJK","have":"GOTOKYO https://www.gotokyo.org/en/spot/63/index.html","need":"coords + 2nd"},
- {"n":"Ameyoko","a":"TAITO","have":"WIKIPEDIA https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D","need":"coords + 2nd"},
- {"n":"Takeshita Street","a":"SBY","have":"GOTOKYO https://www.gotokyo.org/en/spot/48/index.html; WIKIPEDIA https://en.wikipedia.org/wiki/Takeshita_Street","need":"street coords"},
- {"n":"Harmonica Alley Kichijoji","a":"TAMA","have":"GOTOKYO https://www.gotokyo.org/en/spot/165/index.html","need":"coords + 2nd"},
- {"n":"Chidorigafuchi","a":"CYD","have":"GOTOKYO+japan-guide+Time Out (W1)","need":"coords"}
- ]}
+{
+ "note": "held sights — need coords and/or a 2nd credible source; do not write until both exist",
+ "items": [
+  {
+   "n": "Shinjuku Golden Gai",
+   "a": "SJK",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai coords 35.69389,139.70472",
+   "need": "2nd source"
+  },
+  {
+   "n": "Meiji Jingu",
+   "a": "SBY",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Meiji_Shrine coords 35.67611,139.69917",
+   "need": "2nd source"
+  },
+  {
+   "n": "Tokyo Skytree",
+   "a": "SMKT",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Tokyo_Skytree coords 35.7101,139.8107",
+   "need": "2nd source"
+  },
+  {
+   "n": "Omoide Yokocho",
+   "a": "SJK",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/63/index.html",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Ameyoko",
+   "a": "TAITO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Takeshita Street",
+   "a": "SBY",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/48/index.html; WIKIPEDIA https://en.wikipedia.org/wiki/Takeshita_Street",
+   "need": "street coords"
+  },
+  {
+   "n": "Harmonica Alley Kichijoji",
+   "a": "TAMA",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/165/index.html",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Chidorigafuchi",
+   "a": "CYD",
+   "have": "GOTOKYO+japan-guide+Time Out (W1)",
+   "need": "coords"
+  },
+  {
+   "n": "Tsukiji Outer Market",
+   "a": "CHUO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/65/index.html; WIKIPEDIA Tsukiji fish market",
+   "need": "outer-market coords (Wikipedia point 35.66139,139.76972 is the demolished inner-market site — rejected, ~400 m off)"
+  },
+  {
+   "n": "Tsukishima Monja Street",
+   "a": "CHUO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/85/index.html",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Tokyo Dome",
+   "a": "JHOKU",
+   "have": "WIKIPEDIA coords 35.7056,139.7519",
+   "need": "2nd"
+  },
+  {
+   "n": "Gokoku-ji",
+   "a": "JHOKU",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Gokoku-ji coords 35.72175,139.725639",
+   "need": "2nd"
+  },
+  {
+   "n": "Tokyo Tower",
+   "a": "MNT",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Tokyo_Tower coords 35.65861,139.74556",
+   "need": "2nd"
+  },
+  {
+   "n": "Sengaku-ji",
+   "a": "MNT",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sengaku-ji coords 35.63772,139.7363",
+   "need": "2nd"
+  },
+  {
+   "n": "Gotoku-ji",
+   "a": "JOSAI",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji coords 35.648778,139.647417",
+   "need": "2nd"
+  },
+  {
+   "n": "Todoroki Valley",
+   "a": "JOSAI",
+   "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?",
+   "need": "coords"
+  },
+  {
+   "n": "Kawagoe Toki no Kane (Time Bell Tower)",
+   "a": "KANTO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Time_Bell_Tower coords 35.9234889,139.4833139",
+   "need": "2nd"
+  },
+  {
+   "n": "Taishakuten-sando",
+   "a": "JOTO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/33/index.html",
+   "need": "coords+2nd"
+  },
+  {
+   "n": "Kochi-Kame statues Kameari",
+   "a": "JOTO",
+   "have": "GOTOKYO spot/1228; KochiKame Museum GOTOKYO spot/1869",
+   "need": "coords"
+  },
+  {
+   "n": "Nishiarai Daishi",
+   "a": "JOTO",
+   "have": "GOTOKYO ev159; address 1-15-1 Nishi-Arai, Adachi",
+   "need": "coords"
+  }
+ ]
+}

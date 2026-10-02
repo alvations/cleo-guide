@@ -275,10 +275,10 @@
   "cz": [
    "RAMEN"
   ],
-  "dish": "chūka soba",
+  "dish": "shio ramen",
   "n": "Ginza Haru Chan Ramen (銀座 春ちゃんラーメン)",
   "address": "3-11-6 Ginza, Chūō-ku, Tokyo 104-0061",
-  "w": "Back-street Ginza ramen counter named a Michelin Bib Gourmand in the 2026 guide — an affordable bowl a block from the luxury flagships.",
+  "w": "Back-street Ginza ramen counter whose shio ramen won a Michelin Bib Gourmand in the 2026 guide — an affordable bowl a block from the luxury flagships.",
   "sources": [
    [
     "MICHELIN_BIB",
@@ -703,6 +703,60 @@
    [
     "MICHELIN_BIB",
     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/katsuo-shokudo"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "CHUO",
+  "cz": [
+   "TEMPURA"
+  ],
+  "dish": "tonkatsu prix-fixe with rare pork cuts",
+  "n": "Ginza Katsukami II (銀座かつかみ II)",
+  "address": "4F Kojun Bldg, 6-8-7 Ginza, Chūō-ku, Tokyo 104-0061",
+  "w": "Ginza tonkatsu counter serving a prix-fixe of rare cuts — new Michelin Bib Gourmand 2026.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/ginza-katsukami-ii"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SMKT",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "salt-grilled yakitori skewers",
+  "n": "Shutei Tanaka (酒亭 田中)",
+  "address": "3-25-7 Sumida, Sumida-ku, Tokyo 131-0031",
+  "w": "Yakitori bar run by two brothers in Higashi-Mukōjima, skewers mostly served salted — new Michelin Bib Gourmand 2026.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/shutei-tanaka"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "TEISHOKU"
+  ],
+  "dish": "hamburg steak with demi-glace",
+  "n": "Yoshoku Edoya (洋食 江戸屋)",
+  "address": "6-6-1 Shirokane, Minato-ku, Tokyo 108-0072",
+  "w": "Shirokane yōshoku house with nostalgic hamburg steak in demi-glace — new Michelin Bib Gourmand 2026.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/yoshoku-edoya"
    ]
   ],
   "closed": false
