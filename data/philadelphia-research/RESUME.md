@@ -28,7 +28,7 @@ W3 (session_013h32337aVQ9QKB7DKgSPdW, 2026-10-02): food discovery by area — FI
 Files: FOOD_W3.json, SIGHTS_W3.json, CREATORS_W3.json, geo/_geoout_w3_*.json. Method: two-outlet neighbourhood lists
 (Infatuation/Eater/Philly Mag/Inquirer/Visit Philly) — a place on ≥2 outlets is added; 1-outlet → HELD in AUDIT.
 NOTE: density.py previously counted phi_worklist.json as food (297 was inflated); fixed — true W2 count = 180.
-Searches used this session: ~24 (batches 1-2 → FOOD_W3.json 52, SIGHTS_W3.json 9). Background: food status+address agent → geo/_geoout_w3_food.json
+Searches used this session: ~33 main + 35 status agent (FOOD_W3 66, SIGHTS_W3 9; geo/_geoout_w3_food.json 60 statuses)
 
 ## State (2026-10-02, after W1+W2)
 - Discovered + sourced: **180** (116 sights, 64 food) — sourcecheck PASS 180/180. Page: **122 on map** (107 sights + 15 food).

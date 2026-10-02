@@ -171,3 +171,29 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - FSHMI +3: Fushimi Momoyama Mausoleum, Sekihō-ji (KT map guide + JA), Fujinomori Shrine (KT taxi-tips feature + JA).
 - Held: Gokō-no-miya (34.934722,135.7675; the kyoto.travel plaque found covers the shrine's ORIGINAL site, so it was not used as the 2nd source).
 - Searches used: main 149 + worker 18 = 167.
+
+### batch 13 (2026-10-02) — held leads corroborated + non-Michelin canon
+- KITA +3: Daihōon-ji/Senbon Shakadō (kyoto.travel plaque 2230 + WIKI), Shōkoku-ji, Rozan-ji (KT map guide + WIKI). CTR +2:
+  Shinsen-en (KT plaque 2192 + WIKI), Honnō-ji (KT map guide + WIKI). Pins from Wikipedia.
+- Food canon (non-Michelin, ≥2 editorial): Inoda Coffee Honten (ja.kyoto.travel listing + WIKIPEDIA_JA; pin from ja-Wikipedia),
+  Sōhonke Nishin Soba Matsuba (kyoto.travel restaurant page + ja-Wikipedia にしんそば article for its 1882 invention; pin held).
+- Held (single editorial source): Honke Owariya (KT, est. 1465), Nanzenji Junsei (KT, yudofu), Ippodō (ja-Wiki address only),
+  Ichiwa/Ichimonjiya Wasuke (ja-Wiki only), Kazariya (KT only).
+- Searches used: main 155 + worker 18 = 173.
+
+### batch 14 (2026-10-02) — KYFU/RKHKU fill + Owariya
+- KYFU +2: Kasamatsu Park (JG e3992 + WIKIPEDIA_JA), Hozugawa River Cruise (JG e3966 + ja-Wikipedia Hozu Gorge; med, a point on the route).
+- RKHKU +1: Kurama Onsen (JG e3933 + JA; reopened Nov 2024 per japan-guide → status open).
+- Food: Honke Owariya (est. 1465) — KYOTOTOURISM restaurant page + Time Out (Tokyo edition travel piece); pin held.
+- Held: Gansen-ji (ja coords 34.72025,135.885806, one source), Fukuchiyama Castle (en+ja Wikipedia = one outlet), Eizan Railway
+  'kōyō tunnel' (KT only), Shōrin-in, Raigō-in (JG only), Nanzenji Junsei, Okutan (yudofu; one source each).
+- Searches used: main 158 + worker 18 = 176.
+
+### batch 15 (2026-10-02) — final W2 build
+- HGS +1: Toyokuni Shrine (KT FAQ 1039 + WIKIPEDIA_JA; med, an arc-second-rounded coordinate). Held: Hōkō-ji (ja coords 34.992106,
+  135.772064; the matching kyoto.travel page could not be identified with certainty), Yōgen-in (34.987861,135.773639), Ryōzen Gokoku Shrine
+  (35.0,135.78306, rounded), Kawai Kanjirō House and Minami-za (no coords).
+- **Build:** 228 discovered / 215 rendered (152 sights + 63 food); 13 UNVERIFIED held; all 4 gates PASS; validate + test ALL PASS.
+  CARD:kyoto counts and the CITIES.md row were refreshed.
+- **Closures found this wave:** none. Every place carries a 2026 status source. Kurama Onsen was confirmed reopened (Nov 2024).
+- Searches used: main 160 + worker 18 = 178.

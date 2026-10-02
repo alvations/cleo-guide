@@ -102,7 +102,7 @@
   "t": 2,
   "a": "FISH",
   "n": "Gilda Cafe and Market",
-  "address": "Frankford Ave, Fishtown, Philadelphia, PA 19125",
+  "address": "300 E Girard Ave, Philadelphia, PA 19125",
   "w": "Portuguese-inspired café and market — piri-piri chicken, sandwiches and house pastéis de nata (Infatuation review; Visit Philly Fishtown guide).",
   "sources": [
    [
@@ -243,7 +243,7 @@
   "t": 1,
   "a": "UCW",
   "n": "Kilimandjaro",
-  "address": "4317 Chestnut St, Philadelphia, PA 19104",
+  "address": "4301 Chestnut St, Philadelphia, PA 19104",
   "w": "The first restaurant in the city to specialise in Senegalese food (Visit Philly West Philly guide; Philly Mag's African food guide).",
   "sources": [
    [
@@ -966,7 +966,7 @@
   "t": 2,
   "a": "SPH",
   "n": "Café y Chocolate",
-  "address": "South Philadelphia, PA",
+  "address": "1532 Snyder Ave, Philadelphia, PA 19145",
   "w": "Deep-South-Philly Mexican breakfast/brunch café famed for its chilaquiles (Inquirer; Visit Philly Latino-owned restaurants).",
   "sources": [
    [
@@ -989,7 +989,7 @@
   "t": 2,
   "a": "FISH",
   "n": "Hello Vietnam",
-  "address": "Northern Liberties, Philadelphia, PA 19123",
+  "address": "722 N 2nd St, Philadelphia, PA 19123",
   "w": "Chef Tri Tan's Northern Liberties restaurant, opened after his two-time Best of Philly bánh-mì bakery Nam Son was displaced from Washington Ave (Inquirer; Infatuation review).",
   "sources": [
    [
@@ -1033,30 +1033,6 @@
    "Cheesesteak"
   ],
   "dish": "the Schmitter (steak, grilled salami, fried onions, extra cheese, special sauce)",
-  "closed": false
- },
- {
-  "t": 1,
-  "a": "NW",
-  "n": "Jansen",
-  "address": "7402 Germantown Ave, Philadelphia, PA 19119",
-  "w": "Mt. Airy's French-leaning fine-dining destination (Inquirer listing; Infatuation's best of Germantown & Mt. Airy).",
-  "sources": [
-   [
-    "INQUIRER",
-    "https://www.inquirer.com/food/restaurants/jansen/"
-   ],
-   [
-    "INFATUATION",
-    "https://www.theinfatuation.com/philadelphia/guides/best-mt-airy-germantown-philadelphia-restaurants"
-   ]
-  ],
-  "cz": [
-   "American",
-   "French",
-   "Fine Dining"
-  ],
-  "dish": "Beef Wellington for two carved tableside; sauce work",
   "closed": false
  },
  {
@@ -1216,6 +1192,653 @@
    "Roast Pork"
   ],
   "dish": "hoagies on seeded long rolls; roast pork; cutlet sandwiches",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "MAIN",
+  "n": "Hymie's Merion Delicatessen",
+  "address": "342 Montgomery Ave, Merion Station, PA 19066",
+  "w": "Old-school Jewish deli open since 1938 — multi-time Best of the Main Line (Best Bagels & Lox), an Infatuation pick and an Inquirer story when a 2024 flood closed it temporarily.",
+  "sources": [
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/restaurant/hymies/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/hymie-s-delicatessan"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/hymies-deli-merion-station-flood-20240130.html"
+   ]
+  ],
+  "cz": [
+   "Jewish Deli",
+   "Deli"
+  ],
+  "dish": "Reuben; lox platters; pickle bar",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "MAIN",
+  "n": "Lark",
+  "address": "611 Righters Ferry Rd, Bala Cynwyd, PA 19004",
+  "w": "Nicholas Elmi's riverside Mediterranean — Philly Mag Best of Philly (Best New Restaurant), Inquirer listing, Main Line Today feature, Infatuation Near Main Line guide.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/lark/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/restaurants/lark/"
+   ],
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/food/lark-restaurant-main-line/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-on-the-near-main-line"
+   ]
+  ],
+  "cz": [
+   "Mediterranean",
+   "Seafood"
+  ],
+  "dish": "crudo and whole fish; lush pastas with a Schuylkill view",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MAIN",
+  "n": "Ripplewood Whiskey & Craft",
+  "address": "29 E Lancaster Ave, Ardmore, PA 19003",
+  "w": "Called one of the best gastropubs in the Philly area by the Infatuation; Inquirer and Main Line Today listings.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-on-the-near-main-line"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/restaurants/ripplewood/"
+   ],
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/restaurant/ripplewood-whiskey-craft/"
+   ]
+  ],
+  "cz": [
+   "Gastropub",
+   "Burgers"
+  ],
+  "dish": "elevated bar food; deep whiskey list",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MAIN",
+  "n": "Eshkol",
+  "address": "Lancaster Ave, Ardmore, PA 19003",
+  "w": "Tesh Gebremedhin and Chaltu Merga's intimate Ethiopian room — 'some of Philly's best Ethiopian food' per the Infatuation; Main Line Today feature.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-on-the-near-main-line"
+   ],
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/food/eshkol/"
+   ]
+  ],
+  "cz": [
+   "Ethiopian"
+  ],
+  "dish": "injera platters; tibs",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MAIN",
+  "n": "Little Blue Owl Baking Company",
+  "address": "Haverford Ave & Essex Ave, Narberth, PA 19072",
+  "w": "French viennoiserie bakery succeeding the vaunted Le Petit Mitron (Main Line Today; Infatuation Near Main Line guide).",
+  "sources": [
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/food/little-blue-owl/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/where-to-eat-on-the-near-main-line"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "French"
+  ],
+  "dish": "croissants, brioche and pain au chocolat",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "MAIN",
+  "n": "Tired Hands Brewing Company",
+  "address": "16 Ardmore Ave, Ardmore, PA 19003",
+  "w": "Ardmore's world-acclaimed brewery (brew café + the Fermentaria brewpub) — Visit Philly; Inquirer 'beer train' guide; Philly Mag; Main Line Today.",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/things-to-do/food-drink/tired-hands-brewing-company/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/drink/septa-paoli-thorndale-philly-breweries-beer-bars-tired-hands-ardmore-20190807.html"
+   ],
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/life-style/tired-hands-brewing-company-review-fresh-eats-and-great-brews-in-ardmore/"
+   ]
+  ],
+  "cz": [
+   "Brewery",
+   "Taproom"
+  ],
+  "dish": "saisons and hazy IPAs at a Belgo-French café-brewery",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MAIN",
+  "n": "Teresa's Next Door",
+  "address": "126 N Wayne Ave, Wayne, PA 19087",
+  "w": "The Wayne bar that 'put the suburbs on the beer map' — Philly Mag Best of Philly (Best Beer List); Main Line Today listing.",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/best-of-philly-archive/teresas-next-door/"
+   ],
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/restaurant/teresas-cafe-and-next-door/"
+   ]
+  ],
+  "cz": [
+   "Belgian",
+   "Beer",
+   "Bar"
+  ],
+  "dish": "deep Belgian beer list; moules frites",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MAIN",
+  "n": "Malooga (Narberth)",
+  "address": "Narberth, PA 19072",
+  "w": "Old City Yemeni restaurant's Main Line branch, credited with a buzz in Narberth's dining scene (Inquirer 2026; Main Line Today).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/restaurants/narberth-restaurants-lassan-indian-traditional-malooga-20260423.html"
+   ],
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/food/malooga-narberth/"
+   ]
+  ],
+  "cz": [
+   "Yemeni",
+   "Middle Eastern"
+  ],
+  "dish": "Yemeni mandi and fahsa",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "DAY",
+  "n": "Pica's Restaurant (West Chester)",
+  "address": "West Chester, PA 19380",
+  "w": "The Delco pizza legend (60 years old in 2016, per Philly Mag) (Tina Fey's favourite) — its Upper Darby original closed in Oct 2025, and the upside-down pie lives on at the West Chester location (Main Line Today; Inquirer; Philly Mag).",
+  "sources": [
+   [
+    "MAINLINETODAY",
+    "https://mainlinetoday.com/food/picas-restaurant-opens-second-location-in-west-chester/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/columnists/picas-upper-darby-closing-past-future-20251027.html"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/foobooz/2025/03/20/picas-is-closing-upper-darby/"
+   ]
+  ],
+  "cz": [
+   "Pizza",
+   "Tomato Pie"
+  ],
+  "dish": "'upside-down' square pie: sliced cheese under sweet tomato sauce",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NE",
+  "n": "The Dining Car",
+  "address": "8826 Frankford Ave, Philadelphia, PA 19136",
+  "w": "Torresdale's throwback diner since 1960 (renamed 1976), baking everything on site — Inquirer 'The Spot'; Infatuation's 20 best spots in Northeast Philly.",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/blogs/the_spot/The-Dining-Car-Northeast-Phila.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-northeast-philly"
+   ]
+  ],
+  "cz": [
+   "Diner",
+   "Breakfast"
+  ],
+  "dish": "creamed chipped beef; French onion soup; house-baked Jewish apple cake",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NE",
+  "n": "Tony's Place",
+  "address": "Frankford Ave, Mayfair, Philadelphia, PA 19136",
+  "w": "Mayfair bar-pizzeria whose tomato pie Philly Mag called 'probably the best in the city' (Philly Mag appreciation; Inquirer).",
+  "sources": [
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/restaurants/2016/02/26/an-appreciation-tonys-place/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/blogs/real-time/Tonys-Place-pizza-in-Mayfair-sold-to-Bucks-County-businessmen.html"
+   ]
+  ],
+  "cz": [
+   "Tomato Pie",
+   "Pizza"
+  ],
+  "dish": "Northeast-style 'tomato pie' (cheese under the sauce)",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NE",
+  "n": "Georgian Bread",
+  "address": "Bustleton Ave, Philadelphia, PA 19116",
+  "w": "Bustleton Ave bakery-café of the Northeast's former-Soviet food belt — in LaBan's Northeast Philly guide and the Infatuation's 20 best spots in Northeast Philly.",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/columnists/craig_laban/Northeast-Philly-dynamic-diverse-and-underappreciated-food-culture.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/guides/the-best-restaurants-in-northeast-philly"
+   ]
+  ],
+  "cz": [
+   "Georgian",
+   "Uzbek"
+  ],
+  "dish": "khachapuri; khinkali; tandoor samsa; plov",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NE",
+  "n": "La Nova Pizza & Steak",
+  "address": "8107 Frankford Ave, Philadelphia, PA 19136",
+  "w": "Holmesburg pizza-and-steak shop with the Northeast's best game-day spread (Infatuation review; Northeast Times 2026 best cheesesteaks).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/la-nova-pizza-and-steak"
+   ],
+   [
+    "NORTHEASTTIMES",
+    "https://northeasttimes.com/2026/07/27/6-of-the-best-cheesesteak-spots-in-northeast-philadelphia-right-now/"
+   ]
+  ],
+  "cz": [
+   "Pizza",
+   "Cheesesteak"
+  ],
+  "dish": "pizza steak; Buffalo chicken cheesesteak with Cooper Sharp",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NE",
+  "n": "Bell's Market",
+  "address": "8330 Bustleton Ave, Philadelphia, PA 19152",
+  "w": "The Northeast's great Russian/Eastern European supermarket (Visit Philly Northeast guide; Inquirer 'Russian supermarkets taste like home').",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/media-center/press-releases/northeast-philadelphia-an-amazing-place-to-eat/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/philly/food/Russian_supermarkets_taste_like_home.html"
+   ]
+  ],
+  "cz": [
+   "Russian",
+   "Deli"
+  ],
+  "dish": "smoked fish, caviar, Eastern European breads and cheeses",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "NE",
+  "n": "Picanha Brazilian Steakhouse",
+  "address": "Castor Ave, Philadelphia, PA 19149",
+  "w": "Little Brazil's churrascaria carving meats tableside (Visit Philly Northeast guide; Inquirer).",
+  "sources": [
+   [
+    "VISITPHILLY",
+    "https://www.visitphilly.com/media-center/press-releases/northeast-philadelphia-an-amazing-place-to-eat/"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/picanha-brazilian-grill-steakhouse-locust-jose-garces-20190128.html"
+   ]
+  ],
+  "cz": [
+   "Brazilian",
+   "Steakhouse"
+  ],
+  "dish": "tableside churrasco; Saturday feijoada",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "n": "Donkey's Place",
+  "address": "1223 Haddon Ave, Camden, NJ 08103",
+  "w": "Camden dive doing its poppy-seed-roll cheesesteak for 80+ years — featured by Anthony Bourdain's Parts Unknown; Infatuation review, SJ Magazine, Inquirer 2026 cheesesteak-history piece.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/reviews/donkeys-place"
+   ],
+   [
+    "SJMAGAZINE",
+    "https://sjmagazine.net/people/donkeys-place"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/south-jersey/donkeys-place-camden-seeded-rolls-20260810.html"
+   ]
+  ],
+  "cz": [
+   "Cheesesteak"
+  ],
+  "dish": "cheesesteak on an oversized poppy-seed kaiser roll",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "n": "Corinne's Place",
+  "address": "1254 Haddon Ave, Camden, NJ 08103",
+  "w": "Camden soul-food institution since the '80s — a James Beard America's Classics honoree per NJ Monthly; NJ Monthly; Infatuation review.",
+  "sources": [
+   [
+    "NJMONTHLY",
+    "https://njmonthly.com/articles/eat-drink/corinnes-place-camdens-renowned-soul-food-spot/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/reviews/corinnes-place"
+   ]
+  ],
+  "cz": [
+   "Soul Food"
+  ],
+  "dish": "fried chicken; Sunday brunch buffet",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "n": "June BYOB",
+  "address": "690 Haddon Ave, Collingswood, NJ 08108",
+  "w": "Classic French BYOB — the Infatuation's favourite restaurant in South Jersey and on Philly Mag's 50 Best list.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/philadelphia/reviews/june-byob-collingswood"
+   ],
+   [
+    "PHILLYMAG",
+    "https://www.phillymag.com/foobooz/50-best-restaurants/"
+   ]
+  ],
+  "cz": [
+   "French",
+   "BYOB"
+  ],
+  "dish": "escargots; wild prawn quenelle; Paris-Brest",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SJ",
+  "n": "Hearthside",
+  "address": "801 Haddon Ave, Collingswood, NJ 08108",
+  "w": "Wood-fired BYOB with 'the best steak in South Jersey' (Infatuation) — Inquirer listing; NJ Monthly review.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/reviews/hearthside"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/restaurants/hearthside/"
+   ],
+   [
+    "NJMONTHLY",
+    "https://njmonthly.com/articles/restaurant-reviews/real-hearth-hearthside-collingswood/"
+   ]
+  ],
+  "cz": [
+   "American",
+   "Steak"
+  ],
+  "dish": "wood-fired dry-aged steaks; handmade pastas; crudos",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "Kiko's Peruvian Kitchen",
+  "address": "Collingswood, NJ 08108",
+  "w": "Small Collingswood Peruvian BYOB (Infatuation review; Inquirer Collingswood neighbourhood guide).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/reviews/kikos-peruvian-kitchen"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/things-to-do/best-places-eat-drink-explore-collingswood-south-jersey.html"
+   ]
+  ],
+  "cz": [
+   "Peruvian"
+  ],
+  "dish": "ceviche; pollo a la brasa; rocoto sauce",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "Norma's Eastern Mediterranean",
+  "address": "Barclay Farms Shopping Center, Cherry Hill, NJ 08034",
+  "w": "The Bitar family's Lebanese kitchen since 1992 (Inquirer Cherry Hill guide; Infatuation South Jersey).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/best-restaurants-bars-markets-cherry-hill-map.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/guides/best-restaurants-south-jersey"
+   ]
+  ],
+  "cz": [
+   "Lebanese",
+   "Middle Eastern"
+  ],
+  "dish": "fuul; shawarma; falafel",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "The Farm and Fisherman Tavern",
+  "address": "1442 Marlton Pike E, Cherry Hill, NJ 08034",
+  "w": "Brought farm-to-table to Cherry Hill in 2013 (Inquirer Cherry Hill guide; Infatuation South Jersey).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/best-restaurants-bars-markets-cherry-hill-map.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/guides/best-restaurants-south-jersey"
+   ]
+  ],
+  "cz": [
+   "Farm-to-table",
+   "American"
+  ],
+  "dish": "industrial burger with onion jam; rigatoni Bolognese",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "Indeblue",
+  "address": "Cherry Hill, NJ 08002",
+  "w": "Beloved modern Indian that ping-ponged between Philly and South Jersey before settling in Cherry Hill (Inquirer Cherry Hill guide; Infatuation).",
+  "sources": [
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/best-restaurants-bars-markets-cherry-hill-map.html"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/guides/best-restaurants-south-jersey"
+   ]
+  ],
+  "cz": [
+   "Indian"
+  ],
+  "dish": "chicken tikka chipotle; butter-chicken poutine",
+  "closed": false
+ },
+ {
+  "t": 3,
+  "a": "SJ",
+  "n": "Radin's Delicatessen",
+  "address": "Cherry Hill, NJ 08034",
+  "w": "Serial deli-owner Russ Cowan's Cherry Hill deli (Infatuation review; Inquirer Cherry Hill guide).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/reviews/radins-delicatessen"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/best-restaurants-bars-markets-cherry-hill-map.html"
+   ]
+  ],
+  "cz": [
+   "Jewish Deli",
+   "Deli"
+  ],
+  "dish": "oversized sandwiches; matzo ball soup",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "Steak 38",
+  "address": "Route 38, Cherry Hill, NJ 08002",
+  "w": "Old-school, moody Cherry Hill steakhouse (Infatuation review; Inquirer Cherry Hill guide).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/reviews/steak-38"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/best-restaurants-bars-markets-cherry-hill-map.html"
+   ]
+  ],
+  "cz": [
+   "Steakhouse"
+  ],
+  "dish": "tableside Caesar; dirty martinis",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "Gass & Main",
+  "address": "Haddonfield, NJ 08033",
+  "w": "Dane DeMarco's Haddonfield restaurant (2023; he was a 2024 James Beard Best Chef Mid-Atlantic nominee per NJ Monthly) — Infatuation South Jersey; NJ Monthly best of Haddonfield.",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/guides/best-restaurants-south-jersey"
+   ],
+   [
+    "NJMONTHLY",
+    "https://njmonthly.com/articles/eat-drink/the-best-restaurants-in-haddonfield/"
+   ]
+  ],
+  "cz": [
+   "American"
+  ],
+  "dish": "elevated nostalgic classics in a 36-seat room",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJ",
+  "n": "Nan Xiang Xiao Long Bao (Cherry Hill)",
+  "address": "901 Haddonfield Rd, Cherry Hill, NJ 08002",
+  "w": "The Queens soup-dumpling specialist's buzzy Cherry Hill branch (Infatuation South Jersey; Inquirer Cherry Hill guide).",
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/south-jersey/guides/best-restaurants-south-jersey"
+   ],
+   [
+    "INQUIRER",
+    "https://www.inquirer.com/food/best-restaurants-bars-markets-cherry-hill-map.html"
+   ]
+  ],
+  "cz": [
+   "Chinese",
+   "Dumplings"
+  ],
+  "dish": "soup dumplings; pan-fried dumplings",
   "closed": false
  }
 ]

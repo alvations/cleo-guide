@@ -611,3 +611,5 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
 - **Gates (build 3):** geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on the 46 pre-existing
   single-source places in other towns (0 in these 4) · validate DATA OK · npm test ALL PASS.
 - Per-town detail: `_note_HOLLANDV.md`, `_note_BALESTIER.md`, `_note_NOVENA.md`, `_note_PUNGGOL.md` (W2 sections).
+
+- **FINAL (end of session): HLV 57/55 OK (LIVE) · BLS 56/55 OK (go-live held for pins) · NVN 37/55 (NEED +18) · PGL 35/93 (NEED +58).** Late adds: NVN Baan Ying, Banelé; BLS Niu Dian (VIIO @ Balestier); HLV Niu Dian (HV).
