@@ -166,3 +166,15 @@ Held single: Ōkami Soup (MAPPLE TOP30 #5 only), Toguchi, Baisensha, Misogin, Oz
 Kōzushi (rurubu spot + MAPPLE sushi list). Held: Otaru Nihonbashi (otaru.gr.jp only), Takinami Shokudō (otaru.gr.jp only).
 **W36 DHOKU:** Aoba Honten (promoted from held: rurubu spot + MAPPLE 43037), Yoshino Honten, Curry no Furanoya (promoted:
 rurubu + MAPPLE curry list), Furano Delice (MAPPLE + rurubu spots). Held: Tenkin (MAPPLE only), Kumagera, KOERU curry udon.
+**W37 TKC:** Butadon Ippin Honten (rurubu spot + MAPPLE spot + rurubu butadon-6), Indian Machinaka (rurubu + MAPPLE + TripEat;
+promoted from held), Ryūgetsu Sweetpia Garden (visit-hokkaido + MAPPLE). Held: Hanatokachi, Yūtaku, Cranberry (rurubu only), Tontan (MAPPLE only).
+**W40 ANIME (background agent, 15 searches):** see `_note_W40.md` — 4 kept (Pokémon Center Sapporo, Hokuchin Memorial Museum
+[Golden Kamuy], Hakodate Arena [Love Live! Sunshine!!], Snow Miku Sky Town); dropped Doraemon Sky Park (closed 2025-07-14),
+Kita no Kuni kara Museum (closed 2016), Obihiro Agricultural HS (working school; fans asked not to visit).
+**NSK dead-end (3 searches):** Japanese guidebooks thin for Niseko restaurants; SAVOR JAPAN = Gurunavi reservation platform → 0.
+Held: Soba-dokoro Rakuichi (niseko-ta.jp only), Teuchi Soba Ichimura (MAPPLE only). cntraveler/nytimes/guardian are blocked
+to the search agent (400) — don't put them in allowed_domains.
+**W38 DOTO:** Kushiro Ramen Kawamura (rurubu + kushiro-lakeakan.com = KUSHIROTOURISM), Fisherman's Wharf MOO & Ganpeki Robata,
+Akkeshi Conchiglie, Michi-no-eki Utoro (all ja.wikipedia pins, high). Held: Ginsui (MAPPLE only).
+**W39 NSK:** roadside stations with a named signature food — Bōyō Nakayama (age-imo), Niseko View Plaza, Akaigawa (ja.wikipedia pins).
+Decision: a michi-no-eki counts as food & drink only when a source names its signature dish/produce.
