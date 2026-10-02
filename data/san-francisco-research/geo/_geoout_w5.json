@@ -1,7 +1,7 @@
 [
  {
   "n": "Portsmouth Square",
-  "address": "Portsmouth Square, Kearny St & Clay St, San Francisco, CA 94108",
+  "address": "Portsmouth Square, Chinatown, San Francisco, CA 94108",
   "lat": 37.7947,
   "lng": -122.4053,
   "geoSource": "Wikipedia — Portsmouth Square (37°47′41″N 122°24′19″W)",
@@ -41,7 +41,7 @@
  },
  {
   "n": "Sutro Tower",
-  "address": "Sutro Tower, 1 La Avanzada St (Mount Sutro), San Francisco, CA 94131",
+  "address": "Sutro Tower, Mount Sutro, San Francisco, CA 94131",
   "lat": 37.75523,
   "lng": -122.45284,
   "geoSource": "Wikipedia — Sutro Tower (37°45′19″N 122°27′10″W)",
@@ -81,7 +81,7 @@
  },
  {
   "n": "Sunset Dunes",
-  "address": "Upper Great Highway (Lincoln Way to Sloat Blvd), San Francisco, CA 94122",
+  "address": "Upper Great Highway (along Ocean Beach to Sloat Blvd), San Francisco, CA 94122",
   "lat": 37.751,
   "lng": -122.5087,
   "geoSource": "Wikipedia — Sunset Dunes (37°45′04″N 122°30′31″W)",
@@ -91,7 +91,7 @@
  },
  {
   "n": "Grandview Park (Turtle Hill)",
-  "address": "Grandview Park, 14th Ave & Moraga St, San Francisco, CA 94122",
+  "address": "Grandview Park (Turtle Hill), Golden Gate Heights, San Francisco, CA 94122",
   "lat": 37.7564562,
   "lng": -122.4718048,
   "geoSource": "Wikipedia — Grandview Park (37°45′23″N 122°28′18″W)",
@@ -111,7 +111,7 @@
  },
  {
   "n": "Rincon Center (Refregier murals)",
-  "address": "101 Spear St (Rincon Annex lobby), San Francisco, CA 94105",
+  "address": "Rincon Center (former Rincon Annex post office lobby), San Francisco, CA 94105",
   "lat": 37.7925,
   "lng": -122.39194,
   "geoSource": "Wikipedia — History of San Francisco (Refregier murals) (37°47′33″N 122°23′31″W)",
@@ -131,7 +131,7 @@
  },
  {
   "n": "St. John Coltrane Church (Fort Mason)",
-  "address": "Fort Mason Center, Magic Theatre annex (Building D), 2 Marina Blvd, San Francisco, CA 94123",
+  "address": "Magic Theatre annex, Fort Mason Center, San Francisco, CA 94123",
   "lat": 37.8069,
   "lng": -122.4308,
   "geoSource": "Wikipedia — St. John Coltrane African Orthodox Church (Fort Mason venue; 37°48′25″N 122°25′51″W) — Fort Mason Center building-level",
@@ -151,7 +151,7 @@
  },
  {
   "n": "The Panhandle",
-  "address": "The Panhandle, Fell St & Oak St (Baker St to Stanyan St), San Francisco, CA 94117",
+  "address": "The Panhandle (Golden Gate Park), San Francisco, CA 94117",
   "lat": 37.772,
   "lng": -122.45,
   "geoSource": "Wikipedia — Panhandle (San Francisco) (37°46′19″N 122°27′00″W; linear park, 3-decimal published coordinate)",
@@ -231,7 +231,7 @@
  },
  {
   "n": "Cypress Lawn Memorial Park (Colma necropolis)",
-  "address": "1370 El Camino Real, Colma, CA 94014",
+  "address": "Cypress Lawn Memorial Park, Colma, CA 94014",
   "lat": 37.67,
   "lng": -122.457,
   "geoSource": "Wikipedia — Cypress Lawn Memorial Park (37°40′12″N 122°27′25″W; 3-decimal published coordinate)",
@@ -411,7 +411,7 @@
  },
  {
   "n": "Red's Java House",
-  "address": "Pier 30, The Embarcadero (at Bryant St), San Francisco, CA 94105",
+  "address": "Pier 30, The Embarcadero, San Francisco, CA 94105",
   "lat": null,
   "lng": null,
   "geoSource": "",
@@ -448,5 +448,75 @@
   "confidence": "UNVERIFIED",
   "status": "open",
   "statusSource": "SF Standard 2023 + Time Out venue page (current)"
+ },
+ {
+  "n": "Lands End Labyrinth",
+  "address": "Lands End Point, below the Coastal Trail, Lands End, San Francisco, CA 94121",
+  "lat": 37.788073,
+  "lng": -122.505824,
+  "geoSource": "Atlas Obscura place page — Labyrinth at Land's End (37.788073, -122.505824)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.nps.gov/places/000/lands-end-point-and-the-labyrinth.htm (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "USS San Francisco Memorial",
+  "address": "USS San Francisco Memorial, Lands End, San Francisco, CA 94121",
+  "lat": 37.782807,
+  "lng": -122.511544,
+  "geoSource": "Wikipedia — USS San Francisco Memorial (37°46′58″N 122°30′42″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/USS_San_Francisco_Memorial (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Hidden Garden Steps",
+  "address": "16th Ave between Kirkham St & Lawton St, San Francisco, CA 94122",
+  "lat": 37.7563,
+  "lng": -122.4735,
+  "geoSource": "Atlas Obscura place entry 'Hidden Garden Steps' as surfaced in WebSearch (37.7563, -122.4735; 4-decimal)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "SFGATE 'all the reasons to visit the Hidden Garden Steps' (current) + SF Travel staircases"
+ },
+ {
+  "n": "Golden Gate Park Carousel (Koret Children's Quarter)",
+  "address": "Koret Children's Quarter, Golden Gate Park, San Francisco, CA 94117",
+  "lat": 37.767904,
+  "lng": -122.458023,
+  "geoSource": "Atlas Obscura place page — Golden Gate Park Vintage Carousel (37.767904, -122.458023)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Golden_Gate_Park,_San_Francisco (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Mechanics' Institute Library & Chess Room",
+  "address": "57 Post St, San Francisco, CA 94104",
+  "lat": 37.78861,
+  "lng": -122.40278,
+  "geoSource": "Wikipedia — Mechanics' Institute, San Francisco (37°47′19″N 122°24′10″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Mechanics'_Institute,_San_Francisco (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Children's Creativity Museum & LeRoy King Carousel",
+  "address": "Children's Creativity Museum, Yerba Buena Gardens, San Francisco, CA 94103",
+  "lat": 37.783273,
+  "lng": -122.401827,
+  "geoSource": "Wikipedia — Children's Creativity Museum (37°47′00″N 122°24′07″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Children's_Creativity_Museum (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "San Francisco Railway Museum",
+  "address": "77 Steuart St, San Francisco, CA 94105",
+  "lat": 37.79382,
+  "lng": -122.39361,
+  "geoSource": "Wikipedia — San Francisco Railway Museum (37°47′38″N 122°23′37″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/San_Francisco_Railway_Museum (current 2025-26 page; public landmark/park)"
  }
 ]

@@ -4,7 +4,7 @@
    "t": 2,
    "a": "NECN",
    "n": "Portsmouth Square",
-   "address": "Portsmouth Square, Kearny St & Clay St, San Francisco, CA 94108",
+   "address": "Portsmouth Square, Chinatown, San Francisco, CA 94108",
    "w": "'Chinatown's living room' — the 1.5-acre plaza where Montgomery raised the US flag in 1846; mornings of tai chi and Chinese chess, with the Robert Louis Stevenson memorial and the Goddess of Democracy statue.",
    "k": "Portsmouth Square Chinatown plaza tai chi history",
    "closed": false,
@@ -88,7 +88,7 @@
    "t": 2,
    "a": "MIS",
    "n": "Sutro Tower",
-   "address": "Sutro Tower, 1 La Avanzada St (Mount Sutro), San Francisco, CA 94131",
+   "address": "Sutro Tower, Mount Sutro, San Francisco, CA 94131",
    "w": "The 977-ft three-legged 'aviation orange' broadcast tower crowning Mount Sutro since 1973 — the city's tallest structure and fog-wrapped skyline mascot; best seen from Twin Peaks (no public access to the tower itself).",
    "k": "Sutro Tower Mount Sutro broadcast tower skyline",
    "closed": false,
@@ -180,7 +180,7 @@
    "t": 2,
    "a": "AVE",
    "n": "Sunset Dunes",
-   "address": "Upper Great Highway (Lincoln Way to Sloat Blvd), San Francisco, CA 94122",
+   "address": "Upper Great Highway (along Ocean Beach to Sloat Blvd), San Francisco, CA 94122",
    "w": "The car-free Great Highway, reborn in April 2025 as a 2-mile oceanfront park beside Ocean Beach — dune-side promenade, art, a Taraval St lounge with hammocks and a skate park/pump track at Sloat.",
    "k": "Sunset Dunes Great Highway car-free park Ocean Beach",
    "closed": false,
@@ -203,7 +203,7 @@
    "t": 2,
    "a": "AVE",
    "n": "Grandview Park (Turtle Hill)",
-   "address": "Grandview Park, 14th Ave & Moraga St, San Francisco, CA 94122",
+   "address": "Grandview Park (Turtle Hill), Golden Gate Heights, San Francisco, CA 94122",
    "w": "Locals' 'Turtle Hill' — a short climb of wooden stairs and dune scrub to a 360° view over Golden Gate Park, the ocean, the Marin Headlands and Sutro Tower; pair with the mosaic stairs below.",
    "k": "Grandview Park Turtle Hill 360 view Sunset",
    "closed": false,
@@ -245,7 +245,7 @@
    "t": 2,
    "a": "DTN",
    "n": "Rincon Center (Refregier murals)",
-   "address": "101 Spear St (Rincon Annex lobby), San Francisco, CA 94105",
+   "address": "Rincon Center (former Rincon Annex post office lobby), San Francisco, CA 94105",
    "w": "Anton Refregier's 27-panel WPA 'History of San Francisco' (1941–48) in the old Rincon Annex post office lobby — once denounced in Congress, now restored and free to see.",
    "k": "Rincon Annex Refregier WPA murals post office lobby",
    "closed": false,
@@ -291,7 +291,7 @@
    "t": 2,
    "a": "NW",
    "n": "St. John Coltrane Church (Fort Mason)",
-   "address": "Fort Mason Center, Magic Theatre annex (Building D), 2 Marina Blvd, San Francisco, CA 94123",
+   "address": "Magic Theatre annex, Fort Mason Center, San Francisco, CA 94123",
    "w": "The African Orthodox church that canonised John Coltrane — Sunday-afternoon services are a three-hour jazz-gospel jam built around 'A Love Supreme'; now meeting in the Magic Theatre annex at Fort Mason.",
    "k": "St John Coltrane African Orthodox Church A Love Supreme jazz service",
    "closed": false,
@@ -337,7 +337,7 @@
    "t": 3,
    "a": "HAI",
    "n": "The Panhandle",
-   "address": "The Panhandle, Fell St & Oak St (Baker St to Stanyan St), San Francisco, CA 94117",
+   "address": "The Panhandle (Golden Gate Park), San Francisco, CA 94117",
    "w": "Golden Gate Park's eight-block 'handle' — the eucalyptus-lined promenade where Hammond Hall first tamed the dunes, saved from a freeway by the 1960s revolt and site of the Dead's free shows.",
    "k": "Panhandle park Golden Gate Park freeway revolt",
    "closed": false,
@@ -521,7 +521,7 @@
    "t": 2,
    "a": "PEN",
    "n": "Cypress Lawn Memorial Park (Colma necropolis)",
-   "address": "1370 El Camino Real, Colma, CA 94014",
+   "address": "Cypress Lawn Memorial Park, Colma, CA 94014",
    "w": "Gateway to Colma, the 'city of the dead' where 1.5 million San Franciscans were reburied — Cypress Lawn's 1892 arboretum grounds, Gilded-Age mausoleums and a columbarium under a stained-glass ceiling.",
    "k": "Colma Cypress Lawn necropolis city of the dead cemetery arboretum",
    "closed": false,
@@ -579,6 +579,159 @@
     [
      "SFGATE",
      "https://www.sfgate.com/music/article/nirvana-cow-palace-concert-30th-anniversary-17885009.php"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AVE",
+   "n": "Lands End Labyrinth",
+   "address": "Lands End Point, below the Coastal Trail, Lands End, San Francisco, CA 94121",
+   "w": "Eduardo Aguilera's seven-circuit stone labyrinth (2004) on a cliff-top terrace at Lands End Point — Golden Gate Bridge across the strait; repeatedly vandalised and rebuilt by volunteers.",
+   "k": "Lands End labyrinth stone Chartres Golden Gate view",
+   "closed": false,
+   "sources": [
+    [
+     "NPS",
+     "https://www.nps.gov/places/000/lands-end-point-and-the-labyrinth.htm"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/labyrinth-lands-end"
+    ],
+    [
+     "SFGATE",
+     "https://www.sfgate.com/sf-culture/article/San-Francisco-labyrinth-lands-end-golden-gate-park-16385346.php"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AVE",
+   "n": "USS San Francisco Memorial",
+   "address": "USS San Francisco Memorial, Lands End, San Francisco, CA 94121",
+   "w": "The shell-holed bridge wings of the heavy cruiser USS San Francisco, aimed toward Guadalcanal — a memorial to the 106 sailors killed in the 1942 Naval Battle of Guadalcanal.",
+   "k": "USS San Francisco memorial bridge Guadalcanal Lands End",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/USS_San_Francisco_Memorial"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/must-see-attractions-san-franciscos-richmond-sunset-neighborhoods"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AVE",
+   "n": "Hidden Garden Steps",
+   "address": "16th Ave between Kirkham St & Lawton St, San Francisco, CA 94122",
+   "w": "The 148-step mosaic sibling of the Moraga tiled steps (Barr & Crutcher, 2013) — nine themed panels of flowers, insects and critters climbing Golden Gate Heights.",
+   "k": "Hidden Garden Steps mosaic staircase 16th Avenue Kirkham",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/16th_Avenue_Tiled_Steps"
+    ],
+    [
+     "SFGATE",
+     "https://www.sfgate.com/local/article/hidden-garden-steps-18108794.php"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/many-hidden-historic-beautiful-staircases-san-francisco"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "AVE",
+   "n": "Golden Gate Park Carousel (Koret Children's Quarter)",
+   "address": "Koret Children's Quarter, Golden Gate Park, San Francisco, CA 94117",
+   "w": "The 1914 Herschell-Spillman carousel from the 1939 Expo — 62 hand-carved animals and a German band organ — beside the country's first public children's playground.",
+   "k": "Golden Gate Park Herschell-Spillman carousel Koret playground",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Golden_Gate_Park,_San_Francisco"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/golden-gate-park-vintage-carousel"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "Mechanics' Institute Library & Chess Room",
+   "address": "57 Post St, San Francisco, CA 94104",
+   "w": "1854 membership library with a spiral marble staircase and the nation's oldest continuously operating chess club; free public tours Wednesdays at noon.",
+   "k": "Mechanics' Institute library chess room spiral staircase",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mechanics'_Institute,_San_Francisco"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/mechanics-institute-library-and-chess-room"
+    ],
+    [
+     "SFSTANDARD",
+     "https://sfstandard.com/2023/06/27/the-best-deal-around-is-a-literary-oasis-in-the-heart-of-downtown-san-francisco/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "Children's Creativity Museum & LeRoy King Carousel",
+   "address": "Children's Creativity Museum, Yerba Buena Gardens, San Francisco, CA 94103",
+   "w": "Hands-on animation, music and media studios for kids 2–12 atop Yerba Buena Gardens, with the jewel-studded 1906 LeRoy King Carousel out front.",
+   "k": "Children's Creativity Museum LeRoy King Carousel Yerba Buena kids",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Children's_Creativity_Museum"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/san-francisco/kids/childrens-creativity-museum"
+    ],
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/10-free-things-to-do-san-francisco-families"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTN",
+   "n": "San Francisco Railway Museum",
+   "address": "77 Steuart St, San Francisco, CA 94105",
+   "w": "Market Street Railway's free storefront museum opposite the Ferry Building — a replica streetcar platform and motorman's controls; the base for the vintage F-line and Muni Heritage Weekend.",
+   "k": "San Francisco Railway Museum Market Street Railway F-line streetcars",
+   "closed": false,
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Railway_Museum"
+    ],
+    [
+     "SFGATE",
+     "https://www.sfgate.com/bayarea/article/SAN-FRANCISCO-Let-s-hear-it-for-the-old-F-line-2468496.php"
+    ],
+    [
+     "HOODLINE",
+     "https://hoodline.com/2026/09/free-vintage-streetcars-roll-onto-embarcadero-for-muni-heritage-weekend/"
     ]
    ]
   }

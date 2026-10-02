@@ -353,3 +353,9 @@ Rib, Tonga Room, Comstock Saloon (each already ≥2 credible). Channel mix this 
 geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. merge-creators: 4 BOURDAIN attachments.
 Per area: AVE 33+24=57/70 · DTN 46+22=68/80 · HAI 24+14=38/45 · MIS 46+17=63/75 · NECN 45+20=65/75 · NOB 23+11=34/40 · NW 28+18=46/50 ·
 PEN 18+14=32/35 · SE 16+11=27/30 — food ≥50% every area (lowest PEN 56%, NW 61%).
+**Sights batch 5 (searches 43–48):** Lands End Labyrinth (NPS + Atlas pin + SFGATE), USS San Francisco Memorial (Wikipedia + SF Travel),
+Hidden Garden Steps (Atlas pin, SFGATE, SF Travel), Golden Gate Park Carousel (Atlas pin + Wikipedia) (AVE); Mechanics' Institute (Wikipedia +
+Atlas + SF Standard), Children's Creativity Museum & LeRoy King Carousel (Wikipedia + Time Out + SF Travel), SF Railway Museum (Wikipedia +
+SFGATE + Hoodline 2026) (DTN). Held: SF Main Library (no 2nd outlet), Shakespeare Garden (no coordinate).
+**Address hygiene fix (rule 4a):** 12 W5 addresses that had been completed beyond what the cited sources state (street numbers/corners)
+were rewritten to the source-supported place description (e.g. Sutro Tower → 'Mount Sutro', Cypress Lawn → 'Colma').
