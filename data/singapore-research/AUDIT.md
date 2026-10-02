@@ -594,8 +594,10 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
 - **Searches:** ~118 discovery (log: `_sg4_searchlog.md`) + 52 by 4 background geocode agents. Method lesson: EXTENDED-mode list
   queries (3-6 two-source places/call) and DOMAIN-FILTERED queries (`allowed_domains` = credible outlets → exact attribution) beat
   standard queries (~1 place/call). Straitstimes/cntraveler/tatler are refused by the search API as allowed_domains.
-- **Discovered (density.py):** HLV 57/55 **OK → LIVE** (33 pins) · BLS 61/55 **OK, held from go-live** (5 pins — hawker buildings
-  unpinnable via search) · NVN 43/55 · PGL 42/116.
+- **Discovered (density.py):** HLV 56/55 **OK → LIVE** (33 pins) · BLS 55/55 **OK, held from go-live** (5 pins — hawker buildings
+  unpinnable via search) · NVN 35/55 · PGL 35/93. (True counts after density.py stopped double-counting sg_worklist.json — first
+  reported 57/61/43/42 were inflated.) Later additions: HLV Le Bon Funk, Frankie & Fern's, Fireplace by Bedrock, Bao Er (HV); BLS Cafe de
+  Hong Kong, Lotus Vegetarian, House of Tau Sar Piah — CLOSED (paused indefinitely 23 Apr 2025), Balestier Conservation Area, Shaw Plaza.
 - **Fact-check / merit:** every kept place >=2 credible or lone Michelin (helper `_sg4_add.py` asserts it). Women's Weekly + Her World
   treated as one syndicated voice. Mall chains dropped as padding (One Holland Village, Velocity, United Square). Mademoiselle Tang
   dropped (lukewarm review).

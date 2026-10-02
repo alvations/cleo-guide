@@ -65,3 +65,4 @@
 63 Coconut Grove (+tool sub-queries ≈4: Kampong Atlas Obscura, Plymouth Church, CocoWalk GMCVB, Playhouse under restoration, Seaquarium CLOSED 2025-10-12)
 64 Infatuation South Beach (Prime 112, The Joyce, Bazaar, Orilla, Blue Ribbon, Yardbird, Bodega, Maison Valentine, Stormy Monday — single-source, held)
 65 Hialeah Park / Opa-locka City Hall / Hard Rock Stadium / Guitar Hotel (Crazy Tourist + Wikipedia)
+66 FTL icons (NT 14 best old-school FTL; Florida Rambler Southport; LP FTL restaurants: Lester's; Rustic Inn held)
