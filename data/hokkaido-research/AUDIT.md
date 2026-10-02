@@ -70,3 +70,12 @@ Hige Danshaku / Pole Pole / Delhi Sapporo (one source each), Trappistine Convent
 unconfirmed, caveat in geoSource → re-verify). Kushiro Marsh pinned to the Hosooka Observatory (ja.wikipedia 細岡展望台).
 **Build #1:** 65 discovered → 53 rendered (sights 53, food 0). sourcecheck PASS 65 · geocheck PASS · statuscheck
 CONSISTENT (0 unchecked) · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS. 12 UNVERIFIED held (9 food + 3 TKC/sights).
+
+## 2026-10-02 — session 2 · self-audit: address provenance (CLAUDE.md 4a)
+Re-read every W03–W09 address against the result text it came from. 60 addresses carried block numbers / 〒postcodes
+that were NOT read in a result (written from general knowledge) → stripped to the locality actually supported
+(town/district/chōme), e.g. "44 Goryōkaku-chō … 040-0001" → "Goryōkaku-chō, Hakodate". Kept only numbers read in
+results: Ironai 1-11-16 (ja.wikipedia), Hanazono 1-1-1 〒047-0024 (otaru.gr.jp), Inaho 3-15-3 (Otaru sushi results),
+Irifune 1-2-3 (Music Box Museum, Wikivoyage — replaced a wrong Sumiyoshi-chō number), the W02 restaurant addresses
+(gltjp/rurubu). One fabricated-looking postcode (Kiusu "066-0000") removed. G01 geoout addresses re-synced to the
+ledgers. Coordinates were unaffected (all from infobox reads).

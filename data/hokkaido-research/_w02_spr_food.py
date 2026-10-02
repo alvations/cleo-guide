@@ -16,7 +16,7 @@ F(1,"SPR",["RAMEN"],"Sapporo miso ramen (three-white-miso blend, Kōchi ginger)"
   "The miso-ramen counter Sapporo queues for — three white misos over a clear pork-bone broth, a dab of grated ginger on the chāshū. Michelin Bib Gourmand (Hokkaido 2017) and Tabelog Ramen Hokkaido 100 (2024).",
   [MIB,T100R,("GOODLUCKTRIP",GLT+"directory/item/13924/")],status="open",ssrc="Tabelog Ramen HOKKAIDO 百名店 2024 selection + reservation listing (autoreserve) current 2025")
 F(1,"SPR",["RAMEN"],"Sapporo miso ramen (lard-capped)","Sumire Susukino (すみれ 札幌すすきの店)",
-  "Pixis Bldg 2F, Minami 3-jō Nishi 3-9-2, Chuo-ku, Sapporo, Hokkaido 064-0803, Japan",
+  "Pixis Bldg 2F, Minami 3-jō Nishi 3-9-2, Chuo-ku, Sapporo, Hokkaido, Japan",
   "The Murakami family house (1964) that codified the lard-sealed, scalding Sapporo miso bowl; the late-night Susukino branch pours the Nakanoshima honten broth. Tabelog Ramen Hokkaido 100 2024 & 2025.",
   [("TABELOG100","https://www.gltjp.com/en/directory/item/15390/"),GLTF],status="open",ssrc="Tabelog Ramen HOKKAIDO 百名店 2025 selection (current)")
 F(1,"SPR",["RAMEN"],"miso ramen with house-made Hokkaido-wheat noodles","MEN-EIJI Hiragishi Base (麺eiji 平岸base)",
@@ -28,7 +28,7 @@ F(1,"SPR",["HOKKAIDO"],"jingisukan (dome-grilled mutton, atozuke sauce)","Jingis
   "The Susukino jingisukan room since 1954 — a cast-iron dome at every seat, one cut of mutton, sweet-spicy dipping sauce, a queue from 17:30. Cash only.",
   [CT,("GOODLUCKTRIP",GLT+"directory/item/14002/"),GLTF],status="open",ssrc="Good Luck Trip directory (hours 17:00–05:00 daily, current)")
 F(1,"SPR",["HOKKAIDO"],"soup curry (two-day pork-bone & dashi broth)","Soup Curry Garaku (スープカレー GARAKU)",
-  "Okumura Bldg B1F, Minami 2-jō Nishi 2-6-1, Chuo-ku, Sapporo, Hokkaido 060-0062, Japan",
+  "Okumura Bldg B1F, Minami 2-jō Nishi 2-6-1, Chuo-ku, Sapporo, Hokkaido, Japan",
   "Numbered tickets and daily lines for a soup curry whose broth borrows udon-shop dashi technique — pork bone and herbs stewed two days, kelp and bonito layered in.",
   [SPT_SC,GLTF],status="open",ssrc="sapporo.travel official soup-curry feature (current)")
 F(2,"SPR",["HOKKAIDO"],"soup curry with Hokkaido vegetables and red-rice blend","Soup Curry & Dining Suage+ (すあげ+)",
