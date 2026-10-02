@@ -2068,50 +2068,6 @@
    ]
   },
   {
-   "t": 2,
-   "a": "SOUTH",
-   "n": "Nanshū-ji (南宗寺)",
-   "ad": "3-1-2 Minamihatagochō-higashi, Sakai-ku, Sakai, Osaka, Japan",
-   "w": "Sakai Zen temple founded by Miyoshi Nagayoshi, burned in the 1615 Siege of Osaka and rebuilt by the monk Takuan in 1617; tea-ceremony links to Sen no Rikyū.",
-   "k": "temple",
-   "g": [
-    "TEMPLE",
-    "GARDEN"
-   ],
-   "s": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/en/modelcourse/course-sakai-chinchin-train/"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://ja.wikipedia.org/wiki/%E5%8D%97%E5%AE%97%E5%AF%BA"
-    ]
-   ]
-  },
-  {
-   "t": 3,
-   "a": "SOUTH",
-   "n": "Mizuma-dera (水間寺)",
-   "ad": "638 Mizuma, Kaizuka, Osaka, Japan",
-   "w": "Temple founded 744 whose 1834 three-storey pagoda is the only one standing in Osaka Prefecture; reached on the retro Showa-era Mizuma Railway.",
-   "k": "temple",
-   "g": [
-    "TEMPLE",
-    "POP"
-   ],
-   "s": [
-    [
-     "OSAKAINFO",
-     "https://en.osaka-info.jp/local_journey/oneday-tour/kaizuka-train/"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://ja.wikipedia.org/wiki/%E6%B0%B4%E9%96%93%E5%AF%BA"
-    ]
-   ]
-  },
-  {
    "t": 3,
    "a": "SOUTH",
    "n": "Hamadera Park (浜寺公園)",
@@ -2770,6 +2726,138 @@
     [
      "WIKIPEDIA",
      "https://ja.wikipedia.org/wiki/%E9%80%B8%E7%BF%81%E7%BE%8E%E8%A1%93%E9%A4%A8"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Kobe Earthquake Memorial Museum (人と防災未来センター)",
+   "ad": "HAT Kobe, Chūō-ku, Kobe, Hyōgo, Japan",
+   "w": "Memorial museum of the 1995 Great Hanshin earthquake (opened 2002): a large-screen recreation of the quake, a recovery documentary and hands-on disaster-prevention exhibits.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3555.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E4%BA%BA%E3%81%A8%E9%98%B2%E7%81%BD%E6%9C%AA%E6%9D%A5%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Sōrakuen Garden (相楽園)",
+   "ad": "Chūō-ku, Kobe, Hyōgo, Japan",
+   "w": "Early-20th-century landscape garden of former Kobe mayor Kodera Kenkichi, public since 1941, with a relocated Western-style residence and boathouse; 300 yen, closed Thursdays.",
+   "k": "garden",
+   "g": [
+    "GARDEN",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3560.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E7%9B%B8%E6%A5%BD%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KNSAI",
+   "n": "Kobe City Museum (神戸市立博物館)",
+   "ad": "Old Settlement (Kyūkyoryūchi), Chūō-ku, Kobe, Hyōgo, Japan",
+   "w": "Archaeology and one of the world's largest collections of Namban art — Japanese painting from the first contact with Western ships in the 1500s — in a former bank in the old foreign settlement.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3561.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E7%A5%9E%E6%88%B8%E5%B8%82%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Osaka Museum of Housing and Living (大阪くらしの今昔館)",
+   "ad": "Tenjinbashi 6-chōme, Kita-ku, Osaka, Japan",
+   "w": "Walk-through, life-size reconstruction of an Edo-period Osaka merchant townscape on the upper floors of a building at the north end of Tenjinbashi-suji. Closed for renovation until 5 January 2027 (japan-guide e4024) — check before visiting.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/area_kita/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E3%81%8F%E3%82%89%E3%81%97%E3%81%AE%E4%BB%8A%E6%98%94%E9%A4%A8"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Daisen Park Japanese Garden (大仙公園日本庭園)",
+   "ad": "Daisen Park, Sakai-ku, Sakai, Osaka, Japan",
+   "w": "26,000 m² stroll garden of hill, forest and spring evoking medieval Sakai, inside Daisen Park beside Emperor Nintoku's tomb; matcha at the Shinan teahouse; 5 min from JR Mozu.",
+   "k": "garden",
+   "g": [
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/daisen-park-japanese-style-garden/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A7%E4%BB%99%E5%85%AC%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Temma Tenjin Hanjo Tei (天満天神繁昌亭, rakugo theatre)",
+   "ad": "Tenjinbashi 2-chōme, Kita-ku, Osaka, Japan",
+   "w": "Osaka's dedicated rakugo hall (yose) beside Osaka Tenmangū — the home stage of Kamigata comic storytelling, with daily shows.",
+   "k": "theatre",
+   "g": [
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/204"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A9%E6%BA%80%E5%A4%A9%E7%A5%9E%E7%B9%81%E6%98%8C%E4%BA%AD"
     ]
    ]
   }
@@ -5902,6 +5990,337 @@
    ]
   },
   {
+   "t": 2,
+   "a": "TNJ",
+   "n": "Daiko Sushi (Jan Jan Yokochō)",
+   "ad": "Janjan Yokochō (Nanyo-dori shopping street), Ebisu-higashi, Naniwa-ku, Osaka",
+   "w": "OSAKA-INFO calls Daiko Sushi the famous shop of JanJan Yokochō for rock-bottom-priced sushi; Inside Osaka profiles its two Jan Jan branches ten seconds apart.",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INSIDEOSAKA",
+     "https://insideosaka.com/daiko-sushi-minamiten/"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/331"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Tsuruhashi Fugetsu (Tsuruhashi honten)",
+   "ad": "In front of Tsuruhashi Station, Ikuno-ku, Osaka",
+   "w": "The okonomiyaki chain's flagship by Tsuruhashi Station, a noren-split from the 1950 Tenma Fugetsu (ja.wikipedia); Inside Osaka lists the Tsuruhashi original.",
+   "cz": [
+    "KONAMON"
+   ],
+   "g": [],
+   "s": [
+    [
+     "INSIDEOSAKA",
+     "https://insideosaka.com/tsuruhashi-fugetsu-tsuruhashi/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%B6%B4%E6%A9%8B%E9%A2%A8%E6%9C%88"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/gourmet/gastronomy-yakinikuhoru/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Minoh Beer WAREHOUSE (Minoh Brewery)",
+   "ad": "Minoh, Osaka Prefecture",
+   "w": "Osaka's best-known craft brewery, a World Beer Awards winner (ja.wikipedia 箕面ブリュワリー); OSAKA-INFO features the brewery's directly-run WAREHOUSE taproom for its exclusive food pairings.",
+   "cz": [
+    "SAKE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://discover.osaka-info.jp/en/articles/craft-beer-minoh"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E7%AE%95%E9%9D%A2%E3%83%96%E3%83%AA%E3%83%A5%E3%83%AF%E3%83%AA%E3%83%BC"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/special/dc/event/detail683/"
+    ],
+    [
+     "JAPANTIMES",
+     "https://www.japantimes.co.jp/life/2017/09/23/food/beer-belly-minohs-tenma-branch-solid-suds-tapas/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Kanbukuro",
+   "ad": "1-2-1 Shinzaikecho-higashi, Sakai-ku, Sakai, Osaka",
+   "w": "Sakai sweet shop founded in the late Kamakura period (~690 years) whose fifth-generation owner invented kurumi mochi — featured by OSAKA-INFO and Time Out's Sakai guide.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/kanbukuro-kurumi-mochi/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/travel/explore-japan-off-the-beaten-track-sakai"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Kappo Matsuya",
+   "ad": "Sennan (Senshū) area, southern Osaka Prefecture",
+   "w": "Claims to be Japan's only watarigani-specialist restaurant; reservation-only, three groups a day — in Time Out's 20 must-go restaurants of Southern Osaka and Serai (Shogakukan).",
+   "cz": [
+    "KAISEKI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/restaurants/kappo-matsuya"
+    ],
+    [
+     "SERAI",
+     "https://serai.jp/gourmet/1110494"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Meoto Zenzai (夫婦善哉)",
+   "ad": "Hōzenji Yokochō, Namba 1, Chūō-ku, Osaka",
+   "w": "The Hōzenji Yokochō sweet shop that gave Oda Sakunosuke's novel its name — each order of less-sweet zenzai comes split into two bowls, the 'husband and wife'. Inside Osaka places it just beyond the moss-covered Fudō-myōō.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INSIDEOSAKA",
+     "https://insideosaka.com/hozenji-yokocho/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%AB%E5%A9%A6%E5%96%84%E5%93%89"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Kani Doraku Dōtonbori Honten (かに道楽 道頓堀本店)",
+   "ad": "Dōtonbori 1-6-18, Chūō-ku, Osaka",
+   "w": "The Osaka-born crab house whose giant moving 3D crab sign is one of Dōtonbori's iconic photo spots (Time Out); the honten serves crab course menus.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-dotonbori"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%81%AB%E9%81%93%E6%A5%BD"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Kinryu Ramen Dōtonbori (金龍ラーメン)",
+   "ad": "Dōtonbori 1-1-18, Chūō-ku, Osaka",
+   "w": "Osaka late-night institution since the early '80s, open 24 hours under its giant dragon sculpture (Time Out); the Aioibashi honten is the chain's flagship (ja.wikipedia).",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/restaurants/kinryu-ramen-dotonbori"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%87%91%E9%BE%8D%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Harijyu Dōtonbori Honten (はり重)",
+   "ad": "〒542-0071 Dōtonbori 1-9-17, Chūō-ku, Osaka",
+   "w": "A century-old Dōtonbori beef house: Time Out calls it legendary for melt-in-the-mouth wagyu sukiyaki and shabu-shabu; ja.wikipedia documents the honten.",
+   "cz": [
+    "WAGYU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-dotonbori"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E3%81%AF%E3%82%8A%E9%87%8D"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Dōtonbori Kamukura (どうとんぼり神座)",
+   "ad": "Dōtonbori, Chūō-ku, Osaka",
+   "w": "OSAKA-INFO's 'roots of popular chains' feature sends fans on pilgrimage to Kamukura's Osaka original stores; ja.wikipedia documents the Dōtonbori-born ramen chain and its vegetable-sweet broth.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://discover.osaka-info.jp/en/articles/chainstore"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E3%81%A9%E3%81%86%E3%81%A8%E3%82%93%E3%81%BC%E3%82%8A%E7%A5%9E%E5%BA%A7"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Kinguemon Dōtonbori (金久右衛門)",
+   "ad": "Dōtonbori, Chūō-ku, Osaka",
+   "w": "Osaka's dark-soy 'Osaka Black' ramen specialist; OSAKA-INFO lists the Dōtonbori shop and ja.wikipedia covers the Osaka-founded brand.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/kinguemon-dotonbori/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%87%91%E4%B9%85%E5%8F%B3%E8%A1%9B%E9%96%80"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Chitose (千とせ) — Sennichimae",
+   "ad": "Namba Sennichimae, Chūō-ku, Osaka",
+   "w": "Birthplace of Osaka's nikusui — meat udon minus the udon, invented for a hungover Yoshimoto comedian; OSAKA-INFO (2026) and ja.wikipedia's 肉吸い article both credit Chitose.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/special/dc/event/detail674/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E8%82%89%E5%90%B8%E3%81%84_(%E6%96%99%E7%90%86)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MINAM",
+   "n": "Rikuro Ojisan no Mise Namba Honten (りくろーおじさんの店)",
+   "ad": "Namba, Chūō-ku, Osaka",
+   "w": "Osaka's beloved fluffy raisin-bottomed cheesecake, branded with the uncle's face and baked to order (OSAKA-INFO, Dec 2025); the Namba shop is the company's honten (ja.wikipedia).",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/special/dc/event/detail676/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%AF%E3%83%AD%E3%83%BC"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Takoya Dōtonbori Kukuru Honten (たこ家道頓堀くくる)",
+   "ad": "Dōtonbori, Chūō-ku, Osaka",
+   "w": "Inside Osaka calls the giant-octopus-signed stall a super-popular Dōtonbori takoyaki stop known for its 'surprise' takoyaki; Time Out: 'the Kukuru chain never disappoints'.",
+   "cz": [
+    "KONAMON"
+   ],
+   "g": [],
+   "s": [
+    [
+     "INSIDEOSAKA",
+     "https://insideosaka.com/takoya-dotonbori-kukuru/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-dotonbori"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MINAM",
+   "n": "Bible Club Osaka",
+   "ad": "B1F, 2-1-11 Shinsaibashisuji, Chūō-ku, Osaka",
+   "w": "Sister to Portland's Bible Club: a basement pre-Prohibition bar with antique crystal and a deep American/Scotch whisky list (Time Out; 50Best Discovery).",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/bars-and-pubs/bible-club-osaka"
+    ],
+    [
+     "ASIA50",
+     "https://www.theworlds50best.com/discovery/Establishments/Japan/Osaka/Bible-Club-Osaka.html"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "KITA",
    "n": "Craftroom",
@@ -6160,6 +6579,27 @@
      "https://ja.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E3%81%BE%E3%82%93"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Kobe Fugetsudo Motomachi Honten",
+   "ad": "3-3-10 Motomachi-dōri, Chuo-ku, Kobe, Hyōgo, Japan",
+   "w": "Confectioner opened on Motomachi-dōri in 1897; its gaufre wafers (1927) are one of the canonical Kobe-born Western sweets of the port city's confectionery culture.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/stories/firsttime"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E9%A2%A8%E6%9C%88%E5%A0%82"
+    ]
+   ]
   }
  ],
  "S": {
@@ -6249,6 +6689,12 @@
    "u": "https://insideosaka.com/",
    "l": "Inside Osaka"
   },
+  "JAPANTIMES": {
+   "k": "THE JAPAN TIMES",
+   "t": "THE JAPAN TIMES",
+   "u": "",
+   "l": ""
+  },
   "LONELYPLANET": {
    "k": "LONELY PLANET",
    "t": "Lonely Planet — Osaka",
@@ -6284,6 +6730,12 @@
    "t": "OSAKA-INFO (Osaka Convention & Tourism Bureau)",
    "u": "https://osaka-info.jp/en/",
    "l": "OSAKA-INFO (Osaka Convention & Tourism Bureau)"
+  },
+  "SERAI": {
+   "k": "SERAI",
+   "t": "SERAI",
+   "u": "",
+   "l": ""
   },
   "SILICONERA": {
    "k": "SILICONERA",

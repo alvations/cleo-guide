@@ -22,22 +22,22 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 ## State
 - 2026-10-02 scaffolded; W01 (session 1): 12 SPR sights, halted at the shared 200-search cap.
 - 2026-10-02 session 2 (≈188 searches): W02–W30 + G01–G03 → 192 discovered, 132 rendered (128 sights + 4 food), LIVE.
-- 2026-10-02 **session 3 (≈168 searches; food-first per RUN §2b, anime layer per §2c)**: W31–W75 (+ background agents W40 anime,
-  W60 sights) → **327 discovered, 184 rendered** (156 sights + 28 food), all 4 gates PASS, validate DATA OK, npm test ALL PASS.
-  **Food share 26% → 47%** (153/327). ANIME collection 0 → 7 (Pokémon Center Sapporo, Hokuchin museum, Hakodate Arena, Snow Miku
+- 2026-10-02 **session 3 (≈178 searches; food-first per RUN §2b, anime layer per §2c)**: W31–W79 (+ background agents W40 anime,
+  W60 sights) → **334 discovered, 189 rendered** (161 sights + 28 food), all 4 gates PASS, validate DATA OK, npm test ALL PASS.
+  **Food share 26% → 46%** (154/334). ANIME collection 0 → 7 (Pokémon Center Sapporo, Hokuchin museum, Hakodate Arena, Snow Miku
   Sky Town + Golden Kamuy overlay on Abashiri Prison Museum, Upopoy, Noboribetsu Jigokudani).
 - Discovered vs target (`python3 tools/density.py hokkaido`) — food/total:
-  SPR 47/89 (130) · OTARU 18/33 (50) · DONAN 24/53 (75) · DHOKU 17/39 (60) · DOTO 16/35 (55) · TKC 11/25 (35) · IBURI 9/24 (40) ·
-  NSK 6/14 (35) · SOYA 5/15 (20). Every area still NEED.
-- 143 UNVERIFIED held for `tools/geocode-helper.html`: ~125 restaurants (every one has a sourced address/landmark; Hokkaido has no
+  SPR 47/89 (130) · OTARU 18/33 (50) · DONAN 24/53 (75) · DHOKU 17/39 (60) · DOTO 16/35 (55) · TKC 11/27 (35) · IBURI 10/27 (40) ·
+  NSK 6/16 (35) · SOYA 5/15 (20). Every area still NEED.
+- 145 UNVERIFIED held for `tools/geocode-helper.html`: ~125 restaurants (every one has a sourced address/landmark; Hokkaido has no
   Michelin venue pages and `<shop> 緯度経度` returns only centroids) + ~18 sights without infobox coords.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- none (session 3 closed cleanly at ≈168 searches).
+- none (session 3 closed cleanly at ≈178 searches).
 
 ## Search ledger
-- session 1: ~14 · session 2: ≈188 · session 3: ≈168 (me ~141 + W40 agent 15 + W60 agent 12).
+- session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12).
 
 ## What works (session 3 lessons — reuse)
 - **Pinned food & drink = michi-no-eki + breweries/markets with ja.wikipedia infoboxes**: `"<A> 座標; <B> 座標; <C> 座標"`

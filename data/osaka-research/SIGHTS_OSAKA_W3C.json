@@ -87,49 +87,6 @@
    ]
   },
   {
-   "t": 2,
-   "a": "SOUTH",
-   "n": "Nanshū-ji (南宗寺)",
-   "address": "3-1-2 Minamihatagochō-higashi, Sakai-ku, Sakai, Osaka, Japan",
-   "w": "Sakai Zen temple founded by Miyoshi Nagayoshi, burned in the 1615 Siege of Osaka and rebuilt by the monk Takuan in 1617; tea-ceremony links to Sen no Rikyū.",
-   "k": "temple",
-   "g": [
-    "TEMPLE",
-    "GARDEN"
-   ],
-   "sources": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/en/modelcourse/course-sakai-chinchin-train/"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://ja.wikipedia.org/wiki/%E5%8D%97%E5%AE%97%E5%AF%BA"
-    ]
-   ]
-  },
-  {
-   "t": 3,
-   "a": "SOUTH",
-   "n": "Mizuma-dera (水間寺)",
-   "address": "638 Mizuma, Kaizuka, Osaka, Japan",
-   "w": "Temple founded 744 whose 1834 three-storey pagoda is the only one standing in Osaka Prefecture; reached on the retro Showa-era Mizuma Railway.",
-   "k": "temple",
-   "g": [
-    "TEMPLE"
-   ],
-   "sources": [
-    [
-     "OSAKAINFO",
-     "https://en.osaka-info.jp/local_journey/oneday-tour/kaizuka-train/"
-    ],
-    [
-     "WIKIPEDIA",
-     "https://ja.wikipedia.org/wiki/%E6%B0%B4%E9%96%93%E5%AF%BA"
-    ]
-   ]
-  },
-  {
    "t": 3,
    "a": "SOUTH",
    "n": "Hamadera Park (浜寺公園)",
@@ -829,7 +786,7 @@
    "a": "KITA",
    "n": "Osaka Museum of Housing and Living (大阪くらしの今昔館)",
    "address": "Tenjinbashi 6-chōme, Kita-ku, Osaka, Japan",
-   "w": "Walk-through, life-size reconstruction of an Edo-period Osaka merchant townscape on the upper floors of a building at the north end of Tenjinbashi-suji.",
+   "w": "Walk-through, life-size reconstruction of an Edo-period Osaka merchant townscape on the upper floors of a building at the north end of Tenjinbashi-suji. Closed for renovation until 5 January 2027 (japan-guide e4024) — check before visiting.",
    "k": "museum",
    "g": [
     "MUS"
@@ -842,6 +799,48 @@
     [
      "WIKIPEDIA",
      "https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E3%81%8F%E3%82%89%E3%81%97%E3%81%AE%E4%BB%8A%E6%98%94%E9%A4%A8"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Daisen Park Japanese Garden (大仙公園日本庭園)",
+   "address": "Daisen Park, Sakai-ku, Sakai, Osaka, Japan",
+   "w": "26,000 m² stroll garden of hill, forest and spring evoking medieval Sakai, inside Daisen Park beside Emperor Nintoku's tomb; matcha at the Shinan teahouse; 5 min from JR Mozu.",
+   "k": "garden",
+   "g": [
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/daisen-park-japanese-style-garden/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A7%E4%BB%99%E5%85%AC%E5%9C%92"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Temma Tenjin Hanjo Tei (天満天神繁昌亭, rakugo theatre)",
+   "address": "Tenjinbashi 2-chōme, Kita-ku, Osaka, Japan",
+   "w": "Osaka's dedicated rakugo hall (yose) beside Osaka Tenmangū — the home stage of Kamigata comic storytelling, with daily shows.",
+   "k": "theatre",
+   "g": [
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/204"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://ja.wikipedia.org/wiki/%E5%A4%A9%E6%BA%80%E5%A4%A9%E7%A5%9E%E7%B9%81%E6%98%8C%E4%BA%AD"
     ]
    ]
   }

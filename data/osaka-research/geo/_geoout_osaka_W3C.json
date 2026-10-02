@@ -40,26 +40,6 @@
   "statusSource": "OSAKA-INFO spot page lists current hours 9:45-17:00, closed Mon, ¥310"
  },
  {
-  "n": "Nanshū-ji (南宗寺)",
-  "address": "3-1-2 Minamihatagochō-higashi, Sakai-ku, Sakai, Osaka, Japan",
-  "lat": 34.5690194,
-  "lng": 135.4684778,
-  "confidence": "high",
-  "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E5%8D%97%E5%AE%97%E5%AF%BA",
-  "status": "open",
-  "statusSource": "OSAKA-INFO Sakai Hankai-tram model course (current itinerary)"
- },
- {
-  "n": "Mizuma-dera (水間寺)",
-  "address": "638 Mizuma, Kaizuka, Osaka, Japan",
-  "lat": 34.3988583,
-  "lng": 135.3856056,
-  "confidence": "high",
-  "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E6%B0%B4%E9%96%93%E5%AF%BA",
-  "status": "open",
-  "statusSource": "OSAKA-INFO Mizuma Railway day-trip feature (current)"
- },
- {
   "n": "Hamadera Park (浜寺公園)",
   "address": "In front of Hamadera Ekimae / Hamadera-kōen Station, Sakai & Takaishi, Osaka, Japan",
   "lat": 34.541556,
@@ -387,6 +367,26 @@
   "confidence": "high",
   "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E5%A4%A7%E9%98%AA%E3%81%8F%E3%82%89%E3%81%97%E3%81%AE%E4%BB%8A%E6%98%94%E9%A4%A8",
   "status": "open",
-  "statusSource": "OSAKA-INFO Kita area page (current listing)"
+  "statusSource": "temporarily closed for renovation until 2027-01-05 per japan-guide https://www.japan-guide.com/e/e4024.html (not a permanent closure)"
+ },
+ {
+  "n": "Daisen Park Japanese Garden (大仙公園日本庭園)",
+  "address": "Daisen Park, Sakai-ku, Sakai, Osaka, Japan",
+  "lat": 34.558639,
+  "lng": 135.482333,
+  "confidence": "med",
+  "geoSource": "ja.wikipedia infobox 座標 of Daisen Park (garden lies within the park; not the garden's own pin) https://ja.wikipedia.org/wiki/%E5%A4%A7%E4%BB%99%E5%85%AC%E5%9C%92",
+  "status": "open",
+  "statusSource": "OSAKA-INFO spot page (hours 9:30-17:00, 200 yen) https://osaka-info.jp/en/spot/daisen-park-japanese-style-garden/"
+ },
+ {
+  "n": "Temma Tenjin Hanjo Tei (天満天神繁昌亭, rakugo theatre)",
+  "address": "Tenjinbashi 2-chōme, Kita-ku, Osaka, Japan",
+  "lat": 34.696532,
+  "lng": 135.512605,
+  "confidence": "high",
+  "geoSource": "ja.wikipedia infobox 座標 https://ja.wikipedia.org/wiki/%E5%A4%A9%E6%BA%80%E5%A4%A9%E7%A5%9E%E7%B9%81%E6%98%8C%E4%BA%AD",
+  "status": "open",
+  "statusSource": "OSAKA-INFO Tenjinbashi area spot page https://osaka-info.jp/experience/en/osaka/spot/204"
  }
 ]
