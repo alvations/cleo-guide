@@ -11814,6 +11814,121 @@
         }
       ],
       "creators": []
+    },
+    "tokyo": {
+      "name": "tokyo",
+      "sources": [
+        {
+          "key": "GOTOKYO",
+          "name": "GOTOKYO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANGUIDE",
+          "name": "JAPANGUIDE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN_BIB",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "TIMEOUT",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "WIKIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANTIMES",
+          "name": "JAPANTIMES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SAVORJAPAN",
+          "name": "SAVORJAPAN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_EDITORIAL",
+          "name": "MICHELIN_EDITORIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": [
+        {
+          "key": "RAMENADVENTURES",
+          "name": "Ramen Adventures (Brian MacDuckston)",
+          "platform": "blog + YouTube",
+          "handle": "ramenadventures",
+          "url": "https://ramenadventures.com/",
+          "scale": "Tokyo's best-known English ramen blog since 2009; author of 'Ramen at Home'; long-running YouTube channel",
+          "niche": "Tokyo/Japan ramen",
+          "credible": "Named-author specialist with a 15-year track record and annual Tokyo top-100 roundups; corroborating source only"
+        },
+        {
+          "key": "PAOLOFROMTOKYO",
+          "name": "Paolo fromTOKYO",
+          "platform": "YouTube",
+          "handle": "@paolofromtokyo",
+          "url": "https://www.youtube.com/@paolofromtokyo",
+          "scale": "multi-million-subscriber Tokyo food/travel channel; 'Behind the Counter' kitchen series",
+          "niche": "Tokyo restaurants, behind-the-scenes",
+          "credible": "Verifiably large Tokyo-based channel with a long-running restaurant series; one corroborating source only"
+        }
+      ]
     }
   }
 }
