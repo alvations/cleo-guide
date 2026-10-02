@@ -1,0 +1,79 @@
+[
+ {
+  "n": "Al's #1 Italian Beef",
+  "address": "1079 W Taylor St, Chicago, IL 60607",
+  "lat": 41.8693079,
+  "lng": -87.6540011,
+  "geoSource": "https://www.latlong.net/poi/al-s-beef-573276 — latlong.net OSM POI 'Al's Beef' (Fast Food), 1079 W Taylor St: 41.8693079,-87.6540011 (WebSearch 2026-10-02)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Time Out Chicago listing (timeout.com/chicago/restaurants/als-1-italian-beef) presents as operating; no closure reported in 2026-10-02 results",
+  "note": "sanity: Taylor (1000 S) ~41.869, 1079 W ~ -87.654 — on block between Carpenter & Aberdeen"
+ },
+ {
+  "n": "Gene & Georgetti",
+  "address": "500 N Franklin St, Chicago, IL 60654",
+  "lat": 41.8908986,
+  "lng": -87.635804,
+  "geoSource": "https://www.latlong.net/poi/gene-georgetti-152306 — latlong.net OSM POI 'Gene & Georgetti' (restaurant, 500 N Franklin St, 60654): 41.8908986,-87.6358040 (WebSearch 2026-10-02)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "geneandgeorgetti.com official site + OpenTable listing live in 2026-10-02 results; no closure reported",
+  "note": "name not found in existing geo files — using task's name; sanity: 500 N ~41.891, Franklin (~300 W) ~-87.6355 — under the El at Franklin/Illinois"
+ },
+ {
+  "n": "Boka",
+  "address": "1729 N Halsted St, Chicago, IL 60614",
+  "lat": 41.913611,
+  "lng": -87.648333,
+  "geoSource": "https://en.wikipedia.org/wiki/Boka_(restaurant) — Wikipedia published coordinates 41°54′49″N 87°38′54″W (41.9136°N 87.6482°W) (WebSearch 2026-10-02)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Michelin Guide listing (guide.michelin.com .../chicago/restaurant/boka) + choosechicago.com listing live in 2026-10-02 results; no closure reported",
+  "note": "whole-second precision (~30 m); sanity: 1729 N ~41.9135, Halsted (800 W) ~-87.6485 — next door to Alinea (1723 N Halsted)"
+ },
+ {
+  "n": "Galit",
+  "address": "2429 N Lincoln Ave, Chicago, IL 60614",
+  "lat": 41.92625,
+  "lng": -87.649583,
+  "geoSource": "https://en.wikipedia.org/wiki/Galit_(restaurant) — Wikipedia published coordinates 41°55′34.5″N 87°38′58.5″W / 41.926250, -87.649583 (WebSearch 2026-10-02)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "Michelin Guide listing + choosechicago.com listing (hours Tue–Sat) in 2026-10-02 results; no closure reported",
+  "note": "sanity: just N of Fullerton (2400 N ~41.925) on diagonal Lincoln Ave near Halsted"
+ },
+ {
+  "n": "Middle Brow Bungalow",
+  "address": "2840 W Armitage Ave, Chicago, IL 60647",
+  "lat": 41.917778,
+  "lng": -87.698889,
+  "geoSource": "https://en.wikipedia.org/wiki/Middle_Brow_(restaurant) — Wikipedia published coordinates 41°55′04″N 87°41′56″W (41.9178, -87.6989) (WebSearch 2026-10-02)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "no closure reported in 2026-10-02 results (status carried from _geoout_canon.json)",
+  "note": "med: whole-second precision; grid estimate for 2840 W is ~-87.698, so pin may sit ~50–80 m W of the storefront — still on the 2800-block of Armitage W of California; re-verify with an exact place pin if one surfaces"
+ },
+ {
+  "n": "Taqueria Chingón",
+  "address": "817 W Fulton Market, Chicago, IL 60607",
+  "lat": 41.886637,
+  "lng": -87.6482192,
+  "geoSource": "https://www.latlong.net/poi/taquer-a-ching-n-573161 — latlong.net OSM POI 'Taquería Chingón' (Fast Food), 817 W Fulton St: 41.8866370,-87.6482192 (WebSearch 2026-10-02)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "exploretock.com/taqueria-chingon booking page live in 2026-10-02 results; no closure reported",
+  "note": "sanity: Fulton (300 N) ~41.8866, 817 W ~-87.648 — on the 800 block of Fulton Market at Halsted"
+ },
+ {
+  "n": "The Original Rainbow Cone",
+  "address": "9233 S Western Ave, Chicago, IL 60643",
+  "lat": 41.7254844,
+  "lng": -87.6818928,
+  "geoSource": "https://www.latlong.net/poi/rainbow-cone-573559 — latlong.net OSM POI 'Rainbow Cone' (Fast Food), 9233 S Western Ave: 41.7254844,-87.6818928 (WebSearch 2026-10-02)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "choosechicago.com listing + WBEZ 2026-07-22 '100 years of Rainbow Cone' coverage in 2026-10-02 results; no closure of the Beverly original reported",
+  "note": "name not found in existing geo files — using task's name; sanity: between 91st & 92nd Pl on Western (2400 W ~-87.6826), east side of street"
+ }
+]
