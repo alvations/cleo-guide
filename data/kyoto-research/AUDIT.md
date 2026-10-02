@@ -138,3 +138,12 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - HGS: Yasui Konpira-gū, Rokudō Chinnō-ji (kyoto.travel map guide + JA), Entoku-in (JG e3927 + JA).
 - Held: Bishamon-dō (kyoto.travel only), Kurama Onsen (JA coords 35.11925,135.776456; one source).
 - Searches used: 121.
+
+### batch 10 (2026-10-02) — pins for 4 unpinned HGS records; CTR +5, KITA +3
+- Pins: Tōfuku-ji (ja-Wikipedia, high), Rokuharamitsu-ji (Wikipedia, from the W1 lead, high), Gion & Hanamikoji (Gion Kōbu Kaburenjō
+  on Hanami-kōji, med), Higashiyama District (Sannenzaka, med). These are real place pins on the street or theatre, not district centroids.
+- CTR: Mibu-dera, Shōsei-en (KYOTOTOURISM + WIKIPEDIA_JA), Nijō Jinya (JG e3926 + JA), Shimabara & Sumiya (KT + Wikipedia, med),
+  Teramachi & Shinkyōgoku arcades (JG e3958 + KT; UNVERIFIED, since a street has no single pin).
+- KITA: Genkō-an, Shōden-ji (KT + JA), Kōetsu-ji (japan-guide autumn report + JA).
+- Held: Seigan-ji (35.007361,135.767722), Funaoka Onsen (35.036911,135.744578), Goō Shrine (35.02222,135.75861): one source each.
+- Searches used: 127.
