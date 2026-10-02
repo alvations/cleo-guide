@@ -22,16 +22,16 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 ## State
 - 2026-10-02 scaffolded; W1 partial (12 places) halted at the shared 200-search cap.
 - 2026-10-02 W2 (relaunch) — LIVE at 229 discovered / 216 rendered.
-- 2026-10-02 **W3 (relaunch, own budget) — FOOD & DRINK FIRST + ANIME.** Last full build: **362 discovered (183 sights + 179 food
-  = 49% food) / 296 rendered (178 + 118)**; sourcecheck / geocheck (high 277 · med 19) / statuscheck / buildcheck PASS;
+- 2026-10-02 **W3 (relaunch, own budget) — FOOD & DRINK FIRST + ANIME.** Last full build: **370 discovered (183 sights + 187 food
+  = 51% food) / 301 rendered (178 + 123)**; sourcecheck / geocheck (high 282 · med 19) / statuscheck / buildcheck PASS;
   `npm run validate` + `npm test` ALL PASS. CARD:kyoto + docs/CITIES.md refreshed. ★ Anime collection: 7 places.
-- Discovered per area (target): CTR 89 (95) · HGS 60 (75) · UJI 44 (50) · RKSAI 36 (55) · KITA 37 (50) · SAKYO 34 (60) ·
+- Discovered per area (target): CTR 93 (95) · HGS 63 (75) · UJI 44 (50) · RKSAI 36 (55) · KITA 38 (50) · SAKYO 34 (60) ·
   FSHMI 27 (45) · KYFU 18 (25) · RKHKU 17 (30). Run `python3 tools/density.py kyoto` for live numbers.
 - W3 files: FOOD_KYOTO_W5.json (66 non-Michelin + a few Michelin food & drink), FOOD_KYOTO_MICH5.json (43 Michelin, worker),
   SIGHTS_KYOTO_W3S.json (22 sights), SIGHTS_KYOTO_ANIME1.json (3), SOURCES_KYOTO_W3.json, CREATORS_KYOTO_W3.json,
   geo/_geoout_kyoto_{food_w5,mich5,w3s,anime1}.json, geo/_repin_kyoto_w3.json (72 pins applied by name), notes
   _note_anime1.md / _note_mich5.md / _note_repin_w3.md, lead ledger _kyoto_w3_leads.json, _kyoto_unpinned_w3.json.
-- Searches used this session: main ~93 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 185.
+- Searches used this session: main ~101 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 193.
 
 ## In-flight wave
 - none (W3 closed cleanly; every batch committed and pushed).
@@ -39,8 +39,9 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 ## Next wave plan (W4) — ordered, cheapest proven techniques first
 1. **Michelin pins + new names (best yield: ~3 pinned/search):** allowed_domains guide.michelin.com, "<A>; <B>; <C>; <D> Kyoto MICHELIN
    cuisine address latitude longitude" — the search tool fans out sub-queries and returns venue lat/lng. Unadded names seen:
-   YOKOI ★, TAKAYAMA ★ (Italian), Wagokoro Izumi ★, Doppo ★★, Tokuo, Kappo Takohachi, ristorante DONO (Okazaki), en, Shichiku Kiko,
-   Germoglio ★, ima ★, Gion Matayoshi ★★, Kentan Horibe ★ — each still needs a NAMED dish from Michelin text (else hold).
+   YOKOI ★ (pin 34.99764,135.76235 known; no dish), TAKAYAMA ★ (Italian), Wagokoro Izumi ★, Tokuo, Kappo Takohachi, ristorante DONO,
+   en, Shichiku Kiko, Hirosawa (creative Chinese), Asperge Blanche (Bib), L'aparté, Kiyamachi Ran, Gion Kajisho, middle, Nakazen
+   (pin 35.02874,135.79052), Shimogamo Saryo (pin 35.034174,135.773982) — each still needs a NAMED dish from Michelin text (else hold).
 2. **Inside Kyoto category lists × Leaf/KT/Time Out pairing** (≈1–1.5 places/search): IK pages not yet mined — best kissaten,
    best cafés, best tea & sweet shops (Kasagiya, Umezono), best affordable sushi (Azuma Sushi, Sushisei, Den Shichi), cheap eats,
    best soba/udon (Yamamoto Menzou), restaurants near Ginkaku-ji / Fushimi Inari (Nezameya), best shōjin (Yoshūji). Pair with

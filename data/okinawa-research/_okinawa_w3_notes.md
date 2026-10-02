@@ -74,3 +74,6 @@
 112. Nuchi Masu (Miyagi 2768; Mapple 47011691 + rurubu 80042947 + OT 0138) kept
 113. OT 0138 factory tours 6: Uema Kashiten (Suppaiman), Masahiro Gallery (Masahiro awamori, Itoman), Nuchi Masu, Okinawa Kokuto, Orion (+src), Helios (+src) — Uema & Masahiro held
 114. Masahiro Gallery (Nishizaki 5-8-7; rurubu 80042883 + OT 0138) kept; Uema Kashiten (Toyosaki 3-64 Tomigusuku; Mapple 47013394 + OT 0138) kept
+115. Zamami: Marumi-ya (rurubu 80043360 + Mapple 50726) kept; Boku no Mise Ojisan (Mapple 50726; rurubu URL not surfaced) held; Tokashiki Teruyama observatory 47012367, folk museum 47013069; Mapple 50958 Tokashiki guide
+116-117. Tokashiki: rurubu Sea Friend (Aharen 155), Sound Beach Cafe (Aharen 122), Kuinomiya Barakku (OT 0066), Marine Box (Tokashiki 1779-2; rurubu + OT kept), Aharen-enchi (rurubu 80043341 + OT kept), Tokashiku Beach, West/East observatories; Aka Island 80043357 (Nishibama), Shiratama-no-To 80043333
+118. Miyako sights: 17END (rurubu 2432 + Mapple tourism/miyakojima) kept; Ryūgūjō observatory (Kurima) Mapple only; rurubu 24511 Hirara walk; Sunayama rurubu 80042984
