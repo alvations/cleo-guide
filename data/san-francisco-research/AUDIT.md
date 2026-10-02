@@ -359,3 +359,9 @@ Atlas + SF Standard), Children's Creativity Museum & LeRoy King Carousel (Wikipe
 SFGATE + Hoodline 2026) (DTN). Held: SF Main Library (no 2nd outlet), Shakespeare Garden (no coordinate).
 **Address hygiene fix (rule 4a):** 12 W5 addresses that had been completed beyond what the cited sources state (street numbers/corners)
 were rewritten to the source-supported place description (e.g. Sutro Tower → 'Mount Sutro', Cypress Lawn → 'Colma').
+**Batch 6 (searches 49–53):** Dandelion Chocolate (SF Travel × Time Out × Mission Local), Pancho Villa Taqueria (Infatuation × SFGATE),
+Beretta (was held — Mission Local 2026-01 review × Infatuation × Time Out) (MIS food); Billy Goat Hill, Kite Hill (Wikipedia coords +
+Hoodline/SFGATE), Harvey Milk's Castro Camera at 575 Castro (Wikipedia + SF Standard + Hoodline; unpinned) (MIS sights); Jack Kerouac
+Alley (Wikipedia pin + SF Travel + SFGATE), Chinese Historical Society of America (Atlas pin 37.793759,-122.408964 + Time Out + Wikipedia)
+(NECN). Vermont Street pinned (Atlas 37.758919,-122.403958). DROPPED: El Techo — rebranded 'Cubita' after an Apr-2025 closure (SF Standard)
+→ not added; Grateful Dead House still no published pin (Atlas has only the Haight-Ashbury itinerary).

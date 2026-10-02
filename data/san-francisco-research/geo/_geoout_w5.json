@@ -212,10 +212,10 @@
  {
   "n": "Vermont Street (the other crookedest street)",
   "address": "Vermont St between 20th & 22nd Sts (by McKinley Square), San Francisco, CA 94107",
-  "lat": null,
-  "lng": null,
-  "geoSource": "",
-  "confidence": "UNVERIFIED",
+  "lat": 37.758919,
+  "lng": -122.403958,
+  "geoSource": "Atlas Obscura place page — Vermont Street (839 Vermont St; 37.758919, -122.403958)",
+  "confidence": "high",
   "status": "open",
   "statusSource": "https://en.wikipedia.org/wiki/Vermont_Street_(San_Francisco) (current 2025-26 page; public landmark/park)"
  },
@@ -518,5 +518,85 @@
   "confidence": "high",
   "status": "open",
   "statusSource": "https://en.wikipedia.org/wiki/San_Francisco_Railway_Museum (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Dandelion Chocolate",
+  "address": "740 Valencia St, San Francisco, CA 94110",
+  "lat": null,
+  "lng": null,
+  "geoSource": "",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "SF Travel Mission shopping guide + SF Travel venue listing (current)"
+ },
+ {
+  "n": "Pancho Villa Taqueria",
+  "address": "3071 16th St, San Francisco, CA 94103",
+  "lat": null,
+  "lng": null,
+  "geoSource": "",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Infatuation review (current)"
+ },
+ {
+  "n": "Beretta",
+  "address": "1199 Valencia St (at 23rd St), San Francisco, CA 94110",
+  "lat": null,
+  "lng": null,
+  "geoSource": "",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Mission Local review 2026-01 (open)"
+ },
+ {
+  "n": "Billy Goat Hill",
+  "address": "Billy Goat Hill Park, 30th St & Laidley St (Glen Park / Noe Valley), San Francisco, CA 94131",
+  "lat": 37.74139,
+  "lng": -122.43306,
+  "geoSource": "Wikipedia — Billy Goat Hill, San Francisco (37°44′29″N 122°25′59″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Billy_Goat_Hill,_San_Francisco (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Kite Hill",
+  "address": "Kite Hill Open Space, Castro / Eureka Valley, San Francisco, CA 94114",
+  "lat": 37.75833,
+  "lng": -122.44167,
+  "geoSource": "Wikipedia — Kite Hill, San Francisco (37°45′30″N 122°26′30″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Kite_Hill,_San_Francisco (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Harvey Milk's Castro Camera (575 Castro St)",
+  "address": "575 Castro St, San Francisco, CA 94114",
+  "lat": null,
+  "lng": null,
+  "geoSource": "",
+  "confidence": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Harvey_Milk (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Jack Kerouac Alley",
+  "address": "Jack Kerouac Alley, between Grant Ave & Columbus Ave, San Francisco, CA 94133",
+  "lat": 37.7975,
+  "lng": -122.4067,
+  "geoSource": "Wikipedia — Jack Kerouac Alley (37°47′51″N 122°24′24″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Jack_Kerouac_Alley (current 2025-26 page; public landmark/park)"
+ },
+ {
+  "n": "Chinese Historical Society of America Museum",
+  "address": "965 Clay St, San Francisco, CA 94108",
+  "lat": 37.793759,
+  "lng": -122.408964,
+  "geoSource": "Atlas Obscura place page — Chinese Historical Society of America, 965 Clay St (37.793759, -122.408964)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Chinese_Historical_Society_of_America (current 2025-26 page; public landmark/park)"
  }
 ]
