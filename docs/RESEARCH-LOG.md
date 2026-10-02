@@ -464,3 +464,15 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - geo-merge applies `_geoout_*.json` in sorted order: a status-only correction file must sort LAST (`_geoout_zz_*`) or an older
   wave's `unknown` row overwrites it.
 - A ticketing listing (Songkick) is not open-status evidence: the Fillmore Miami Beach has been closed since May 2022 (NT/WLRN).
+
+## 2026-10-02 — San Francisco W4 (wave 2, food first)
+- Highest-yield discovery pattern: one `allowed_domains:["theinfatuation.com"]` neighbourhood/cuisine guide query (returns 6–15
+  names, often with street addresses) → one multi-name `"A" OR "B" OR …` query restricted to sfchronicle/sfstandard/sfgate/
+  timeout/missionlocal for the 2nd source + status. ~1 place per search overall (vs ~0.5 for open web queries).
+- The SF Chronicle Top 100 2026 surfaced via an enprimeurclub transcription — its city labels are unreliable (Oakland places
+  tagged "San Francisco"); confirm every name with a 2nd outlet carrying a street address.
+- Restaurant place pins via WebSearch fail here (mapcarta/Michelin returned coords for 4 of 46) — route new restaurants to
+  tools/geocode-helper.html. Vendors inside a single building (Ferry Building, Ghirardelli Square) take the building's
+  published coordinate at **med** confidence with a note — never a neighbourhood centroid.
+- Year-end closure round-ups (SF Standard "saddest closures of 2025", Chronicle "restaurants that closed in 2025") are a
+  cheap 1-search closure sweep across the whole dataset.

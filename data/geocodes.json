@@ -16349,13 +16349,13 @@
    },
    "Lunette": {
     "address": "1 Ferry Building, San Francisco, CA 94111",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.7955,
+    "lng": -122.3937,
+    "source": "WIKIPEDIA Ferry Building published coords — stall is inside the building (building-level pin)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "https://www.axios.com/local/san-francisco/2025/01/22/sf-james-beard-award-semifinalist — Best Chef: California semifinalist 2025 (Nite Yun, Lunette) (current 2025-26 page; public landmark/park)",
+    "statusSource": "SF Chronicle Top 100 2026 (#35)",
     "statusChecked": "2026-10-02"
    },
    "House of Prime Rib": {
@@ -17119,11 +17119,11 @@
    },
    "Palette Tea House": {
     "address": "900 North Point St, San Francisco, CA 94109",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.8059,
+    "lng": -122.423,
+    "source": "WIKIPEDIA Ghirardelli Square published coords — restaurant is inside the square at the same street address (complex-level pin)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "med",
     "status": "open",
     "statusSource": "Time Out SF best dim sum (current listing with hours)",
     "statusChecked": "2026-10-02"
@@ -17951,6 +17951,94 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Active congregation (Wikipedia/Atlas Obscura); no closure reported",
+    "statusChecked": "2026-10-02"
+   },
+   "Acme Bread (Ferry Building)": {
+    "address": "1 Ferry Building, San Francisco, CA 94111",
+    "lat": 37.7955,
+    "lng": -122.3937,
+    "source": "WIKIPEDIA Ferry Building published coords — vendor is inside the building (building-level pin)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Infatuation Ferry Building Marketplace review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Humphry Slocombe (Ferry Building)": {
+    "address": "1 Ferry Building, San Francisco, CA 94111",
+    "lat": 37.7955,
+    "lng": -122.3937,
+    "source": "WIKIPEDIA Ferry Building published coords — vendor is inside the building (building-level pin)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Infatuation Ferry Building Marketplace review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Señor Sisig (Ferry Building)": {
+    "address": "1 Ferry Building, San Francisco, CA 94111",
+    "lat": 37.7955,
+    "lng": -122.3937,
+    "source": "WIKIPEDIA Ferry Building published coords — vendor is inside the building (building-level pin)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Infatuation Ferry Building Marketplace review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Daily Driver (Ferry Building)": {
+    "address": "1 Ferry Building, San Francisco, CA 94111",
+    "lat": 37.7955,
+    "lng": -122.3937,
+    "source": "WIKIPEDIA Ferry Building published coords — vendor is inside the building (building-level pin)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Infatuation Ferry Building Marketplace review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Ferry Plaza Farmers Market (Foodwise)": {
+    "address": "1 Ferry Building, San Francisco, CA 94111",
+    "lat": 37.7955,
+    "lng": -122.3937,
+    "source": "WIKIPEDIA Ferry Building published coords (market surrounds the building)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "Infatuation (current): Tue/Thu 10–2, Sat 8–2",
+    "statusChecked": "2026-10-02"
+   },
+   "Old Skool Cafe": {
+    "address": "1429 Mendell St, San Francisco, CA 94124",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation Bayview guide (current 2026) + SFGATE 2025",
+    "statusChecked": "2026-10-02"
+   },
+   "SF Masonic Auditorium": {
+    "address": "SF Masonic Auditorium, California St, Nob Hill, San Francisco, CA 94108",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Travel Nob Hill page (current; active concert venue)",
+    "statusChecked": "2026-10-02"
+   },
+   "The Rotunda at Neiman Marcus": {
+    "address": "Neiman Marcus (4th floor), Union Square, San Francisco, CA 94108",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation Union Square guide (current 2026) + SF Chronicle 2025",
     "statusChecked": "2026-10-02"
    }
   },

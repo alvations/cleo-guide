@@ -288,3 +288,18 @@ restaurants are held UNVERIFIED for `tools/geocode-helper.html` (browser) — We
 **375 researched → 291 on the map (121 sights + 170 food)**, was 290 → 265. sourcecheck PASS 375/375 (61 on a lone
 authority) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test PASS. 8 auto-registered
 keys given real rationales (CLIO, HMDB, INSIDEHOOK, NOEHILL, SFFUNCHEAP, SFGATE, STREETSBLOG, RICHMONDSUNSETNEWS).
+**Batches 7–8 (searches 101–113, main):** Ferry Building (Infatuation × SF Standard): Acme Bread, Humphry Slocombe, Señor
+Sisig, Daily Driver + Ferry Plaza Farmers Market (sight) — pinned at **med** to the Ferry Building's Wikipedia coordinate
+(vendors inside the building; same treatment for Lunette, and Palette Tea House → Ghirardelli Square, both previously
+unpinned). Old Skool Cafe (was held; Infatuation Bayview + SFGATE), The Rotunda at Neiman Marcus (Infatuation + Chronicle +
+SFGATE), SF Masonic Auditorium (Wikipedia + SF Travel, unpinned). **Closure sweep (1 search):** SF Standard "saddest closures
+of 2025" — Osito, Luce, Lord Stanley, One Market, Mona Lisa, Fog City, Ragazza, Memphis Minnie's, Tipsy Pig, Edinburgh Castle,
+El Nuevo Frutilandia, Mission Hunan (closing) — **none is in the dataset** (Lord Stanley already excluded; Osito never added).
+Held: Dumpling Specialist / Mini Potstickers (no full street address), Bayview Oyster Bar, Radio Africa (single source).
+
+## Stage 6 — BUILD W4-FINAL (2026-10-02, session_0159tKUL6tQ8pvUJRBHa67Nx)
+**383 researched → 298 on the map (122 sights + 176 food).** sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT ·
+buildcheck PASS · validate DATA OK · npm test ALL PASS. Registry for SF: 262 high / 35 med / 1 low / 85 UNVERIFIED.
+Per area: AVE 31+21=52/70 · DTN 42+20=62/80 · HAI 21+12=33/45 · MIS 40+13=53/75 · NECN 41+16=57/75 · NOB 21+9=30/40 ·
+NW 28+15=43/50 · PEN 18+11=29/35 · SE 16+8=24/30 — food ≥50% in every area (lowest AVE 60%).
+Searches this session: ~113 main + 30 (pin agent 1) + 22 (pin agent 2) ≈ 165.

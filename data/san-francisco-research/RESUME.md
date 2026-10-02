@@ -15,17 +15,30 @@
 - WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
-W4 continuing (session_0159tKUL6tQ8pvUJRBHa67Nx) — see State W4 below; files FOOD_W4.json, SIGHTS_W4.json,
-geo/_geoout_w4.json, geo/_geoout_w4pin.json, geo/_geoout_w4pin2.json (force-added; geo/_*.json is gitignored).
+(none — W4 closed cleanly 2026-10-02; see State W4.)
 
-## State — W4 (2026-10-02 wave 2) after build W4-1
-- **375 researched / 291 on the map (121 sights + 170 food)**; 4 gates + validate + test green.
-- Per area (food+sights=total/target): AVE 31+21=52/70 · DTN 37+19=56/80 · HAI 21+12=33/45 · MIS 40+13=53/75 ·
-  NECN 41+16=57/75 · NOB 21+8=29/40 · NW 28+15=43/50 · PEN 18+11=29/35 · SE 15+8=23/30. Food share ≈ 67%.
-- Searches: ~100 main + 30 (pin agent 1) + 22 (pin agent 2).
-- Pins: held 25 → 9 resolved (agent 1) + 4 new restaurants (agent 2) + all new sights but Grateful Dead House pinned.
-  ~70 new restaurants UNVERIFIED → browser geocode-helper (docs/GEOCODE-BACKLOG.md). WebSearch can't place-pin small
-  restaurants here (mapcarta/Michelin return nothing) — don't spend more searches on it; use the helper.
+## State — W4 FINAL (2026-10-02 wave 2, session_0159tKUL6tQ8pvUJRBHa67Nx)
+- **383 researched / 298 on the map (122 sights + 176 food)**; 4 gates + validate + test green. Food ≈67% overall, ≥50% per area.
+- Per area (food+sights=total/target): AVE 31+21=52/70 · DTN 42+20=62/80 · HAI 21+12=33/45 · MIS 40+13=53/75 ·
+  NECN 41+16=57/75 · NOB 21+9=30/40 · NW 28+15=43/50 · PEN 18+11=29/35 · SE 16+8=24/30.
+- Registry: 262 high / 35 med / 1 low / 85 UNVERIFIED (≈70 new W4 restaurants + 12 old held) → docs/GEOCODE-BACKLOG.md.
+- Files: FOOD_W4.json (77), SIGHTS_W4.json (16), geo/_geoout_w4.json, geo/_geoout_w4pin.json, geo/_geoout_w4pin2.json
+  (force-added — geo/_*.json is gitignored, so `git add -f`).
+- Searches: ~113 main + 52 pin agents.
+
+## Next-wave plan (ordered)
+1. **Pins via the browser helper** (`tools/geocode-helper.html`) for the ~85 UNVERIFIED — WebSearch cannot place-pin small
+   SF restaurants (4/46 hit rate). This is the biggest lever on what's *on the map* (383 researched vs 298 shown).
+2. **Discovery, weakest gap first:** MIS +22 (Infatuation Mission/Castro guides; Mission Local; held: Thorough Bread, Butter &
+   Crumble [NECN], Craftsman & Wolves status), AVE +18 (held: Hook Fish Co, Dumpling Specialist, Mini Potstickers, Anh Hong,
+   Bread n' Chu, HK Lounge II — each needs a 2nd outlet/full address), DTN +18 (Infatuation SoMa/FiDi; Saluhall vendors;
+   John's Grill address), NECN +18 (Bocconcino, 15 Romolo after its Oct-2026 reopening, Cold Drinks Bar), HAI +12 (Beretta
+   Divisadero, Hinodeya address, Katsuo + Kombu, Kezar Stadium 2nd source), NOB +10 (sights: Flood Mansion/Pacific-Union Club,
+   Glide, Vallejo St steps — Wikipedia pins + SF Travel), NW/SE/PEN +6–7 (Millbrae openings Falafio/Han Sang/Stick & Steam need
+   a 2nd source; Bayview Oyster Bar, Radio Africa).
+3. Sights are under-weight in MIS/NOB/SE/NECN (food 64–80%) — next sights batch: Wikipedia-coordinate queries ×
+   SF Travel/Atlas Obscura (826 Valencia Pirate Store has Atlas Obscura coords 37.759602,-122.421382 — needs a 2nd source).
+4. Creators: still none qualifying — try named SF creators with verifiable scale and a findable place video.
 
 ## State — 2026-10-02 modernisation session (FINAL)
 - **290 researched / 265 rendered** (was 148 / 141). Food 181 = 62.4% (food-first ✓). 4 gates + validate + test green.
