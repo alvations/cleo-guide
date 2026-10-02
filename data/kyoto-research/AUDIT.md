@@ -245,3 +245,20 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - **325 discovered (161 sights + 164 food = 50.5% food) / 232 rendered (153 + 79).** sourcecheck PASS · geocheck PASS (high 217,
   med 15) · statuscheck CONSISTENT, 0 unchecked · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS.
 - Closures found: none. Searches: main ~52 + anime 22 + Michelin 40 = ~114.
+
+### W3 batches 6–8 + pin worker (2026-10-02)
+- Sights +19 (SIGHTS_KYOTO_W3S.json, all ja-Wikipedia pins + JG/KT/LP/IK/Visit Nara/UNESCO): Ōhara Jikkō-in, Shōrin-in, Raigō-in;
+  Jissō-in (Iwakura); Enkō-ji; Yoshida Shrine; Yoshimine-dera; Jizō-in (Bamboo Temple); Suzumushi-dera; Hōrin-ji; Hōgon-in;
+  Bishamon-dō; Kanshū-ji; Gokō-no-miya (held lead resolved via KT feature); Chōken-ji; Saidai-ji; Uji Shrine; Agata Shrine (med);
+  Kasugayama Primeval Forest (UNESCO component, med). Held: Hōkyō-in (no 2nd source surfaced), Akishino-dera, Hokke-ji (Visit Nara page not surfaced).
+- Food +4: Torisei Honten (Fushimi), Menya Gokkei, Kitchō Arashiyama, % Arabica Arashiyama. Held: Unagi Hirokawa (Inside Kyoto calls
+  it Michelin-starred, but it is not in the current Michelin guide → not claimed), Tentenyu Honten, Tenkaippin Sōhonten (address
+  not surfaced), Fushimi Sakagura Kōji, Abura-chō, Animate Kyoto (Avanti).
+- ANIME: Uji Bridge now carries `anime` (Sound! Euphonium — Anime News Network + Keihan official collaboration page). ANIME
+  collection on the page: 7 places tagged (Nintendo Museum, Marufukuro, Demachi Masugata, Manga Museum, Kōzan-ji/Chōjū-giga,
+  Uji Bridge, + keyword matches).
+- PIN WORKER (30 searches): 72 pins (66 Michelin venue-page lat/lng, 6 ja-Wikipedia) applied to the geoout files by exact name
+  (`geo/_repin_kyoto_w3.json`, `_note_repin_w3.md`). Placement checks: Torisaki/shiro/Muromachi Yui within ~30 m (Takoyakushi
+  block — plausible, flagged for re-verify); Gion Yorozuya/Chōshoku Kishin 6 m apart (Komatsu-chō 555-1 / 555 — consistent).
+- **Build: 348 discovered (180 sights + 168 food = 48%) / 288 rendered (175 + 113).** All 4 gates PASS (high 269 · med 19);
+  validate DATA OK; npm test ALL PASS. Searches: main ~72 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 164.
