@@ -183,3 +183,21 @@ canon), jeeten (Chinese), Shokudo Wata (still no named dish), Kappo Muroi / Yaki
 retry). Kantō/Tama food searches yielded little (gap stated, not filled).
 **Build:** 347 discovered / 342 rendered (224 sights + 118 food); sourcecheck PASS · geocheck PASS · statuscheck
 CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. Go-live surfaces refreshed.
+
+### W3 (cont.) — Michelin by ward, 2024–26 star lists, Shinjuku/Shibuya sights → close-out
+**Kept:** SBY Torishige (yakiton, Bib 2026), Kuhara (duck, Bib 2026), Sassa, Sushi Yuki, Hiroo Ishizaka; SJK Sushi Oya,
+Ichirin, Ubuka (crab), Fry-ya, Yotsuya Minemura; JOSAI Tensuke (tamago-ten, Bib 2026 + Time Out), Sushi Yoshino; TAITO
+grill GRAND (yōshoku); CHUO Nihombashi Sonoji (1★), Yakitori Takahashi, Ginza Kitagawa, Katsuyoshi; JONAN Higashiyama
+Muku, Ramen Break Beats; MNT Nishiazabu Sushi Shin (2★), Hakuun (2★), Akasaka Shimabukuro, Sushi Tanaka, Daigo
+(shōjin), Miyasaka, Nishiazabu Noguchi. Sights: Japan National Stadium, Haruki Murakami Library, Tsubouchi Theatre
+Museum, National Noh Theatre, Tokyo Metropolitan Gymnasium, Toyama Park & Hakoneyama, Akagi Shrine, Shinjuku
+Suehirotei, Natsume Sōseki Museum (Wikidata pins + Time Out/japan-guide/GO TOKYO), Gyosen Park (GO TOKYO + Time Out).
+**Stopped adding** generic "seasonal Japanese course" fine dining in Minato (MNT 48/50) — padding risk under the merit
+rule; further MNT adds need a named signature dish.
+**Dropped / held:** Takumi Tatsuhiro (cuisine not stated), Chukasoba Kotetsu (Bib 2025, dish not stated), Kisaiya Hide
+and Shuko Takigiya (no dish, no pin), Night Market / jeeten / REI / Hibino / SANTOSHAM / French–Spanish–Italian Bibs
+(not Tokyo canon; kept the list Japanese-led), Tomoegata and Fukagawajuku (sources in hand, no pin — helper),
+Kichijōji Satou / Ozasa / Funabashiya (no pin). Tonkatsu Nanaido and Nakiryu addresses re-checked after conflicting
+search summaries — both records correct (Michelin venue pins Aizumichō / Minami-Ōtsuka).
+**Build:** 379 discovered / 374 rendered (234 sights + 140 food); sourcecheck PASS · geocheck PASS · statuscheck
+CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. Searches W3 ≈ 155.
