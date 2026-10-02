@@ -39,6 +39,9 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | MYK | 14 | 50 | +36 |
 | KRM | 7 | 30 | +23 |
 
+- 2026-10-02 **W3 (in progress)**: +36 so far (35 food + 1 sight) → **155 discovered (62 food = 40 %), 85 pinned**; 4 gates PASS,
+  validate+test PASS. Files `*_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3*.json`, log `_okinawa_w3_notes.md` (54+ searches + 40 geocoder).
+
 ## In-flight wave
 - **W3 (2026-10-02, food & drink first + ANIME)** — files `FOOD_OKINAWA_W3.json`, `SIGHTS_OKINAWA_W3.json`,
   `SOURCES/CREATORS_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3.json` (discovery pins), `geo/_geoout_okinawa_W3G.json`
