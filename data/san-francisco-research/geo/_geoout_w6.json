@@ -630,5 +630,45 @@
   "statusSource": "https://sfstandard.com/2026/09/12/best-sf-restaurants-groups/ (chef-owner quoted Sept 2026) + https://sfstandard.com/2025/06/09/lower-haight-best-restaurants-bars/",
   "lng": null,
   "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Golden Fire Hydrant",
+  "address": "20th St & Church St (3899 20th St), San Francisco, CA 94114",
+  "lat": 37.758009,
+  "lng": -122.427952,
+  "geoSource": "Wikipedia — Golden Fire Hydrant (37°45′29″N 122°25′41″W / 37.758009, -122.427952)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Golden_Fire_Hydrant (annual repainting ceremony; public street fixture)"
+ },
+ {
+  "n": "Andy Goldsworthy's Wood Line",
+  "address": "Wood Line, the Presidio, San Francisco, CA 94129",
+  "lat": 37.7931,
+  "lng": -122.4485,
+  "geoSource": "Wikipedia — Wood Line (37°47′35″N 122°26′55″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://presidio.gov/goldsworthy-in-the-presidio"
+ },
+ {
+  "n": "Warm Water Cove Park",
+  "address": "Warm Water Cove Park, east end of 24th St, Dogpatch, San Francisco, CA 94107",
+  "lat": 37.75444,
+  "lng": -122.38361,
+  "geoSource": "Wikipedia — Warm Water Cove (37°45′16″N 122°23′1″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://sfstandard.com/2025/01/06/baby-deer-carcass-found-warm-water-cove-park/ (Jan 2025, park in use)"
+ },
+ {
+  "n": "Bayview Park (Bayview Hill)",
+  "address": "Bayview Park, Bayview Hill, San Francisco, CA 94124",
+  "lat": 37.7152613,
+  "lng": -122.3926708,
+  "geoSource": "Wikipedia — Bayview Park, San Francisco (37°42′55″N 122°23′34″W)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://sfrecpark.org/623/Bayview-Hill-Trails-Improvement-Project"
  }
 ]
