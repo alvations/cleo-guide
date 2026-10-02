@@ -15,13 +15,30 @@
 - WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
-**W6 (2026-10-02 session 4, session_01Hg5dmhczkVf2CSHxgwBCVu)** — start: 488 researched (density NEED: AVE+2 DTN+4 HAI+1 MIS+2 NECN+3 NOB+1).
-(1) background pin agent (≤30 searches) on `_sf_pin_w6_A.txt` (133 UNVERIFIED; Wikipedia/Michelin-sourced first) → `geo/_geoout_w6pin.json`;
-(2) main: close every NEED area, then keep expanding past target with credible canon (Michelin/Bib, Chronicle Top 100, Infatuation × SF Standard,
-creators) → `FOOD_W6.json`, `SIGHTS_W6.json`, `geo/_geoout_w6.json`, `CREATORS_W6.json`. Search counter (main): 116 · pin agent: 30 (8 pinned).
-Build W6-1: 503 researched / 368 on map (179 sights + 189 food); ALL 9 areas at target; 4 gates + validate + test green.
-Build W6-2: 543 researched / 378 on map (187 sights + 191 food); 4 gates + validate + test green.
-Now: expanding past target — prefer pinnable places (Wikipedia-coord sights, restaurants with a Wikipedia page) + creator channel.
+(none — W6 finished cleanly 2026-10-02; next relaunch starts W7 from the plan below)
+
+## State — W6 FINAL (2026-10-02 session 4, session_01Hg5dmhczkVf2CSHxgwBCVu)
+- **579 researched / 396 on the map (204 sights + 192 food)** (was 488 / ~352 at session start). 4 gates + validate + test green.
+  **Every area at or above its density target:** AVE 48+35=83/70 · DTN 55+36=91/80 · HAI 34+19=53/45 · MIS 68+23=91/75 ·
+  NECN 52+27=79/75 · NOB 30+16=46/40 · NW 36+21=57/50 · PEN 22+19=41/35 · SE 22+16=38/30. Food 367 = 63% (≥50% every area).
+- Registry: 343 high / 53 med / 0 low / 183 UNVERIFIED (almost all restaurants/bars with no Wikipedia page) → docs/GEOCODE-BACKLOG.md.
+- Searches: 123 main + 30 pin agent (8 pinned). Files: FOOD_W6.json (59), SIGHTS_W6.json (32), geo/_geoout_w6.json, geo/_geoout_w6pin.json,
+  _sf_pin_w6_A.txt / _sf_unpinned_w6.txt (pin worklists).
+
+## Next-wave plan (W7, ordered)
+1. **Map coverage is now the lever, not discovery** (579 researched vs 396 shown): run `tools/geocode-helper.html` in a real browser on the
+   183 UNVERIFIED (docs/GEOCODE-BACKLOG.md), then `flock … rebuild-city.py san-francisco-ca --build`. WebSearch cannot place-pin
+   restaurants without a Wikipedia page (8/133 hit rate this session).
+2. Held single-source / status-unknown (each needs ONE more outlet or a 2026 status): Bocconcino, Chome (address), Coffee Out There
+   (address), Riverside Seafood, Zzan, Panchita's #2, Taishoken San Mateo, Philosopher's Club, Cinch Saloon, The Snug, Inda + Mely
+   (San Bruno), Kusina ni Tess, Standard Deviant Pier 70, Jilli, Stoa, Noc Noc, Tony Nik's, Dragon Well, Morella, Howells, Viva Goa,
+   The Sentinel, Patio Filipino, Sushi Sam's (2022 is newest), Fort Point Valencia (taproom status), Julius' Castle (reopening?),
+   Tenderloin National Forest (reopened?), Mission Cultural Center (reopened?), Anchor Brewing (reopening 2027?).
+3. Sights still light in MIS (23) / NOB (16) / HAI (19): next Wikipedia batches — St. Ignatius Church (needs a 2nd outlet), Ross Alley /
+   Waverly Place (no coords found yet), Golden Gate Park Archery Range, Angler's Lodge, Fuchsia Dell (Chronicle GGP secrets), Esprit Park.
+4. Unused SF Standard panels: out-of-towners (Nov 2025), sports bars (Oct 2025), lunch (Feb 2026), hangover cures (Oct 2025), best
+   tacos (Jul 2026), Chinese-takeout leftovers (Spices, Taishan Cuisine, Mamahuhu — each needs a 2nd outlet).
+5. Creators: still none qualifying after 3 more queries; try a named SF creator with verifiable scale + a findable place video.
 
 ## State — W5 (wave 3 of 2026-10-02, session_013SchN5xr8QFAgVqjZY37dr) — DONE (ended at batch 15)
 **W5 (wave 3 of 2026-10-02, session_013SchN5xr8QFAgVqjZY37dr)** — (1) background pin agent (≤30 searches) on the

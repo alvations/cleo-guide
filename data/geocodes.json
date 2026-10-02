@@ -13830,14 +13830,14 @@
   "san-francisco-ca": {
    "SFO Louis A. Turpen Aviation Museum & Library": {
     "address": "International Terminal Main Hall, Departures Level (pre-security), San Francisco International Airport, San Francisco, CA 94128",
-    "lat": 37.6156,
-    "lng": -122.3925,
-    "source": "GOOGLEMAPS International Terminal (interior, approximate)",
-    "verified": "2026-08-14",
-    "confidence": "low",
+    "lat": 37.6164,
+    "lng": -122.391,
+    "source": "Wikipedia — San Francisco International Airport station (37°36′59″N 122°23′28″W), which Wikipedia places inside the International Terminal that houses the museum (terminal/building-level pin; re-verify W6 upgrade from low)",
+    "verified": "2026-10-02",
+    "confidence": "med",
     "status": "open",
-    "statusSource": "SFO Museum official site + Yelp updated May 2026 (open daily 10-4:30)",
-    "statusChecked": "2026-08-14"
+    "statusSource": "SFO Museum official site (open daily 10-4:30), checked 2026-08-14",
+    "statusChecked": "2026-10-02"
    },
    "Sign Hill (SOUTH SAN FRANCISCO THE INDUSTRIAL CITY letters)": {
     "address": "Sign Hill Park, Poplar Ave, South San Francisco, CA 94080",
@@ -20162,6 +20162,39 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "https://sfstandard.com/2025/07/21/best-restaurants-bars-marina-sf/ (Jul 2025)",
+    "statusChecked": "2026-10-02"
+   },
+   "Penny Roma": {
+    "address": "3000 20th St, San Francisco, CA 94110",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://sfstandard.com/2026/07/14/best-solo-dining-restaurants-sf/ (Jul 2026)",
+    "statusChecked": "2026-10-02"
+   },
+   "Brenda's Meat & Three": {
+    "address": "919 Divisadero St, San Francisco, CA 94115",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://sfstandard.com/2026/07/14/best-solo-dining-restaurants-sf/ (Jul 2026)",
+    "statusChecked": "2026-10-02"
+   },
+   "Octavia": {
+    "address": "1701 Octavia St, San Francisco, CA 94109",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://sfstandard.com/2026/02/13/best-restaurants-dates-romance-san-francisco/ (Feb 2026)",
     "statusChecked": "2026-10-02"
    }
   },

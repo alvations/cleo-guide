@@ -477,3 +477,11 @@ neighborhood-centroid coordinates found (not place pins).
 **BUILD W6-3:** 576 researched → 396 on the map (204 sights + 192 food); sourcecheck PASS 576/576 · geocheck PASS · statuscheck
 CONSISTENT · validate DATA OK · npm test ALL PASS. Every area ≥ target (AVE 83, DTN 91, HAI 52, MIS 90, NECN 79, NOB 46, NW 56, PEN 41,
 SE 38); food 63% overall, ≥50% in every area.
+**Batch 18 (searches 116–123):** Causwells, Little Original Joe's (SF Standard Marina Jul 2025 × Infatuation/7x7/Chronicle/SFGATE), Penny
+Roma, Brenda's Meat & Three (SF Standard solo-dining Jul 2026 × Infatuation/Chronicle/SFGATE), Octavia (SF Standard date-night Feb 2026 ×
+MICHELIN_EDITORIAL "first day I got my Michelin stars" × Chronicle). Held: Seven Hills (SF Standard 1896 Hyde vs Infatuation 1550 Hyde —
+address conflict), Dimples, Sociale, Bon Délire, Hong Kong Lounge (SF Standard prints 5322 Geary; Chronicle has HK Lounge II at 3300
+Geary — unresolved).
+**BUILD W6-FINAL:** 579 researched → **396 on the map (204 sights + 192 food)**. sourcecheck PASS 579/579 (61 lone authority) · geocheck
+PASS (343 high / 53 med / 0 low) · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. All 9 areas ≥ target.
+Searches this session: 123 main + 30 pin agent.

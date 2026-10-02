@@ -488,3 +488,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   point to one page → med), `<name> tripadvisor latitude longitude` (aggregator → graded low, must match the sourced address).
 - Unrestricted searches often return a coordinate without saying which page printed it — unusable under rule 4a (5 demoted).
 - Batched multi-name coordinate queries mostly fail; Stars and Stripes GPS searches rarely hit outside the main island.
+
+### 2026-10-02 — San Francisco W6 (session 4): two cheap channels
+- **SF Standard "according to a panel of pros" lists** print each pick's street address; one follow-up `allowed_domains=[theinfatuation.com, sfchronicle.com, sfgate.com, 7x7.com, missionlocal.org]` query with the new names OR-ed together returns the independent 2nd outlet for 2–5 of them. ~2 searches → 3–5 sourced, addressed places.
+- **Restaurant pins:** only `allowed_domains=[en.wikipedia.org]` + "<name> <street> coordinates" worked (8 of 133 held places, all with Wikipedia pages); Michelin/mapcarta/Atlas queries returned no coordinates. Building-level pins (Ferry Building vendors, hotel bars via the hotel's Wikipedia coord) graded `med`/`high` with the building named in `geoSource`.
+- Dead end: creator channel (Mark Wiens / YouTube SF food tours / Strictly Dumpling) surfaced no findable video naming a specific SF place in 3 searches.
+
