@@ -93,5 +93,28 @@
    "gs": "UNVERIFIED",
    "kind": "food"
   }
+ },
+ {
+  "n": "Tonkatsu Hasegawa",
+  "from": "FOOD_TOKYO_W6.json",
+  "why": "lone Michelin Bib evidence is the 2023 guide only — current selection unconfirmed",
+  "rec": {
+   "t": 1,
+   "a": "SMKT",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "dish": "tonkatsu (menu items named after sumo ranks, e.g. 'Yokozuna', 'Ozeki')",
+   "n": "Tonkatsu Hasegawa",
+   "address": "3-24-1 Ryogoku, Sumida-ku, Tokyo",
+   "w": "MICHELIN Guide Bib Gourmand tonkatsu shop in Ryōgoku; it names its cutlets after sumo ranks such as 'Yokozuna' and 'Ozeki', a nod to the neighbourhood's sumo heritage.",
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/ca/en/tokyo-region/tokyo/restaurant/tonkatsu-hasegawa"
+    ]
+   ],
+   "closed": false
+  }
  }
 ]
