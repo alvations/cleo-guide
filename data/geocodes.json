@@ -60696,14 +60696,15 @@
    },
    "Une Gaufrette Saperlipopette": {
     "address": "Rue des Mineurs 6, 4000 Liège, Belgium",
-    "lat": 50.64605,
-    "lng": 5.57683,
-    "source": "Mapcarta (OSM) listing 'Une Gaufrette Saperlipopette — La cuisine', Rue des Mineurs 6: 50.64605, 5.57683",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
     "verified": "2026-10-02",
-    "confidence": "med",
+    "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "OSM entry live; RTBF ice-cream range launch article",
-    "statusChecked": "2026-10-02"
+    "statusChecked": "2026-10-02",
+    "geoNote": "Downgraded 2026-10-02: prior point was the OSM node of Cabale (Rue des Mineurs 6), not this venue"
    },
    "Tchantchès et Nanesse": {
     "address": "Rue Grande-Bêche 35-37, 4020 Liège, Belgium",
