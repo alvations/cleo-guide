@@ -66,3 +66,23 @@
 64 Infatuation South Beach (Prime 112, The Joyce, Bazaar, Orilla, Blue Ribbon, Yardbird, Bodega, Maison Valentine, Stormy Monday — single-source, held)
 65 Hialeah Park / Opa-locka City Hall / Hard Rock Stadium / Guitar Hotel (Crazy Tourist + Wikipedia)
 66 FTL icons (NT 14 best old-school FTL; Florida Rambler Southport; LP FTL restaurants: Lester's; Rustic Inn held)
+
+## Session 3 (2026-10-02) — main agent (subagent geocode w4 capped at 30, logged in its geo file)
+67-70 Restaurant place-pin probes for Versailles (google !3d!4d, mapcarta, "GPS coordinates", raw "!3d25") — 0 coords; restaurant pinning via WebSearch confirmed dead
+71 NT best Cuban sandwich (Enriqueta's, Latin Cafe 2000 Top 100, Sanguich best 2024); Tasting Table 9 best cubanos found
+72 Tasting Table cubanos (Puerto Sagua, Sergio's)
+73 Saveur/other best Cuban restaurants (La Carreta, Islas Canarias — not attributable)
+74 NT Required Eating 2025 (Bali Café, Bar Bucce, Carbone Vino, Claudie, Cotoa, Daniel's Miami, Doggi's, Hiden, Kaori, Kojin, Ogawa, Puerto Sagua, Recoveco, Sunny's, Zucca)
+75 NT Top 50 2026 (Ariete, Kush, Mamey, Maroosh, Lucali — no full list)
+76 Michelin FTL (5 recognitions — all already in)
+77 Eater/Infatuation FTL (Larb, Steak 954, Evelyn's, Laspada's)
+78 Time Out FTL (Catch & Cut)
+79 Time Out FTL full list (Daniel's, MAASS, Larb, Evelyn's, Heritage, The Katherine, Rustic Inn, Catch & Cut, Southport, Top Hat Deli, Mai-Kai, Coconuts)
+80 Infatuation FTL 25 (Greek Islands Taverna, Steak 954, Egg N' You, Takato, Il Paesano, Lasso Gaucho, Kousine, Burlock Coast)
+81 Fodor's FTL (Cafe Martorano, LaSpada's, Casa Sensei, Floridian, Le Tub, Georgia Pig, Steak 954, The Katherine, Old FL Breakfast House, 3030 Ocean…)
+82 NT old-school FTL + downtown FTL (Tropical Acres, Floridian, Cap's Place, Jack's, Frank's, Georgia Pig, Laspada's, Mai-Kai, Rustic Inn; Casa Sensei, Catch & Cut, Katherine, Ukiah, House on the River)
+83 Status: Mai-Kai reopened Nov 2024 (Local10/Visit Lauderdale); Cap's Place open (Wikipedia/NRHP/Florida Rambler)
+84 Broward breweries (NT 10 best FTL breweries 2022: Funky Buddha, Tarpon River, LauderAle, Invasive Species, 3 Sons, Tripping Animals, Gulf Stream, 26°) [tool ran 2 sub-searches]
+85 Visit Lauderdale breweries guide (Invasive Species, Funky Buddha, Tripping Animals)
+86 Hollywood/Dania best restaurants — junk (OpenTable/SEO) → nothing kept
+87 Michelin Florida 2026 full Miami list [tool ran 4 sub-searches] — new: Krüs Kitchen (Green Star) ; Bistro Ocho, Mano Libera still location-unknown

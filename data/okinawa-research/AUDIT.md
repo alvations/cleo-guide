@@ -146,3 +146,15 @@ Culture Trip/Beer Tengoku/Game Watch/fun-japan/OCVB/gov-online/Ryukyu Shimpo 1�
 geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK; npm test ALL PASS. ANIME 3 (1 rendered).
 Not flipped live (89 pins; NAHA/CHUBU far below target). Closures: none found among kept places.
 WebSearch used this session: ~121 lead + 70 background = ~191.
+**Batches 14–18 (after the W3 close, same session, until the WebSearch cap):** +28 → michi-no-eki Kadena (sight),
+Yuiyui Kunigami, Toyosaki (Mapple TOP5 + Okinawa Traveler), Takaesu / Kingetsu / Sachichan soba (Rurubu soba-16 ×
+Okinawa Times poll / Okinawa Traveler), Makabe Chinā, Ruby, Yanbaru Shokudō, Mikado, Kaiyō Shokudō (Rurubu local-
+shokudō 7 × Okinawa Traveler), Mori no Kenja, Hitoshi, KITCHEN inaba, ROCO (Yaeyama), Ishigaki Limestone Cave,
+Nishihama (Hateruma), Sugar Road (Kohama — Chura-san location → ANIME/pop layer), Ayahashi-kan, Nuchi Māsu,
+Masahiro awamori gallery, Uema/Suppaiman factory, Marumi-ya & Marine Box & Aharen-enchi (Kerama), 17END (Shimoji).
+**Closures (4c):** Ayagu Shokudō, Shuri — CLOSED end Oct 2023 after 44 yrs (Okinawa Times 1233368/1235617, Ryukyu Shimpo
+entry-2334724); Ichigin Shokudō, Kumoji — CLOSED 23 Jan (Okinawa Times 1514070). Both notable (decades-old shokudō in
+current Okinawa Traveler/C-lunch coverage) → kept, flagged, status sourced in geo/_geoout_okinawa_W3.json.
+**FINAL W3 build:** 214 discovered (107 sights + 107 food = **50 % food**), 89 pinned; sourcecheck PASS 214/214,
+geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK; npm test ALL PASS. ANIME 4. WebSearch cap
+reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaurant pins need the geocode-helper).

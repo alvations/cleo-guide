@@ -196,16 +196,23 @@ def build(D, AREAS, AC):
         for t in src.get('sources',[]):
             k=(t[0], t[1] if len(t)>1 else '')
             if k not in have: dst.setdefault('sources',[]).append(t); have.add(k)
+    seen_by_name={}
+    def _overlay(kept, x):
+        # a later record for an already-seen place may add sources and an "anime" note (overlay waves) — never
+        # anything else, so an overlay can't silently rewrite a place's prose, area or pin.
+        _merge_sources(kept, x)
+        if x.get("anime") and not kept.get("anime"): kept["anime"]=x["anime"]
     def _take(x, bucket):
         n=x.get("n")
-        if not n or n in seen_names: return
+        if not n: return
+        if n in seen_names: _overlay(seen_by_name[n], x); return
         if x.get("a") not in _area_ids: return  # only records for THIS city's areas
         key=_norm_name(n)
         if key and key in seen_norm:
-            kept=seen_norm[key]; _merge_sources(kept, x)
+            kept=seen_norm[key]; _overlay(kept, x)
             if len(n) < len(kept["n"]): kept["n"]=n
             return
-        seen_names.add(n)
+        seen_names.add(n); seen_by_name[n]=x
         if key: seen_norm[key]=x
         bucket.append(x)
     for path in sorted(glob.glob(os.path.join(D,"*.json"))):
