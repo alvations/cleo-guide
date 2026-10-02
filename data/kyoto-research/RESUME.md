@@ -33,6 +33,12 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
   _note_anime1.md / _note_mich5.md / _note_repin_w3.md, lead ledger _kyoto_w3_leads.json, _kyoto_unpinned_w3.json.
 - Searches used this session: main ~101 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 193.
 
+- 2026-10-02 **W4 (relaunch, own budget) — food-first fill + pins.** FINAL build: **494 discovered (222 sights + 272 food = 55%) / 339 rendered
+  (211 + 128)**; all four gates PASS (high 306 · med 33); `npm run validate` + `npm test` ALL PASS; ★ Anime 9; CARD:kyoto, CITIES.md and the AGENT-PROMPTS run log are refreshed.
+  Discovered/target: CTR 96/95 · HGS 75/75 · SAKYO 62/60 · KITA 51/50 · RKSAI 55/55 · UJI 52/50 · FSHMI 46/45 · RKHKU 30/30 · KYFU 27/25 — **all OK**.
+  Food share: CTR 76 · HGS 71 · RKHKU 50 · KITA 49 · SAKYO 48 · RKSAI 45 · UJI 44 · KYFU 44 · FSHMI 35 (%).
+  Searches this session: main ~98 + workers 53 (sights 25, pins 28) ≈ 151.
+
 ## In-flight wave
 - none (W4 closed; every batch committed and pushed). See State for counts.
 
@@ -54,5 +60,5 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 4. Re-verify pins: Daikichiyama (hill coord, med), Pokémon Center (building coord via Chamber of Commerce page, med).
 
 ## Acceptance
-- [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] every area ≥ target (W4; per-area food ≥50% still open for FSHMI/KYFU/UJI/RKSAI/SAKYO/KITA) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row

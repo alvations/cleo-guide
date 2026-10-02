@@ -313,3 +313,21 @@ a reopening year for Kanō Shōjuan.
 **Closures:** none found. **Pins:** sights from ja-Wikipedia; W4 food is UNVERIFIED, because restaurant place-pins do not surface via WebSearch.
 **Build (W4 checkpoint):** 444 discovered (210 sights + 234 food = 53% food) / 324 rendered (201 + 123). sourcecheck / geocheck (high 299 · med 25) /
 statuscheck / buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Searches: main ~61 + worker 25 = ~86.
+
+### W4 batches 5–14 + close-out (2026-10-02)
+- Food added after the W4 checkpoint (all in FOOD_KYOTO_W6.json): Unagi Hirokawa (Inside Kyoto + Leaf; Michelin status still not claimed), Nara Tanaka
+  kakinoha, Tenkyokudō, Tō no Chaya, Hiraso, Kashiya; Ōtsu Tsuruki Soba, Sunainosato; Kameoka Miyamotoya; Ōhara Doi Shibazuke, Shibakyū, Seryō,
+  Sato-no-Eki Ōhara; Kurama Tamondō; Warajiya; Imanishiken; Michihachi; Okobu Kitasei; Tōji-mochi; Arashiyama Gyātei, Chikusen, Takemura, Kumahiko,
+  Nishiki, eX cafe, Matsugae; Yachiyo; Ichijōji Nakatani; Hara Ryōkaku; Yuba Izumi; Minatoya yūrei-ame; Mo-an; Imobō Hiranoya Honke; Saryō Hōsen;
+  Saruya; Garam Masala; Kanshichi Chaya; Adachi Otoemon.
+- Sights: Keibunsha, Kyoto Museum of Crafts & Design, KU Museum, Ōishi / Nogi / Kisshōin Tenmangū (rescued from held, with the Kyoto City guide as the
+  2nd outlet), Ōtesuji arcade, Ryōma-dōri, Gion Shinbashi / Tatsumi-bashi. ANIME (SIGHTS_KYOTO_ANIME2): Pokémon Center Kyoto, Nintendo KYOTO,
+  Daikichiyama deck (Sound! Euphonium).
+- Pin worker (28 searches): 9 found, 7 kept. Funaoka Onsen and Kizakura are high. Kōbō-san (Tō-ji), Seigen-in (Ryōan-ji), Izusen (Daitoku-ji), Seizan
+  Sōdō (Tenryū-ji) and Ramen Kōji (Kyoto Station) are med, pinned to the feature that contains them. **Rejected under rule 4b:** Matsuba (Minami-za
+  coordinate, but the shop is next door, not inside) and Tsūen (the coordinate may be the Uji Bridge point).
+- Dead ends: Fushimi food beyond the sake bars (Seiwasō, Tsuki no Kurabito, Inari Saryō and Nishimura-tei each had a single outlet); Maizuru and Miyama
+  shops appeared only on DMO pages; Gion counters (Endō, Fugetsu, Kinana, Ranburu) appeared only in Rurubu or Wa-raku.
+- **FINAL W4 build:** 494 discovered (222 sights + 272 food = 55%) / 339 rendered (211 + 128). All four gates PASS (high 306 · med 33 · low 0); validate DATA
+  OK; npm test ALL PASS; ★ Anime 9. **Every area meets its density target.** Food share by area: CTR 76% · HGS 71% · SAKYO 48% · KITA 49% · RKHKU 50% ·
+  RKSAI 45% · UJI 44% · KYFU 44% · FSHMI 35%. Closures found: none. Searches: main ~98 + workers 53 ≈ 151.
