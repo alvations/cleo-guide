@@ -22,12 +22,12 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
 - 2026-10-02 W1 truncated at the shared 200-call cap: 28 discovered.
-- 2026-10-02 **W2 (session 2) — LIVE.** **189 discovered (66 sights + 123 food), 166 rendered (61 sights + 105 food)**;
-  sourcecheck PASS · geocheck PASS (high 161 · med 5) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test
-  PASS. Japan hub CARD:osaka live, root "2 of 5 maps live", CITIES.md row. ~180 searches this session (main ~68 +
+- 2026-10-02 **W2 (session 2) — LIVE.** **196 discovered (71 sights + 125 food), 170 rendered (65 sights + 105 food)**;
+  sourcecheck PASS · geocheck PASS (high 165 · med 5) · statuscheck CONSISTENT · buildcheck PASS · validate + npm test
+  PASS. Japan hub CARD:osaka live, root "2 of 5 maps live", CITIES.md row. ~192 searches this session (main ~80 +
   workers G1 13, S1 29, M1 45, M2 25).
-- Density (`python3 tools/density.py osaka`, discovered): KITA 81/80 OK · MINAM 20/95 (+75) · CHUO 21/45 (+24) ·
-  TNJ 22/55 (+33) · EAST 9/35 (+26) · BAY 5/35 (+30) · SOUTH 6/40 (+34) · NORTH 10/35 (+25) · KNSAI 15/40 (+25).
+- Density (`python3 tools/density.py osaka`, discovered): KITA 81/80 OK · MINAM 25/95 (+70) · CHUO 22/45 (+23) ·
+  TNJ 23/55 (+32) · EAST 9/35 (+26) · BAY 5/35 (+30) · SOUTH 6/40 (+34) · NORTH 10/35 (+25) · KNSAI 15/40 (+25).
 - Files: FOOD_OSAKA_W1/W2/M1/M2.json, SIGHTS_OSAKA_W1/W2/S1.json, SOURCES_OSAKA_W1/W2.json, geo/_geoout_osaka_{W1,W2,
   W2u,G1,M1,M2,S1}.json (W2u = UNVERIFIED backlog). Held: `_held_W1.json`, `_held_S1.json`, `_held_M2.json`
   (Michelin, no dish surfaced), `_pending_osaka_W2.json` (single-source Time Out/OSAKA-INFO leads, Michelin names with
@@ -47,7 +47,7 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 ## Search log`.
 
 ## Search log
-- session 2 searches used: ~180 (main ~68 + G1 13 + S1 29 + M1 45 + M2 25). Multi-name queries that MISS fan out into 4-5 sub-searches — batch only names known to be on the target domain.
+- session 2 searches used: ~192 (main ~80 + G1 13 + S1 29 + M1 45 + M2 25). Multi-name queries that MISS fan out into 4-5 sub-searches — batch only names known to be on the target domain.
 
 ## Next actions (W3 plan, ordered)
 1. **MINAM (+75)** — the biggest gap. Michelin: query `Osaka <genre> Michelin Chuo-ku Namba/Shinsaibashi/Sennichimae`
