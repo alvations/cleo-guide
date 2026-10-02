@@ -185,6 +185,7 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
 | 2026-10-02 | Tokyo | W6 geocode agent | UNVERIFIED pins via Google !3d!4d / Michelin | 4 pins of 93 | 89 no usable place pin | geo/_geofix_tokyo_w6.json |
 | 2026-10-02 | Miami | S3 discovery (food-first, all areas) | domain-restricted list ∩ list (Time Out/Infatuation/NT/Fodor's), NPS, creators | 191 (162 food & drink) | Dos Croquetas (negative Infatuation review), Fookem's (delivery-only), Viernes Culturales (event); ~120 single-outlet held | FOOD_F5.json, SIGHTS_S6.json, CREATORS_F5.json |
 | 2026-10-02 | Miami | S3 geocode agents w4–w8 | sight pins via Wikipedia/hmdb/NPS | 33 pins | Fillmore Miami Beach found CLOSED (2022); Clippix/latlong/tide-gauge coords rejected | geo/_geoout_w4–w8.json, _geoout_zz_status1.json |
+| 2026-10-02 | Tokyo | W7 finishing (food-first close-out + anime + pins) | last 7 NEED areas, ANIME wave, 128 unpinned | +13 (8 food, 5 anime) · 26 pins · 6 address fixes | Allpress Kiyosumi (closing autumn 2026); Funabashiya/Tonkatsu Hasegawa/Namiki Yabusoba/Azabu Hikawa held (1 source or stale award) | FOOD/SIGHTS/SOURCES_TOKYO_W7.json, geo/_geofix_tokyo_w7.json, _w7_*_verified.json |
 | 2026-10-02 | Okinawa | W4 pin-first + discovery + anime (9 bg agents) | geocode 125 unpinned; Naha/Chūbu/Nanbu/Hokubu/islands food & drink; anime | +44 places, +41 pins (89→130) | aggregator coords graded low; 5 untraceable coords demoted; Ukishima Garden → held (constructed URL) | geo/_geoout_okinawa_W4G1–G5/D1–D3/A.json, *_OKINAWA_W4D*.json |
 
 ## Lessons learned (successes, failures, and the code fix each produced)
@@ -265,6 +266,7 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
   query made the search summary echo it back as confirmed. Query the venue names only ("GO TOKYO spot address: A; B;
   C; D", 4 names, `gotokyo.org`), compare the returned address to the record, and coarsen to the sourced locality when
   the page gives none or sources disagree. Log per-place results (`_addrcheck_w3.json` pattern).
+- **ja.wikipedia `座標` batch queries pin Japanese shinise; trust only matched articles** (Tokyo W7): `<name A> 座標; <name B> 座標; <name C> 座標` restricted to ja.wikipedia.org pinned 18 heritage shops/museums/department stores (~50% hit). But the summariser cross-contaminates coordinates between names in one query (八ッ手屋 got Daikokuya's Asakusa point; ぼたん and 竹むら got one identical point): accept a point only when the matching article is in the result links and the point fits the address; identical points for two venues → `med`. Google `!3d!4d`, Michelin venue pages, Apple Maps and OSM do NOT expose coordinates to WebSearch for small venues (0/12) — leave those to `tools/geocode-helper.html`.
 - **Michelin discovery by ward** (Tokyo W3): `"Shibuya-ku" "Bib Gourmand" "2026 MICHELIN Guide Japan"` (one ward per
   query, `guide.michelin.com`) lists that ward's current Bibs with addresses; the annual "new Bib Gourmands" / "newly
   starred" / "inspectors' favourite dishes" articles give named-dish candidates. Pins: 2–3 exact names + "Michelin
