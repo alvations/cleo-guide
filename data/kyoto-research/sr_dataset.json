@@ -4193,6 +4193,76 @@
      "https://ja.wikipedia.org/wiki/春日山原始林"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Chion-ji (智恩寺), Amanohashidate",
+   "ad": "Monju, Miyazu, Kyoto Prefecture (south end of the Amanohashidate sandbar)",
+   "w": "Rinzai Zen temple at the sandbar's southern entrance housing one of Japan's 'Three Important Monju Bosatsu' statues — students pray here for wisdom; 1500s two-storey tahōtō pagoda.",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3993.html"
+    ],
+    [
+     "AMANOHASHIDATE",
+     "https://www.amanohashidate.jp/lang/en/spots/chionji/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/智恩寺_(宮津市)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KYFU",
+   "n": "Moto-Ise Naikū Kōtai Jinja (元伊勢内宮皇大神社)",
+   "ad": "Fukuchiyama, Kyoto Prefecture",
+   "w": "Said to have held Amaterasu's sacred mirror before it settled at Ise Jingū; keeps a tradition of prayers to repel oni.",
+   "g": [
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/en/faq/detail.php?faq_id=507"
+    ],
+    [
+     "JNTO",
+     "https://www.japan.travel/en/destinations/kansai/kyoto/another-kyoto/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/皇大神社_(福知山市)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KYFU",
+   "n": "Fukuchiyama Castle (福知山城)",
+   "ad": "Fukuchiyama, Kyoto Prefecture",
+   "w": "Castle of the town Akechi Mitsuhide built while ruling the Tanba region under Oda Nobunaga.",
+   "g": [
+    "CASTLE",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/en/faq/detail.php?faq_id=508"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/福知山城"
+    ]
+   ]
   }
  ],
  "F": [
@@ -7366,9 +7436,233 @@
      "https://matcha-jp.com/en/18429"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Taihōan (対鳳庵), Uji",
+   "ad": "Near Byōdō-in (by the Uji Tourist Information Center), Uji, Kyoto Prefecture",
+   "w": "Uji's public tea house: an authentic tea ceremony at a modest price, a short walk from Byōdō-in.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3977.html"
+    ],
+    [
+     "MATCHA",
+     "https://matcha-jp.com/en/23123"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Fukujuen Uji Kōbō (福寿園 宇治茶工房)",
+   "ad": "Across the Uji River from Taihōan, Uji, Kyoto Prefecture",
+   "w": "Workshop of the 1790-founded Fukujuen tea house: grind your own matcha, then eat tea-based dishes upstairs.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3977.html"
+    ],
+    [
+     "MATCHA",
+     "https://matcha-jp.com/en/23123"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Mitsuboshien Kanbayashi Sannyū Honten (三星園 上林三入)",
+   "ad": "27-2 Uji Renge (Byōdō-in Omotesandō), Uji, Kyoto Prefecture",
+   "w": "On the Byōdō-in approach: a tea house over 500 years old, once a designated tea merchant to the shogunate.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KYOTOPREF",
+     "https://www.pref.kyoto.jp/kyotoyamashiro/en/tea.html"
+    ],
+    [
+     "MATCHA",
+     "https://matcha-jp.com/en/23123"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Katsukura Sanjō Honten (名代とんかつ かつくら 三条本店)",
+   "ad": "Sanjō-dōri, Nakagyō-ku, Kyoto",
+   "w": "Kyoto-born tonkatsu house whose Sanjō main shop sets the city's cutlet standard.",
+   "cz": [
+    "TEMPURA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://ja.kyoto.travel/tourism/single01.php?category_id=4&tourism_id=2558"
+    ],
+    [
+     "INSIDEKYOTO",
+     "https://www.insidekyoto.com/katsukura-sanjo-main-shop"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "wabiya (Shimogyō)",
+   "ad": "554 Sangen-chō, Shimogyō-ku, Kyoto 600-8097",
+   "w": "MICHELIN-listed yakitori and chicken-speciality restaurant.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/wabiya"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Kikunoi Roan (菊乃井 露庵)",
+   "ad": "118 Saitō-chō, Shimogyō-ku, Kyoto 600-8012",
+   "w": "Two MICHELIN Stars (2026): the Kikunoi house's counter restaurant — Inside Kyoto calls it the more affordable, less orthodox of the two.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-roan"
+    ],
+    [
+     "INSIDEKYOTO",
+     "https://www.insidekyoto.com/best-kaiseki-japanese-haute-cuisine-in-kyoto"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Takocho (蛸長)",
+   "ad": "1-237 Miyagawa-suji, Higashiyama-ku, Kyoto 605-0801",
+   "w": "MICHELIN-listed (2026) oden counter in the Miyagawa-chō geisha quarter.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/takocho"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Torisho sai",
+   "ad": "237 Daimonji-chō, Nakagyō-ku, Kyoto 604-8315",
+   "w": "MICHELIN-listed yakitori counter in Nakagyō.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisho-sai"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "DODICI",
+   "ad": "239 Kamihakusan-chō, Nakagyō-ku, Kyoto 604-0943",
+   "w": "One MICHELIN Star (2026) Italian: a chef trained in Italy giving the cooking a Japanese essence.",
+   "cz": [
+    "INT",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/dodici"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Hashidate Chaya (はしだて茶屋), Amanohashidate",
+   "ad": "On the Amanohashidate sandbar (Monju side), Miyazu, Kyoto Prefecture",
+   "w": "The tea-house restaurant on the sandbar itself — the classic asari-don stop on the walk across 'the bridge to heaven'.",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3992.html"
+    ],
+    [
+     "AMANOHASHIDATE",
+     "https://www.amanohashidate.jp/lang/en/meal/2014/10/16/hashidatetyaya/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Tsuruya Shokudō (つるや食堂), Amanohashidate",
+   "ad": "By Fuchū Station (Amanohashidate Cable Car), Miyazu, Kyoto Prefecture",
+   "w": "85-year-old canteen at the cable-car station whose locally-caught seafood bowl is Miyazu's signature lunch.",
+   "cz": [
+    "SUSHI",
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MATCHA",
+     "https://matcha-jp.com/en/18018"
+    ],
+    [
+     "AMANOHASHIDATE",
+     "https://www.amanohashidate.jp/lang/en/meal/2014/10/08/turuyasyokudou/"
+    ]
+   ]
   }
  ],
  "S": {
+  "AMANOHASHIDATE": {
+   "k": "AMANOHASHIDATE",
+   "t": "Amanohashidate Tourism Association (amanohashidate.jp)",
+   "u": "https://www.amanohashidate.jp/lang/en/",
+   "l": "Amanohashidate Tourism Association (amanohashidate.jp)"
+  },
   "ANATRAVEL": {
    "k": "ANATRAVEL",
    "t": "ANA Japan Travel Planner",
@@ -7396,6 +7690,12 @@
   "JAPANGUIDE": {
    "k": "JAPAN-GUIDE",
    "t": "JAPAN-GUIDE",
+   "u": "",
+   "l": ""
+  },
+  "JNTO": {
+   "k": "JNTO",
+   "t": "JNTO",
    "u": "",
    "l": ""
   },
@@ -7485,6 +7785,12 @@
   }
  },
  "FS": {
+  "AMANOHASHIDATE": {
+   "k": "AMANOHASHIDATE",
+   "t": "Amanohashidate Tourism Association (amanohashidate.jp)",
+   "u": "https://www.amanohashidate.jp/lang/en/",
+   "l": "Amanohashidate Tourism Association (amanohashidate.jp)"
+  },
   "ASIA50": {
    "k": "ASIA'S 50 BEST",
    "t": "ASIA'S 50 BEST",
@@ -7532,6 +7838,12 @@
    "t": "Kansai International Airport — Explore Kansai",
    "u": "https://www.kansai-airport.or.jp/explorekansai/",
    "l": "Kansai International Airport — Explore Kansai"
+  },
+  "KYOTOPREF": {
+   "k": "KYOTOPREF",
+   "t": "Visit Kyoto Yamashiro (Kyoto Prefectural Government)",
+   "u": "https://www.pref.kyoto.jp/kyotoyamashiro/en/",
+   "l": "Visit Kyoto Yamashiro (Kyoto Prefectural Government)"
   },
   "KYOTOTOURISM": {
    "k": "KYOTO CITY TOURISM",

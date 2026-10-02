@@ -21,42 +21,42 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 
 ## State
 - 2026-10-02 scaffolded; W1 partial (12 places) halted at the shared 200-search cap.
-- 2026-10-02 **W2 (relaunch, own budget) — LIVE.** Page `cities/kyoto.html`, linked from the Japan hub (CARD:kyoto),
-  root CARD:japan "4 of 5 maps live", docs/CITIES.md row. Last full build: **229 discovered / 216 rendered (152 sights + 64 food)**;
-  sourcecheck / geocheck / statuscheck / buildcheck PASS; `npm run validate` + `npm test` ALL PASS. All batches are built.
-- Discovered/rendered per area at last build (target): HGS 41/40 (75) · CTR 45/41 (95) · UJI 29/26 (50) · SAKYO 25/24 (60) ·
-  KITA 25/25 (50) · RKSAI 24/24 (55) · FSHMI 16/13 (45) · RKHKU 12/12 (30) · KYFU 12/11 (25).
-- Files: SIGHTS_KYOTO_{HGS1,HGS2,UNESCO,CTR1,SAKYO1,RKSAI1,KITA1,FSHMI1,UJI1,RKHKU1,KYFU1}.json; FOOD_KYOTO_{HGS1,W2,W3,W4}.json;
-  SOURCES_KYOTO_{W1,W2}.json; geo/_geoout_kyoto_*.json (incl. `_mpins` from the Michelin pin worker). Helpers: `_kyoto_add.py`
-  (append/dedup), `_kyoto_rows.py` (sight rows → SIGHTS + geoout), `_kyoto_food.py` (food rows → FOOD + geoout), `_kyoto_push.sh`
-  (pull, regenerate a conflicted GEOCODE-BACKLOG, push; run under the lock).
-- Search budget used this session: ~180 (main 162 + pin worker 18). Per-batch counts are in AUDIT.md.
+- 2026-10-02 W2 (relaunch) — LIVE at 229 discovered / 216 rendered.
+- 2026-10-02 **W3 (relaunch, own budget) — FOOD & DRINK FIRST + ANIME.** Last full build: **362 discovered (183 sights + 179 food
+  = 49% food) / 296 rendered (178 + 118)**; sourcecheck / geocheck (high 277 · med 19) / statuscheck / buildcheck PASS;
+  `npm run validate` + `npm test` ALL PASS. CARD:kyoto + docs/CITIES.md refreshed. ★ Anime collection: 7 places.
+- Discovered per area (target): CTR 95+ (95, OK) · HGS 60 (75) · UJI 44 (50) · RKSAI 36 (55) · KITA 37 (50) · SAKYO 34 (60) ·
+  FSHMI 27 (45) · KYFU 18 (25) · RKHKU 17 (30). Run `python3 tools/density.py kyoto` for live numbers.
+- W3 files: FOOD_KYOTO_W5.json (66 non-Michelin + a few Michelin food & drink), FOOD_KYOTO_MICH5.json (43 Michelin, worker),
+  SIGHTS_KYOTO_W3S.json (22 sights), SIGHTS_KYOTO_ANIME1.json (3), SOURCES_KYOTO_W3.json, CREATORS_KYOTO_W3.json,
+  geo/_geoout_kyoto_{food_w5,mich5,w3s,anime1}.json, geo/_repin_kyoto_w3.json (72 pins applied by name), notes
+  _note_anime1.md / _note_mich5.md / _note_repin_w3.md, lead ledger _kyoto_w3_leads.json, _kyoto_unpinned_w3.json.
+- Searches used this session: main ~93 + workers 92 (anime 22, Michelin 40, pins 30) ≈ 185.
 
 ## In-flight wave
-- **W3 (2026-10-02, relaunch, own budget) — FOOD & DRINK FIRST + ANIME.** Files: FOOD_KYOTO_W5.json (food batches),
-  SIGHTS_KYOTO_ANIME1.json (anime wave), geo/_geoout_kyoto_food_w5.json, geo/_geoout_kyoto_anime1.json.
-  Queries planned: Michelin Bib by ward → pins; Tabelog 百名店 genre lists (ramen/udon-soba/喫茶/パン/和菓子/バー) + KT/JG 2nd source;
-  Fushimi sake breweries; Nishiki stalls; kissaten; craft beer; Pontochō/Kiyamachi bars; creators; anime wave.
-  Search counter (this session): main ~31 + anime worker 22 (+ Michelin worker running, ≤40).
+- none (W3 closed cleanly; every batch committed and pushed).
 
-## Next wave plan (W3) — ordered, with the cheapest proven techniques
-1. **Held leads first (1 search each, or fewer):** Shōkoku-ji, Rozan-ji, Daihōon-ji, Honnō-ji, Shinsen-en, Tōji-in, Seigan-ji, Goō Shrine,
-   Funaoka Onsen, Kurama Onsen, Ōmi Jingū, Ukimidō, Fukuchiyama Castle, Gokō-no-miya, Bishamon-dō (all have Wikipedia/ja coords and need a
-   2nd source). Use kyoto.travel / japan-guide domain-filtered OR-queries of ≤5 names.
-2. **Michelin food by ward** (FSHMI, RKHKU, KYFU, UJI thinnest): `allowed_domains=["guide.michelin.com"]` "Kyoto <ward> Bib Gourmand
-   restaurant cuisine address" → then a pin query "<A>; <B>; <C> Kyoto address latitude longitude". Held for a dish/cuisine: Oito, Tan,
-   Eitaroya, Muromachi Kaji, Nishijin Hashimoto, Shimogamo Saryo/Ichima, middle, Kenya, Nakazen, MOKO, KOKAGE, TOKI, Kyoboshi,
-   Bistro Yanagihara, BOCCA del VINO, Menya Inoichi, Ike Edoyakiunagi Asahitei (Nara). UNVERIFIED pins: Okakita, Shutei Bankara.
-3. **Non-Michelin canon (needs ≥2 editorial):** Demachi Futaba (mame-mochi), Kazariya/Ichiwa (aburi-mochi), Kagizen Yoshifusa, Inoda Coffee,
-   Smart Coffee, Rokuyōsha, Okutan / Junsei (yudofu), Honke Owariya, Matsuba (nishin soba), Ippodō, Taihōan, Kizakura Kappa Country,
-   Fushimi Yume Hyakushu, Torisei. Pair kyoto.travel feature pages with japan-guide / ja.wikipedia (many old shops have ja articles with coords).
-4. **Sights fill** per area via ja.wikipedia 座標 batches (5–6 names known to have articles) + JG/KT second source.
-5. **Creators (§2a):** still 0 vetted. Try named creators directly (e.g. "Paolo fromTOKYO Kyoto", "Abroad in Japan Kyoto", "Kyoto
-   Foodie" (local English site), "Inside Kyoto" (Ruth Kenny, guidebook author)); attach only with a findable place-specific piece.
-6. Re-verify med pins (Pontochō, Togetsukyō, Kamishichiken, Nara Park, Mount Wakakusa, Botanical Gardens, Enryaku-ji, Heijō, Shimabara,
-   Philosopher's Path, Gion & Hanamikoji, Higashiyama District) and run `node tools/research.js --statuscheck kyoto`.
+## Next wave plan (W4) — ordered, cheapest proven techniques first
+1. **Michelin pins + new names (best yield: ~3 pinned/search):** allowed_domains guide.michelin.com, "<A>; <B>; <C>; <D> Kyoto MICHELIN
+   cuisine address latitude longitude" — the search tool fans out sub-queries and returns venue lat/lng. Unadded names seen:
+   YOKOI ★, TAKAYAMA ★ (Italian), Wagokoro Izumi ★, Doppo ★★, Tokuo, Kappo Takohachi, ristorante DONO (Okazaki), en, Shichiku Kiko,
+   Germoglio ★, ima ★, Gion Matayoshi ★★, Kentan Horibe ★ — each still needs a NAMED dish from Michelin text (else hold).
+2. **Inside Kyoto category lists × Leaf/KT/Time Out pairing** (≈1–1.5 places/search): IK pages not yet mined — best kissaten,
+   best cafés, best tea & sweet shops (Kasagiya, Umezono), best affordable sushi (Azuma Sushi, Sushisei, Den Shichi), cheap eats,
+   best soba/udon (Yamamoto Menzou), restaurants near Ginkaku-ji / Fushimi Inari (Nezameya), best shōjin (Yoshūji). Pair with
+   ja.kyoto.travel (京都観光Navi) listings or Leaf store pages.
+3. **Held single-source leads** (see AUDIT W3 'HELD'): Smart Coffee, Tenkaippin Sōhonten, Tentenyu Honten, Bee's Knees, Kyoto Beer
+   Lab, BEFORE9, Nishijin Beer, Akagakiya, Gion Tokuya, Umezono, Yoshūji, Nezameya, Imobō Hiranoya Honke (KT), Nishiri (KT),
+   Ugenta / Hyōe (Kibune, Leaf), Momiji-ya (Takao, KT), Honke Tsuruki Soba (Ōtsu, Biwako Visitors), Restaurant Funaya (Ine).
+4. **Sights fill** in SAKYO/RKSAI/FSHMI/RKHKU via ja.wikipedia 座標 batches (6 names → 6 coords per search) + one JG/KT/LP query for
+   the 2nd source. Held: Hōkyō-in, Akishino-dera, Hokke-ji, Kameoka (Yunohana onsen), Amanohashidate View Land, Takiguchi-dera.
+5. **ANIME:** Pokémon Center Kyoto (SUINA Muromachi 2F since 2019) and Nintendo KYOTO (Takashimaya S.C. T8) need one credible
+   outlet beyond the official pages; Daikichiyama deck (Euphonium) needs ja.wikipedia URL + 仏徳山 coords; Animate Kyoto (Avanti).
+6. **Pins:** 66 UNVERIFIED (mostly non-Michelin food) — `tools/geocode-helper.html` in a browser, or a Google `!3d!4d` pass.
+7. Re-verify flagged pins: Torisaki / shiro / Muromachi Yui (~30 m apart, Takoyakushi block).
 Commands: `python3 tools/density.py kyoto`; `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py kyoto --build`;
-`cd tools && npm run validate && npm test`; push via `flock … data/kyoto-research/_kyoto_push.sh`. Refresh CARD:kyoto counts + CITIES.md row.
+`node tools/research.js --{sourcecheck,geocheck,statuscheck,buildcheck} kyoto`; `cd tools && npm run validate && npm test`;
+push via `flock … bash data/kyoto-research/_kyoto_push.sh`. Refresh CARD:kyoto counts + the CITIES.md row after each build.
 
 ## Acceptance
 - [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
