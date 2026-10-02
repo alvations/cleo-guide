@@ -62,12 +62,6 @@
    "need": "coords"
   },
   {
-   "n": "Kawagoe Toki no Kane (Time Bell Tower)",
-   "a": "KANTO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Time_Bell_Tower coords 35.9234889,139.4833139",
-   "need": "2nd"
-  },
-  {
    "n": "Taishakuten-sando",
    "a": "JOTO",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/33/index.html",
@@ -102,6 +96,30 @@
    "a": "JONAN",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/103/",
    "need": "coords + 2nd"
+  },
+  {
+   "n": "Yokohama Chinatown",
+   "a": "KANTO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Yokohama_Chinatown coords 35.442815,139.645929",
+   "need": "2nd"
+  },
+  {
+   "n": "Sankei-en",
+   "a": "KANTO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sankei-en coords 35.41695,139.660042",
+   "need": "2nd"
+  },
+  {
+   "n": "Owakudani",
+   "a": "KANTO",
+   "have": "JAPANGUIDE https://www.japan-guide.com/e/e5203.html",
+   "need": "coords + 2nd"
+  },
+  {
+   "n": "Shinkyo Bridge",
+   "a": "KANTO",
+   "have": "JAPANGUIDE https://www.japan-guide.com/e/e3814.html; WIKIPEDIA Shinkyo",
+   "need": "bridge coords"
   }
  ]
 }
