@@ -119,3 +119,19 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
   wrong building — rejected).
 - **Build 2:** 340 discovered (218 food & drink = 64%) → 103 on page (91 sights + 12 food). sourcecheck 340 PASS (42 lone
   authority); geocheck PASS; statuscheck CONSISTENT, 0 unchecked; buildcheck PASS; validate DATA OK; test ALL PASS.
+
+## 2026-10-02 (session 3, final) · build 3 + closure + wrap-up
+- **Last adds:** FTL classics (Tropical Acres, Jack's Old Fashioned, Old Heidelberg — Infatuation 20 classic FTL ∩ NT/Fodor's),
+  S3 + Casablanca Café (NT FTL beach ∩ Fodor's), Nour Thai, Homestead (Yardie Spice, White Lion Cafe, Taqueria Morelia,
+  La Cruzada), tacos (Taquerias El Mexicano ∩ NT Best Tacos 2025, Coyo Taco), Brickell bars (Panamericano, Baby Jane),
+  seafood (River Oyster Bar, Captain Jim's), D. A. Dorsey House.
+- **Closure found:** The Fillmore Miami Beach (Jackie Gleason Theater) — **CLOSED** 31 May 2022 (Miami New Times + WLRN, Mar
+  2024; no reopening found). Kept, renamed `— CLOSED`, `closed:true`. Geocode w7 had marked it "open" on a Songkick listing —
+  rejected as unconfirmed (lesson: a ticketing listing is not open-status evidence).
+- **Geocode w8** (10 searches): D. A. Dorsey House high (Wikipedia 25°46′57″N 80°11′56″W). Rejected: Clippix ETC photo-page
+  coords for Coe VC / Mahogany Hammock (not an allowed source), convention-centre coord for the Fillmore.
+- **Session totals:** 166 → 357 discovered (+191: +162 food & drink, +29 sights) — food & drink share 66%;
+  71 → 104 pinned (+33, all sights; restaurant pins remain blocked on WebSearch). WebSearch ≈ 210 calls this session
+  (main ≈ 95 logged + ≈ 30 tool sub-searches; subagents 29 + 18 + 16 + 12 + 10 = 85).
+- **Build 3:** sourcecheck 357 PASS (42 lone authority); geocheck PASS; statuscheck CONSISTENT (1 closed on page, 0 unchecked);
+  buildcheck PASS; `npm run validate` DATA OK; `npm test` ALL PASS. Card: 92 sights · 12 food on the map (357 researched, 66%).

@@ -181,6 +181,8 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
 | 2026-10-02 | Tokyo | W6 drinks agent | kissaten, kakigōri, bars, craft beer | 17 | DUG closed 27 Jun 2026 (Time Out); chains/padding dropped | _w6_drinks_verified.json |
 | 2026-10-02 | Tokyo | W6 outer-area agent | TAMA/JOTO/KANTO/SMKT canon | 4 (+3 held) | 11 one-outlet candidates dropped | _w6_outer_verified.json |
 | 2026-10-02 | Tokyo | W6 geocode agent | UNVERIFIED pins via Google !3d!4d / Michelin | 4 pins of 93 | 89 no usable place pin | geo/_geofix_tokyo_w6.json |
+| 2026-10-02 | Miami | S3 discovery (food-first, all areas) | domain-restricted list ∩ list (Time Out/Infatuation/NT/Fodor's), NPS, creators | 191 (162 food & drink) | Dos Croquetas (negative Infatuation review), Fookem's (delivery-only), Viernes Culturales (event); ~120 single-outlet held | FOOD_F5.json, SIGHTS_S6.json, CREATORS_F5.json |
+| 2026-10-02 | Miami | S3 geocode agents w4–w8 | sight pins via Wikipedia/hmdb/NPS | 33 pins | Fillmore Miami Beach found CLOSED (2022); Clippix/latlong/tide-gauge coords rejected | geo/_geoout_w4–w8.json, _geoout_zz_status1.json |
 
 ## Lessons learned (successes, failures, and the code fix each produced)
 - **UNESCO WHC `/list/<id>/maps` pages carry per-component coordinates** (Kyoto, 2026-10-02): two searches ("whc.unesco.org 688 maps <component names> coordinates N E") gave 23 lone-authority sights with pins. Try this first for any serial World Heritage property. Also: a `ja.wikipedia.org`-filtered query of 5–6 Japanese names + 座標 returns up to 5 published coordinates where enwiki has no article; and in a multi-name Wikipedia query, one name WITHOUT an article makes the tool retry internally (~6 searches), so pre-screen the names.

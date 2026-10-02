@@ -452,3 +452,15 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   (allowed_domains guide.michelin.com) — ~50% of calls return all 3 pins; the 2026 three/two-star list was largely missing from
   the map and became the cheapest source of PINNED food. Department stores have no building coords on Wikipedia (district
   points only); openstreetmap.org is not indexed by WebSearch (wiki pages only). Google `!3d!4d` via WebSearch: 4 pins in 28 tries.
+
+## 2026-10-02 — Miami (session 3)
+- **"list every X named in <outlet> <guide>" + `allowed_domains=[one outlet]`** makes WebSearch return a whole list (12–50 names)
+  instead of a 3-name summary. Intersecting two such lists (Time Out ∩ Infatuation, NT ∩ Fodor's, Infatuation ∩ NT Best-of)
+  yielded 4–15 two-source places per pair of searches — ~3× the per-place corroboration rate.
+- `allowed_domains` containing eater.com makes the whole call fail (domain not accessible to the search tool) — omit it.
+- Multi-clause queries ("A; B; C") often trigger 2–5 internal sub-searches; budget them as several calls.
+- Restaurant place pins: 4 probes (google `!3d!4d`, mapcarta, "GPS coordinates", raw `!3d25`) → 0 coords. Leave restaurants
+  UNVERIFIED for tools/geocode-helper.html; spend WebSearch on discovery + Wikipedia/hmdb sight pins.
+- geo-merge applies `_geoout_*.json` in sorted order: a status-only correction file must sort LAST (`_geoout_zz_*`) or an older
+  wave's `unknown` row overwrites it.
+- A ticketing listing (Songkick) is not open-status evidence: the Fillmore Miami Beach has been closed since May 2022 (NT/WLRN).

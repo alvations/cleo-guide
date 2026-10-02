@@ -86752,14 +86752,14 @@
     "statusChecked": "2026-10-02"
    },
    "Ernest F. Coe Visitor Center": {
-    "address": "40001 State Road 9336, Homestead, FL 33034",
+    "address": "40001 SR 9336, Homestead, FL 33034",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "nps.gov Ernest F. Coe page https://www.nps.gov/ever/learn/historyculture/ernestcoe.htm (visitor center named 1996; open 365 days per NPS/visitor listings). Coordinate seen only on lotsafunmaps.com (25°23'42.46\"N 80°35'2.45\"W) — not an allowed source, so withheld",
+    "status": "unknown",
+    "statusSource": "No status source searched this wave.",
     "statusChecked": "2026-10-02"
    },
    "Nike Missile Site HM-69": {
@@ -86774,14 +86774,14 @@
     "statusChecked": "2026-10-02"
    },
    "Mahogany Hammock Trail": {
-    "address": "Main Park Road (mile ~20), Everglades National Park, FL",
+    "address": "Main Park Rd, Everglades National Park, FL",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
-    "status": "open",
-    "statusSource": "nps.gov Everglades trails (Main Park Road trail, operating); no allowed coordinate source found",
+    "status": "unknown",
+    "statusSource": "No status source searched this wave.",
     "statusChecked": "2026-10-02"
    },
    "Gumbo Limbo Trail": {
@@ -86939,25 +86939,25 @@
     "statusChecked": "2026-10-02"
    },
    "Miami Beach Bandshell": {
-    "address": "7275 Collins Ave, Miami Beach",
+    "address": "7275 Collins Ave, Miami Beach, FL 33141",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Songkick venue page lists Sep–Nov 2026 concerts (e.g. Buena Vista Orchestra 21 Nov 2026) https://songkick.com/venues/14982-miami-beach-bandshell",
+    "statusSource": "Wikipedia 'North Beach Bandshell' + miamibeachbandshell.com / Songkick 2026 event listings: operated by the Rhythm Foundation for the City of Miami Beach, 2026 events listed. Checked 2026-10-02.",
     "statusChecked": "2026-10-02"
    },
    "Calle Ocho Walk of Fame": {
-    "address": "SW 8th St 12th–17th Ave, Miami",
+    "address": "SW 8th St between SW 12th & SW 17th Ave, Miami, FL",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "unknown",
-    "statusSource": "not checked (search budget); public sidewalk installation",
+    "statusSource": "No status source found (sidewalk stars, VisitFlorida describes location only).",
     "statusChecked": "2026-10-02"
    },
    "Ted Smallwood Store": {
@@ -86983,14 +86983,14 @@
     "statusChecked": "2026-10-02"
    },
    "Miccosukee Indian Village": {
-    "address": "Tamiami Trail ~40 mi W of Miami (MM 70, US 41)",
+    "address": "Mile Marker 36, US-41 (Tamiami Trail), Miami, FL 33194",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
     "verified": "2026-10-02",
     "confidence": "UNVERIFIED",
     "status": "open",
-    "statusSource": "Official https://miccosukee.com/village — open Thu–Sun 9am–4pm, lists scheduled 2026 closure dates (Jun–Nov 2026)",
+    "statusSource": "Greater Miami CVB official listing 'Miccosukee Indian Village & Airboat Rides' (https://www.miamiandbeaches.com/l/attractions/miccosukee-indian-village-and-airboat-rides/2155) current. Checked 2026-10-02.",
     "statusChecked": "2026-10-02"
    },
    "Big Cypress Bend Boardwalk (Fakahatchee Strand)": {
@@ -87002,6 +87002,28 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Florida State Parks https://floridastateparks.org/learn/big-cypress-bend-boardwalk — 8am–sunset 365 days; pavilion restrooms temporarily closed effective June 2, 2026",
+    "statusChecked": "2026-10-02"
+   },
+   "The Fillmore Miami Beach (Jackie Gleason Theater) — CLOSED": {
+    "address": "1700 Washington Ave, Miami Beach, FL 33139",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Miami New Times + WLRN (Mar 2024): closed 31 May 2022, no reopening found (geocode w8); w7's Songkick-listing 'open' rejected as unconfirmed",
+    "statusChecked": "2026-10-02"
+   },
+   "D. A. Dorsey House": {
+    "address": "250 NW 9th St, Miami, FL",
+    "lat": 25.7825,
+    "lng": -80.19889,
+    "source": "Wikipedia 'D. A. Dorsey House' https://en.wikipedia.org/wiki/D._A._Dorsey_House printed 25°46′57″N 80°11′56″W (25.78250, -80.19889); address 250 NW 9th St confirmed same page (NRHP 1989)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "unknown",
+    "statusSource": "No 2025/2026 source found stating public visiting hours; a GoFundMe 'restore historic Dorsey home' (https://www.gofundme.com/f/restorehistoricdorseyhome) suggests restoration need, not open status. Checked 2026-10-02.",
     "statusChecked": "2026-10-02"
    }
   }

@@ -24,11 +24,14 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- **Session 3 wave F5/S6 (in progress):** food-first discovery into `FOOD_F5.json` (+ `SIGHTS_S6.json`), every NEED area,
-  FTL first; background geocode subagent → `geo/_geoout_w4.json` (23 unpinned sights + notable restaurants, ≤30 searches).
-  Search log continues in `_miami_searchlog.md` (§ Session 3). Restaurant pin probes via WebSearch: 4 tries, 0 coords (dead).
+- none (session 3 ended cleanly: discovery wave F5/S6 + geocode w4–w8 finished, built, pushed).
 
 ## State
+- 2026-10-02 session 3 FINAL — 357 discovered (234 food & drink = 66%) → 104 pinned (92 sights + 12 food); 4 gates + validate + test green.
+  Density: CGCG 50/55 · DTB 35/55 · FTL 50/75 · GLADE 34/40 · LHAV 42/55 · MBCH 45/65 · NMIA 24/40 · SDADE 28/55 · WYN 49/60.
+  Session-3 files: FOOD_F5.json (151), SIGHTS_S6.json (40), CREATORS_F5.json, SOURCES_S3.json, geo/_geoout_w4–w8.json,
+  geo/_geoout_zz_status1.json (status-only rows; MUST sort last), _miami_push.sh (commit+pull+push, auto-resolves the
+  generated GEOCODE-BACKLOG conflict). Held single-outlet leads: _PENDING_LEADS.md § Session 3.
 - 2026-10-02 session 3 build 2 — 340 discovered (218 food & drink, 64%) → 103 pinned (91 sights + 12 food). Gates green.
   Density: CGCG 50/55 · DTB 31/55 · FTL 44/75 · GLADE 34/40 · LHAV 41/55 · MBCH 45/65 · NMIA 23/40 · SDADE 24/55 · WYN 48/60.
 - 2026-10-02 session 3 — 277 discovered (177 food & drink, 64%) → 92 pinned (80 sights + 12 food). Gates + validate + test green.
@@ -46,16 +49,25 @@ municipality/neighbourhood (address).
 - 2026-10-02 session 1: scaffolded (consolidate.py, build-miami.py, brief, SOURCES_SEED.json).
 
 ## Next actions (next wave plan)
-1. **Restaurant pins (biggest win, no WebSearch):** 95 UNVERIFIED — mostly restaurants (all Michelin stars/Bibs,
-   Versailles, Sanguich, El Mago…). Run `tools/geocode-helper.html` in a browser for place pins (`!3d!4d`), write
-   `geo/_geoout_helper.json`, rebuild. Also Little Havana sights (Calle Ocho, Domino Park, Tower Theater) + Robert Is Here.
-2. Status check the 18 "unknown" (Brasserie Laurel, Cvi.che 105 downtown, Chez Le Bebe, Chef Creole, Michael's Genuine,
-   Mandolin, F3 Michelin adds) and Havana Harry's.
-3. Promote `_PENDING_LEADS.md` with one corroborating search each (Hialeah, Doral arepas, Kendall, key lime pie, burgers,
-   South Beach Infatuation list, FTL Rustic Inn/Steak 954).
-4. Discovery waves by need: FTL (+58), MBCH (+48), LHAV (+40), SDADE (+41), DTB (+38) — food first (Broward New Times
-   lists, Hollywood/Dania, Nicaraguan fritanga in Sweetwater, conch, Peruvian in Kendall), ≥1 creator query per wave.
-5. Budget: size ~1.5–2 searches/place; restaurant geocoding via WebSearch yields ~0 — use the helper.
+1. **Restaurant pins (biggest win; WebSearch cannot do it — 4 probes, 0 coords):** 230+ UNVERIFIED food places. Run
+   `tools/geocode-helper.html` in a browser for google `!3d!4d` place pins → `geo/_geoout_helper.json` → rebuild. Food on the
+   map is only 12 of 234 discovered.
+2. **Sight pins still UNVERIFIED:** Las Olas Blvd, FTL Beach, Domino Park, Tower Theater, Cuban Memorial Blvd, Black Police
+   Precinct (NRHP 100004974), Rubell, Margulies, Museum of Graffiti, ICA, Loop Road, Clyde Butcher, Skunk Ape, South Beach,
+   Sunny Isles/Surfside/Bal Harbour/Hallandale beaches, Newport Pier, Broward Center, Jungle Queen, Bandshell, Fillmore,
+   Miccosukee Village, Big Cypress Bend, Calle Ocho Walk of Fame, Coe VC, Mahogany Hammock, Nine Mile Pond, West Lake.
+   Try Wikipedia coord phrasing (`"<name>" coordinates 25°`) and hmdb markers; never Clippix/latlong-style pages unless the
+   printing page is named. Re-verify the med pier points (Deerfield/Pompano/Dania from diveagainstdebris) and Hollywood Broadwalk.
+3. **Promote held leads** (`_PENDING_LEADS.md` § Session 3) with ONE corroborating domain-restricted query each batch —
+   the "list every X named in <outlet> <guide>" phrasing on timeout.com / theinfatuation.com / miaminewtimes.com / fodors.com
+   returns whole lists (4–10 places per search). eater.com is NOT accessible to the search tool.
+4. **Discovery by need** (targets): SDADE +27 (Kendall/Pinecrest: Infatuation ∩ NT Best-of; Cutler Bay/Palmetto Bay sights),
+   FTL +25 (Hollywood/Dania/Pompano food; Broward sights: Fort Lauderdale Antique Car Museum, Bonnet House area, Pompano
+   pier), DTB +20 (Overtown/Brickell sights: Bayside, Jungle Island, Gesu Church, Ichimura Japan Garden), MBCH +20,
+   NMIA +16 (Aventura Perl ∩ 2nd; FIU Biscayne Bay), LHAV +13 (sights: Cubaocho, Tower Theater pin), WYN +11 (sights:
+   Little Haiti Cultural Complex, Moore Building, MiMo district), GLADE +6, CGCG +5. ≥1 creator query per wave
+   (Josiah Eats / Miami Food Porn registered in CREATORS_F5.json).
+5. Closure re-checks: Broken Shaker, Elliott/Adams Key (NPS access), Dorsey House (visitor access), Havana Harry's.
 
 ## Acceptance
 - [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked

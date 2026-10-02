@@ -2737,9 +2737,10 @@
   {
    "t": 2,
    "a": "MBCH",
-   "n": "The Fillmore Miami Beach (Jackie Gleason Theater)",
+   "n": "The Fillmore Miami Beach (Jackie Gleason Theater) — CLOSED",
    "ad": "1700 Washington Ave, Miami Beach, FL",
-   "w": "1950s theatre where Jackie Gleason taped his TV show, now a Live Nation concert hall.",
+   "w": "1950s theatre where Jackie Gleason taped his TV show, later a Live Nation concert hall — closed 31 May 2022 while the city weighs renovation or demolition.",
+   "closed": true,
    "g": [
     "BEACH",
     "ENT"
@@ -2887,6 +2888,26 @@
     [
      "WGCU",
      "https://www.wgcu.org/top-story/2026-02-21/rebuilt-big-cypress-bend-boardwalk-offers-a-window-to-the-fakahatchee-strand-preserve-state-park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "D. A. Dorsey House",
+   "ad": "250 NW 9th St, Miami, FL",
+   "w": "Home of Dana A. Dorsey, Florida's first Black millionaire, who built Overtown one rental house per parcel — NRHP-listed (1989).",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/D._A._Dorsey_House"
+    ],
+    [
+     "SAHARCHIPEDIA",
+     "https://sah-archipedia.org/buildings/FL-01-086-0049"
     ]
    ]
   }
@@ -7502,6 +7523,347 @@
      "https://www.miaminewtimes.com/food-drink/ten-best-restaurants-in-hialeah-7851196/"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Tropical Acres Steakhouse",
+   "ad": "2500 Griffin Rd, Fort Lauderdale, FL",
+   "w": "Long-running family steakhouse — on both New Times' old-school FTL and The Infatuation's classic FTL lists.",
+   "k": "Order: Old-school steaks in a family-run Broward steakhouse",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-old-school-restaurants-in-fort-lauderdale-23842312/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/fort-lauderdale-classic-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Jack's Old Fashioned Hamburger House",
+   "ad": "Oakland Park, FL",
+   "w": "Retro burger counter that New Times called the South's most legendary burger joint — an Infatuation classic too.",
+   "k": "Order: Fresh-ground old-fashioned burgers and milkshakes",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/fort-lauderdale-spot-named-most-legendary-burger-joint-in-the-south-40502977/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/fort-lauderdale-classic-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Old Heidelberg",
+   "ad": "Fort Lauderdale, FL",
+   "w": "Long-running German restaurant — a Fodor's pick and Infatuation FTL classic.",
+   "k": "Order: Schnitzel, sauerbraten and German beer",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/restaurants"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/fort-lauderdale-classic-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "S3 (Sun Surf Sand)",
+   "ad": "505 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL",
+   "w": "Beachfront restaurant-lounge on A1A — on New Times' 13 best FTL beach and Fodor's lists.",
+   "k": "Order: Sushi, seafood and shared plates facing the beach",
+   "cz": [
+    "SEAF",
+    "US"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-restaurants-in-fort-lauderdale-beach-23487230/"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Casablanca Café",
+   "ad": "3049 Alhambra St, Fort Lauderdale, FL",
+   "w": "Ocean-view café just off A1A — on New Times' FTL beach list and Fodor's.",
+   "k": "Order: Mediterranean plates on a porch above the ocean",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-restaurants-in-fort-lauderdale-beach-23487230/"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Yardie Spice",
+   "ad": "Homestead, FL",
+   "w": "Jamaican-mom/Haitian-dad family kitchen in Homestead — on The Infatuation's best Haitian list and Fodor's Homestead picks.",
+   "k": "Order: Leon's legume stew (cabbage, lentils, clove and allspice) with rice; coconut rum cake",
+   "cz": [
+    "CARIB",
+    "HAIT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/yardie-spice"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/the-everglades/places/homestead/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "White Lion Cafe",
+   "ad": "Homestead, FL",
+   "w": "'Delightfully unhinged' antique-store café in an old Homestead house — lunch daily, Friday dinners.",
+   "k": "Order: Meatloaf lunches in an antique-filled old Florida house",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/white-lion-cafe"
+    ],
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/the-everglades/places/homestead/restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Taqueria Morelia",
+   "ad": "Homestead, FL",
+   "w": "Homestead taquería on The Infatuation's 13 best tacos in Miami, its 20 best in Homestead, and Time Out's 20 best tacos.",
+   "k": "Order: Tacos from a Homestead taquería",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-tacos-miami"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-tacos-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "La Cruzada",
+   "ad": "Homestead, FL",
+   "w": "Homestead Mexican spot on Time Out's best tacos and The Infatuation's Homestead 20.",
+   "k": "Order: Tacos and Mexican plates in the Redland/Homestead",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-tacos-miami"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-restaurants-homestead"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "Taquerias El Mexicano",
+   "ad": "Little Havana, Miami, FL",
+   "w": "Long-running Little Havana taquería — New Times' Best Tacos 2025 and on Time Out's 20 best.",
+   "k": "Order: Tacos and Mexican home-style plates",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-tacos-miami"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/best-of-miami/2025/eat-and-drink/best-tacos-23470284/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Coyo Taco",
+   "ad": "Wynwood, Miami, FL",
+   "w": "Wynwood taquería with a hidden late-night bar out back — Time Out's best tacos list and Infatuation-reviewed.",
+   "k": "Order: Tacos, plus a hidden late-night bar out back",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-tacos-miami"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/coyo-taco-brickell"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Panamericano Bar",
+   "ad": "Brickell, Miami, FL",
+   "w": "Brickell speakeasy whose cocktails 'tell a story' — on Time Out's Brickell list and The Infatuation's 16 best downtown & Brickell bars.",
+   "k": "Order: Story-driven Latin-American cocktails in a speakeasy",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/things-to-do/things-to-do-in-brickell"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-bars-downtown-and-brickell"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Baby Jane",
+   "ad": "Brickell, Miami, FL",
+   "w": "Brickell's open-late classic bar for stiff drinks and good tunes.",
+   "k": "Order: Stiff drinks and crave-able late-night bar eats",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/things-to-do/things-to-do-in-brickell"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-bars-downtown-and-brickell"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "The River Oyster Bar",
+   "ad": "Brickell, Miami, FL",
+   "w": "Brickell's long-running oyster bar by the Miami River — on The Infatuation's 13 best seafood and Time Out's Brickell lists.",
+   "k": "Order: Raw oysters, crudo and seafood towers",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-seafood-restaurants-miami"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/best-brickell-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Captain Jim's Seafood Market & Restaurant",
+   "ad": "North Miami, FL",
+   "w": "Fish-market-restaurant ranked #1 in New Times' North Miami list and one of The Infatuation's 13 best seafood spots.",
+   "k": "Order: Fresh-caught fish fried, grilled or blackened, from the market counter",
+   "cz": [
+    "SEAF"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-seafood-restaurants-miami"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/restaurants/ten-best-restaurants-in-north-miami-6587473"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Nour Thai Kitchen",
+   "ad": "Fort Lauderdale, FL",
+   "w": "Broward Thai hidden gem — on New Times' 17 hidden gems in FTL and The Infatuation's 18 reasons to move to Broward.",
+   "k": "Order: Thai curries and noodle dishes",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-hidden-gems-in-fort-lauderdale-40524022/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-broward-restaurants"
+    ]
+   ]
   }
  ],
  "S": {
@@ -7642,6 +8004,12 @@
    "t": "ROADSIDEAMERICA",
    "u": "",
    "l": ""
+  },
+  "SAHARCHIPEDIA": {
+   "k": "SAHARCHIPEDIA",
+   "t": "SAH Archipedia (Society of Architectural Historians)",
+   "u": "https://sah-archipedia.org/",
+   "l": "SAH Archipedia (Society of Architectural Historians)"
   },
   "SHAKAGUIDE": {
    "k": "SHAKAGUIDE",
