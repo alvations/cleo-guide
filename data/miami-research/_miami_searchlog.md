@@ -131,3 +131,7 @@
 130 NT 16 best FTL + 17 hidden gems FTL → Runway 84, Coconuts, Takato, Greek Islands Taverna, Il Paesano (∩ TO/Infatuation)
 131 NPS Everglades places [3 sub-searches] (Mahogany Hammock, Gumbo Limbo, Nine Mile Pond, West Lake, Nike HM-69, Gulf Coast VC, Coe VC) → 7 sights
 132 NPS Biscayne (Elliott Key, Adams Key, Jetty) + Big Cypress (H.P. Williams, Turner River Road) [2 sub-searches] → 4 sights
+133 NT Kendall/South Miami names (Fox's Lounge 6030 S Dixie Hwy) → 1 added
+134 Fodor's Homestead sights [2 sub-searches] — nothing new (all already in)
+135 Time Out 15 best Miami beaches → Lummus Park, North Beach, Surfside, Bal Harbour
+136 Time Out 32 things Miami Beach (Fillmore, Bandshell, Broken Shaker, Faena District, Medium Cool…) → 2 sights + Broken Shaker
