@@ -154,3 +154,5 @@
 153 Infatuation Homestead (20 best Homestead guide; Yardie Spice, White Lion Cafe, Broadway Subs, La Quebradita) → 2 added (∩ Fodor's)
 154 Infatuation 20 best Homestead (Hidalgo's, La Pasadita, Reyes Juice, Coqui by Tayta's, Redland Market Village, Nando Grill, Taqueria Morelia, Chefs on the Run = Puerto Rican, La Cruzada…)
 155 Infatuation 13 best tacos ∩ Time Out 20 best tacos → Taqueria Morelia, La Cruzada, Taquerias El Mexicano (∩NT Best Tacos 2025), Coyo Taco
+156 Infatuation 16 best bars downtown & Brickell (ViceVersa, Bay View, Right Hand, Séptimo, Panamericano, Empire Social, Mike's at Venetia, NIU, Corner, Margot, Over Under, Mama Tried, Blackbird Ordinary, Tobacco Road by Kush, Lost Boy, Better Days; Baby Jane) → 2 added (∩ TO Brickell)
+157 Infatuation 13 best seafood (Shore To Door, Itamae AO, Plaza, Garcia's, El Floridita, La Mar, Joe's, Barra Callao, River Oyster Bar, Mignonette, La Camaronera, Black Point Ocean Grill, Captain Jim's) → 2 added
