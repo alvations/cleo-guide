@@ -300,7 +300,7 @@
   ],
   "dish": "Mexican restaurant classics",
   "n": "Cha Cha Cha (Holland Village)",
-  "address": "Lorong Mambong, Holland Village, Singapore (unit to confirm at geocode)",
+  "address": "32 Lorong Mambong, Holland Village, Singapore",
   "w": "One of Singapore's oldest Mexican restaurants, a Holland Village mainstay since 1990 — 'easy on the wallet and the stomach' (Seth Lui) and on Eatbook's 25 best Holland Village list.",
   "closed": false,
   "sources": [
@@ -311,6 +311,10 @@
    [
     "SETHLUI",
     "https://sethlui.com/cha-cha-cha-singapore/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
    ]
   ]
  },
@@ -322,7 +326,7 @@
   ],
   "dish": "Lasagna, calzone and Venetian tiramisu",
   "n": "La Nonna (Holland Village)",
-  "address": "Lorong Mambong, Holland Village, Singapore (unit to confirm at geocode)",
+  "address": "26/26B Lorong Mambong, Holland Village, Singapore",
   "w": "A Holland Village Italian since 2006: lasagna, calzone, bruschetta and a traditional Venetian tiramisu — a constant on Lady Iron Chef's and Eatbook's Holland Village guides.",
   "closed": false,
   "sources": [
@@ -333,6 +337,10 @@
    [
     "LADYIRONCHEF",
     "https://www.ladyironchef.com/2017/02/holland-village-food/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
    ]
   ]
  },
@@ -401,6 +409,218 @@
    [
     "HONEYCOMBERS",
     "https://thehoneycombers.com/singapore/holland-village-food-shops-singapore/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Cantonese",
+   "Hawker"
+  ],
+  "dish": "Roast duck, roast pork and char siew",
+  "n": "Jiu Jiang Shao La (Ghim Moh)",
+  "address": "Ghim Moh Market & Food Centre, 20 Ghim Moh Road, Singapore 270020 (unit to confirm)",
+  "w": "A short-hours roast-meat counter (10am-2pm, Thursday to Sunday) for roast duck, crackling roast pork and char siew — reviewed by Miss Tam Chiak and listed by Women's Weekly / Her World among Ghim Moh's best.",
+  "closed": false,
+  "sources": [
+   [
+    "MISSTAMCHIAK",
+    "https://www.misstamchiak.com/ghim-moh-market-food-centre/"
+   ],
+   [
+    "WOMENSWEEKLY",
+    "https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"
+   ],
+   [
+    "HERWORLD",
+    "https://www.herworld.com/life/foodanddrink/hawker-stalls-to-try-at-ghim-moh-market-food-centre-singapore"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "HLV",
+  "cz": [
+   "Vegetarian",
+   "Mediterranean"
+  ],
+  "dish": "Vegetarian Mediterranean plates and vegetarian tandoori",
+  "n": "Original Sin (Chip Bee Gardens)",
+  "address": "Jalan Merah Saga, Chip Bee Gardens, Holland Village, Singapore (unit to confirm at geocode)",
+  "w": "Chip Bee Gardens' long-standing vegetarian Mediterranean restaurant — meat-free plates including a vegetarian tandoori — on Lady Iron Chef's Chip Bee Gardens guide and Eatbook's current 25 best Holland Village list.",
+  "closed": false,
+  "sources": [
+   [
+    "EATBOOK",
+    "https://eatbook.sg/holland-village-food-singapore/"
+   ],
+   [
+    "LADYIRONCHEF",
+    "https://www.ladyironchef.com/2015/08/chip-bee-gardens-restaurants/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Cafe",
+   "Dessert"
+  ],
+  "dish": "Belgian waffles with soft-serve",
+  "n": "Sunday Folks (Chip Bee Gardens)",
+  "address": "Jalan Merah Saga, Chip Bee Gardens, Holland Village, Singapore (unit to confirm at geocode)",
+  "w": "The Chip Bee Gardens dessert café famous for its Belgian waffles — in Lady Iron Chef's Chip Bee Gardens guide and The Ordinary Patrons' Chip Bee cafés round-up (2022).",
+  "closed": false,
+  "sources": [
+   [
+    "LADYIRONCHEF",
+    "https://www.ladyironchef.com/2015/08/chip-bee-gardens-restaurants/"
+   ],
+   [
+    "ORDINARYPATRONS",
+    "https://ordinarypatrons.com/2022/08/24/chip-bee-gardens-cafes-guide/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Italian",
+   "Pizza"
+  ],
+  "dish": "Pizza",
+  "n": "Alt. Pizza (Holland Village)",
+  "address": "Holland Village, Singapore (address to confirm at geocode)",
+  "w": "A Holland Village pizza stop named by both Eatbook's 25 best Holland Village places and HungryGoWhere's 15 Holland Village restaurants.",
+  "closed": false,
+  "sources": [
+   [
+    "EATBOOK",
+    "https://eatbook.sg/holland-village-food-singapore/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Indian",
+   "British"
+  ],
+  "dish": "British-Indian curry-house curries",
+  "n": "British Indian Curry Hut (Holland Village)",
+  "address": "Holland Village, Singapore (address to confirm at geocode)",
+  "w": "A British-style Indian curry house in Holland V, on Eatbook's and HungryGoWhere's Holland Village lists.",
+  "closed": false,
+  "sources": [
+   [
+    "EATBOOK",
+    "https://eatbook.sg/holland-village-food-singapore/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Korean"
+  ],
+  "dish": "Korean charcoal barbecue",
+  "n": "Wang Dae Bak Korean BBQ (Holland Village)",
+  "address": "Holland Village, Singapore (address to confirm at geocode)",
+  "w": "Korean barbecue grilled at the table — on Eatbook's 25 best Holland Village list and HungryGoWhere's 15 Holland Village restaurants.",
+  "closed": false,
+  "sources": [
+   [
+    "EATBOOK",
+    "https://eatbook.sg/holland-village-food-singapore/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Korean"
+  ],
+  "dish": "Korean street food — tteokbokki, sausage gimbap, kimchi pancake, oden soup",
+  "n": "88 Pocha (Holland Village)",
+  "address": "26A Lorong Mambong, Holland Village, Singapore 277685",
+  "w": "A casual pojangmacha-style Korean bar-eatery with a street-food menu of tteokbokki, sausage gimbap, kimchi pancake, oden soup and ramyeon (Honeycombers); also on HungryGoWhere's Holland Village list.",
+  "closed": false,
+  "sources": [
+   [
+    "HONEYCOMBERS",
+    "https://thehoneycombers.com/singapore/guide-to-holland-village-singapore-the-coolest-restaurants-bars-and-shops-in-this-lively-neighbourhood/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "HLV",
+  "cz": [
+   "Japanese"
+  ],
+  "dish": "Modern Japanese",
+  "n": "Ginkyo by Kinki (Holland Village)",
+  "address": "Holland Village, Singapore (address to confirm at geocode)",
+  "w": "A modern Japanese restaurant in Holland V, on Eatbook's 25 best Holland Village places and HungryGoWhere's 15 Holland Village restaurants.",
+  "closed": false,
+  "sources": [
+   [
+    "EATBOOK",
+    "https://eatbook.sg/holland-village-food-singapore/"
+   ],
+   [
+    "HUNGRYGOWHERE",
+    "https://hungrygowhere.com/what-to-eat/holland-village-restaurants/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "HLV",
+  "cz": [
+   "Cantonese",
+   "Hong Kong"
+  ],
+  "dish": "Hong Kong egg tarts and cha chaan teng fare",
+  "n": "Tai Cheong Bakery (Holland Village)",
+  "address": "Holland Village, Singapore (address to confirm at geocode)",
+  "w": "The Hong Kong egg-tart bakery's Holland Village shop, home to its only cha chaan teng (Hong Kong-style tea house) in Singapore (Seth Lui); on Eatbook's 25 best Holland Village list.",
+  "closed": false,
+  "sources": [
+   [
+    "EATBOOK",
+    "https://eatbook.sg/holland-village-food-singapore/"
+   ],
+   [
+    "SETHLUI",
+    "https://sethlui.com/holland-village-food-guide-singapore/"
    ]
   ]
  }
