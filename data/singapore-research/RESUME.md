@@ -63,4 +63,5 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 ## Holland Village (HLV) — checkpoint (agent: HOLLANDV, 2026-10-02)
 - Full checkpoint, file list and per-wave notes: `_note_HOLLANDV.md`. Target 55 (`python3 tools/density.py singapore --area HLV`).
 ### In-flight wave (HLV)
-- W1: hawker canon (Ghim Moh / Holland Drive / Holland Village MFC) + HV café/restaurant canon + sights -> FOOD_HOLLANDV.json, SIGHTS_HOLLANDV.json.
+- none. W1 DONE (truncated by the 200/200 session WebSearch cap): 13 discovered (10 food + 3 sights) / target 55;
+  7 pins on the (greyed) page; 8 UNVERIFIED for the helper. Next = W2 plan in `_note_HOLLANDV.md` "Next actions".

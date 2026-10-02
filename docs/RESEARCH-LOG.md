@@ -300,3 +300,10 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - UNESCO WHC 972 component coordinates are 2–3-dp centroids (Shuri/Tamaudun/Shikinaen all "26.2/127.683") — never pins.
 - Dead end: the session WebSearch cap (200, shared across all concurrent agents) ended the wave after 17 searches.
 
+### 2026-10-02 — Singapore Holland Village (HLV), agent HOLLANDV
+- Productive: `"<hawker centre>" best stalls` surfaces the Seth Lui / Eatbook / Women's Weekly / Her World lists in one
+  call; `"<stall>" <centre> <dish>` then yields stall number + a 2nd outlet (Michelin listing, ieatishootipost, MTC).
+- A closed Bib stall (Guan Kee CKT) is findable via `"<stall>" retire closed <year>` — Eatbook/Mothership/Seth Lui.
+- A stall inside an already-pinned food centre can reuse that registry pin (med, stall-within-centre) — no new search.
+- Dead end: session WebSearch cap (200, shared by ~16 concurrent agents) stopped W1 after 27 calls; Ghim Moh / Holland
+  Village MFC pins left UNVERIFIED rather than estimated.

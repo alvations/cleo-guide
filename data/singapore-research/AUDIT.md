@@ -574,3 +574,18 @@ Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), 
   (stall-in-building). Status: all open (2025 Bib list / 2024-25 guides). Closures 0. `geo/_geoout_novena_w1.json`.
 - Build: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; sourcecheck FAIL = 46 pre-existing non-NVN single-source
   (GATE 1 drops). Page renders 10 (6 new + 4 pre-existing). Density 6/55 → NEED +49. **Not live.**
+
+### Holland Village (HLV) — wave 1 (2026-10-02, agent HOLLANDV; truncated by the shared WebSearch cap)
+- **Sources/discovery:** 27 WebSearch calls (Seth Lui / Eatbook / Women's Weekly / Her World / HGW / Time Out
+  hawker-centre guides; Michelin Guide listings; ieatishootipost, Miss Tam Chiak, Ordinary Patrons, SG Food on Foot)
+  before the session cap (200/200, shared by all concurrent agents) stopped search — retry confirmed.
+- **Kept 13** (10 food + 3 sights), all >=2 credible or lone Michelin: Ghim Moh MFC (Chuan Kee Bib, Ghim Moh Chwee
+  Kueh, Ghim Moh Carrot Cake, Hin Fried Hor Fun, Heavens appam, **Guan Kee Fried Kway Teow — CLOSED** 28 Nov 2023),
+  Holland Drive MFC (New Lucky Claypot Rice Bib 2024/25, Cheng Heng Kway Chap, Shima's Kitchen, Hakka Noodle), sights
+  Ghim Moh MFC (t1), Holland Village MFC, Holland Drive MFC. Channel mix: Michelin 3 · editorial 13 · creators/blogs 5
+  · viral video 0 · local 0. Yelp/TripAdvisor/Google/Burpple = 0.
+- **Held/dropped:** 9 entries in `CREATORS_HOLLANDV.json` rejected[] (single-source, status-unconfirmed, or
+  per-stall attribution unconfirmed). **Geocode:** 5 med (Holland Drive MFC registry pin reused, stall-within-centre),
+  8 UNVERIFIED (no pin obtainable — helper queue). **Build:** holland-village.html 7 pins, greyed (not live);
+  geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate/test PASS. Density 13/55 (NEED +42).
+  Full detail: `_note_HOLLANDV.md`.
