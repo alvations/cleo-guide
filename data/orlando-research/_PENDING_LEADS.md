@@ -47,3 +47,26 @@ prevuemeetings.com/?p=150904 (61 Orlando restaurants: 1×2★, 5×1★, 14 Bib, 
 - Restaurant pin reality (foodpins1 agent, 12 searches): only Otto's High Dive (Wikipedia) and the Old Spanish Sugar Mill
   (HMDB marker) publish coordinates; 40 WDW/Universal/Orlando restaurants have none on Wikipedia/Wikidata/latitude.to
   → all restaurant pins go through tools/geocode-helper.html.
+
+## Session 3 (2026-10-02) — single-source / unresolved leads (need ONE confirming search each)
+- KISS/Latin (Orlando Weekly only): Tropico Mofongo (3160 Vineland Rd, Kissimmee), El Primo La Casa de las Alcapurrias
+  (1618 Pleasant Hill Rd), La Fiebre del Sabor Criollo (World Food Trucks, 5811 W Irlo Bronson Hwy), Grillers Puerto Rico
+  (9565 S OBT → IDR), Achiote (12325 S OBT), Guavate (422 S Alafaya Trl → EAST), Koyla Pakistani BBQ + 1881 Uzbek (Kissimmee,
+  Faiyaz Kara reviews), El Tapatio, Big John's Rockin' BBQ, Abracadabra Ice Cream, J Crab House, King O Falafel, El Tenampa.
+- Tasty Chomps only: Sofrito Latin Cafe (8607 Palm Pkwy). Own-site only: Pal Campo (claims Sentinel Foodie Best PR 2017-20, 2023).
+- Orlando Magazine 2025 Dining Awards only: Wa Ramen (Lake Nona), The Wharf at Sunset Walk.
+- Experience Kissimmee Latin Culinary Trail only (tourism; Atlas Obscura partnership = same channel): Punta Cana, Pa' Pikar,
+  Perico Ripiao, Pa' Paraguana, Daddy Ninja, Susana's Café, La Mexicana, Sajoma.
+- City: Swine & Sons (Michelin listing; address ambiguous), Christini's, Kres Chophouse (OW 2026 #2 Downtown), Christner's,
+  Las Carretas (OW 2026 Best East Orlando), Nona Blue (OW 2026 Best Lake Nona), The Current Seafood Counter + The Old Jailhouse
+  (Sanford), Black Rooster Taqueria (MICHELIN 2026 Recommended — qualifies alone; needs address), Seito Sushi.
+- Space Coast: Grills Seafood Deck (500 Glen Cheek Dr), Fishlips (610 Glen Cheek Dr), Hook and Eagle Tavern (Rockledge),
+  Florida's Fresh Grill, Ossorio Bakery (316 Brevard Ave, Cocoa), Murdock's Southern Bistro.
+- @somehowimnotfat / FOX 35 list (1 creator source each): Black Rooster Taqueria, Boca, Chayote Barrio Kitchen, Edoboy, JUJU,
+  Market to Table (Winter Garden), The Nauti Lobstah (Apopka), Park Pizza & Brewing (Lake Nona), Thrive, Vinia, At Siam Thai,
+  Bull & Bear, Chima, Descend 21, Hemisphere, JoJo's Shakebar, Kavas Tacos, Seito Sushi Sand Lake.
+- Food halls: The Hall on the Yard (1412 Alden Rd; News 6 opening story), Plant Street Market (Winter Garden), Marketplace at Avalon Park.
+- Oviedo/East: Stefano's (Sentinel Best Italian 2025 claim), Tabla, Crazy Cork. Mount Dora: Copacabana Cuban Cafe, Olive Branch.
+  DeLand: Neighbors Artisan Taqueria.
+- Sights: Florida Citrus Tower (Clermont; Wikipedia 28.56389,-81.74306 — needs 2nd source), Fort Christmas Historical Park,
+  Lake Apopka Wildlife Drive / Loop Trail.

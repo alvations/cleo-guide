@@ -94,5 +94,231 @@
   "st": "open",
   "sts": "Tokyo Cheapo place page (current) describes it operating",
   "kind": "food"
+ },
+ {
+  "t": 1,
+  "a": "SMKT",
+  "cz": [
+   "SAKE"
+  ],
+  "dish": "Japanese craft beer on 70+ taps plus hand-pumped real ale",
+  "n": "Beer Club Popeye, Ryōgoku (麦酒倶楽部ポパイ)",
+  "address": "2-18-7 Ryōgoku, Sumida-ku, Tokyo",
+  "w": "Tatsuo Aoki's pioneering Ryōgoku beer bar, long regarded as Tokyo's essential craft-beer pilgrimage: 70+ taps kept in impeccable condition, mostly from Japanese breweries, plus real ales on hand pump and its own small brewery.",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/bars-and-pubs/popeye"
+   ],
+   [
+    "JAPANTIMES",
+    "https://www.japantimes.co.jp/life/2004/03/07/food/cheers-ganging-up-in-pursuit-of-fine-pints/"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no Google place pin found after 2 searches (English + Japanese name)",
+  "st": "open",
+  "sts": "Time Out Tokyo venue page (current listing); no closure reports found",
+  "kind": "food"
+ },
+ {
+  "t": 2,
+  "a": "JOSAI",
+  "cz": [
+   "SAKE"
+  ],
+  "dish": "Ushitora Brewery house IPAs and stouts among 35 taps",
+  "n": "Beer Bar Ushitora, Shimokitazawa (うしとら)",
+  "address": "6-3-27 Daita, Setagaya-ku, Tokyo (Tokyo Cheapo; Time Out lists 2F, 2-9-3 Kitazawa — confirm)",
+  "w": "Shimokitazawa's 'high temple of craft beer' and Tokyo taproom of Tochigi's Ushitora Brewery: 35 taps, at least seven of them house brews, with izakaya-style snacks.",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/bars-and-pubs/ushitora"
+   ],
+   [
+    "TOKYOCHEAPO",
+    "https://tokyocheapo.com/restaurant/beer-bar-ushitora/"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no Google place pin found after 2 searches (English + Japanese name); sources disagree on address",
+  "st": "open",
+  "sts": "Tokyo Cheapo restaurant page lists daily hours; no closure reports found",
+  "kind": "food"
+ },
+ {
+  "t": 1,
+  "a": "SBY",
+  "cz": [
+   "SAKE"
+  ],
+  "dish": "boutique sake flights paired with small plates (ham cutlet with blue cheese)",
+  "n": "Gem by Moto, Ebisu (ジェムバイモト)",
+  "address": "1-30-9 Ebisu, Shibuya-ku, Tokyo",
+  "w": "Marie Chiba's counter-only Ebisu sake specialist pouring boutique sake from across Japan with seasonal small plates designed to match; reservations recommended.",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/bars-and-pubs/gem-by-moto"
+   ],
+   [
+    "JAPANTIMES",
+    "https://www.japantimes.co.jp/life/2016/11/04/food/gem-moto-simple-stylish-seasonal-sake-match/"
+   ],
+   [
+    "LONELYPLANET",
+    "https://www.lonelyplanet.com/japan/tokyo/nightlife/gem-by-moto/a/poi-dri/1589717/356817"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no Google place pin found (searched 'Gem by Moto Ebisu maps place' — only Ebisu district street view)",
+  "st": "open",
+  "sts": "Time Out / Lonely Planet current listings; no closure reports found",
+  "kind": "food"
+ },
+ {
+  "t": 1,
+  "a": "JHOKU",
+  "cz": [
+   "IZAKAYA",
+   "SAKE"
+  ],
+  "dish": "premium daiginjō sake with kitsune raclette (fried tofu stuffed with raclette)",
+  "n": "Shinsuke, Yushima (シンスケ)",
+  "address": "3-31-5 Yushima, Bunkyō-ku, Tokyo",
+  "w": "Classic izakaya in business since 1925, with a long cedar counter, a master in happi coat and headband, and serious sake from a family in the sake trade for generations; house speciality kitsune raclette. Selected for Tabelog's Izakaya Hyakumeiten (EAST) 2024 and 2025.",
+  "sources": [
+   [
+    "LONELYPLANET",
+    "https://www.lonelyplanet.com/japan/tokyo/restaurants/shinsuke/a/poi-eat/1503930/356817"
+   ],
+   [
+    "JAPANTIMES",
+    "https://www.japantimes.co.jp/life/2008/03/21/food/shinsuke-a-sip-of-sake-in-shitamachi/"
+   ],
+   [
+    "TABELOG100",
+    "https://s.tabelog.com/en/tokyo/A1311/A131101/13003607/"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no Google place pin searched successfully (pin channel returned no place URLs this wave)",
+  "st": "open",
+  "sts": "Tabelog Izakaya Hyakumeiten EAST 2025 selection (per search summary)",
+  "kind": "food"
+ },
+ {
+  "t": 2,
+  "a": "SBY",
+  "cz": [
+   "IZAKAYA",
+   "SAKE"
+  ],
+  "dish": "nihonshu from glass fridges behind the counter, sommelier-picked",
+  "n": "Sasagin, Yoyogi-Uehara (笹吟)",
+  "address": "1-32-15 Uehara, Shibuya-ku, Tokyo 〒151-0064",
+  "w": "Long-running Yoyogi-Uehara izakaya overseen by an English-speaking sake sommelier, with a well-chosen nihonshu list kept in glass fridges behind the counter and English drink menus.",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/bars-and-pubs/sasagin"
+   ],
+   [
+    "TOKYOCHEAPO",
+    "https://tokyocheapo.com/restaurant/sasagin/"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no Google place pin searched successfully",
+  "st": "open",
+  "sts": "Tokyo Cheapo restaurant page lists current hours (5pm–11:45pm, closed Sun)",
+  "kind": "food"
+ },
+ {
+  "t": 2,
+  "a": "SJK",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "simple rustic izakaya plates with an extensive sake list",
+  "n": "Shuko Takigiya, Araki-chō (酒肴 たきぎや)",
+  "address": "7-11 Arakichō, Shinjuku-ku, Tokyo 〒160-0007",
+  "w": "Rustic Araki-chō basement izakaya long beloved by salarymen, awarded a Michelin Bib Gourmand for simple, delicious dishes and a deep sake menu alongside shochu and umeshu.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/en/article/travel/travel-guide-michelin-recommended-izakayas-in-shinjuku"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "Google returned a maps/search URL (query_place_id=ChIJ5YEZfPKMGGARDv9JmAJsvD0, address 7-11 Arakicho) with no !3d!4d — https://www.google.com/maps/search/?api=1&query=Shuko+Takigiya,+Shinjuku,+Tokyo&query_place_id=ChIJ5YEZfPKMGGARDv9JmAJsvD0",
+  "st": "open",
+  "sts": "Google Maps listing present in search 2026-10; Michelin Bib article",
+  "kind": "food"
+ },
+ {
+  "t": 1,
+  "a": "CYD",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "yakitori and cold beer under the brick railway arches",
+  "n": "Yūrakuchō Gādo-shita, under the tracks (有楽町ガード下)",
+  "address": "Brick arches under the JR Yamanote Line either side of Yūrakuchō Station, Chiyoda-ku, Tokyo",
+  "w": "Salaryman drinking strip built into the brick arches beneath the Yamanote Line ('gādo-shita', below the girder), running nearly 700 m either side of Yūrakuchō Station: yakitori joints and izakaya with trains rumbling overhead.",
+  "sources": [
+   [
+    "JAPANGUIDE",
+    "https://www.japan-guide.com/e/e3072.html"
+   ],
+   [
+    "TOKYOCHEAPO",
+    "https://tokyocheapo.com/locations/central-tokyo/yurakucho/"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "pin search not run — session WebSearch budget exhausted; alley needs a Google place pin before mapping",
+  "st": "open",
+  "sts": "japan-guide Yurakucho page (current) describes it operating",
+  "kind": "food"
+ },
+ {
+  "t": 3,
+  "a": "SJK",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "seasonal izakaya dishes with an extensive sake list",
+  "n": "Kisaiya Hide, Kagurazaka (季彩や ひで)",
+  "address": "6-23 Kagurazaka, Shinjuku-ku, Tokyo",
+  "w": "Clean, minimalist Kagurazaka izakaya with a sushi-bar feel, awarded a Michelin Bib Gourmand; deep sake list alongside beer, umeshu and shochu.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/sg/en/article/travel/travel-guide-michelin-recommended-izakayas-in-shinjuku-sg"
+   ]
+  ],
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "pin search not run — session WebSearch budget exhausted",
+  "st": "open",
+  "sts": "Michelin Shinjuku izakaya article (Bib Gourmand); current status not re-checked",
+  "kind": "food"
  }
 ]

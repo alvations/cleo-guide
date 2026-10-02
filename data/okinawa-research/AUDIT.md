@@ -92,3 +92,20 @@ Miyakojima city/Bunka survey 1–2 each · creators 0 (none passed vetting with 
 **Final build (2026-10-02):** `rebuild-city.py okinawa --build` → sourcecheck PASS (119/119), geocheck PASS,
 statuscheck CONSISTENT (0 unchecked), buildcheck PASS (centre 26.45,127.85 z9; 7 labels in bounds); validate DATA OK;
 npm test ALL PASS. Not flipped live (74 pins ≈ 15 % of target). WebSearch used this session: ~174.
+
+## 2026-10-02 — Wave W3 (food & drink first + ANIME; relaunch session) — appended per batch
+**Batch 1–2 (food 12).** New outlets (SOURCES_OKINAWA_W3): `OKINAWATRAVELER` (Rikka Docca editors' Okinawa Traveler),
+`GLTJP`, `MACARONI`, `GIGAZINE`, `OKINAWAPREF` (prefecture 「琉球料理が味わえる店」 certification — ordinary source, NOT
+lone authority). Kept: Sennichi zenzai, A&W Makiminato, Steakhouse 88 Tsuji, Nakamura Soba (Onna), EIBUN, Yagiya,
+Nanbu Soba, Ufuya (Stripes GPS high), Arakaki Zenzai-ya, Shima-jikan, Kura (Miyako), Urizun. Pairing: Okinawa Times
+2023 poll ↔ Okinawa Traveler / Mapple; prefecture certification ↔ Mapple / Okinawa Times column.
+**MEASURED & held:** Miyazato Soba (jalan 4.2 = measurement only; OT feature not confirmed to name it), Miyanchi
+STUDIO&COFFEE (Okinawa Traveler only — two pages of one outlet), Maeda Shokudo Ogimi (Stripes 'Maeda Shokudo' is near
+Camp Schwab — identity unclear), Kaiyo Shokudo, Yanbaru Shokudo, Mikado (OT only), Jimanya (GLTJP directory only —
+promotional), Hama Sushi (chain; Stripes reader vote only), Steakhouse Shiki/Chako/Usshisshii (aggregators only),
+Sakimoto & Yamakawa distilleries (Stripes only), Tiandaa / Kenpa no Subaya / Hanamura / Kingetsu (OT only so far).
+**Rejected recommenders:** tsunagujapan, foodle, hamoni, byfood list pages, resol-hotel blog, wanderlog, hotels.com.
+**Geocode (background agent, 40 searches):** 12 coordinates surfaced; **5 rejected at review** (Aharen, Emerald, Gangala,
+Araha, Yoshino — the summary gave a coordinate without a confirmable source page → stay UNVERIFIED). Kept 7:
+Fukushū-en, Chinen, Tsuboya Museum, Okuma Beach (high); Higashi-hennazaki, Enkaku-ji/Benzaitendō (med); Iriomote (low,
+island coordinate). 33 still UNVERIFIED → geocode-helper (restaurants never print GPS in search summaries).

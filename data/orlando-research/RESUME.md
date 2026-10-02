@@ -44,7 +44,8 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - Status to re-check: Willie's Pinchos (DDD 2017; no 2026 confirmation found).
 
 ## In-flight wave
-- (none — session 2 closed cleanly; W8 food-pin pass finished: 2/42 resolved, rest → helper)
+- **Session 3 (food & drink first, §2b)** — tags FOOD_S3A.. (PR/Cuban/Kissimmee), FOOD_S3B.. (Disney Springs/EPCOT/park),
+  FOOD_S3C.. (bars/breweries/coffee/bakeries), FOOD_S3D.. (Winter Park/IDR/DTO). Search count tracked in AUDIT session-3 section.
 
 ## Next actions (ordered) — next-wave plan
 1. **Restaurant pins (biggest gap)**: run `tools/geocode-helper.html` in a browser over the ~50 UNVERIFIED restaurants

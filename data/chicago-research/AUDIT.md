@@ -92,3 +92,17 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
 - Dropped/held: Lizzadro Museum, Charles Gates Dawes House, Big Chicks, Longman & Eagle, Porto (closed 2023 per
   Wikipedia), Green Door Tavern, Indian Boundary Park, Madonna della Strada — single source or no pin.
 - Final: 220 researched / 191 rendered; gates PASS; validate + test PASS.
+
+## 2026-10-02 (session 3) · W12 food & drink batch A (§2b food first)
+- Searches: Chinatown, Pilsen/Little Village tacos, Keith Lee picks, Michelin Bib 2024/2025 lists, cocktail/dive/brewery/coffee,
+  Devon, Argyle, Eater 38, Tribune/Chicago Mag lists (≈27).
+- Added 30 (FOOD_W12.json): 21 on a lone Michelin Bib (2024 ceremony page; key MICHELIN_BIB = award only), Eater-38 co-sourced
+  (Lula, Mi Tocaya, Smoque, Superkhana, Luella's), tacos (Carnitas Uruapan, La Chaparrita — Infatuation + Chicago Mag Iconic Eats
+  + ABC7), bars (Violet Hour — JB Outstanding Bar Program 2015 via JBF winners page + Sun-Times; Three Dots — NBC5 World's 50 Best
+  Bars + Time Out; Rainbo Club, Old Town Ale House — Punch + Chicagoist/Time Out/Infatuation), Soul Prime (Keith Lee creator via
+  AfroTech + Chicago Defender), Lao Sze Chuan (Infatuation + Chicago Mag).
+- Eater 38 cited via a listchallenges reproduction of the list (Eater page itself not surfaced) — corroborating only, never alone.
+- Held single-source: MingHin, Cleo's Southern Cuisine (branch unclear), Lost Lake, Milk Room, Half Acre, Revolution, Intelligentsia,
+  Metric, Tank Noodle, Nhu Lan, Sabri Nihari, Ghareeb Nawaz, Usmania, Huaraches Doña Chio, Taqueria Belen, Bayan Ko, Rose Mary,
+  Hermosa, Community Tavern. Dropped: Harold's/Sharks (chains — branch not identifiable), Peninsula hotel blog (not credible).
+- Channel mix: institutional 21 · editorial/travel 8 · creator 1 (Keith Lee).
