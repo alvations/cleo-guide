@@ -31,7 +31,7 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- none (session 2 closed cleanly at ≈188 searches).
+- session 3 food-first: W31–W33 written (19 food). Next: W34+ Sapporo ramen/sushi/sweets/bars, Otaru sushi, anime wave.
 
 ## Search ledger
 - session 1: ~14 (cap shared with all agents). session 2: ≈188 (me ~147 + G01 18 + G02 15 + G03 8).
