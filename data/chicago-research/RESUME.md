@@ -19,10 +19,10 @@
   SW 7/25 · FAR 5/30 · SUB 18/50 · DAY 13/20.
   Files: FOOD_CANON.json (36), FOOD_MICHELIN.json (32), SIGHTS_W1..W8.json (136), CREATORS_W1.json;
   geo/_geoout_canon.json, _geoout_michelin.json, _geoout_sights.json.
-  **UNVERIFIED pins held (29)** — restaurants with no Wikipedia article/POI pin: Al's #1, Johnnie's, Pequod's, George's,
-  Milly's, Vito & Nick's, Pat's, Pizz'amici, Middle Brow, Redhot Ranch, Byron's, Fat Johnnie's, Jim's Original,
-  Borinquen Lounge, Twin Anchors, Margie's, Gene & Georgetti, Birrieria Zaragoza, Rainbow Cone, Boka, Galit, Kasama?
-  (see docs/GEOCODE-BACKLOG.md for the live list) → `tools/geocode-helper.html`.
+  **UNVERIFIED pins held (29)** — restaurants with no Wikipedia article/POI pin: Al's #1, Johnnie's, Pequod's, George's Deep Dish, Milly's, Vito & Nick's, Pat's, Pizz'amici,
+  Middle Brow Bungalow, Redhot Ranch (Bucktown), Byron's, Fat Johnnie's, Jim's Original, Borinquen Lounge, Twin Anchors,
+  Margie's Candies, Gene & Georgetti, Birrieria Zaragoza, Original Rainbow Cone, Boka, Galit, Boonie's, Cellar Door
+  Provisions, Kie-Gol-Lanee, Sochi, Tortello, Mirra, Nadu, Taqueria Chingón (also in docs/GEOCODE-BACKLOG.md) → `tools/geocode-helper.html`.
 - Helpers (this dir): `_chi_add.py` (dedup-append), `_chi_sights.py` (append records + Wikipedia pins in one go),
   `_chi_push.sh` (pull/push loop that regenerates conflicting shared files), `_chi_counts.sh` (refresh card/row counts).
 - **Geocoding lesson:** Wikipedia batches of 4 names per query return published coords reliably (sights and
