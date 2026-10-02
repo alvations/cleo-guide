@@ -57,3 +57,23 @@
 - HELD single-source (build drops): Mount Dora Historic District, Central Florida Zoo, Cocoa Beach Pier, Old Town Kissimmee.
 - Channel mix: institutional 1 (NPS) · editorial 3 · travel 8 (Time Out, NatGeo, Lonely Planet, Fathom, Frommer's,
   TravelPulse, TravelMole, Florida Guidebook) · creators 4 (Never Ending Voyage, Orlando Informer, Miss Tourist, Attractions Mag YT) · official 2.
+
+## 2026-10-02 · Session 2 · W5 (Disney batch 2, Universal batch 2, SeaWorld, resorts, Kissimmee, Winter Garden, park eats, Mills 50 VN)
+- Searches: main ≈ 75 cumulative; pin-pass agents 9 + 15 + 16 = 40 → ≈ 115 this session.
+- Pin-pass agents: `_geoout_parkpins2.json` 40/44 Disney places (Wikipedia/Wikidata/latitude.to; med: Peter Pan's
+  Flight, Mad Tea Party (lat published as 28.42), Festival of the Lion King, Coronado Springs); rejected Hall of
+  Presidents (2-decimal Wikidata point in Fantasyland), Journey of Water, Smugglers Run (land coord only).
+  `_geoout_parkpins3.json` 27/39 Universal/SeaWorld/downtown (rejected Jurassic Park River Adventure "approximate" point).
+  Closures seen: Wet 'n Wild Orlando (closed 2017, not added); Fast & Furious – Supercharged (closed Aug 2026, not added).
+- New research: `SIGHTS_PARKS3` (30 MK/EPCOT/DHS/DAK — WIKIPEDIA + AllEars park pages + Frommer's), `SIGHTS_RESORTS1`
+  (9 — CNN Travel / U.S. News via Disney Food Blog / AllEars hotel rankings; SmarterTravel water parks), `SIGHTS_PARKS4`
+  (10 Universal — Frommer's attraction pages), `SIGHTS_SEAWORLD1` (5 coasters — Laughing Place + Orlando Informer),
+  `SIGHTS_KISS1` (+5, Experience Kissimmee official + SheBuysTravel), `SIGHTS_WEST1` (2, VISIT FLORIDA),
+  `FOOD_PARKEATS1` (8: Aloha Isle Dole Whip, Three Broomsticks Butterbeer, Ronto Roasters, Kringla Bakeri School
+  Bread, Be Our Guest, Space 220, Sci-Fi Dine-In, 50's Prime Time — Time Out, DFB, TouringPlans, Food Network, Wikipedia;
+  3 pinned from Wikipedia), `FOOD_VN1` (4: Viet-Nomz, Pho 88, Anh Hong — OW Best Pho 2025 1-2-3 — + Mills Market).
+- Victoria & Albert's pinned (Wikipedia 28.4111836,-81.5874135).
+- HELD single-source (build drops): Disney Springs, Race Through New York, CityWalk, Osceola County Courthouse,
+  Gaylord Palms, Central Florida Zoo, Cocoa Beach Pier. Held food leads → `_PENDING_LEADS.md`.
+- Channel mix (this wave): creators/fan sites 6 (AllEars, DFB, TouringPlans, Laughing Place, Orlando Informer, MickeyBlog,
+  SheBuysTravel) · travel 5 (Frommer's, CNN Travel, SmarterTravel, Time Out, Food Network) · official 2 · editorial 1.

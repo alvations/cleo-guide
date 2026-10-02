@@ -647,18 +647,126 @@
    "a": "KISS",
    "n": "Old Town Kissimmee",
    "ad": "US-192, Kissimmee, FL",
-   "w": "Retro amusement-and-shopping strip on US-192 with free Friday- and Saturday-night classic car shows.",
+   "w": "Retro entertainment strip on US-192 with 70+ shops and rides; free Friday Muscle Car Show and the Saturday Night Classic Car Show & Cruise — America's longest-running weekly car show.",
    "k": "shopping family free",
    "g": [
+    "RIDE",
     "SHOW",
     "MKT",
-    "FAM",
-    "FREE"
+    "FAM"
    ],
    "s": [
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Old_Town_(amusement_park)"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/article/free-things-to-do-kissimmee"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KISS",
+   "n": "Monument of States",
+   "ad": "Downtown Kissimmee, FL",
+   "w": "1943 roadside folly built of stones and objects sent from every US state — a free downtown oddity.",
+   "k": "odd historic free",
+   "g": [
+    "ODD",
+    "FREE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Monument_of_States"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/article/free-things-to-do-kissimmee"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KISS",
+   "n": "Osceola County Courthouse",
+   "ad": "Downtown Kissimmee, FL",
+   "w": "1889 Romanesque-revival courthouse, the oldest still-operating courthouse in Florida (NRHP).",
+   "k": "historic nrhp architecture",
+   "g": [
+    "HIST",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Osceola_County_Courthouse_(Florida)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KISS",
+   "n": "Celebration Town Center",
+   "ad": "Celebration, FL",
+   "w": "Disney-planned 1990s New Urbanist town centre on a lake — fake snow falls nightly at Christmas.",
+   "k": "shopping architecture free",
+   "g": [
+    "SPRNG",
+    "HIST",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Celebration,_Florida"
+    ],
+    [
+     "EXPERIENCEKISSIMMEE",
+     "https://www.experiencekissimmee.com/article/free-things-to-do-kissimmee"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KISS",
+   "n": "Reptile World Serpentarium",
+   "ad": "St. Cloud, FL",
+   "w": "Venom-extraction serpentarium east of St. Cloud, open since 1972.",
+   "k": "odd wildlife zoo",
+   "g": [
+    "WILD",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Reptile_World_Serpentarium"
+    ],
+    [
+     "SHEBUYSTRAVEL",
+     "https://shebuystravel.com/things-to-do-in-kissimmee-florida/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KISS",
+   "n": "Gaylord Palms Resort & Convention Center",
+   "ad": "Kissimmee, FL",
+   "w": "Resort under a 4-acre glass atrium recreating the Everglades, St. Augustine and Key West.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gaylord_Palms_Resort_%26_Convention_Center"
     ]
    ]
   },
@@ -776,6 +884,10 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Mount_Dora_Historic_District"
+    ],
+    [
+     "VISITFLORIDA",
+     "https://www.visitflorida.com/places-to-go/central/mount-dora/"
     ]
    ]
   },
@@ -1661,6 +1773,1262 @@
   },
   {
    "t": 1,
+   "a": "MK",
+   "n": "Jungle Cruise (Magic Kingdom)",
+   "ad": "Adventureland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Pun-heavy skipper-narrated boat cruise, an opening-day 1971 classic.",
+   "k": "boat ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jungle_Cruise"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Peter Pan's Flight (Magic Kingdom)",
+   "ad": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Suspended pirate-ship dark ride over moonlit London.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Peter_Pan's_Flight"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "It's a Small World (Magic Kingdom)",
+   "ad": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The Sherman-brothers boat ride through dolls of the world.",
+   "k": "boat ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/It's_a_Small_World"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Tron Lightcycle Run",
+   "ad": "Tomorrowland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Launched motorbike-style coaster under a glowing canopy (2023), the fastest ride in Magic Kingdom.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tron_Lightcycle_Power_Run"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "Walt Disney's Carousel of Progress",
+   "ad": "Tomorrowland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Rotating-theatre show from the 1964 New York World's Fair — the longest-running stage show in American theatre history.",
+   "k": "show historic",
+   "g": [
+    "SHOW",
+    "HIST",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walt_Disney's_Carousel_of_Progress"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "Tomorrowland Transit Authority PeopleMover",
+   "ad": "Tomorrowland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Linear-induction tour above Tomorrowland, through Space Mountain.",
+   "k": "ride",
+   "g": [
+    "RIDE",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/PeopleMover_(Magic_Kingdom)"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Main Street, U.S.A. (Magic Kingdom)",
+   "ad": "Main Street, U.S.A., Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Turn-of-the-century small-town street leading to Cinderella Castle; parades and the castle fireworks view.",
+   "k": "icon shopping parade",
+   "g": [
+    "ICON",
+    "SHOW",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Main_Street,_U.S.A."
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MK",
+   "n": "Mad Tea Party (Magic Kingdom)",
+   "ad": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Spinning teacups.",
+   "k": "ride family",
+   "g": [
+    "RIDE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mad_Tea_Party"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "Walt Disney World Railroad (Main Street station)",
+   "ad": "Main Street, U.S.A., Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Steam trains (some built in the 1920s) circling the park from the station above the entrance.",
+   "k": "ride historic",
+   "g": [
+    "RIDE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Walt_Disney_World_Railroad"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Living with the Land",
+   "ad": "The Land Pavilion, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Boat ride through EPCOT's working greenhouses and aquaculture labs.",
+   "k": "boat ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Living_with_the_Land"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EPCOT",
+   "n": "Journey Into Imagination with Figment",
+   "ad": "Imagination! Pavilion, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Dark ride with Figment the purple dragon.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Journey_into_Imagination_with_Figment"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "The American Adventure",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Audio-animatronic US-history show inside a Georgian colonial hall at the head of World Showcase.",
+   "k": "show history",
+   "g": [
+    "SHOW",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_American_Adventure_(Epcot)"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Mexico Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Mesoamerican pyramid holding a twilight plaza, the Gran Fiesta Tour boat ride and La Cava del Tequila.",
+   "k": "icon",
+   "g": [
+    "RIDE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mexico_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Norway Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Stave church, Akershus fortress and Frozen Ever After.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Norway_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Japan Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Five-storey pagoda, torii gate, gardens and Mitsukoshi department store.",
+   "k": "architecture garden",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Japan_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Morocco Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Tile-work built by Moroccan artisans, with the Koutoubia minaret replica.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Morocco_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "China Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Temple of Heaven replica and Circle-Vision film.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/China_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "United Kingdom Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Tudor and Georgian streets, a pub and a hedge maze.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/United_Kingdom_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Canada Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Rocky Mountain canyon, totem poles and Victoria Gardens.",
+   "k": "architecture garden",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Canada_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Germany Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Bavarian platz with a glockenspiel and a model-railway village.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Germany_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Italy Pavilion at Epcot",
+   "ad": "World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Venetian Campanile and Doge's Palace replicas on the lagoon.",
+   "k": "architecture",
+   "g": [
+    "HIST",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Italy_Pavilion_at_Epcot"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHS",
+   "n": "Toy Story Mania! (Hollywood Studios)",
+   "ad": "Toy Story Land, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "4D shooting-gallery ride through midway games.",
+   "k": "ride family",
+   "g": [
+    "RIDE",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Toy_Story_Mania!"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/mgm/m_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHS",
+   "n": "Star Tours – The Adventures Continue (Hollywood Studios)",
+   "ad": "Echo Lake, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "3D motion simulator with randomised Star Wars destinations — never the same ride twice.",
+   "k": "simulator ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Star_Tours_%E2%80%93_The_Adventures_Continue"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/mgm/m_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHS",
+   "n": "Indiana Jones Epic Stunt Spectacular!",
+   "ad": "Echo Lake, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Live stunt show recreating Raiders of the Lost Ark set-pieces.",
+   "k": "show stunt",
+   "g": [
+    "SHOW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indiana_Jones_Epic_Stunt_Spectacular!"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/mgm/m_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Fantasmic! (Hollywood Studios)",
+   "ad": "Sunset Boulevard (Hollywood Hills Amphitheater), Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "28-minute nighttime water, laser and fireworks show.",
+   "k": "show fireworks nighttime spectacular",
+   "g": [
+    "SHOW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fantasmic!"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/mgm/m_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Mickey & Minnie's Runaway Railway",
+   "ad": "Hollywood Boulevard (Chinese Theatre), Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Trackless 2.5D dark ride into a Mickey cartoon short.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mickey_&_Minnie's_Runaway_Railway"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/mgm/m_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAK",
+   "n": "Kali River Rapids",
+   "ad": "Asia, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Raft ride through a logged rainforest — you will get soaked.",
+   "k": "ride water",
+   "g": [
+    "RIDE",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kali_River_Rapids"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Festival of the Lion King",
+   "ad": "Africa (Harambe Theater), Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Broadway-calibre in-the-round Lion King show.",
+   "k": "show",
+   "g": [
+    "SHOW"
+   ],
+   "s": [
+    [
+     "WIKIDATA",
+     "https://www.wikidata.org/wiki/Q860474"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAK",
+   "n": "Gorilla Falls Exploration Trail",
+   "ad": "Africa, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Walking trail past gorillas, okapi and hippos.",
+   "k": "animal wildlife trail",
+   "g": [
+    "SPRNG",
+    "WILD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gorilla_Falls_Exploration_Trail"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAK",
+   "n": "Maharajah Jungle Trek",
+   "ad": "Asia, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Walking trail through temple ruins with tigers, Komodo dragons and fruit bats.",
+   "k": "animal wildlife trail",
+   "g": [
+    "SPRNG",
+    "WILD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maharajah_Jungle_Trek"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USF",
+   "n": "Men in Black: Alien Attack",
+   "ad": "World Expo, Universal Studios Florida, Orlando, FL",
+   "w": "Spinning shoot-'em-up ride behind a 1964-World's-Fair-style façade.",
+   "k": "ride dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Men_in_Black:_Alien_Attack"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/universal-studios-florida/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "USF",
+   "n": "The Simpsons Ride",
+   "ad": "Springfield, Universal Studios Florida, Orlando, FL",
+   "w": "Motion simulator in front of an 80-ft screen, parodying theme parks at 'Krustyland'.",
+   "k": "simulator ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Simpsons_Ride"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/universal-studios-florida/attractions/the-simpsons-ride/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USF",
+   "n": "E.T. Adventure",
+   "ad": "Woody Woodpecker's KidZone, Universal Studios Florida, Orlando, FL",
+   "w": "Bicycle flight to E.T.'s home planet — one of the last surviving 1990 opening-day rides.",
+   "k": "dark ride historic",
+   "g": [
+    "RIDE",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIDATA",
+     "https://www.wikidata.org/wiki/Q2522879"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/universal-studios-florida/attractions/et-adventure/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "USF",
+   "n": "Transformers: The Ride 3D (Universal Studios Florida)",
+   "ad": "Production Central, Universal Studios Florida, Orlando, FL",
+   "w": "3D motion dark ride in the Autobots' battle for the AllSpark.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Transformers:_The_Ride_%E2%80%93_3D"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/universal-studios-florida/attractions/transformers-the-ride3d/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "USF",
+   "n": "Race Through New York Starring Jimmy Fallon",
+   "ad": "New York, Universal Studios Florida, Orlando, FL",
+   "w": "3D flying-theatre race through NYC with Jimmy Fallon.",
+   "k": "simulator ride",
+   "g": [
+    "RIDE",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Race_Through_New_York_Starring_Jimmy_Fallon"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IOA",
+   "n": "Skull Island: Reign of Kong",
+   "ad": "Skull Island, Universal Islands of Adventure, Orlando, FL",
+   "w": "Expedition-truck dark ride ending face-to-face with a giant animatronic Kong.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Skull_Island:_Reign_of_Kong"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/islands-of-adventure/things-to-do/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IOA",
+   "n": "Doctor Doom's Fearfall",
+   "ad": "Marvel Super Hero Island, Universal Islands of Adventure, Orlando, FL",
+   "w": "Twin 150-ft launch towers.",
+   "k": "drop tower ride",
+   "g": [
+    "RIDE",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Doctor_Doom's_Fearfall"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/islands-of-adventure/things-to-do/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IOA",
+   "n": "Popeye & Bluto's Bilge-Rat Barges",
+   "ad": "Toon Lagoon, Universal Islands of Adventure, Orlando, FL",
+   "w": "Round-boat river rapids — the wettest ride in Orlando.",
+   "k": "ride water",
+   "g": [
+    "RIDE",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "WIKIDATA",
+     "https://www.wikidata.org/wiki/Q51332883"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/islands-of-adventure/things-to-do/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CWALK",
+   "n": "Universal Volcano Bay",
+   "ad": "Universal Orlando Resort, Orlando, FL",
+   "w": "Polynesian water park under the 200-ft Krakatau volcano, with virtual-queue TapuTapu bands instead of lines.",
+   "k": "waterpark water park icon",
+   "g": [
+    "ICON",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Universal_Volcano_Bay"
+    ],
+    [
+     "SMARTERTRAVEL",
+     "https://www.smartertravel.com/best-water-parks-in-florida/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CWALK",
+   "n": "Universal CityWalk (Orlando)",
+   "ad": "Universal Orlando Resort, Orlando, FL",
+   "w": "Free-entry dining and nightlife hub between the Universal parks.",
+   "k": "shopping bars free",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Universal_CityWalk_Orlando"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "Disney's Contemporary Resort",
+   "ad": "Bay Lake, Walt Disney World, Bay Lake, FL",
+   "w": "1971 A-frame tower the monorail runs straight through — Disney's modernist icon.",
+   "k": "architecture icon",
+   "g": [
+    "ICON",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Contemporary_Resort"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2022/02/08/see-which-disney-resorts-made-the-best-hotels-in-orlando-list"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/?p=462576"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "Disney's Polynesian Village Resort",
+   "ad": "Seven Seas Lagoon, Walt Disney World, Bay Lake, FL",
+   "w": "South-Seas resort on the monorail loop; its beach is a fireworks-viewing spot and Pineapple Lanai sells Dole Whip.",
+   "k": "architecture",
+   "g": [
+    "SHOW",
+    "HIST",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Polynesian_Village_Resort"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2022/02/08/see-which-disney-resorts-made-the-best-hotels-in-orlando-list"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/?p=462576"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Disney's Grand Floridian Resort & Spa",
+   "ad": "Seven Seas Lagoon, Walt Disney World, Bay Lake, FL",
+   "w": "Victorian-style flagship resort, home of Victoria & Albert's; ranked #6 hotel in Orlando by U.S. News.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Grand_Floridian_Resort_&_Spa"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2022/02/08/see-which-disney-resorts-made-the-best-hotels-in-orlando-list"
+    ],
+    [
+     "CNNTRAVEL",
+     "https://edition.cnn.com/travel/article/disney-world-hotels-ranked"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Disney's Wilderness Lodge",
+   "ad": "Bay Lake, Walt Disney World, Bay Lake, FL",
+   "w": "National-park-lodge lobby with totem poles and a geyser; CNN's #1 Disney World hotel.",
+   "k": "architecture",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Wilderness_Lodge"
+    ],
+    [
+     "CNNTRAVEL",
+     "https://edition.cnn.com/travel/article/disney-world-hotels-ranked"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/?p=462576"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Disney's BoardWalk",
+   "ad": "Crescent Lake, Walt Disney World, Bay Lake, FL",
+   "w": "Turn-of-the-century Atlantic City-style boardwalk with bars, dueling pianos and surrey bikes, a stroll from EPCOT.",
+   "k": "architecture bars",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_BoardWalk_Resort"
+    ],
+    [
+     "CNNTRAVEL",
+     "https://edition.cnn.com/travel/article/disney-world-hotels-ranked"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2022/02/08/see-which-disney-resorts-made-the-best-hotels-in-orlando-list"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/?p=462576"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAK",
+   "n": "Disney's Animal Kingdom Lodge",
+   "ad": "Animal Kingdom resort area, Walt Disney World, Bay Lake, FL",
+   "w": "Kraal-style lodge whose rooms look over savannas of giraffes and zebras.",
+   "k": "animal wildlife architecture",
+   "g": [
+    "WILD",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Animal_Kingdom_Lodge"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2022/02/08/see-which-disney-resorts-made-the-best-hotels-in-orlando-list"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/?p=462576"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DSP",
+   "n": "Typhoon Lagoon",
+   "ad": "Walt Disney World, Lake Buena Vista, FL",
+   "w": "Storm-wrecked water park with a 6-ft-wave surf pool, Crush 'n' Gusher water coaster and a shark reef.",
+   "k": "waterpark water park",
+   "g": [
+    "RIDE",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Typhoon_Lagoon"
+    ],
+    [
+     "SMARTERTRAVEL",
+     "https://www.smartertravel.com/best-water-parks-in-florida/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DSP",
+   "n": "Blizzard Beach",
+   "ad": "Walt Disney World, Lake Buena Vista, FL",
+   "w": "Ski-resort-meltdown water park, with Summit Plummet off 'Mount Gushmore'.",
+   "k": "waterpark water park",
+   "g": [
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney's_Blizzard_Beach"
+    ],
+    [
+     "SMARTERTRAVEL",
+     "https://www.smartertravel.com/best-water-parks-in-florida/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DSP",
+   "n": "Disney Springs",
+   "ad": "Lake Buena Vista, FL",
+   "w": "Disney's free waterfront shopping-and-dining district.",
+   "k": "shopping free",
+   "g": [
+    "SPRNG",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Disney_Springs"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IDR",
+   "n": "Mako (roller coaster)",
+   "ad": "SeaWorld Orlando, 7007 Sea World Dr, Orlando, FL",
+   "w": "Orlando's only hypercoaster — 200 ft, 73 mph, nine airtime hills; ranked #1 at SeaWorld by Laughing Place.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mako_(roller_coaster)"
+    ],
+    [
+     "LAUGHINGPLACE",
+     "https://www.laughingplace.com/w/articles/2023/05/29/re-ranked-the-top-9-attractions-at-seaworld-orlando/"
+    ],
+    [
+     "ORLANDOINFORMER",
+     "https://orlandoinformer.com/blog/ranking-seaworlds-roller-coasters/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IDR",
+   "n": "Manta (SeaWorld Orlando)",
+   "ad": "SeaWorld Orlando, 7007 Sea World Dr, Orlando, FL",
+   "w": "Flying coaster that skims the water face-down, built around a manta-ray aquarium.",
+   "k": "roller coaster ride aquarium",
+   "g": [
+    "RIDE",
+    "WILD",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Manta_(SeaWorld_Orlando)"
+    ],
+    [
+     "LAUGHINGPLACE",
+     "https://www.laughingplace.com/w/articles/2023/05/29/re-ranked-the-top-9-attractions-at-seaworld-orlando/"
+    ],
+    [
+     "ORLANDOINFORMER",
+     "https://orlandoinformer.com/blog/ranking-seaworlds-roller-coasters/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IDR",
+   "n": "Kraken (roller coaster)",
+   "ad": "SeaWorld Orlando, 7007 Sea World Dr, Orlando, FL",
+   "w": "Floorless B&M coaster with a 153-ft peak and 4,177 ft of track.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kraken_(roller_coaster)"
+    ],
+    [
+     "ORLANDOINFORMER",
+     "https://orlandoinformer.com/blog/ranking-seaworlds-roller-coasters/"
+    ],
+    [
+     "LAUGHINGPLACE",
+     "https://www.laughingplace.com/w/articles/2023/05/29/re-ranked-the-top-9-attractions-at-seaworld-orlando/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IDR",
+   "n": "Pipeline: The Surf Coaster",
+   "ad": "SeaWorld Orlando, 7007 Sea World Dr, Orlando, FL",
+   "w": "The first new stand-up coaster in 20+ years (2023).",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pipeline:_The_Surf_Coaster"
+    ],
+    [
+     "LAUGHINGPLACE",
+     "https://www.laughingplace.com/w/articles/2023/05/29/re-ranked-the-top-9-attractions-at-seaworld-orlando/"
+    ],
+    [
+     "ORLANDOINFORMER",
+     "https://orlandoinformer.com/blog/ranking-seaworlds-roller-coasters/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "IDR",
+   "n": "Ice Breaker (roller coaster)",
+   "ad": "SeaWorld Orlando, 7007 Sea World Dr, Orlando, FL",
+   "w": "Family launch coaster with Florida's steepest beyond-vertical (100°) drop.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "SPACE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ice_Breaker_(roller_coaster)"
+    ],
+    [
+     "LAUGHINGPLACE",
+     "https://laughingplace.com/w/articles/2021/10/29/ranked-the-attractions-of-seaworld-orlando"
+    ],
+    [
+     "ORLANDOINFORMER",
+     "https://orlandoinformer.com/blog/ranking-seaworlds-roller-coasters/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "SPACE",
    "n": "Kennedy Space Center Visitor Complex",
    "ad": "Merritt Island, FL",
@@ -1818,6 +3186,51 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/List_of_piers_in_the_United_States"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Winter Garden Downtown Historic District",
+   "ad": "Plant St, Winter Garden, FL",
+   "w": "NRHP-listed 1910s–20s brick downtown along Plant Street, with the West Orange Trail running down its median, the Saturday farmers market and Plant Street Market.",
+   "k": "historic nrhp shopping",
+   "g": [
+    "SPRNG",
+    "HIST",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Winter_Garden_Downtown_Historic_District"
+    ],
+    [
+     "VISITFLORIDA",
+     "https://visitflorida.com/places-to-go/central/winter-garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "West Orange Trail (Winter Garden Station)",
+   "ad": "455 E Plant St, Winter Garden, FL",
+   "w": "22-mile rail-trail from Killarney to Apopka through Oakland Nature Preserve and old citrus country; Winter Garden Station is the trailhead hub.",
+   "k": "trail nature free",
+   "g": [
+    "FREE",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/West_Orange_Trail"
+    ],
+    [
+     "VISITFLORIDA",
+     "https://visitflorida.com/places-to-go/central/winter-garden"
     ]
    ]
   }
@@ -2333,6 +3746,275 @@
      "https://www.theinfatuation.com/orlando/reviews/zaru"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Aloha Isle",
+   "ad": "Adventureland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The walk-up window that made the Dole Whip a Disney legend. Order: Dole Whip (pineapple soft-serve).",
+   "cz": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "DISNEYFOODBLOG",
+     "https://www.disneyfoodblog.com/2020/09/11/the-10-best-disney-snacks-you-can-still-get-in-disney-world-right-now/"
+    ],
+    [
+     "TOURINGPLANS",
+     "https://touringplans.com/blog/saturday-six-top-six-iconic-snacks-magic-kingdom/"
+    ],
+    [
+     "MICKEYBLOG",
+     "https://mickeyblog.com/2021/04/13/15-iconic-disney-snacks-everyones-favorites/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IOA",
+   "n": "The Three Broomsticks",
+   "ad": "Hogsmeade, Universal Islands of Adventure, Orlando, FL",
+   "w": "Hogsmeade's beamed tavern and the Hog's Head bar — the original home of Butterbeer, Universal's most popular snack since 2010. Order: Butterbeer (cold, frozen or hot) with the Three Broomsticks' rotisserie platters.",
+   "cz": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/usa/things-to-do/best-theme-park-food"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Wizarding_World_of_Harry_Potter_(Universal_Orlando_Resort)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Ronto Roasters",
+   "ad": "Black Spire Outpost, Star Wars: Galaxy's Edge, Disney's Hollywood Studios, Bay Lake, FL",
+   "w": "Galaxy's Edge stand where a podracer engine turns the spit; the Ronto Wrap is the land's signature eat. Order: Ronto Wrap — roasted pork, grilled sausage, peppercorn sauce and slaw in pita.",
+   "cz": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/orlando/restaurants/walt-disney-world-dining"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2023/09/11/weve-eaten-at-every-disney-world-restaurant-these-are-the-best"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Kringla Bakeri Og Kafe",
+   "ad": "Norway Pavilion, World Showcase, EPCOT, Bay Lake, FL",
+   "w": "Norway-pavilion bakery whose School Bread is one of the most loved snacks at Walt Disney World. Order: School Bread — cardamom bun with vanilla custard and toasted coconut.",
+   "cz": [
+    "PARK",
+    "DES"
+   ],
+   "s": [
+    [
+     "FOODNETWORK",
+     "https://www.foodnetwork.com/restaurants/fl/orlando/kringla-bakeri-og-kafe-restaurant"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://www.disneyfoodblog.com/2020/09/27/finally-kringla-bakeri-og-kafe-has-reopened-in-epcot/"
+    ],
+    [
+     "TOURINGPLANS",
+     "https://touringplans.com/blog/?p=266745"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Be Our Guest Restaurant",
+   "ad": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Dining room inside the Beast's castle in New Fantasyland (2012). Order: French-inspired prix-fixe in the Beast's castle ballroom.",
+   "cz": [
+    "PARK",
+    "EU"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Be_Our_Guest_Restaurant"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://www.disneyfoodblog.com/2025/07/30/weve-eaten-at-every-magic-kingdom-restaurant-these-are-the-best-2/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Space 220 Restaurant",
+   "ad": "World Discovery, EPCOT, Bay Lake, FL",
+   "w": "EPCOT's 'orbiting' restaurant next to Mission: Space, reached by a simulated space elevator. Order: Prix-fixe dinner 220 miles up in a mock space station.",
+   "cz": [
+    "PARK",
+    "FINE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Space_220_Restaurant"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2023/09/11/weve-eaten-at-every-disney-world-restaurant-these-are-the-best"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHS",
+   "n": "Sci-Fi Dine-In Theater Restaurant",
+   "ad": "Commissary Lane, Disney's Hollywood Studios, Bay Lake, FL",
+   "w": "Eat in mock convertibles under a starry sky watching B-movie trailers. Order: Burgers and shakes in a 1950s drive-in-movie car.",
+   "cz": [
+    "PARK",
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sci-Fi_Dine-In_Theater_Restaurant"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2023/09/11/weve-eaten-at-every-disney-world-restaurant-these-are-the-best"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DHS",
+   "n": "50's Prime Time Café",
+   "ad": "Echo Lake, Disney's Hollywood Studios, Bay Lake, FL",
+   "w": "1950s kitchen-table comfort food served by 'family' who scold you to finish your vegetables. Order: Mom's pot roast and fried chicken.",
+   "cz": [
+    "PARK",
+    "US"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/50's_Prime_Time_Caf%C3%A9"
+    ],
+    [
+     "DISNEYFOODBLOG",
+     "https://disneyfoodblog.com/2023/09/11/weve-eaten-at-every-disney-world-restaurant-these-are-the-best"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Viet-Nomz",
+   "ad": "Mills 50, Orlando, FL",
+   "w": "Won Best Pho in Orlando Weekly's 2025 Best of Orlando readers' poll; TravelPulse's Little Vietnam tour calls it possibly the best Vietnamese food in the area.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/best-of/best-pho-40216665/"
+    ],
+    [
+     "TRAVELPULSE",
+     "https://www.travelpulse.com/news/destinations/exploring-orlandos-little-vietnam"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Pho 88",
+   "ad": "730 N Mills Ave, Orlando, FL 32803",
+   "w": "Mills 50 pho institution; #2 Best Pho in Orlando Weekly's 2025 readers' poll and a Lonely Planet pick. Order: Pho, banh mi, rice-vermicelli bowls with grilled meats.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/best-of/best-pho-40216665/"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/orlando/restaurants/pho-88/a/poi-eat/1514681/361904"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/orlando/restaurants/little-vietnam"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Anh Hong Restaurant",
+   "ad": "Mills Ave & E Colonial Dr (SR 50), Orlando, FL",
+   "w": "Decades-old Vietnamese restaurant on the corner that gives Mills 50 its name; #3 Best Pho (OW 2025) and #3 restaurant in Mills 50 in the 2026 readers' poll.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/best-of/best-pho-40216665/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/orlando/restaurants/little-vietnam"
+    ],
+    [
+     "TRAVELPULSE",
+     "https://www.travelpulse.com/news/destinations/exploring-orlandos-little-vietnam"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Mills Market",
+   "ad": "1110 E Colonial Dr, Orlando, FL 32803",
+   "w": "Asian market + food hall built on the site of the 1986 Tien Hung Vietnamese market, now home to several Michelin-recognised stalls; a 2026 Time Out Orlando best-restaurant entry. Order: Bánh mì, onigiri and udon stalls (Bánh Mì Boy, UniGirl, Zaru…).",
+   "cz": [
+    "VN",
+    "JP"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/orlando/restaurants/best-restaurants-in-orlando"
+    ],
+    [
+     "ISLANDS",
+     "https://www.islands.com/2194475/orlando-florida-hub-asian-eats-mills-market-shops-popular-foodie-michelin-recognized-stalls/"
+    ],
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ]
+   ]
   }
  ],
  "S": {
@@ -2348,11 +4030,29 @@
    "u": "https://attractionsmagazine.com/",
    "l": "Attractions Magazine"
   },
+  "CNNTRAVEL": {
+   "k": "CNNTRAVEL",
+   "t": "CNN Travel",
+   "u": "https://edition.cnn.com/travel",
+   "l": "CNN Travel"
+  },
   "DISNEYBLOG": {
    "k": "DISNEYBLOG",
    "t": "DisneyBlog",
    "u": "https://disneyblog.com/",
    "l": "DisneyBlog"
+  },
+  "DISNEYFOODBLOG": {
+   "k": "DISNEY FOOD BLOG",
+   "t": "Disney Food Blog (AJ Wolfe)",
+   "u": "https://www.disneyfoodblog.com/",
+   "l": "Disney Food Blog (AJ Wolfe)"
+  },
+  "EXPERIENCEKISSIMMEE": {
+   "k": "EXPERIENCEKISSIMMEE",
+   "t": "Experience Kissimmee",
+   "u": "https://www.experiencekissimmee.com/",
+   "l": "Experience Kissimmee"
   },
   "FATHOM": {
    "k": "FATHOM",
@@ -2371,6 +4071,12 @@
    "t": "Frommer's",
    "u": "https://www.frommers.com/",
    "l": "Frommer's"
+  },
+  "LAUGHINGPLACE": {
+   "k": "LAUGHINGPLACE",
+   "t": "Laughing Place",
+   "u": "https://www.laughingplace.com/",
+   "l": "Laughing Place"
   },
   "LONELYPLANET": {
    "k": "LONELYPLANET",
@@ -2420,6 +4126,18 @@
    "u": "https://www.orlandoweekly.com/",
    "l": "Orlando Weekly"
   },
+  "SHEBUYSTRAVEL": {
+   "k": "SHEBUYSTRAVEL",
+   "t": "SheBuysTravel",
+   "u": "https://shebuystravel.com/",
+   "l": "SheBuysTravel"
+  },
+  "SMARTERTRAVEL": {
+   "k": "SMARTERTRAVEL",
+   "t": "SmarterTravel",
+   "u": "https://www.smartertravel.com/",
+   "l": "SmarterTravel"
+  },
   "THEMEPARKINSIDER": {
    "k": "THEME PARK INSIDER",
    "t": "Theme Park Insider (Robert Niles)",
@@ -2456,6 +4174,12 @@
    "u": "https://www.visitorlando.com/",
    "l": "Visit Orlando (official destination marketing org)"
   },
+  "WIKIDATA": {
+   "k": "WIKIDATA",
+   "t": "WIKIDATA",
+   "u": "",
+   "l": ""
+  },
   "WIKIPEDIA": {
    "k": "WIKIPEDIA",
    "t": "Wikipedia",
@@ -2476,11 +4200,41 @@
    "u": "https://www.clickorlando.com/",
    "l": "News 6 WKMG (ClickOrlando)"
   },
+  "DISNEYFOODBLOG": {
+   "k": "DISNEY FOOD BLOG",
+   "t": "Disney Food Blog (AJ Wolfe)",
+   "u": "https://www.disneyfoodblog.com/",
+   "l": "Disney Food Blog (AJ Wolfe)"
+  },
+  "FOODNETWORK": {
+   "k": "FOODNETWORK",
+   "t": "Food Network",
+   "u": "https://www.foodnetwork.com/",
+   "l": "Food Network"
+  },
+  "FROMMERS": {
+   "k": "FROMMERS",
+   "t": "Frommer's",
+   "u": "https://www.frommers.com/",
+   "l": "Frommer's"
+  },
   "INFATUATION": {
    "k": "INFATUATION",
    "t": "The Infatuation — Orlando",
    "u": "https://www.theinfatuation.com/orlando",
    "l": "The Infatuation — Orlando"
+  },
+  "ISLANDS": {
+   "k": "ISLANDS",
+   "t": "Islands.com",
+   "u": "https://www.islands.com/",
+   "l": "Islands.com"
+  },
+  "LONELYPLANET": {
+   "k": "LONELYPLANET",
+   "t": "Lonely Planet",
+   "u": "https://www.lonelyplanet.com/",
+   "l": "Lonely Planet"
   },
   "MICHELIN": {
    "k": "MICHELIN",
@@ -2488,11 +4242,35 @@
    "u": "https://guide.michelin.com/us/en/florida/orlando/restaurants",
    "l": "MICHELIN Guide Florida (Orlando selection)"
   },
+  "MICKEYBLOG": {
+   "k": "MICKEYBLOG",
+   "t": "MickeyBlog",
+   "u": "https://mickeyblog.com/",
+   "l": "MickeyBlog"
+  },
   "ORLANDOWEEKLY": {
    "k": "ORLANDO WEEKLY",
    "t": "Orlando Weekly",
    "u": "https://www.orlandoweekly.com/",
    "l": "Orlando Weekly"
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT",
+   "t": "Time Out Orlando",
+   "u": "https://www.timeout.com/orlando",
+   "l": "Time Out Orlando"
+  },
+  "TOURINGPLANS": {
+   "k": "TOURINGPLANS",
+   "t": "TouringPlans",
+   "u": "https://touringplans.com/",
+   "l": "TouringPlans"
+  },
+  "TRAVELPULSE": {
+   "k": "TRAVELPULSE",
+   "t": "TravelPulse",
+   "u": "https://www.travelpulse.com/",
+   "l": "TravelPulse"
   },
   "VISITORLANDO": {
    "k": "VISIT ORLANDO",

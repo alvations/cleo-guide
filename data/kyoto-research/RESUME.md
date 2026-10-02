@@ -20,26 +20,41 @@ Measured by `python3 tools/density.py kyoto` on the DISCOVERED set. Total ≈ 48
 Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō east, Rakusai west, Rakuhoku north, Rakunan south), plus Uji/Nara and the wider prefecture as the day-trip ring.
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W1 partial (12 places) — halted at the shared 200-search cap (see AUDIT).
-- 2026-10-02 **W2 (relaunch, own budget)** — in progress. ~130 discovered (101 sights + 29 food). First build GREEN:
-  `cities/kyoto.html` 88 pins, sourcecheck/geocheck/statuscheck/buildcheck PASS (not yet linked live).
-  Files: SIGHTS_KYOTO_{HGS1,HGS2,UNESCO,CTR1,SAKYO1,RKSAI1,KITA1,FSHMI1,UJI1,RKHKU1,KYFU1}.json,
-  FOOD_KYOTO_{HGS1,W2}.json, SOURCES_KYOTO_{W1,W2}.json, geo/_geoout_kyoto_*.json.
-  Helpers: `_kyoto_add.py` (append/dedup), `_kyoto_rows.py` (sight rows → SIGHTS + geoout), `_kyoto_food.py`
-  (food rows → FOOD + UNVERIFIED geoout).
-- Search budget: 86 used this session (counted in AUDIT per batch).
+- 2026-10-02 scaffolded; W1 partial (12 places) halted at the shared 200-search cap.
+- 2026-10-02 **W2 (relaunch, own budget) — LIVE.** Page `cities/kyoto.html`, linked from the Japan hub (CARD:kyoto),
+  root CARD:japan "4 of 5 maps live", docs/CITIES.md row. Last full build: **208 discovered / 198 rendered (136 sights + 62 food)**;
+  sourcecheck / geocheck / statuscheck / buildcheck PASS; `npm run validate` + `npm test` ALL PASS. Later batches (UJI +5, FSHMI +3)
+  are in the files — the next `rebuild-city.py kyoto --build` picks them up.
+- Rendered per area at last build (target): HGS 39 (75) · CTR 38 (95) · SAKYO 24 (60) · RKSAI 24 (55) · KITA 22 (50) · UJI 21 (50)
+  · RKHKU 11 (30) · FSHMI 10 (45) · KYFU 9 (25).
+- Files: SIGHTS_KYOTO_{HGS1,HGS2,UNESCO,CTR1,SAKYO1,RKSAI1,KITA1,FSHMI1,UJI1,RKHKU1,KYFU1}.json; FOOD_KYOTO_{HGS1,W2,W3,W4}.json;
+  SOURCES_KYOTO_{W1,W2}.json; geo/_geoout_kyoto_*.json (incl. `_mpins` from the Michelin pin worker). Helpers: `_kyoto_add.py`
+  (append/dedup), `_kyoto_rows.py` (sight rows → SIGHTS + geoout), `_kyoto_food.py` (food rows → FOOD + geoout), `_kyoto_push.sh`
+  (pull, regenerate a conflicted GEOCODE-BACKLOG, push; run under the lock).
+- Search budget used this session: ~170 (main ~152 + pin worker 18). Per-batch counts are in AUDIT.md.
 
 ## In-flight wave
-- W2 continues: sights fill per area (Wikipedia-coordinate batches of ≤6 names that surely have enwiki articles + a
-  japan-guide / kyoto.travel domain-filtered second-source query), then Michelin food by ward+genre.
-  Held single-source leads with coords are listed in AUDIT batch 2/4 — corroborate first (cheap wins).
+- none (W2 closed cleanly at each batch).
 
-## Next actions
-1. Discovery waves per area (canon first) → `python3 tools/density.py kyoto` → iterate on every `NEED +N`.
-2. Geocode waves → `geo/_geoout_kyoto_*.json` → `python3 tools/rebuild-city.py kyoto --build` (under the shared lock).
-3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
+## Next wave plan (W3) — ordered, with the cheapest proven techniques
+1. **Held leads first (1 search each, or fewer):** Shōkoku-ji, Rozan-ji, Daihōon-ji, Honnō-ji, Shinsen-en, Tōji-in, Seigan-ji, Goō Shrine,
+   Funaoka Onsen, Kurama Onsen, Ōmi Jingū, Ukimidō, Fukuchiyama Castle, Gokō-no-miya, Bishamon-dō (all have Wikipedia/ja coords and need a
+   2nd source). Use kyoto.travel / japan-guide domain-filtered OR-queries of ≤5 names.
+2. **Michelin food by ward** (FSHMI, RKHKU, KYFU, UJI thinnest): `allowed_domains=["guide.michelin.com"]` "Kyoto <ward> Bib Gourmand
+   restaurant cuisine address" → then a pin query "<A>; <B>; <C> Kyoto address latitude longitude". Held for a dish/cuisine: Oito, Tan,
+   Eitaroya, Muromachi Kaji, Nishijin Hashimoto, Shimogamo Saryo/Ichima, middle, Kenya, Nakazen, MOKO, KOKAGE, TOKI, Kyoboshi,
+   Bistro Yanagihara, BOCCA del VINO, Menya Inoichi, Ike Edoyakiunagi Asahitei (Nara). UNVERIFIED pins: Okakita, Shutei Bankara.
+3. **Non-Michelin canon (needs ≥2 editorial):** Demachi Futaba (mame-mochi), Kazariya/Ichiwa (aburi-mochi), Kagizen Yoshifusa, Inoda Coffee,
+   Smart Coffee, Rokuyōsha, Okutan / Junsei (yudofu), Honke Owariya, Matsuba (nishin soba), Ippodō, Taihōan, Kizakura Kappa Country,
+   Fushimi Yume Hyakushu, Torisei. Pair kyoto.travel feature pages with japan-guide / ja.wikipedia (many old shops have ja articles with coords).
+4. **Sights fill** per area via ja.wikipedia 座標 batches (5–6 names known to have articles) + JG/KT second source.
+5. **Creators (§2a):** still 0 vetted. Try named creators directly (e.g. "Paolo fromTOKYO Kyoto", "Abroad in Japan Kyoto", "Kyoto
+   Foodie" (local English site), "Inside Kyoto" (Ruth Kenny, guidebook author)); attach only with a findable place-specific piece.
+6. Re-verify med pins (Pontochō, Togetsukyō, Kamishichiken, Nara Park, Mount Wakakusa, Botanical Gardens, Enryaku-ji, Heijō, Shimabara,
+   Philosopher's Path, Gion & Hanamikoji, Higashiyama District) and run `node tools/research.js --statuscheck kyoto`.
+Commands: `python3 tools/density.py kyoto`; `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py kyoto --build`;
+`cd tools && npm run validate && npm test`; push via `flock … data/kyoto-research/_kyoto_push.sh`. Refresh CARD:kyoto counts + CITIES.md row.
 
 ## Acceptance
 - [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
