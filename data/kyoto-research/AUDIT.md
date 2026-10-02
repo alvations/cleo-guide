@@ -266,3 +266,14 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   Michelin venue is a DIFFERENT shop (554 Sangen-chō, Shimogyō-ku). Korekidō was removed (held: Inside Kyoto only; the Savor Japan
   "Wabiya Korekido" listing is an Osaka-Namba branch). Michelin "wabiya (Shimogyō)" added on its own, pinned from its venue page.
   Kikunoi Roan ★★ added (Michelin pin + Inside Kyoto).
+
+### W3 batches 9–11 (2026-10-02)
+- Food +11: Taihōan, Fukujuen Uji Kōbō, Kanbayashi Sannyū (Uji tea), Katsukura Sanjō, wabiya (Michelin, Shimogyō), Kikunoi Roan ★★,
+  DODICI ★, Takocho (oden), Torisho sai (yakitori) — Michelin ones pinned from venue pages; Hashidate Chaya (asari-don) and
+  Tsuruya Shokudō (Tango Jewel kaisen-don) — first KYFU food beyond Mukai Shuzō (Amanohashidate official + JG / MATCHA).
+- Sights +3 KYFU: Chion-ji (Amanohashidate), Moto-Ise Naikū Kōtai Jinja, Fukuchiyama Castle (held W2 lead → resolved with the
+  Kyoto Online Tourist Information Center FAQ as 2nd source). ja-Wikipedia pins.
+- Dead ends: Japanese pickles query (Nishiri/Daian) returned generic pages; Michelin query for Tokuo/Takohachi/TAKAYAMA/DONO/Izumi
+  returned addresses but no lat/lng and no dish → held.
+- **Build: 362 discovered (183 + 179 = 49% food) / 296 rendered (178 + 118)**; all 4 gates PASS (high 277 · med 19); validate +
+  test ALL PASS. ANIME 7. Searches ≈ 185 total this session.
