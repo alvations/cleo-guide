@@ -135,3 +135,5 @@
 134 Fodor's Homestead sights [2 sub-searches] — nothing new (all already in)
 135 Time Out 15 best Miami beaches → Lummus Park, North Beach, Surfside, Bal Harbour
 136 Time Out 32 things Miami Beach (Fillmore, Bandshell, Broken Shaker, Faena District, Medium Cool…) → 2 sights + Broken Shaker
+137 Time Out 20 things Little Havana (Walk of Fame, La Trova, Domino Park, Ball & Chain, Azucar, Cubaocho, Sanguich, Viernes Culturales, Calle Dragones, food tour) → 2 sights + Azucar
+138 Time Out 16 best bars Coconut Grove → Taurus, Sipsip, Barracuda, Monty's, Flanigan's Grove, The Commodore (∩ Infatuation)
