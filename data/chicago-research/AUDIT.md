@@ -106,3 +106,28 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Metric, Tank Noodle, Nhu Lan, Sabri Nihari, Ghareeb Nawaz, Usmania, Huaraches Doña Chio, Taqueria Belen, Bayan Ko, Rose Mary,
   Hermosa, Community Tavern. Dropped: Harold's/Sharks (chains — branch not identifiable), Peninsula hotel blog (not credible).
 - Channel mix: institutional 21 · editorial/travel 8 · creator 1 (Keith Lee).
+
+## 2026-10-02 (session 3) · W12b–W14 food & drink
+- W12b (+21): Michelin venue/area pages (lone MICHELIN/MICHELIN_BIB — Andros Taverna, Momotaro, Omakase Yume, Home Bistro, Dove's,
+  etta, Virtue, Yao Yao, Dolo, Daguan, MingHin, Maple & Ash, Tzuco, Michael Jordan's, Les Nomades, Warlord, Sol de Mexico) + bars
+  (Lost Lake, Milk Room, Best Intentions, Hopleaf — Time Out Bar Awards + NBC5 50 Best / Chicagoist / Paste).
+- W13 (+13): Papa's Cache Sabroso (jibarito), Smak-Tak, Kasia's Deli (pierogi), bakeries (Lost Larson, Loaf Lounge, Hewn, Bang Bang —
+  Time Out + Infatuation guides), Brown Sugar Bakery, Josephine's (Resy + Chowhound), Do-Rite + Old Fashioned Donuts (Axios 2026 +
+  NBC5), Ricobene's (South Side Weekly + DNAinfo + Chicago Mag), Chiu Quon (Time Out + Infatuation + WTTW).
+- W14 (+14): Taxim, Athena (Greek guides), Cho Sun Ok, San Soo Gab San, Parachute (Korean), Au Cheval, Kuma's Corner (burgers), Mario's
+  Italian Lemonade, Tufano's (JB America's Classics 2008), Tryzub, Sticky Rice, TAC Quick (Time Out Thai list + Infatuation), Akahoshi
+  Ramen (Bon Appétit + NYT 25-best via NBC5), Brindille (2015 JB award via Sun-Times + NYT 25-best).
+- Key hygiene: NYT / Bon Appétit recognition reported by NBC5 carries NYT / BONAPPETIT keys with the NBC URL as evidence; JB award
+  cited via a Choose Chicago page (Tufano's) is a JB award (America's Classics) → JAMESBEARD.
+- Geocode W12a (agent, 50 searches): 4 high + 2 med kept; 9 aggregator (frankiapp-type) coords DEMOTED to UNVERIFIED per the session-2
+  precedent; closures found: Dear Margaret (fire, Oct 2025, Time Out) and The Violet Hour (closed 27 Jun 2025) → flagged CLOSED, kept.
+  Luella's moved (Lincoln Sq → 4114 N Kedzie, Albany Park, brunch only) → record updated, area NW. Area fixes: Ghin Khao WEST, Munno
+  NORTH, Nella SOUTH (Hyde Park), Perilla NW (River West).
+- Backlog pins (agent, ~60 searches): 7 accepted (Al's, Gene & Georgetti, Boka, Galit, Middle Brow, Taqueria Chingón, Rainbow Cone);
+  Tortello/Sochi listing-site coords rejected. Jim's Original: forced off 1250 S Union by UIC (30 Jun 2026), moving to 551 W 18th St
+  (fall 2026) per Sun-Times/Fox32/WGN → address + note updated, stays unpinned.
+- Held single-source: Andy's Thai Kitchen, Old Lviv, Shokolad, Noon O Kabab, Taste of Lebanon, Zaytune, Asador Bastian, Al Bawadi
+  (possibly closed), Doughnut Vault, Beacon, Pompei, Conte di Savoia, J.P. Graziano, Tony's, Carm's, Phil's, Candlelite, Marie's,
+  La Bomba, Pearl's Place, St. Rest, Sweet Mandy B's, Svea, Mr. Greek Gyros, Queen Mary, Nine Bar, Lemon, Sportsman's Club, Delilah's.
+- Density after W14: food 152 / 298 discovered (51%); per-area food share LOOP 48% · NORTH 56% · NW 82% · WEST 50% · SOUTH 34% ·
+  SW 43% · FAR 63% · SUB 21% · DAY 0%.
