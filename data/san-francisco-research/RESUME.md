@@ -12,7 +12,7 @@
 - `PEN` Peninsula & SFO (Daly City → San Mateo) ~35
 
 ## Session 2026-10-02 (modernisation run) — search counter
-- WebSearch used this session: **66** (main) + **18** (pin agent A) = **84**; after build #2: main **119** + 18 = **137** / ~200 (session cap). Update after every wave.
+- WebSearch used this session: **66** (main) + **18** (pin agent A) = **84**; after W3E: main **128** + 18 = **146** (note: some multi-name queries visibly fan out into several internal searches — the true count may be higher) / ~200 (session cap). Update after every wave.
 
 ## In-flight wave
 - **M1 plumbing + credibility/key-hygiene audit (offline)** — density.py RDIR, CARD markers, `_sf_add.py`,
