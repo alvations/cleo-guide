@@ -210,19 +210,19 @@
    "n": "Ramen Jinsei JET",
    "a": "KITA",
    "src": []
-  }
- ],
- "single_source_sight": [
+  },
   {
-   "n": "Hōzenji Yokochō",
+   "n": "Kanekyuemon / Kinguemon Dotonbori (Osaka Black shoyu ramen)",
    "a": "MINAM",
    "src": [
     [
-     "JAPANGUIDE",
-     "https://www.japan-guide.com/e/e4001.html"
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/kinguemon-dotonbori/"
     ]
    ]
-  },
+  }
+ ],
+ "single_source_sight": [
   {
    "n": "Keitakuen Garden",
    "a": "TNJ",
@@ -248,21 +248,6 @@
    ]
   },
   {
-   "n": "Tenjinbashi-suji Shopping Street",
-   "a": "KITA",
-   "src": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/experience/en/osaka/spot/204"
-    ],
-    [
-     "JAPANGUIDE",
-     "https://www.japan-guide.com/e/e4024.html"
-    ]
-   ],
-   "note": "2 sources OK — needs a coord (Wikipedia has none)"
-  },
-  {
    "n": "Osaka Museum of History",
    "a": "CHUO",
    "src": [
@@ -280,6 +265,27 @@
    "n": "Osaka Museum of Housing and Living",
    "a": "KITA",
    "note": "CLOSED for renovation until 2027-01-05 per japan-guide e4024 — do not add as live"
+  },
+  {
+   "n": "Sennichimae Doguyasuji",
+   "a": "MINAM",
+   "src": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/212"
+    ]
+   ]
+  },
+  {
+   "n": "Osaka Tsuruhashi Market",
+   "a": "EAST",
+   "src": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/osaka-tsuruhashi-market/"
+    ]
+   ],
+   "note": "~800 stalls; needs 2nd source + coord"
   }
  ],
  "timeout_area_lists_to_mine": [
@@ -287,5 +293,11 @@
   "https://www.timeout.com/osaka/restaurants/must-go-restaurants-north",
   "https://www.timeout.com/osaka/restaurants/must-go-restaurants-south",
   "https://www.timeout.com/osaka/restaurants/must-go-restaurants-osaka-city"
+ ],
+ "leads": [
+  "OSAKA-INFO yakiniku/horumon guide https://osaka-info.jp/en/gourmet/gastronomy-yakinikuhoru/ (names not surfaced)",
+  "Habikino yakiniku 4 picks https://osaka-info.jp/en/local_journey/osaka-mania/habikino-yakiniku/",
+  "OSAKA-INFO tonkatsu 8 https://discover.osaka-info.jp/en/articles/tonkatsu",
+  "japan-guide e4022: Sushiroku, Kitashinchi Kushikatsu Bon"
  ]
 }
