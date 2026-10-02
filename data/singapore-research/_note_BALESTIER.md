@@ -69,3 +69,29 @@ still needs a formal statuscheck in the geocode wave. Closures found: 0.
    Heritage Trail shophouses, Whampoa dragon playground/fountain, Zhongshan Park.
 3. Second-source the HELD list above; mine Zhongshan Mall + Moulmein + Jalan Kemaman; creator/viral pass.
 4. Build under lock, gates, re-verify, go-live only when dense (>=55 incl. pre-existing) and gated.
+
+## W2 (2026-10-02 relaunch, 4-town session) — density OK, go-live HELD for pins
+- **Outcome:** BLS 50 food + 11 sights = **61 / target 55 -> OK** (incl. 1 CLOSED: Miao Sin Popiah & Carrot Cake, 26 Feb 2026).
+  **Not added to LIVE_SLUGS:** only **5 pins** render — Whampoa Makan Place (19 stalls), Balestier Market (5), Balestier Plaza (2) and the
+  Balestier Road shophouse restaurants have NO published coordinate reachable by WebSearch (2 geocode agents, 28 searches: 0 pins).
+  All sit UNVERIFIED in data/geocodes.json for `tools/geocode-helper.html`. Go live as soon as the helper pins Whampoa Makan Place +
+  Balestier Market + ~10 Balestier Road addresses (then >=40 pins).
+- **Files:** FOOD_BALESTIER2.json (26), SIGHTS_BALESTIER.json (11), SOURCES_BALESTIER2/3.json, geo/_geoout_balestier_w2.json, _w3.json,
+  geo/_geoout_sg4_w2b.json/_w2d.json (Sun Yat Sen Hall, Burmese temple, Malay Film Productions [Jalan Ampas pin, med], Art Deco shophouses).
+- **Sights (11):** Sun Yat Sen Nanyang Memorial Hall, Maha Sasana Ramsi Burmese Buddhist Temple, Goh Chor Tua Pek Kong & wayang stage,
+  Balestier Market (closure reversed — tenancy extended to ~2027, Seth Lui Feb 2025), Balestier Point, Whampoa Makan Place, Former Malay
+  Film Productions Studio, Balestier Art Deco Shophouses (Wikipedia address 230 & 246 Balestier Rd — corrected), Zhongshan Park, Whampoa
+  Dragon Fountain, Balestier Plain & Ceylon Sports Club.
+- **Food added W2:** Tandoori Corner, Kai Juan/Ah Hak BKT, Hi Leskmi, Granny's Pancake, Hillview Steam Food, Yu Chu XLB, Kim BCM, Xin Mei
+  Xiang Lor Mee, Guang Dong Xiao Shi, Deep Fried Carrot Cake, Robert Mee Siam, Nyonya Chendol, Sweetlands, Bao Er Cafe, Tanjong Rhu Pau,
+  Lam Yeo Coffee Powder, Ah Hui Big Prawn Noodle, Soon Kee Long House duck, Miao Sin (CLOSED), Whampoa Soya Bean, Whampoa Keng, Sing Hon
+  Loong, Balestier BKT (Kian Lian), Boon Pisang Goreng, Bugis St Chuen Chuen, Wicked Good.
+- **Channel mix W2:** institutional (Roots/NHB trails, URA, NLB, Wikipedia) 12 · editorial (Eatbook, Seth Lui, HGW, TSL, City Nomads, WW,
+  Time Out, Mothership, LIC) ~35 · creators/bloggers (ieatishootipost, Miss Tam Chiak, Daniel Food Diary, Live2Makan, SG Food on Foot,
+  RememberSingapore) ~12 · viral video 0 (Food King/NOC deleted all its videos in 2022 — rejected as a source).
+- **Held (1 credible):** Three Bowls, Yu Ji pig organ, Delisnacks, Nurilah, Famous Bedok Kway Chap, Kemuri BBQ, Chuan Yang Ji, Otou-San,
+  Thai Tai, Seven Daze, Cafe de Hong Kong, House of Tau Sar Piah, Original Herbal Shop, Lotus Vegetarian, Haji Shaikh Vali Ahmad.
+  **Out of scope / moved:** Nan Xiang Chicken Rice (now Woodleigh), Delhi Lahori (Tekka), 545 Whampoa Prawn Noodles (WW still lists at
+  Blk 91; Seth Lui places it at Tekka + Novena food court — added under NVN only).
+- **Fixes:** Bee Kia = 1 Thomson Rd #01-326, Balestier Hill Shopping Centre S320002; Kai Juan = 395/397 Balestier Rd.
+- **Next:** browser-helper pins -> go live; then 2nd-source the held list (domain-filtered WebSearch works best).
