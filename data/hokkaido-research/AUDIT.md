@@ -244,3 +244,10 @@ ANIME collection: 4 (W40). Searches ≈ 131 (me ~104 + agents 27).
 **W63 SPR:** GoodLuckTrip "21 Must-Try Restaurants in Susukino" as one source × sapporo.travel: Curry Shop S, Umi Hachikyō Honten,
 Night Parfait Nanakamado, Parfaiteria PaL. Held (GoodLuckTrip only): Uni Marukawa, Hakodate Kaiyōtei, Kitaushi, Ginbekoya, Seizan,
 Fuhdo, Yukimura (COCONO), Kirin Beer Garden Urban.
+**W64 SPR:** sights with ja.wikipedia pins + sapporo.travel facility pages — Maeda Forest Park, Yurigahara Park, Governor's Official
+Residence, Former Nagayama Residence; food — Kiwami Yūhi jingisukan (sapporo.travel + GoodLuckTrip jingisukan-12). Held (GoodLuckTrip
+only): Matsuo Jingisukan Sapporo Ekimae (also rurubu-held — URL not retained, re-query), Lambsuke, Kitanoki no Kaze, Hitsujiya,
+Daikokuya Hakodate, Iidaya; Soup Curry TREASURE. Sapporo City Archives: no 2nd source surfaced.
+**W65 SPR:** Sapporo Satoland, Hiraoka Park plum grove, Seikatei (ja.wikipedia pins + sapporo.travel / visit-hokkaido).
+**W66 SPR:** Jōzankei Dam & Sapporo Lake, Mt Hakken / Kannon-iwa (ja.wikipedia pins + jozankei.jp = JOZANKEITOURISM, Jōzankei Tourism
+Association + visit-hokkaido). Chi-Ka-Ho underground walkway: no own coord (only an adjoining building's) → not added.

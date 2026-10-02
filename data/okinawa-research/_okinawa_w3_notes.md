@@ -70,3 +70,7 @@
 105. Hateruma/Yonaguni/Kohama: Nishihama (rurubu 11290/80043547 + Mapple 264420) kept; Hateruma food Taoya, Ayafufami, Aji-maru, Budumare, Bamboo (Mapple only); Yonaguni Kaikyo 4022-6 (rurubu only); Kohama Shimayumebito, Satokibi, Kuba-yaa; Pē-hama
 106. coords: Kabira Bay only (already pinned); Nishihama/Limestone cave none
 107-108. Kohama: Shimayumebito, Satokibi (Mapple 47012982) single; Sugar Road (rurubu 80043556 + All About 469872; Chura-san location) kept + anime/pop field; Ufudaki observatory lead
+109-111. Yomitan: Yomitanzan soba (Furugen 485-7, 1983; rurubu only), Yachimun Cafe Gunjo (Zakimi, rurubu 80123148), Tsurukame-do zenzai (beni-imo) — no 2nd; Uruma: Ayahashi-kan (rurubu 80042935 + OT 0139) kept; Ippuku-ya (Henza; oxtail cold noodles), Tiirabui (Hamahiga old house), Muinii-tei (Ikei), Nuchi Masu salt factory 80042947 — single
+112. Nuchi Masu (Miyagi 2768; Mapple 47011691 + rurubu 80042947 + OT 0138) kept
+113. OT 0138 factory tours 6: Uema Kashiten (Suppaiman), Masahiro Gallery (Masahiro awamori, Itoman), Nuchi Masu, Okinawa Kokuto, Orion (+src), Helios (+src) — Uema & Masahiro held
+114. Masahiro Gallery (Nishizaki 5-8-7; rurubu 80042883 + OT 0138) kept; Uema Kashiten (Toyosaki 3-64 Tomigusuku; Mapple 47013394 + OT 0138) kept
