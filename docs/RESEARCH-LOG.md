@@ -365,3 +365,13 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   tourism portal). Mapple (Shobunsha まっぷる) spot pages carry addresses, hours and editor copy.
 - Restaurant coordinates outside Stripes' coverage (Naha, Ishigaki, Miyako) did not surface by search — they are
   discovered + sourced but held UNVERIFIED for `tools/geocode-helper.html`.
+
+## 2026-10-02 · Chicago (session 2)
+- Search budget restored for this session; discovery from editorial lists (Infatuation/Time Out/Chowhound/Chicago
+  Magazine "Iconic Eats" 50-dish package — captured in full in one query) + Michelin 2025 + JB America's Classics.
+- `chicagotribune.com` is blocked for the search user-agent (API 400 on `allowed_domains`) — drop it from domain filters.
+- `chicago.eater.com` returned nothing via `allowed_domains`; use Infatuation/Time Out instead.
+- Pins: Wikipedia 4-per-query batches (see AGENT-PROMPTS lesson). Restaurant pins via latlong.net mostly fail.
+- Watch-outs found: Ann Sather is relocating (Time Out, Apr 2026) and Maxwell Street Depot was forced to move
+  (Time Out, May 2026) — Wikipedia coords would be stale; both held back. Obama Presidential Center opened 2026-06-19.
+
