@@ -289,3 +289,15 @@ med — onsen-area point). Town names left generic (Rankoshi not read in results
 Sushi Miyakawa (Michelin 3★ 2017) — no address/2nd source surfaced (held).
 **Closing build (session 3):** 334 discovered → 189 rendered (161 sights + 28 food). sourcecheck PASS 334 · geocheck PASS · statuscheck
 CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 145 UNVERIFIED held. Food 154/334 = 46%. ANIME 7. Searches ≈178.
+
+## 2026-10-02 — session 4 · W85 SPR sights (orchestrator, 9 searches incl. 4 pin-probe)
+- **Pin probe (restaurants):** `<shop> 緯度 経度 mapion`, `<shop> google maps !3d`, `openstreetmap node …`, ja.wikipedia coords for
+  五島軒/小樽倉庫No.1/ハセガワストア → no restaurant coordinate surfaced (summaries return only addresses; shop articles carry no infobox
+  coord). Decision: restaurant pins only via host-landmark wiki coords at `med` (delegated to W80); the rest stay for `tools/geocode-helper.html`.
+- **Kept 10 (all ja.wikipedia infobox coords + sapporo.travel / visit-hokkaido / japan-guide):** Kitara (t2), Hokkaido University Museum
+  (t2, **med** — infobox second-precision ~150 m W of entrance; was held in W01 as inconsistent, now on-campus), Migishi Kōtarō Museum (t3),
+  Hokkaido Museum of Literature (t3), Nopporo Forest Park (t2, med park point), Koganeyu Onsen (t3, med onsen-area point), ES CON FIELD
+  HOKKAIDO (t1 — Kitahiroshima, metro Sapporo), Sapporo Teine (t2), Sapporo Kokusai (t2), Sapporo Astronomical Observatory (t3).
+- **Held single-source:** Sapporo Science Center (wiki only + thin), Hoshioki Falls (wiki only), Sapporo Salmon Museum (wiki only),
+  Watanabe Jun'ichi Literary Museum (no coord, no 2nd source), Sapporo City Archives (still no 2nd source).
+- Channel mix: official tourism 3 outlets · notable travel site 1 (japan-guide) · encyclopedia 1. Status: all open (current pages).
