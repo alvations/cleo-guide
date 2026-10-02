@@ -40,7 +40,7 @@ S(1,"DOTO","Abashiri Prison Museum (博物館 網走監獄)","Yobito, Abashiri, 
   "The Meiji prison that built Hokkaido's roads, rebuilt as an open-air museum — the five-winged radial cell block, court, bathhouse and punishment cells.",
   [wp("Abashiri_Prison"),jg("e6867.html")],44.016583,144.231056,"high","en.wikipedia Abashiri_Prison infobox (44°0′59.7″N 144°13′51.8″E) via WebSearch",
   O,"japan-guide.com e6867 (current)",k="prison museum",g=["MUS","ICON"])
-S(1,"DOTO","Kushiro Marsh — Kushiro-shitsugen National Park (釧路湿原)","Kushiro-shitsugen, Kushiro, Hokkaido, Japan",
+S(1,"DOTO","Kushiro Marsh — Kushiro-shitsugen National Park (釧路湿原)","Hosooka Observatory (細岡展望台), Kushiro-chō, Kushiro District, Hokkaido, Japan",
   "Japan's largest wetland and first Ramsar site (1980) — the stronghold of the red-crowned crane, seen from the Hosooka and marsh observatories.",
   [wp("Kushiro_Shitsugen_National_Park"),("JAPANGUIDE","https://www.japan-guide.com/ad/kushiro/"),vh("plan/detail_24.html")],status=O,ssrc="visit-hokkaido.jp sample itinerary 24 (current)",k="marsh crane wetland",g=["NATURE","VIEW"])
 # ---- DONAN ----
