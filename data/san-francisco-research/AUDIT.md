@@ -399,3 +399,9 @@ closed / rebranded → none added.
 Mission Local) (MIS food); Calle 24 Latino Cultural District, Rainbow Honor Walk (Wikipedia × SFGATE × SF Standard/SF Travel; area features, unpinned)
 (MIS sights). MEASURED & DROPPED: Taqueria Vallarta — SF Standard 2026 taco panel found it slipping ('beef-jerky dry' suadero) → not added;
 Galería de la Raza — lost its 24th St home → not added; Taqueria San Francisco (Infatuation only) → held.
+
+## Stage 6 — BUILD W5-2 (2026-10-02, session_013SchN5xr8QFAgVqjZY37dr)
+**482 researched → 349 on the map (166 sights + 183 food).** sourcecheck PASS 482/482 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS ·
+validate DATA OK · npm test ALL PASS. Registry: 118 UNVERIFIED held (mostly restaurants — WebSearch cannot place-pin them; geocode-helper).
+15 AUTO-registered keys given real `credible` rationales (ALMANAC, CASTATEPARKS, FOUNDSF, ISLANDS, NICHIBEI, NPR, PALOALTOONLINE, PARKSCON, PATCH,
+SFWEEKLY, SMCPARKS, SMDAILYJOURNAL, SPRUDGE, LIVINGNEWDEAL, KTVU). NW and SE reach target; food ≥50% in every area (lowest HAI 61%, NW 64%).

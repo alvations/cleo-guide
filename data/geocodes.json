@@ -18064,7 +18064,7 @@
     "statusChecked": "2026-10-02"
    },
    "Portsmouth Square": {
-    "address": "Portsmouth Square, Kearny St & Clay St, San Francisco, CA 94108",
+    "address": "Portsmouth Square, Chinatown, San Francisco, CA 94108",
     "lat": 37.7947,
     "lng": -122.4053,
     "source": "Wikipedia — Portsmouth Square (37°47′41″N 122°24′19″W)",
@@ -18108,7 +18108,7 @@
     "statusChecked": "2026-10-02"
    },
    "Sutro Tower": {
-    "address": "Sutro Tower, 1 La Avanzada St (Mount Sutro), San Francisco, CA 94131",
+    "address": "Sutro Tower, Mount Sutro, San Francisco, CA 94131",
     "lat": 37.75523,
     "lng": -122.45284,
     "source": "Wikipedia — Sutro Tower (37°45′19″N 122°27′10″W)",
@@ -18152,7 +18152,7 @@
     "statusChecked": "2026-10-02"
    },
    "Sunset Dunes": {
-    "address": "Upper Great Highway (Lincoln Way to Sloat Blvd), San Francisco, CA 94122",
+    "address": "Upper Great Highway (along Ocean Beach to Sloat Blvd), San Francisco, CA 94122",
     "lat": 37.751,
     "lng": -122.5087,
     "source": "Wikipedia — Sunset Dunes (37°45′04″N 122°30′31″W)",
@@ -18163,7 +18163,7 @@
     "statusChecked": "2026-10-02"
    },
    "Grandview Park (Turtle Hill)": {
-    "address": "Grandview Park, 14th Ave & Moraga St, San Francisco, CA 94122",
+    "address": "Grandview Park (Turtle Hill), Golden Gate Heights, San Francisco, CA 94122",
     "lat": 37.7564562,
     "lng": -122.4718048,
     "source": "Wikipedia — Grandview Park (37°45′23″N 122°28′18″W)",
@@ -18185,7 +18185,7 @@
     "statusChecked": "2026-10-02"
    },
    "Rincon Center (Refregier murals)": {
-    "address": "101 Spear St (Rincon Annex lobby), San Francisco, CA 94105",
+    "address": "Rincon Center (former Rincon Annex post office lobby), San Francisco, CA 94105",
     "lat": 37.7925,
     "lng": -122.39194,
     "source": "Wikipedia — History of San Francisco (Refregier murals) (37°47′33″N 122°23′31″W)",
@@ -18207,7 +18207,7 @@
     "statusChecked": "2026-10-02"
    },
    "St. John Coltrane Church (Fort Mason)": {
-    "address": "Fort Mason Center, Magic Theatre annex (Building D), 2 Marina Blvd, San Francisco, CA 94123",
+    "address": "Magic Theatre annex, Fort Mason Center, San Francisco, CA 94123",
     "lat": 37.8069,
     "lng": -122.4308,
     "source": "Wikipedia — St. John Coltrane African Orthodox Church (Fort Mason venue; 37°48′25″N 122°25′51″W) — Fort Mason Center building-level",
@@ -18229,7 +18229,7 @@
     "statusChecked": "2026-10-02"
    },
    "The Panhandle": {
-    "address": "The Panhandle, Fell St & Oak St (Baker St to Stanyan St), San Francisco, CA 94117",
+    "address": "The Panhandle (Golden Gate Park), San Francisco, CA 94117",
     "lat": 37.772,
     "lng": -122.45,
     "source": "Wikipedia — Panhandle (San Francisco) (37°46′19″N 122°27′00″W; linear park, 3-decimal published coordinate)",
@@ -18296,11 +18296,11 @@
    },
    "Vermont Street (the other crookedest street)": {
     "address": "Vermont St between 20th & 22nd Sts (by McKinley Square), San Francisco, CA 94107",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 37.758919,
+    "lng": -122.403958,
+    "source": "Atlas Obscura place page — Vermont Street (839 Vermont St; 37.758919, -122.403958)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "https://en.wikipedia.org/wiki/Vermont_Street_(San_Francisco) (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
@@ -18317,7 +18317,7 @@
     "statusChecked": "2026-10-02"
    },
    "Cypress Lawn Memorial Park (Colma necropolis)": {
-    "address": "1370 El Camino Real, Colma, CA 94014",
+    "address": "Cypress Lawn Memorial Park, Colma, CA 94014",
     "lat": 37.67,
     "lng": -122.457,
     "source": "Wikipedia — Cypress Lawn Memorial Park (37°40′12″N 122°27′25″W; 3-decimal published coordinate)",
@@ -18515,7 +18515,7 @@
     "statusChecked": "2026-10-02"
    },
    "Red's Java House": {
-    "address": "Pier 30, The Embarcadero (at Bryant St), San Francisco, CA 94105",
+    "address": "Pier 30, The Embarcadero, San Francisco, CA 94105",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -18556,6 +18556,578 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "SF Standard 2023 + Time Out venue page (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Lands End Labyrinth": {
+    "address": "Lands End Point, below the Coastal Trail, Lands End, San Francisco, CA 94121",
+    "lat": 37.788073,
+    "lng": -122.505824,
+    "source": "Atlas Obscura place page — Labyrinth at Land's End (37.788073, -122.505824)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://www.nps.gov/places/000/lands-end-point-and-the-labyrinth.htm (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "USS San Francisco Memorial": {
+    "address": "USS San Francisco Memorial, Lands End, San Francisco, CA 94121",
+    "lat": 37.782807,
+    "lng": -122.511544,
+    "source": "Wikipedia — USS San Francisco Memorial (37°46′58″N 122°30′42″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/USS_San_Francisco_Memorial (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Hidden Garden Steps": {
+    "address": "16th Ave between Kirkham St & Lawton St, San Francisco, CA 94122",
+    "lat": 37.7563,
+    "lng": -122.4735,
+    "source": "Atlas Obscura place entry 'Hidden Garden Steps' as surfaced in WebSearch (37.7563, -122.4735; 4-decimal)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "SFGATE 'all the reasons to visit the Hidden Garden Steps' (current) + SF Travel staircases",
+    "statusChecked": "2026-10-02"
+   },
+   "Golden Gate Park Carousel (Koret Children's Quarter)": {
+    "address": "Koret Children's Quarter, Golden Gate Park, San Francisco, CA 94117",
+    "lat": 37.767904,
+    "lng": -122.458023,
+    "source": "Atlas Obscura place page — Golden Gate Park Vintage Carousel (37.767904, -122.458023)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Golden_Gate_Park,_San_Francisco (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Mechanics' Institute Library & Chess Room": {
+    "address": "57 Post St, San Francisco, CA 94104",
+    "lat": 37.78861,
+    "lng": -122.40278,
+    "source": "Wikipedia — Mechanics' Institute, San Francisco (37°47′19″N 122°24′10″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Mechanics'_Institute,_San_Francisco (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Children's Creativity Museum & LeRoy King Carousel": {
+    "address": "Children's Creativity Museum, Yerba Buena Gardens, San Francisco, CA 94103",
+    "lat": 37.783273,
+    "lng": -122.401827,
+    "source": "Wikipedia — Children's Creativity Museum (37°47′00″N 122°24′07″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Children's_Creativity_Museum (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "San Francisco Railway Museum": {
+    "address": "77 Steuart St, San Francisco, CA 94105",
+    "lat": 37.79382,
+    "lng": -122.39361,
+    "source": "Wikipedia — San Francisco Railway Museum (37°47′38″N 122°23′37″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/San_Francisco_Railway_Museum (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Dandelion Chocolate": {
+    "address": "740 Valencia St, San Francisco, CA 94110",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Travel Mission shopping guide + SF Travel venue listing (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Pancho Villa Taqueria": {
+    "address": "3071 16th St, San Francisco, CA 94103",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Beretta": {
+    "address": "1199 Valencia St (at 23rd St), San Francisco, CA 94110",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Mission Local review 2026-01 (open)",
+    "statusChecked": "2026-10-02"
+   },
+   "Billy Goat Hill": {
+    "address": "Billy Goat Hill Park, 30th St & Laidley St (Glen Park / Noe Valley), San Francisco, CA 94131",
+    "lat": 37.74139,
+    "lng": -122.43306,
+    "source": "Wikipedia — Billy Goat Hill, San Francisco (37°44′29″N 122°25′59″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Billy_Goat_Hill,_San_Francisco (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Kite Hill": {
+    "address": "Kite Hill Open Space, Castro / Eureka Valley, San Francisco, CA 94114",
+    "lat": 37.75833,
+    "lng": -122.44167,
+    "source": "Wikipedia — Kite Hill, San Francisco (37°45′30″N 122°26′30″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Kite_Hill,_San_Francisco (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Harvey Milk's Castro Camera (575 Castro St)": {
+    "address": "575 Castro St, San Francisco, CA 94114",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Harvey_Milk (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Jack Kerouac Alley": {
+    "address": "Jack Kerouac Alley, between Grant Ave & Columbus Ave, San Francisco, CA 94133",
+    "lat": 37.7975,
+    "lng": -122.4067,
+    "source": "Wikipedia — Jack Kerouac Alley (37°47′51″N 122°24′24″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Jack_Kerouac_Alley (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Chinese Historical Society of America Museum": {
+    "address": "965 Clay St, San Francisco, CA 94108",
+    "lat": 37.793759,
+    "lng": -122.408964,
+    "source": "Atlas Obscura place page — Chinese Historical Society of America, 965 Clay St (37.793759, -122.408964)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Chinese_Historical_Society_of_America (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Koi Palace": {
+    "address": "Serramonte Center, Daly City, CA 94015",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Relocation reports 2026 (new Serramonte Center flagship opened 2026-09-18 per whatnow.com / Bay Area Own) — confirm exact unit",
+    "statusChecked": "2026-10-02"
+   },
+   "Greens": {
+    "address": "Fort Mason Center, Landmark Building A, San Francisco, CA 94123",
+    "lat": 37.806632,
+    "lng": -122.432152,
+    "source": "Fort Mason Landmark Building A — Atlas Obscura 'Long Now Orrery' coordinate (same building; building-level)",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "MICHELIN Guide listing (current) + SFGATE 2024 review",
+    "statusChecked": "2026-10-02"
+   },
+   "Spruce": {
+    "address": "3640 Sacramento St, San Francisco, CA 94118",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "MICHELIN Guide listing (current) + Infatuation review",
+    "statusChecked": "2026-10-02"
+   },
+   "Harris' Restaurant": {
+    "address": "Van Ness Ave at Pacific Ave, San Francisco, CA 94109",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SFGATE 2024 '40th anniversary' + Infatuation (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Third Rail": {
+    "address": "628 20th St, San Francisco, CA 94107",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Travel 'where to eat and drink in the Dogpatch' (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Dogpatch Saloon": {
+    "address": "2496 3rd St, San Francisco, CA 94107",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review (current) + SF Travel Dogpatch guide",
+    "statusChecked": "2026-10-02"
+   },
+   "Sea Star": {
+    "address": "2289 3rd St, San Francisco, CA 94107",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Travel Dogpatch guide (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Hinodeya Ramen Bar": {
+    "address": "1737 Buchanan St, San Francisco, CA 94115",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation 'best restaurants in Japantown' (current) + SF Travel Japantown",
+    "statusChecked": "2026-10-02"
+   },
+   "Udon Mugizo": {
+    "address": "1581 Webster St, San Francisco, CA 94115",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation Japantown guide (current) + SF Travel",
+    "statusChecked": "2026-10-02"
+   },
+   "Esme": {
+    "address": "311 Divisadero St, San Francisco, CA 94117",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Standard review 2026-08-18 (open)",
+    "statusChecked": "2026-10-02"
+   },
+   "Eddie's Cafe": {
+    "address": "800 Divisadero St, San Francisco, CA 94117",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation NoPa guide + breakfast guide (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Toyose": {
+    "address": "3814 Noriega St, San Francisco, CA 94122",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation 'best late night restaurants' (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Pizzetta 211": {
+    "address": "211 23rd Ave, San Francisco, CA 94121",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review (current) + Michelin editorial 'best pizza in SF'",
+    "statusChecked": "2026-10-02"
+   },
+   "Kingdom of Dumpling": {
+    "address": "1713 Taraval St, San Francisco, CA 94116",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review (current) + Parkside guide",
+    "statusChecked": "2026-10-02"
+   },
+   "Joe's Ice Cream": {
+    "address": "5420 Geary Blvd, San Francisco, CA 94121",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review (current) + SFGATE (legacy business)",
+    "statusChecked": "2026-10-02"
+   },
+   "Le Central": {
+    "address": "453 Bush St, San Francisco, CA 94108",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Travel Union Square must-eats (current) + SFGATE 2025 reopening under new owners",
+    "statusChecked": "2026-10-02"
+   },
+   "Sears Fine Food": {
+    "address": "439 Powell St, San Francisco, CA 94102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Travel Union Square must-eats (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Davies Symphony Hall": {
+    "address": "201 Van Ness Ave, San Francisco, CA 94102",
+    "lat": 37.77797,
+    "lng": -122.420646,
+    "source": "Wikipedia — Louise M. Davies Symphony Hall (37°46′41″N 122°25′14″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Louise_M._Davies_Symphony_Hall (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Bill Graham Civic Auditorium": {
+    "address": "99 Grove St, San Francisco, CA 94102",
+    "lat": 37.778457,
+    "lng": -122.417369,
+    "source": "Wikipedia — Bill Graham Civic Auditorium (37°46′42″N 122°25′03″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Bill_Graham_Civic_Auditorium (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Orpheum Theatre": {
+    "address": "1192 Market St, San Francisco, CA 94102",
+    "lat": 37.779081,
+    "lng": -122.414708,
+    "source": "Wikipedia — Orpheum Theatre (San Francisco) (37°46′45″N 122°24′53″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Orpheum_Theatre_(San_Francisco,_California) (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Club Fugazi — Dear San Francisco": {
+    "address": "678 Green St, San Francisco, CA 94133",
+    "lat": 37.79917,
+    "lng": -122.41,
+    "source": "Wikipedia — Club Fugazi (37°47′57″N 122°24′36″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Club_Fugazi (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Kong Chow Temple": {
+    "address": "855 Stockton St (4th floor), San Francisco, CA 94108",
+    "lat": 37.793824,
+    "lng": -122.408071,
+    "source": "Wikipedia — Kong Chow Temple (37°47′38″N 122°24′29″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Kong_Chow_Temple (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Caffe Trieste": {
+    "address": "601 Vallejo St, San Francisco, CA 94133",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review + best-coffee-shops guide (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Eastern Bakery": {
+    "address": "720 Grant Ave, San Francisco, CA 94108",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review + best-Chinese-bakeries guide (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Red Blossom Tea Company": {
+    "address": "831 Grant Ave, San Francisco, CA 94108",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out venue page + best tea houses (current) + SF Travel Chinatown",
+    "statusChecked": "2026-10-02"
+   },
+   "Flood Mansion (Pacific-Union Club)": {
+    "address": "1000 California St, San Francisco, CA 94108",
+    "lat": 37.792011,
+    "lng": -122.411377,
+    "source": "Wikipedia — James C. Flood Mansion (37°47′31″N 122°24′41″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/James_C._Flood_Mansion (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Golden Gate Theatre": {
+    "address": "1 Taylor St (at Market St), San Francisco, CA 94102",
+    "lat": 37.78216,
+    "lng": -122.41073,
+    "source": "Wikipedia — Golden Gate Theatre (37°46′56″N 122°24′39″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Golden_Gate_Theatre (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Bob's Donuts": {
+    "address": "1720 Polk St, San Francisco, CA 94109",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "KTVU — new 1720 Polk storefront opened; original 1621 Polk closed Nov 2025 (SF Chronicle)",
+    "statusChecked": "2026-10-02"
+   },
+   "Leopold's": {
+    "address": "2400 Polk St, San Francisco, CA 94109",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Standard 2023-05 reopening + Infatuation Russian Hill guide (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Duboce Park": {
+    "address": "Duboce Park, between Scott St & Steiner St, San Francisco, CA 94117",
+    "lat": 37.7696,
+    "lng": -122.4332,
+    "source": "Wikipedia — Duboce Park (37°46′11″N 122°26′00″W)",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Duboce_Park (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Patricia's Green": {
+    "address": "Octavia Blvd between Fell St & Hayes St, Hayes Valley, San Francisco, CA 94102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Octavia_Boulevard (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Haight Street Art Center": {
+    "address": "215 Haight St, San Francisco, CA 94102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Haight_Street_Art_Center (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Absinthe Brasserie & Bar": {
+    "address": "Hayes St at Gough St, Hayes Valley, San Francisco, CA 94102",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Infatuation review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "La Torta Gorda": {
+    "address": "2833 24th St, San Francisco, CA 94110",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SFGATE 2023 (hours listed) + Infatuation review (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Taqueria El Buen Sabor": {
+    "address": "699 Valencia St, San Francisco, CA 94110",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "SF Standard 2024-04 (reopened a day after crash) + Infatuation (current)",
+    "statusChecked": "2026-10-02"
+   },
+   "Calle 24 Latino Cultural District": {
+    "address": "24th St from Mission St to Potrero Ave, San Francisco, CA 94110",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Calle_24_Latino_Cultural_District (current 2025-26 page; public landmark/park)",
+    "statusChecked": "2026-10-02"
+   },
+   "Rainbow Honor Walk": {
+    "address": "Castro St & Market St area sidewalks, the Castro, San Francisco, CA 94114",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "https://en.wikipedia.org/wiki/Rainbow_Honor_Walk (current 2025-26 page; public landmark/park)",
     "statusChecked": "2026-10-02"
    }
   },
