@@ -192,6 +192,168 @@
     ]
    ],
    "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SBY",
+   "n": "Shibuya Scramble Crossing (渋谷スクランブル交差点)",
+   "address": "2-2-1 Dōgenzaka, Shibuya-ku, Tokyo 150-0043",
+   "w": "The world's busiest pedestrian crossing — up to 3,000 people per green light outside Shibuya Station and the Hachikō statue; watch it from Shibuya Sky or the station's upper floors.",
+   "k": "scramble crossing, Hachikō",
+   "g": [
+    "ICON",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shibuya_Crossing"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/78/index.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "SBY",
+   "n": "Yoyogi Park (代々木公園)",
+   "address": "2-1 Yoyogikamizonochō, Shibuya-ku, Tokyo 151-0052",
+   "w": "Big, informal park beside Meiji Jingū — weekend buskers, rockabilly dancers, ginkgo avenues in autumn and festivals on the event plaza.",
+   "k": "weekend buskers, ginkgo",
+   "g": [
+    "NATURE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yoyogi_Park"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/21/index.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SJK",
+   "n": "Shinjuku Gyoen National Garden (新宿御苑)",
+   "address": "11 Naitōmachi, Shinjuku-ku, Tokyo 160-0014",
+   "w": "Former imperial garden blending French formal, English landscape and Japanese styles — 1,000 cherry trees, a tropical greenhouse and a teahouse, minutes from Shinjuku Station.",
+   "k": "hanami, greenhouse",
+   "g": [
+    "ICON",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shinjuku_Gyo-en"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/ev212/index.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "SJK",
+   "n": "Tokyo Metropolitan Government Building (東京都庁)",
+   "address": "2-8-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo 163-8001",
+   "w": "Kenzo Tange's twin-towered city hall with free 202 m observation decks — Mt Fuji on clear winter mornings and an evening projection-mapping show on the facade.",
+   "k": "free observatory",
+   "g": [
+    "VIEW",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Government_Building"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/74/index.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SJK",
+   "n": "Shinjuku Golden Gai (新宿ゴールデン街)",
+   "address": "1-1 Kabukichō, Shinjuku-ku, Tokyo 160-0021",
+   "w": "Six narrow lanes of 200-odd postwar shoebox bars, each seating a handful — the most atmospheric drinking quarter in Tokyo.",
+   "k": "tiny bars",
+   "g": [
+    "ICON",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3011.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SBY",
+   "n": "Meiji Jingū (明治神宮)",
+   "address": "1-1 Yoyogikamizonochō, Shibuya-ku, Tokyo 151-8557",
+   "w": "Shrine to Emperor Meiji and Empress Shōken in a 70-hectare planted forest between Harajuku and Yoyogi — giant cypress torii, sake-barrel wall, and Japan's busiest New Year hatsumōde.",
+   "k": "forest approach, hatsumōde",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Meiji_Shrine"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3006.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SMKT",
+   "n": "Tokyo Skytree (東京スカイツリー)",
+   "address": "1-1-2 Oshiage, Sumida-ku, Tokyo 131-0045",
+   "w": "At 634 m the world's tallest tower — observation decks at 350 m and 450 m, with Tokyo Solamachi mall and an aquarium at its foot.",
+   "k": "Tembo Deck, Tembo Galleria",
+   "g": [
+    "ICON",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tokyo_Skytree"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2164.html"
+    ]
+   ],
+   "closed": false
   }
  ]
 }
