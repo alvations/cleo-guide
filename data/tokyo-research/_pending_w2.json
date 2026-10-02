@@ -116,12 +116,6 @@
    "need": "coords + 2nd"
   },
   {
-   "n": "Edo-Tokyo Museum",
-   "a": "SMKT",
-   "have": "WIKIPEDIA coords 35.6964028,139.7961028",
-   "need": "current open/closed status (closed for renovation from 2022; reopening not confirmed in hand)"
-  },
-  {
    "n": "Blue Bottle Coffee Kiyosumi-Shirakawa",
    "a": "SMKT",
    "have": "TIMEOUT https://www.timeout.com/tokyo/restaurants/blue-bottle-coffee; WIKIPEDIA Blue Bottle (first Japan store 2015); 1-4-8 Hirano",
@@ -132,12 +126,6 @@
    "a": "KANTO",
    "have": "WIKIPEDIA + JAPANGUIDE https://www.japan-guide.com/e/e3204.html",
    "need": "pin — returned 35.2644,139.3859 is ~25 km off (REJECTED)"
-  },
-  {
-   "n": "Shitamachi Museum",
-   "a": "TAITO",
-   "have": "WIKIPEDIA coords 35.7102,139.7726; TIMEOUT https://www.timeout.com/tokyo/museums/shitamachi-museum",
-   "need": "current status (renovation closure 2023–? not confirmed in hand)"
   },
   {
    "n": "Natsume Soseki Memorial Museum",

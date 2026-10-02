@@ -24,11 +24,11 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-W1 (sights backbone + food canon) — BLOCKED before any query ran: the session-wide WebSearch budget
-(200/200, shared by all concurrent agents) was already exhausted at 2026-10-02 when this agent started research.
-Retried after a 10-min back-off: still 200/200 — a hard per-session cap (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION),
-not a rate limit. No discovery files written yet. On relaunch (with fresh search budget): start W1 from scratch
-(Next actions 1-2). Nothing to resume mid-wave.
+W1 (relaunch 2026-10-02, fresh session budget ~200 WebSearch). Files: FOOD_MICHELIN.json, FOOD_CANON.json, SIGHTS_W1.json,
+CREATORS_W1.json, geo/_geoout_w1_food.json (background geocode agent, ≤28 searches). Search count so far: 22 (main) + agent.
+Remaining W1 queries: Atlas Obscura Philly, Fairmount Park sights, West Philly/UCW sights, NW (Wissahickon/Germantown/
+Chestnut Hill), Main Line, SJ (Camden), DAY (Valley Forge/Longwood/Brandywine/New Hope), soft pretzels, diners/scrapple,
+Chinatown, Philly creators (TikTok/YouTube), Philly Mag 50 Best detail, Eater 38 detail.
 
 ## State
 - 2026-10-02 scaffold: consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, SOURCES_core.json, tools/build-philadelphia.py;
