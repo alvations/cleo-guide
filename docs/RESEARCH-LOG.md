@@ -447,3 +447,8 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   (`/us/san-francisco/<slug>/restaurant`) persist — treat legacy-format URLs as "listing not confirmed current".
 - Multi-name queries for names that lack a Wikipedia/Michelin page make the search tool fan out into several
   internal searches — query only names you expect to resolve.
+
+- 2026-10-02 (Tokyo W6): MICHELIN venue pages print coordinates when 3 names are queried with "MICHELIN Guide map coordinates"
+  (allowed_domains guide.michelin.com) — ~50% of calls return all 3 pins; the 2026 three/two-star list was largely missing from
+  the map and became the cheapest source of PINNED food. Department stores have no building coords on Wikipedia (district
+  points only); openstreetmap.org is not indexed by WebSearch (wiki pages only). Google `!3d!4d` via WebSearch: 4 pins in 28 tries.
