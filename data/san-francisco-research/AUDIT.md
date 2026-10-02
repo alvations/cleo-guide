@@ -370,3 +370,8 @@ Sept 2026 — exact unit unconfirmed, held UNVERIFIED) (PEN); Greens (MICHELIN l
 Landmark Bldg A, the building its own site names), Spruce (MICHELIN × Infatuation × Time Out) (NW); Harris' Restaurant (Infatuation ×
 SFGATE 40th × Time Out × Chronicle best steak) (NOB). DROPPED: Hong Kong Flower Lounge (Millbrae) — closed (SFGATE/Chronicle 2022);
 Elite Cafe — closed 2019; Hong Kong Palace Millbrae — no address in-hand → held.
+**Batch 8 (searches 59–66):** Dogpatch bars via Infatuation Dogpatch guide × SF Travel 'where to eat & drink in the Dogpatch' × SFGATE —
+Third Rail, Dogpatch Saloon (1912), Sea Star (SE); Japantown via Infatuation Japantown guide × SF Travel Japantown × Time Out/SFGATE —
+Hinodeya Ramen Bar, Udon Mugizo (NW, per the brief's area table: Japantown = NW); NoPa via Infatuation NoPa guide × SF Standard /
+Chronicle / 7x7 — Esme (opened 2026), Eddie's Cafe (HAI). Held: Sasa, Nepa Indian Cuisine (Infatuation only); Magnolia Brewing (Haight
+pub status unconfirmed).
