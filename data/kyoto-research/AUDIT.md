@@ -71,3 +71,25 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - Lesson: a 6-name Wikipedia-coordinate query costs 1 search only when every name has an enwiki article. A name with no article
   (Giō-ji) makes the tool retry internally, costing about 6 searches. Names are now pre-screened.
 - Searches used: 61.
+
+### batch 5 (2026-10-02) — FOOD W2: 29 food records, all lone Michelin authority (MICHELIN_STAR / MICHELIN_BIB / MICHELIN)
+- **Technique:** a `allowed_domains=["guide.michelin.com"]` query naming a ward + genre ("Kyoto Bib Gourmand udon soba
+  Sakyo-ku Higashiyama-ku address") returns 3–5 venue summaries with address + distinction + dish. Quoting 2–3 exact venue names
+  also works. Ceremony articles (2025 "9 New Bib Gourmands", 2026 "12 New Bib Gourmands") supplied the newest names.
+- Kept: 6 three-star kaiseki (Gion Sasaki, Kikunoi Honten, Mizai, Hyotei, Isshisoden Nakamura, Miyamaso — new 3★ 2026);
+  Bib: Kyogoku Kaneyo (unagi kinshi-don), Izuu (saba-zushi, est. 1781), Shigetsu (Tenryū-ji shōjin), Juu-go, Okakita,
+  Gombei, Choshoku Kishin, UZU, Muginoyoake, Komedokoro Inamoto, Hiiragitei, Shutei Bankara, Fuyacho Kuraku, Fujitora,
+  Saryo Tesshin, Kombu to Men Kiichi, Jukuseibuta Kawamura, Touhichi, Rennosuke; Selected: Teuchisoba Kanei, Soba Rojina,
+  sonoba, Chikuyuan Taro no Atsumori.
+- **Correction:** Noodle Shop Rennosuke has relocated from Murasakino (Kita-ku) to Kamigyō-ku per Michelin's page; the W1 street
+  address was withdrawn and the record is now ward-level (area KITA unchanged).
+- Held: KOKAGE (new 2026 Bib, 100% buckwheat soba; no address surfaced); Menya Inoichi (address only, no dish).
+- Geocode: all food UNVERIFIED (the Michelin page gives the address, but no place-pin coordinate surfaces via WebSearch) → queued for
+  tools/geocode-helper.html. Food therefore counts as discovered but is not yet rendered.
+- **Creator channel (§2a):** 3 searches (a general creator query, youtube.com-filtered, timeout.com-filtered). Results were tour vendors or unattributed
+  video titles: no creator with a verifiable following or a findable place-specific piece, so **0 creators vetted** and none
+  attached. Time Out Kyoto coverage via timeout.com is Tokyo-heavy. Noted (one source each, not added): Café Violon, Kissa Kishin,
+  Flow by Nozy Coffee, Blue Bottle Kyoto (Time Out); Kazariya aburi-mochi, Inoda Coffee, Kasagiya, François (kyoto.travel).
+- Lesson: an over-stuffed food query (8+ names) makes the tool retry internally, costing 3–4 searches for little gain. Keep queries to ≤5
+  names or one ward+genre.
+- Searches used: 86.
