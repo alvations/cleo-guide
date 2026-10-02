@@ -42,17 +42,29 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- **W3 (session 3, 2026-10-02)** — background workers (brief `_W3_worker_brief.md`, no git): W3A MINAM Michelin food →
-  FOOD_OSAKA_W3A + geo/_geoout_osaka_W3A; W3B ANIME wave → SIGHTS/FOOD_OSAKA_W3B + geo W3B; W3C outer-area sights
-  (SOUTH/BAY/EAST/NORTH/KNSAI + held S1/W1 promotion) → SIGHTS_OSAKA_W3C + geo W3C; W3D outer Michelin food (TNJ/CHUO/
-  EAST/BAY/SOUTH/NORTH) → FOOD_OSAKA_W3D + geo W3D. Main W3M: drinks (bars, kissaten/coffee, craft beer, sake),
-  creators, Time Out canon singles promotion (`_pending_osaka_W2.json`) → FOOD_OSAKA_W3M + geo W3M.
-  If relaunched: whatever W3* files exist are done batches; rebuild, then continue the next-actions list.
+- none — W3 closed at the session-wide 200-search cap (W3G may have written a partial batch; it is committed as-is).
+
+- 2026-10-02 **W3 (session 3)** — 7 parallel workers + main, **200/200 searches**. **319 discovered (114 sights + 205
+  food = 64% food), 266 rendered (104 + 162)**; 4 gates PASS; validate + npm test PASS; ANIME 10 (was 0).
+  Discovered per area vs target: KITA 95/80 OK · CHUO 55/45 OK · MINAM 47/95 · TNJ 28/55 · KNSAI 26/40 · NORTH 22/35 ·
+  EAST 18/35 · SOUTH 17/40 · BAY 11/35. Files W3A–W3G, W3M (+CREATORS_OSAKA_W3, _held_W3C, geo W3A–W3G, W3M).
 
 ## Search log`.
 
 ## Search log
 - session 2 searches used: ~202 (main ~90 + G1 13 + S1 29 + M1 45 + M2 25). Multi-name queries that MISS fan out into 4-5 sub-searches — batch only names known to be on the target domain.
+
+## Next actions (W4 plan, ordered — supersedes the W3 list below where they overlap)
+1. **MINAM food (+48)** — Michelin Minami is EXHAUSTED. Use Time Out/Inside Osaka/OSAKA-INFO/LP pairings; promote the
+   Time Out singles (Bible Club Osaka + 50Best Discovery; Tachinomi Shomin, Winestand Perche, Tiger Lily, Stand Umineko 3tR,
+   Bar Shiki/Juniper/Hiramatsu); Shokudōen (yakiniku origin, Sennichimae).
+2. **SOUTH food** — mine Time Out "20 must-go restaurants in Southern Osaka" (Tsunechan, Babbaluci, Agatha, Bosco Risaia,
+   Trattoria Almo, Yuko) for 2nd sources. **BAY food (0)** — OSAKA-INFO Little Okinawa article for Taishō restaurant names.
+   TNJ: Yaekatsu, Tengu, Yakko (Inside Osaka only) need a 2nd. NORTH: Kajikasō momiji tempura.
+3. **Pins**: ~53 discovered-but-unrendered (all non-Michelin canon + Mashino Ken, Yoshinosushi, Kitahama Anagoya) →
+   `tools/geocode-helper.html` / Google `!3d!4d`. Kōyasan Danjō Garan pin rejected (wrong side of Kongōbu-ji).
+4. **Held Michelin, pinned but no dish** (W3A list in AUDIT): find dishes via the Michelin "Inspectors' Favorite Dishes" articles.
+5. Anime: Mandarake Grand Chaos, Jump Shop, Animate Nipponbashi, Shinsaibashi PARCO, Sanrio Gallery need 2nd sources.
 
 ## Next actions (W3 plan, ordered)
 1. **MINAM (+75)** — the biggest gap. Michelin: query `Osaka <genre> Michelin Chuo-ku Namba/Shinsaibashi/Sennichimae`
