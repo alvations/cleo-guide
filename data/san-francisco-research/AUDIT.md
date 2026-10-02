@@ -375,3 +375,8 @@ Third Rail, Dogpatch Saloon (1912), Sea Star (SE); Japantown via Infatuation Jap
 Hinodeya Ramen Bar, Udon Mugizo (NW, per the brief's area table: Japantown = NW); NoPa via Infatuation NoPa guide × SF Standard /
 Chronicle / 7x7 — Esme (opened 2026), Eddie's Cafe (HAI). Held: Sasa, Nepa Indian Cuisine (Infatuation only); Magnolia Brewing (Haight
 pub status unconfirmed).
+**Batch 9 (searches 67–69):** Toyose (7x7 Outer Sunset × Infatuation late-night), Pizzetta 211 (was held — Infatuation × MICHELIN_EDITORIAL
+best-pizza × SFGATE), Kingdom of Dumpling (Infatuation × SFGATE Taraval 'dumpling row'), Joe's Ice Cream (Infatuation × SFGATE × SF Standard)
+(AVE). Devil's Teeth Baking already in the dataset.
+**Copy audit (no searches):** re-read every W5 card against its cited sources; 19 food + 20 sight blurbs/dishes trimmed to what the sources
+actually state (removed remembered menu details, dates and names that no cited source carried).
