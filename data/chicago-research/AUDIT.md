@@ -82,3 +82,13 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   Wikipedia pin's branch unclear); Café Brauer (now a private-events venue); Givins Castle, Indiana Dunes State Park,
   Douglass Park (Wikipedia coords only to 0.1′/1′ — too coarse to pin).
 - **Build:** 175 rendered; gates PASS; Chicago card live on index.html; CITIES.md row updated.
+
+## 2026-10-02 (session 2) · W10–W11 + close-out
+- +6 Wikipedia-pinned food (Cariño, Mako, Sifr, Roeser's Bakery, Ceres Cafe, Goose Island Fulton taproom) and +10 sights
+  (Pilgrim Baptist ruins, Chicago Bee Building, Smart Museum, Heller House, Goodman, Chicago Shakespeare, Civic Opera
+  House, Symphony Center, St. Michael's Old Town, Rosehill Cemetery).
+- Key hygiene: Cariño's star and Mako's recognition are cited via Time Out / Choose Chicago articles, so they carry
+  TIMEOUT / CHOOSECHI keys (ordinary sources), not MICHELIN_STAR.
+- Dropped/held: Lizzadro Museum, Charles Gates Dawes House, Big Chicks, Longman & Eagle, Porto (closed 2023 per
+  Wikipedia), Green Door Tavern, Indian Boundary Park, Madonna della Strada — single source or no pin.
+- Final: 220 researched / 191 rendered; gates PASS; validate + test PASS.
