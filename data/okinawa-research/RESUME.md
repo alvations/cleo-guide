@@ -58,13 +58,37 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
-- **W4 (2026-10-02, fresh session budget)** — pin-first + discovery + anime. Background subagents, each writing ONLY its
-  tagged file: geocoders `W4G1` sights (31), `W4G2` NAHA+CHUBU food (39), `W4G3` NANBU+HOKBU+KRM food (30), `W4G4` MYK+YAEYA
-  food (25) → `geo/_geoout_okinawa_W4G*.json` (worklists `_okinawa_geo_todo_W4G*.json`); discovery `W4D1` Naha food & drink,
-  `W4D2` Chūbu+Nanbu, `W4D3` Hokubu+islands, `W4A` anime → `FOOD/SIGHTS/SOURCES/CREATORS_OKINAWA_W4D*.json` + `geo/_geoout_okinawa_W4D*.json`.
-  If cut off: whatever is in those files is valid; re-run `python3 tools/rebuild-city.py okinawa --build` and continue.
+- W4G5 (Kerama/Miyako pins, worklist `_okinawa_geo_todo_W4G5.json`, output `geo/_geoout_okinawa_W4G5.json`) — last ~12 searches.
+  If cut off: rebuild and commit whatever landed.
 
-## Next actions (W4 plan, ordered)
+- 2026-10-02 **W4 done** (fresh session, ~186 searches, 9 background subagents): pin-first + discovery + anime.
+  **258 discovered (128 sights + 130 food & drink = 50 % food), 127 pinned (was 89)** — pins per area NAHA 18 · CHUBU 24 ·
+  NANBU 21 · HOKBU 34 · KRM 4 · MYK 9 · YAEYA 17. ANIME 6 (+Cape Chinen/Aquatope, Okitsura Gushikawa). 4 gates PASS,
+  validate + test ALL PASS. Card stat + CITIES.md refreshed; **not live** (go-live bar: ≥150 pins, every area ≥10).
+  Geocoders: W4G1 sights 15/31 (11 high JA-Wikipedia), W4G2 Naha/Chūbu food 2/39, W4G3 south/north food 10/30 (aggregator
+  coords → `low`, AUDIT policy), W4G4 islands food 1/25. Discovery: W4D1 Naha +12 (Ukishima → held), W4D2 Chūbu/Nanbu +11,
+  W4D3 Hokubu/islands +19, W4A anime +2. Per-agent logs `_okinawa_W4*_notes.md`.
+
+### Density after W4
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 34 | 20 | 54 | 120 | +66 |
+| CHUBU | 18 | 26 | 44 | 95 | +51 |
+| HOKBU | 24 | 20 | 44 | 90 | +46 |
+| NANBU | 17 | 20 | 37 | 65 | +28 |
+| MYK | 14 | 12 | 26 | 50 | +24 |
+| YAEYA | 18 | 20 | 38 | 60 | +22 |
+| KRM | 5 | 10 | 15 | 30 | +15 |
+CHUBU food is only 41 % → next Chūbu discovery is food-only.
+
+## Next actions (W5 plan, ordered)
+W5 lessons (W4): restaurant GPS almost never surfaces in search → (a) **browser `tools/geocode-helper.html` run on the 132
+UNVERIFIED is the fastest way to ~250 pins / go-live**; (b) in search, the only productive patterns were extended-mode ONE name per
+query: `<日本語名> wikipedia 座標` (sights, high) and `<name> tripadvisor latitude longitude` (restaurants → `low`, must match the
+sourced address); Stripes `GPS` searches rarely hit. (c) Discovery: most Naha list leads were single-source — pair Rurubu ↔ Mapple ↔
+Okinawa Traveler deliberately; held leads per agent are in `_okinawa_W4D*_notes.md`. (d) Re-verify the 13 `low` pins to `!3d!4d`.
+
+## Older plan (W4, partly done)
 0. **Pins are the bottleneck (89 of 186 render).** ~95 places (≈70 restaurants) are UNVERIFIED: run
    `tools/geocode-helper.html` in a browser on `docs/GEOCODE-BACKLOG.md` → okinawa. Stripes article URLs that print GPS
    for held restaurants are listed in `_okinawa_w3_notes.md` (Mikasa, Yagiya/noodles-nanjo, Jack's, Charlie's, Tacoloco,
