@@ -13,7 +13,7 @@
   "address": "547 Haight St, San Francisco, CA 94117",
   "lat": null,
   "status": "open",
-  "statusSource": "https://www.sfgate.com/food/article/san-francisco-fate-most-iconic-bar-toronado-20385222.php",
+  "statusSource": "https://sfstandard.com/2026/07/02/toronado-beer-sausage-beaus-franks/ (July 2026, operating under new owners after late-June reopening)",
   "lng": null,
   "confidence": "UNVERIFIED"
  },
@@ -137,6 +137,63 @@
   "lat": null,
   "status": "open",
   "statusSource": "https://missionlocal.org/2025/06/review-roosters-peruvian-rotisserie-el-pollo-no-es-loco/",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Old Vedanta Temple",
+  "address": "2961 Webster St (at Filbert St), San Francisco, CA 94123",
+  "lat": 37.79809,
+  "lng": -122.4343,
+  "geoSource": "Wikipedia — Old Vedanta Society Temple (37°47′53″N 122°26′03″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.atlasobscura.com/places/vedanta-society-old-temple (still in use by the Vedanta Society)"
+ },
+ {
+  "n": "Cottage Row Mini Park",
+  "address": "Cottage Row (off Sutter St between Fillmore & Webster), San Francisco, CA 94115",
+  "lat": 37.78667,
+  "lng": -122.43111,
+  "geoSource": "Wikipedia — Bush Street–Cottage Row Historic District (37°47′12″N 122°25′52″W)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://sfrecpark.org/facilities/facility/details/cottagerowminipark-162"
+ },
+ {
+  "n": "Il Pollaio",
+  "address": "555 Columbus Ave, San Francisco, CA 94133",
+  "lat": null,
+  "status": "open",
+  "statusSource": "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Palmyra",
+  "address": "700 Haight St, San Francisco, CA 94117",
+  "lat": null,
+  "status": "open",
+  "statusSource": "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/",
+  "lng": null,
+  "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Peaches Patties (Ferry Building)",
+  "address": "1 Ferry Building, Suite 50, San Francisco, CA 94111",
+  "lat": 37.7955,
+  "lng": -122.3937,
+  "geoSource": "WIKIPEDIA Ferry Building published coords — vendor is inside the building (building-level pin)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/"
+ },
+ {
+  "n": "Hayes Valley Bakeworks",
+  "address": "550 Gough St (at Fulton St), San Francisco, CA 94102",
+  "lat": null,
+  "status": "open",
+  "statusSource": "https://sfstandard.com/2026/01/19/cheap-eats-san-francisco/",
   "lng": null,
   "confidence": "UNVERIFIED"
  }
