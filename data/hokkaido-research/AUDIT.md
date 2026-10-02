@@ -186,3 +186,10 @@ Held: Miyakoshiya Maruyama (sapporo.travel only), Ishida Coffee. Tabelog kissate
 **Build #4 (s3):** 241 discovered → 144 rendered (130 sights + 14 food). sourcecheck PASS 241 · geocheck PASS · statuscheck
 CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. 97 UNVERIFIED held (restaurants → helper).
 Searches so far this session ≈ 76 (me ~61 + W40 agent 15).
+**W43 SPR drink (Time Out "50 things to do in Sapporo" as the editorial spine):** Bar Yamazaki (Time Out + MAPPLE Susukino),
+Jazz Café Bossa (sapporo.travel + Hokkaido Shimbun 50-year profile + Time Out), Miyoshino Tanukikōji gyoza-curry (sapporo.travel
++ Time Out). Held: Iso-chan (Time Out only), M's Space (Time Out only). Time Out "10 things to eat" → no new names (dead end).
+**W44 OTARU:** Shakotan uni — Nakamuraya, Shokudō Ushio, Misaki (rurubu spots + visit-hokkaido uni features + MAPPLE; merged
+set, caveat in script); Tanaka Shuzō Kikkōgura, Otaru Sōko No.1 (Otaru Beer), Niikuraya Hanazono dango, Amatō cream zenzai
+(otaru.gr.jp guidemaps + visit-hokkaido / rurubu / MAPPLE). Prose hygiene: stripped unsourced colour (founding year, a
+product name, brewing-law claim) on self-review.

@@ -200,3 +200,48 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - Close-out: NARA NIKON ★★ (Nara, Michelin venue pin) added. Not added: SÉN (Tenkawa) and Da terra (Asuka), which are far outside the Uji & Nara area;
   Gen and le content have no dish or are out of canon. Last build: 229 discovered / 216 rendered; all gates and tests PASS. W2 closed at about 180 searches
   (main 162 + worker 18) because yields had fallen to about one place per search.
+
+## W3 (2026-10-02, relaunch with own budget) — FOOD & DRINK FIRST (§2b) + ANIME (§2c)
+
+### Sources discovered this wave (SOURCES_KYOTO_W3.json, CREATORS_KYOTO_W3.json)
+- LEAFKYOTO (Leaf KYOTO, Kyoto's city/food magazine since 1997), INSIDEKYOTO (Chris Rowthorn — expert creator; never paired
+  alone with Lonely Planet, same author), MATCHA, SAVORJAPAN, MAPPLE, JALONTRIP, KANSAIAIRPORT, VISITNARA, FODORS.
+- Creators: Inside Kyoto (attached via its per-venue pages); ONLY in JAPAN (John Daub) vetted, not attached (no findable
+  place-specific Kyoto URL). Rejected: byfood blog (tour-booking platform), magical-trip / triptojapan (tour-operator SEO).
+
+### batches 1–5 (main) — FOOD_KYOTO_W5.json, 50 food & drink places, every one ≥2 credible
+- Ramen: Shinpuku Saikan Honten, Takayasu, Menya Inoichi, Kyoto Ramen Koji. Kissaten/coffee: François, Rokuyōsha,
+  Weekenders, Kurasu Kyoto Stand, % Arabica Higashiyama, Vermillion, Ninenzaka Starbucks. Wagashi/sweets: Kagizen Yoshifusa,
+  Kazariya + Ichiwa (aburi-mochi), Nakamuraken, Demachi Futaba, Bunnosuke Chaya, Itohkyuemon & Tsujiri (Uji), Nakatanidou (Nara).
+  Tofu/shōjin: Nanzenji Junsei, Okutan (Nanzen-ji + Kiyomizu), Yudōfu Sagano, Izusen. Noodles: Suba, Omen, Kendonya, Arashiyama
+  Yoshimura, Hirobun (Kibune nagashi-sōmen). Drink: Kizakura Kappa Country, Fushimi Yume Hyakushu, Kyoto Brewing Co., Mukai
+  Shuzō (Ine), Sake Bar Yoramu, Bar K6, Gion Finlandia, L'Escamoteur, Bar Rocking Chair. Nishiki: Miki Keiran, Uoriki, Kai,
+  Konnamonja. Other: Kyo Unawa (unagi), Grill Hasegawa (yōshoku), Gyoza Hohei, Shizuka (Nara kamameshi), + 3 Michelin
+  (Torisaki ★, Tempura Mizuki ★, Yakitori Kyoto Tachibana).
+- Channel mix (50): Leaf 25 · Inside Kyoto 16 · Time Out 15 · MATCHA 14 · Lonely Planet 11 · Kyoto City Official 10 · Savor 6 ·
+  japan-guide 4 · others (Japan Times, Fodor's, Asia's 50 Best, Visit Nara, JAL, KIX, Mapple) 9.
+- HELD single-source (need a 2nd): Tenkaippin Sōhonten, Menya Gokkei, Tentenyu, Menshō Takamatsu, Karako, Ramen Muraji,
+  Smart Coffee, Bee's Knees, Atlantis, Nokishita711, Kyoto Beer Lab, BEFORE9, Spring Valley Kyoto,
+  Nishijin Beer, Kikkoya, Akagakiya, Renkon-ya, Nontei, Tanpopo, Mamehachi, Kasagiya, Gion Tokuya, Umezono Sanjō, Yoshūji
+  (Kurama), Yamamoto Menzou, Nezameya, Taihōan, Fukujuen Uji Kōbō, Kanbayashi Sannyū, Saga Tofu Morika, % Arabica Arashiyama,
+  Honke Tsuruki Soba (Ōtsu; Biwako Visitors Bureau only), Hashidate Chaya, Coffee Cattleya, Izasa (Nara), Kyoto Tower Sando,
+  Le Petit Mec, Shinshindō.
+- MEASURED & DROPPED: Japan Times izakaya reviews 2014–17 (Tsugu, Ajikyu) — too old to confirm open; tour-operator lists.
+- Dead ends: Tabelog 百名店 list queries return image pages, not names (2 searches wasted); "lat/lng" queries for non-Michelin
+  shops return addresses only → those pins are UNVERIFIED for tools/geocode-helper.html.
+- Rule-4a hygiene: three details first drafted from memory (a chō name, a founding year, a sub-temple) were removed before commit; addresses are as the sources state.
+
+### Michelin worker (40 searches) — FOOD_KYOTO_MICH5.json: 43 (17 starred, 8 Bib, 18 Selected); 15 venue-page pins
+- See `_note_mich5.md`. CTR 18 · HGS 11 · KITA 6 · UJI(Nara) 3 · RKSAI 2 · SAKYO 2 · FSHMI 1. The Michelin Kyoto guide covers
+  Kyoto city (+ Nara) only — RKHKU/KYFU yielded nothing. Held (no named dish): Shimogamo Saryo, middle, Kenya, Nakazen,
+  Germoglio ★, ima ★, Itsutsu, Shuhaku, Kentan Horibe ★, Gion Matayoshi ★★, Wa Yamamura.
+
+### ANIME worker (22 searches) — SIGHTS_KYOTO_ANIME1.json: 3 kept
+- Nintendo Museum (Uji; Wikipedia coords), Marufukuro (former Nintendo HQ; UNVERIFIED pin), Demachi Masugata Shōtengai
+  (Tamako Market model; KITA; UNVERIFIED pin). Held: Daikichiyama deck (Euphonium), Nintendo KYOTO store, Pokémon Center
+  Kyoto (moved 2019 to SUINA Muromachi). See `_note_anime1.md`. KyoAni Studio 1 deliberately not added (sensitive; no sourced memorial).
+
+### Build (W3 checkpoint)
+- **325 discovered (161 sights + 164 food = 50.5% food) / 232 rendered (153 + 79).** sourcecheck PASS · geocheck PASS (high 217,
+  med 15) · statuscheck CONSISTENT, 0 unchecked · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS.
+- Closures found: none. Searches: main ~52 + anime 22 + Michelin 40 = ~114.

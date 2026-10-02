@@ -13785,9 +13785,142 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JALONTRIP",
+          "name": "OnTrip JAL (Japan Airlines)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Japan Airlines' editorial travel magazine — a national carrier's travel content (cf. ANATRAVEL); one corroborating source."
+        },
+        {
+          "key": "KANSAIAIRPORT",
+          "name": "Kansai International Airport — Explore Kansai",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official regional guide published by Kansai Airports (KIX operator); one corroborating source."
+        },
+        {
+          "key": "MATCHA",
+          "name": "MATCHA — Japan Travel Guide",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major multilingual Japan travel media (MATCHA Inc., partnered with municipalities); one corroborating source."
+        },
+        {
+          "key": "SAVORJAPAN",
+          "name": "SAVOR JAPAN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Gurunavi's English editorial food guide; listed as credible in the Japan brief; one source."
+        },
+        {
+          "key": "MAPPLE",
+          "name": "MAPPLE (Shobunsha)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Shobunsha's guidebook brand (Mapple/Mapple Magazine), Japan's leading travel-guide publisher; one source."
+        },
+        {
+          "key": "INSIDEKYOTO",
+          "name": "Inside Kyoto (Chris Rowthorn)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Kyoto guide by Chris Rowthorn, long-time Kyoto resident and author of Lonely Planet's Kyoto/Japan guides; one corroborating source (creator/expert)."
+        },
+        {
+          "key": "VISITNARA",
+          "name": "Official Nara Travel Guide (visitnara.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Nara Prefecture's official tourism guide — official tourism board; one source."
+        },
+        {
+          "key": "FODORS",
+          "name": "Fodor's Travel",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-established travel guidebook publisher; one source."
+        },
+        {
+          "key": "ASIA50",
+          "name": "ASIA50",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANTIMES",
+          "name": "JAPANTIMES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "KYOTOCITY",
+          "name": "KYOTOCITY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "LONELYPLANET",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "METI",
+          "name": "METI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "OFFICIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "INSIDEKYOTO",
+          "name": "Chris Rowthorn — Inside Kyoto",
+          "platform": "blog/website",
+          "handle": "insidekyoto.com",
+          "url": "https://www.insidekyoto.com/",
+          "scale": "long-running Kyoto guide site; author of Lonely Planet Kyoto/Japan editions",
+          "niche": "Kyoto restaurants, bars, temples (resident since 1992)",
+          "credible": "Expert travel writer with a findable place-specific page for each attached venue; ONE corroborating source, never institutional. Not paired alone with Lonely Planet (same author) — each attached place has a second independent outlet."
+        },
+        {
+          "key": "ONLYINJAPAN",
+          "name": "John Daub — ONLY in JAPAN",
+          "platform": "YouTube",
+          "handle": "@ONLYinJAPAN",
+          "url": "https://www.youtube.com/@ONLYinJAPAN",
+          "scale": "~1M+ subscribers (Wikipedia: John Daub)",
+          "niche": "Japan food & culture documentary",
+          "credible": "Verifiably popular Japan food creator (Wikipedia article). Vetted; not yet attached — no findable place-specific Kyoto URL surfaced via WebSearch (only a Nishiki Market episode reference)."
+        }
+      ]
     },
     "miami-fl": {
       "name": "miami-fl",

@@ -161,33 +161,33 @@
  },
  {
   "n": "Torisaki",
-  "address": "292-1 Takoyakushi-chō, Nakagyō-ku, Kyoto",
+  "address": "292-1 Takoyakushicho, Nakagyo-ku, Kyoto, 604-0021, Japan",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
-  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "geoSource": "MICHELIN Guide venue page address only; lat/lng not surfaced via WebSearch — UNVERIFIED, held for tools/geocode-helper.html https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisaki",
   "status": "open",
-  "statusSource": "listed in the current MICHELIN Guide Kyoto Osaka selection, checked 2026-10-02"
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
  },
  {
   "n": "Tempura Mizuki",
-  "address": "B1F The Ritz-Carlton Kyoto, Nakagyō-ku, Kyoto",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "address": "B1F, The Ritz-Carlton, Kyoto, 543 Hokodencho, Nakagyo-ku, Kyoto, 604-0902, Japan",
+  "lat": 35.013704,
+  "lng": 135.770876,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/tempura-mizuki",
   "status": "open",
-  "statusSource": "listed in the current MICHELIN Guide Kyoto Osaka selection, checked 2026-10-02"
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
  },
  {
   "n": "Yakitori Kyoto Tachibana",
-  "address": "B1F, 612 Tachibana-chō, Nakagyō-ku, Kyoto",
+  "address": "B1F, 612 Tachibanacho, Nakagyo-ku, Kyoto, 604-0944, Japan",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
-  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "geoSource": "MICHELIN Guide venue page address only; lat/lng not surfaced via WebSearch — UNVERIFIED, held for tools/geocode-helper.html https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/yakitori-kyoto-tachibana",
   "status": "open",
-  "statusSource": "listed in the current MICHELIN Guide Kyoto Osaka selection, checked 2026-10-02"
+  "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
  },
  {
   "n": "Sake Bar Yoramu",
@@ -478,5 +478,25 @@
   "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
   "status": "open",
   "statusSource": "MATCHA Kyoto Ramen Koji guide + Inside Kyoto review — operating; checked 2026-10-02"
+ },
+ {
+  "n": "Hirobun (ひろ文), Kibune",
+  "address": "Kibune, Sakyō-ku, Kyoto",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "japan-guide Kibune page + Inside Kyoto — operating (seasonal nagashi-sōmen); checked 2026-10-02"
+ },
+ {
+  "n": "Mukai Shuzō (向井酒造), Ine",
+  "address": "Ine Bay (by the funaya), Ine-chō, Yosa-gun, Kyoto Prefecture",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "MATCHA Tango sake-brewery tour feature — operating; checked 2026-10-02"
  }
 ]
