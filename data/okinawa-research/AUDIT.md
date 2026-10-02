@@ -127,3 +127,22 @@ Sailor Inn (chain).
 **Build (mid-W3):** `rebuild-city.py okinawa --build` → 155 discovered (93 sights + 62 food = **40 % food**, up from
 22 %), 85 pinned; sourcecheck PASS 155/155, geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK;
 npm test ALL PASS. 70 places (mostly restaurants) await coordinates → geocode-helper.
+**Batches 8–13 + close (2026-10-02).** +30 more: Tiandaa, Sobaya Yoshiko, Shiki Sonoda (KozaWeb + Rurubu), Highway
+Drive-In (KozaWeb + Stripes + japantravel), Kaizoku Kōbō (pref cert + KozaWeb), Blue Seal Makiminato (Okinawa Times
+2024 reopening + Rurubu + Okinawa Traveler), Onna no Eki Nakayukui, Michi-no-Eki Kyoda, Gōya & RICCO & Tunkaraya
+(Miyako), Milmil & Adan-tei (Ishigaki), Naha drinking (Karakara to Chibugwā, Kozakura — 70 yrs, Okinawa Times;
+Nakamura-ya; Benriya Yulinglong), cafés (oHacorté, Rakusui, Kajinhō, Shīsā-en, ichara, Yabusachi), Zamami sights (Ama,
+Takatsukiyama), Naha sights (Sueyoshi-gū and Sōgen-ji gate with Wikipedia pins; Ryūtan — MLIT tagengo; Karate Kaikan),
+Kouri Ōhashi (Stripes GPS + OCVB), Pokémon Center Okinawa (ANIME; Okinawa Times + Game Watch + official).
+**Self-check:** oHacorté's second source was first entered with the wrong rurubu URL (Transit Café's page) — caught and
+corrected to rurubu spot 80042843 before the push; Cafe ichara's description trimmed to sourced facts only; Orion Happy
+Park address reduced to "Nago" (street address not in a source).
+**Restaurant geocoder (bg, 30 searches):** 1/50 resolved (Chatan Harbor Brewery — Stripes cruise boarding point, med);
+rejected Charlie's (point in central Naha), Jack's (estimate), unattributed Shuri/Onna/Kadena points.
+**Channel mix W3 (citations, approx.):** Rurubu 34 · Mapple 33 · Okinawa Traveler 22 · Okinawa Times 13 · prefecture
+certification 8 · KozaWeb 4 · Stripes 6 · japantravel 3 · Wikipedia/Samurai Archives/MLIT 7 · GLTJP/macaroni/GIGAZINE/
+Culture Trip/Beer Tengoku/Game Watch/fun-japan/OCVB/gov-online/Ryukyu Shimpo 1–2 each · creators 0.
+**Final W3 build:** 186 discovered (101 sights + 85 food = **46 % food**), **89 pinned**; sourcecheck PASS 186/186,
+geocheck PASS, statuscheck CONSISTENT, buildcheck PASS; validate DATA OK; npm test ALL PASS. ANIME 3 (1 rendered).
+Not flipped live (89 pins; NAHA/CHUBU far below target). Closures: none found among kept places.
+WebSearch used this session: ~121 lead + 70 background = ~191.

@@ -418,3 +418,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   McGillin's, El Chingón, Max's); the rest stay UNVERIFIED for tools/geocode-helper.html.
 - **Rejected pins:** Old City Hall's returned Wikipedia point sat ~150 m off 5th & Chestnut (it matched Todd House) — left unpinned;
   Upsala's returned point was ~4 km east of Germantown Ave.
+
+
+## 2026-10-02 — Okinawa W3 (food & drink first)
+- **Best yield for Japanese regional food:** pair the two big guidebook webs — Rurubu (るるぶ&more, JTB) list articles and Mapple (まっぷる) list/spot pages — each list search returns 4–8 names with addresses; a search on the other domain confirms 2–4 of them. Okinawa Traveler (Rikka Docca editors) features and the prefecture's 「琉球料理が味わえる店」 certification list add independent channels.
+- **Restaurant pins are not findable via WebSearch summaries** (geocoder pass: 1 of 50) — Stars and Stripes prints GPS in the article body, but summaries rarely surface it; leave restaurants UNVERIFIED for tools/geocode-helper.html and record the Stripes article URLs in the notes for the helper.
+- **Reject summary coordinates without a citable page** — 5 of 12 geocoder hits were dropped for this; also re-check citation URLs before commit (one draft pointed a rurubu URL at the wrong shop).

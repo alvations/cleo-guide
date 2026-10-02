@@ -39,36 +39,50 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | MYK | 14 | 50 | +36 |
 | KRM | 7 | 30 | +23 |
 
-- 2026-10-02 **W3 (in progress)**: +36 so far (35 food + 1 sight) → **155 discovered (62 food = 40 %), 85 pinned**; 4 gates PASS,
-  validate+test PASS. Files `*_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3*.json`, log `_okinawa_w3_notes.md` (54+ searches + 40 geocoder).
+- 2026-10-02 **W3 done** (food & drink first + ANIME; ~120 lead searches + 70 by two background geocoders): +67 →
+  **186 discovered (101 sights + 85 food & drink = 46 % food, was 22 %), 89 pinned**; ANIME 3. 4 gates PASS, `npm run
+  validate` + `npm test` ALL PASS. Files `FOOD/SIGHTS/SOURCES_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3.json` (discovery
+  pins), `_W3G` (held-sight geocoder: 7 kept, 5 rejected), `_W3R` (restaurant geocoder: 1/50), raw log `_okinawa_w3_notes.md`
+  (91 numbered searches — every held lead and its source; read before searching).
+
+### Density after W3 (python3 tools/density.py okinawa)
+| area | food | sights | have | target | need |
+|---|---|---|---|---|---|
+| NAHA | 20 | 17 | 37 | 120 | +83 |
+| CHUBU | 14 | 17 | 31 | 95 | +64 |
+| HOKBU | 18 | 18 | 36 | 90 | +54 |
+| NANBU | 10 | 17 | 27 | 65 | +38 |
+| YAEYA | 9 | 12 | 21 | 60 | +39 |
+| MYK | 12 | 11 | 23 | 50 | +27 |
+| KRM | 2 | 9 | 11 | 30 | +19 |
 
 ## In-flight wave
-- **W3 (2026-10-02, food & drink first + ANIME)** — files `FOOD_OKINAWA_W3.json`, `SIGHTS_OKINAWA_W3.json`,
-  `SOURCES/CREATORS_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3.json` (discovery pins), `geo/_geoout_okinawa_W3G.json`
-  (background geocoder for the 45 held, worklist `_okinawa_geo_todo_W3.json`), raw log `_okinawa_w3_notes.md`.
-  Queries: Michelin/Bib Okinawa list, Tabelog 百名店 soba/okinawa, Okinawa Times poll leftovers via Mapple, Stripes
-  food articles (steak, A&W, Blue Seal, zenzai, awamori, coffee, craft beer, izakaya), creator queries, anime wave.
+- none (W3 closed and committed).
 
-## Next actions (W3 plan, ordered)
-0. **Geocode the 45 UNVERIFIED** (list: `grep -B2 unverified geo/_geoout_okinawa_W*.json`) — mostly Naha/Miyako/Ishigaki
-   restaurants with street addresses (Yūnangi, Mikasa, Jack's, Shuri Soba, Mie, Suunumee, Kojasobaya, Kinatsuyu…) and
-   island sights (Sunayama, Higashi-hennazaki, Irabu Bridge, Aharen, Hate-no-hama, Emerald Beach, Shikinaen ×4 tries).
-   Use `tools/geocode-helper.html` (browser) or one-place-per-query Wikipedia/Atlas Obscura. Re-verify Ikema (low).
-1. **Food (only 27)**: mine the remaining Okinawa Times 2023 poll names (held, need a 2nd source): Miyazato Soba,
-   Sachichan, Oshiro, Nakamura (Onna), Yae Shokudo, Yonabaru-ya, Kikuya, Nanbu Soba, Yuunami, EIBUN, Takaesu, Kai soba,
-   3-chome Shima Soba-ya, Agariya+, Akashi/Kimi Shokudo (Ishigaki), Irabu Soba Kame → pair each with a Mapple spot page
-   (`allowed_domains=["mapple.net"]`, 3–4 names per query) or KozaWeb. Canon gaps: Blue Seal Makiminato, A&W Makiminato
-   (Mapple only so far), Arakaki Zenzai, sata andagi, Tomari Iyumachi / Awase Payao / Itoman fish markets (Visit
-   Okinawa only), Ishigaki-beef yakiniku, Kume kuruma-ebi (Washima), awamori bars.
-2. **Sights still held for a 2nd source / coords** (see notes): Kakazu Ridge, Sugar Loaf, Urasoe Castle/Yōdore, Nirai
-   Kanai Bridge, Giza Banta, Odo beach, Chibichiri Gama, Gesashi mangroves, Orion Happy Park, Neo Park, Todoroki Falls,
-   Minna Island, Busena Marine Park, Okinawa Karate Kaikan (JG e7130), Kudaka Island, Kondoi Beach, Urauchi River, Cape
-   Hirakubo, Yonehara Beach, Hateruma Nishihama, Kuroshima, Kohama, Sawada-no-hama, 17END.
-3. Creators: no vetted creator surfaced a place-specific Okinawa video in 4 queries — try Japanese creators
-   (`沖縄 そば YouTuber 名店`), PBS "Family Ingredients — Okinawa soki soba" (name the shops it visits).
-4. After each ~50: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
-   → 4 gates → `cd tools && npm run validate && npm test` → commit+push. Go live when rendered depth is real
-   (suggest ≥150 pins with every area ≥10).
+## Next actions (W4 plan, ordered)
+0. **Pins are the bottleneck (89 of 186 render).** ~95 places (≈70 restaurants) are UNVERIFIED: run
+   `tools/geocode-helper.html` in a browser on `docs/GEOCODE-BACKLOG.md` → okinawa. Stripes article URLs that print GPS
+   for held restaurants are listed in `_okinawa_w3_notes.md` (Mikasa, Yagiya/noodles-nanjo, Jack's, Charlie's, Tacoloco,
+   Curcuma). Sights still unpinned: Shikinaen, Sakaemachi, Sunayama, Irabu Bridge, Gangala, Hate-no-hama, Yaedake,
+   Tamatorizaki, Kume beaches, Aharen, Araha, Emerald, Yoshino, Aragusuku, Pokémon Center (Aeon Rycom), Ama, Takatsukiyama,
+   Ryūtan, Karate Kaikan. Go live at ≥150 pins with every area ≥10 pins.
+1. **Food (keep ≥50 % per area):** the Rurubu ↔ Mapple pairing works (1 list search → 4–8 names; 1 confirm search →
+   2–4 kept). Held single-source leads to pair next (see notes #): Miyazato Soba, Mutsumibashi Kadoya, Shuri Soba
+   Nakada, Teshiraji, George Restaurant, Ishimine Shokudō, Tsubame (Makishi 2F), Adachiya, Sangoza Kitchen, Koshuya,
+   COFFEE potohoto, HUU'S, ippe coppe, Cafe Kokuu, CASA SOL, Kissa Agachi-mori, Jef Yonabaru, Seaside Drive-In, Cafe
+   Ocean, Kitauchi Bokujō, Hitoshi, Gen, Yaesen/Seifuku distilleries, Kihachi & Yan-kō (Kume), Marumi-ya (Zamami), Kanifu
+   & Shidamē-kan (Taketomi), Iriomote cafés, Yukishio Museum, KOURI SHRIMP, Makabe Chinā, Kaiyō Shokudō, Maeda Shokudō.
+   Unmined lists: Mapple 51451 (michi-no-eki top 5), rurubu 23587 (Okinawa gourmet 16), rurubu 14269 (cafés 31),
+   KozaWeb bakeries 280 / senbero 283, Okinawa Traveler 0003 ranking & 0130 C-lunch 7, Mapple 29790 (Ishigaki dinner).
+2. **Sights for Naha/Chūbu** (largest gaps): Tomari International Cemetery, Mekaru tombs, Shuri Kannondō, Naminoue Beach,
+   Urasoe Castle/Yōdore, Kakazu Ridge, Sugar Loaf, Minatogawa Stateside Town (Stripes GPS), Kadena michi-no-eki lookout,
+   Okinawa Zoo, Plaza House, Rycom; Ishigaki Limestone Cave & Cape Hirakubo (GLTJP + Stripes '20 things').
+3. **ANIME (3 so far):** Okitsura (Uruma — pilgrimage map RS 3833039, manholes RS 4174266), Poké Lids (16 in 12 cities —
+   need per-lid sites), One Piece Card Game shop (San-A Naha Main Place), Chura-san (NHK drama, Kohama Island).
+4. **Creators:** still 0 vetted attachments (SUSURU TV, Rachel & Jun, LWIF, Tokyo Lens checked). Try Japanese Okinawa
+   YouTubers with ≥100k subs naming specific shops.
+5. After each ~50: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → commit+push.
 
 ## Map-view caveat (RESOLVED 2026-10-02 — VIEW override; keep checking after island pins land)
 The centre/zoom is derived from the 5–95 % pin percentiles over ALL Okinawa pins. Once Miyako/Yaeyama hold >5 % of

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Okinawa field guide — 74 sights and 13 places to eat, each traceable to its source (UNESCO, Okinawan and Japanese press, Stars and Stripes Okinawa and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Okinawa field guide — 76 sights and 13 places to eat, each traceable to its source (UNESCO, Okinawan and Japanese press, Stars and Stripes Okinawa and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Okinawa Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Okinawa (沖縄), sourced</p>
   <h1>Okinawa<span class="thin">the Ryūkyū islands — Naha, the main island, Kerama, Miyako &amp; Yaeyama</span></h1>
-  <p class="standfirst">74 sights and 13 places to eat across <strong>Okinawa</strong> — the Ryūkyū Kingdom’s castles and sacred groves, Okinawa soba counters and taco-rice joints, from Naha out to the Miyako and Yaeyama islands — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">76 sights and 13 places to eat across <strong>Okinawa</strong> — the Ryūkyū Kingdom’s castles and sacred groves, Okinawa soba counters and taco-rice joints, from Naha out to the Miyako and Yaeyama islands — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -311,13 +311,18 @@
 const S = {
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
   "FUNJAPAN":{k:"FUNJAPAN",t:"FUN! JAPAN (JTB)",u:"https://www.fun-japan.jp",l:"FUN! JAPAN (JTB)"},
+  "GAMEWATCH":{k:"GAMEWATCH",t:"GAME Watch (Impress Watch)",u:"https://game.watch.impress.co.jp",l:"GAME Watch (Impress Watch)"},
   "GOVONLINE":{k:"GOVONLINE",t:"Highlighting Japan (Government of Japan Public Relations Office)",u:"https://www.gov-online.go.jp/hlj/en/",l:"Highlighting Japan (Government of Japan Public Relations Office)"},
+  "JAPANEXPERIENCE":{k:"JAPANEXPERIENCE",t:"Japan Experience",u:"https://www.japan-experience.com",l:"Japan Experience"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JCASTLE":{k:"JCASTLE",t:"Jcastle.info — Guide to Japanese Castles",u:"https://jcastle.info",l:"Jcastle.info — Guide to Japanese Castles"},
   "JNTO":{k:"JNTO",t:"JNTO",u:"",l:""},
+  "JTA_TAGENGO":{k:"JTA TAGENGO",t:"Japan Tourism Agency multilingual commentary database (MLIT)",u:"https://www.mlit.go.jp/tagengo-db/",l:"Japan Tourism Agency multilingual commentary database (MLIT)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
   "MIYAKOJIMACITY":{k:"MIYAKOJIMACITY",t:"Miyakojima City cultural-properties site",u:"https://miyakojimabunkazai.jp",l:"Miyakojima City cultural-properties site"},
   "OCVB":{k:"OCVB",t:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)",u:"https://filmoffice.ocvb.or.jp",l:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "OKINAWATIMES":{k:"OKINAWA TIMES",t:"OKINAWA TIMES",u:"",l:""},
   "RYUKYUSHIMPO":{k:"RYUKYU SHIMPO",t:"RYUKYU SHIMPO",u:"",l:""},
   "SAMURAIARCHIVES":{k:"SAMURAIARCHIVES",t:"SamuraiWiki (Samurai-Archives)",u:"https://samurai-archives.com/wiki/",l:"SamuraiWiki (Samurai-Archives)"},
   "STRIPES":{k:"STRIPES",t:"Stars and Stripes Okinawa",u:"https://okinawa.stripes.com",l:"Stars and Stripes Okinawa"},
@@ -410,7 +415,9 @@ const P = [
 {t:2,a:"YAEYA",n:"Yonaguni Monument underwater formation (与那国島海底地形)",ad:"off Arakawabana, Yonaguni, Okinawa, Japan",la:24.43220,ln:123.01610,w:"Terraced underwater rock formation found by a diver in 1986 off Yonaguni's south coast — natural or man-made is still debated; reached on dive and glass-bottom boat trips.",k:"Underwater 'ruins' dive",g:["NATURE","CASTLE"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/yonaguni-monument"],["STRIPES","https://okinawa.stripes.com/travel/yonaguni-okinawa.html"]]},
 {t:2,a:"NAHA",n:"Benzaitendō & Enkaku-ji, Shuri (弁財天堂・円覚寺跡)",ad:"Shuri Castle Park, Shuri, Naha, Okinawa, Japan",la:26.21833,ln:127.71944,w:"Islet hall to the goddess of sea voyages in Enkan-chi pond, opposite the gate of Enkaku-ji — the royal family temple whose National Treasures were lost in 1945.",k:"Royal temple & pond hall",g:["TEMPLE","FREE","ICON"],s:[["VISITOKINAWA","https://visitokinawajapan.com/destinations/okinawa-main-island/southern-okinawa-main-island/shuri/"],["STRIPES","https://okinawa.stripes.com/travel/okinawa-shuri-castle.html"]]},
 {t:2,a:"NANBU",n:"Nirai Kanai Bridge overlook (ニライカナイ橋)",ad:"Chinen, Nanjō, Okinawa, Japan",la:26.16736,ln:127.81504,w:"A sweeping U-shaped road bridge that switchbacks down the Chinen hillside with the Pacific and Kudaka Island ahead — best seen from the tunnel-top viewpoint. It appears in the 2021 anime 'The Aquatope on White Sand', which earned Nanjō a place among the Anime Tourism Association's 88 anime pilgrimage sites.",k:"★ Anime & pop culture — The Aquatope on White Sand (白い砂のアクアトープ, 2021) — bridge shown in the series; Nanjō named an 'Anime Pilgrimage 88' site · Coastal bridge & viewpoint (anime pilgrimage)",g:["ANIME","VIEW","POP","FREE"],s:[["GOVONLINE","https://gov-online.go.jp/eng/publicity/book/hlj/html/202403/202403_06_en.html"],["RYUKYUSHIMPO","https://ryukyushimpo.jp/news/entry-1580769.html"]]},
-{t:1,a:"HOKBU",n:"Kouri Ōhashi Bridge & Kouri Island (古宇利大橋・古宇利島)",ad:"Kouri, Nakijin, Okinawa, Japan",la:26.69540,ln:128.02185,w:"The 1,960 m toll-free bridge (2005) from Yagaji Island across emerald shallows to Kouri, the 'Island of Love' — one of Okinawa's signature drives, with beaches, Heart Rock and garlic-shrimp trucks at the far end.",k:"Sea bridge & island",g:["ICON","VIEW","FREE","MUS"],s:[["STRIPES","https://okinawa.stripes.com/travel/return-to-kouri-island,-okinawa.html"],["OCVB","https://filmoffice.ocvb.or.jp/en/?p=25827"]]}
+{t:1,a:"HOKBU",n:"Kouri Ōhashi Bridge & Kouri Island (古宇利大橋・古宇利島)",ad:"Kouri, Nakijin, Okinawa, Japan",la:26.69540,ln:128.02185,w:"The 1,960 m toll-free bridge (2005) from Yagaji Island across emerald shallows to Kouri, the 'Island of Love' — one of Okinawa's signature drives, with beaches, Heart Rock and garlic-shrimp trucks at the far end.",k:"Sea bridge & island",g:["ICON","VIEW","FREE","MUS"],s:[["STRIPES","https://okinawa.stripes.com/travel/return-to-kouri-island,-okinawa.html"],["OCVB","https://filmoffice.ocvb.or.jp/en/?p=25827"]]},
+{t:2,a:"NAHA",n:"Sueyoshi-gū Shrine & Sueyoshi Park (末吉宮)",ad:"Sueyoshi-chō, Shuri, Naha, Okinawa, Japan",la:26.23017,ln:127.71406,w:"One of the Eight Shrines of the Ryūkyū Kingdom, perched on a forested limestone ridge in Sueyoshi Park; a stone path climbs through jungle to the rebuilt hall — a quiet counterpoint to Shuri Castle.",k:"Ryukyu-kingdom shrine in forest park",g:["TEMPLE","NATURE","FREE","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sueyoshi-g%C5%AB"],["SAMURAIARCHIVES","https://samurai-archives.com/wiki/Sueyoshi_Shrine_(Okinawa)"]]},
+{t:2,a:"NAHA",n:"Sōgen-ji Stone Gate (崇元寺石門)",ad:"Tomari, Naha, Okinawa, Japan",la:26.22033,ln:127.69058,w:"The surviving stone gate of the Ryūkyū royal temple founded in 1527, where all who entered — even the king — had to dismount; the temple was destroyed in WWII but the gate was restored and has been an Important Cultural Property since 1972, fronting a small park.",k:"Ryukyu royal temple gate (Important Cultural Property)",g:["TEMPLE","FREE","NATURE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/S%C5%8Dgen-ji"],["SAMURAIARCHIVES","https://samurai-archives.com/wiki/Sogenji"]]}
 ];
 
 const FS = {
@@ -598,7 +605,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Naha", 26.2176, 127.7007], ["Chūbu — Central Okinawa", 26.3427, 127.7926], ["Nanbu — Southern Okinawa", 26.1404, 127.742], ["Hokubu — Northern Okinawa", 26.6478, 127.9776], ["Kerama", 26.3141, 126.9611], ["Miyako Islands", 24.7834, 125.273], ["Yaeyama Islands", 24.4009, 123.7942]];
+const LABELS=[["Naha", 26.2186, 127.701], ["Chūbu — Central Okinawa", 26.3427, 127.7926], ["Nanbu — Southern Okinawa", 26.1404, 127.742], ["Hokubu — Northern Okinawa", 26.6478, 127.9776], ["Kerama", 26.3141, 126.9611], ["Miyako Islands", 24.7834, 125.273], ["Yaeyama Islands", 24.4009, 123.7942]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -937,7 +944,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 87 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 89 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
