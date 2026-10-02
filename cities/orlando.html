@@ -3,29 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Holland Village (Singapore) field guide — 3 sights and 30 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
-<title>Holland Village — Singapore &amp; SEA field guide</title>
+<meta name="description" content="Orlando &amp; Central Florida field guide — 15 sights and 0 places to eat: Walt Disney World and Universal Orlando pinned attraction by attraction, Mills 50 Vietnamese, Winter Park, Kissimmee, the springs and the Space Coast, each traceable to its source (Michelin, Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Orlando &amp; Central Florida Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
   :root{
-    color-scheme: light dark;
-    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
-    --patina:#3E9A88; --patina-dim:#BFE0D8;
-    --brass:#B9863A; --rust:#C56F73;
-    --bone:#2E2838; --bone-dim:#6E6480;
-    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
   }
-  @media (prefers-color-scheme:dark){:root{
-    --iron:#191521; --slab:#241E30; --hair:#382E48;
-    --patina:#93D6C6; --patina-dim:#3E5D53;
-    --brass:#E8C57C; --rust:#E4989B;
-    --bone:#ECE7F2; --bone-dim:#A79FB8;
-  }}
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
@@ -53,12 +45,11 @@
   .maplegend span{display:flex;align-items:center;gap:6px;}
   .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
   /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
-  .osmdark .leaflet-tile-pane{filter:none;}
-  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
   #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
     border-left:3px solid var(--rust);font-size:14.5px;}
   #tilewarn button{margin-left:8px;}
-  .leaflet-container{background:var(--slab);}
+  .leaflet-container{background:#0E1316;}
   .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
   .leaflet-popup-tip{background:var(--slab);}
   .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
@@ -229,9 +220,9 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Neighbourhood guide · Singapore</p>
-  <h1>Holland Village<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">3 sights and 30 places to eat in <strong>Holland Village</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p class="eyebrow">Field guide · Orlando, the parks &amp; Central Florida, sourced</p>
+  <h1>Orlando<span class="thin">the parks ride by ride, Mills 50, the springs &amp; the Space Coast</span></h1>
+  <p class="standfirst">15 sights and 0 places to eat across <strong>Orlando &amp; Central Florida</strong> &mdash; <strong>Walt Disney World</strong> and <strong>Universal</strong> pinned ride by ride inside each park, and the real city beyond them: Downtown and Lake Eola, the <strong>Mills 50</strong> Vietnamese corridor, Winter Park, Restaurant Row, Puerto Rican Kissimmee, the crystal-blue <strong>springs</strong> and the <strong>Space Coast</strong>. Each is traceable to the source that named it &mdash; Michelin, the Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks and the park operators themselves. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (theme-park signature eats are their own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -242,7 +233,10 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#BCA7E6"></i>Holland Village</span>
+  <span><i style="background:#3A6FD8"></i>Magic Kingdom & the Seven Seas Lagoon resorts</span>
+  <span><i style="background:#16A0B5"></i>EPCOT & the BoardWalk resorts</span>
+  <span><i style="background:#B5446E"></i>Disney's Hollywood Studios</span>
+  <span><i style="background:#6B8E23"></i>Disney's Animal Kingdom</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -257,7 +251,7 @@
     <div class="chips" id="cuisineFilter"></div>
   </div>
   <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <input id="search" type="search" placeholder="Dole Whip, pho, Space Mountain, Wekiwa…" autocomplete="off">
   <p class="ctrl-label">Filter by source</p>
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
@@ -300,8 +294,8 @@
 <footer>
   Hours, admission and opening days change — verify before you drive.<br>
   A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
-  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
-  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across the Michelin Guide, the Orlando Sentinel, Orlando Weekly, Orlando Magazine, WMFE, Visit Orlando, NASA, NPS, Florida State Parks, Atlas Obscura, the Disney and Universal park pages and vetted theme-park outlets (Theme Park Insider, Disney Food Blog). Every coordinate is verified into data/geocodes.json and every place status-checked. Places still awaiting a verified pin are held back until they get one.<br><br>
   <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
   <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
 </footer>
@@ -312,115 +306,94 @@
 <script>
 
 const S = {
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
-  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
-  "ORDINARYPATRONS":{k:"ORDINARYPATRONS",t:"Ordinary Patrons",u:"https://ordinarypatrons.com",l:"Ordinary Patrons"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
-  "TIMEOUTSG":{k:"TIME OUT SINGAPORE",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
-  "VISITSG":{k:"VISIT SINGAPORE (STB)",t:"Visit Singapore (Singapore Tourism Board)",u:"https://www.visitsingapore.com/",l:"Visit Singapore (Singapore Tourism Board)"},
-  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
-  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+  "ALLEARS":{k:"ALLEARS",t:"AllEars.net",u:"https://allears.net/",l:"AllEars.net"},
+  "DISNEYBLOG":{k:"DISNEYBLOG",t:"DisneyBlog",u:"https://disneyblog.com/",l:"DisneyBlog"},
+  "FROMMERS":{k:"FROMMERS",t:"Frommer's",u:"https://www.frommers.com/",l:"Frommer's"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site (venue / Walt Disney World / Universal Orlando)",u:"",l:"Official site (venue / Walt Disney World / Universal Orlando)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
 
 const AREAS = [
-  {id:"HOLLANDVILLAGE",n:"Holland Village",c:"#BCA7E6"}
+  {id:"MK",n:"Magic Kingdom & the Seven Seas Lagoon resorts (Walt Disney World)",c:"#3A6FD8"},
+  {id:"EPCOT",n:"EPCOT & the BoardWalk resorts (Walt Disney World)",c:"#16A0B5"},
+  {id:"DHS",n:"Disney's Hollywood Studios (Walt Disney World)",c:"#B5446E"},
+  {id:"DAK",n:"Disney's Animal Kingdom (Walt Disney World)",c:"#6B8E23"}
 ];
 
 const P = [
-{t:1,a:"HOLLANDVILLAGE",n:"Ghim Moh Market & Food Centre",ad:"20 Ghim Moh Road, Singapore 270020",la:1.31089,ln:103.78780,w:"The Holland-Ghim Moh district's great hawker centre: opened in 1978, rebuilt in a 2015 facelift and refreshed again in a March-May 2024 renovation, yet still old-school neighbourhood in feel — around 72 cooked-food stalls over a wet market, famous for chwee kueh, braised duck, hor fun and carrot cake, a short walk from Buona Vista MRT.",k:"Hawker centre & wet market; most stalls breakfast-to-lunch, some till evening",g:["MKT"],s:[["TIMEOUTSG","https://www.timeout.com/singapore/restaurants-and-cafes/ghim-moh-food-centre"],["SETHLUI","https://sethlui.com/ghim-moh-market-food-centre-singapore/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-to-try-at-ghim-moh-market-food-centre-singapore"],["ORDINARYPATRONS","https://ordinarypatrons.com/2024/05/20/ghim-moh-market-renovation-2024-reopens/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Holland Drive Market & Food Centre",ad:"44 Holland Drive, Singapore 270044",la:1.30812,ln:103.79277,w:"The Holland Drive estate's two-storey market and food centre, home to a Michelin Bib Gourmand claypot rice (New Lucky), a Michelin-recognised kway chap (Cheng Heng), Margaret Drive Sin Kee chicken rice and a well-loved Malay breakfast stall — the residents' hawker centre just south of the Holland V bar strip.",k:"Hawker centre & wet market; cooked food upstairs",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["SETHLUI","https://sethlui.com/holland-drive-food-centre-guide-singapore/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-holland-drive-food-centre"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]}
+{t:1,a:"MK",n:"Cinderella Castle",ad:"Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",la:28.41950,ln:-81.58120,w:"The 189-ft castle at the hub of Magic Kingdom — the park's icon and the backdrop for its nightly fireworks.",k:"icon castle",g:["SHOW","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cinderella_Castle"],["ALLEARS","https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"],["FROMMERS","https://www.frommers.com/destinations/magic-kingdom/attractions"]]},
+{t:1,a:"MK",n:"Space Mountain (Magic Kingdom)",ad:"Tomorrowland, Magic Kingdom, Walt Disney World, Bay Lake, FL",la:28.41917,ln:-81.57722,w:"The original 1975 indoor dark roller coaster in Tomorrowland.",k:"roller coaster ride",g:["RIDE","SPACE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Space_Mountain_(Magic_Kingdom)"],["ALLEARS","https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"],["FROMMERS","https://www.frommers.com/destinations/magic-kingdom/attractions"]]},
+{t:1,a:"MK",n:"Pirates of the Caribbean (Magic Kingdom)",ad:"Adventureland, Magic Kingdom, Walt Disney World, Bay Lake, FL",la:28.41802,ln:-81.58422,w:"The Adventureland boat dark ride, Florida's version of the 1967 Disneyland classic.",k:"dark ride boat ride",g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean_(attraction)"],["OFFICIAL","https://disneyworld.disney.go.com/attractions/magic-kingdom/pirates-of-the-caribbean/"],["ALLEARS","https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"]]},
+{t:1,a:"MK",n:"Big Thunder Mountain Railroad (Magic Kingdom)",ad:"Frontierland, Magic Kingdom, Walt Disney World, Bay Lake, FL",la:28.42050,ln:-81.58480,w:"Runaway mine-train roller coaster through the red-rock buttes of Frontierland.",k:"roller coaster ride",g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Big_Thunder_Mountain_Railroad"],["ALLEARS","https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"],["FROMMERS","https://www.frommers.com/destinations/magic-kingdom/attractions"]]},
+{t:1,a:"MK",n:"Seven Dwarfs Mine Train",ad:"Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",la:28.42056,ln:-81.58000,w:"Family mine-train coaster with swinging cars (2014), one of the park's most in-demand rides.",k:"roller coaster ride",g:["RIDE","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Seven_Dwarfs_Mine_Train"],["ALLEARS","https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"],["FROMMERS","https://www.frommers.com/destinations/magic-kingdom/attractions"]]},
+{t:1,a:"EPCOT",n:"Spaceship Earth",ad:"World Celebration, EPCOT, Walt Disney World, Bay Lake, FL",la:28.37528,ln:-81.54944,w:"The 18-storey geodesic sphere at EPCOT's entrance, with a slow time-machine dark ride inside.",k:"icon dark ride",g:["RIDE","ICON","SPACE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Spaceship_Earth_(Epcot)"],["ALLEARS","https://allears.net/epcot/attractions-at-a-glance-epcot"]]},
+{t:1,a:"EPCOT",n:"Guardians of the Galaxy: Cosmic Rewind",ad:"World Discovery, EPCOT, Walt Disney World, Bay Lake, FL",la:28.37460,ln:-81.54788,w:"Reverse-launch 'storytelling coaster' with rotating cars (2022) — one of the longest enclosed coasters in the world.",k:"roller coaster ride",g:["RIDE","SPACE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy:_Cosmic_Rewind"],["ALLEARS","https://allears.net/epcot/attractions-at-a-glance-epcot"]]},
+{t:2,a:"EPCOT",n:"Soarin' Around the World",ad:"World Nature (The Land), EPCOT, Walt Disney World, Bay Lake, FL",la:28.37268,ln:-81.55262,w:"Hang-glider flight simulator in The Land pavilion.",k:"simulator ride",g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Soarin'"],["ALLEARS","https://allears.net/epcot/attractions-at-a-glance-epcot"]]},
+{t:1,a:"DHS",n:"The Twilight Zone Tower of Terror",ad:"Sunset Boulevard, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",la:28.36006,ln:-81.55983,w:"The 199-ft Hollywood Tower Hotel drop-tower dark ride.",k:"icon drop tower ride",g:["RIDE","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Twilight_Zone_Tower_of_Terror"],["DISNEYBLOG","https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"]]},
+{t:1,a:"DHS",n:"Rock 'n' Roller Coaster",ad:"Sunset Boulevard, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",la:28.35942,ln:-81.56069,w:"Launched indoor coaster on Sunset Boulevard (0–57 mph in 2.8 s).",k:"roller coaster ride",g:["RIDE","SPACE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Rock_'n'_Roller_Coaster"],["DISNEYBLOG","https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"]]},
+{t:1,a:"DAK",n:"Expedition Everest",ad:"Asia, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",la:28.35820,ln:-81.58630,w:"Roller coaster up (and backwards down) a Himalayan peak with a Yeti.",k:"roller coaster ride",g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Expedition_Everest"],["ALLEARS","https://allearsnet.com/tp/ak/ak_attr.htm"],["FROMMERS","https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"]]},
+{t:1,a:"DAK",n:"Avatar Flight of Passage",ad:"Pandora – The World of Avatar, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",la:28.35540,ln:-81.59210,w:"3D motorbike-style flight simulator on a banshee over Pandora (2017).",k:"simulator ride",g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Avatar_Flight_of_Passage"],["ALLEARS","https://allearsnet.com/tp/ak/ak_attr.htm"],["FROMMERS","https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"]]},
+{t:1,a:"DAK",n:"Kilimanjaro Safaris",ad:"Africa, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",la:28.36083,ln:-81.59361,w:"Open-truck safari across a 110-acre savanna of live African animals.",k:"safari animal wildlife ride",g:["RIDE","WILD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kilimanjaro_Safaris"],["OFFICIAL","https://disneyworld.disney.go.com/destinations/animal-kingdom/kilimanjaro-safaris/"],["ALLEARS","https://allearsnet.com/tp/ak/ak_attr.htm"]]},
+{t:2,a:"DAK",n:"Na'vi River Journey",ad:"Pandora – The World of Avatar, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",la:28.35536,ln:-81.59152,w:"Slow boat ride through a bioluminescent Pandoran rainforest.",k:"boat ride",g:["RIDE","SPRNG"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Na%27vi_River_Journey"],["OFFICIAL","https://disneyworld.disney.go.com/attractions/animal-kingdom/navi-river-journey/"]]},
+{t:3,a:"DAK",n:"Dinosaur — CLOSED",ad:"DinoLand U.S.A., Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",la:28.35520,ln:-81.58832,w:"Time-rover dark ride (1998) — closed 2 Feb 2026 as DinoLand is replaced; kept flagged so it never reads as open.",k:"dark ride",closed:1,g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dinosaur_(Disney%27s_Animal_Kingdom)"],["ALLEARS","https://allearsnet.com/tp/ak/ak_attr.htm"]]}
 ];
 
 const FS = {
-  "DANIELFOOD":{k:"DANIEL FOOD DIARY",t:"Daniel Food Diary",u:"https://danielfooddiary.com",l:"Daniel Food Diary"},
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
-  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
-  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
-  "JOHORKAKI":{k:"JOHORKAKI",t:"Johor Kaki (Tony Boey)",u:"https://johorkaki.blogspot.com",l:"Johor Kaki (Tony Boey)"},
-  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
-  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
-  "MOTHERSHIP":{k:"MOTHERSHIP",t:"Mothership",u:"https://mothership.sg",l:"Mothership"},
-  "ORDINARYPATRONS":{k:"ORDINARYPATRONS",t:"Ordinary Patrons",u:"https://ordinarypatrons.com",l:"Ordinary Patrons"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
-  "SGFOODONFOOT":{k:"SGFOODONFOOT",t:"SG Food on Foot",u:"https://www.sgfoodonfoot.com",l:"SG Food on Foot"},
-  "TIMEOUTSG":{k:"TIME OUT SINGAPORE",t:"Time Out Singapore",u:"https://www.timeout.com/singapore",l:"Time Out Singapore"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://www.wikipedia.org/",l:"Wikipedia"},
-  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+  "CLICKORLANDO":{k:"NEWS 6 (WKMG)",t:"News 6 WKMG (ClickOrlando)",u:"https://www.clickorlando.com/",l:"News 6 WKMG (ClickOrlando)"},
+  "INFATUATION":{k:"INFATUATION",t:"The Infatuation — Orlando",u:"https://www.theinfatuation.com/orlando",l:"The Infatuation — Orlando"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Florida (Orlando selection)",u:"https://guide.michelin.com/us/en/florida/orlando/restaurants",l:"MICHELIN Guide Florida (Orlando selection)"},
+  "ORLANDOWEEKLY":{k:"ORLANDO WEEKLY",t:"Orlando Weekly",u:"https://www.orlandoweekly.com/",l:"Orlando Weekly"},
+  "VISITORLANDO":{k:"VISIT ORLANDO",t:"Visit Orlando (official destination marketing org)",u:"https://www.visitorlando.com/",l:"Visit Orlando (official destination marketing org)"},
+  "WFTV":{k:"WFTV 9",t:"WFTV Channel 9 (ABC Orlando)",u:"https://www.wftv.com/",l:"WFTV Channel 9 (ABC Orlando)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
 
 const CUISINES = [
-  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
-  {id:"LAKSA",n:"Laksa & Curry Noodles"},
-  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
-  {id:"BKT",n:"Bak Kut Teh & Soups"},
-  {id:"HAWKER",n:"Hawker & Zi Char"},
-  {id:"MALAY",n:"Malay & Nasi Padang"},
-  {id:"INDIAN",n:"Indian & Roti Prata"},
-  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
-  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
-  {id:"THAI",n:"Thai"},
-  {id:"VIET",n:"Vietnamese"},
-  {id:"INDO",n:"Indonesian, Satay & Rendang"},
-  {id:"FILIPINO",n:"Filipino"},
-  {id:"KHMER",n:"Khmer (Cambodian)"},
-  {id:"LAO",n:"Lao"},
-  {id:"BURMESE",n:"Burmese"},
-  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
-  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
-  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
-  {id:"CAFE",n:"Cafés & Modern"},
+  {id:"PARK",n:"Theme-Park Signature Eats"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"VN",n:"Vietnamese (Mills 50)"},
+  {id:"PR",n:"Puerto Rican"},
+  {id:"CUBA",n:"Cuban"},
+  {id:"LAT",n:"Latin American & Caribbean"},
+  {id:"MEX",n:"Mexican"},
+  {id:"FLA",n:"Florida Flavors (gator, citrus, key lime, Gulf seafood)"},
+  {id:"SEAF",n:"Seafood"},
+  {id:"BBQ",n:"BBQ & Smokehouse"},
+  {id:"US",n:"American & Southern"},
+  {id:"JP",n:"Japanese, Sushi & Omakase"},
+  {id:"CN",n:"Chinese"},
+  {id:"KR",n:"Korean"},
+  {id:"TH",n:"Thai & Lao"},
+  {id:"SEA",n:"Southeast Asian (Filipino, Malaysian…)"},
+  {id:"IN",n:"Indian"},
+  {id:"ME",n:"Middle Eastern & Mediterranean"},
+  {id:"IT",n:"Italian & Pizza"},
+  {id:"EU",n:"European"},
+  {id:"DES",n:"Desserts, Bakeries & Coffee"},
+  {id:"BAR",n:"Breweries, Bars & Cocktails"},
   {id:"VIRAL",n:"Viral / Social"}
 ];
 
 const CATS = [
+  {id:"RIDE",n:"Theme-Park Rides & Attractions"},
+  {id:"SHOW",n:"Shows, Parades & Fireworks"},
   {id:"ICON",n:"Iconic & Must-See"},
-  {id:"HERITAGE",n:"Heritage & Culture"},
-  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
-  {id:"MKT",n:"Markets & Hawker Centres"},
-  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"SPACE",n:"Space & Science"},
+  {id:"SPRNG",n:"Springs, Lakes & Nature"},
+  {id:"WILD",n:"Wildlife & Gators"},
   {id:"MUS",n:"Museums & Galleries"},
-  {id:"VIEW",n:"Views & Skyline"},
-  {id:"ARCH",n:"Architecture & Landmarks"},
+  {id:"HIST",n:"History & Architecture"},
+  {id:"WATER",n:"Beaches & Waterways"},
+  {id:"ARTS",n:"Performing Arts & Music"},
+  {id:"MKT",n:"Markets, Food Halls & Shopping"},
   {id:"FAM",n:"Family & Kids"},
   {id:"ODD",n:"Oddities & Hidden Gems"},
-  {id:"FREE",n:"Free to Visit"}
+  {id:"FREE",n:"Free to Visit"},
+  {id:"BAR",n:"Bars, Lounges & Speakeasies"}
 ];
 
 const F = [
-{t:1,a:"HOLLANDVILLAGE",n:"Chuan Kee Boneless Braised Duck",ad:"Ghim Moh Market & Food Centre, #01-04, 20 Ghim Moh Road, S270020",cz:["CHINESE"],la:1.31089,ln:103.78780,w:"Ghim Moh's Michelin Bib Gourmand duck stall: boneless Teochew-style braised duck over rice, kway teow or congee, dressed in a dark herbal gravy whose braising stock is reused and replenished daily — a $3-$5 bowl with years of depth in it.",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/chuan-kee-boneless-braised-duck"],["SETHLUI","https://sethlui.com/chuan-kee-boneless-braised-duck-ghim-moh-singapore/"]]},
-{t:1,a:"HOLLANDVILLAGE",n:"Ghim Moh Chwee Kueh",ad:"Ghim Moh Market & Food Centre, #01-54, 20 Ghim Moh Road, S270020",cz:["CHINESE","DESSERT"],la:1.31089,ln:103.78780,w:"A household name since 1959 and a Michelin Guide pick: soft-but-springy steamed rice cakes (minimum four) heaped with chye poh fried over a charcoal stove, which gives the preserved radish a smokier depth than the gas-cooked norm.",s:[["MICHELIN","https://guide.michelin.com/ch/fr/singapore-region/singapore/restaurant/ghim-moh-chwee-kueh"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"],["SETHLUI","https://sethlui.com/michelin-bib-gourmand-hawker-guide-singapore/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Guan Kee Fried Kway Teow — CLOSED",ad:"Ghim Moh Market & Food Centre, 20 Ghim Moh Road, S270020",cz:["NOODLE"],la:1.31089,ln:103.78780,w:"Started in 1969 and at Ghim Moh since 1978, this was one of Singapore's most-queued char kway teow stalls (Bib Gourmand 2019) — it closed for good on 28 Nov 2023 when its 77-year-old owner retired after fainting at the wok. Kept here as a flagged closure.",closed:1,s:[["EATBOOK","https://eatbook.sg/guan-kee-fried-kway-teow/"],["MOTHERSHIP","https://mothership.sg/2023/11/guan-kee-fried-kway-teow-retire/"],["SETHLUI","https://sethlui.com/guan-kee-fried-kway-teow-closing-singapore-nov-2023/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Guan_Kee_Fried_Kway_Teow"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Ghim Moh Carrot Cake",ad:"Ghim Moh Market & Food Centre, #01-16, 20 Ghim Moh Road, S270020",cz:["HAWKER","CHINESE"],la:1.31089,ln:103.78780,w:"The most popular carrot cake at Ghim Moh — a family stall that makes both the radish cake and the chye poh from scratch daily; the queue starts at 6:30am and limited portions sell out, rewarding early birds with strong wok hei.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/ghim-moh-food/"],["MISSTAMCHIAK","https://misstamchiak.com/ghim-moh-carrot-cake"],["ORDINARYPATRONS","https://ordinarypatrons.com/2016/07/12/ghim-moh-carrot-cake-traditional-kuehs/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Hin Fried Hor Fun",ad:"Ghim Moh Market & Food Centre, #01-44, 20 Ghim Moh Road, S270020",cz:["CHINESE","HAWKER"],la:1.31089,ln:103.78780,w:"Fried to order over a superheated wok so the flat rice noodles take on real wok hei before the gravy goes in — the brown-sauce beef hor fun is the bestseller; written up by Dr Leslie Tay and Miss Tam Chiak and tested by Seth Lui as one of Singapore's best-rated hor fun.",s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/hin-fried-hor-fun-hor-fun-with-prawn-beef-and-sliced-fish/"],["SETHLUI","https://sethlui.com/hin-fried-hor-fun-with-prawn-beef-sliced-fish-singapore/"],["MISSTAMCHIAK","https://misstamchiak.com/hin-hor-fun-with-prawn-beef-sliced-fish"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/best-hor-fun-singapore"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Heavens (Appam & Thosai)",ad:"Ghim Moh Market & Food Centre, #01-26, 20 Ghim Moh Road, S270020",cz:["INDIAN"],la:1.31089,ln:103.78780,w:"Formerly Heavens Indian Curry, now a mother-and-son appam and thosai specialist: lacy-edged, pillow-centred fermented-rice appam with grated coconut and orange sugar, or the indulgent 'Princess' crowned with butter, cheddar and a fried egg.",s:[["SETHLUI","https://sethlui.com/heavens-sigapore/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/heavens-indian-curry-manna-from-heaven"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"]]},
-{t:1,a:"HOLLANDVILLAGE",n:"New Lucky Claypot Rice",ad:"Holland Drive Market & Food Centre, #02-19, 44 Holland Drive, S270044",cz:["CHINESE"],la:1.30812,ln:103.79277,w:"Holland Drive's headline stall and a Michelin Bib Gourmand year after year (incl. 2024 and 2025): every claypot is cooked from scratch over charcoal, so the grains stay separate with a crackling crust — call ahead, because the wait can run to an hour.",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/new-lucky-claypot-rice"],["EATBOOK","https://eatbook.sg/new-lucky-claypot-rice/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Cheng Heng Kway Chap and Braised Duck Rice",ad:"Holland Drive Market & Food Centre, #02-05, 44 Holland Drive, S270044",cz:["CHINESE"],la:1.30812,ln:103.79277,w:"A Michelin-recognised kway chap (Michelin Plate, 2018) where the broad rice sheets swim in a herbal soy broth beside braised pork and innards, plus the stall's famous finely sliced braised duck — expect a 30-minute morning queue.",s:[["SETHLUI","https://sethlui.com/cheng-heng-kway-chap-vs-blanco-court-kway-chap-singapore/"],["SGFOODONFOOT","https://www.sgfoodonfoot.com/2016/04/cheng-heng-kway-chap-and-braised-duck.html"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-holland-drive-food-centre"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Shima's Kitchen",ad:"Holland Drive Market & Food Centre, #02-12, 44 Holland Drive, S270044",cz:["MALAY"],la:1.30812,ln:103.79277,w:"The Malay stall at Holland Drive that tastes like someone's mum cooked it — creamy coconut lontong and mee soto in the morning, then a changing nasi padang spread (rendang, petai, curry chicken) that sells out early.",s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-holland-drive-food-centre"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Hakka Noodle (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-15, 44 Holland Drive, S270044",cz:["CHINESE","NOODLE"],la:1.30812,ln:103.79277,w:"One of Holland Drive's busier stalls: springy Hakka noodles heaped with yong tau foo pieces and crisp fried wantons — a generous neighbourhood bowl.",s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"]]},
-{t:1,a:"HOLLANDVILLAGE",n:"Ru Ji Kitchen",ad:"Holland Drive Market & Food Centre, #02-28/29, 44 Holland Drive, Singapore 270044",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"A MICHELIN Bib Gourmand hawker across two adjoining stalls: noodle soup or 'dry' noodles with minced pork, pork balls or fish balls hand-made on the spot — the yellowtail fishballs are the draw.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/en/singapore-region/singapore/restaurant/ru-ji-kitchen"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Yuan Hokkien Fried Prawn Mee (Ghim Moh)",ad:"Ghim Moh Market & Food Centre, 20 Ghim Moh Road, Singapore 270020 (unit to confirm)",cz:["CHINESE","HAWKER"],la:1.31089,ln:103.78780,w:"A Margaret Drive Food Centre transplant: white and yellow noodles wok-fried down in a rich stock of prawn heads, squid and pork bones — one of the Ghim Moh picks shared by Women's Weekly and Her World.",g:["MKT"],s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-to-try-at-ghim-moh-market-food-centre-singapore"],["SETHLUI","https://sethlui.com/ghim-moh-market-food-centre-singapore/"],["JOHORKAKI","https://johorkaki.blogspot.com/2017/12/fried-hokkien-prawn-mee-ghim-moh-food.html"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Yuan Authentic Thai Stewed Beef Noodle (Ghim Moh)",ad:"Ghim Moh Market & Food Centre, 20 Ghim Moh Road, Singapore 270020 (unit to confirm)",cz:["THAI","HAWKER"],la:1.31089,ln:103.78780,w:"Run by a cook from Chiang Rai: Thai stewed and sliced beef noodle soup — beefy, aromatic broth, beef balls, slices and tendon, small bowls from under $3 — a Thai hawker kitchen in an otherwise Chinese-heavy centre (Eatbook review; Women's Weekly and Her World Ghim Moh lists).",g:["MKT"],s:[["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-to-try-at-ghim-moh-market-food-centre-singapore"],["EATBOOK","https://eatbook.sg/yuan-authentic-thai-stewed-beef-noodle/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Blanco Court Kueh Chap (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-02, 44 Holland Drive, Singapore 270044",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"The kway chap stall Miss Tam Chiak calls chef Daniel Tay's favourite: silky rice sheets in a herbal braising broth with a spread of braised pork, offal and egg — written up by Daniel Food Diary, SG Food on Foot and in Eatbook's 13 best Holland Drive stalls.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["DANIELFOOD","https://danielfooddiary.com/2020/06/22/blancocourtkuehchap/"],["MISSTAMCHIAK","https://www.misstamchiak.com/blanco-court-kueh-chap-holland-drive/"],["SGFOODONFOOT","https://www.sgfoodonfoot.com/2016/04/blanco-court-kueh-chap-holland-drive.html"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Aini Muslim Food (Holland Drive)",ad:"Holland Drive Market & Food Centre, 44 Holland Drive, Singapore 270044 (unit to confirm)",cz:["MALAY","INDO","HAWKER"],la:1.30812,ln:103.79277,w:"Holland Drive's Malay stall for ayam penyet: fragrant rice, fried chicken, tempeh, tau kwa, cucumber and sambal from about $4.50-$5 — on both Eatbook's and Women's Weekly's Holland Drive lists.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Leong Wei Roasted Delights (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-36, 44 Holland Drive, Singapore 270044",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"The $3 char siew and roast pork rice that Eatbook headlines in its Holland Drive guide; Women's Weekly also lists it among the centre's 10 best.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Traditional Carrot Cake (Holland Drive)",ad:"Holland Drive Market & Food Centre, 44 Holland Drive, Singapore 270044 (unit to confirm)",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"Black or white chai tow kway in $3/$4/$5 portions — the carrot cake pick of both Eatbook and Women's Weekly at Holland Drive.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Butter Town (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-35, 44 Holland Drive, Singapore 270044",cz:["DESSERT"],la:1.30812,ln:103.79277,w:"Young hawkers baking affordable shio pan from scratch inside a hawker centre — a newer Holland Drive draw named by Seth Lui's 11 best and covered by Eatbook.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/holland-drive-food-centre-guide-singapore/"],["EATBOOK","https://eatbook.sg/author/cheryl-nah/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Jiu Jiang Shao La (Ghim Moh)",ad:"Ghim Moh Market & Food Centre, 20 Ghim Moh Road, Singapore 270020 (unit to confirm)",cz:["CHINESE","HAWKER"],la:1.31089,ln:103.78780,w:"A short-hours roast-meat counter (10am-2pm, Thursday to Sunday) for roast duck, crackling roast pork and char siew — reviewed by Miss Tam Chiak and listed by Women's Weekly / Her World among Ghim Moh's best.",g:["MKT"],s:[["MISSTAMCHIAK","https://www.misstamchiak.com/ghim-moh-market-food-centre/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/ghim-moh-market-food-centre-10-best-hawker-stalls-to-try"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-to-try-at-ghim-moh-market-food-centre-singapore"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Lao Chen Ji Sarawak Kolo Mee (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-43, 44 Holland Drive, Singapore 270044",cz:["HAWKER"],la:1.30812,ln:103.79277,w:"Springy Sarawak kolo mee, served with yong tau foo pieces — a regulars' favourite named by HungryGoWhere, Daniel Food Diary (2023), Johor Kaki and Women's Weekly.",g:["MKT"],s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"],["DANIELFOOD","https://danielfooddiary.com/2023/05/02/hollanddrivefoodcentre/"],["JOHORKAKI","https://johorkaki.blogspot.com/2021/01/top-hawker-choices-of-holland-drive.html"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Fifty Year Yong Tau Foo (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-37, 44 Holland Drive, Singapore 270044",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"Freshly made Hakka yong tau foo over flat mee kia noodles — a fifty-year name that HungryGoWhere, Johor Kaki and Eatbook all list among Holland Drive's regulars' picks.",g:["MKT"],s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"],["JOHORKAKI","https://johorkaki.blogspot.com/2021/01/top-hawker-choices-of-holland-drive.html"],["EATBOOK","https://eatbook.sg/holland-drive-food/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Yap Kee Wanton Egg Noodles (Holland Drive)",ad:"Holland Drive Market & Food Centre, 44 Holland Drive, Singapore 270044 (unit to confirm)",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"Wanton mee made with egg noodles supplied by the owner's brother in Johor Bahru (Johor Kaki) — on HungryGoWhere's and Eatbook's Holland Drive lists.",g:["MKT"],s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"],["JOHORKAKI","https://johorkaki.blogspot.com/2021/01/top-hawker-choices-of-holland-drive.html"],["EATBOOK","https://eatbook.sg/holland-drive-food/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Gaziantep Delights (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-13, 44 Holland Drive, Singapore 270044",cz:["HAWKER"],la:1.30812,ln:103.79277,w:"Restaurant-quality Turkish food at hawker prices — tombik, döner, pide and falafel — picked by Seth Lui and HungryGoWhere.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/holland-drive-food-centre-guide-singapore/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Zhen Ji Vegetarian (Holland Drive)",ad:"Holland Drive Market & Food Centre, 44 Holland Drive, Singapore 270044 (unit to confirm)",cz:["HAWKER"],la:1.30812,ln:103.79277,w:"Holland Drive's vegetarian stall, a regulars' pick on HungryGoWhere and in Daniel Food Diary's 2023 Holland Drive round-up.",g:["MKT"],s:[["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"],["DANIELFOOD","https://danielfooddiary.com/2023/05/02/hollanddrivefoodcentre/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Ru Fa Bao Dian (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-09, 44 Holland Drive, Singapore 270044",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"A handmade-bao stall named in Daniel Food Diary's 2023 Holland Drive guide and Eatbook's 13 best Holland Drive stalls.",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/2023/05/02/hollanddrivefoodcentre/"],["EATBOOK","https://eatbook.sg/holland-drive-food/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Lin Da Ma Lei Cha (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-21, 44 Holland Drive, Singapore 270044",cz:["CHINESE","HAWKER"],la:1.30812,ln:103.79277,w:"Hakka thunder tea rice with a modern twist: brown rice, chopped vegetables, peanuts and ikan bilis under a thick basil-based tea soup (Daniel Food Diary); also in Seth Lui's 11 best Holland Drive stalls.",g:["MKT"],s:[["DANIELFOOD","https://danielfooddiary.com/hollanddrivefoodcentre29/"],["SETHLUI","https://sethlui.com/holland-drive-food-centre-guide-singapore/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Thiam Kee 1977 Hainanese Chicken Rice (Ghim Moh)",ad:"Ghim Moh Market & Food Centre, #01-19, 20 Ghim Moh Road, Singapore 270020",cz:["CHICKENRICE","HAWKER"],la:1.31089,ln:103.78780,w:"Thick, succulent slices of steamed chicken over fragrant rice — a $5.50 set with soup and greens or bean sprouts — at Ghim Moh, picked in Seth Lui's 11 best Ghim Moh stalls and found in Daniel Food Diary's best chicken rice round-up.",g:["MKT"],s:[["SETHLUI","https://sethlui.com/20-ghim-moh-road-market-food-centre-guide-singapore/"],["DANIELFOOD","https://danielfooddiary.com/2022/05/27/chickenricesingapore/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Ah Seng Durian (Ghim Moh)",ad:"Ghim Moh Market & Food Centre, 20 Ghim Moh Road, Singapore 270020 (stall to confirm)",cz:["DESSERT"],la:1.31089,ln:103.78780,w:"A durian stall trading Malaysian fruit for over 40 years — Mao Shan Wang, Black Thorn, Golden Phoenix, Red Prawn — that Time Out singles out for 'reliability and excellent durians' and Eatbook ranks among Singapore's 15 best durian stalls.",s:[["TIMEOUTSG","https://www.timeout.com/singapore/restaurants/ah-seng-durian"],["EATBOOK","https://eatbook.sg/best-durian-stalls-singapore/"]]},
-{t:3,a:"HOLLANDVILLAGE",n:"Teck Hin Delicacies (Ghim Moh)",ad:"Ghim Moh Market & Food Centre, #01-30, 20 Ghim Moh Road, Singapore 270020",cz:["CHINESE","HAWKER"],la:1.31089,ln:103.78780,w:"After pivoting to chee cheong fun only, this Ghim Moh stall draws queues from 6.30am — in Eatbook's 10 Ghim Moh stalls and Miss Tam Chiak's chee cheong fun round-up.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/ghim-moh-food/"],["MISSTAMCHIAK","https://www.misstamchiak.com/chee-cheong-fun/"]]},
-{t:2,a:"HOLLANDVILLAGE",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]}
+
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -431,21 +404,21 @@ const SRCOF = p => p.kind==='food' ? FS : S;
 
 /* ── trip list, persisted where possible ── */
 let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
-try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
-try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
-function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
-function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+try{const r=localStorage.getItem('orl_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('orl_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('orl_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('orl_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Holland Village')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Orlando FL')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {HOLLANDVILLAGE:'#BCA7E6'};
+const AC = {MK:'#3A6FD8',EPCOT:'#16A0B5',DHS:'#B5446E',DAK:'#6B8E23'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.30812,103.79277],16);
+  map = L.map('map',{scrollWheelZoom:false}).setView([28.3879,-81.5707],12);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -514,7 +487,7 @@ map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
 window.addEventListener('resize',()=>map.invalidateSize());
 
 /* ── Always-on vector backdrop ──────────────────────────────────────────────
-   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
 const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
  [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
  [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
@@ -529,12 +502,13 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[];
+const LABELS=[["Magic Kingdom", 28.4195, -81.5815], ["EPCOT", 28.3742, -81.55], ["Disney's Hollywood Studios", 28.3597, -81.5603], ["Disney's Animal Kingdom", 28.357, -81.5904]];
 
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
 LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
   html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
-   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
   iconSize:[0,0]})}).addTo(backdrop));
 backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
 
@@ -553,7 +527,7 @@ ALL.forEach((p,i)=>{
   m._id = p.id; markers.push(m);
 });
   map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
-  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  setBase('dark'); markBaseChips();
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
 
   /* ── "Show my location" ──────────────────────────────────────────────────
@@ -840,16 +814,16 @@ document.getElementById('tripKml').onclick=()=>{
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
     +'</Document></kml>';
-  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  dl('orlando-my-list.kml','application/vnd.google-earth.kml+xml',kml);
   alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
 };
 document.getElementById('tripJson').onclick=()=>{
-  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+  dl('orlando-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
     ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
       google:gmaps(p),apple:amaps(p)})),null,2));
 };
 document.getElementById('saveGuide').onclick=()=>{
-  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+  dl('orlando-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
 };
 
 document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
@@ -857,14 +831,17 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
   +'<span>'+s.l+'</span></div></div>').join('')
   + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
-  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. Orlando’s canon starts with what is unique to it: the <b>Mills 50</b> Vietnamese corridor (pho, banh mi, bun bo hue), <b>Puerto Rican</b> Kissimmee (mofongo, lechón), Cuban sandwiches and café, Florida <b>gator, citrus &amp; key lime</b>, a deep <b>Michelin</b> bench (Sorekara, Kadence, Camille, Soseki, Ômo by Jônt, Victoria &amp; Albert’s) — and the theme-park signature eats as their own layer (Dole Whip, Butterbeer, turkey legs). A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched and fact-checked'
+  + '<span>Every place is traceable to at least two credible sources (or one Michelin/James Beard/NPS listing) — the Orlando Sentinel, Orlando Weekly, Orlando Magazine, Michelin, NASA, Florida State Parks, Atlas Obscura, Wikipedia and vetted theme-park outlets; a park operator’s own page counts once. Recorded in data/sources.json. Every coordinate is verified into data/geocodes.json — attractions are pinned where they stand inside each park, never at a park centroid. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 15 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
