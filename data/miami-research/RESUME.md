@@ -24,20 +24,32 @@ South Dade belt (SDADE) → the two national parks + the Tamiami Trail (GLADE). 
 municipality/neighbourhood (address).
 
 ## In-flight wave
-- **Wave F1 (food canon + Michelin, all areas)** — RUNNING 2026-10-02 (session 2). Files: `FOOD_F1.json`,
-  `SIGHTS_S1.json`, `CREATORS_F1.json`, `geo/_geoout_w1.json`. Search log: `_miami_searchlog.md`.
+- none (session 2 ended cleanly at the WebSearch budget: ~67 discovery + 101 geocode calls).
 
 ## State
-- 2026-10-02 scaffolded: consolidate.py (9 areas, Miami cuisine taxonomy, 13 collections), build-miami.py,
-  _AGENT_BRIEF.md, AUDIT.md, SOURCES_SEED.json (outlets + rationale). Discovery not started.
+- 2026-10-02 session 2 — **LIVE (growing)**: 166 discovered (all sourcecheck PASS, 31 on a lone authority) →
+  71 pinned on `cities/miami.html` (59 sights + 12 food); 4 gates PASS (sourcecheck/geocheck/statuscheck
+  CONSISTENT, 0 unchecked on page/buildcheck); `npm run validate` + `npm test` green. Index card live; CITIES.md row.
+- Density (discovered): CGCG 28/55 · DTB 17/55 · FTL 17/75 · GLADE 16/40 · LHAV 15/55 · MBCH 17/65 · NMIA 11/40 ·
+  SDADE 14/55 · WYN 31/60. Every area NEEDs more.
+- Closures flagged: Miami Seaquarium (12 Oct 2025), Fiola Miami (22 Jun 2025 → Daniel's), Lion & the Rambler (NT "Closed").
+  Havana Harry's: 2025 state shutdown, reopening unconfirmed — status unknown, recheck.
+- Files: FOOD_F1–F4.json, SIGHTS_S1–S5.json, CREATORS_F1.json, geo/_geoout_w1–w3.json, _PENDING_LEADS.md (~40 single-source
+  leads), _miami_searchlog.md (every call), helpers _miami_add.py / _miami_srcrationale.py / _miami_golive.py.
+- 2026-10-02 session 1: scaffolded (consolidate.py, build-miami.py, brief, SOURCES_SEED.json).
 
-## Next actions
-1. Discovery waves per area, food canon first (`FOOD_<tag>.json`, `SIGHTS_<tag>.json`, `CREATORS_<tag>.json`).
-2. `python3 tools/density.py miami-fl` → iterate on every `NEED +N`.
-3. Geocode waves → `geo/_geoout_<tag>.json` (google.com `!3d!4d` place pins / Wikipedia coords; never `/@`).
-4. `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py miami-fl --build`
-5. Re-verify placement + closure pass; relink `<!-- CARD:miami-fl -->`; CITIES.md row.
+## Next actions (next wave plan)
+1. **Restaurant pins (biggest win, no WebSearch):** 95 UNVERIFIED — mostly restaurants (all Michelin stars/Bibs,
+   Versailles, Sanguich, El Mago…). Run `tools/geocode-helper.html` in a browser for place pins (`!3d!4d`), write
+   `geo/_geoout_helper.json`, rebuild. Also Little Havana sights (Calle Ocho, Domino Park, Tower Theater) + Robert Is Here.
+2. Status check the 18 "unknown" (Brasserie Laurel, Cvi.che 105 downtown, Chez Le Bebe, Chef Creole, Michael's Genuine,
+   Mandolin, F3 Michelin adds) and Havana Harry's.
+3. Promote `_PENDING_LEADS.md` with one corroborating search each (Hialeah, Doral arepas, Kendall, key lime pie, burgers,
+   South Beach Infatuation list, FTL Rustic Inn/Steak 954).
+4. Discovery waves by need: FTL (+58), MBCH (+48), LHAV (+40), SDADE (+41), DTB (+38) — food first (Broward New Times
+   lists, Hollywood/Dania, Nicaraguan fritanga in Sweetwater, conch, Peruvian in Kendall), ≥1 creator query per wave.
+5. Budget: size ~1.5–2 searches/place; restaurant geocoding via WebSearch yields ~0 — use the helper.
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] index card live · [ ] CITIES.md row
+- [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] index card live · [x] CITIES.md row
