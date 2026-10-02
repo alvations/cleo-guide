@@ -41,18 +41,33 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
   433 discovered = 42.5% (was 37%); ANIME layer 24 records (+9)**; 4 gates PASS; validate + test green; hub refreshed. Whole session budget (200 searches) used.
   Vetting helper `_tokyo_w5_ingest.py`; held candidates `_w5_held.json`; agent brief `_w5_agent_brief.md`.
 
+- **2026-10-02 W6 (session_01S4xkEp3ybvSczLJTRuA3Xb) — FOOD FIRST + anime.** +97 food & +10 sights (7 anime): ramen canon,
+  Michelin 2026 three/two/one-star tier (venue-page pins), depachika, shinise, yokochō/senbero, Kichijōji/TAMA ramen & breweries,
+  kissaten/kakigōri/bars (drinks agent). Build: **537 discovered / 411 rendered; food 278 = 51.8%**; 4 gates PASS; validate +
+  test green; hub card refreshed. Files: `FOOD_TOKYO_W6.json`, `SIGHTS_TOKYO_W6.json`, `geo/_geoout_tokyo_w6.json`,
+  `geo/_geofix_tokyo_w6.json` (+ `_tokyo_w6_applyfix.py`), `_w6_*_verified.json` (vetted inputs), `_w6_held.json`,
+  `_w6_unverified_worklist.json` (pins still needed). Helpers: `_tokyo_w6_ingest.py`, `_tokyo_w6_add.py`, `_tokyo_w6_dup.py`.
+  Density after W6: CHUO 52 OK · CYD 45 OK · JHOKU 36 OK · KANTO 41 OK · MNT 57 OK · SBY 52 OK · JONAN 33/35 · JOSAI 39/40 ·
+  JOTO 19/20 · SJK 49/50 · SMKT 38/40 · TAITO 49/50 · TAMA 29/30.
+
 ### Density (discovered, `python3 tools/density.py tokyo`) vs target
 (after W5) CHUO 43/50 · CYD 33/45 · JHOKU 30/35 · JONAN 22/35 · JOSAI 26/40 · JOTO 14/20 · KANTO 37/35 OK · MNT 51/50 OK ·
 SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~530**; food 184 (42.5%). (CYD 36, JHOKU 32 after anime.) Weakest food: TAMA 3, JOTO 3, KANTO 3, SMKT 8.
 
 ## In-flight wave
-**W6 (2026-10-02, session_01S4xkEp3ybvSczLJTRuA3Xb) — FOOD FIRST + anime completion.** Files: `FOOD_TOKYO_W6.json`,
-`SIGHTS_TOKYO_W6.json`, `geo/_geoout_tokyo_w6.json`, `CREATORS_TOKYO_W6.json`; helper `_tokyo_w6_add.py` (= _add.py).
-Queries: Michelin venue pages by ward/genre for weak food areas (CYD, SMKT, JONAN, JOSAI, JOTO, TAMA, KANTO, SJK, TAITO),
-creator queries each batch, anime remaining list (step 4 below). Search count tracked below.
-- searches used: ~27 calls (~40 incl. tool-chained sub-searches) after batch 1
+None — W6 closed (see State).
 
-## W6 plan (next session — fresh search budget; ~200 searches)
+## W7 plan (next session)
+1. **Pins first (no/low searches):** 126 UNVERIFIED — run `tools/geocode-helper.html` in a browser over
+   `_w6_unverified_worklist.json` (+ W6 additions); Google `!3d!4d` via WebSearch yields ~1 in 7 — don't spend discovery budget on it.
+2. **Close the last NEEDs** (+1–3 each): JONAN (Gotanda/Ōimachi/Ōta — e.g. Toriyoshi Nakameguro needs a 2nd source), JOSAI
+   (Kōenji: Yakiton Tonkichi / Gyoza Tachibana need Time Out or JT corroboration), JOTO (Monzen Toraya / Kawachiya need a
+   2nd outlet), SJK (Kabuto, Tonchang — Time Out only), SMKT (Kameido Gyoza 2nd source), TAITO, TAMA (Takahashiya, Kyoka).
+3. **Re-check held:** Tonkatsu Hasegawa (current Michelin selection?), Kiyosumi Takahara (dish), Ozasa (2nd source).
+4. Michelin one-star tier is NOT exhausted (122 one-stars; ~20 on the map): 3-name "MICHELIN Guide map coordinates" queries
+   return pins ~50% of the time — the most efficient way to add PINNED food.
+
+## W6 plan (previous — executed)
 **Budget lesson (W5):** the 200-search cap is per SESSION and shared with subagents — 5 parallel agents burned it in
 ~10 minutes. Run at most 2 agents at once and give each a hard search allowance (e.g. 35) in its prompt.
 **Pin lesson:** Google place pins for bars/kissaten/wagashi rarely surface `!3d!4d` via WebSearch (≈1 in 6). Spend

@@ -307,3 +307,26 @@ geocode agent works the UNVERIFIED list. (3) Multi-name queries (≥4 names or m
 Lonely Planet, Monocle, Sprudge) on every place; creators: Ramen Adventures on 9, RamenBeast 1; Michelin 1; Wikipedia 5.
 **Build (after batch 3):** 482 discovered / 389 rendered (244 sights + 145 food on map); food 223/482 = 46.3%;
 UNVERIFIED held 93; sourcecheck PASS (482) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; validate + test green.
+
+## 2026-10-02 — W6 batches 4–7 (same session)
+**Michelin 2026 star tier (lone authority MICHELIN_STAR; venue-page coords read from the result where printed):**
+three-stars Quintessence, RyuGin, Harutaka, Azabu Kadowaki, Sazenka, L'OSIER, L'Effervescence, Joël Robuchon (all pinned high);
+two-stars Kioicho Fukudaya, Sushi Kanesaka, Jingumae Higuchi, Ensui, ASAHINA Gastronome, MAZ, Kutan (pinned), Seizan (no pin);
+one-stars Tanimoto, Guchokuni, FUSHIKINO (Kagurazaka), Takumi Tatsuhiro (new 2026), Oku Asakusa (no pins).
+Where no source named a dish, `dish` states the course type only (no invented signature dishes).
+Bib/Selected: Seki Hanare + Lien (pinned), DIALOGUE, Le Monde Gourmand, Trattoria Buca'Massimo, Takahashi, O2, KOKYU,
+Udatsu Sushi (+TIMEOUT+WEEKENDER), Orangutan (+JAPANTIMES). Skipped as stacking: BISTRO GLOUTON (second Ikejiri French Bib).
+**Editorial-pair finds (≥2 outlets):** Tonki, Nihao (Kamata hanetsuki gyōza), Starbucks Reserve Roastery, Togoshi Ginza
+(W2 hold cleared; station-infobox point, med), Mont St. Clair, Sankaku Chitai, Yakushu Bar, Daily Chico, Nagi Golden Gai,
+Kamo to Negi, Yanaka Ginza, Fukagawajuku (W2 hold cleared via GO TOKYO gourmet), Tomoegata (W2 hold cleared), Botan +
+Curry Bondy (CYD), Uchida + Nomiya Yokochō + Beer-Ma + Taishakuten-Sandō (JOTO), Satou + Light Up Coffee + Cafe Lumiere +
+Mutahiro + Tsukemen Enji + Sawanoi (Ozawa Shuzo) + Ishikawa Brewery (TAMA), Tofuya Ukai.
+**Held → `_w6_held.json`:** Tonkatsu Hasegawa (Michelin evidence = 2023 guide only), Kameido Gyoza, Kiyosumi Takahara, Ozasa.
+**Dropped (one outlet only):** Toriyoshi Nakameguro, Yakitori Akira, Ramen Jazzy Beats, Kabuto (Omoide), Sasamoto, Tonchang,
+Takahashiya (Takao), Matsuba Chaya (2005 JT only), Kashiwatei, Unjami, Ibuki Udon, Kyoka, Bunzo, Kiyosumi/Koenji Cheapo-only
+izakaya (Tonkichi, Tachibana, Kenta), Ethiopia curry; Time Out 2025 new-ramen list (single-source openings).
+**Geocode agent (28 searches):** 4 pins (Ichiran Shibuya, Afuri Ebisu, Ginza Kimuraya, Asakusa Kagetsudō) from Google `!3d!4d`;
+89 others no usable place pin — remain UNVERIFIED for `tools/geocode-helper.html`.
+**Build (batch 7):** 537 discovered / 411 rendered (244 sights + 167 food); food 278/537 = **51.8%** (≥50% target met);
+UNVERIFIED held 126; sourcecheck PASS 537 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; validate + test green.
+**Searches:** ~125 tool calls by this agent (+~25 tool-chained sub-searches) + 92 by three background agents.
