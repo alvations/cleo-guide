@@ -82,10 +82,10 @@
  {
   "n": "Captain Tsubasa statues, Yotsugi–Tateishi (キャプテン翼 銅像)",
   "address": "Yotsugi to Tateishi, Katsushika-ku, Tokyo (trail starts at Keisei Yotsugi Station)",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED",
+  "lat": 35.7319,
+  "lng": 139.8351,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates — Yotsugi Station (https://en.wikipedia.org/wiki/Yotsugi_Station); the statue trail starts at the station",
   "status": "open",
   "statusSource": "Japan Travel + Kanpai (public statues, permanent), seen 2026-10-02"
  },
@@ -98,5 +98,35 @@
   "geoSource": "Wikipedia published coordinates — Seiseki-sakuragaoka Station (https://en.wikipedia.org/wiki/Seiseki-sakuragaoka_Station), the pilgrimage start point",
   "status": "open",
   "statusSource": "public streets; fun-japan + Japan Travel (stamp rally maintained), seen 2026-10-02"
+ },
+ {
+  "n": "Gashapon Department Store Ikebukuro Main Store (ガシャポンのデパート 池袋総本店)",
+  "address": "Sunshine City (Alpa), Higashi-Ikebukuro, Toshima-ku, Tokyo",
+  "lat": 35.72917,
+  "lng": 139.71806,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates — Sunshine City, Tokyo (https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo); the store is inside the complex",
+  "status": "open",
+  "statusSource": "Bandai Namco official store page + Time Out, seen 2026-10-02"
+ },
+ {
+  "n": "Tokyo Character Street, Tokyo Station (東京キャラクターストリート)",
+  "address": "First Avenue Tokyo Station B1 (Yaesu side), 1-9-1 Marunouchi, Chiyoda-ku, Tokyo",
+  "lat": 35.68083,
+  "lng": 139.76694,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates — Tokyo Station (https://en.wikipedia.org/wiki/Tokyo_Station); the street is in the station's Yaesu-side basement mall",
+  "status": "open",
+  "statusSource": "Time Out + JNTO pages, seen 2026-10-02"
+ },
+ {
+  "n": "Oizumi Anime Gate, Ōizumi-gakuen (大泉アニメゲート)",
+  "address": "North-exit pedestrian deck, Ōizumi-gakuen Station (Seibu Ikebukuro Line), Nerima-ku, Tokyo",
+  "lat": 35.74941,
+  "lng": 139.58685,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates — Ōizumi-gakuen Station (https://en.wikipedia.org/wiki/%C5%8Cizumi-gakuen_Station); the gate is on the station's north-exit deck",
+  "status": "open",
+  "statusSource": "GO TOKYO spot page (permanent public installation), seen 2026-10-02"
  }
 ]
