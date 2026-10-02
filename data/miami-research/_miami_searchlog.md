@@ -142,3 +142,6 @@
 141 Infatuation coffee guides (Miami, Miami Beach, FTL) → 8 added
 142 Wikipedia batch GLADE [4 sub-searches] (Ted Smallwood Store, Museum of the Everglades/Everglades Laundry, Miccosukee Indian Village GMCVB, Big Cypress Bend boardwalk WGCU 2026) → 4 sights
 143 Infatuation/TO: Dumpling King, Awash, Zaika (∩ Josiah Eats picks) → 3 added (one call refused: eater.com domain not accessible)
+144 Infatuation Doral arepas (Las Arepas de Maria, Arepa Point, K'Chapas, Frank Cachapas, Pa' Que Tiby)
+145 NT best arepas (Las Arepas de Maria Best Arepas 2025; La Latina 2024; Doggi's 2022; El Arepazo 2) → 1 added
+146 Key lime pie (TO best pies, Fireman Derek's TO+Inf; Fookem's delivery-only → not a place; Kush KLP TO Market) → 2 added
