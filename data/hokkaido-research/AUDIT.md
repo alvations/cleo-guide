@@ -248,3 +248,6 @@ Fuhdo, Yukimura (COCONO), Kirin Beer Garden Urban.
 Residence, Former Nagayama Residence; food — Kiwami Yūhi jingisukan (sapporo.travel + GoodLuckTrip jingisukan-12). Held (GoodLuckTrip
 only): Matsuo Jingisukan Sapporo Ekimae (also rurubu-held — URL not retained, re-query), Lambsuke, Kitanoki no Kaze, Hitsujiya,
 Daikokuya Hakodate, Iidaya; Soup Curry TREASURE. Sapporo City Archives: no 2nd source surfaced.
+**W65 SPR:** Sapporo Satoland, Hiraoka Park plum grove, Seikatei (ja.wikipedia pins + sapporo.travel / visit-hokkaido).
+**W66 SPR:** Jōzankei Dam & Sapporo Lake, Mt Hakken / Kannon-iwa (ja.wikipedia pins + jozankei.jp = JOZANKEITOURISM, Jōzankei Tourism
+Association + visit-hokkaido). Chi-Ka-Ho underground walkway: no own coord (only an adjoining building's) → not added.
