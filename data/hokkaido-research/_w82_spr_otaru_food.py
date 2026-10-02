@@ -129,4 +129,11 @@ F(3,"OTARU",["SAKE"],"Hi-no-Ho craft gin from home-grown botanicals","Shakotan B
   "Nozuka-chō Uento 229-1, Shakotan, Hokkaido, Japan",
   "A 'farm family distillery' growing about 100 botanicals on 5.7 ha for its Hi-no-Ho gins.",
   [("HOKKAIDOTOURISM","https://visit-hokkaido.jp/line/syakotanspirit/"),("MAPPLE",MP+"region/a0102020100_g02060000/spot/")],status=O,ssrc="visit-hokkaido feature (current)")
+# Orchestrator review (s4): HOLD records whose second source is not an exact page naming the place
+# (Kakizaki, Shakotan Blue: generic mapple/visit-hokkaido list pages; Hotei: mapple article only a "best match";
+# nano.femto: "TABELOG100" key actually points at enprimeurclub.com). Held, not deleted — see _note_W82.md.
+import _hk
+_HOLD=("Hotei","nano.femto","Kakizaki","Shakotan Blue")
+_hk._F[:]=[r for r in _hk._F if not any(h in r["n"] for h in _HOLD)]
+_hk._G[:]=[g for g in _hk._G if not any(h in g["n"] for h in _HOLD)]
 emit("W82")

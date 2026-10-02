@@ -477,6 +477,11 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Year-end closure round-ups (SF Standard "saddest closures of 2025", Chronicle "restaurants that closed in 2025") are a
   cheap 1-search closure sweep across the whole dataset.
 
+## 2026-10-02 — Tokyo W7 (finishing pass)
+- Closed the last 7 NEED areas food-first (Kameido Gyoza, Kamata hanetsuki gyoza at Hoanyon, Bear Pond, Tsunahachi, noura, two Meguro Bibs) + anime statues/pilgrimages (Captain Tsubasa Yotsugi, Whisper of the Heart Seiseki-Sakuragaoka, Oizumi Anime Gate). Municipal tourism sites (Ōta 'Unique Ota', Visit Sumida) are good second sources for ward-canon food.
+- Pinning: ja.wikipedia `座標` 3-name queries are the only productive WebSearch pin channel left for Tokyo (18 pins); beware coordinate cross-contamination in the summary (see AGENT-PROMPTS lessons). Dead ends measured: Google `!3d!4d` for kissaten/bars, Michelin venue pages (no coords in summary), Apple Maps / OSM node pages.
+- Allpress Espresso Tokyo Roastery (Kiyosumi) closes autumn 2026 → not added.
+
 ## 2026-10-02 — Okinawa W4 (pin-first)
 - Restaurant GPS almost never appears in WebSearch summaries (W4: 13/94 food pinned). What worked, one name per extended-mode query:
   `<日本語名> wikipedia 座標` (sights → high), `site:travel.navitime.com <日本語名> 緯度 経度` (NAVITIME spot pages print lat/lng and tie the

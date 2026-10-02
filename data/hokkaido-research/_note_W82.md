@@ -33,3 +33,8 @@ ja.wikipedia 1 · Tabelog Bar 100 award (2022, via enprimeurclub) 1. Every place
 - Shihachi Sengyoten (JOC mention): not verified, held. Enjin and Daishin (Ramen Adventures only): held.
 - Goko Hanten (otaru.gr.jp only): held. Beer Inn Mugishu: no outlet hit, not added. Uni shops in Shakotan are already covered by the existing Misaki/Ushio/Nakamuraya entries.
 - Sapporo Beer Garden, Nikka Yoichi, Otaru Beer, Kitaichi, Kinotoya, Shiroi Koibito Park, Daruma and the Nijō/Curb market shops already exist, so they were skipped as duplicates.
+
+## Orchestrator review (session 4)
+HELD (filtered in the wave script, not deleted): Chūgoku Ryōri Hotei (mapple page only a "best match"), the bar nano.femto
+(second source labelled TABELOG100 but URL is enprimeurclub.com — not a vetted outlet), Kakizaki Shōten and Shakotan Blue
+Distillery (both cite generic list pages, not a page naming the place). Each needs one exact second source to promote.

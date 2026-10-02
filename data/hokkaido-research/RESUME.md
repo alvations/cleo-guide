@@ -31,13 +31,13 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
   NSK 6/16 (35) · SOYA 5/15 (20). Every area still NEED.
 - 145 UNVERIFIED held for `tools/geocode-helper.html`: ~125 restaurants (every one has a sourced address/landmark; Hokkaido has no
   Michelin venue pages and `<shop> 緯度経度` returns only centroids) + ~18 sights without infobox coords.
+- 2026-10-02 **session 4** (≈141 searches; local clone reset to origin — backup branch `backup-stale-local`): W80 pins, W81 anime,
+  W82–W84 discovery, W85 SPR sights → **427 discovered (51% food), 244 rendered** (187 sights + 57 food), ANIME 18, all gates green.
+  Discovered vs target: SPR 114/130 · OTARU 45/50 · DONAN 63/75 · DHOKU 48/60 · DOTO 47/55 · TKC 32/35 · IBURI 36/40 · NSK 22/35 · SOYA 20/20 OK.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **Session 4 (2026-10-02)** — local clone was stale/unrelated history; reset to origin (backup branch `backup-stale-local`).
-  Pin probe (4 searches): `<shop> 緯度経度`/mapion/OSM/`!3d` queries return NO restaurant coordinates → restaurant pins only
-  via host-landmark wiki coords (markets, historic buildings) at `med`. Background agents (brief `_hk_s4_brief.md`, ≤30 searches each):
-  W80 host-landmark pins for unpinned food · W81 anime wave 2 · W82 SPR+OTARU food · W83 DONAN+NSK+DHOKU food · W84 DOTO/IBURI/TKC/SOYA food+sights.
+- none (session 4 B1 build committed).
 
 ## Search ledger
 - session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12).

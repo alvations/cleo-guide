@@ -12467,6 +12467,134 @@
           "rank": 3,
           "verified": true,
           "credible": "Official tourism association of Noboribetsu Onsen — tourism body of record."
+        },
+        {
+          "key": "ANIMEANIME",
+          "name": "ANIMEANIME",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ATCA",
+          "name": "ATCA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "BIEITOURISM",
+          "name": "BIEITOURISM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "EIGA",
+          "name": "EIGA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FURANOTOURISM",
+          "name": "FURANOTOURISM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "HOKKAIDOMICHINOEKI",
+          "name": "HOKKAIDOMICHINOEKI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JALONTRIP",
+          "name": "JALONTRIP",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANTIMES",
+          "name": "JAPANTIMES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANTIMES_BOJ",
+          "name": "JAPANTIMES_BOJ",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MAINICHI",
+          "name": "MAINICHI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MYNAVI",
+          "name": "MYNAVI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "RISHIRITOURISM",
+          "name": "RISHIRITOURISM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TABIMAG",
+          "name": "TABIMAG",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TORETABI",
+          "name": "TORETABI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WAKKANAITOURISM",
+          "name": "WAKKANAITOURISM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WARAKU",
+          "name": "WARAKU",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [
@@ -12489,6 +12617,26 @@
           "scale": "Tokyo-based ramen writer since 2008; author of 'Ramen at Home'; ~100k+ YouTube; publishes annual best-ramen lists",
           "niche": "ramen across Japan, first-hand dated reviews",
           "credible": "Named in the Japan brief as a vetted creator; each listing is a first-hand review of the specific shop. ONE corroborating source, never institutional."
+        },
+        {
+          "key": "BOURDAIN_NORESERVATIONS",
+          "name": "Anthony Bourdain — No Reservations (Travel Channel), Hokkaido episode (2011)",
+          "platform": "TV",
+          "handle": "",
+          "url": "https://www.japantimes.co.jp/life/2021/11/27/food/luxury-niseko-hokkaido-somoza-hyatt-hakuvillas-tatsuru-rai-shouya-grigg-hotels-skiing-japan/",
+          "scale": "Globally syndicated food-travel series; Bourdain's Rakuichi visit (Feb 2011) is widely reported (Japan Times profile of Tatsuru Rai, Niseko tourism listings)",
+          "niche": "food travel",
+          "credible": "Context only for Soba-dokoro Rakuichi — NOT cited as a source key (the episode itself was not read via WebSearch); Rakuichi's ≥2 sources are niseko-ta.jp + Japan Times."
+        },
+        {
+          "key": "SUSURUTV",
+          "name": "SUSURU TV",
+          "platform": "YouTube",
+          "handle": "@SUSURUTV",
+          "url": "https://ramenbeast.substack.com/p/introducing-susuru-japans-biggest",
+          "scale": "Japan's biggest ramen YouTuber, 1M+ subscribers (per Ramen Beast / sabukaru profiles)",
+          "niche": "daily ramen reviews across Japan",
+          "credible": "Verifiably large; no Hakodate/Asahikawa/Niseko video surfaced in this wave's searches — registered for future per-shop corroboration only. Not attached to any W83 place."
         }
       ]
     },
