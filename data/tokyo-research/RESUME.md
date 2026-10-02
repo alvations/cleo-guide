@@ -41,15 +41,17 @@ SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is
 JOTO 1, KANTO 2.
 
 ## In-flight wave
-**W3 (2026-10-02, continuation):** steps 2, 4, 5, 6 DONE; steps 1 & 3 partially. Last full build: **347 discovered /
-342 rendered (224 sights + 118 food)**, all 4 gates green, validate + npm test pass, hub card refreshed. Files:
-`FOOD_TOKYO_W3.json`, `SIGHTS_TOKYO_W3.json`, `geo/_geoout_tokyo_w3.json`, `_addrcheck_w3.json` (per-sight address
-result + URL), `_addrmark.py` (records address results). Search count W3: ~95.
-Still UNVERIFIED (5, need `tools/geocode-helper.html`): Tempura Abe Honten (Michelin page shows Bib 2021 only), Afuri
-Ebisu, Tamahide, Iseya Kichijōji, Amazake-chaya. Held queue `_pending_w2.json`: 27 items (Edo-Tokyo + Shitamachi cleared).
-**Next:** keep running food density (SBY, SJK, TAITO, CHUO, JOSAI, SMKT, JONAN, TAMA, JOTO) via Michelin venue
-pages (3 exact names + "Michelin restaurant page latitude longitude coordinates"; if coords drop, retry the name
-alone) and sights for SBY/SJK/JONAN/JOSAI via GO TOKYO spot pages + Wikipedia coords.
+**W3 (2026-10-02, continuation) — CLOSED.** Last full build: **379 discovered / 374 rendered (234 sights + 140
+food)**, 13/13 areas, all 4 gates green, validate + npm test pass, hub card refreshed. Searches W3: ~155.
+Still UNVERIFIED (5 → run `tools/geocode-helper.html`, place pin `!3d!4d`): Tempura Abe Honten (Michelin page shows Bib
+2021 only — also re-check status), Afuri Ebisu, Tamahide, Iseya Kichijōji, Amazake-chaya. Held queue `_pending_w2.json`:
+25 (Tomoegata, Fukagawajuku, Kichijōji Satou, Funabashiya need helper pins; Senzokuike, Tower Hall Funabori, Togoshi
+Ginza need a 2nd source).
+**W4 plan:** (1) geocode-helper pass for the 5 UNVERIFIED + held food pins; (2) Michelin by ward for the remaining
+wards (Bunkyō/Toshima/Kita → JHOKU; Sumida/Kōtō → SMKT; Katsushika/Edogawa/Adachi → JOTO; Taitō) and the annual
+announcement lists for 2023; (3) sights for SBY/SJK/TAITO/CHUO/JONAN/JOSAI via GO TOKYO spot pages + Wikipedia coords;
+(4) TAMA/JOTO food needs non-Michelin canon sources (Time Out + GO TOKYO + Japan Times) and helper pins — state the gap
+if nothing clears the bar. Then rebuild → gates → validate/test → `_tokyo_golive.py` → commit + push.
 
 ## Next wave (W3) — exact plan, in order
 1. **Clear the held queue first** (`_pending_w2.json`, 39 items): most need ONE more source or ONE pin. Use the
