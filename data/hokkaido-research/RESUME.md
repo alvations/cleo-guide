@@ -21,19 +21,24 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W01 (SPR sights): 12 discovered (all ≥2 credible), 9 geocoded high + 3 UNVERIFIED; built & all gates
-  green (9 pins). **Blocked:** session WebSearch budget exhausted (200/200) after ~14 queries by this agent — raise
-  `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` (or relaunch in a fresh session) to continue. NOT live.
-- Counts vs target: SPR 12/130 · OTARU 0/50 · NSK 0/35 · DONAN 0/75 · IBURI 0/40 · DHOKU 0/60 · TKC 0/35 · DOTO 0/55 · SOYA 0/20.
+- 2026-10-02 W01 (session 1): 12 SPR sights, 9 pinned — halted at the shared 200-search cap.
+- 2026-10-02 **session 2**: W02–W15 discovery + G01/G02 geocode workers + builds #1/#2 → **140 discovered, 104 rendered
+  (100 sights + 4 food), all 4 gates green, validate/test green — LIVE** (Japan hub card + root "3 of 5" + CITIES.md row).
+- Counts vs target (discovered): see `python3 tools/density.py hokkaido` — SPR 41/130 · OTARU 16/50 · NSK 4/35 ·
+  DONAN 20/75 · IBURI 15/40 · DHOKU 17/60 · TKC 11/35 · DOTO 18/55 · SOYA 8/20 (approx. at go-live).
+- 36 UNVERIFIED held (mostly restaurants — Sapporo/Hakodate/Asahikawa/Obihiro/Otaru/Kushiro food has addresses but no
+  readable place-pin) → `tools/geocode-helper.html` or a Google `!3d!4d` pass. Sights still unpinned: Otaru Herring
+  Mansion, Otaru Kihinkan, Shimamui Coast, Sushiya-dōri, Hachimanzaka, Patchwork Road, Sōya Hills, Sukoton, Momoiwa, Himenuma.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **Session 2 (2026-10-02, fresh WebSearch budget)** — W02 SPR food canon (miso ramen, soup curry, jingisukan, Nijō
-  kaisendon, sweets) → W03 SPR sights b2 → W04 OTARU → W05 DONAN → W06 IBURI → W07 DHOKU → W08 TKC → W09 DOTO → W10 SOYA/NSK.
-  Ledgers `_w<NN>_<area>.py` (re-runnable). Search count this session tracked in `## Search ledger` below.
+- **W16+ (session 2, continuing until the search budget runs out):** SPR food/sights b4, NSK food, DONAN extras.
+  Files: `_w16_*.py` → FOOD/SIGHTS_HOKKAIDO_W16.json. If interrupted: re-run any `_w*.py` ledger, rebuild, commit.
+
+## Search ledger` below.
 
 ## Search ledger
-- session 2: ≈139 used (me ~106 + G01 18 + G02 15)
+- session 2: ≈143 used (me ~110 + G01 18 + G02 15)
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.
