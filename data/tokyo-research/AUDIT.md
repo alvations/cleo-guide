@@ -152,3 +152,34 @@ Shitamachi Museum (renovation closures not confirmed in hand). Closed flagged: U
 sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
 **Go-live:** Japan hub CARD:tokyo → live link with counts; countries.json japan live; root CARD:japan "1 of 5 maps
 live"; CITIES.md row. **Searches used:** 166 (of ~200); stopped with a buffer as yield fell below ~2 places/search.
+
+## 2026-10-02 — W3 (continuation): pins, address-verify, status re-checks, Michelin food
+**Pins upgraded (UNVERIFIED → Michelin venue-page coords):** Ponta Honke, Sushi Kanesho, Katsuo Shokudo, Yaesu Unagi
+Hashimoto, Ginza Katsukami II, Japanese Ramen Gokan, Shutei Tanaka, Yoshoku Edoya, Mutsukari, Sézanne, Jinbo Minami
+Aoyama, Aoyama Ototo, Tempura Motoyoshi, Ten Yokota, Il Ballond'oro, Ginza Shinohara, Osobano Kouga, Teuchi Asama.
+Still UNVERIFIED (gate holds them): Tempura Abe Honten, Afuri Ebisu, Tamahide, Iseya Kichijōji, Amazake-chaya.
+**Held queue cleared:** Kawasaki Daishi, Meguro Fudōson, Shōin Shrine, Kuhonbutsu, Toneri Park, Ōmori Shell Mound,
+Tsukiji Outer Market (Wikidata Q117475236), Shinkyō, Chidorigafuchi, TAKAO 599 Museum.
+**Address-verify pass (CLAUDE.md 4a) — all 222 sights.** Each street address re-read from GO TOKYO spot pages,
+Wikipedia infoboxes or japan-guide (4 names per query, *without* our street numbers in the query so results can't echo
+them). Result per sight + source URL in `_addrcheck_w3.json`: **130 verified · 8 fixed · 55 coarsened to the sourced
+locality · 29 already locality-only**. Fixed: Hanazono Shrine 5-17-3→5-17-13; Chūreitō 3353-1→3360-1 Arakura; Toranomon
+Hills 1-23-1→1-23-4; Golden Gai 1-1→1-1-6 Kabukichō; Scramble Crossing → "Dōgenzaka-shita" (GO TOKYO); Ginkgo Avenue →
+Gaien 1-1 Kasumigaokamachi (GO TOKYO); Yoyogi Park → Yoyogikamizonochō / 2 Jinnan; Shakujii Park → Shakujiidai 1–2 /
+Shakujiimachi 5. Coarsened where sources disagreed or gave no number (e.g. CupNoodles Museum — Wikipedia and our record
+disagreed — now "Minato Mirai 21, Naka-ku"; Rikugien, Toyosu Market, Kyū-Shiba-rikyū, Kasai Rinkai, Kantō day trips).
+**Lesson:** never put our own street number in a verify query — the search summary echoes it back as if confirmed.
+**Status (4c):** Edo-Tokyo Museum — reopened 31 Mar 2026 (Time Out, Japan Times 2026-03-27, japan-guide blog) → added
+(Wikipedia pin). Shitamachi Museum — reopened 9 Mar 2025 (official taitogeibun.net) → added (Wikipedia whole-second pin,
+conf med). 3331 Arts Chiyoda (closed Mar 2023, Time Out) and Hara Museum Shinagawa (closed Jan 2021, Wikipedia) — were
+never on the map; not added (a closed place earns no new pin). Tempura Abe Honten — Michelin page still shows Bib 2021
+only → stays held.
+**Food (Michelin, lone authority + editorial):** Sushi Kourin, Ramen Break Beats (dish now stated: clear chicken shōyu —
+reverses the W2 drop), unagi trio from Michelin's "Tokyo freshwater eel" feature (Watabe, Hatsuogawa, Mejiro Zorome),
+inspectors' iconic-dish picks (Edosoba Hosokawa, Tempura Kakiage Yukimura, Katsuyoshi, Hikarimono, SUKIYAKI ASAI),
+inspectors' dishes of the year (Myojaku 3★ 2026, Sushi Miura, Sanosushi), 2025 new Bibs (Tachiguisushi Sushikawa,
+Fry-ya, Sushi Mikata), 2024 addition Yotsuya Minemura. **Dropped:** Night Market (Southeast-Asian hawker — not Tokyo
+canon), jeeten (Chinese), Shokudo Wata (still no named dish), Kappo Muroi / Yakitori Moe es (coords not returned —
+retry). Kantō/Tama food searches yielded little (gap stated, not filled).
+**Build:** 347 discovered / 342 rendered (224 sights + 118 food); sourcecheck PASS · geocheck PASS · statuscheck
+CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. Go-live surfaces refreshed.
