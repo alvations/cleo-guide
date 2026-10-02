@@ -329,3 +329,11 @@ Sánchez Adobe (Wikipedia + San Mateo County Parks), Cow Palace (PEN).
 **DROPPED / held:** ICA San Francisco — left Dogpatch for FiDi Oct 2024 (Wikipedia) → not added; Carolands — closed to the public
 (lottery tours only) → not added; Andy Goldsworthy's Spire — presidio.gov lists coords but post-2020-fire status not confirmed →
 not added; Flood Mansion & Golden Gate Theatre (Wikipedia pin, no 2nd outlet in-hand) → held.
+**Food batch 3 (searches 22–34):** historic bars via SF Standard 'oldest bars by neighborhood' × SF Travel 'oldest bars' × SFGATE /
+Time Out / InsideHook — Old Ship Saloon (Atlas Obscura pin 37.79783,-122.400772), House of Shields (DTN), Elixir (MIS), The Saloon
+(NECN); Castro/Noe via Infatuation 'best Castro' × SF Standard / Hoodline / SF Chronicle — Ka Kai (opened 2026), Falasteen (2026),
+Billingsgate; Sunset/Parkside — Dumpling Specialist (MICHELIN listing), Hook Fish Co. (Infatuation × Hoodline); Fior d'Italia (Atlas
+pin + Time Out + SFGATE). Restaurants beyond Atlas Obscura stay UNVERIFIED for the helper.
+**MEASURED & DROPPED / held:** Sam Wo — CLOSED (SF Chronicle 'Goodbye to Sam Wo', 2025) → not added; Walzwerk — permanently closed
+(Atlas Obscura) → not added; Frances / HK Lounge Bistro already in the dataset (dedup — helpers now never write a geo record for a
+duplicate name); Bread n' Chu (Infatuation only) → held; Toronado/Zeitgeist/Tommy's (no Wikipedia coordinate) → for a later food query.

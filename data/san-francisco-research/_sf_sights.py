@@ -10,5 +10,8 @@ for t, a, n, ad, w, k, s, la, lo, ps, conf in rows:
     recs.append({"t": t, "a": a, "n": n, "address": ad, "w": w, "k": k, "closed": False, "sources": s})
     geo.append({"n": n, "address": ad, "lat": la, "lng": lo, "geoSource": ps, "confidence": conf if la is not None else "UNVERIFIED",
                 "status": "open", "statusSource": s[0][1] + " (current 2025-26 page; public landmark/park)"})
-for prog, arg, data in (("_sf_add.py", sf, recs), ("_sf_geo.py", gf, geo)):
-    print(subprocess.run([sys.executable, os.path.join(D, prog), arg], input=json.dumps(data), text=True, capture_output=True).stdout.strip())
+out = subprocess.run([sys.executable, os.path.join(D, "_sf_add.py"), sf], input=json.dumps(recs), text=True, capture_output=True).stdout
+print(out.strip())
+dups = {l.split('skipped: ', 1)[1] for l in out.splitlines() if 'skipped:' in l}
+geo = [g for g in geo if g['n'] not in dups]   # never touch another file's geo record for a duplicate
+print(subprocess.run([sys.executable, os.path.join(D, "_sf_geo.py"), gf], input=json.dumps(geo), text=True, capture_output=True).stdout.strip())
