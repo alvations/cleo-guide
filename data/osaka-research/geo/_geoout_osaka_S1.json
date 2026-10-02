@@ -22,10 +22,10 @@
  {
   "n": "Tempozan Giant Ferris Wheel",
   "address": "Tempozan Harbor Village, 1-1-10 Kaigan-dori, Minato-ku, Osaka, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED — Wikipedia gives only coarse 34.66N 135.43E (degree-minute precision) — not a place pin",
+  "lat": 34.6561657,
+  "lng": 135.431031,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://ja.wikipedia.org/wiki/%E5%A4%A9%E4%BF%9D%E5%B1%B1%E5%A4%A7%E8%A6%B3%E8%A6%A7%E8%BB%8A (ja.wikipedia; en.wikipedia only gives coarse 34.66N 135.43E)",
   "status": "open",
   "statusSource": "japan-guide.com e4010 (hours 10:00-22:00, 1000 yen)"
  },
@@ -61,23 +61,13 @@
  },
  {
   "n": "Sakai City Museum",
-  "address": "Daisen Park, Mozusekiun-cho, Sakai-ku, Sakai, Osaka, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED — coords not retrieved",
+  "address": "Daisen Park, 2 Mozu Yugumo-cho, Sakai-ku, Sakai, Osaka, Japan",
+  "lat": 34.558861,
+  "lng": 135.48425,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Sakai_City_Museum",
   "status": "open",
   "statusSource": "japan-guide.com e4030 (admission 200 yen listed)"
- },
- {
-  "n": "Sakai Plaza of Rikyū and Akiko (Sakai Rishō no Mori)",
-  "address": "Shukuin-cho, Sakai-ku, Sakai, Osaka, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED",
-  "status": "open",
-  "statusSource": "osaka-info.jp spot 368"
  },
  {
   "n": "Expo '70 Commemorative Park & Tower of the Sun",
@@ -92,10 +82,10 @@
  {
   "n": "Minoo Park & Minoo Falls",
   "address": "Minoo Park, Minoh, Osaka, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED — Wikipedia result 34.82694,135.47056 is the Minoh CITY centroid, not the falls — rejected",
+  "lat": 34.85389,
+  "lng": 135.47167,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://ja.wikipedia.org/wiki/%E7%AE%95%E9%9D%A2%E6%BB%9D (ja.wikipedia 箕面滝 infobox — pin on the falls; en 'Minoh' city centroid rejected)",
   "status": "open",
   "statusSource": "japan-guide.com e4019 (current page)"
  },
@@ -107,6 +97,236 @@
   "confidence": "high",
   "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Katsu%C5%8D-ji",
   "status": "open",
-  "statusSource": ""
+  "statusSource": "osaka-info.jp/en/spot/katsuoji (current listing incl. illumination)"
+ },
+ {
+  "n": "National Museum of Ethnology (Minpaku)",
+  "address": "10-1 Senri Expo Park, Suita, Osaka, Japan",
+  "lat": 34.8128611,
+  "lng": 135.5296833,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/National_Museum_of_Ethnology_(Japan)",
+  "status": "open",
+  "statusSource": "japan-guide.com e4029 (listed as current attraction in Expo Park)"
+ },
+ {
+  "n": "CupNoodles Museum Osaka Ikeda",
+  "address": "8-25 Masumi-cho, Ikeda, Osaka, Japan",
+  "lat": 34.818038,
+  "lng": 135.426675,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/CupNoodles_Museum_Osaka_Ikeda",
+  "status": "open",
+  "statusSource": "osaka-info.jp spot 324 (current hands-on programme)"
+ },
+ {
+  "n": "Himeji Castle",
+  "address": "68 Honmachi, Himeji, Hyogo, Japan",
+  "lat": 34.83944,
+  "lng": 134.69389,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Himeji_Castle",
+  "status": "open",
+  "statusSource": "japan-guide.com e3501 (current hours/admission)"
+ },
+ {
+  "n": "Kitano Ijinkan (Kitano-chō)",
+  "address": "Kitano-cho, Chuo-ku, Kobe, Hyogo, Japan",
+  "lat": 34.69833,
+  "lng": 135.19028,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Kitano-cho",
+  "status": "open",
+  "statusSource": "japan-guide.com e3550 (houses open as museums)"
+ },
+ {
+  "n": "Meriken Park & Kobe Port Tower",
+  "address": "Hatoba-cho, Chuo-ku, Kobe, Hyogo, Japan",
+  "lat": 34.68167,
+  "lng": 135.18833,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Meriken_Park",
+  "status": "open",
+  "statusSource": "japan-guide.com e3552 (current page)"
+ },
+ {
+  "n": "Kobe Harborland",
+  "address": "Higashi-Kawasaki-cho, Chuo-ku, Kobe, Hyogo, Japan",
+  "lat": 34.679056,
+  "lng": 135.181806,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Harborland",
+  "status": "open",
+  "statusSource": "japan-guide.com e3553 (current page)"
+ },
+ {
+  "n": "Nankinmachi (Kobe Chinatown)",
+  "address": "Sakaemachi-dori / Motomachi-dori, Chuo-ku, Kobe, Hyogo, Japan",
+  "lat": 34.68806,
+  "lng": 135.18806,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Nankin-machi",
+  "status": "open",
+  "statusSource": "japan-guide.com e2159 (Kobe guide, listed on current loop-bus route)"
+ },
+ {
+  "n": "Ikuta Shrine",
+  "address": "1-2-1 Shimoyamate-dori, Chuo-ku, Kobe, Hyogo, Japan",
+  "lat": 34.695,
+  "lng": 135.19056,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Ikuta_Shrine",
+  "status": "open",
+  "statusSource": "feel-kobe.jp attractions detail_1039 (current listing)"
+ },
+ {
+  "n": "Arima Onsen",
+  "address": "Arima-cho, Kita-ku, Kobe, Hyogo, Japan",
+  "lat": 34.79806,
+  "lng": 135.2475,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Arima_Onsen",
+  "status": "open",
+  "statusSource": "japan-guide.com e3558 (current page)"
+ },
+ {
+  "n": "Nunobiki Falls & Herb Gardens",
+  "address": "Fukiai-cho, Chuo-ku, Kobe, Hyogo, Japan",
+  "lat": 34.70972,
+  "lng": 135.19389,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Nunobiki_Falls",
+  "status": "open",
+  "statusSource": "japan-guide.com e3563 (ropeway current hours)"
+ },
+ {
+  "n": "Mount Rokkō",
+  "address": "Rokkosan-cho, Nada-ku, Kobe, Hyogo, Japan",
+  "lat": 34.77778,
+  "lng": 135.26389,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Mount_Rokko (summit)",
+  "status": "open",
+  "statusSource": "japan-guide.com e3557 (current page)"
+ },
+ {
+  "n": "Akashi Kaikyō Bridge",
+  "address": "Higashimaiko-cho, Tarumi-ku, Kobe, Hyogo, Japan",
+  "lat": 34.6162,
+  "lng": 135.0205,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Akashi_Kaikyo_Bridge",
+  "status": "open",
+  "statusSource": "in service (japan-guide.com Kobe guide e2159)"
+ },
+ {
+  "n": "Nada sake breweries (Nada-gogō)",
+  "address": "Nada-gogo, Higashinada-ku / Nada-ku, Kobe, Hyogo, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — district of five villages — no single place pin",
+  "status": "open",
+  "statusSource": "japan-guide.com e3556 (current page)"
+ },
+ {
+  "n": "Kōyasan — Okunoin",
+  "address": "Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",
+  "lat": 34.2175,
+  "lng": 135.605,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Okunoin",
+  "status": "open",
+  "statusSource": "japan-guide.com e4900 (current Koyasan guide)"
+ },
+ {
+  "n": "Kōyasan — Kongōbu-ji",
+  "address": "132 Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",
+  "lat": 34.214081,
+  "lng": 135.584092,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Kong%C5%8Dbu-ji",
+  "status": "open",
+  "statusSource": "japan-guide.com e4900 (current Koyasan guide)"
+ },
+ {
+  "n": "Wakayama Castle",
+  "address": "3 Ichibancho, Wakayama, Wakayama, Japan",
+  "lat": 34.2276278,
+  "lng": 135.1716222,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Wakayama_Castle",
+  "status": "open",
+  "statusSource": "japan-guide.com e4927 (hours 9:00-17:30, admission listed from April 2025)"
+ },
+ {
+  "n": "Kishiwada Castle",
+  "address": "9-1 Kishiki-cho, Kishiwada, Osaka, Japan",
+  "lat": 34.4588167,
+  "lng": 135.3707806,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Kishiwada_Castle",
+  "status": "open",
+  "statusSource": "osaka-info.jp model course course-tajiri-to-kishiwada (current visit itinerary)"
+ },
+ {
+  "n": "Rinku Town & Rinku Premium Outlets",
+  "address": "Rinku Ourai-kita, Izumisano, Osaka, Japan",
+  "lat": 34.41111,
+  "lng": 135.3,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Rinku_Gate_Tower_Building (pin on the tower landmark)",
+  "status": "open",
+  "statusSource": "osaka-info.jp spot 329 (current facilities listed)"
+ },
+ {
+  "n": "Kansai Airport Observation Hall Sky View",
+  "address": "Senshu-kuko-kita, Izumisano, Osaka, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — only the airport reference point (34.43056,135.23028) is published — not the Sky View building",
+  "status": "open",
+  "statusSource": "osaka-info.jp spot kanku-observation-hall-sky-view"
+ },
+ {
+  "n": "Hirakata Park",
+  "address": "1-1-1 Hirakatakoen-cho, Hirakata, Osaka, Japan",
+  "lat": 34.805778,
+  "lng": 135.6381306,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Hirakata_Park",
+  "status": "open",
+  "statusSource": "osaka-info.jp spot 325 (around 40 current attractions)"
+ },
+ {
+  "n": "Imashirozuka Kofun",
+  "address": "1 Gunge-shinmachi, Takatsuki, Osaka, Japan",
+  "lat": 34.8502556,
+  "lng": 135.5941639,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/Imashirozuka_Kofun",
+  "status": "open",
+  "statusSource": "Time Out Osaka listing; museum at 48-8 Gunge Shinmachi operating"
+ },
+ {
+  "n": "Taishō 'Little Okinawa' (Hirao)",
+  "address": "Hirao, Taisho-ku, Osaka, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — district — no published place pin for the Hirao shopping street",
+  "status": "open",
+  "statusSource": "osaka-info.jp Little Okinawa feature (current shops)"
+ },
+ {
+  "n": "Kōko-en Garden (Himeji)",
+  "address": "68 Honmachi, Himeji, Hyogo, Japan",
+  "lat": 34.83806,
+  "lng": 134.68972,
+  "confidence": "high",
+  "geoSource": "Wikipedia infobox coords https://en.wikipedia.org/wiki/K%C5%8Dko-en",
+  "status": "open",
+  "statusSource": "japan-guide.com e3502 (current page)"
  }
 ]
