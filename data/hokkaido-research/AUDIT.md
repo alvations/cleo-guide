@@ -220,3 +220,7 @@ Nemuro pin read (43.26175,145.43847) but no signature food sourced → not added
 **W53:** Shikabe Kanketsusen Kōen (geyser steam-cooking + tarako; visit-hokkaido + rurubu + wiki pin), Pia 21 Shihoro (Shihoro beef;
 rurubu + wiki pin). 道の駅しらおい: no wiki coords surfaced. **W54 NSK:** 230 Rusutsu (rurubu feature + MAPPLE + visit-hokkaido + wiki
 pin), Makkari Flower Center (yuri-ne; rurubu + visit-hokkaido + wiki pin). Niseko Distillery: no coords (adjacent to Iroha onsen — held).
+**W55:** Nanairo Nanae (guaraná soft-serve, Yamakawa beef croquette; rurubu + wiki pin), Ryūhyō Kaidō Abashiri (Abashiri burger,
+zangi-don; rurubu + MAPPLE + visit-hokkaido + wiki pin), Mashū Onsen (venison burger; rurubu + wiki pin).
+**W56 (0 searches — reuse):** Ekini Ichiba squid-fishing (hakodate.travel gourmet page + rurubu spot, both read in W33/W45 sets),
+Hakodate Kaisen Ichiba (hakodate.travel + rurubu spot).
