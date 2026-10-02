@@ -57,3 +57,17 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   (35.0078,135.7902); HGS: Gion Shirakawa, Ishibe-kōji, Entoku-in (japan-guide e3902/e3927), Shōgunzuka (e3954), Yasui
   Konpira-gū, Rokudō Chinnō-ji (kyoto.travel map mention only).
 - Searches used: 31.
+
+### batch 4 (2026-10-02) — UJI +9, RKHKU +5, KYFU +2
+- UJI/Nara: Mimuroto-ji, Manpuku-ji, Nara Park (med), Nara National Museum, Isui-en, Mount Wakakusa (med), Shin-Yakushi-ji,
+  Nigatsu-dō, Hōryū-ji (UNESCO 660 + JAPANGUIDE + WIKIPEDIA). All JAPANGUIDE + WIKIPEDIA, Wikipedia pins.
+- RKHKU: Sanzen-in, Hōsen-in (JAPANGUIDE e3932 + WIKIPEDIA), Kurama-dera, Kifune Shrine, Jingo-ji (KYOTOTOURISM + WIKIPEDIA).
+- KYFU: Amanohashidate (pin from Wikipedia), Ine no Funaya (UNVERIFIED: only the municipality coordinate was published, and a centroid is never used).
+- **Removed before commit (honesty):** Jakkō-in. I had paired it with a Wikipedia ward article that does not establish it, so it is
+  held on japan-guide alone. Also Sagano Scenic Railway: two japan-guide pages are ONE outlet, so it is held.
+- Held (single source): Kōshō-ji (Uji), Tale of Genji Museum, Uji River/bridge, Naramachi, Yoshikien (japan-guide); Ruriko-in
+  (kyoto.travel); Miyama Kayabuki-no-Sato (japan-guide e3985; Wikipedia gives only the town centroid); Hozugawa River Cruise (japan-guide e3966);
+  Ukimidō/Mangetsu-ji (Wikipedia 35.109806,135.920944); Jōnan-gū (ja-Wikipedia 34.951119,135.746556).
+- Lesson: a 6-name Wikipedia-coordinate query costs 1 search only when every name has an enwiki article. A name with no article
+  (Giō-ji) makes the tool retry internally, costing about 6 searches. Names are now pre-screened.
+- Searches used: 61.

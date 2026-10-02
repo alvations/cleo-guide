@@ -1125,24 +1125,6 @@
   {
    "t": 2,
    "a": "SPH",
-   "n": "East Passyunk Singing Fountain",
-   "address": "1801 E Passyunk Ave, Philadelphia, PA 19148",
-   "w": "Mermaid-topped musical fountain at the heart of East Passyunk Avenue — the diagonal strip of 150+ independent restaurants and shops.",
-   "k": "landmark",
-   "sources": [
-    [
-     "VISITPHILLY",
-     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/east-passyunk/"
-    ],
-    [
-     "VISITPHILLY",
-     "https://www.visitphilly.com/media-center/press-releases/neighborhood-guide-east-passyunk-avenue-pennsport/"
-    ]
-   ]
-  },
-  {
-   "t": 2,
-   "a": "SPH",
    "n": "Mummers Museum",
    "address": "1100 S 2nd St, Philadelphia, PA 19147",
    "w": "Year-round home of the sequined New Year's Day Mummers Parade, on 'Two Street' near the clubhouses.",
@@ -1283,6 +1265,114 @@
      "https://en.wikipedia.org/wiki/Bryn_Mawr_Film_Institute"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "NE",
+   "n": "Pennypack Park",
+   "address": "8600 Verree Rd, Philadelphia, PA 19115",
+   "w": "1,600 acres of creek valley woods and meadows in the Northeast — trails, horseback riding, birding at the Pennypack Environmental Center and the 1697 Frankford Avenue Bridge, the oldest stone road bridge in the US.",
+   "k": "park",
+   "sources": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pennypack_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NE",
+   "n": "Glen Foerd on the Delaware",
+   "address": "5001 Grant Ave, Philadelphia, PA 19114",
+   "w": "The city's last 19th-century riverfront estate open to the public: a Torresdale mansion and 18 acres of gardens where Poquessing Creek meets the Delaware.",
+   "k": "historic house",
+   "sources": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Glen_Foerd"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NE",
+   "n": "Ryerss Museum & Library",
+   "address": "7370 Central Ave, Philadelphia, PA 19111",
+   "w": "A free Victorian villa museum in Burholme Park with the Ryerss family's eclectic collection of Asian art, paintings and heirlooms; open Fri–Sun.",
+   "k": "museum",
+   "sources": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "NORTHEASTTIMES",
+     "https://northeasttimes.com/2026/07/30/fox-chase-s-ryerss-museum-remains-a-hidden-gem-for-neighbors/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NE",
+   "n": "Fox Chase Farm",
+   "address": "8500 Pine Rd, Philadelphia, PA 19111",
+   "w": "One of the few working farms left inside a major US city — sheep shearing, Maple Sugar Day and Applefest.",
+   "k": "farm",
+   "sources": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/northeast-philadelphia/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fox_Chase_Farm"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FISH",
+   "n": "Penn Treaty Park",
+   "address": "1199 N Delaware Ave, Philadelphia, PA 19125",
+   "w": "Riverfront park on the spot where, by legend, William Penn made his 1683 treaty with the Lenape under an elm; skyline views and an obelisk.",
+   "k": "park",
+   "sources": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/areas/philadelphia-neighborhoods/fishtown/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Penn_Treaty_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FISH",
+   "n": "The Fillmore Philadelphia",
+   "address": "29 E Allen St, Philadelphia, PA 19123",
+   "w": "Fishtown's big concert hall in a converted foundry, with the smaller Foundry upstairs — touring acts and dance parties.",
+   "k": "venue",
+   "sources": [
+    [
+     "VISITPHILLY",
+     "https://www.visitphilly.com/media-center/press-releases/neighborhood-guide-fishtown-river-wards/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Fillmore_Philadelphia"
+    ]
+   ]
   }
  ],
  "sources": [
@@ -1357,6 +1447,12 @@
    "name": "Valley Forge Tourism & Convention Board (Montco)",
    "url": "https://www.valleyforge.org/",
    "type": "tourism"
+  },
+  {
+   "key": "NORTHEASTTIMES",
+   "name": "Northeast Times",
+   "url": "https://northeasttimes.com/",
+   "type": "community"
   }
  ]
 }

@@ -37,7 +37,7 @@
  },
  {
   "t": 3,
-  "a": "MINAM",
+  "a": "CHUO",
   "cz": [
    "INT"
   ],
@@ -166,7 +166,7 @@
  },
  {
   "t": 1,
-  "a": "MINAM",
+  "a": "CHUO",
   "cz": [
    "KAISEKI",
    "FINE"
@@ -275,7 +275,7 @@
  },
  {
   "t": 3,
-  "a": "MINAM",
+  "a": "CHUO",
   "cz": [
    "IZAKAYA"
   ],
@@ -598,6 +598,174 @@
    [
     "MICHELIN_BIB",
     "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/au-soleil-couchant"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "KITA",
+  "cz": [
+   "IZAKAYA",
+   "SAKE"
+  ],
+  "dish": "Seafood-dominated dishes crafted as sake snacks, with warmed sake",
+  "n": "Sakeya Sakana Yoshimura",
+  "address": "1-13-21 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",
+  "w": "Michelin Bib Gourmand (2025 guide) kappo izakaya run by a sake-loving couple — he cooks, she warms the sake — with a seafood-dominated menu crafted to double as bar snacks.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sakeya-sakana-yoshimura"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "KITA",
+  "cz": [
+   "KAISEKI"
+  ],
+  "dish": "Self-crafted Japanese course",
+  "n": "Kaishoku Shimizu",
+  "address": "1F, Shin Daibiru, 1-2-1 Dojimahama, Kita-ku, Osaka 530-0004, Japan",
+  "w": "Michelin Guide-listed Japanese restaurant; Toshihiro Shimizu studied agriculture to know all he could about ingredients and taught himself to craft his own menu.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kaishoku-shimizu"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "NORTH",
+  "cz": [
+   "KAISEKI",
+   "FINE"
+  ],
+  "dish": "Kaiseki course",
+  "n": "Kashiwaya Osaka Senriyama",
+  "address": "2-5-18 Senriyamanishi, Suita, Osaka 565-0851, Japan",
+  "w": "Three MICHELIN Stars (2026): exceptional Japanese kaiseki cuisine in the Senriyama residential district of Suita.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kashiwaya-osaka-senriyama"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "MINAM",
+  "cz": [
+   "KAISEKI"
+  ],
+  "dish": "Japanese seasonal course",
+  "n": "Sui Okazaki",
+  "address": "2F, 1-16-20 Higashishinsaibashi, Chuo-ku, Osaka 542-0083, Japan",
+  "w": "Michelin Guide-listed Japanese restaurant whose chef, intent on breathing novelty into Japanese cuisine, pays tribute to the restaurant where he apprenticed.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sui-okazaki"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "NORTH",
+  "cz": [
+   "INT",
+   "FINE"
+  ],
+  "dish": "Classic French cuisine from the chef's Paris apprenticeship",
+  "n": "Point",
+  "address": "2-17-47 Uenohigashi, Toyonaka, Osaka 560-0013, Japan",
+  "w": "One MICHELIN Star (2026) French restaurant in a residential corner of Toyonaka: open kitchen and counter seating, with cuisine based on classics learned during the chef's Paris apprenticeship.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/point"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "CHUO",
+  "cz": [
+   "INT",
+   "FINE"
+  ],
+  "dish": "Innovative tasting menu themed \"Dialogue with the Earth\"",
+  "n": "HAJIME",
+  "address": "1-9-11 Edobori, Nishi-ku, Osaka 550-0002, Japan",
+  "w": "Three MICHELIN Stars (2026): a planet-like artwork of overlapping dishes forming the Earth dominates the dining room, and \"Dialogue with the Earth\" is the theme of the cuisine.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/hajime"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "MINAM",
+  "cz": [
+   "KAISEKI",
+   "FINE"
+  ],
+  "dish": "Kaiseki course by Hitoshi Takahata",
+  "n": "Taian",
+  "address": "1-21-2 Shimanochi, Chuo-ku, Osaka 542-0082, Japan",
+  "w": "Three MICHELIN Stars (2026): 'Taian' means 'big hut' — modest, clean décor, with Japanese cuisine that crystallises the skill and passion of Hitoshi Takahata.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/taian"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "KITA",
+  "cz": [
+   "INT",
+   "FINE"
+  ],
+  "dish": "Drunken crab with baked apple; roast wagyu fillet with chilli oil",
+  "n": "KushinGarando",
+  "address": "4F, 1-5-18 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+  "w": "One MICHELIN Star (2025 guide): Hiroaki Osawa cooks Chinese food in sync with the Japanese seasons, starting from ingredients piled on a large plate — e.g. drunken crab with baked apple, and pears with roast wagyu fillet and chilli oil.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kushingarando"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "KITA",
+  "cz": [
+   "IZAKAYA"
+  ],
+  "dish": "Grilled celery with vinegar-miso, bite-sized beef cutlets, crab cream croquettes",
+  "n": "Kitashinchi Gyosai Masashi",
+  "address": "2F, 1-5-26 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",
+  "w": "Michelin Guide-listed Kitashinchi restaurant ranging from old-school Japanese to creative Western dishes; grilled celery with vinegar-miso, bite-sized beef cutlets and crab cream croquettes are year-round favourites.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kitashinchi-gyosai-masashi"
    ]
   ]
  }

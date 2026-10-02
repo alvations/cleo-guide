@@ -28,7 +28,11 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 - Append helper: `python3 _okinawa_add.py F|S|G <TAG> < records.json` (dedups by name; F/S/G = food/sights/geo).
 
 ## In-flight wave
-- **W2** (2026-10-02, relaunch): all areas, Stripes-GPS restaurant sweep + Wikipedia sight coords + creator queries. Files: `FOOD_OKINAWA_W2.json`, `SIGHTS_OKINAWA_W2.json`, `SOURCES_OKINAWA_W2.json`, `CREATORS_OKINAWA_W2.json`, `geo/_geoout_okinawa_W2.json`; raw notes `_okinawa_w2_notes.md`. Searches used this session: tracked in notes file.
+- **W2** (2026-10-02 relaunch, all areas) — IN PROGRESS. Files: `FOOD_OKINAWA_W2.json`, `SIGHTS_OKINAWA_W2.json`,
+  `SOURCES_OKINAWA_W2.json`, `CREATORS_OKINAWA_W2.json`, `geo/_geoout_okinawa_W2.json`; raw search log with every
+  surfaced GPS/lead (numbered by search) in `_okinawa_w2_notes.md` — read it before searching to avoid repeats.
+  Searches used so far this session: ~97 (see notes). First build done mid-wave (bg agent, commit 65c871b): 49 pins
+  rendered, 4 gates PASS, VIEW override (26.45,127.85,z9) in tools/build-okinawa.py.
 
 ## Next actions
 0. Held leads to re-source first: Tsuboya Yachimun-dōri, Shuri Soba, Miyazato Soba (Nago), Yanbaru Soba; re-geocode
