@@ -532,10 +532,10 @@
  {
   "n": "Bise Fukugi Tree Road (備瀬のフクギ並木)",
   "address": "Bise, Motobu, Okinawa, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "Atlas Obscura Bise Village coords not yet read — helper queue",
+  "lat": 26.70903,
+  "lng": 127.880013,
+  "confidence": "med",
+  "geoSource": "Atlas Obscura 'Bise Village' place page 26.70903, 127.880013 (639-26 Bise) — village point on the fukugi lanes",
   "status": "open",
   "statusSource": "Visit Okinawa Motobu page"
  },
@@ -778,5 +778,85 @@
   "geoSource": "address only — helper queue",
   "status": "open",
   "statusSource": "Mapple spot 47012422 (2026)"
+ },
+ {
+  "n": "Eef Beach, Kume Island (イーフビーチ)",
+  "address": "Higa, Kumejima, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no coordinate surfaced — helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Kume article"
+ },
+ {
+  "n": "Ishigaki Yaima Village (石垣やいま村)",
+  "address": "Nagura, Ishigaki, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "no coordinate surfaced — helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Yaeyama itinerary"
+ },
+ {
+  "n": "Shinri-hama Beach, Kume Island (シンリ浜)",
+  "address": "Kumejima, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Kume page"
+ },
+ {
+  "n": "Aragusuku Beach, Miyako (新城海岸)",
+  "address": "Aragusuku, Gusukube, Miyakojima, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa Miyako page"
+ },
+ {
+  "n": "Cape Maeda & the Blue Cave (真栄田岬 青の洞窟)",
+  "address": "Maeda, Onna, Okinawa, Japan",
+  "lat": 26.443665,
+  "lng": 127.772546,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes snorkel article printed GPS for the Blue Cave",
+  "status": "open",
+  "statusSource": "Visit Okinawa Onna page (2026)"
+ },
+ {
+  "n": "Emerald Beach, Ocean Expo Park (エメラルドビーチ)",
+  "address": "Ocean Expo Park, Motobu, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach page (2026)"
+ },
+ {
+  "n": "Kariyushi Beach (かりゆしビーチ)",
+  "address": "Kise, Onna, Okinawa, Japan",
+  "lat": 26.531863,
+  "lng": 127.929991,
+  "confidence": "high",
+  "geoSource": "Stars and Stripes beach list printed GPS",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach page (2026)"
+ },
+ {
+  "n": "Okuma Beach (奥間ビーチ)",
+  "address": "Okuma, Kunigami, Okinawa, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "helper queue",
+  "status": "open",
+  "statusSource": "Visit Okinawa beach page"
  }
 ]

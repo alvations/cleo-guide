@@ -27,9 +27,9 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 (none — W1+W2 complete and committed; W3 = food pins + more sight pairs, see Next actions)
 
 ## State (2026-10-02, after W1+W2)
-- Discovered + sourced: **178** (114 sights, 64 food) — sourcecheck PASS 178/178. Page: **120 on map** (105 sights + 15 food).
+- Discovered + sourced: **180** (116 sights, 64 food) — sourcecheck PASS 180/180. Page: **122 on map** (107 sights + 15 food).
 - Per area (sourced / target): CC 65/125 · SPH 37/85 · FISH 13/55 · UCW 7/40 · NPH 9/30 · NW 12/45 · NE 4/25 ·
-  MAIN 9/35 · SJ 6/25 · DAY 16/35. Every area has a pinned tier-1 (build assert).
+  MAIN 9/35 · SJ 8/25 · DAY 16/35. Every area has a pinned tier-1 (build assert).
 - Gates: --sourcecheck / --geocheck / --statuscheck / --buildcheck all PASS; npm validate + test PASS. Index card LIVE.
 - Pins: sights ~95% (Wikipedia infobox via `allowed_domains:["en.wikipedia.org"]` batches); restaurants only 15/64 —
   **~49 food places are UNVERIFIED** (addresses verified, coords null) → finish with `tools/geocode-helper.html` (browser).
@@ -43,6 +43,9 @@ CREATORS_W1.json · geo/_geoout_w1_food.json · geo/_geoout_w1_sights.json · ge
 helpers: _phi_add.py (append + dedupe), _phi_geo.py (append geoout), _phi_sg.py (sight + Wikipedia pin in one step).
 
 ## Next actions (ordered)
+0. Leads from the last searches (W2c): Philadelphia Brewing Company (2440 Frankford Ave; Visit Philly only — needs a 2nd outlet),
+   Syrenka Luncheonette (Port Richmond Polish; Visit Philly only), Pomona Hall (Camden; Wikipedia 39.93083,-75.09444 — needs a 2nd source),
+   Cooper River Park (only the river's coordinate surfaced — not a pin), Lemon Hill (Wikipedia 39.97083,-75.18722 — needs 2nd source).
 1. Restaurant pins: run `tools/geocode-helper.html` on the UNVERIFIED list in docs/GEOCODE-BACKLOG.md (philadelphia-pa);
    WebSearch does NOT surface Philly restaurant place pins (0/3 single-name probes; latlong.net only has big POIs).
    Restaurants WITH a Wikipedia article pin fine (Kalaya, Friday Saturday Sunday, South Philly Barbacoa, Vedge, Zahav).

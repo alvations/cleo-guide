@@ -104,3 +104,13 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   (35.031550,135.723469), Shōkoku-ji (35.03306,135.762347), Rozan-ji (35.0232,135.7640), Daihōon-ji (35.0319,135.7399),
   Umekōji Steam Locomotive Museum (now part of the Railway Museum — not separate). Myōshin-ji (JG mention only).
 - Searches used: 92.
+
+### batch 7 (2026-10-02) — Nara/Uji food, Fushimi, held corroborations
+- UJI food: Kiminami (soba), Kushizukushi (kushiage), toi Inshokuten (Indian thali) — MICHELIN_BIB (Nara region pages);
+  Tsuen Tea (est. 1160) and Nakamura Tokichi Honten (est. 1859) — JAPANGUIDE e3977 + WIKIPEDIA_JA (new key).
+- FSHMI: Jikkokubune Canal Cruise (JAPANGUIDE e3938 + KYOTOTOURISM); pin held (pier coordinate not surfaced).
+- HGS: Mimizuka (national Historic Site list + Wikipedia; pin from Wikipedia). SAKYO: Keage Incline (JG e3951 + Wikipedia).
+- Held: Taihōan municipal tea house (japan-guide only; the Japanese mention could not be tied to a specific page), Kizakura Kappa Country and
+  Fushimi Yume Hyakushu (could not tell which outlet said what → not attributed), Myōshin-ji (JG e3961; no coordinate yet),
+  Shimabara/Sumiya (Wikipedia only), Ike Edoyakiunagi Asahitei (Nara, no address).
+- Searches used: 100.

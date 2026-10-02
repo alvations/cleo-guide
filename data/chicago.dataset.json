@@ -2300,6 +2300,175 @@
      "https://en.wikipedia.org/wiki/Johnson_Wax_Headquarters"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "North Avenue Beach",
+   "ad": "1600 N Lake Shore Dr, Chicago, IL 60614",
+   "w": "Chicago's busiest beach, by Lincoln Park — the ocean-liner beach house, volleyball, paddleboards and the classic skyline-across-the-sand view. Free.",
+   "k": "beach lakefront skyline free",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-beaches-guide"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_beaches_in_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Oak Street Beach",
+   "ad": "1000 N Lake Shore Dr, Chicago, IL 60611",
+   "w": "The Gold Coast beach at the top of the Mag Mile, tucked under the skyline. Free.",
+   "k": "beach lakefront skyline free",
+   "g": [
+    "PARK",
+    "ICON",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Oak_Street_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "12th Street Beach",
+   "ad": "1200 S Linn White Dr, Chicago, IL 60605",
+   "w": "Small crescent beach on Northerly Island behind the Adler, with panoramic lake views. Free.",
+   "k": "beach lakefront free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_beaches_in_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Northerly Island",
+   "ad": "1521 S Linn White Dr, Chicago, IL 60605",
+   "w": "The man-made peninsula (the old Meigs Field) re-wilded with prairie paths, fishing spots and skyline views. Free.",
+   "k": "park nature lakefront skyline free",
+   "g": [
+    "ROOF",
+    "PARK",
+    "ICON",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Northerly_Island"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Humboldt Park",
+   "ad": "1400 N Sacramento Ave, Chicago, IL 60622",
+   "w": "Jens Jensen's 207-acre park — the Prairie School boathouse and swan boats on the lagoon, and the 1895 stables now housing the National Museum of Puerto Rican Arts & Culture. Free.",
+   "k": "park lagoon boat free",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/best-things-to-do-in-humboldt-park"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/tours-attractions/humboldt-park-chicago-things-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Humboldt_Park_(Chicago_park)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Ukrainian National Museum",
+   "ad": "2249 W Superior St, Chicago, IL 60612",
+   "w": "Ukrainian Village museum of folk art, pysanky (Easter eggs) and immigrant history.",
+   "k": "museum history",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-best-attractions-in-ukrainian-village"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ukrainian_National_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Notre Dame de Chicago",
+   "ad": "1335 W Harrison St, Chicago, IL 60607",
+   "w": "The domed 1892 French-Romanesque church of the city's old French parish, in Little Italy/University Village.",
+   "k": "church architecture historic",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/neighborhoods/little-italy-university-village/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Notre_Dame_de_Chicago"
+    ]
+   ]
   }
  ],
  "F": [
@@ -2369,6 +2538,10 @@
     [
      "TIMEOUT",
      "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "PORTNOY",
+     "https://1440wrok.com/ixp/721/p/illinois-lowest-rated-one-bite-pizza-portnoy/"
     ]
    ]
   },
@@ -2393,6 +2566,10 @@
     [
      "CHIMAG",
      "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/chicago-classic-at-lou-malnatis/"
+    ],
+    [
+     "KEITHLEE",
+     "https://www.fox32chicago.com/news/tiktok-food-influencer-chicago-restaurants"
     ]
    ]
   },
@@ -2461,6 +2638,10 @@
     [
      "INFATUATION",
      "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ],
+    [
+     "PORTNOY",
+     "https://1440wrok.com/ixp/721/p/illinois-lowest-rated-one-bite-pizza-portnoy/"
     ]
    ]
   },
@@ -3650,6 +3831,12 @@
    "u": "https://www.jamesbeard.org/awards",
    "l": "James Beard Foundation Awards (incl. America's Classics)"
   },
+  "KEITHLEE": {
+   "k": "KEITHLEE",
+   "t": "KEITHLEE",
+   "u": "",
+   "l": ""
+  },
   "MICHELIN": {
    "k": "MICHELIN",
    "t": "MICHELIN Guide Chicago (stars + Bib Gourmand)",
@@ -3659,6 +3846,12 @@
   "NBC5": {
    "k": "NBC 5 CHICAGO",
    "t": "NBC 5 CHICAGO",
+   "u": "",
+   "l": ""
+  },
+  "PORTNOY": {
+   "k": "PORTNOY",
+   "t": "PORTNOY",
    "u": "",
    "l": ""
   },
