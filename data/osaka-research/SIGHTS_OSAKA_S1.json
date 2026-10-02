@@ -155,7 +155,7 @@
    "t": 2,
    "a": "SOUTH",
    "n": "Sakai City Museum",
-   "address": "Daisen Park, Mozusekiun-cho, Sakai-ku, Sakai, Osaka, Japan",
+   "address": "Daisen Park, 2 Mozu Yugumo-cho, Sakai-ku, Sakai, Osaka, Japan",
    "w": "Museum in Daisen Park tracing the history of the port town of Sakai, starting with the kofun tombs and artifacts excavated from them.",
    "k": "museum",
    "g": [
@@ -173,28 +173,7 @@
    ]
   },
   {
-   "t": 2,
-   "a": "SOUTH",
-   "n": "Sakai Plaza of Rikyū and Akiko (Sakai Rishō no Mori)",
-   "address": "Shukuin-cho, Sakai-ku, Sakai, Osaka, Japan",
-   "w": "Cultural facility opened in 2015 on Sen no Rikyū and poet Yosano Akiko, with a tea-ceremony museum, tea experiences and Sakai Taian, a reproduction of the National Treasure Taian tea room.",
-   "k": "museum",
-   "g": [
-    "MUS"
-   ],
-   "sources": [
-    [
-     "OSAKAINFO",
-     "https://osaka-info.jp/experience/en/osaka/spot/368"
-    ],
-    [
-     "OSAKAINFO",
-     "https://discover.osaka-info.jp/en/spots/sakai-rishonomori"
-    ]
-   ]
-  },
-  {
-   "t": 2,
+   "t": 1,
    "a": "NORTH",
    "n": "Expo '70 Commemorative Park & Tower of the Sun",
    "address": "1-1 Senri Banpaku-koen, Suita, Osaka, Japan",
@@ -249,8 +228,555 @@
    ],
    "sources": [
     [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/katsuoji/"
+    ],
+    [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Katsu%C5%8D-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "National Museum of Ethnology (Minpaku)",
+   "address": "10-1 Senri Expo Park, Suita, Osaka, Japan",
+   "w": "One of the world's largest ethnology museums, inside the Expo '70 Commemorative Park, with a huge exhibition of everyday artifacts from cultures around the world.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4029.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Ethnology_(Japan)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "CupNoodles Museum Osaka Ikeda",
+   "address": "8-25 Masumi-cho, Ikeda, Osaka, Japan",
+   "w": "Hands-on museum in Ikeda, birthplace of instant ramen (Momofuku Ando, 1958); at My Cup Noodles Factory visitors design a cup and pick their own soup and toppings.",
+   "k": "museum",
+   "g": [
+    "MUS",
+    "POP"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/324"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/CupNoodles_Museum_Osaka_Ikeda"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KNSAI",
+   "n": "Himeji Castle",
+   "address": "68 Honmachi, Himeji, Hyogo, Japan",
+   "w": "Widely considered Japan's finest surviving feudal castle — the white 'White Heron' keep is a National Treasure and a UNESCO World Heritage Site (1993).",
+   "k": "castle",
+   "g": [
+    "CASTLE",
+    "UNESCO",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3501.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Himeji_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Kitano Ijinkan (Kitano-chō)",
+   "address": "Kitano-cho, Chuo-ku, Kobe, Hyogo, Japan",
+   "w": "Hillside district where foreign merchants and diplomats settled after Kobe port opened in the 19th century; dozens of Western-style mansions (ijinkan) survive, many open as museums.",
+   "k": "historic district",
+   "g": [
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3550.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/kobe-yakei/en/kitano-ijinkan/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kitano-cho"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Meriken Park & Kobe Port Tower",
+   "address": "Hatoba-cho, Chuo-ku, Kobe, Hyogo, Japan",
+   "w": "Waterfront park on reclaimed land in Kobe's port, home to the red 108 m Kobe Port Tower (1963), the Kobe Maritime Museum and the Earthquake Memorial.",
+   "k": "waterfront park",
+   "g": [
+    "VIEW",
+    "NIGHT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3552.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Meriken_Park"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KNSAI",
+   "n": "Kobe Harborland",
+   "address": "Higashi-Kawasaki-cho, Chuo-ku, Kobe, Hyogo, Japan",
+   "w": "Shopping and entertainment waterfront between JR Kobe Station and the port, popular at night for its harbour views.",
+   "k": "waterfront / shopping",
+   "g": [
+    "NIGHT",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3553.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Harborland"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Nankinmachi (Kobe Chinatown)",
+   "address": "Sakaemachi-dori / Motomachi-dori, Chuo-ku, Kobe, Hyogo, Japan",
+   "w": "The biggest Chinatown in western Japan, packed with more than 100 shops and restaurants and street-food stalls.",
+   "k": "chinatown",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2159.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/areaguide/index.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nankin-machi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Ikuta Shrine",
+   "address": "1-2-1 Shimoyamate-dori, Chuo-ku, Kobe, Hyogo, Japan",
+   "w": "One of Japan's oldest shrines, said to be founded in the 3rd century by Empress Jingū; the name Kobe derives from 'Kanbe', the families who served it.",
+   "k": "shrine",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2159.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/attractions/detail_1039.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ikuta_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KNSAI",
+   "n": "Arima Onsen",
+   "address": "Arima-cho, Kita-ku, Kobe, Hyogo, Japan",
+   "w": "One of Japan's three most famous hot springs, over Mount Rokko from central Kobe; known for its iron-rich 'kinsen' gold and clear 'ginsen' silver waters, explorable on foot.",
+   "k": "hot spring town",
+   "g": [
+    "ONSEN",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3558.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/areaguide/index.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arima_Onsen"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KNSAI",
+   "n": "Nunobiki Falls & Herb Gardens",
+   "address": "Fukiai-cho, Chuo-ku, Kobe, Hyogo, Japan",
+   "w": "Four waterfalls (the tallest, Ontaki, 43 m) a short walk from Shin-Kobe Station; the Nunobiki Ropeway climbs above them to one of Japan's largest herb gardens.",
+   "k": "waterfall / garden",
+   "g": [
+    "NATURE",
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3563.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/stories/Shin-Kobe"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nunobiki_Falls"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Mount Rokkō",
+   "address": "Rokkosan-cho, Nada-ku, Kobe, Hyogo, Japan",
+   "w": "The 931 m high point of the Rokko range behind Kobe, with panoramic views over Kobe and Osaka, especially at sunset and night.",
+   "k": "mountain / viewpoint",
+   "g": [
+    "VIEW",
+    "NATURE",
+    "NIGHT"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3557.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/areaguide/index.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mount_Rokko"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KNSAI",
+   "n": "Akashi Kaikyō Bridge",
+   "address": "Higashimaiko-cho, Tarumi-ku, Kobe, Hyogo, Japan",
+   "w": "Spanning the Akashi Strait to Awaji Island, it was long the world's longest suspension bridge (central span 1,991 m).",
+   "k": "bridge",
+   "g": [
+    "VIEW",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2159.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Akashi_Kaikyo_Bridge"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KNSAI",
+   "n": "Nada sake breweries (Nada-gogō)",
+   "address": "Nada-gogo, Higashinada-ku / Nada-ku, Kobe, Hyogo, Japan",
+   "w": "Japan's top sake-producing district; several breweries run shops, tasting rooms and brewing museums open to the public.",
+   "k": "sake breweries",
+   "g": [
+    "MUS"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3556.html"
+    ],
+    [
+     "FEELKOBE",
+     "https://www.feel-kobe.jp/en/stories/japanesesake"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KNSAI",
+   "n": "Kōyasan — Okunoin",
+   "address": "Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",
+   "w": "Kōbō Daishi's mausoleum at the end of a cemetery path through ancient cedars lined with over 200,000 graves; part of the UNESCO 'Sacred Sites and Pilgrimage Routes in the Kii Mountain Range'.",
+   "k": "temple / cemetery",
+   "g": [
+    "TEMPLE",
+    "UNESCO",
+    "ICON"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4900.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Okunoin"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1142/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Kōyasan — Kongōbu-ji",
+   "address": "132 Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",
+   "w": "Head temple of Shingon Buddhism on Mount Kōya, founded by Kōbō Daishi in the 9th century; within the Kii Mountains UNESCO site.",
+   "k": "temple",
+   "g": [
+    "TEMPLE",
+    "UNESCO"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4900.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kong%C5%8Dbu-ji"
+    ],
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1142/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KNSAI",
+   "n": "Wakayama Castle",
+   "address": "3 Ichibancho, Wakayama, Wakayama, Japan",
+   "w": "Reconstructed castle keep on a hill in central Wakayama with free Nishinomaru garden and the maple-filled Momijidani garden and covered wooden bridge.",
+   "k": "castle",
+   "g": [
+    "CASTLE"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4927.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wakayama_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Kishiwada Castle",
+   "address": "9-1 Kishiki-cho, Kishiwada, Osaka, Japan",
+   "w": "Castle-town keep (burned 1827, rebuilt 1954) halfway between Osaka and Wakayama, with 360-degree views over Osaka Bay; the town is famous for the Danjiri float festival.",
+   "k": "castle",
+   "g": [
+    "CASTLE",
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://discover.osaka-info.jp/en/articles/kishiwada-castle"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kishiwada_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SOUTH",
+   "n": "Rinku Town & Rinku Premium Outlets",
+   "address": "Rinku Ourai-kita, Izumisano, Osaka, Japan",
+   "w": "Bayfront district one stop from Kansai Airport with the 256 m SiS Rinku Tower (Rinku Gate Tower Building), Rinku Premium Outlets (200+ shops) and Aeon Mall.",
+   "k": "shopping district",
+   "g": [
+    "VIEW"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/329"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2451.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rinku_Gate_Tower_Building"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SOUTH",
+   "n": "Kansai Airport Observation Hall Sky View",
+   "address": "Senshu-kuko-kita, Izumisano, Osaka, Japan",
+   "w": "Observation hall at Kansai International Airport with 360-degree runway views, an aviation shop and the Sky Museum.",
+   "k": "observation deck",
+   "g": [
+    "VIEW",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://en.osaka-info.jp/spot/kanku-observation-hall-sky-view/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kansai_International_Airport"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Hirakata Park",
+   "address": "1-1-1 Hirakatakoen-cho, Hirakata, Osaka, Japan",
+   "w": "Japan's oldest operating amusement park ('Hira-Par'), with around 40 attractions including the ~80 m Sky Walker Ferris wheel.",
+   "k": "amusement park",
+   "g": [
+    "POP"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/325"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hirakata_Park"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NORTH",
+   "n": "Imashirozuka Kofun",
+   "address": "1 Gunge-shinmachi, Takatsuki, Osaka, Japan",
+   "w": "6th-century keyhole mound believed to be the true tomb of Emperor Keitai; unusually open to walk on, with replica haniwa on display and the Imashirozuka Ancient History Museum next door.",
+   "k": "kofun",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/imashirozuka-kofun"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Imashirozuka_Kofun"
+    ],
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/special/dc/event/detail124/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "BAY",
+   "n": "Taishō 'Little Okinawa' (Hirao)",
+   "address": "Hirao, Taisho-ku, Osaka, Japan",
+   "w": "About a quarter of Taishō Ward's residents have Okinawan roots, descendants of WWI-era migrant textile workers; Okinawan restaurants and shops cluster near JR Taisho Station and along the Hirao shopping street.",
+   "k": "neighbourhood",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/local_journey/en/stopby-osaka/little-okinawa/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Taish%C5%8D-ku,_Osaka"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KNSAI",
+   "n": "Kōko-en Garden (Himeji)",
+   "address": "68 Honmachi, Himeji, Hyogo, Japan",
+   "w": "Nine walled Edo-style gardens built in 1992 on the site of former samurai residences beside Himeji Castle's west moat.",
+   "k": "garden",
+   "g": [
+    "GARDEN"
+   ],
+   "sources": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3502.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C5%8Dko-en"
     ]
    ]
   }
