@@ -124,7 +124,8 @@ def main():
     if a.key == "singapore" and "TPY" in by:
         tpy_bench = sum(by["TPY"])
 
-    areas = [a.area] if a.area else sorted(by.keys())
+    # include every RESUME-targeted area even when nothing is discovered yet (a 0-count area must show NEED, not vanish)
+    areas = [a.area] if a.area else sorted(set(by.keys()) | set(targets.keys()))
     print(f"\nDENSITY — {a.key}  (discovered places per area: food + sights = total)")
     print("-" * 72)
     any_gap = False

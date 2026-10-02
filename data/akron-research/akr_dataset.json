@@ -1,0 +1,187 @@
+{
+ "areas": [
+  {
+   "id": "AKR",
+   "n": "Akron (Downtown, Highland Square, North Hill & Firestone Park)"
+  },
+  {
+   "id": "NSUM",
+   "n": "Cuyahoga Falls, Stow, Hudson & North Summit"
+  },
+  {
+   "id": "KENT",
+   "n": "Kent & Portage County (Kent State, Ravenna, Aurora)"
+  },
+  {
+   "id": "BARB",
+   "n": "Barberton, Norton, Wadsworth & Green"
+  },
+  {
+   "id": "CANT",
+   "n": "Canton, North Canton & eastern Stark"
+  },
+  {
+   "id": "MASS",
+   "n": "Massillon & southern Stark"
+  }
+ ],
+ "ac": {
+  "AKR": "#E8973A",
+  "NSUM": "#4F81BD",
+  "KENT": "#9BBB59",
+  "BARB": "#C0504D",
+  "CANT": "#8064A2",
+  "MASS": "#4BACC6"
+ },
+ "cuisines": [
+  {
+   "id": "CHIX",
+   "n": "Barberton Chicken & Fried Chicken"
+  },
+  {
+   "id": "BURG",
+   "n": "Burgers, Drive-ins & Diners"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "ITAL",
+   "n": "Italian & Pizza"
+  },
+  {
+   "id": "HIMAL",
+   "n": "Nepali, Bhutanese & South Asian"
+  },
+  {
+   "id": "ASIAN",
+   "n": "East & Southeast Asian"
+  },
+  {
+   "id": "EURO",
+   "n": "Serbian, Hungarian & Eastern European"
+  },
+  {
+   "id": "MED",
+   "n": "Greek, Lebanese & Middle Eastern"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "SOUL",
+   "n": "BBQ, Soul & Southern"
+  },
+  {
+   "id": "ICE",
+   "n": "Frozen Custard, Ice Cream & Sweets"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries, Wineries & Bars"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks, Gardens & Trails"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "ENT",
+   "n": "Sports, Music & Entertainment"
+  },
+  {
+   "id": "SHOP",
+   "n": "Markets & Districts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [
+  {
+   "t": 1,
+   "a": "BARB",
+   "n": "Belgrade Gardens",
+   "ad": "401 E State St, Barberton, OH",
+   "w": "The 1933 birthplace of Barberton chicken: Serbian immigrants Mike and Smilka Topalsky fried chicken in lard and served it with fresh-cut fries, slaw and a tomato-rice 'hot sauce' descended from Serbian djuvece — the plate every Barberton chicken house since has copied.",
+   "cz": [
+    "CHIX",
+    "EURO"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Barberton_chicken"
+    ],
+    [
+     "TAKEOUT",
+     "https://thetakeout.com/barberton-fried-chicken-ohio-hopocan-belgrade-lard-1840822213/"
+    ],
+    [
+     "CLEMAG",
+     "https://clevelandmagazine.com/food-drink/fried-chicken-is-barberton's-defining-food"
+    ],
+    [
+     "SCENE",
+     "Scene — Barberton-style chicken classics (carried from data/cleveland-research/barberton-chicken.json)"
+    ]
+   ]
+  }
+ ],
+ "S": {},
+ "FS": {
+  "CLEMAG": {
+   "k": "CLEVELAND MAGAZINE",
+   "t": "Cleveland Magazine",
+   "u": "https://clevelandmagazine.com/",
+   "l": "Cleveland Magazine"
+  },
+  "SCENE": {
+   "k": "SCENE MAGAZINE",
+   "t": "Scene (Northeast Ohio alt-weekly)",
+   "u": "https://www.clevescene.com/",
+   "l": "Scene (Northeast Ohio alt-weekly)"
+  },
+  "TAKEOUT": {
+   "k": "THE TAKEOUT",
+   "t": "The Takeout — 'Get Schooled By Barberton Fried Chicken'",
+   "u": "https://thetakeout.com/barberton-fried-chicken-ohio-hopocan-belgrade-lard-1840822213/",
+   "l": "The Takeout — 'Get Schooled By Barberton Fried Chicken'"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  }
+ }
+}

@@ -28,4 +28,6 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
   tools/build-madison.py. Keys were pre-registered (research.js, geocode-status.py, rebuild-city.py, density.py).
 
 ## In-flight wave
-- (none)
+- **W1 food canon** (tag `CANON`) → `FOOD_CANON.json`, `SOURCES_W1.json`, `CREATORS_W1.json`. Queries: curds,
+  fish fry, supper clubs/old fashioned, farmers' market, brats, Babcock, kringle, Hmong/Lao, New Glarus, JB honorees,
+  Infatuation Madison, Madison Mag/Isthmus best-of, creators (YouTube/TikTok Madison food). Then W2 sights per area.

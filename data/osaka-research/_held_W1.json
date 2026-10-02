@@ -1,0 +1,162 @@
+{
+ "pending_address": [
+  {
+   "t": 2,
+   "a": "KITA",
+   "cz": [
+    "KONAMON"
+   ],
+   "dish": "Pork and mixed okonomiyaki, Osaka style",
+   "n": "Jibundoki",
+   "address": "Osaka, Japan",
+   "w": "Michelin Bib Gourmand (2026) teppanyaki bar where the owner-chef's creative griddle dishes end, in true Osaka style, with pork or mixed okonomiyaki.",
+   "closed": false,
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/jp/en/osaka-region/osaka/restaurant/jibundoki"
+    ]
+   ],
+   "_held": "Michelin Bib 2026 confirmed, but address/ward not yet surfaced -> area unassigned; resolve address before adding"
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "cz": [
+    "KONAMON"
+   ],
+   "dish": "Okonomiyaki and Western-style tonpeiyaki",
+   "n": "Tanpopo",
+   "address": "Osaka, Japan",
+   "w": "Michelin Bib Gourmand (2026): stylish, bar-like teppanyaki on polished iron and copper griddles — okonomiyaki standards through creative tonpeiyaki, with Italian wines.",
+   "closed": false,
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/is/en/osaka-region/osaka/restaurant/tanpopo"
+    ]
+   ],
+   "_held": "Michelin Bib 2026 confirmed, but address/ward not yet surfaced -> area unassigned; resolve address before adding"
+  },
+  {
+   "t": 3,
+   "a": "KITA",
+   "cz": [
+    "KONAMON",
+    "INT"
+   ],
+   "dish": "Okonomiyaki to finish a French-bistro teppanyaki meal",
+   "n": "Oribe",
+   "address": "Osaka, Japan",
+   "w": "Michelin Bib Gourmand mixing French bistro cooking with the teppan; the meal ends with Osaka's savoury okonomiyaki, a house favourite.",
+   "closed": false,
+   "sources": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/osaka-region/osaka/restaurant/oribe"
+    ]
+   ],
+   "_held": "Michelin Bib 2026 confirmed, but address/ward not yet surfaced -> area unassigned; resolve address before adding"
+  }
+ ],
+ "single_source": [
+  {
+   "n": "Shitennō-ji",
+   "a": "TNJ",
+   "address": "1-1-18 Shitennōji, Tennōji-ku, Osaka, Japan",
+   "lat": 34.6539,
+   "lng": 135.51645,
+   "geoSource": "Wikipedia infobox coords (via WebSearch)",
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shitenn%C5%8D-ji"
+    ]
+   ],
+   "_held": "needs a 2nd credible source (japan-guide/OSAKA-INFO/Bunkacho) — coord already verified"
+  },
+  {
+   "n": "Osaka Castle",
+   "a": "CHUO",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ]
+   ],
+   "_held": "needs 2nd source + Wikipedia coords"
+  },
+  {
+   "n": "Dōtonbori",
+   "a": "MINAM",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ]
+   ],
+   "_held": "needs 2nd source + coords"
+  },
+  {
+   "n": "Kuromon Market",
+   "a": "MINAM",
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"
+    ]
+   ],
+   "_held": "needs 2nd source + coords"
+  },
+  {
+   "n": "Hōzen-ji & Hōzenji Yokochō",
+   "a": "MINAM",
+   "sources": [],
+   "_held": "named only by Japan Travel (JAL) / hotel pages in W1 — find credible sources"
+  },
+  {
+   "n": "Tenjinbashisuji Shopping Street",
+   "a": "KITA",
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/204"
+    ]
+   ],
+   "_held": "needs 2nd outlet"
+  },
+  {
+   "n": "Osaka Museum of Housing and Living",
+   "a": "KITA",
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/area_kita/"
+    ]
+   ],
+   "_held": "needs 2nd source + coords"
+  },
+  {
+   "n": "Nakanoshima Museum of Art, Osaka",
+   "a": "KITA",
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/en/spot/area_kita/"
+    ]
+   ],
+   "_held": "needs 2nd source + coords"
+  },
+  {
+   "n": "Temma Tenjin Hanjo Tei (rakugo theatre)",
+   "a": "KITA",
+   "sources": [
+    [
+     "OSAKAINFO",
+     "https://osaka-info.jp/experience/en/osaka/spot/204"
+    ]
+   ],
+   "_held": "needs 2nd source + coords"
+  }
+ ]
+}

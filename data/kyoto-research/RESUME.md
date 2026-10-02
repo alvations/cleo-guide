@@ -22,6 +22,12 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
 
+## In-flight wave
+- **W1 (2026-10-02) — HGS (Higashiyama-ku)**: sights via japan-guide/kyoto.travel/Wikipedia/UNESCO/Bunkachō listing
+  queries; food canon (saba-zushi, kuzukiri, warabimochi, nishin soba, kaiseki, yudofu) via Michelin + press +
+  creators. Files: `SIGHTS_KYOTO_HGS1.json`, `FOOD_KYOTO_HGS1.json`, `CREATORS_KYOTO_W1.json`, `SOURCES_KYOTO_W1.json`.
+  Then geocode → `geo/_geoout_kyoto_hgs1.json`. Next areas in order: CTR, SAKYO, KITA, RKSAI, FSHMI, UJI, RKHKU, KYFU.
+
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py kyoto` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_kyoto_*.json` → `python3 tools/rebuild-city.py kyoto --build` (under the shared lock).

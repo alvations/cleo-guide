@@ -58,3 +58,8 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - Full checkpoint, file list and per-wave notes: `_note_BALESTIER.md`. Target 55 (`python3 tools/density.py singapore --area BLS`).
 ### In-flight wave (BLS)
 - W1: canon food (bak kut teh / chicken rice / bakeries) + Whampoa Makan Place + heritage-trail sights -> FOOD_BALESTIER.json, SIGHTS_BALESTIER.json.
+
+## Holland Village (HLV) — checkpoint (agent: HOLLANDV, 2026-10-02)
+- Full checkpoint, file list and per-wave notes: `_note_HOLLANDV.md`. Target 55 (`python3 tools/density.py singapore --area HLV`).
+### In-flight wave (HLV)
+- W1: hawker canon (Ghim Moh / Holland Drive / Holland Village MFC) + HV café/restaurant canon + sights -> FOOD_HOLLANDV.json, SIGHTS_HOLLANDV.json.
