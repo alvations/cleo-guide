@@ -21,6 +21,10 @@
    [
     "CULTURETRIP",
     "https://www.theculturetrip.com/europe/belgium/articles/9-of-the-best-lunch-places-in-liege-belgium"
+   ],
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/enoteca-liege"
    ]
   ]
  },
@@ -74,13 +78,17 @@
   "dish": "Michelin-selected French menu",
   "n": "Au Moriane",
   "address": "En Neuvice 55, 4000 Liège, Belgium",
-  "w": "Michelin-selected table on En Neuvice, one of the oldest streets of the medieval centre near the Batte.",
+  "w": "Michelin-selected and Gault&Millau-listed: Sébastien Lambert-Carabin's contemporary cooking of local produce in a monumentally renovated 17th-c. building on En Neuvice, near the Batte.",
   "michelin": true,
   "closed": false,
   "sources": [
    [
     "MICHELIN",
     "https://guide.michelin.com/us/en/liege/liege/restaurant/au-moriane"
+   ],
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/au-moriane-liege"
    ]
   ]
  },
@@ -101,6 +109,280 @@
    [
     "MICHELIN",
     "https://guide.michelin.com/us/en/liege/liege/restaurant/al-piccolo-mondo"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Brasserie"
+  ],
+  "dish": "Modern brasserie classics opposite Calatrava's station",
+  "n": "Grand Café de la Gare",
+  "address": "Gare des Guillemins 20c, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed modern brasserie facing the Guillemins station — consistently high quality across a wide menu.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/grand-cafe-de-la-gare-liege"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Fine Dining"
+  ],
+  "dish": "Neo-gastronomic seasonal menu",
+  "n": "Merry",
+  "address": "Rue des Carmes 15, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed neo-gastronomic table on Rue des Carmes — bold, precise cooking that follows the seasons.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/merry-liege"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "French"
+  ],
+  "dish": "Refined French cooking",
+  "n": "Folies Gourmandes",
+  "address": "Rue des Clarisses 48, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed French restaurant on Rue des Clarisses near the Carré.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/folies-gourmandes-liege"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Italian"
+  ],
+  "dish": "Puglian & Sicilian cooking",
+  "n": "Walio",
+  "address": "Val-Benoît, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed: chef Vincenzo Calderone goes back to his Puglian and Sicilian roots with honest, full-flavoured cooking in the reconverted Val-Benoît.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/walio-liege-val-benoit"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Mediterranean"
+  ],
+  "dish": "Seasonal Mediterranean cooking",
+  "n": "Baci",
+  "address": "Place du Vingt Août 16, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed restaurant inside the Théâtre de Liège — lively contemporary Mediterranean cooking that follows the seasons.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/baci-liege"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Grill"
+  ],
+  "dish": "Product-first cooking, often over the barbecue",
+  "n": "Danieli",
+  "address": "Liège, Belgium",
+  "w": "Gault&Millau-listed, accessible restaurant where the main product takes centre stage, often cooked over the barbecue.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/danieli-liege"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Contemporary"
+  ],
+  "dish": "Creative, carefully balanced plates",
+  "n": "Origo",
+  "address": "Rue Thier del Dague 72, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed — creative presentations, balanced flavours and meticulous technique.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/origo-liege"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Bistro"
+  ],
+  "dish": "Brasserie-bistro cooking near the station",
+  "n": "Le Concordia",
+  "address": "Rue des Guillemins, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed bistro-brasserie on Rue des Guillemins.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/le-concordia-liege"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Contemporary"
+  ],
+  "dish": "Contemporary bistronomy",
+  "n": "Cabale",
+  "address": "Liège, Belgium",
+  "w": "Gault&Millau-listed restaurant in central Liège.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/cabale-liege"
+   ]
+  ]
+ },
+ {
+  "t": 3,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Wine Bar"
+  ],
+  "dish": "Wine & cocktail bar with small plates",
+  "n": "Moment",
+  "address": "Rue Bonne Fortune 17, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed wine and cocktail bar on Rue Bonne Fortune, also promoted by the city's tourist office.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/moment-liege"
+   ],
+   [
+    "VISITLIEGE",
+    "https://visitezliege.be/en/offre/moment"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Contemporary"
+  ],
+  "dish": "Trendy seasonal sharing menu (Gault&Millau H!P winner 2026)",
+  "n": "Pépin",
+  "address": "Esplanade Simone Veil 2, 4000 Liège, Belgium",
+  "w": "Gault&Millau's 2026 Walloon H!P (hip & trendy) winner — concept, atmosphere and quality on the Esplanade Simone Veil.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/pepin-liege"
+   ],
+   [
+    "PARISMATCHBE",
+    "https://www.parismatch.be/lifestyle/food/2025/11/03/gault-et-millau-quel-restaurant-a-ete-elu-meilleur-du-pays-qui-est-le-chef-de-lannee-suivez-la-ceremonie-en-direct-ETDVEFPLKFA7PIGRZ3D3MHJ3IA/"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Italian"
+  ],
+  "dish": "Italian cooking, a fixture for three decades",
+  "n": "La Cantina",
+  "address": "Rue Saint-Denis 2, 4000 Liège, Belgium",
+  "w": "Gault&Millau-listed Italian restaurant by Saint-Denis, cooking for three decades.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/la-cantina-liege"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Asian"
+  ],
+  "dish": "Glazed duck with Sichuan pepper; beef with bamboo and basil",
+  "n": "Les cinq étoiles",
+  "address": "Quai des Ardennes 99, 4031 Angleur (Liège), Belgium",
+  "w": "Gault&Millau-listed Chinese restaurant on the Ourthe quays at Angleur.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/les-cinq-etoiles-liege-angleur"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Gault&Millau",
+   "Fine Dining"
+  ],
+  "dish": "Creative, refined menu by chef Hyun Frère",
+  "n": "Sauvage",
+  "address": "Route du Condroz 151, 4031 Angleur (Liège), Belgium",
+  "w": "Gault&Millau-listed: chef Hyun Frère's creative, refined cooking on the Route du Condroz.",
+  "closed": false,
+  "sources": [
+   [
+    "GAULTMILLAU",
+    "https://www.gaultmillau.be/en/restaurants/sauvage-liege-angleur"
    ]
   ]
  }
