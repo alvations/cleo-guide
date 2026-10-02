@@ -7,7 +7,7 @@
 ## State (2026-10-02, end of session 2)
 - **Discovered 147** (all ≥2 credible or a lone Michelin/Gault&Millau/UNESCO): LIE 82 (47 food + 35 sights) vs ~85,
   LIER 66 (41 food + 25 sights) vs ~60 → LIER OK, LIE NEED +3.
-- **Rendered: see the last build line in AUDIT.md** (pins injected only for verified coordinates; the rest held).
+- **Rendered 99** (57 sights + 42 food; high 51 · med 48); 48 held UNVERIFIED for pins.
 - Page `cities/liege.html` LIVE under the 🇧🇪 hub (CARD:liege), in `data/countries.json` belgium pages.
 - Gates: sourcecheck / geocheck / statuscheck / buildcheck all PASS; `npm run validate` + `npm test` PASS.
 - Session 2 halted by the **session-wide WebSearch cap (200/200, lead + 5 background geocode agents)**.
