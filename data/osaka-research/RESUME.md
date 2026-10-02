@@ -42,7 +42,12 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 - `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- none (W2 closed — see State).
+- **W3 (session 3, 2026-10-02)** — background workers (brief `_W3_worker_brief.md`, no git): W3A MINAM Michelin food →
+  FOOD_OSAKA_W3A + geo/_geoout_osaka_W3A; W3B ANIME wave → SIGHTS/FOOD_OSAKA_W3B + geo W3B; W3C outer-area sights
+  (SOUTH/BAY/EAST/NORTH/KNSAI + held S1/W1 promotion) → SIGHTS_OSAKA_W3C + geo W3C; W3D outer Michelin food (TNJ/CHUO/
+  EAST/BAY/SOUTH/NORTH) → FOOD_OSAKA_W3D + geo W3D. Main W3M: drinks (bars, kissaten/coffee, craft beer, sake),
+  creators, Time Out canon singles promotion (`_pending_osaka_W2.json`) → FOOD_OSAKA_W3M + geo W3M.
+  If relaunched: whatever W3* files exist are done batches; rebuild, then continue the next-actions list.
 
 ## Search log`.
 

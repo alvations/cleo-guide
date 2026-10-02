@@ -17,5 +17,8 @@ print('card found' if m else 'NO CARD MARKERS')
 if m:
     card=re.sub(r'(<p class="stat">)[^<]*(</p>)', lambda k:k.group(1)+f'{P} sights · {F} food on the map ({n} researched) · updated {today}'+k.group(2), m.group(0), count=1)
     s=s[:m.start()]+card+s[m.end():]; open('index.html','w').write(s)
+c=open('docs/CITIES.md').read()
+c=re.sub(r'(\| `data/san-francisco-research/` \| )[^|]*\|[^|\n]*\|', lambda k:k.group(1)+f'{P+F} | **live (growing)** {today} · {n} researched / {P+F} pinned ({P} sights + {F} food); 2026-10 modernisation run (food-first, Michelin/JB, 4 gates green) |', c, count=1)
+open('docs/CITIES.md','w').write(c)
 print('counts researched',n,'pinned sights',P,'food',F)
 PY
