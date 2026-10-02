@@ -48,3 +48,5 @@
 74. Sakaemachi night: rurubu 17967 (Benriya Yulinglong Asato 388-1 kept w/ Mapple 51445; Hiiki-ya shellfish Asato 379; Nakama Shoten senbero Asato 385; KotsuKotsu); Mapple: Sakaemachi Bottleneck, Sakaemachi Nishiguchi Shoten; Koshuya Honten (Mapple 47000747); Mapple 51283 senbero; Sakaemachi Arcade Bakery (rurubu 22135)
 75. Mapple 51283 senbero: Ten Shiisa, Adachiya, Sangoza Kitchen, Uotomo, Si nada; 51439 izakaya: Urizun, Karakara to Chibugwa (awamori meister), Kozakura (historic), Yuunangii, Nakamura-ya Kumoji (kept w/ rurubu 80042508), Paikaji
 76. Karakara to Chibugwa (Kumoji 3-15-15; OT 91312 certified) + Kozakura (Makishi 3-12-21; OT 1746149, 70 yrs) kept; awamori UNESCO ICH 2024 context (RS 3728682, OT 1466365)
+77-78. Mapple 50478 Minatogawa: oHacorté (2-17-1 #18), COCOROAR, ippe coppe (2-16-1 #26; 47011942); OT 0099 south cafés: Kurukuma, Yabusachi, Karika, Resort Cafe KAI, Rakusui (kept w/ Mapple 47011017), Cafe Lodge; OT 0100 north cafés 8 (not yet mined)
+79. oHacorté rurubu spot 80042843 (citation corrected — an earlier draft wrongly pointed at Transit Cafe's rurubu page); OT news 1869468/1721915 (Hirami lemon cake)

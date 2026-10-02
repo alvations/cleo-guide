@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Okinawa field guide — 73 sights and 12 places to eat, each traceable to its source (UNESCO, Okinawan and Japanese press, Stars and Stripes Okinawa and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Okinawa field guide — 74 sights and 13 places to eat, each traceable to its source (UNESCO, Okinawan and Japanese press, Stars and Stripes Okinawa and vetted creators) on one interactive map with area, collection and cuisine filters.">
 <title>Okinawa Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Okinawa (沖縄), sourced</p>
   <h1>Okinawa<span class="thin">the Ryūkyū islands — Naha, the main island, Kerama, Miyako &amp; Yaeyama</span></h1>
-  <p class="standfirst">73 sights and 12 places to eat across <strong>Okinawa</strong> — the Ryūkyū Kingdom’s castles and sacred groves, Okinawa soba counters and taco-rice joints, from Naha out to the Miyako and Yaeyama islands — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">74 sights and 13 places to eat across <strong>Okinawa</strong> — the Ryūkyū Kingdom’s castles and sacred groves, Okinawa soba counters and taco-rice joints, from Naha out to the Miyako and Yaeyama islands — every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -310,12 +310,14 @@
 
 const S = {
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"ATLAS OBSCURA",u:"",l:""},
+  "FUNJAPAN":{k:"FUNJAPAN",t:"FUN! JAPAN (JTB)",u:"https://www.fun-japan.jp",l:"FUN! JAPAN (JTB)"},
   "GOVONLINE":{k:"GOVONLINE",t:"Highlighting Japan (Government of Japan Public Relations Office)",u:"https://www.gov-online.go.jp/hlj/en/",l:"Highlighting Japan (Government of Japan Public Relations Office)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JCASTLE":{k:"JCASTLE",t:"Jcastle.info — Guide to Japanese Castles",u:"https://jcastle.info",l:"Jcastle.info — Guide to Japanese Castles"},
   "JNTO":{k:"JNTO",t:"JNTO",u:"",l:""},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
   "MIYAKOJIMACITY":{k:"MIYAKOJIMACITY",t:"Miyakojima City cultural-properties site",u:"https://miyakojimabunkazai.jp",l:"Miyakojima City cultural-properties site"},
+  "OCVB":{k:"OCVB",t:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)",u:"https://filmoffice.ocvb.or.jp",l:"Okinawa Convention & Visitors Bureau (Okinawa Film Office)"},
   "RYUKYUSHIMPO":{k:"RYUKYU SHIMPO",t:"RYUKYU SHIMPO",u:"",l:""},
   "SAMURAIARCHIVES":{k:"SAMURAIARCHIVES",t:"SamuraiWiki (Samurai-Archives)",u:"https://samurai-archives.com/wiki/",l:"SamuraiWiki (Samurai-Archives)"},
   "STRIPES":{k:"STRIPES",t:"Stars and Stripes Okinawa",u:"https://okinawa.stripes.com",l:"Stars and Stripes Okinawa"},
@@ -407,7 +409,8 @@ const P = [
 {t:1,a:"YAEYA",n:"Cape Irizaki, Yonaguni — Japan's westernmost point (西崎)",ad:"Yonaguni, Yaeyama District, Okinawa, Japan",la:24.44944,ln:122.93361,w:"Cliff-ringed cape at the west tip of Yonaguni, the last place in Japan to see the sunset: lighthouse, lookout and the 'westernmost point of Japan' monument; Taiwan, 107 km away, is visible on clear days.",k:"Japan's westernmost point",g:["VIEW","FREE","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e7275.html"],["VISITOKINAWA","https://visitokinawajapan.com/destinations/yaeyama-islands/yonaguni-island/"]]},
 {t:2,a:"YAEYA",n:"Yonaguni Monument underwater formation (与那国島海底地形)",ad:"off Arakawabana, Yonaguni, Okinawa, Japan",la:24.43220,ln:123.01610,w:"Terraced underwater rock formation found by a diver in 1986 off Yonaguni's south coast — natural or man-made is still debated; reached on dive and glass-bottom boat trips.",k:"Underwater 'ruins' dive",g:["NATURE","CASTLE"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/yonaguni-monument"],["STRIPES","https://okinawa.stripes.com/travel/yonaguni-okinawa.html"]]},
 {t:2,a:"NAHA",n:"Benzaitendō & Enkaku-ji, Shuri (弁財天堂・円覚寺跡)",ad:"Shuri Castle Park, Shuri, Naha, Okinawa, Japan",la:26.21833,ln:127.71944,w:"Islet hall to the goddess of sea voyages in Enkan-chi pond, opposite the gate of Enkaku-ji — the royal family temple whose National Treasures were lost in 1945.",k:"Royal temple & pond hall",g:["TEMPLE","FREE","ICON"],s:[["VISITOKINAWA","https://visitokinawajapan.com/destinations/okinawa-main-island/southern-okinawa-main-island/shuri/"],["STRIPES","https://okinawa.stripes.com/travel/okinawa-shuri-castle.html"]]},
-{t:2,a:"NANBU",n:"Nirai Kanai Bridge overlook (ニライカナイ橋)",ad:"Chinen, Nanjō, Okinawa, Japan",la:26.16736,ln:127.81504,w:"A sweeping U-shaped road bridge that switchbacks down the Chinen hillside with the Pacific and Kudaka Island ahead — best seen from the tunnel-top viewpoint. It appears in the 2021 anime 'The Aquatope on White Sand', which earned Nanjō a place among the Anime Tourism Association's 88 anime pilgrimage sites.",k:"★ Anime & pop culture — The Aquatope on White Sand (白い砂のアクアトープ, 2021) — bridge shown in the series; Nanjō named an 'Anime Pilgrimage 88' site · Coastal bridge & viewpoint (anime pilgrimage)",g:["ANIME","VIEW","POP","FREE"],s:[["GOVONLINE","https://gov-online.go.jp/eng/publicity/book/hlj/html/202403/202403_06_en.html"],["RYUKYUSHIMPO","https://ryukyushimpo.jp/news/entry-1580769.html"]]}
+{t:2,a:"NANBU",n:"Nirai Kanai Bridge overlook (ニライカナイ橋)",ad:"Chinen, Nanjō, Okinawa, Japan",la:26.16736,ln:127.81504,w:"A sweeping U-shaped road bridge that switchbacks down the Chinen hillside with the Pacific and Kudaka Island ahead — best seen from the tunnel-top viewpoint. It appears in the 2021 anime 'The Aquatope on White Sand', which earned Nanjō a place among the Anime Tourism Association's 88 anime pilgrimage sites.",k:"★ Anime & pop culture — The Aquatope on White Sand (白い砂のアクアトープ, 2021) — bridge shown in the series; Nanjō named an 'Anime Pilgrimage 88' site · Coastal bridge & viewpoint (anime pilgrimage)",g:["ANIME","VIEW","POP","FREE"],s:[["GOVONLINE","https://gov-online.go.jp/eng/publicity/book/hlj/html/202403/202403_06_en.html"],["RYUKYUSHIMPO","https://ryukyushimpo.jp/news/entry-1580769.html"]]},
+{t:1,a:"HOKBU",n:"Kouri Ōhashi Bridge & Kouri Island (古宇利大橋・古宇利島)",ad:"Kouri, Nakijin, Okinawa, Japan",la:26.69540,ln:128.02185,w:"The 1,960 m toll-free bridge (2005) from Yagaji Island across emerald shallows to Kouri, the 'Island of Love' — one of Okinawa's signature drives, with beaches, Heart Rock and garlic-shrimp trucks at the far end.",k:"Sea bridge & island",g:["ICON","VIEW","FREE","MUS"],s:[["STRIPES","https://okinawa.stripes.com/travel/return-to-kouri-island,-okinawa.html"],["OCVB","https://filmoffice.ocvb.or.jp/en/?p=25827"]]}
 ];
 
 const FS = {
@@ -485,6 +488,7 @@ const F = [
 {t:2,a:"HOKBU",n:"Izumi Soba (伊豆味そば)",ad:"Izumi, Motobu, Kunigami District, Okinawa, Japan",cz:["OKINAWA"],la:26.64330,ln:127.93985,w:"Soba stop on the Route 84 'soba road' through Izumi, picked in Okinawa Times' 2023 poll of 900 noodle lovers as one of the north's best.",s:[["OKINAWATIMES","https://www.okinawatimes.co.jp/articles/-/1247918"],["STRIPES","https://okinawa.stripes.com/food-drink/taste-of-okinawa-how,-where-to-slurp-noodles-like-okinawans.html"]]},
 {t:1,a:"HOKBU",n:"Ufuya (百年古家 大家)",ad:"Nago, Okinawa, Japan",cz:["OKINAWA"],la:26.62100,ln:127.96363,w:"A century-old Okinawan farmhouse compound in the hills above Nago serving soki soba and agu pork; one of Okinawa Traveler's locals-recommend five and on Stars and Stripes' soba trail.",s:[["STRIPES","https://okinawa.stripes.com/food-drink/taste-of-okinawa-how,-where-to-slurp-noodles-like-okinawans.html"],["OKINAWATRAVELER","https://www.okinawatraveler.net/feature/0114_sp"],["OKINAWAPREF","https://www.pref.okinawa.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html"]]},
 {t:1,a:"HOKBU",n:"Orion Happy Park — Orion Beer Nago Brewery (オリオンハッピーパーク)",ad:"Nago, Okinawa, Japan",cz:["SAKE"],la:26.58704,ln:127.98953,w:"Okinawa's own beer since 1957: the Nago plant's tour ends with a tasting of just-brewed Orion Draft; shop, restaurant and a small history gallery.",s:[["JAPANGUIDE","https://www.japan-guide.com/e/e7132.html"],["STRIPES","https://okinawa.stripes.com/travel/nago-orion-beer-todoroki-falls.html"]]},
+{t:2,a:"CHUBU",n:"Chatan Harbor Brewery & Restaurant (チャタンハーバーブルワリー)",ad:"53-1 Mihama, Chatan, Okinawa, Japan",cz:["SAKE","INT"],la:26.32165,ln:127.75457,w:"Seafront brewpub a few minutes from American Village brewing five year-round beers on site, with a terrace over the East China Sea at sunset.",s:[["MAPPLE","https://www.mapple.net/spot/47013414/"],["CULTURETRIP","https://theculturetrip.com/asia/japan/articles/a-guide-to-the-best-bars-in-okinawa"]]},
 {t:1,a:"NANBU",n:"Ganso Nakamoto Tempura, Ōjima (元祖中本てんぷら店)",ad:"9 Ōjima, Tamagusuku, Nanjō, Okinawa, Japan",cz:["TEMPURA","OKINAWA"],la:26.13174,ln:127.77228,w:"The queue-every-day tempura stand facing Ōjima fishing port, attached to a fish shop: thick-battered Okinawan tempura of fish, squid, mozuku seaweed and vegetables, eaten hot by the sea.",s:[["RURUBU","https://rurubu.jp/andmore/spot/80043050"],["MAPPLE","https://www.mapple.net/spot/47011723/"]]}
 ];
 
@@ -594,7 +598,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Naha", 26.2176, 127.7007], ["Chūbu — Central Okinawa", 26.3439, 127.7949], ["Nanbu — Southern Okinawa", 26.1404, 127.742], ["Hokubu — Northern Okinawa", 26.6456, 127.9756], ["Kerama", 26.3141, 126.9611], ["Miyako Islands", 24.7834, 125.273], ["Yaeyama Islands", 24.4009, 123.7942]];
+const LABELS=[["Naha", 26.2176, 127.7007], ["Chūbu — Central Okinawa", 26.3427, 127.7926], ["Nanbu — Southern Okinawa", 26.1404, 127.742], ["Hokubu — Northern Okinawa", 26.6478, 127.9776], ["Kerama", 26.3141, 126.9611], ["Miyako Islands", 24.7834, 125.273], ["Yaeyama Islands", 24.4009, 123.7942]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -933,7 +937,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 85 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 87 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
