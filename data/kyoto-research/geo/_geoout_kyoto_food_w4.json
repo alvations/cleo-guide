@@ -178,5 +178,15 @@
   "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
   "status": "open",
   "statusSource": "kyoto.travel restaurant listing (2026)"
+ },
+ {
+  "n": "NARA NIKON",
+  "address": "3 Nabeya-chō, Nara 630-8264, Japan",
+  "lat": 34.686899,
+  "lng": 135.829383,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/en/nara-region/nara/restaurant/nara-nikon",
+  "status": "open",
+  "statusSource": "listed in the current MICHELIN Guide Kyoto Osaka selection, checked 2026-10-02"
  }
 ]

@@ -284,7 +284,8 @@
    "g": [
     "SPRNG",
     "MUS",
-    "HIST"
+    "HIST",
+    "ODD"
    ],
    "s": [
     [
@@ -294,6 +295,10 @@
     [
      "TIMEOUT",
      "https://www.timeout.com/orlando/things-to-do/best-things-to-do-in-orlando-besides-theme-parks"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/orlando-florida"
     ]
    ]
   },
@@ -616,6 +621,386 @@
    ]
   },
   {
+   "t": 2,
+   "a": "DTO",
+   "n": "Jack Kerouac House (Orlando)",
+   "ad": "1418 Clouser Ave, Orlando, FL",
+   "w": "College Park cottage where Kerouac wrote The Dharma Bums (1957–58); now a writers' residency.",
+   "k": "historic odd literary",
+   "g": [
+    "ODD",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jack_Kerouac_House"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/orlando-florida"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KISS",
+   "n": "Lake Nona Sculpture Garden",
+   "ad": "6100 Wave Hotel Dr, Orlando, FL 32827",
+   "w": "Free open-air garden of world-renowned sculptures beside the Lake Nona Wave Hotel (2022).",
+   "k": "odd free sculpture",
+   "g": [
+    "ODD",
+    "SPRNG",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/lake-nona-sculpture-garden"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "MILLS",
+   "n": "Randall Knife Museum",
+   "ad": "4857 South Orange Blossom Trail, Orlando, FL",
+   "w": "Giant switchblade and one of the world's largest pocket-knife collections at Randall Made Knives.",
+   "k": "odd museum collection",
+   "g": [
+    "ODD",
+    "MUS"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/randall-knife-museum"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "IDR",
+   "n": "World's Largest Entertainment McDonald's (Orlando)",
+   "ad": "6875 Sand Lake Rd, Orlando, FL",
+   "w": "'Epic McD' on Sand Lake Rd — arcade and made-to-order menu items.",
+   "k": "odd",
+   "g": [
+    "ODD",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/world-s-largest-entertainment-mcdonalds"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTO",
+   "n": "Global Convergence Sculpture (Orlando)",
+   "ad": "65 E Central Blvd, Orlando, FL",
+   "w": "Globe of realistic Florida shoal bass 'swimming' inside a sculpture.",
+   "k": "odd sculpture free",
+   "g": [
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/global-convergence-sculpture"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTO",
+   "n": "Dr. Phillips Center for the Performing Arts",
+   "ad": "Downtown Orlando, FL",
+   "w": "Glass-walled performing-arts centre (2014) hosting Broadway tours, the Orlando Ballet and concerts.",
+   "k": "performing arts theater concert",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dr._Phillips_Center_for_the_Performing_Arts"
+    ],
+    [
+     "BRITONTHEMOVE",
+     "https://britonthemove.com/things-to-do-in-downtown-orlando/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Church Street Station (Orlando)",
+   "ad": "Church St, Downtown Orlando, FL",
+   "w": "1889 railroad depot with a conical tower at the heart of the Church Street bar-and-restaurant district.",
+   "k": "historic nightlife bars",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Church_Street_Station"
+    ],
+    [
+     "BRITONTHEMOVE",
+     "https://britonthemove.com/things-to-do-in-downtown-orlando/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Orlando Public Library (Downtown)",
+   "ad": "101 E Central Blvd, Orlando, FL",
+   "w": "John Johansen's 1966 Brutalist library; a corner upstairs holds the Disney Collection of park history (Atlas Obscura).",
+   "k": "architecture odd free museum collection",
+   "g": [
+    "ODD",
+    "FREE",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Orange_County_Library_System"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/things-to-do/orlando-florida"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTO",
+   "n": "Camping World Stadium",
+   "ad": "Parramore, Orlando, FL",
+   "w": "1936 stadium, home of the Citrus Bowl and Pop-Tarts Bowl.",
+   "k": "stadium",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Camping_World_Stadium"
+    ],
+    [
+     "OFFICIAL",
+     "https://floridacitrussports.com/things-to-do/things-to-do-in-downtown-orlando"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Kia Center",
+   "ad": "Downtown Orlando, FL",
+   "w": "Arena of the NBA's Orlando Magic.",
+   "k": "arena concert",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kia_Center"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTO",
+   "n": "Inter&Co Stadium",
+   "ad": "Parramore, Orlando, FL",
+   "w": "Soccer-specific stadium of Orlando City SC and the Orlando Pride.",
+   "k": "stadium",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Inter&Co_Stadium"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTO",
+   "n": "Greenwood Cemetery (Orlando)",
+   "ad": "Downtown Orlando, FL",
+   "w": "Orlando's historic 1880 cemetery with founders' graves; volunteer-led moonlight walks.",
+   "k": "historic cemetery",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Greenwood_Cemetery_(Orlando,_Florida)"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTO",
+   "n": "Dr. Phillips House",
+   "ad": "135 Lucerne Circle NE, Orlando, FL",
+   "w": "1893 Queen Anne house on Lake Lucerne, now a B&B (NRHP).",
+   "k": "historic nrhp architecture",
+   "g": [
+    "SPRNG",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dr._P._Phillips_House"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPIC",
+   "n": "Curse of the Werewolf (Epic Universe)",
+   "ad": "Dark Universe, Universal Epic Universe, Orlando, FL",
+   "w": "Spinning family coaster through a werewolf-haunted Darkmoor.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "THEMEPARKINSIDER",
+     "https://www.themeparkinsider.com/flume/202504/10823/"
+    ],
+    [
+     "ATTRACTIONSMAG",
+     "https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EPIC",
+   "n": "Yoshi's Adventure (Epic Universe)",
+   "ad": "Super Nintendo World, Universal Epic Universe, Orlando, FL",
+   "w": "Slow egg-hunt track ride over Mario's world.",
+   "k": "ride family",
+   "g": [
+    "RIDE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "THEMEPARKINSIDER",
+     "https://www.themeparkinsider.com/flume/202504/10823/"
+    ],
+    [
+     "ATTRACTIONSMAG",
+     "https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EPIC",
+   "n": "Dragon Racer's Rally",
+   "ad": "How to Train Your Dragon – Isle of Berk, Universal Epic Universe, Orlando, FL",
+   "w": "Flat ride where riders control the spin of their dragon.",
+   "k": "ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "THEMEPARKINSIDER",
+     "https://www.themeparkinsider.com/flume/202504/10823/"
+    ],
+    [
+     "ATTRACTIONSMAG",
+     "https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EPIC",
+   "n": "Fyre Drill",
+   "ad": "How to Train Your Dragon – Isle of Berk, Universal Epic Universe, Orlando, FL",
+   "w": "Splash-battle boat ride round Berk's harbour.",
+   "k": "boat ride water family",
+   "g": [
+    "RIDE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "THEMEPARKINSIDER",
+     "https://www.themeparkinsider.com/flume/202504/10823/"
+    ],
+    [
+     "ATTRACTIONSMAG",
+     "https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "EPIC",
+   "n": "Constellation Carousel",
+   "ad": "Celestial Park, Universal Epic Universe, Orlando, FL",
+   "w": "Star-sign carousel with spinning ride vehicles in the park's central hub.",
+   "k": "ride family",
+   "g": [
+    "RIDE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "THEMEPARKINSIDER",
+     "https://www.themeparkinsider.com/flume/202504/10823/"
+    ],
+    [
+     "ATTRACTIONSMAG",
+     "https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "KISS",
    "n": "Gatorland",
@@ -906,6 +1291,57 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/Central_Florida_Zoo_and_Botanical_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SPRNG",
+   "n": "Cassadaga Spiritualist Camp",
+   "ad": "Cassadaga, FL",
+   "w": "1894 Spiritualist community — the 'Psychic Capital of the World' — with mediums' cottages, a hotel and history tours (NRHP).",
+   "k": "historic odd nrhp",
+   "g": [
+    "ODD",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Southern_Cassadaga_Spiritualist_Camp_Historic_District"
+    ],
+    [
+     "BUNGALOWER",
+     "https://bungalower.com/2019/09/20/cassadaga/"
+    ],
+    [
+     "FIFTYPLUS",
+     "https://www.fiftyplusadvocate.com/2018/07/26/for-a-spiritual-day-trip-visit-cassadaga/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRNG",
+   "n": "Hontoon Island State Park",
+   "ad": "Near DeLand, FL (St. Johns River)",
+   "w": "Island park reached only by ferry or boat, with trails, a Timucuan shell mound and cabins; reopened 20 Oct after a three-year closure.",
+   "k": "state park river nature",
+   "g": [
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hontoon_Island_State_Park"
+    ],
+    [
+     "ISLANDS",
+     "https://www.islands.com/2148967/hontoon-island-state-park-florida-rustic-escape-trails-fishing-camping-only-accessible-boat/"
+    ],
+    [
+     "MYCENTRALFLFAMILY",
+     "https://mycentralfloridafamily.com/hontoon-island-state-park-reopens/"
     ]
    ]
   },
@@ -3191,6 +3627,119 @@
   },
   {
    "t": 1,
+   "a": "SPACE",
+   "n": "Apollo/Saturn V Center",
+   "ad": "Kennedy Space Center, Merritt Island, FL",
+   "w": "Hall built around a real 363-ft Saturn V moon rocket, reached on the KSC bus tour.",
+   "k": "nasa space rocket apollo saturn v museum",
+   "g": [
+    "SPACE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kennedy_Space_Center_Visitor_Complex"
+    ],
+    [
+     "NATGEO",
+     "https://www.nationalgeographic.com/travel/article/space-coast-things-to-do"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPACE",
+   "n": "Ron Jon Surf Shop (Cocoa Beach)",
+   "ad": "Cocoa Beach, FL",
+   "w": "The 52,000-sq-ft art-deco surf 'palace' on A1A, open 24 hours, with the Cocoa Beach Surf Museum inside.",
+   "k": "shopping surf icon",
+   "g": [
+    "ICON",
+    "MUS",
+    "WATER",
+    "MKT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ron_Jon_Surf_Shop"
+    ],
+    [
+     "VISITTHEUSA",
+     "https://www.visittheusa.co.uk/destination/cocoa-beach-and-melbourne"
+    ],
+    [
+     "ATLANTAMAG",
+     "https://www.atlantamagazine.com/coast/space-coast-fl/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPACE",
+   "n": "Brevard Zoo",
+   "ad": "Melbourne, FL",
+   "w": "Hands-on zoo with kayak tours, giraffe feeding and the Treetop Trek zip line.",
+   "k": "zoo animal family",
+   "g": [
+    "SPRNG",
+    "WILD",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Brevard_Zoo"
+    ],
+    [
+     "ATLANTAMAG",
+     "https://www.atlantamagazine.com/coast/space-coast-fl/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPACE",
+   "n": "Space View Park (Titusville)",
+   "ad": "8 Broad St, Titusville, FL 32796",
+   "w": "Riverfront park facing the launch pads across the Indian River, with astronaut handprint monuments — a classic launch-watching spot.",
+   "k": "space launch park free",
+   "g": [
+    "FREE",
+    "SPACE",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "TRAVELZOO",
+     "https://www.travelzoo.com/uk/blog/things-to-do-on-floridas-space-coast/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPACE",
+   "n": "Jetty Park (Port Canaveral)",
+   "ad": "400 Jetty Park Rd, Cape Canaveral, FL",
+   "w": "4.5-acre beach park with a 1,200-ft fishing pier, campground and front-row seats as cruise ships sail out.",
+   "k": "beach pier",
+   "g": [
+    "WATER"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://goport.com/cruise-blog/?p=17644"
+    ],
+    [
+     "TRAVELZOO",
+     "https://www.travelzoo.com/uk/blog/things-to-do-on-floridas-space-coast/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
    "a": "WEST",
    "n": "Winter Garden Downtown Historic District",
    "ad": "Plant St, Winter Garden, FL",
@@ -3236,6 +3785,91 @@
   }
  ],
  "F": [
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Willie's Pinchos",
+   "ad": "1718 N Goldenrod Rd, Orlando, FL",
+   "w": "Puerto Rican pincho-and-mofongo spot Guy Fieri featured on Diners, Drive-Ins and Dives (S26 E11, 2017). Order: Plantain mofongo with crispy caritas; pinchos.",
+   "cz": [
+    "PR"
+   ],
+   "s": [
+    [
+     "FOX35",
+     "https://www.fox35orlando.com/news/7-orlando-restaurants-guy-fieri-featured-on-diners-drive-ins-and-dives"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/guy-fieris-triple-d-will-feature-six-orlando-restaurants-3771161"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Se7en Bites",
+   "ad": "Orlando, FL",
+   "w": "Bakeshop of sweet-and-savory Southern comfort food featured on Diners, Drive-Ins and Dives (S26 E10, 2017). Order: Nostalgic Southern comfort food and pies.",
+   "cz": [
+    "DES",
+    "US"
+   ],
+   "s": [
+    [
+     "FOX35",
+     "https://www.fox35orlando.com/news/7-orlando-restaurants-guy-fieri-featured-on-diners-drive-ins-and-dives"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/guy-fieris-triple-d-will-feature-six-orlando-restaurants-3771161"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Kaya",
+   "ad": "Mills 50, Orlando, FL",
+   "w": "Modern Filipino restaurant in Mills 50; chef Lordfer Lalicon was a 2025 James Beard Best Chef: South semifinalist; a long-time Time Out Orlando best-restaurants pick. Order: Modern Filipino plates.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.orlandoweekly.com/food-drink/orlando-chefs-and-restaurateurs-earn-2025-james-beard-award-nominations-38689871/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/orlando/restaurants/best-restaurants-in-orlando"
+    ],
+    [
+     "TASTYCHOMPS",
+     "https://tastychomps.com/2025/01/central-florida-recognized-in-2025-james-beard-award-semifinalists.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTO",
+   "n": "Reyes Mezcaleria",
+   "ad": "Downtown Orlando, FL",
+   "w": "Good Salt group's mezcal bar-restaurant; chef Wendy Lopez was the Orlando area's only 2026 James Beard semifinalist (Best Chef: South). Order: Oaxacan-leaning Mexican with a deep mezcal list.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.orlandoweekly.com/food-drink/wendy-lopez-chef-behind-reyes-mezcaleria-and-sparrow-wine-bar-nominated-for-a-2026-james-beard-award/"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/wendy-lopez-chef-behind-reyes-mezcaleria-and-sparrow-wine-bar-nominated-for-a-2026-james-beard-award/"
+    ]
+   ]
+  },
   {
    "t": 1,
    "a": "WPK",
@@ -3331,6 +3965,10 @@
     [
      "VISITORLANDO",
      "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.orlandoweekly.com/food-drink/omo-by-jont-jason-and-sue-chins-good-salt-restaurant-group-named-2025-james-beard-award-finalists-39207929/"
     ]
    ]
   },
@@ -3536,6 +4174,10 @@
     [
      "ORLANDOWEEKLY",
      "https://www.orlandoweekly.com/location/domu-9279669"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.orlandoweekly.com/food-drink/orlando-chefs-and-restaurateurs-earn-2025-james-beard-award-nominations-38689871/"
     ]
    ]
   },
@@ -3744,6 +4386,284 @@
     [
      "INFATUATION",
      "https://www.theinfatuation.com/orlando/reviews/zaru"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DSP",
+   "n": "Four Flamingos, A Richard Blais Florida Kitchen",
+   "ad": "Hyatt Regency Grand Cypress, Lake Buena Vista area, FL",
+   "w": "MICHELIN Recommended; Top Chef winner Richard Blais' Florida-ingredient kitchen; also on Time Out's 2026 best-restaurants list. Order: Florida-sourced plates by Richard Blais.",
+   "cz": [
+    "FLA",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/orlando/restaurants/best-restaurants-in-orlando"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IDR",
+   "n": "Knife & Spoon",
+   "ad": "The Ritz-Carlton Orlando, Grande Lakes, Orlando, FL",
+   "w": "MICHELIN Recommended steak-and-seafood room at the Ritz-Carlton Grande Lakes. Order: Steaks and seafood.",
+   "cz": [
+    "US",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DSP",
+   "n": "Morimoto Asia",
+   "ad": "Disney Springs, Lake Buena Vista, FL",
+   "w": "MICHELIN Recommended Disney Springs restaurant from Iron Chef Morimoto. Order: Pan-Asian plates from Iron Chef Masaharu Morimoto.",
+   "cz": [
+    "JP",
+    "CN",
+    "KR"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MILLS",
+   "n": "Pizza Bruno",
+   "ad": "Curry Ford West, Orlando, FL",
+   "w": "MICHELIN Recommended neighbourhood pizzeria in Curry Ford West. Order: Neapolitan-style pizza.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WPK",
+   "n": "Prato",
+   "ad": "Park Avenue, Winter Park, FL",
+   "w": "MICHELIN Recommended Italian on Winter Park's Park Avenue.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MK",
+   "n": "Citricos",
+   "ad": "Disney's Grand Floridian Resort & Spa, Lake Buena Vista, FL",
+   "w": "MICHELIN Recommended Mediterranean room at the Grand Floridian.",
+   "cz": [
+    "ME",
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Osteria Ester",
+   "ad": "Thornton Park, Orlando, FL",
+   "w": "New MICHELIN Recommended 2026 — Thornton Park Italian.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "BUNGALOWER",
+     "https://bungalower.com/2026/05/29/most-of-orlandos-2026-michelin-love-is-clustered-near-downtown/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "June",
+   "ad": "Thornton Park, Orlando, FL",
+   "w": "New MICHELIN Recommended 2026, Thornton Park. Order: Contemporary.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "BUNGALOWER",
+     "https://bungalower.com/2026/05/29/most-of-orlandos-2026-michelin-love-is-clustered-near-downtown/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Sparrow",
+   "ad": "North of Downtown Orlando, FL",
+   "w": "New MICHELIN Recommended 2026, just north of downtown. Order: Contemporary.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "BUNGALOWER",
+     "https://bungalower.com/2026/05/29/most-of-orlandos-2026-michelin-love-is-clustered-near-downtown/"
+    ],
+    [
+     "JAMESBEARD",
+     "https://www.orlandoweekly.com/food-drink/wendy-lopez-chef-behind-reyes-mezcaleria-and-sparrow-wine-bar-nominated-for-a-2026-james-beard-award/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MILLS",
+   "n": "Smoke & Donuts",
+   "ad": "The Milk District, Orlando, FL",
+   "w": "New MICHELIN Recommended 2026 — barbecue-and-donut joint in the Milk District. Order: Barbecue and donuts.",
+   "cz": [
+    "BBQ",
+    "DES"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "BUNGALOWER",
+     "https://bungalower.com/2026/05/29/most-of-orlandos-2026-michelin-love-is-clustered-near-downtown/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SPRNG",
+   "n": "1921 Mount Dora",
+   "ad": "Mount Dora, FL",
+   "w": "New MICHELIN Recommended 2026, Mount Dora. Order: Contemporary.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "TASTYCHOMPS",
+     "https://tastychomps.com/2026/05/2026-michelin-guide-awardees-announced-for-orlando-at-michelin-guide-florida-award-ceremony.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IDR",
+   "n": "Kappo Tsan",
+   "ad": "Southwest Orlando, FL",
+   "w": "New MICHELIN Recommended 2026 — counter-style kappo cooking in Southwest Orlando. Order: Kappo-style Japanese.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ],
+    [
+     "TASTYCHOMPS",
+     "https://tastychomps.com/2026/05/2026-michelin-guide-awardees-announced-for-orlando-at-michelin-guide-florida-award-ceremony.html"
     ]
    ]
   },
@@ -4024,11 +4944,35 @@
    "u": "https://allears.net/",
    "l": "AllEars.net"
   },
+  "ATLANTAMAG": {
+   "k": "ATLANTAMAG",
+   "t": "Atlanta Magazine",
+   "u": "https://www.atlantamagazine.com/",
+   "l": "Atlanta Magazine"
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/things-to-do/orlando-florida",
+   "l": "Atlas Obscura"
+  },
   "ATTRACTIONSMAG": {
    "k": "ATTRACTIONSMAG",
    "t": "Attractions Magazine",
    "u": "https://attractionsmagazine.com/",
    "l": "Attractions Magazine"
+  },
+  "BRITONTHEMOVE": {
+   "k": "BRITONTHEMOVE",
+   "t": "Brit on the Move",
+   "u": "https://britonthemove.com/",
+   "l": "Brit on the Move"
+  },
+  "BUNGALOWER": {
+   "k": "BUNGALOWER",
+   "t": "Bungalower",
+   "u": "https://bungalower.com/",
+   "l": "Bungalower"
   },
   "CNNTRAVEL": {
    "k": "CNNTRAVEL",
@@ -4060,6 +5004,12 @@
    "u": "https://fathomaway.com/",
    "l": "Fathom"
   },
+  "FIFTYPLUS": {
+   "k": "FIFTYPLUS",
+   "t": "Fifty Plus Advocate (Victor Block)",
+   "u": "https://www.fiftyplusadvocate.com/",
+   "l": "Fifty Plus Advocate (Victor Block)"
+  },
   "FLORIDAGUIDEBOOK": {
    "k": "FLORIDAGUIDEBOOK",
    "t": "Florida Guidebook",
@@ -4071,6 +5021,12 @@
    "t": "Frommer's",
    "u": "https://www.frommers.com/",
    "l": "Frommer's"
+  },
+  "ISLANDS": {
+   "k": "ISLANDS",
+   "t": "Islands.com",
+   "u": "https://www.islands.com/",
+   "l": "Islands.com"
   },
   "LAUGHINGPLACE": {
    "k": "LAUGHINGPLACE",
@@ -4089,6 +5045,12 @@
    "t": "Miss Tourist",
    "u": "https://misstourist.com/",
    "l": "Miss Tourist"
+  },
+  "MYCENTRALFLFAMILY": {
+   "k": "MYCENTRALFLFAMILY",
+   "t": "My Central Florida Family",
+   "u": "https://mycentralfloridafamily.com/",
+   "l": "My Central Florida Family"
   },
   "NATGEO": {
    "k": "NATGEO",
@@ -4162,6 +5124,12 @@
    "u": "https://www.travelpulse.com/",
    "l": "TravelPulse"
   },
+  "TRAVELZOO": {
+   "k": "TRAVELZOO",
+   "t": "Travelzoo",
+   "u": "https://www.travelzoo.com/",
+   "l": "Travelzoo"
+  },
   "VISITFLORIDA": {
    "k": "VISITFLORIDA",
    "t": "VISIT FLORIDA",
@@ -4173,6 +5141,12 @@
    "t": "Visit Orlando (official destination marketing org)",
    "u": "https://www.visitorlando.com/",
    "l": "Visit Orlando (official destination marketing org)"
+  },
+  "VISITTHEUSA": {
+   "k": "VISITTHEUSA",
+   "t": "Visit The USA (Brand USA)",
+   "u": "https://www.visittheusa.co.uk/",
+   "l": "Visit The USA (Brand USA)"
   },
   "WIKIDATA": {
    "k": "WIKIDATA",
@@ -4194,6 +5168,12 @@
   }
  },
  "FS": {
+  "BUNGALOWER": {
+   "k": "BUNGALOWER",
+   "t": "Bungalower",
+   "u": "https://bungalower.com/",
+   "l": "Bungalower"
+  },
   "CLICKORLANDO": {
    "k": "NEWS 6 (WKMG)",
    "t": "News 6 WKMG (ClickOrlando)",
@@ -4212,6 +5192,12 @@
    "u": "https://www.foodnetwork.com/",
    "l": "Food Network"
   },
+  "FOX35": {
+   "k": "FOX 35",
+   "t": "FOX 35 Orlando (WOFL)",
+   "u": "https://www.fox35orlando.com/",
+   "l": "FOX 35 Orlando (WOFL)"
+  },
   "FROMMERS": {
    "k": "FROMMERS",
    "t": "Frommer's",
@@ -4229,6 +5215,12 @@
    "t": "Islands.com",
    "u": "https://www.islands.com/",
    "l": "Islands.com"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "James Beard Foundation Awards",
+   "u": "https://www.jamesbeard.org/awards",
+   "l": "James Beard Foundation Awards"
   },
   "LONELYPLANET": {
    "k": "LONELYPLANET",
@@ -4253,6 +5245,12 @@
    "t": "Orlando Weekly",
    "u": "https://www.orlandoweekly.com/",
    "l": "Orlando Weekly"
+  },
+  "TASTYCHOMPS": {
+   "k": "TASTY CHOMPS",
+   "t": "Tasty Chomps (Ricky Ly)",
+   "u": "https://tastychomps.com/",
+   "l": "Tasty Chomps (Ricky Ly)"
   },
   "TIMEOUT": {
    "k": "TIME OUT",
