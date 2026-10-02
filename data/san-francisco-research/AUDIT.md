@@ -383,3 +383,8 @@ actually state (removed remembered menu details, dates and names that no cited s
 **Batch 10 (searches 70–74):** Le Central (Infatuation × SF Travel × SFGATE 2025 revival), Sears Fine Food (SF Travel × SFGATE) (DTN food);
 Davies Symphony Hall, Bill Graham Civic Auditorium, Orpheum Theatre (Wikipedia pins × SFGATE / Time Out / SF Travel) (DTN sights).
 Held: Wayfare Tavern (moved to Pine St in 2025 — new address not in-hand), Perbacco (Infatuation only), Hallidie Building (no 2nd outlet).
+**Batch 11 (searches 75–77):** Club Fugazi/Dear San Francisco (Wikipedia pin + SF Travel + Time Out; show runs to Jan 2027), Kong Chow Temple
+(Wikipedia pin + SFGATE Chinatown) (NECN sights); Caffe Trieste (Infatuation × Time Out × SFGATE), Eastern Bakery (Infatuation × SFGATE),
+Red Blossom Tea (Time Out × Hoodline × SF Travel) (NECN food). DROPPED: Gold Dust Lounge — closed indefinitely after 2019 flood (Hoodline,
+SFGATE) → not added; Hyde Street Pier — covered by the existing 'SF Maritime NHP & Aquatic Park' card (Balclutha closure noted by NPS) → not
+duplicated; Levi's Plaza (no 2nd outlet) → held.

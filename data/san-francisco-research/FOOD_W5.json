@@ -1007,5 +1007,82 @@
    "Breakfast"
   ],
   "dish": "18 Swedish pancakes"
+ },
+ {
+  "t": 2,
+  "a": "NECN",
+  "n": "Caffe Trieste",
+  "address": "601 Vallejo St, San Francisco, CA 94133",
+  "w": "The West Coast's first espresso house (1956) — the Beat-era literary hangout where little has changed; still roasting its own beans for some of the best espresso in town.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/caffe-trieste"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/caffe-trieste"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/news/article/50-YEARS-OF-ART-AND-COFFEE-An-espresso-pioneer-2520900.php"
+   ]
+  ],
+  "cz": [
+   "Café",
+   "Coffee",
+   "Italian"
+  ],
+  "dish": "espresso / cappuccino"
+ },
+ {
+  "t": 2,
+  "a": "NECN",
+  "n": "Eastern Bakery",
+  "address": "720 Grant Ave, San Francisco, CA 94108",
+  "w": "Chinatown's oldest Chinese bakery (1924, the Lee family) — the place for coffee crunch cake: yellow sponge layered with mocha cream and toffee crunch.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/eastern-bakery"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/Chinatown-oldest-Eastern-bakery-San-Francisco-15662074.php"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Chinese"
+  ],
+  "dish": "coffee crunch cake"
+ },
+ {
+  "t": 3,
+  "a": "NECN",
+  "n": "Red Blossom Tea Company",
+  "address": "831 Grant Ave, San Francisco, CA 94108",
+  "w": "Family-run Chinatown teahouse (since 1985) serving rare teas from China and Taiwan, sourced on yearly trips through the provinces — black, white, flowering and aged teas.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/shopping/red-blossom-tea-company"
+   ],
+   [
+    "HOODLINE",
+    "https://hoodline.com/2015/10/red-blossom-tea-celebrates-30-years-in-chinatown/"
+   ],
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/article/why-you-need-to-visit-san-franciscos-chinatown"
+   ]
+  ],
+  "cz": [
+   "Tea"
+  ],
+  "dish": "rare Chinese & Taiwanese teas"
  }
 ]
