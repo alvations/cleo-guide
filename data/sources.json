@@ -11757,11 +11757,11 @@
         },
         {
           "key": "OFFICIAL",
-          "name": "OFFICIAL",
+          "name": "The place's / franchise's own official site",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Owner's own page — corroborates facts/status only; never one of the two credible sources on its own for a restaurant (Japan brief)."
         },
         {
           "key": "GOODLUCKTRIP",
@@ -11917,59 +11917,102 @@
         },
         {
           "key": "ANIMETOURISM88",
-          "name": "ANIMETOURISM88",
+          "name": "Anime Tourism Association — '88 Anime Spots' (animetourism88.com)",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Annual pilgrimage-site selection by the Anime Tourism Association (KADOKAWA/JTB/JAL et al.); counts as one credible source per the Japan brief.",
+          "url": "https://animetourism88.com/"
         },
         {
           "key": "GAMER4",
-          "name": "GAMER4",
+          "name": "4Gamer.net",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Long-running major Japanese games/anime news outlet with named editors; corroborating.",
+          "url": "https://www.4gamer.net/"
         },
         {
           "key": "HAKODATEASAICHI",
-          "name": "HAKODATEASAICHI",
+          "name": "Hakodate Morning Market cooperative (hakodate-asaichi.com)",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "The market body's own member directory — a local institution curating its members (not the shop's own site); one corroborating local source.",
+          "url": "https://www.hakodate-asaichi.com/"
         },
         {
           "key": "KUSHIROTOURISM",
-          "name": "KUSHIROTOURISM",
+          "name": "Kushiro & Lake Akan Tourism (kushiro-lakeakan.com)",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Official site of the Kushiro City / Lake Akan tourism association — tourism body of record.",
+          "url": "https://en.kushiro-lakeakan.com/"
         },
         {
           "key": "TIMEOUT",
-          "name": "TIMEOUT",
+          "name": "Time Out (Tokyo/Japan)",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "International city-guide brand with named editors (Japan brief: TIMEOUT).",
+          "url": "https://www.timeout.com/tokyo"
         },
         {
           "key": "TRAVELJP",
-          "name": "TRAVELJP",
+          "name": "トラベルjp (travel.co.jp)",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Japanese editorial travel-guide site written by named 'navigator' writers; corroborating.",
+          "url": "https://www.travel.co.jp/"
         },
         {
           "key": "TRAVELWATCH",
-          "name": "TRAVELWATCH",
+          "name": "Impress Travel Watch",
           "type": "editorial",
           "rank": 3,
           "verified": true,
-          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+          "credible": "Japanese travel-industry news (Impress Watch) with named reporters; corroborating.",
+          "url": "https://travel.watch.impress.co.jp/"
+        },
+        {
+          "key": "LAKETOYA",
+          "name": "Tōyako Onsen Tourism Association (laketoya.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism association of Tōyako Onsen — tourism body of record.",
+          "url": "https://www.laketoya.com/"
+        },
+        {
+          "key": "NISEKOTOURISM",
+          "name": "Niseko Promotion Board (niseko-ta.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Niseko town tourism organisation — tourism body of record.",
+          "url": "https://www.niseko-ta.jp/"
+        },
+        {
+          "key": "OBIKAN",
+          "name": "Obihiro Tourism & Convention Association (obikan.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Obihiro tourism body — tourism body of record.",
+          "url": "https://obikan.jp/"
+        },
+        {
+          "key": "RISHIRIPLUS",
+          "name": "Rishiri Plus (rishiri-plus.jp) — Rishiri Island tourism portal",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Island tourism portal listing local shops ('shima-shop'); one corroborating local source.",
+          "url": "https://www.rishiri-plus.jp/"
         }
       ],
       "creators": [
@@ -11982,6 +12025,16 @@
           "scale": "~1M+ YouTube subscribers; one of the most-read Japanese food blogs in English",
           "niche": "Japanese home cooking + Japan travel guides",
           "credible": "Long-running (since 2011), widely cited Japanese-food creator with a first-hand, dated Hokkaido/Sapporo travel guide naming each place. ONE corroborating source, never institutional."
+        },
+        {
+          "key": "RAMENADVENTURES",
+          "name": "Ramen Adventures (Brian MacDuckston)",
+          "platform": "Blog + YouTube",
+          "handle": "@RamenAdventures",
+          "url": "https://ramenadventures.com/",
+          "scale": "Tokyo-based ramen writer since 2008; author of 'Ramen at Home'; ~100k+ YouTube; publishes annual best-ramen lists",
+          "niche": "ramen across Japan, first-hand dated reviews",
+          "credible": "Named in the Japan brief as a vetted creator; each listing is a first-hand review of the specific shop. ONE corroborating source, never institutional."
         }
       ]
     },
@@ -13953,6 +14006,30 @@
           "rank": 3,
           "verified": true,
           "credible": "The English-language anime industry's news outlet of record (since 1998); one source for anime/pop-culture places."
+        },
+        {
+          "key": "KYOTOPREF",
+          "name": "Visit Kyoto Yamashiro (Kyoto Prefectural Government)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Kyoto Prefecture's official regional tourism pages; official tourism board, one source."
+        },
+        {
+          "key": "AMANOHASHIDATE",
+          "name": "Amanohashidate Tourism Association (amanohashidate.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism site for Amanohashidate/Miyazu; official tourism board, one source."
+        },
+        {
+          "key": "JNTO",
+          "name": "JNTO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": [

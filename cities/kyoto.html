@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Kyoto field guide — 175 sights and 113 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
+<meta name="description" content="Kyoto field guide — 178 sights and 118 places to eat, each traceable to its source (UNESCO, the Agency for Cultural Affairs, Michelin, japan-guide and the Kyoto City Official Travel Guide) on one interactive map with area, collection and cuisine filters.">
 <title>Kyoto Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Kyoto (京都), sourced</p>
   <h1>Kyoto<span class="thin">Gion & Higashiyama · Rakuchū · Sakyō · Kita · Arashiyama · Fushimi · the mountains · Uji & Nara</span></h1>
-  <p class="standfirst">175 sights and 113 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">178 sights and 118 places to eat across <strong>Kyoto</strong> and its day-trip ring, every one traceable to its source: the seventeen UNESCO <em>Historic Monuments of Ancient Kyoto</em> and Nara's World Heritage temples, Gion and Pontochō, Arashiyama and Ōhara, Michelin-starred kaiseki and Bib Gourmand soba, saba-zushi and eel, Uji tea and the Fushimi sake district. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -311,11 +311,13 @@
 <script>
 
 const S = {
+  "AMANOHASHIDATE":{k:"AMANOHASHIDATE",t:"Amanohashidate Tourism Association (amanohashidate.jp)",u:"https://www.amanohashidate.jp/lang/en/",l:"Amanohashidate Tourism Association (amanohashidate.jp)"},
   "ANATRAVEL":{k:"ANATRAVEL",t:"ANA Japan Travel Planner",u:"https://www.ana.co.jp/en/us/japan-travel-planner/",l:"ANA Japan Travel Planner"},
   "ANIMENEWSNETWORK":{k:"ANIMENEWSNETWORK",t:"Anime News Network",u:"https://www.animenewsnetwork.com/",l:"Anime News Network"},
   "BUNKACHO":{k:"AGENCY FOR CULTURAL AFFAIRS",t:"AGENCY FOR CULTURAL AFFAIRS",u:"",l:""},
   "INSIDEKYOTO":{k:"INSIDEKYOTO",t:"Inside Kyoto (Chris Rowthorn)",u:"https://www.insidekyoto.com/",l:"Inside Kyoto (Chris Rowthorn)"},
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
+  "JNTO":{k:"JNTO",t:"JNTO",u:"",l:""},
   "JTA":{k:"JTA",t:"Japan Tourism Agency multilingual commentary database (MLIT)",u:"https://www.mlit.go.jp/tagengo-db/",l:"Japan Tourism Agency multilingual commentary database (MLIT)"},
   "KYOHAKU":{k:"KYOHAKU",t:"Kyoto National Museum",u:"https://www.kyohaku.go.jp/eng/",l:"Kyoto National Museum"},
   "KYOTOCITY":{k:"KYOTOCITY",t:"KYOTOCITY",u:"",l:""},
@@ -519,10 +521,14 @@ const P = [
 {t:3,a:"UJI",n:"Saidai-ji (西大寺), Nara",ad:"1-1-5 Saidaiji Shiba-machi, Nara",la:34.69361,ln:135.77950,w:"The 'Great Western Temple', once one of Nara's seven great temples and counterpart to Tōdai-ji; Shakyamuni in the main hall and a fierce Aizen Myō-ō (spring and autumn viewings).",g:["TEMPLE","MUS","VIEW"],s:[["VISITNARA","https://www.visitnara.jp/venues/A00498/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/西大寺_(奈良市)"]]},
 {t:3,a:"UJI",n:"Uji Shrine (宇治神社)",ad:"1 Uji Yamada, Uji, Kyoto Prefecture",la:34.89105,ln:135.81070,w:"Nagare-zukuri shrine 100 m below Ujigami Shrine — the two were one 'lower and upper shrine' until separated in the Meiji period.",g:["TEMPLE","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3978.html"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/宇治神社"]]},
 {t:3,a:"UJI",n:"Agata Shrine (縣神社), Uji",ad:"72 Uji Renge, Uji, Kyoto Prefecture",la:34.88833,ln:135.80583,w:"Shrine by Byōdō-in's south entrance, ten minutes' walk from Uji Station.",g:["TEMPLE","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3975.html"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/縣神社_(宇治市)"]]},
-{t:2,a:"UJI",n:"Kasugayama Primeval Forest (春日山原始林)",ad:"Kasugayama, Nara",la:34.68431,ln:135.86453,w:"Sacred forest on Mount Kasuga behind Kasuga Taisha — a component of the UNESCO 'Historic Monuments of Ancient Nara'.",g:["UNESCO","NATURE","TEMPLE","CASTLE"],s:[["UNESCO","https://whc.unesco.org/en/list/870"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/春日山原始林"]]}
+{t:2,a:"UJI",n:"Kasugayama Primeval Forest (春日山原始林)",ad:"Kasugayama, Nara",la:34.68431,ln:135.86453,w:"Sacred forest on Mount Kasuga behind Kasuga Taisha — a component of the UNESCO 'Historic Monuments of Ancient Nara'.",g:["UNESCO","NATURE","TEMPLE","CASTLE"],s:[["UNESCO","https://whc.unesco.org/en/list/870"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/春日山原始林"]]},
+{t:2,a:"KYFU",n:"Chion-ji (智恩寺), Amanohashidate",ad:"Monju, Miyazu, Kyoto Prefecture (south end of the Amanohashidate sandbar)",la:35.55858,ln:135.18378,w:"Rinzai Zen temple at the sandbar's southern entrance housing one of Japan's 'Three Important Monju Bosatsu' statues — students pray here for wisdom; 1500s two-storey tahōtō pagoda.",g:["TEMPLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3993.html"],["AMANOHASHIDATE","https://www.amanohashidate.jp/lang/en/spots/chionji/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/智恩寺_(宮津市)"]]},
+{t:3,a:"KYFU",n:"Moto-Ise Naikū Kōtai Jinja (元伊勢内宮皇大神社)",ad:"Fukuchiyama, Kyoto Prefecture",la:35.43014,ln:135.15450,w:"Said to have held Amaterasu's sacred mirror before it settled at Ise Jingū; keeps a tradition of prayers to repel oni.",g:["TEMPLE","NATURE"],s:[["KYOTOTOURISM","https://global.kyoto.travel/en/faq/detail.php?faq_id=507"],["JNTO","https://www.japan.travel/en/destinations/kansai/kyoto/another-kyoto/"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/皇大神社_(福知山市)"]]},
+{t:3,a:"KYFU",n:"Fukuchiyama Castle (福知山城)",ad:"Fukuchiyama, Kyoto Prefecture",la:35.29681,ln:135.12967,w:"Castle of the town Akechi Mitsuhide built while ruling the Tanba region under Oda Nobunaga.",g:["CASTLE","NIGHT"],s:[["KYOTOTOURISM","https://global.kyoto.travel/en/faq/detail.php?faq_id=508"],["WIKIPEDIA_JA","https://ja.wikipedia.org/wiki/福知山城"]]}
 ];
 
 const FS = {
+  "AMANOHASHIDATE":{k:"AMANOHASHIDATE",t:"Amanohashidate Tourism Association (amanohashidate.jp)",u:"https://www.amanohashidate.jp/lang/en/",l:"Amanohashidate Tourism Association (amanohashidate.jp)"},
   "ASIA50":{k:"ASIA'S 50 BEST",t:"ASIA'S 50 BEST",u:"",l:""},
   "CULTURETRIP":{k:"CULTURETRIP",t:"Culture Trip",u:"https://theculturetrip.com/",l:"Culture Trip"},
   "FODORS":{k:"FODORS",t:"Fodor's Travel",u:"https://www.fodors.com/",l:"Fodor's Travel"},
@@ -531,6 +537,7 @@ const FS = {
   "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"JAPAN-GUIDE",u:"",l:""},
   "JAPANTIMES":{k:"THE JAPAN TIMES",t:"THE JAPAN TIMES",u:"",l:""},
   "KANSAIAIRPORT":{k:"KANSAIAIRPORT",t:"Kansai International Airport — Explore Kansai",u:"https://www.kansai-airport.or.jp/explorekansai/",l:"Kansai International Airport — Explore Kansai"},
+  "KYOTOPREF":{k:"KYOTOPREF",t:"Visit Kyoto Yamashiro (Kyoto Prefectural Government)",u:"https://www.pref.kyoto.jp/kyotoyamashiro/en/",l:"Visit Kyoto Yamashiro (Kyoto Prefectural Government)"},
   "KYOTOTOURISM":{k:"KYOTO CITY TOURISM",t:"KYOTO CITY TOURISM",u:"",l:""},
   "LEAFKYOTO":{k:"LEAFKYOTO",t:"Leaf Kyoto (京都リーフ)",u:"https://www.leafkyoto.net/",l:"Leaf Kyoto (京都リーフ)"},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
@@ -696,7 +703,12 @@ const F = [
 {t:1,a:"CTR",n:"Torisaki",ad:"292-1 Takoyakushi-chō, Nakagyō-ku, Kyoto",cz:["IZAKAYA","FINE"],la:35.01231,ln:135.75839,w:"One MICHELIN Star yakitori counter; the name means 'the future of yakitori'.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisaki"]]},
 {t:2,a:"CTR",n:"Tempura Mizuki",ad:"B1F The Ritz-Carlton Kyoto, Nakagyō-ku, Kyoto",cz:["TEMPURA","FINE"],la:35.01370,ln:135.77088,w:"One MICHELIN Star tempura counter by the Kamo River, in the Ritz-Carlton.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/tempura-mizuki"]]},
 {t:2,a:"CTR",n:"Yakitori Kyoto Tachibana",ad:"B1F, 612 Tachibana-chō, Nakagyō-ku, Kyoto",cz:["IZAKAYA"],la:35.01210,ln:135.76593,w:"MICHELIN-selected yakitori counter downtown.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/yakitori-kyoto-tachibana"]]},
-{t:1,a:"KYFU",n:"Mukai Shuzō (向井酒造), Ine",ad:"Ine Bay (by the funaya), Ine-chō, Yosa-gun, Kyoto Prefecture",cz:["SAKE"],la:35.67475,ln:135.28639,w:"Founded 1754 — 'the sake brewery closest to the sea in Japan', facing the Ine funaya boathouses.",s:[["MATCHA","https://matcha-jp.com/en/23280"],["TIMEOUT","https://www.timeout.com/tokyo/bars-and-pubs/guide-to-japanese-sake-by-region"]]}
+{t:1,a:"KYFU",n:"Mukai Shuzō (向井酒造), Ine",ad:"Ine Bay (by the funaya), Ine-chō, Yosa-gun, Kyoto Prefecture",cz:["SAKE"],la:35.67475,ln:135.28639,w:"Founded 1754 — 'the sake brewery closest to the sea in Japan', facing the Ine funaya boathouses.",s:[["MATCHA","https://matcha-jp.com/en/23280"],["TIMEOUT","https://www.timeout.com/tokyo/bars-and-pubs/guide-to-japanese-sake-by-region"]]},
+{t:2,a:"CTR",n:"wabiya (Shimogyō)",ad:"554 Sangen-chō, Shimogyō-ku, Kyoto 600-8097",cz:["IZAKAYA"],la:35.00024,ln:135.76164,w:"MICHELIN-listed yakitori and chicken-speciality restaurant.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/wabiya"]]},
+{t:1,a:"CTR",n:"Kikunoi Roan (菊乃井 露庵)",ad:"118 Saitō-chō, Shimogyō-ku, Kyoto 600-8012",cz:["KAISEKI","FINE"],la:35.00345,ln:135.77065,w:"Two MICHELIN Stars (2026): the Kikunoi house's counter restaurant — Inside Kyoto calls it the more affordable, less orthodox of the two.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-roan"],["INSIDEKYOTO","https://www.insidekyoto.com/best-kaiseki-japanese-haute-cuisine-in-kyoto"]]},
+{t:2,a:"HGS",n:"Takocho (蛸長)",ad:"1-237 Miyagawa-suji, Higashiyama-ku, Kyoto 605-0801",cz:["IZAKAYA"],la:35.00201,ln:135.77162,w:"MICHELIN-listed (2026) oden counter in the Miyagawa-chō geisha quarter.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/takocho"]]},
+{t:2,a:"CTR",n:"Torisho sai",ad:"237 Daimonji-chō, Nakagyō-ku, Kyoto 604-8315",cz:["IZAKAYA"],la:35.01069,ln:135.74983,w:"MICHELIN-listed yakitori counter in Nakagyō.",s:[["MICHELIN","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/torisho-sai"]]},
+{t:1,a:"CTR",n:"DODICI",ad:"239 Kamihakusan-chō, Nakagyō-ku, Kyoto 604-0943",cz:["INT","FINE"],la:35.01187,ln:135.76573,w:"One MICHELIN Star (2026) Italian: a chef trained in Italy giving the cooking a Japanese essence.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/dodici"]]}
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -721,7 +733,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([34.9022,135.7536],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([34.9032,135.7522],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -805,7 +817,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Higashiyama-ku", 34.9999, 135.7772], ["Sakyō-ku", 35.0267, 135.7874], ["Central — Nakagyō", 35.0053, 135.7603], ["Kita", 35.0357, 135.7487], ["Rakusai — Ukyō", 35.0129, 135.6841], ["Fushimi", 34.9547, 135.784], ["Rakuhoku mountains", 35.1217, 135.771], ["Uji", 34.7397, 135.8219], ["Kyoto Prefecture", 35.2554, 135.5528]];
+const LABELS=[["Higashiyama-ku", 35.0, 135.7771], ["Sakyō-ku", 35.0267, 135.7874], ["Central — Nakagyō", 35.0054, 135.7604], ["Kita", 35.0357, 135.7487], ["Rakusai — Ukyō", 35.0129, 135.6841], ["Fushimi", 34.9547, 135.784], ["Rakuhoku mountains", 35.1217, 135.771], ["Uji", 34.7397, 135.8219], ["Kyoto Prefecture", 35.2879, 135.4784]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1144,7 +1156,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 288 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 296 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
