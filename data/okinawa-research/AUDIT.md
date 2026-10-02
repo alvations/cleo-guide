@@ -43,3 +43,30 @@ No place below was added from memory; every source URL cited was returned by a s
 ### Stage 6 — build
 Not built: 6 verified pins is not a map. `rebuild-city.py okinawa` (prep) ran: consolidate 11 sights + 2 food,
 sourcecheck PASS 13/13. Card stays "Being built"; Japan not flipped live by this agent.
+
+## 2026-10-02 — Wave W2 (relaunch; all areas) — in progress, appended per batch
+**Method.** Stars and Stripes Okinawa (`STRIPES`) is the coordinate workhorse: its staff articles print venue GPS,
+and list articles ("12 Battle of Okinawa sites", "List of beaches", soba guide, castle pieces) yield 5–12 GPS per
+search. Each Stripes place is then paired with an independent second source — japan-guide, Visit Okinawa, Lonely
+Planet, Mapple (Shobunsha まっぷる editorial spot pages; new key `MAPPLE`), Atlas Obscura, Savor Japan — never two
+Stripes articles (one outlet = one source; Itokazu Castle was held for exactly this reason). Island coordinates come
+from Wikipedia infoboxes and Atlas Obscura place pages. Raw per-search log: `_okinawa_w2_notes.md`.
+**Policy call (recorded):** for a sight that *is* a small island (Taketomi 5 km², Kurima 2.8 km², Ikema 2.8 km²)
+the island's own Wikipedia coordinate is accepted at `med`/`low` — it is the place's coordinate, not a town
+centroid. Ikema (minute precision) is `low` → re-verify queue.
+**Batches 1–4 (commits through batch 4):** +52 places (45 sights, 7 food). Channel mix: editorial/travel
+(japan-guide, Visit Okinawa/JNTO, Lonely Planet, Mapple, Savor Japan) ~60 citations; Stripes ~40; institutional
+(Wikipedia-backed designations, Miyakojima city register) ~5; Atlas Obscura 6; creators 0 (see CREATORS_OKINAWA_W2
+rejected list — no vetted creator surfaced a place-specific Okinawa video/post in 4 creator queries).
+**Geocode:** 57 W2 records; resolves W1 UNVERIFIED Nakagusuku, Zakimi, Katsuren, Makishi, King Tacos (Stripes GPS).
+UNVERIFIED (helper queue): Mikasa, Jack's Steak House, Yūnangi, Sakaemachi, Sunayama, Higashi-hennazaki, Irabu
+Bridge, Gangala, Bise Fukugi, Fukushū-en, Hate-no-hama (+ W1 Shikinaen, Nakijin).
+**MEASURED & held (single source so far):** Itokazu Castle (Stripes ×2), Ufuya Nago, Sawanoya, Kairo, Heiwaen soba,
+Ishigufu, Captain Kangaroo, HAPI TAPI, Orion Happy Park, Kakazu Ridge, Sugar Loaf, Nirai Kanai Bridge, Cape Zanpa
+drive-in park, Hanagasa Shokudo, Shuri Soba, Arakaki Zenzai, GATE1 Kin, Tamaya zenzai, Kudaka Island, Aharen Beach,
+Kondoi Beach, Urauchi River, court-cuisine Mie / Sui Dunchi (Japan Times only). **Rejected recommenders:** taiken.co,
+hamoni.jp, livelyhotels, japanactivity, aumo, veltra, nap-camp, haveagood-holiday, wanderlog, trip.com.
+**Closures:** none found so far (statuses from the citing outlets, 2025–26).
+**Build (mid-wave, bg agent):** 49/51 rendered; sourcecheck/geocheck/statuscheck/buildcheck PASS; validate+test PASS.
+Derived view landed in the sea (25.57,126.16 z8) → opt-in `CFG["VIEW"]` added to tools/belgium_build.py, Okinawa sets
+(26.45,127.85,9).
