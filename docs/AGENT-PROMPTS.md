@@ -145,6 +145,7 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-10-02 | Singapore NVN | food+sights W1 | Newton FC Bib canon | 6 | 15 held single-source; halted by WebSearch 200 cap | FOOD/SIGHTS/CREATORS/SOURCES_NOVENA.json, geo/_geoout_novena_w1.json |
 | 2026-10-02 | Kyoto | W1 HGS sights + canon (partial) | Higashiyama icons + Michelin Bib | 12 (11 HGS + 1 CTR; 3 pinned) | halted after ~14 Kyoto searches: session WebSearch cap 200/200; 16 leads held | SIGHTS/FOOD/SOURCES_KYOTO_*, geo/_geoout_kyoto_hgs1.json, _PENDING_LEADS.json |
 | 2026-10-02 | Okinawa | W1 sights+canon (truncated) | Naha UNESCO backbone, soba/taco-rice canon | 13 (6 pinned, 7 UNVERIFIED) | session WebSearch cap 200/200 hit after 17 searches; Shuri Soba/Miyazato/Tsuboya held 1-src | SIGHTS/FOOD/SOURCES_OKINAWA_W1.json, geo/_geoout_okinawa_W1.json |
+| 2026-10-02 | Madison WI | food canon W1 (truncated) | curds/fish fry/supper clubs/JB honorees | 3 | 19 food + 1 sight held in _PENDING_LEADS.md (dish/address/2026 status); halted by shared 200-call WebSearch cap after ~22 searches | FOOD_CANON.json, SOURCES_W1.json, geo/_geoout_w1.json |
 
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
 Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source

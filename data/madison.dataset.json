@@ -1,0 +1,288 @@
+{
+ "areas": [
+  {
+   "id": "CAP",
+   "n": "The Isthmus & Capitol Square (downtown, King St, Monona Terrace)"
+  },
+  {
+   "id": "UW",
+   "n": "UW–Madison campus & State Street (Bascom Hill, Memorial Union, Picnic Point)"
+  },
+  {
+   "id": "EAST",
+   "n": "East side — Willy Street, Atwood, Schenk-Atwood, Monona & the north side"
+  },
+  {
+   "id": "WEST",
+   "n": "West side — Monroe Street, the Arboretum, Hilldale & Odana"
+  },
+  {
+   "id": "MVF",
+   "n": "Middleton, Verona & Fitchburg"
+  },
+  {
+   "id": "DANE",
+   "n": "Dane County towns (Mount Horeb, Stoughton, Sun Prairie, McFarland, Cross Plains, Mazomanie)"
+  },
+  {
+   "id": "TRIP",
+   "n": "Day trips (Spring Green & Taliesin, New Glarus, House on the Rock, Devil's Lake & Baraboo)"
+  }
+ ],
+ "ac": {
+  "CAP": "#C0504D",
+  "UW": "#41729F",
+  "EAST": "#9BBB59",
+  "WEST": "#8064A2",
+  "MVF": "#E8973A",
+  "DANE": "#4BACC6",
+  "TRIP": "#B5838D"
+ },
+ "cuisines": [
+  {
+   "id": "CURD",
+   "n": "Cheese Curds & Cheese"
+  },
+  {
+   "id": "FISH",
+   "n": "Friday Fish Fry"
+  },
+  {
+   "id": "SUPPR",
+   "n": "Supper Clubs & Brandy Old Fashioneds"
+  },
+  {
+   "id": "TAV",
+   "n": "Taverns, Brats & Burgers"
+  },
+  {
+   "id": "CREAM",
+   "n": "Ice Cream & Frozen Custard"
+  },
+  {
+   "id": "BAKE",
+   "n": "Bakeries & Kringle"
+  },
+  {
+   "id": "SEA",
+   "n": "Hmong, Lao & Southeast Asian"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Asian"
+  },
+  {
+   "id": "BREW",
+   "n": "Breweries, Wineries & Distilleries"
+  },
+  {
+   "id": "FINE",
+   "n": "Farm-to-Table & Fine Dining"
+  },
+  {
+   "id": "US",
+   "n": "American & New American"
+  },
+  {
+   "id": "PIZZA",
+   "n": "Pizza"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican & Latin"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean, Middle Eastern & African"
+  },
+  {
+   "id": "EURO",
+   "n": "European (Swiss, German, Norwegian, Italian)"
+  },
+  {
+   "id": "BREAK",
+   "n": "Breakfast, Cafés & Coffee"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Cheese Shops"
+  },
+  {
+   "id": "FARM",
+   "n": "Farms & Orchards"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Creator Favorite"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "FLW",
+   "n": "Frank Lloyd Wright"
+  },
+  {
+   "id": "CAMPUS",
+   "n": "UW–Madison Campus"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "LAKES",
+   "n": "Lakes, Parks & Gardens"
+  },
+  {
+   "id": "OUTDOOR",
+   "n": "Hikes, Trails & Outdoors"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARTS",
+   "n": "Performing Arts & Music"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [],
+ "F": [
+  {
+   "t": 1,
+   "a": "EAST",
+   "n": "Toby's Supper Club",
+   "ad": "3717 S Dutch Mill Rd, Madison, WI 53718",
+   "w": "A south-east-side roadhouse supper club in some form since the 1930s, still family-run, with the relish tray, cinnamon rolls and frog legs of the classic Wisconsin menu. Swept the 2025 Madison reader vote: best restaurant, best fish fry and best old fashioned. <strong>Order:</strong> Friday cod or catfish fish fry, fried perch, the hand-mixed brandy old fashioned, hashbrowns with American cheese on top.",
+   "cz": [
+    "SUPPR",
+    "FISH"
+   ],
+   "s": [
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-fish-fry-2025"
+    ],
+    [
+     "CAPTIMES",
+     "https://captimes.com/entertainment/dining/supper-club-summer-staycation-style/article_b00e14b0-c2c1-5d9e-a986-5085fd24639e.html"
+    ],
+    [
+     "ISTHMUS",
+     "https://isthmus.com/locations/tobys-supper-club/"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/food-drink/restaurants/toby-s-supper-club"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CAP",
+   "n": "The Old Fashioned",
+   "ad": "23 N Pinckney St, Madison, WI 53703",
+   "w": "The Capitol Square's all-Wisconsin tavern and supper-club homage — Wisconsin beers, brandy old fashioneds and curds. Voted Madison's best cheese curds in the 2025 reader survey and named by Isthmus associate editor Linda Falkenstein among her top fish fries. <strong>Order:</strong> Beer-battered cheese curds (house recipe batter) and the Friday fish fry.",
+   "cz": [
+    "TAV",
+    "CURD",
+    "FISH"
+   ],
+   "s": [
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-cheese-curds-2025"
+    ],
+    [
+     "CITYCAST",
+     "https://madison.citycast.fm/podcasts/where-do-you-friday-fish-fry"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/madison/reviews/the-old-fashioned"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CAP",
+   "n": "Tornado Club Steak House",
+   "ad": "116 S Hamilton St, Madison, WI 53703",
+   "w": "Off the Capitol Square, an old-school supper-club steakhouse with classic service — 2012 James Beard Best Chef Tory Miller's date-night pick, and runner-up for Madison's best old fashioned in the 2025 reader vote. <strong>Order:</strong> Barrel-aged brandy old fashioned and old-school steakhouse steaks.",
+   "cz": [
+    "SUPPR"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://jamesbeard.org/blog/ask-chef-tory-miller-where-should-we-eat-madison-area"
+    ],
+    [
+     "UPNORTHNEWS",
+     "https://upnorthnewswi.com/food-guide/madison/best-old-fashioned-2025"
+    ]
+   ]
+  }
+ ],
+ "S": {},
+ "FS": {
+  "CAPTIMES": {
+   "k": "CAP TIMES",
+   "t": "The Cap Times",
+   "u": "https://captimes.com/",
+   "l": "The Cap Times"
+  },
+  "CITYCAST": {
+   "k": "CITY CAST MADISON",
+   "t": "City Cast Madison",
+   "u": "https://madison.citycast.fm/",
+   "l": "City Cast Madison"
+  },
+  "INFATUATION": {
+   "k": "THE INFATUATION",
+   "t": "The Infatuation (Madison reviews)",
+   "u": "https://www.theinfatuation.com/madison",
+   "l": "The Infatuation (Madison reviews)"
+  },
+  "ISTHMUS": {
+   "k": "ISTHMUS",
+   "t": "Isthmus",
+   "u": "https://isthmus.com/",
+   "l": "Isthmus"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "James Beard Foundation",
+   "u": "https://www.jamesbeard.org/",
+   "l": "James Beard Foundation"
+  },
+  "TRAVELWI": {
+   "k": "TRAVEL WISCONSIN",
+   "t": "Travel Wisconsin (WI Dept. of Tourism)",
+   "u": "https://www.travelwisconsin.com/",
+   "l": "Travel Wisconsin (WI Dept. of Tourism)"
+  },
+  "UPNORTHNEWS": {
+   "k": "UPNORTHNEWS",
+   "t": "UpNorthNews — Madison Food Guide (reader surveys)",
+   "u": "https://upnorthnewswi.com/food-guide/madison/",
+   "l": "UpNorthNews — Madison Food Guide (reader surveys)"
+  }
+ }
+}
