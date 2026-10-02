@@ -29,3 +29,33 @@ Contract: docs/PIPELINE.md (stages 0→6), docs/RUN-2026-10-02.md (§5a audit tr
   per session and shared by all ~16 concurrent city agents; it was exhausted before this agent's discovery began.
 - **Channel counts this wave:** editorial 0 · creators 0 · travel sites 0 · local 0 — no places extracted.
 - **Places added: 0.** Nothing added from memory (hard rule). Partial leads → `_PENDING_LEADS.md`.
+
+## 2026-10-02 (session 2) · Stages 1–6 — waves W1 (food canon), W2 (Michelin/JB), S1–S2 (sights)
+- **Sources discovered/used:** Infatuation (Italian beef, deep dish, hot dogs, jibarito, old-school, wings guides),
+  Time Out Chicago (28 best pizza, 24 best hot dogs, 46 attractions, 28 museums), Chowhound (8 best tavern pizza),
+  Chicago Magazine "Iconic Eats" (July 2021, 50 dishes — full list captured, used as 1 source each),
+  ABC7 Hungry Hound (Steve Dolinsky, 31 essential beefs), NBC5 beef ranking, Michelin 2025 stars + Bib list,
+  James Beard America's Classics (Lem's 2025, Sun Wah 2018, Berghoff, Calumet Fisheries), WBEZ, Choose Chicago
+  (bucket list, museum campus, blues, architecture, Hyde Park), Chicago Architecture Center, UNESCO (FLW listing),
+  NPS (Pullman, Indiana Dunes), ILDNR (Starved Rock), Wikipedia (landmark facts + coordinates).
+- **Channel counts:** editorial/travel 44 places · institutional lone (Michelin/JB/UNESCO/NPS) 14 + co-sourced ·
+  local press (Block Club, WBEZ) 3 · creators 0 so far (Keith Lee's Chicago picks found via Fox32/NBC — Soul Prime,
+  Cleo's, Sharks, Uncle Remus, Harold's — pending a 2nd credible each).
+- **Held single-source (not added):** Tony's Italian Beef, Carm's (Infatuation only); Papa's Cache Sabroso,
+  Jibaritos y Más (Infatuation only); Uncle Remus, Uncle John's, Harold's (location not pinned down);
+  Paulie Gee's, Robert's Pizza (Time Out only); Daley's, Walnut Room, Valois (Infatuation only);
+  Chicago Mag Iconic Eats singles (Kaufman's, Dinkel's, Express Grill, Edzo's, La Chaparrita, J.P. Graziano,
+  Ricobene's, Nhu Lan, Garrett, Greek Islands, Girl & the Goat, Avec, Lao Sze Chuan, Carnitas Uruapan, Brown
+  Sugar Bakery, Chiu Quon, Mario's Italian Lemonade, Original Rainbow Cone, etc.) — need a 2nd source.
+- **MEASURED & DROPPED:** none dropped on merit yet; every added place is on ≥2 curated best-of lists or holds
+  an institutional award.
+- **Closures:** none found (geocode agents checked status; weakest evidence = current listing, no closure news).
+- **Geocode:** 72 verified (70 high — Wikipedia/latlong POI; 2 med), 28 UNVERIFIED held by the gate.
+  Boka/Galit coords came from an unapproved aggregator → demoted to UNVERIFIED. Redhot Ranch's Wikipedia pin is
+  the Bridgeport store, not the Armitage one listed → not used. Address corrections: Milly's (1005 W Argyle,
+  Uptown → NORTH), Pizz'amici (1215 W Grand), Feld (2018 W Chicago Ave), Boonie's, Sochi, Tortello, Mirra, Nadu,
+  Taqueria Chingón (817 W Fulton Market). Pat's Pizza address conflict (638 W Diversey vs Time Out's 2679 N
+  Lincoln) left UNVERIFIED.
+- **Build:** tools/build-chicago.py now hides an area with zero pinned places (SW) instead of failing the
+  tier-1 assert; areas with pins still must carry a tier-1. Gates: sourcecheck/geocheck/statuscheck/buildcheck
+  PASS; npm run validate + npm test PASS.

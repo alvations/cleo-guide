@@ -176,8 +176,3878 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
- "F": [],
- "S": {},
- "FS": {}
+ "P": [
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nishiki Market",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "'Kyoto's Kitchen' — a narrow five-block covered street of more than a hundred food shops (the first opened around 1310): pickles, fresh yuba, dashi-maki tamago, seasonal Kyoto produce and knives.",
+   "g": [
+    "ICON",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3931.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/central/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nishiki_Market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Pontochō",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Lantern-lit lane of teahouses and restaurants squeezed between the Kamo River and Kiyamachi — one of Kyoto's five geisha districts, with summer kawayuka dining platforms over the river.",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "FREE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2158_central.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/central/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ponto-ch%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Higashi Hongan-ji",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Ōtani branch of Jōdo Shinshū near Kyoto Station; its Goeidō founder's hall is Kyoto's largest wooden structure. Free to enter.",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3920.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/around-kyoto-station/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Higashi_Hongan-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Kyoto Station",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "Hiroshi Hara's 1997 glass-and-steel station building, built for the city's 1,200th anniversary — the giant atrium staircase climbs to a free rooftop skyway with city views.",
+   "g": [
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3922.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/around-kyoto-station/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Kyoto Tower",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "The 131-metre tower opposite Kyoto Station, the city's tallest structure; the observation deck at 100 m gives a 360° view to Osaka on clear days.",
+   "g": [
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3945.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Kyoto Railway Museum",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "JR West's museum (2016) by Umekōji Park with more than 50 retired trains, from steam locomotives in a working roundhouse to shinkansen; closed Wednesdays.",
+   "g": [
+    "MUS",
+    "POP",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3972.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/things-to-do-in-the-umekoji-area/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Kyoto International Manga Museum",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Japan's first manga museum, in a 1929 elementary-school building by Karasuma-Oike Station, with some 300,000 items and walls of manga you can pull down and read.",
+   "g": [
+    "MUS",
+    "POP"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3962.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/kyoto-international-manga-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Nishiki Tenmangū",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Small shrine to Sugawara no Michizane at the east end of Nishiki Market, wedged into the Shinkyōgoku shopping arcade — its torii's ends literally run into the neighbouring buildings.",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "CASTLE",
+    "MKT"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/getting-around/comfortable-access-to-central-kyoto-city-nishiki-market/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nishiki_Tenmang%C5%AB"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Museum of Kyoto",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "City history-and-culture museum on Sanjō-dōri, partly housed in the 1906 red-brick former Bank of Japan Kyoto branch; regular film screenings.",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/central/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Kyoto"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Rokkaku-dō (Chōhō-ji)",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "Hexagonal temple said to be founded by Prince Shōtoku, birthplace of ikebana — the Ikenobō school's headquarters and Ikebana Museum stand in its grounds.",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/ikebana-japanese-art-of-flower-arrangement-originating-from-kyoto/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rokkaku-d%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Kyoto Aquarium",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "Modern inland aquarium (2012) in Umekōji Park, a 15-minute walk west of Kyoto Station, with a Kyoto-rivers zone of Japanese giant salamanders.",
+   "g": [
+    "MUS",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3971.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Aquarium"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Fushimi Inari Taisha",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Head shrine of the thousands of Inari shrines across Japan, dedicated to the god of rice and sake by the Hata clan in the 8th century — tunnels of thousands of vermilion torii climb Mount Inari.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2158_south.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://prev.kyoto.travel/ms/shrine_temple/180"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Gekkeikan Okura Sake Museum",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Museum of Gekkeikan, one of Fushimi's largest and oldest brewers, in a renovated 1909 sake storehouse beside the Horikawa canal — traditional brewing tools and a tasting at the end.",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3938.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/gekkeikan-okura-sake-museum/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "FSHMI",
+   "n": "Fushimi Castle",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Site of Toyotomi Hideyoshi's retirement castle on Momoyama hill, around which the Fushimi sake town grew; today's keep is a modern reconstruction.",
+   "g": [
+    "CASTLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3938.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fushimi_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Teradaya Inn",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "The Fushimi boat-inn where Sakamoto Ryōma was attacked by shogunate police in 1866; rebuilt after the 1868 Battle of Toba–Fushimi and open to visitors with Bakumatsu relics.",
+   "g": [
+    "CASTLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3938.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/teradaya-inn/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Fushimi Sake District",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Willow-lined Horikawa canal quarter of storehouses and some 20–40 breweries drawing on Fushimi's soft spring water — one of Japan's great sake towns; tastings and canal boat rides.",
+   "g": [
+    "ICON",
+    "MKT",
+    "FREE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3938.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/fushimi/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Jikkokubune Canal Cruise",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Replica Edo-period covered riverboats glide 50 minutes down the Horikawa canal past the wood-and-plaster walls of Fushimi's sake breweries (seasonal).",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3938.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/hidden-gems/hidden-gems-of-kyoto-fushimi/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Zuishin-in",
+   "ad": "Yamashina-ku, Kyoto, Japan",
+   "w": "Shingon temple in Ono (Yamashina) on the site of the Heian poet Ono no Komachi's residence — prayed at for romantic matches; its plum garden blooms in March.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/yamashina/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Zuishin-in"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Kajū-ji",
+   "ad": "Yamashina-ku, Kyoto, Japan",
+   "w": "Head temple of the Shingon Yamashina school, an imperial-linked temple with a broad Heian-style pond garden.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/resource/global/download/223-pdf.pdf"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kaj%C5%AB-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Hōkai-ji (Hino Yakushi)",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Hino's Fujiwara-era temple whose Amida Hall and seated Amida statue are National Treasures.",
+   "g": [
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C5%8Dkai-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Jōnan-gū",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Shrine founded with the Heian capital in 794 to guard its south; famed for its gardens tracing Japanese garden history and its weeping plums.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/nagoshi-no-harae-summer-purification-rites/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%9F%8E%E5%8D%97%E5%AE%AE"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kiyomizu-dera",
+   "ad": "Kiyomizu, Higashiyama-ku, Kyoto, Japan",
+   "w": "Eastern Kyoto's hillside temple, famous for the wooden terrace with a view over the city; part of the UNESCO 'Historic Monuments of Ancient Kyoto'.",
+   "k": "06:00–18:00 (to 18:30 Jul–Aug); 500 yen",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3901.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Higashiyama District (Sannenzaka & Ninenzaka)",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "One of Kyoto's best-preserved historic districts — narrow lanes, wooden buildings and merchant shops on the 20–30 minute walk from Kiyomizu-dera to Yasaka Shrine.",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3959.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Yasaka Shrine (Yasaka-jinja)",
+   "ad": "Gionmachi, Higashiyama-ku, Kyoto, Japan",
+   "w": "Gion's great shrine, home of the Gion Matsuri every July for over a thousand years; busiest at cherry-blossom time beside Maruyama Park.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3903.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Maruyama Park",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Public park next to Yasaka Shrine; in early April Kyoto's most popular (and most crowded) hanami spot under the weeping cherry.",
+   "g": [
+    "NATURE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3925.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion & Hanamikoji",
+   "ad": "Gion, Higashiyama-ku, Kyoto, Japan",
+   "w": "Kyoto's most famous geisha district, between Yasaka Shrine and the Kamo River — ochaya teahouses where geiko and maiko entertain.",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3902.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kōdai-ji",
+   "ad": "Shimogawara-chō, Higashiyama-ku, Kyoto, Japan",
+   "w": "Founded 1606 by Nene in memory of Toyotomi Hideyoshi; a tsukiyama pond garden of man-made hills, pine and maple. Its sub-temple Entoku-in adds two more Zen gardens.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3927.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C5%8Ddai-ji"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/how-to-avoid-the-crowds-while-accessing-kiyomizu-temple-and-higashiyama-areas/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Chion-in",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Head temple of the Jōdo (Pure Land) sect; its Sanmon, 24 m tall and 50 m wide, is the largest wooden temple gate in Japan (early 1600s).",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3928.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/ru/shrine_temple/151"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Shōren-in",
+   "ad": "Awataguchi, Higashiyama-ku, Kyoto, Japan",
+   "w": "Tendai monzeki temple whose head priests were traditionally imperial; houses the National Treasure painting of the Blue Cetaka (Ao Fudō) and a garden attributed to Sōami.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3954.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://prev.kyoto.travel/it/shrine_temple/160"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kennin-ji",
+   "ad": "Komatsu-chō (south of Gion), Higashiyama-ku, Kyoto, Japan",
+   "w": "Founded 1202 — the oldest Zen temple in Kyoto, ranked third of the city's five great Zen temples, just south of Gion.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3973.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Hōkan-ji (Yasaka Pagoda)",
+   "ad": "Yasaka, Higashiyama-ku, Kyoto, Japan",
+   "w": "The five-storey Yasaka Pagoda rising over the Higashiyama lanes on the walk up to Kiyomizu-dera.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/hokanji-templeyasaka-pagoda/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yasaka_Pagoda"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Tōfuku-ji",
+   "ad": "15-778 Honmachi, Higashiyama-ku, Kyoto, Japan",
+   "w": "One of the Kyoto Gozan (five great Zen temples), founded in the 13th century; its Tsūten-kyō bridge over a maple valley is one of Kyoto's most famous autumn-leaf views.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3930.html"
+    ],
+    [
+     "ANATRAVEL",
+     "https://www.ana.co.jp/en/us/japan-travel-planner/kyoto/0000020.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Rokuharamitsu-ji",
+   "ad": "2-81-1 Rokuhara-chō, Higashiyama-ku, Kyoto 605-0813, Japan",
+   "w": "Founded in 951 by the itinerant monk Kūya — the 17th temple of the Saigoku Kannon pilgrimage — in Rokuhara, the old Heike warrior quarter; its Kūya statue shows tiny Buddhas issuing from his mouth.",
+   "g": [
+    "TEMPLE",
+    "CASTLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rokuharamitsu-ji"
+    ],
+    [
+     "KYOHAKU",
+     "https://www.kyohaku.go.jp/eng/assets/visit/faq/area-map_en.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Kyoto National Museum",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "One of Japan's four national museums, in the Higashiyama temple district opposite Sanjūsangen-dō; Kyoto's major collection of pre-modern Japanese and Asian art.",
+   "g": [
+    "MUS",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3962_kyoto.html"
+    ],
+    [
+     "KYOTOMUSEUMS",
+     "https://www.kyoto-museums.jp/en/?p=3870"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Sanjūsangen-dō",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "The 120-metre hall of 1266 (National Treasure) housing 1,001 standing Thousand-armed Kannon statues, flanked by Fūjin and Raijin.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D"
+    ],
+    [
+     "JTA",
+     "https://www.mlit.go.jp/tagengo-db/common/001547284.docx"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Chishaku-in",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Head temple of the Chisan school of Shingon Buddhism, opposite the Kyoto National Museum; known for its early-Edo pond garden and Momoyama-period Hasegawa school screen paintings that are National Treasures.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "MUS",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chishaku-in"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/resource/global/download/223-pdf.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Sennyū-ji",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Imperial family temple ('Mitera') whose origin traces to the 820s–830s, with imperial mausolea in its wooded precinct below Tōfuku-ji; head of the Sennyū-ji branch of Shingon.",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Senny%C5%AB-ji"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/shrine_temple/181.html"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HGS",
+   "n": "Mimizuka",
+   "ad": "533-1 Chaya-chō, Higashiyama-ku, Kyoto, Japan",
+   "w": "The 'Ear Mound' — a sobering burial mound for the ears and noses taken as trophies from Korean and Chinese soldiers in Hideyoshi's 1590s invasions of Korea; a national Historic Site.",
+   "g": [
+    "CASTLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_Historic_Sites_of_Japan_(Kyoto)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mimizuka"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Yasui Konpira-gū",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Shrine for cutting bad ties and binding good ones: crawl through the hole in the paper-covered 'enkiri-enmusubi' stone to make your wish.",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/resource/global/download/223-pdf.pdf"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%AE%89%E4%BA%95%E9%87%91%E6%AF%94%E7%BE%85%E5%AE%AE"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Rokudō Chinnō-ji",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Temple at the old 'crossroads of the six realms' by the Toribeno burial ground; its well is said to be where the courtier Ono no Takamura descended nightly to the underworld.",
+   "g": [
+    "TEMPLE",
+    "POP"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/resource/global/download/223-pdf.pdf"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%85%AD%E9%81%93%E7%8F%8D%E7%9A%87%E5%AF%BA"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Entoku-in",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Kōdai-ji sub-temple built after 1605 by Nene, Hideyoshi's widow, where she spent her last years — two rock gardens and painted screens.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3927.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%9C%93%E5%BE%B3%E9%99%A2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Daitoku-ji",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Walled Rinzai Zen complex of some two dozen sub-temples — one of the best places in Japan to see a range of Zen gardens and tea culture.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3910.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Daitoku-ji"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kitano Tenmangū",
+   "ad": "Kamigyō-ku, Kyoto, Japan",
+   "w": "Head of the shrines to the scholar Sugawara no Michizane — students pray here before exams; famous for its plum grove and its monthly flea market on the 25th.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "MKT",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3939.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kitano_Tenmang%C5%AB"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Kōtō-in",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Daitoku-ji sub-temple famed for its maple-lined bamboo approach and moss garden — one of Kyoto's best autumn-colour spots.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3910.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C5%8Dt%C5%8D-in"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Kamishichiken",
+   "ad": "Kamigyō-ku, Kyoto, Japan",
+   "w": "Kyoto's oldest geiko district, by Kitano Tenmangū in the Nishijin weaving quarter; its geiko and maiko serve at the shrine's Baikasai plum tea ceremony every 25 February.",
+   "g": [
+    "NIGHT",
+    "CASTLE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3939.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/see-and-do/area_kinugasa_kitano_nishijin.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kamishichiken"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Imamiya Shrine",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Shrine north of Daitoku-ji prayed to for a fortunate marriage ('tama-no-koshi'); at its east gate two rival shops have grilled aburi-mochi rice cakes for centuries.",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/omikuji-fortune/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Imamiya_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Seimei Shrine",
+   "ad": "Kamigyō-ku, Kyoto, Japan",
+   "w": "Shrine to Abe no Seimei, the Heian court diviner (onmyōji), marked by star-pentagram crests; a pilgrimage spot for fans of onmyōji fiction.",
+   "g": [
+    "TEMPLE",
+    "POP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/omikuji-fortune/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Seimei_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Hirano Shrine",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Ancient shrine near Kitano Tenmangū, long one of Kyoto's classic cherry-blossom (hanami) spots.",
+   "g": [
+    "TEMPLE",
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/see-and-do/area_kinugasa_kitano_nishijin.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hirano_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Sentō Imperial Palace",
+   "ad": "Kamigyō-ku, Kyoto, Japan",
+   "w": "Retired Emperor Go-Mizunoo's 1630 palace in Kyoto Gyoen; free guided tours through its North and South Pond stroll gardens.",
+   "g": [
+    "GARDEN",
+    "CASTLE",
+    "FREE",
+    "ONSEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3935.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sent%C5%8D_Imperial_Palace"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Amanohashidate",
+   "ad": "Miyazu, Kyoto, Japan",
+   "w": "The 3 km pine-covered sandbar across Miyazu Bay, one of the 'Three Views of Japan' — viewed upside-down through your legs (matanozoki) from the hilltop parks at either end.",
+   "g": [
+    "ICON",
+    "NATURE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3990.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Amanohashidate"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Ine no Funaya (Ine boathouses)",
+   "ad": "Ine, Yosa District, Kyoto, Japan",
+   "w": "Fishing village of funaya — wooden boathouses with living quarters above, built right over the water around Ine Bay; best seen from a bay cruise.",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "NATURE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3990.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ine,_Kyoto"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Ishiyama-dera",
+   "ad": "Ōtsu, Shiga, Japan",
+   "w": "Shingon temple on wollastonite rocks above the Seta River, where Murasaki Shikibu is said to have begun The Tale of Genji; its main hall and Tahōtō pagoda are National Treasures.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ishiyama-dera"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Mii-dera (Onjō-ji)",
+   "ad": "Ōtsu, Shiga, Japan",
+   "w": "Head temple of the Tendai Jimon school at the foot of Mount Hiei above Lake Biwa; its Kondō is a National Treasure and its evening bell one of the Eight Views of Ōmi.",
+   "g": [
+    "TEMPLE",
+    "VIEW",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mii-dera"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Hiyoshi Taisha",
+   "ad": "Sakamoto, Ōtsu, Shiga, Japan",
+   "w": "Head shrine of the Hie/Hiyoshi shrines, guardian of Enryaku-ji in the Sakamoto foothills of Mount Hiei; its East and West main halls are National Treasures and the grounds famous for autumn maples.",
+   "g": [
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(shrines)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hiyoshi_Taisha"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Nariai-ji",
+   "ad": "Miyazu, Kyoto, Japan",
+   "w": "Saigoku pilgrimage temple in the hills on the north side of Amanohashidate, with a celebrated lookout over the sandbar.",
+   "g": [
+    "TEMPLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3995.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nariai-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Kono Shrine (Moto-Ise)",
+   "ad": "Miyazu, Kyoto, Japan",
+   "w": "Ancient shrine at the north end of Amanohashidate, called 'Moto-Ise' for its link to the Grand Shrine of Ise.",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3990.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kono_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KYFU",
+   "n": "Jōruri-ji",
+   "ad": "Kizugawa, Kyoto, Japan",
+   "w": "Heian-period Pure Land temple in rural southern Kyoto Prefecture: nine Amida statues in a long hall facing a three-storey pagoda across a pond — both National Treasures.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/J%C5%8Druri-ji"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "KYFU",
+   "n": "Kaijūsen-ji",
+   "ad": "Kizugawa, Kyoto, Japan",
+   "w": "Mountain temple in Kamo, Kizugawa, whose small Kamakura-period five-storey pagoda is a National Treasure.",
+   "g": [
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_National_Treasures_of_Japan_(temples)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kaij%C5%ABsen-ji"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Sanzen-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Ōhara's great Tendai temple, its origins traced to the monk Saichō: moss gardens with small jizō statues under maples, at its finest in mid-November.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3932.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sanzen-in"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKHKU",
+   "n": "Hōsen-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Small Ōhara temple near Sanzen-in, viewed 'like a picture frame' from the tatami room with matcha — its centrepiece is a carefully pruned 700-year-old pine.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3932.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C5%8Dsen-in"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Kurama-dera",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Mountain temple on Mount Kurama, legendary training ground of the young warrior Minamoto no Yoshitsune; a forest trail crosses the ridge down to Kibune.",
+   "g": [
+    "TEMPLE",
+    "NATURE",
+    "VIEW",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/kurama-kibune/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kurama-dera"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Kifune Shrine",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Shrine to the god of water up the Kibune valley, its stone steps lined with red lanterns; summer visitors dine on kawadoko platforms over the river below.",
+   "g": [
+    "TEMPLE",
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/kurama-kibune/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kifune_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Jingo-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Shingon temple founded in 781, up a few hundred stone steps in the Takao maple valley — one of Kyoto's three classic autumn-leaf gorges; throw clay kawarake discs off the cliff for luck.",
+   "g": [
+    "TEMPLE",
+    "NATURE",
+    "VIEW",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/jingoji-temple/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jingo-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKHKU",
+   "n": "Jakkō-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Ōhara nunnery founded around 600, where Empress Kenreimon-in retired after the fall of the Heike — a closing scene of The Tale of the Heike.",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3932.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%AF%82%E5%85%89%E9%99%A2"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "RKHKU",
+   "n": "Saimyō-ji (Makinoo)",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Small Shingon temple in Makinoo between Jingo-ji and Kōzan-ji, one of the 'three o' maple gorges of Takao.",
+   "g": [
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2158_north.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E8%A5%BF%E6%98%8E%E5%AF%BA_(%E4%BA%AC%E9%83%BD%E5%B8%82)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKHKU",
+   "n": "Rurikō-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Yase villa-temple open only in seasonal windows, famous for maples reflected in its polished black lacquer desk ('yuka-momiji').",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/ruriko-in-temple/"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E7%91%A0%E7%92%83%E5%85%89%E9%99%A2"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Miyama Kayabuki-no-Sato (Kitamura)",
+   "ad": "Miyama-chō, Nantan, Kyoto, Japan",
+   "w": "Mountain village of nearly 40 thatched-roof farmhouses — the highest proportion of thatched houses anywhere in Japan; a preserved historic district.",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3985.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E3%81%8B%E3%82%84%E3%81%B6%E3%81%8D%E3%81%AE%E9%87%8C%E3%83%BB%E5%8C%97%E6%9D%91"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Togetsukyō Bridge",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Arashiyama's 'Moon-Crossing Bridge' over the Katsura River — a landmark since the Heian period, last rebuilt in the 1930s, framed by the forested Arashiyama hills.",
+   "g": [
+    "ICON",
+    "VIEW",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3912.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/togetsukyo-bridge/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arashiyama"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Arashiyama Bamboo Grove",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "The roughly 400-metre path through towering bamboo between Tenryū-ji's north gate and Nonomiya Shrine — go at dawn to beat the crowds.",
+   "g": [
+    "ICON",
+    "NATURE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3912.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/saga-arashiyama/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bamboo_Forest_(Kyoto)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Ōkōchi Sansō",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Silent-film star Ōkōchi Denjirō's hillside villa at the top of the bamboo grove — gardens, teahouses and a matcha with views over Kyoto.",
+   "g": [
+    "GARDEN",
+    "VIEW",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3912.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/%C5%8Ck%C5%8Dchi_Sans%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Adashino Nenbutsu-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Sagano temple holding some 8,000 stone Buddhas and statues for the souls of the dead, with its own small bamboo grove; candle-lit Sentō Kuyō in August.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "ONSEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3912.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adashino_Nenbutsu-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Iwatayama Monkey Park",
+   "ad": "Nishikyō-ku, Kyoto, Japan",
+   "w": "A ten-minute hike up from just south of Togetsukyō to a hilltop where dozens of Japanese macaques roam freely, with a view over Kyoto.",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3912.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Iwatayama_Monkey_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Otagi Nenbutsu-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "At the far end of Sagano, a temple of 1,200 moss-softened stone rakan statues, each carved by a different amateur sculptor with its own expression.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/itineraries/6-hidden-spots-to-visit-in-the-saga-arashiyama-area/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Otagi_Nenbutsu-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Daikaku-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Emperor Saga's 9th-century detached palace turned Shingon temple, beside the Ōsawa Pond — one of Japan's oldest surviving garden ponds and a moon-viewing spot.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "CASTLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/itineraries/6-hidden-spots-to-visit-in-the-saga-arashiyama-area/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Daikaku-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Nonomiya Shrine",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Small shrine in the bamboo grove with a rare black (unbarked) torii, where imperial princesses purified themselves before serving at Ise; appears in The Tale of Genji.",
+   "g": [
+    "TEMPLE",
+    "FREE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3912.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nonomiya_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Matsunoo Taisha",
+   "ad": "Nishikyō-ku, Kyoto, Japan",
+   "w": "One of Kyoto's oldest shrines (701), patron of sake brewers — barrels donated by breweries line the grounds — with Shigemori Mirei's Shōwa-era gardens.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "FREE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/nishikyo/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Matsunoo_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Kōryū-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Founded in 603 by the Hata clan — Kyoto's oldest temple — whose Reihōden treasure hall holds the serene Miroku Bosatsu, Japan's first National Treasure sculpture.",
+   "g": [
+    "TEMPLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/koryuji-temple/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C5%8Dry%C5%AB-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Toei Kyoto Studio Park",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Uzumasa film-set theme park — Edo-period streets still used to shoot samurai dramas, with ninja shows and costume photo studios.",
+   "g": [
+    "POP",
+    "MUS",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3934.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Toei_Kyoto_Studio_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Philosopher's Path",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Two-kilometre canal-side stone path from Ginkaku-ji to the Nanzen-ji neighbourhood, named for philosopher Nishida Kitarō's daily meditative walk; lined with cherry trees.",
+   "g": [
+    "ICON",
+    "NATURE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3906.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/okazaki/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Philosopher's_Walk"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Nanzen-ji",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Nanzen-ji school of Rinzai Zen at the foot of the Higashiyama hills — the massive Sanmon gate, Hōjō rock garden and the brick Meiji-era Lake Biwa Canal aqueduct running through the grounds.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3905.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nanzen-ji"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Eikan-dō (Zenrin-ji)",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Jōdo temple north of Nanzen-ji, among Kyoto's most famous autumn-colour spots with evening illuminations in November; known for its 'looking-back' Amida statue.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3956.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/okazaki/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Eikan-d%C5%8D_Zenrin-ji"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Heian Jingū",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Shrine built in 1895 for the 1,100th anniversary of the capital, its giant vermilion torii towering over Okazaki; the stroll garden behind is one of Kyoto's best for weeping cherry trees.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "GARDEN",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3951.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/ms/shrine_temple/154"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Heian_Shrine"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Hōnen-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Quiet temple just off the Philosopher's Path with a moss-thatched gate and raked sand mounds — the most notable temple on the walk, especially in autumn.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3906.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/H%C5%8Dnen-in"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Kyoto City KYOCERA Museum of Art",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Opened in 1933 as the Enthronement Memorial Museum — Japan's oldest public art museum still in its original building, renovated by Jun Aoki; Okazaki Park.",
+   "g": [
+    "MUS",
+    "CASTLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/kyoto-city-kyocera-museum-of-art/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Municipal_Museum_of_Art"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "National Museum of Modern Art, Kyoto",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Fumihiko Maki-designed national museum facing the KYOCERA across the Heian Jingū approach, strong on Kyoto-school painting and modern ceramics (Kawai Kanjirō).",
+   "g": [
+    "MUS",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/okazaki/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Modern_Art,_Kyoto"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Murin-an",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Statesman Yamagata Aritomo's 1894 villa with a lawn-and-stream garden by Ogawa Jihei borrowing the Higashiyama hills; a nationally designated Place of Scenic Beauty.",
+   "g": [
+    "GARDEN",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_Places_of_Scenic_Beauty_of_Japan_(Kyoto)"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/okazaki/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Murin-an"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Konchi-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Nanzen-ji sub-temple whose crane-and-turtle garden by Kobori Enshū is a Special Place of Scenic Beauty.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_Places_of_Scenic_Beauty_of_Japan_(Kyoto)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Konchi-in"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Shugakuin Imperial Villa",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Retired Emperor Go-Mizunoo's 1655 hillside villa of three gardens stepped among rice terraces at the foot of Mount Hiei; free Imperial Household Agency tours by reservation; Special Place of Scenic Beauty.",
+   "g": [
+    "GARDEN",
+    "CASTLE",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_Places_of_Scenic_Beauty_of_Japan_(Kyoto)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shugakuin_palace"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Daisen-in",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "Daitoku-ji sub-temple with one of Japan's finest small dry landscape gardens — a 'river' of white gravel flowing from rock 'mountains'; Special Place of Scenic Beauty.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_Places_of_Scenic_Beauty_of_Japan_(Kyoto)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Daisen-in"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Katsura Imperial Villa",
+   "ad": "Nishikyō-ku, Kyoto, Japan",
+   "w": "The 17th-century princely villa often called the pinnacle of Japanese garden and architectural design — teahouses around a stroll-garden pond; Imperial Household Agency tours by reservation.",
+   "g": [
+    "ICON",
+    "GARDEN",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "BUNKACHO",
+     "https://en.wikipedia.org/wiki/List_of_Places_of_Scenic_Beauty_of_Japan_(Kyoto)"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Katsura_Imperial_Villa"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kyoto Imperial Palace",
+   "ad": "Kamigyō-ku, Kyoto, Japan",
+   "w": "The emperors' residence until 1868, inside the vast Kyoto Gyoen park; the palace grounds are free to visit without reservation.",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2158.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Shisen-dō",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "The 'Hall of Immortal Poets', a scholar-poet's 1641 mountain hermitage hung with portraits of 36 Chinese poets, looking onto a white-sand garden of clipped azaleas and maples.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/shrine_temple/146.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shisen-d%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Manshu-in",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Tendai monzeki temple near Shugakuin, 'almost a temple within a garden': a sea of raked white gravel with islands of trees, rock and moss.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/manshuin-temple/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Manshu-in"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Shinnyo-dō",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Tendai temple founded in 984 on the Yoshida hills, its pagoda and maples one of Kyoto's quieter famous autumn-leaf spots.",
+   "g": [
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/en/faq/detail.php?faq_id=1056"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shinsh%C5%8Dgokuraku-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Kyoto Botanical Gardens",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Large public botanical garden in Kitayama by the Kamo River, with a big conservatory and seasonal flower collections.",
+   "g": [
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/resource/global/download/152-pdf.pdf"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Botanical_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Keage Incline",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Disused inclined railway of the Meiji-era Lake Biwa Canal that hauled boats until the 1950s; the tracks are now a walk under about a hundred cherry trees.",
+   "g": [
+    "NATURE",
+    "CASTLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3951.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lake_Biwa_Canal"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Mimuroto-ji",
+   "ad": "Uji, Kyoto, Japan",
+   "w": "Uji's 'flower temple' in the northern hills, founded some 1,200 years ago — vast gardens of azaleas, hydrangeas and lotuses in season.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3981.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mimuroto-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Manpuku-ji",
+   "ad": "Uji, Kyoto, Japan",
+   "w": "Head temple of the Ōbaku school of Zen, founded by the Chinese monk Ingen in 1661 in Ming-dynasty Chinese style — and the home of fucha ryōri, Chinese-style vegetarian temple cuisine.",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3975.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Manpuku-ji"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Nara Park",
+   "ad": "Nara, Japan",
+   "w": "The large park at the heart of old Nara holding Tōdai-ji, Kasuga Taisha, Kōfuku-ji and the National Museum, roamed by more than a thousand free-ranging, bowing sika deer.",
+   "g": [
+    "ICON",
+    "NATURE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4103.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nara_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Nara National Museum",
+   "ad": "Nara, Japan",
+   "w": "National museum of Japanese Buddhist art in Nara Park; its autumn Shōsō-in exhibition of 8th-century imperial treasures is a national event.",
+   "g": [
+    "MUS",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4109.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nara_National_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Isui-en",
+   "ad": "Nara, Japan",
+   "w": "Two-part stroll garden (mid-17th century front, 1899 rear) that borrows Tōdai-ji's Nandaimon gate and Mount Wakakusa as scenery.",
+   "g": [
+    "GARDEN",
+    "TEMPLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4114.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Isui-en"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Mount Wakakusa",
+   "ad": "Nara, Japan",
+   "w": "The grass-covered hill behind Nara Park between Tōdai-ji and Kasuga Taisha, with open views over the city; its slopes are set alight each January in the Yamayaki.",
+   "g": [
+    "NATURE",
+    "VIEW",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4113.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mount_Wakakusa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Shin-Yakushi-ji",
+   "ad": "Nara, Japan",
+   "w": "Nara-period temple founded by an empress praying for the ailing emperor; the main hall rings the Yakushi Buddha with twelve clay guardian generals.",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4112.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Shin-Yakushi-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Nigatsu-dō",
+   "ad": "Nara, Japan",
+   "w": "Tōdai-ji's hillside hall with a free veranda view over Nara; stage of the Shuni-e (Omizutori) fire rite each March, held every year without a break for over 1,270 years.",
+   "g": [
+    "TEMPLE",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://s2020.japan-guide.com/e/e4110.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nigatsu-d%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Hōryū-ji",
+   "ad": "Ikaruga, Ikoma District, Nara, Japan",
+   "w": "Founded in 607 by Prince Shōtoku; its pagoda and Golden Hall are the world's oldest surviving wooden buildings — Japan's first UNESCO World Heritage Site (Buddhist Monuments in the Hōryū-ji Area).",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/660"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e4104.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Horyuji_temple"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kamigamo Shrine (Kamo-wake-ikazuchi Jinja)",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "One of Kyoto's oldest Shinto shrines, older than the city itself, with its two sand cones (tatesuna) before the Hosodono hall; UNESCO-listed component 688-001.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Shimogamo Shrine (Kamo-mioya Jinja)",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "Ancient shrine at the meeting of the Kamo and Takano rivers, reached through the Tadasu-no-Mori primeval forest; UNESCO-listed component 688-002.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Tō-ji (Kyō-ō-gokoku-ji)",
+   "ad": "Minami-ku, Kyoto, Japan",
+   "w": "Founded in 796 as the guardian temple at the old capital's south gate; its five-storey pagoda is Japan's tallest wooden pagoda, and a flea market fills the grounds on the 21st of each month. UNESCO 688-003.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "MKT"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Enryaku-ji (Mount Hiei)",
+   "ad": "Ōtsu, Shiga, Japan",
+   "w": "Head temple of Tendai Buddhism, founded on Mount Hiei in 788 and spread across the forested summit above Lake Biwa; UNESCO 688-005 (coordinate is the property centre of a 498 ha precinct).",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Daigo-ji",
+   "ad": "Fushimi-ku, Kyoto, Japan",
+   "w": "Vast Shingon temple complex whose five-storey pagoda (951) is the oldest building in Kyoto; Toyotomi Hideyoshi's famous cherry-blossom party was held here. UNESCO 688-006.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Ninna-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Former imperial temple (founded 888) known for its late-blooming Omuro dwarf cherry trees and five-storey pagoda; UNESCO 688-007.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Byōdō-in",
+   "ad": "Uji, Kyoto, Japan",
+   "w": "The 11th-century Phoenix Hall pictured on the 10-yen coin, reflected in its Pure Land garden pond; UNESCO 688-008.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Ujigami Shrine",
+   "ad": "Uji, Kyoto, Japan",
+   "w": "Small shrine across the Uji River from Byōdō-in whose main hall is regarded as Japan's oldest surviving shrine building; UNESCO 688-009.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Kōzan-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Mountain temple in Toganoo above Takao, keeper of the Chōjū-giga animal scrolls often called Japan's first manga; UNESCO 688-010.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "POP"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Saihō-ji (Koke-dera, Moss Temple)",
+   "ad": "Nishikyō-ku, Kyoto, Japan",
+   "w": "The 'Moss Temple' — a garden carpeted with over a hundred kinds of moss; visits are by advance reservation only. UNESCO 688-011.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Tenryū-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Rinzai Tenryū-ji school, founded 1339, with Musō Soseki's Sōgen pond garden borrowing the Arashiyama hills; UNESCO 688-012.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kinkaku-ji (Rokuon-ji)",
+   "ad": "Kita-ku, Kyoto, Japan",
+   "w": "The Golden Pavilion — a gold-leafed Zen reliquary hall over a mirror pond, rebuilt in 1955 after arson; UNESCO 688-013.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Ginkaku-ji (Jishō-ji)",
+   "ad": "Sakyō-ku, Kyoto, Japan",
+   "w": "The Silver Pavilion, Ashikaga Yoshimasa's retirement villa turned Zen temple, with its raked-sand garden and moss paths at the head of the Philosopher's Path; UNESCO 688-014.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Ryōan-ji",
+   "ad": "Ukyō-ku, Kyoto, Japan",
+   "w": "Home of Japan's most famous dry rock garden — fifteen stones on raked gravel; UNESCO 688-015.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nishi Hongan-ji",
+   "ad": "Shimogyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Jōdo Shinshū Hongwanji-ha, a short walk from Kyoto Station, with vast Founder's and Amida halls and Momoyama-era gates; UNESCO 688-016.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nijō Castle",
+   "ad": "Nakagyō-ku, Kyoto, Japan",
+   "w": "The Tokugawa shoguns' Kyoto residence (1603), whose Ninomaru Palace 'nightingale floors' chirp underfoot; UNESCO 688-017.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "CASTLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Tōdai-ji",
+   "ad": "Nara, Japan",
+   "w": "Nara's great temple, whose Daibutsuden houses the 15-metre bronze Great Buddha; UNESCO 'Historic Monuments of Ancient Nara' 870-001.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kōfuku-ji",
+   "ad": "Nara, Japan",
+   "w": "Fujiwara clan temple whose five-storey pagoda rises over Nara Park, with a National Treasure Hall of Buddhist sculpture including the Ashura statue; UNESCO 870-002.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "MUS",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kasuga Taisha",
+   "ad": "Nara, Japan",
+   "w": "Vermilion shrine of the Fujiwara famed for its thousands of stone and bronze lanterns, set against the protected Kasugayama Primeval Forest; UNESCO 870-003.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Gangō-ji",
+   "ad": "Nara, Japan",
+   "w": "Successor to Asuka-dera, Japan's first full-scale Buddhist temple; some roof tiles date to the 6th century. In the Naramachi old town. UNESCO 870-004.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Yakushi-ji",
+   "ad": "Nara, Japan",
+   "w": "Seventh-century imperial temple in western Nara whose East Pagoda is one of Japan's oldest; UNESCO 870-005.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Tōshōdai-ji",
+   "ad": "Nara, Japan",
+   "w": "Founded in 759 by the Chinese monk Ganjin (Jianzhen); its Golden Hall is the finest surviving Nara-period main hall. UNESCO 870-006.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Heijō Palace Site",
+   "ad": "Nara, Japan",
+   "w": "The excavated site of the 8th-century imperial palace of Heijō-kyō, with the reconstructed Daigokuden and Suzakumon gate; UNESCO 870-007 (coordinate = centre of a 129 ha site).",
+   "g": [
+    "UNESCO",
+    "CASTLE",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion Yorozuya",
+   "ad": "555-1 Komatsu-chō, Higashiyama-ku, Kyoto, Japan",
+   "w": "Michelin Bib Gourmand udon house that began delivering meals to Gion teahouses and playhouses; queues form before opening for the onion udon heaped with Kyoto's Kujō spring onion.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/at/en/kyoto-region/kyoto/restaurant/gion-yorozuya"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Honke Daiichi-Asahi Takabashi",
+   "ad": "845 Higashishiokōji Mukaihata-chō, Shimogyō-ku, Kyoto 600-8216, Japan",
+   "w": "The Takabashi ramen institution founded in 1947, five minutes' walk from Kyoto Station — the benchmark for Kyoto's soy-pork-bone style.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LEAFKYOTO",
+     "https://www.leafkyoto.net/en/store/210113_honke_daiichiasahi_takabashihonten"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/asia/japan/articles/the-6-best-places-for-ramen-in-kyoto"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Ramen Touhichi",
+   "ad": "8-6 Yamabana Itchoda-chō, Sakyō-ku, Kyoto 606-8007, Japan",
+   "w": "Michelin Bib Gourmand ramen shop in Ichijōji; the signature soy-sauce ramen uses a dashi of locally raised free-range chicken and water only, finished with a raw soy-sauce kaeshi.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/ae-az/en/kyoto-region/kyoto/restaurant/ramen-touhichi"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Noodle Shop Rennosuke",
+   "ad": "Kamigyō-ku, Kyoto, Japan",
+   "w": "Michelin Bib Gourmand noodle bar, relocated from Murasakino (Kita-ku) to Kamigyō-ku; house noodles of Kyoto wheat in a clear seafood-dashi broth seasoned with pure soy sauce.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/noodle-shop-rennosuke"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Kyogoku Kaneyo",
+   "ad": "456 Matsugae-chō, Nakagyō-ku, Kyoto, Japan",
+   "w": "Seven-generation eel house (Michelin Bib Gourmand); Kantō-style steamed-then-grilled kabayaki, famous for the kinshi-don.",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/kyogoku-kaneyo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SAKYO",
+   "n": "Juu-go",
+   "ad": "71-6 Jōdoji Kamiminamida-chō, Sakyō-ku, Kyoto 606-8405, Japan",
+   "w": "Michelin Bib Gourmand soba restaurant in the Jōdo-ji quarter near Ginkaku-ji.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/juu-go"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Kyoudon Kisoba Okakita",
+   "ad": "34 Okazaki Minamigosho-chō, Sakyō-ku, Kyoto 606-8334, Japan",
+   "w": "Michelin Bib Gourmand udon-and-soba house on the Heian Jingū approach in Okazaki, serving soft Kyoto-style udon in light dashi.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/gb/en/kyoto-region/kyoto/restaurant/kyoudon-kisoba-okakita"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Gombei",
+   "ad": "254 Gionmachi Kitagawa, Higashiyama-ku, Kyoto 605-0073, Japan",
+   "w": "Michelin Bib Gourmand noodle shop in Gion serving udon and soba.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gombe"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Choshoku Kishin",
+   "ad": "555 Komatsu-chō, Higashiyama-ku, Kyoto 605-0811, Japan",
+   "w": "Michelin Bib Gourmand breakfast-only restaurant (chōshoku = breakfast) near Kennin-ji.",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/choshoku-kishin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Vegan Ramen UZU",
+   "ad": "146 Umenoki-chō, Nakagyō-ku, Kyoto 604-0905, Japan",
+   "w": "Michelin Bib Gourmand plant-based ramen bar in central Kyoto.",
+   "cz": [
+    "RAMEN",
+    "TOFU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/no/en/kyoto-region/kyoto/restaurant/vegan-ramen-uzu"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Muginoyoake",
+   "ad": "12-5 Nishishichijō Kakegoshi-chō, Shimogyō-ku, Kyoto 600-8881, Japan",
+   "w": "Michelin Bib Gourmand ramen shop west of Kyoto Station whose signature is a scallop and Japanese (sanshō) pepper ramen.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/muginoyoake"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Komedokoro Inamoto",
+   "ad": "534-1 Yawata-chō, Shimogyō-ku, Kyoto 600-8455, Japan",
+   "w": "Michelin Bib Gourmand 'place of rice' run by a rice-loving owner, serving small plates built on seafood and citrus from his native Ehime.",
+   "cz": [
+    "KAISEKI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/komedokoro-inamoto"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Hiiragitei",
+   "ad": "306-6 Ishibashi-chō, Higashiyama-ku, Kyoto 605-0066, Japan",
+   "w": "Michelin Bib Gourmand specialising in locally raised chicken and obanzai; the house speciality is rare 'white liver'.",
+   "cz": [
+    "IZAKAYA",
+    "KAISEKI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/jp/en/kyoto-region/kyoto/restaurant/hiiragitei"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Shutei Bankara",
+   "ad": "209-8 Nabeya-chō, Nakagyō-ku, Kyoto 604-8015, Japan",
+   "w": "Michelin Bib Gourmand sake bar with rigorously chosen local sake; oden in a Rishiri-kombu broth and Seto Inland Sea octopus as chunks, oden or tempura.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/se/en/kyoto-region/kyoto/restaurant/shutei-bankara"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Izuu",
+   "ad": "367 Kiyomoto-chō, Higashiyama-ku, Kyoto 605-0084, Japan",
+   "w": "Founded in 1781 when salted Wakasa mackerel made saba-zushi Kyoto's festival food; the eighth-generation chef still presses whole-mackerel sushi (Michelin Bib Gourmand).",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/izuu"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Shigetsu",
+   "ad": "68 Saga-Tenryūji Susukinobaba-chō, Ukyō-ku, Kyoto 616-8385, Japan",
+   "w": "Buddhist vegetarian temple cuisine served inside Tenryū-ji's World Heritage grounds (Michelin Bib Gourmand): sesame tofu, deep-fried tofu with vegetables, dressed greens.",
+   "cz": [
+    "TOFU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/shigetsu"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Teuchisoba Kanei",
+   "ad": "11-1 Murasakino Higashifujinomori-chō, Kita-ku, Kyoto 603-8223, Japan",
+   "w": "Michelin-listed hand-cut soba shop in Murasakino, near Daitoku-ji.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/teuchisoba-kanei"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Soba Rojina",
+   "ad": "691 Maruya-chō, Nakagyō-ku, Kyoto 604-0917, Japan",
+   "w": "Michelin-listed soba restaurant in central Nakagyō.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/soba-rojina"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "sonoba",
+   "ad": "533-3 Motoshiogama-chō, Shimogyō-ku, Kyoto 600-8119, Japan",
+   "w": "Michelin-listed soba restaurant in Shimogyō.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/sonoba"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Chikuyuan Taro no Atsumori",
+   "ad": "242-12 Yōan-chō, Kamigyō-ku, Kyoto 602-8022, Japan",
+   "w": "Michelin-listed soba house in Kamigyō named for its atsumori — warm soba served for dipping.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/chikuyuan-taro-no-atsumori"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion Sasaki",
+   "ad": "566-27 Komatsu-chō, Higashiyama-ku, Kyoto 605-0811, Japan",
+   "w": "Three MICHELIN Stars (2026) — a kaiseki counter in Gion.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-sasaki"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kikunoi Honten",
+   "ad": "459 Shimokawara-chō, Higashiyama-ku, Kyoto 605-0825, Japan",
+   "w": "Three MICHELIN Stars (2026). Opened as a restaurant in 1912 and now run by the third-generation chef, it keeps Kyoto's culinary traditions while adding Western ingredients.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-honten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Mizai",
+   "ad": "613 Maruyama-chō, Higashiyama-ku, Kyoto 605-0071, Japan",
+   "w": "Three MICHELIN Stars (2026) kaiseki house in Maruyama Park.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/mizai"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Hyotei",
+   "ad": "35 Nanzenji Kusagawa-chō, Sakyō-ku, Kyoto 606-8437, Japan",
+   "w": "Three MICHELIN Stars (2026) — a veteran ryōtei by Nanzen-ji whose rooms breathe wabi-sabi restraint.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/hyotei"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Isshisoden Nakamura",
+   "ad": "136 Matsushita-chō, Nakagyō-ku, Kyoto 604-8093, Japan",
+   "w": "Three MICHELIN Stars (2026); a house that began as a travelling fishmonger, now led by sixth-generation head Motokazu Nakamura.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/isshisoden-nakamura"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Miyamaso",
+   "ad": "375 Hanase Harachi-chō, Sakyō-ku, Kyoto 601-1102, Japan",
+   "w": "Mountain ryokan in Hanase promoted to Three MICHELIN Stars in 2026 — Kyoto's first new three-star in six years — for satoyama cuisine of chef-foraged wild vegetables, river fish, mushrooms and game.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/miyamaso"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Fuyacho Kuraku",
+   "ad": "618 Tachibana-chō, Nakagyō-ku, Kyoto 604-0944, Japan",
+   "w": "New Michelin Bib Gourmand (2026) on Fuyachō-dōri, built around seafood from Wakasa Bay and local Fukui sake.",
+   "cz": [
+    "IZAKAYA",
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/fuyacho-kuraku"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Ramenya Fujitora",
+   "ad": "15-7 Uzumasa-Yasui Tsujinouchi-chō, Ukyō-ku, Kyoto 616-8076, Japan",
+   "w": "New Michelin Bib Gourmand (2026) ramen shop in Uzumasa, its bowls built on a chicken-and-pork broth.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/ramenya-fujitora"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Saryo Tesshin",
+   "ad": "321-2 Shinnyodō-chō, Nakagyō-ku, Kyoto 604-0853, Japan",
+   "w": "Michelin Bib Gourmand (2025) creative soba house; the famous 'Daigo Soba' is blanketed in Parmigiano Reggiano in imitation of daigo, an ancient Japanese cheese.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/saryo-tesshin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "KITA",
+   "n": "Kombu to Men Kiichi",
+   "ad": "2F, 74-2 Nishiitsutsuji Higashimachi, Kamigyō-ku, Kyoto 602-8478, Japan",
+   "w": "Ramen counter opened by a Nishijin kelp merchant (Michelin Bib Gourmand 2025): the soup uses no sauce at all, every drop of umami drawn from kombu.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/kombu-to-men-kiichi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FSHMI",
+   "n": "Jukuseibuta Kawamura",
+   "ad": "57-1 Takehana Nishinoguchi-chō, Yamashina-ku, Kyoto 607-8089, Japan",
+   "w": "Michelin Bib Gourmand in Yamashina, east of Fushimi, specialising in aged pork sourced from a Fushimi butcher.",
+   "cz": [
+    "TEISHOKU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/kyoto-region/kyoto/restaurant/jukuseibuta-kawamura"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Kiminami",
+   "ad": "2201-1 Oshikuma-chō, Nara 631-0011, Japan",
+   "w": "Michelin Bib Gourmand soba restaurant in north-western Nara city.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/nara-region/nara/restaurant/kiminami"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kushizukushi",
+   "ad": "31 Yanagi-machi, Nara 630-8353, Japan",
+   "w": "Michelin Bib Gourmand kushiage counter in Nara: creative seasonal fried skewers with Nara touches (sake-lees pickles, goma-dōfu), ending in nyūmen or dashi chazuke made with rice grown by the chef's brother.",
+   "cz": [
+    "KONAMON"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/nara-region/nara/restaurant/kushizukushi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "toi Inshokuten",
+   "ad": "30-3 Hanashiba-chō, Nara 630-8266, Japan",
+   "w": "Michelin Bib Gourmand (2026) Indian kitchen in Nara — 'toi' = 'trip of imagination' — serving meat, fish and vegetable curries thali-style as a teishoku.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/nara-region/nara/restaurant/toi-inshokuten"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Tsuen Tea (Tsūen, 通圓)",
+   "ad": "East end of Uji Bridge, Uji, Kyoto, Japan",
+   "w": "Tea house founded in 1160 at the east end of Uji Bridge, in a 17th-century building — one of Japan's oldest continuously operating shops.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3977.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E9%80%9A%E5%9C%93"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Nakamura Tokichi Honten",
+   "ad": "Ujibashi-dōri, Uji, Kyoto, Japan",
+   "w": "Uji tea merchant founded in 1859 on the Ujibashi-dōri shopping street; its café serves green-tea soba and matcha parfaits, with a tea room for grinding your own matcha.",
+   "cz": [
+    "SWEET",
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3977.html"
+    ],
+    [
+     "WIKIPEDIA_JA",
+     "https://ja.wikipedia.org/wiki/%E5%AE%87%E6%B2%BB%E6%A9%8B%E9%80%9A%E3%82%8A%E5%95%86%E5%BA%97%E8%A1%97"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Ogawa",
+   "ad": "515 Aneishinotōin-chō, Nakagyō-ku, Kyoto 604-8273, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/ogawa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Tsujifusa",
+   "ad": "155 Mukadeya-chō, Nakagyō-ku, Kyoto 604-0805, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/tsujifusa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Kiyama",
+   "ad": "136 Kinuya-chō, Nakagyō-ku, Kyoto 604-0804, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kiyama"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Miyawaki",
+   "ad": "122-1 Shikiami-chō, Nakagyō-ku, Kyoto 604-8261, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/miyawaki-1205446"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Nijo Minami",
+   "ad": "92-12 Enoki-chō, Nakagyō-ku, Kyoto 604-0931, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/nijo-minami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Muromachi Wakuden",
+   "ad": "679 Maruki-zaimoku-chō, Nakagyō-ku, Kyoto 604-8106, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/muromachi-wakuden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Jiki Miyazawa",
+   "ad": "553-1 Yaoya-chō, Nakagyō-ku, Kyoto 604-8123, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Nakagyō.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/jiki-miyazawa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Gion Fukushi",
+   "ad": "570-120 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Gion.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-fukushi"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Gion Kida",
+   "ad": "570-192 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Gion.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-kida"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Gion Owatari",
+   "ad": "570-265 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+   "w": "One MICHELIN Star Japanese (kaiseki) restaurant in Gion.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-owatari"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion Maruyama",
+   "ad": "570-171 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+   "w": "Two MICHELIN Stars Japanese (kaiseki) restaurant in Gion.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-maruyama"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion Nishikawa",
+   "ad": "473 Shimokawara-chō, Higashiyama-ku, Kyoto 605-0825, Japan",
+   "w": "Two MICHELIN Stars Japanese (kaiseki) restaurant in Gion.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-nishikawa"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Sushi Kappo Nakaichi",
+   "ad": "570-196 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074, Japan",
+   "w": "One MICHELIN Star sushi-kappō counter in Gion.",
+   "cz": [
+    "SUSHI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/ae-az/en/kyoto-region/kyoto/restaurant/sushi-kappo-nakaichi"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Pontocho Masuda",
+   "ad": "200 Shimokoriki-chō, Nakagyō-ku, Kyoto 604-8016, Japan",
+   "w": "Michelin-listed obanzai counter on Pontochō serving Kyoto's home-style seasonal dishes.",
+   "cz": [
+    "KAISEKI",
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/pontocho-masuda"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Saketosakana DNA",
+   "ad": "559-1 Tōrō-chō, Shimogyō-ku, Kyoto 600-8401, Japan",
+   "w": "Michelin Bib Gourmand izakaya ('sake and fish') whose cooking is anchored by a kombu and bonito dashi.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/saketosakana-dna"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Kyokaiseki Kichisen",
+   "ad": "5 Shimogamo Morimoto-chō, Sakyō-ku, Kyoto 606-0805, Japan",
+   "w": "Two MICHELIN Stars kyō-kaiseki house in Shimogamo.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kyokaiseki-kichisen"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ANATRAVEL": {
+   "k": "ANATRAVEL",
+   "t": "ANA Japan Travel Planner",
+   "u": "https://www.ana.co.jp/en/us/japan-travel-planner/",
+   "l": "ANA Japan Travel Planner"
+  },
+  "BUNKACHO": {
+   "k": "AGENCY FOR CULTURAL AFFAIRS",
+   "t": "AGENCY FOR CULTURAL AFFAIRS",
+   "u": "",
+   "l": ""
+  },
+  "JAPANGUIDE": {
+   "k": "JAPAN-GUIDE",
+   "t": "JAPAN-GUIDE",
+   "u": "",
+   "l": ""
+  },
+  "JTA": {
+   "k": "JTA",
+   "t": "Japan Tourism Agency multilingual commentary database (MLIT)",
+   "u": "https://www.mlit.go.jp/tagengo-db/",
+   "l": "Japan Tourism Agency multilingual commentary database (MLIT)"
+  },
+  "KYOHAKU": {
+   "k": "KYOHAKU",
+   "t": "Kyoto National Museum",
+   "u": "https://www.kyohaku.go.jp/eng/",
+   "l": "Kyoto National Museum"
+  },
+  "KYOTOMUSEUMS": {
+   "k": "KYOTOMUSEUMS",
+   "t": "Kyoto Museums Council (kyoto-museums.jp)",
+   "u": "https://www.kyoto-museums.jp/en/",
+   "l": "Kyoto Museums Council (kyoto-museums.jp)"
+  },
+  "KYOTOTOURISM": {
+   "k": "KYOTO CITY TOURISM",
+   "t": "KYOTO CITY TOURISM",
+   "u": "",
+   "l": ""
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "WIKIPEDIA",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA_JA": {
+   "k": "WIKIPEDIA JA",
+   "t": "Japanese Wikipedia (ja.wikipedia.org)",
+   "u": "https://ja.wikipedia.org/",
+   "l": "Japanese Wikipedia (ja.wikipedia.org)"
+  }
+ },
+ "FS": {
+  "CULTURETRIP": {
+   "k": "CULTURETRIP",
+   "t": "Culture Trip",
+   "u": "https://theculturetrip.com/",
+   "l": "Culture Trip"
+  },
+  "JAPANGUIDE": {
+   "k": "JAPAN-GUIDE",
+   "t": "JAPAN-GUIDE",
+   "u": "",
+   "l": ""
+  },
+  "LEAFKYOTO": {
+   "k": "LEAFKYOTO",
+   "t": "Leaf Kyoto (京都リーフ)",
+   "u": "https://www.leafkyoto.net/",
+   "l": "Leaf Kyoto (京都リーフ)"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB",
+   "t": "MICHELIN BIB",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN ★",
+   "t": "MICHELIN ★",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA_JA": {
+   "k": "WIKIPEDIA JA",
+   "t": "Japanese Wikipedia (ja.wikipedia.org)",
+   "u": "https://ja.wikipedia.org/",
+   "l": "Japanese Wikipedia (ja.wikipedia.org)"
+  }
+ }
 }

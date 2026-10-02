@@ -6082,6 +6082,78 @@
           "rank": 3,
           "verified": true,
           "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WONDERWALL",
+          "name": "Wonderwall.sg (Singapore Ministry of Communications and Information lifestyle portal)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Government-run (MCI) editorial portal; heritage features incl. the 'National Monuments of Singapore' series and neighbourhood rediscovery guides."
+        },
+        {
+          "key": "LIVE2MAKAN",
+          "name": "Live2Makan (Singapore hawker food blog)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running Singapore food blog with dated, first-hand hawker reviews; corroborating source only."
+        },
+        {
+          "key": "TTSH",
+          "name": "Tan Tock Seng Hospital (official heritage pages)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official institutional page for its own heritage museum."
+        },
+        {
+          "key": "WOHA",
+          "name": "WOHA Architects (official project page)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "The architects' own project record."
+        },
+        {
+          "key": "AKDN",
+          "name": "Aga Khan Award for Architecture (AKDN)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Award body record of the 2007 Aga Khan Award."
+        },
+        {
+          "key": "EARCHITECT",
+          "name": "e-architect",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Established architecture-news site; corroborating only."
+        },
+        {
+          "key": "NLBINFOPEDIA",
+          "name": "NLB Singapore Infopedia",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National Library Board encyclopaedia of Singapore."
+        },
+        {
+          "key": "SPORTSG",
+          "name": "Sport Singapore",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statutory board directory of sporting clubs."
+        },
+        {
+          "key": "SILVERSTREAK",
+          "name": "SilverStreak (Singapore lifestyle guide)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Singapore editorial lifestyle site with dated, first-hand park and neighbourhood guides; corroborating only."
         }
       ],
       "creators": [
@@ -11006,9 +11078,102 @@
           "verified": true,
           "credible": "National food/travel site with bylined city lists; corroborating only.",
           "url": "https://www.thrillist.com/"
+        },
+        {
+          "key": "ABC7",
+          "name": "ABC7",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CHOWHOUND",
+          "name": "CHOWHOUND",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FLWTRUST",
+          "name": "FLWTRUST",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN_BIB",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "NBC5",
+          "name": "NBC5",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ILDNR",
+          "name": "ILDNR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "VISITMKE",
+          "name": "VISITMKE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TRAVELWI",
+          "name": "TRAVELWI",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "PORTNOY",
+          "name": "Dave Portnoy (One Bite pizza reviews)",
+          "platform": "YouTube/TikTok/Instagram",
+          "handle": "@stoolpresidente",
+          "url": "https://www.youtube.com/@onebite",
+          "scale": "millions of followers across platforms (Barstool Sports founder)",
+          "niche": "pizza reviews scored out of 10",
+          "credible": "Verifiably the most-watched pizza reviewer in the US; scores widely reported by press. Counts as ONE corroborating source, never institutional."
+        },
+        {
+          "key": "KEITHLEE",
+          "name": "Keith Lee",
+          "platform": "TikTok",
+          "handle": "@keith_lee125",
+          "url": "https://www.tiktok.com/@keith_lee125",
+          "scale": "~16M+ TikTok followers",
+          "niche": "independent-restaurant food reviews; Chicago tour covered by Fox32/NBC Chicago",
+          "credible": "Verifiably huge following with a documented 'Keith Lee effect' reported by mainstream press; ONE corroborating source."
+        }
+      ]
     },
     "akron-oh": {
       "name": "akron-oh",
@@ -11274,9 +11439,148 @@
           "rank": 2,
           "verified": true,
           "credible": "South Jersey's daily paper; Camden-county dining & closings."
+        },
+        {
+          "key": "CBSPHILLY",
+          "name": "CBS News Philadelphia (KYW-TV)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major-network local newsroom; cheesesteak history explainer used to corroborate Pat's/Geno's/Jim's origins."
+        },
+        {
+          "key": "FOODREPUBLIC",
+          "name": "Food Republic",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National food-media outlet (2015 Philly Southeast Asian guide); corroborating only."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "Frommer's — Bucks County",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running national guidebook brand with an edited Bucks County attractions guide."
+        },
+        {
+          "key": "LABAN",
+          "name": "Philadelphia Inquirer — Craig LaBan",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "The Inquirer's Pulitzer-winning restaurant critic of record."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN Guide — Bib Gourmand (2025 Philadelphia)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional award (inaugural 2025 Northeast Cities guide)."
+        },
+        {
+          "key": "MICHELIN_REC",
+          "name": "MICHELIN Guide — Recommended (2025 Philadelphia)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional selection (inaugural 2025 Northeast Cities guide)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN Guide — One Star (2025 Philadelphia)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional award (inaugural 2025 Northeast Cities guide)."
+        },
+        {
+          "key": "PHILAGOV",
+          "name": "City of Philadelphia (phila.gov)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official municipal site — parks/recreation facts and openings."
+        },
+        {
+          "key": "RUTGERSCAMDEN",
+          "name": "Rutgers University–Camden: Explore Camden",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "University's edited guide to its host city's waterfront attractions."
+        },
+        {
+          "key": "SJMAGAZINE",
+          "name": "SJ Magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "South Jersey's regional lifestyle magazine of record; edited Camden/Camden County guides."
+        },
+        {
+          "key": "UNCOVERINGPA",
+          "name": "Uncovering PA (Jim Cheney)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Pennsylvania's most established travel blog (since 2013), a real track record of first-hand PA attraction coverage; travel-blogger channel, corroborating."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage (Independence Hall)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional designation (Independence Hall, inscribed 1979)."
+        },
+        {
+          "key": "VALLEYFORGE",
+          "name": "Valley Forge Tourism & Convention Board",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Montgomery County tourism board."
+        },
+        {
+          "key": "NORTHEASTTIMES",
+          "name": "Northeast Times",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Northeast Philadelphia's community newspaper since 1935; local corroboration."
+        },
+        {
+          "key": "VISITBUCKS",
+          "name": "VISITBUCKS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "VISITDELAWARE",
+          "name": "VISITDELAWARE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
-      "creators": []
+      "creators": [
+        {
+          "key": "MARKWIENS",
+          "name": "Mark Wiens — Taste Tour USA (Philadelphia Parts 1-2)",
+          "platform": "YouTube / Tubi",
+          "handle": "@MarkWiens",
+          "url": "https://tubitv.com/en-gb/tv-shows/200290449/s01-e16-philadelphia-part-2",
+          "scale": "YouTube ~11M+ subscribers (nationalCreators registry)",
+          "niche": "food travel",
+          "credible": "One of the largest food-travel creators; a findable two-part Philadelphia episode (hoagies, cheesesteaks, Grandma pizza) naming Angelo's Pizzeria. One corroborating creator source, never institutional."
+        }
+      ]
     },
     "hokkaido": {
       "name": "hokkaido",
@@ -11344,6 +11648,158 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GOODLUCKTRIP",
+          "name": "Good Luck Trip (gltjp.com) — inbound Japan travel magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running multilingual inbound-travel magazine/web (free paper + site) with staff-written regional food guides; ONE ordinary source, its directory pages also carry award notes (Michelin/Tabelog) that are measured, not counted."
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "Culture Trip",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "International travel publisher with named-writer city guides; notable travel site (one source)."
+        },
+        {
+          "key": "CATHAYPACIFIC",
+          "name": "Cathay Pacific — Inspiration / Eat the city",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Airline editorial dining guides written by named contributors; corroborating travel editorial (one source)."
+        },
+        {
+          "key": "NAVITIMETRAVEL",
+          "name": "Have a Good Holiday (NAVITIME Japan)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Editorial travel media of NAVITIME Japan, the national navigation company — staff/writer features on regional food; one source."
+        },
+        {
+          "key": "FUNJAPAN",
+          "name": "FUN! JAPAN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Multilingual Japan travel/culture media (JTB-affiliated) with writer features; one source."
+        },
+        {
+          "key": "TABELOG100",
+          "name": "Tabelog 百名店 (Hyakumeiten) annual selections",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Published annual genre/region selections by Tabelog — ONE source each (the score itself is measurement only)."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "Michelin Guide Hokkaido 2017 (special edition) — Bib Gourmand",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (Michelin award) — lone-solo per the gate; 2017 special edition, so status is re-checked against a current source."
+        },
+        {
+          "key": "WIKIVOYAGE",
+          "name": "Wikivoyage",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Collaborative travel guide with geocoded listings; corroborating only (like Wikipedia), never a lone recommender."
+        },
+        {
+          "key": "WIKIPEDIA_JA",
+          "name": "Wikipedia (Japanese)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Japanese Wikipedia — notability + published infobox coordinates; corroborating only, never a lone recommender."
+        },
+        {
+          "key": "MAPPLE",
+          "name": "MAPPLE (Shobunsha) — まっぷるトラベルガイド",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Online edition of Shobunsha's Mapple guidebooks, a Japanese guidebook publisher of record; editorial spot listings, one source."
+        },
+        {
+          "key": "JAPANTRAVEL",
+          "name": "Japan Travel (en.japantravel.com)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running English Japan travel media with named on-the-ground writers; one source."
+        },
+        {
+          "key": "MACARONI",
+          "name": "macaroni (macaro-ni.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Major Japanese food-lifestyle media with bylined writers; one source."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "Michelin Guide Hokkaido — star",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (Michelin star) — lone-solo per the gate."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO World Heritage Centre",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Institutional authority (World Heritage inscription) — lone-solo per the gate."
+        },
+        {
+          "key": "JOMONJAPAN",
+          "name": "Jomon Prehistoric Sites in Northern Japan (official site, Jomon World Heritage Promotion Office)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official site of the World Heritage property's managing prefectures (Hokkaido/Aomori/Iwate/Akita); institutional, one source."
+        },
+        {
+          "key": "RURUBU",
+          "name": "rurubu&more. (JTB Publishing)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Web edition of JTB Publishing's rurubu guidebooks — Japan's best-selling guidebook brand; editor-written spot and dining features. One source."
+        },
+        {
+          "key": "OTARUTOURISM",
+          "name": "Otaru Tourism Association (otaru.gr.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official city tourism association of Otaru — tourism body of record for the city."
+        },
+        {
+          "key": "HAKODATETRAVEL",
+          "name": "Hakodate Travel (hakodate.travel) — official Hakodate city tourism site",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official tourism site of the City of Hakodate / Hakodate International Tourism & Convention Association — tourism body of record."
+        },
+        {
+          "key": "HOKKAIDOSHIMBUN",
+          "name": "Hokkaido Shimbun (北海道新聞)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Hokkaido's regional newspaper of record (Japan brief: HOKKAIDOSHIMBUN)."
         }
       ],
       "creators": [
@@ -11409,6 +11865,54 @@
           "rank": 3,
           "verified": true,
           "credible": "Landmark notability + published infobox coordinates (sights only)"
+        },
+        {
+          "key": "CATHAY",
+          "name": "Cathay Pacific Inspiration — 'The 9 best street food dishes in Osaka and where to eat them'",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Airline travel-editorial desk (Cathay's inspiration/Discovery content): named venues per dish, editorially selected; one ordinary source"
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet — Osaka",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "International guidebook publisher of record; staff/author-researched Osaka coverage"
+        },
+        {
+          "key": "INSIDEOSAKA",
+          "name": "Inside Osaka",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running English-language local Osaka food & neighbourhood guide written by Osaka residents; per-venue pages; corroborating local source"
+        },
+        {
+          "key": "FEELKOBE",
+          "name": "FEELKOBE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []
@@ -11591,6 +12095,38 @@
           "rank": 2,
           "verified": true,
           "credible": "Orlando NBC affiliate; reported local news."
+        },
+        {
+          "key": "ALLEARS",
+          "name": "ALLEARS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FROMMERS",
+          "name": "FROMMERS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "INFATUATION",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "DISNEYBLOG",
+          "name": "DISNEYBLOG",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []
@@ -11689,6 +12225,86 @@
         {
           "key": "WIKIPEDIA",
           "name": "WIKIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MAPPLE",
+          "name": "Mapple (まっぷる, Shobunsha guidebooks)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Web edition of Shobunsha's まっぷる — one of Japan's two largest printed travel-guidebook series, editor-written spot pages with address/hours; counts as ONE editorial source"
+        },
+        {
+          "key": "ATLASOBSCURA",
+          "name": "ATLASOBSCURA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JNTO",
+          "name": "JNTO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MIYAKOJIMACITY",
+          "name": "MIYAKOJIMACITY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SAVORJAPAN",
+          "name": "Savor Japan",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Named in the Japan brief as a credible English food outlet (editorial 'Discover Oishii Japan' features); one source"
+        },
+        {
+          "key": "KOZAWEB",
+          "name": "KozaWeb — Okinawa City Tourism Portal",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official Okinawa City tourism portal (city tourism association); one official-tourism source, its 'Top 10' is hit-count popularity (measurement only)"
+        },
+        {
+          "key": "JCASTLE",
+          "name": "Jcastle.info — Guide to Japanese Castles",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Long-running specialist castle reference with per-site visitor reports and historic-site designations; one corroborating source for castle ruins"
+        },
+        {
+          "key": "BUNKA_SURVEY",
+          "name": "Agency for Cultural Affairs — modern-building survey (Okinawa)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Government heritage survey report (NOT a designation — ordinary source, never lone authority, per key hygiene)"
+        },
+        {
+          "key": "JAPANTIMES",
+          "name": "JAPANTIMES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OKINAWATIMES",
+          "name": "OKINAWATIMES",
           "type": "editorial",
           "rank": 3,
           "verified": true,
@@ -11811,6 +12427,562 @@
           "rank": 3,
           "verified": true,
           "credible": "Notability index + published coordinates for landmarks; pinning source, needs a 2nd recommender."
+        }
+      ],
+      "creators": []
+    },
+    "tokyo": {
+      "name": "tokyo",
+      "sources": [
+        {
+          "key": "GOTOKYO",
+          "name": "GOTOKYO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANGUIDE",
+          "name": "JAPANGUIDE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN_BIB",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_STAR",
+          "name": "MICHELIN_STAR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "TIMEOUT",
+          "name": "TIMEOUT",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "WIKIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANTIMES",
+          "name": "JAPANTIMES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SAVORJAPAN",
+          "name": "SAVORJAPAN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_EDITORIAL",
+          "name": "MICHELIN_EDITORIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": [
+        {
+          "key": "RAMENADVENTURES",
+          "name": "Ramen Adventures (Brian MacDuckston)",
+          "platform": "blog + YouTube",
+          "handle": "ramenadventures",
+          "url": "https://ramenadventures.com/",
+          "scale": "Tokyo's best-known English ramen blog since 2009; author of 'Ramen at Home'; long-running YouTube channel",
+          "niche": "Tokyo/Japan ramen",
+          "credible": "Named-author specialist with a 15-year track record and annual Tokyo top-100 roundups; corroborating source only"
+        },
+        {
+          "key": "PAOLOFROMTOKYO",
+          "name": "Paolo fromTOKYO",
+          "platform": "YouTube",
+          "handle": "@paolofromtokyo",
+          "url": "https://www.youtube.com/@paolofromtokyo",
+          "scale": "multi-million-subscriber Tokyo food/travel channel; 'Behind the Counter' kitchen series",
+          "niche": "Tokyo restaurants, behind-the-scenes",
+          "credible": "Verifiably large Tokyo-based channel with a long-running restaurant series; one corroborating source only"
+        }
+      ]
+    },
+    "liege": {
+      "name": "liege",
+      "sources": [
+        {
+          "key": "VISITLIEGE",
+          "name": "Visit Liège — Maison du Tourisme du Pays de Liège (official)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ROUTARD",
+          "name": "Le Guide du Routard (FR travel guide of record)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LONELYPLANET",
+          "name": "Lonely Planet (FR edition)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "WBT",
+          "name": "Wallonie Belgique Tourisme (official regional tourism)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "ULIEGE",
+          "name": "Université de Liège — campus guide (curated local-cuisine selection)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "SNCB",
+          "name": "SNCB/NMBS — Discover Belgium editorial (national railway)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "BRUSSELSTIMES",
+          "name": "The Brussels Times (Hidden Belgium)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "RTBF",
+          "name": "RTBF (Belgian public broadcaster)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "PARISMATCHBE",
+          "name": "Paris Match Belgique",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "LALIBRE",
+          "name": "La Libre Belgique",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Registered via a discovery pass; see the research SOURCES_*.json."
+        },
+        {
+          "key": "AUBEL",
+          "name": "AUBEL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "AWAP",
+          "name": "AWAP",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "BOULETTES",
+          "name": "BOULETTES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "COE",
+          "name": "COE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "CULTURETRIP",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ERIH",
+          "name": "ERIH",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "EUROPEANBARGUIDE",
+          "name": "EUROPEANBARGUIDE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "EUROPEANWATERFALLS",
+          "name": "EUROPEANWATERFALLS",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FORBES",
+          "name": "FORBES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "INFOLUX",
+          "name": "INFOLUX",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "KIKIRPA",
+          "name": "KIKIRPA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "LADH",
+          "name": "LADH",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "LAVENIR",
+          "name": "LAVENIR",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "LIEGECITY",
+          "name": "LIEGECITY",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN",
+          "name": "MICHELIN",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MUSEUMDE",
+          "name": "MUSEUMDE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "OFFICIAL",
+          "name": "OFFICIAL",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PROVINCELIEGE",
+          "name": "PROVINCELIEGE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SHOWCAVES",
+          "name": "SHOWCAVES",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "WIKIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "APAQW",
+          "name": "APAQW",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "ELLE",
+          "name": "ELLE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "FOODLE",
+          "name": "FOODLE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GAULTMILLAU",
+          "name": "GAULTMILLAU",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "GOURMANDIZ",
+          "name": "GOURMANDIZ",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MOUSTIQUE",
+          "name": "MOUSTIQUE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PAYSDEHERVE",
+          "name": "PAYSDEHERVE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "PAYSDEVESDRE",
+          "name": "PAYSDEVESDRE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        }
+      ],
+      "creators": [
+        {
+          "key": "DARLEYNEWMAN",
+          "name": "Darley Newman — Travels with Darley (PBS)",
+          "platform": "TV/YouTube/blog",
+          "handle": "@darleynewman",
+          "url": "https://www.darley-newman.com",
+          "scale": "Emmy-winning PBS travel host; national US TV series + YouTube channel",
+          "niche": "travel & food TV",
+          "credible": "Verifiable broadcast series (PBS 'Travels with Darley'); filmed the Confrérie du Gay Boulet in Liège and named Amon Nanesse/Maison du Péket"
+        },
+        {
+          "key": "ERICBOSCHMAN",
+          "name": "Eric Boschman (sommelier, RTBF/Moustique columnist)",
+          "platform": "TV/radio/press",
+          "handle": "",
+          "url": "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710",
+          "scale": "National Belgian TV/radio food & wine personality with regular press columns (Moustique)",
+          "niche": "wine & restaurants",
+          "credible": "Verifiable national media figure with a named, dated restaurant list for Liège published by Moustique (La Libre group)"
+        }
+      ]
+    },
+    "kyoto": {
+      "name": "kyoto",
+      "sources": [
+        {
+          "key": "LEAFKYOTO",
+          "name": "Leaf Kyoto (京都リーフ)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Kyoto's long-running local city/food magazine (Leaf Publications, Kyoto) — the local editorial of record for shops and restaurants."
+        },
+        {
+          "key": "CULTURETRIP",
+          "name": "Culture Trip",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Notable international travel publisher with bylined destination pieces; one corroborating editorial source."
+        },
+        {
+          "key": "ANATRAVEL",
+          "name": "ANA Japan Travel Planner",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "All Nippon Airways' editorial destination guide — a national carrier's official travel content; one corroborating source."
+        },
+        {
+          "key": "KYOHAKU",
+          "name": "Kyoto National Museum",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "National museum (Independent Administrative Institution National Institutes for Cultural Heritage) — official heritage publications."
+        },
+        {
+          "key": "KYOTOMUSEUMS",
+          "name": "Kyoto Museums Council (kyoto-museums.jp)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Official council of Kyoto's museums — institutional listings."
+        },
+        {
+          "key": "JTA",
+          "name": "Japan Tourism Agency multilingual commentary database (MLIT)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Government (Japan Tourism Agency/MLIT) official site interpretation texts."
+        },
+        {
+          "key": "BUNKACHO",
+          "name": "BUNKACHO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "JAPANGUIDE",
+          "name": "JAPANGUIDE",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "KYOTOTOURISM",
+          "name": "KYOTOTOURISM",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "MICHELIN_BIB",
+          "name": "MICHELIN_BIB",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "UNESCO",
+          "name": "UNESCO",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "WIKIPEDIA",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
         }
       ],
       "creators": []

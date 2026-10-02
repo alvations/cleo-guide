@@ -21,21 +21,24 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W01 (SPR sights): 12 discovered (all ≥2 credible), 9 geocoded high + 3 UNVERIFIED; built & all gates
-  green (9 pins). **Blocked:** session WebSearch budget exhausted (200/200) after ~14 queries by this agent — raise
-  `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` (or relaunch in a fresh session) to continue. NOT live.
-- Counts vs target: SPR 12/130 · OTARU 0/50 · NSK 0/35 · DONAN 0/75 · IBURI 0/40 · DHOKU 0/60 · TKC 0/35 · DOTO 0/55 · SOYA 0/20.
+- 2026-10-02 W01 (session 1): 12 SPR sights, 9 pinned — halted at the shared 200-search cap.
+- 2026-10-02 **session 2**: W02–W15 discovery + G01/G02 geocode workers + builds #1/#2 → **140 discovered, 104 rendered
+  (100 sights + 4 food), all 4 gates green, validate/test green — LIVE** (Japan hub card + root "3 of 5" + CITIES.md row).
+- Counts vs target (discovered): see `python3 tools/density.py hokkaido` — SPR 41/130 · OTARU 16/50 · NSK 4/35 ·
+  DONAN 20/75 · IBURI 15/40 · DHOKU 17/60 · TKC 11/35 · DOTO 18/55 · SOYA 8/20 (approx. at go-live).
+- 36 UNVERIFIED held (mostly restaurants — Sapporo/Hakodate/Asahikawa/Obihiro/Otaru/Kushiro food has addresses but no
+  readable place-pin) → `tools/geocode-helper.html` or a Google `!3d!4d` pass. Sights still unpinned: Otaru Herring
+  Mansion, Otaru Kihinkan, Shimamui Coast, Sushiya-dōri, Hachimanzaka, Patchwork Road, Sōya Hills, Sukoton, Momoiwa, Himenuma.
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **W01 — Sapporo (SPR)** STOPPED at the session WebSearch cap (200/200, shared by all agents). Its committed output
-  is complete and gated; resume with **W01b** = the remaining SPR queries below.
-- W01b queries still to run: Sapporo sights batch 2 (Ōkurayama — need 2nd source; Nakajima Park/Hōheikan; Tanukikōji;
-  Nijō Market; Shiroi Koibito Park; Maruyama Zoo; Sapporo Art Park; Hokkaido Museum; Takino Suzuran; Hoheikyo);
-  SPR food canon: miso ramen (Sumire, Saimi, Shingen, Keyaki, Aji no Sanpei — Tabelog 百名店 2025 / Michelin 2017 Bib),
-  soup curry (Suage, Garaku, Picante, Samurai), jingisukan (Daruma), Nijō kaisendon, Rokkatei/Kitakaro, Sapporo
-  Beer Garden; creators: Just One Cookbook, Ramen Adventures, Paolo fromTOKYO, Abroad in Japan.
-- Helper: `_hk.py` (S()/F()/emit()); wave ledgers `_w<NN>_<area>.py` are re-runnable (`python3 _w01_spr.py`).
+- **W16+ (session 2, continuing until the search budget runs out):** SPR food/sights b4, NSK food, DONAN extras.
+  Files: `_w16_*.py` → FOOD/SIGHTS_HOKKAIDO_W16.json. If interrupted: re-run any `_w*.py` ledger, rebuild, commit.
+
+## Search ledger` below.
+
+## Search ledger
+- session 2: ≈165 used (me ~132 + G01 18 + G02 15)
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.
