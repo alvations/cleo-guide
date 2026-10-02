@@ -6,7 +6,7 @@
   "lat": 35.6894823,
   "lng": 139.6966117,
   "conf": "high",
-  "gs": "pre-pinned by caller (not re-verified this pass)",
+  "gs": "Google Maps place pin !3d!4d — https://google.com/maps/place/Ben+Fiddich/data=!4m6!3m5!1s0x60188cd15bc64465:0x54db36c5e2c69e38!8m2!3d35.6894823!4d139.6966117",
   "st": "open",
   "sts": "World's 50 Best Bars 2025 #18 / Asia's 50 Best Bars 2026 #9 (per search summary); W Maldives guest takeover July 2026 — active",
   "dish": "Farm-to-bar cocktails from Kayama's Saitama farm; fennel-flower Sazerac, cypress-scented Martini, house absinthe (Punch)",
@@ -157,10 +157,6 @@
    [
     "TIMEOUT",
     "https://www.timeout.com/tokyo/bars-and-pubs/gen-yamamoto"
-   ],
-   [
-    "WORLD50",
-    "Asia's 50 Best Bars 2016-21 (per caller; no 50best URL retrieved this pass)"
    ]
   ],
   "notes": "8-seat counter. WORLD50 URL still needed; pin needed. Possible relocation — verify address."
@@ -418,5 +414,140 @@
    ]
   ],
   "notes": "2nd sources are Tokyo Weekender + Sprudge (specialty-coffee press of record) — not in caller's key list; caller to judge."
+ },
+ {
+  "n": "Glitch Coffee & Roasters",
+  "a": "CYD",
+  "address": "Kayamura Bldg 1F (香村ビル１階), 3-16 Kanda Nishikicho, Chiyoda City, Tokyo 101-0054",
+  "lat": 35.6937428,
+  "lng": 139.7613047,
+  "conf": "high",
+  "gs": "Google Maps place pin !3d!4d — https://www.google.com/maps/place/GLITCH+COFFEE+&+ROASTERS/@35.6937471,139.759116,17z/data=!3m2!4b1!5s0x60188c1022bfa321:0x3ab38ae6d31f2496!4m5!3m4!1s0x60188c10220a160f:0x35f993cfcdeac949!8m2!3d35.6937428!4d139.7613047",
+  "st": "open",
+  "sts": "Google listing active; Chiyoda City official tourism spot page live; no closure reports",
+  "dish": "Light-roast single-origin hand drip (~15 origins); owner Kiyokazu Suzuki, 2014 Japan AeroPress champion",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/restaurants/glitch-coffee-roasters"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.jp/tokyo/ja/レストラン/glitch-tokyo"
+   ],
+   [
+    "OFFICIAL",
+    "https://visit-chiyoda.tokyo/app/en/spot/detail/838"
+   ],
+   [
+    "TOKYOWEEKENDER",
+    "https://www.tokyoweekender.com/food-and-drink/best-coffee-shops-jimbocho/"
+   ]
+  ],
+  "notes": "2nd independent source: Visit Chiyoda (Chiyoda City official tourism — official-tourism tier, akin to GOTOKYO) + Tokyo Weekender. Opened 2015. Also a Ginza branch exists."
+ },
+ {
+  "n": "Fuglen Tokyo",
+  "a": "SBY",
+  "address": "1-16-11 Tomigaya, Shibuya City, Tokyo 151-0063",
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "Google place URL has no !3d!4d: https://www.google.com/maps/place/fuglen+coffee+tokyo/data=!4m2!3m1!1s0x60188cb2957a60ad:0xee351263d20144a7",
+  "st": "open",
+  "sts": "Google listing active; DeepTokyo cites Tabelog Hyakumeiten Cafe EAST 2025; no closure reports",
+  "dish": "Light-roast single-origin Nordic-style coffee by day, cocktails by night, in Scandinavian vintage interior",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/bars-and-pubs/fuglen-tokyo"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/restaurants/the-best-tokyo-cafes"
+   ],
+   [
+    "TOKYOWEEKENDER",
+    "https://www.tokyoweekender.com/?p=50226"
+   ]
+  ],
+  "notes": "First overseas Fuglen (2012). Possible TABELOG100 (Cafe EAST 2025, per deeptokyo.jp https://deeptokyo.jp/en/?p=6024) and Monocle favourite — no Tabelog/Monocle URL retrieved; confirm to make a clean 2nd source."
+ },
+ {
+  "n": "Onibus Coffee Nakameguro",
+  "a": "JONAN",
+  "address": "2-14-1 Kamimeguro, Meguro City, Tokyo (per Time Out; postcode not in result)",
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no !3d!4d place URL in 1 query",
+  "st": "open",
+  "sts": "Time Out lists daily 9am-6pm; no closure reports found",
+  "dish": "Espresso/latte/hand drip from house-roasted beans; banana bread — Time Out; view of the Tokyu train tracks",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.jp/tokyo/restaurants/onibus-coffee-nakameguro"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/things-to-do/one-day-in-nakameguro"
+   ],
+   [
+    "TOKYOWEEKENDER",
+    "https://www.tokyoweekender.com/2022/04/5-must-visit-coffee-shops-in-nakameguro/"
+   ]
+  ],
+  "notes": "Only non-Time-Out source is Tokyo Weekender (not in caller's key list) — effectively LACKS 2nd from the listed outlets."
+ },
+ {
+  "n": "Tajimaya Coffeehouse",
+  "a": "SJK",
+  "address": "1-2-6 Nishi-Shinjuku, Shinjuku City, Tokyo (Omoide Yokocho; per Time Out; postcode not in result)",
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no !3d!4d place URL in 1 query (JA query returned an unrelated Maruyama Coffee pin)",
+  "st": "open",
+  "sts": "Stars and Stripes Apr 2025 + trvlogue 2026 review describe it operating; Time Out hours 10am-11pm daily; no closure reports",
+  "dish": "Cloth-filter hand-drip of hand-sorted house-roasted beans; coffee jelly with cream; butter toast with azuki — Time Out",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/restaurants/tajimaya-coffehouse"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/restaurants/best-kissaten-coffee-shops-in-tokyo"
+   ],
+   [
+    "METROPOLIS",
+    "https://metropolisjapan.com/kissaten-tokyo/"
+   ]
+  ],
+  "notes": "Est. 1964; cash only; smoking permitted. 2nd sources are Metropolis + Stars and Stripes (not in caller's key list) — caller to judge."
+ },
+ {
+  "n": "Satella",
+  "a": "SBY",
+  "address": "Aoyama Seven Heights Bldg, 1-7-5 Shibuya, Shibuya City, Tokyo (per Time Out; postcode not in result)",
+  "lat": null,
+  "lng": null,
+  "conf": "unverified",
+  "gs": "no !3d!4d place URL in 1 query",
+  "st": "open",
+  "sts": "Time Out venue page lists current hours (11am-7pm; Thu 8am-7pm; Fri 11am-8:30pm & 7pm-10pm); no closure reports",
+  "dish": "Cream cheese pudding with condensed milk; hand-drip blends from All Seasons Coffee (medium roast recommended) — Time Out",
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/restaurants/satella"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/tokyo/restaurants/best-kissaten-coffee-shops-in-tokyo"
+   ]
+  ],
+  "notes": "AREA = SBY (Shibuya 1-chome, near Aoyama/Miyamasuzaka). Opened 2020 in the former Aoyama Chakan kissaten space. LACKS 2nd independent credible source."
  }
 ]

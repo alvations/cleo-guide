@@ -219,3 +219,25 @@ point ~800 m west), Gyosen Park (~60 m), Natsume Sōseki Memorial Museum (ja.wik
 Time Out; Wikidata pin); CHUO Hamacho Kaneko (Bib 2026 + Michelin soba-mae feature). Held: Matsuchiyama Shōden (one
 source), Kan'ei-ji, Yanaka Ginza (no street pin). Prose on new cards trimmed to what the sources state.
 **Build:** 387 discovered / 382 rendered (241 sights + 141 food); all gates green; validate + npm test pass.
+
+## 2026-10-02 — W5: FOOD & DRINK FIRST + ANIME (session_01VQaxQ69L5PmZRFY3PnAJQQ)
+**Process decision:** discovery split into category waves run by background agents (bars & coffee, ramen/noodles,
+izakaya/drinks, sweets/bakeries, anime) under one brief (`_w5_agent_brief.md`); each writes `_w5_<cat>_verified.json`;
+the lead vets every record with `_tokyo_w5_ingest.py` (≥2 distinct credible outlets or a Michelin award; OFFICIAL never
+counts for food; named dish; pin only from `!3d!4d` matching lat/lng or Michelin/Wikipedia; dedup) → FOOD/SIGHTS_TOKYO_W5 +
+`geo/_geoout_tokyo_w5.json`; failures logged in `_w5_held.json`.
+**Lesson (search channel):** multi-name `google.com` place queries return hotels, not the bars; Wikidata has no items
+for small yokochō — one Google place query per venue is the only pin channel, and bars/kissaten often return only
+`cid=` or no-`!3d` links (bars wave: 3 of 21 pinned in 44 searches). Unpinned but well-sourced places are kept as
+UNVERIFIED (discovered, held off the map for `tools/geocode-helper.html`).
+### Batch 1 — bars & kissaten / specialty coffee (44 agent searches + 9 lead searches)
+**Kept (14):** Bar Benfiddich (pin), Virtù, Punch Room Tokyo, Bar Libre, The Bellwood (pin), Bar High Five, Bar Trench —
+World's/Asia's 50 Best Bars + Time Out (+ CNN/PUNCH); Café de l'Ambre (Monocle + Time Out), Chatei Hatou (Monocle +
+Infatuation), Koffee Mameya Kakeru (Time Out + Tokyo Weekender + Sprudge), Glitch Coffee (pin; Time Out + Tokyo
+Weekender), Fuglen Tokyo, Onibus Nakameguro (Time Out + Tokyo Weekender), Tajimaya (Time Out + Metropolis).
+New outlets (SOURCES_TOKYO_W5.json): WORLD50, MONOCLE, PUNCH, TOKYOWEEKENDER, METROPOLIS, SPRUDGE, INFATUATION, CNN.
+**Held:** Gen Yamamoto (no 50 Best URL in hand; possible relocation), Tokyo Confidential, Cafe Bon, Monozuki, Satella
+(Time Out only), Higashi-Mukojima Coffee-Ten (Time Out + unconfirmed municipal PDF), The SG Club (no named drink).
+Stars and Stripes dropped as a source (not editorial of record). Lead's Shibamata/Kamakura probes: Savor Japan (a
+Gurunavi reservation site's advertorial) not counted; Taishakuten-sandō held (no place pin).
+Pins: 3 high, 11 UNVERIFIED → helper.

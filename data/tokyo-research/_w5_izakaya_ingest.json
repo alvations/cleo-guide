@@ -246,30 +246,6 @@
   "kind": "food"
  },
  {
-  "t": 2,
-  "a": "SJK",
-  "cz": [
-   "IZAKAYA"
-  ],
-  "dish": "simple rustic izakaya plates with an extensive sake list",
-  "n": "Shuko Takigiya, Araki-chō (酒肴 たきぎや)",
-  "address": "7-11 Arakichō, Shinjuku-ku, Tokyo 〒160-0007",
-  "w": "Rustic Araki-chō basement izakaya long beloved by salarymen, awarded a Michelin Bib Gourmand for simple, delicious dishes and a deep sake menu alongside shochu and umeshu.",
-  "sources": [
-   [
-    "MICHELIN_BIB",
-    "https://guide.michelin.com/en/article/travel/travel-guide-michelin-recommended-izakayas-in-shinjuku"
-   ]
-  ],
-  "lat": null,
-  "lng": null,
-  "conf": "unverified",
-  "gs": "Google returned a maps/search URL (query_place_id=ChIJ5YEZfPKMGGARDv9JmAJsvD0, address 7-11 Arakicho) with no !3d!4d — https://www.google.com/maps/search/?api=1&query=Shuko+Takigiya,+Shinjuku,+Tokyo&query_place_id=ChIJ5YEZfPKMGGARDv9JmAJsvD0",
-  "st": "open",
-  "sts": "Google Maps listing present in search 2026-10; Michelin Bib article",
-  "kind": "food"
- },
- {
   "t": 1,
   "a": "CYD",
   "cz": [
@@ -295,30 +271,6 @@
   "gs": "pin search not run — session WebSearch budget exhausted; alley needs a Google place pin before mapping",
   "st": "open",
   "sts": "japan-guide Yurakucho page (current) describes it operating",
-  "kind": "food"
- },
- {
-  "t": 3,
-  "a": "SJK",
-  "cz": [
-   "IZAKAYA"
-  ],
-  "dish": "seasonal izakaya dishes with an extensive sake list",
-  "n": "Kisaiya Hide, Kagurazaka (季彩や ひで)",
-  "address": "6-23 Kagurazaka, Shinjuku-ku, Tokyo",
-  "w": "Clean, minimalist Kagurazaka izakaya with a sushi-bar feel, awarded a Michelin Bib Gourmand; deep sake list alongside beer, umeshu and shochu.",
-  "sources": [
-   [
-    "MICHELIN_BIB",
-    "https://guide.michelin.com/sg/en/article/travel/travel-guide-michelin-recommended-izakayas-in-shinjuku-sg"
-   ]
-  ],
-  "lat": null,
-  "lng": null,
-  "conf": "unverified",
-  "gs": "pin search not run — session WebSearch budget exhausted",
-  "st": "open",
-  "sts": "Michelin Shinjuku izakaya article (Bib Gourmand); current status not re-checked",
   "kind": "food"
  }
 ]
