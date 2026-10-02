@@ -72,22 +72,22 @@
  {
   "n": "Shinsaibashi-suji Shopping Arcade",
   "address": "Shinsaibashi-suji, Chuo-ku, Osaka, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED — no place pin found via WebSearch (Michelin/Wikipedia); needs tools/geocode-helper.html",
+  "lat": 34.672306,
+  "lng": 135.501361,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia infobox coords https://ja.wikipedia.org/wiki/%E5%BF%83%E6%96%8E%E6%A9%8B%E7%AD%8B%E5%95%86%E5%BA%97%E8%A1%97",
   "status": "open",
-  "statusSource": "https://www.japan-guide.com/e/e4001.html (current listing)"
+  "statusSource": "japan-guide e4001 (current)"
  },
  {
   "n": "Amerikamura (Amemura)",
   "address": "Nishishinsaibashi, Chuo-ku, Osaka, Japan",
-  "lat": null,
-  "lng": null,
-  "confidence": "unverified",
-  "geoSource": "UNVERIFIED — no place pin found via WebSearch (Michelin/Wikipedia); needs tools/geocode-helper.html",
+  "lat": 34.672086,
+  "lng": 135.49796,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia infobox coords https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E6%9D%91",
   "status": "open",
-  "statusSource": "https://www.japan-guide.com/e/e4001.html (current listing)"
+  "statusSource": "japan-guide e4001 (current)"
  },
  {
   "n": "Nakanoshima Museum of Art, Osaka",
@@ -108,5 +108,25 @@
   "geoSource": "Japanese Wikipedia: Tenjimbashisuji 6-chōme Station coords — the arcade's north end (Tenroku) https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%A5%9E%E6%A9%8B%E7%AD%8B%E5%95%86%E5%BA%97%E8%A1%97",
   "status": "open",
   "statusSource": "japan-guide e4024 (current)"
+ },
+ {
+  "n": "Osaka Tsuruhashi Market",
+  "address": "Tsuruhashi, Ikuno-ku / Higashinari-ku, Osaka, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — jawiki gives only the old Tsuruhashi-chō town centroid (rejected); needs a place pin",
+  "status": "open",
+  "statusSource": "OSAKA-INFO spot page (current)"
+ },
+ {
+  "n": "Aizuya Honten (Tamade)",
+  "address": "2-3-1 Tamadenishi, Nishinari-ku, Osaka, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — address from ja.wikipedia 会津屋; no place pin surfaced",
+  "status": "open",
+  "statusSource": "ja.wikipedia 会津屋 (operating, multiple branches) + Lonely Planet"
  }
 ]
