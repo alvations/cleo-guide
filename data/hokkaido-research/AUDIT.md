@@ -280,3 +280,6 @@ Food share 153/327 = 47% (session start 26%). ANIME 7. JOZANKEITOURISM given a r
 Channel mix (session 3 second sources): guidebook editorial ~40% (RURUBU, MAPPLE), official tourism ~35% (HOKKAIDOTOURISM,
 SAPPOROTRAVEL, HAKODATETRAVEL, OTARUTOURISM, KUSHIROTOURISM, OBIKAN, LAKETOYA, JOZANKEITOURISM, NISEKOTOURISM, RISHIRIPLUS), encyclopedic
 pins (WIKIPEDIA_JA) ~15%, travel media/creators ~10% (TIMEOUT, GOODLUCKTRIP, RAMENADVENTURES creator, HOKKAIDOSHIMBUN/TripEat, FAMITSU).
+**W76 IBURI (post-final, 2 searches):** Mt Tarumae (visit-hokkaido + japan-guide + wiki pin), Ōyunuma River footbath (noboribetsu-spa.jp =
+NOBORIBETSUTOURISM + visit-hokkaido; "大湯沼" coord rejected — no own article). Held: Koke-no-dōmon moss gorge (no coord).
+**W77 IBURI:** Soba-dokoro Fukuan (promoted: rurubu + MAPPLE Noboribetsu list; caveat).
