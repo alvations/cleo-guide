@@ -64215,6 +64215,28 @@
     "status": "open",
     "statusSource": "Wikipedia (gate restored, park open)",
     "statusChecked": "2026-10-02"
+   },
+   "Ayagu Shokudō, Shuri — CLOSED": {
+    "address": "Hisagawa-chō, Shuri, Naha, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Okinawa Times 1233368 / 1235617 and Ryukyu Shimpo entry-2334724 — closed end of Oct 2023 after 44 years",
+    "statusChecked": "2026-10-02"
+   },
+   "Ichigin Shokudō, Kumoji — CLOSED": {
+    "address": "Kumoji, Naha, Okinawa, Japan",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "closed",
+    "statusSource": "Okinawa Times 1514070 — closed 23 January (24-hour Kumoji shokudō)",
+    "statusChecked": "2026-10-02"
    }
   },
   "tokyo": {
@@ -75412,7 +75434,7 @@
     "statusChecked": "2026-10-02"
    },
    "Kagizen Yoshifusa (鍵善良房)": {
-    "address": "Shijō-dōri, Gion, Higashiyama-ku, Kyoto (near Yasaka Shrine)",
+    "address": "264 Gionmachi Kitagawa, Higashiyama-ku, Kyoto",
     "lat": null,
     "lng": null,
     "source": "UNVERIFIED",
@@ -76762,6 +76784,94 @@
     "confidence": "high",
     "status": "open",
     "statusSource": "Kyoto Online Tourist Information Center FAQ 508 — checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Doppo": {
+    "address": "1-1 Izumoji Matsunoshita-chō, Kita-ku, Kyoto 603-8133",
+    "lat": 35.042915,
+    "lng": 135.762222,
+    "source": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/doppo",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2026 (Two Stars), checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Gion Matayoshi": {
+    "address": "570-123 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074",
+    "lat": 35.003349,
+    "lng": 135.774545,
+    "source": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-matayoshi",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2026 (Two Stars), checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Germoglio": {
+    "address": "2F, 172 Higashisakai-chō, Shimogyō-ku, Kyoto 600-8217",
+    "lat": 34.989348,
+    "lng": 135.758377,
+    "source": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/germoglio",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2026 (One Star), checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "ima": {
+    "address": "183-4 Fudō-chō, Nakagyō-ku, Kyoto 604-8215",
+    "lat": 35.006178,
+    "lng": 135.756091,
+    "source": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/ima-1242636",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2026 (One Star), checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Kentan Horibe": {
+    "address": "273 Tenjinyama-chō, Nakagyō-ku, Kyoto 604-8221",
+    "lat": 35.004999,
+    "lng": 135.757018,
+    "source": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kentan-horibe",
+    "verified": "2026-10-02",
+    "confidence": "high",
+    "status": "open",
+    "statusSource": "MICHELIN Guide 2026 (One Star), checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Smart Coffee (スマート珈琲店)": {
+    "address": "537 Tenshōjimae-chō, Teramachi-dōri Sanjō-agaru, Nakagyō-ku, Kyoto",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Inside Kyoto (open 8:00–19:00) + Leaf KYOTO — checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Gion Tokuya (ぎおん徳屋)": {
+    "address": "Gion, Higashiyama-ku, Kyoto",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Time Out + Leaf KYOTO — operating; checked 2026-10-02",
+    "statusChecked": "2026-10-02"
+   },
+   "Kasagiya (かさぎ屋)": {
+    "address": "349 Masuya-chō, Kōdai-ji, Higashiyama-ku, Kyoto (top of Ninenzaka steps)",
+    "lat": null,
+    "lng": null,
+    "source": "UNVERIFIED",
+    "verified": "2026-10-02",
+    "confidence": "UNVERIFIED",
+    "status": "open",
+    "statusSource": "Inside Kyoto (11:00–18:00, closed Tue) + MATCHA — checked 2026-10-02",
     "statusChecked": "2026-10-02"
    }
   },

@@ -39,22 +39,23 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 | MYK | 14 | 50 | +36 |
 | KRM | 7 | 30 | +23 |
 
-- 2026-10-02 **W3 done** (food & drink first + ANIME; ~120 lead searches + 70 by two background geocoders): +67 →
-  **186 discovered (101 sights + 85 food & drink = 46 % food, was 22 %), 89 pinned**; ANIME 3. 4 gates PASS, `npm run
+- 2026-10-02 **W3 done** (food & drink first + ANIME; WebSearch budget fully spent — 200/200 incl. two background
+  geocoders): +95 → **214 discovered (107 sights + 107 food & drink = 50 % food, was 22 %), 89 pinned**; ANIME 4
+  (Nirai Kanai, Azama, Pokémon Center Okinawa, Sugar Road/Chura-san); 2 notable closures flagged (Ayagu, Ichigin). 4 gates PASS, `npm run
   validate` + `npm test` ALL PASS. Files `FOOD/SIGHTS/SOURCES_OKINAWA_W3.json`, `geo/_geoout_okinawa_W3.json` (discovery
   pins), `_W3G` (held-sight geocoder: 7 kept, 5 rejected), `_W3R` (restaurant geocoder: 1/50), raw log `_okinawa_w3_notes.md`
-  (91 numbered searches — every held lead and its source; read before searching).
+  (120 numbered entries — every held lead and its source; read before searching).
 
 ### Density after W3 (python3 tools/density.py okinawa)
 | area | food | sights | have | target | need |
 |---|---|---|---|---|---|
-| NAHA | 20 | 17 | 37 | 120 | +83 |
-| CHUBU | 14 | 17 | 31 | 95 | +64 |
-| HOKBU | 18 | 18 | 36 | 90 | +54 |
-| NANBU | 10 | 17 | 27 | 65 | +38 |
-| YAEYA | 9 | 12 | 21 | 60 | +39 |
-| MYK | 12 | 11 | 23 | 50 | +27 |
-| KRM | 2 | 9 | 11 | 30 | +19 |
+| NAHA | 25 | 17 | 42 | 120 | +78 |
+| CHUBU | 18 | 18 | 36 | 95 | +59 |
+| HOKBU | 20 | 18 | 38 | 90 | +52 |
+| NANBU | 15 | 17 | 32 | 65 | +33 |
+| YAEYA | 13 | 15 | 28 | 60 | +32 |
+| MYK | 12 | 12 | 24 | 50 | +26 |
+| KRM | 4 | 10 | 14 | 30 | +16 |
 
 ## In-flight wave
 - none (W3 closed and committed).
@@ -72,8 +73,9 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
    COFFEE potohoto, HUU'S, ippe coppe, Cafe Kokuu, CASA SOL, Kissa Agachi-mori, Jef Yonabaru, Seaside Drive-In, Cafe
    Ocean, Kitauchi Bokujō, Hitoshi, Gen, Yaesen/Seifuku distilleries, Kihachi & Yan-kō (Kume), Marumi-ya (Zamami), Kanifu
    & Shidamē-kan (Taketomi), Iriomote cafés, Yukishio Museum, KOURI SHRIMP, Makabe Chinā, Kaiyō Shokudō, Maeda Shokudō.
-   Unmined lists: Mapple 51451 (michi-no-eki top 5), rurubu 23587 (Okinawa gourmet 16), rurubu 14269 (cafés 31),
-   KozaWeb bakeries 280 / senbero 283, Okinawa Traveler 0003 ranking & 0130 C-lunch 7, Mapple 29790 (Ishigaki dinner).
+   Unmined/half-mined lists: Mapple tourism/okinawa/02 (Kokusai 19 — Pork Tamago Onigiri Honten, Okinawa Daiichi Hotel
+   breakfast, C&C Breakfast, Ball Donut Park, Sekka no Sato need a 2nd source), rurubu 14269 (cafés 31), KozaWeb bakeries
+   280 / senbero 283, Okinawa Traveler 0003 ranking, Hateruma/Kohama/Iriomote food (Mapple-only names in notes #104-108).
 2. **Sights for Naha/Chūbu** (largest gaps): Tomari International Cemetery, Mekaru tombs, Shuri Kannondō, Naminoue Beach,
    Urasoe Castle/Yōdore, Kakazu Ridge, Sugar Loaf, Minatogawa Stateside Town (Stripes GPS), Kadena michi-no-eki lookout,
    Okinawa Zoo, Plaza House, Rycom; Ishigaki Limestone Cave & Cape Hirakubo (GLTJP + Stripes '20 things').
