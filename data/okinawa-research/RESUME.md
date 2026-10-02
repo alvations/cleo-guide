@@ -18,19 +18,32 @@ Measured by `python3 tools/density.py okinawa` on the DISCOVERED set. Total ≈ 
 Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu / Nanbu** (north/central/south) with **Naha** as its own area, then the outlying island groups — **Kerama**, **Miyako** and **Yaeyama**.
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
+- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
+- 2026-10-02 **W1 done (truncated)** — 13 places discovered & sourced (NAHA 6 · CHUBU 3 · NANBU 1 · HOKBU 3 · KRM 0 ·
+  MYK 0 · YAEYA 0); 6 verified pins + 7 UNVERIFIED in `geo/_geoout_okinawa_W1.json` (NOT yet merged into
+  data/geocodes.json — merge happens on the first `--build`). Files: `SIGHTS_OKINAWA_W1.json`, `FOOD_OKINAWA_W1.json`,
+  `SOURCES_OKINAWA_W1.json`. **Stopped because the session WebSearch cap (200/200, shared by all agents) was hit
+  after 17 of this agent's searches** — every further search is refused. Relaunch with a fresh search budget.
+- Build-script prose (`tools/build-okinawa.py`) rewritten for real Okinawa content.
+- Append helper: `python3 _okinawa_add.py F|S|G <TAG> < records.json` (dedups by name; F/S/G = food/sights/geo).
 
 ## In-flight wave
-- **W1 (tag NAHA1)** — Naha sights backbone (Shuri/UNESCO gusuku, Tsuboya, Makishi, Naminoue…) → `SIGHTS_OKINAWA_NAHA1.json`,
-  geocodes → `geo/_geoout_okinawa_NAHA1.json`. Method: one WebSearch per place for Wikipedia/official coords + a 2nd source
-  (japan-guide / Visit Okinawa / Stripes Okinawa). Helper used to append: scratch `add.py` (kind F/S/G, tag, JSON).
-- Key finding: **Stars and Stripes Okinawa** (okinawa.stripes.com) food/travel pieces print venue GPS (`N 26.xxx, E 127.xxx`) —
-  use as a 2nd source AND as a venue-published coordinate for restaurants.
+- none (W1 closed, truncated by the shared WebSearch cap — see State).
 
 ## Next actions
+0. Held leads to re-source first: Tsuboya Yachimun-dōri, Shuri Soba, Miyazato Soba (Nago), Yanbaru Soba; re-geocode
+   Shikinaen, Makishi Market, King Tacos, and Nakagusuku/Nakijin/Zakimi/Katsuren (Wikipedia infobox, one place per query).
+   Cheap channel to try: `allowed_domains` searches on visitokinawajapan.com / japan-guide.com / okinawa.stripes.com
+   (Stripes prints venue GPS).
 1. Discovery waves per area (canon first) → `python3 tools/density.py okinawa` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_okinawa_*.json` → `python3 tools/rebuild-city.py okinawa --build` (under the shared lock).
 3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
+
+## Map-view caveat (check at first build)
+The centre/zoom is derived from the 5–95 % pin percentiles over ALL Okinawa pins. Once Miyako/Yaeyama hold >5 % of
+pins the box spans ~400 km and the derived view lands in the sea at zoom ~7–8. After the first `--build` run
+`node tools/research.js --buildcheck okinawa` and eyeball the view; if the main island isn't framed, add a
+documented CFG override (e.g. `VIEW`) in tools/belgium_build.py under the lock rather than hardcoding.
 
 ## Acceptance
 - [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
