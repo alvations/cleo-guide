@@ -50,19 +50,31 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
   Density after W6: CHUO 52 OK · CYD 45 OK · JHOKU 36 OK · KANTO 41 OK · MNT 57 OK · SBY 52 OK · JONAN 33/35 · JOSAI 39/40 ·
   JOTO 19/20 · SJK 49/50 · SMKT 38/40 · TAITO 49/50 · TAMA 29/30.
 
+- **2026-10-02 W7 (session_01LvabJcJR7Zay1SoN8gzwc7) — finishing pass. DENSE.** +10 closing the 7 NEED areas (8 food &
+  drink + 2 anime) + 3 anime sights; 24 UNVERIFIED pinned (ja/en Wikipedia coords, 1 Google `!3d!4d`); 6 sourced address
+  fixes. Build: **552 discovered / 439 rendered; food 288 = 52%; ANIME layer 38; all 13 areas OK** (`density.py`);
+  4 gates PASS; validate + test green; hub/root cards + CITIES.md (DENSE) refreshed. Files: `FOOD_TOKYO_W7.json`,
+  `SIGHTS_TOKYO_W7.json`, `SOURCES_TOKYO_W7.json`, `geo/_geoout_tokyo_w7.json`, `geo/_geofix_tokyo_w7.json`,
+  `_w7_*_verified.json`, `_w7_addrfix.json`; helpers `_tokyo_w7_ingest.py`, `_tokyo_w7_fix.py`, `_tokyo_w7_applyfix.py`,
+  `_tokyo_w7_addrfix.py`. Details + measured dead channels in AUDIT.md "W7".
+
 ### Density (discovered, `python3 tools/density.py tokyo`) vs target
 (after W5) CHUO 43/50 · CYD 33/45 · JHOKU 30/35 · JONAN 22/35 · JOSAI 26/40 · JOTO 14/20 · KANTO 37/35 OK · MNT 51/50 OK ·
 SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~530**; food 184 (42.5%). (CYD 36, JHOKU 32 after anime.) Weakest food: TAMA 3, JOTO 3, KANTO 3, SMKT 8.
 
 ## In-flight wave
-**W7 (session_01LvabJcJR7Zay1SoN8gzwc7, 2026-10-02 18:17Z) — finishing pass.** (1) close last NEEDs food-first + anime:
-JONAN +2, SMKT +2, JOSAI/JOTO/SJK/TAITO/TAMA +1 → vetted inputs `_w7_*_verified.json` → `_tokyo_w6_ingest.py`-style
-ingest into `FOOD_TOKYO_W7.json` / `SIGHTS_TOKYO_W7.json` + `geo/_geoout_tokyo_w7.json`; anime candidates: Captain
-Tsubasa statues Yotsugi (JOTO), Seiseki-Sakuragaoka Whisper of the Heart (TAMA), Sazae-san street (JOSAI);
-(2) pin the 128 UNVERIFIED → `geo/_geofix_tokyo_w7.json` (Michelin venue pages / Google `!3d!4d` / Wikipedia only);
-(3) re-verify low-confidence pins.
+None — W7 in progress only as further pin batches (see W8 plan); every committed batch is complete.
 
-## W7 plan (next session)
+## W8 plan (next session)
+1. **Pins (113 UNVERIFIED)** — mostly small bars/kissaten/ramen/Michelin counters that WebSearch cannot pin. Run
+   `tools/geocode-helper.html` in a browser over the geo `unverified` records (place pin `!3d!4d`, never `/@`), write
+   `geo/_geofix_tokyo_w8.json`, apply with a copy of `_tokyo_w7_applyfix.py`. Remaining ja-wiki candidates worth one
+   query each: 空也, うさぎや, カフェ・ド・ランブル, さぼうる, 渋谷のんべい横丁 (article), 吉村家 (address only so far).
+2. Resolve address conflicts flagged in AUDIT W7 (Café de l'Ambre 8-10-15 vs 7-15-7 Ginza).
+3. Optional depth: Michelin one-star tier (122 in Tokyo, ~25 on the map) — but every new Michelin counter is another
+   unpinned record, so add only with a pin path.
+
+## W7 plan (executed)
 1. **Pins first (no/low searches):** 126 UNVERIFIED — run `tools/geocode-helper.html` in a browser over
    `_w6_unverified_worklist.json` (+ W6 additions); Google `!3d!4d` via WebSearch yields ~1 in 7 — don't spend discovery budget on it.
 2. **Close the last NEEDs** (+1–3 each): JONAN (Gotanda/Ōimachi/Ōta — e.g. Toriyoshi Nakameguro needs a 2nd source), JOSAI
@@ -133,5 +145,5 @@ if nothing clears the bar. Then rebuild → gates → validate/test → `_tokyo_
 3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
 
 ## Acceptance
-- [ ] every area ≥ target (KANTO 34/35 closest) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT
+- [x] every area ≥ target (W7: all 13 OK) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row · [x] address-verify pass (W3: 130 verified · 8 fixed · 55 coarsened · 29 locality-only)

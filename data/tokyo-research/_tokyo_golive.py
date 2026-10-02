@@ -11,6 +11,11 @@ def ok(n):
 P = [r for r in ds["P"] if ok(r["n"])]; F = [r for r in ds["F"] if ok(r["n"])]
 disc = len(ds["P"]) + len(ds["F"]); rend = len(P) + len(F)
 areas = len({r["a"] for r in P + F})
+import subprocess
+_den = subprocess.run([sys.executable, os.path.join(R, "tools/density.py"), "tokyo"], capture_output=True, text=True).stdout
+_rows = [l for l in _den.splitlines() if "target" in l]
+DENSE = bool(_rows) and all(l.rstrip().endswith("OK") for l in _rows)
+ANIME = sum(1 for r in ds["P"] + ds["F"] if r.get("anime") or "ANIME" in (r.get("g") or []) or "ANIME" in (r.get("col") or []))
 print("rendered", rend, "sights", len(P), "food", len(F), "areas", areas, "discovered", disc)
 # 1) Japan hub card
 p = os.path.join(R, "Japan/index.html"); s = open(p, encoding="utf-8").read()
@@ -19,7 +24,7 @@ card = f'''<!-- CARD:tokyo -->
       <p class="kicker">東京 · 23 special wards · Tama · Kantō day trips</p>
       <p class="nm">Tokyo</p>
       <p class="desc">Ward by ward like New York's boroughs — Chiyoda, Chūō, Minato, Shinjuku, Shibuya, Taitō, Sumida-Kōtō, then Jōnan, Jōsai, Jōhoku and Jōtō, the Tama area and the Kantō day-trip ring. Kanda soba, Edomae sushi and unagi, monjayaki, yōshoku and the Michelin bench beside century-old shinise.</p>
-      <p class="stat">{rend} places · {len(P)} sights · {len(F)} food · {areas} areas · growing toward ~530</p>
+      <p class="stat">{rend} places · {len(P)} sights · {len(F)} food · {areas} areas · {'density target met (' + str(disc) + ' researched)' if DENSE else 'growing toward ~530'}</p>
       <span class="go">Open Tokyo →</span>
     </a>
     <!-- /CARD:tokyo -->'''
@@ -49,8 +54,8 @@ open(p, "w", encoding="utf-8").write(s)
 p = os.path.join(R, "docs/CITIES.md"); s = open(p, encoding="utf-8").read()
 row = (f"| Tokyo (JP) | `cities/tokyo.html` (linked from the Japan hub) | `data/tokyo.dataset.json` | `data/tokyo-research/` | {rend} | "
        f"live · 13 areas: 7 big wards (CYD, CHUO, MNT, SJK, SBY, TAITO, SMKT) + JONAN/JOSAI/JHOKU/JOTO compass groups + TAMA + KANTO day trips. "
-       f"**{disc} discovered, {rend} rendered** ({len(P)} sights + {len(F)} food); every place ≥2 credible or lone Michelin/UNESCO; pins from Michelin venue pages, "
-       f"Wikipedia infoboxes and Wikidata P625 only. Held/UNVERIFIED in `_pending_w2.json` + geo `unverified`. Below the ~530 target — continue from `data/tokyo-research/RESUME.md`. "
+       f"**{disc} discovered, {rend} rendered** ({len(P)} sights + {len(F)} food); every place ≥2 credible or lone Michelin/UNESCO; pins from Michelin venue pages, Google place pins (!3d!4d), "
+       f"Wikipedia (en/ja) infoboxes and Wikidata P625 only. Held/UNVERIFIED in `_pending_w2.json` + geo `unverified`. " + ("**DENSE** — `tools/density.py tokyo` all 13 areas OK; food " + str(len(ds["F"])) + "/" + str(disc) + " = " + str(round(100*len(ds["F"])/disc)) + "% of discovered; " + str(len(ds["P"])+len(ds["F"])-rend) + " UNVERIFIED pins left for `tools/geocode-helper.html`. " if DENSE else "Below the ~530 target — ") + "continue from `data/tokyo-research/RESUME.md`. "
        f"Rebuild: `python3 tools/rebuild-city.py tokyo --build`. |")
 lines = s.split("\n"); idx = [i for i, l in enumerate(lines) if l.startswith("| Tokyo")]
 if idx: lines[idx[0]] = row
