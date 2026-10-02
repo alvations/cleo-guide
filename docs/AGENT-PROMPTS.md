@@ -136,6 +136,7 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 
 | 2026-10-02 | Liège | discovery W1 (partial) | LIE sights + boulets/gaufre canon | 5 (1 geocoded) | halted: WebSearch session budget 200/200 after 11 searches; ~20 leads held in _PENDING_LEADS.md | liege-research/SIGHTS_LIEGE_LIE, FOOD_LIEGE_LIE, geo/_geoout_liege_w1 |
 | 2026-10-02 | Tokyo | sights W1 (CYD) | sights backbone via Wikipedia/GO TOKYO/japan-guide/Time Out | 9 (all geocoded) | halted: shared WebSearch budget 200/200 exhausted | SIGHTS_TOKYO_W1.json, geo/_geoout_tokyo_w1.json |
+| 2026-10-02 | Tokyo | W2 relaunch (own budget, 166 searches) | Michelin venue pins, Wikipedia/Wikidata coords, GO TOKYO/japan-guide/Time Out/Japan Times corroboration, 2 creators | 314 discovered / 294 rendered (212 sights + 82 food) — LIVE | 20 Michelin UNVERIFIED (no coords on page); 39 held (`_pending_w2.json`); Unicorn Gundam flagged CLOSED; 31 memory-typed kanji names stripped | FOOD/SIGHTS/CREATORS_TOKYO_W2.json, geo/_geoout_tokyo_w2.json, _tokyo_golive.py |
 | 2026-10-02 | Chicago | scaffold + food canon W1 | areas/taxonomy/build + canon | 0 (BLOCKED) | session WebSearch cap 200/200 exhausted by concurrent agents after 3 calls; 7 partial leads in _PENDING_LEADS.md | consolidate.py, build-chicago.py, SOURCES_BASE.json |
 | 2026-10-02 | Akron-Kent-Canton | scaffold + W1 food canon | Barberton chicken | 1 | blocked: shared WebSearch session cap 200/200 hit at 2nd query; Milich's held 1-src | FOOD_W1CANON/SOURCES_W1.json, geo/_geoout_w1_canon.json |
 | 2026-10-02 | Singapore BLS | food canon (W1, partial) | Balestier Rd + Whampoa Makan Place | 13 | 545 Whampoa (relocation?) + 20 single-source held; stopped at session WebSearch cap 200/200 | FOOD/SOURCES/CREATORS_BALESTIER.json, _note_BALESTIER.md |
@@ -207,3 +208,16 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
 - **One 200-call WebSearch cap per session is shared by every concurrent agent** (2026-10-02 run: the Chicago agent got 3 searches before `200 of 200` refusals). A ~500-place NYC-density city alone needs ~700–900 searches (discovery + one pin search per place + status). → Budget the run: give each dense city its own session (or raise `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`), and an agent that hits the cap checkpoints `## In-flight wave` in RESUME.md and stops — never fills from memory.
 - **`density.py` hid empty areas** (it only iterated areas that already had records), so a fresh city looked 1-area-short instead of 5-areas-empty. → It now unions the RESUME targets into the area list; a 0-count area prints `NEED +N`.
 - **The session-wide WebSearch cap (`CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`, 200) is shared by every concurrent agent** and is a hard stop, not a rate limit — back-off does not help. (Okinawa, 2026-10-02: cap hit after 17 of its own searches.) → Checkpoint verified places after every few searches (append helper + RESUME), and in a ~16-agent run budget ≈12 searches/agent unless the cap is raised.
+- **Michelin venue pages carry the pin, but only when the search engine fetches the venue page itself** (Tokyo W2):
+  name exactly **3** Michelin page names + "Michelin restaurant page latitude longitude coordinates" (no word
+  "cuisine" — it makes the engine summarise list pages and drop the coords). ~70% of established listings return
+  lat/lng; brand-new (2026) listings often don't → UNVERIFIED, never estimated. Reject any "approximate" coords the
+  engine offers from a neighbourhood centroid.
+- **Wikidata P625 is the pin source for streets, alleys and heritage restaurants** (Tokyo W2): a `wikidata.org`-
+  restricted "A latitude longitude; B latitude longitude; …" query returns coordinate locations for ja-wiki-only items
+  (Ameyoko, Omoide Yokochō, Takeshita-dōri, Kanda Matsuya, Isegen, Komagata Dozeu, Rengatei, Taimeiken…). Wikidata is
+  the PIN only — the two sources come from a separate editorial corroboration query. Reject whole-second-precision
+  points that land off the shop, and station/district points returned for a venue.
+- **Never type a Japanese-script name or street address from memory** (Tokyo W2 self-correction): 31 kanji/kana names
+  added "for flavour" had to be stripped back to the sourced romanized name. Add native script only when a source in
+  hand shows it; queue an address-verify pass for any address not re-read from a cited page.

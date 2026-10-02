@@ -1,0 +1,84 @@
+[
+ {
+  "n": "¡Toma!",
+  "address": "Boulevard de la Sauvenière 70, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "WebSearch (general + mapcarta-restricted) returned no listing/coordinate for Toma on Bd de la Sauvenière; address unconfirmed"
+ },
+ {
+  "n": "Héliport Brasserie",
+  "address": "Allée des Érables, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Michelin Guide + enprimeurclub/naboo list only 'Allée des Erables, 4000 Liège' (no house number); no published coordinate found via mapcarta/OSM searches. One aggregator claim of '10 km south of centre' is unreliable and ignored"
+ },
+ {
+  "n": "Le Bistrot d'en Face",
+  "address": "Rue de la Goffe 8, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "mapcarta-restricted search found no dedicated POI page with coordinates"
+ },
+ {
+  "n": "Le Cabochon",
+  "address": "Boulevard Émile de Laveleye 191, 4020 Liège, Belgium",
+  "lat": 50.6196,
+  "lng": 5.5919,
+  "confidence": "med",
+  "geoSource": "Mapcarta OSM node N9038485049 'Le cabochon' (published coords 50.6196, 5.5919 — only 4 decimals; near Val Benoît, ~400 m N of Belle-Île, consistent with Bd de Laveleye 191). Address from Michelin Guide",
+  "status": "open",
+  "statusSource": "Michelin Guide listing, Bib Gourmand 2024 and 2025"
+ },
+ {
+  "n": "La Cuisine de Yannick",
+  "address": "En Féronstrée 111, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Address confirmed by Michelin Guide (En Féronstrée 111); no published coordinate found (mapcarta/OSM search returned nothing)"
+ },
+ {
+  "n": "Sébastian",
+  "address": "Rue de la Cathédrale 25, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "mapcarta-restricted search found no POI; only an unrelated 'Friterie Sébastien' in Stavelot"
+ },
+ {
+  "n": "Caudalie",
+  "address": "Rue Saint-Jean-en-Isle 6, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "mapcarta-restricted search found no Liège POI"
+ },
+ {
+  "n": "Le Pot au Lait",
+  "address": "Rue Sœurs-de-Hasque 9, 4000 Liège, Belgium",
+  "confidence": "UNVERIFIED",
+  "geoSource": "mapcarta-restricted search found no POI page"
+ },
+ {
+  "n": "Brasserie C",
+  "address": "Impasse des Ursulines 14, 4000 Liège, Belgium",
+  "lat": 50.647574,
+  "lng": 5.577425,
+  "confidence": "med",
+  "geoSource": "Search-result GPS 'N 50.6475739 / E 5.5774248' from tourism/POI listings (visitezliege.be / fietsnetwerk.nl / schlouk-map 'Brasserie C' pages); address 'Impasse des Ursulines 14/24' from the same listings; foot of Montagne de Bueren, consistent",
+  "status": "open",
+  "statusSource": "visitezliege.be (Maison du Tourisme du Pays de Liège) current listing: brew pub, shop, brewery visits"
+ },
+ {
+  "n": "Taverne Saint-Paul",
+  "address": "Rue Saint-Paul 8, 4000 Liège, Belgium",
+  "lat": 50.64005,
+  "lng": 5.57267,
+  "confidence": "med",
+  "geoSource": "Mapcarta OSM way W170860974 'Taverne Saint Paul' (pub), published coords 50.64005, 5.57267, address Rue Saint Paul 8",
+  "status": "open",
+  "statusSource": "OSM/Mapcarta POI with current opening hours (Mon–Wed 10:30–23:00, Thu–Sat to 01:00/02:00, Sun 14:00–21:00); no closure reported — weak source"
+ },
+ {
+  "n": "La Maison du Péket",
+  "address": "Rue de l'Épée 2, 4000 Liège, Belgium",
+  "lat": 50.64494,
+  "lng": 5.57605,
+  "confidence": "med",
+  "geoSource": "Mapcarta OSM node N10991273666 'La Maison du Peket' (bar), published coords 50.64494, 5.57605, address Rue de l'Épée 2, near Hôtel de Ville. Another listing gives no. 4 (building spans 2–4); OSM node used",
+  "status": "open",
+  "statusSource": "OSM/Mapcarta active POI + current tourism listing; no closure found"
+ }
+]
