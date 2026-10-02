@@ -171,3 +171,12 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - FSHMI +3: Fushimi Momoyama Mausoleum, Sekihō-ji (KT map guide + JA), Fujinomori Shrine (KT taxi-tips feature + JA).
 - Held: Gokō-no-miya (34.934722,135.7675; the kyoto.travel plaque found covers the shrine's ORIGINAL site, so it was not used as the 2nd source).
 - Searches used: main 149 + worker 18 = 167.
+
+### batch 13 (2026-10-02) — held leads corroborated + non-Michelin canon
+- KITA +3: Daihōon-ji/Senbon Shakadō (kyoto.travel plaque 2230 + WIKI), Shōkoku-ji, Rozan-ji (KT map guide + WIKI). CTR +2:
+  Shinsen-en (KT plaque 2192 + WIKI), Honnō-ji (KT map guide + WIKI). Pins from Wikipedia.
+- Food canon (non-Michelin, ≥2 editorial): Inoda Coffee Honten (ja.kyoto.travel listing + WIKIPEDIA_JA; pin from ja-Wikipedia),
+  Sōhonke Nishin Soba Matsuba (kyoto.travel restaurant page + ja-Wikipedia にしんそば article for its 1882 invention; pin held).
+- Held (single editorial source): Honke Owariya (KT, est. 1465), Nanzenji Junsei (KT, yudofu), Ippodō (ja-Wiki address only),
+  Ichiwa/Ichimonjiya Wasuke (ja-Wiki only), Kazariya (KT only).
+- Searches used: main 155 + worker 18 = 173.

@@ -114,3 +114,15 @@
   Plaza Garibaldi, Pho Ha, Cafe Diem (Visit Philly only); Monk's Cafe, Tacos Don Memo, Eda's, Manayunk Indian Grille, Smiley's
   (Infatuation only); Stock's Bakery (student outlet only); El Compadre (status conflict 2018 closure vs 2021 activity); Upsala
   (Wikipedia coordinate looked wrong — ~4 km east of 6430 Germantown Ave; rejected).
+
+## 2026-10-02 · W3 batches 3-4 — MAIN, DAY edge, NE + status pass
+- Added MAIN: Hymie's, Lark, Ripplewood, Eshkol, Little Blue Owl, Tired Hands, Teresa's Next Door, Malooga (Narberth) — Infatuation
+  Near Main Line guide × Main Line Today × Inquirer/Philly Mag/Visit Philly. DAY: Pica's (West Chester) — the Upper Darby original
+  CLOSED Oct 2025 (Inquirer/Philly Mag); the upside-down pie continues in West Chester (Main Line Today).
+- Added NE: The Dining Car, Tony's Place, Georgian Bread, La Nova, Bell's Market, Picanha — Inquirer (LaBan NE guide) × Infatuation
+  20 best NE × Visit Philly NE guide × Northeast Times 2026 cheesesteaks × Philly Mag.
+- HELD: Ipanema, Passage (single outlet each in-result); Sergio's (Infatuation only); Teresa's Cafe (MLT only).
+- Status pass (background agent, 35 searches): 60 W3 food → 27 open, 33 unknown, 0 pins (no Wikipedia/!3d!4d pins exist for these).
+  CLOSED → DROPPED: Jansen (Inquirer closings 2025, 2025-12-30). Address corrections: Gilda → 300 E Girard Ave (moved; 6abc/Inquirer
+  2026-05), Kilimandjaro → 4301 Chestnut St (reopened 2024-09), Café y Chocolate → 1532 Snyder Ave, Hello Vietnam → 722 N 2nd St.
+  Fette Sau Philly open (only Williamsburg closed 2025-12); Sang Kee reopened after a Dec 2024 city shutdown.

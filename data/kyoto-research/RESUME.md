@@ -56,5 +56,5 @@ Commands: `python3 tools/density.py kyoto`; `flock -w 3600 .git/cleo-shared.lock
 `cd tools && npm run validate && npm test`; push via `flock … data/kyoto-research/_kyoto_push.sh`. Refresh CARD:kyoto counts + CITIES.md row.
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
+- [ ] every area ≥ target · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT, 0 unchecked
 - [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row
