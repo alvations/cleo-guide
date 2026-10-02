@@ -47,7 +47,7 @@
    "t": 2,
    "a": "HGS",
    "n": "Kyoto National Museum",
-   "address": "Chaya-machi, Higashiyama-ku, Kyoto, Japan",
+   "address": "Higashiyama-ku, Kyoto, Japan",
    "w": "One of Japan's four national museums, in the Higashiyama temple district opposite Sanjūsangen-dō; Kyoto's major collection of pre-modern Japanese and Asian art.",
    "g": [
     "MUS"
@@ -67,7 +67,7 @@
    "t": 1,
    "a": "HGS",
    "n": "Sanjūsangen-dō",
-   "address": "Sanjūsangendō-mawari, Higashiyama-ku, Kyoto, Japan",
+   "address": "Higashiyama-ku, Kyoto, Japan",
    "w": "The 120-metre hall of 1266 (National Treasure) housing 1,001 standing Thousand-armed Kannon statues, flanked by Fūjin and Raijin.",
    "g": [
     "ICON",
@@ -82,6 +82,48 @@
     [
      "JTA",
      "https://www.mlit.go.jp/tagengo-db/common/001547284.docx"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Chishaku-in",
+   "address": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Head temple of the Chisan school of Shingon Buddhism, opposite the Kyoto National Museum; known for its early-Edo pond garden and Momoyama-period Hasegawa school screen paintings that are National Treasures.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "MUS"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chishaku-in"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://global.kyoto.travel/resource/global/download/223-pdf.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Sennyū-ji",
+   "address": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Imperial family temple ('Mitera') whose origin traces to the 820s–830s, with imperial mausolea in its wooded precinct below Tōfuku-ji; head of the Sennyū-ji branch of Shingon.",
+   "g": [
+    "TEMPLE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Senny%C5%AB-ji"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/shrine_temple/181.html"
     ]
    ]
   }
