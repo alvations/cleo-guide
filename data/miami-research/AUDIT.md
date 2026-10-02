@@ -66,3 +66,37 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Build:** `rebuild-city.py miami-fl --build` → 71 on page (59 sights + 12 food); sourcecheck 166 PASS; geocheck PASS
   (2 block-level pins flagged for re-verify: South Pointe Park, Hometown Barbecue); statuscheck CONSISTENT (0 unchecked
   on page); buildcheck PASS; validate + test green. Card relinked live; CITIES.md row added.
+
+## 2026-10-02 (session 3) · Stages 1–6 — wave F5/S6 (food-first, every NEED area) + geocode w4/w5 + build
+- **Method (logged per call in `_miami_searchlog.md` §Session 3):** domain-restricted "list every X named in <outlet> <guide>"
+  queries return whole lists (Time Out, Infatuation, Fodor's, New Times); places are added only where ≥2 outlets
+  intersect (or a lone Michelin listing). This replaced per-place corroboration searches (≈4–10 places/search).
+- **Restaurant place pins via WebSearch: dead** — 4 probes for Versailles (google `!3d!4d`, mapcarta, "GPS coordinates",
+  raw `!3d25`) returned 0 coordinates. Decision: spend no further budget on restaurant pins; they stay UNVERIFIED for
+  `tools/geocode-helper.html`.
+- **Added 111 places** (FOOD_F5.json 94 food & drink; SIGHTS_S6.json 17 sights). Channels: editorial of record
+  (Miami New Times incl. Best of Miami awards; The Infatuation; Time Out; Fodor's) ∩ pairs; MICHELIN (Bistro Ocho,
+  Krüs Kitchen Green Star); tourism boards (Visit Lauderdale breweries, GMCVB); Wikipedia as 2nd for sights;
+  creators: Josiah Eats (500K+, NT-profiled) attached to Farofa; Miami Food Porn registered (CREATORS_F5.json).
+  Creator query for YouTube Miami food tours (Sonny Side, Mike Chen, Kara & Nate) found no Miami episode → nothing.
+- **Canon covered this wave:** frita (El Rey de las Fritas), pan con minuta (La Camaronera), pastelitos (Ricky Coral Way,
+  La Nueva Fe, Breadman — Infatuation Pastelito Power Rankings ∩ NT), Nicaraguan fritanga (Madroño, Fritanga Caña Brava),
+  Redland (Knaus Berry Farm), stone crab (Catch & Cut, Everglades City: Camellia St Grill, Triad, Havana Café),
+  cubano (Puerto Sagua), tiki (Mai-Kai reopened Nov 2024), breweries (Funky Buddha, Invasive Species, Tripping Animals,
+  Abbey), 17 cocktail/dive bars (Time Out 23 best bars ∩ Infatuation bar guides).
+- **MEASURED & DROPPED / held:** La Sandwicherie first held (NT URL not surfaced) then added on Time Out Brickell list ∩
+  Infatuation; Shima (Hialeah) held — no Infatuation URL surfaced; Chefs on the Run dropped (cuisine unknown → no named
+  dish); Steve's Pizza, Café Bonjour (NT Best Restaurant S. Dade 2025), Le Tub, Jack's Hamburgers, Top Hat Deli,
+  Coconuts, Greek Islands Taverna, Takato, Swizzle-only lists, B&M Market, Awash Ethiopian, Dumpling King — single outlet,
+  held. Hollywood/Dania "best restaurants" search returned OpenTable/SEO only → nothing kept.
+- **Geocode:** w4 (subagent, 29 searches): 10 kept (1 high Lyric Theater, 9 med); main-agent review downgraded Loop Road
+  and ICA Miami to UNVERIFIED (printing page unconfirmed). w5 (subagent, 18 searches): 11 kept (4 high: Arsht, Kaseya,
+  Aventura Mall, Hillsboro Inlet Light; 7 med incl. pier points from diveagainstdebris surveys for Deerfield/Pompano/
+  Dania — flagged for re-verify); downgraded Broward Center (page unconfirmed), Newport Pier (2-decimal NOAA point),
+  Jungle Queen (tide-station point). Wikipedia's Brickell Key coord is ~6 km off (rejected; Carbonell condo point used, med).
+- **Closure checks:** `_geoout_zz_status1.json` — 10 pinned places given sourced status (Kirby Storter reopened 4 Nov 2024
+  partial; Stiltsville BNPI tours Thu–Sun; Virginia Key Beach hours; Lyric Theater 2026 events; Arch Creek 2026 event).
+  Lesson: geo files merge in sorted order, so a status-only file must sort last (`zz_`) or older `unknown` rows win.
+- **Build:** 277 discovered (177 food & drink = 64%) → 92 on page (80 sights + 12 food). sourcecheck 277 PASS (31 lone
+  authority); geocheck PASS (2 block-level pins flagged); statuscheck CONSISTENT, 0 unchecked; buildcheck PASS;
+  `npm run validate` DATA OK; `npm test` ALL PASS. Card + CITIES.md row refreshed.

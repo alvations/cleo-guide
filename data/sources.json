@@ -14925,6 +14925,30 @@
           "rank": 3,
           "verified": true,
           "credible": "AUTO-registered from research use — ADD a proper rationale (docs/SOURCES.md)."
+        },
+        {
+          "key": "SARASOTAMAG",
+          "name": "Sarasota Magazine",
+          "type": "regional-magazine",
+          "rank": 3,
+          "verified": true,
+          "credible": "Southwest Florida city magazine (est. 1979) with named food writers; its 'Glades Grub' guide covers Everglades City/Chokoloskee eats."
+        },
+        {
+          "key": "BROWARDPALMBEACH",
+          "name": "New Times Broward-Palm Beach",
+          "type": "alt-weekly",
+          "rank": 2,
+          "verified": true,
+          "credible": "Broward/Palm Beach alt-weekly (sister of Miami New Times) — the editorial of record for Broward restaurants and its Best Of awards."
+        },
+        {
+          "key": "MICHELIN_GREEN",
+          "name": "MICHELIN Green Star",
+          "type": "guide",
+          "rank": 1,
+          "verified": true,
+          "credible": "MICHELIN's sustainability distinction — institutional, awarded only to restaurants already in the guide."
         }
       ],
       "creators": [
@@ -14947,6 +14971,26 @@
           "scale": "Miami's best-known burger & comfort-food creator since 2008; profiled by The Daily Meal and New Times",
           "niche": "Miami burgers, fritas, comfort food",
           "credible": "16+ years covering Miami burgers; featured by The Daily Meal ('Burger Beast's Best of Miami') and New Times; runs the Magic City Casino frita showdown coverage."
+        },
+        {
+          "key": "JOSIAHEATS",
+          "name": "Josiah Cafiero (Josiah Eats)",
+          "platform": "Instagram/YouTube/TikTok/Facebook",
+          "handle": "@josiaheats",
+          "url": "https://miaminewtimes.com/restaurants/miamis-top-influencers-share-their-favorite-hidden-miami-restaurants-19154935",
+          "scale": "500,000+ followers across platforms since June 2020 (per Miami New Times)",
+          "niche": "international and hole-in-the-wall cuisine across South Florida",
+          "credible": "Profiled by Miami New Times as one of Miami's top food influencers; picks are specific, named, with dishes. One corroborating source only."
+        },
+        {
+          "key": "MIAMIFOODPORN",
+          "name": "Miami Food Porn (Dana Rozansky)",
+          "platform": "Instagram",
+          "handle": "@miamifoodporn",
+          "url": "https://miaminewtimes.com/restaurants/miamis-top-influencers-share-their-favorite-hidden-miami-restaurants-19154935",
+          "scale": "~500K audience across social media (per Miami New Times)",
+          "niche": "Miami restaurant visuals",
+          "credible": "Named by Miami New Times among Miami's top food influencers. Registered for future corroboration; no place attached yet."
         }
       ]
     }
