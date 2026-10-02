@@ -180,3 +180,11 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - Held (single editorial source): Honke Owariya (KT, est. 1465), Nanzenji Junsei (KT, yudofu), Ippodō (ja-Wiki address only),
   Ichiwa/Ichimonjiya Wasuke (ja-Wiki only), Kazariya (KT only).
 - Searches used: main 155 + worker 18 = 173.
+
+### batch 14 (2026-10-02) — KYFU/RKHKU fill + Owariya
+- KYFU +2: Kasamatsu Park (JG e3992 + WIKIPEDIA_JA), Hozugawa River Cruise (JG e3966 + ja-Wikipedia Hozu Gorge; med, a point on the route).
+- RKHKU +1: Kurama Onsen (JG e3933 + JA; reopened Nov 2024 per japan-guide → status open).
+- Food: Honke Owariya (est. 1465) — KYOTOTOURISM restaurant page + Time Out (Tokyo edition travel piece); pin held.
+- Held: Gansen-ji (ja coords 34.72025,135.885806, one source), Fukuchiyama Castle (en+ja Wikipedia = one outlet), Eizan Railway
+  'kōyō tunnel' (KT only), Shōrin-in, Raigō-in (JG only), Nanzenji Junsei, Okutan (yudofu; one source each).
+- Searches used: main 158 + worker 18 = 176.
