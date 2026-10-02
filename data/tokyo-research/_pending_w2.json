@@ -20,15 +20,9 @@
    "need": "outer-market coords (Wikipedia point 35.66139,139.76972 is the demolished inner-market site — rejected, ~400 m off)"
   },
   {
-   "n": "Tsukishima Monja Street",
-   "a": "CHUO",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/85/index.html",
-   "need": "coords + 2nd"
-  },
-  {
    "n": "Todoroki Valley",
    "a": "JOSAI",
-   "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?; TIMEOUT https://www.timeout.com/tokyo/things-to-do/todoroki-valley; address 1-22-26 Todoroki",
+   "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?; TIMEOUT https://www.timeout.com/tokyo/things-to-do/todoroki-valley; address 1-22-26 Todoroki; NOTE Wikidata 'Todoroki Ryokuchi' is in Kawasaki — rejected",
    "need": "coords"
   },
   {
@@ -162,6 +156,24 @@
    "a": "JOSAI",
    "have": "Wikidata Q11367445 coords 35.706476,139.663581",
    "need": "2 sources"
+  },
+  {
+   "n": "Artizon Museum",
+   "a": "CHUO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Artizon_Museum coords 35.6789,139.7719",
+   "need": "2nd"
+  },
+  {
+   "n": "Kachidoki Bridge",
+   "a": "CHUO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/490/index.html",
+   "need": "bridge pin (only station point returned)"
+  },
+  {
+   "n": "TAKAO 599 MUSEUM",
+   "a": "TAMA",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/252/index.html; Wikidata Q48753510 coords 35.6325,139.269167",
+   "need": "2nd"
   }
  ]
 }

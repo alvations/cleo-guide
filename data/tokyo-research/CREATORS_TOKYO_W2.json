@@ -9,6 +9,16 @@
    "scale": "Tokyo's best-known English ramen blog since 2009; author of 'Ramen at Home'; long-running YouTube channel",
    "niche": "Tokyo/Japan ramen",
    "credible": "Named-author specialist with a 15-year track record and annual Tokyo top-100 roundups; corroborating source only"
+  },
+  {
+   "key": "PAOLOFROMTOKYO",
+   "name": "Paolo fromTOKYO",
+   "platform": "YouTube",
+   "handle": "@paolofromtokyo",
+   "url": "https://www.youtube.com/@paolofromtokyo",
+   "scale": "multi-million-subscriber Tokyo food/travel channel; 'Behind the Counter' kitchen series",
+   "niche": "Tokyo restaurants, behind-the-scenes",
+   "credible": "Verifiably large Tokyo-based channel with a long-running restaurant series; one corroborating source only"
   }
  ],
  "attach": [
@@ -31,7 +41,18 @@
    "place": "Yakumo (八雲)",
    "creatorKey": "RAMENADVENTURES",
    "url": "https://ramenadventures.com/2025/12/15/tokyo-the-best-100-ramen-shops-in-2025/"
+  },
+  {
+   "place": "Isegen (いせ源)",
+   "creatorKey": "PAOLOFROMTOKYO",
+   "url": "https://www.youtube.com/watch?v=M7rxIC6CvYA",
+   "note": "'Behind the Counter at the ONLY Japanese Monkfish Restaurant in Tokyo' — Isegen is Tokyo's only anko-nabe specialist"
   }
  ],
- "rejected": []
+ "rejected": [
+  {
+   "name": "ONLY in JAPAN (John Daub)",
+   "reason": "credible creator (large channel) but no findable video naming a place on this map surfaced in the search; not attached"
+  }
+ ]
 }
