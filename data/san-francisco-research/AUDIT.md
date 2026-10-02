@@ -395,3 +395,7 @@ original 1621 Polk closed Nov 2025), Leopold's (SF Standard 2023 reopening × In
 Time Out; unpinned), Haight Street Art Center (Wikipedia × SF Standard × SFGATE; unpinned) (HAI sights); Absinthe Brasserie (Infatuation × Time Out ×
 Hoodline) (HAI food). DROPPED: Rosamunde (Lower Haight) — closed 2019 (Hoodline); Little Gem — permanently closed; Fig & Thistle — temporarily
 closed / rebranded → none added.
+**Batch 14 (searches 84–86):** La Torta Gorda (Infatuation × SFGATE Food Network × Chronicle), Taqueria El Buen Sabor (Infatuation × SF Standard ×
+Mission Local) (MIS food); Calle 24 Latino Cultural District, Rainbow Honor Walk (Wikipedia × SFGATE × SF Standard/SF Travel; area features, unpinned)
+(MIS sights). MEASURED & DROPPED: Taqueria Vallarta — SF Standard 2026 taco panel found it slipping ('beef-jerky dry' suadero) → not added;
+Galería de la Raza — lost its 24th St home → not added; Taqueria San Francisco (Infatuation only) → held.
