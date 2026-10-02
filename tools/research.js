@@ -76,6 +76,7 @@ const PAGE_FOR = {
   'madison-wi': path.join(__dirname, '..', 'cities', 'madison.html'),
   'miami-fl': path.join(__dirname, '..', 'cities', 'miami.html'),
   'orlando-fl': path.join(__dirname, '..', 'cities', 'orlando.html'),
+  'indianapolis-in': path.join(__dirname, '..', 'cities', 'indianapolis.html'),
 };
 // Cities built from a normalized dataset (source arrays live here pre-build) — used by --sourcecheck.
 const DATASET_FOR = {
@@ -108,6 +109,7 @@ const DATASET_FOR = {
   'madison-wi': path.join(__dirname, '..', 'data', 'madison.dataset.json'),
   'miami-fl': path.join(__dirname, '..', 'data', 'miami.dataset.json'),
   'orlando-fl': path.join(__dirname, '..', 'data', 'orlando.dataset.json'),
+  'indianapolis-in': path.join(__dirname, '..', 'data', 'indianapolis.dataset.json'),
 };
 
 function loadGeocodes() {

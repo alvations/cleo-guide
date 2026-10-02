@@ -45,6 +45,7 @@ DATASETS = {
     "madison-wi": "data/madison.dataset.json",
     "miami-fl": "data/miami.dataset.json",
     "orlando-fl": "data/orlando.dataset.json",
+    "indianapolis-in": "data/indianapolis.dataset.json",
 }
 
 def sourced_ok(rec):
