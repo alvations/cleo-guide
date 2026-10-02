@@ -206,3 +206,8 @@ Held (RA only): Seiryūken Hakodate, Shukoen Kushiro, Tenkin (#33), Tsuruya, Miz
 **W48:** Curb Market Kita no Gourmet-tei & Marusan-tei (rurubu features + MAPPLE market article), Nijō Uoya no Daidokoro (rurubu +
 MAPPLE spot + MAPPLE readers' ranking), Biei Senka (visit-hokkaido + rurubu). Held: Dokushaku Sanshirō (MAPPLE only), Farm Restaurant
 Chiyoda. Density after W48: food 116 / 262 discovered = 44% (was 26%).
+**W49 IBURI:** ROYCE' Chocolate World (rurubu + visit-hokkaido), Wakasaimo Honpo Tōyako (rurubu + laketoya.com = LAKETOYA, Tōyako Onsen
+Tourism Association). Held: Kirin Chitose brewery (MAPPLE list only; address Kaminagatsu 949-1 read), Sapporo Beer Hokkaido
+Brewery Eniwa (address only), Fukuan soba Noboribetsu (rurubu only). Wiki-pin miss ×3 (corporate plants have no own infobox).
+**W50 TKC:** Cranberry Honten (obikan.jp = OBIKAN, Obihiro Tourism & Convention Assoc. + MAPPLE; promoted from held), Masuya
+Honten (rurubu + MAPPLE bakery list). Held: Mugioto, Hanabatake Farm (MAPPLE only).
