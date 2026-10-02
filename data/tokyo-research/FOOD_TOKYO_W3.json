@@ -82,5 +82,373 @@
    ]
   ],
   "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SBY",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "nigiri ordered by the piece from a blackboard of sushi and snacks",
+  "n": "Sushi Kourin",
+  "address": "B1F, 11-10 Kamiyamachō, Shibuya-ku, Tokyo 150-0047",
+  "w": "Basement sushi counter in Kamiyamachō (Oku-Shibuya) where you order single pieces off the blackboard — a Michelin Bib Gourmand, so a counter-sushi meal without the omakase bill.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/sushi-kourin"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "JONAN",
+  "cz": [
+   "RAMEN"
+  ],
+  "dish": "clear chicken-based shōyu (soy-sauce) ramen with two kinds of pork and wontons",
+  "n": "Ramen Break Beats",
+  "address": "4-21-19 Meguro, Meguro-ku, Tokyo 153-0063",
+  "w": "Ex-DJ chef Takuro Yanase's Meguro counter — a pure, clear chicken shōyu ramen loaded with two kinds of pork, wontons and fried onion. Michelin Bib Gourmand 2026.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/ramen-break-beats"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "JHOKU",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "unajū (grilled eel over rice)",
+  "n": "Watabe",
+  "address": "1-9-14 Koishikawa, Bunkyō-ku, Tokyo 112-0002",
+  "w": "Koishikawa unagi house near Kōrakuen — one of the Michelin Guide's picks for Tokyo's Edo-style freshwater eel, and a Bib Gourmand.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/watabe"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/best-of/tokyo-unagi-restaurant-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "TAITO",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "unajū (grilled eel over rice)",
+  "n": "Hatsuogawa",
+  "address": "2-8-4 Kaminarimon, Taitō-ku, Tokyo 111-0034",
+  "w": "Small, old-school Asakusa eel shop a few steps from Kaminarimon — a Michelin Bib Gourmand and one of the guide's Tokyo unagi picks.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/hatsuogawa"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/best-of/tokyo-unagi-restaurant-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "JHOKU",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "unajū (grilled eel over rice)",
+  "n": "Mejiro Zorome",
+  "address": "B1F, 3-3-1 Mejiro, Toshima-ku, Tokyo 171-0031",
+  "w": "Basement eel restaurant just outside Mejiro Station — a Michelin Bib Gourmand and one of the guide's Tokyo unagi picks.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/mejiro-zorome"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/best-of/tokyo-unagi-restaurant-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "SMKT",
+  "cz": [
+   "NOODLE"
+  ],
+  "dish": "Edo-style soba with large conger-eel (anago) tempura",
+  "n": "Edosoba Hosokawa",
+  "address": "1-6-5 Kamezawa, Sumida-ku, Tokyo 130-0014",
+  "w": "Graceful old-school Ryōgoku soba house near the Edo-Tokyo Museum; the chef scours Japan for buckwheat, and the big anago tempura is a Michelin inspectors' favourite dish. Bib Gourmand 2026.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/edosoba-hosokawa"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/travel/inspector_must_have_dishes_tokyo_en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "TEMPURA"
+  ],
+  "dish": "kakiage-don (shrimp kakiage tempura over rice)",
+  "n": "Tempura Kakiage Yukimura",
+  "address": "6-13-13 Shimbashi, Minato-ku, Tokyo 105-0004",
+  "w": "Shimbashi tempura counter for rice bowls and set meals — the signature kakiage-don of crisp shrimp fritters is a Michelin inspectors' iconic-Tokyo-dish pick. Bib Gourmand 2026.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/tempura-kakiage-yukimura"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/travel/inspector_must_have_dishes_tokyo_en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "CHUO",
+  "cz": [
+   "TEMPURA"
+  ],
+  "dish": "tonkatsu loin and tenderloin teishoku",
+  "n": "Katsuyoshi",
+  "address": "3-4-11 Nihombashi-Ningyōchō, Chūō-ku, Tokyo 103-0013",
+  "w": "Ningyōchō tonkatsu in a refurbished old house fitted out with recycled wood — loin and fillet set meals, à la carte or courses. Bib Gourmand 2026 and a Michelin inspectors' iconic-dish pick.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/katsuyoshi"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/travel/inspector_must_have_dishes_tokyo_en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "hikarimono — silver-skinned fish nigiri (kohada gizzard shad, mackerel)",
+  "n": "Hikarimono",
+  "address": "7-5-11 Roppongi, Minato-ku, Tokyo 106-0032",
+  "w": "Drop-in, affordable sushi next to the National Art Center, named for and best at the shimmering blue-skinned fish — kohada and saba. A Michelin inspectors' iconic-Tokyo-dish pick.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/hikarimono"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/travel/inspector_must_have_dishes_tokyo_en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "WAGYU"
+  ],
+  "dish": "counter sukiyaki with egg whites whipped to a meringue",
+  "n": "SUKIYAKI ASAI",
+  "address": "3-11-15 Toranomon, Minato-ku, Tokyo 105-0001",
+  "w": "Kappo-style Toranomon counter where the server cooks alternating slices of beef and vegetables in front of you; the meringue-whipped egg dip is the twist. A Michelin inspectors' iconic-Tokyo-dish pick.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/sukiyaki-asai"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/travel/inspector_must_have_dishes_tokyo_en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "MNT",
+  "cz": [
+   "KAISEKI",
+   "FINE"
+  ],
+  "dish": "seasonal kaiseki — e.g. spring shellfish clear soup (suimono) with gomadōfu",
+  "n": "Myojaku",
+  "address": "B1F, 3-2-34 Nishi-Azabu, Minato-ku, Tokyo 106-0031",
+  "w": "Chef Hidetoshi Nakamura's Nishi-Azabu kaiseki — Tokyo's newest three-star (MICHELIN Guide Tokyo 2026); the clam-and-gomadōfu clear soup was an inspectors' dish of the year.",
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/myojaku"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/en/article/dining-out/inspector-favorite-dishes-tokyo-2026"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "Edomae nigiri — incl. seasonal whole salt-grilled ayu (sweetfish) nigiri",
+  "n": "Sushi Miura",
+  "address": "6-19-46 Akasaka, Minato-ku, Tokyo 107-0052",
+  "w": "Akasaka sushi counter whose whole salt-grilled sweetfish nigiri was one of the Michelin inspectors' 2026 dishes of the year.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/sushi-miura"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/en/article/dining-out/inspector-favorite-dishes-tokyo-2026"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "Edomae tuna nigiri (harakami upper-belly cut)",
+  "n": "Sanosushi",
+  "address": "2-18-9 Shiba, Minato-ku, Tokyo 105-0014",
+  "w": "Shiba sushi-ya whose thick, soft harakami tuna nigiri — the star topping of Edo sushi — was a Michelin inspectors' favourite dish of 2025.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/sanosushi"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/en/article/dining-out/inspector-favorite-dishes-tokyo-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SBY",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "tachigui (standing) nigiri sushi, nigiri only",
+  "n": "Tachiguisushi Sushikawa",
+  "address": "1-62-6 Sasazuka, Shibuya-ku, Tokyo 151-0073",
+  "w": "Sasazuka stand-up sushi bar serving nigiri only — the Edo-era tachigui format, and a Michelin Bib Gourmand since the 2025 Tokyo guide.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/tachiguisushi-sushikawa"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelinguide-tokyo-new-bib-gourmand-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJK",
+  "cz": [
+   "TEMPURA",
+   "TEISHOKU"
+  ],
+  "dish": "tonkatsu and yōshoku fry set meals",
+  "n": "Fry-ya",
+  "address": "B1F, 1-32-11 Takadanobaba, Shinjuku-ku, Tokyo 169-0075",
+  "w": "Takadanobaba basement fry shop — tonkatsu and yōshoku cutlets; new Michelin Bib Gourmand in the 2025 Tokyo guide.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/fry-ya"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelinguide-tokyo-new-bib-gourmand-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "MNT",
+  "cz": [
+   "SUSHI"
+  ],
+  "dish": "Edomae nigiri sushi",
+  "n": "Sushi Mikata",
+  "address": "4-1-4 Mita, Minato-ku, Tokyo 108-0073",
+  "w": "Mita neighbourhood sushi counter that made the Michelin Bib Gourmand list in 2025 and kept it in 2026 — counter sushi at Bib prices.",
+  "sources": [
+   [
+    "MICHELIN_BIB",
+    "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/sushi-mikata"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelinguide-tokyo-new-bib-gourmand-en"
+   ]
+  ],
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "SJK",
+  "cz": [
+   "KAISEKI"
+  ],
+  "dish": "seasonal Japanese (kaiseki-style) course",
+  "n": "Yotsuya Minemura",
+  "address": "2F, 3-21 Arakichō, Shinjuku-ku, Tokyo 160-0007",
+  "w": "Second-floor Japanese-cuisine counter in Yotsuya's Arakichō backstreets, added to the Michelin Guide in 2024.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/yotsuya-minemura"
+   ],
+   [
+    "MICHELIN_EDITORIAL",
+    "https://guide.michelin.com/jp/en/article/dining-out/new-additions-michelin-japan-2024-en"
+   ]
+  ],
+  "closed": false
  }
 ]

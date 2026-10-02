@@ -28,14 +28,12 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **W01 — Sapporo (SPR)** STOPPED at the session WebSearch cap (200/200, shared by all agents). Its committed output
-  is complete and gated; resume with **W01b** = the remaining SPR queries below.
-- W01b queries still to run: Sapporo sights batch 2 (Ōkurayama — need 2nd source; Nakajima Park/Hōheikan; Tanukikōji;
-  Nijō Market; Shiroi Koibito Park; Maruyama Zoo; Sapporo Art Park; Hokkaido Museum; Takino Suzuran; Hoheikyo);
-  SPR food canon: miso ramen (Sumire, Saimi, Shingen, Keyaki, Aji no Sanpei — Tabelog 百名店 2025 / Michelin 2017 Bib),
-  soup curry (Suage, Garaku, Picante, Samurai), jingisukan (Daruma), Nijō kaisendon, Rokkatei/Kitakaro, Sapporo
-  Beer Garden; creators: Just One Cookbook, Ramen Adventures, Paolo fromTOKYO, Abroad in Japan.
-- Helper: `_hk.py` (S()/F()/emit()); wave ledgers `_w<NN>_<area>.py` are re-runnable (`python3 _w01_spr.py`).
+- **Session 2 (2026-10-02, fresh WebSearch budget)** — W02 SPR food canon (miso ramen, soup curry, jingisukan, Nijō
+  kaisendon, sweets) → W03 SPR sights b2 → W04 OTARU → W05 DONAN → W06 IBURI → W07 DHOKU → W08 TKC → W09 DOTO → W10 SOYA/NSK.
+  Ledgers `_w<NN>_<area>.py` (re-runnable). Search count this session tracked in `## Search ledger` below.
+
+## Search ledger
+- session 2: 73 used (me 55: W02 19 · W03 14 · W04 11 · W05 11; geocode agent G01 18 → 12/16 pinned)
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.
