@@ -320,6 +320,13 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   Daikokuya and Shiseido Parlour (whole-second Wikidata points off the building), Yamashita Park (Wikipedia point
   ~25 km off), Todoroki Ryokuchi (a Kawasaki park, not Todoroki Valley), several district/station points.
 
+
+### 2026-10-02 — Osaka W2 (search techniques & dead ends)
+- **Michelin venue pins, 2–3 per query:** `allowed_domains:["guide.michelin.com"]` + "<A>; <B>; <C> Osaka address latitude longitude" returns each venue page's address + lat/lng (~2.5 pins per search). Mine Michelin *articles* ("N New Bib Gourmands …", "December 2025: latest additions …") for name lists first, then pin them.
+- **Fan-out trap:** when names in a batched query are NOT on the restricted domain (street-food stalls on Michelin, creators), the search tool silently runs 4–5 sub-searches — only batch names known to hit.
+- **Japanese Wikipedia coordinates:** `allowed_domains:["ja.wikipedia.org"]` "<名称> 座標; <名称> 座標; <名称> 座標" hit 3/3 for markets, arcades and gardens that en.wikipedia lacks (黒門市場, 心斎橋筋商店街, アメリカ村, 慶沢園, 天王寺公園).
+- **Dead ends:** mapcarta/OSM search (no venue pages); Tabelog まとめ (user lists — not Hyakumeiten, zero); broad creator queries (Paolo fromTOKYO / Abroad in Japan / Mark Wiens / "Somebody Feed Phil" — no Osaka episode) returned nothing findable; brands.japan-guide.com and japan-guide /ad/ pages are sponsored.
+- **Hyōgo:** Michelin's first Kobe & Awaji selection is announced Feb 2027 — no Hyōgo Michelin to lean on until then.
 ### 2026-10-02 — Philadelphia W1+W2: Wikipedia-domain batches pin sights; restaurant pins don't surface
 - `WebSearch` with `allowed_domains:["en.wikipedia.org"]` and `A; B; C; D; E coordinates` (exact article titles) returned
   infobox coords for 4-5 of 5 Philadelphia landmarks per call — pair it with one Visit Philly query (2nd source) and you
