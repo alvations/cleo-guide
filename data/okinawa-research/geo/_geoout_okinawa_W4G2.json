@@ -18,5 +18,301 @@
   "geoSource": "Stars and Stripes Okinawa (Miyagi/Henza/Kaichu-doro travel articles, okinawa.stripes.com) prints 'Umino Eki Ayahashi roadside park GPS N 26.332603, E 127.928471' — roadside-park point on the causeway, venue-level",
   "status": "open",
   "statusSource": "rurubu spot 80042935 + okinawatraveler 0139 current listings"
+ },
+ {
+  "n": "Mikasa Matsuyama (三笠 松山店)",
+  "address": "1-12-20 Matsuyama 1F, Naha (NAVITIME poi 02301-1800026)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate. Stripes naha-restaurant.html + NAVITIME poi?spot=02301-1800026 likely carry coords → helper.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://okinawa.stripes.com/food-drink/naha-restaurant.html, https://www.mapple.net/region/a0705010100_g03050000/spot/"
+ },
+ {
+  "n": "Jack's Steak House (ジャッキーステーキハウス)",
+  "address": "1-7-3 Nishi, Naha (Stripes 'not rare' article; rurubu 80042587)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate. Stripes article page did not surface GPS → helper.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://okinawa.stripes.com/food-drink/it's-not-'rare'-to-love-this-steak-house-in-naha.html, https://savorjapan.com/contents/discover-oishii-japan/14-unmissable-steak-restaurants-in-naha-okinawa"
+ },
+ {
+  "n": "Yūnangi (ゆうなんぎい)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.lonelyplanet.com/japan/okinawa-and-the-southwest-islands/naha/restaurants/yunangi/a/poi-eat/1233840/356792, https://www.mapple.net/region/a0705010100_g03050000/spot/"
+ },
+ {
+  "n": "Charlie's Tacos, Koza (チャーリー多幸寿)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://okinawa.stripes.com/food-drink/okinawa-joint-puts-spin-on-popular-food,-taco.html, https://en.kozaweb.jp/eats/show/138"
+ },
+ {
+  "n": "Shuri Soba (首里そば)",
+  "address": "1-7 Shuri Akata-chō, Naha (rurubu 80042467)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate. Stripes snippet surfaced 'Shuri ... GPS N 26.22053, E 127.71694' but with lunch+dinner Tue–Sat hours that do not match Shuri Soba (lunch-only) — attribution unconfirmed, not used.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://ryukyushimpo.jp/news/national/entry-2383765.html, https://www.mapple.net/region/a0705010100_g03050000/spot/"
+ },
+ {
+  "n": "Ryūkyū Cuisine Mie (琉球料理 美榮)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.japantimes.co.jp/life/2019/07/27/food/naha-restaurants-carry-legacy-okinawa-court-cuisine/, https://www.bunka.go.jp/kindai/kenzoubutsu/research/okinawa/005/index.html"
+ },
+ {
+  "n": "Suunumee (すーぬめぇ)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1240071, https://www.mapple.net/highway/101754_g03000000/spot/"
+ },
+ {
+  "n": "Nemu Isa (根夢 伊佐店)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://www.mapple.net/region/a0705010300_g03050b00/spot/?page=1"
+ },
+ {
+  "n": "Misato Soba (美里そば)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://en.kozaweb.jp/featurePages/show/237"
+ },
+ {
+  "n": "Komehachi Soba (米八そば)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://en.kozaweb.jp/featurePages/show/237"
+ },
+ {
+  "n": "Sennichi (千日)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.gltjp.com/en/directory/item/13465/, https://macaro-ni.jp/89789?page=2"
+ },
+ {
+  "n": "A&W Makiminato (A&W 牧港店)",
+  "address": "4-9-1 Makiminato, Urasoe (Mapple 47000685)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.mapple.net/spot/47000685/, https://en.japantravel.com/okinawa/a-w-restaurants/8408"
+ },
+ {
+  "n": "Steakhouse 88 Tsuji Honten (ステーキハウス88 辻本店)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.gltjp.com/en/directory/item/13324/, https://en.okinawatraveler.net/feature/0095_sp"
+ },
+ {
+  "n": "OKINAWA SOBA EIBUN",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1240071, https://www.okinawatraveler.net/feature/0114_sp"
+ },
+ {
+  "n": "Urizun (古酒と琉球料理 うりずん)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.pref.okinawa.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html, https://fun.okinawatimes.co.jp/columns/gourmet/detail/8400"
+ },
+ {
+  "n": "Dachibin Naha Kumoji (沖縄居酒屋 抱瓶 那覇久茂地店)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.pref.okinawa.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html, https://rurubu.jp/andmore/spot/80042516"
+ },
+ {
+  "n": "Tamagusuku Coffee Roasters (タマグスクコーヒー)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://en.japantravel.com/okinawa/tamagusuku-coffee-roasters/62987, https://www.mapple.net/article/51265/"
+ },
+ {
+  "n": "Coffee Yatai Hibari-ya (珈琲屋台 ひばり屋)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://rurubu.jp/andmore/spot/80042391, https://www.mapple.net/article/51265/"
+ },
+ {
+  "n": "rokkan COFFEE SHURI (ロッカン コーヒー シュリ)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://rurubu.jp/andmore/article/23661, https://sumai.okinawatimes.co.jp/commons/building/detail/21012"
+ },
+ {
+  "n": "Tacos Café Tacoloco, Chatan (タコスカフェ タコロコ)",
+  "address": "9-39 Mihama, Chatan (Stripes 'You'll go loco' article)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://rurubu.jp/andmore/spot/80043311, https://www.okinawatraveler.net/shop/s1103"
+ },
+ {
+  "n": "Mendokoro Tiandaa (麺処 てぃあんだー)",
+  "address": "1-6-10 Ameku, Naha (livelyhotels/hamoni listing)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatraveler.net/feature/0006_sp, https://www.mapple.net/article/49231/"
+ },
+ {
+  "n": "Teppanyaki Steak House Shiki, Sonoda Honten (ステーキハウス四季 園田本店)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate. Stripes 'Four Seasons Steak House' article (okinawa.stripes.com/food-drink/four-seasons-steak-house.html) = Shiki; GPS not surfaced in snippet → helper should open it.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://en.kozaweb.jp/eats/show/187, https://rurubu.jp/andmore/article/22566"
+ },
+ {
+  "n": "Kaizoku Kōbō, Okinawa Zoo & Museum (こどもの国レストラン 海族工房)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.pref.okinawa.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html, https://en.kozaweb.jp/featurePages/show/284"
+ },
+ {
+  "n": "Highway Drive-In Restaurant, Okinawa City (ハイウェイ食堂)",
+  "address": "Route 75 roadside (japantravel 6426 describes it as Route 75 between Rts 329 & 85)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://en.kozaweb.jp/featurePages/show/284, https://okinawa.stripes.com/food-drink/don't-drive-by-highway-drive-in-restaurant.html"
+ },
+ {
+  "n": "Blue Seal Makiminato Honten (ブルーシール 牧港本店)",
+  "address": "5-5-6 Makiminato, Urasoe (rurubu 23803 / Ryukyu Shimpo)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo entry-1669358 (rebuild, reopened July 2024) + rurubu article 23803"
+ },
+ {
+  "n": "Benriya Yulinglong, Sakaemachi (べんり屋 玉玲瓏)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://rurubu.jp/andmore/article/17967, https://www.mapple.net/article/51445/"
+ },
+ {
+  "n": "Nakamura-ya, Kumoji (海産物料理とあわもりの店 なかむら家)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://rurubu.jp/andmore/spot/80042508, https://www.mapple.net/article/51439/"
+ },
+ {
+  "n": "Karakara to Chibugwā (カラカラとちぶぐゎ〜)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatraveler.net/shop/91312, https://www.mapple.net/article/51439/"
+ },
+ {
+  "n": "Kozakura (小桜)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1746149, https://rurubu.jp/andmore/spot/80042461"
+ },
+ {
+  "n": "Takaesu Soba, Urasoe (高江洲そば)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1243603, https://rurubu.jp/andmore/article/22464"
+ },
+ {
+  "n": "Kingetsu Soba Yomitan Honten (金月そば 読谷本店)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatraveler.net/feature/0006_sp, https://rurubu.jp/andmore/article/22464"
+ },
+ {
+  "n": "Keishoku no Mise Ruby, Tomari (軽食の店ルビー)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatimes.co.jp/articles/-/1145089, https://www.okinawatraveler.net/feature/0130_sp"
+ },
+ {
+  "n": "Ayagu Shokudō, Shuri — CLOSED",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "closed",
+  "statusSource": "closure per todo sources: https://www.okinawatimes.co.jp/articles/-/1233368, https://ryukyushimpo.jp/news/entry-2334724.html, https://www.mapple.net/spot/47011574/"
+ },
+ {
+  "n": "Ichigin Shokudō, Kumoji — CLOSED",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "closed",
+  "statusSource": "closure per todo sources: https://www.okinawatimes.co.jp/articles/-/1514070, https://www.okinawatraveler.net/feature/0130_sp"
+ },
+ {
+  "n": "Yanbaru Shokudō, Naha (やんばる食堂)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatraveler.net/feature/0105_sp, https://rurubu.jp/andmore/article/22565"
+ },
+ {
+  "n": "Oshokujidokoro Mikado, Naha (お食事処 みかど)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.okinawatraveler.net/feature/0105_sp, https://rurubu.jp/andmore/article/22565"
+ },
+ {
+  "n": "Nuchi Māsu Salt Factory, Miyagi Island (ぬちまーす観光製塩ファクトリー)",
+  "address": "2768 Yonashiro Miyagi, Uruma (Stripes Miyagi Island article)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G2: WebSearch (Stripes site: GPS queries, JP 緯度経度/navitime/mapion queries) surfaced no venue-level coordinate. Only Wikipedia Miyagi Island island-centroid 26°22′11″N 127°59′01″E surfaced — centroid, rejected.",
+  "status": "open",
+  "statusSource": "current listing in todo sources: https://www.mapple.net/spot/47011691/, https://rurubu.jp/andmore/spot/80042947"
  }
 ]
