@@ -251,3 +251,7 @@ Daikokuya Hakodate, Iidaya; Soup Curry TREASURE. Sapporo City Archives: no 2nd s
 **W65 SPR:** Sapporo Satoland, Hiraoka Park plum grove, Seikatei (ja.wikipedia pins + sapporo.travel / visit-hokkaido).
 **W66 SPR:** Jōzankei Dam & Sapporo Lake, Mt Hakken / Kannon-iwa (ja.wikipedia pins + jozankei.jp = JOZANKEITOURISM, Jōzankei Tourism
 Association + visit-hokkaido). Chi-Ka-Ho underground walkway: no own coord (only an adjoining building's) → not added.
+**W67 SPR sweets:** Rokkatei Sapporo Honten (rurubu + visit-hokkaido; replaces the s2 drop — dish now named), Kinotoya Ōdōri (rurubu +
+sapporo.travel soft-serve feature; promoted from held), Ōdōri BISSE sweets hall (sapporo.travel + visit-hokkaido). Held: ISHIYA Café Ōdōri.
+**W68:** Space Apple Yoichi (rurubu + wiki pin), Misogi no Sato Kikonai (visit-hokkaido Dōnan feature + wiki pin). Biei Oka no Kura
+(43.59214,142.46378) — no named dish → not added.
