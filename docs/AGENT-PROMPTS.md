@@ -137,6 +137,7 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-10-02 | Liège | discovery W1 (partial) | LIE sights + boulets/gaufre canon | 5 (1 geocoded) | halted: WebSearch session budget 200/200 after 11 searches; ~20 leads held in _PENDING_LEADS.md | liege-research/SIGHTS_LIEGE_LIE, FOOD_LIEGE_LIE, geo/_geoout_liege_w1 |
 | 2026-10-02 | Tokyo | sights W1 (CYD) | sights backbone via Wikipedia/GO TOKYO/japan-guide/Time Out | 9 (all geocoded) | halted: shared WebSearch budget 200/200 exhausted | SIGHTS_TOKYO_W1.json, geo/_geoout_tokyo_w1.json |
 | 2026-10-02 | Tokyo | W2 relaunch (own budget, 166 searches) | Michelin venue pins, Wikipedia/Wikidata coords, GO TOKYO/japan-guide/Time Out/Japan Times corroboration, 2 creators | 314 discovered / 294 rendered (212 sights + 82 food) — LIVE | 20 Michelin UNVERIFIED (no coords on page); 39 held (`_pending_w2.json`); Unicorn Gundam flagged CLOSED; 31 memory-typed kanji names stripped | FOOD/SIGHTS/CREATORS_TOKYO_W2.json, geo/_geoout_tokyo_w2.json, _tokyo_golive.py |
+| 2026-10-02 | Tokyo | W3 continuation (~155 searches) | UNVERIFIED Michelin pins re-run; address-verify pass on all 222 sights; status re-checks; Michelin by ward ("<Ward>-ku" "Bib Gourmand" "2026 MICHELIN Guide Japan") + 2024–26 star/Bib announcement lists; Wikidata pins for held sights | 379 discovered / 374 rendered (234 sights + 140 food) — LIVE | 5 UNVERIFIED (Abe Honten, Afuri Ebisu, Tamahide, Iseya, Amazake-chaya → geocode-helper); 25 held; addresses 130 verified · 8 fixed · 55 coarsened | FOOD/SIGHTS_TOKYO_W3.json, geo/_geoout_tokyo_w3.json, _addrcheck_w3.json, _addrmark.py |
 | 2026-10-02 | Chicago | scaffold + food canon W1 | areas/taxonomy/build + canon | 0 (BLOCKED) | session WebSearch cap 200/200 exhausted by concurrent agents after 3 calls; 7 partial leads in _PENDING_LEADS.md | consolidate.py, build-chicago.py, SOURCES_BASE.json |
 | 2026-10-02 | Akron-Kent-Canton | scaffold + W1 food canon | Barberton chicken | 1 | blocked: shared WebSearch session cap 200/200 hit at 2nd query; Milich's held 1-src | FOOD_W1CANON/SOURCES_W1.json, geo/_geoout_w1_canon.json |
 | 2026-10-02 | Singapore BLS | food canon (W1, partial) | Balestier Rd + Whampoa Makan Place | 13 | 545 Whampoa (relocation?) + 20 single-source held; stopped at session WebSearch cap 200/200 | FOOD/SOURCES/CREATORS_BALESTIER.json, _note_BALESTIER.md |
@@ -148,6 +149,8 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-10-02 | Okinawa | W1 sights+canon (truncated) | Naha UNESCO backbone, soba/taco-rice canon | 13 (6 pinned, 7 UNVERIFIED) | session WebSearch cap 200/200 hit after 17 searches; Shuri Soba/Miyazato/Tsuboya held 1-src | SIGHTS/FOOD/SOURCES_OKINAWA_W1.json, geo/_geoout_okinawa_W1.json |
 | 2026-10-02 | Madison WI | food canon W1 (truncated) | curds/fish fry/supper clubs/JB honorees | 3 | 19 food + 1 sight held in _PENDING_LEADS.md (dish/address/2026 status); halted by shared 200-call WebSearch cap after ~22 searches | FOOD_CANON.json, SOURCES_W1.json, geo/_geoout_w1.json |
 | 2026-10-02 | Singapore HLV | discovery W1 (partial) + geocode + build | Ghim Moh / Holland Drive MFC hawker canon + 3 food-centre sights | 13 (10 food + 3 sights; 5 pinned med, 8 UNVERIFIED) | Guan Kee CKT CLOSED flagged; 9 held (single-source / status / attribution); halted at session WebSearch cap 200/200 after 27 calls | FOOD/SIGHTS/SOURCES/CREATORS_HOLLANDV.json, geo/_geoout_hollandv_w1.json, _note_HOLLANDV.md |
+| 2026-10-02 | Osaka | W2 discovery + geocode + build + go-live (main + workers G1/S1/M1/M2) | held W1 Bibs, konamon canon, Michelin Osaka harvest, sights all 9 areas | 189 discovered, 166 rendered (61 sights + 105 food) | 0 closures; Housing & Living museum closed for renovation (not added); 3 Michelin held (no dish); street-food pins UNVERIFIED; Time Out singles pending | FOOD_OSAKA_W2/M1/M2, SIGHTS_OSAKA_W2/S1, SOURCES_OSAKA_W2, geo/_geoout_osaka_{W2,W2u,G1,M1,M2,S1}.json, _pending_osaka_W2.json |
+| 2026-10-02 | Philadelphia | W1+W2 discover + geocode + build + go-live | Michelin 2025, cheesesteak/roast pork/tomato pie/water ice/RTM canon, Washington Ave Vietnamese, sights in all 10 areas | 170 sourced (106 on map: 91 sights + 15 food; ~49 food UNVERIFIED) | Hiroki + Laurel CLOSED flagged; Singing Fountain dropped (1 outlet); Casa Mexico merged; ~27 single-source leads held | FOOD_MICHELIN/CANON/W1B.json, SIGHTS_W1/W2.json, CREATORS_W1.json, geo/_geoout_w1_food/w1_sights/w2_sights.json |
 
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
 Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source
@@ -221,3 +224,13 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
 - **Never type a Japanese-script name or street address from memory** (Tokyo W2 self-correction): 31 kanji/kana names
   added "for flavour" had to be stripped back to the sourced romanized name. Add native script only when a source in
   hand shows it; queue an address-verify pass for any address not re-read from a cited page.
+
+- **An address-verify query must not contain the address being verified** (Tokyo W3): putting "2-3-1 Asakusa" in the
+  query made the search summary echo it back as confirmed. Query the venue names only ("GO TOKYO spot address: A; B;
+  C; D", 4 names, `gotokyo.org`), compare the returned address to the record, and coarsen to the sourced locality when
+  the page gives none or sources disagree. Log per-place results (`_addrcheck_w3.json` pattern).
+- **Michelin discovery by ward** (Tokyo W3): `"Shibuya-ku" "Bib Gourmand" "2026 MICHELIN Guide Japan"` (one ward per
+  query, `guide.michelin.com`) lists that ward's current Bibs with addresses; the annual "new Bib Gourmands" / "newly
+  starred" / "inspectors' favourite dishes" articles give named-dish candidates. Pins: 2–3 exact names + "Michelin
+  restaurant page latitude longitude coordinates" — adding "dish"/"description" to that query drops the coords, so
+  fetch dishes in a separate query.
