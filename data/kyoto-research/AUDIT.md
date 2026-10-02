@@ -128,3 +128,13 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - Rejected coordinate: "Kasagi-dera" was offered the Siege-of-Kasagi coordinate, which is not the temple, so it was not used. Held: Ōmi Jingū
   (35.032444,135.851222), Ukimidō, Fukuchiyama Castle (35.296753,135.129625) — Wikipedia only.
 - Searches used: 117.
+
+### batch 9 (2026-10-02) — FSHMI +4, RKHKU +4, HGS +3 (ja-Wikipedia coordinates)
+- **Technique:** `allowed_domains=["ja.wikipedia.org"]` with 5–6 Japanese names + 座標 returns up to 5 published coordinates per search.
+  This works where enwiki has no article (Jakkō-in, Rurikō-in, Saimyō-ji, Miyama, Yasui Konpira-gū, Rokudō Chinnō-ji, Entoku-in).
+- FSHMI: Zuishin-in, Kajū-ji (KYOTOTOURISM + WIKI), Hōkai-ji (NT list + WIKI), Jōnan-gū (KYOTOTOURISM + WIKIPEDIA_JA).
+- RKHKU: Jakkō-in (JG e3932 + WIKIPEDIA_JA), Saimyō-ji (JG e2158_north + JA), Rurikō-in (KT + JA), Miyama Kayabuki-no-Sato
+  (JG e3985 + JA; the pin is the village, not the town centroid).
+- HGS: Yasui Konpira-gū, Rokudō Chinnō-ji (kyoto.travel map guide + JA), Entoku-in (JG e3927 + JA).
+- Held: Bishamon-dō (kyoto.travel only), Kurama Onsen (JA coords 35.11925,135.776456; one source).
+- Searches used: 121.
