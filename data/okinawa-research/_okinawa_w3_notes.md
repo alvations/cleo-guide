@@ -38,3 +38,8 @@
 61. KozaWeb A-lunch 284: Highway Drive-In, Kaizoku Kobo (kept w/ OKINAWAPREF), Restaurant Kuni; 268: Red Kitchen & Cafe, Grand Shokudo, Matsumoto Diner, Shiki; bakeries 280, senbero 283, donuts 241
 62. Highway Drive-In (KozaWeb 284 + Stripes 'don't drive by' + japantravel 6426; GLTJP 10957); Seaside Drive-In (Stripes 1.278523) lead
 63-64. OT 0071 local fast food: A&W (shop 862 Makiminato), Jef Yonabaru (shop 528; held, OT only), Blue Seal Makiminato (shop 39) + OT news 1402341 (2024 reopening, 400 queue) + rurubu 23803 → kept
+65-66. Onna no Eki Nakayukui (rurubu 80043233/17749 + OT 0106 + Mapple Ryu-pin 47011721) kept; OT 0139 michi-no-eki 13: Kyoda (OT 0103), Yuiyui Kunigami, Nakijin Sore, Ginoza, Haneji, Ogimi, Rikarika Warumi, Nakayukui, Kadena, Ayahashi-kan, Itoman, Yaese, Toyosaki
+67. Michi-no-Eki Kyoda 17-1 Kyoda (rurubu 17306 + Mapple 47011467 + OT 0103); Mapple 51451 Okinawa michi-no-eki ranking TOP5 lead; Farmers Market Yanbaru 47011891
+68. rurubu Miyako Hirara: RICCO gelato, Guruguru Men-ya, Cafe Irayoi, Akagāra (Nishizato-dori shimauta), Monte d'Or, Goya 80042959 (kept w/ Mapple region page), Tunkaraya cafe 15800
+69. RICCO (Shimozato 550) + Tunkaraya (Ueno Shinzato 1214) kept rurubu+Mapple; Yukishio Museum (Mapple only) held; gelato Ninufa 47014209
+70-71. rurubu Ishigaki: How Tree gelato (Ōkawa 281), Milmil (Arakawa 1583-74; + Mapple 47012259 kept), Tumōru shop, Mori no Kenja (Arakawa 49-2), Sayoko no Mise, Papa-ya, Yaesen distillery 80042682, St.ELMO; Mapple 29955 Ishigaki location cafés
