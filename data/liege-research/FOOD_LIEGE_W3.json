@@ -151,6 +151,10 @@
    [
     "GAULTMILLAU",
     "https://www.gaultmillau.be/en/restaurants/merry-liege"
+   ],
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"
    ]
   ]
  },
@@ -208,6 +212,10 @@
    [
     "GAULTMILLAU",
     "https://www.gaultmillau.be/en/restaurants/baci-liege"
+   ],
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"
    ]
   ]
  },
@@ -277,17 +285,21 @@
   "a": "LIE",
   "cz": [
    "Gault&Millau",
-   "Contemporary"
+   "Georgian"
   ],
-  "dish": "Contemporary bistronomy",
+  "dish": "Georgian cooking",
   "n": "Cabale",
   "address": "Rue des Mineurs 6, 4000 Liège, Belgium",
-  "w": "Gault&Millau-listed restaurant in central Liège.",
+  "w": "Gault&Millau-listed restaurant at Rue des Mineurs 6 that introduced Georgian cuisine to Liège (Moustique).",
   "closed": false,
   "sources": [
    [
     "GAULTMILLAU",
     "https://www.gaultmillau.be/en/restaurants/cabale-liege"
+   ],
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"
    ]
   ]
  },
@@ -468,6 +480,10 @@
    [
     "CULTURETRIP",
     "https://www.theculturetrip.com/europe/belgium/articles/9-of-the-best-lunch-places-in-liege-belgium"
+   ],
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/12/12/specialites-locales-nos-6-adresses-preferees-a-liege-270727"
    ]
   ]
  },
@@ -591,6 +607,76 @@
    [
     "ERICBOSCHMAN",
     "https://moustique.lalibre.be/tendances/nos-bons-plans/2023/10/05/les-9-meilleurs-restaurants-ou-manger-a-liege-selon-eric-boschman-270710"
+   ]
+  ]
+ },
+ {
+  "t": 1,
+  "a": "LIE",
+  "cz": [
+   "Walloon",
+   "Belgian",
+   "Vegetarian"
+  ],
+  "dish": "Boulets à la liégeoise (Boulet de Cristal 2021) + vegetarian plates",
+  "n": "Côté Cour Côté Jardin",
+  "address": "Boulevard de la Constitution 48, 4020 Liège, Belgium",
+  "w": "Warm, all-homemade Outremeuse brasserie whose boulets won the Confrérie du Gay Boulet's Boulet de Cristal in 2021; also good vegetarian dishes.",
+  "closed": false,
+  "sources": [
+   [
+    "RTBF",
+    "https://www.rtbf.be/article/liege-la-brasserie-restaurant-cote-cour-cote-jardin-remporte-le-boulet-de-cristal-2021-10901522"
+   ],
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Walloon",
+   "Belgian"
+  ],
+  "dish": "Boulets three ways (Sophie, Philippe, pepper-cream) + frites",
+  "n": "Chez Philippe",
+  "address": "Rue Haute-Sauvenière 39, 4000 Liège, Belgium",
+  "w": "Boulets specialist near the Sauvenière — several house sauces and generous frites, simple wines.",
+  "closed": false,
+  "sources": [
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"
+   ],
+   [
+    "GOURMANDIZ",
+    "https://gourmandiz.dhnet.be/manger-mieux/17162/voici-ou-deguster-les-meilleurs-boulets-a-la-liegeoise"
+   ]
+  ]
+ },
+ {
+  "t": 2,
+  "a": "LIE",
+  "cz": [
+   "Walloon",
+   "Belgian"
+  ],
+  "dish": "Boulets and Liège family cooking",
+  "n": "La Mairie de Saint-Pholien",
+  "address": "Rue des Écoliers 16, 4020 Liège, Belgium",
+  "w": "Family-run Outremeuse table by Saint-Pholien serving Belgian and Liège classics, boulets included.",
+  "closed": false,
+  "sources": [
+   [
+    "MOUSTIQUE",
+    "https://moustique.lalibre.be/tendances/food/2022/10/01/liege-12-restaurants-pour-deguster-des-boulets-et-autres-specialites-de-la-region-247833"
+   ],
+   [
+    "VISITLIEGE",
+    "https://www.visitezliege.be/fr/offre/la-mairie"
    ]
   ]
  }
