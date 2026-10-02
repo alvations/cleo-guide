@@ -5,10 +5,13 @@
 - `LIER` around Liège … ~60
 
 ## State
-- 2026-10-02: scaffolded (consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, tools/build-liege.py). Discovery not started.
+- 2026-10-02: scaffolded + wave 1 PARTIAL. Discovered 5 (LIE 3 sights + 2 food; LIER 0) vs target 145.
+  1 geocoded (Grand Curtius). **Blocked: WebSearch session budget (200/200) exhausted after 11 searches** — needs a
+  fresh session / raised CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION. Not built; card still "being built".
 
 ## In-flight wave
-- W1 (tag none/_W1 files): LIE sights → SIGHTS_LIEGE_LIE.json; LIE food canon+beer → FOOD_LIEGE_LIE.json; LIER sights → SIGHTS_LIEGE_LIER.json; LIER food → FOOD_LIEGE_LIER.json; sources → SOURCES_LIEGE.json; creators → CREATORS_LIEGE.json.
+- W1 remainder (resume here): run the "Not yet searched" list in `_PENDING_LEADS.md`, then corroborate/address the
+  held leads there. Append to FOOD_LIEGE_LIE.json / SIGHTS_LIEGE_LIE.json and create *_LIER.json files.
 
 ## Next actions
 1. Wave 1 discovery (LIE sights, LIE food canon + beer, LIER sights, LIER food).

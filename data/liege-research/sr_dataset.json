@@ -1,0 +1,282 @@
+{
+ "areas": [
+  {
+   "id": "LIE",
+   "n": "Liège (Carré · Outremeuse · Batte · Montagne de Bueren · Guillemins · Palais · Curtius · Boverie)"
+  },
+  {
+   "id": "LIER",
+   "n": "Around Liège (Spa & Francorchamps · Huy · the Meuse · Herve plateau · Val-Dieu · Blegny-Mine)"
+  }
+ ],
+ "ac": {
+  "LIE": "#C0504D",
+  "LIER": "#6A8D3F"
+ },
+ "cuisines": [
+  {
+   "id": "BEL",
+   "n": "Belgian & Flemish"
+  },
+  {
+   "id": "FR",
+   "n": "French & Brasserie"
+  },
+  {
+   "id": "BEER",
+   "n": "Beer & Breweries"
+  },
+  {
+   "id": "SWEET",
+   "n": "Chocolate, Waffles & Sweets"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "CAFE",
+   "n": "Café & Brown Café"
+  },
+  {
+   "id": "SEA",
+   "n": "North Sea & Seafood"
+  },
+  {
+   "id": "VEG",
+   "n": "Vegetarian & Vegan"
+  },
+  {
+   "id": "INT",
+   "n": "International & Student"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "UNESCO",
+   "n": "UNESCO World Heritage"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "ARCH",
+   "n": "Churches, Belfries & Castles"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "CANAL",
+   "n": "Canals & Waterfront"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Nature"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Squares"
+  },
+  {
+   "id": "NIGHT",
+   "n": "Nightlife & Quarters"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "LIE",
+   "n": "Grand Curtius",
+   "ad": "Quai de Maastricht 13, 4000 Liège, Belgium",
+   "w": "The early-17th-c. red-brick mansion of the arms merchant Jean Curtius on the Meuse, reopened in 2009 as one museum merging archaeology, weaponry, glass, decorative arts and Mosan religious art over 5,000 m².",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Curtius_Museum"
+    ],
+    [
+     "VISITLIEGE",
+     "https://visitezliege.be/en/grand-curtius"
+    ],
+    [
+     "OFFICIAL",
+     "https://grandcurtius.be/en/museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LIE",
+   "n": "Palais des Princes-Évêques",
+   "ad": "Place Saint-Lambert, 4000 Liège, Belgium",
+   "w": "The 16th-c. palace of the Prince-Bishops who ruled Liège for eight centuries, dominating Place Saint-Lambert; today the Palais de Justice, its arcaded first courtyard is open to walk through.",
+   "g": [
+    "ICON",
+    "HIST",
+    "ARCH",
+    "MKT"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.fr/article/4-des-meilleures-choses-faire-liege"
+    ],
+    [
+     "ROUTARD",
+     "https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege"
+    ],
+    [
+     "VISITLIEGE",
+     "https://www.visitezliege.be/Photos/WPA_MediaSource/city_fr_220124.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LIE",
+   "n": "Collégiale Saint-Barthélemy",
+   "ad": "Place Saint-Barthélemy, 4000 Liège, Belgium",
+   "w": "Romanesque collegiate church with a twin-towered westwork, home to Renier de Huy's baptismal font (c. 1107–1118) — a lost-wax brass basin on ten oxen, a masterpiece of Mosan art.",
+   "g": [
+    "ARCH",
+    "HIST",
+    "MUS",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "ROUTARD",
+     "https://www.routard.com/fr/guide/europe/belgique/province-de-liege/liege/collegiale-saint-barthelemy"
+    ],
+    [
+     "WBT",
+     "https://walloniabelgiumtourism.co.uk/en-gb/content/collegiate-church-saint-barthelemy-and-its-baptismal-fonts"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "LIE",
+   "n": "Café Lequet",
+   "ad": "Quai sur Meuse 17, 4000 Liège, Belgium",
+   "w": "One of Liège's oldest cafés and the locals' answer to 'where for boulets?' — boulet-frites in sauce lapin is the house institution; a past Diamond Boulet winner of the Gay Boulet brotherhood.",
+   "cz": [
+    "BEL",
+    "FR"
+   ],
+   "g": [],
+   "s": [
+    [
+     "ULIEGE",
+     "https://www.campus.uliege.be/cms/c_9316882/en/liege-downtown-a-selection-of-restaurants-serving-liege-and-regional-cuisine"
+    ],
+    [
+     "SNCB",
+     "https://www.belgiantrain.be/fr/travel-ideas/inspiration/discover-belgium/liege/liege-impossibletomiss"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LIE",
+   "n": "Une Gaufrette Saperlipopette",
+   "ad": "Rue des Mineurs, 4000 Liège, Belgium",
+   "w": "Artisan waffle shop in the Mineurs quarter since 2010, making traditional pearl-sugar Liège waffles with good butter and eggs; also a house range of ice creams.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "BRUSSELSTIMES",
+     "https://brusselstimes.com/199724/hidden-belgium-une-gaufrette-saperlipopette"
+    ],
+    [
+     "RTBF",
+     "https://www.rtbf.be/article/la-gaufrette-saperlipopette-lance-un-assortiment-de-glaces-10225236"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "LONELYPLANET": {
+   "k": "LONELY PLANET",
+   "t": "Lonely Planet (FR edition)",
+   "u": "https://www.lonelyplanet.fr",
+   "l": "Lonely Planet (FR edition)"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "OFFICIAL SITE",
+   "u": "",
+   "l": ""
+  },
+  "ROUTARD": {
+   "k": "ROUTARD",
+   "t": "Le Guide du Routard (FR travel guide of record)",
+   "u": "https://www.routard.com",
+   "l": "Le Guide du Routard (FR travel guide of record)"
+  },
+  "VISITLIEGE": {
+   "k": "VISITLIEGE",
+   "t": "Visit Liège — Maison du Tourisme du Pays de Liège (official)",
+   "u": "https://www.visitezliege.be",
+   "l": "Visit Liège — Maison du Tourisme du Pays de Liège (official)"
+  },
+  "WBT": {
+   "k": "WBT",
+   "t": "Wallonie Belgique Tourisme (official regional tourism)",
+   "u": "https://walloniabelgiumtourism.co.uk",
+   "l": "Wallonie Belgique Tourisme (official regional tourism)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "WIKIPEDIA",
+   "u": "",
+   "l": ""
+  }
+ },
+ "FS": {
+  "BRUSSELSTIMES": {
+   "k": "THE BRUSSELS TIMES",
+   "t": "The Brussels Times (Hidden Belgium)",
+   "u": "https://brusselstimes.com",
+   "l": "The Brussels Times (Hidden Belgium)"
+  },
+  "RTBF": {
+   "k": "RTBF",
+   "t": "RTBF (Belgian public broadcaster)",
+   "u": "https://www.rtbf.be",
+   "l": "RTBF (Belgian public broadcaster)"
+  },
+  "SNCB": {
+   "k": "SNCB",
+   "t": "SNCB/NMBS — Discover Belgium editorial (national railway)",
+   "u": "https://www.belgiantrain.be",
+   "l": "SNCB/NMBS — Discover Belgium editorial (national railway)"
+  },
+  "ULIEGE": {
+   "k": "ULIEGE",
+   "t": "Université de Liège — campus guide (curated local-cuisine selection)",
+   "u": "https://www.campus.uliege.be",
+   "l": "Université de Liège — campus guide (curated local-cuisine selection)"
+  }
+ }
+}
