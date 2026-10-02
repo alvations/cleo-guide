@@ -20,7 +20,8 @@
    "Japanese",
    "Californian"
   ],
-  "dish": "Japanese-leaning seasonal plates"
+  "dish": "Japanese-leaning seasonal plates",
+  "t0": 1
  },
  {
   "t": 1,
@@ -43,7 +44,8 @@
    "Middle Eastern",
    "Mediterranean"
   ],
-  "dish": "Eastern Mediterranean mezze and wood-fired plates"
+  "dish": "Eastern Mediterranean mezze and wood-fired plates",
+  "t0": 1
  },
  {
   "t": 1,
@@ -69,7 +71,8 @@
   "cz": [
    "Cambodian"
   ],
-  "dish": "kuy teav noodle soup, Cambodian fried chicken"
+  "dish": "kuy teav noodle soup, Cambodian fried chicken",
+  "t0": 1
  },
  {
   "t": 1,
@@ -96,10 +99,11 @@
    "Steakhouse",
    "American"
   ],
-  "dish": "tableside-carved prime rib"
+  "dish": "tableside-carved prime rib",
+  "t0": 1
  },
  {
-  "t": 2,
+  "t": 1,
   "a": "DTN",
   "n": "The Valley Club",
   "address": "398 Geary St (Hotel G; entrance on Mason St), San Francisco, CA 94102",
@@ -126,10 +130,11 @@
   "cz": [
    "Cocktail Bar"
   ],
-  "dish": "cocktails"
+  "dish": "cocktails",
+  "t0": 2
  },
  {
-  "t": 1,
+  "t": 2,
   "a": "NOB",
   "n": "Friends Only",
   "address": "1501 California St, San Francisco, CA 94109",
@@ -149,10 +154,11 @@
    "Sushi",
    "Japanese"
   ],
-  "dish": "omakase"
+  "dish": "omakase",
+  "t0": 1
  },
  {
-  "t": 1,
+  "t": 2,
   "a": "MIS",
   "n": "Delfina",
   "address": "3621 18th St, San Francisco, CA 94110",
@@ -171,7 +177,8 @@
   "cz": [
    "Italian"
   ],
-  "dish": "spaghetti and roast chicken"
+  "dish": "spaghetti and roast chicken",
+  "t0": 1
  },
  {
   "t": 1,
@@ -194,7 +201,8 @@
    "Tiki",
    "Bar"
   ],
-  "dish": "tiki cocktails"
+  "dish": "tiki cocktails",
+  "t0": 1
  },
  {
   "t": 1,
@@ -216,10 +224,11 @@
   "cz": [
    "Bar"
   ],
-  "dish": "Beat-era bar drinks"
+  "dish": "Beat-era bar drinks",
+  "t0": 1
  },
  {
-  "t": 1,
+  "t": 2,
   "a": "AVE",
   "n": "Good Luck Dim Sum",
   "address": "736 Clement St, San Francisco, CA 94118",
@@ -239,7 +248,8 @@
    "Dim Sum",
    "Cantonese"
   ],
-  "dish": "siu mai, har gow (takeout dim sum)"
+  "dish": "siu mai, har gow (takeout dim sum)",
+  "t0": 1
  },
  {
   "t": 2,
@@ -266,7 +276,8 @@
    "Bakery",
    "Sourdough"
   ],
-  "dish": "daily vegetarian sourdough pizza, sourdough loaves"
+  "dish": "daily vegetarian sourdough pizza, sourdough loaves",
+  "t0": 2
  },
  {
   "t": 2,
@@ -284,10 +295,11 @@
   "cz": [
    "Californian"
   ],
-  "dish": "seasonal Californian plates"
+  "dish": "seasonal Californian plates",
+  "t0": 2
  },
  {
-  "t": 1,
+  "t": 2,
   "a": "SE",
   "n": "Piccino",
   "address": "1001 Minnesota St, San Francisco, CA 94107",
@@ -307,10 +319,11 @@
    "Italian",
    "Pizza"
   ],
-  "dish": "seasonal pizza and pasta"
+  "dish": "seasonal pizza and pasta",
+  "t0": 1
  },
  {
-  "t": 2,
+  "t": 3,
   "a": "SE",
   "n": "Marcella's Lasagneria",
   "address": "1099 Tennessee St, San Francisco, CA 94107",
@@ -330,7 +343,8 @@
    "Italian",
    "Pasta"
   ],
-  "dish": "lasagna"
+  "dish": "lasagna",
+  "t0": 2
  },
  {
   "t": 1,
@@ -353,10 +367,11 @@
    "Soul Food",
    "Cajun"
   ],
-  "dish": "gumbo and po'boys"
+  "dish": "gumbo and po'boys",
+  "t0": 1
  },
  {
-  "t": 1,
+  "t": 2,
   "a": "NECN",
   "n": "Specs' Twelve Adler Museum Cafe",
   "address": "Specs' Twelve Adler Museum Cafe, Adler Place off Columbus Ave, North Beach, San Francisco, CA 94133",
@@ -379,10 +394,11 @@
   "cz": [
    "Bar"
   ],
-  "dish": "dive-bar drinks amid a museum of curios"
+  "dish": "dive-bar drinks amid a museum of curios",
+  "t0": 1
  },
  {
-  "t": 1,
+  "t": 2,
   "a": "NECN",
   "n": "Li Po Cocktail Lounge",
   "address": "916 Grant Ave, San Francisco, CA 94108",
@@ -401,6 +417,59 @@
   "cz": [
    "Bar"
   ],
-  "dish": "Chinese mai tai"
+  "dish": "Chinese mai tai",
+  "t0": 1
+ },
+ {
+  "t": 2,
+  "a": "MIS",
+  "n": "Mitchell's Ice Cream",
+  "address": "688 San Jose Ave, San Francisco, CA 94110",
+  "w": "Family scoop shop open since 1952 and an SF Legacy Business — a Mission/Bernal institution.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2023/09/08/san-francisco-mitchells-ice-cream-legacy-business/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/mitchells-ice-cream"
+   ]
+  ],
+  "cz": [
+   "Ice Cream",
+   "Dessert"
+  ],
+  "dish": "ice cream (since 1952)",
+  "t0": 1
+ },
+ {
+  "t": 1,
+  "a": "NECN",
+  "n": "Hang Ah Tea Room",
+  "address": "1 Pagoda Pl (at Sacramento St), San Francisco, CA 94108",
+  "w": "Opened 1920 down a Chinatown alley off Sacramento St — widely billed as the oldest dim sum restaurant in the US.",
+  "closed": false,
+  "sources": [
+   [
+    "ATLASOBSCURA",
+    "https://atlasobscura.com/places/hang-ah-tea-room"
+   ],
+   [
+    "TASTINGTABLE",
+    "https://tastingtable.com/1397641/san-francisco-america-oldest-dim-sum-restaurant"
+   ],
+   [
+    "SFCHRON",
+    "https://preview-prod.w.sfchronicle.com/food/restaurants/article/S-F-s-100-year-old-Hang-Ah-the-country-s-15941254.php"
+   ]
+  ],
+  "cz": [
+   "Dim Sum",
+   "Cantonese"
+  ],
+  "dish": "dim sum (siu mai, har gow)",
+  "t0": 1
  }
 ]
