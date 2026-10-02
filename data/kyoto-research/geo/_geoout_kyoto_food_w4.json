@@ -148,5 +148,25 @@
   "geoSource": "MICHELIN Guide venue page geo (lat/lng surfaced with the venue's address) https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/canton-shunsai-ikki",
   "status": "open",
   "statusSource": "current MICHELIN Guide Kyoto Osaka 2026 listing, checked 2026-10-02"
+ },
+ {
+  "n": "Inoda Coffee Honten",
+  "address": "140 Dōyū-chō, Sakaimachi-dōri Sanjō-sagaru, Nakagyō-ku, Kyoto 604-8118, Japan",
+  "lat": 35.008194,
+  "lng": 135.763056,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia published coordinates https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%8E%E3%83%80%E3%82%B3%E3%83%BC%E3%83%92",
+  "status": "open",
+  "statusSource": "kyoto.travel listing + night-café feature (2026)"
+ },
+ {
+  "n": "Sōhonke Nishin Soba Matsuba",
+  "address": "Beside Minami-za, Shijō-dōri, Higashiyama-ku, Kyoto, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "kyoto.travel restaurant listing (2026)"
  }
 ]
