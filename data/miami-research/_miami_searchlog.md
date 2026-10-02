@@ -151,3 +151,6 @@
 150 Status: Bakehouse (GMCVB 2026 Open Studios events), Turner River Rd (NPS scenic drives)
 151 NT 13 best FTL beach (Archibalds, Casablanca, Coconuts, Evelyn's, La Fuga, Maass, Ocean Prime, Parrot Lounge, S3, Steak 954, Takato, Vitolo, Wine Garden); Infatuation FTL beach
 152 Infatuation 20 classic FTL (Tropical Acres, Rainbow Palace, Greek Islands, Egg N' You, Mai-Kai, Hot Dog Heaven, Runway 84, Peter Pan Diner, Times Square Pizza, Lester's, Floridian, Cap's, Old Heidelberg, Jack's…) → 5 added
+153 Infatuation Homestead (20 best Homestead guide; Yardie Spice, White Lion Cafe, Broadway Subs, La Quebradita) → 2 added (∩ Fodor's)
+154 Infatuation 20 best Homestead (Hidalgo's, La Pasadita, Reyes Juice, Coqui by Tayta's, Redland Market Village, Nando Grill, Taqueria Morelia, Chefs on the Run = Puerto Rican, La Cruzada…)
+155 Infatuation 13 best tacos ∩ Time Out 20 best tacos → Taqueria Morelia, La Cruzada, Taquerias El Mexicano (∩NT Best Tacos 2025), Coyo Taco
