@@ -60,3 +60,8 @@
 58 Infatuation Kendall/Pinecrest (Smoke & Dough, Milly's Empanada Factory, Apocalypse BBQ, Lan Pan-Asian, Dr. Limon, Platea, Pinecrest Bakery, Keg South)
 59 key lime pie (NT: Fireman Derek's best KLP, Fookem's; Inf: Cindy Lou's, Over Under sour-orange pie)
 60 NT Best of Miami 2025 readers' cross-check (Apocalypse BBQ best BBQ; Pinecrest Bakery best bakery)
+61 South Dade (GMCVB county parks: Zoo Miami, Deering Estate, Matheson Hammock, Homestead Bayfront)
+62 Miami Beach (MDPL/GMCVB: Española Way, MB Botanical Garden, Jewish Museum of Florida)
+63 Coconut Grove (+tool sub-queries ≈4: Kampong Atlas Obscura, Plymouth Church, CocoWalk GMCVB, Playhouse under restoration, Seaquarium CLOSED 2025-10-12)
+64 Infatuation South Beach (Prime 112, The Joyce, Bazaar, Orilla, Blue Ribbon, Yardbird, Bodega, Maison Valentine, Stormy Monday — single-source, held)
+65 Hialeah Park / Opa-locka City Hall / Hard Rock Stadium / Guitar Hotel (Crazy Tourist + Wikipedia)
