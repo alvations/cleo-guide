@@ -93,3 +93,14 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - Lesson: an over-stuffed food query (8+ names) makes the tool retry internally, costing 3–4 searches for little gain. Keep queries to ≤5
   names or one ward+genre.
 - Searches used: 86.
+
+### batch 6 (2026-10-02) — held leads corroborated + CTR/KITA/RKSAI sights
+- Corroborated with kyoto.travel (2nd source): Shisen-dō (shrine_temple/146), Manshu-in, Shinnyo-dō (KT FAQ 1056), Kyoto Botanical
+  Gardens (KT guide sheet 152) → SAKYO +4, pins from Wikipedia.
+- CTR +4: Nishiki Tenmangū, Museum of Kyoto, Rokkaku-dō (KYOTOTOURISM + WIKIPEDIA), Kyoto Aquarium (JAPANGUIDE e3971 + WIKIPEDIA).
+  KITA +1 Sentō Imperial Palace (JG e3935 + WIKI); RKSAI +1 Toei Kyoto Studio Park (JG e3934 + WIKI).
+- New pins: Kyoto Station (Wikipedia 34.985444,135.757778), Kyoto National Museum (Wikipedia 34.99,135.773056).
+- Held (Wikipedia coords only, need 2nd source): Honnō-ji (35.010294,135.768281), Shinsen-en (35.011381,135.748372), Tōji-in
+  (35.031550,135.723469), Shōkoku-ji (35.03306,135.762347), Rozan-ji (35.0232,135.7640), Daihōon-ji (35.0319,135.7399),
+  Umekōji Steam Locomotive Museum (now part of the Railway Museum — not separate). Myōshin-ji (JG mention only).
+- Searches used: 92.
