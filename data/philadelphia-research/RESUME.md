@@ -45,6 +45,15 @@ W3: FOOD_W3.json (188) · SIGHTS_W3.json (54) · SOURCES_W3.json (Visit NJ, Nort
 geo/_geoout_w3_foodpins.json (7 restaurant Wikipedia pins). Helpers: _phi_add.py (append + dedupe), _phi_w3f.py (pipe-line → records),
 _phi_sg.py (sight + pin), _phi_geo.py (geoout append), _phi_card.py (index card + CITIES row), _phi_docs_w3.py (run-log/notes).
 
+## W4 binding rule — food & drink share (RUN-2026-10-02 §2b, orchestrator message 05:33Z)
+Keep ≥50% of each area FOOD & DRINK (restaurants, markets/street food, bakeries, cafés, bars/cocktail/wine bars, breweries,
+distilleries). Food share after W3: CC 61/117 (52%) · SPH 63/74 (85%) · FISH 37/41 (90%) · UCW 20/31 (65%) · NE 13/18 (72%) ·
+MAIN 15/28 (54%) · SJ 12/24 (50%) · **NPH 7/23 (30%) · NW 17/35 (49%) · DAY 8/32 (25%)** — below the bar.
+→ W4 spends food/drink first in NPH (Temple/Brewerytown/Fairhill: El Bohio, La Sierra, La Caribeña, Delicias, El Principe,
+Taqueria La Raza held), DAY (Marsha Brown, 1906 at Longwood, Portabello's, Kennett Square, Phoenixville/West Chester bars,
+Chaddsford Winery), NW (Chestnut Hill Brewing, Mt Airy Tap Room, Bar Lizette, Downtime Bakery, Hot Clucks, Tyemeka's, Zion's),
+then UCW drinks, FISH breweries, NE, MAIN. W3 did not apply this rule — the session's search budget was spent before it arrived.
+
 ## Next wave (W4) — ordered plan
 1. **Status/address pass on the ~88 unchecked W3 food** (short 1-2-name queries; start with 2026 closings round-ups). Several
    addresses are partial (Bastia, Fiore-area done, White Yak, Liberty Kitchen, Eshkol, Phil & Jim's, Federal Donuts, Hello Vietnam…).
