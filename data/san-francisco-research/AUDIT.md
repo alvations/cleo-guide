@@ -405,3 +405,7 @@ Galería de la Raza — lost its 24th St home → not added; Taqueria San Franci
 validate DATA OK · npm test ALL PASS. Registry: 118 UNVERIFIED held (mostly restaurants — WebSearch cannot place-pin them; geocode-helper).
 15 AUTO-registered keys given real `credible` rationales (ALMANAC, CASTATEPARKS, FOUNDSF, ISLANDS, NICHIBEI, NPR, PALOALTOONLINE, PARKSCON, PATCH,
 SFWEEKLY, SMCPARKS, SMDAILYJOURNAL, SPRUDGE, LIVINGNEWDEAL, KTVU). NW and SE reach target; food ≥50% in every area (lowest HAI 61%, NW 64%).
+**Batch 15 (searches 87–93):** Lake Merced (Wikipedia, med 3-decimal + SFGATE + SF Rec & Park), Mountain Lake Park, Mount Sutro Open Space Reserve
+(Wikipedia pins + SF Rec & Park/SFGATE/Hoodline) (AVE); Royal Feast (MICHELIN Bib + SF Chronicle Top 100 + SM Daily Journal), Pacifica State Beach/
+Linda Mar and San Pedro Valley Park (Wikipedia pins + SFGATE/SF Standard/San Mateo County Parks) (PEN). Kajiken, Wonderful, Pausa already in the
+dataset (dedup).
