@@ -283,3 +283,5 @@ pins (WIKIPEDIA_JA) ~15%, travel media/creators ~10% (TIMEOUT, GOODLUCKTRIP, RAM
 **W76 IBURI (post-final, 2 searches):** Mt Tarumae (visit-hokkaido + japan-guide + wiki pin), Ōyunuma River footbath (noboribetsu-spa.jp =
 NOBORIBETSUTOURISM + visit-hokkaido; "大湯沼" coord rejected — no own article). Held: Koke-no-dōmon moss gorge (no coord).
 **W77 IBURI:** Soba-dokoro Fukuan (promoted: rurubu + MAPPLE Noboribetsu list; caveat).
+**W78 NSK:** Niseko Goshiki Onsen (promoted from held: visit-hokkaido + wiki pin), Niseko Yumoto Onsen & Ōyunuma (niseko-ta.jp + wiki;
+med — onsen-area point). Town names left generic (Rankoshi not read in results). Chisenupuri pin read (42.88806,140.59667) — no 2nd source.
