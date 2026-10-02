@@ -160,3 +160,27 @@ PASS · npm validate DATA OK · npm test ALL PASS. 17 held UNVERIFIED (gate drop
   Portsmouth Square, Japan Center, Patricia's Green.
 - **Self-audit fix (rule 4a):** street numbers / cross-streets I had typed for 16 sights from memory were replaced
   with descriptive addresses grounded in the search text (pins are Wikipedia's published coords, unaffected).
+- Searches 105–119: AVE/MIS sights (SF Travel Richmond-Sunset, Mission murals, Castro, best-hikes pages + Wikipedia
+  coords): Ocean Beach (beach midpoint → med), Fort Funston, SF Zoo, Stern Grove, Clarion Alley (unpinned), The
+  Women's Building, Harvey Milk Plaza, Mount Davidson, Glen Canyon Park (3-decimal → med). Held Wikipedia-only:
+  Holy Virgin Cathedral. Creator query #2 (TikTok/viral SF food) → only influencer-ranking SEO pages
+  (sociallypowerful.com — rejected as SEO) and an AFAR chef piece (Brandon Jew's Chinatown picks — AFAR editorial,
+  not a creator). **No creator met the bar this run** (no verifiable-following creator with a findable SF piece
+  surfaced in 2 queries) — logged, not padded. Food: Good Luck Dim Sum (SF Travel + Michelin inspectors' off-guide
+  list), Arizmendi Bakery Valencia (Infatuation + Michelin inspectors + Tasting Table). Held: Rosamunde (SF Standard
+  reopen story is 2023 — status too stale), Noe Valley Bakery / Wing Lee / St. Francis Fountain / Fatted Calf (no
+  address surfaced), AFAR-Brandon-Jew picks Hon's Wun-Tun, Spicy Shrimp, Hing Lung, Little Swan, Lai Hong Lounge
+  (single source / no address), House of Dim Sum (SF Travel only).
+
+## Stage 5-R — location re-verify of the OLD pins (CLAUDE.md 4b)
+Michelin venue-page place pins for the old address-level ("med") Michelin restaurants → upgraded to high:
+Mister Jiu's (shift 8 m), **Yank Sing (shift 176 m — misplaced, fixed)**, Nightbird (24 m), Aziza (16 m), Abacá
+(49 m), **HK Lounge Bistro (96 m — fixed)**, Restaurant Naides (was UNVERIFIED → pinned high). `geo/_geoout_fixold.json`.
+Still med (non-Michelin, no better pin found this run): Lers Ros, Great Eastern, House of Nanking, Turtle Tower,
+Marufuku, Um.ma, Trick Dog, Tosca, Il Casaro, Sodini's, Swensen's, Blue Bottle Ferry Bldg + 9 sights; 1 low (SFO
+Aviation Museum — interior of the International Terminal, inherently approximate). Old UNVERIFIED still held:
+Boudin (aggregator-only coords rejected), It's-It, Chibog, The Bread Basket, Basque Cultural Center, Wursthall.
+
+## Stage 6 — BUILD #2 (2026-10-02)
+**267 researched → 242 rendered (sights 92 researched; food 175 = 65.5%)**; sourcecheck PASS 267/267 · geocheck
+PASS · statuscheck CONSISTENT · buildcheck PASS · validate + test green. 25 held UNVERIFIED.
