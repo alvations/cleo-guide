@@ -100,3 +100,8 @@
 99 NT ten best pastelitos (Pastelmania, Vicky, Lucerne, Versailles, Karla, El Brazo Fuerte; Ricky, La Nueva Fe, Breadman) → 3 added
 100 Infatuation 20 iconic Miami dishes (Fritanga Caña Brava, Piononos, Miracle Fry conch fritters, El Rey de las Fritas, B&M roti, Sanguich, A.C.'s Icees, Zak, Islas Canarias, Knaus Berry Farm, Ricky, La Uchireña, Flanigan's Grove, Chef Creole, Versailles, Graziano's)
 101 NT Knaus Berry Farm / A.C.'s Icees / B&M → 2 added
+102 Infatuation North Miami / NMB / 163rd St / North Beach guides (Barra Callao, King Palace, Korean Kitchen, Panya Thai, Lutong Pinoy, Farofa, Mutra, Edan Bistro, Bon Bagay, Boteco do Manolo…)
+103 NT ten best NMB (Panya Thai #3, King Palace #5, Korean Kitchen) → 3 added
+104 NT ten best North Miami (Steve's Pizza, Cane a Sucre, Petit Rouge, Vega's, Little Havana, Fish Fish, Cheen-Huaye, Bulldog BBQ, Ricky's Thai, Captain Jim's) → 2 added
+105 GMCVB Sunny Isles/Aventura (Newport Pier, Sunny Isles Beach, Aventura Mall Slide Tower) → 3 sights (SIGHTS_S6)
+106 Everglades City food (Fodor's Everglades + Sarasota Magazine 'Glades Grub' + visitevergladescity: Havana Café, Camellia Street Grill, Triad) → 3 added
