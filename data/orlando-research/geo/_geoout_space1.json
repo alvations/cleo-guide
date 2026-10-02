@@ -1,0 +1,79 @@
+[
+ {
+  "n": "Kennedy Space Center Visitor Complex",
+  "address": "Merritt Island, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Kennedy_Space_Center_Visitor_Complex (listed as operating)",
+  "lat": 28.5233,
+  "lng": -80.6819,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Kennedy_Space_Center_Visitor_Complex): 28.5233,-80.6819",
+  "note": ""
+ },
+ {
+  "n": "Vehicle Assembly Building",
+  "address": "Kennedy Space Center, Merritt Island, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Vehicle_Assembly_Building (listed as operating)",
+  "lat": 28.58639,
+  "lng": -80.65139,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Vehicle_Assembly_Building): 28.58639,-80.65139",
+  "note": ""
+ },
+ {
+  "n": "Merritt Island National Wildlife Refuge (Black Point Wildlife Drive)",
+  "address": "Merritt Island, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Merritt_Island_National_Wildlife_Refuge (listed as operating)",
+  "lat": 28.517,
+  "lng": -80.667,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Merritt_Island_National_Wildlife_Refuge): 28.517,-80.667",
+  "note": "refuge-level coordinate (3 decimals); re-pin to the Black Point Drive entrance"
+ },
+ {
+  "n": "Canaveral National Seashore (Playalinda Beach)",
+  "address": "Titusville, FL",
+  "status": "open",
+  "statusSource": "https://www.nps.gov/cana/ (listed as operating)",
+  "lat": 28.7675,
+  "lng": -80.77694,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (https://www.nps.gov/cana/): 28.7675,-80.77694",
+  "note": "seashore-level Wikipedia coordinate; re-pin to Playalinda"
+ },
+ {
+  "n": "Valiant Air Command Warbird Museum",
+  "address": "Space Coast Regional Airport, Titusville, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/Valiant_Air_Command_Warbird_Museum (listed as operating)",
+  "lat": 28.519,
+  "lng": -80.794,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/Valiant_Air_Command_Warbird_Museum): 28.519,-80.794",
+  "note": "3-decimal coordinate"
+ },
+ {
+  "n": "American Space Museum & Space Walk of Fame",
+  "address": "Downtown Titusville, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/American_Space_Museum (listed as operating)",
+  "lat": 28.614,
+  "lng": -80.806,
+  "confidence": "med",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/American_Space_Museum): 28.614,-80.806",
+  "note": "3-decimal coordinate"
+ },
+ {
+  "n": "Cocoa Beach Pier",
+  "address": "Cocoa Beach, FL",
+  "status": "open",
+  "statusSource": "https://en.wikipedia.org/wiki/List_of_piers_in_the_United_States (listed as operating)",
+  "lat": 28.320221,
+  "lng": -80.608871,
+  "confidence": "high",
+  "geoSource": "Wikipedia published coordinates (https://en.wikipedia.org/wiki/List_of_piers_in_the_United_States): 28.320221,-80.608871",
+  "note": "held single-source"
+ }
+]
