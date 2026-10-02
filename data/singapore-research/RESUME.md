@@ -44,20 +44,21 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
   filterable area with its own pastel marker colour and needs ≥1 geocoded tier-1 or the build asserts.
 
 ## Punggol (PGL) — checkpoint (agent: Punggol, 2026-10-02)
-- Target: ~93 (`python3 tools/density.py singapore --area PGL`). Page `Singapore/punggol.html`, slug `punggol`.
-- Files (PUNGGOL tag only): FOOD_PUNGGOL*.json, SIGHTS_PUNGGOL*.json, SOURCES_PUNGGOL*.json, CREATORS_PUNGGOL*.json,
-  geo/_geoout_punggol_*.json, _note_PUNGGOL*.md.
-- Dedup: Punggol Park, Kampong Lorong Buangkok, Lorong Halus Wetland already exist under USG — not re-added.
-### In-flight wave
-- W1 (sights + hawker canon): Punggol Waterway/Point/Coney/PDD/settlement/heritage sights; Punggol hawker
-  centres (Punggol Coast HC, Oasis Terraces, Northshore, Punggol Plaza), Waterway Point. Writing FOOD_PUNGGOL.json,
-  SIGHTS_PUNGGOL.json.
-- **NVN Novena & Newton (2026-10-02, NOVENA agent):** in-flight W1 food canon + sights → `FOOD_NOVENA.json`/`SIGHTS_NOVENA.json`; checkpoint + plan in `_note_NOVENA.md`.
-
+- Target: ~93 (`python3 tools/density.py singapore --area PGL`). Page `Singapore/punggol.html`, slug `punggol`; NOT live.
+- Files (PUNGGOL tag only): FOOD_PUNGGOL.json, SIGHTS_PUNGGOL.json, SOURCES_PUNGGOL.json, CREATORS_PUNGGOL.json,
+  _note_PUNGGOL.md (full held-lead list + W2 plan). Next files: FOOD_PUNGGOL2.json, SIGHTS_PUNGGOL2.json, geo/_geoout_punggol_w1.json.
+- Dedup: Punggol Park, Kampong Lorong Buangkok, Lorong Halus Wetland, Ponggol Nasi Lemak already exist under USG — not re-added.
+- **State:** W1 discovered 9 (5 food + 4 sights), all ≥2-credible or lone Michelin; **0 geocoded, 0 rendered** — the
+  session's shared WebSearch cap (200/200) was exhausted ~17 searches into W1; no coords/status from memory.
+- **In-flight wave:** none.
+- **Next (in order):** (1) geocode + status the 9 kept (One Punggol HC, Punggol Coast HC, Coney Island, Punggol Point, Waterway Point)
+  -> geo/_geoout_punggol_w1.json; (2) W2 discovery per _note_PUNGGOL.md (held sights' 2nd sources, hawker canon by centre, creator pass);
+  (3) `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build`; (4) density loop until PGL OK;
+  (5) go-live = add "punggol" to LIVE_SLUGS in tools/build-singapore-pages.py under the lock, rebuild.
 ## Balestier (BLS) — checkpoint (agent: Balestier, 2026-10-02)
 - Full checkpoint, file list and per-wave notes: `_note_BALESTIER.md`. Target 55 (`python3 tools/density.py singapore --area BLS`).
 ### In-flight wave (BLS)
-- W1: canon food (bak kut teh / chicken rice / bakeries) + Whampoa Makan Place + heritage-trail sights -> FOOD_BALESTIER.json, SIGHTS_BALESTIER.json.
+- (none) — W1 stopped at the session WebSearch cap: 13 food in FOOD_BALESTIER.json, 0 sights, 0 geocoded; BLS 13 (+2 pre-existing SGWN) vs 55. NEXT: geocode W1 -> sights wave -> 2nd-source HELD list (see _note_BALESTIER.md).
 
 ## Holland Village (HLV) — checkpoint (agent: HOLLANDV, 2026-10-02)
 - Full checkpoint, file list and per-wave notes: `_note_HOLLANDV.md`. Target 55 (`python3 tools/density.py singapore --area HLV`).

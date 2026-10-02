@@ -535,3 +535,42 @@ SOURCES_USG(+2+3)/CREATORS_USG(+2+3)/SIGHTS embedded sources. **Running total = 
   Relish myVillage closures; Kovan Scrambled Egg Rice relocation to Blk 335 Ave 7) -> register USG as a
   Singapore town (region->folder) -> rebuild-city -> gates (sourcecheck/geocheck/statuscheck). HELD single-
   credible leads above await a 2nd source for any wave 4.
+
+### Balestier (BLS) — W1 discovery, PARTIAL (2026-10-02)
+Canon-first food pass on Balestier Road + Whampoa Makan Place. **13 food kept** (`FOOD_BALESTIER.json`; t1=6,
+t2=6, t3=1; 0 closed), each >=2 credible (Eatbook/SethLui/MTC/DFD/HGW/TimeOut/TSL/WW/CityNomads/Traveller) or
+Michelin Bib; Roots(NHB) Balestier Food Trail used as institutional corroboration. 0 sights, 0 geocoded.
+**Stopped early: the session-wide WebSearch cap (200/200) was hit after 22 BLS searches** — no fabrication;
+HELD single-source list + MEASURED/DROPPED + next steps in `_note_BALESTIER.md`. Sources: `SOURCES_BALESTIER.json`
+(new outlets CITYNOMADS, TRAVELLERAU); creators: `CREATORS_BALESTIER.json` (ieatishootipost x3 attaches).
+
+
+### Punggol (PGL) — WAVE 1 discovery (PARTIAL, 2026-10-02)
+Area code **PGL** (slug `punggol`, target ~93). Files: `FOOD_PUNGGOL.json` (5), `SIGHTS_PUNGGOL.json` (4 + 10 source rows),
+`SOURCES_PUNGGOL.json` (8 outlets), `CREATORS_PUNGGOL.json` (0 creators / 4 rejected), pass detail in `_note_PUNGGOL.md`.
+- **KEPT 9** (all >=2 credible or lone Michelin; dedup vs dataset = 0 collisions): food t1 Kwang Kee Teochew Fish Porridge
+  (One Punggol; Michelin Bib brand + Eatbook + Her World), Singapore Fried Hokkien Mee (Punggol Coast; Bib; SethLui/Eatbook/
+  Mothership/Honeycombers/AsiaOne); t2 99 South Buona Vista Braised Duck, Botak Cantonese Porridge, Lim Bo Rojak. Sights t1 Coney
+  Island Park (Wikipedia/NParks/Little Day Out/City Nomads/TSL), Punggol Beach Massacre Site (Roots/SG101/NHB/Wikipedia); t2 Punggol
+  Point Park (Wikipedia/Time Out/TSL); t3 Waterway Point (TSL/Eatbook).
+- **Channel mix:** institutional 3 · editorial 9 · notable-travel 3 · viral creators 0 (pass not reached) · local 0.
+- **DEDUP:** Punggol Park, Kampong Lorong Buangkok, Lorong Halus Wetland, Ponggol Nasi Lemak already under USG.
+- **HELD** (single credible / merit unmeasured / status unknown): Matilda House, Punggol Heritage Trail, Waterway Park + Sunrise/Jewel
+  bridges, Promenade Nature Walk/Jetty, No.25 Minced Meat Noodles, Hi Leskmi Nasi Lemak, Souperb!, Hock Hai / Pin Wei / Whampoa Fried
+  Oyster (attribution unclear), Ponggol Seafood, Izakaya 95, Whisk & Paddle, + Eatbook 30-best leads (see note). Chains dropped.
+- **Closures:** 0 found; status of all 9 still to be recorded at the geocode stage.
+- **Geocode: 0/9.** **BLOCKED:** the session WebSearch cap (200/200, shared by all concurrent agents) was exhausted ~17 searches in;
+  WebSearch is the only allowed channel, so geocoding/status/discovery cannot continue. Nothing fabricated; page not live.
+
+### Novena & Newton (NVN) — WAVE 1 (2026-10-02, NOVENA agent; halted by WebSearch cap)
+- Discovery: ~14 WebSearch queries (Newton FC Bib list, Eatbook/SethLui/Women's Weekly Newton guides, Novena/Velocity/
+  Goldhill round-ups) before the session-wide 200/200 cap. **Kept 6** (`FOOD_NOVENA.json` 5 + `SIGHTS_NOVENA.json` 1):
+  Heng Carrot Cake, Kwee Heng Duck Noodle, Kwang Kee Teochew Fish Porridge (MICHELIN Bib), Newton Old Signboard 25
+  Hokkien Prawn Noodle, Bee Heng Satay BBQ Prawn & Otah (renamed from Bee Heng Popiah 2023), Newton Food Centre (sight, Roots/NHB).
+- Channels: Michelin 3 · Roots/NHB 1 · Eatbook 5 · SethLui 2 · Women's Weekly 2 · MTC 1 · creators ieatishootipost 2 / Ordinary Patrons 1.
+  Unconfirmed citations removed before write (Tatler, a WW and an Eatbook cite whose text was not seen naming the stall).
+- HELD single-source (15) + DROPPED (328 Katong Laksa, out of scope): listed in `_note_NOVENA.md`.
+- Geocode: 6 pins via the existing sourced Newton FC building place pin (Google !3d1.3119888!4d103.8395742) — 1 high, 5 med
+  (stall-in-building). Status: all open (2025 Bib list / 2024-25 guides). Closures 0. `geo/_geoout_novena_w1.json`.
+- Build: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; sourcecheck FAIL = 46 pre-existing non-NVN single-source
+  (GATE 1 drops). Page renders 10 (6 new + 4 pre-existing). Density 6/55 → NEED +49. **Not live.**

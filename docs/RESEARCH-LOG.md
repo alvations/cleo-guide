@@ -286,3 +286,8 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   2025-07-25** (rurubu.jp) — older guides still say "closed for renovation".
 - Dead end: the session's 200-call WebSearch cap was exhausted after ~14 Hokkaido calls; W01 checkpointed in
   data/hokkaido-research/RESUME.md (W01b query list).
+
+### 2026-10-02 — Singapore Balestier (BLS) W1: mine NHB food trails + round-up indexes first
+- The Roots.gov.sg (NHB) **Balestier Food Trail** names the heritage canon (Loong Fatt, Sing Hon Loong/Ghee Leong, Sweetlands, Lam Yeo, Kai Juan BKT, Tandoori Corner) in one search — an institutional seed list; each still needs a 2nd editorial source.
+- For a hawker centre, asking WebSearch for an outlet's "list of stalls" (HGW 15, SethLui 11, WW 10, DFD 10) returns the names in one call — far cheaper than per-stall searches.
+- Dead end: hit the shared session WebSearch cap (200/200) after 22 BLS searches; 13 food kept, ~20 single-source leads HELD in `_note_BALESTIER.md`.
