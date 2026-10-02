@@ -301,3 +301,23 @@ CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. 145 UNVE
 - **Held single-source:** Sapporo Science Center (wiki only + thin), Hoshioki Falls (wiki only), Sapporo Salmon Museum (wiki only),
   Watanabe Jun'ichi Literary Museum (no coord, no 2nd source), Sapporo City Archives (still no 2nd source).
 - Channel mix: official tourism 3 outlets · notable travel site 1 (japan-guide) · encyclopedia 1. Status: all open (current pages).
+
+## 2026-10-02 — session 4 · W80–W84 (background subagents, brief `_hk_s4_brief.md`, ≤30 searches each) + build B1
+Full per-wave detail (queries, channel mix, MEASURED & DROPPED, held singles) in `_note_W80.md` … `_note_W84.md`.
+- **W80 pins (18 searches):** 16 existing food places pinned via host-landmark ja.wikipedia coords — 3 high (Ōdōri BISSE, Ryūgetsu
+  Sweetpia Garden, Furano Delice) + 13 med (3 Nijō Market stalls, 5 Hakodate Morning Market/Donburi Yokochō shops, Hakodate Beer Hall
+  in Kanemori, Poronno in Akan Ainu Kotan, KINOTOYA in BISSE, Okushiba + Ichiryūan in Hokuren Bldg — head-office lot 1-3 vs shops
+  lot 1-1, same block → re-verify). Skipped: ROYCE' (airport-wide coord), Curb Market shops (adjacent wholesale-market coord),
+  Tanukikōji shops (street only). Company articles (Gotōken, LeTAO, Naruto, Santouka) have no coords.
+- **W81 anime (≈24 searches):** +3 (Tsukigata Kabato Museum — Golden Kamuy, high; Nibutani Ainu Culture Museum — Golden Kamuy ×
+  Biratori official tour, high; Sabō Kikuizumi — Love Live! Sunshine!! Saint Snow, UNVERIFIED) + 8 anime overlays (Historical Village,
+  Hakodate Magistrate's Office, Goryōkaku Tower, Hachimanzaka, Kanemori, Otaru Kihinkan, Sapporo Factory, Ban'ei Tokachi; overlays add
+  sources+anime note only — base records already ≥2-sourced). Held: Gokoku Shrine, Kitami 'Dosanko Gal', Taishō Glass, Animate/Mandarake.
+- **W82 SPR+OTARU food (29 searches):** 30 extracted → **26 kept** (all UNVERIFIED pins). **Orchestrator review HELD 4**: Hotei (mapple
+  page only a "best match"), nano.femto (source keyed TABELOG100 actually enprimeurclub.com), Kakizaki Shōten + Shakotan Blue (generic
+  list pages, not a page naming the place). Filtered deterministically in `_w82_spr_otaru_food.py`.
+- **W83 DONAN/NSK/DHOKU (≈27 searches):** +24 (23 food, 1 sight), 8 pinned (6 high, 2 med). NSK thin: Makkarina/Kumagera/Kira-no-Yu held.
+- **W84 DOTO/IBURI/TKC/SOYA (30 searches):** +30 (13 food, 17 sights), 19 pinned (17 high, 2 med lighthouse points for Capes Kiritappu/Notoro).
+- **Build B1:** `rebuild-city.py hokkaido --build` → **427 discovered (217 food = 51%), 244 rendered (187 sights + 57 food)**, 183
+  UNVERIFIED held. sourcecheck PASS (427) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+  ANIME collection 18. Japan hub CARD:hokkaido + CITIES.md refreshed. Searches this session ≈141 (orchestrator 13 + agents 128).

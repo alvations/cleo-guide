@@ -53,7 +53,7 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
 - **2026-10-02 W7 (session_01LvabJcJR7Zay1SoN8gzwc7) — finishing pass. DENSE.** +10 closing the 7 NEED areas (8 food &
   drink + 2 anime) + 3 anime sights; 24 UNVERIFIED pinned (ja/en Wikipedia coords, 1 Google `!3d!4d`); 6 sourced address
   fixes. Build: **552 discovered / 439 rendered; food 288 = 52%; ANIME layer 38; all 13 areas OK** (`density.py`);
-  4 gates PASS; validate + test green; hub/root cards + CITIES.md (DENSE) refreshed. Files: `FOOD_TOKYO_W7.json`,
+  4 gates PASS; validate + test green; hub/root cards + CITIES.md (DENSE) refreshed. Final after pin batch 3: 441 rendered, 26 pins, 111 UNVERIFIED. Files: `FOOD_TOKYO_W7.json`,
   `SIGHTS_TOKYO_W7.json`, `SOURCES_TOKYO_W7.json`, `geo/_geoout_tokyo_w7.json`, `geo/_geofix_tokyo_w7.json`,
   `_w7_*_verified.json`, `_w7_addrfix.json`; helpers `_tokyo_w7_ingest.py`, `_tokyo_w7_fix.py`, `_tokyo_w7_applyfix.py`,
   `_tokyo_w7_addrfix.py`. Details + measured dead channels in AUDIT.md "W7".
@@ -66,7 +66,7 @@ SBY 42/50 · SJK 40/50 · SMKT 29/40 · TAITO 40/50 · TAMA 19/30 → **433 / ~5
 None — W7 in progress only as further pin batches (see W8 plan); every committed batch is complete.
 
 ## W8 plan (next session)
-1. **Pins (113 UNVERIFIED)** — mostly small bars/kissaten/ramen/Michelin counters that WebSearch cannot pin. Run
+1. **Pins (111 UNVERIFIED)** — mostly small bars/kissaten/ramen/Michelin counters that WebSearch cannot pin. Run
    `tools/geocode-helper.html` in a browser over the geo `unverified` records (place pin `!3d!4d`, never `/@`), write
    `geo/_geofix_tokyo_w8.json`, apply with a copy of `_tokyo_w7_applyfix.py`. Remaining ja-wiki candidates worth one
    query each: 空也, うさぎや, カフェ・ド・ランブル, さぼうる, 渋谷のんべい横丁 (article), 吉村家 (address only so far).
