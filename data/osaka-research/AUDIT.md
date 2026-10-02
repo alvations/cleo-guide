@@ -105,3 +105,7 @@ geocheck PASS (high 112 · med 3), statuscheck CONSISTENT, buildcheck PASS; `npm
 - Audit fix: street numbers typed without a source were stripped to the sourced locality (31 address fields across
   W2 sight/geo files); Michelin / OSAKA-INFO / jawiki-sourced addresses kept.
 - Rebuild: 196 discovered, 170 rendered (65 sights + 105 food); high 165 · med 5; 4 gates PASS.
+- Final adds: 551 Hōrai Honten (Time Out "10 things you must eat" + ja.wikipedia; pin UNVERIFIED), Tempura Urakami
+  and PRESTAU (Michelin, pinned). Held (cuisine not surfaced): Shunsaiten Tsuchiya, Hiraishi, OIMATSU Tempura Suzuki,
+  Numata; Roushouki (Kobe) single-source. **Final: 199 discovered, 172 rendered (65 sights + 107 food); high 167 · med 5;
+  4 gates PASS.** Session closed at ~202 searches (main ~90 + workers 112); next wave per RESUME "Next actions".
