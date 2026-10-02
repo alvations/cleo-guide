@@ -22,3 +22,23 @@ surfaced only a cid link, no `!3d!4d`. Restaurant place-pins do not surface via 
 **Correction made:** street numbers first written from memory were replaced with sourced ward/district addresses (rule 4a).
 **Closures:** none found. **Blocker:** the session WebSearch budget (200/200, shared across all agents) was exhausted after
 about 14 Kyoto searches. Nothing after this point was fabricated, and there is no build or go-live.
+
+## 2026-10-02 — W2 (relaunch, own search budget) — batch 1: W1 finish + UNESCO backbone + CTR sights
+**Technique (new, efficient):** the UNESCO WHC `list/688/maps` and `list/870/maps` pages carry per-component
+coordinates; two searches returned all 17 Kyoto (minus Kiyomizu-dera 688-004, taken from Wikipedia) and all 7 Nara
+components → `SIGHTS_KYOTO_UNESCO.json` (lone authority UNESCO) + `geo/_geoout_kyoto_unesco.json` (high; Enryaku-ji and
+Heijō Palace = med, centre of a large precinct). Domain-filtered searches (`allowed_domains` japan-guide.com /
+kyoto.travel / en.wikipedia.org) return ~10 citable pages per query; "A; B; C; D; E — Wikipedia coordinates" with the
+wikipedia filter returns 4–5 published coordinates per search.
+**Kept:** UNESCO 23 (Kyoto 16 + Nara 7); HGS +4 (Tōfuku-ji JAPANGUIDE+ANATRAVEL, Rokuharamitsu-ji WIKIPEDIA+KYOHAKU,
+Kyoto National Museum JAPANGUIDE+KYOTOMUSEUMS, Sanjūsangen-dō WIKIPEDIA+JTA); CTR +7 (Nishiki, Pontochō, Higashi
+Hongan-ji, Kyoto Station, Kyoto Tower, Railway Museum, Manga Museum — JAPANGUIDE+KYOTOTOURISM/WIKIPEDIA).
+**Geocode:** Kiyomizu-dera → high (Wikipedia 34°59′42″N 135°47′06″E); Sanjūsangen-dō med (DMS surfaced with the
+Wikipedia article, sygic also in results → re-verify); 6 CTR high/med from Wikipedia. Rejected as coordinate sources:
+travel.sygic.com, museum-digital, airbnb.
+**Correction:** two street numbers I typed from memory (Sanjūsangen-dō, Kyoto National Museum) were removed before
+commit and replaced with chō-level addresses (rule 4a).
+**Food:** Michelin venue pages give address + dish two per search ("guide.michelin.com kyoto "A" "B""); three names
+in one query fails (one venue dominates). Ramen Touhichi (Sakyō) + Noodle Shop Rennosuke (Kita) confirmed; Menya
+Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surfaces (as W1) → food pins UNVERIFIED.
+**Searches used this session: 19.**
