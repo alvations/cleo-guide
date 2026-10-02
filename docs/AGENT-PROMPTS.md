@@ -135,6 +135,10 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 
 | 2026-10-02 | Liège | discovery W1 (partial) | LIE sights + boulets/gaufre canon | 5 (1 geocoded) | halted: WebSearch session budget 200/200 after 11 searches; ~20 leads held in _PENDING_LEADS.md | liege-research/SIGHTS_LIEGE_LIE, FOOD_LIEGE_LIE, geo/_geoout_liege_w1 |
 | 2026-10-02 | Tokyo | sights W1 (CYD) | sights backbone via Wikipedia/GO TOKYO/japan-guide/Time Out | 9 (all geocoded) | halted: shared WebSearch budget 200/200 exhausted | SIGHTS_TOKYO_W1.json, geo/_geoout_tokyo_w1.json |
+| 2026-10-02 | Chicago | scaffold + food canon W1 | areas/taxonomy/build + canon | 0 (BLOCKED) | session WebSearch cap 200/200 exhausted by concurrent agents after 3 calls; 7 partial leads in _PENDING_LEADS.md | consolidate.py, build-chicago.py, SOURCES_BASE.json |
+| 2026-10-02 | Akron-Kent-Canton | scaffold + W1 food canon | Barberton chicken | 1 | blocked: shared WebSearch session cap 200/200 hit at 2nd query; Milich's held 1-src | FOOD_W1CANON/SOURCES_W1.json, geo/_geoout_w1_canon.json |
+| 2026-10-02 | Singapore BLS | food canon (W1, partial) | Balestier Rd + Whampoa Makan Place | 13 | 545 Whampoa (relocation?) + 20 single-source held; stopped at session WebSearch cap 200/200 | FOOD/SOURCES/CREATORS_BALESTIER.json, _note_BALESTIER.md |
+
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
 Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source
 places (Aullwood, Third Perk) that build GATE 1 drops, so the page is clean. Cleveland (engine) → Lakewood/West-Side +
@@ -191,3 +195,5 @@ _Update the last rows' counts/outcomes when those agents complete and after the 
   that asked for the keyed-dict form crashed `geo-merge.py` (which assumed a list) with `'str' object has no
   attribute 'get'`. → `geo-merge.py` now normalizes both shapes and accepts `source` as an alias for `geoSource`,
   so neither agent convention breaks the merge. (Pass-6 template still standardizes on the list form.)
+- **One 200-call WebSearch cap per session is shared by every concurrent agent** (2026-10-02 run: the Chicago agent got 3 searches before `200 of 200` refusals). A ~500-place NYC-density city alone needs ~700–900 searches (discovery + one pin search per place + status). → Budget the run: give each dense city its own session (or raise `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`), and an agent that hits the cap checkpoints `## In-flight wave` in RESUME.md and stops — never fills from memory.
+- **`density.py` hid empty areas** (it only iterated areas that already had records), so a fresh city looked 1-area-short instead of 5-areas-empty. → It now unions the RESUME targets into the area list; a 0-count area prints `NEED +N`.

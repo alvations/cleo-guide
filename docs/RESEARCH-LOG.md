@@ -247,3 +247,17 @@ Six searches total. **The two productive patterns were "read this source's own i
 
 **123 supplied → 183 delivered.** Every extension is attributed; nothing from general knowledge
 is disguised as sourced.
+
+### 2026-10-02 — Akron · Kent · Canton (akron-oh)
+- Dead end: the WebSearch budget is a **per-session cap (200)** shared by every concurrent agent in the run; it was exhausted before this agent's 2nd query. Retrying does not help (a cap, not a rate limit). Scaffolded + checkpointed; the wave plan is in data/akron-research/RESUME.md so a fresh-budget session resumes immediately.
+- Technique: one outlet-anchored canon query ("Barberton chicken <outlet>") returned 6 credible outlets at once — prefer these over per-place searches to stretch the shared budget.
+
+## Chicago (2026-10-02) — scaffold; discovery blocked by the shared search cap
+- latlong.net OSM POI pages surface decimal pins for Chicago restaurants via WebSearch (e.g. Al's #1 Italian Beef 41.8693079,-87.6540011) — a good geocode channel for US restaurant pins.
+- Batching several landmarks into one coordinate query returns addresses only, never coords: budget one search per pin.
+- Dead end: the session's 200-call WebSearch cap was exhausted by concurrent agents after 3 Chicago calls; wave 1 checkpointed in data/chicago-research/RESUME.md.
+
+
+### 2026-10-02 — Osaka W1 (Japan): Michelin venue pages are a geocoding channel; the session search cap is shared
+-  queries return per-restaurant venue pages with full addresses, and a follow-up "<name> <street> latitude longitude" on that domain surfaces the venue page lat/lng — a real place pin for Japanese restaurants, which otherwise never geocode via WebSearch.
+- Dead end: the WebSearch cap (200/session) is shared by ALL concurrent agents in one session; with ~16 agents it ran out ~22 searches into Osaka W1. Plan concurrent runs with a raised  or one session per city.
