@@ -28,5 +28,31 @@
   "geoSource": "Stars and Stripes Okinawa printed GPS N26.262747 E127.715400 for Minatogawa Stateside Town (surfaced in W2 notes items 57-59; district-level point inside the housing block)",
   "status": "open",
   "statusSource": "GLTJP directory 17279 and ANA Japan Travel Planner list it as a current café/shopping area"
+ },
+ {
+  "n": "Chibichiri Gama (チビチリガマ)",
+  "address": "Namihira, Yomitan, Okinawa",
+  "lat": 26.405367,
+  "lng": 127.724061,
+  "confidence": "med",
+  "geoSource": "GPS N26.405367 E127.724061 printed in WebSearch results for the Stripes '2 Okinawan caves offer glimpse into deadly WWII battle' article / showcaves.com (exact page not disambiguated) — re-verify",
+  "status": "open",
+  "statusSource": "Ryukyu Shimpo 2012 memorial service; site exists as memorial (cave entry prohibited)"
+ },
+ {
+  "n": "Nakamura House (中村家住宅)",
+  "address": "106 Ōshiro, Kitanakagusuku, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "searched 'Nakamura House Kitanakagusuku wikipedia coordinates' — address only surfaced (Samurai Archives, Japan Experience); no printed lat/lng",
+  "status": "open",
+  "statusSource": "Japan Experience attraction page (current)"
+ },
+ {
+  "n": "Kudaka Island (久高島)",
+  "address": "Kudaka, Nanjō, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Wikipedia Kudaka_Island infobox coords not shown in search excerpt; island centroid not acceptable — pin Tokujin port in a later pass",
+  "status": "open",
+  "statusSource": "VisitOkinawa ?p=1675 (current ferry info)"
  }
 ]

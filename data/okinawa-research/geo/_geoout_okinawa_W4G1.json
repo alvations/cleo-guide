@@ -144,5 +144,45 @@
   "geoSource": "Japanese Wikipedia 道の駅かでな infobox (https://ja.wikipedia.org/wiki/道の駅かでな) printed 北緯26度22分05秒 東経127度46分27秒 / 26.36806, 127.77411; address 屋良1026-3; researchedVia WebSearch 2026-10-02",
   "status": "open",
   "statusSource": "town.kadena.okinawa.jp/facility/shi81.html (Kadena Town official) + michi-no-eki.jp station 19816"
+ },
+ {
+  "n": "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom (ポケモンセンターオキナワ)",
+  "address": "Aeon Mall Okinawa Rycom 1F, 1 Aza-Raikamu, Kitanakagusuku, Okinawa",
+  "lat": 26.314194,
+  "lng": 127.795667,
+  "confidence": "med",
+  "geoSource": "Japanese Wikipedia イオンモール沖縄ライカム infobox (https://ja.wikipedia.org/wiki/イオンモール沖縄ライカム) printed 北緯26度18分51.1秒 東経127度47分44.4秒 / 26.314194, 127.795667 — the host mall building; shop is inside on 1F → med (building-level). researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "map.pokemon-card.com/map/12700 (official Pokémon card shop map lists ポケモンセンターオキナワ, current) + NAVITIME poi 02301-9000043s"
+ },
+ {
+  "n": "Mamoru-kun police-officer figures, Miyako (宮古島まもる君)",
+  "address": "Roadside figure, Miyakojima, Okinawa (one of ~20 island-wide; Atlas Obscura's listed figure)",
+  "lat": 24.733632,
+  "lng": 125.275132,
+  "confidence": "med",
+  "geoSource": "Atlas Obscura 'Mamoru-kun Patrolmen' page (https://www.atlasobscura.com/places/mamoru-kun-patrolman-japan) printed 24.733632, 125.275132 for its listed figure; the sight is a set of ~20 figures, so this pins one representative figure → med. researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "zekkeijapan.com/article/index/1261 (figures still in place; ~20 island-wide) + Stripes mamoru-kun article"
+ },
+ {
+  "n": "Ishigaki Yaima Village (石垣やいま村)",
+  "address": "967-1 Nagura, Ishigaki, Okinawa",
+  "lat": 24.404333,
+  "lng": 124.144361,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia 石垣やいま村 infobox (https://ja.wikipedia.org/wiki/石垣やいま村) printed 北緯24度24分15.6秒 東経124度8分39.7秒 / 24.404333, 124.144361; a second listing (JAF/NAVITIME spot page) printed 24.403078, 124.14237 (~250 m, within the park grounds). researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "yaimamura.com/aboutus/ (official site, operating)"
+ },
+ {
+  "n": "Nishihama Beach, Hateruma Island (ニシ浜)",
+  "address": "Hateruma, Taketomi, Yaeyama, Okinawa",
+  "lat": 24.064417,
+  "lng": 123.762139,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia ニシ浜 infobox (https://ja.wikipedia.org/wiki/ニシ浜) printed 北緯24度3分51.9秒 東経123度45分43.7秒 / 24.064417, 123.762139; researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "okinawastory.jp/spot/600011740 (OCVB, current listing)"
  }
 ]
