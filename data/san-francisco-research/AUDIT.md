@@ -303,3 +303,4 @@ buildcheck PASS · validate DATA OK · npm test ALL PASS. Registry for SF: 262 h
 Per area: AVE 31+21=52/70 · DTN 42+20=62/80 · HAI 21+12=33/45 · MIS 40+13=53/75 · NECN 41+16=57/75 · NOB 21+9=30/40 ·
 NW 28+15=43/50 · PEN 18+11=29/35 · SE 16+8=24/30 — food ≥50% in every area (lowest AVE 60%).
 Searches this session: ~113 main + 30 (pin agent 1) + 22 (pin agent 2) ≈ 165.
+- Post-final (searches 114–115): +Prubechu, Tartine Manufactory (MIS; Infatuation 25-best-Mission × Eater SF 38 / Time Out) → 385 researched.

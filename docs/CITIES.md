@@ -16,7 +16,7 @@ _Counts are as of 2026-08-18; re-derive anytime with the commands below — neve
 | Youngstown OH | `cities/youngstown.html` | inline | — | 62 | live (shortlist) |
 | New York NY | `cities/newyork.html` | `data/newyork.dataset.json` | `data/newyork-research/` | 508 | live · 1 place to geocode |
 | Silicon Valley CA | `cities/siliconvalley.html` | `data/siliconvalley.dataset.json` | `data/silicon-valley-research/` | 152 | live · 19 UNVERIFIED pins pending helper |
-| San Francisco & Peninsula CA | `cities/sanfrancisco.html` | `data/sanfrancisco.dataset.json` | `data/san-francisco-research/` | 298 | **live (growing)** 2026-10-02 · 383 researched / 298 pinned (122 sights + 176 food); 2026-10 modernisation run (food-first, Michelin/JB, 4 gates green) |
+| San Francisco & Peninsula CA | `cities/sanfrancisco.html` | `data/sanfrancisco.dataset.json` | `data/san-francisco-research/` | 298 | **live (growing)** 2026-10-02 · 385 researched / 298 pinned (122 sights + 176 food); 2026-10 modernisation run (food-first, Michelin/JB, 4 gates green) |
 | Cincinnati OH (+ NKY) | `cities/cincinnati.html` | `data/cincinnati.dataset.json` | `data/cincinnati-research/` | 109 | live · 23 UNVERIFIED pins pending helper |
 | Columbus OH | `cities/columbus.html` | `data/columbus.dataset.json` | `data/columbus-research/` | 86 | live · metro+MADISON-corridor expansion (127 candidates, 52 sources); 41 UNVERIFIED pins pending helper; 3 closed flagged |
 | Dayton OH (+ Miami Valley) | `cities/dayton.html` | `data/dayton.dataset.json` | `data/dayton-research/` | 74 | live · Beavercreek/Miami-Valley + SPRINGFIELD corridor expansion (Westcott House, Hartman Rock Garden pinned); 23 UNVERIFIED pins pending helper (14 restaurants + 9 parks); Aullwood + Third Perk (1-source) held by GATE 1 |

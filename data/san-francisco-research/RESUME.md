@@ -18,8 +18,8 @@
 (none — W4 closed cleanly 2026-10-02; see State W4.)
 
 ## State — W4 FINAL (2026-10-02 wave 2, session_0159tKUL6tQ8pvUJRBHa67Nx)
-- **383 researched / 298 on the map (122 sights + 176 food)**; 4 gates + validate + test green. Food ≈67% overall, ≥50% per area.
-- Per area (food+sights=total/target): AVE 31+21=52/70 · DTN 42+20=62/80 · HAI 21+12=33/45 · MIS 40+13=53/75 ·
+- **385 researched / 298 on the map (122 sights + 176 food)** (+Prubechu, Tartine Manufactory, unpinned); 4 gates + validate + test green. Food ≈67% overall, ≥50% per area.
+- Per area (food+sights=total/target): AVE 31+21=52/70 · DTN 42+20=62/80 · HAI 21+12=33/45 · MIS 42+13=55/75 ·
   NECN 41+16=57/75 · NOB 21+9=30/40 · NW 28+15=43/50 · PEN 18+11=29/35 · SE 16+8=24/30.
 - Registry: 262 high / 35 med / 1 low / 85 UNVERIFIED (≈70 new W4 restaurants + 12 old held) → docs/GEOCODE-BACKLOG.md.
 - Files: FOOD_W4.json (77), SIGHTS_W4.json (16), geo/_geoout_w4.json, geo/_geoout_w4pin.json, geo/_geoout_w4pin2.json
