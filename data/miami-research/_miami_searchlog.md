@@ -137,3 +137,6 @@
 136 Time Out 32 things Miami Beach (Fillmore, Bandshell, Broken Shaker, Faena District, Medium Cool…) → 2 sights + Broken Shaker
 137 Time Out 20 things Little Havana (Walk of Fame, La Trova, Domino Park, Ball & Chain, Azucar, Cubaocho, Sanguich, Viernes Culturales, Calle Dragones, food tour) → 2 sights + Azucar
 138 Time Out 16 best bars Coconut Grove → Taurus, Sipsip, Barracuda, Monty's, Flanigan's Grove, The Commodore (∩ Infatuation)
+139 NT best breweries Miami (Wynwood Brewing, Biscayne Bay, J Wakefield, Prison Pals, Tripping Animals; Veza Sur) → 4 added (∩ Time Out)
+140 Time Out 26 best Miami coffee shops
+141 Infatuation coffee guides (Miami, Miami Beach, FTL) → 8 added
