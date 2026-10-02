@@ -96,5 +96,167 @@
   "geoSource": "WebSearch (extended) 2026-10-02: lat 26.176687 / lng 127.665375 printed for Kaiyo Shokudo, 192-10 Nakachi (tripadvisor d5039601 listing coordinate)",
   "status": "open",
   "statusSource": "tripadvisor 2026 listing (#3 of 173 Tomigusuku) + rurubu andmore 22565"
+ },
+ {
+  "n": "Sobaya Yoshiko, Motobu (そば屋よしこ)",
+  "address": "2662 Izumi, Motobu, Kunigami District, Okinawa 905-0221, Japan",
+  "lat": 26.639357,
+  "lng": 127.95863,
+  "confidence": "med",
+  "geoSource": "WebSearch (extended) 2026-10-02: lat 26.639357 / lng 127.95863 printed for Yoshiko, 2662 Izumi (tripadvisor d1699716 listing coordinate); address confirmed by okinawatraveler shop/776 + good-okinawa",
+  "status": "open",
+  "statusSource": "tripadvisor 2026 listing (#22 of 160 Motobu) + okinawatraveler shop/776 (hours 10-16, closed Tue/Fri)"
+ },
+ {
+  "n": "Arayama Soba (新山そば)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Searched '新山そば 本部町 緯度' — no coords surfaced (hamoni lists it, location ambiguous Motobu vs Nago).",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/region/a0705010700_g03050b00/spot/, https://www.okinawatimes.co.jp/articles/-/1305747)"
+ },
+ {
+  "n": "Yagiya (屋宜家)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/region/a0705010200_g03050000/spot/, https://www.okinawatraveler.net/feature/0114_sp)"
+ },
+ {
+  "n": "Nanbu Soba (南部そば)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.okinawatimes.co.jp/articles/-/1240071, https://www.okinawatraveler.net/feature/0114_sp)"
+ },
+ {
+  "n": "Shima-jikan, Onna (沖縄料理の店 島時間)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.pref.okinawa.jp/bunkakoryu/bunkageijutsu/1022485/1030735.html, https://www.okinawatraveler.net/feature/0006_sp)"
+ },
+ {
+  "n": "Tomigusuku Taco Rice (豊見城タコライス)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.okinawatraveler.net/feature/0118_sp, https://rurubu.jp/andmore/spot/80108912)"
+ },
+ {
+  "n": "Nantō Shokurakuen, Kume Island (南島食楽園)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/spot/80043409, https://www.mapple.net/spot/47013399/)"
+ },
+ {
+  "n": "Sukeroku Kamaboko, Kume Island (助ろく)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/spot/80043414, https://www.okinawatimes.co.jp/articles/-/180918)"
+ },
+ {
+  "n": "Onna no Eki Nakayukui Ichiba (おんなの駅 なかゆくい市場)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Extended search surfaced only Onna village centroid (rejected) + address 1656-9 Nakadomari.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/article/17749, https://www.okinawatraveler.net/feature/0106_sp)"
+ },
+ {
+  "n": "Michi-no-Eki Kyoda — Yanbaru Bussan Center (道の駅許田)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Address 17-1 Kyoda, Nago (gltjp 13729, navitime 02301-1300765); 3 searches (ja coords, Stripes, extended) surfaced no coordinate.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/article/17306, https://www.mapple.net/spot/47011467/)"
+ },
+ {
+  "n": "Yama no Chaya Rakusui, Nanjō (山の茶屋 楽水)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/spot/47011017/, https://www.okinawatraveler.net/feature/0099_sp)"
+ },
+ {
+  "n": "Cafe Yabusachi, Nanjō (カフェ やぶさち)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.okinawatraveler.net/feature/0099_sp, https://kids.rurubu.jp/article/3235/)"
+ },
+ {
+  "n": "Michi-no-Eki Yuiyui Kunigami (道の駅 ゆいゆい国頭)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/article/51451/, https://www.okinawatraveler.net/feature/0139_sp)"
+ },
+ {
+  "n": "Michi-no-Eki Toyosaki (道の駅 豊崎)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/article/51451/, https://www.okinawatraveler.net/feature/0139_sp)"
+ },
+ {
+  "n": "Sachichan Soba (幸っちゃんそば)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.okinawatimes.co.jp/articles/-/1247918, https://rurubu.jp/andmore/article/22464)"
+ },
+ {
+  "n": "Chadokoro Makabe Chinā, Itoman (茶処 真壁ちなー)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/spot/47010445/, https://rurubu.jp/andmore/article/2479)"
+ },
+ {
+  "n": "Awamori Masahiro Gallery, Itoman (泡盛まさひろギャラリー)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/spot/80042883, https://www.okinawatraveler.net/feature/0138_sp_01)"
+ },
+ {
+  "n": "Uema Kashiten Factory — Suppaiman (上間菓子店 工場見学)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://www.mapple.net/spot/47013394/, https://www.okinawatraveler.net/feature/0138_sp_01)"
+ },
+ {
+  "n": "Restaurant Marumi-ya, Zamami (レストラン まるみ屋)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/spot/80043360, https://www.mapple.net/article/50726/)"
+ },
+ {
+  "n": "Karaoke Izakaya Marine Box, Tokashiki (カラオケ居酒屋マリンボックス)",
+  "address": "",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Not searched — W4G3 22-search cap exhausted (Stripes GPS channel returned no coords; extended-mode listing coords used for the pinned ones). Leave for next wave.",
+  "status": "unknown",
+  "statusSource": "not checked this wave (source listings https://rurubu.jp/andmore/spot/80043345, https://www.okinawatraveler.net/feature/0066_sp)"
  }
 ]
