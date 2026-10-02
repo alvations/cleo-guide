@@ -22,6 +22,16 @@ Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
 
+## In-flight wave
+- **W1 (2026-10-02)** — all areas. Files: `FOOD_OSAKA_W1.json`, `SIGHTS_OSAKA_W1.json`, `SOURCES_OSAKA_W1.json`,
+  `CREATORS_OSAKA_W1.json`, `geo/_geoout_osaka_W1.json` (helper: append-as-you-go, dedup by name).
+  Channels: (a) Michelin Guide Japan 2026 Osaka-region venue pages (Bib/stars/Selected — lone institution; venue
+  page also carries lat/lng = place pin); (b) sights backbone from japan-guide + OSAKA-INFO area pages, each
+  landmark geocoded + 2nd-sourced from its Wikipedia article coords; (c) konamon/canon via Time Out Osaka,
+  Inside Osaka, Lonely Planet, Tabelog Hyakumeiten; (d) creators (Mark Wiens, Best Ever Food Review, Paolo
+  fromTOKYO, Abroad in Japan, Only in Japan) for Osaka food.
+  Remaining queries: everything (just started).
+
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py osaka` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_osaka_*.json` → `python3 tools/rebuild-city.py osaka --build` (under the shared lock).

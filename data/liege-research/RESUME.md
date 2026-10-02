@@ -8,7 +8,7 @@
 - 2026-10-02: scaffolded (consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, tools/build-liege.py). Discovery not started.
 
 ## In-flight wave
-- (none)
+- W1 (tag none/_W1 files): LIE sights → SIGHTS_LIEGE_LIE.json; LIE food canon+beer → FOOD_LIEGE_LIE.json; LIER sights → SIGHTS_LIEGE_LIER.json; LIER food → FOOD_LIEGE_LIER.json; sources → SOURCES_LIEGE.json; creators → CREATORS_LIEGE.json.
 
 ## Next actions
 1. Wave 1 discovery (LIE sights, LIE food canon + beer, LIER sights, LIER food).

@@ -22,6 +22,15 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
 
+## In-flight wave
+- **W01 — Sapporo (SPR) sights + food canon.** Files: `_w01_spr.py` (compact ledger) → `python3 _w01_spr.py` emits
+  `SIGHTS_HOKKAIDO_W01.json`, `FOOD_HOKKAIDO_W01.json`, `geo/_geoout_hokkaido_w01.json`. Method: batched WebSearch
+  "Wikipedia coordinates A; B; C" (returns Wikipedia + japan-guide/sapporo.travel/visit-hokkaido URLs + published
+  coords in one query); food via Tabelog Hyakumeiten/Michelin 2017/press + creators. Remaining: Sapporo sights
+  (Jozankei, Art Park, Hokkaido Museum, Hitsujigaoka, Botanic Garden…), food canon (miso ramen, soup curry,
+  jingisukan, kaisendon, sweets, beer).
+- Helper: `_hk.py` (S()/F()/emit()) — every wave script is re-runnable and deterministic.
+
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_hokkaido_*.json` → `python3 tools/rebuild-city.py hokkaido --build` (under the shared lock).

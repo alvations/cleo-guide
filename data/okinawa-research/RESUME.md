@@ -20,6 +20,13 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
 
+## In-flight wave
+- **W1 (tag NAHA1)** — Naha sights backbone (Shuri/UNESCO gusuku, Tsuboya, Makishi, Naminoue…) → `SIGHTS_OKINAWA_NAHA1.json`,
+  geocodes → `geo/_geoout_okinawa_NAHA1.json`. Method: one WebSearch per place for Wikipedia/official coords + a 2nd source
+  (japan-guide / Visit Okinawa / Stripes Okinawa). Helper used to append: scratch `add.py` (kind F/S/G, tag, JSON).
+- Key finding: **Stars and Stripes Okinawa** (okinawa.stripes.com) food/travel pieces print venue GPS (`N 26.xxx, E 127.xxx`) —
+  use as a 2nd source AND as a venue-published coordinate for restaurants.
+
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py okinawa` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_okinawa_*.json` → `python3 tools/rebuild-city.py okinawa --build` (under the shared lock).

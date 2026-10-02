@@ -42,3 +42,19 @@ Resume order: **this file → AUDIT.md → _AGENT_BRIEF.md → tasks**. Then
 - The map is **anchored on Toa Payoh** [1.3343,103.8479] z13 (per the brief); labels derive from pins.
 - SEA spans ~ -8..21 lat, 95..127 lng — a continent-scale map; that's expected. Each country is one
   filterable area with its own pastel marker colour and needs ≥1 geocoded tier-1 or the build asserts.
+
+## Punggol (PGL) — checkpoint (agent: Punggol, 2026-10-02)
+- Target: ~93 (`python3 tools/density.py singapore --area PGL`). Page `Singapore/punggol.html`, slug `punggol`.
+- Files (PUNGGOL tag only): FOOD_PUNGGOL*.json, SIGHTS_PUNGGOL*.json, SOURCES_PUNGGOL*.json, CREATORS_PUNGGOL*.json,
+  geo/_geoout_punggol_*.json, _note_PUNGGOL*.md.
+- Dedup: Punggol Park, Kampong Lorong Buangkok, Lorong Halus Wetland already exist under USG — not re-added.
+### In-flight wave
+- W1 (sights + hawker canon): Punggol Waterway/Point/Coney/PDD/settlement/heritage sights; Punggol hawker
+  centres (Punggol Coast HC, Oasis Terraces, Northshore, Punggol Plaza), Waterway Point. Writing FOOD_PUNGGOL.json,
+  SIGHTS_PUNGGOL.json.
+- **NVN Novena & Newton (2026-10-02, NOVENA agent):** in-flight W1 food canon + sights → `FOOD_NOVENA.json`/`SIGHTS_NOVENA.json`; checkpoint + plan in `_note_NOVENA.md`.
+
+## Balestier (BLS) — checkpoint (agent: Balestier, 2026-10-02)
+- Full checkpoint, file list and per-wave notes: `_note_BALESTIER.md`. Target 55 (`python3 tools/density.py singapore --area BLS`).
+### In-flight wave (BLS)
+- W1: canon food (bak kut teh / chicken rice / bakeries) + Whampoa Makan Place + heritage-trail sights -> FOOD_BALESTIER.json, SIGHTS_BALESTIER.json.
