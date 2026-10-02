@@ -321,3 +321,13 @@ Full per-wave detail (queries, channel mix, MEASURED & DROPPED, held singles) in
 - **Build B1:** `rebuild-city.py hokkaido --build` → **427 discovered (217 food = 51%), 244 rendered (187 sights + 57 food)**, 183
   UNVERIFIED held. sourcecheck PASS (427) · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
   ANIME collection 18. Japan hub CARD:hokkaido + CITIES.md refreshed. Searches this session ≈141 (orchestrator 13 + agents 128).
+
+## 2026-10-02 — session 4 · W86 + W87 (orchestrator, 9 searches)
+- **W86 sights (7, all ja.wikipedia infobox pins):** Trappistine Convent (DONAN t2, hakodate.travel), Seikan Ferry Memorial Ship
+  Mashū-maru (DONAN t2, hakodate.travel + visit-hokkaido safe-travel), Miura Ayako Memorial Literature Museum (DHOKU t3, visit-hokkaido),
+  Hagoromo Falls Tenninkyō (DHOKU t2, japan-guide), Niseko Village (NSK t2, japan-guide + Time Out), Niseko Annupuri International (NSK
+  t3, japan-guide + niseko-ta.jp), Niseko Moiwa (NSK t3, japan-guide). Held (wiki only): Katsuyamadate (Kaminokuni), Snow Crystal Museum
+  Asahikawa. No coord found: Hangetsu-ko, Kida Kinjirō Museum, Utasai beech forest.
+- **W87 promote held singles:** Sukiyaki Asari Honten (rurubu + hakodate.travel) — kept, UNVERIFIED pin. Still held: Misuzu coffee Daimon
+  (rurubu spot only + a generic mapple list), Snaffle's (mapple only), Tenkin (honten vs 4-jō vs Ramen Village branch ambiguous),
+  Hanatokachi / Iso-chan (no outlet page found).
