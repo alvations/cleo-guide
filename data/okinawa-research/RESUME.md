@@ -19,31 +19,51 @@ Okinawa Prefecture's own regional division: the main island's **Hokubu / Chūbu 
 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 **W1 done (truncated)** — 13 places discovered & sourced (NAHA 6 · CHUBU 3 · NANBU 1 · HOKBU 3 · KRM 0 ·
-  MYK 0 · YAEYA 0); 6 verified pins + 7 UNVERIFIED in `geo/_geoout_okinawa_W1.json` (NOT yet merged into
-  data/geocodes.json — merge happens on the first `--build`). Files: `SIGHTS_OKINAWA_W1.json`, `FOOD_OKINAWA_W1.json`,
-  `SOURCES_OKINAWA_W1.json`. **Stopped because the session WebSearch cap (200/200, shared by all agents) was hit
-  after 17 of this agent's searches** — every further search is refused. Relaunch with a fresh search budget.
-- Build-script prose (`tools/build-okinawa.py`) rewritten for real Okinawa content.
-- Append helper: `python3 _okinawa_add.py F|S|G <TAG> < records.json` (dedups by name; F/S/G = food/sights/geo).
+- 2026-10-02 **W1** (truncated by the shared cap): 13 discovered (`*_W1.json`).
+- 2026-10-02 **W2 done** (relaunch, ~174 WebSearch calls): +106 → **119 discovered (92 sights + 27 food), 74 pinned**,
+  45 UNVERIFIED (helper queue). Gates: sourcecheck / geocheck / statuscheck / buildcheck **PASS**; `npm run validate`
+  + `npm test` **ALL PASS**. Files: `SIGHTS/FOOD/SOURCES/CREATORS_OKINAWA_W2.json`, `geo/_geoout_okinawa_W2.json`,
+  raw per-search log `_okinawa_w2_notes.md` (every surfaced GPS and held lead, numbered — read before searching).
+- View: opt-in `CFG["VIEW"]=(26.45,127.85,9)` in `tools/build-okinawa.py` (shared `tools/belgium_build.py` gained the
+  backwards-compatible key) — frames the main island; Kerama/Miyako/Yaeyama by pan/zoom.
+- **Not live**: hub card stat updated ("119 researched · 74 pinned · still being built"); CITIES.md row refreshed.
+
+### Density (python3 tools/density.py okinawa, discovered set)
+| area | have | target | need |
+|---|---|---|---|
+| NAHA | 21 | 120 | +99 |
+| CHUBU | 22 | 95 | +73 |
+| HOKBU | 23 | 90 | +67 |
+| NANBU | 18 | 65 | +47 |
+| YAEYA | 14 | 60 | +46 |
+| MYK | 14 | 50 | +36 |
+| KRM | 7 | 30 | +23 |
 
 ## In-flight wave
-- **W2** (2026-10-02 relaunch, all areas) — IN PROGRESS. Files: `FOOD_OKINAWA_W2.json`, `SIGHTS_OKINAWA_W2.json`,
-  `SOURCES_OKINAWA_W2.json`, `CREATORS_OKINAWA_W2.json`, `geo/_geoout_okinawa_W2.json`; raw search log with every
-  surfaced GPS/lead (numbered by search) in `_okinawa_w2_notes.md` — read it before searching to avoid repeats.
-  Searches used so far this session: ~97 (see notes). First build done mid-wave (bg agent, commit 65c871b): 49 pins
-  rendered, 4 gates PASS, VIEW override (26.45,127.85,z9) in tools/build-okinawa.py.
+- none (W2 closed and committed).
 
-## Next actions
-0. Held leads to re-source first: Tsuboya Yachimun-dōri, Shuri Soba, Miyazato Soba (Nago), Yanbaru Soba; re-geocode
-   Shikinaen, Makishi Market, King Tacos, and Nakagusuku/Nakijin/Zakimi/Katsuren (Wikipedia infobox, one place per query).
-   Cheap channel to try: `allowed_domains` searches on visitokinawajapan.com / japan-guide.com / okinawa.stripes.com
-   (Stripes prints venue GPS).
-1. Discovery waves per area (canon first) → `python3 tools/density.py okinawa` → iterate on every `NEED +N`.
-2. Geocode waves → `geo/_geoout_okinawa_*.json` → `python3 tools/rebuild-city.py okinawa --build` (under the shared lock).
-3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
+## Next actions (W3 plan, ordered)
+0. **Geocode the 45 UNVERIFIED** (list: `grep -B2 unverified geo/_geoout_okinawa_W*.json`) — mostly Naha/Miyako/Ishigaki
+   restaurants with street addresses (Yūnangi, Mikasa, Jack's, Shuri Soba, Mie, Suunumee, Kojasobaya, Kinatsuyu…) and
+   island sights (Sunayama, Higashi-hennazaki, Irabu Bridge, Aharen, Hate-no-hama, Emerald Beach, Shikinaen ×4 tries).
+   Use `tools/geocode-helper.html` (browser) or one-place-per-query Wikipedia/Atlas Obscura. Re-verify Ikema (low).
+1. **Food (only 27)**: mine the remaining Okinawa Times 2023 poll names (held, need a 2nd source): Miyazato Soba,
+   Sachichan, Oshiro, Nakamura (Onna), Yae Shokudo, Yonabaru-ya, Kikuya, Nanbu Soba, Yuunami, EIBUN, Takaesu, Kai soba,
+   3-chome Shima Soba-ya, Agariya+, Akashi/Kimi Shokudo (Ishigaki), Irabu Soba Kame → pair each with a Mapple spot page
+   (`allowed_domains=["mapple.net"]`, 3–4 names per query) or KozaWeb. Canon gaps: Blue Seal Makiminato, A&W Makiminato
+   (Mapple only so far), Arakaki Zenzai, sata andagi, Tomari Iyumachi / Awase Payao / Itoman fish markets (Visit
+   Okinawa only), Ishigaki-beef yakiniku, Kume kuruma-ebi (Washima), awamori bars.
+2. **Sights still held for a 2nd source / coords** (see notes): Kakazu Ridge, Sugar Loaf, Urasoe Castle/Yōdore, Nirai
+   Kanai Bridge, Giza Banta, Odo beach, Chibichiri Gama, Gesashi mangroves, Orion Happy Park, Neo Park, Todoroki Falls,
+   Minna Island, Busena Marine Park, Okinawa Karate Kaikan (JG e7130), Kudaka Island, Kondoi Beach, Urauchi River, Cape
+   Hirakubo, Yonehara Beach, Hateruma Nishihama, Kuroshima, Kohama, Sawada-no-hama, 17END.
+3. Creators: no vetted creator surfaced a place-specific Okinawa video in 4 queries — try Japanese creators
+   (`沖縄 そば YouTuber 名店`), PBS "Family Ingredients — Okinawa soki soba" (name the shops it visits).
+4. After each ~50: `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py okinawa --build`
+   → 4 gates → `cd tools && npm run validate && npm test` → commit+push. Go live when rendered depth is real
+   (suggest ≥150 pins with every area ≥10).
 
-## Map-view caveat (check at first build)
+## Map-view caveat (RESOLVED 2026-10-02 — VIEW override; keep checking after island pins land)
 The centre/zoom is derived from the 5–95 % pin percentiles over ALL Okinawa pins. Once Miyako/Yaeyama hold >5 % of
 pins the box spans ~400 km and the derived view lands in the sea at zoom ~7–8. After the first `--build` run
 `node tools/research.js --buildcheck okinawa` and eyeball the view; if the main island isn't framed, add a
@@ -51,4 +71,4 @@ documented CFG override (e.g. `VIEW`) in tools/belgium_build.py under the lock r
 
 ## Acceptance
 - [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row

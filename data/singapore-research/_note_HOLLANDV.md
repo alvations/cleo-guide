@@ -72,3 +72,25 @@ only, mixed).
    (edit `geo/_geoout_hollandv_w1.json` -> new `_geoout_hollandv_w2.json`), then
    `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py singapore --build --geo-only "_geoout_hollandv_*.json"`.
 6. Measure: `python3 tools/density.py singapore --area HLV`; go live (LIVE_SLUGS) only at >=55 discovered + gated.
+
+## W2 (2026-10-02 relaunch, 4-town session) — GO-LIVE
+- **Outcome:** HLV 52 food + 5 sights = **57 / target 55 -> OK**; `holland-village` added to LIVE_SLUGS; page renders **33 pins**.
+  Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing places elsewhere (0 in HLV) ·
+  validate DATA OK · npm test ALL PASS.
+- **Files:** FOOD_HOLLANDV2.json (37), SIGHTS_HOLLANDV2.json (2: Chip Bee Gardens, Rail Corridor Holland Rd), geo/_geoout_hollandv_w2.json, _w3.json
+  (+ shared geo/_geoout_sg4_w2b.json: Ghim Moh MFC building pin from Wikipedia 'Guan Kee Fried Kway Teow' infobox).
+- **Added (by venue):** Holland Drive MFC (Ru Ji Kitchen [Bib], Blanco Court Kueh Chap, Aini, Leong Wei, Traditional Carrot Cake, Butter Town,
+  Lao Chen Ji, Fifty Year YTF, Yap Kee, Gaziantep, Zhen Ji, Ru Fa Bao Dian, Lin Da Ma); Ghim Moh MFC (Yuan Hokkien, Yuan Thai beef noodle,
+  Jiu Jiang Shao La, Thiam Kee 1977, Ah Seng Durian, Teck Hin); HV MFC (Ming Fa, 363 Katong Laksa, Holland V Fried Bee Hoon, Ah Fong);
+  restaurants (Warabimochi Kamakura, Cha Cha Cha, La Nonna, 2am:dessertbar, Surrey Hills, Lola's, Original Sin, Sunday Folks, Alt. Pizza,
+  British Indian Curry Hut, Wang Dae Bak, 88 Pocha, Ginkyo by Kinki, Tai Cheong Bakery).
+- **Channel mix W2:** institutional 1 (Michelin Bib Ru Ji); editorial (Eatbook, Seth Lui, HGW, Honeycombers, WW, Her World, Time Out, LIC);
+  creators/bloggers (Daniel Food Diary, Miss Tam Chiak, Johor Kaki, Ordinary Patrons, SG Food on Foot); viral YouTube/TikTok 0 (creator query
+  found none naming HV stalls).
+- **MEASURED & DROPPED:** One Holland Village chains (Sushi Tei, Tsujiri, Din Tai Fung, Hip Pot, Xiang Xiang Hunan, Lau Wang) = padding.
+  Women's Weekly + Her World lists treated as ONE syndicated voice (Headless Baker held; Jiu Jiang kept only after Miss Tam Chiak corroborated).
+- **Held (1 source):** Frankie & Fern's, Le Bon Funk, Sourbombe, Mu Parlour, Chimichanga, Fireplace by Bedrock, Mei Di, Golden Swallow,
+  Famous Annie's, Kong Shang Hua, Lian He (possible dup of Ghim Moh Carrot Cake), Coffee Break, Daddy Cuisine, Holland Road Shopping Centre
+  (Wikipedia only), Thambi Magazine Store (CLOSED 5 May 2024 — TSL; not added).
+- **UNVERIFIED pins (helper):** Holland Village MFC building + its 4 stalls; Lorong Mambong/Liput restaurants; One Holland Village; Chip Bee.
+- **Next:** geocode HV MFC + Lorong Mambong restaurants + One Holland Village (`tools/geocode-helper.html`); status re-check pass.

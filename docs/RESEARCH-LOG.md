@@ -351,3 +351,27 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - **Lesson (honesty):** writing addresses with block numbers / postcodes "from knowledge" while transcribing sourced
   coordinates is an easy CLAUDE.md 4a slip — audit every address against the result text before committing.
 
+
+## 2026-10-02 — Okinawa W2 (relaunch, ~174 searches → 119 discovered / 74 on the map)
+- **Stars and Stripes Okinawa list articles are the coordinate jackpot**: query the exact article title + "GPS" with
+  `allowed_domains=["okinawa.stripes.com"]` ("12 family-friendly Battle of Okinawa sites", "List of beaches", the soba
+  guide, castle pieces, "rainy-day", Nago/Yomitan/Nanjo round-ups) → 4–12 printed GPS per search. Pair each with an
+  independent outlet; two Stripes articles are one source.
+- **Search summaries mis-attribute GPS across articles** (Araha Beach got Tomigusuku's coordinate; one cherry-blossom
+  GPS was labelled Yaedake in one summary and Nakijin in another). Sanity-check every Stripes point against the place's
+  town; on conflict pull the pin to UNVERIFIED and cross-check with a Wikipedia infobox.
+- **Okinawa Times "900人の麺好きが選ぶ うまい沖縄そば" (2023, north/central/south/Miyako-Ishigaki editions)** names 31
+  soba shops in four searches — an editorial-of-record food source; pair with Mapple spot pages or KozaWeb (Okinawa City
+  tourism portal). Mapple (Shobunsha まっぷる) spot pages carry addresses, hours and editor copy.
+- Restaurant coordinates outside Stripes' coverage (Naha, Ishigaki, Miyako) did not surface by search — they are
+  discovered + sourced but held UNVERIFIED for `tools/geocode-helper.html`.
+
+## 2026-10-02 · Chicago (session 2)
+- Search budget restored for this session; discovery from editorial lists (Infatuation/Time Out/Chowhound/Chicago
+  Magazine "Iconic Eats" 50-dish package — captured in full in one query) + Michelin 2025 + JB America's Classics.
+- `chicagotribune.com` is blocked for the search user-agent (API 400 on `allowed_domains`) — drop it from domain filters.
+- `chicago.eater.com` returned nothing via `allowed_domains`; use Infatuation/Time Out instead.
+- Pins: Wikipedia 4-per-query batches (see AGENT-PROMPTS lesson). Restaurant pins via latlong.net mostly fail.
+- Watch-outs found: Ann Sather is relocating (Time Out, Apr 2026) and Maxwell Street Depot was forced to move
+  (Time Out, May 2026) — Wikipedia coords would be stale; both held back. Obama Presidential Center opened 2026-06-19.
+

@@ -420,7 +420,7 @@
    "Tasting Menu",
    "Contemporary"
   ],
-  "dish": "",
+  "dish": "Seasonal tasting menu",
   "closed": false
  },
  {
@@ -443,7 +443,7 @@
    "Tasting Menu",
    "Contemporary"
   ],
-  "dish": "",
+  "dish": "Seasonal tasting menu",
   "closed": false
  },
  {
@@ -466,7 +466,7 @@
    "Tasting Menu",
    "Contemporary"
   ],
-  "dish": "",
+  "dish": "Tasting menu served from the open kitchen",
   "closed": false
  },
  {
@@ -488,7 +488,7 @@
   "cz": [
    "Mexican"
   ],
-  "dish": "",
+  "dish": "Regional moles, tacos al carbón, ceviche",
   "closed": false
  },
  {
@@ -511,7 +511,7 @@
    "Diner",
    "Breakfast"
   ],
-  "dish": "",
+  "dish": "Double-yolk eggs and skillets; free Milk Duds",
   "closed": false
  },
  {
@@ -534,7 +534,7 @@
    "Tasting Menu",
    "Contemporary"
   ],
-  "dish": "",
+  "dish": "A themed tasting menu that changes every few months",
   "closed": false
  },
  {
@@ -557,7 +557,7 @@
    "Scandinavian",
    "Contemporary"
   ],
-  "dish": "",
+  "dish": "Danish-accented tasting and à la carte plates by the fire",
   "closed": false
  },
  {
@@ -580,7 +580,7 @@
    "Cocktail Bar",
    "Japanese"
   ],
-  "dish": "",
+  "dish": "Japanese cocktails and omakase-style dining",
   "closed": false
  },
  {
@@ -607,7 +607,7 @@
    "Italian",
    "Pasta"
   ],
-  "dish": "",
+  "dish": "Handmade pasta with produce from the restaurant's farm",
   "closed": false
  },
  {
@@ -630,7 +630,53 @@
    "Latin American",
    "Costa Rican"
   ],
-  "dish": "",
+  "dish": "Casados, gallo pinto, oatmeal shakes",
+  "closed": false
+ },
+ {
+  "t": 2,
+  "a": "LOOP",
+  "n": "Sepia",
+  "address": "123 N Jefferson St, Chicago, IL 60661",
+  "w": "Andrew Zimmerman's West Loop dining room in a 19th-century print shop — one Michelin star (2025).",
+  "sources": [
+   [
+    "MICHELIN_STAR",
+    "https://guide.michelin.com/us/en/illinois/chicago/restaurant/sepia"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/Sepia_(restaurant)"
+   ]
+  ],
+  "cz": [
+   "Contemporary",
+   "New American"
+  ],
+  "dish": "Seasonal American menu with Asian and Mediterranean accents",
+  "closed": false
+ },
+ {
+  "t": 1,
+  "a": "NORTH",
+  "n": "North Pond",
+  "address": "2610 N Cannon Dr, Chicago, IL 60614",
+  "w": "An Arts & Crafts warming shelter on a Lincoln Park pond turned seasonal-Midwest tasting room with a skyline view — in the Michelin Guide.",
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/en/illinois/chicago/restaurant/north-pond"
+   ],
+   [
+    "WIKIPEDIA",
+    "https://en.wikipedia.org/wiki/North_Pond_(restaurant)"
+   ]
+  ],
+  "cz": [
+   "Contemporary",
+   "New American"
+  ],
+  "dish": "Seasonal Midwestern tasting menu",
   "closed": false
  }
 ]

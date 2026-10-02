@@ -26,7 +26,7 @@ S(2,"DOTO","Okhotsk Drift Ice Museum & Mt Tento Observatory (オホーツク流�
   O,"visit-hokkaido.jp spot 10137 (current)",k="drift ice museum view",g=["MUS","VIEW"])
 S(2,"DOTO","Cape Nosappu (納沙布岬)","Nosappu, Nemuro, Hokkaido, Japan",
   "The easternmost point of Hokkaido's mainland at the tip of the Nemuro Peninsula — Japan's earliest sunrise, looking out toward the Habomai islets.",
-  [ja("%E7%B4%8D%E6%B2%99%E5%B8%83%E5%B2%AC"),vh("theme/zekkei/")],43.385056,145.816278,"high",wj("納沙布岬","北緯43度23分6.2秒 東経145度48分58.6秒"),
+  [ja("%E7%B4%8D%E6%B2%99%E5%B8%83%E5%B2%AC"),vh("spot/detail_10142.html")],43.385056,145.816278,"high",wj("納沙布岬","北緯43度23分6.2秒 東経145度48分58.6秒"),
   O,"visit-hokkaido.jp spectacular-views theme (current)",k="easternmost cape sunrise",g=["VIEW","FREE"])
 S(2,"DOTO","Notsuke Peninsula (野付半島)","Notsuke, Betsukai / Shibetsu, Hokkaido, Japan",
   "A long, hooked sand spit curling into the Nemuro Strait — ghostly salt-killed forests, seals and wildflowers.",

@@ -133,6 +133,7 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-08-24 | Dayton | geocode wave | 41 metro+corridor | 18 pinned | 14 restaurants + 9 parks UNVERIFIED (helper) | geo/_geoout_wave_*.json |
 | 2026-10-02 | Indianapolis | scaffold + food-canon W1 | tenderloin/IM Best Restaurants/JB 2026 | 0 (leads only) | W1 truncated at 5 searches by shared WebSearch session cap (200/200) | _PENDING_LEADS.md, AUDIT.md |
 | 2026-10-02 | Hokkaido | sights (SPR) W01 | Sapporo icons, batched Wikipedia-coords queries | 12 (9 pinned) | Ōkurayama/Hōheikan/Tanukikōji held single-source; stopped at the 200/200 session WebSearch cap | SIGHTS_HOKKAIDO_W01.json, geo/_geoout_hokkaido_w01.json |
+| 2026-10-02 | Okinawa | W2 relaunch (all areas) | Stripes-GPS lists × japan-guide/Visit Okinawa/LP/Mapple/Okinawa Times soba poll; island coords via Wikipedia/Atlas Obscura | 106 (+W1 13 = 119; 74 pinned) | Itokazu (2× Stripes = 1 outlet) re-held until Wikipedia; Kintaro, Urasoe, Araha-GPS rejected for unattributable/misattributed GPS; Yaedake pin pulled (GPS conflict w/ Nakijin); Yui soba closed (KozaWeb) not added | FOOD/SIGHTS/SOURCES/CREATORS_OKINAWA_W2, geo/_geoout_okinawa_W2, _okinawa_w2_notes.md |
 
 | 2026-10-02 | Liège | discovery W1 (partial) | LIE sights + boulets/gaufre canon | 5 (1 geocoded) | halted: WebSearch session budget 200/200 after 11 searches; ~20 leads held in _PENDING_LEADS.md | liege-research/SIGHTS_LIEGE_LIE, FOOD_LIEGE_LIE, geo/_geoout_liege_w1 |
 | 2026-10-02 | Tokyo | sights W1 (CYD) | sights backbone via Wikipedia/GO TOKYO/japan-guide/Time Out | 9 (all geocoded) | halted: shared WebSearch budget 200/200 exhausted | SIGHTS_TOKYO_W1.json, geo/_geoout_tokyo_w1.json |
@@ -151,6 +152,7 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-10-02 | Singapore HLV | discovery W1 (partial) + geocode + build | Ghim Moh / Holland Drive MFC hawker canon + 3 food-centre sights | 13 (10 food + 3 sights; 5 pinned med, 8 UNVERIFIED) | Guan Kee CKT CLOSED flagged; 9 held (single-source / status / attribution); halted at session WebSearch cap 200/200 after 27 calls | FOOD/SIGHTS/SOURCES/CREATORS_HOLLANDV.json, geo/_geoout_hollandv_w1.json, _note_HOLLANDV.md |
 | 2026-10-02 | Osaka | W2 discovery + geocode + build + go-live (main + workers G1/S1/M1/M2) | held W1 Bibs, konamon canon, Michelin Osaka harvest, sights all 9 areas | 189 discovered, 166 rendered (61 sights + 105 food) | 0 closures; Housing & Living museum closed for renovation (not added); 3 Michelin held (no dish); street-food pins UNVERIFIED; Time Out singles pending | FOOD_OSAKA_W2/M1/M2, SIGHTS_OSAKA_W2/S1, SOURCES_OSAKA_W2, geo/_geoout_osaka_{W2,W2u,G1,M1,M2,S1}.json, _pending_osaka_W2.json |
 | 2026-10-02 | Philadelphia | W1+W2 discover + geocode + build + go-live | Michelin 2025, cheesesteak/roast pork/tomato pie/water ice/RTM canon, Washington Ave Vietnamese, sights in all 10 areas | 170 sourced (106 on map: 91 sights + 15 food; ~49 food UNVERIFIED) | Hiroki + Laurel CLOSED flagged; Singing Fountain dropped (1 outlet); Casa Mexico merged; ~27 single-source leads held | FOOD_MICHELIN/CANON/W1B.json, SIGHTS_W1/W2.json, CREATORS_W1.json, geo/_geoout_w1_food/w1_sights/w2_sights.json |
+| 2026-10-02 | Liège | W2+W3 discover + geocode + build + go-live (lead + 5 bg geocode agents) | Michelin/G&M benches (Liège, Verviers, Spa, Huy, Theux, Esneux, Eupen, Waimes), boulets canon (Moustique, RTBF, Diamond Boulet), péket/beer layer, sights via Wikipedia coords | 147 discovered, 99 rendered (57 sights + 42 food) | 0 closures; Gaufrette pin downgraded (was Cabale's node); Arabelle OSM pin rejected (ViaMichelin used); ~30 single-source leads held; 48 restaurant pins UNVERIFIED (cap 200/200) | FOOD_LIEGE_{W2,W3,LIER,LIER_W3}, SIGHTS_LIEGE_{W2,W3}, CREATORS_LIEGE_W2, geo/_geoout_liege_{w2,w2food,w2b,w2c,w3,w3r,w3s,w3t}.json |
 | 2026-10-02 | Hokkaido | W02–W15 discovery + geocode (G01/G02 workers) + build + go-live | food canon (miso ramen, soup curry, jingisukan, Otaru sushi, Hakodate shio, Asahikawa shōyu, butadon, Muroran curry ramen) + sights in all 9 areas incl. 6 UNESCO Jōmon sites | 140 discovered, 104 rendered (100 sights + 4 food) | 0 closures; ~30 single-source leads held (AUDIT); 60 unsourced block numbers/postcodes stripped in a self-audit; restaurant pins UNVERIFIED (no lat/lng via WebSearch) | _w02…_w15 ledgers → FOOD/SIGHTS/SOURCES_HOKKAIDO_W02–W15.json, geo/_geoout_hokkaido_{w02–w15,g01,g02}.json |
 
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
@@ -162,8 +164,19 @@ Heights + Bay Village spliced via `add-to-cleveland.py`: **+6 geocoded** (P 143�
 _Update the last rows' counts/outcomes when those agents complete and after the builds land._
 
 ---
+| 2026-10-02 | Chicago | food canon + Michelin/JB | beef/deep-dish/tavern/dogs/jibarito/Iconic Eats; Michelin 2025 stars+Bib; JB America's Classics | 69 food | 13 canon pins + 8 Bib pins UNVERIFIED (no Wikipedia/POI pin); Boka/Galit aggregator coords demoted | FOOD_CANON.json, FOOD_MICHELIN.json, geo/_geoout_canon.json, _geoout_michelin.json |
+| 2026-10-02 | Chicago | sights S1–S8 | every area via Wikipedia 4-per-query pins + Time Out/Choose Chicago/CAC/WTTW/Atlas Obscura 2nd sources | 135 sights | Uptown Theatre flagged CLOSED; Calumet Park dropped (2nd source didn't name it); Givins Castle/Indiana Dunes SP/Douglass Park coords too coarse — not used | SIGHTS_W1..W8.json, geo/_geoout_sights.json |
+| 2026-10-02 | Chicago | creators | Portnoy One Bite, Keith Lee | 2 creators / 3 attaches | SEO beef listicles rejected | CREATORS_W1.json |
 
 ## Lessons learned (successes, failures, and the code fix each produced)
+
+- **Wikipedia pins, four per query (Chicago 2026-10-02).** `Wikipedia coordinates A; B; C; D` with
+  `allowed_domains:["en.wikipedia.org"]` returns published coords for ~3–4 landmarks per search (≈0.3 searches/pin), and
+  Wikipedia restaurant articles (Girl & the Goat, Avec, Oriole, Next, Kumiko…) pin food too. Per-restaurant latlong.net
+  searches for non-Wikipedia restaurants failed 13/20 — hold those UNVERIFIED for the helper rather than burning budget.
+  Pair each coord batch with ONE themed 2nd-source query on `choosechicago.com`/`timeout.com`/`architecture.org`/`wttw.com`.
+  Builders: an area whose places are all un-pinned is now hidden by `tools/build-chicago.py` instead of tripping the
+  tier-1 assert (areas WITH pins must still carry a tier-1).
 
 - **Restaurant place-pins rarely surface via WebSearch here** (only place-id/CID/viewport links). → Honest
   `UNVERIFIED` + the browser `geocode-helper.html`; never fabricate. Sights (Wikipedia coords) geocode high.
