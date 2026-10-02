@@ -142,8 +142,9 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-10-02 | Singapore — Punggol (PGL) | discovery W1 (partial) | One Punggol / Punggol Coast HC + Coney/Punggol Point/Sook Ching sights | 9 (5 food + 4 sights; 0 geocoded) | halted ~17 searches in: session WebSearch cap 200/200; ~35 single-source/unmeasured leads held in _note_PUNGGOL.md | FOOD/SIGHTS/SOURCES/CREATORS_PUNGGOL.json, _note_PUNGGOL.md |
 | 2026-10-02 | Orlando | scaffold + W1 Michelin (partial) | 18 areas/taxonomy, build-orlando.py, 22 outlets | 0 (leads only) | stopped: session WebSearch cap 200/200 hit after 8 calls | consolidate.py, SOURCES_CORE.json, _PENDING_LEADS.md |
 | 2026-10-02 | Osaka | W1 Michelin + sights backbone | KITA/CHUO food (udon/soba/ramen/tonkatsu) + Kita sights | 28 (24 food, 4 sights; 5 geocoded) | truncated by session WebSearch cap 200/200; 3 Bib held (no address), 9 single-source sights held | FOOD/SIGHTS/SOURCES_OSAKA_W1.json, _held_W1.json, geo/_geoout_osaka_W1.json |
-
 | 2026-10-02 | Singapore NVN | food+sights W1 | Newton FC Bib canon | 6 | 15 held single-source; halted by WebSearch 200 cap | FOOD/SIGHTS/CREATORS/SOURCES_NOVENA.json, geo/_geoout_novena_w1.json |
+| 2026-10-02 | Kyoto | W1 HGS sights + canon (partial) | Higashiyama icons + Michelin Bib | 12 (11 HGS + 1 CTR; 3 pinned) | halted after ~14 Kyoto searches: session WebSearch cap 200/200; 16 leads held | SIGHTS/FOOD/SOURCES_KYOTO_*, geo/_geoout_kyoto_hgs1.json, _PENDING_LEADS.json |
+
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
 Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source
 places (Aullwood, Third Perk) that build GATE 1 drops, so the page is clean. Cleveland (engine) → Lakewood/West-Side +
