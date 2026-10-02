@@ -24,21 +24,29 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - `EAST` East Orlando / UCF / Oviedo ~10
 - `SPACE` Space Coast ~25
 
-## State
-- Scaffolded 2026-10-02 (consolidate.py, brief, AUDIT, RESUME, tools/build-orlando.py, sources.json entry
-  `orlando-fl` registered from SOURCES_CORE.json — 22 outlets with `credible` rationale).
-- **0 places discovered (0 / ~517).** Wave 1 (Michelin opening move) was cut off after 8 WebSearch calls:
-  the session-wide WebSearch cap (`200 of 200`, shared by all ~16 concurrent agents) was exhausted. Retried
-  once — hard block ("ask the user to raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION"), not a rate limit.
-- Leads gathered so far are in `_PENDING_LEADS.md` (Michelin 2026 stars/Bibs/new Recommended with source
-  URLs; Space Mountain coordinate). Nothing was promoted to a research record without a sourced address +
-  named dish, so nothing builds yet; `cities/orlando.html` is NOT built and the index card stays "being built".
+## State (session 2, 2026-10-02)
+- **LIVE**: `cities/orlando.html` built, 4 gates green (sourcecheck FAILs only on HELD single-source records, which the
+  build drops by design), `npm run validate` + `npm test` green; index card `CARD:orlando-fl` live; CITIES.md row LIVE.
+- ~210 places researched; ~140 pinned on the page (almost all sights — theme-park rides/pavilions/resorts pinned from
+  Wikipedia/Wikidata/Coasterpedia; Atlas Obscura; city museums/springs/Space Coast). Restaurants: ~60 researched, few
+  pinned — WebSearch never surfaces restaurant place-pin decimals (Google/Apple/mapcarta tested) → UNVERIFIED with
+  address for `tools/geocode-helper.html`; only Wikipedia-article restaurants get pins (pin-pass agent `foodpins1`).
+- Search budget: ≈ 75 main + ≈ 70 by pin-pass agents (parkpins1-3, pinpass4, foodpins1) ≈ 145 used this session.
+- Files: FOOD_{MICHELIN,MICHELINREC,VN1,PARKEATS1,JBF1,DDD1,LOCAL1,UNIEATS1}.json · SIGHTS_{PARKS1-4,EPIC2,RESORTS1,
+  SEAWORLD1,CITY1-2,DTO1,NATURE1-2,SPACE1-2,KISS1,WEST1}.json · SOURCES_W2..W15.json · geo/_geoout_*.json (agent pin
+  files: parkpins1-3, pinpass4, foodpins1). Helpers: `_orl_lib.py` (append records), `_orl_push.sh` (commit+push),
+  `_orl_golive.py` (refresh card + CITIES row from the built page).
+- HELD single-source (need a 2nd credible source): Disney Springs, Race Through New York, CityWalk, Kia Center, Inter&Co
+  Stadium, Greenwood Cemetery, Dr. Phillips House, Osceola County Courthouse, Gaylord Palms, Central Florida Zoo,
+  Cocoa Beach Pier (also UNVERIFIED), Lake Nona Sculpture Garden, Randall Knife Museum, Epic McD, Global Convergence.
+- Closures flagged: Dinosaur (DAK, Feb 2026), Ethos Vegan Kitchen (2024). Seen but not added: Fast & Furious –
+  Supercharged (closed Aug 2026), Wet 'n Wild (2017), Skeletons museum, Exploration Tower (not reopened Jan 2026).
+- Status to re-check: Willie's Pinchos (DDD 2017; no 2026 confirmation found).
 
 ## In-flight wave
-- **Session 2 (2026-10-02, relaunch)** — searches used this session: tracked in AUDIT.md per wave. Plan: finish W1 Michelin → W2 Mills 50 VN → W3 park sights (Wikipedia coords) → W4 PR/Cuban/Florida → sights per area.
-- **W1 MICHELIN (food opening move)** — half-done. Remaining queries: full 2026 Orlando Recommended list;
-  address + one named dish for each starred/Bib place; Natsu/Capa/Papa Llama status. Then write
-  `FOOD_MICHELIN.json` (MICHELIN + a 2nd source where possible), then W2 Mills 50 Vietnamese.
+- W8 FOOD PINS: pin-pass agent writing `geo/_geoout_foodpins1.json` (Wikipedia/Wikidata coords for ~45 WDW/Universal/
+  Orlando restaurants). On relaunch: if the file exists, write research records for its names (Disney ones: DFB
+  'eaten at every WDW restaurant' + Wikipedia), then rebuild.
 
 ## Next actions (ordered)
 1. Discovery waves area by area (food canon first: Mills 50 Vietnamese, Michelin, Puerto Rican Kissimmee,
