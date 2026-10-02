@@ -11696,6 +11696,124 @@
         }
       ],
       "creators": []
+    },
+    "madison-wi": {
+      "name": "madison-wi",
+      "sources": [
+        {
+          "key": "WSJ",
+          "name": "Wisconsin State Journal (madison.com)",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Madison's daily newspaper of record (since 1839); dining reviews and openings/closings."
+        },
+        {
+          "key": "CAPTIMES",
+          "name": "The Cap Times",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Madison's progressive daily-turned-digital newsroom (since 1917); bylined dining coverage incl. James Beard reporting."
+        },
+        {
+          "key": "ISTHMUS",
+          "name": "Isthmus",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Madison's alt-weekly (since 1976); associate editor Linda Falkenstein is the city's long-time food writer; venue listings + reader polls."
+        },
+        {
+          "key": "MADMAG",
+          "name": "Madison Magazine / Channel 3000",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Madison's city magazine (WISC-TV); Best of Madison reader vote; covers James Beard nominations."
+        },
+        {
+          "key": "CITYCAST",
+          "name": "City Cast Madison",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Local daily news podcast/newsletter (City Cast network); 'best of' guides with named local food writers (e.g. Isthmus' Falkenstein on fish fry)."
+        },
+        {
+          "key": "UPNORTHNEWS",
+          "name": "UpNorthNews — Madison Food Guide (reader surveys)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statewide Wisconsin digital news outlet; annual Madison reader-vote food guide (best curds/fish fry/old fashioned). Used as a popularity vote, corroborating only."
+        },
+        {
+          "key": "WKOW",
+          "name": "WKOW 27 (Madison ABC)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Madison broadcast newsroom; reports James Beard honors and closures."
+        },
+        {
+          "key": "JAMESBEARD",
+          "name": "James Beard Foundation",
+          "type": "institutional",
+          "rank": 1,
+          "verified": true,
+          "credible": "Institutional authority (awards: Odessa Piper/L'Etoile 2001, Tory Miller 2012, Fairchild 2023 Best Chef Midwest; semifinalists). Its 'Ask a Chef' interviews are chef recommendations — counted as ONE credible source, not lone authority."
+        },
+        {
+          "key": "VISITMADISON",
+          "name": "Destination Madison (CVB)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "Official convention & visitors bureau; keeps the Madison James Beard honors list."
+        },
+        {
+          "key": "TRAVELWI",
+          "name": "Travel Wisconsin (WI Dept. of Tourism)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "State tourism office; vetted listings + 'Wisconsin chefs making waves' features."
+        },
+        {
+          "key": "INFATUATION",
+          "name": "The Infatuation (Madison reviews)",
+          "type": "editorial",
+          "rank": 2,
+          "verified": true,
+          "credible": "National restaurant-review desk with a Madison city guide and bylined reviews."
+        },
+        {
+          "key": "WPR",
+          "name": "Wisconsin Public Radio",
+          "type": "editorial",
+          "rank": 1,
+          "verified": true,
+          "credible": "Statewide public broadcaster; food/James Beard coverage."
+        },
+        {
+          "key": "EXPERIENCEWI",
+          "name": "Experience Wisconsin magazine",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Statewide travel magazine with bylined writers (e.g. Kevin Revolinski, WI travel-guide author)."
+        },
+        {
+          "key": "WIKIPEDIA",
+          "name": "Wikipedia (notability + published coordinates)",
+          "type": "editorial",
+          "rank": 3,
+          "verified": true,
+          "credible": "Notability index + published coordinates for landmarks; pinning source, needs a 2nd recommender."
+        }
+      ],
+      "creators": []
     }
   }
 }
