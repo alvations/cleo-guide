@@ -24,7 +24,27 @@ Measured by `python3 tools/density.py tokyo` on the DISCOVERED set. Total ≈ 53
 Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalent. The densest wards are their own areas (Chiyoda, Chūō, Minato, Shinjuku, Shibuya, Taitō, Sumida+Kōtō); the rest are grouped by the long-standing Tokyo compass terms **Jōnan (城南, south), Jōsai (城西, west), Jōhoku (城北, north) and Jōtō (城東, east)**; beyond the wards is the **Tama area (多摩地域)** of the Metropolis, and the Kantō day-trip ring (NYC's 'Day Trips' equivalent). Assign each place by its actual ward (the address names the -ku).
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
+- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
+- 2026-10-02 W1 batch 1: 9 CYD sights in `SIGHTS_TOKYO_W1.json`, all 9 geocoded (7 high / 2 med district points) in
+  `geo/_geoout_tokyo_w1.json`. Not yet merged/built (page not built; Japan NOT flipped live — far below density).
+  Append helper: `_add.py` (stdin JSON → discovery record + geoout record, dedup by name).
+
+## In-flight wave
+**BLOCKED 2026-10-02 — WebSearch session budget exhausted (200/200, shared by all concurrent agents) after
+this agent's 15th search.** W1 stopped inside CYD after batch 1 (9 sights written + geocoded). Relaunch only once
+`CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` is raised / a fresh budget exists; resume with the CYD queries below.
+- CYD queries still to run (sights domains): Kokyo Gaien/Nijūbashi, Yushima Seidō, Nikolai-dō, Mitsubishi Ichigōkan,
+  Tokyo International Forum, Hibiya Park, mAAch ecute Kanda Manseibashi, National Diet Building, KITTE garden,
+  Chidorigafuchi (no Wikipedia coords — get the Google `!3d!4d` place pin via a google.com-restricted search).
+- Proven methods (record in AUDIT): (1) sights — a search restricted to en.wikipedia.org/japan-guide.com/gotokyo.org/
+  timeout.com returns ≥2 credible URLs + Wikipedia's published coords in one call; (2) restaurants — a search
+  restricted to `google.com` returns the Maps place URL; read `!3d<lat>!4d<lng>` (NOT the `/@` viewport).
+- **W1 (sights backbone, all 13 areas)** — per-area sight searches restricted to en.wikipedia.org / japan-guide.com /
+  gotokyo.org / timeout.com (one search yields ≥2 credible sources + Wikipedia's published coords). Writes
+  `SIGHTS_TOKYO_W1.json` + `geo/_geoout_tokyo_w1.json` via `_add.py` in batches of ~10. Area order:
+  CYD → CHUO → MNT → SJK → SBY → TAITO → SMKT → JONAN → JOSAI → JHOKU → JOTO → TAMA → KANTO.
+- Then **W2 food canon** (Michelin Bib/star lists via guide.michelin.com + Time Out / Japan Times / dancyu /
+  Tabelog Hyakumeiten), pins via Google `!3d!4d` place URLs (search restricted to google.com).
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py tokyo` → iterate on every `NEED +N`.
