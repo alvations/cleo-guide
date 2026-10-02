@@ -10864,23 +10864,6 @@
   },
   {
    "t": 1,
-   "a": "SMKT",
-   "n": "Tonkatsu Hasegawa",
-   "ad": "3-24-1 Ryogoku, Sumida-ku, Tokyo",
-   "w": "MICHELIN Guide Bib Gourmand tonkatsu shop in Ryōgoku; it names its cutlets after sumo ranks such as 'Yokozuna' and 'Ozeki', a nod to the neighbourhood's sumo heritage.",
-   "cz": [
-    "TEISHOKU"
-   ],
-   "g": [],
-   "s": [
-    [
-     "MICHELIN_BIB",
-     "https://guide.michelin.com/ca/en/tokyo-region/tokyo/restaurant/tonkatsu-hasegawa"
-    ]
-   ]
-  },
-  {
-   "t": 1,
    "a": "KANTO",
    "n": "Yoshimuraya (吉村家)",
    "ad": "near Yokohama Station, Yokohama, Kanagawa",
@@ -10939,6 +10922,825 @@
     [
      "JNTO",
      "https://www.japan.travel/en/sg/jbyj-blog/noodles-with-a-local-flavour/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JONAN",
+   "n": "Udatsu Sushi, Nakameguro (宇田津 鮨)",
+   "ad": "2-48-10 Kamimeguro, Meguro-ku, Tokyo",
+   "w": "Hisashi Udatsu's art-gallery-like sushi counter hidden in Nakameguro's backstreets — textbook nigiri that sneaks in surprises, with paintings on the walls; listed in the MICHELIN Guide.",
+   "cz": [
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/udatsu-sushi"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/things-to-do/one-day-in-nakameguro"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://www.tokyoweekender.com/food-and-drink/restaurants-and-bars/udatsu-sushi/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "JONAN",
+   "n": "Starbucks Reserve Roastery Tokyo, Nakameguro",
+   "ad": "On the Meguro River, Aobadai, Meguro-ku, Tokyo",
+   "w": "Opened March 2019 as the fifth and then-largest Starbucks Reserve Roastery: a four-floor Kengo Kuma building clad in Japanese cedar beside the Meguro River's cherry trees, roasting on site with coffee cocktails upstairs.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/things-to-do/one-day-in-nakameguro"
+    ],
+    [
+     "JAPANTIMES",
+     "https://www.japantimes.co.jp/life/2019/03/09/food/starbucks-reserve-roastery-tokyo-coffee-wonderland/"
+    ],
+    [
+     "TOKYOCHEAPO",
+     "https://tokyocheapo.com/restaurant/starbucks-reserve-roastery-tokyo-nakameguro/"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://www.tokyoweekender.com/the-concierge/starbucks-reserve-roastery-tokyo/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JONAN",
+   "n": "Nihao, Kamata (你好)",
+   "ad": "Near JR Kamata Station, Kamata, Ōta-ku, Tokyo",
+   "w": "Where Dalian-born Isao Yagi invented hanetsuki ('winged') gyōza, pouring flour-water into the pan for a crisp lattice — the reason Kamata calls itself the birthplace of winged dumplings.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "JAPANTIMES",
+     "https://www.japantimes.co.jp/life/2024/04/14/food-drink/hanetsuki-gyoza-kamata-nihao/"
+    ],
+    [
+     "TOKYOCHEAPO",
+     "https://tokyocheapo.com/entertainment/things-to-do-in-ota-city-guide/"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://www.tokyoweekender.com/japan-life/kamata-tokyos-multi-ethnic-shitamachi/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JONAN",
+   "n": "Tonki, Meguro (とんき)",
+   "ad": "Meguro, Meguro-ku, Tokyo (by Meguro Station)",
+   "w": "Frying tonkatsu since 1939 with hardly a change: a long counter wraps the open kitchen so diners watch the cooks at work, and the benches round the room are always full of people queuing for a counter seat.",
+   "cz": [
+    "TEMPURA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/tonki"
+    ],
+    [
+     "JAPANTIMES",
+     "https://www.japantimes.co.jp/life/2012/05/18/food/tonki-dishes-up-73-years-of-tasty-tonkatsu-success/"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://www.tokyoweekender.com/food-and-drink/tonki-no-tonkatsuya/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MNT",
+   "n": "Tofuya Ukai, Shiba-kōen (とうふ屋うかい)",
+   "ad": "4-4-13 Shiba-kōen, Minato-ku, Tokyo",
+   "w": "A samurai-era merchant's residence and carp-pond garden at the foot of Tokyo Tower (its 'borrowed scenery'), serving tofu kaiseki built on Hokkaido-bean tofu made each morning in the Okutama mountains.",
+   "cz": [
+    "TOFU",
+    "KAISEKI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tofuya_Ukai"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/ukai-tofuya"
+    ],
+    [
+     "JAPANTIMES",
+     "https://www.japantimes.co.jp/life/2007/06/15/food/tofuya-ukai-below-the-tower-a-garden-of-edo/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JONAN",
+   "n": "Quintessence (カンテサンス)",
+   "ad": "1F, Garden City Shinagawa Gotenyama, 6-7-29 Kitashinagawa, Shinagawa-ku, Tokyo 141-0001",
+   "w": "Chef Shuzo Kishida's modern French dining room in Gotenyama — one of Tokyo's eleven three-MICHELIN-star restaurants in the 2026 guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/quintessence-1193907"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/jp/en/article/people/quintessence_nespresso_en"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CYD",
+   "n": "RyuGin, Tokyo Midtown Hibiya (日本料理 龍吟)",
+   "ad": "7F, Tokyo Midtown Hibiya, 1-1-2 Yūrakuchō, Chiyoda-ku, Tokyo 100-0006",
+   "w": "Seiji Yamamoto's celebrated Japanese restaurant, moved from Roppongi to the 7th floor of Tokyo Midtown Hibiya — three MICHELIN stars in the 2026 guide.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/ryugin-1194232"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_restaurants_in_Tokyo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CYD",
+   "n": "Kioicho Fukudaya (紀尾井町 福田家)",
+   "ad": "1-13 Kioichō, Chiyoda-ku, Tokyo 102-0094",
+   "w": "A traditional ryōtei in Kioichō serving seasonal Japanese cuisine — two MICHELIN stars in the 2026 Tokyo guide.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/kr/en/tokyo-region/tokyo/restaurant/kioicho-fukudaya"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "Harutaka, Ginza (はる高)",
+   "ad": "6F, 8-3-1 Ginza, Chūō-ku, Tokyo 104-0061",
+   "w": "Takahashi Harutaka's Ginza Edomae sushi counter — three MICHELIN stars ('exceptional cuisine') in the 2026 guide.",
+   "cz": [
+    "SUSHI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/harutaka"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MNT",
+   "n": "Azabu Kadowaki (麻布 かどわき)",
+   "ad": "2-7-2 Azabu-Jūban, Minato-ku, Tokyo 106-0045",
+   "w": "Toshiya Kadowaki's Azabu-Jūban Japanese restaurant — three MICHELIN stars ('exceptional cuisine') in the 2026 guide.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/azabu-kadowaki"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MNT",
+   "n": "Sazenka (茶禅華)",
+   "ad": "4-7-5 Minami-Azabu, Minato-ku, Tokyo 106-0047",
+   "w": "Tomoya Kawada's Minami-Azabu Chinese restaurant in a quiet house — one of Tokyo's eleven three-MICHELIN-star restaurants in the 2026 guide.",
+   "cz": [
+    "INT",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/sazenka"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "L'OSIER, Ginza (ロオジエ)",
+   "ad": "7-5-5 Ginza, Chūō-ku, Tokyo",
+   "w": "Shiseido's historic Ginza French restaurant, opened in 1973 — three MICHELIN stars in the 2026 Tokyo guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/l-osier"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MNT",
+   "n": "L'Effervescence, Nishi-Azabu (レフェルヴェソンス)",
+   "ad": "2-26-4 Nishi-Azabu, Minato-ku, Tokyo",
+   "w": "Shinobu Namae's Nishi-Azabu restaurant fusing French technique and Japanese produce — three MICHELIN stars in the 2026 Tokyo guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/l-effervescence"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JONAN",
+   "n": "Joël Robuchon, Yebisu Garden Place (ジョエル・ロブション)",
+   "ad": "Yebisu Garden Place, 1-13-1 Mita, Meguro-ku, Tokyo",
+   "w": "The late Joël Robuchon's flagship Tokyo dining room in the faux-château at Yebisu Garden Place (Meguro-ku side) — three MICHELIN stars in the 2026 guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/joel-robuchon-1193981"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_restaurants_in_Tokyo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "Sushi Kanesaka, Ginza (鮨 かねさか)",
+   "ad": "B1F, 8-10-3 Ginza, Chūō-ku, Tokyo 104-0061",
+   "w": "Shinji Kanesaka's basement Ginza sushi counter, the mothership of a group with branches abroad — two MICHELIN stars in the 2026 guide.",
+   "cz": [
+    "SUSHI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/sushi-kanesaka"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SBY",
+   "n": "Jingumae Higuchi (神宮前 樋口)",
+   "ad": "2-19-12 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+   "w": "A small Jingūmae restaurant holding two MICHELIN stars in the 2026 Tokyo guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/jingumae-higuchi"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JONAN",
+   "n": "Ensui, Nakameguro",
+   "ad": "1-5-12 Nakameguro, Meguro-ku, Tokyo 153-0061",
+   "w": "Nakameguro restaurant promoted from one to two MICHELIN stars in the 2026 Tokyo guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/ensui"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MNT",
+   "n": "Seizan, Mita",
+   "ad": "B1F, 2-17-29 Mita, Minato-ku, Tokyo 108-0073",
+   "w": "Chef Yamamoto's basement Japanese restaurant in Mita — two MICHELIN stars in the 2026 guide; inspectors note that for all his innovations he stays true to tradition with wansashi, sashimi paired with soup.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/seizan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "ASAHINA Gastronome, Kabutochō",
+   "ad": "1-4 Nihombashi-Kabutochō, Chūō-ku, Tokyo 103-0026",
+   "w": "Fine-dining restaurant in the Kabutochō financial quarter — two MICHELIN stars in the 2026 guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/asahina-gastronome"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CYD",
+   "n": "MAZ, Tokyo Garden Terrace Kioichō",
+   "ad": "3F, Tokyo Garden Terrace Kioichō, 1-3 Kioichō, Chiyoda-ku, Tokyo 102-0094",
+   "w": "Tasting-menu restaurant on the third floor of Tokyo Garden Terrace Kioichō — two MICHELIN stars in the 2026 guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/maz"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CHUO",
+   "n": "Kutan, Shintomi",
+   "ad": "2-5-5 Shintomi, Chūō-ku, Tokyo 104-0041",
+   "w": "Shintomi restaurant listed with two MICHELIN stars in the 2026 Tokyo guide.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/kutan"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJK",
+   "n": "Tanimoto, Kagurazaka (たに本)",
+   "ad": "3F, 3-1 Kagurazaka, Shinjuku-ku, Tokyo 162-0825",
+   "w": "One-MICHELIN-star Kagurazaka Japanese restaurant whose forte is charcoal grilling, each ingredient handled with the strictest attention.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/tanimoto"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJK",
+   "n": "Guchokuni, Kagurazaka (愚直に)",
+   "ad": "4F, 4-3 Kagurazaka, Shinjuku-ku, Tokyo 162-0825",
+   "w": "'In simple honesty' — a phrase handed down from the chef's two mentors names this one-MICHELIN-star Kagurazaka Japanese restaurant and its plain-spoken cooking.",
+   "cz": [
+    "KAISEKI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/guchokuni"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SJK",
+   "n": "FUSHIKINO, Kagurazaka",
+   "ad": "2F, 4-3-11 Kagurazaka, Shinjuku-ku, Tokyo 162-0825",
+   "w": "One-MICHELIN-star Kagurazaka restaurant aiming for the unexpected through a trinity of food, sake and serving vessels.",
+   "cz": [
+    "KAISEKI",
+    "SAKE",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/fushikino"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJK",
+   "n": "Takumi Tatsuhiro, Shinjuku (匠 達広)",
+   "ad": "1-11-7 Shinjuku, Shinjuku-ku, Tokyo 160-0022",
+   "w": "Shinjuku 1-chōme sushi counter newly awarded one MICHELIN star in the 2026 Tokyo guide.",
+   "cz": [
+    "SUSHI",
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/takumi-tatsuhiro"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-guide-tokyo-2026-stars-reveal"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "TAITO",
+   "n": "Oku, Asakusa",
+   "ad": "3-42-11 Asakusa, Taitō-ku, Tokyo 111-0032",
+   "w": "Asakusa restaurant holding one MICHELIN star ('high quality cooking') in the 2026 guide — the district's starred table beyond the tempura and unagi houses.",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/oku"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SMKT",
+   "n": "Trattoria Buca'Massimo, Monzen-Nakachō",
+   "ad": "1-24-11 Tomioka, Kōtō-ku, Tokyo",
+   "w": "A Bib Gourmand trattoria near Tomioka Hachimangū where the chef's love of Tuscany shows in chicken-liver crostini, Florentine tripe and hand-rolled pici.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/trattoria-buca-massimo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SMKT",
+   "n": "Takahashi, Morishita",
+   "ad": "1-7-6 Morishita, Kōtō-ku, Tokyo 135-0004",
+   "w": "A Japanese restaurant in shitamachi Morishita, selected by the MICHELIN Guide (2026 selection).",
+   "cz": [
+    "KAISEKI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/takahashi-1205597"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SMKT",
+   "n": "O2, Miyoshi (Kiyosumi-Shirakawa)",
+   "ad": "2-15-12 Miyoshi, Kōtō-ku, Tokyo 135-0022",
+   "w": "A Chinese restaurant in Kiyosumi-Shirakawa's Miyoshi district, selected by the MICHELIN Guide (2026 selection).",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/o2"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SMKT",
+   "n": "KOKYU, Yokokawa",
+   "ad": "2-13-9 Yokokawa, Sumida-ku, Tokyo 130-0003",
+   "w": "A contemporary restaurant in Sumida's Yokokawa district, selected by the MICHELIN Guide (2026 selection).",
+   "cz": [
+    "FINE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/kokyu-1209326"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "JOSAI",
+   "n": "Seki Hanare, Setagaya",
+   "ad": "3-1-3 Setagaya, Setagaya-ku, Tokyo 154-0017",
+   "w": "A Bib Gourmand in residential Setagaya whose creative cooking is designed around its affinity with sake — meat dishes are an indispensable part of the menu.",
+   "cz": [
+    "IZAKAYA",
+    "SAKE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/seki-hanare"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "JOSAI",
+   "n": "Lien, Ikejiri",
+   "ad": "3-5-22 Ikejiri, Setagaya-ku, Tokyo 154-0001",
+   "w": "A French Bib Gourmand in Ikejiri, near Ikejiri-Ōhashi — good-value cooking in the 2026 MICHELIN Guide.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/lien"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "JOSAI",
+   "n": "DIALOGUE, Shimokitazawa",
+   "ad": "3-23-21 Kitazawa, Setagaya-ku, Tokyo 155-0031",
+   "w": "A French Bib Gourmand in the Kitazawa (Shimokitazawa) backstreets — good quality, good value cooking in the 2026 MICHELIN Guide.",
+   "cz": [
+    "INT"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/dialogue-1200268"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JOTO",
+   "n": "Taishakuten-Sandō, Shibamata (帝釈天参道)",
+   "ad": "Shibamata 7-chōme, Katsushika-ku, Tokyo (from Shibamata Station to Taishakuten)",
+   "w": "The 200-metre Edo-era approach to Shibamata Taishakuten, lined with wooden shops selling the town's speciality kusa-dango and restaurants serving river fish such as eel and carp — the setting of the Tora-san films.",
+   "cz": [
+    "MKT",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/33/index.html"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3047.html"
+    ],
+    [
+     "TOKYOCHEAPO",
+     "https://tokyocheapo.com/locations/north-tokyo/shibamata/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "JOTO",
+   "n": "Uchida, Tateishi (宇ち多゛)",
+   "ad": "1-18-8 Tateishi, Katsushika-ku, Tokyo (inside Tateishi Nakamise arcade)",
+   "w": "Tateishi's legendary motsuyaki counter in the post-war Nakamise arcade — a queue of 30 forms before the 2pm opening for grilled innards, stew and pickles at ¥200 a plate, with an ordering shorthand regulars help newcomers through.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/uchida"
+    ],
+    [
+     "JAPANTIMES",
+     "https://www.japantimes.co.jp/news/2015/09/01/national/tateishi-outwardly-nondescript-but-grilled-fare-camaraderie-offer-inner-glow/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "JOTO",
+   "n": "Nomiya Yokochō, Kita-Senju (飲み屋横丁)",
+   "ad": "By Kita-Senju Station West Exit, Senju, Adachi-ku, Tokyo",
+   "w": "A drinking alley off Kita-Senju's west exit that keeps the old yokochō charm — salarymen and Tokyo Denki University students pack its izakaya, where Kabura-ya grills skewers for under ¥100.",
+   "cz": [
+    "IZAKAYA"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TOKYOWEEKENDER",
+     "https://tokyoweekender.com/japan-life/things-to-do-in-tokyo/12-best-tokyo-yokocho-alleys-in-tokyo"
+    ],
+    [
+     "TOKYOCHEAPO",
+     "https://tokyocheapo.com/food-and-drink/nomiya-yokocho-kitasenju/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "JOTO",
+   "n": "Beer-Ma Kitasenju",
+   "ad": "Nomiya Yokochō area by Kita-Senju Station West Exit, Adachi-ku, Tokyo",
+   "w": "A bottle-shop-cum-standing-bar in Kita-Senju's drinking alley with around 1,500 bottled beers to drink on the spot.",
+   "cz": [
+    "SAKE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/shopping/beer-ma-kitasenju"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://tokyoweekender.com/2020/08/kita-senju-area-guide-culture-cuisine-and-skateboarding"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TAMA",
+   "n": "Satou, Kichijōji (さとう)",
+   "ad": "Kichijōji, Musashino, Tokyo",
+   "w": "A Kichijōji butcher whose ground-floor counter draws queues for its maru menchi croquettes, with a wagyu steak restaurant on the floor above.",
+   "cz": [
+    "WAGYU",
+    "TEMPURA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/story/guide/japanese-comfort-food/index.html"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3080.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "TAMA",
+   "n": "Light Up Coffee, Kichijōji",
+   "ad": "4-13-15 Kichijōji, Musashino, Tokyo (end of Nakamichi shopping street)",
+   "w": "A blue-fronted micro-roastery opened in 2014 at the end of Kichijōji's Nakamichi street by two young roasters — single origins in signature blue cups, cuppings and roasting workshops.",
+   "cz": [
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/things-to-do/one-day-in-kichijoji"
+    ],
+    [
+     "SPRUDGE",
+     "https://sprudge.com/the-daring-young-duo-behind-light-up-coffee-in-kichijoji-tokyo-77460.html"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://www.tokyoweekender.com/food-and-drink/the-6-best-kichijoji-coffee-shops-as-recommended-by-locals/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "TAMA",
+   "n": "Cafe Lumiere, Kichijōji",
+   "ad": "Kichijōji, Musashino, Tokyo",
+   "w": "Kichijōji's Alice-in-Wonderland-inspired café where shaved ice is cloaked in meringue and set on fire, the flaming sauce changing with the flavour.",
+   "cz": [
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/things-to-do/one-day-in-kichijoji"
+    ],
+    [
+     "TOKYOWEEKENDER",
+     "https://www.tokyoweekender.com/food-and-drink/tokyo-top-instagrammable-shaved-ice/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SJK",
+   "n": "Sugoi Niboshi Ramen Nagi, Golden Gai (すごい煮干ラーメン凪)",
+   "ad": "2F, Shinjuku Golden Gai (G2 Street), 1-1-10 Kabukichō, Shinjuku-ku, Tokyo",
+   "w": "Up a steep stair in an old wooden Golden Gai house, the Nagi chain's 2008 return to its birthplace serves pungent niboshi ramen from sardines boiled for 12 hours — open 24 hours.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/restaurants/sugoi-niboshi-ramen-nagi-shinjuku-golden-gai"
+    ],
+    [
+     "RAMENADVENTURES",
+     "https://ramenadventures.com/listing/%E5%87%AA-%E7%85%AE%E5%B9%B2%E7%8E%8B-nagi-niboshi-in-shinjuku/"
+    ],
+    [
+     "TOKYOCHEAPO",
+     "https://tokyocheapo.com/restaurant/nagi/"
     ]
    ]
   }
