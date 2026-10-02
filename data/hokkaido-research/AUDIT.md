@@ -200,3 +200,9 @@ product name, brewing-law claim) on self-review.
 **W47 creators:** Ramen Adventures (Brian MacDuckston; named in the Japan brief) — attached to Menya Saimi and Menya Yukikaze;
 Fujiya NOODLE promoted (Michelin Bib 2017 + Ramen Adventures). Rejected attaching the negative airport-branch Ichigen review.
 Creator queries this session: 1 (yield 3).
+**W47b creators:** Ramen Adventures "Hokkaido best ramen 2024" (top-100) attached to Aoba (#20), Hachiya Gojō (#39), Jiyōken (#29),
+Ajisai (#45), Shinano (#97) + Baikōken listing — this also independently corroborates the W33 merged-attribution shio shops.
+Held (RA only): Seiryūken Hakodate, Shukoen Kushiro, Tenkin (#33), Tsuruya, Mizuno, RAMEN ROOM 18, Maruhira, Kobo.
+**W48:** Curb Market Kita no Gourmet-tei & Marusan-tei (rurubu features + MAPPLE market article), Nijō Uoya no Daidokoro (rurubu +
+MAPPLE spot + MAPPLE readers' ranking), Biei Senka (visit-hokkaido + rurubu). Held: Dokushaku Sanshirō (MAPPLE only), Farm Restaurant
+Chiyoda. Density after W48: food 116 / 262 discovered = 44% (was 26%).
