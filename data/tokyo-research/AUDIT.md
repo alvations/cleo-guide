@@ -123,3 +123,32 @@ That is unverified content, so 31 of them were stripped back to the sourced roma
 `_renamed_w2.json`; registry keys in `data/geocodes.json` renamed in place, no coordinates changed). Japanese names are
 kept only where the shop/landmark name is unambiguous and well attested (e.g. 神田まつや, いせ源, 駒形どぜう, 浅草寺).
 Rule for later waves: add the kanji/kana only when a source in hand shows it.
+
+## 2026-10-02 — W2 batches 49–110 (searches 96–166) + go-live + close-out
+**Kept since the last section:** food +29 (Michelin: Tentempura Uchitsu, Abysse, Tempura Otsuka, Bistro Yebisu,
+Kyorakutei, Tamawarai, Ginza Yondaime Takahashiya, Makiyaki Ginza Onodera, Sobakiri Suzuki, Teuchisoba Jiyusan,
+Biriyani Osawa, Shinrakuki, Gigio, Hakodate Shioramen Goryokaku, Zupperia Osteria Pitigliano, Shinjiko Shijimi
+Chukasoba Kohaku; heritage/canon with Wikidata pins: Shin-Yokohama Rāmen Museum, Kashiya Yokochō, Takagiya Rōho,
+Tsukishima Monja Street, Chōmeiji Sakuramochi, Kototoi Dango; UNVERIFIED: Tempura Motoyoshi, Ten Yokota,
+Il Ballond'oro, Ginza Shinohara, Osobano Kouga, Teuchi Asama, Afuri Ebisu) · sights +~80 across every area
+(see `SIGHTS_TOKYO_W2.json`; highlights: Akasaka Palace, Kōkyo Gaien, Ōta Memorial Museum, Sompo (Sunflowers),
+Warner Bros. Studio Tour, Asukayama, Higo-Hosokawa, Chinzan-sō, Kameido Tenjin, Tokyo Sea Life Park, Tonogayato,
+Ōkunitama, Hachiōji Castle, Ōwakudani, Lake Ashi, Odawara Castle, Fujiya Hotel, Futarasan, Zeniarai Benten,
+Doraemon Museum, Nihon Minka-en, Kawagoe Hikawa).
+**Creators:** Paolo fromTOKYO ('Behind the Counter at the ONLY Japanese Monkfish Restaurant in Tokyo') attached to
+Isegen. ONLY in JAPAN (John Daub) vetted but rejected for now — no findable video naming a mapped place.
+**MEASURED & DROPPED (no named dish on the Michelin page / padding):** Ippei Hanten, Chugoku Hanten Fureika, Washokuya
+Taichi, YAMATO, Shokudo Wata, Night Market, Ramen Break Beats, Yakumo Uezu (pins found but cuisine/dish not stated in
+the result — a card must name a dish), Ginza Kousui, Nominokoji Yamagishi, Le Nougat (Ginza padding), Shintomicho
+Yuasa, Kutan. Sumo Museum (inside the Kokugikan — same pin), Kachidoki Bridge and Sunamachi Ginza (only station/
+district points returned).
+**Self-correction:** 31 Japanese-script names typed from memory removed (`_renamed_w2.json`; registry keys renamed,
+coords untouched). Three addresses typed from memory (Kototoi Dango, Afuri Ebisu, Ōmori Nori Museum) coarsened to the
+sourced locality. **Open item:** W2 *sight* street addresses were mostly written from the venue's well-known address,
+not re-read from the cited page — an address-verify pass is queued as W3 step 4 (coordinates are all sourced).
+**Status (4c):** every record carries status + statusSource from a current page; held for status: Edo-Tokyo Museum,
+Shitamachi Museum (renovation closures not confirmed in hand). Closed flagged: Unicorn Gundam statue (Time Out 2026).
+**Final build:** 314 discovered / 294 rendered (212 sights + 82 food), 20 UNVERIFIED held, 13/13 areas;
+sourcecheck PASS · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS.
+**Go-live:** Japan hub CARD:tokyo → live link with counts; countries.json japan live; root CARD:japan "1 of 5 maps
+live"; CITIES.md row. **Searches used:** 166 (of ~200); stopped with a buffer as yield fell below ~2 places/search.

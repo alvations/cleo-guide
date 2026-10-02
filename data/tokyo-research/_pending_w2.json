@@ -148,8 +148,8 @@
   {
    "n": "Gyosen Park",
    "a": "JOTO",
-   "have": "TIMEOUT https://www.timeout.com/tokyo/museums/gyosen-park",
-   "need": "coords + 2nd"
+   "have": "TIMEOUT https://www.timeout.com/tokyo/museums/gyosen-park; Wikidata Q11626195 coords 35.671,139.8584",
+   "need": "2nd"
   },
   {
    "n": "Omori Shell Mound",
@@ -215,6 +215,24 @@
    "n": "Kawasaki Daishi",
    "a": "KANTO",
    "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Kawasaki_Daishi coords 35.534,139.729",
+   "need": "2nd"
+  },
+  {
+   "n": "Toneri Park",
+   "a": "JOTO",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Toneri_Park coords 35.7970524,139.768412",
+   "need": "2nd"
+  },
+  {
+   "n": "Tower Hall Funabori",
+   "a": "JOTO",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/things-to-do/tower-hall-funabori; Wikidata Q85872174 coords 35.684389,139.864861",
+   "need": "2nd"
+  },
+  {
+   "n": "Ryusen-ji (Meguro Fudoson)",
+   "a": "JONAN",
+   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Ry%C5%ABsen-ji coords 35.62861,139.70806",
    "need": "2nd"
   }
  ]

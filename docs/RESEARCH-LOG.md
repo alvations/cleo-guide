@@ -307,3 +307,15 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - A stall inside an already-pinned food centre can reuse that registry pin (med, stall-within-centre) — no new search.
 - Dead end: session WebSearch cap (200, shared by ~16 concurrent agents) stopped W1 after 27 calls; Ghim Moh / Holland
   Village MFC pins left UNVERIFIED rather than estimated.
+
+## 2026-10-02 — Tokyo W2 (relaunch, 166 searches → 314 discovered / 294 on the map)
+- **Sights: ~3.5 places per search.** `en.wikipedia.org`+`gotokyo.org`(+`timeout.com`) restricted, 4 names as
+  "A coordinates; B coordinates; C coordinates; D coordinates" → Wikipedia infobox coords + GO TOKYO spot pages in
+  one call. Kantō day trips: swap GO TOKYO for `japan-guide.com`.
+- **Food: ~1.5–2.5 per search.** Michelin 3-name venue-page queries (lone authority + pin), and Wikidata P625 pins
+  for heritage shops paired with a Time Out / Japan Times / Savor Japan corroboration query.
+- **Dead ends:** `google.com`-restricted Maps searches return unrelated places (abandoned after 1); 5–6-name Michelin
+  queries and any query containing "cuisine" drop the coordinates; mixed-topic queries ("X? — Y; Z…") waste a call.
+- **Rejected pins (logged):** Tsukiji fish market point (demolished inner market, ~400 m off the outer market),
+  Daikokuya and Shiseido Parlour (whole-second Wikidata points off the building), Yamashita Park (Wikipedia point
+  ~25 km off), Todoroki Ryokuchi (a Kawasaki park, not Todoroki Valley), several district/station points.
