@@ -37,9 +37,9 @@ F(1,"DONAN",["RAMEN"],"Hakodate shio ramen (Ajisai shio — kelp-clear broth)","
   status=O,ssrc="Tabelog Ramen HOKKAIDO 百名店 selection (current) via Good Luck Trip directory")
 F(2,"DONAN",["INT"],"Chinese Chicken Burger","Lucky Pierrot Bay Area Honten (ラッキーピエロ ベイエリア本店)",
   "Bay Area waterfront, Hakodate, Hokkaido, Japan",
-  "Hakodate's own clown-themed burger chain (17 branches, all in the city) — the Chinese Chicken Burger, curry rice and soft-serve; the waterfront flagship.",
-  [("HOKKAIDOTOURISM",VHE+"destinations/foodie-tours-in-hakodate-checking-out-the-local-favorites"),jg("e5312.html")],
-  status=O,ssrc="visit-hokkaido.jp Hakodate foodie feature (current)")
+  "The 1987 original of Hakodate's own burger chain (17 shops in the city), done up as a merry-go-round in a forest — the No. 1 Chinese Chicken Burger, sweet-spicy karaage with house mayo, never made ahead.",
+  [("HOKKAIDOTOURISM",VHE+"destinations/foodie-tours-in-hakodate-checking-out-the-local-favorites"),jg("e5312.html"),("RURUBU","https://rurubu.jp/andmore/spot/80000504"),("HAKODATETRAVEL","https://www.hakodate.travel/cht/sightseeing-spots/food-drink-light-meal-dessert/lucky-pierrot-bay-area-head-shop/")],
+  status=O,ssrc="rurubu&more spot page (opened 1987 — the chain's first shop; current)")
 F(1,"DHOKU",["RAMEN"],"Asahikawa shōyu ramen (oily-sealed double broth, thin wavy noodles)","Asahikawa Ramen Village (あさひかわラーメン村)",
   "Nagayama, Asahikawa, Hokkaido, Japan",
   "Eight of Asahikawa's best-known shops under one roof — the city's shōyu style: pork-bone and seafood double broth sealed under a film of lard, thin, firm, wavy noodles.",

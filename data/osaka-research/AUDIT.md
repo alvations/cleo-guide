@@ -95,3 +95,17 @@ geocheck PASS (high 112 · med 3), statuscheck CONSISTENT, buildcheck PASS; `npm
 - **Go-live:** Japan hub CARD:osaka → live link; root CARD:japan "2 of 5 maps live"; CITIES.md row.
 - Channel mix (W2 total): Michelin 102 · editorial/official (japan-guide, OSAKA-INFO, Time Out, Lonely Planet, Cathay,
   Wikipedia) 63 sights + 7 food · local (Inside Osaka) 2 corroborations · creators 0 (searched, none findable — stated).
+
+## 2026-10-02 — W2 tail (Minami canon + sights)
+- jawiki "<名称> 座標" ×3 per query + OSAKA-INFO spot pages as the 2nd source: Ebisubashi & Glico sign, Namba Yasaka
+  Shrine, NGK, Jan Jan Yokochō (pinned); Sennichimae Doguyasuji (UNVERIFIED pin). Shochikuza held (jawiki only).
+- Canon food via OSAKA-INFO features + ja.wikipedia shop articles: **Usamitei Matsubaya** (kitsune udon birthplace),
+  **Jiyuken Namba Honten** (1910 mixed curry) — pins UNVERIFIED. Held single-source: Dotonbori Imai (OSAKA-INFO),
+  551 Hōrai honten (jawiki).
+- Audit fix: street numbers typed without a source were stripped to the sourced locality (31 address fields across
+  W2 sight/geo files); Michelin / OSAKA-INFO / jawiki-sourced addresses kept.
+- Rebuild: 196 discovered, 170 rendered (65 sights + 105 food); high 165 · med 5; 4 gates PASS.
+- Final adds: 551 Hōrai Honten (Time Out "10 things you must eat" + ja.wikipedia; pin UNVERIFIED), Tempura Urakami
+  and PRESTAU (Michelin, pinned). Held (cuisine not surfaced): Shunsaiten Tsuchiya, Hiraishi, OIMATSU Tempura Suzuki,
+  Numata; Roushouki (Kobe) single-source. **Final: 199 discovered, 172 rendered (65 sights + 107 food); high 167 · med 5;
+  4 gates PASS.** Session closed at ~202 searches (main ~90 + workers 112); next wave per RESUME "Next actions".
