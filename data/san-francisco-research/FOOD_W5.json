@@ -1084,5 +1084,63 @@
    "Tea"
   ],
   "dish": "rare Chinese & Taiwanese teas"
+ },
+ {
+  "t": 2,
+  "a": "NOB",
+  "n": "Bob's Donuts",
+  "address": "1720 Polk St, San Francisco, CA 94109",
+  "w": "Polk Street's late-night doughnut institution, opened in the late 1950s and run by the Ahn family since 1977 — moved across the street to a bigger, 1720 Polk shop in 2025.",
+  "closed": false,
+  "sources": [
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/trying-san-francisco-bobs-donuts-17300426.php"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/bobs-donuts-nob-hill"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/bobs-donuts-pastries"
+   ],
+   [
+    "KTVU",
+    "https://www.ktvu.com/news/bobs-donuts-opens-hole-y-new-storefront-sfs-polk-street"
+   ]
+  ],
+  "cz": [
+   "Bakery",
+   "Doughnuts"
+  ],
+  "dish": "doughnuts (late-night)"
+ },
+ {
+  "t": 3,
+  "a": "NOB",
+  "n": "Leopold's",
+  "address": "2400 Polk St, San Francisco, CA 94109",
+  "w": "Rowdy Austrian-style gasthaus on Polk St (2011), reopened in 2023 after a pandemic hiatus — classic Austrian dishes and beer served in a glass boot.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2023/05/11/after-a-long-hiatus-this-beloved-and-rowdy-german-gasthaus-is-back/"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/leopolds"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/sf-leopolds-restaurant-reopening-17880969.php"
+   ]
+  ],
+  "cz": [
+   "German",
+   "Austrian"
+  ],
+  "dish": "beer in a glass boot"
  }
 ]

@@ -388,3 +388,6 @@ Held: Wayfare Tavern (moved to Pine St in 2025 — new address not in-hand), Per
 Red Blossom Tea (Time Out × Hoodline × SF Travel) (NECN food). DROPPED: Gold Dust Lounge — closed indefinitely after 2019 flood (Hoodline,
 SFGATE) → not added; Hyde Street Pier — covered by the existing 'SF Maritime NHP & Aquatic Park' card (Balclutha closure noted by NPS) → not
 duplicated; Levi's Plaza (no 2nd outlet) → held.
+**Batch 12 (searches 78–80):** Flood Mansion/Pacific-Union Club (was held — Wikipedia pin + SFGATE Nob Hill), Golden Gate Theatre (was held —
+Wikipedia pin + SFGATE + SF Travel Mid-Market) (NOB sights); Bob's Donuts (SFGATE × Infatuation × Time Out; KTVU confirms the 1720 Polk move,
+original 1621 Polk closed Nov 2025), Leopold's (SF Standard 2023 reopening × Infatuation × SFGATE) (NOB food).
