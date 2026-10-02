@@ -1,0 +1,1355 @@
+{
+ "areas": [
+  {
+   "id": "DTO",
+   "n": "Downtown Orlando & Thornton Park (Lake Eola, Parramore, Church St)"
+  },
+  {
+   "id": "MILLS",
+   "n": "Mills 50, Milk District, Audubon Park & SoDo"
+  },
+  {
+   "id": "WPK",
+   "n": "Winter Park, Baldwin Park & Maitland"
+  },
+  {
+   "id": "IDR",
+   "n": "International Drive, Dr Phillips & Restaurant Row (SeaWorld, Millenia)"
+  },
+  {
+   "id": "MK",
+   "n": "Magic Kingdom & the Seven Seas Lagoon resorts (Walt Disney World)"
+  },
+  {
+   "id": "EPCOT",
+   "n": "EPCOT & the BoardWalk resorts (Walt Disney World)"
+  },
+  {
+   "id": "DHS",
+   "n": "Disney's Hollywood Studios (Walt Disney World)"
+  },
+  {
+   "id": "DAK",
+   "n": "Disney's Animal Kingdom (Walt Disney World)"
+  },
+  {
+   "id": "DSP",
+   "n": "Disney Springs & the wider Disney resort area"
+  },
+  {
+   "id": "USF",
+   "n": "Universal Studios Florida"
+  },
+  {
+   "id": "IOA",
+   "n": "Universal Islands of Adventure"
+  },
+  {
+   "id": "EPIC",
+   "n": "Universal Epic Universe"
+  },
+  {
+   "id": "CWALK",
+   "n": "Universal CityWalk & the Universal resorts (incl. Volcano Bay)"
+  },
+  {
+   "id": "KISS",
+   "n": "Kissimmee, Celebration, St. Cloud & Lake Nona"
+  },
+  {
+   "id": "WEST",
+   "n": "Winter Garden, Windermere & West Orange"
+  },
+  {
+   "id": "SPRNG",
+   "n": "Sanford, Lake Mary, Mount Dora & the springs (Wekiwa, Blue Spring)"
+  },
+  {
+   "id": "EAST",
+   "n": "East Orlando, UCF & Oviedo"
+  },
+  {
+   "id": "SPACE",
+   "n": "Space Coast (Kennedy Space Center, Titusville, Cocoa Beach)"
+  }
+ ],
+ "ac": {
+  "DTO": "#C0504D",
+  "MILLS": "#E8973A",
+  "WPK": "#2E8B57",
+  "IDR": "#8E44AD",
+  "MK": "#3A6FD8",
+  "EPCOT": "#16A0B5",
+  "DHS": "#B5446E",
+  "DAK": "#6B8E23",
+  "DSP": "#5D6DBE",
+  "USF": "#D4A017",
+  "IOA": "#C76B29",
+  "EPIC": "#7A4FB5",
+  "CWALK": "#A0522D",
+  "KISS": "#D35400",
+  "WEST": "#48A868",
+  "SPRNG": "#1F9E89",
+  "EAST": "#7F8C8D",
+  "SPACE": "#34495E"
+ },
+ "cuisines": [
+  {
+   "id": "PARK",
+   "n": "Theme-Park Signature Eats"
+  },
+  {
+   "id": "FINE",
+   "n": "Michelin & Fine Dining"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnamese (Mills 50)"
+  },
+  {
+   "id": "PR",
+   "n": "Puerto Rican"
+  },
+  {
+   "id": "CUBA",
+   "n": "Cuban"
+  },
+  {
+   "id": "LAT",
+   "n": "Latin American & Caribbean"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican"
+  },
+  {
+   "id": "FLA",
+   "n": "Florida Flavors (gator, citrus, key lime, Gulf seafood)"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood"
+  },
+  {
+   "id": "BBQ",
+   "n": "BBQ & Smokehouse"
+  },
+  {
+   "id": "US",
+   "n": "American & Southern"
+  },
+  {
+   "id": "JP",
+   "n": "Japanese, Sushi & Omakase"
+  },
+  {
+   "id": "CN",
+   "n": "Chinese"
+  },
+  {
+   "id": "KR",
+   "n": "Korean"
+  },
+  {
+   "id": "TH",
+   "n": "Thai & Lao"
+  },
+  {
+   "id": "SEA",
+   "n": "Southeast Asian (Filipino, Malaysian…)"
+  },
+  {
+   "id": "IN",
+   "n": "Indian"
+  },
+  {
+   "id": "ME",
+   "n": "Middle Eastern & Mediterranean"
+  },
+  {
+   "id": "IT",
+   "n": "Italian & Pizza"
+  },
+  {
+   "id": "EU",
+   "n": "European"
+  },
+  {
+   "id": "DES",
+   "n": "Desserts, Bakeries & Coffee"
+  },
+  {
+   "id": "BAR",
+   "n": "Breweries, Bars & Cocktails"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "RIDE",
+   "n": "Theme-Park Rides & Attractions"
+  },
+  {
+   "id": "SHOW",
+   "n": "Shows, Parades & Fireworks"
+  },
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "SPACE",
+   "n": "Space & Science"
+  },
+  {
+   "id": "SPRNG",
+   "n": "Springs, Lakes & Nature"
+  },
+  {
+   "id": "WILD",
+   "n": "Wildlife & Gators"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Architecture"
+  },
+  {
+   "id": "WATER",
+   "n": "Beaches & Waterways"
+  },
+  {
+   "id": "ARTS",
+   "n": "Performing Arts & Music"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets, Food Halls & Shopping"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  },
+  {
+   "id": "BAR",
+   "n": "Bars, Lounges & Speakeasies"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Cinderella Castle",
+   "ad": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The 189-ft castle at the hub of Magic Kingdom — the park's icon and the backdrop for its nightly fireworks.",
+   "k": "icon castle",
+   "g": [
+    "SHOW",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cinderella_Castle"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Space Mountain (Magic Kingdom)",
+   "ad": "Tomorrowland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The original 1975 indoor dark roller coaster in Tomorrowland.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Space_Mountain_(Magic_Kingdom)"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Pirates of the Caribbean (Magic Kingdom)",
+   "ad": "Adventureland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The Adventureland boat dark ride, Florida's version of the 1967 Disneyland classic.",
+   "k": "dark ride boat ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean_(attraction)"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/attractions/magic-kingdom/pirates-of-the-caribbean/"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Big Thunder Mountain Railroad (Magic Kingdom)",
+   "ad": "Frontierland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Runaway mine-train roller coaster through the red-rock buttes of Frontierland.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Big_Thunder_Mountain_Railroad"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Seven Dwarfs Mine Train",
+   "ad": "Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Family mine-train coaster with swinging cars (2014), one of the park's most in-demand rides.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Seven_Dwarfs_Mine_Train"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Haunted Mansion (Magic Kingdom)",
+   "ad": "Liberty Square, Magic Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Doom Buggy dark ride through 999 happy haunts in Liberty Square.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/en-ca/attractions/magic-kingdom/haunted-mansion/"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/magic-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Spaceship Earth",
+   "ad": "World Celebration, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "The 18-storey geodesic sphere at EPCOT's entrance, with a slow time-machine dark ride inside.",
+   "k": "icon dark ride",
+   "g": [
+    "RIDE",
+    "ICON",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Spaceship_Earth_(Epcot)"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Guardians of the Galaxy: Cosmic Rewind",
+   "ad": "World Discovery, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Reverse-launch 'storytelling coaster' with rotating cars (2022) — one of the longest enclosed coasters in the world.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Guardians_of_the_Galaxy:_Cosmic_Rewind"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "EPCOT",
+   "n": "Soarin' Around the World",
+   "ad": "World Nature (The Land), EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Hang-glider flight simulator in The Land pavilion.",
+   "k": "simulator ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Soarin'"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Test Track",
+   "ad": "World Discovery, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "High-speed car-design slot-car ride, EPCOT's fastest attraction.",
+   "k": "ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Epcot_attractions"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Frozen Ever After",
+   "ad": "Norway Pavilion, World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Boat ride through Arendelle in the Norway pavilion.",
+   "k": "boat ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Epcot_attractions"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "EPCOT",
+   "n": "Remy's Ratatouille Adventure",
+   "ad": "France Pavilion, World Showcase, EPCOT, Walt Disney World, Bay Lake, FL",
+   "w": "Trackless 3D dark ride at rat's-eye height through Gusteau's kitchen (2021).",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Remy's_Ratatouille_Adventure"
+    ],
+    [
+     "ALLEARS",
+     "https://allears.net/epcot/attractions-at-a-glance-epcot"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "The Twilight Zone Tower of Terror",
+   "ad": "Sunset Boulevard, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "The 199-ft Hollywood Tower Hotel drop-tower dark ride.",
+   "k": "icon drop tower ride",
+   "g": [
+    "RIDE",
+    "ICON"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Twilight_Zone_Tower_of_Terror"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Rock 'n' Roller Coaster",
+   "ad": "Sunset Boulevard, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Launched indoor coaster on Sunset Boulevard (0–57 mph in 2.8 s).",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "SPACE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rock_'n'_Roller_Coaster"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Slinky Dog Dash",
+   "ad": "Toy Story Land, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Family launch coaster in Toy Story Land (2018).",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE",
+    "SPACE",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Slinky_Dog_Dash"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DHS",
+   "n": "Star Wars: Rise of the Resistance",
+   "ad": "Star Wars: Galaxy's Edge, Disney's Hollywood Studios, Walt Disney World, Bay Lake, FL",
+   "w": "Trackless dark ride / walk-through epic inside a Star Destroyer — widely ranked the best ride at Walt Disney World.",
+   "k": "dark ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_Disney's_Hollywood_Studios_attractions"
+    ],
+    [
+     "DISNEYBLOG",
+     "https://disneyblog.com/faq/attractions/best-rides-hollywood-studios"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Tree of Life (Disney)",
+   "ad": "Discovery Island, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "The 145-ft carved tree at the heart of Animal Kingdom, covered in ~300 animal carvings.",
+   "k": "icon",
+   "g": [
+    "ICON",
+    "WILD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tree_of_Life_(Disney)"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/attractions/animal-kingdom/tree-of-life/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Expedition Everest",
+   "ad": "Asia, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Roller coaster up (and backwards down) a Himalayan peak with a Yeti.",
+   "k": "roller coaster ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Expedition_Everest"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Avatar Flight of Passage",
+   "ad": "Pandora – The World of Avatar, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "3D motorbike-style flight simulator on a banshee over Pandora (2017).",
+   "k": "simulator ride",
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Avatar_Flight_of_Passage"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/disneys-animal-kingdom/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAK",
+   "n": "Kilimanjaro Safaris",
+   "ad": "Africa, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Open-truck safari across a 110-acre savanna of live African animals.",
+   "k": "safari animal wildlife ride",
+   "g": [
+    "RIDE",
+    "WILD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kilimanjaro_Safaris"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/destinations/animal-kingdom/kilimanjaro-safaris/"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAK",
+   "n": "Na'vi River Journey",
+   "ad": "Pandora – The World of Avatar, Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Slow boat ride through a bioluminescent Pandoran rainforest.",
+   "k": "boat ride",
+   "g": [
+    "RIDE",
+    "SPRNG"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Na%27vi_River_Journey"
+    ],
+    [
+     "OFFICIAL",
+     "https://disneyworld.disney.go.com/attractions/animal-kingdom/navi-river-journey/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DAK",
+   "n": "Dinosaur — CLOSED",
+   "ad": "DinoLand U.S.A., Disney's Animal Kingdom, Walt Disney World, Bay Lake, FL",
+   "w": "Time-rover dark ride (1998) — closed 2 Feb 2026 as DinoLand is replaced; kept flagged so it never reads as open.",
+   "k": "dark ride",
+   "closed": true,
+   "g": [
+    "RIDE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Dinosaur_(Disney%27s_Animal_Kingdom)"
+    ],
+    [
+     "ALLEARS",
+     "https://allearsnet.com/tp/ak/ak_attr.htm"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "WPK",
+   "n": "Sorekara",
+   "ad": "4979 New Broad St, Orlando, FL 32814",
+   "w": "Orlando's only TWO-Michelin-star restaurant (2026 Michelin Guide Florida), a Japanese tasting counter in Baldwin Park. Order: Seasonal Japanese tasting menu (kaiseki-style).",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/six-orlando-area-restaurants-retain-their-stars-in-2026-michelin-guide-florida/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WPK",
+   "n": "Camille",
+   "ad": "4962 New Broad St, Orlando, FL 32814",
+   "w": "One Michelin star (2025, retained 2026) — a Baldwin Park tasting-menu dining room. Order: Contemporary tasting menu.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/six-orlando-area-restaurants-retain-their-stars-in-2026-michelin-guide-florida/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Kadence",
+   "ad": "1809 Winter Park Rd, Orlando, FL 32803",
+   "w": "One Michelin star, retained 2026 — a tiny Audubon Park omakase counter that put Orlando on the Michelin map.",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/six-orlando-area-restaurants-retain-their-stars-in-2026-michelin-guide-florida/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WPK",
+   "n": "ÔMO by Jônt",
+   "ad": "115 E Lyman Ave, Winter Park, FL 32789",
+   "w": "One Michelin star (retained 2026) — Winter Park tasting-menu counter from the team behind D.C.'s two-star Jônt. Order: Chef's tasting menu.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/six-orlando-area-restaurants-retain-their-stars-in-2026-michelin-guide-florida/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WPK",
+   "n": "Soseki Modern Omakase",
+   "ad": "955 W Fairbanks Ave, Winter Park, FL 32789",
+   "w": "One Michelin star (retained 2026) — modern omakase in Winter Park.",
+   "cz": [
+    "JP",
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/six-orlando-area-restaurants-retain-their-stars-in-2026-michelin-guide-florida/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MK",
+   "n": "Victoria & Albert's",
+   "ad": "4401 Floridian Way, Lake Buena Vista, FL 32830",
+   "w": "Walt Disney World's only Michelin-starred restaurant, inside Disney's Grand Floridian Resort & Spa — one star, retained 2026. Order: Multi-course chef's tasting menu.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/food-drink/six-orlando-area-restaurants-retain-their-stars-in-2026-michelin-guide-florida/"
+    ],
+    [
+     "VISITORLANDO",
+     "https://www.visitorlando.com/blog/post/orlando-michelin-restaurants/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WPK",
+   "n": "The Ravenous Pig",
+   "ad": "565 W Fairbanks Ave, Winter Park, FL 32789",
+   "w": "Winter Park's landmark gastropub + brewery; Michelin Bib Gourmand every year 2022–2026. Order: Gastropub plates with house-brewed beer.",
+   "cz": [
+    "US",
+    "BAR"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/orlando/reviews/the-ravenous-pig"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Smokemade Meats + Eats",
+   "ad": "1400 S Crystal Lake Dr, Orlando, FL 32806",
+   "w": "Curry Ford West barbecue joint; Michelin Bib Gourmand 2026. Order: Central-Texas-style smoked brisket.",
+   "cz": [
+    "BBQ"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Bánh Mì Boy",
+   "ad": "1110 E Colonial Dr, Orlando, FL 32803",
+   "w": "Bánh mì stall inside Mills Market on the Mills 50 Vietnamese strip; Michelin Bib Gourmand 2026.",
+   "cz": [
+    "VN"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "IDR",
+   "n": "Bombay Street Kitchen",
+   "ad": "6215 S Orange Blossom Trl, Orlando, FL 32809",
+   "w": "South Orlando Indian street-food spot; Michelin Bib Gourmand 2026. Order: Mumbai street food.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MILLS",
+   "n": "Coro",
+   "ad": "3022 Corrine Dr, Orlando, FL 32803",
+   "w": "Audubon Park contemporary restaurant; Michelin Bib Gourmand 2026. Order: Contemporary small plates.",
+   "cz": [
+    "FINE"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Domu",
+   "ad": "3201 Corrine Dr, Orlando, FL 32803",
+   "w": "Audubon Park ramen house; Michelin Bib Gourmand.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ],
+    [
+     "ORLANDOWEEKLY",
+     "https://www.orlandoweekly.com/location/domu-9279669"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "IDR",
+   "n": "Isan Zaap",
+   "ad": "4693 Gardens Park Blvd, Suite 113, Orlando, FL 32839",
+   "w": "Millenia-area Isan Thai; Michelin Bib Gourmand 2026. Order: Isan (northeastern Thai) dishes.",
+   "cz": [
+    "TH"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Norigami",
+   "ad": "426 W Plant St, Winter Garden, FL 34787",
+   "w": "Eight-seat sushi stall inside Plant Street Market, Winter Garden; Michelin Bib Gourmand 2026. Order: Hand rolls and nigiri at an eight-seat sushi stall.",
+   "cz": [
+    "JP"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Otto's High Dive",
+   "ad": "2304 E Robinson St, Orlando, FL 32803",
+   "w": "Milk District Cuban-leaning cocktail dive; Michelin Bib Gourmand 2026. Order: Cuban sandwich and Cuban-American bar food.",
+   "cz": [
+    "CUBA",
+    "US",
+    "BAR"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Otto%27s_High_Dive"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "The Strand",
+   "ad": "807 N Mills Ave, Orlando, FL 32803",
+   "w": "Long-running Mills 50 neighbourhood restaurant; Michelin Bib Gourmand 2026. Order: Contemporary American plates.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTO",
+   "n": "Sushi Saint",
+   "ad": "400 Pittman St, Suite A, Orlando, FL 32801",
+   "w": "Creative Village sushi spot inside Brew Theory; Michelin Bib Gourmand 2026. Order: Sushi rolls.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WPK",
+   "n": "Taste of Chengdu",
+   "ad": "856 New Broad St, Orlando, FL 32814",
+   "w": "Baldwin Park Sichuan restaurant (second branch 2030 W Colonial Dr); Michelin Bib Gourmand 2026. Order: Sichuan dishes.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "UniGirl",
+   "ad": "1110 E Colonial Dr, Orlando, FL 32803",
+   "w": "Onigiri counter in Mills Market; Michelin Bib Gourmand 2026.",
+   "cz": [
+    "JP"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MILLS",
+   "n": "Zaru",
+   "ad": "1114 E Colonial Dr, Orlando, FL 32803",
+   "w": "Mills 50 udon shop; Michelin Bib Gourmand 2026.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/florida/orlando/restaurants"
+    ],
+    [
+     "CLICKORLANDO",
+     "https://www.clickorlando.com/insider/2025/12/23/bib-gourmand-restaurants-in-orlando/"
+    ],
+    [
+     "WFTV",
+     "https://www.wftv.com/news/local/orlandos-culinary-scene-shines-2026-michelin-guide/D2OH6GXRPZA23O2RZXR2ONF4KY/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/orlando/reviews/zaru"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ALLEARS": {
+   "k": "ALLEARS",
+   "t": "AllEars.net",
+   "u": "https://allears.net/",
+   "l": "AllEars.net"
+  },
+  "DISNEYBLOG": {
+   "k": "DISNEYBLOG",
+   "t": "DisneyBlog",
+   "u": "https://disneyblog.com/",
+   "l": "DisneyBlog"
+  },
+  "FROMMERS": {
+   "k": "FROMMERS",
+   "t": "Frommer's",
+   "u": "https://www.frommers.com/",
+   "l": "Frommer's"
+  },
+  "OFFICIAL": {
+   "k": "OFFICIAL SITE",
+   "t": "Official site (venue / Walt Disney World / Universal Orlando)",
+   "u": "",
+   "l": "Official site (venue / Walt Disney World / Universal Orlando)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "CLICKORLANDO": {
+   "k": "NEWS 6 (WKMG)",
+   "t": "News 6 WKMG (ClickOrlando)",
+   "u": "https://www.clickorlando.com/",
+   "l": "News 6 WKMG (ClickOrlando)"
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "The Infatuation — Orlando",
+   "u": "https://www.theinfatuation.com/orlando",
+   "l": "The Infatuation — Orlando"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN Guide Florida (Orlando selection)",
+   "u": "https://guide.michelin.com/us/en/florida/orlando/restaurants",
+   "l": "MICHELIN Guide Florida (Orlando selection)"
+  },
+  "ORLANDOWEEKLY": {
+   "k": "ORLANDO WEEKLY",
+   "t": "Orlando Weekly",
+   "u": "https://www.orlandoweekly.com/",
+   "l": "Orlando Weekly"
+  },
+  "VISITORLANDO": {
+   "k": "VISIT ORLANDO",
+   "t": "Visit Orlando (official destination marketing org)",
+   "u": "https://www.visitorlando.com/",
+   "l": "Visit Orlando (official destination marketing org)"
+  },
+  "WFTV": {
+   "k": "WFTV 9",
+   "t": "WFTV Channel 9 (ABC Orlando)",
+   "u": "https://www.wftv.com/",
+   "l": "WFTV Channel 9 (ABC Orlando)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  }
+ }
+}
