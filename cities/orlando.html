@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Orlando &amp; Central Florida field guide — 136 sights and 6 places to eat: Walt Disney World and Universal Orlando pinned attraction by attraction, Mills 50 Vietnamese, Winter Park, Kissimmee, the springs and the Space Coast, each traceable to its source (Michelin, Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Orlando &amp; Central Florida field guide — 141 sights and 6 places to eat: Walt Disney World and Universal Orlando pinned attraction by attraction, Mills 50 Vietnamese, Winter Park, Kissimmee, the springs and the Space Coast, each traceable to its source (Michelin, Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
 <title>Orlando &amp; Central Florida Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Orlando, the parks &amp; Central Florida, sourced</p>
   <h1>Orlando<span class="thin">the parks ride by ride, Mills 50, the springs &amp; the Space Coast</span></h1>
-  <p class="standfirst">136 sights and 6 places to eat across <strong>Orlando &amp; Central Florida</strong> &mdash; <strong>Walt Disney World</strong> and <strong>Universal</strong> pinned ride by ride inside each park, and the real city beyond them: Downtown and Lake Eola, the <strong>Mills 50</strong> Vietnamese corridor, Winter Park, Restaurant Row, Puerto Rican Kissimmee, the crystal-blue <strong>springs</strong> and the <strong>Space Coast</strong>. Each is traceable to the source that named it &mdash; Michelin, the Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks and the park operators themselves. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (theme-park signature eats are their own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">141 sights and 6 places to eat across <strong>Orlando &amp; Central Florida</strong> &mdash; <strong>Walt Disney World</strong> and <strong>Universal</strong> pinned ride by ride inside each park, and the real city beyond them: Downtown and Lake Eola, the <strong>Mills 50</strong> Vietnamese corridor, Winter Park, Restaurant Row, Puerto Rican Kissimmee, the crystal-blue <strong>springs</strong> and the <strong>Space Coast</strong>. Each is traceable to the source that named it &mdash; Michelin, the Orlando Sentinel, Orlando Weekly, NASA, Florida State Parks and the park operators themselves. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong> (theme-park signature eats are their own layer), and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -319,12 +319,14 @@
 <script>
 
 const S = {
+  "AAA":{k:"AAA",t:"AAA TripCanvas / Tourbook",u:"https://www.aaa.com/tripcanvas/",l:"AAA TripCanvas / Tourbook"},
   "ALLEARS":{k:"ALLEARS",t:"AllEars.net",u:"https://allears.net/",l:"AllEars.net"},
   "ATLANTAMAG":{k:"ATLANTAMAG",t:"Atlanta Magazine",u:"https://www.atlantamagazine.com/",l:"Atlanta Magazine"},
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/things-to-do/orlando-florida",l:"Atlas Obscura"},
   "ATTRACTIONSMAG":{k:"ATTRACTIONSMAG",t:"Attractions Magazine",u:"https://attractionsmagazine.com/",l:"Attractions Magazine"},
   "BRITONTHEMOVE":{k:"BRITONTHEMOVE",t:"Brit on the Move",u:"https://britonthemove.com/",l:"Brit on the Move"},
   "BUNGALOWER":{k:"BUNGALOWER",t:"Bungalower",u:"https://bungalower.com/",l:"Bungalower"},
+  "CLICKORLANDO":{k:"NEWS 6 (WKMG)",t:"News 6 WKMG (ClickOrlando)",u:"https://www.clickorlando.com/",l:"News 6 WKMG (ClickOrlando)"},
   "CNNTRAVEL":{k:"CNNTRAVEL",t:"CNN Travel",u:"https://edition.cnn.com/travel",l:"CNN Travel"},
   "DISNEYBLOG":{k:"DISNEYBLOG",t:"DisneyBlog",u:"https://disneyblog.com/",l:"DisneyBlog"},
   "DISNEYFOODBLOG":{k:"DISNEY FOOD BLOG",t:"Disney Food Blog (AJ Wolfe)",u:"https://www.disneyfoodblog.com/",l:"Disney Food Blog (AJ Wolfe)"},
@@ -395,10 +397,14 @@ const P = [
 {t:2,a:"WPK",n:"Maitland Art Center",ad:"231 W Packwood Ave, Maitland, FL 32751",la:28.62556,ln:-81.36750,w:"1937 Mayan-Revival artists' colony by André Smith — a National Historic Landmark.",k:"museum gallery historic architecture",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Maitland_Art_Center"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/beyond-theme-parks/arts-entertainment/"]]},
 {t:2,a:"WPK",n:"Zora Neale Hurston National Museum of Fine Arts",ad:"Eatonville, FL",la:28.61851,ln:-81.38204,w:"Gallery in Eatonville, one of the first incorporated Black towns in the US and Zora Neale Hurston's hometown.",k:"museum gallery history",g:["MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Zora_Neale_Hurston_Museum_of_Fine_Arts"],["VISITORLANDO","https://www.visitorlando.com/things-to-do/attractions/museums/"]]},
 {t:2,a:"DTO",n:"Jack Kerouac House (Orlando)",ad:"1418 Clouser Ave, Orlando, FL",la:28.56444,ln:-81.39167,w:"College Park cottage where Kerouac wrote The Dharma Bums (1957–58); now a writers' residency.",k:"historic odd literary",g:["ODD","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Jack_Kerouac_House"],["ATLASOBSCURA","https://www.atlasobscura.com/things-to-do/orlando-florida"]]},
+{t:2,a:"KISS",n:"Lake Nona Sculpture Garden",ad:"6100 Wave Hotel Dr, Orlando, FL 32827",la:28.37386,ln:-81.28127,w:"Free open-air garden of world-renowned sculptures beside the Lake Nona Wave Hotel (2022).",k:"odd free sculpture",g:["ODD","SPRNG","FREE"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/lake-nona-sculpture-garden"],["VISITORLANDO","https://visitorlando.com/blog/post/lake-nona-sculpture-garden-jefre/"]]},
 {t:1,a:"DTO",n:"Dr. Phillips Center for the Performing Arts",ad:"Downtown Orlando, FL",la:28.53803,ln:-81.37819,w:"Glass-walled performing-arts centre (2014) hosting Broadway tours, the Orlando Ballet and concerts.",k:"performing arts theater concert",g:["ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dr._Phillips_Center_for_the_Performing_Arts"],["BRITONTHEMOVE","https://britonthemove.com/things-to-do-in-downtown-orlando/"]]},
 {t:2,a:"DTO",n:"Church Street Station (Orlando)",ad:"Church St, Downtown Orlando, FL",la:28.54000,ln:-81.38056,w:"1889 railroad depot with a conical tower at the heart of the Church Street bar-and-restaurant district.",k:"historic nightlife bars",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Church_Street_Station"],["BRITONTHEMOVE","https://britonthemove.com/things-to-do-in-downtown-orlando/"]]},
 {t:2,a:"DTO",n:"Orlando Public Library (Downtown)",ad:"101 E Central Blvd, Orlando, FL",la:28.54225,ln:-81.37703,w:"John Johansen's 1966 Brutalist library; a corner upstairs holds the Disney Collection of park history (Atlas Obscura).",k:"architecture odd free museum collection",g:["ODD","FREE","MUS","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Orange_County_Library_System"],["ATLASOBSCURA","https://www.atlasobscura.com/things-to-do/orlando-florida"]]},
 {t:3,a:"DTO",n:"Camping World Stadium",ad:"Parramore, Orlando, FL",la:28.53889,ln:-81.40278,w:"1936 stadium, home of the Citrus Bowl and Pop-Tarts Bowl.",k:"stadium",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Camping_World_Stadium"],["OFFICIAL","https://floridacitrussports.com/things-to-do/things-to-do-in-downtown-orlando"]]},
+{t:2,a:"DTO",n:"Kia Center",ad:"Downtown Orlando, FL",la:28.53917,ln:-81.38361,w:"Arena of the NBA's Orlando Magic.",k:"arena concert",g:["ARTS"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Kia_Center"],["VISITORLANDO","https://www.visitorlando.com/trade/itineraries/discover-downtown/"]]},
+{t:3,a:"DTO",n:"Inter&Co Stadium",ad:"Parramore, Orlando, FL",la:28.54110,ln:-81.38930,w:"Soccer-specific stadium of Orlando City SC and the Orlando Pride.",k:"stadium",g:["RIDE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Inter&Co_Stadium"],["VISITORLANDO","https://www.visitorlando.com/trade/itineraries/discover-downtown/"]]},
+{t:3,a:"DTO",n:"Greenwood Cemetery (Orlando)",ad:"Downtown Orlando, FL",la:28.53472,ln:-81.35722,w:"Orlando's historic 1880 cemetery with founders' graves; volunteer-led moonlight walks.",k:"historic cemetery",g:["HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Greenwood_Cemetery_(Orlando,_Florida)"],["CLICKORLANDO","https://clickorlando.com/features/2023/10/26/history-and-haunts-everything-you-didnt-know-about-orlandos-greenwood-cemetery"]]},
 {t:2,a:"EPIC",n:"Curse of the Werewolf (Epic Universe)",ad:"Dark Universe, Universal Epic Universe, Orlando, FL",la:28.43972,ln:-81.44971,w:"Spinning family coaster through a werewolf-haunted Darkmoor.",k:"roller coaster ride",g:["RIDE","FAM"],s:[["THEMEPARKINSIDER","https://www.themeparkinsider.com/flume/202504/10823/"],["ATTRACTIONSMAG","https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"]]},
 {t:3,a:"EPIC",n:"Yoshi's Adventure (Epic Universe)",ad:"Super Nintendo World, Universal Epic Universe, Orlando, FL",la:28.43887,ln:-81.44827,w:"Slow egg-hunt track ride over Mario's world.",k:"ride family",g:["RIDE","FAM"],s:[["THEMEPARKINSIDER","https://www.themeparkinsider.com/flume/202504/10823/"],["ATTRACTIONSMAG","https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"]]},
 {t:3,a:"EPIC",n:"Dragon Racer's Rally",ad:"How to Train Your Dragon – Isle of Berk, Universal Epic Universe, Orlando, FL",la:28.44145,ln:-81.44534,w:"Flat ride where riders control the spin of their dragon.",k:"ride",g:["RIDE"],s:[["THEMEPARKINSIDER","https://www.themeparkinsider.com/flume/202504/10823/"],["ATTRACTIONSMAG","https://attractionsmagazine.com/epic-universe-rides-ranked-best-worst/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/List_of_Universal_Epic_Universe_attractions"]]},
@@ -414,6 +420,7 @@ const P = [
 {t:1,a:"SPRNG",n:"Kelly Park (Rock Springs)",ad:"Apopka, FL",la:28.76111,ln:-81.50306,w:"Orange County park whose Rock Springs run is Central Florida's natural lazy river for tubing.",k:"springs nature swimming",g:["SPRNG"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Dr._Howard_A._Kelly_Park"],["FLORIDAGUIDEBOOK","https://www.florida-guidebook.com/?p=6153"],["MISSTOURIST","https://misstourist.com/best-natural-springs-in-orlando-florida-usa/"]]},
 {t:2,a:"SPRNG",n:"De Leon Springs State Park",ad:"De Leon Springs, FL",la:29.14000,ln:-81.36889,w:"Spring swimming area plus the Old Spanish Sugar Mill, where you cook your own pancakes at the table.",k:"springs state park nature",g:["SPRNG"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/De_Leon_Springs_State_Park"],["FLORIDAGUIDEBOOK","https://www.florida-guidebook.com/?p=6153"]]},
 {t:2,a:"SPRNG",n:"Mount Dora Historic District",ad:"Mount Dora, FL",la:28.80250,ln:-81.64361,w:"NRHP-listed lakeside downtown of antique shops and 1880s–1920s buildings on Lake Dora.",k:"historic nrhp antique shopping",g:["SPRNG","HIST","MKT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mount_Dora_Historic_District"],["VISITFLORIDA","https://www.visitflorida.com/places-to-go/central/mount-dora/"]]},
+{t:2,a:"SPRNG",n:"Central Florida Zoo and Botanical Gardens",ad:"Sanford, FL",la:28.82778,ln:-81.31611,w:"116-acre zoo and botanical garden in Sanford.",k:"zoo animal family",g:["WILD","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Central_Florida_Zoo_and_Botanical_Gardens"],["AAA","https://www.aaa.com/tripcanvas/attraction/central-florida-zoo-and-botanical-gardens-VA28478"]]},
 {t:1,a:"SPRNG",n:"Cassadaga Spiritualist Camp",ad:"Cassadaga, FL",la:28.96639,ln:-81.23583,w:"1894 Spiritualist community — the 'Psychic Capital of the World' — with mediums' cottages, a hotel and history tours (NRHP).",k:"historic odd nrhp",g:["ODD","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Southern_Cassadaga_Spiritualist_Camp_Historic_District"],["BUNGALOWER","https://bungalower.com/2019/09/20/cassadaga/"],["FIFTYPLUS","https://www.fiftyplusadvocate.com/2018/07/26/for-a-spiritual-day-trip-visit-cassadaga/"]]},
 {t:2,a:"SPRNG",n:"Hontoon Island State Park",ad:"Near DeLand, FL (St. Johns River)",la:28.96694,ln:-81.36306,w:"Island park reached only by ferry or boat, with trails, a Timucuan shell mound and cabins; reopened 20 Oct after a three-year closure.",k:"state park river nature",g:["SPRNG"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hontoon_Island_State_Park"],["ISLANDS","https://www.islands.com/2148967/hontoon-island-state-park-florida-rustic-escape-trails-fishing-camping-only-accessible-boat/"],["MYCENTRALFLFAMILY","https://mycentralfloridafamily.com/hontoon-island-state-park-reopens/"]]},
 {t:1,a:"MK",n:"Cinderella Castle",ad:"Fantasyland, Magic Kingdom, Walt Disney World, Bay Lake, FL",la:28.41950,ln:-81.58120,w:"The 189-ft castle at the hub of Magic Kingdom — the park's icon and the backdrop for its nightly fireworks.",k:"icon castle",g:["SHOW","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cinderella_Castle"],["ALLEARS","https://allears.net/magic-kingdom/magic-kingdom-attractions-at-a-glance/"],["FROMMERS","https://www.frommers.com/destinations/magic-kingdom/attractions"]]},
@@ -520,32 +527,53 @@ const P = [
 ];
 
 const FS = {
+  "AAA":{k:"AAA",t:"AAA TripCanvas / Tourbook",u:"https://www.aaa.com/tripcanvas/",l:"AAA TripCanvas / Tourbook"},
+  "ALLEARS":{k:"ALLEARS",t:"AllEars.net",u:"https://allears.net/",l:"AllEars.net"},
   "BUNGALOWER":{k:"BUNGALOWER",t:"Bungalower",u:"https://bungalower.com/",l:"Bungalower"},
+  "BURGERBEAST":{k:"BURGERBEAST",t:"Burger Beast (Sef Gonzalez)",u:"https://burgerbeast.com/",l:"Burger Beast (Sef Gonzalez)"},
   "CLICKORLANDO":{k:"NEWS 6 (WKMG)",t:"News 6 WKMG (ClickOrlando)",u:"https://www.clickorlando.com/",l:"News 6 WKMG (ClickOrlando)"},
+  "DAILYCOFFEENEWS":{k:"DAILYCOFFEENEWS",t:"Daily Coffee News (Roast Magazine)",u:"https://dailycoffeenews.com/",l:"Daily Coffee News (Roast Magazine)"},
+  "DAYTONABEACHCVB":{k:"DAYTONABEACHCVB",t:"Daytona Beach Area Convention & Visitors Bureau",u:"https://www.daytonabeach.com/",l:"Daytona Beach Area Convention & Visitors Bureau"},
+  "DISNEYBIZJOURNAL":{k:"DISNEYBIZJOURNAL",t:"DisneyBizJournal (Substack)",u:"https://disneybizjournal.substack.com/",l:"DisneyBizJournal (Substack)"},
   "DISNEYFOODBLOG":{k:"DISNEY FOOD BLOG",t:"Disney Food Blog (AJ Wolfe)",u:"https://www.disneyfoodblog.com/",l:"Disney Food Blog (AJ Wolfe)"},
+  "EXPERIENCEKISSIMMEE":{k:"EXPERIENCEKISSIMMEE",t:"Experience Kissimmee",u:"https://www.experiencekissimmee.com/",l:"Experience Kissimmee"},
   "FLORIDAGUIDEBOOK":{k:"FLORIDAGUIDEBOOK",t:"Florida Guidebook",u:"https://www.florida-guidebook.com/",l:"Florida Guidebook"},
+  "FLORIDARAMBLER":{k:"FLORIDARAMBLER",t:"Florida Rambler",u:"https://floridarambler.com/",l:"Florida Rambler"},
   "FOODNETWORK":{k:"FOODNETWORK",t:"Food Network",u:"https://www.foodnetwork.com/",l:"Food Network"},
   "FOX35":{k:"FOX 35",t:"FOX 35 Orlando (WOFL)",u:"https://www.fox35orlando.com/",l:"FOX 35 Orlando (WOFL)"},
   "FROMMERS":{k:"FROMMERS",t:"Frommer's",u:"https://www.frommers.com/",l:"Frommer's"},
   "INFATUATION":{k:"INFATUATION",t:"The Infatuation — Orlando",u:"https://www.theinfatuation.com/orlando",l:"The Infatuation — Orlando"},
   "ISLANDS":{k:"ISLANDS",t:"Islands.com",u:"https://www.islands.com/",l:"Islands.com"},
   "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation Awards",u:"https://www.jamesbeard.org/awards",l:"James Beard Foundation Awards"},
+  "LIFEINLAKE":{k:"LIFEINLAKE",t:"Life in Lake County magazine",u:"https://lifeinlake.com/",l:"Life in Lake County magazine"},
   "LONELYPLANET":{k:"LONELYPLANET",t:"Lonely Planet",u:"https://www.lonelyplanet.com/",l:"Lonely Planet"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Florida (Orlando selection)",u:"https://guide.michelin.com/us/en/florida/orlando/restaurants",l:"MICHELIN Guide Florida (Orlando selection)"},
   "MICKEYBLOG":{k:"MICKEYBLOG",t:"MickeyBlog",u:"https://mickeyblog.com/",l:"MickeyBlog"},
   "MYCENTRALFLFAMILY":{k:"MYCENTRALFLFAMILY",t:"My Central Florida Family",u:"https://mycentralfloridafamily.com/",l:"My Central Florida Family"},
   "OFFICIAL":{k:"OFFICIAL SITE",t:"Official site (venue / Walt Disney World / Universal Orlando)",u:"",l:"Official site (venue / Walt Disney World / Universal Orlando)"},
+  "ORANGEOBSERVER":{k:"ORANGEOBSERVER",t:"Orange Observer (West Orange Times & Observer)",u:"https://www.orangeobserver.com/",l:"Orange Observer (West Orange Times & Observer)"},
+  "ORLANDOINFORMER":{k:"ORLANDOINFORMER",t:"Orlando Informer",u:"https://orlandoinformer.com/",l:"Orlando Informer"},
+  "ORLANDOMAG":{k:"ORLANDO MAGAZINE",t:"Orlando Magazine (Dining Awards / Best of)",u:"https://www.orlandomagazine.com/",l:"Orlando Magazine (Dining Awards / Best of)"},
   "ORLANDOWEEKLY":{k:"ORLANDO WEEKLY",t:"Orlando Weekly",u:"https://www.orlandoweekly.com/",l:"Orlando Weekly"},
+  "ROADFOOD":{k:"ROADFOOD",t:"Roadfood (Jane & Michael Stern)",u:"https://roadfood.com/",l:"Roadfood (Jane & Michael Stern)"},
+  "SANFORDHERALD":{k:"SANFORDHERALD",t:"Sanford Herald",u:"https://www.mysanfordherald.com/",l:"Sanford Herald"},
   "SCOTTJOSEPH":{k:"SCOTTJOSEPH",t:"Scott Joseph's Orlando Restaurant Guide",u:"https://scottjosephorlando.com/",l:"Scott Joseph's Orlando Restaurant Guide"},
+  "SOMEHOWIMNOTFAT":{k:"SOMEHOWIMNOTFAT",t:"Christina Petsos (@somehowimnotfat)",u:"https://www.instagram.com/somehowimnotfat/",l:"Christina Petsos (@somehowimnotfat)"},
+  "SPACECOASTLIVING":{k:"SPACECOASTLIVING",t:"Space Coast Living magazine (Best of the Space Coast readers' awards)",u:"https://spacecoastliving.com/",l:"Space Coast Living magazine (Best of the Space Coast readers' awards)"},
   "SPECTRUMNEWS13":{k:"SPECTRUM NEWS 13",t:"Spectrum News 13",u:"https://mynews13.com/",l:"Spectrum News 13"},
   "TASTINGTABLE":{k:"TASTINGTABLE",t:"Tasting Table",u:"https://www.tastingtable.com/",l:"Tasting Table"},
   "TASTYCHOMPS":{k:"TASTY CHOMPS",t:"Tasty Chomps (Ricky Ly)",u:"https://tastychomps.com/",l:"Tasty Chomps (Ricky Ly)"},
   "TIMEOUT":{k:"TIME OUT",t:"Time Out Orlando",u:"https://www.timeout.com/orlando",l:"Time Out Orlando"},
   "TOURINGPLANS":{k:"TOURINGPLANS",t:"TouringPlans",u:"https://touringplans.com/",l:"TouringPlans"},
   "TRAVELPULSE":{k:"TRAVELPULSE",t:"TravelPulse",u:"https://www.travelpulse.com/",l:"TravelPulse"},
+  "VISITFLORIDA":{k:"VISITFLORIDA",t:"VISIT FLORIDA",u:"https://visitflorida.com/",l:"VISIT FLORIDA"},
   "VISITORLANDO":{k:"VISIT ORLANDO",t:"Visit Orlando (official destination marketing org)",u:"https://www.visitorlando.com/",l:"Visit Orlando (official destination marketing org)"},
+  "WDWINFO":{k:"WDWINFO",t:"WDWInfo.com",u:"https://www.wdwinfo.com/",l:"WDWInfo.com"},
+  "WDWMAGIC":{k:"WDWMAGIC",t:"WDWMagic",u:"https://www.wdwmagic.com/",l:"WDWMagic"},
   "WFTV":{k:"WFTV 9",t:"WFTV Channel 9 (ABC Orlando)",u:"https://www.wftv.com/",l:"WFTV Channel 9 (ABC Orlando)"},
-  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"},
+  "WINTERPARKMAG":{k:"WINTERPARKMAG",t:"Winter Park Magazine",u:"https://winterparkmag.com",l:"Winter Park Magazine"},
+  "WUSF":{k:"WUSF",t:"WUSF Public Media (NPR, Tampa Bay)",u:"https://wusf.org",l:"WUSF Public Media (NPR, Tampa Bay)"}
 };
 
 const CUISINES = [
@@ -707,7 +735,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Downtown Orlando", 28.5436, -81.3833], ["Mills 50", 28.5657, -81.362], ["Winter Park", 28.6044, -81.357], ["International Drive", 28.4105, -81.4613], ["Magic Kingdom", 28.4172, -81.5809], ["EPCOT", 28.3707, -81.5497], ["Disney's Hollywood Studios", 28.3571, -81.5601], ["Disney's Animal Kingdom", 28.3577, -81.5916], ["Disney Springs", 28.3624, -81.5414], ["Universal Studios Florida", 28.4787, -81.4685], ["Universal Islands of Adventure", 28.4709, -81.4714], ["Universal Epic Universe", 28.4404, -81.4476], ["Universal CityWalk", 28.4668, -81.4693], ["Kissimmee", 28.3064, -81.4171], ["Winter Garden", 28.5661, -81.5835], ["Sanford", 28.9361, -81.4149], ["Space Coast", 28.5084, -80.6965]];
+const LABELS=[["Downtown Orlando", 28.5421, -81.3815], ["Mills 50", 28.5657, -81.362], ["Winter Park", 28.6044, -81.357], ["International Drive", 28.4105, -81.4613], ["Magic Kingdom", 28.4172, -81.5809], ["EPCOT", 28.3707, -81.5497], ["Disney's Hollywood Studios", 28.3571, -81.5601], ["Disney's Animal Kingdom", 28.3577, -81.5916], ["Disney Springs", 28.3624, -81.5414], ["Universal Studios Florida", 28.4787, -81.4685], ["Universal Islands of Adventure", 28.4709, -81.4714], ["Universal Epic Universe", 28.4404, -81.4476], ["Universal CityWalk", 28.4668, -81.4693], ["Kissimmee", 28.3176, -81.3945], ["Winter Garden", 28.5661, -81.5835], ["Sanford", 28.9241, -81.4039], ["Space Coast", 28.5084, -80.6965]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -1046,7 +1074,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 142 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 147 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
