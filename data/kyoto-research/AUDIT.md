@@ -147,3 +147,14 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
 - KITA: Genkō-an, Shōden-ji (KT + JA), Kōetsu-ji (japan-guide autumn report + JA).
 - Held: Seigan-ji (35.007361,135.767722), Funaoka Onsen (35.036911,135.744578), Goō Shrine (35.02222,135.75861): one source each.
 - Searches used: 127.
+
+### batch 11 (2026-10-02) — Michelin food pins + FOOD_KYOTO_W4 (10)
+- **Breakthrough (lesson borrowed from the Osaka log):** `allowed_domains=["guide.michelin.com"]` + "<A>; <B>; <C> Kyoto address
+  latitude longitude" returns each venue page's lat/lng. That gives 3 restaurant place-pins per search, so food is now renderable. The 46 remaining
+  W2/W3 Michelin food pins are delegated to a background worker (writes `geo/_geoout_kyoto_mpins.json` only). Main agent pinned
+  Gion Yorozuya, Izuu, Kyogoku Kaneyo and all W4 venues except Bistro Cerisier.
+- Asking for dish + coordinates in one query loses the coordinates. Do it in two steps: (1) ward list or dish query, (2) pin query.
+- W4: Higashiyama Yoshihisa ★★ (2026), Kyo Seika ★ (Chinese → INT), Higashiyama Ogata ★, Kokyu, Tenjaku (tempura), Sambongi Shoten
+  (char-grill izakaya), Sushizen (kyō-zushi), Ryoriya Otaya, Washoku Haru (saba-zushi roll), Bistro Cerisier — Bib unless noted.
+- Held: Bistro Yanagihara, BOCCA del VINO (dish not surfaced).
+- Searches used (main): 136; plus the background pin worker (≤20).
