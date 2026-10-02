@@ -25,7 +25,7 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 - 2026-10-02 **W3 (relaunch, own budget) — FOOD & DRINK FIRST + ANIME.** Last full build: **362 discovered (183 sights + 179 food
   = 49% food) / 296 rendered (178 + 118)**; sourcecheck / geocheck (high 277 · med 19) / statuscheck / buildcheck PASS;
   `npm run validate` + `npm test` ALL PASS. CARD:kyoto + docs/CITIES.md refreshed. ★ Anime collection: 7 places.
-- Discovered per area (target): CTR 95+ (95, OK) · HGS 60 (75) · UJI 44 (50) · RKSAI 36 (55) · KITA 37 (50) · SAKYO 34 (60) ·
+- Discovered per area (target): CTR 89 (95) · HGS 60 (75) · UJI 44 (50) · RKSAI 36 (55) · KITA 37 (50) · SAKYO 34 (60) ·
   FSHMI 27 (45) · KYFU 18 (25) · RKHKU 17 (30). Run `python3 tools/density.py kyoto` for live numbers.
 - W3 files: FOOD_KYOTO_W5.json (66 non-Michelin + a few Michelin food & drink), FOOD_KYOTO_MICH5.json (43 Michelin, worker),
   SIGHTS_KYOTO_W3S.json (22 sights), SIGHTS_KYOTO_ANIME1.json (3), SOURCES_KYOTO_W3.json, CREATORS_KYOTO_W3.json,
