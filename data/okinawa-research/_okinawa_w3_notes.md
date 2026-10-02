@@ -66,3 +66,7 @@
 99. Mapple 29790 Ishigaki dinner 13: Funakura no Sato, Kokkāra, Mori no Kenja (kept w/ rurubu), Adan-tei (+src), Euglena Garden, Tingāra, Hitoshi, Kotteppen, Natsuya, Gen, Ichigyo Ichie, Sole Mare, bar costilla
 100-101. Hitoshi Ishigantō (Ōkawa 197-1; rurubu 16942 + Mapple 47011623) kept; Funakura no Sato (Arakawa 2468-1; rurubu spot URL not surfaced) held; Ishigaki Limestone Cave (rurubu 80042710 + GLTJP 16112) kept; Minami no Shima 80042694, Umi no Mono Yama no Mono 80042722
 102-103. Iriomote: KITCHEN inaba (Uehara 742-6; rurubu 80043585 + Mapple 47011256) kept; Shima Gourmet ROCO (Uehara 58), Shinpachi Shokudo (Uehara 870), Cafe Nakayukui (Uehara 434-1), Shokudo Manpachi 47014067, Tohenboku, Bibi, Hatsue sushi 47010820, Iriomote no Shonen 47013470 — single so far; Mapple 30147 Iriomote island food article
+104. Mapple 30147 Iriomote 4: Hateruma (awanami & island food, 47010978), KITCHEN inaba, ROCO (kept w/ rurubu 80043524), Iriomote no Shonen (Hateruma kokuto French toast); Pari no Gohan-ya 47013177
+105. Hateruma/Yonaguni/Kohama: Nishihama (rurubu 11290/80043547 + Mapple 264420) kept; Hateruma food Taoya, Ayafufami, Aji-maru, Budumare, Bamboo (Mapple only); Yonaguni Kaikyo 4022-6 (rurubu only); Kohama Shimayumebito, Satokibi, Kuba-yaa; Pē-hama
+106. coords: Kabira Bay only (already pinned); Nishihama/Limestone cave none
+107-108. Kohama: Shimayumebito, Satokibi (Mapple 47012982) single; Sugar Road (rurubu 80043556 + All About 469872; Chura-san location) kept + anime/pop field; Ufudaki observatory lead
