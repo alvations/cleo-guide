@@ -24,7 +24,11 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-(none — W1+W2 complete and committed; W3 = food pins + more sight pairs, see Next actions)
+W3 (session_013h32337aVQ9QKB7DKgSPdW, 2026-10-02): food discovery by area — FISH → SPH → UCW → NW → MAIN/NE → CC → NPH → SJ → DAY.
+Files: FOOD_W3.json, SIGHTS_W3.json, CREATORS_W3.json, geo/_geoout_w3_*.json. Method: two-outlet neighbourhood lists
+(Infatuation/Eater/Philly Mag/Inquirer/Visit Philly) — a place on ≥2 outlets is added; 1-outlet → HELD in AUDIT.
+NOTE: density.py previously counted phi_worklist.json as food (297 was inflated); fixed — true W2 count = 180.
+Searches used this session: ~12 (batch 1: FISH 8, UCW 11, CC 12 food → FOOD_W3.json 31)
 
 ## State (2026-10-02, after W1+W2)
 - Discovered + sourced: **180** (116 sights, 64 food) — sourcecheck PASS 180/180. Page: **122 on map** (107 sights + 15 food).
