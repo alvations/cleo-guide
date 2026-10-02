@@ -239,3 +239,8 @@ data/sources.json under the lock.
 buildcheck PASS · validate DATA OK · npm test ALL PASS. 126 UNVERIFIED held (restaurants → helper). Food share 136/296 = 46%
 (per area: SPR 54% · OTARU 50% · TKC 44% · DONAN 43% · DHOKU 46% · DOTO 45% · IBURI 35% · NSK 43% · SOYA 33%).
 ANIME collection: 4 (W40). Searches ≈ 131 (me ~104 + agents 27).
+**W62 IBURI:** Restaurant Bōyōtei (rurubu + laketoya.com). Held: Ushi no Sato Shiraoi beef (shiraoi.net only), Toridatsu Muroran
+(MAPPLE only). Michelin Hokkaido 2017 Bib list → no list surfaced (dead end).
+**W63 SPR:** GoodLuckTrip "21 Must-Try Restaurants in Susukino" as one source × sapporo.travel: Curry Shop S, Umi Hachikyō Honten,
+Night Parfait Nanakamado, Parfaiteria PaL. Held (GoodLuckTrip only): Uni Marukawa, Hakodate Kaiyōtei, Kitaushi, Ginbekoya, Seizan,
+Fuhdo, Yukimura (COCONO), Kirin Beer Garden Urban.
