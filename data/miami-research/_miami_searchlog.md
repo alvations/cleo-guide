@@ -52,3 +52,11 @@
 51 Mark Wiens Miami (Taste Tour USA: Versailles) 
 52 Burger Beast / NT best burgers (Babe's, Edan Bistro, Off Site, USBS, ViceVersa, Are You Hungry Grill)
 (geocode agent w1: 38 searches) — running total ≈ 90
+53 Michelin 2026 new recommended (Bistro Ocho, Elyu Omakase, Mano Libera — S.FL)
+54 Michelin 2025 additions (Grand Central, Itamae Ao, Palma, Sereira, Torno Subito, Kojin 2.0, Recoveco, Sunny's, ViceVersa)
+55 Michelin 2022 Miami list (2022 Bibs: Doya, Krus Kitchen, Lung Yai, Red Rooster Overtown, Zak the Baker; ★ The Den at Sushi Azabu)
+56 Michelin 2023 additions (Brasserie Laurel, Fiola, Lido, Lion & the Rambler, Rosie's, Gibson Room)
+57 browardpalmbeach best FTL restaurants (low yield)
+58 Infatuation Kendall/Pinecrest (Smoke & Dough, Milly's Empanada Factory, Apocalypse BBQ, Lan Pan-Asian, Dr. Limon, Platea, Pinecrest Bakery, Keg South)
+59 key lime pie (NT: Fireman Derek's best KLP, Fookem's; Inf: Cindy Lou's, Over Under sour-orange pie)
+60 NT Best of Miami 2025 readers' cross-check (Apocalypse BBQ best BBQ; Pinecrest Bakery best bakery)
