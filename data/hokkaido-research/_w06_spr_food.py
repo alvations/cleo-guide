@@ -43,7 +43,7 @@ F(2,"DONAN",["INT"],"Chinese Chicken Burger","Lucky Pierrot Bay Area Honten (ラ
 F(1,"DHOKU",["RAMEN"],"Asahikawa shōyu ramen (oily-sealed double broth, thin wavy noodles)","Asahikawa Ramen Village (あさひかわラーメン村)",
   "Nagayama, Asahikawa, Hokkaido, Japan",
   "Eight of Asahikawa's best-known shops under one roof — the city's shōyu style: pork-bone and seafood double broth sealed under a film of lard, thin, firm, wavy noodles.",
-  [jg("e6893.html"),("HOKKAIDOTOURISM",VHE+"destinations/the-tastiest-village-in-hokkaido-the-asahikawa-ramen-village")],
+  [jg("e6893.html"),("HOKKAIDOTOURISM",VHE+"destinations/the-tastiest-village-in-hokkaido-the-asahikawa-ramen-village"),("HOKKAIDOSHIMBUN","https://www.hokkaido-np.co.jp/article/1332973/")],
   status=O,ssrc="japan-guide.com e6893 (current)")
 F(1,"TKC",["HOKKAIDO"],"butadon (charcoal-grilled pork bowl, the 1933 original)","Ganso Butadon no Panchō, Obihiro (元祖豚丼のぱんちょう)",
   "In front of Obihiro Station, Obihiro, Hokkaido, Japan",
