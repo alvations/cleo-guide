@@ -25,32 +25,50 @@ Tokyo's 23 **special wards (tokubetsu-ku, 特別区)** are the borough-equivalen
 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W1 batch 1: 9 CYD sights in `SIGHTS_TOKYO_W1.json`, all 9 geocoded (7 high / 2 med district points) in
-  `geo/_geoout_tokyo_w1.json`. Not yet merged/built (page not built; Japan NOT flipped live — far below density).
-  Append helper: `_add.py` (stdin JSON → discovery record + geoout record, dedup by name).
+- 2026-10-02 W1 batch 1: 9 CYD sights (`SIGHTS_TOKYO_W1.json`, `geo/_geoout_tokyo_w1.json`) — then the shared 200-search cap hit.
+- **2026-10-02 W2 (relaunch, own budget; 166 of ~200 searches used, stopped with a buffer as yield/search fell below ~2):**
+  **314 discovered / 294 rendered (212 sights + 82 food), 20 UNVERIFIED held off the map, 1 closure flagged
+  (Unicorn Gundam statue). All four gates green; `npm run validate` + `npm test` green. Tokyo is LIVE** — Japan hub
+  `CARD:tokyo` live link, `data/countries.json` japan `live: true`, root `CARD:japan` "1 of 5 maps live",
+  `docs/CITIES.md` row (all refreshed by `_tokyo_golive.py`).
+- Files: `FOOD_TOKYO_W2.json` (104 food), `SIGHTS_TOKYO_W2.json` (203 sights), `geo/_geoout_tokyo_w2.json`,
+  `CREATORS_TOKYO_W2.json` (Ramen Adventures, Paolo fromTOKYO), `_pending_w2.json` (39 held: single-source or no pin),
+  `_renamed_w2.json` (31 Japanese-script names stripped — see AUDIT), `_tokyo_golive.py` (refresh go-live surfaces).
+
+### Density (discovered, `python3 tools/density.py tokyo`) vs target
+CHUO 28/50 · CYD 29/45 · JHOKU 25/35 · JONAN 17/35 · JOSAI 19/40 · JOTO 10/20 · KANTO 34/35 · MNT 34/50 · SBY 25/50 ·
+SJK 24/50 · SMKT 24/40 · TAITO 30/50 · TAMA 15/30 → **314 / ~530**. Food is the gap (102 vs 212 sights); TAMA has 0 food,
+JOTO 1, KANTO 2.
 
 ## In-flight wave
-**BLOCKED 2026-10-02 — WebSearch session budget exhausted (200/200, shared by all concurrent agents) after
-this agent's 15th search.** W1 stopped inside CYD after batch 1 (9 sights written + geocoded). Relaunch only once
-`CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` is raised / a fresh budget exists; resume with the CYD queries below.
-- CYD queries still to run (sights domains): Kokyo Gaien/Nijūbashi, Yushima Seidō, Nikolai-dō, Mitsubishi Ichigōkan,
-  Tokyo International Forum, Hibiya Park, mAAch ecute Kanda Manseibashi, National Diet Building, KITTE garden,
-  Chidorigafuchi (no Wikipedia coords — get the Google `!3d!4d` place pin via a google.com-restricted search).
-- Proven methods (record in AUDIT): (1) sights — a search restricted to en.wikipedia.org/japan-guide.com/gotokyo.org/
-  timeout.com returns ≥2 credible URLs + Wikipedia's published coords in one call; (2) restaurants — a search
-  restricted to `google.com` returns the Maps place URL; read `!3d<lat>!4d<lng>` (NOT the `/@` viewport).
-- **W1 (sights backbone, all 13 areas)** — per-area sight searches restricted to en.wikipedia.org / japan-guide.com /
-  gotokyo.org / timeout.com (one search yields ≥2 credible sources + Wikipedia's published coords). Writes
-  `SIGHTS_TOKYO_W1.json` + `geo/_geoout_tokyo_w1.json` via `_add.py` in batches of ~10. Area order:
-  CYD → CHUO → MNT → SJK → SBY → TAITO → SMKT → JONAN → JOSAI → JHOKU → JOTO → TAMA → KANTO.
-- Then **W2 food canon** (Michelin Bib/star lists via guide.michelin.com + Time Out / Japan Times / dancyu /
-  Tabelog Hyakumeiten), pins via Google `!3d!4d` place URLs (search restricted to google.com).
+**W3 (2026-10-02, continuation):** executing the W3 plan below in order. Files: `FOOD_TOKYO_W3.json`, `SIGHTS_TOKYO_W3.json`, `geo/_geoout_tokyo_w3.json`, `_addrcheck_w3.json`. Search count W3: 14 (held queue + Michelin pin retries).
 
-## Next actions
+## Next wave (W3) — exact plan, in order
+1. **Clear the held queue first** (`_pending_w2.json`, 39 items): most need ONE more source or ONE pin. Use the
+   corroboration query (`gotokyo.org` + `japan-guide.com` + `timeout.com`, 6 names per query) and the Wikidata pin
+   query (`wikidata.org`, "A latitude longitude; B latitude longitude; …", 4 names). ~12 searches → ~25 places.
+2. **UNVERIFIED Michelin pins (20 in geo)** — Ponta Honke, Yaesu Unagi Hashimoto, Japanese Ramen Gokan, Sushi Kanesho,
+   Katsuo Shokudo, Ginza Katsukami II, Shutei Tanaka, Yoshoku Edoya, Sézanne, Mutsukari, Tempura Abe Honten, Jinbo,
+   Aoyama Ototo, Tempura Motoyoshi, Ten Yokota, Il Ballond'oro, Ginza Shinohara, Osobano Kouga, Teuchi Asama, Afuri
+   Ebisu: retry each in **3-name** Michelin queries WITHOUT the word "cuisine"; if the venue page never yields coords,
+   run `tools/geocode-helper.html` in a browser (place pin, `!3d!4d`).
+3. **Food density** — SBY, SJK, SMKT, TAMA, JOTO, KANTO. Seed lists: Michelin category pages (Tokyo Bib by cuisine),
+   Time Out "best X in Tokyo" lists + Japan Times "Tokyo Food File" columns; pins via Michelin venue pages or Wikidata
+   (heritage shops). TAMA: Jindai-ji soba shops, Kichijōji (Satou, Ozasa, Iseya), Takao tororo soba. KANTO: Kamakura
+   shirasu-don, Yokohama Chinatown (Manchinro?) / Sanma-men, Hakone / Kawagoe sweet potato — verify each.
+4. **Address verify pass (CLAUDE.md 4a)** — many W2 *sight* addresses were written from the venue's well-known
+   address, not re-read from a source (coordinates ARE sourced). Re-read the street address from the cited
+   GO TOKYO / Wikipedia page for every W2 sight and fix any mismatch (log in AUDIT).
+5. **Status re-check** — Edo-Tokyo Museum and Shitamachi Museum (renovation closures; held), 3331 Arts Chiyoda (closed
+   2023 — add as CLOSED only with a source), Hara Museum (closed 2021) — same.
+6. Re-run `python3 tools/rebuild-city.py tokyo --build` (under the lock) → 4 gates → `cd tools && npm run validate && npm test`
+   → `python3 data/tokyo-research/_tokyo_golive.py` (under the lock) → commit + push.
+
+## Next actions (standing)
 1. Discovery waves per area (canon first) → `python3 tools/density.py tokyo` → iterate on every `NEED +N`.
-2. Geocode waves → `geo/_geoout_tokyo_*.json` → `python3 tools/rebuild-city.py tokyo --build` (under the shared lock).
+2. Geocode waves → `geo/_geoout_tokyo_*.json` → `flock /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py tokyo --build`.
 3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
 
 ## Acceptance
-- [ ] every area ≥ target · [ ] sourcecheck PASS · [ ] geocheck PASS · [ ] statuscheck CONSISTENT, 0 unchecked
-- [ ] buildcheck PASS · [ ] `npm run validate && npm test` green · [ ] Japan hub card live · [ ] CITIES.md row
+- [ ] every area ≥ target (KANTO 34/35 closest) · [x] sourcecheck PASS · [x] geocheck PASS · [x] statuscheck CONSISTENT
+- [x] buildcheck PASS · [x] `npm run validate && npm test` green · [x] Japan hub card live · [x] CITIES.md row · [ ] address-verify pass
