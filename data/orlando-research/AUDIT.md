@@ -102,3 +102,18 @@
 - Status: 79 agent pin records had empty statusSource and sorted after the research geo files (last-write-wins) → patched
   to carry the research record's status source; statuscheck CONSISTENT.
 - Main searches ≈ 68; agents 56 → ≈ 124 this session.
+
+## 2026-10-02 · Session 2 · W8 (food pins, local eats, closure checks) + CLOSE-OUT
+- Food-pin agent (12 searches): 2/42 resolved — Otto's High Dive (Wikipedia 28.5460,-81.3526), Old Spanish Sugar Mill
+  (HMDB marker beside the mill, med). All WDW/Universal restaurants: only land/park centroids published → rejected.
+- `FOOD_LOCAL1` (Black Bean Deli — OW Best Cuban Sandwich 2023/2025 + Infatuation + WFTV; Pig Floyd's — OW/Spectrum
+  News 13/Scott Joseph; East End Market — ClickOrlando + official; Ethos Vegan Kitchen — CLOSED 2024 (WFTV/OW);
+  Old Spanish Sugar Mill), `FOOD_UNIEATS1` (Mythos, Krusty Burger — TouringPlans 2025 awards + Tasting Table).
+- Status: Se7en Bites confirmed open 2026 (Tasty Chomps Mar 2026), now 617 N Primrose Dr, also in the MICHELIN Guide.
+  Willie's Pinchos — no 2026 confirmation found (status note kept).
+- Disney Springs + CityWalk corroborated (Orlando Informer + TouringPlans comparison).
+- Dead ends: Oviedo/EAST (only SEO listicles), Maitland/Winter Park nature coords (Mead Garden/Audubon Birds of Prey —
+  no attributable coordinate), PR restaurant list (one credible source only).
+- FINAL this session: 208 researched (153 sights + 55 food); page 136 sights + 6 food; 52 UNVERIFIED held for the helper;
+  14 single-source held; 2 closed flagged. Gates: sourcecheck (held only) / geocheck PASS / statuscheck CONSISTENT /
+  buildcheck PASS; npm validate DATA OK; npm test ALL PASS. Searches ≈ 79 main + ≈ 84 agents ≈ 163.

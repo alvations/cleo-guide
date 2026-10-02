@@ -42,3 +42,8 @@ prevuemeetings.com/?p=150904 (61 Orlando restaurants: 1×2★, 5×1★, 14 Bib, 
 - Z Asian — Bib 2023–25; 2026 status unconfirmed
 - Puerto Rican (Kissimmee): Tropico Mofongo, Pal Campo, Sofrito Latin Cafe, Grillers Puerto Rico, La Lechonera El Jibarito,
   El Cilantrillo — only Yelp/benable surfaced; Orlando Weekly "25 of the best Central Florida restaurants serving Puerto Rican food" exists (30944523) — use it as the 1st credible source next wave.
+- Puerto Rican (Orlando Weekly "25 of the best Central Florida restaurants serving Puerto Rican food", slideshow 30944523):
+  El Cilantrillo, Achiote, Guavate, Melao Bakery — single credible source so far.
+- Restaurant pin reality (foodpins1 agent, 12 searches): only Otto's High Dive (Wikipedia) and the Old Spanish Sugar Mill
+  (HMDB marker) publish coordinates; 40 WDW/Universal/Orlando restaurants have none on Wikipedia/Wikidata/latitude.to
+  → all restaurant pins go through tools/geocode-helper.html.

@@ -72676,15 +72676,14 @@
    },
    "Otto's High Dive": {
     "address": "2304 E Robinson St, Orlando, FL 32803",
-    "lat": null,
-    "lng": null,
-    "source": "UNVERIFIED",
+    "lat": 28.546,
+    "lng": -81.3526,
+    "source": "https://en.wikipedia.org/wiki/Otto's_High_Dive: 28.5460,-81.3526 (Wikipedia infobox 28°32′46″N 81°21′09″W; address 2304 E Robinson St)",
     "verified": "2026-10-02",
-    "confidence": "UNVERIFIED",
+    "confidence": "high",
     "status": "open",
     "statusSource": "Listed in the 2026 MICHELIN Guide Florida (announced 2026-05-28): https://guide.michelin.com/us/en/florida/orlando/restaurants",
-    "statusChecked": "2026-10-02",
-    "note": "restaurant place-pin not surfaced by WebSearch; queue for tools/geocode-helper.html"
+    "statusChecked": "2026-10-02"
    },
    "The Strand": {
     "address": "807 N Mills Ave, Orlando, FL 32803",
@@ -74829,6 +74828,18 @@
     "confidence": "UNVERIFIED",
     "status": "open",
     "statusSource": "Recommended as open in https://touringplans.com/blog/2025-awards-best-restaurants-hotels-of-universal-orlando",
+    "statusChecked": "2026-10-02",
+    "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
+   },
+   "Old Spanish Sugar Mill (De Leon Springs)": {
+    "address": "De Leon Springs State Park, De Leon Springs, FL",
+    "lat": 29.133883,
+    "lng": -81.363433,
+    "source": "Wikipedia published coordinates (https://www.hmdb.org/m.asp?m=189225: 29.133883,-81.363433 (HMDB 'Sugar Mill Machinery' marker on the west side of the Old Spanish Sugar Mill — adjacent, not the door)): 29.133883,-81.363433",
+    "verified": "2026-10-02",
+    "confidence": "med",
+    "status": "open",
+    "statusSource": "https://mycentralfloridafamily.com/best-florida-springs-near-orlando-family-guide/ (2026 guide recommends it)",
     "statusChecked": "2026-10-02",
     "note": "restaurant place-pin not surfaced by WebSearch; queue for geocode-helper"
    }
