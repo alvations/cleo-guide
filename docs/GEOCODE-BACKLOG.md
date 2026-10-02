@@ -355,7 +355,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Museum Leon De Smet
 
 ## hokkaido
-- registry entries: **427** · verified pins: **244** (high 188 · med 56 · low 0)
+- registry entries: **435** · verified pins: **252** (high 195 · med 57 · low 0)
 - ⚠️ **UNVERIFIED** in registry (183) — held by the gate, need the helper:
     - Ajanta Yakuzen Curry Honpo Sōhonke (アジャンタ薬膳カリィ本舗総本家)
     - Aji no Daiō Muroran Honten (味の大王 室蘭本店)
@@ -423,7 +423,6 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Kasshō Ryōri Ikasei Honten (活魚料理 いか清 本店)
     - Kaze no Garden, Furano (風のガーデン)
     - Kiraito, Tanukikōji (喜来登)
-    - Kita no Donburiya Takinami Shokudō, Sankaku Market (北のどんぶり屋 滝波食堂)
     - Kita no Kuni kara Jun no Banya, Rausu (北の国から 純の番屋)
     - Kita no Yatai, Obihiro (北の屋台)
     - Kitaichi Glass Hall No. 3 (北一硝子 三号館)
@@ -511,6 +510,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Soup Curry Garaku (スープカレー GARAKU)
     - Soup Curry Picante, Kita 13-jō Honten (ピカンティ)
     - Soup Curry Yellow (スープカリーイエロー)
+    - Sukiyaki Asari Honten, Hakodate (阿佐利 本店)
     - Sumire Susukino (すみれ 札幌すすきの店)
     - Sushi Zen Honten (すし善 本店)
     - Sushi-dokoro Kihara, Yunokawa (鮨処 木はら)
