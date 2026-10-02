@@ -5,12 +5,14 @@
 - `LIER` around Liège … ~60
 
 ## State
+- 2026-10-02 session 2: FIRST BUILD — 65 discovered (LIE 40, LIER 26... see density), 43 pinned on `cities/liege.html`;
+  4 gates PASS; npm validate/test PASS. 22 held for pins (see `_liege_geo_queue.md` + UNVERIFIED in geoouts).
 - 2026-10-02: scaffolded + wave 1 PARTIAL. Discovered 5 (LIE 3 sights + 2 food; LIER 0) vs target 145.
   1 geocoded (Grand Curtius). **Blocked: WebSearch session budget (200/200) exhausted after 11 searches** — needs a
   fresh session / raised CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION. Not built; card still "being built".
 
 ## Search log
-- Session 2: lead ~33 + agent 12 = 45 (after batch 1).
+- Session 2: lead ~33 + agent 12 = 45 (after batch 1); ≈130 after first build.
 
 ## In-flight wave
 - W2 (session 2, 2026-10-02): resume W1 remainder → Michelin/G&M Liège lists, boulets/péket/beer, LIER sights,

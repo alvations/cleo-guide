@@ -55,6 +55,17 @@
   "ndist": 0
  },
  {
+  "slug": "punggol",
+  "name": "Punggol",
+  "region": "Singapore",
+  "folder": "Singapore",
+  "nP": 5,
+  "nF": 8,
+  "total": 13,
+  "kind": "district",
+  "ndist": 0
+ },
+ {
   "slug": "chinatown",
   "name": "Chinatown & CBD",
   "region": "Singapore",
@@ -125,9 +136,9 @@
   "name": "Newton & Novena",
   "region": "Singapore",
   "folder": "Singapore",
-  "nP": 1,
-  "nF": 9,
-  "total": 10,
+  "nP": 3,
+  "nF": 12,
+  "total": 15,
   "kind": "district",
   "ndist": 0
  },
@@ -235,9 +246,9 @@
   "name": "Balestier",
   "region": "Singapore",
   "folder": "Singapore",
-  "nP": 0,
+  "nP": 2,
   "nF": 1,
-  "total": 1,
+  "total": 3,
   "kind": "district",
   "ndist": 0
  },
@@ -257,9 +268,9 @@
   "name": "Holland Village",
   "region": "Singapore",
   "folder": "Singapore",
-  "nP": 2,
-  "nF": 5,
-  "total": 7,
+  "nP": 3,
+  "nF": 14,
+  "total": 17,
   "kind": "district",
   "ndist": 0
  },
