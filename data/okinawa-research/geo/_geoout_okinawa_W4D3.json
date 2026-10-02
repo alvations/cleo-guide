@@ -46,5 +46,121 @@
   "geoSource": "rurubu 80043560 / Mapple 47001119 surfaced no coordinate in search snippets; not pinned",
   "status": "open",
   "statusSource": "rurubu spot 80043560 (current)"
+ },
+ {
+  "n": "Neo Park Okinawa, Nago (ネオパークオキナワ)",
+  "address": "Nago, Okinawa",
+  "lat": 26.610698,
+  "lng": 127.991376,
+  "confidence": "med",
+  "geoSource": "Stars and Stripes Okinawa printed GPS N26.610698 E127.991376 for Neo Park (recorded in _okinawa_w2_notes.md #98-101); article URL not re-surfaced",
+  "status": "open",
+  "statusSource": "rurubu spot 80042867 (current hours)"
+ },
+ {
+  "n": "Gesashi Bay mangroves, Higashi (慶佐次湾のヒルギ林)",
+  "address": "Gesashi, Higashi, Okinawa",
+  "lat": 26.604005,
+  "lng": 128.144843,
+  "confidence": "med",
+  "geoSource": "Stars and Stripes Okinawa printed GPS 26.604005,128.144843 for Gesashi mangrove park (_okinawa_w2_notes.md #109-110)",
+  "status": "open",
+  "statusSource": "rurubu spot 80043114 (current)"
+ },
+ {
+  "n": "Maeda Shokudō, Ōgimi (前田食堂)",
+  "address": "Tsuha, Ōgimi, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Stripes Maeda Shokudo article surfaced without its GPS line in search; no other printed coordinate found",
+  "status": "open",
+  "statusSource": "Okinawa Traveler 0105 shokudo feature (current)"
+ },
+ {
+  "n": "Shima-buta Shichirin-yaki Manmi, Motobu (島豚七輪焼 満味)",
+  "address": "251 Isagawa, Motobu, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "rurubu 80042853 gives address only; no printed coordinate surfaced",
+  "status": "open",
+  "statusSource": "rurubu spot 80042853 (current hours 17-22, closed Sun-Mon)"
+ },
+ {
+  "n": "Okinawa Ryōri Maruoki Shōten, Nago (沖縄料理 丸沖商店)",
+  "address": "Nago, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "no street address or coordinate surfaced in search snippets",
+  "status": "open",
+  "statusSource": "Okinawa Traveler shop s1244 (current listing)"
+ },
+ {
+  "n": "Kumejima no Kumesen distillery, Kume Island (久米島の久米仙)",
+  "address": "2157 Ueshiro, Kumejima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "rurubu/Mapple give address only; no printed coordinate surfaced",
+  "status": "open",
+  "statusSource": "rurubu spot 80043422 (current hours 10-16)"
+ },
+ {
+  "n": "KOURI SHRIMP, Kouri Island (古宇利島 KOURI SHRIMP)",
+  "address": "314 Kouri, Nakijin, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "Stripes Kouri article surfaced GPS only for Cafe Paru Paro (26.698235,128.018997), not for KOURI SHRIMP; not pinned",
+  "status": "open",
+  "statusSource": "GLTJP directory 14833 (current listing)"
+ },
+ {
+  "n": "Seifuku Shuzō awamori distillery, Ishigaki (請福酒造)",
+  "address": "959 Miyara, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu/YVB); mapion/navitime coordinate search returned nothing",
+  "status": "open",
+  "statusSource": "Yaeyama VB page (tours 11:00/13:30/16:00) + Ryukyu Shimpo 2024 'Coole' launch"
+ },
+ {
+  "n": "Yaesen Shuzō awamori distillery, Ishigaki (八重泉酒造)",
+  "address": "1834 Ishigaki, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (YVB/jalan); no printed coordinate",
+  "status": "open",
+  "statusSource": "Yaeyama VB factory-shop page; Ryukyu Shimpo PR on 70th anniversary site"
+ },
+ {
+  "n": "Takamine Shuzōsho awamori distillery, Kabira (高嶺酒造所)",
+  "address": "930-2 Kabira, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 80042743); no printed coordinate",
+  "status": "open",
+  "statusSource": "rurubu spot 80042743 (hours 9-17, closed Sun)"
+ },
+ {
+  "n": "Yakiniku Takesan-tei, Ishigaki (焼肉 たけさん亭)",
+  "address": "2-2-4 Hamasaki-chō, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 24755); Stripes has no Ishigaki GPS coverage",
+  "status": "open",
+  "statusSource": "rurubu article 24755 (current hours, closed Tue)"
+ },
+ {
+  "n": "Yakiniku Kingyū, Ishigaki (焼肉 金牛)",
+  "address": "8-8 Misaki-chō, Ishigaki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 24755)",
+  "status": "open",
+  "statusSource": "rurubu article 24755 (current hours, closed Thu)"
+ },
+ {
+  "n": "Taragawa awamori distillery, Miyako (多良川)",
+  "address": "85 Sunagawa, Gusukube, Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 80043046); coordinate search returned nothing",
+  "status": "open",
+  "statusSource": "rurubu spot 80043046 (cave tours 3x daily)"
+ },
+ {
+  "n": "Yukishio Museum, Miyako (雪塩ミュージアム)",
+  "address": "191 Karimata, Hirara, Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "address only (rurubu 80129718)",
+  "status": "open",
+  "statusSource": "rurubu spot 80129718 (open daily, free)"
  }
 ]

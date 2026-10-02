@@ -52,10 +52,8 @@
  {
   "n": "Ryūtan Pond, Shuri (龍潭)",
   "address": "Shuri Mawashi-chō, Naha, Okinawa",
-  "lat": 26.220024,
-  "lng": 127.717363,
-  "confidence": "med",
-  "geoSource": "Venue spot page (tguide.jp/ja/spot/379 or trvbook.com spot-ryutan_site-92086, surfaced via WebSearch 2026-10-02) printed 緯度26.220024 経度127.717363 — pond point beside Shuri Castle; exact source page not isolated by the summarizer → med",
+  "confidence": "UNVERIFIED",
+  "geoSource": "UNVERIFIED by orchestrator: candidate 26.220024,127.717363 — the originating page could not be identified (rule 4a: record exactly how obtained); same policy as Takenoko. Re-pin via Wikipedia/Google !3d!4d. Venue spot page (tguide.jp/ja/spot/379 or trvbook.com spot-ryutan_site-92086, surfaced via WebSearch 2026-10-02) printed 緯度26.220024 経度127.717363 — pond point beside Shuri Castle; exact source page not isolated by the summarizer → med",
   "status": "open",
   "statusSource": "okinawastory.jp/spot/1365 (prefectural historic site, public park)"
  },
@@ -128,10 +126,8 @@
  {
   "n": "Tamatorizaki Observation Point, Ishigaki (玉取崎展望台)",
   "address": "Ibaruma, Ishigaki, Okinawa 907-0332",
-  "lat": 24.489238,
-  "lng": 124.276962,
-  "confidence": "med",
-  "geoSource": "Venue spot page surfaced via WebSearch 2026-10-02 (NAVITIME poi 02301-1300758 / JAF drive spot 471147X00120) printed 緯度経度 24.489238, 124.276962 for 玉取崎展望台; summarizer did not isolate which page → med",
+  "confidence": "UNVERIFIED",
+  "geoSource": "UNVERIFIED by orchestrator: candidate 24.489238,124.276962 — the originating page could not be identified (rule 4a: record exactly how obtained); same policy as Takenoko. Re-pin via Wikipedia/Google !3d!4d. Venue spot page surfaced via WebSearch 2026-10-02 (NAVITIME poi 02301-1300758 / JAF drive spot 471147X00120) printed 緯度経度 24.489238, 124.276962 for 玉取崎展望台; summarizer did not isolate which page → med",
   "status": "open",
   "statusSource": "yaeyama.or.jp 玉取崎展望台 (Yaeyama Visitors Bureau, current)"
  },
@@ -144,5 +140,141 @@
   "geoSource": "Japanese Wikipedia 道の駅かでな infobox (https://ja.wikipedia.org/wiki/道の駅かでな) printed 北緯26度22分05秒 東経127度46分27秒 / 26.36806, 127.77411; address 屋良1026-3; researchedVia WebSearch 2026-10-02",
   "status": "open",
   "statusSource": "town.kadena.okinawa.jp/facility/shi81.html (Kadena Town official) + michi-no-eki.jp station 19816"
+ },
+ {
+  "n": "Pokémon Center Okinawa, Aeon Mall Okinawa Rycom (ポケモンセンターオキナワ)",
+  "address": "Aeon Mall Okinawa Rycom 1F, 1 Aza-Raikamu, Kitanakagusuku, Okinawa",
+  "lat": 26.314194,
+  "lng": 127.795667,
+  "confidence": "med",
+  "geoSource": "Japanese Wikipedia イオンモール沖縄ライカム infobox (https://ja.wikipedia.org/wiki/イオンモール沖縄ライカム) printed 北緯26度18分51.1秒 東経127度47分44.4秒 / 26.314194, 127.795667 — the host mall building; shop is inside on 1F → med (building-level). researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "map.pokemon-card.com/map/12700 (official Pokémon card shop map lists ポケモンセンターオキナワ, current) + NAVITIME poi 02301-9000043s"
+ },
+ {
+  "n": "Mamoru-kun police-officer figures, Miyako (宮古島まもる君)",
+  "address": "Roadside figure, Miyakojima, Okinawa (one of ~20 island-wide; Atlas Obscura's listed figure)",
+  "lat": 24.733632,
+  "lng": 125.275132,
+  "confidence": "med",
+  "geoSource": "Atlas Obscura 'Mamoru-kun Patrolmen' page (https://www.atlasobscura.com/places/mamoru-kun-patrolman-japan) printed 24.733632, 125.275132 for its listed figure; the sight is a set of ~20 figures, so this pins one representative figure → med. researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "zekkeijapan.com/article/index/1261 (figures still in place; ~20 island-wide) + Stripes mamoru-kun article"
+ },
+ {
+  "n": "Ishigaki Yaima Village (石垣やいま村)",
+  "address": "967-1 Nagura, Ishigaki, Okinawa",
+  "lat": 24.404333,
+  "lng": 124.144361,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia 石垣やいま村 infobox (https://ja.wikipedia.org/wiki/石垣やいま村) printed 北緯24度24分15.6秒 東経124度8分39.7秒 / 24.404333, 124.144361; a second listing (JAF/NAVITIME spot page) printed 24.403078, 124.14237 (~250 m, within the park grounds). researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "yaimamura.com/aboutus/ (official site, operating)"
+ },
+ {
+  "n": "Nishihama Beach, Hateruma Island (ニシ浜)",
+  "address": "Hateruma, Taketomi, Yaeyama, Okinawa",
+  "lat": 24.064417,
+  "lng": 123.762139,
+  "confidence": "high",
+  "geoSource": "Japanese Wikipedia ニシ浜 infobox (https://ja.wikipedia.org/wiki/ニシ浜) printed 北緯24度3分51.9秒 東経123度45分43.7秒 / 24.064417, 123.762139; researchedVia WebSearch 2026-10-02",
+  "status": "open",
+  "statusSource": "okinawastory.jp/spot/600011740 (OCVB, current listing)"
+ },
+ {
+  "n": "Aragusuku Beach, Miyako (新城海岸)",
+  "address": "Gusukube-Aragusuku, Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "UNVERIFIED by orchestrator: candidate 24.760242,125.424639 — the originating page could not be identified (rule 4a: record exactly how obtained); same policy as Takenoko. Re-pin via Wikipedia/Google !3d!4d. Venue page surfaced via WebSearch 2026-10-02 for 新城海岸 (ja.wikipedia 新城海岸 / NAVITIME spot 02301-pn0002195 among results) printed 24.760242, 125.424639; summarizer did not isolate which page printed it → med",
+  "status": "open",
+  "statusSource": "miyako-island.net/beach_and_spot/beach_spot_005/ (Miyakojima tourism assoc., current)"
+ },
+ {
+  "n": "Azama Sun Sun Beach (あざまサンサンビーチ)",
+  "address": "1141-3 Chinen-Azama, Nanjō, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "UNVERIFIED by orchestrator: candidate 26.1767123,127.8290019 — the originating page could not be identified (rule 4a: record exactly how obtained); same policy as Takenoko. Re-pin via Wikipedia/Google !3d!4d. Venue page surfaced via WebSearch 2026-10-02 (National Film Archive Japan location DB jl-db.nfaj.go.jp/location/470100159 / NAVITIME poi 02301-1800085 among results) printed 26.1767123, 127.8290019; summarizer did not isolate which page → med",
+  "status": "open",
+  "statusSource": "azamasunsunbeach.com (official site, current) + okinawastory.jp/spot/600006164"
+ },
+ {
+  "n": "Eef Beach, Kume Island (イーフビーチ)",
+  "address": "Higa / Janadō, Kumejima, Okinawa 901-3108",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 2 searches (ja-wiki/latlng); no wiki article/coordinate surfaced (only Hatenohama's) → not pinned",
+  "status": "open",
+  "statusSource": "kanko-kumejima.com/spot/see/676/ (Kumejima tourism assoc., current)"
+ },
+ {
+  "n": "Shinri-hama Beach, Kume Island (シンリ浜)",
+  "address": "Ōhara, Kumejima, Okinawa 901-3132 (near Kumejima Airport)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search; no coordinate surfaced → not pinned",
+  "status": "open",
+  "statusSource": "kanko-kumejima.com/spot/see/679/ (current)"
+ },
+ {
+  "n": "Aharen Beach, Tokashiki Island (阿波連ビーチ)",
+  "address": "Aharen, Tokashiki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search; only Tokashiki Island centroid (wiki 26.19778,127.36444) surfaced — centroid not allowed → not pinned",
+  "status": "open",
+  "statusSource": "okinawastory.jp/spot/1085 (current)"
+ },
+ {
+  "n": "Nakanoshima Beach, Shimoji Island (中の島ビーチ)",
+  "address": "Irabu-Sawada (Shimoji Island), Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search; only Shimoji Island centroid (wiki 24.81611,125.15694) surfaced — not allowed → not pinned",
+  "status": "open",
+  "statusSource": "tanoshima.jp/spot/nakanoshima_beach (current)"
+ },
+ {
+  "n": "Yoshino Beach, Miyako (吉野海岸)",
+  "address": "Gusukube-Yoshino, Miyakojima, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 2 searches; ja.wikipedia 吉野海岸 article exists but summarizer never surfaced its coordinate (only island/city centroids) → helper: read ja.wikipedia.org/wiki/吉野海岸 infobox",
+  "status": "open",
+  "statusSource": "miyako-island.net/beach_and_spot/beach_spot_025/ (current)"
+ },
+ {
+  "n": "Ama Beach, Zamami Island (阿真ビーチ)",
+  "address": "Ama, Zamami, Okinawa 901-3403",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search (with Takatsukiyama); no coordinate surfaced",
+  "status": "open",
+  "statusSource": "keramatour.world-tours.jp/en/column/ama-beach (current)"
+ },
+ {
+  "n": "Takatsukiyama Observatory, Zamami (高月山展望台)",
+  "address": "Zamami, Zamami Village, Okinawa (137 m)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search; no coordinate surfaced (env.go.jp Kerama nordic-walk course page may have a map — helper)",
+  "status": "open",
+  "statusSource": "rurubu.jp/andmore/spot/80043351 + env.go.jp kerama-shoto course 01 (current)"
+ },
+ {
+  "n": "Sugar Road, Kohama Island (シュガーロード)",
+  "address": "Kohama, Taketomi, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: not searched (budget); a road — needs a specific point source",
+  "status": "open",
+  "statusSource": "rurubu.jp/andmore/spot/80043556"
+ },
+ {
+  "n": "Aharen-enchi Viewpoint, Tokashiki (阿波連園地)",
+  "address": "Aharen, Tokashiki, Okinawa",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search; no coordinate surfaced",
+  "status": "open",
+  "statusSource": "okinawastory.jp/spot/600010497 (current)"
+ },
+ {
+  "n": "17END, Shimoji Island (17エンド)",
+  "address": "Irabu-Sawada, Miyakojima, Okinawa 906-0507 (north end of Shimojishima Airport runway)",
+  "confidence": "UNVERIFIED",
+  "geoSource": "W4G1: 1 search; no coordinate surfaced (rurubu spot 80111573 / bacar.jp page — helper)",
+  "status": "open",
+  "statusSource": "rurubu.jp/andmore/spot/80111573 (current)"
  }
 ]
