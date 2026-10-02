@@ -86,3 +86,31 @@
   Hadrosaurus Foulkii Leidy Site (NJ Monthly + Wikipedia pin). HELD: Pomona Hall (Wikipedia only), Philadelphia Brewing Co.
   and Syrenka Luncheonette (Visit Philly only), Cooper River Park (river coordinate, not a park pin — rejected).
 - Final build of the session: 180 sourced → 122 on page (107 sights + 15 food); 4 gates PASS; validate + test PASS.
+
+## 2026-10-02 · W3 (session_013h32337aVQ9QKB7DKgSPdW) — food discovery by area, batches 1-2
+- TOOL FIX: tools/density.py counted `phi_worklist.json` (a list) as food → the "297 discovered" figure was inflated;
+  true post-W2 count = 180. density.py now skips any `*worklist*` file (same bug latent for akron/chicago/madison/... worklists).
+- Method: candidate-name queries restricted to credible domains (Infatuation / Inquirer / Philly Mag / Visit Philly / Billy Penn);
+  a place is added only when ≥2 distinct outlets confirm it in-result. Leads come from neighbourhood guides; nothing from memory
+  is presented as sourced (addresses not seen in a result are left partial for the geocode pass).
+- Sources used: Infatuation Fishtown/West Philly/Old-school Italian/Classic/Chestnut Hill/Mt Airy/Manayunk guides; Visit Philly Fishtown,
+  Baltimore Ave, halal, Chinatown, Indian, first-timers, bakeries, Mexican, Latino-owned, alt-cheesesteak guides; Philly Mag
+  Where to Eat in Fishtown, halal, Chinatown, Italian Market Bible 2026, Chestnut Hill, Best of Philly archive, 50 Best; Inquirer
+  (LaBan reviews, The 76 2025, Chinatown guide, BBQ survey); Billy Penn (Ethiopian/Eritrean, Italian bakeries 2026, Port Richmond).
+- Added batch 1-2: FISH Wm. Mulherin's Sons, Fette Sau, Loco Pez, Sulimay's (HELD lead cleared), Gilda, Front Street Cafe,
+  Frankford Hall, Czerw's Kielbasy, Hello Vietnam · UCW Dahlak, Abyssinia, Gojjo, Kilimandjaro, Vientiane Cafe, Dock Street,
+  Fu-Wah, Saad's, Hadramout, Manakeesh, Dim Sum House · CC Dim Sum Garden + Nan Zhou (HELD leads cleared), Sang Kee, Tom's Dim Sum,
+  Ting Wong, Amma's, Franklin Fountain, McGillin's, Oyster House, Parc, Amada · SPH Ralph's, Dante & Luigi's, Villa di Roma,
+  Termini Bros, Isgro, Di Bruno Bros, Le Virtù, Mike's BBQ, Ray's Happy Birthday Bar, Los Cuatro Soles, Mole Poblano,
+  Café y Chocolate · NW McNally's (Schmitter), Jansen, Cake, El Poquito, Töska, Night Kitchen, Bredenbeck's, White Yak +
+  Liberty Kitchen (HELD leads cleared).
+- Sights batch: CC Wanamaker Building & Organ, Walnut Street Theatre, The Rosenbach, Franklin Square · NW Stenton, Ebenezer
+  Maxwell Mansion, Awbury Arboretum, Concord School House, Thomas Mill Covered Bridge (all Wikipedia infobox pins, high).
+- CLOSED → DROPPED (non-notable): Cheu Fishtown + Bing Bing Dim Sum (Philly Mag/Inquirer 2024-05), Pizza Brain Fishtown (Philly Mag
+  2024-05), Lunar Inn (Philly Mag 2023-11), Martha (Infatuation 'permanently closed'), Krakus Market (2018), Syrenka (late 2019 per
+  philadelphianeighborhoods.com 2024 — the HELD lead is now dropped), Nam Son Bakery (2019 → became Hello Vietnam), Rangoon (2021
+  closing), Earth Bread + Brewery (→ Töska).
+- HELD single-source: Izakaya Fishtown, Jean, Emmett, Nunu (Infatuation only); Shane Confectionery, Federal Donuts, Penang, Bai Wei,
+  Plaza Garibaldi, Pho Ha, Cafe Diem (Visit Philly only); Monk's Cafe, Tacos Don Memo, Eda's, Manayunk Indian Grille, Smiley's
+  (Infatuation only); Stock's Bakery (student outlet only); El Compadre (status conflict 2018 closure vs 2021 activity); Upsala
+  (Wikipedia coordinate looked wrong — ~4 km east of 6430 Germantown Ave; rejected).

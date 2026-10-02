@@ -68,7 +68,7 @@ CMAP = {
  "Bar":"BREW","Brewery":"BREW","Beer":"BREW","Cocktails":"BREW","Cocktail Bar":"BREW","Taproom":"BREW","Distillery":"BREW","Pub":"BREW","Tavern":"BREW","Speakeasy":"BREW","Dive Bar":"BREW","Beer Garden":"BREW","Winery":"BREW",
  "Coffee":"COF","Cafe":"COF","Café":"COF","Roaster":"COF","Tea":"COF",
  "Viral":"VIRAL",
- "Yemeni":"ME","Halal":"ME","Polish":"HOAG","Brasserie":"US","Ukrainian":"HOAG","Russian":"HOAG",
+ "Yemeni":"ME","Halal":"ME","Polish":"HOAG","Brasserie":"US","Ukrainian":"HOAG","Russian":"HOAG","Tibetan":"IN","Cheese":"HOAG",
 }
 def map_cz(raw):
     out = []
