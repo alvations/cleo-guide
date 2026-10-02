@@ -1,0 +1,2791 @@
+[
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Imperial Palace East Gardens (皇居東御苑)",
+  "a": "CYD",
+  "address": "1-1 Chiyoda, Chiyoda-ku, Tokyo 100-8111",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Imperial_Palace_East_Garden"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Yasukuni Shrine (靖國神社)",
+  "a": "CYD",
+  "address": "3-1-1 Kudankita, Chiyoda-ku, Tokyo 102-8246",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Yasukuni_Shrine"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Kanda Myōjin (神田明神)",
+  "a": "CYD",
+  "address": "2-16-2 Sotokanda, Chiyoda-ku, Tokyo 101-0021",
+  "src": [
+   "GOTOKYO",
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/17/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Tokyo Station Marunouchi Building (東京駅丸の内駅舎)",
+  "a": "CYD",
+  "address": "1-9-1 Marunouchi, Chiyoda-ku, Tokyo",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE",
+   "WIKIPEDIA"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/central-tokyo/tokyo-station-and-marunouchi/index.html",
+  "newAddress": "Tokyo Station, Marunouchi 1-chōme, Chiyoda-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "National Museum of Modern Art, Tokyo (MOMAT)",
+  "a": "CYD",
+  "address": "3-1 Kitanomaru-koen, Chiyoda-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/142/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Akihabara Electric Town (秋葉原電気街)",
+  "a": "CYD",
+  "address": "Sotokanda 1-chome, Chiyoda-ku, Tokyo",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Jimbōchō Book Town (神保町古書店街)",
+  "a": "CYD",
+  "address": "Kanda-Jimbōchō 1–2-chome (Yasukuni-dōri × Hakusan-dōri), Chiyoda-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Hie Shrine (日枝神社)",
+  "a": "CYD",
+  "address": "2-10-5 Nagatachō, Chiyoda-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/343/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W1.json",
+  "n": "Nippon Budōkan (日本武道館)",
+  "a": "CYD",
+  "address": "2-3 Kitanomaru-koen, Chiyoda-ku, Tokyo 102-8321",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Nippon_Budokan"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sensō-ji (浅草寺)",
+  "a": "TAITO",
+  "address": "2-3-1 Asakusa, Taitō-ku, Tokyo 111-0032",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/15/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo National Museum (東京国立博物館)",
+  "a": "TAITO",
+  "address": "13-9 Uenokōen, Taitō-ku, Tokyo 110-8712",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/123/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ueno Park (上野恩賜公園)",
+  "a": "TAITO",
+  "address": "Uenokōen, Taitō-ku, Tokyo 110-0007",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kappabashi Dōgu-gai (かっぱ橋道具街)",
+  "a": "TAITO",
+  "address": "Matsugaya / Nishi-Asakusa, Taitō-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ryōgoku Kokugikan (両国国技館)",
+  "a": "SMKT",
+  "address": "1-3-28 Yokoami, Sumida-ku, Tokyo 130-0015",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Ry%C5%8Dgoku_Kokugikan"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sumida Hokusai Museum (すみだ北斎美術館)",
+  "a": "SMKT",
+  "address": "2-7-2 Kamezawa, Sumida-ku, Tokyo 130-0014",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/138/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kiyosumi Garden (清澄庭園)",
+  "a": "SMKT",
+  "address": "3-3-9 Kiyosumi, Kōtō-ku, Tokyo 135-0024",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/25/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nezu Shrine (根津神社)",
+  "a": "JHOKU",
+  "address": "1-28-9 Nezu, Bunkyō-ku, Tokyo 113-0031",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/70/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shibuya Scramble Crossing (渋谷スクランブル交差点)",
+  "a": "SBY",
+  "address": "2-2-1 Dōgenzaka, Shibuya-ku, Tokyo 150-0043",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/78/index.html",
+  "newAddress": "Dōgenzaka-shita, Shibuya Crossing, Shibuya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yoyogi Park (代々木公園)",
+  "a": "SBY",
+  "address": "2-1 Yoyogikamizonochō, Shibuya-ku, Tokyo 151-0052",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/21/index.html",
+  "newAddress": "Yoyogikamizonochō / 2 Jinnan, Shibuya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shinjuku Gyoen National Garden (新宿御苑)",
+  "a": "SJK",
+  "address": "11 Naitōmachi, Shinjuku-ku, Tokyo 160-0014",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/75/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Metropolitan Government Building (東京都庁)",
+  "a": "SJK",
+  "address": "2-8-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo 163-8001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Government_Building"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shinjuku Golden Gai (新宿ゴールデン街)",
+  "a": "SJK",
+  "address": "1-1 Kabukichō, Shinjuku-ku, Tokyo 160-0021",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/62/index.html",
+  "newAddress": "1-1-6 Kabukichō, Shinjuku-ku, Tokyo 160-0021"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Meiji Jingū (明治神宮)",
+  "a": "SBY",
+  "address": "1-1 Yoyogikamizonochō, Shibuya-ku, Tokyo 151-8557",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/76/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Skytree (東京スカイツリー)",
+  "a": "SMKT",
+  "address": "1-1-2 Oshiage, Sumida-ku, Tokyo 131-0045",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/6/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Rikugien Gardens (六義園)",
+  "a": "JHOKU",
+  "address": "6-16-3 Honkomagome, Bunkyō-ku, Tokyo 113-0021",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/22/index.html",
+  "newAddress": "Honkomagome 6-chōme, Bunkyō-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Koishikawa Kōrakuen (小石川後楽園)",
+  "a": "JHOKU",
+  "address": "1-6-6 Kōraku, Bunkyō-ku, Tokyo 112-0004",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/24/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kabuki-za (歌舞伎座)",
+  "a": "CHUO",
+  "address": "4-12-15 Ginza, Chūō-ku, Tokyo 104-0061",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/29/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nihonbashi Bridge (日本橋)",
+  "a": "CHUO",
+  "address": "1-1 Nihonbashi, Chūō-ku, Tokyo 103-0027",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/44/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hama-rikyū Gardens (浜離宮恩賜庭園)",
+  "a": "CHUO",
+  "address": "1-1 Hamarikyū-teien, Chūō-ku, Tokyo 104-0046",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/20/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Zōjō-ji (増上寺)",
+  "a": "MNT",
+  "address": "4-7-35 Shiba-kōen, Minato-ku, Tokyo 105-0011",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Z%C5%8Dj%C5%8D-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Roppongi Hills Mori Tower — Tokyo City View & Mori Art Museum",
+  "a": "MNT",
+  "address": "6-10-1 Roppongi, Minato-ku, Tokyo 106-6108",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/81/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "teamLab Planets TOKYO",
+  "a": "SMKT",
+  "address": "6-1-16 Toyosu, Kōtō-ku, Tokyo 135-0061",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1825/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Toyosu Market (豊洲市場)",
+  "a": "SMKT",
+  "address": "6-6-1 Toyosu, Kōtō-ku, Tokyo 135-0061",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Toyosu_Market",
+  "newAddress": "Toyosu 6-chōme, Kōtō-ku, Tokyo 135-0061"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tomioka Hachimangū (富岡八幡宮)",
+  "a": "SMKT",
+  "address": "1-20-3 Tomioka, Kōtō-ku, Tokyo 135-0047",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Tomioka_Hachiman_Shrine"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Museum of Contemporary Art Tokyo (MOT)",
+  "a": "SMKT",
+  "address": "4-1-1 Miyoshi, Kōtō-ku, Tokyo 135-0022",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/141/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nakano Broadway (中野ブロードウェイ)",
+  "a": "JOSAI",
+  "address": "5-52-15 Nakano, Nakano-ku, Tokyo 164-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/72/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shimokitazawa (下北沢)",
+  "a": "JOSAI",
+  "address": "Kitazawa, Setagaya-ku, Tokyo 155-0031",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Tower (東京タワー)",
+  "a": "MNT",
+  "address": "4-2-8 Shiba-kōen, Minato-ku, Tokyo 105-0011",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/4/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sengaku-ji (泉岳寺)",
+  "a": "MNT",
+  "address": "2-11-1 Takanawa, Minato-ku, Tokyo 108-0074",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Sengaku-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ghibli Museum, Mitaka (三鷹の森ジブリ美術館)",
+  "a": "TAMA",
+  "address": "1-1-83 Shimorenjaku, Mitaka, Tokyo 181-0013",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/60/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Inokashira Park (井の頭恩賜公園)",
+  "a": "TAMA",
+  "address": "1-18-31 Gotenyama, Musashino, Tokyo 180-0005",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/624/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Mount Takao (高尾山)",
+  "a": "TAMA",
+  "address": "Takaomachi, Hachiōji, Tokyo 193-0844",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Jindai-ji (深大寺)",
+  "a": "TAMA",
+  "address": "5-15-1 Jindaijimotomachi, Chōfu, Tokyo 182-0017",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/ev162/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Great Buddha of Kamakura — Kōtoku-in (鎌倉大仏)",
+  "a": "KANTO",
+  "address": "4-2-28 Hase, Kamakura, Kanagawa 248-0016",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tsurugaoka Hachimangū (鶴岡八幡宮)",
+  "a": "KANTO",
+  "address": "2-1-31 Yukinoshita, Kamakura, Kanagawa 248-8588",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nikkō Tōshō-gū (日光東照宮)",
+  "a": "KANTO",
+  "address": "2301 Sannai, Nikkō, Tochigi 321-1431",
+  "src": [
+   "WIKIPEDIA",
+   "UNESCO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Nikk%C5%8D_T%C5%8Dsh%C5%8D-g%C5%AB"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shibamata Taishakuten (柴又帝釈天)",
+  "a": "JOTO",
+  "address": "7-10-3 Shibamata, Katsushika-ku, Tokyo 125-0052",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/es/spot/11/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kasai Rinkai Park (葛西臨海公園)",
+  "a": "JOTO",
+  "address": "6-2 Rinkaichō, Edogawa-ku, Tokyo 134-0086",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "JAPANGUIDE",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/277/index.html",
+  "newAddress": "6 Rinkaichō, Edogawa-ku, Tokyo 134-0086"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Holy Resurrection Cathedral — Nikolai-dō (ニコライ堂)",
+  "a": "CYD",
+  "address": "4-1-3 Kanda-Surugadai, Chiyoda-ku, Tokyo 101-0062",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Holy_Resurrection_Cathedral",
+  "newAddress": "Kanda-Surugadai, Chiyoda-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo International Forum (東京国際フォーラム)",
+  "a": "CYD",
+  "address": "3-5-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/440/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shibuya Sky — Shibuya Scramble Square (渋谷スカイ)",
+  "a": "SBY",
+  "address": "2-24-12 Shibuya, Shibuya-ku, Tokyo 150-6145",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Shibuya_Scramble_Square",
+  "newAddress": "Shibuya Scramble Square, Shibuya 2-chōme, Shibuya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hachikō Statue (忠犬ハチ公像)",
+  "a": "SBY",
+  "address": "2-1 Dōgenzaka, Shibuya-ku, Tokyo 150-0043",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/86/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yebisu Garden Place (恵比寿ガーデンプレイス)",
+  "a": "SBY",
+  "address": "4-20 Ebisu, Shibuya-ku, Tokyo 150-6090",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/49/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Omotesandō Hills (表参道ヒルズ)",
+  "a": "SBY",
+  "address": "4-12-10 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/36/"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nezu Museum (根津美術館)",
+  "a": "MNT",
+  "address": "6-5-1 Minami-Aoyama, Minato-ku, Tokyo 107-0062",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "The National Art Center, Tokyo (国立新美術館)",
+  "a": "MNT",
+  "address": "7-22-2 Roppongi, Minato-ku, Tokyo 106-8558",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/50/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kyū-Shiba-rikyū Gardens (旧芝離宮恩賜庭園)",
+  "a": "MNT",
+  "address": "1-4-1 Kaigan, Minato-ku, Tokyo 105-0022",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/19/index.html",
+  "newAddress": "1 Kaigan, Minato-ku, Tokyo 105-0022"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Rainbow Bridge (レインボーブリッジ)",
+  "a": "MNT",
+  "address": "Kaigan 3-chōme – Daiba, Minato-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "National Museum of Western Art (国立西洋美術館)",
+  "a": "TAITO",
+  "address": "7-7 Uenokōen, Taitō-ku, Tokyo 110-0007",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/120/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kyū-Iwasaki-tei Gardens (旧岩崎邸庭園)",
+  "a": "TAITO",
+  "address": "1-3-45 Ikenohata, Taitō-ku, Tokyo 110-0008",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/420/index.html",
+  "newAddress": "1 Ikenohata, Taitō-ku, Tokyo 110-0008"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yanaka Cemetery (谷中霊園)",
+  "a": "TAITO",
+  "address": "7-5-24 Yanaka, Taitō-ku, Tokyo 110-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/677/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Asakusa Shrine (浅草神社)",
+  "a": "TAITO",
+  "address": "2-3-1 Asakusa, Taitō-ku, Tokyo 111-0032",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/383/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kyū-Furukawa Gardens (旧古河庭園)",
+  "a": "JHOKU",
+  "address": "1-27-39 Nishigahara, Kita-ku, Tokyo 114-0024",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/421/index.html",
+  "newAddress": "1 Nishigahara, Kita-ku, Tokyo 114-0024"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sunshine City, Ikebukuro (サンシャインシティ)",
+  "a": "JHOKU",
+  "address": "3-1 Higashi-Ikebukuro, Toshima-ku, Tokyo 170-8630",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Sunshine_60 (complex at 3-1 Higashi-Ikebukuro; Sunshine 60 tower 3-1-1)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Jiyū Gakuen Myōnichikan (自由学園明日館)",
+  "a": "JHOKU",
+  "address": "2-31-3 Nishi-Ikebukuro, Toshima-ku, Tokyo 171-0021",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/563/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Meguro Parasitological Museum (目黒寄生虫館)",
+  "a": "JONAN",
+  "address": "4-1-1 Shimomeguro, Meguro-ku, Tokyo 153-0064",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/434/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Metropolitan Teien Art Museum (東京都庭園美術館)",
+  "a": "MNT",
+  "address": "5-21-9 Shirokanedai, Minato-ku, Tokyo 108-0071",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/121/"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Gōtoku-ji (豪徳寺)",
+  "a": "JOSAI",
+  "address": "2-24-7 Gōtokuji, Setagaya-ku, Tokyo 154-0021",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/G%C5%8Dtoku-ji",
+  "newAddress": "Gōtokuji, Setagaya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ikegami Honmon-ji (池上本門寺)",
+  "a": "JONAN",
+  "address": "1-1-1 Ikegami, Ōta-ku, Tokyo 146-8576",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Ikegami_Honmon-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "CupNoodles Museum Yokohama (カップヌードルミュージアム 横浜)",
+  "a": "KANTO",
+  "address": "2-3-4 Shinkō, Naka-ku, Yokohama, Kanagawa 231-0001",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/CupNoodles_Museum_Yokohama + https://www.japan-guide.com/e/e3212.html (sources disagree on street number; coarsened)",
+  "newAddress": "Minato Mirai 21, Naka-ku, Yokohama, Kanagawa"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yokohama Landmark Tower — Sky Garden (横浜ランドマークタワー)",
+  "a": "KANTO",
+  "address": "2-2-1 Minatomirai, Nishi-ku, Yokohama, Kanagawa 220-0012",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+  "newAddress": "Minato Mirai, Nishi-ku, Yokohama, Kanagawa"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hakone Shrine (箱根神社)",
+  "a": "KANTO",
+  "address": "80-1 Motohakone, Hakone, Kanagawa 250-0522",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Hakone_Shrine (80-1, Hakone-machi)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hakone Open-Air Museum (彫刻の森美術館)",
+  "a": "KANTO",
+  "address": "1121 Ninotaira, Hakone, Kanagawa 250-0493",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.japan-guide.com/e/e5208.html",
+  "newAddress": "Hakone, Ashigarashimo District, Kanagawa (by Chōkoku-no-Mori Station)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hase-dera, Kamakura (長谷寺)",
+  "a": "KANTO",
+  "address": "3-11-2 Hase, Kamakura, Kanagawa 248-0016",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Engaku-ji (円覚寺)",
+  "a": "KANTO",
+  "address": "409 Yamanouchi, Kamakura, Kanagawa 247-0062",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Engaku-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kenchō-ji (建長寺)",
+  "a": "KANTO",
+  "address": "8 Yamanouchi, Kamakura, Kanagawa 247-8525",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Kench%C5%8D-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hōkoku-ji (報国寺)",
+  "a": "KANTO",
+  "address": "2-7-4 Jōmyōji, Kamakura, Kanagawa 248-0003",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Enoshima (江の島)",
+  "a": "KANTO",
+  "address": "Enoshima, Fujisawa, Kanagawa 251-0036",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kegon Falls (華厳滝)",
+  "a": "KANTO",
+  "address": "2479-2 Chūgūshi, Nikkō, Tochigi 321-1661",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.japan-guide.com/e/e3806.html",
+  "newAddress": "Chūgūshi, Nikkō, Tochigi (outflow of Lake Chūzenji)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Rinnō-ji (輪王寺)",
+  "a": "KANTO",
+  "address": "2300 Sannai, Nikkō, Tochigi 321-1494",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE",
+   "UNESCO"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Shrines_and_Temples_of_Nikk%C5%8D",
+  "newAddress": "Sannai, Nikkō, Tochigi"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Lake Chūzenji (中禅寺湖)",
+  "a": "KANTO",
+  "address": "Chūgūshi, Nikkō, Tochigi",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Chūreitō Pagoda — Arakurayama Sengen Park (忠霊塔)",
+  "a": "KANTO",
+  "address": "3353-1 Arakura, Fujiyoshida, Yamanashi 403-0011",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "fixed",
+  "via": "https://en.wikipedia.org/wiki/Arakurayama_Sengen_Park",
+  "newAddress": "3360-1 Arakura, Fujiyoshida, Yamanashi"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Lake Kawaguchi (河口湖)",
+  "a": "KANTO",
+  "address": "Fujikawaguchiko, Yamanashi",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Oshino Hakkai (忍野八海)",
+  "a": "KANTO",
+  "address": "Shibokusa, Oshino, Yamanashi 401-0511",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Oshino_Hakkai (Shibokusa, Oshino-mura 401-0511)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kita-in, Kawagoe (喜多院)",
+  "a": "KANTO",
+  "address": "1-20-1 Kosenbachō, Kawagoe, Saitama 350-0036",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Kita-in"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Toki no Kane — Kawagoe Time Bell (時の鐘)",
+  "a": "KANTO",
+  "address": "15-7 Saiwaichō, Kawagoe, Saitama 350-0063",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Time_Bell_Tower"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yayoi Kusama Museum (草間彌生美術館)",
+  "a": "SJK",
+  "address": "107 Bentenchō, Shinjuku-ku, Tokyo 162-0851",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Yayoi_Kusama_Museum"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hanazono Shrine (花園神社)",
+  "a": "SJK",
+  "address": "5-17-3 Shinjuku, Shinjuku-ku, Tokyo 160-0022",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/281/",
+  "newAddress": "5-17-13 Shinjuku, Shinjuku-ku, Tokyo 160-0022"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyu Kabukichō Tower (東急歌舞伎町タワー)",
+  "a": "SJK",
+  "address": "1-29-1 Kabukichō, Shinjuku-ku, Tokyo 160-0021",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1855/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kagurazaka (神楽坂)",
+  "a": "SJK",
+  "address": "Kagurazaka, Shinjuku-ku, Tokyo 162-0825",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tsukiji Hongan-ji (築地本願寺)",
+  "a": "CHUO",
+  "address": "3-15-1 Tsukiji, Chūō-ku, Tokyo 104-8435",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/12/index.html",
+  "newAddress": "Tsukiji 3-chōme, Chūō-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Suitengū (水天宮)",
+  "a": "CHUO",
+  "address": "2-4-1 Nihonbashi-Kakigarachō, Chūō-ku, Tokyo 103-0014",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/392/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Wakō clock tower, Ginza (和光)",
+  "a": "CHUO",
+  "address": "4-5-11 Ginza, Chūō-ku, Tokyo 104-8105",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/658/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Mizumoto Park (水元公園)",
+  "a": "JOTO",
+  "address": "3-2 Mizumotokōen, Katsushika-ku, Tokyo 125-0034",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/1114/index.html",
+  "newAddress": "Mizumotokōen, Katsushika-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Edo-Tokyo Open Air Architectural Museum (江戸東京たてもの園)",
+  "a": "TAMA",
+  "address": "3-7-1 Sakurachō, Koganei, Tokyo 184-0005",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/outlying-area/mitaka-musashino-and-around/index.html",
+  "newAddress": "Inside Koganei Park, Koganei, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shōwa Kinen Park (国営昭和記念公園)",
+  "a": "TAMA",
+  "address": "3173 Midorichō, Tachikawa, Tokyo 190-0014",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/outlying-area/kunitachi-tachikawa-and-around/index.html",
+  "newAddress": "Tachikawa, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nippara Limestone Caves (日原鍾乳洞)",
+  "a": "TAMA",
+  "address": "1052 Nippara, Okutama, Tokyo 198-0201",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/525/index.html",
+  "newAddress": "Nippara, Okutama-machi, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kōenji (高円寺)",
+  "a": "JOSAI",
+  "address": "Kōenji, Suginami-ku, Tokyo 166-0002",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nakameguro & the Meguro River (中目黒・目黒川)",
+  "a": "JONAN",
+  "address": "Kamimeguro, Meguro-ku, Tokyo 153-0051",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Jiyūgaoka (自由が丘)",
+  "a": "JONAN",
+  "address": "Jiyūgaoka, Meguro-ku, Tokyo 152-0035",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Meguro Sky Garden (目黒天空庭園)",
+  "a": "JONAN",
+  "address": "1-9-2 Ōhashi, Meguro-ku, Tokyo 153-0044",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT",
+   "WIKIPEDIA"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/649/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Gokoku-ji (護国寺)",
+  "a": "JHOKU",
+  "address": "5-40-1 Ōtsuka, Bunkyō-ku, Tokyo 112-0012",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/988/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Dome City (東京ドームシティ)",
+  "a": "JHOKU",
+  "address": "1-3-61 Kōraku, Bunkyō-ku, Tokyo 112-0004",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/9/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yushima Seidō (湯島聖堂)",
+  "a": "JHOKU",
+  "address": "1-4-25 Yushima, Bunkyō-ku, Tokyo 113-0034",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/271/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sankei-en, Yokohama (三溪園)",
+  "a": "KANTO",
+  "address": "58-1 Honmoku-sannotani, Naka-ku, Yokohama, Kanagawa 231-0824",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Sankei-en + https://www.japan-guide.com/e/e3205.html",
+  "newAddress": "Honmoku, Naka-ku, Yokohama, Kanagawa"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yokohama Chinatown (横浜中華街)",
+  "a": "KANTO",
+  "address": "Yamashitachō, Naka-ku, Yokohama, Kanagawa 231-0023",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hibiya Park (日比谷公園)",
+  "a": "CYD",
+  "address": "1-6 Hibiya-kōen, Chiyoda-ku, Tokyo 100-0012",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/26/index.html",
+  "newAddress": "Hibiya-kōen, Chiyoda-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "National Diet Building (国会議事堂)",
+  "a": "CYD",
+  "address": "1-7-1 Nagatachō, Chiyoda-ku, Tokyo 100-0014",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/514/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kitanomaru Park (北の丸公園)",
+  "a": "CYD",
+  "address": "1-1 Kitanomaru-kōen, Chiyoda-ku, Tokyo 102-0091",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/708/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ameya-Yokochō (Ameyoko, アメ横)",
+  "a": "TAITO",
+  "address": "6-10-7 Ueno, Taitō-ku, Tokyo 110-0005",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/71/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Omoide Yokochō (思い出横丁)",
+  "a": "SJK",
+  "address": "1-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-0023",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/63/index.html",
+  "newAddress": "1 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-0023"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Takeshita-dōri (竹下通り)",
+  "a": "SBY",
+  "address": "1-17 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+  "src": [
+   "GOTOKYO",
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/48/index.html",
+  "newAddress": "Jingūmae 1-chōme, Shibuya-ku, Tokyo 150-0001"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Katsushika Shibamata Tora-san Museum (葛飾柴又寅さん記念館)",
+  "a": "JOTO",
+  "address": "6-22-19 Shibamata, Katsushika-ku, Tokyo 125-0052",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/985/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "KochiKame Museum, Kameari (こち亀記念館)",
+  "a": "JOTO",
+  "address": "Kameari, Katsushika-ku, Tokyo",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nishiarai Daishi (西新井大師)",
+  "a": "JOTO",
+  "address": "1-15-1 Nishiarai, Adachi-ku, Tokyo 123-0841",
+  "src": [
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/ev159/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yoyogi National Gymnasium (国立代々木競技場)",
+  "a": "SBY",
+  "address": "2-1-1 Jinnan, Shibuya-ku, Tokyo 150-0041",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/346/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Daikanyama T-Site — Tsutaya Books (代官山 蔦屋書店)",
+  "a": "SBY",
+  "address": "17-5 Sarugakuchō, Shibuya-ku, Tokyo 150-0033",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/western-tokyo/daikanyama/index.html",
+  "newAddress": "Daikanyama (Sarugakuchō), Shibuya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Miyashita Park (MIYASHITA PARK)",
+  "a": "SBY",
+  "address": "6-20-10 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1844/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Fukagawa Edo Museum (深川江戸資料館)",
+  "a": "SMKT",
+  "address": "1-3-28 Shirakawa, Kōtō-ku, Tokyo 135-0021",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/631/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Mukōjima-Hyakkaen Gardens (向島百花園)",
+  "a": "SMKT",
+  "address": "3-18-3 Higashi-Mukōjima, Sumida-ku, Tokyo 131-0032",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/429/index.html",
+  "newAddress": "3 Higashi-Mukōjima, Sumida-ku, Tokyo 131-0032"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Big Sight (東京ビッグサイト)",
+  "a": "SMKT",
+  "address": "3-11-1 Ariake, Kōtō-ku, Tokyo 135-0063",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/630/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Unicorn Gundam Statue, DiverCity Tokyo Plaza — CLOSED",
+  "a": "SMKT",
+  "address": "1-1-10 Aomi, Kōtō-ku, Tokyo 135-0064",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/505/index.html",
+  "newAddress": "DiverCity Tokyo Plaza, Aomi, Kōtō-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Godzilla Head, Hotel Gracery Shinjuku (ゴジラヘッド)",
+  "a": "SJK",
+  "address": "1-19-1 Kabukichō, Shinjuku-ku, Tokyo 160-8466",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1864/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shin-Ōkubo Koreatown (新大久保コリアンタウン)",
+  "a": "SJK",
+  "address": "Hyakuninchō / Ōkubo, Shinjuku-ku, Tokyo 169-0073",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Meiji Jingū Gaien & Ichō Namiki Ginkgo Avenue (明治神宮外苑 いちょう並木)",
+  "a": "MNT",
+  "address": "Kita-Aoyama 1-chōme, Minato-ku, Tokyo 107-0061",
+  "src": [
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/92/index.html",
+  "newAddress": "Meiji Jingū Gaien, 1-1 Kasumigaokamachi, Shinjuku-ku, Tokyo (ginkgo avenue runs in from Aoyama-dōri)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ōwakudani (大涌谷)",
+  "a": "KANTO",
+  "address": "1251 Sengokuhara, Hakone, Kanagawa 250-0631",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.japan-guide.com/community/mfedley/report-964",
+  "newAddress": "Ōwakudani, Hakone, Kanagawa"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Lake Ashi (芦ノ湖)",
+  "a": "KANTO",
+  "address": "Motohakone, Hakone, Kanagawa",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Akihabara Radio Kaikan (秋葉原ラジオ会館)",
+  "a": "CYD",
+  "address": "1-15-16 Sotokanda, Chiyoda-ku, Tokyo 101-0021",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/central-tokyo/akihabara/index.html",
+  "newAddress": "Off the Electric Town exit of JR Akihabara Station, Sotokanda, Chiyoda-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Science Museum, Kitanomaru (科学技術館)",
+  "a": "CYD",
+  "address": "2-1 Kitanomaru-kōen, Chiyoda-ku, Tokyo 102-0091",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/435/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Setagaya Boro-ichi & Daikan Yashiki (世田谷ボロ市・代官屋敷)",
+  "a": "JOSAI",
+  "address": "1-29-18 Setagaya, Setagaya-ku, Tokyo 154-0017",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/ev114/index.html",
+  "newAddress": "Setagaya 1-chōme, Setagaya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ōtaguro Park (大田黒公園)",
+  "a": "JOSAI",
+  "address": "3-33-12 Ogikubo, Suginami-ku, Tokyo 167-0051",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/%C5%8Ctaguro_Park",
+  "newAddress": "Ogikubo, Suginami-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Odawara Castle (小田原城)",
+  "a": "KANTO",
+  "address": "6-1 Jōnai, Odawara, Kanagawa 250-0014",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Odawara_Castle",
+  "newAddress": "Odawara Castle Park, Odawara, Kanagawa"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Fujiya Hotel, Miyanoshita (富士屋ホテル)",
+  "a": "KANTO",
+  "address": "359 Miyanoshita, Hakone, Kanagawa 250-0404",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Fujiya_Hotel (Miyanoshita, Hakone)",
+  "newAddress": "Miyanoshita, Hakone, Kanagawa"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Asakura Museum of Sculpture (朝倉彫塑館)",
+  "a": "TAITO",
+  "address": "7-18-10 Yanaka, Taitō-ku, Tokyo 110-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/508/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ueno Zoo (上野動物園)",
+  "a": "TAITO",
+  "address": "9-83 Uenokōen, Taitō-ku, Tokyo 110-8711",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/41/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ueno Tōshō-gū (上野東照宮)",
+  "a": "TAITO",
+  "address": "9-88 Uenokōen, Taitō-ku, Tokyo 110-0007",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/399/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hanayashiki (浅草花やしき)",
+  "a": "TAITO",
+  "address": "2-28-1 Asakusa, Taitō-ku, Tokyo 111-0032",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/245/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Atago Shrine (愛宕神社)",
+  "a": "MNT",
+  "address": "1-5-3 Atago, Minato-ku, Tokyo 105-0002",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/465/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Azabudai Hills & teamLab Borderless (麻布台ヒルズ)",
+  "a": "MNT",
+  "address": "1-2-4 Azabudai, Minato-ku, Tokyo 106-0041",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1742/index.html (teamLab Borderless, Azabudai Hills Garden Plaza B, 1-2-4 Azabudai)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Toranomon Hills (虎ノ門ヒルズ)",
+  "a": "MNT",
+  "address": "1-23-1 Toranomon, Minato-ku, Tokyo 105-6390",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/740/index.html",
+  "newAddress": "Toranomon Hills Mori Tower, 1-23-4 Toranomon, Minato-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shinjuku Central Park (新宿中央公園)",
+  "a": "SJK",
+  "address": "2-11 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-0023",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/613/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Opera City (東京オペラシティ)",
+  "a": "SJK",
+  "address": "3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo 163-1403",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/374/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "GINZA SIX",
+  "a": "CHUO",
+  "address": "6-10-1 Ginza, Chūō-ku, Tokyo 104-0061",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/260/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Takao-san Yakuō-in (高尾山薬王院)",
+  "a": "TAMA",
+  "address": "2177 Takaomachi, Hachiōji, Tokyo 193-0844",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/38/index.html",
+  "newAddress": "Near the summit of Mt. Takao, Takaomachi, Hachiōji, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hachiōji Castle Ruins (八王子城跡)",
+  "a": "TAMA",
+  "address": "Motohachiōjimachi 3-chōme, Hachiōji, Tokyo 193-0826",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tama Zoological Park (多摩動物公園)",
+  "a": "TAMA",
+  "address": "7-1-1 Hodokubo, Hino, Tokyo 191-0042",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/283/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sumida Park (隅田公園)",
+  "a": "TAITO",
+  "address": "1-1 Hanakawado, Taitō-ku, Tokyo 111-0033",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/eastern-tokyo/skytree-and-around/index.html",
+  "newAddress": "Sumida River banks, Taitō-ku / Sumida-ku, Tokyo (by Tokyo Mizumachi)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kyū-Yasuda Garden (旧安田庭園)",
+  "a": "SMKT",
+  "address": "1-12-1 Yokoami, Sumida-ku, Tokyo 130-0015",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/510/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sumida Aquarium (すみだ水族館)",
+  "a": "SMKT",
+  "address": "Tokyo Skytree Town Solamachi 5–6F, 1-1-2 Oshiage, Sumida-ku, Tokyo 131-0045",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/67/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Warner Bros. Studio Tour Tokyo — The Making of Harry Potter",
+  "a": "JHOKU",
+  "address": "1-1-7 Kasugachō, Nerima-ku, Tokyo 179-0074",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1854/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Asukayama Park (飛鳥山公園)",
+  "a": "JHOKU",
+  "address": "1-1-3 Ōji, Kita-ku, Tokyo 114-0002",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1191/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shakujii Park (石神井公園)",
+  "a": "JHOKU",
+  "address": "1-26-1 Shakujiidai, Nerima-ku, Tokyo 177-0045",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "fixed",
+  "via": "https://www.gotokyo.org/en/spot/433/index.html",
+  "newAddress": "Shakujiidai 1–2-chōme / Shakujiimachi 5-chōme, Nerima-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ōji Inari Shrine (王子稲荷神社)",
+  "a": "JHOKU",
+  "address": "1-12-26 Kishimachi, Kita-ku, Tokyo 114-0021",
+  "src": [
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/ev107/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kameido Tenjin Shrine (亀戸天神社)",
+  "a": "SMKT",
+  "address": "3-6-1 Kameido, Kōtō-ku, Tokyo 136-0071",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/ev197/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yamamoto-tei, Shibamata (山本亭)",
+  "a": "JOTO",
+  "address": "7-19-32 Shibamata, Katsushika-ku, Tokyo 125-0052",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/2/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Horikiri Shōbuen Iris Garden (堀切菖蒲園)",
+  "a": "JOTO",
+  "address": "2-19-1 Horikiri, Katsushika-ku, Tokyo 124-0006",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/860/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ukiyo-e Ōta Memorial Museum of Art (太田記念美術館)",
+  "a": "SBY",
+  "address": "1-10-10 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/130/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Watari-um Museum of Contemporary Art (ワタリウム美術館)",
+  "a": "SBY",
+  "address": "3-7-6 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/169/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Setagaya Art Museum (世田谷美術館)",
+  "a": "JOSAI",
+  "address": "1-2 Kinuta-kōen, Setagaya-ku, Tokyo 157-0075",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/614/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Artizon Museum (アーティゾン美術館)",
+  "a": "CHUO",
+  "address": "1-7-2 Kyōbashi, Chūō-ku, Tokyo 104-0031",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/book/wp-content/uploads/2024/05/2405_ginzanihonbashiyorimichi_low_EN.pdf (Museum Tower Kyobashi, 1-7-2 Kyobashi)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shinagawa Aquarium (しながわ水族館)",
+  "a": "JONAN",
+  "address": "3-2-1 Katsushima, Shinagawa-ku, Tokyo 140-0012",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/512/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Port Wild Bird Park (東京港野鳥公園)",
+  "a": "JONAN",
+  "address": "3-1 Tōkai, Ōta-ku, Tokyo 143-0001",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/497/index.html",
+  "newAddress": "Tōkai, Ōta-ku, Tokyo (Tokyo Bay shore, on the Tokyo Monorail)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kinuta Park (砧公園)",
+  "a": "JOSAI",
+  "address": "1-1 Kinuta-kōen, Setagaya-ku, Tokyo 157-0075",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/901/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Gotoh Museum (五島美術館)",
+  "a": "JOSAI",
+  "address": "3-9-25 Kaminoge, Setagaya-ku, Tokyo 158-0093",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/601/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hasegawa Machiko Art Museum (長谷川町子美術館)",
+  "a": "JOSAI",
+  "address": "1-30-6 Sakura-shinmachi, Setagaya-ku, Tokyo 154-0015",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/994/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Seikadō Bunko Art Museum (静嘉堂文庫美術館)",
+  "a": "CYD",
+  "address": "Meiji Seimei-kan 1F, 2-1-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Seikad%C5%8D_Bunko_Art_Museum",
+  "newAddress": "Meiji Seimei-kan, Marunouchi, Chiyoda-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Eisei Bunko Museum (永青文庫)",
+  "a": "JHOKU",
+  "address": "1-1-1 Mejirodai, Bunkyō-ku, Tokyo 112-0015",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/436/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tōyō Bunko Museum (東洋文庫ミュージアム)",
+  "a": "JHOKU",
+  "address": "2-28-21 Honkomagome, Bunkyō-ku, Tokyo 113-0021",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/862/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Higo-Hosokawa Garden (肥後細川庭園)",
+  "a": "JHOKU",
+  "address": "1-1-22 Mejirodai, Bunkyō-ku, Tokyo 112-0015",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/832/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Chinzan-sō Garden (椿山荘庭園)",
+  "a": "JHOKU",
+  "address": "2-10-8 Sekiguchi, Bunkyō-ku, Tokyo 112-8680",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/555/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "State Guest House, Akasaka Palace (迎賓館赤坂離宮)",
+  "a": "MNT",
+  "address": "2-1-1 Moto-Akasaka, Minato-ku, Tokyo 107-0051",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1695/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Midtown (東京ミッドタウン)",
+  "a": "MNT",
+  "address": "9-7-1 Akasaka, Minato-ku, Tokyo 107-0052",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/8/index.html + spot/129 (Galleria 9-7-4) + spot/64 (Garden 9-7-6)",
+  "newAddress": "9-7 Akasaka, Minato-ku, Tokyo 107-0052"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Suntory Museum of Art (サントリー美術館)",
+  "a": "MNT",
+  "address": "Tokyo Midtown Galleria 3F, 9-7-4 Akasaka, Minato-ku, Tokyo 107-8643",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/129/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "21_21 DESIGN SIGHT",
+  "a": "MNT",
+  "address": "Tokyo Midtown Garden, 9-7-6 Akasaka, Minato-ku, Tokyo 107-0052",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/64/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kiba Park (木場公園)",
+  "a": "SMKT",
+  "address": "4-6-1 Hirano, Kōtō-ku, Tokyo 135-0023",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/1102/index.html",
+  "newAddress": "Kiba, Kōtō-ku, Tokyo (park containing the Museum of Contemporary Art Tokyo)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yokohama Red Brick Warehouse (横浜赤レンガ倉庫)",
+  "a": "KANTO",
+  "address": "1-1 Shinkō, Naka-ku, Yokohama, Kanagawa 231-0001",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Yokohama_Red_Brick_Warehouse",
+  "newAddress": "Shinkō, Naka-ku, Yokohama, Kanagawa (Port of Yokohama)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Zeniarai Benten, Kamakura (銭洗弁財天宇賀福神社)",
+  "a": "KANTO",
+  "address": "2-25-16 Sasuke, Kamakura, Kanagawa 248-0017",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine + https://www.japan-guide.com/e/e3111.html",
+  "newAddress": "Sasuke, Kamakura, Kanagawa (west of Kamakura Station)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Futarasan Shrine, Nikkō (日光二荒山神社)",
+  "a": "KANTO",
+  "address": "2307 Sannai, Nikkō, Tochigi 321-1431",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE",
+   "UNESCO"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Shrines_and_Temples_of_Nikk%C5%8D",
+  "newAddress": "Sannai, Nikkō, Tochigi"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kōkyo Gaien & Nijūbashi (皇居外苑・二重橋)",
+  "a": "CYD",
+  "address": "1-1 Kōkyogaien, Chiyoda-ku, Tokyo 100-0002",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/story/guide/a-noble-look-at-tokyos-imperial-palace-a-guide-to-the-royal-residence/index.html",
+  "newAddress": "Kōkyo Gaien, Chiyoda-ku, Tokyo (in front of the Imperial Palace)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Mitsubishi Ichigōkan Museum (三菱一号館美術館)",
+  "a": "CYD",
+  "address": "2-6-2 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/126/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Marunouchi Building (丸の内ビルディング)",
+  "a": "CYD",
+  "address": "2-4-1 Marunouchi, Chiyoda-ku, Tokyo 100-6390",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/372/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kaminarimon (雷門)",
+  "a": "TAITO",
+  "address": "2-3-1 Asakusa, Taitō-ku, Tokyo 111-0032",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/15/index.html (Kaminarimon is Sensō-ji's outer gate; temple address 2-3-1 Asakusa)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Metropolitan Art Museum (東京都美術館)",
+  "a": "TAITO",
+  "address": "8-36 Uenokōen, Taitō-ku, Tokyo 110-0007",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1746/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "National Museum of Nature and Science (国立科学博物館)",
+  "a": "TAITO",
+  "address": "7-20 Uenokōen, Taitō-ku, Tokyo 110-8718",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/140/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ōkunitama Shrine, Fuchū (大國魂神社)",
+  "a": "TAMA",
+  "address": "3-1 Miyamachi, Fuchū, Tokyo 183-0023",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/377/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Lake Okutama (奥多摩湖)",
+  "a": "TAMA",
+  "address": "Hara, Okutama, Tokyo 198-0223",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Bishamonten Zenkoku-ji (毘沙門天 善國寺)",
+  "a": "SJK",
+  "address": "5-36 Kagurazaka, Shinjuku-ku, Tokyo 162-0825",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/1000/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Daijingū (東京大神宮)",
+  "a": "CYD",
+  "address": "2-4-1 Fujimi, Chiyoda-ku, Tokyo 102-0071",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/42/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Fukagawa Fudōdō (深川不動堂)",
+  "a": "SMKT",
+  "address": "1-17-13 Tomioka, Kōtō-ku, Tokyo 135-0047",
+  "src": [
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/eastern-tokyo/fukagawa/index.html",
+  "newAddress": "Tomioka 1-chōme, Kōtō-ku, Tokyo (beside Tomioka Hachimangū)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Odaiba Marine Park (お台場海浜公園)",
+  "a": "MNT",
+  "address": "1-4-1 Daiba, Minato-ku, Tokyo 135-0091",
+  "src": [
+   "TIMEOUT",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/39/index.html",
+  "newAddress": "1-4 Daiba, Minato-ku, Tokyo 135-0091"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Fuji TV Building — Hachitama observation sphere (フジテレビ本社ビル)",
+  "a": "MNT",
+  "address": "2-4-8 Daiba, Minato-ku, Tokyo 137-8088",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/591/"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Institute for Nature Study (国立科学博物館附属自然教育園)",
+  "a": "MNT",
+  "address": "5-21-5 Shirokanedai, Minato-ku, Tokyo 108-0071",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/415/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nakano Sun Mall (中野サンモール)",
+  "a": "JOSAI",
+  "address": "Nakano 5-chōme, Nakano-ku, Tokyo 164-0001",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sompo Museum of Art (SOMPO美術館)",
+  "a": "SJK",
+  "address": "1-26-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-8338",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/350/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "National Shōwa Memorial Museum — Shōwa-kan (昭和館)",
+  "a": "CYD",
+  "address": "1-6-1 Kudan-minami, Chiyoda-ku, Tokyo 102-0074",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/646/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Taro Okamoto Memorial Museum (岡本太郎記念館)",
+  "a": "MNT",
+  "address": "6-1-19 Minami-Aoyama, Minato-ku, Tokyo 107-0062",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/160/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Japan Folk Crafts Museum — Mingeikan (日本民藝館)",
+  "a": "JONAN",
+  "address": "4-3-33 Komaba, Meguro-ku, Tokyo 153-0041",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Japanese_Folk_Crafts_Museum",
+  "newAddress": "Komaba 4-chōme, Meguro-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Fujiko F. Fujio Museum — Doraemon Museum (藤子・F・不二雄ミュージアム)",
+  "a": "KANTO",
+  "address": "2-8-1 Nagao, Tama-ku, Kawasaki, Kanagawa 214-0023",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.japan-guide.com/e/e3252.html",
+  "newAddress": "Tama-ku, Kawasaki, Kanagawa (from Noborito Station)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nihon Minka-en Open Air Museum (日本民家園)",
+  "a": "KANTO",
+  "address": "7-1-1 Masugata, Tama-ku, Kawasaki, Kanagawa 214-0032",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "https://www.japan-guide.com/e/e3253.html",
+  "newAddress": "Tama-ku, Kawasaki, Kanagawa (from Mukōgaoka-Yūen Station)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Kawagoe Hikawa Shrine (川越氷川神社)",
+  "a": "KANTO",
+  "address": "2-11-3 Miyashitamachi, Kawagoe, Saitama 350-0052",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)",
+  "newAddress": "Kawagoe, Saitama (north of the Kurazukuri street)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Nintendo TOKYO & Pokémon Center Shibuya (Shibuya PARCO 6F)",
+  "a": "SBY",
+  "address": "Shibuya PARCO 6F, 15-1 Udagawachō, Shibuya-ku, Tokyo 150-0042",
+  "src": [
+   "TIMEOUT",
+   "JAPANGUIDE"
+  ],
+  "check": "coarsened",
+  "via": "existing W2 sources (GO TOKYO/Time Out); street number not re-confirmed — coarsened",
+  "newAddress": "Shibuya PARCO 6F, Udagawachō, Shibuya-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Shibuya Hikarie (渋谷ヒカリエ)",
+  "a": "SBY",
+  "address": "2-21-1 Shibuya, Shibuya-ku, Tokyo 150-8510",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Shibuya_Hikarie"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Otome Road (乙女ロード)",
+  "a": "JHOKU",
+  "address": "Higashi-Ikebukuro 3-chōme, Toshima-ku, Tokyo 170-0013",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Sugamo Jizō-dōri & Kōgan-ji (Togenuki Jizō)",
+  "a": "JHOKU",
+  "address": "3-35-2 Sugamo, Toshima-ku, Tokyo 170-0002",
+  "src": [
+   "GOTOKYO",
+   "WIKIPEDIA"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/destinations/northern-tokyo/sugamo/index.html",
+  "newAddress": "Sugamo Jizō-dōri, Sugamo, Toshima-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tonogayato Garden (殿ヶ谷戸庭園)",
+  "a": "TAMA",
+  "address": "2-16 Minamichō, Kokubunji, Tokyo 185-0021",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/424/index.html",
+  "newAddress": "2 Minamichō, Kokubunji, Tokyo 185-0021"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Jindai Botanical Gardens (神代植物公園)",
+  "a": "TAMA",
+  "address": "5-31-10 Jindaijimotomachi, Chōfu, Tokyo 182-0017",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/431/index.html",
+  "newAddress": "Jindaiji-Motomachi / Jindaiji-Kitamachi / Jindaiji-Minamimachi, Chōfu, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Koganei Park (小金井公園)",
+  "a": "TAMA",
+  "address": "1-13-1 Sekino-chō, Koganei, Tokyo 184-0001",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/422/index.html",
+  "newAddress": "Sekinochō / Sakurachō, Koganei, Tokyo (spans into Kodaira & Nishitōkyō)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Toyosu Senkyaku Banrai (豊洲 千客万来)",
+  "a": "SMKT",
+  "address": "6-5-1 Toyosu, Kōtō-ku, Tokyo 135-0061",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/en/spot/1858/index.html",
+  "newAddress": "Toyosu 6-chōme, Kōtō-ku, Tokyo (outer area of Toyosu Market)"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Yumenoshima Tropical Greenhouse Dome (夢の島熱帯植物館)",
+  "a": "SMKT",
+  "address": "2-1-2 Yumenoshima, Kōtō-ku, Tokyo 136-0081",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/483/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Tokyo Sea Life Park (葛西臨海水族園)",
+  "a": "JOTO",
+  "address": "6-2-3 Rinkaichō, Edogawa-ku, Tokyo 134-8587",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/52/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Hotel Gajoen Tokyo — Hyakudan Kaidan (ホテル雅叙園東京 百段階段)",
+  "a": "JONAN",
+  "address": "1-8-1 Shimomeguro, Meguro-ku, Tokyo 153-0064",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://www.gotokyo.org/en/spot/450/index.html"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W2.json",
+  "n": "Ōmori Nori Museum (大森 海苔のふるさと館)",
+  "a": "JONAN",
+  "address": "Beside Ōmori Furusato-no-Hamabe Park, Ōta-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Kawasaki Daishi (川崎大師 平間寺)",
+  "a": "KANTO",
+  "address": "4-48 Daishimachi, Kawasaki-ku, Kawasaki, Kanagawa 210-8570",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANGUIDE"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Kawasaki_Daishi"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Meguro Fudōson — Ryūsen-ji (目黒不動尊 瀧泉寺)",
+  "a": "JONAN",
+  "address": "3-20-26 Shimomeguro, Meguro-ku, Tokyo 153-0064",
+  "src": [
+   "WIKIPEDIA",
+   "GOTOKYO"
+  ],
+  "check": "coarsened",
+  "via": "https://www.gotokyo.org/book/wp-content/uploads/2023/05/2305_megurokanko-daihyakka_lowEN.pdf",
+  "newAddress": "Shimomeguro, Meguro-ku, Tokyo"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Shōin Shrine (松陰神社)",
+  "a": "JOSAI",
+  "address": "4-35-1 Wakabayashi, Setagaya-ku, Tokyo 154-0023",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Sh%C5%8Din_shrine"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Kuhonbutsu Jōshin-ji (九品仏浄真寺)",
+  "a": "JOSAI",
+  "address": "7-41-3 Okusawa, Setagaya-ku, Tokyo 158-0083",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANTIMES"
+  ],
+  "check": "verified",
+  "via": "https://en.wikipedia.org/wiki/Kuhonbutsu_J%C5%8Dshin-ji"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Toneri Park (舎人公園)",
+  "a": "JOTO",
+  "address": "Toneri-kōen, Adachi-ku, Tokyo 121-0837",
+  "src": [
+   "WIKIPEDIA",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Ōmori Shell Mound (大森貝塚)",
+  "a": "JONAN",
+  "address": "Ōi 6-chōme, Shinagawa-ku, Tokyo",
+  "src": [
+   "WIKIPEDIA",
+   "JAPANTIMES"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Tsukiji Outer Market (築地場外市場)",
+  "a": "CHUO",
+  "address": "Tsukiji 4–6-chōme, Chūō-ku, Tokyo 104-0045",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Shinkyō Bridge, Nikkō (神橋)",
+  "a": "KANTO",
+  "address": "Kamihatsuishimachi, Nikkō, Tochigi 321-1401",
+  "src": [
+   "JAPANGUIDE",
+   "UNESCO"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "Chidorigafuchi (千鳥ヶ淵緑道)",
+  "a": "CYD",
+  "address": "Chidorigafuchi Ryokudō, Chiyoda-ku, Tokyo",
+  "src": [
+   "GOTOKYO",
+   "TIMEOUT"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ },
+ {
+  "f": "SIGHTS_TOKYO_W3.json",
+  "n": "TAKAO 599 MUSEUM",
+  "a": "TAMA",
+  "address": "Takaomachi, by Takaosanguchi Station, Hachiōji, Tokyo 193-0844",
+  "src": [
+   "GOTOKYO",
+   "JAPANGUIDE"
+  ],
+  "check": "locality",
+  "via": "no street number claimed; district/locality only, consistent with the sourced pin"
+ }
+]

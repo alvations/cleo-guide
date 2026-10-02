@@ -25,3 +25,13 @@ Edomae sushi (Tsukiji/Toyosu), soba (Kanda Yabu, Sunaba), tempura, unagi, monjay
 
 ## Sights backbone (tier-1 candidates; every area needs ≥1 geocodable tier-1)
 Sensō-ji, Meiji Jingū, Imperial Palace East Gardens, Shibuya Crossing, Tokyo Skytree, Tokyo Tower, Ueno Park & Tokyo National Museum, teamLab, Shinjuku Gyoen, Golden Gai, Yanaka Ginza, Nakano Broadway, Ghibli Museum, Gōtokuji, Rikugien, Kiyosumi Teien, Nezu Shrine, Toyosu Market; day trips: Kamakura Daibutsu, Hakone, Nikkō Tōshō-gū (UNESCO), Kawagoe.
+
+## Proven methods (W2, 2026-10-02) — use these first
+- **Sights:** `en.wikipedia.org`+`gotokyo.org`+`timeout.com` restricted, 4 names: "A coordinates; B coordinates;
+  C coordinates; D coordinates" → infobox coords + GO TOKYO spot page per place. Kantō: `japan-guide.com` instead.
+- **Michelin food:** `guide.michelin.com`, exactly 3 exact page names + "Michelin restaurant page latitude longitude
+  coordinates" (never the word "cuisine"). Seed names from Michelin category/list queries and the yearly "New Bib
+  Gourmands" article (which also gives the named dish).
+- **Streets, yokochō, heritage shops:** `wikidata.org`, "A latitude longitude; B latitude longitude; …" (P625 = pin
+  only), then a Time Out / Japan Times / Savor Japan / GO TOKYO corroboration query for the two sources.
+- Never type kanji/kana names or street numbers from memory. Held items live in `_pending_w2.json`.

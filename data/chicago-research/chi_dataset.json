@@ -1,0 +1,4787 @@
+{
+ "areas": [
+  {
+   "id": "LOOP",
+   "n": "The Loop & Downtown (River North, Streeterville, Gold Coast, South Loop, Museum Campus, West Loop)"
+  },
+  {
+   "id": "NORTH",
+   "n": "North Side (Lincoln Park, Lakeview, Lincoln Square, Uptown & Argyle, Andersonville, Rogers Park & Devon)"
+  },
+  {
+   "id": "NW",
+   "n": "Northwest Side (Wicker Park, Bucktown, Ukrainian Village, Logan Square, Humboldt Park, Avondale, Albany Park)"
+  },
+  {
+   "id": "WEST",
+   "n": "West Side (Pilsen, Little Village, Little Italy & Taylor St, Garfield Park, Austin)"
+  },
+  {
+   "id": "SOUTH",
+   "n": "South Side (Chinatown, Bridgeport, Bronzeville, Hyde Park, Woodlawn, South Shore)"
+  },
+  {
+   "id": "SW",
+   "n": "Southwest Side (Back of the Yards, McKinley Park, Brighton Park, Archer Heights, Marquette Park, Midway)"
+  },
+  {
+   "id": "FAR",
+   "n": "Far South (Pullman, Beverly & Morgan Park, Chatham, Roseland, the Calumet)"
+  },
+  {
+   "id": "SUB",
+   "n": "Suburbs & North Shore (Evanston, Oak Park, Skokie, Wilmette, Glencoe, Berwyn, the western suburbs)"
+  },
+  {
+   "id": "DAY",
+   "n": "Day Trips (Indiana Dunes, Starved Rock, Milwaukee, the Lake Michigan shore)"
+  }
+ ],
+ "ac": {
+  "LOOP": "#C0504D",
+  "NORTH": "#4F81BD",
+  "NW": "#9BBB59",
+  "WEST": "#E8973A",
+  "SOUTH": "#8064A2",
+  "SW": "#D99694",
+  "FAR": "#4BACC6",
+  "SUB": "#2C7FB8",
+  "DAY": "#F2A900"
+ },
+ "cuisines": [
+  {
+   "id": "PZ",
+   "n": "Pizza (deep-dish, tavern-style thin, stuffed)"
+  },
+  {
+   "id": "BEEF",
+   "n": "Italian Beef & Chicago Sandwiches"
+  },
+  {
+   "id": "DOG",
+   "n": "Hot Dogs, Maxwell Street Polish & Burgers"
+  },
+  {
+   "id": "CHX",
+   "n": "Fried Chicken, Mild Sauce, BBQ & Soul Food"
+  },
+  {
+   "id": "US",
+   "n": "New American, Fine Dining & Steakhouses"
+  },
+  {
+   "id": "DELI",
+   "n": "Delis, Diners & Breakfast"
+  },
+  {
+   "id": "IT",
+   "n": "Italian"
+  },
+  {
+   "id": "MEX",
+   "n": "Mexican (Pilsen & Little Village)"
+  },
+  {
+   "id": "PR",
+   "n": "Puerto Rican, Caribbean & Latin American"
+  },
+  {
+   "id": "CN",
+   "n": "Chinese (Chinatown & beyond)"
+  },
+  {
+   "id": "VN",
+   "n": "Vietnamese, Thai & Southeast Asian (Argyle)"
+  },
+  {
+   "id": "KR",
+   "n": "Korean"
+  },
+  {
+   "id": "JP",
+   "n": "Japanese"
+  },
+  {
+   "id": "IN",
+   "n": "Indian & Pakistani (Devon Ave)"
+  },
+  {
+   "id": "ME",
+   "n": "Middle Eastern, Greek & Mediterranean"
+  },
+  {
+   "id": "EEU",
+   "n": "Polish, Ukrainian & Eastern European"
+  },
+  {
+   "id": "EU",
+   "n": "Swedish, German, French & European"
+  },
+  {
+   "id": "AF",
+   "n": "African & Ethiopian"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood & Fish Shacks"
+  },
+  {
+   "id": "BAR",
+   "n": "Taverns, Bars, Cocktails & Breweries"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "DES",
+   "n": "Desserts, Bakeries, Rainbow Cone & Popcorn"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "MUS",
+   "n": "Museums & Galleries"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks, Beaches & Gardens"
+  },
+  {
+   "id": "ICON",
+   "n": "Iconic Landmarks & Skyline Views"
+  },
+  {
+   "id": "ARCH",
+   "n": "Architecture & History"
+  },
+  {
+   "id": "FLW",
+   "n": "Frank Lloyd Wright & Prairie School"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Food Halls"
+  },
+  {
+   "id": "ARTS",
+   "n": "Blues, Jazz, Theater & Comedy"
+  },
+  {
+   "id": "SPORT",
+   "n": "Sports & Stadiums"
+  },
+  {
+   "id": "WATER",
+   "n": "Lakefront, River & Water"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  },
+  {
+   "id": "ROOF",
+   "n": "Rooftops & Views"
+  },
+  {
+   "id": "SPEAK",
+   "n": "Speakeasies & Cocktail Bars"
+  },
+  {
+   "id": "POP",
+   "n": "Pop Culture & Screen"
+  },
+  {
+   "id": "MURAL",
+   "n": "Murals & Public Art"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Art Institute of Chicago",
+   "ad": "111 S Michigan Ave, Chicago, IL 60603",
+   "w": "One of the world's great art museums — 300,000 works including Seurat's La Grande Jatte, Hopper's Nighthawks and Wood's American Gothic.",
+   "k": "museum art gallery",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Art_Institute_of_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Field Museum",
+   "ad": "1400 S DuSable Lake Shore Dr, Chicago, IL 60605",
+   "w": "The 1893-born natural history museum on the Museum Campus — home of SUE the T. rex and Máximo the titanosaur.",
+   "k": "museum family dinosaurs",
+   "g": [
+    "MUS",
+    "SPORT",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Field_Museum_of_Natural_History"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Willis Tower Skydeck",
+   "ad": "233 S Wacker Dr, Chicago, IL 60606",
+   "w": "The 103rd-floor observation deck of the former Sears Tower, with The Ledge glass boxes 1,353 ft over Wacker Drive.",
+   "k": "skydeck observation icon skyline",
+   "g": [
+    "ROOF",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Willis_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Cloud Gate (The Bean)",
+   "ad": "Millennium Park, 201 E Randolph St, Chicago, IL 60602",
+   "w": "Anish Kapoor's mirror-polished 'Bean' in Millennium Park — the requisite Chicago selfie, beside Gehry's Pritzker Pavilion and the Lurie Garden. Free.",
+   "k": "public art sculpture icon park free",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARTS",
+    "MURAL"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/millennium-park-chicago-il"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cloud_Gate"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Navy Pier",
+   "ad": "600 E Grand Ave, Chicago, IL 60611",
+   "w": "The 1916 pier stretching into Lake Michigan, with the 200-ft Centennial Wheel, the Chicago Children's Museum and boat departures.",
+   "k": "pier lake michigan icon family",
+   "g": [
+    "MUS",
+    "ICON",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Navy_Pier"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Buckingham Fountain",
+   "ad": "301 S Columbus Dr, Chicago, IL 60605",
+   "w": "Grant Park's 1927 Versailles-inspired fountain, one of the largest in the world, with summer light-and-water shows. Free.",
+   "k": "fountain park icon free",
+   "g": [
+    "PARK",
+    "ICON",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buckingham_Fountain"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Adler Planetarium",
+   "ad": "1300 S DuSable Lake Shore Dr, Chicago, IL 60605",
+   "w": "The first planetarium in the Western Hemisphere (1930), at the tip of Northerly Island's peninsula with a classic skyline view.",
+   "k": "planetarium museum family skyline",
+   "g": [
+    "ROOF",
+    "MUS",
+    "ICON",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/chicagos-museum-campus/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Adler_Planetarium"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Chicago Water Tower",
+   "ad": "806 N Michigan Ave, Chicago, IL 60611",
+   "w": "The 1869 limestone water tower that survived the Great Chicago Fire, now a free city art gallery on the Mag Mile.",
+   "k": "historic landmark gallery free",
+   "g": [
+    "MUS",
+    "ICON",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Water_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Museum of Science and Industry",
+   "ad": "5700 S DuSable Lake Shore Dr, Chicago, IL 60637",
+   "w": "The largest science centre in the Western Hemisphere, in the 1893 World's Fair Palace of Fine Arts — U-505 submarine, coal mine, Pioneer Zephyr.",
+   "k": "museum science family",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Science_and_Industry_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Wrigley Field",
+   "ad": "1060 W Addison St, Chicago, IL 60613",
+   "w": "The Cubs' ivy-walled ballpark (1914), the second-oldest in the majors, with its hand-turned scoreboard and Wrigleyville rooftops.",
+   "k": "ballpark stadium cubs sport",
+   "g": [
+    "ROOF",
+    "PARK",
+    "ICON",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-attractions-the-best-sights-and-attractions-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wrigley_Field"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Garfield Park Conservatory",
+   "ad": "300 N Central Park Ave, Chicago, IL 60624",
+   "w": "Jens Jensen's 1908 'landscape art under glass' — one of the largest conservatories in the US, with free admission.",
+   "k": "conservatory garden free",
+   "g": [
+    "PARK",
+    "SPORT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Garfield_Park_Conservatory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Lincoln Park Zoo",
+   "ad": "2001 N Clark St, Chicago, IL 60614",
+   "w": "One of the country's oldest zoos (1868) and still free, with the Farm-in-the-Zoo and Nature Boardwalk.",
+   "k": "zoo park family free",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/things-to-do-at-chicagos-parks-gardens-and-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lincoln_Park_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Frederick C. Robie House",
+   "ad": "5757 S Woodlawn Ave, Chicago, IL 60637",
+   "w": "Frank Lloyd Wright's 1910 Prairie School masterpiece in Hyde Park, inscribed by UNESCO in The 20th-Century Architecture of Frank Lloyd Wright. Tours by the FLW Trust.",
+   "k": "frank lloyd wright prairie school house",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1496"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Robie_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Chicago Cultural Center",
+   "ad": "78 E Washington St, Chicago, IL 60602",
+   "w": "The 1897 former public library, now the nation's first free municipal cultural center — under the world's largest Tiffany glass dome (38 ft, ~30,000 pieces).",
+   "k": "cultural center architecture free tiffany",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Cultural_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "The Rookery",
+   "ad": "209 S LaSalle St, Chicago, IL 60604",
+   "w": "Burnham & Root's 1888 LaSalle Street landmark, whose skylit light court was remodelled by Frank Lloyd Wright in 1905 — the spiral oriel staircase is the money shot.",
+   "k": "architecture building frank lloyd wright landmark",
+   "g": [
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours/rookery-building"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rookery_Building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Chicago Theatre",
+   "ad": "175 N State St, Chicago, IL 60601",
+   "w": "The 1921 French Baroque movie palace under the six-storey C-H-I-C-A-G-O marquee on State Street.",
+   "k": "theatre historic landmark",
+   "g": [
+    "POP",
+    "ICON",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Theatre"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/30-must-see-chicago-live-music-venues/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Tribune Tower",
+   "ad": "435 N Michigan Ave, Chicago, IL 60611",
+   "w": "Hood & Howells' 1925 Gothic tower from the 'most beautiful building in the world' competition, its base studded with ~150 fragments of famous buildings (Westminster Abbey, the Great Wall, the Parthenon).",
+   "k": "architecture tower gothic landmark",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tribune_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "360 Chicago (875 North Michigan Avenue)",
+   "ad": "875 N Michigan Ave, Chicago, IL 60611",
+   "w": "The tapering, X-braced former John Hancock Center (1969), with the 94th-floor 360 Chicago observation deck and TILT.",
+   "k": "observation skyline tower icon",
+   "g": [
+    "ROOF",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/most-amazing-views-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/875_North_Michigan_Avenue"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Marina City",
+   "ad": "300 N State St, Chicago, IL 60654",
+   "w": "Bertrand Goldberg's 1963 'corncob' towers on the river — at opening the tallest residential and tallest concrete buildings in the world.",
+   "k": "architecture river tower landmark",
+   "g": [
+    "ICON",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/10-iconic-buildings-in-downtown-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Marina_City"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Jay Pritzker Pavilion",
+   "ad": "201 E Randolph St, Chicago, IL 60602",
+   "w": "Frank Gehry's ribbon-steel bandshell in Millennium Park — free summer concerts (Grant Park Music Festival) and movies on the lawn.",
+   "k": "music concert park free pavilion",
+   "g": [
+    "POP",
+    "PARK",
+    "ARTS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/millennium-park-chicago-il"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jay_Pritzker_Pavilion"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Unity Temple",
+   "ad": "875 Lake St, Oak Park, IL 60301",
+   "w": "Frank Lloyd Wright's 1908 poured-concrete temple in Oak Park — part of UNESCO's 20th-Century Architecture of Frank Lloyd Wright inscription.",
+   "k": "frank lloyd wright temple architecture",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/1496"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Unity_Temple"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Frank Lloyd Wright Home and Studio",
+   "ad": "951 Chicago Ave, Oak Park, IL 60302",
+   "w": "Where Wright lived and worked 1889–1909 and developed the Prairie style; a National Historic Landmark, toured by the Frank Lloyd Wright Trust.",
+   "k": "frank lloyd wright prairie school house",
+   "g": [
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Frank_Lloyd_Wright_Home_and_Studio"
+    ],
+    [
+     "FLWTRUST",
+     "https://flwright.org/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "Pullman National Historical Park",
+   "ad": "11141 S Cottage Grove Ave, Chicago, IL 60628",
+   "w": "George Pullman's 1880s company town — the clock-tower factory, Hotel Florence and rowhouses; site of the 1894 strike and the Pullman porters' story. NPS unit since 2015.",
+   "k": "national park historic district pullman",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/pull/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pullman_National_Historical_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Baháʼí House of Worship",
+   "ad": "100 Linden Ave, Wilmette, IL 60091",
+   "w": "The lace-domed 1953 Baháʼí temple on the Wilmette lakefront — the oldest surviving Baháʼí House of Worship in the world, with formal gardens.",
+   "k": "temple architecture gardens free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bah%C3%A1%CA%BC%C3%AD_House_of_Worship_(Wilmette,_Illinois)"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "National Museum of Mexican Art",
+   "ad": "1852 W 19th St, Chicago, IL 60608",
+   "w": "Pilsen's free museum of Mexican art — one of the largest Latinx cultural institutions in the US (10,000+ works); its Día de Muertos show is a city ritual.",
+   "k": "museum art free",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Museum_of_Mexican_Art"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "DuSable Black History Museum",
+   "ad": "740 E 56th Pl, Chicago, IL 60637",
+   "w": "Founded 1961 in Washington Park — the oldest independent African American museum in the country.",
+   "k": "museum history",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/DuSable_Black_History_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Museum of Contemporary Art Chicago",
+   "ad": "220 E Chicago Ave, Chicago, IL 60611",
+   "w": "One of the largest contemporary art museums in the world, in Streeterville off the Mag Mile; Tuesday summer jazz on the terrace.",
+   "k": "museum art gallery",
+   "g": [
+    "MUS",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Contemporary_Art_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Chicago History Museum",
+   "ad": "1601 N Clark St, Chicago, IL 60614",
+   "w": "The city's history museum at the south end of Lincoln Park — Lincoln's deathbed, the Great Fire, and an exhibit on the Chicago hot dog.",
+   "k": "museum history",
+   "g": [
+    "MUS",
+    "PARK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/best-chicago-museums-top-institutions-to-visit-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_History_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Kingston Mines",
+   "ad": "2548 N Halsted St, Chicago, IL 60614",
+   "w": "Chicago's oldest and largest continuously running blues club (1968) — two stages, alternating sets until 4 a.m.",
+   "k": "blues club music",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/kingston-mines/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/kingston-mines"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kingston_Mines_(blues_club)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Buddy Guy's Legends",
+   "ad": "700 S Wabash Ave, Chicago, IL 60605",
+   "w": "The South Loop blues club owned by Buddy Guy himself — live blues every night and his own January residency.",
+   "k": "blues club music",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/buddy-guys-legends/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buddy_Guy's_Legends"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Andy's Jazz Club",
+   "ad": "11 E Hubbard St, Chicago, IL 60611",
+   "w": "One of the city's best-known jazz rooms, two blocks off the Mag Mile, with nightly sets and jam sessions.",
+   "k": "jazz club music",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Andy's_Jazz_Club"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Green Mill Cocktail Lounge",
+   "ad": "4802 N Broadway, Chicago, IL 60640",
+   "w": "Uptown's 1907 former Capone-era speakeasy, one of the oldest continuously operating jazz clubs in the country; home of the Uptown Poetry Slam.",
+   "k": "jazz club speakeasy cocktail bar music",
+   "g": [
+    "SPEAK",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/explore-chicago-blues/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Green_Mill_Cocktail_Lounge"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "The Second City",
+   "ad": "1616 N Wells St, Chicago, IL 60614",
+   "w": "Old Town's improv theatre (1959) that launched Belushi, Murray, Fey, Colbert and Carell.",
+   "k": "comedy theater improv",
+   "g": [
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/music/live-music-concerts-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Second_City"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Chicago Botanic Garden",
+   "ad": "1000 Lake Cook Rd, Glencoe, IL 60022",
+   "w": "385 acres on nine islands in the Cook County Forest Preserves at Glencoe — 24 gardens, prairies and greenhouses; the winter Orchid Show.",
+   "k": "botanic garden park",
+   "g": [
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/chicago-conservatories-and-winter-gardens/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Botanic_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Brookfield Zoo",
+   "ad": "8400 31st St, Brookfield, IL 60513",
+   "w": "The 216-acre Chicago Zoological Park in Brookfield — polar bears, the Seven Seas dolphins, Tropic World.",
+   "k": "zoo family",
+   "g": [
+    "PARK",
+    "SPORT",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/tours-and-attractions/discover-nearby-sights-and-attractions/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Brookfield_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "The 606 (Bloomingdale Trail)",
+   "ad": "1805 N Ridgeway Ave, Chicago, IL 60647",
+   "w": "The 2.7-mile elevated rail-trail through Logan Square, Humboldt Park, Wicker Park and Bucktown. Free.",
+   "k": "trail park free",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_606"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Garden of the Phoenix",
+   "ad": "6401 S Stony Island Ave (Wooded Island, Jackson Park), Chicago, IL 60637",
+   "w": "The Japanese garden on Jackson Park's Wooded Island, rooted in Japan's 1893 World's Fair pavilion; 160 cherry trees in spring. Free.",
+   "k": "garden park free",
+   "g": [
+    "PARK",
+    "ARTS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/tours-attractions/24-hours-in-hyde-park-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Garden_of_the_Phoenix"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Graceland Cemetery",
+   "ad": "4001 N Clark St, Chicago, IL 60613",
+   "w": "Victorian garden cemetery (1860) of Chicago's builders — Burnham, Sullivan, Mies, Marshall Field, Roger Ebert — with Lorado Taft's 'Eternal Silence'.",
+   "k": "cemetery historic architecture",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FLW",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Graceland_Cemetery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Soldier Field",
+   "ad": "1410 Special Olympics Dr, Chicago, IL 60605",
+   "w": "The Bears' colonnaded 1924 lakefront stadium (with its 2003 'spaceship' bowl), also home of the Chicago Fire.",
+   "k": "stadium bears sport",
+   "g": [
+    "POP",
+    "SPORT",
+    "WATER"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/bucket-list/the-ultimate-chicago-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Soldier_Field"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Institute for the Study of Ancient Cultures Museum",
+   "ad": "1155 E 58th St, Chicago, IL 60637",
+   "w": "The University of Chicago's free museum of the ancient Near East (ex-Oriental Institute) — the 40-ton Khorsabad lamassu, Egypt, Persia, Mesopotamia.",
+   "k": "museum free",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-oriental-institute-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Institute_for_the_Study_of_Ancient_Cultures"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Rockefeller Memorial Chapel",
+   "ad": "5850 S Woodlawn Ave, Chicago, IL 60637",
+   "w": "The University of Chicago's soaring Gothic chapel, with a 72-bell carillon among the largest instruments ever built.",
+   "k": "church chapel architecture",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/rockefeller-memorial-chapel-university-of-chicago"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/rockefeller-memorial-chapel/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rockefeller_Chapel"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Promontory Point",
+   "ad": "5491 S DuSable Lake Shore Dr, Chicago, IL 60615",
+   "w": "Alfred Caldwell's limestone-stepped peninsula with a castle-like field house — a downtown-skyline view, swimming off the rocks and fire pits. Free.",
+   "k": "park lakefront skyline view free",
+   "g": [
+    "ROOF",
+    "PARK",
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/promontory-point"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Promontory_Point_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "South Shore Cultural Center",
+   "ad": "7059 S South Shore Dr, Chicago, IL 60649",
+   "w": "The 1906 South Shore Country Club, now a Park District cultural center with a beach, nature sanctuary and golf — the Obamas held their wedding reception here.",
+   "k": "cultural center park beach",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/south-shore-cultural-center/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/South_Shore_Cultural_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Glessner House",
+   "ad": "1800 S Prairie Ave, Chicago, IL 60616",
+   "w": "H. H. Richardson's 1887 Romanesque fortress-house on Prairie Avenue, a museum of the Gilded Age.",
+   "k": "house museum architecture historic",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/architecture-history/explore-the-fascinating-architecture-around-chicagos-south-loop/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/John_J._Glessner_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Auditorium Theatre",
+   "ad": "50 E Ida B. Wells Dr, Chicago, IL 60605",
+   "w": "Adler & Sullivan's 1889 Auditorium Building — a National Historic Landmark with a gold-leafed arched hall and famous acoustics.",
+   "k": "theatre architecture sullivan landmark",
+   "g": [
+    "ARCH",
+    "FLW",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Auditorium_Building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Monadnock Building",
+   "ad": "53 W Jackson Blvd, Chicago, IL 60604",
+   "w": "Burnham & Root's 1891 load-bearing brick skyscraper — 'the first modern building' — with Holabird & Roche's steel-frame 1893 addition.",
+   "k": "architecture building landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours/monadnock-building"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Monadnock_Building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Chicago Union Station",
+   "ad": "225 S Canal St, Chicago, IL 60606",
+   "w": "The 1925 Beaux-Arts station whose Great Hall rises under a 219-ft barrel-vaulted skylight — the Untouchables staircase.",
+   "k": "station architecture movie",
+   "g": [
+    "POP",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/union-station"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Union_Station"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Lincoln Park Conservatory",
+   "ad": "2391 N Stockton Dr, Chicago, IL 60614",
+   "w": "The 1890s Victorian glasshouse in Lincoln Park — palms, ferns and orchids, free and open year-round.",
+   "k": "conservatory garden park free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/chicago-conservatories-and-winter-gardens/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lincoln_Park_Conservatory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Indiana Dunes National Park",
+   "ad": "1215 N State Road 49, Porter, IN 46304",
+   "w": "15 miles of Lake Michigan beaches and towering dunes an hour from the Loop by the South Shore Line — Mount Baldy, the West Beach dune trails.",
+   "k": "national park dunes beach trail",
+   "g": [
+    "PARK",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/indu/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Indiana_Dunes_National_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Starved Rock State Park",
+   "ad": "2668 E 875th Rd, Oglesby, IL 61348",
+   "w": "Sandstone canyons and seasonal waterfalls on the Illinois River, 90 minutes south-west of Chicago — Illinois's most-visited state park.",
+   "k": "state park canyons trail waterfalls",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "ILDNR",
+     "https://dnr.illinois.gov/parks/park.starvedrock.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Starved_Rock_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Jane Addams Hull-House Museum",
+   "ad": "800 S Halsted St, Chicago, IL 60607",
+   "w": "The two surviving buildings of Jane Addams's 1889 settlement house on the UIC campus — the birthplace of American social work. Free (suggested donation).",
+   "k": "museum historic house free",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/jane-addams-hull-house-museum"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/free-museums-in-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hull_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Ravinia Festival",
+   "ad": "418 Sheridan Rd, Highland Park, IL 60035",
+   "w": "North America's oldest outdoor music festival — the Chicago Symphony's summer home; picnic on the lawn. ",
+   "k": "music festival concert park pavilion",
+   "g": [
+    "PARK",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/tours-and-attractions/discover-nearby-sights-and-attractions/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ravinia_Festival"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Morton Arboretum",
+   "ad": "4100 IL-53, Lisle, IL 60532",
+   "w": "1,700 acres of trees in Lisle with 16 miles of trails and a children's garden; Illumination in winter.",
+   "k": "arboretum garden park trail",
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/tours-and-attractions/discover-nearby-sights-and-attractions/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Morton_Arboretum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Milwaukee Art Museum",
+   "ad": "700 N Art Museum Dr, Milwaukee, WI 53202",
+   "w": "Calatrava's lakefront Quadracci Pavilion whose Burke Brise Soleil 'wings' open and close daily — 90 minutes north of Chicago.",
+   "k": "museum art architecture lakefront",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ARTS",
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITMKE",
+     "https://www.visitmilwaukee.org/things-to-do/museums/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Milwaukee_Art_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Harley-Davidson Museum",
+   "ad": "400 W Canal St, Milwaukee, WI 53201",
+   "w": "The only Harley-Davidson Museum in the world — 450+ motorcycles on a 20-acre Menomonee Valley campus.",
+   "k": "museum",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITMKE",
+     "https://www.visitmilwaukee.org/things-to-do/attractions/harley-davidson-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Harley-Davidson_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Holy Trinity Orthodox Cathedral",
+   "ad": "1121 N Leavitt St, Chicago, IL 60622",
+   "w": "Louis Sullivan's only intact house of worship (1903), a Russian-village church in Ukrainian Village, part-funded by Tsar Nicholas II.",
+   "k": "cathedral church architecture sullivan landmark",
+   "g": [
+    "ARCH",
+    "FLW",
+    "ODD"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/holy-trinity-russian-orthodox-cathedral"
+    ],
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/holy-trinity-cathedral"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Holy_Trinity_Orthodox_Cathedral_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Illinois Centennial Monument",
+   "ad": "3100 W Logan Blvd (Logan Square), Chicago, IL 60647",
+   "w": "The eagle-topped column at the heart of Logan Square (1918), by Henry Bacon of the Lincoln Memorial — the hub of the boulevard system.",
+   "k": "monument landmark free",
+   "g": [
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/illinois-centennial-monument"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/illinois-centennial-monument/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Illinois_Centennial_Monument"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Polish Museum of America",
+   "ad": "984 N Milwaukee Ave, Chicago, IL 60642",
+   "w": "One of the oldest and largest ethnic museums in the US (1935), in the old Polish Downtown.",
+   "k": "museum history",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/10-cultural-history-museums-to-explore-in-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Polish_Museum_of_America"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Uptown Theatre — CLOSED",
+   "ad": "4816 N Broadway, Chicago, IL 60640",
+   "w": "Rapp & Rapp's 1925 'acre of seats in a magic city' — the largest movie palace ever built in Chicago, shuttered since 1981 and awaiting restoration (exterior only).",
+   "k": "theatre architecture historic landmark",
+   "closed": true,
+   "g": [
+    "POP",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/uptown-theatre"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Uptown_Theatre_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Aragon Ballroom",
+   "ad": "1106 W Lawrence Ave, Chicago, IL 60640",
+   "w": "The 1926 Spanish-palace dance hall with a twinkling-star ceiling, now a rock venue.",
+   "k": "music concert ballroom historic",
+   "g": [
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/stories-of-chicago/the-aragon-ballroom"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/music/aragon-ballroom"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Aragon_Ballroom_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Music Box Theatre",
+   "ad": "3733 N Southport Ave, Chicago, IL 60613",
+   "w": "The 1929 Southport movie palace with a starry-sky ceiling and a live organist between shows — Chicago's leading independent cinema.",
+   "k": "theatre movie historic",
+   "g": [
+    "POP",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/theatre-performing-arts/the-stories-behind-6-historic-chicago-theatres/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Music_Box_Theatre_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Biograph Theater",
+   "ad": "2433 N Lincoln Ave, Chicago, IL 60614",
+   "w": "The 1914 Lincoln Avenue movie house outside which John Dillinger was shot by the FBI in 1934; now Victory Gardens' stage.",
+   "k": "theatre historic movie",
+   "g": [
+    "POP",
+    "PARK",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/theatre-performing-arts/the-stories-behind-6-historic-chicago-theatres/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Biograph_Theater"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Fountain of Time",
+   "ad": "Washington Park, 5900 S Cottage Grove Ave, Chicago, IL 60637",
+   "w": "Lorado Taft's 1922 concrete procession of 100 figures passing before Father Time, at the west end of the Midway. Free.",
+   "k": "sculpture public art park free",
+   "g": [
+    "PARK",
+    "MURAL",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/the-fountain-of-time-chicago-illinois"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fountain_of_Time"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Stony Island Arts Bank",
+   "ad": "6760 S Stony Island Ave, Chicago, IL 60649",
+   "w": "Theaster Gates's restored 1923 bank — the Johnson Publishing library, Frankie Knuckles' records, galleries and free events.",
+   "k": "gallery arts library house music free",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ARTS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/museums/stony-island-arts-bank"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stony_Island_Trust_and_Savings_Bank_Building"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "S. R. Crown Hall",
+   "ad": "3360 S State St, Chicago, IL 60616",
+   "w": "Mies van der Rohe's 1956 glass-and-steel architecture school at IIT — widely held to be his finest work; a National Historic Landmark.",
+   "k": "architecture building landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/crown-hall"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/illinois-institute-of-technology-s-r-crown-hall"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/S._R._Crown_Hall"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Victory Monument",
+   "ad": "3500 S Dr Martin Luther King Jr Dr, Chicago, IL 60653",
+   "w": "Bronzeville's 1928 memorial to the Black 8th Illinois regiment (370th Infantry) of WWI, won by a Chicago Defender campaign.",
+   "k": "monument memorial historic free",
+   "g": [
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/victory-monument/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Victory_Monument_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Union Stock Yard Gate",
+   "ad": "850 W Exchange Ave, Chicago, IL 60609",
+   "w": "The 1879 Burnham & Root limestone gate — all that remains of the 475-acre Union Stock Yards that made Chicago 'hog butcher for the world'. A National Historic Landmark; free.",
+   "k": "landmark monument historic free",
+   "g": [
+    "ARCH",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/union-stock-yard-gate"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Union_Stock_Yard_Gate"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Marquette Park & MLK Living Memorial",
+   "ad": "6700 S Kedzie Ave, Chicago, IL 60629",
+   "w": "Where Martin Luther King Jr. marched for open housing in 1966 (and was struck by a rock); the Living Memorial's three pillars at Marquette Rd & Kedzie tell the Fair Housing story. Free.",
+   "k": "park memorial historic free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://news.wttw.com/2023/01/13/chicago-tonight-your-neighborhood-martin-luther-king-jr-s-legacy-marquette-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Marquette_Park_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "Balzekas Museum of Lithuanian Culture",
+   "ad": "6500 S Pulaski Rd, Chicago, IL 60629",
+   "w": "The only museum in North America devoted to Lithuanian history and culture — in the city with the most Lithuanians outside Lithuania.",
+   "k": "museum history",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://news.wttw.com/2025/01/06/legacy-lithuanian-artists-and-designers-chicago-explored-balzekas-museum"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2024/10/18/lithuanian-museums-new-art-exhibit-celebrates-a-century-of-immigrant-artists-tied-to-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Balzekas_Museum_of_Lithuanian_Culture"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Crown Fountain",
+   "ad": "Millennium Park, 201 E Randolph St, Chicago, IL 60602",
+   "w": "Jaume Plensa's twin 50-ft glass-block towers in Millennium Park, projecting faces of Chicagoans who spout water into the splash pool. Free.",
+   "k": "fountain public art park free family",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FAM",
+    "MURAL"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/public-art-in-the-chicago-loop/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Crown_Fountain"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "The Chicago Picasso",
+   "ad": "Daley Plaza, 50 W Washington St, Chicago, IL 60602",
+   "w": "Picasso's untitled 50-ft Cor-ten steel sculpture (1967) in Daley Plaza — baboon, woman or dog, he never said. Free.",
+   "k": "public art sculpture picasso free",
+   "g": [
+    "MKT",
+    "MURAL",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/public-art-in-the-chicago-loop/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Picasso"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Flamingo (Calder)",
+   "ad": "Federal Plaza, 50 W Adams St, Chicago, IL 60603",
+   "w": "Alexander Calder's 53-ft red stabile (1974) set against Mies van der Rohe's black Federal Center. Free.",
+   "k": "public art sculpture calder free",
+   "g": [
+    "MURAL",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/museums-art/public-art-in-the-chicago-loop/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Flamingo_(sculpture)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Four Seasons (Chagall)",
+   "ad": "Chase Tower Plaza, 10 S Dearborn St, Chicago, IL 60603",
+   "w": "Marc Chagall's 70-ft mosaic box (1974) of six Chicago scenes in 250 colours. Free.",
+   "k": "public art mosaic chagall free",
+   "g": [
+    "MURAL",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/the-four-seasons-mosaic/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Four_Seasons_(Chagall)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Maggie Daley Park",
+   "ad": "337 E Randolph St, Chicago, IL 60601",
+   "w": "20 acres east of Millennium Park — the climbing walls, the winter skating ribbon, mini golf and a giant playground. Free.",
+   "k": "park playground family free",
+   "g": [
+    "PARK",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/free-things-to-do-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maggie_Daley_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Chicago Riverwalk",
+   "ad": "Chicago River (main branch), Lake St to Lake Shore Dr, Chicago, IL 60601",
+   "w": "The 1.25-mile path along the river's main branch — wine bars, kayak rentals and the city's best architecture at water level. Free.",
+   "k": "riverwalk river free",
+   "g": [
+    "ICON",
+    "ARCH",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/free-things-to-do-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Riverwalk"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Newberry Library",
+   "ad": "60 W Walton St, Chicago, IL 60610",
+   "w": "Independent research library (1887) facing Washington Square — free exhibitions from 1.6 million books and 600,000 maps.",
+   "k": "library free historic",
+   "g": [
+    "MUS",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/free-things-to-do-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Newberry_Library"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Harold Washington Library Center",
+   "ad": "400 S State St, Chicago, IL 60605",
+   "w": "The world's largest public library building at opening (1991), with owl-topped acroterions and a 9th-floor winter garden. Free.",
+   "k": "library architecture free",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/free-things-to-do-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Harold_Washington_Library"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Ping Tom Memorial Park",
+   "ad": "1700 S Wentworth Ave, Chicago, IL 60616",
+   "w": "Chinatown's riverside park on an old rail yard — pagoda pavilion, kayak launch and the water-taxi stop. Free.",
+   "k": "park river free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "ARTS",
+    "WATER"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-best-attractions-and-things-to-do-in-chinatown"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ping_Tom_Memorial_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Chinese American Museum of Chicago",
+   "ad": "238 W 23rd St, Chicago, IL 60616",
+   "w": "Small Chinatown museum on the Chinese journey to the Midwest, in the old Quong Yick warehouse.",
+   "k": "museum history",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-best-attractions-and-things-to-do-in-chinatown"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chinese_American_Museum_of_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Thalia Hall",
+   "ad": "1807 S Allport St, Chicago, IL 60608",
+   "w": "Pilsen's 1892 hall modelled on the Prague opera house, now one of the city's favourite music venues (with Dusek's downstairs).",
+   "k": "music concert theatre historic",
+   "g": [
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/arts-culture-entertainment/world-in-a-city-chicagos-culturally-diverse-neighborhoods/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Thalia_Hall_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Maxwell Street Market",
+   "ad": "800 S Desplaines St, Chicago, IL 60607",
+   "w": "The Sunday open-air flea market descended from the 1880s Maxwell Street bazaar — tools, tires, produce and some of the city's best street tacos.",
+   "k": "market street food",
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/arts-culture-entertainment/world-in-a-city-chicagos-culturally-diverse-neighborhoods/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Maxwell_Street"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Peggy Notebaert Nature Museum",
+   "ad": "2430 N Cannon Dr, Chicago, IL 60614",
+   "w": "The Chicago Academy of Sciences' museum in Lincoln Park, built around the 2,700-sq-ft Judy Istock Butterfly Haven.",
+   "k": "museum nature family",
+   "g": [
+    "MUS",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/peggy-notebaert-nature-museum/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/museums/the-peggy-notebaert-nature-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Peggy_Notebaert_Nature_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Montrose Point Bird Sanctuary",
+   "ad": "Montrose Harbor (W Montrose Ave & Lake Shore Dr), Chicago, IL 60640",
+   "w": "15 lakefront acres where 300+ migratory species stop at 'the Magic Hedge'. Free.",
+   "k": "nature preserve lakefront birding free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/montrose-point-bird-sanctuary"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Montrose_Point_Bird_Sanctuary"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Cantigny Park",
+   "ad": "1S151 Winfield Rd, Wheaton, IL 60189",
+   "w": "Col. Robert McCormick's 500-acre Wheaton estate — gardens, his mansion, and the First Division tank museum.",
+   "k": "park garden museum",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/cantigny-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cantigny_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Illinois Holocaust Museum and Education Center",
+   "ad": "9603 Woods Dr, Skokie, IL 60077",
+   "w": "Stanley Tigerman's Skokie museum founded by survivors, with its pioneering interactive survivor-hologram theatre.",
+   "k": "museum history",
+   "g": [
+    "MUS",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/illinois-holocaust-museum-and-education-center"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Illinois_Holocaust_Museum_and_Education_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Ernest Hemingway Birthplace",
+   "ad": "339 N Oak Park Ave, Oak Park, IL 60302",
+   "w": "The Queen Anne house where Hemingway was born in 1899, restored as a museum.",
+   "k": "house museum historic",
+   "g": [
+    "MUS",
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/ernest-hemingway-birthplace-and-museum"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Birthplace_of_Ernest_Hemingway"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Grosse Point Lighthouse",
+   "ad": "2601 Sheridan Rd, Evanston, IL 60201",
+   "w": "Evanston's 1873 lighthouse on the lake bluff, a National Historic Landmark; summer weekend tours.",
+   "k": "lighthouse lakefront historic landmark",
+   "g": [
+    "ARCH",
+    "WATER",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/grosse-point-lighthouse"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/grosse-point-lighthouse"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Grosse_Point_Light"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Haymarket Martyrs' Monument",
+   "ad": "Forest Home Cemetery, 863 S Des Plaines Ave, Forest Park, IL 60130",
+   "w": "The 1893 monument over the graves of the executed Haymarket anarchists — a pilgrimage site for May Day; surrounded by 'Radical Row'. National Historic Landmark.",
+   "k": "monument cemetery memorial historic",
+   "g": [
+    "ARCH",
+    "MKT",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/haymarket-martyrs-monument-and-radical-row"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haymarket_Martyrs'_Monument"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Yerkes Observatory",
+   "ad": "373 W Geneva St, Williams Bay, WI 53191",
+   "w": "The 1897 'birthplace of modern astrophysics' on Geneva Lake — home of the world's largest refracting telescope; tours.",
+   "k": "observatory historic",
+   "g": [
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/yerkes-observatory"
+    ],
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/attractions/science-nature-centers/yerkes-observatory"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yerkes_Observatory"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "SC Johnson Administration Building",
+   "ad": "1525 Howe St, Racine, WI 53403",
+   "w": "Frank Lloyd Wright's 1939 'dendriform'-columned Great Workroom and Research Tower in Racine — free tours by reservation.",
+   "k": "frank lloyd wright architecture building",
+   "g": [
+    "ARCH",
+    "FLW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "TRAVELWI",
+     "https://www.travelwisconsin.com/things-to-do/culture-arts/architecture/sc-johnson-architectural-tours"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/blog/you-can-take-a-free-bus-trip-to-tour-the-frank-lloyd-wright-designed-sc-johnson-headquarters-100317"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Johnson_Wax_Headquarters"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "North Avenue Beach",
+   "ad": "1600 N Lake Shore Dr, Chicago, IL 60614",
+   "w": "Chicago's busiest beach, by Lincoln Park — the ocean-liner beach house, volleyball, paddleboards and the classic skyline-across-the-sand view. Free.",
+   "k": "beach lakefront skyline free",
+   "g": [
+    "PARK",
+    "ICON",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/chicago-beaches-guide"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_beaches_in_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Oak Street Beach",
+   "ad": "1000 N Lake Shore Dr, Chicago, IL 60611",
+   "w": "The Gold Coast beach at the top of the Mag Mile, tucked under the skyline. Free.",
+   "k": "beach lakefront skyline free",
+   "g": [
+    "PARK",
+    "ICON",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Oak_Street_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "12th Street Beach",
+   "ad": "1200 S Linn White Dr, Chicago, IL 60605",
+   "w": "Small crescent beach on Northerly Island behind the Adler, with panoramic lake views. Free.",
+   "k": "beach lakefront free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/List_of_beaches_in_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Northerly Island",
+   "ad": "1521 S Linn White Dr, Chicago, IL 60605",
+   "w": "The man-made peninsula (the old Meigs Field) re-wilded with prairie paths, fishing spots and skyline views. Free.",
+   "k": "park nature lakefront skyline free",
+   "g": [
+    "ROOF",
+    "PARK",
+    "ICON",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/parks-outdoors/fun-in-the-sun-on-chicagos-beaches/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Northerly_Island"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Humboldt Park",
+   "ad": "1400 N Sacramento Ave, Chicago, IL 60622",
+   "w": "Jens Jensen's 207-acre park — the Prairie School boathouse and swan boats on the lagoon, and the 1895 stables now housing the National Museum of Puerto Rican Arts & Culture. Free.",
+   "k": "park lagoon boat free",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/best-things-to-do-in-humboldt-park"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/tours-attractions/humboldt-park-chicago-things-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Humboldt_Park_(Chicago_park)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Ukrainian National Museum",
+   "ad": "2249 W Superior St, Chicago, IL 60612",
+   "w": "Ukrainian Village museum of folk art, pysanky (Easter eggs) and immigrant history.",
+   "k": "museum history",
+   "g": [
+    "MUS"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-best-attractions-in-ukrainian-village"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ukrainian_National_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Notre Dame de Chicago",
+   "ad": "1335 W Harrison St, Chicago, IL 60607",
+   "w": "The domed 1892 French-Romanesque church of the city's old French parish, in Little Italy/University Village.",
+   "k": "church architecture historic",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/neighborhoods/little-italy-university-village/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Notre_Dame_de_Chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Obama Presidential Center",
+   "ad": "1401 E 60th St (Jackson Park), Chicago, IL 60637",
+   "w": "The presidential museum, library branch and tower in Jackson Park, opened Juneteenth (June 19) 2026 — timed tickets sold out months ahead.",
+   "k": "museum library landmark",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://news.wttw.com/2026/06/18/watch-live-obama-center-grand-opening-ceremony"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/tours-attractions/obama-presidential-center-visitors-guide/"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2026/06/18/heres-everything-you-need-to-know-about-the-obama-centers-opening/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Barack_Obama_Presidential_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Wrigley Building",
+   "ad": "400 N Michigan Ave, Chicago, IL 60611",
+   "w": "The 1924 white-terracotta twin towers with a Giralda-style clock tower — the first skyscraper on the new Michigan Avenue, floodlit at night.",
+   "k": "architecture building landmark icon",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/wrigley-building"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wrigley_Building"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Chicago Board of Trade Building",
+   "ad": "141 W Jackson Blvd, Chicago, IL 60604",
+   "w": "Holabird & Root's 1930 Art Deco tower closing the LaSalle Street canyon, crowned by John Storrs's faceless aluminium Ceres.",
+   "k": "architecture building art deco landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/chicago-board-of-trade-building"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Chicago_Board_of_Trade_Building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Holy Name Cathedral",
+   "ad": "735 N State St, Chicago, IL 60611",
+   "w": "The Archdiocese's 1875 Gothic Revival cathedral by Patrick Keely, with the cardinals' galeros hanging from the ceiling.",
+   "k": "cathedral church architecture",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/holy-name-cathedral"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Holy_Name_Cathedral_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Emil Bach House",
+   "ad": "7415 N Sheridan Rd, Chicago, IL 60626",
+   "w": "Frank Lloyd Wright's 1915 cubic Prairie house in Rogers Park — tours via the FLW Trust, and you can even stay overnight.",
+   "k": "frank lloyd wright prairie school house",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/attractions/emil-bach-house"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/architecture-and-history/tour-frank-lloyd-wrights-chicago/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Emil_Bach_House"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Swedish American Museum",
+   "ad": "5211 N Clark St, Chicago, IL 60640",
+   "w": "Andersonville's 1976 museum of Swedish immigrant history and art, with a children's immigration museum upstairs.",
+   "k": "museum history family",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/swedish-american-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Swedish_American_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Riviera Theatre",
+   "ad": "4746 N Racine Ave, Chicago, IL 60640",
+   "w": "Rapp & Rapp's 1917 Balaban & Katz movie palace in the Uptown theatre district, now a rock venue.",
+   "k": "music concert theatre historic",
+   "g": [
+    "POP",
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/the-riviera-theatre/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/music/riviera-theatre"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Riviera_Theatre"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "The Vic Theatre",
+   "ad": "3145 N Sheffield Ave, Chicago, IL 60657",
+   "w": "The 1912 Victoria vaudeville house in Lakeview, now a concert hall that has hosted Bowie, Pearl Jam and Coldplay.",
+   "k": "music concert theatre historic",
+   "g": [
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/chicago-music/30-must-see-chicago-live-music-venues/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Vic_Theatre"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "Ridge Historic District (Beverly)",
+   "ad": "Longwood Dr & W 103rd St (Beverly), Chicago, IL 60643",
+   "w": "One of the largest urban districts on the National Register — 3,000+ homes on the glacial ridge of Beverly and Morgan Park by Wright, Maher, Griffin, Burnham and Shaw; walk Longwood Drive past the Givins 'Irish castle'. Free.",
+   "k": "historic district architecture house frank lloyd wright prairie school free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FLW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/neighborhoods-blog/take-a-walking-tour-of-chicagos-beverly-neighborhood/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ridge_Historic_District"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Milwaukee Public Market",
+   "ad": "400 N Water St, Milwaukee, WI 53202",
+   "w": "Third Ward food hall of ~20 vendors — brats, squeaky cheese curds, seafood, Thai — named one of America's best public markets by Frommer's.",
+   "k": "market food hall",
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "VISITMKE",
+     "https://www.visitmilwaukee.org/plan-a-visit/trip-ideas-itineraries/milwaukee-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Milwaukee_Public_Market"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Lakefront Brewery",
+   "ad": "1872 N Commerce St, Milwaukee, WI 53212",
+   "w": "Riverside craft brewery (1987) that helped revive Milwaukee brewing — its comic tour and Friday fish fry are city rituals.",
+   "k": "brewery tour",
+   "g": [
+    "WATER"
+   ],
+   "s": [
+    [
+     "VISITMKE",
+     "https://www.visitmilwaukee.org/plan-a-visit/trip-ideas-itineraries/milwaukee-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lakefront_Brewery"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Pabst Mansion",
+   "ad": "2000 W Wisconsin Ave, Milwaukee, WI 53233",
+   "w": "Captain Frederick Pabst's 1892 Flemish Renaissance Revival mansion, restored and open for tours.",
+   "k": "mansion house museum historic",
+   "g": [
+    "MUS",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "VISITMKE",
+     "https://www.visitmilwaukee.org/plan-a-visit/trip-ideas-itineraries/milwaukee-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pabst_Mansion"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Discovery World",
+   "ad": "500 N Harbor Dr, Milwaukee, WI 53202",
+   "w": "Lakeshore science-and-technology museum with the Reiman Aquarium and a tall ship.",
+   "k": "museum science aquarium family lakefront",
+   "g": [
+    "MUS",
+    "WATER",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITMKE",
+     "https://www.visitmilwaukee.org/plan-a-visit/trip-ideas-itineraries/milwaukee-bucket-list/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Discovery_World_(museum)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "Holy Family Church",
+   "ad": "1080 W Roosevelt Rd, Chicago, IL 60608",
+   "w": "The 1860 Gothic Revival church that survived the Great Fire (the O'Learys were parishioners) — the second-oldest Catholic church in Chicago.",
+   "k": "church architecture historic",
+   "g": [
+    "ARCH",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://news.wttw.com/2025/08/06/historic-chicago-church-story-city-s-first-architect-lives-through-his-family"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Holy_Family_Catholic_Church_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Our Lady of Sorrows Basilica",
+   "ad": "3121 W Jackson Blvd, Chicago, IL 60612",
+   "w": "Garfield Park's 1902 Renaissance Revival basilica with a gold-leafed barrel vault — one of three papal basilicas in Chicago (WTTW's 'Most Beautiful Places').",
+   "k": "church basilica architecture",
+   "g": [
+    "PARK",
+    "ARCH",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://www.wttw.com/most-beautiful-places-in-chicago/sacred-spaces/our-lady-of-sorrows-basilica"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-basilica-of-our-lady-of-sorrows-parish"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Our_Lady_of_Sorrows_Basilica"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Columbus Park",
+   "ad": "500 S Central Ave, Chicago, IL 60644",
+   "w": "Jens Jensen's own favourite work (1915–20) in Austin — a prairie river, council rings and stone waterfalls interpreting the Illinois landscape. Free.",
+   "k": "park landscape free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://www.wttw.com/most-beautiful-places-in-chicago/lovely-landscapes/columbus-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Columbus_Park_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SW",
+   "n": "McKinley Park",
+   "ad": "2210 W Pershing Rd, Chicago, IL 60609",
+   "w": "The 71-acre 1901 park named for the assassinated president — lagoon, trails and an outdoor ice rink. Free.",
+   "k": "park lagoon free",
+   "g": [
+    "PARK",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://www.wttw.com/chicago-by-l/neighborhoods/mckinley-park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/mckinley-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/McKinley_Park_(Chicago_park)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "United Center",
+   "ad": "1901 W Madison St, Chicago, IL 60612",
+   "w": "Home of the Bulls and Blackhawks; the 'Spirit' Michael Jordan statue stands in the atrium by Gate 4.",
+   "k": "arena sport bulls",
+   "g": [
+    "SPORT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/united-center-chicago-il"
+    ],
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/united-center"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/United_Center"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Rate Field",
+   "ad": "333 W 35th St, Chicago, IL 60616",
+   "w": "The White Sox's 1991 ballpark across 35th Street from old Comiskey, with the exploding scoreboard and fireworks after every Sox homer.",
+   "k": "ballpark stadium white sox sport",
+   "g": [
+    "PARK",
+    "SPORT"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/sports-and-recreation/chicago-white-sox-baseball/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/sports/chicago-white-sox"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rate_Field"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Fermilab",
+   "ad": "Kirk Rd & Pine St, Batavia, IL 60510",
+   "w": "The national particle-physics lab on the prairie — a bison herd since 1967, Wilson Hall and mathematical sculptures; grounds free with photo ID.",
+   "k": "science prairie free oddity",
+   "g": [
+    "FAM",
+    "MURAL",
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/fermilab"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fermi_National_Accelerator_Laboratory"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SOUTH",
+   "n": "Ida B. Wells-Barnett House",
+   "ad": "3624 S Dr Martin Luther King Jr Dr, Chicago, IL 60653",
+   "w": "The 1889 Romanesque house where Ida B. Wells lived 1919–30 — a National Historic Landmark (private; view from the street).",
+   "k": "house historic landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/former-residence-of-ida-b-wells-barnett/"
+    ],
+    [
+     "WTTW",
+     "https://www.wttw.com/chicago-stories/ida-b-wells/photo-essay-exploring-ida-b-wells-memory-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ida_B._Wells-Barnett_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Basilica of St. Hyacinth",
+   "ad": "3636 W Wolfram St, Chicago, IL 60618",
+   "w": "Avondale's 1917 Polish 'cathedral' — a papal basilica since 2003 and the heart of Chicago's Polish Village.",
+   "k": "church basilica architecture",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/basilica-of-st-hyacinth"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/listing/saint-hyacinth-basilica/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Basilica_of_Saint_Hyacinth"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "St. Mary of the Angels",
+   "ad": "1850 N Hermitage Ave, Chicago, IL 60622",
+   "w": "Bucktown's block-long Polish Renaissance church (1920) modelled on St. Peter's, its dome ringed by angels.",
+   "k": "church architecture",
+   "g": [
+    "ARCH",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://www.atlasobscura.com/places/st-mary-of-the-angels"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/St._Mary_of_the_Angels_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DAY",
+   "n": "Mount Baldy",
+   "ad": "Mt. Baldy Beach, US-12, Michigan City, IN 46360",
+   "w": "The 120-ft living dune at the east end of Indiana Dunes National Park — the largest moving dune on Indiana's shore (summit by ranger-led hike).",
+   "k": "dunes beach national park trail",
+   "g": [
+    "PARK",
+    "WATER"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/indu/learn/nature/mount-baldy.htm"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mount_Baldy_(sand_dune)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Old Lighthouse Museum",
+   "ad": "1 Heisman Harbor Rd (Washington Park), Michigan City, IN 46360",
+   "w": "The 1858 Michigan City lighthouse, now a museum in Washington Park by the beach and harbour.",
+   "k": "lighthouse museum lakefront historic",
+   "g": [
+    "MUS",
+    "PARK",
+    "ARCH",
+    "WATER"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://www.wttw.com/chicago-on-vacation/destinations/indiana/michigan-city"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Old_Michigan_City_Light"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DAY",
+   "n": "Matthiessen State Park",
+   "ad": "2500 IL-178, Oglesby, IL 61348",
+   "w": "Starved Rock's quieter neighbour — canyon dells and waterfalls about two hours from Chicago.",
+   "k": "state park canyons trail waterfalls",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/things-to-do/the-best-state-parks-near-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Matthiessen_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FAR",
+   "n": "Wolf Lake (William W. Powers State Recreation Area)",
+   "ad": "12949 S Avenue O, Chicago, IL 60633",
+   "w": "The 800-acre lake straddling the Illinois–Indiana line in Hegewisch — otters, beavers, swans and fishing amid the old steel landscape. Free.",
+   "k": "nature lake state park free",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "WTTW",
+     "https://www.wttw.com/southside/far-southeast/southeast-side"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/William_W._Powers_State_Recreation_Area"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Merchandise Mart",
+   "ad": "222 W Merchandise Mart Plaza, Chicago, IL 60654",
+   "w": "The 1930 Art Deco 'Mart' on the river — once the largest building in the world, with Jules Guérin murals inside and Art on the Mart projections on its facade at night.",
+   "k": "architecture building art deco river",
+   "g": [
+    "ARCH",
+    "WATER",
+    "MURAL"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours/merchandise-mart"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Merchandise_Mart"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Sullivan Center",
+   "ad": "1 S State St, Chicago, IL 60603",
+   "w": "Louis Sullivan's 1899–1904 Carson Pirie Scott store at State & Madison — the cast-iron prairie-foliage entrance rotunda is the masterpiece.",
+   "k": "architecture building sullivan landmark",
+   "g": [
+    "ARCH",
+    "FLW"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/sullivan-center"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sullivan_Center"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Reliance Building",
+   "ad": "1 W Washington St, Chicago, IL 60602",
+   "w": "Atwood's 1895 terracotta-and-glass tower — a prototype of the glass skyscraper and the Chicago window (now a hotel).",
+   "k": "architecture building landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/architecture-encyclopedia/chicago-window"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Reliance_Building"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Aqua Tower",
+   "ad": "225 N Columbus Dr, Chicago, IL 60601",
+   "w": "Jeanne Gang's 2009 tower whose rippling white balconies look like water cascading down its sides.",
+   "k": "architecture tower skyline",
+   "g": [
+    "ICON",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/online-resources/buildings-of-chicago/aqua"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Aqua_(Chicago)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Palmer House",
+   "ad": "17 E Monroe St, Chicago, IL 60603",
+   "w": "Chicago's oldest continually operating hotel — the gilded lobby ceiling and Tiffany fittings; birthplace of the brownie.",
+   "k": "hotel historic architecture landmark",
+   "g": [
+    "ARCH",
+    "ARTS"
+   ],
+   "s": [
+    [
+     "CAC",
+     "https://www.architecture.org/city-tours/palmer-house-hotel"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Palmer_House_Hilton"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Al's #1 Italian Beef",
+   "ad": "1079 W Taylor St, Chicago, IL 60607",
+   "w": "The Taylor Street original (1938) where the family claims the Italian beef was invented; the beef for every Al's is still roasted here. #1 on the Infatuation's Italian-beef ranking and a fixture of every Chicago beef list.",
+   "cz": [
+    "BEEF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-italian-beef-chicago"
+    ],
+    [
+     "NBC5",
+     "https://www.nbcchicago.com/news/local/where-is-the-best-place-to-get-italian-beef-sandwiches-in-chicago-area-new-ranking-reveals-top-8/3164709/"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/als-1-italian-beef"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Johnnie's Beef",
+   "ad": "7500 W North Ave, Elmwood Park, IL 60707",
+   "w": "Elmwood Park walk-up open since 1961 — Steve Dolinsky's (ABC7 Hungry Hound) #1 Italian beef in the suburbs, with an 'ambrosial' jus, and the lemon ice that closes every order.",
+   "cz": [
+    "BEEF",
+    "DES"
+   ],
+   "s": [
+    [
+     "ABC7",
+     "https://abc7chicago.com/post/chicagos-best-italian-beef-suburbs/556831/"
+    ],
+    [
+     "NBC5",
+     "https://www.nbcchicago.com/news/local/where-is-the-best-place-to-get-italian-beef-sandwiches-in-chicago-area-new-ranking-reveals-top-8/3164709/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Pequod's Pizza",
+   "ad": "2207 N Clybourn Ave, Chicago, IL 60614",
+   "w": "Lincoln Park's pan-pizza bar whose pies are ringed with blackened, caramelized cheese — the deep dish many Chicagoans name first (Infatuation) and #8 on Time Out's citywide pizza ranking.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-deep-dish-pizza-chicago"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "PORTNOY",
+     "https://1440wrok.com/ixp/721/p/illinois-lowest-rated-one-bite-pizza-portnoy/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Lou Malnati's Pizzeria (River North)",
+   "ad": "439 N Wells St, Chicago, IL 60654",
+   "w": "The family that helped invent deep dish (Lou worked at Uno before opening his own in 1971); Infatuation calls it the best version of the classic Chicago pie — sauce on top, flaky buttery crust.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-deep-dish-pizza-chicago"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/chicago-classic-at-lou-malnatis/"
+    ],
+    [
+     "KEITHLEE",
+     "https://www.fox32chicago.com/news/tiktok-food-influencer-chicago-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "George's Deep Dish",
+   "ad": "6221 N Clark St, Chicago, IL 60660",
+   "w": "Edgewater carryout doing a focaccia-like sourdough deep dish; on both the Infatuation deep-dish ranking and Time Out's top pizza list.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-deep-dish-pizza-chicago"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Milly's Pizza in the Pan",
+   "ad": "1005 W Argyle St, Chicago, IL 60640",
+   "w": "Pandemic-born Uptown pan-pizza shop in the Pequod's lineage — #2 on Time Out's citywide pizza ranking and on the Infatuation deep-dish list.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-deep-dish-pizza-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Vito & Nick's Pizzeria",
+   "ad": "8433 S Pulaski Rd, Chicago, IL 60652",
+   "w": "Ashburn's tavern-pizza shrine since the 1940s — #1 on Time Out's citywide pizza ranking ('the king of tavern-style') and the spot with the most 'best' nods in Chowhound's tavern-pizza research.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "CHOWHOUND",
+     "https://www.chowhound.com/2120812/best-tavern-style-pizza-chicago/"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/thin-crust-sausage-pizza-at-vito-nicks-pizzeria/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ],
+    [
+     "PORTNOY",
+     "https://1440wrok.com/ixp/721/p/illinois-lowest-rated-one-bite-pizza-portnoy/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Pat's Pizza & Ristorante",
+   "ad": "638 W Diversey Pkwy, Chicago, IL 60614",
+   "w": "Family-run Lincoln Park pizzeria (since 1950) whose flaky, cracker-thin crust is on Time Out's top-pizza ranking and Chowhound's best tavern-style list.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "CHOWHOUND",
+     "https://www.chowhound.com/2120812/best-tavern-style-pizza-chicago/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Pizz'amici",
+   "ad": "1215 W Grand Ave, Chicago, IL 60642",
+   "w": "Tiny West Town pizzeria in a former barbershop from veteran Chicago pizza makers — #3 on Time Out's citywide ranking, #1 on Chowhound's tavern list and an Esquire Best New Restaurant 2025.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "CHOWHOUND",
+     "https://www.chowhound.com/2120812/best-tavern-style-pizza-chicago/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Middle Brow Bungalow",
+   "ad": "2840 W Armitage Ave, Chicago, IL 60647",
+   "w": "Logan Square brewpub-bakery; on Time Out's top-pizza ranking and the only brewpub on Chowhound's tavern-pizza list.",
+   "cz": [
+    "PZ",
+    "BAR"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-pizza-in-chicago"
+    ],
+    [
+     "CHOWHOUND",
+     "https://www.chowhound.com/2120812/best-tavern-style-pizza-chicago/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Superdawg Drive-In",
+   "ad": "6363 N Milwaukee Ave, Chicago, IL 60646",
+   "w": "The 1948 carhop drive-in under the two giant hot-dog mascots on the roof — on both the Infatuation and Time Out best-hot-dog lists.",
+   "cz": [
+    "DOG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-chicago-dog"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SUB",
+   "n": "Gene & Jude's",
+   "ad": "2720 N River Rd, River Grove, IL 60171",
+   "w": "River Grove stand (1946; here since 1950) — no seats, no ketchup; the gold standard of the Depression dog on both the Infatuation and Time Out hot-dog lists.",
+   "cz": [
+    "DOG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-chicago-dog"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Wolfy's",
+   "ad": "2734 W Peterson Ave, Chicago, IL 60659",
+   "w": "West Ridge stand famous since 1967 for its sign — a giant hot dog on a fork — and a char dog both the Infatuation and Time Out rank among the city's best.",
+   "cz": [
+    "DOG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-chicago-dog"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Redhot Ranch (Bucktown)",
+   "ad": "2449 W Armitage Ave, Chicago, IL 60647",
+   "w": "Cheap, late Depression-dog stand on Armitage — on both the Infatuation and Time Out hot-dog lists.",
+   "cz": [
+    "DOG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-chicago-dog"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Byron's Hot Dogs",
+   "ad": "1017 W Irving Park Rd, Chicago, IL 60613",
+   "w": "Classic Wrigleyville hot-dog stand serving the North Side since 1975 — reviewed by the Infatuation and on Time Out's best-hot-dogs list.",
+   "cz": [
+    "DOG"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/byrons-hot-dogs"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Fat Johnnie's Famous Red Hots",
+   "ad": "7242 S Western Ave, Chicago, IL 60636",
+   "w": "Cash-only Marquette Park trailer open since 1972 that 'looks like a strong wind might blow it over' — on both the Infatuation and Time Out hot-dog lists.",
+   "cz": [
+    "DOG",
+    "BEEF"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-chicago-dog"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SOUTH",
+   "n": "Lem's Bar-B-Q",
+   "ad": "311 E 75th St, Chicago, IL 60619",
+   "w": "Founded 1954 by the Lemons brothers and still family-run; South Side aquarium-smoker rib tips. 2025 James Beard America's Classics award.",
+   "cz": [
+    "CHX"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/announcing-the-2025-restaurant-and-chef-americas-classics-winners"
+    ],
+    [
+     "WBEZ",
+     "https://www.wbez.org/chicago-james-beard-award-winning-restaurants"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Sun Wah Bar-B-Q",
+   "ad": "5039 N Broadway, Chicago, IL 60640",
+   "w": "Uptown Hong Kong barbecue house near Argyle, family-run since 1987; 2018 James Beard America's Classics award.",
+   "cz": [
+    "CN"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://archive.jamesbeard.org/chicago"
+    ],
+    [
+     "WBEZ",
+     "https://www.wbez.org/chicago-james-beard-award-winning-restaurants"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "The Berghoff",
+   "ad": "17 W Adams St, Chicago, IL 60603",
+   "w": "German restaurant and bar in the Loop since 1898 — its bar held Chicago's first post-Prohibition liquor license. A James Beard America's Classics honoree.",
+   "cz": [
+    "EU",
+    "BAR"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://archive.jamesbeard.org/chicago"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "Calumet Fisheries",
+   "ad": "3259 E 95th St, Chicago, IL 60617",
+   "w": "Smokehouse shack by the 95th Street bridge on the Calumet River since 1948, wood-smoking fish on site. A James Beard America's Classics honoree.",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://archive.jamesbeard.org/chicago"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/articles/festivals-special-events/chicagos-james-beard-award-winners/"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WEST",
+   "n": "Jim's Original",
+   "ad": "1250 S Union Ave, Chicago, IL 60607",
+   "w": "Open around the clock since 1939 — the stand that claims the original Maxwell Street Polish. Time Out calls it the best Polish in the city; its pork chop sandwich is one of Chicago Magazine's 50 Iconic Eats.",
+   "cz": [
+    "DOG"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/restaurants/best-hot-dogs-in-chicago"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Borinquen Lounge",
+   "ad": "Humboldt Park, Chicago, IL",
+   "w": "'Home of the Jibarito': Juan 'Peter' Figueroa's Humboldt Park restaurant created the plantain sandwich in 1996. Tops the Infatuation's jibarito guide and Chicago Magazine's Iconic Eats.",
+   "cz": [
+    "PR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/best-jibaritos-chicago"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/jibarito-at-borinquen-lounge/"
+    ],
+    [
+     "BLOCKCLUB",
+     "https://blockclubchicago.org/2026/03/02/10-iconic-foods-invented-in-chicago-and-loved-by-locals/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Twin Anchors Restaurant & Tavern",
+   "ad": "1655 N Sedgwick St, Chicago, IL 60614",
+   "w": "Old Town rib tavern open since 1932 (a Sinatra hangout), neon beer signs intact — on the Infatuation's old-school list and Chicago Magazine's Iconic Eats for its baby backs.",
+   "cz": [
+    "CHX",
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Margie's Candies",
+   "ad": "1960 N Western Ave, Chicago, IL 60647",
+   "w": "Ice-cream parlor and candy shop at Armitage & Western since 1921 — the Infatuation's old-school list and Chicago Magazine's Iconic Eats (hot fudge sundae).",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Gene & Georgetti",
+   "ad": "500 N Franklin St, Chicago, IL 60654",
+   "w": "River North steakhouse in its wood-frame building since 1941 — as old-school as Chicago gets (Infatuation), rib eye on Chicago Magazine's Iconic Eats.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Manny's Cafeteria & Delicatessen",
+   "ad": "1141 S Jefferson St, Chicago, IL 60607",
+   "w": "South Loop cafeteria deli since 1942, lunchroom of generations of politicians — reviewed by the Infatuation ('still great after 80 years') and on Chicago Magazine's Iconic Eats for its corned beef.",
+   "cz": [
+    "DELI"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/mannys-cafeteria-delicatessen"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SW",
+   "n": "Birrieria Zaragoza",
+   "ad": "4852 S Pulaski Rd, Chicago, IL 60632",
+   "w": "Family-run Archer Heights birrieria devoted to Jalisco-style roasted goat. Michelin Bib Gourmand; birria on Chicago Magazine's Iconic Eats.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ],
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Billy Goat Tavern",
+   "ad": "430 N Michigan Ave (lower level), Chicago, IL 60611",
+   "w": "Lower Michigan Avenue newspapermen's tavern since 1934 — 'cheezborger, cheezborger, no Pepsi, Coke' of SNL fame and the Cubs' goat curse.",
+   "cz": [
+    "DOG",
+    "BAR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/chicago-greatest-old-school-restaurants"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Billy_Goat_Tavern"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Gino's East (Superior St)",
+   "ad": "162 E Superior St, Chicago, IL 60611",
+   "w": "Deep-dish institution since 1966 near the Mag Mile, its cornmeal-crust pies served in graffiti-covered booths diners are invited to sign.",
+   "cz": [
+    "PZ"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gino's_East"
+    ],
+    [
+     "CHOWHOUND",
+     "https://www.chowhound.com/2103756/ginos-east-chicago-deep-dish-pizza/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Mr. Beef",
+   "ad": "666 N Orleans St, Chicago, IL 60654",
+   "w": "The River North beef stand (since 1979) that inspired The Bear's Original Beef of Chicagoland — dipped beef with hot giardiniera.",
+   "cz": [
+    "BEEF"
+   ],
+   "g": [
+    "POP"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mr._Beef"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/guides/bear-restaurants-chicago"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FAR",
+   "n": "The Original Rainbow Cone",
+   "ad": "9233 S Western Ave, Chicago, IL 60643",
+   "w": "Beverly's pink stand serving its five-flavour sliced cone since 1926 — a South Side institution (Choose Chicago) and one of Chicago Magazine's 50 Iconic Eats.",
+   "cz": [
+    "DES"
+   ],
+   "s": [
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ],
+    [
+     "CHOOSECHI",
+     "https://www.choosechicago.com/blog/neighborhoods-blog/take-a-walking-tour-of-chicagos-beverly-neighborhood/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Girl & the Goat",
+   "ad": "809 W Randolph St, Chicago, IL 60607",
+   "w": "Stephanie Izard's Randolph Street flagship (2010) that made the West Loop a dining district — the pig-face plate is one of Chicago Magazine's 50 Iconic Eats.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Girl_&_the_Goat"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Avec",
+   "ad": "615 W Randolph St, Chicago, IL 60661",
+   "w": "Paul Kahan's cedar-lined Mediterranean wine bar (2003) — its chorizo-stuffed, bacon-wrapped dates are one of Chicago Magazine's 50 Iconic Eats.",
+   "cz": [
+    "ME",
+    "BAR"
+   ],
+   "s": [
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Avec_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Greek Islands",
+   "ad": "200 S Halsted St, Chicago, IL 60661",
+   "w": "Greektown's taverna since 1971 — flaming saganaki ('Opa!') is one of Chicago Magazine's 50 Iconic Eats.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/saganaki-at-greek-islands/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Greek_Islands_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SUB",
+   "n": "Kaufman's Bagel & Delicatessen",
+   "ad": "4905 Dempster St, Skokie, IL 60077",
+   "w": "Skokie deli opened in the 1960s as a hub for Holocaust survivors — one of Chicagoland's oldest Jewish delis; bagel and lox on Chicago Magazine's 50 Iconic Eats.",
+   "cz": [
+    "DELI"
+   ],
+   "s": [
+    [
+     "CHIMAG",
+     "https://www.chicagomag.com/chicago-magazine/july-2021/iconic-eats/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kaufman%27s_Deli"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Smyth",
+   "ad": "177 N Ada St, Chicago, IL 60607",
+   "w": "West Loop tasting-menu restaurant tied to a family farm — Chicago's only three-Michelin-star restaurant in the 2025 guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Alinea",
+   "ad": "1723 N Halsted St, Chicago, IL 60614",
+   "w": "Grant Achatz's Lincoln Park landmark of modernist cooking, 20 years old — two Michelin stars in 2025 (down from three).",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ],
+    [
+     "WTTW",
+     "https://www.wttw.com/playlist/2025/11/18/michelin-guide-knife-edge-show"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Ever",
+   "ad": "1340 W Fulton St, Chicago, IL 60607",
+   "w": "Curtis Duffy's Fulton Market tasting room — two Michelin stars; its GM Amy Cordell won Michelin's 2025 service award.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Kasama",
+   "ad": "1001 N Winchester Ave, Chicago, IL 60622",
+   "w": "Ukrainian Village Filipino bakery-by-day, tasting-menu-by-night — raised to two Michelin stars in 2025.",
+   "cz": [
+    "VN",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ],
+    [
+     "ABC7",
+     "https://abc7chicago.com/amp/post/michelin-announcement-chicago-restaurants-will-guide-earn-star-alinea-loses-1-3/18170571/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Boka",
+   "ad": "1729 N Halsted St, Chicago, IL 60614",
+   "w": "Lee Wolen's Lincoln Park flagship by the Steppenwolf — one Michelin star.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Esmé",
+   "ad": "2200 N Clark St, Chicago, IL 60614",
+   "w": "Jenner Tomaska and Katrina Bravo's Lincoln Park 'atelier' restaurant — one Michelin star.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurant/esme"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Galit",
+   "ad": "2429 N Lincoln Ave, Chicago, IL 60614",
+   "w": "Zach Engel's modern Middle Eastern restaurant in Lincoln Park — one Michelin star.",
+   "cz": [
+    "ME"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Topolobampo",
+   "ad": "445 N Clark St, Chicago, IL 60654",
+   "w": "Rick Bayless's fine-dining room behind Frontera Grill in River North — one Michelin star.",
+   "cz": [
+    "MEX",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Moody Tongue",
+   "ad": "2515 S Wabash Ave, Chicago, IL 60616",
+   "w": "South Loop brewery whose dining room above the brewhouse holds one Michelin star.",
+   "cz": [
+    "US",
+    "BAR"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Schwa",
+   "ad": "1466 N Ashland Ave, Chicago, IL 60622",
+   "w": "Wicker Park's punk tasting counter — no servers, loud rap, wild cooking; one Michelin star.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Indienne",
+   "ad": "217 W Huron St, Chicago, IL 60654",
+   "w": "Sujan Sarkar's River North modern-Indian tasting room — one Michelin star.",
+   "cz": [
+    "IN",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Feld",
+   "ad": "2018 W Chicago Ave, Chicago, IL 60622",
+   "w": "Chicago's newest one-star in the 2025 Michelin guide, which also gave it a Green Star for sustainable practice.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/michelin-guide-ceremony/michelin-stars-in-the-michelin-guide-chicago-2025"
+    ],
+    [
+     "ABC7",
+     "https://abc7chicago.com/amp/post/michelin-announcement-chicago-restaurants-will-guide-earn-star-alinea-loses-1-3/18170571/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Boonie's Filipino Restaurant",
+   "ad": "4337 N Western Ave, Chicago, IL 60618",
+   "w": "Family-style Filipino restaurant — Michelin Bib Gourmand.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Cellar Door Provisions",
+   "ad": "3025 W Diversey Ave, Chicago, IL 60647",
+   "w": "Logan Square bakery-restaurant — Michelin Bib Gourmand.",
+   "cz": [
+    "ME",
+    "DES"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "Kie-Gol-Lanee",
+   "ad": "5004 N Sheridan Rd, Chicago, IL 60640",
+   "w": "Uptown restaurant cooking the food of the Zapotec Sierra Norte of Oaxaca — Michelin Bib Gourmand.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Sochi Saigonese Kitchen",
+   "ad": "1358 W Belmont Ave, Chicago, IL 60657",
+   "w": "Modern Vietnamese on Belmont — Michelin Bib Gourmand.",
+   "cz": [
+    "VN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Tortello Pastificio",
+   "ad": "1746 W Division St, Chicago, IL 60622",
+   "w": "Pasta shop and restaurant — Michelin Bib Gourmand in 2024 and 2025.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Mirra",
+   "ad": "1954 W Armitage Ave, Chicago, IL 60622",
+   "w": "Zubair Mohajir and Rishi Kumar's colorful Indian-Mexican Bucktown restaurant — new Michelin Bib Gourmand 2025.",
+   "cz": [
+    "IN",
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/news/five-chicago-restaurants-were-just-added-to-the-michelin-guide-2025-071625"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Nadu",
+   "ad": "2518 N Lincoln Ave, Chicago, IL 60614",
+   "w": "Sujan Sarkar's regional-Indian Lincoln Park restaurant — new Michelin Bib Gourmand 2025.",
+   "cz": [
+    "IN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/news/five-chicago-restaurants-were-just-added-to-the-michelin-guide-2025-071625"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Taqueria Chingón",
+   "ad": "817 W Fulton Market, Chicago, IL 60607",
+   "w": "Reopened CDMX-style taqueria from Marcos Ascencio and Oliver Poilevey — Michelin Bib Gourmand 2025.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants/bib-gourmand"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/chicago/news/five-chicago-restaurants-were-just-added-to-the-michelin-guide-2025-071625"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Oriole",
+   "ad": "661 W Walnut St, Chicago, IL 60661",
+   "w": "Noah Sandoval's hidden West Loop tasting room behind a freight elevator — two Michelin stars (2025).",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurant/oriole"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Oriole_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NORTH",
+   "n": "Atelier",
+   "ad": "4835 N Western Ave, Chicago, IL 60625",
+   "w": "Intimate Lincoln Square tasting-menu room — one Michelin star.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.timeout.com/chicago/restaurants/every-single-michelin-starred-restaurant-in-chicago"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Atelier_(Chicago_restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WEST",
+   "n": "EL Ideas",
+   "ad": "2419 W 14th St, Chicago, IL 60608",
+   "w": "Phillip Foss's freewheeling Douglas Park tasting menu where diners wander into the open kitchen — in the Michelin Guide.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/EL_Ideas"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Frontera Grill",
+   "ad": "445 N Clark St, Chicago, IL 60654",
+   "w": "Rick Bayless's 1987 River North original that put regional Mexican cooking on America's map — in the Michelin Guide.",
+   "cz": [
+    "MEX"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Frontera_Grill"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Lou Mitchell's",
+   "ad": "565 W Jackson Blvd, Chicago, IL 60661",
+   "w": "The 1923 diner at the start of Route 66 — free Milk Duds and donut holes while you wait for double-yolk eggs; in the Michelin Guide.",
+   "cz": [
+    "DELI"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lou_Mitchell's"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Next",
+   "ad": "953 W Fulton Market, Chicago, IL 60607",
+   "w": "Grant Achatz's Fulton Market restaurant that reinvents its whole menu and theme every few months — in the Michelin Guide.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurant/next"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Next_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Elske",
+   "ad": "1350 W Randolph St, Chicago, IL 60607",
+   "w": "David and Anna Posey's Danish-inflected West Loop restaurant with an open-air fireplace courtyard — in the Michelin Guide.",
+   "cz": [
+    "EU",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurant/elske"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Elske"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LOOP",
+   "n": "Kumiko",
+   "ad": "630 W Lake St, Chicago, IL 60661",
+   "w": "Julia Momosé's Japanese cocktail bar and dining room in the West Loop — in the Michelin Guide.",
+   "cz": [
+    "BAR",
+    "JP"
+   ],
+   "g": [
+    "SPEAK"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurants"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kumiko_(bar)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Daisies",
+   "ad": "2375 N Milwaukee Ave, Chicago, IL 60647",
+   "w": "Joe Frillman's farm-driven Logan Square pasta restaurant (own 30-acre farm) — Michelin Bib Gourmand and Green Star.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/gb/en/illinois/chicago/restaurant/daisies"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/daisies"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Daisies_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Irazu",
+   "ad": "1865 N Milwaukee Ave, Chicago, IL 60647",
+   "w": "Bucktown's family-run Costa Rican restaurant — casados, gallo pinto, oatmeal shakes; 'extremely affordable and incredibly good' (Infatuation).",
+   "cz": [
+    "PR"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/chicago/reviews/irazu"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Irazu_Costa_Rican_Restaurant"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LOOP",
+   "n": "Sepia",
+   "ad": "123 N Jefferson St, Chicago, IL 60661",
+   "w": "Andrew Zimmerman's West Loop dining room in a 19th-century print shop — one Michelin star (2025).",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurant/sepia"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sepia_(restaurant)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NORTH",
+   "n": "North Pond",
+   "ad": "2610 N Cannon Dr, Chicago, IL 60614",
+   "w": "An Arts & Crafts warming shelter on a Lincoln Park pond turned seasonal-Midwest tasting room with a skyline view — in the Michelin Guide.",
+   "cz": [
+    "US"
+   ],
+   "g": [
+    "ROOF"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/illinois/chicago/restaurant/north-pond"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/North_Pond_(restaurant)"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura — Chicago",
+   "u": "https://www.atlasobscura.com/things-to-do/chicago-illinois",
+   "l": "Atlas Obscura — Chicago"
+  },
+  "BLOCKCLUB": {
+   "k": "BLOCK CLUB CHICAGO",
+   "t": "Block Club Chicago",
+   "u": "https://blockclubchicago.org/",
+   "l": "Block Club Chicago"
+  },
+  "CAC": {
+   "k": "CHICAGO ARCHITECTURE CTR",
+   "t": "Chicago Architecture Center",
+   "u": "https://www.architecture.org/",
+   "l": "Chicago Architecture Center"
+  },
+  "CHOOSECHI": {
+   "k": "CHOOSE CHICAGO",
+   "t": "Choose Chicago (official CVB)",
+   "u": "https://www.choosechicago.com/",
+   "l": "Choose Chicago (official CVB)"
+  },
+  "FLWTRUST": {
+   "k": "FLW TRUST",
+   "t": "FLW TRUST",
+   "u": "",
+   "l": ""
+  },
+  "ILDNR": {
+   "k": "ILLINOIS DNR",
+   "t": "ILLINOIS DNR",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "The Infatuation Chicago",
+   "u": "https://www.theinfatuation.com/chicago",
+   "l": "The Infatuation Chicago"
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service",
+   "u": "https://www.nps.gov/",
+   "l": "National Park Service"
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT CHICAGO",
+   "t": "Time Out Chicago",
+   "u": "https://www.timeout.com/chicago",
+   "l": "Time Out Chicago"
+  },
+  "TRAVELWI": {
+   "k": "TRAVELWI",
+   "t": "TRAVELWI",
+   "u": "",
+   "l": ""
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO World Heritage — The 20th-Century Architecture of Frank Lloyd Wright",
+   "u": "https://whc.unesco.org/en/list/1496/",
+   "l": "UNESCO World Heritage — The 20th-Century Architecture of Frank Lloyd Wright"
+  },
+  "VISITMKE": {
+   "k": "VISIT MILWAUKEE",
+   "t": "VISIT MILWAUKEE",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WTTW": {
+   "k": "WTTW",
+   "t": "WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!",
+   "u": "https://news.wttw.com/",
+   "l": "WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!"
+  }
+ },
+ "FS": {
+  "ABC7": {
+   "k": "ABC7 CHICAGO",
+   "t": "ABC7 CHICAGO",
+   "u": "",
+   "l": ""
+  },
+  "BLOCKCLUB": {
+   "k": "BLOCK CLUB CHICAGO",
+   "t": "Block Club Chicago",
+   "u": "https://blockclubchicago.org/",
+   "l": "Block Club Chicago"
+  },
+  "CHIMAG": {
+   "k": "CHICAGO MAGAZINE",
+   "t": "Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)",
+   "u": "https://www.chicagomag.com/",
+   "l": "Chicago Magazine (Best New Restaurants, 50 Best Things to Eat, Best Pizza)"
+  },
+  "CHOOSECHI": {
+   "k": "CHOOSE CHICAGO",
+   "t": "Choose Chicago (official CVB)",
+   "u": "https://www.choosechicago.com/",
+   "l": "Choose Chicago (official CVB)"
+  },
+  "CHOWHOUND": {
+   "k": "CHOWHOUND",
+   "t": "CHOWHOUND",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "INFATUATION",
+   "t": "The Infatuation Chicago",
+   "u": "https://www.theinfatuation.com/chicago",
+   "l": "The Infatuation Chicago"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "James Beard Foundation Awards (incl. America's Classics)",
+   "u": "https://www.jamesbeard.org/awards",
+   "l": "James Beard Foundation Awards (incl. America's Classics)"
+  },
+  "KEITHLEE": {
+   "k": "KEITHLEE",
+   "t": "KEITHLEE",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN Guide Chicago (stars + Bib Gourmand)",
+   "u": "https://guide.michelin.com/us/en/illinois/chicago",
+   "l": "MICHELIN Guide Chicago (stars + Bib Gourmand)"
+  },
+  "NBC5": {
+   "k": "NBC 5 CHICAGO",
+   "t": "NBC 5 CHICAGO",
+   "u": "",
+   "l": ""
+  },
+  "PORTNOY": {
+   "k": "PORTNOY",
+   "t": "PORTNOY",
+   "u": "",
+   "l": ""
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT CHICAGO",
+   "t": "Time Out Chicago",
+   "u": "https://www.timeout.com/chicago",
+   "l": "Time Out Chicago"
+  },
+  "WBEZ": {
+   "k": "WBEZ",
+   "t": "WBEZ Chicago (NPR)",
+   "u": "https://www.wbez.org/",
+   "l": "WBEZ Chicago (NPR)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org/",
+   "l": "Wikipedia"
+  },
+  "WTTW": {
+   "k": "WTTW",
+   "t": "WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!",
+   "u": "https://news.wttw.com/",
+   "l": "WTTW (Chicago PBS) — incl. Geoffrey Baer architecture tours, Check, Please!"
+  }
+ }
+}

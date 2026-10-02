@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Osaka field guide — 65 sights and 107 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<title>Osaka Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Osaka (大阪), sourced</p>
+  <h1>Osaka<span class="thin">Kita · Minami · the Castle · Shinsekai · the Bay · Kansai day trips</span></h1>
+  <p class="standfirst">65 sights and 107 places to eat across <strong>Osaka</strong> — the city of <em>kuidaore</em>, eat till you drop — every one traceable to its source: okonomiyaki teppan, kushikatsu counters, Michelin Bib Gourmand udon and soba, Kita and Minami, the castle, the bay and the Kansai ring. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#5B8DEF"></i>Kita</span>
+  <span><i style="background:#D9534F"></i>Minami</span>
+  <span><i style="background:#E8B04B"></i>Chūō & the Castle</span>
+  <span><i style="background:#E07A5F"></i>Tennōji & Shinsekai</span>
+  <span><i style="background:#9B5DE5"></i>East Osaka</span>
+  <span><i style="background:#00A6A6"></i>Bay Area</span>
+  <span><i style="background:#3D9970"></i>Southern Osaka</span>
+  <span><i style="background:#7D8C38"></i>Hokusetsu & Kawachi</span>
+  <span><i style="background:#D4A017"></i>Kansai day trips</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="takoyaki, kushikatsu, udon, castle…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Japanese and English across Michelin, UNESCO, Japanese national and regional press, official tourism bodies and vetted creators. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "FEELKOBE":{k:"FEELKOBE",t:"Feel KOBE — Kobe Tourism Bureau official guide",u:"https://www.feel-kobe.jp/en/",l:"Feel KOBE — Kobe Tourism Bureau official guide"},
+  "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"japan-guide.com — Osaka",u:"https://www.japan-guide.com/e/e2157.html",l:"japan-guide.com — Osaka"},
+  "OSAKAINFO":{k:"OSAKA INFO",t:"OSAKA-INFO (Osaka Convention & Tourism Bureau)",u:"https://osaka-info.jp/en/",l:"OSAKA-INFO (Osaka Convention & Tourism Bureau)"},
+  "TIMEOUT":{k:"TIME OUT",t:"Time Out Osaka",u:"https://www.timeout.com/osaka",l:"Time Out Osaka"},
+  "UNESCO":{k:"UNESCO",t:"UNESCO World Heritage Centre",u:"https://whc.unesco.org/",l:"UNESCO World Heritage Centre"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"KITA",n:"Kita (Umeda · Nakazakichō · Tenma · Tenjinbashi-suji · Nakanoshima · Fukushima)",c:"#5B8DEF"},
+  {id:"MINAM",n:"Minami (Namba · Dōtonbori · Shinsaibashi · Amerikamura · Kuromon · Sennichimae · Ura-Namba)",c:"#D9534F"},
+  {id:"CHUO",n:"Chūō & the Castle (Osaka Castle · Honmachi · Kitahama · Tanimachi · Karahori)",c:"#E8B04B"},
+  {id:"TNJ",n:"Tennōji & Shinsekai (Tsūtenkaku · Shinsekai · Abeno Harukas · Shitennō-ji · Nishinari)",c:"#E07A5F"},
+  {id:"EAST",n:"East Osaka (Tsuruhashi · Ikuno Koreatown · Kyōbashi · Higashi-Ōsaka)",c:"#9B5DE5"},
+  {id:"BAY",n:"Bay Area (Universal Studios · Kaiyūkan · Tempozan · Taishō Little Okinawa · Sakishima)",c:"#00A6A6"},
+  {id:"SOUTH",n:"Southern Osaka (Sumiyoshi Taisha · Sakai kofun & knives · Kishiwada · Kansai Airport)",c:"#3D9970"},
+  {id:"NORTH",n:"Hokusetsu & Kawachi (Minoo · Expo '70 Park · Ikeda Cupnoodles Museum · Takatsuki · Hirakata)",c:"#7D8C38"},
+  {id:"KNSAI",n:"Kansai day trips (Kobe · Himeji · Arima Onsen · Kōya-san · Wakayama)",c:"#D4A017"}
+];
+
+const P = [
+{t:1,a:"BAY",n:"Universal Studios Japan",ad:"2-1-33 Sakurajima, Konohana-ku, Osaka, Japan",la:34.66472,ln:135.43306,w:"Opened in 2001 as the first Universal Studios park in Asia; one of Japan's most visited theme parks, with areas including The Wizarding World of Harry Potter and Super Nintendo World.",k:"theme park",g:["ICON","POP","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4021.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Universal_Studios_Japan"],["OSAKAINFO","https://osaka-info.jp/en/special/universal/course02/"]]},
+{t:1,a:"BAY",n:"Osaka Aquarium Kaiyūkan",ad:"1-1-10 Kaigan-dori, Minato-ku, Osaka (Tempozan Harbor Village), Japan",la:34.65447,ln:135.42889,w:"One of Japan's largest aquariums, built around a 5,400-ton central Pacific tank holding a whale shark, with exhibits themed on the Pacific Rim.",k:"aquarium",g:["ICON","POP","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4004.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan"],["OSAKAINFO","https://en.osaka-info.jp/osaka/basic/popular-spot/"]]},
+{t:2,a:"BAY",n:"Tempozan Giant Ferris Wheel",ad:"Tempozan Harbor Village, 1-1-10 Kaigan-dori, Minato-ku, Osaka, Japan",la:34.65617,ln:135.43103,w:"A 112.5 m Ferris wheel beside Kaiyūkan in Tempozan Harbor Village, with a roughly 15-minute ride over Osaka Bay and the city skyline.",k:"Ferris wheel",g:["VIEW","NIGHT","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4010.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel"],["OSAKAINFO","https://en.osaka-info.jp/osaka/basic/popular-spot/"]]},
+{t:2,a:"BAY",n:"Sakishima Cosmo Tower Observatory",ad:"Osaka Prefectural Government Sakishima Building, 1-14-16 Nanko-kita, Suminoe-ku, Osaka, Japan",la:34.63833,ln:135.41500,w:"Observation deck 252 m up atop the Sakishima building (completed 1995), giving a 360-degree panorama of Osaka Bay; known for night views.",k:"observation deck",g:["VIEW","NIGHT"],s:[["OSAKAINFO","https://discover.osaka-info.jp/en/spots/sakishima-cosmotower"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_WTC_Building"]]},
+{t:1,a:"SOUTH",n:"Sumiyoshi Taisha",ad:"2-9-89 Sumiyoshi, Sumiyoshi-ku, Osaka, Japan",la:34.61280,ln:135.49294,w:"Head shrine of over two thousand Sumiyoshi shrines across Japan, protecting travellers and sailors; its four main halls face west in the ancient Sumiyoshi-zukuri style.",k:"shrine",g:["TEMPLE","ICON","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4007.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sumiyoshi-taisha"]]},
+{t:1,a:"SOUTH",n:"Mozu Kofun Group — Daisen Kofun (Emperor Nintoku's Tomb)",ad:"Daisen-cho, Sakai-ku, Sakai, Osaka, Japan",la:34.56389,ln:135.48694,w:"Cluster of 5th-century keyhole tombs in Sakai, UNESCO World Heritage (2019) with the Furuichi group; Daisen Kofun, attributed to Emperor Nintoku, is the largest grave in the world by area (~840 m with moats). The mound itself is off-limits.",k:"kofun / burial mounds",g:["UNESCO","ICON","FREE","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4030.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mozu_Kofun_Group"],["UNESCO","https://whc.unesco.org/en/list/1593/"]]},
+{t:2,a:"SOUTH",n:"Sakai City Museum",ad:"Daisen Park, 2 Mozu Yugumo-cho, Sakai-ku, Sakai, Osaka, Japan",la:34.55886,ln:135.48425,w:"Museum in Daisen Park tracing the history of the port town of Sakai, starting with the kofun tombs and artifacts excavated from them.",k:"museum",g:["MUS","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4030.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Sakai_City_Museum"]]},
+{t:1,a:"NORTH",n:"Expo '70 Commemorative Park & Tower of the Sun",ad:"1-1 Senri Banpaku-koen, Suita, Osaka, Japan",la:34.80964,ln:135.53231,w:"Vast park on the grounds of the 1970 Japan World Exposition, the first in Asia; Tarō Okamoto's 70 m Tower of the Sun stands over the main entrance as its icon.",k:"park / monument",g:["ICON","GARDEN","NATURE","VIEW"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4029.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tower_of_the_Sun"]]},
+{t:2,a:"NORTH",n:"Minoo Park & Minoo Falls",ad:"Minoo Park, Minoh, Osaka, Japan",la:34.85389,ln:135.47167,w:"Forested valley just north of Osaka with a roughly 3 km riverside trail from Hankyu Minoo Station to the 33 m Minoo Waterfall; famous for autumn colours.",k:"nature park / waterfall",g:["NATURE","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4019.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Minoh"]]},
+{t:2,a:"NORTH",n:"Katsuō-ji",ad:"2914-1 Aomadani, Minoh, Osaka, Japan",la:34.86583,ln:135.49111,w:"Mountain temple above Minoh known as the temple of victory, its grounds dotted with thousands of small red daruma dolls left by wishers.",k:"temple",g:["TEMPLE","NATURE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/katsuoji/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Katsu%C5%8D-ji"]]},
+{t:2,a:"NORTH",n:"National Museum of Ethnology (Minpaku)",ad:"10-1 Senri Expo Park, Suita, Osaka, Japan",la:34.81286,ln:135.52968,w:"One of the world's largest ethnology museums, inside the Expo '70 Commemorative Park, with a huge exhibition of everyday artifacts from cultures around the world.",k:"museum",g:["MUS","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4029.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Museum_of_Ethnology_(Japan)"]]},
+{t:2,a:"NORTH",n:"CupNoodles Museum Osaka Ikeda",ad:"8-25 Masumi-cho, Ikeda, Osaka, Japan",la:34.81804,ln:135.42667,w:"Hands-on museum in Ikeda, birthplace of instant ramen (Momofuku Ando, 1958); at My Cup Noodles Factory visitors design a cup and pick their own soup and toppings.",k:"museum",g:["MUS","POP"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/324"],["WIKIPEDIA","https://en.wikipedia.org/wiki/CupNoodles_Museum_Osaka_Ikeda"]]},
+{t:1,a:"KNSAI",n:"Himeji Castle",ad:"68 Honmachi, Himeji, Hyogo, Japan",la:34.83944,ln:134.69389,w:"Widely considered Japan's finest surviving feudal castle — the white 'White Heron' keep is a National Treasure and a UNESCO World Heritage Site (1993).",k:"castle",g:["CASTLE","UNESCO","ICON"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3501.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Himeji_Castle"]]},
+{t:2,a:"KNSAI",n:"Kitano Ijinkan (Kitano-chō)",ad:"Kitano-cho, Chuo-ku, Kobe, Hyogo, Japan",la:34.69833,ln:135.19028,w:"Hillside district where foreign merchants and diplomats settled after Kobe port opened in the 19th century; dozens of Western-style mansions (ijinkan) survive, many open as museums.",k:"historic district",g:["ICON","TEMPLE","CASTLE","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3550.html"],["FEELKOBE","https://www.feel-kobe.jp/kobe-yakei/en/kitano-ijinkan/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kitano-cho"]]},
+{t:2,a:"KNSAI",n:"Meriken Park & Kobe Port Tower",ad:"Hatoba-cho, Chuo-ku, Kobe, Hyogo, Japan",la:34.68167,ln:135.18833,w:"Waterfront park on reclaimed land in Kobe's port, home to the red 108 m Kobe Port Tower (1963), the Kobe Maritime Museum and the Earthquake Memorial.",k:"waterfront park",g:["VIEW","NIGHT","FREE","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3552.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Meriken_Park"]]},
+{t:3,a:"KNSAI",n:"Kobe Harborland",ad:"Higashi-Kawasaki-cho, Chuo-ku, Kobe, Hyogo, Japan",la:34.67906,ln:135.18181,w:"Shopping and entertainment waterfront between JR Kobe Station and the port, popular at night for its harbour views.",k:"waterfront / shopping",g:["NIGHT","VIEW"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3553.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Harborland"]]},
+{t:2,a:"KNSAI",n:"Nankinmachi (Kobe Chinatown)",ad:"Sakaemachi-dori / Motomachi-dori, Chuo-ku, Kobe, Hyogo, Japan",la:34.68806,ln:135.18806,w:"The biggest Chinatown in western Japan, packed with more than 100 shops and restaurants and street-food stalls.",k:"chinatown",g:["MKT","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e2159.html"],["FEELKOBE","https://www.feel-kobe.jp/en/areaguide/index.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nankin-machi"]]},
+{t:2,a:"KNSAI",n:"Ikuta Shrine",ad:"1-2-1 Shimoyamate-dori, Chuo-ku, Kobe, Hyogo, Japan",la:34.69500,ln:135.19056,w:"One of Japan's oldest shrines, said to be founded in the 3rd century by Empress Jingū; the name Kobe derives from 'Kanbe', the families who served it.",k:"shrine",g:["TEMPLE","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e2159.html"],["FEELKOBE","https://www.feel-kobe.jp/en/attractions/detail_1039.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ikuta_Shrine"]]},
+{t:1,a:"KNSAI",n:"Arima Onsen",ad:"Arima-cho, Kita-ku, Kobe, Hyogo, Japan",la:34.79806,ln:135.24750,w:"One of Japan's three most famous hot springs, over Mount Rokko from central Kobe; known for its iron-rich 'kinsen' gold and clear 'ginsen' silver waters, explorable on foot.",k:"hot spring town",g:["ONSEN","ICON"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3558.html"],["FEELKOBE","https://www.feel-kobe.jp/en/areaguide/index.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Arima_Onsen"]]},
+{t:3,a:"KNSAI",n:"Nunobiki Falls & Herb Gardens",ad:"Fukiai-cho, Chuo-ku, Kobe, Hyogo, Japan",la:34.70972,ln:135.19389,w:"Four waterfalls (the tallest, Ontaki, 43 m) a short walk from Shin-Kobe Station; the Nunobiki Ropeway climbs above them to one of Japan's largest herb gardens.",k:"waterfall / garden",g:["NATURE","GARDEN","VIEW"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3563.html"],["FEELKOBE","https://www.feel-kobe.jp/en/stories/Shin-Kobe"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nunobiki_Falls"]]},
+{t:2,a:"KNSAI",n:"Mount Rokkō",ad:"Rokkosan-cho, Nada-ku, Kobe, Hyogo, Japan",la:34.77778,ln:135.26389,w:"The 931 m high point of the Rokko range behind Kobe, with panoramic views over Kobe and Osaka, especially at sunset and night.",k:"mountain / viewpoint",g:["VIEW","NATURE","NIGHT"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3557.html"],["FEELKOBE","https://www.feel-kobe.jp/en/areaguide/index.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Mount_Rokko"]]},
+{t:3,a:"KNSAI",n:"Akashi Kaikyō Bridge",ad:"Higashimaiko-cho, Tarumi-ku, Kobe, Hyogo, Japan",la:34.61620,ln:135.02050,w:"Spanning the Akashi Strait to Awaji Island, it was long the world's longest suspension bridge (central span 1,991 m).",k:"bridge",g:["VIEW","ICON","NATURE","ONSEN"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e2159.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Akashi_Kaikyo_Bridge"]]},
+{t:1,a:"KNSAI",n:"Kōyasan — Okunoin",ad:"Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",la:34.21750,ln:135.60500,w:"Kōbō Daishi's mausoleum at the end of a cemetery path through ancient cedars lined with over 200,000 graves; part of the UNESCO 'Sacred Sites and Pilgrimage Routes in the Kii Mountain Range'.",k:"temple / cemetery",g:["TEMPLE","UNESCO","ICON","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4900.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Okunoin"],["UNESCO","https://whc.unesco.org/en/list/1142/"]]},
+{t:2,a:"KNSAI",n:"Kōyasan — Kongōbu-ji",ad:"132 Koyasan, Koya-cho, Ito-gun, Wakayama, Japan",la:34.21408,ln:135.58409,w:"Head temple of Shingon Buddhism on Mount Kōya, founded by Kōbō Daishi in the 9th century; within the Kii Mountains UNESCO site.",k:"temple",g:["TEMPLE","UNESCO","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4900.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kong%C5%8Dbu-ji"],["UNESCO","https://whc.unesco.org/en/list/1142/"]]},
+{t:2,a:"KNSAI",n:"Wakayama Castle",ad:"3 Ichibancho, Wakayama, Wakayama, Japan",la:34.22763,ln:135.17162,w:"Reconstructed castle keep on a hill in central Wakayama with free Nishinomaru garden and the maple-filled Momijidani garden and covered wooden bridge.",k:"castle",g:["CASTLE","GARDEN","NATURE","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4927.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wakayama_Castle"]]},
+{t:2,a:"SOUTH",n:"Kishiwada Castle",ad:"9-1 Kishiki-cho, Kishiwada, Osaka, Japan",la:34.45882,ln:135.37078,w:"Castle-town keep (burned 1827, rebuilt 1954) halfway between Osaka and Wakayama, with 360-degree views over Osaka Bay; the town is famous for the Danjiri float festival.",k:"castle",g:["CASTLE","VIEW"],s:[["OSAKAINFO","https://discover.osaka-info.jp/en/articles/kishiwada-castle"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kishiwada_Castle"]]},
+{t:3,a:"SOUTH",n:"Rinku Town & Rinku Premium Outlets",ad:"Rinku Ourai-kita, Izumisano, Osaka, Japan",la:34.41111,ln:135.30000,w:"Bayfront district one stop from Kansai Airport with the 256 m SiS Rinku Tower (Rinku Gate Tower Building), Rinku Premium Outlets (200+ shops) and Aeon Mall.",k:"shopping district",g:["VIEW"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/329"],["JAPANGUIDE","https://www.japan-guide.com/e/e2451.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rinku_Gate_Tower_Building"]]},
+{t:2,a:"NORTH",n:"Hirakata Park",ad:"1-1-1 Hirakatakoen-cho, Hirakata, Osaka, Japan",la:34.80578,ln:135.63813,w:"Japan's oldest operating amusement park ('Hira-Par'), with around 40 attractions including the ~80 m Sky Walker Ferris wheel.",k:"amusement park",g:["POP","NATURE","VIEW"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/325"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hirakata_Park"]]},
+{t:3,a:"NORTH",n:"Imashirozuka Kofun",ad:"1 Gunge-shinmachi, Takatsuki, Osaka, Japan",la:34.85026,ln:135.59416,w:"6th-century keyhole mound believed to be the true tomb of Emperor Keitai; unusually open to walk on, with replica haniwa on display and the Imashirozuka Ancient History Museum next door.",k:"kofun",g:["MUS","FREE"],s:[["TIMEOUT","https://www.timeout.com/osaka/things-to-do/imashirozuka-kofun"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Imashirozuka_Kofun"],["OSAKAINFO","https://osaka-info.jp/en/special/dc/event/detail124/"]]},
+{t:3,a:"KNSAI",n:"Kōko-en Garden (Himeji)",ad:"68 Honmachi, Himeji, Hyogo, Japan",la:34.83806,ln:134.68972,w:"Nine walled Edo-style gardens built in 1992 on the site of former samurai residences beside Himeji Castle's west moat.",k:"garden",g:["GARDEN","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e3502.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/K%C5%8Dko-en"]]},
+{t:1,a:"KITA",n:"Umeda Sky Building — Kuchū Teien Floating Garden Observatory",ad:"Umeda Sky Building, northwest of JR Osaka Station, Kita-ku, Osaka, Japan",la:34.70528,ln:135.48972,w:"The 173 m twin-tower skyscraper (1993) joined at the top by the open-air Floating Garden observation deck — 360° views over Osaka, open till 22:30.",k:"observation deck",g:["VIEW","ICON","GARDEN"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4002.html"],["OSAKAINFO","https://osaka-info.jp/en/spot/area_kita/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Umeda_Sky_Building"]]},
+{t:2,a:"KITA",n:"Osaka Tenmangū",ad:"Temma, Kita-ku, Osaka, Japan",la:34.69602,ln:135.51262,w:"Temma's shrine to Sugawara no Michizane, god of learning, at the head of Tenjinbashi-suji; home of the Tenjin Matsuri.",k:"shrine",g:["TEMPLE","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/204"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_Tenmang%C5%AB"]]},
+{t:2,a:"KITA",n:"Japan Mint (Osaka) — cherry-blossom passage",ad:"Temma, Kita-ku, Osaka, Japan",la:34.69683,ln:135.52119,w:"The national mint where Japan's coins are struck; famous for opening its riverside avenue of cherry trees to the public each spring.",k:"mint, sakura",g:["NATURE","MUS"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/204"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Japan_Mint"]]},
+{t:1,a:"CHUO",n:"Osaka Castle",ad:"Osakajō, Chuo-ku, Osaka, Japan",la:34.68722,ln:135.52583,w:"Hideyoshi's 1583 castle, rebuilt in 1931 — the main keep (a museum with a top-floor lookout) rises from stone walls and moats in a vast park famous for plum and cherry blossom.",k:"castle, museum, park",g:["ICON","CASTLE","MUS","VIEW"],s:[["TIMEOUT","https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_Castle"]]},
+{t:1,a:"MINAM",n:"Dōtonbori",ad:"Dōtonbori, Chuo-ku, Osaka, Japan",la:34.66871,ln:135.50131,w:"The canal-side heart of kuidaore Osaka: neon, mechanised signs (the Glico Running Man, the Kani Doraku crab) and street food that barely closes.",k:"nightlife, street food",g:["ICON","NIGHT","POP","FREE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4001.html"],["TIMEOUT","https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"],["WIKIPEDIA","https://en.wikipedia.org/wiki/D%C5%8Dtonbori"]]},
+{t:1,a:"MINAM",n:"Kuromon Market",ad:"Nipponbashi, Chuo-ku, Osaka, Japan",la:34.66528,ln:135.50694,w:"\"Osaka's Kitchen\": a several-hundred-metre covered arcade of fishmongers, butchers, greengrocers and grill-it-on-the-spot stalls.",k:"market",g:["MKT","FREE","POP"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4031.html"],["TIMEOUT","https://www.timeout.com/osaka/things-to-do/best-things-to-do-in-osaka"]]},
+{t:2,a:"MINAM",n:"Shinsaibashi-suji Shopping Arcade",ad:"Shinsaibashi-suji, Chuo-ku, Osaka, Japan",la:34.67231,ln:135.50136,w:"Osaka's premier shopping street — a ~600 m covered arcade mixing chain stores, boutiques and department stores, running north from Dōtonbori.",k:"shopping arcade",g:["POP","FREE","ICON","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4001.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Shinsaibashi"]]},
+{t:2,a:"MINAM",n:"Amerikamura (Amemura)",ad:"Nishishinsaibashi, Chuo-ku, Osaka, Japan",la:34.67209,ln:135.49796,w:"Osaka's answer to Harajuku: thrift stores, cafes and youth fashion around Triangle Park, west of Mido-suji.",k:"youth culture, shopping",g:["POP","FREE","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4001.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Amerikamura"]]},
+{t:1,a:"TNJ",n:"Shinsekai & Tsūtenkaku",ad:"Ebisuhigashi, Naniwa-ku, Osaka, Japan",la:34.65222,ln:135.50611,w:"The 'New World' district built after the 1903 Expo — half Paris, half Coney Island — around Tsūtenkaku, the 103 m tower rebuilt in 1956; the home of Osaka kushikatsu.",k:"retro district, tower",g:["ICON","VIEW","NIGHT","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4012.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku"]]},
+{t:1,a:"TNJ",n:"Shitennō-ji",ad:"Shitennōji, Tennoji-ku, Osaka, Japan",la:34.65390,ln:135.51645,w:"Founded by Prince Shōtoku in 593 — one of Japan's oldest temples and the first built by the state, with its five-storey pagoda on the classic straight-line layout.",k:"temple",g:["TEMPLE","ICON"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4025.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Shitenn%C5%8D-ji"]]},
+{t:2,a:"TNJ",n:"Tennōji Zoo",ad:"Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",la:34.65256,ln:135.50850,w:"Osaka's city zoo (1915) in Tennōji Park, below Tsūtenkaku.",k:"zoo",g:["NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4025.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Zoo"]]},
+{t:2,a:"TNJ",n:"Osaka City Museum of Fine Arts",ad:"Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",la:34.65011,ln:135.51053,w:"The 1936 municipal art museum in Tennōji Park, with Keitakuen garden behind it.",k:"art museum",g:["MUS","GARDEN","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4025.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_City_Museum_of_Fine_Arts"]]},
+{t:2,a:"CHUO",n:"Osaka Museum of History",ad:"4-1-32 Otemae, Chuo-ku, Osaka 540-0008, Japan",la:34.68263,ln:135.52080,w:"Opened 2001 in a tower beside NHK Osaka, across from the castle: large-scale models chronicle the city from its days as Japan's first capital to the early Shōwa era, with views over the castle park.",k:"history museum",g:["MUS","VIEW","CASTLE","NATURE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4014.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_Museum_of_History"]]},
+{t:2,a:"KITA",n:"National Museum of Art, Osaka",ad:"Nakanoshima, Kita-ku, Osaka, Japan",la:34.69179,ln:135.49202,w:"Contemporary Japanese and international art on two underground floors of Nakanoshima; the 2007 building's entrance structure is designed to evoke growing bamboo.",k:"art museum",g:["MUS","GARDEN"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4016.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka"]]},
+{t:3,a:"KITA",n:"Osaka Science Museum",ad:"Nakanoshima, Kita-ku, Osaka, Japan",la:34.69124,ln:135.49152,w:"Hands-on science museum and planetarium on Nakanoshima, next to the National Museum of Art.",k:"science museum",g:["MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4015.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Osaka_Science_Museum"]]},
+{t:2,a:"KITA",n:"Nakanoshima Museum of Art, Osaka",ad:"Nakanoshima, Kita-ku, Osaka, Japan",la:34.69239,ln:135.49147,w:"The city art museum that opened on Nakanoshima in February 2022 — modern and contemporary art and design, part of the island's museum cluster.",k:"art museum",g:["MUS","NATURE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/area_kita/"],["JAPANGUIDE","https://www.japan-guide.com/e/e4017.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nakanoshima_Museum_of_Art,_Osaka"]]},
+{t:2,a:"KITA",n:"Tenjinbashi-suji Shopping Street",ad:"Tenjinbashi 1-7 chōme, Kita-ku, Osaka, Japan",la:34.71060,ln:135.51078,w:"Claimed as Japan's longest covered shopping street — 2.6 km of shops and eateries running north from the Tenmangū approach.",k:"shopping arcade",g:["POP","FREE","MKT"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/204"],["JAPANGUIDE","https://www.japan-guide.com/e/e4024.html"]]},
+{t:1,a:"MINAM",n:"Hōzen-ji & Hōzenji Yokochō",ad:"Namba, Chuo-ku, Osaka, Japan",la:34.66787,ln:135.50261,w:"A moss-covered Fudō Myōō statue that worshippers splash with water, beside two 80 m stone-paved alleys of old kappo counters, bars and okonomiyaki shops — the setting of Oda Sakunosuke's 'Meoto Zenzai'.",k:"temple, lantern-lit alleys",g:["TEMPLE","NIGHT","FREE","GARDEN"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4001.html"],["OSAKAINFO","https://osaka-info.jp/en/spot/hozenji-yokocho/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H%C5%8Dzen-ji_(Osaka)"]]},
+{t:2,a:"MINAM",n:"Den Den Town (Nipponbashi)",ad:"Nipponbashi, Naniwa-ku, Osaka, Japan",la:34.65972,ln:135.50583,w:"Osaka's Akihabara: electronics, anime, games and maid cafés along Sakaisuji in Nipponbashi.",k:"electronics & otaku district",g:["POP","FREE"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/229"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nipponbashi"]]},
+{t:2,a:"KITA",n:"Kitashinchi",ad:"Sonezakishinchi, Kita-ku, Osaka, Japan",la:34.69832,ln:135.49704,w:"Osaka's grown-up entertainment quarter just south of Osaka Station — hundreds of restaurants, hostess bars and counters.",k:"dining & nightlife district",g:["NIGHT","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4009.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Kitashinchi_Station"]]},
+{t:2,a:"KITA",n:"Nakazakichō",ad:"Nakazakinishi, Kita-ku, Osaka, Japan",la:34.70680,ln:135.50530,w:"A pocket of pre-war row houses east of Umeda whose narrow lanes are now full of cafés, craft shops and vintage stores.",k:"retro neighbourhood",g:["POP","FREE","CASTLE"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4009.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Nakazakich%C5%8D_Station"]]},
+{t:2,a:"TNJ",n:"Ikukunitama Shrine",ad:"13-9 Ikutamacho, Tennoji-ku, Osaka 543-0071, Japan",la:34.66510,ln:135.51260,w:"Osaka's oldest tutelary shrine, an Engishiki-listed great shrine to the land deities Ikushima and Tarushima, on the Uemachi ridge near Tanimachi 9-chōme.",k:"shrine",g:["TEMPLE","FREE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/ikukunitamajinja/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ikukunitama_Shrine"]]},
+{t:3,a:"CHUO",n:"Hōkoku Shrine (Osaka Castle Park)",ad:"Osaka Castle Park, Chuo-ku, Osaka, Japan",la:34.68417,ln:135.52694,w:"Shrine inside Osaka Castle Park enshrining Toyotomi Hideyoshi, Hideyori and Hidenaga as deities of success — a branch of Kyoto's Toyokuni Shrine.",k:"shrine",g:["TEMPLE","FREE","ICON","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/448"],["WIKIPEDIA","https://en.wikipedia.org/wiki/H%C5%8Dkoku_Shrine_(Osaka)"]]},
+{t:3,a:"MINAM",n:"Namba Parks",ad:"Nambanaka, Naniwa-ku, Osaka, Japan",la:34.66147,ln:135.50180,w:"Jon Jerde's 2003 mall on the old Osaka Stadium site, shaped like a canyon of rock strata, with ~70,000 plants on its terraced rooftop Parks Garden.",k:"rooftop garden, mall",g:["GARDEN","POP","FREE","NATURE"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/240"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Namba_Parks"]]},
+{t:1,a:"EAST",n:"Ikuno Korea Town (Miyuki-dōri)",ad:"Momodani 3-chōme, Ikuno-ku, Osaka, Japan",la:34.66046,ln:135.53446,w:"Japan's largest Koreatown: about 150 grocers, kimchi and chijimi stalls, restaurants and hanbok shops along a 300 m shopping street in Ikuno, a short walk from Tsuruhashi's yakiniku alleys.",k:"Koreatown, street food",g:["MKT","POP","FREE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/miyuki-dori-korea-town/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ikuno_Korea_Town"]]},
+{t:2,a:"MINAM",n:"National Bunraku Theatre",ad:"Nipponbashi, Chuo-ku, Osaka, Japan",la:34.66750,ln:135.50861,w:"The nation's most prestigious stage for bunraku, Osaka's own puppet theatre — runs of about three weeks in January, April, June, July/August and November.",k:"puppet theatre",g:["ICON","NIGHT"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e2092.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/National_Bunraku_Theatre"]]},
+{t:2,a:"KITA",n:"Grand Green Osaka & Umekita Park",ad:"Ōfukachō, Kita-ku, Osaka, Japan",la:34.70300,ln:135.49300,w:"The Umekita redevelopment beside JR Osaka Station — a large urban park with new towers opening in stages through spring 2027, next to the Grand Front Osaka complex.",k:"urban park",g:["GARDEN","FREE","NATURE","VIEW"],s:[["JAPANGUIDE","https://www.japan-guide.com/news/osaka-station-umekita.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Grand_Green_Osaka"]]},
+{t:2,a:"CHUO",n:"Naniwa Palace Site (Naniwa-no-Miya)",ad:"Hōenzaka, Chuo-ku, Osaka, Japan",la:34.68065,ln:135.52328,w:"Open lawns and reconstructed platform bases across from Osaka Castle Park marking the 7th–8th-century imperial palace of Naniwa-kyō, when Osaka was Japan's capital.",k:"archaeological site",g:["FREE","MUS","ICON","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/249"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Naniwa-ky%C5%8D"]]},
+{t:1,a:"TNJ",n:"Abeno Harukas 300 Observatory",ad:"Abenosuji, Abeno-ku, Osaka, Japan",la:34.64600,ln:135.51339,w:"The ~300 m skyscraper that opened in 2014 — department store, hotel, art museum and the Harukas 300 observation deck with panoramic views across Osaka.",k:"observation deck",g:["VIEW","ICON","MUS"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/376"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Abeno_Harukas"]]},
+{t:2,a:"TNJ",n:"Keitakuen Garden",ad:"Tennōji Park, Chausuyamacho, Tennoji-ku, Osaka, Japan",la:34.64967,ln:135.51153,w:"A 19,800 m² strolling pond garden behind the city art museum, designed by tea master Kizu Issai and built by Ogawa Jihei VII (of Heian Shrine and Murin-an fame); entry is just ¥150.",k:"Japanese garden",g:["GARDEN","TEMPLE","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4025.html"],["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/318"]]},
+{t:3,a:"TNJ",n:"Tennōji Park & Tenshiba",ad:"Chausuyamacho, Tennoji-ku, Osaka, Japan",la:34.64985,ln:135.51111,w:"The park holding the zoo, greenhouse, art museum and Keitakuen, fronted by 'Tenshiba' — a Good Design Award-winning lawn with cafés a short walk from Tennōji Station.",k:"park",g:["GARDEN","FREE","CASTLE","MUS"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot/228"],["JAPANGUIDE","https://www.japan-guide.com/e/e4025.html"]]},
+{t:1,a:"MINAM",n:"Ebisubashi & the Glico Running Man sign",ad:"Ebisubashi bridge, Dōtonbori, Chuo-ku, Osaka, Japan",la:34.66906,ln:135.50136,w:"The bridge over the Dōtonbori canal where everyone poses with the Glico Running Man — the neon heart of Minami's mechanised signs.",k:"neon sign, bridge",g:["ICON","NIGHT","FREE","MUS"],s:[["JAPANGUIDE","https://www.japan-guide.com/e/e4001.html"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E9%81%93%E9%A0%93%E5%A0%80%E3%82%B0%E3%83%AA%E3%82%B3%E3%82%B5%E3%82%A4%E3%83%B3"]]},
+{t:2,a:"MINAM",n:"Namba Yasaka Shrine",ad:"Motomachi, Naniwa-ku, Osaka, Japan",la:34.66122,ln:135.49669,w:"Famous for its 12 m-high lion-head stage, whose gaping mouth swallows bad luck and brings victory in competition; the shrine was rebuilt after the 1945 air raids and keeps an intangible-folk-culture tug-of-war rite.",k:"shrine",g:["TEMPLE","FREE","POP","CASTLE"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/nanbayasakajinja/"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E9%9B%A3%E6%B3%A2%E5%85%AB%E9%98%AA%E7%A5%9E%E7%A4%BE"]]},
+{t:2,a:"MINAM",n:"Namba Grand Kagetsu (NGK)",ad:"Namba-sennichimae, Chuo-ku, Osaka, Japan",la:34.66494,ln:135.50372,w:"Yoshimoto's 858-seat 'hall of laughter', Japan's largest comedy theatre — Yoshimoto Shinkigeki, manzai and rakugo 365 days a year.",k:"comedy theatre",g:["NIGHT","POP"],s:[["OSAKAINFO","https://osaka-info.jp/en/spot/namba-grand-kagetsu/"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E3%81%AA%E3%82%93%E3%81%B0%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%89%E8%8A%B1%E6%9C%88"]]},
+{t:2,a:"TNJ",n:"Jan Jan Yokochō",ad:"Ebisuhigashi, Naniwa-ku, Osaka, Japan",la:34.64994,ln:135.50614,w:"Shinsekai's 130 m covered alley of kushikatsu and doteyaki counters and old game parlours, running south toward Dōbutsuen-mae.",k:"food alley",g:["NIGHT","FREE","CASTLE","POP"],s:[["OSAKAINFO","https://osaka-info.jp/experience/en/osaka/spot?area=4"],["WIKIPEDIA","https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%B3%E6%A8%AA%E4%B8%81"]]}
+];
+
+const FS = {
+  "CATHAY":{k:"CATHAY",t:"Cathay Pacific Inspiration — 'The 9 best street food dishes in Osaka and where to eat them'",u:"https://www.cathaypacific.com/cx/en_AU/inspiration/dining/street-food-dishes-in-osaka.html",l:"Cathay Pacific Inspiration — 'The 9 best street food dishes in Osaka and where to eat them'"},
+  "INSIDEOSAKA":{k:"INSIDEOSAKA",t:"Inside Osaka",u:"https://insideosaka.com/",l:"Inside Osaka"},
+  "LONELYPLANET":{k:"LONELY PLANET",t:"Lonely Planet — Osaka",u:"https://www.lonelyplanet.com/articles/guide-to-osaka-japan",l:"Lonely Planet — Osaka"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Japan — Osaka region selection",u:"https://guide.michelin.com/us/en/osaka-region/restaurants",l:"MICHELIN Guide Japan — Osaka region selection"},
+  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand",u:"https://guide.michelin.com/us/en/osaka-region/restaurants/bib-gourmand",l:"MICHELIN Guide Japan 2026 — Osaka region Bib Gourmand"},
+  "MICHELIN_STAR":{k:"MICHELIN ★",t:"MICHELIN Guide Kyoto Osaka 2026 — starred restaurants (Osaka region)",u:"https://guide.michelin.com/us/en/osaka-region/restaurants/1-star-michelin",l:"MICHELIN Guide Kyoto Osaka 2026 — starred restaurants (Osaka region)"},
+  "OSAKAINFO":{k:"OSAKA INFO",t:"OSAKA-INFO (Osaka Convention & Tourism Bureau)",u:"https://osaka-info.jp/en/",l:"OSAKA-INFO (Osaka Convention & Tourism Bureau)"},
+  "TIMEOUT":{k:"TIME OUT",t:"Time Out Osaka",u:"https://www.timeout.com/osaka",l:"Time Out Osaka"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
+};
+
+const CUISINES = [
+  {id:"SUSHI",n:"Sushi & Kaisen-don"},
+  {id:"RAMEN",n:"Ramen & Tsukemen"},
+  {id:"NOODLE",n:"Soba & Udon"},
+  {id:"KAISEKI",n:"Kaiseki, Kyō-ryōri & Ryōtei"},
+  {id:"IZAKAYA",n:"Izakaya, Yakitori & Yokochō"},
+  {id:"TEMPURA",n:"Tempura, Tonkatsu & Agemono"},
+  {id:"KONAMON",n:"Okonomiyaki, Takoyaki & Kushikatsu"},
+  {id:"WAGYU",n:"Wagyu, Yakiniku & Sukiyaki"},
+  {id:"TEISHOKU",n:"Teishoku, Curry & Yōshoku"},
+  {id:"OKINAWA",n:"Okinawan & Ryūkyū"},
+  {id:"HOKKAIDO",n:"Hokkaido Seafood, Jingisukan & Ainu"},
+  {id:"TOFU",n:"Tofu, Shōjin & Vegetarian"},
+  {id:"SWEET",n:"Wagashi, Matcha & Sweets"},
+  {id:"CAFE",n:"Kissaten & Coffee"},
+  {id:"SAKE",n:"Sake, Awamori, Whisky & Bars"},
+  {id:"MKT",n:"Markets, Depachika & Street Food"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"INT",n:"International & Fusion"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"TEMPLE",n:"Temples & Shrines"},
+  {id:"CASTLE",n:"Castles, Palaces & History"},
+  {id:"GARDEN",n:"Gardens & Teahouses"},
+  {id:"MUS",n:"Museums & Galleries"},
+  {id:"NATURE",n:"Nature, Parks & Coast"},
+  {id:"ONSEN",n:"Onsen & Sentō"},
+  {id:"MKT",n:"Markets & Shopping Streets"},
+  {id:"NIGHT",n:"Nightlife, Yokochō & Districts"},
+  {id:"POP",n:"Anime, Pop Culture & Oddities"},
+  {id:"VIEW",n:"Views & Observation Decks"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:3,a:"MINAM",n:"Chukashunsai Morimoto",ad:"B1F, 1-4-14 Shinsaibashisuji, Chuo-ku, Osaka 542-0085, Japan",cz:["INT"],la:34.67278,ln:135.50157,w:"Michelin Bib Gourmand (new for 2026) Chinese restaurant whose Hong Kong- and Guangzhou-trained chef serves Sichuan-style mouth-watering chicken and dim sum such as steamed dumplings and pork shumai.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/chukashunsai-morimoto"]]},
+{t:3,a:"KITA",n:"DIVA",ad:"6-1-29 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",cz:["INT"],la:34.70894,ln:135.51237,w:"Michelin Bib Gourmand (2026) counter-style French restaurant run single-handedly by a seasoned chef, carrying forward classical French cuisine with boldness; named after the film Diva.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/diva-1242557"]]},
+{t:3,a:"CHUO",n:"bistrot neuf",ad:"1-4-17 Tohei, Chuo-ku, Osaka 542-0063, Japan",cz:["INT"],la:34.67001,ln:135.51835,w:"Michelin Bib Gourmand (new for 2026) retro bistro hung with French pop posters in a nine-tsubo space; standards include oeufs mayonnaise, pâté de campagne and beef cheek stewed in red wine, plus pasta, in generous sharing portions.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/bistrot-neuf-1242628"]]},
+{t:3,a:"KITA",n:"Kurubushi",ad:"4-12 Naniwacho, Kita-ku, Osaka 530-0022, Japan",cz:["KAISEKI","IZAKAYA"],la:34.70745,ln:135.50967,w:"Michelin-selected (2026) kappo opened by an izakaya chef as a sister shop: creative omakase with salty, sake-friendly dishes, wrapping up with seasonal takikomi-gohan or curry rice with free refills.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kurubushi"]]},
+{t:3,a:"KITA",n:"Ukitacho Ima",ad:"2-5-27 Ukida, Kita-ku, Osaka 530-0021, Japan",cz:["KAISEKI"],la:34.70974,ln:135.50751,w:"Michelin Guide-listed Japanese restaurant whose chef trained in Hozenji Yokocho and now cooks cuisine of the \"here and now\", mindful of how knife technique affects the flavour of sashimi.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/ukitacho-ima"]]},
+{t:3,a:"KITA",n:"Kawahara",ad:"2-4-21 Toyosaki, Kita-ku, Osaka 531-0072, Japan",cz:["KAISEKI"],la:34.70994,ln:135.50080,w:"Michelin Guide-listed Japanese restaurant in an old family home, run by affable owner-chef Koji Kawahara whose menu abounds with ingenuity (distinction not confirmed in search).",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kawahara"]]},
+{t:2,a:"KITA",n:"Kamigatachuka SHINTANI",ad:"1-4-21 Nakazaki, Kita-ku, Osaka 530-0016, Japan",cz:["INT","FINE"],la:34.70641,ln:135.50599,w:"One MICHELIN Star (2026): counter-style Chinese cuisine in which owner-chef Akihito Shintani works Osaka and Kansai ingredients and Kansai food culture into Chinese cooking — \"kamigatachuka\".",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kamigatachuka-shintani"]]},
+{t:2,a:"KITA",n:"Mugito Mensuke",ad:"3-4-12 Toyosaki, Kita-ku, Osaka 531-0072, Japan",cz:["RAMEN"],la:34.71133,ln:135.50001,w:"Michelin Bib Gourmand ramen shop whose signature soy-sauce ramen rests on a chicken broth of guinea fowl and free-range chicken raised together by a like-minded farmer.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/mugito-mensuke"]]},
+{t:2,a:"TNJ",n:"Terada",ad:"2F, 2-35 Tamatsukurimotomachi, Tennoji-ku, Osaka 543-0014, Japan",cz:["KAISEKI","FINE"],la:34.67433,ln:135.53278,w:"One MICHELIN Star Japanese restaurant in Tamatsukuri, Tennoji-ku.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/terada"]]},
+{t:1,a:"CHUO",n:"Teruya",ad:"2-1-24 Ueshio, Chuo-ku, Osaka 542-0064, Japan",cz:["KAISEKI","FINE"],la:34.66929,ln:135.51773,w:"Two MICHELIN Stars (newly promoted in the 2026 guide, the only new two-star in Osaka): Japanese cuisine in Ueshio.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/teruya"]]},
+{t:3,a:"EAST",n:"Oku",ad:"2-1-37 Katamachi, Miyakojima-ku, Osaka 534-0025, Japan",cz:["TEISHOKU"],la:34.69429,ln:135.53002,w:"Michelin Guide-listed unagi (freshwater eel) restaurant in Katamachi, Miyakojima-ku.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oku-1205448"]]},
+{t:3,a:"KITA",n:"Sumibiyakitori Torio",ad:"2-7-17 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",cz:["IZAKAYA"],la:34.69443,ln:135.48694,w:"Michelin Guide-listed charcoal yakitori grilled by a former Japan bantamweight boxing champion who took up yakitori as his second \"ring\"; the name evokes the \"royal road\" of yakitori.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sumibiyakitori-torio"]]},
+{t:3,a:"EAST",n:"Sushidokoro Hirokawa",ad:"1-8-39 Gamo, Joto-ku, Osaka 536-0016, Japan",cz:["SUSHI"],la:34.69834,ln:135.53708,w:"Michelin Guide-listed sushi counter: fish is selected at Tsuruhashi Market and the nigiri are formed small so you can sample as many items as possible.",g:["MKT"],s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushidokoro-hirokawa"]]},
+{t:3,a:"EAST",n:"Oryori Matsumura",ad:"4-20-11 Gamo, Joto-ku, Osaka 536-0016, Japan",cz:["KAISEKI"],la:34.69973,ln:135.54443,w:"Michelin Guide-listed Japanese restaurant; chef Tomonori Matsumura trained at a ryotei and in France, and his creed is to make ingredients taste even more like themselves — shrimp dishes use reduced shrimp stock.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oryori-matsumura"]]},
+{t:3,a:"KITA",n:"Yakitori Matsuri",ad:"2-2-33 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["IZAKAYA"],la:34.69735,ln:135.49494,w:"Michelin Guide-listed yakitori built on premium Hinai-jidori chicken; the set menu blends techniques learned at Yakitori Ichimatsu with creative dishes like chicken shumai and confit, ending with takikomi-gohan or ramen.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yakitori-matsuri"]]},
+{t:3,a:"CHUO",n:"Yakitori Matsuoka",ad:"1-4-17 Tohei, Chuo-ku, Osaka 542-0063, Japan",cz:["IZAKAYA"],la:34.66988,ln:135.51834,w:"Michelin Guide-listed yakitori where Hiroki Matsuoka ages Kagoshima free-range chicken and brushes skewers with a fragrant oil of his own, interspersed with soups and fried chicken dishes; meals end with earthenware-pot rice or chicken-broth ramen.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yakitori-matsuoka"]]},
+{t:3,a:"KITA",n:"Sushiroku",ad:"4-12-22 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["SUSHI"],la:34.69712,ln:135.50297,w:"Michelin Guide-listed sushi counter of hinoki cypress: two kinds of sushi rice for harmony with toppings, soy-marinated tuna wrapped in nori tekkamaki-style — Edomae at heart with respect for Kansai culture.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushiroku"]]},
+{t:2,a:"KITA",n:"Oimatsu Kitagawa",ad:"4-12-27 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KAISEKI","FINE"],la:34.69717,ln:135.50291,w:"One MICHELIN Star (2025 guide) Japanese counter where years of experience show in skilful work at counter and grill, convivial conversation and creative preparation.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oimatsu-kitagawa"]]},
+{t:2,a:"KITA",n:"kushiage 010",ad:"4F, 1-1-41 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["KONAMON"],la:34.69672,ln:135.50051,w:"Michelin Bib Gourmand (2026) in Kitashinchi: creative kushiage that incorporates culinary influences from many countries — the sheer variety is endlessly fun.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kushiage-010"]]},
+{t:2,a:"KITA",n:"Oryori Amenimomakezu",ad:"4-10-17 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["IZAKAYA","KAISEKI"],la:34.69705,ln:135.50338,w:"Michelin Bib Gourmand: omakase-only Japanese cooking using fermented seasonings, no-nonsense dishes mixed with bar snacks that express the owner-chef's unaffected personality.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oryori-amenimomakezu"]]},
+{t:3,a:"KITA",n:"Kushikatsu Daibon",ad:"5F, 4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KONAMON"],la:34.69665,ln:135.50380,w:"Michelin Guide-listed kushiage counter whose chef focuses on seafood in his kushikatsu prix fixe, frying tiger prawn rare to draw out its sweetness.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kushikatsu-daibon"]]},
+{t:3,a:"KITA",n:"Kitashinchi Kushikatsu Bon",ad:"B1F, 1-3-16 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["KONAMON"],la:34.69660,ln:135.49709,w:"Michelin Guide-listed Kitashinchi kushiage that works extravagant ingredients such as foie gras, truffles and caviar into its skewers.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kitashinchi-kushikatsu-bon"]]},
+{t:2,a:"KITA",n:"Shokudo Akari",ad:"2F, 1-6-27 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["IZAKAYA"],la:34.69755,ln:135.49925,w:"Michelin Bib Gourmand (2025 guide) shokudo in a detached Kitashinchi house hung with criss-crossing poles evoking Wakayama's Oto Fire Festival torches; expect gingered chicken liver, potato salad, deep-fried horse mackerel and seasonal dishes.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/shokudo-akari"]]},
+{t:3,a:"KITA",n:"Gochiso nene",ad:"2F, 5-3-22 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",cz:["TEMPURA"],la:34.70773,ln:135.51225,w:"Michelin-selected (2026): an omakase set meal of tempura fried by the owner-chef, interspersed by the proprietress with dashi-simmered takiawase and hand-made oden.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/gochiso-nene"]]},
+{t:3,a:"TNJ",n:"Sushi Yuden",ad:"1-27 Ikutama Maemachi, Tennoji-ku, Osaka 543-0072, Japan",cz:["SUSHI"],la:34.66637,ln:135.51620,w:"Michelin-selected (2026) sushi restaurant in Ikutama, Tennoji-ku.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushi-yuden"]]},
+{t:2,a:"TNJ",n:"Shitennoji Hayauchi",ad:"1-12-16 Shitennoji, Tennoji-ku, Osaka 543-0051, Japan",cz:["NOODLE"],la:34.65561,ln:135.51413,w:"Michelin Bib Gourmand (2025 guide) soba house with Oribe stoneware and earthen walls, serving two kinds of soba: fine-ground seiro and coarse-ground inaka.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/shitennoji-hayauchi"]]},
+{t:3,a:"TNJ",n:"TAVERNETTA da KITAYAMA",ad:"1-6 Ishigatsujicho, Tennoji-ku, Osaka 543-0031, Japan",cz:["INT"],la:34.66481,ln:135.52306,w:"Michelin-selected (2026) casual Italian eatery with traditional fare chalked on a blackboard — tripe stewed in tomato, marlin baked in herb-seasoned breadcrumbs, mushroom pappardelle.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tavernetta-da-kitayama"]]},
+{t:2,a:"TNJ",n:"Hachi",ad:"8-1-8 Uehommachi, Tennoji-ku, Osaka 543-0001, Japan",cz:["KAISEKI","FINE"],la:34.66086,ln:135.51898,w:"One MICHELIN Star (2026) Japanese restaurant in a refined modern sukiya-style space: sashimi that showcases the chef's knife skills and grilled dishes over bincho charcoal.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/hachi"]]},
+{t:2,a:"TNJ",n:"au soleil couchant",ad:"1-14-25 Shitennoji, Tennoji-ku, Osaka 543-0051, Japan",cz:["INT"],la:34.65442,ln:135.51419,w:"Michelin Bib Gourmand (2026) French bistro named 'at the setting sun' for the couple's Lyon apprenticeship and Yuhigaoka; the chef cooks, his pâtissière wife serves, and portions are generous with vegetables in abundance.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/au-soleil-couchant"]]},
+{t:2,a:"KITA",n:"Sakeya Sakana Yoshimura",ad:"1-13-21 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",cz:["IZAKAYA","SAKE"],la:34.69462,ln:135.51255,w:"Michelin Bib Gourmand (2025 guide) kappo izakaya run by a sake-loving couple — he cooks, she warms the sake — with a seafood-dominated menu crafted to double as bar snacks.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sakeya-sakana-yoshimura"]]},
+{t:2,a:"NORTH",n:"Point",ad:"2-17-47 Uenohigashi, Toyonaka, Osaka 560-0013, Japan",cz:["INT","FINE"],la:34.79303,ln:135.47633,w:"One MICHELIN Star (2026) French restaurant in a residential corner of Toyonaka: open kitchen and counter seating, with cuisine based on classics learned during the chef's Paris apprenticeship.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/point"]]},
+{t:1,a:"CHUO",n:"HAJIME",ad:"1-9-11 Edobori, Nishi-ku, Osaka 550-0002, Japan",cz:["INT","FINE"],la:34.68861,ln:135.49608,w:"Three MICHELIN Stars (2026): a planet-like artwork of overlapping dishes forming the Earth dominates the dining room, and \"Dialogue with the Earth\" is the theme of the cuisine.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/hajime"]]},
+{t:1,a:"MINAM",n:"Taian",ad:"1-21-2 Shimanochi, Chuo-ku, Osaka 542-0082, Japan",cz:["KAISEKI","FINE"],la:34.67335,ln:135.50720,w:"Three MICHELIN Stars (2026): 'Taian' means 'big hut' — modest, clean décor, with Japanese cuisine that crystallises the skill and passion of Hitoshi Takahata.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/taian"]]},
+{t:2,a:"KITA",n:"Kashiwaya Osaka Kitashinchi",ad:"5F, 1-7-4 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["KAISEKI","FINE"],la:34.69685,ln:135.50052,w:"Michelin One Star (2026) Kitashinchi branch of Senriyama's Kashiwaya, offering ryotei service in a counter setting.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kashiwaya-osaka-kitashinchi"]]},
+{t:3,a:"KITA",n:"Sushidokoro Kurosugi Shinkan",ad:"10F, 1-10-22 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["SUSHI"],la:34.69801,ln:135.49818,w:"Michelin Guide-listed sushi counter in Kitashinchi.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushidokoro-kurosugi-shinkan"]]},
+{t:3,a:"KITA",n:"Sushidokoro SHIN",ad:"7-12-14 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",cz:["SUSHI"],la:34.71402,ln:135.51111,w:"Michelin Guide-listed sushi restaurant in Tenjimbashi.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushidokoro-shin"]]},
+{t:3,a:"KITA",n:"Sushidokoro Kaihara",ad:"5-4 Ikedacho, Kita-ku, Osaka 530-0033, Japan",cz:["SUSHI"],la:34.70658,ln:135.51217,w:"Michelin Guide-listed sushi restaurant in Ikedacho, Kita-ku.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushidokoro-kaihara"]]},
+{t:3,a:"KITA",n:"Sushitsune",ad:"2-4-3 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",cz:["SUSHI"],la:34.69666,ln:135.51209,w:"Michelin Guide-listed sushi restaurant in Tenjimbashi.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushitsune"]]},
+{t:3,a:"KITA",n:"Sushisho Nehachi",ad:"4-1-70 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",cz:["SUSHI"],la:34.69110,ln:135.48395,w:"Michelin Guide-listed sushi restaurant in Fukushima.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushisho-nehachi"]]},
+{t:3,a:"KITA",n:"Sushi Hoshiyama",ad:"1-16 Sugaharacho, Kita-ku, Osaka 530-0046, Japan",cz:["SUSHI"],la:34.69273,ln:135.51069,w:"Michelin Guide-listed sushi restaurant in Sugaharacho, Kita-ku.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushi-hoshiyama"]]},
+{t:3,a:"MINAM",n:"Sushi Ichiei",ad:"B1F, 1-6-10 Sennichimae, Chuo-ku, Osaka 542-0074, Japan",cz:["SUSHI"],la:34.66801,ln:135.50449,w:"Michelin Guide-listed sushi restaurant in Sennichimae.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushi-ichiei"]]},
+{t:3,a:"KITA",n:"Sushi Marumine",ad:"6-2-20 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",cz:["SUSHI"],la:34.70984,ln:135.51223,w:"Michelin Guide-listed sushi restaurant in Tenjimbashi.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushi-marumine"]]},
+{t:2,a:"KITA",n:"Sushi Murakami Jiro",ad:"1-5-7 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["SUSHI","FINE"],la:34.69780,ln:135.49729,w:"Michelin One Star (2026) sushi counter in Kitashinchi.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sushi-murakami-jiro"]]},
+{t:3,a:"TNJ",n:"Matsuzushi Tanigawa",ad:"3-13-6 Ojicho, Abeno-ku, Osaka 545-0023, Japan",cz:["SUSHI"],la:34.62772,ln:135.51004,w:"Michelin Guide-listed sushi restaurant in Abeno.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/matsuzushi"]]},
+{t:3,a:"KITA",n:"Kitashinchi Okurano",ad:"3F, 1-3-23 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["KAISEKI"],la:34.69784,ln:135.49614,w:"Michelin Guide-listed Japanese restaurant: tradition-respecting monthly menus with playful touches; modern counter plus five private rooms.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kitashinchi-okurano"]]},
+{t:3,a:"KITA",n:"TEMPURA HANAGATAMI",ad:"5F, The Ritz-Carlton, Osaka, 2-5-25 Umeda, Kita-ku, Osaka 530-0001, Japan",cz:["TEMPURA"],la:34.69840,ln:135.49264,w:"Michelin Guide-listed tempura restaurant on the 5F of The Ritz-Carlton, Osaka.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tempura-hanagatami"]]},
+{t:3,a:"CHUO",n:"Shunzen Kiraku",ad:"1-3-16 Tohei, Chuo-ku, Osaka 542-0063, Japan",cz:["KAISEKI"],la:34.67065,ln:135.51848,w:"Michelin Guide-listed Naniwa (Osaka) kappo-style Japanese restaurant mixing classic grilled/simmered dishes with creative spins.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/shunzen-kiraku"]]},
+{t:3,a:"TNJ",n:"Hozan",ad:"3-13 Higashikozucho, Tennoji-ku, Osaka 543-0021, Japan",cz:["KAISEKI"],la:34.66777,ln:135.52260,w:"Michelin Guide-listed Japanese restaurant serving rice cooked in earthenware pots.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/hozan"]]},
+{t:2,a:"KITA",n:"Souikufu",ad:"5-8-14 Toyosaki, Kita-ku, Osaka 531-0072, Japan",cz:["KONAMON"],la:34.71146,ln:135.49784,w:"Michelin Bib Gourmand (2023 guide) kushiage restaurant with uniquely inspired deep-fried skewer set menus.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/souikufu"]]},
+{t:2,a:"KITA",n:"Higashichaya Nakamura",ad:"1-25-8 Honjohigashi, Kita-ku, Osaka 531-0074, Japan",cz:["KAISEKI","FINE"],la:34.71210,ln:135.50683,w:"Michelin One Star (2026) Japanese restaurant using seafood delivered directly from Ishikawa.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/higashichaya-nakamura"]]},
+{t:2,a:"MINAM",n:"Masuda",ad:"2F, 1-3-12 Shinsaibashisuji, Chuo-ku, Osaka 542-0085, Japan",cz:["KAISEKI","FINE"],la:34.67380,ln:135.50196,w:"Michelin One Star (2026) Japanese restaurant in Shinsaibashisuji.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/masuda"]]},
+{t:1,a:"KITA",n:"Oimatsu Hisano",ad:"4-8-3 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KAISEKI","FINE"],la:34.69700,ln:135.50414,w:"Michelin Two Stars (2026) Japanese restaurant; chef-owner Masamitsu Hisano sources the finest seasonal produce from across Japan.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oimatsu-hisano"]]},
+{t:2,a:"KITA",n:"Nishitemma Nakamura",ad:"4-5-25 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KAISEKI","FINE"],la:34.69703,ln:135.50524,w:"Michelin One Star Japanese restaurant whose seasonal-themed hassun platters are the star attraction.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/nishitemma-nakamura"]]},
+{t:2,a:"KITA",n:"Nishitemma Ichigaya",ad:"2-10-9 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KAISEKI","FINE"],la:34.69640,ln:135.50196,w:"Michelin One Star (2026) Japanese restaurant upholding Osaka traditions with new influences.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/nishitemma-ichigaya"]]},
+{t:2,a:"KITA",n:"Numata Sou",ad:"3F, 4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["TEMPURA","FINE"],la:34.69667,ln:135.50379,w:"Michelin One Star (2026) tempura restaurant in Nishitemma.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/numata-sou"]]},
+{t:2,a:"KITA",n:"Zeshin",ad:"B1F, 2-9-3 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KAISEKI","FINE"],la:34.69637,ln:135.50243,w:"Michelin One Star (2026) Japanese restaurant in Nishitemma.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/zeshin"]]},
+{t:3,a:"KITA",n:"Kitashinchi Shien",ad:"2F, 1-7-19 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["IZAKAYA"],la:34.69736,ln:135.49991,w:"Michelin Guide-listed yakitori restaurant serving prix fixe menus of Kyushu chicken.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kitashinchi-shien"]]},
+{t:2,a:"KITA",n:"Oryori Yamada",ad:"4F, 4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["KAISEKI","FINE"],la:34.69664,ln:135.50382,w:"Michelin One Star (2026) Japanese restaurant in the Osaka kappo tradition.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oryori-yamada"]]},
+{t:3,a:"KITA",n:"Oryori Nonohara",ad:"7-17-11 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",cz:["KAISEKI"],la:34.69973,ln:135.48489,w:"Michelin Guide-listed Japanese restaurant weaving Japan's culture and traditional ceremonies into its menu.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oryori-nonohara"]]},
+{t:3,a:"KITA",n:"Kitashinchi Fukutatei The UKAI",ad:"B1F, 1-11-19 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["WAGYU"],la:34.69802,ln:135.49912,w:"Michelin Guide-listed steakhouse grilling heifer-only Japanese Black wagyu by bincho flame and far-infrared heat.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kitashinchi-fukutatei-the-ukai"]]},
+{t:3,a:"KITA",n:"Shokudo Uchino",ad:"4F, 1-4-7 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["IZAKAYA"],la:34.69600,ln:135.49780,w:"Michelin Guide-listed Japanese shokudo with monthly-changing prix fixe; gyudon recalls its late-night-eatery days.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/shokudo-uchino"]]},
+{t:2,a:"TNJ",n:"Kamigata Rainbow",ad:"4-6-3 Katsuyama, Tennoji-ku, Osaka 543-0043, Japan",cz:["RAMEN"],la:34.65478,ln:135.52591,w:"Michelin Bib Gourmand (2026) ramen shop in Katsuyama, Tennoji-ku.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kamigata-rainbow"]]},
+{t:2,a:"KITA",n:"Sui Oya",ad:"2F, 3-1-2 Temma, Kita-ku, Osaka 530-0043, Japan",cz:["KAISEKI","FINE"],la:34.69213,ln:135.51556,w:"Michelin One Star Japanese restaurant in Temma.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sui-oya"]]},
+{t:1,a:"KITA",n:"Tenjimbashi Aoki",ad:"7-12-14 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",cz:["KAISEKI","FINE"],la:34.71394,ln:135.51108,w:"Michelin Two Stars (2026) Japanese restaurant in Tenjimbashi.",s:[["MICHELIN_STAR","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tenjimbashi-aoki"]]},
+{t:2,a:"KITA",n:"Tenboshi",ad:"7-10-9 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",cz:["TEMPURA"],la:34.71368,ln:135.51121,w:"Michelin Bib Gourmand (2026) tempura restaurant in Tenjimbashi.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tenboshi"]]},
+{t:3,a:"CHUO",n:"Ñ",ad:"1-6-3 Azuchimachi, Chuo-ku, Osaka 541-0052, Japan",cz:["INT"],la:34.68401,ln:135.50838,w:"Michelin Guide-listed Spanish restaurant in Azuchimachi.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/n"]]},
+{t:2,a:"CHUO",n:"Kushikatsu Gojoya",ad:"2-1-11 Uchihiranomachi, Chuo-ku, Osaka 540-0037, Japan",cz:["KONAMON"],la:34.68723,ln:135.51362,w:"Michelin Bib Gourmand kushiage counter: around 25 kinds of skewers are usually on, from classic to Korean kimchi, Indian curry and Italian tomato-sauce versions.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/kushikatsu-gojoya"]]},
+{t:2,a:"KITA",n:"Oudon Yomogi",ad:"2-10-6 Sagisu, Fukushima-ku, Osaka 553-0002, Japan",cz:["NOODLE"],la:34.69814,ln:135.48218,w:"Michelin Bib Gourmand udon house in Fukushima.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/oudon-yomogi"]]},
+{t:2,a:"KITA",n:"Udondokoro Shigemi",ad:"4-7-7 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["NOODLE"],la:34.69673,ln:135.50382,w:"Michelin Bib Gourmand udon shop in Nishitenma.",s:[["MICHELIN_BIB","https://guide.michelin.com/jp/en/osaka-region/osaka/restaurant/udondokoro-shigemi"]]},
+{t:2,a:"KITA",n:"Udonbo Osaka Honten",ad:"B2F Osakaekimae Daisan Bldg, 1-1-3 Umeda, Kita-ku, Osaka 530-0001, Japan",cz:["NOODLE"],la:34.69904,ln:135.49950,w:"Michelin Bib Gourmand udon flagship in the Ekimae Building basements by Osaka Station.",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/osaka-region/osaka/restaurant/udonbo-osaka-honten"]]},
+{t:2,a:"KITA",n:"Ogimachi Udonya Asuro",ad:"3-8-3 Tenjimbashi, Kita-ku, Osaka 530-0041, Japan",cz:["NOODLE"],la:34.70175,ln:135.51122,w:"Michelin Bib Gourmand udon shop on the Tenjinbashi side of Ogimachi.",s:[["MICHELIN_BIB","https://guide.michelin.com/gb/en/osaka-region/osaka/restaurant/ogimachi-udonya-asuro"]]},
+{t:2,a:"CHUO",n:"Aozora Blue",ad:"4-5-8 Hiranomachi, Chuo-ku, Osaka 541-0046, Japan",cz:["NOODLE"],la:34.68782,ln:135.49837,w:"Michelin Bib Gourmand udon in the Hiranomachi office district.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/aozora-blue"]]},
+{t:2,a:"CHUO",n:"Chukasoba Uemachi",ad:"A-22 Uemachi, Chuo-ku, Osaka 540-0005, Japan",cz:["RAMEN"],la:34.67688,ln:135.52099,w:"Michelin Bib Gourmand chūka-soba shop on the Uemachi plateau near the castle.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/chukasoba-uemachi"]]},
+{t:2,a:"CHUO",n:"Ramen Kuon",ad:"B2F Semba Center Bldg Sangokan, 1-4-3 Sembachuo, Chuo-ku, Osaka 541-0055, Japan",cz:["RAMEN"],la:34.68184,ln:135.50733,w:"Michelin Bib Gourmand ramen in the Semba Center Building basement.",s:[["MICHELIN_BIB","https://guide.michelin.com/my/en/osaka-region/osaka/restaurant/ramen-kuon"]]},
+{t:2,a:"KITA",n:"Ramen Hayato",ad:"1-2-2 Minamimorimachi, Kita-ku, Osaka 530-0054, Japan",cz:["RAMEN"],la:34.69559,ln:135.51003,w:"Michelin Bib Gourmand ramen by Minamimorimachi.",s:[["MICHELIN_BIB","https://guide.michelin.com/my/en/osaka-region/osaka/restaurant/ramen-hayato"]]},
+{t:2,a:"KITA",n:"Soba Takama",ad:"7-12-14 Tenjimbashi, Kita-ku, Osaka 531-0041, Japan",cz:["NOODLE"],la:34.71412,ln:135.51110,w:"Michelin Bib Gourmand soba off Tenjinbashi-suji.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/soba-takama"]]},
+{t:2,a:"CHUO",n:"Sobakiri Gaku",ad:"7-1-54 Tanimachi, Chuo-ku, Osaka 542-0012, Japan",cz:["NOODLE"],la:34.67333,ln:135.51798,w:"Michelin Bib Gourmand soba in Tanimachi.",s:[["MICHELIN_BIB","https://guide.michelin.com/jp/en/osaka-region/osaka/restaurant/sobakiri-gaku"]]},
+{t:2,a:"KITA",n:"Sobakiri Arabompu",ad:"4-1-11 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["NOODLE"],la:34.69636,ln:135.50532,w:"Michelin Bib Gourmand soba in Nishitenma.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sobakiri-arabompu"]]},
+{t:2,a:"MINAM",n:"Ayamedo",ad:"2-2-26 Andojimachi, Chuo-ku, Osaka 542-0061, Japan",cz:["NOODLE"],la:34.67644,ln:135.51606,w:"Michelin Bib Gourmand soba near Nagahoribashi/Tanimachi 6-chome.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/ayamedo"]]},
+{t:2,a:"KITA",n:"Sobadokoro Toki",ad:"1-3-4 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["NOODLE"],la:34.69628,ln:135.49812,w:"Michelin Bib Gourmand soba house in Dōjima.",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/osaka-region/osaka/restaurant/sobadokoro-toki"]]},
+{t:2,a:"KITA",n:"Naniwa Okina",ad:"4-1-18 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["NOODLE"],la:34.69622,ln:135.50595,w:"Michelin Bib Gourmand soba in Nishitenma, an Osaka buckwheat institution.",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/osaka-region/osaka/restaurant/naniwa-okina"]]},
+{t:2,a:"MINAM",n:"Tonkatsu Minato",ad:"2-9-26 Shimanouchi, Chuo-ku, Osaka 542-0082, Japan",cz:["TEMPURA"],la:34.66997,ln:135.50821,w:"Michelin Bib Gourmand (2026) tonkatsu in Shimanouchi.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/osaka-region/osaka/restaurant/tonkatsu-minato"]]},
+{t:2,a:"EAST",n:"Tonkatsu Fujii",ad:"1-11-5 Sembayashi, Asahi-ku, Osaka 535-0012, Japan",cz:["TEMPURA"],la:34.72377,ln:135.55424,w:"Michelin Bib Gourmand (2026) tonkatsu in Senbayashi shōtengai country.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tonkatsu-fujii"]]},
+{t:2,a:"CHUO",n:"Tonkatsu KATSU Hana",ad:"2-2-11 Kitakyuhojimachi, Chuo-ku, Osaka 541-0057, Japan",cz:["TEMPURA"],la:34.67990,ln:135.50615,w:"Michelin Bib Gourmand (2026) tonkatsu in the Semba business district.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tonkatsu-katsu-hana"]]},
+{t:2,a:"CHUO",n:"Kyomachibori Nakamura",ad:"1-17-9 Kyomachibori, Nishi-ku, Osaka 550-0003, Japan",cz:["TEMPURA"],la:34.68705,ln:135.49339,w:"Michelin Bib Gourmand (2026) tonkatsu in Kyōmachibori, west of Honmachi.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/osaka-region/osaka/restaurant/kyomachibori-nakamura"]]},
+{t:2,a:"TNJ",n:"Tempura Kozaki",ad:"4-11-38 Matsuzakicho, Abeno-ku, Osaka 545-0053, Japan",cz:["TEMPURA"],la:34.63806,ln:135.51781,w:"Michelin Bib Gourmand (2026) tempura counter in Abeno.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tempura-kozaki"]]},
+{t:2,a:"KITA",n:"Izakaya Tokitame",ad:"6-9-17 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",cz:["IZAKAYA"],la:34.69996,ln:135.48793,w:"Michelin Bib Gourmand izakaya in Fukushima, Osaka's izakaya neighbourhood.",s:[["MICHELIN_BIB","https://guide.michelin.com/jp/en/osaka-region/osaka/restaurant/izakaya-tokitame"]]},
+{t:2,a:"KITA",n:"Yakitori Ichimatsu",ad:"1-5-1 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["IZAKAYA"],la:34.69594,ln:135.49702,w:"Michelin-listed yakitori in Dōjima.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yakitori-ichimatsu"]]},
+{t:2,a:"KITA",n:"Yakitori Torisen",ad:"3F, 1-4-26 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["IZAKAYA"],la:34.69619,ln:135.49806,w:"Michelin-listed yakitori counter in Dōjima/Kitashinchi.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/yakitori-torisen"]]},
+{t:2,a:"CHUO",n:"Jibundoki",ad:"4-5-11 Minamikyuhojimachi, Chuo-ku, Osaka 541-0058, Japan",cz:["KONAMON"],la:34.67939,ln:135.49827,w:"Michelin Bib Gourmand (2026) teppanyaki bar in Honmachi where the owner-chef's creative griddle dishes end, in true Osaka style, with pork or mixed okonomiyaki.",s:[["MICHELIN_BIB","https://guide.michelin.com/th/en/osaka-region/osaka/restaurant/jibundoki"]]},
+{t:2,a:"KITA",n:"Tanpopo (Kitashinchi)",ad:"6F, 1-10-16 Sonezakishinchi, Kita-ku, Osaka 530-0002, Japan",cz:["KONAMON"],la:34.69807,ln:135.49769,w:"Michelin Bib Gourmand (2026): stylish, bar-like Kitashinchi teppanyaki on polished iron and copper griddles — okonomiyaki standards through creative tonpeiyaki, with Italian wines.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tanpopo"]]},
+{t:3,a:"CHUO",n:"Oribe",ad:"1-6-18 Shimmachi, Nishi-ku, Osaka 550-0013, Japan",cz:["KONAMON"],la:34.67629,ln:135.49618,w:"Michelin Bib Gourmand mixing French-bistro cooking with the teppan in Nishi-ku; known for its cabbage steak, and the meal ends with Osaka okonomiyaki.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/osaka-region/osaka/restaurant/oribe"]]},
+{t:2,a:"CHUO",n:"Okonomiyaki Shimizu",ad:"1-5-20 Tosabori, Nishi-ku, Osaka 550-0001, Japan",cz:["KONAMON"],la:34.68882,ln:135.49149,w:"Michelin Bib Gourmand okonomiyaki house near Higobashi — the konamon canon at Michelin-vetted value.",s:[["MICHELIN_BIB","https://guide.michelin.com/tr/en/osaka-region/osaka/restaurant/okonomiyaki-shimizu"]]},
+{t:2,a:"KITA",n:"PITAK GOHAN",ad:"2-2-13 Nakazaki, Kita-ku, Osaka 530-0016, Japan",cz:["INT"],la:34.70825,ln:135.50646,w:"New Michelin Bib Gourmand for 2026 — a Thai kitchen in retro Nakazakichō.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/osaka-region/osaka/restaurant/pitak-gohan"]]},
+{t:2,a:"EAST",n:"Mendokoro Subete",ad:"2-17-12 Momodani, Ikuno-ku, Osaka 544-0034, Japan",cz:["RAMEN"],la:34.66024,ln:135.53321,w:"New Michelin Bib Gourmand ramen shop for 2026 in Momodani, Ikuno.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/osaka-region/osaka/restaurant/mendokoro-subete"]]},
+{t:2,a:"KITA",n:"Sumisho Mikuriya",ad:"5-10-4 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["IZAKAYA"],la:34.69842,ln:135.50720,w:"New Michelin Bib Gourmand yakitori for 2026 in Nishitemma — charcoal-grilled chicken skewers.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/sumisho-mikuriya"]]},
+{t:2,a:"EAST",n:"Sumibi Iwata",ad:"3-5-8 Miyakojimanakadori, Miyakojima-ku, Osaka 534-0022, Japan",cz:["IZAKAYA"],la:34.70295,ln:135.53568,w:"New Michelin Bib Gourmand yakitori for 2026 in Miyakojima — skewers over binchō charcoal.",s:[["MICHELIN_BIB","https://guide.michelin.com/se/en/osaka-region/osaka/restaurant/sumibi-iwata"]]},
+{t:3,a:"EAST",n:"Shuko Osaka Manpukudou",ad:"3-4-14 Oimazatonishi, Higashinari-ku, Osaka 537-0014, Japan",cz:["IZAKAYA"],la:34.66821,ln:135.54198,w:"New Michelin Bib Gourmand for 2026 in Higashinari-ku: a neighbourhood Japanese spot built around sake and its snacks.",s:[["MICHELIN_BIB","https://guide.michelin.com/en/osaka-region/osaka/restaurant/shuko-osaka-manpukudou"]]},
+{t:2,a:"TNJ",n:"Ueroku Wine",ad:"4-15 Higashikozucho, Tennoji-ku, Osaka 543-0021, Japan",cz:["INT"],la:34.66823,ln:135.52125,w:"Spanish restaurant near Uehommachi 6-chōme ('Ueroku') named a new Michelin Bib Gourmand in the Kyoto Osaka 2025 guide.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/ueroku-wine"]]},
+{t:2,a:"CHUO",n:"Daidokoro Kamiya",ad:"1-10-12 Kyomachibori, Nishi-ku, Osaka 550-0003, Japan",cz:["IZAKAYA"],la:34.68786,ln:135.49519,w:"Kyomachibori izakaya named a new Michelin Bib Gourmand in the Kyoto Osaka 2025 guide.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/daidokoro-kamiya"]]},
+{t:3,a:"MINAM",n:"Tempura Sakugetsu",ad:"2-9-26 Shimanochi, Chuo-ku, Osaka 542-0082, Japan",cz:["TEMPURA"],la:34.66997,ln:135.50821,w:"Tempura counter in Shimanouchi, added to the Michelin Guide Osaka in December 2025.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tempura-sakugetsu"]]},
+{t:3,a:"KITA",n:"Tempura Fukana",ad:"B1F, 2-1-25 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["TEMPURA"],la:34.69636,ln:135.49420,w:"Dōjima tempura counter, a December 2025 addition to the Michelin Guide Osaka.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tempura-fukana"]]},
+{t:3,a:"KITA",n:"Osteria Ottanta Sette",ad:"4-1-11 Nishitemma, Kita-ku, Osaka 530-0047, Japan",cz:["INT"],la:34.69648,ln:135.50538,w:"Italian osteria in Nishitemma, added to the Michelin Guide Osaka in December 2025.",s:[["MICHELIN","https://guide.michelin.com/en/osaka-region/osaka/restaurant/osteria-ottanta-sette"]]},
+{t:3,a:"KITA",n:"JIANG NAN CHUN (Four Seasons Osaka)",ad:"37F, Four Seasons Hotel Osaka, 2-4-32 Dojima, Kita-ku, Osaka 530-0003, Japan",cz:["INT"],la:34.69622,ln:135.49354,w:"Chinese restaurant on the 37th floor of the Four Seasons Osaka in Dōjima, added to the Michelin Guide Osaka in December 2025.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/jiang-nan-chun-1242585"]]},
+{t:3,a:"KITA",n:"Wagyuchugokusai Kumanohanare",ad:"1-4-4 Dojimahama, Kita-ku, Osaka 530-0004, Japan",cz:["WAGYU","INT"],la:34.69573,ln:135.49698,w:"Wagyu-focused Chinese cooking (wagyu chūgoku-sai) in Dōjimahama, added to the Michelin Guide Osaka in December 2025.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/wagyuchugokusai-kumanohanare"]]},
+{t:3,a:"KITA",n:"Tempura Urakami",ad:"5-6-3 Fukushima, Fukushima-ku, Osaka 553-0003, Japan",cz:["TEMPURA"],la:34.69644,ln:135.48787,w:"Fukushima tempura counter listed in the Michelin Guide Osaka.",s:[["MICHELIN","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/tempura-urakami"]]},
+{t:2,a:"CHUO",n:"PRESTAU",ad:"2-17-17 Shimmachi, Nishi-ku, Osaka 550-0013, Japan",cz:["INT"],la:34.67740,ln:135.49104,w:"Italian restaurant in Shimmachi named a new Michelin Bib Gourmand in the Kyoto Osaka 2025 guide.",s:[["MICHELIN_BIB","https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/prestau"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('osk_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('osk_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('osk_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('osk_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Osaka')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {KITA:'#5B8DEF',MINAM:'#D9534F',CHUO:'#E8B04B',TNJ:'#E07A5F',EAST:'#9B5DE5',BAY:'#00A6A6',SOUTH:'#3D9970',NORTH:'#7D8C38',KNSAI:'#D4A017'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([34.711,135.3631],11);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Kita", 34.7001, 135.5018], ["Minami", 34.6686, 135.5042], ["Chūō", 34.6805, 135.5093], ["Tennōji", 34.6551, 135.5157], ["East Osaka", 34.6885, 135.5389], ["Bay Area", 34.6534, 135.427], ["Southern Osaka", 34.5211, 135.427], ["Hokusetsu", 34.8262, 135.52], ["Kansai day trips", 34.62, 135.1721]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('osaka-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('osaka-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('osaka-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a label alone doesn’t qualify. A cuisine tag names the kitchen’s own tradition, never one dish it serves. Tabelog and Retty scores may measure popularity but never count as a source.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in Japanese and English, fact-checked'
+  + '<span>Every place is traceable to two credible sources, or a lone Michelin / UNESCO / Agency for Cultural Affairs designation — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/Tabelog never count toward the two-source bar.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 172 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

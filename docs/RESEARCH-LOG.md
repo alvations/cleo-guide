@@ -307,3 +307,61 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - A stall inside an already-pinned food centre can reuse that registry pin (med, stall-within-centre) — no new search.
 - Dead end: session WebSearch cap (200, shared by ~16 concurrent agents) stopped W1 after 27 calls; Ghim Moh / Holland
   Village MFC pins left UNVERIFIED rather than estimated.
+
+## 2026-10-02 — Tokyo W2 (relaunch, 166 searches → 314 discovered / 294 on the map)
+- **Sights: ~3.5 places per search.** `en.wikipedia.org`+`gotokyo.org`(+`timeout.com`) restricted, 4 names as
+  "A coordinates; B coordinates; C coordinates; D coordinates" → Wikipedia infobox coords + GO TOKYO spot pages in
+  one call. Kantō day trips: swap GO TOKYO for `japan-guide.com`.
+- **Food: ~1.5–2.5 per search.** Michelin 3-name venue-page queries (lone authority + pin), and Wikidata P625 pins
+  for heritage shops paired with a Time Out / Japan Times / Savor Japan corroboration query.
+- **Dead ends:** `google.com`-restricted Maps searches return unrelated places (abandoned after 1); 5–6-name Michelin
+  queries and any query containing "cuisine" drop the coordinates; mixed-topic queries ("X? — Y; Z…") waste a call.
+- **Rejected pins (logged):** Tsukiji fish market point (demolished inner market, ~400 m off the outer market),
+  Daikokuya and Shiseido Parlour (whole-second Wikidata points off the building), Yamashita Park (Wikipedia point
+  ~25 km off), Todoroki Ryokuchi (a Kawasaki park, not Todoroki Valley), several district/station points.
+
+
+### 2026-10-02 — Osaka W2 (search techniques & dead ends)
+- **Michelin venue pins, 2–3 per query:** `allowed_domains:["guide.michelin.com"]` + "<A>; <B>; <C> Osaka address latitude longitude" returns each venue page's address + lat/lng (~2.5 pins per search). Mine Michelin *articles* ("N New Bib Gourmands …", "December 2025: latest additions …") for name lists first, then pin them.
+- **Fan-out trap:** when names in a batched query are NOT on the restricted domain (street-food stalls on Michelin, creators), the search tool silently runs 4–5 sub-searches — only batch names known to hit.
+- **Japanese Wikipedia coordinates:** `allowed_domains:["ja.wikipedia.org"]` "<名称> 座標; <名称> 座標; <名称> 座標" hit 3/3 for markets, arcades and gardens that en.wikipedia lacks (黒門市場, 心斎橋筋商店街, アメリカ村, 慶沢園, 天王寺公園).
+- **Dead ends:** mapcarta/OSM search (no venue pages); Tabelog まとめ (user lists — not Hyakumeiten, zero); broad creator queries (Paolo fromTOKYO / Abroad in Japan / Mark Wiens / "Somebody Feed Phil" — no Osaka episode) returned nothing findable; brands.japan-guide.com and japan-guide /ad/ pages are sponsored.
+- **Hyōgo:** Michelin's first Kobe & Awaji selection is announced Feb 2027 — no Hyōgo Michelin to lean on until then.
+### 2026-10-02 — Philadelphia W1+W2: Wikipedia-domain batches pin sights; restaurant pins don't surface
+- `WebSearch` with `allowed_domains:["en.wikipedia.org"]` and `A; B; C; D; E coordinates` (exact article titles) returned
+  infobox coords for 4-5 of 5 Philadelphia landmarks per call — pair it with one Visit Philly query (2nd source) and you
+  get ~4-5 fully-sourced, pinned sights per 2 searches. When a name misses, the tool silently runs extra follow-up searches
+  (up to 5 per call) — keep batches to names that surely have an infobox, and never mix restaurants in.
+- Philadelphia restaurant place pins do NOT surface via WebSearch (Michelin venue snippets, OpenTable, latlong.net: 0/3 single
+  probes; a geocode agent got 11/61 in 28 calls, all Wikipedia/RTM). Only restaurants with their own Wikipedia article pin
+  (Kalaya, Friday Saturday Sunday, South Philly Barbacoa, Vedge, Zahav, Pat's, Geno's, Jim's, John's, Dalessandro's).
+  Plan restaurant pins for the browser helper from the start; spend the search budget on discovery + sights.
+- Rejected: an 'interpolated' coordinate built from neighbouring addresses on philadelphiabuildings.org (not a place pin).
+
+### 2026-10-02 — Hokkaido session 2 (≈140 searches → 140 discovered / 104 on the map)
+- **`allowed_domains:["ja.wikipedia.org"]` + 3 Japanese names + 座標** is the best sight geocoder found so far: ~2.6 of 3
+  coordinates per call (infobox DMS quoted in the summary), and it works for minor sights (waterfalls, passes, Jōmon sites,
+  museums) that the English Wikipedia lacks. Background geocode workers using it pinned 25 of 34 held sights.
+- **Second source cheaply:** domain-restricted area queries to `japan-guide.com`, `visit-hokkaido.jp`, `sapporo.travel`
+  return 10 staff/official URLs per call; for food, `rurubu.jp` + `mapple.net` (JTB / Shobunsha guidebook editorial) +
+  city tourism bodies (`otaru.gr.jp`, `hakodate.travel`) return named shops with addresses and hours.
+- **Dead ends:** restaurant lat/lng never surfaced (gltjp/mapple/rurubu give address only); unrestricted "Wikipedia
+  coordinates A; B; C" got ~1/3; creator queries (Paolo fromTOKYO, Abroad in Japan, Ramen Beast, youtube.com domain)
+  returned no vettable channel naming a specific Hokkaido place in result text.
+- **Lesson (honesty):** writing addresses with block numbers / postcodes "from knowledge" while transcribing sourced
+  coordinates is an easy CLAUDE.md 4a slip — audit every address against the result text before committing.
+
+
+## 2026-10-02 — Okinawa W2 (relaunch, ~174 searches → 119 discovered / 74 on the map)
+- **Stars and Stripes Okinawa list articles are the coordinate jackpot**: query the exact article title + "GPS" with
+  `allowed_domains=["okinawa.stripes.com"]` ("12 family-friendly Battle of Okinawa sites", "List of beaches", the soba
+  guide, castle pieces, "rainy-day", Nago/Yomitan/Nanjo round-ups) → 4–12 printed GPS per search. Pair each with an
+  independent outlet; two Stripes articles are one source.
+- **Search summaries mis-attribute GPS across articles** (Araha Beach got Tomigusuku's coordinate; one cherry-blossom
+  GPS was labelled Yaedake in one summary and Nakijin in another). Sanity-check every Stripes point against the place's
+  town; on conflict pull the pin to UNVERIFIED and cross-check with a Wikipedia infobox.
+- **Okinawa Times "900人の麺好きが選ぶ うまい沖縄そば" (2023, north/central/south/Miyako-Ishigaki editions)** names 31
+  soba shops in four searches — an editorial-of-record food source; pair with Mapple spot pages or KozaWeb (Okinawa City
+  tourism portal). Mapple (Shobunsha まっぷる) spot pages carry addresses, hours and editor copy.
+- Restaurant coordinates outside Stripes' coverage (Naha, Ishigaki, Miyako) did not surface by search — they are
+  discovered + sourced but held UNVERIFIED for `tools/geocode-helper.html`.

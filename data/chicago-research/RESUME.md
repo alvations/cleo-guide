@@ -12,23 +12,21 @@
 - `DAY` Day trips ~20
 
 ## State
-- 2026-10-02: scaffold created (consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, tools/build-chicago.py,
-  data/sources.json `chicago-il` entry). No places yet.
+- 2026-10-02 (session 1): scaffold created. W1 BLOCKED by the shared 200-search cap.
+- 2026-10-02 (session 2, this run): **100 places sourced (50 sights + 50 food), 72 pinned & rendered**;
+  all 4 gates + validate + test green. Page `cities/chicago.html` builds (SW hidden until a SW pin lands).
+  Files: FOOD_CANON.json (30), FOOD_MICHELIN.json (20), SIGHTS_W1.json (33), SIGHTS_W2.json (17);
+  geo/_geoout_canon.json, _geoout_michelin.json, _geoout_sights.json.
+  UNVERIFIED pins held (28): most restaurants without a Wikipedia article — see docs/GEOCODE-BACKLOG.md.
+- **Geocoding lesson:** WebSearch summaries rarely surface latlong/!3d!4d pins for small restaurants
+  (13/20 failed at 1 search each). Wikipedia batches of 4 names per query (allowed_domains en.wikipedia.org)
+  return published coords reliably — use them for sights and Wikipedia-notable restaurants; leave the rest
+  to tools/geocode-helper.html.
+- Search count (session 2): ~95 of the session budget used so far (main + 2 geocode subagents).
 
 ## In-flight wave
-**W1 FOOD_CANON (BLOCKED, not started)** — 2026-10-02: the session-wide WebSearch cap was already exhausted
-("this session has used its web search budget (200 of 200 WebSearch calls)") after only 3 calls by this agent —
-the ~16 concurrent agents share one 200-call budget. WebFetch is blocked by policy. No places can be sourced,
-status-checked or geocoded without search, and nothing may be added from memory (CLAUDE.md 4a/4c, D1).
-- Files it will write: `FOOD_CANON.json`, `geo/_geoout_canon.json`.
-- Queries still to run (all): Italian beef (Tribune/Chicago Mag/Eater rankings: Al's #1, Johnnie's, Mr. Beef,
-  Bari, Jay's, Portillo's); deep-dish (Lou Malnati's, Pequod's, Gino's East, Uno); tavern-style (Vito & Nick's,
-  Pat's, Marie's, Phil's, Candlelite); hot dog + Maxwell St Polish (Superdawg, Gene & Jude's, Jim's Original,
-  Wolfy's); jibarito (Borinquen, Papa's Cache Sabroso, Jibaritos y Más); Harold's/mild sauce + rib tips (Lem's,
-  Uncle John's); Rainbow Cone; Garrett; Michelin Chicago Bib + stars list; James Beard America's Classics Chicago.
-- Partial leads saved in `_PENDING_LEADS.md` (7 places; none complete).
-- **Resume condition:** relaunch with a fresh/raised WebSearch budget (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION)
-  — ideally a dedicated session for Chicago, since ~500 places needs ~700–900 searches (discovery + pin + status).
+W3 — more sights (Wikipedia-pinned) per area + food canon 2nd-sources (Papa's Cache Sabroso, Uncle Remus,
+Harold's, Rainbow Cone, Garrett, Portillo's, Chicago Mag Iconic Eats list in AUDIT) + a creator query.
 
 ## Next actions (ordered)
 1. Wave 1 food canon (FOOD_CANON.json) → wave 2 Michelin/JB (FOOD_MICHELIN.json) → sights per area (SIGHTS_<AREA>.json)

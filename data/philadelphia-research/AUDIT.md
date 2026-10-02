@@ -24,3 +24,65 @@
   limit (CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION), not a rate limit, so waiting does not restore it. W1 not started;
   0 places discovered, 0 geocoded. Scaffold (consolidate.py, build-philadelphia.py, brief, targets, registry entry)
   is committed and ready; the next launch with search budget starts W1 directly from RESUME.md "Next actions".
+
+## 2026-10-02 · W1 relaunch — Stage 1-3 discover/extract/fact-check (fresh search budget)
+- Sources found per query (researchedVia WebSearch; WebFetch blocked): Michelin 2025 Philadelphia list via FOX29 + Billy Penn
+  (3 stars, 10 Bib, 1 Green Star, 21 Selected — Pietramala counted once) → 34 places, lone-authority MICHELIN_* keys.
+  Inquirer 2023 cheesesteak bracket + LaBan 2002/2008; Visit Philly + Philly Mag roast pork; Inquirer + Philly Mag tomato pie;
+  Visit Philly + Billy Penn water ice; Infatuation + Inquirer Reading Terminal Market vendors; Visit Philly + Philly Mag
+  hoagies (+ LaBan on Castellino's); Infatuation + Philly Mag pho/Vietnamese; JBF 2022 (Cristina Martinez) + Time Out +
+  Visit Philly tacos; NPS Independence 'Places to go'; Visit Philly Old City / Historic District / Parkway guides.
+- MEASURED (cheesesteak): Inquirer 2023 reader bracket (Dalessandro's 23%, John's 19.2%, Angelo's 17%) + Michelin Bib
+  (Angelo's, Dalessandro's, Del Rossi's) = the standouts (t1). Pat's kept t1 as the historic ORIGIN (1930s, CBS + Wikipedia),
+  explicitly described as history-not-best; Geno's / Jim's South St / Tony Luke's kept t2 as icons. Steve's Prince of Steaks
+  HELD (only an SEO/blog listing; no credible 2nd source yet). Sonny's HELD (GQ 2014 claim seen only second-hand).
+- Creators: Mark Wiens Taste Tour USA Philadelphia Pt 2 (Tubi) → attached to Angelo's (CREATORS_W1.json).
+- HELD single-source (not added): Jean-Georges Philadelphia (Infatuation), Scampi, Griddle & Rice (Infatuation 2025 new),
+  Amá + Emilia (Eater 38 summer 2026 mention only), June BYOB + White Yak (Philly Mag 50 Best mention only), Frida Cantina
+  (6abc only), D'Jakarta Cafe (Food Republic 2015 only), Corropolese (Inquirer only — 2 Inquirer pieces = 1 outlet),
+  Liberty Kitchen (Visit Philly roast pork only), Sonny's, Steve's.
+- Address note: discovery addresses are best-known street addresses; several Michelin addresses were left partial
+  (Provenance, Ambra, Illata, Little Water, Roxanne, Del Rossi's) — the geocode pass verifies/corrects every address.
+- Counts after batch 1: food 60 (Michelin 34, canon 26), sights 24 (CC). Channel mix: institutional 37, editorial 47, creator 1.
+- Dead end: 'Wikipedia coordinates A; B; C' for PMA/Barnes/ESP returned addresses only (no coords) — budget 1 search/pin.
+
+## 2026-10-02 · W1 batch 2 + W2 — discover, fact-check, geocode, build
+- Sources (researchedVia WebSearch): Atlas Obscura Philadelphia; Visit Philly area guides (Fairmount Park, West Philly,
+  University City, Northwest, Germantown, Bella Vista, East Passyunk, South Philly, Fishtown, Northeast, Media, Jenkintown,
+  sacred-sites trail, Black-history guide, Underground Railroad guide, historic district, Parkway, Penn's Landing, day trips,
+  road trips, theater venues, architecture); NPS Independence 'Places to go'; Frommer's + Uncovering PA (Bucks County);
+  SJ Magazine + Rutgers–Camden (Camden); Main Line Today + Valley Forge Tourism (Main Line, Bryn Athyn); Northeast Times;
+  Philly Mag Best of Philly 2024 + Inquirer (soft pretzel); Infatuation/Visit Philly (Fishtown).
+- Creator channel: Philly food TikTok scan (Inquirer 2023 + Philly Mag 2022 influencer pieces): @tanaradoublechocolate (3.7M,
+  cooking — no place content), @chefchrischo (2.2M, owns Serabol — not independent), @phillyfoodladies (33K — below scale bar),
+  @godfatherofmeat (302K — no findable place video found). None attached this wave; Mark Wiens (Tubi Taste Tour USA) → Angelo's.
+- DROPPED: East Passyunk Singing Fountain (only Visit Philly; 2 VP pages = 1 outlet). Casa Mexico merged into South Philly
+  Barbacoa (same building/business per geocode W1) — EXCLUDE in consolidate.py.
+- CLOSED (flagged, kept): Hiroki — CLOSED (Inquirer 2026-08-02), Laurel — CLOSED (Inquirer 2025-11-19).
+- Address/area corrections from geocode W1 agent: Honeysuckle → 631 N Broad St (NPH); Provenance 408 S 2nd St (CC);
+  Little Water 261 S 20th St (CC); Illata 2241 Grays Ferry Ave (CC); Roxanne 607 S 2nd St (SPH); Ambra 705 S 4th St;
+  Del Rossi's 538 N 4th St; Siddiq's 264 S 60th St; Castellino's 1255 E Palmer St; Antonio's 1014 Federal St;
+  Farina Di Vita 250 Catharine St; South Philly Barbacoa 1134 S 9th St.
+- Geocode results: sights 89 pinned (high 81 · med 8) via Wikipedia infobox coords (en.wikipedia.org-restricted batches) +
+  1 latlong.net (PMA); Wyck + Germantown White House left unpinned (Wyck's Wikipedia point sits ~2 km south of 6026
+  Germantown Ave — rejected). Food 15 pinned (6 Wikipedia high, 3 more Wikipedia high in W2, 5 RTM stalls med on the
+  market building pin, Valley Green Inn med via Commons geotag); ~49 food UNVERIFIED (no place pin surfaced by WebSearch).
+  REJECTED: Vetri Cucina 'interpolated' coordinate from neighbouring philadelphiabuildings.org addresses (interpolation ≠ pin).
+- Build: 170 sourced → 106 on page (91 sights + 15 food); 4 gates PASS; npm validate + test PASS. Card live ('first edition').
+- Channel mix (170): institutional (Michelin 34, NPS 9, JBF 3, UNESCO 1) · editorial/tourism (Visit Philly, Inquirer,
+  Philly Mag, Infatuation, Billy Penn, Main Line Today, SJ Mag, Northeast Times…) · travel (Atlas Obscura, Frommer's,
+  Lonely Planet, Time Out, Uncovering PA) · creator 1 (Mark Wiens) · reference (Wikipedia, every sight).
+
+## 2026-10-02 · W2b — day trips + Bucks + Brandywine pins, rebuild
+- Added (2 credible + Wikipedia pin each): Winterthur, Hagley, Nemours (Lonely Planet + Visit Delaware), Bucks County Playhouse,
+  Peddler's Village, Sesame Place, Andalusia (Visit Philly New Hope + Visit Bucks County), Colonial Theatre Phoenixville
+  (Visit Philly main streets). Pins added for already-sourced Smith Playground, Wissahickon (park point, med), Mann Center,
+  Glencairn, Rocky Statue (Rocky Steps point, med), Ryerss (Ryerss Mansion).
+- Rejected: New Hope borough point (town centroid — not a place pin); Race Street 'pier' hit was the street's own coordinate.
+- Build: 178 sourced → 120 on page (105 sights + 15 food); 4 gates PASS; validate + test PASS; card + CITIES refreshed.
+
+## 2026-10-02 · W2c — South Jersey + River Wards (final searches of the session budget)
+- Added: Walt Whitman's Tomb / Harleigh Cemetery (SJ Magazine + NJ Monthly + Wikipedia pin, med — cemetery point),
+  Hadrosaurus Foulkii Leidy Site (NJ Monthly + Wikipedia pin). HELD: Pomona Hall (Wikipedia only), Philadelphia Brewing Co.
+  and Syrenka Luncheonette (Visit Philly only), Cooper River Park (river coordinate, not a park pin — rejected).
+- Final build of the session: 180 sourced → 122 on page (107 sights + 15 food); 4 gates PASS; validate + test PASS.
