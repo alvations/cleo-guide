@@ -175,3 +175,8 @@ reached (harness: 200/200). Not live: 89 pins (rendered food only 13 — restaur
   verified source left); Chibichiri Gama pin demoted to UNVERIFIED (provenance unidentifiable). Mutsumibashi Kadoya closure
   (2024-06-20) held — single source (Ryukyu Shimpo); place was a held lead, not on the map. Creators: 4 searches, 0 kept
   (Mark Wiens, Okinawa Hai, two Naha queries — rejections in CREATORS_OKINAWA_W4D*.json). Per-agent notes: `_okinawa_W4*_notes.md`.
+- **W4G5 (Kerama/Miyako):** +3 med pins via NAVITIME spot pages (Eef Beach, Aragusuku Beach, 17END). **Final W4 build:** 258 discovered
+  (130 food & drink = 50 %), **130 pinned** (high 78 · med 39 · low 13), 129 UNVERIFIED → geocode-helper. sourcecheck PASS 258,
+  geocheck PASS, statuscheck CONSISTENT, buildcheck PASS (VIEW override still frames the main island); validate DATA OK; npm test ALL
+  PASS. ANIME 6. Searches ≈198 (G1 25, G2 27, G3 22, G4 17, G5 12, D1 30, D2 25, D3 25, A 15). Channel mix (new places): Rurubu/Mapple/
+  Okinawa Traveler majority; Ryukyu Shimpo, Stripes, Lonely Planet, japan-guide, Michelin travel article, OCVB, JA-Wikipedia; creators 0.

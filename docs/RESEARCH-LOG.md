@@ -482,3 +482,9 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - Pinning: ja.wikipedia `座標` 3-name queries are the only productive WebSearch pin channel left for Tokyo (18 pins); beware coordinate cross-contamination in the summary (see AGENT-PROMPTS lessons). Dead ends measured: Google `!3d!4d` for kissaten/bars, Michelin venue pages (no coords in summary), Apple Maps / OSM node pages.
 - Allpress Espresso Tokyo Roastery (Kiyosumi) closes autumn 2026 → not added.
 
+## 2026-10-02 — Okinawa W4 (pin-first)
+- Restaurant GPS almost never appears in WebSearch summaries (W4: 13/94 food pinned). What worked, one name per extended-mode query:
+  `<日本語名> wikipedia 座標` (sights → high), `site:travel.navitime.com <日本語名> 緯度 経度` (NAVITIME spot pages print lat/lng and tie the
+  point to one page → med), `<name> tripadvisor latitude longitude` (aggregator → graded low, must match the sourced address).
+- Unrestricted searches often return a coordinate without saying which page printed it — unusable under rule 4a (5 demoted).
+- Batched multi-name coordinate queries mostly fail; Stars and Stripes GPS searches rarely hit outside the main island.
