@@ -176,8 +176,1091 @@
    "n": "Free to Visit"
   }
  ],
- "P": [],
- "F": [],
- "S": {},
- "FS": {}
+ "P": [
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nishiki Market",
+   "ad": "Nishikikōji-dōri, Nakagyō-ku, Kyoto, Japan",
+   "w": "'Kyoto's Kitchen' — a narrow five-block covered street of more than a hundred food shops (the first opened around 1310): pickles, fresh yuba, dashi-maki tamago, seasonal Kyoto produce and knives.",
+   "g": [
+    "ICON",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3931.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/central/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Nishiki_Market"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Pontochō",
+   "ad": "Pontochō, Nakagyō-ku, Kyoto, Japan",
+   "w": "Lantern-lit lane of teahouses and restaurants squeezed between the Kamo River and Kiyamachi — one of Kyoto's five geisha districts, with summer kawayuka dining platforms over the river.",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "FREE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2158_central.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/central/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ponto-ch%C5%8D"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Higashi Hongan-ji",
+   "ad": "Karasuma-dōri Shichijō-agaru, Shimogyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Ōtani branch of Jōdo Shinshū near Kyoto Station; its Goeidō founder's hall is Kyoto's largest wooden structure. Free to enter.",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3920.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/around-kyoto-station/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Higashi_Hongan-ji"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Kyoto Station",
+   "ad": "Higashishiokōji-chō, Shimogyō-ku, Kyoto, Japan",
+   "w": "Hiroshi Hara's 1997 glass-and-steel station building, built for the city's 1,200th anniversary — the giant atrium staircase climbs to a free rooftop skyway with city views.",
+   "g": [
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3922.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/around-kyoto-station/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CTR",
+   "n": "Kyoto Tower",
+   "ad": "Higashishiokōji-chō, Shimogyō-ku, Kyoto, Japan",
+   "w": "The 131-metre tower opposite Kyoto Station, the city's tallest structure; the observation deck at 100 m gives a 360° view to Osaka on clear days.",
+   "g": [
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3945.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Tower"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Kyoto Railway Museum",
+   "ad": "Kankiji-chō, Shimogyō-ku, Kyoto, Japan",
+   "w": "JR West's museum (2016) by Umekōji Park with more than 50 retired trains, from steam locomotives in a working roundhouse to shinkansen; closed Wednesdays.",
+   "g": [
+    "MUS",
+    "POP",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3972.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/things-to-do-in-the-umekoji-area/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Kyoto International Manga Museum",
+   "ad": "Karasuma-dōri Oike-agaru, Nakagyō-ku, Kyoto, Japan",
+   "w": "Japan's first manga museum, in a 1929 elementary-school building by Karasuma-Oike Station, with some 300,000 items and walls of manga you can pull down and read.",
+   "g": [
+    "MUS",
+    "POP"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3962.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/kyoto-international-manga-museum/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kiyomizu-dera",
+   "ad": "Kiyomizu, Higashiyama-ku, Kyoto, Japan",
+   "w": "Eastern Kyoto's hillside temple, famous for the wooden terrace with a view over the city; part of the UNESCO 'Historic Monuments of Ancient Kyoto'.",
+   "k": "06:00–18:00 (to 18:30 Jul–Aug); 500 yen",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3901.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Higashiyama District (Sannenzaka & Ninenzaka)",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "One of Kyoto's best-preserved historic districts — narrow lanes, wooden buildings and merchant shops on the 20–30 minute walk from Kiyomizu-dera to Yasaka Shrine.",
+   "g": [
+    "ICON",
+    "CASTLE",
+    "MKT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3959.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Yasaka Shrine (Yasaka-jinja)",
+   "ad": "Gionmachi, Higashiyama-ku, Kyoto, Japan",
+   "w": "Gion's great shrine, home of the Gion Matsuri every July for over a thousand years; busiest at cherry-blossom time beside Maruyama Park.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3903.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Maruyama Park",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Public park next to Yasaka Shrine; in early April Kyoto's most popular (and most crowded) hanami spot under the weeping cherry.",
+   "g": [
+    "NATURE",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3925.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion & Hanamikoji",
+   "ad": "Gion, Higashiyama-ku, Kyoto, Japan",
+   "w": "Kyoto's most famous geisha district, between Yasaka Shrine and the Kamo River — ochaya teahouses where geiko and maiko entertain.",
+   "g": [
+    "ICON",
+    "NIGHT",
+    "FREE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3902.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kōdai-ji",
+   "ad": "Shimogawara-chō, Higashiyama-ku, Kyoto, Japan",
+   "w": "Founded 1606 by Nene in memory of Toyotomi Hideyoshi; a tsukiyama pond garden of man-made hills, pine and maple. Its sub-temple Entoku-in adds two more Zen gardens.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3927.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/K%C5%8Ddai-ji"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/travel-inspiration/how-to-avoid-the-crowds-while-accessing-kiyomizu-temple-and-higashiyama-areas/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Chion-in",
+   "ad": "Higashiyama-ku, Kyoto, Japan",
+   "w": "Head temple of the Jōdo (Pure Land) sect; its Sanmon, 24 m tall and 50 m wide, is the largest wooden temple gate in Japan (early 1600s).",
+   "g": [
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3928.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/ru/shrine_temple/151"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Shōren-in",
+   "ad": "Awataguchi, Higashiyama-ku, Kyoto, Japan",
+   "w": "Tendai monzeki temple whose head priests were traditionally imperial; houses the National Treasure painting of the Blue Cetaka (Ao Fudō) and a garden attributed to Sōami.",
+   "g": [
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3954.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://prev.kyoto.travel/it/shrine_temple/160"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Kennin-ji",
+   "ad": "Komatsu-chō (south of Gion), Higashiyama-ku, Kyoto, Japan",
+   "w": "Founded 1202 — the oldest Zen temple in Kyoto, ranked third of the city's five great Zen temples, just south of Gion.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NIGHT"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3973.html"
+    ],
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/areas/gion-kiyomizu/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Hōkan-ji (Yasaka Pagoda)",
+   "ad": "Yasaka, Higashiyama-ku, Kyoto, Japan",
+   "w": "The five-storey Yasaka Pagoda rising over the Higashiyama lanes on the walk up to Kiyomizu-dera.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "KYOTOTOURISM",
+     "https://kyoto.travel/en/destinations/hokanji-templeyasaka-pagoda/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yasaka_Pagoda"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Tōfuku-ji",
+   "ad": "15-778 Honmachi, Higashiyama-ku, Kyoto, Japan",
+   "w": "One of the Kyoto Gozan (five great Zen temples), founded in the 13th century; its Tsūten-kyō bridge over a maple valley is one of Kyoto's most famous autumn-leaf views.",
+   "g": [
+    "TEMPLE",
+    "GARDEN",
+    "NATURE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3930.html"
+    ],
+    [
+     "ANATRAVEL",
+     "https://www.ana.co.jp/en/us/japan-travel-planner/kyoto/0000020.html"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Rokuharamitsu-ji",
+   "ad": "2-81-1 Rokuhara-chō, Higashiyama-ku, Kyoto 605-0813, Japan",
+   "w": "Founded in 951 by the itinerant monk Kūya — the 17th temple of the Saigoku Kannon pilgrimage — in Rokuhara, the old Heike warrior quarter; its Kūya statue shows tiny Buddhas issuing from his mouth.",
+   "g": [
+    "TEMPLE",
+    "CASTLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rokuharamitsu-ji"
+    ],
+    [
+     "KYOHAKU",
+     "https://www.kyohaku.go.jp/eng/assets/visit/faq/area-map_en.pdf"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HGS",
+   "n": "Kyoto National Museum",
+   "ad": "Chaya-machi, Higashiyama-ku, Kyoto, Japan",
+   "w": "One of Japan's four national museums, in the Higashiyama temple district opposite Sanjūsangen-dō; Kyoto's major collection of pre-modern Japanese and Asian art.",
+   "g": [
+    "MUS",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3962_kyoto.html"
+    ],
+    [
+     "KYOTOMUSEUMS",
+     "https://www.kyoto-museums.jp/en/?p=3870"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Sanjūsangen-dō",
+   "ad": "Sanjūsangendō-mawari, Higashiyama-ku, Kyoto, Japan",
+   "w": "The 120-metre hall of 1266 (National Treasure) housing 1,001 standing Thousand-armed Kannon statues, flanked by Fūjin and Raijin.",
+   "g": [
+    "ICON",
+    "TEMPLE",
+    "MUS"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D"
+    ],
+    [
+     "JTA",
+     "https://www.mlit.go.jp/tagengo-db/common/001547284.docx"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kamigamo Shrine (Kamo-wake-ikazuchi Jinja)",
+   "ad": "Kamigamo, Kita-ku, Kyoto, Japan",
+   "w": "One of Kyoto's oldest Shinto shrines, older than the city itself, with its two sand cones (tatesuna) before the Hosodono hall; UNESCO-listed component 688-001.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Shimogamo Shrine (Kamo-mioya Jinja)",
+   "ad": "Shimogamo, Sakyō-ku, Kyoto, Japan",
+   "w": "Ancient shrine at the meeting of the Kamo and Takano rivers, reached through the Tadasu-no-Mori primeval forest; UNESCO-listed component 688-002.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Tō-ji (Kyō-ō-gokoku-ji)",
+   "ad": "Kujō-chō, Minami-ku, Kyoto, Japan",
+   "w": "Founded in 796 as the guardian temple at the old capital's south gate; its five-storey pagoda is Japan's tallest wooden pagoda, and a flea market fills the grounds on the 21st of each month. UNESCO 688-003.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "MKT"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KYFU",
+   "n": "Enryaku-ji (Mount Hiei)",
+   "ad": "Sakamoto-honmachi, Ōtsu, Shiga, Japan",
+   "w": "Head temple of Tendai Buddhism, founded on Mount Hiei in 788 and spread across the forested summit above Lake Biwa; UNESCO 688-005 (coordinate is the property centre of a 498 ha precinct).",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FSHMI",
+   "n": "Daigo-ji",
+   "ad": "Daigo, Fushimi-ku, Kyoto, Japan",
+   "w": "Vast Shingon temple complex whose five-storey pagoda (951) is the oldest building in Kyoto; Toyotomi Hideyoshi's famous cherry-blossom party was held here. UNESCO 688-006.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "RKSAI",
+   "n": "Ninna-ji",
+   "ad": "Omuro, Ukyō-ku, Kyoto, Japan",
+   "w": "Former imperial temple (founded 888) known for its late-blooming Omuro dwarf cherry trees and five-storey pagoda; UNESCO 688-007.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Byōdō-in",
+   "ad": "Uji-renge, Uji, Kyoto, Japan",
+   "w": "The 11th-century Phoenix Hall pictured on the 10-yen coin, reflected in its Pure Land garden pond; UNESCO 688-008.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Ujigami Shrine",
+   "ad": "Uji-yamada, Uji, Kyoto, Japan",
+   "w": "Small shrine across the Uji River from Byōdō-in whose main hall is regarded as Japan's oldest surviving shrine building; UNESCO 688-009.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKHKU",
+   "n": "Kōzan-ji",
+   "ad": "Umegahata-Toganoo-chō, Ukyō-ku, Kyoto, Japan",
+   "w": "Mountain temple in Toganoo above Takao, keeper of the Chōjū-giga animal scrolls often called Japan's first manga; UNESCO 688-010.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "NATURE",
+    "POP"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Saihō-ji (Koke-dera, Moss Temple)",
+   "ad": "Matsuo-jingatani-chō, Nishikyō-ku, Kyoto, Japan",
+   "w": "The 'Moss Temple' — a garden carpeted with over a hundred kinds of moss; visits are by advance reservation only. UNESCO 688-011.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Tenryū-ji",
+   "ad": "Saga-Tenryūji, Ukyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Rinzai Tenryū-ji school, founded 1339, with Musō Soseki's Sōgen pond garden borrowing the Arashiyama hills; UNESCO 688-012.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "KITA",
+   "n": "Kinkaku-ji (Rokuon-ji)",
+   "ad": "Kinkakuji-chō, Kita-ku, Kyoto, Japan",
+   "w": "The Golden Pavilion — a gold-leafed Zen reliquary hall over a mirror pond, rebuilt in 1955 after arson; UNESCO 688-013.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SAKYO",
+   "n": "Ginkaku-ji (Jishō-ji)",
+   "ad": "Ginkakuji-chō, Sakyō-ku, Kyoto, Japan",
+   "w": "The Silver Pavilion, Ashikaga Yoshimasa's retirement villa turned Zen temple, with its raked-sand garden and moss paths at the head of the Philosopher's Path; UNESCO 688-014.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "RKSAI",
+   "n": "Ryōan-ji",
+   "ad": "Ryōanji Goryōnoshita-chō, Ukyō-ku, Kyoto, Japan",
+   "w": "Home of Japan's most famous dry rock garden — fifteen stones on raked gravel; UNESCO 688-015.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nishi Hongan-ji",
+   "ad": "Hommonzen-chō, Shimogyō-ku, Kyoto, Japan",
+   "w": "Head temple of the Jōdo Shinshū Hongwanji-ha, a short walk from Kyoto Station, with vast Founder's and Amida halls and Momoyama-era gates; UNESCO 688-016.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "FREE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Nijō Castle",
+   "ad": "Nijōjō-chō, Nakagyō-ku, Kyoto, Japan",
+   "w": "The Tokugawa shoguns' Kyoto residence (1603), whose Ninomaru Palace 'nightingale floors' chirp underfoot; UNESCO 688-017.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "CASTLE",
+    "GARDEN"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/688/maps"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Historic_Monuments_of_Ancient_Kyoto_(Kyoto,_Uji_and_Otsu_Cities)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Tōdai-ji",
+   "ad": "Zōshi-chō, Nara, Japan",
+   "w": "Nara's great temple, whose Daibutsuden houses the 15-metre bronze Great Buddha; UNESCO 'Historic Monuments of Ancient Nara' 870-001.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kōfuku-ji",
+   "ad": "Noboriōji-chō, Nara, Japan",
+   "w": "Fujiwara clan temple whose five-storey pagoda rises over Nara Park, with a National Treasure Hall of Buddhist sculpture including the Ashura statue; UNESCO 870-002.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "MUS",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "UJI",
+   "n": "Kasuga Taisha",
+   "ad": "Kasugano-chō, Nara, Japan",
+   "w": "Vermilion shrine of the Fujiwara famed for its thousands of stone and bronze lanterns, set against the protected Kasugayama Primeval Forest; UNESCO 870-003.",
+   "g": [
+    "ICON",
+    "UNESCO",
+    "TEMPLE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Gangō-ji",
+   "ad": "Chūin-chō, Nara, Japan",
+   "w": "Successor to Asuka-dera, Japan's first full-scale Buddhist temple; some roof tiles date to the 6th century. In the Naramachi old town. UNESCO 870-004.",
+   "g": [
+    "UNESCO",
+    "TEMPLE",
+    "CASTLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Yakushi-ji",
+   "ad": "Nishinokyō-chō, Nara, Japan",
+   "w": "Seventh-century imperial temple in western Nara whose East Pagoda is one of Japan's oldest; UNESCO 870-005.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Tōshōdai-ji",
+   "ad": "Gojō-chō, Nara, Japan",
+   "w": "Founded in 759 by the Chinese monk Ganjin (Jianzhen); its Golden Hall is the finest surviving Nara-period main hall. UNESCO 870-006.",
+   "g": [
+    "UNESCO",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "UJI",
+   "n": "Heijō Palace Site",
+   "ad": "Saki-chō, Nara, Japan",
+   "w": "The excavated site of the 8th-century imperial palace of Heijō-kyō, with the reconstructed Daigokuden and Suzakumon gate; UNESCO 870-007 (coordinate = centre of a 129 ha site).",
+   "g": [
+    "UNESCO",
+    "CASTLE",
+    "FREE",
+    "NATURE"
+   ],
+   "s": [
+    [
+     "UNESCO",
+     "https://whc.unesco.org/en/list/870/maps"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "HGS",
+   "n": "Gion Yorozuya",
+   "ad": "555-1 Komatsu-chō, Higashiyama-ku, Kyoto, Japan",
+   "w": "Michelin Bib Gourmand udon house that began delivering meals to Gion teahouses and playhouses; queues form before opening for the onion udon heaped with Kyoto's Kujō spring onion.",
+   "cz": [
+    "NOODLE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/at/en/kyoto-region/kyoto/restaurant/gion-yorozuya"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CTR",
+   "n": "Honke Daiichi-Asahi Takabashi",
+   "ad": "845 Higashishiokōji Mukaihata-chō, Shimogyō-ku, Kyoto 600-8216, Japan",
+   "w": "The Takabashi ramen institution founded in 1947, five minutes' walk from Kyoto Station — the benchmark for Kyoto's soy-pork-bone style.",
+   "cz": [
+    "RAMEN"
+   ],
+   "g": [],
+   "s": [
+    [
+     "LEAFKYOTO",
+     "https://www.leafkyoto.net/en/store/210113_honke_daiichiasahi_takabashihonten"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/asia/japan/articles/the-6-best-places-for-ramen-in-kyoto"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "ANATRAVEL": {
+   "k": "ANATRAVEL",
+   "t": "ANA Japan Travel Planner",
+   "u": "https://www.ana.co.jp/en/us/japan-travel-planner/",
+   "l": "ANA Japan Travel Planner"
+  },
+  "JAPANGUIDE": {
+   "k": "JAPAN-GUIDE",
+   "t": "JAPAN-GUIDE",
+   "u": "",
+   "l": ""
+  },
+  "JTA": {
+   "k": "JTA",
+   "t": "Japan Tourism Agency multilingual commentary database (MLIT)",
+   "u": "https://www.mlit.go.jp/tagengo-db/",
+   "l": "Japan Tourism Agency multilingual commentary database (MLIT)"
+  },
+  "KYOHAKU": {
+   "k": "KYOHAKU",
+   "t": "Kyoto National Museum",
+   "u": "https://www.kyohaku.go.jp/eng/",
+   "l": "Kyoto National Museum"
+  },
+  "KYOTOMUSEUMS": {
+   "k": "KYOTOMUSEUMS",
+   "t": "Kyoto Museums Council (kyoto-museums.jp)",
+   "u": "https://www.kyoto-museums.jp/en/",
+   "l": "Kyoto Museums Council (kyoto-museums.jp)"
+  },
+  "KYOTOTOURISM": {
+   "k": "KYOTO CITY TOURISM",
+   "t": "KYOTO CITY TOURISM",
+   "u": "",
+   "l": ""
+  },
+  "UNESCO": {
+   "k": "UNESCO",
+   "t": "UNESCO",
+   "u": "",
+   "l": ""
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "WIKIPEDIA",
+   "u": "",
+   "l": ""
+  }
+ },
+ "FS": {
+  "CULTURETRIP": {
+   "k": "CULTURETRIP",
+   "t": "Culture Trip",
+   "u": "https://theculturetrip.com/",
+   "l": "Culture Trip"
+  },
+  "LEAFKYOTO": {
+   "k": "LEAFKYOTO",
+   "t": "Leaf Kyoto (京都リーフ)",
+   "u": "https://www.leafkyoto.net/",
+   "l": "Leaf Kyoto (京都リーフ)"
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB",
+   "t": "MICHELIN BIB",
+   "u": "",
+   "l": ""
+  }
+ }
 }
