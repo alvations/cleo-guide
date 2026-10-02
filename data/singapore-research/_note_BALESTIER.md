@@ -71,7 +71,7 @@ still needs a formal statuscheck in the geocode wave. Closures found: 0.
 4. Build under lock, gates, re-verify, go-live only when dense (>=55 incl. pre-existing) and gated.
 
 ## W2 (2026-10-02 relaunch, 4-town session) — density OK, go-live HELD for pins
-- **Outcome:** BLS 50 food + 11 sights = **61 / target 55 -> OK** (incl. 1 CLOSED: Miao Sin Popiah & Carrot Cake, 26 Feb 2026).
+- **Outcome:** BLS 42 food + 13 sights = **55 / target 55 -> OK** (true count after the density.py fix; 61 was inflated) (incl. 1 CLOSED: Miao Sin Popiah & Carrot Cake, 26 Feb 2026).
   **Not added to LIVE_SLUGS:** only **5 pins** render — Whampoa Makan Place (19 stalls), Balestier Market (5), Balestier Plaza (2) and the
   Balestier Road shophouse restaurants have NO published coordinate reachable by WebSearch (2 geocode agents, 28 searches: 0 pins).
   All sit UNVERIFIED in data/geocodes.json for `tools/geocode-helper.html`. Go live as soon as the helper pins Whampoa Makan Place +
@@ -95,3 +95,7 @@ still needs a formal statuscheck in the geocode wave. Closures found: 0.
   Blk 91; Seth Lui places it at Tekka + Novena food court — added under NVN only).
 - **Fixes:** Bee Kia = 1 Thomson Rd #01-326, Balestier Hill Shopping Centre S320002; Kai Juan = 395/397 Balestier Rd.
 - **Next:** browser-helper pins -> go live; then 2nd-source the held list (domain-filtered WebSearch works best).
+
+> **COUNT CORRECTION (2026-10-02, later the same session):** `tools/density.py` was fixed by another session (commit 4f706d7) to stop
+> counting `sg_worklist.json` as food — the earlier W2 figures in this file were inflated by that double-count. **True counts after the
+> fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
