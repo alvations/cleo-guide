@@ -1,7 +1,60 @@
-{"outlets":[
- {"key":"FODORS","name":"Fodor's Travel","type":"travel","rank":2,"url":"https://www.fodors.com/world/north-america/usa/florida","credible":"Edited destination guidebook publisher since 1936; its Fort Lauderdale/Broward and Everglades restaurant & sight picks are staff-written."},
- {"key":"SARASOTAMAG","name":"Sarasota Magazine","type":"regional-magazine","rank":3,"url":"https://www.sarasotamagazine.com/2020/02/the-best-places-to-eat-in-the-everglades","credible":"Southwest Florida city magazine (est. 1979) with named food writers; its 'Glades Grub' guide covers Everglades City/Chokoloskee eats."},
- {"key":"BROWARDPALMBEACH","name":"New Times Broward-Palm Beach","type":"alt-weekly","rank":2,"url":"https://www.browardpalmbeach.com/","credible":"Broward/Palm Beach alt-weekly (sister of Miami New Times) — the editorial of record for Broward restaurants and its Best Of awards."},
- {"key":"FLORIDARAMBLER","name":"Florida Rambler","type":"travel-blog","rank":3,"url":"https://www.floridarambler.com/","credible":"Long-running Florida travel site by veteran Sun Sentinel/Palm Beach Post journalists Bonnie Gross & David Blasco; fact-based, dated visits."},
- {"key":"MICHELIN_GREEN","name":"MICHELIN Green Star","type":"guide","rank":1,"url":"https://guide.michelin.com/us/en/florida/miami/restaurants","credible":"MICHELIN's sustainability distinction — institutional, awarded only to restaurants already in the guide."}
-]}
+{
+ "outlets": [
+  {
+   "key": "FODORS",
+   "name": "Fodor's Travel",
+   "type": "travel",
+   "rank": 2,
+   "url": "https://www.fodors.com/world/north-america/usa/florida",
+   "credible": "Edited destination guidebook publisher since 1936; its Fort Lauderdale/Broward and Everglades restaurant & sight picks are staff-written."
+  },
+  {
+   "key": "SARASOTAMAG",
+   "name": "Sarasota Magazine",
+   "type": "regional-magazine",
+   "rank": 3,
+   "url": "https://www.sarasotamagazine.com/2020/02/the-best-places-to-eat-in-the-everglades",
+   "credible": "Southwest Florida city magazine (est. 1979) with named food writers; its 'Glades Grub' guide covers Everglades City/Chokoloskee eats."
+  },
+  {
+   "key": "BROWARDPALMBEACH",
+   "name": "New Times Broward-Palm Beach",
+   "type": "alt-weekly",
+   "rank": 2,
+   "url": "https://www.browardpalmbeach.com/",
+   "credible": "Broward/Palm Beach alt-weekly (sister of Miami New Times) — the editorial of record for Broward restaurants and its Best Of awards."
+  },
+  {
+   "key": "FLORIDARAMBLER",
+   "name": "Florida Rambler",
+   "type": "travel-blog",
+   "rank": 3,
+   "url": "https://www.floridarambler.com/",
+   "credible": "Long-running Florida travel site by veteran Sun Sentinel/Palm Beach Post journalists Bonnie Gross & David Blasco; fact-based, dated visits."
+  },
+  {
+   "key": "MICHELIN_GREEN",
+   "name": "MICHELIN Green Star",
+   "type": "guide",
+   "rank": 1,
+   "url": "https://guide.michelin.com/us/en/florida/miami/restaurants",
+   "credible": "MICHELIN's sustainability distinction — institutional, awarded only to restaurants already in the guide."
+  },
+  {
+   "key": "WGCU",
+   "name": "WGCU Public Media",
+   "type": "public-media",
+   "rank": 2,
+   "url": "https://www.wgcu.org/",
+   "credible": "Southwest Florida NPR/PBS station (Florida Gulf Coast University) — newsroom of record for Collier/Everglades City."
+  },
+  {
+   "key": "JOSIAHEATS",
+   "name": "Josiah Eats (Josiah Cafiero)",
+   "type": "creator",
+   "rank": 3,
+   "url": "https://miaminewtimes.com/restaurants/miamis-top-influencers-share-their-favorite-hidden-miami-restaurants-19154935",
+   "credible": "Creator with 500K+ followers profiled by Miami New Times; corroborating only."
+  }
+ ]
+}

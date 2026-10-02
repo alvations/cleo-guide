@@ -140,3 +140,5 @@
 139 NT best breweries Miami (Wynwood Brewing, Biscayne Bay, J Wakefield, Prison Pals, Tripping Animals; Veza Sur) → 4 added (∩ Time Out)
 140 Time Out 26 best Miami coffee shops
 141 Infatuation coffee guides (Miami, Miami Beach, FTL) → 8 added
+142 Wikipedia batch GLADE [4 sub-searches] (Ted Smallwood Store, Museum of the Everglades/Everglades Laundry, Miccosukee Indian Village GMCVB, Big Cypress Bend boardwalk WGCU 2026) → 4 sights
+143 Infatuation/TO: Dumpling King, Awash, Zaika (∩ Josiah Eats picks) → 3 added (one call refused: eater.com domain not accessible)
