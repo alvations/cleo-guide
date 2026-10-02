@@ -74,7 +74,7 @@ only, mixed).
 6. Measure: `python3 tools/density.py singapore --area HLV`; go live (LIVE_SLUGS) only at >=55 discovered + gated.
 
 ## W2 (2026-10-02 relaunch, 4-town session) — GO-LIVE
-- **Outcome:** HLV 52 food + 5 sights = **57 / target 55 -> OK**; `holland-village` added to LIVE_SLUGS; page renders **33 pins**.
+- **Outcome:** HLV 51 food + 5 sights = **56 / target 55 -> OK** (true count after the density.py fix; the 57 first reported was inflated); `holland-village` added to LIVE_SLUGS; page renders **33 pins**.
   Gates: geocheck PASS · statuscheck CONSISTENT · buildcheck PASS · sourcecheck FAIL only on 46 pre-existing places elsewhere (0 in HLV) ·
   validate DATA OK · npm test ALL PASS.
 - **Files:** FOOD_HOLLANDV2.json (37), SIGHTS_HOLLANDV2.json (2: Chip Bee Gardens, Rail Corridor Holland Rd), geo/_geoout_hollandv_w2.json, _w3.json
@@ -94,3 +94,7 @@ only, mixed).
   (Wikipedia only), Thambi Magazine Store (CLOSED 5 May 2024 — TSL; not added).
 - **UNVERIFIED pins (helper):** Holland Village MFC building + its 4 stalls; Lorong Mambong/Liput restaurants; One Holland Village; Chip Bee.
 - **Next:** geocode HV MFC + Lorong Mambong restaurants + One Holland Village (`tools/geocode-helper.html`); status re-check pass.
+
+> **COUNT CORRECTION (2026-10-02, later the same session):** `tools/density.py` was fixed by another session (commit 4f706d7) to stop
+> counting `sg_worklist.json` as food — the earlier W2 figures in this file were inflated by that double-count. **True counts after the
+> fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**

@@ -84,7 +84,7 @@ from memory.
 4. Creator pass: Food King (NOC), Ghib Ojisan, Exploding Belly, Eatbook/SethLui video, #punggolfood TikTok.
 
 ## W2 (2026-10-02 relaunch, 4-town session)
-- **Outcome:** PGL 35 food + 7 sights = **42 / target ~116 -> NEED +74**; page renders 16 pins; greyed (not live).
+- **Outcome:** PGL 28 food + 7 sights = **35 / target ~93 -> NEED +58** (true count after the density.py fix); page renders 16 pins; greyed (not live).
 - **Files:** FOOD_PUNGGOL2.json (23), SIGHTS_PUNGGOL2.json (3), SOURCES_PUNGGOL2.json, geo/_geoout_punggol_w2.json (13 pins: One Punggol via
   Wikipedia Punggol Regional Library coords, Waterway Point, Coney Island, Punggol Point Park, Matilda House), _w2c.json, _w3.json.
 - **Added:** sights Matilda House (Wikipedia+URA), Punggol Waterway Park (NParks+HDB+TSL+SilverStreak; Wikipedia pin), Punggol Regional
@@ -101,3 +101,7 @@ from memory.
 - **Next (+74):** Punggol needs ~2 more full sessions: Oasis Terraces / Waterway Point / Punggol Plaza / Northshore / Sumang & Edgefield
   coffeeshops (domain-filtered Eatbook/SethLui/DFD/MTC), Punggol Coast Mall (Eatbook 16 places), heritage (Punggol Heritage Trail, Lorong Buangkok
   is USG), Sengkang-edge excluded. Geocode Punggol Coast HC + Settlement via helper first (unlocks ~10 pins).
+
+> **COUNT CORRECTION (2026-10-02, later the same session):** `tools/density.py` was fixed by another session (commit 4f706d7) to stop
+> counting `sg_worklist.json` as food — the earlier W2 figures in this file were inflated by that double-count. **True counts after the
+> fix: HLV 56/55 OK (live) · BLS 55/55 OK (go-live held for pins) · NVN 35/55 (NEED +20) · PGL 35/93 (NEED +58).**
