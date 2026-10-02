@@ -40,7 +40,7 @@
  {
   "t": 2,
   "a": "NORTH",
-  "n": "Dear Margaret",
+  "n": "Dear Margaret — CLOSED",
   "address": "2965 N Lincoln Ave, Chicago, IL 60657",
   "cz": [
    "French",
@@ -48,7 +48,7 @@
   ],
   "dish": "French-Canadian bistro plates",
   "w": "Lakeview neighbourhood bistro with French-Canadian roots — Michelin Bib Gourmand (Chicago 2024).",
-  "closed": false,
+  "closed": true,
   "sources": [
    [
     "MICHELIN_BIB",
@@ -517,7 +517,7 @@
  {
   "t": 1,
   "a": "NW",
-  "n": "The Violet Hour",
+  "n": "The Violet Hour — CLOSED",
   "address": "1520 N Damen Ave, Chicago, IL 60622",
   "cz": [
    "Cocktail Bar",
@@ -525,7 +525,7 @@
   ],
   "dish": "Classic and house cocktails",
   "w": "Wicker Park's unsigned, curtain-shrouded speakeasy — James Beard Award for Outstanding Bar Program (2015).",
-  "closed": false,
+  "closed": true,
   "sources": [
    [
     "JAMESBEARD",
@@ -637,7 +637,7 @@
   "t": 2,
   "a": "NW",
   "n": "Andros Taverna",
-  "address": "",
+  "address": "2542 N Milwaukee Ave, Chicago, IL 60647",
   "cz": [
    "Greek"
   ],
@@ -655,7 +655,7 @@
   "t": 2,
   "a": "LOOP",
   "n": "Momotaro",
-  "address": "",
+  "address": "820 W Lake St, Chicago, IL 60607",
   "cz": [
    "Japanese",
    "Sushi"
@@ -674,7 +674,7 @@
   "t": 2,
   "a": "LOOP",
   "n": "Omakase Yume",
-  "address": "",
+  "address": "651 W Washington Blvd, Chicago, IL 60661",
   "cz": [
    "Omakase",
    "Sushi"
@@ -690,29 +690,10 @@
   ]
  },
  {
-  "t": 3,
-  "a": "NORTH",
-  "n": "Home Bistro",
-  "address": "",
-  "cz": [
-   "French",
-   "Contemporary"
-  ],
-  "dish": "Bistro plates",
-  "w": "Lakeview bistro in the Michelin Guide.",
-  "closed": false,
-  "sources": [
-   [
-    "MICHELIN",
-    "https://guide.michelin.com/us/chicago/home-bistro/restaurant"
-   ]
-  ]
- },
- {
   "t": 2,
   "a": "NW",
   "n": "Dove's Luncheonette",
-  "address": "",
+  "address": "1545 N Damen Ave, Chicago, IL 60622",
   "cz": [
    "Mexican",
    "Diner"
@@ -728,29 +709,10 @@
   ]
  },
  {
-  "t": 2,
-  "a": "NW",
-  "n": "etta",
-  "address": "",
-  "cz": [
-   "New American",
-   "Pizza"
-  ],
-  "dish": "Wood-fired plates and pizzas",
-  "w": "Wicker Park wood-fired restaurant with a manicured rooftop patio — Michelin Bib Gourmand.",
-  "closed": false,
-  "sources": [
-   [
-    "MICHELIN_BIB",
-    "https://guide.michelin.com/us/en/illinois/chicago/bucktown-and-wicker-park/restaurants"
-   ]
-  ]
- },
- {
   "t": 1,
   "a": "SOUTH",
   "n": "Virtue",
-  "address": "",
+  "address": "1462 E 53rd St, Chicago, IL 60615",
   "cz": [
    "Southern",
    "Soul Food"
@@ -773,7 +735,7 @@
   "t": 2,
   "a": "SOUTH",
   "n": "Yao Yao",
-  "address": "",
+  "address": "230 W Cermak Rd, Chicago, IL 60616",
   "cz": [
    "Sichuan",
    "Chinese"
@@ -792,7 +754,7 @@
   "t": 2,
   "a": "SOUTH",
   "n": "Dolo",
-  "address": "",
+  "address": "2222 S Archer Ave, Chicago, IL 60616",
   "cz": [
    "Dim Sum",
    "Cantonese"
@@ -804,25 +766,6 @@
    [
     "MICHELIN",
     "https://guide.michelin.com/us/chicago/dolo/restaurant"
-   ]
-  ]
- },
- {
-  "t": 2,
-  "a": "SOUTH",
-  "n": "Daguan Noodle",
-  "address": "",
-  "cz": [
-   "Noodles",
-   "Chinese"
-  ],
-  "dish": "Yunnan rice-noodle soups — sour, spicy, or pig intestine & oxtail",
-  "w": "Chinatown noodle-soup shop on Wentworth — Michelin Bib Gourmand; broth 'tastes like liquid gold'.",
-  "closed": false,
-  "sources": [
-   [
-    "MICHELIN_BIB",
-    "https://guide.michelin.com/us/en/article/dining-out/best-chinese-restaurants-chicago"
    ]
   ]
  },
@@ -906,14 +849,14 @@
  {
   "t": 2,
   "a": "LOOP",
-  "n": "Les Nomades",
-  "address": "",
+  "n": "Les Nomades — CLOSED",
+  "address": "222 E Ontario St, Chicago, IL 60611 (former)",
   "cz": [
    "French"
   ],
   "dish": "Classical French with cart brigade service",
   "w": "Streeterville two-storey townhouse for classical French — in the Michelin Guide.",
-  "closed": false,
+  "closed": true,
   "sources": [
    [
     "MICHELIN",
@@ -1033,7 +976,7 @@
   "t": 1,
   "a": "NORTH",
   "n": "Hopleaf",
-  "address": "",
+  "address": "5148 N Clark St, Chicago, IL 60640",
   "cz": [
    "Pub",
    "Belgian",

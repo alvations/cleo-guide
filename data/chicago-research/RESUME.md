@@ -32,12 +32,28 @@
 - Search count (session 2): ~218 (main ≈186 + 2 geocode subagents 32). Stopped when yield fell to ~1 place/search
   (the remaining Wikipedia-pinnable landmarks are mostly used up; the next wave must be food + the geocode helper).
 
+- 2026-10-02 (session 3, FOOD & DRINK FIRST, FINAL): **295 researched (149 food = 50.5%), 209 rendered (146 sights + 63 food)**;
+  4 gates + validate + test green; card + CITIES.md refreshed. Per area (food+sights / target): LOOP 42+46=88/110 · NORTH 30+24=54/85 ·
+  NW 45+10=55/80 · WEST 10+10=20/50 · SOUTH 10+21=31/60 · SW 3+4=7/25 · FAR 5+3=8/30 · SUB 4+15=19/50 · DAY 0+13=13/20.
+  New files: FOOD_W12.json (48), FOOD_W13.json (13), FOOD_W14.json (14); geo/_geoout_w12.json, _geoout_w13.json, _geoout_backlog.json;
+  lead ledger _chi_w12_leads.md + held list in AUDIT.md. Searches: 200/200 session cap (main ≈75, 3 geocode agents ≈125) — stopped by the cap.
+  **86 places UNVERIFIED (not on map yet)** — see docs/GEOCODE-BACKLOG.md `chicago-il`; 20 of them (W12b tail + all of W13 except Ricobene's)
+  have NO address/status check yet: MingHin, Maple & Ash, Tzuco, Michael Jordan's, Warlord, Sol de Mexico, Lost Lake, Milk Room, Papa's Cache,
+  Smak-Tak, Kasia's, Lost Larson, Loaf Lounge, Hewn, Bang Bang, Brown Sugar, Josephine's, Do-Rite, Old Fashioned Donuts, Chiu Quon
+  (+ all of FOOD_W14.json, never geocoded).
+
 ## In-flight wave
-**Session 3 (2026-10-02, food & drink first, §2b):** W12 food batches → `FOOD_W12.json` (+ later `FOOD_W13.json`…),
-geocode via background agents → `geo/_geoout_w12.json`, backlog pins → `geo/_geoout_backlog.json`. Lead ledger:
-`_chi_w12_leads.md`. Searches used this session: ~27 (main).
+(none — session 3 closed cleanly at the search cap.)
 
 ## Next actions (ordered)
+0. **Session-4 plan (next wave):** (a) geocode + status agent for the 20 unchecked + FOOD_W14 (34 places; accepted pin sources:
+   latlong.net POI, Wikipedia, Apple Maps place links, Atlas Obscura, OSM/mapcarta, Google !3d!4d — NOT frankiapp-type aggregators);
+   (b) food discovery for the thin areas: SUB (Lou Malnati's Lincolnwood, Edzo's, Scatchell's, Bob Chinn's, Al Bawadi, Oak Park/Evanston/
+   Berwyn/Forest Park — Hungry Hound suburban lists), SOUTH (Pearl's Place, Chinatown: Dolo/MingHin done → Nine Bar, Qing Xiang Yuan;
+   Bridgeport: Phil's Pizza, Kimski, Maria's), WEST (Pilsen/Little Village: 5 Rabanitos, El Milagro, Don Pedro, Nuevo Leon; Carm's, J.P.
+   Graziano), SW (Tony's Italian Beef, Marie's/Vito's, Archer Heights Polish), FAR (St. Rest, Lem's done, Calumet Fisheries done; Beverly
+   taverns), DAY (Milwaukee custard/Kopp's, Lake Geneva) — corroborate the held list in AUDIT.md first (cheapest wins);
+   (c) re-verify (4b) the med pins (Giant, Rainbo, Middle Brow).
 1. Pin the 29 UNVERIFIED restaurants with `tools/geocode-helper.html` (browser) → re-run `--build`; that alone lifts
    food on the map from 39 to ~68 and un-hides nothing (SW now has pins).
 2. Food density (biggest gap): Infatuation/Time Out neighbourhood guides for NW (Logan Sq/Wicker/Avondale), WEST
