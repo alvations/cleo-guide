@@ -126,3 +126,24 @@
   CLOSED → DROPPED: Jansen (Inquirer closings 2025, 2025-12-30). Address corrections: Gilda → 300 E Girard Ave (moved; 6abc/Inquirer
   2026-05), Kilimandjaro → 4301 Chestnut St (reopened 2024-09), Café y Chocolate → 1532 Snyder Ave, Hello Vietnam → 722 N 2nd St.
   Fette Sau Philly open (only Williamsburg closed 2025-12); Sang Kee reopened after a Dec 2024 city shutdown.
+
+## 2026-10-02 · W3 batches 5-8 — SJ, DAY, NPH, CC classics, FISH bars, sights
+- SJ (Infatuation South Jersey section × Inquirer Cherry Hill/Collingswood guides × NJ Monthly × SJ Magazine): Donkey's Place, Corinne's
+  Place, June BYOB (HELD lead cleared), Hearthside, Kiko's, Norma's, Farm and Fisherman, Indeblue, Radin's, Steak 38, Gass & Main, Nan Xiang.
+- DAY: Andiario, Talula's Table, Bluebird Distilling, Sly Fox (Inquirer × Main Line Today × Philly Mag × Visit Philly).
+  HELD: Marsha Brown (Visit Philly only), Longwood's 1906 (Inquirer only), Portabello's (unattributed).
+- NPH (Visit Philly El Centro de Oro list × Inquirer/Billy Penn/Infatuation): Max's Steaks (sale in progress Jan 2026 — status to
+  re-check), Tierra Colombiana, Freddy & Tony's, Porky's Point, El Coqui. MEASURED & DROPPED: Hops Brewerytown (2019 opening news only
+  — a mention, not merit). HELD: El Bohio, La Sierra, La Caribeña, Delicias, El Principe, Taqueria La Raza, Vivaldi (Visit Philly only).
+- CC: Shane Confectionery + Federal Donuts + Monk's Cafe (HELD leads cleared), Butcher and Singer, Barclay Prime, Talula's Garden,
+  Double Knot, Goldie (Philly Mag Best of Philly × Inquirer × Infatuation).
+- FISH: Johnny Brenda's, Middle Child Clubhouse, Emmett (HELD lead cleared; Esquire Best New 2025), Philadelphia Brewing Co (HELD lead
+  cleared), Cafe La Maude, Standard Tap. HELD: Jean (opened 2026 above Emmett — preview coverage only).
+- Sights (Visit Philly / Atlas Obscura / Inquirer × Wikipedia infobox pins): Fort Mifflin, American Swedish Historical Museum, Girard
+  College Founder's Hall, Frankford Avenue Bridge (1697), Simeone Automotive Museum, John Heinz NWR (med — refuge point), 30th Street
+  Station, Fisher Fine Arts Library, Mount Moriah Cemetery (med — cemetery point). Dead end: FISH-sight Wikipedia batch (Graffiti Pier,
+  Johnny Brenda's) returned no pins; Frankford Arsenal measured & dropped (office park now — no visitor merit).
+- Creator channel: Dave Portnoy One Bite → Angelo's (9.1 in 2019, region's highest, per Inquirer 2026-08-05) — CREATORS_W3.json.
+  His 2026 Philly stops (Johnny's Bryn Mawr, Marina's Fishtown, Liguria) not attached: scores not in-result.
+- Channel mix so far W3 (101 food + 18 sights): editorial of record (Inquirer, Philly Mag) ~95 · Infatuation ~65 · Visit Philly ~60 ·
+  regional (Main Line Today 14, NJ Monthly 4, SJ Mag 1, Northeast Times 1) · travel (Atlas Obscura 3) · Billy Penn ~10 · creator 1.
