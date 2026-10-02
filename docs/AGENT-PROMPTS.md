@@ -132,13 +132,17 @@ flock -w 1800 $LOCK bash -c 'git add <your paths> data/geocodes.json data/source
 | 2026-08-24 | Columbus | geocode wave | 42 metro+corridor | 24 pinned | Mikey's/Chuan Jiang bad-pin rejected → UNVERIFIED | geo/_geoout_wave_*.json |
 | 2026-08-24 | Dayton | geocode wave | 41 metro+corridor | 18 pinned | 14 restaurants + 9 parks UNVERIFIED (helper) | geo/_geoout_wave_*.json |
 | 2026-10-02 | Indianapolis | scaffold + food-canon W1 | tenderloin/IM Best Restaurants/JB 2026 | 0 (leads only) | W1 truncated at 5 searches by shared WebSearch session cap (200/200) | _PENDING_LEADS.md, AUDIT.md |
+| 2026-10-02 | Hokkaido | sights (SPR) W01 | Sapporo icons, batched Wikipedia-coords queries | 12 (9 pinned) | Ōkurayama/Hōheikan/Tanukikōji held single-source; stopped at the 200/200 session WebSearch cap | SIGHTS_HOKKAIDO_W01.json, geo/_geoout_hokkaido_w01.json |
 
 | 2026-10-02 | Liège | discovery W1 (partial) | LIE sights + boulets/gaufre canon | 5 (1 geocoded) | halted: WebSearch session budget 200/200 after 11 searches; ~20 leads held in _PENDING_LEADS.md | liege-research/SIGHTS_LIEGE_LIE, FOOD_LIEGE_LIE, geo/_geoout_liege_w1 |
 | 2026-10-02 | Tokyo | sights W1 (CYD) | sights backbone via Wikipedia/GO TOKYO/japan-guide/Time Out | 9 (all geocoded) | halted: shared WebSearch budget 200/200 exhausted | SIGHTS_TOKYO_W1.json, geo/_geoout_tokyo_w1.json |
 | 2026-10-02 | Chicago | scaffold + food canon W1 | areas/taxonomy/build + canon | 0 (BLOCKED) | session WebSearch cap 200/200 exhausted by concurrent agents after 3 calls; 7 partial leads in _PENDING_LEADS.md | consolidate.py, build-chicago.py, SOURCES_BASE.json |
 | 2026-10-02 | Akron-Kent-Canton | scaffold + W1 food canon | Barberton chicken | 1 | blocked: shared WebSearch session cap 200/200 hit at 2nd query; Milich's held 1-src | FOOD_W1CANON/SOURCES_W1.json, geo/_geoout_w1_canon.json |
 | 2026-10-02 | Singapore BLS | food canon (W1, partial) | Balestier Rd + Whampoa Makan Place | 13 | 545 Whampoa (relocation?) + 20 single-source held; stopped at session WebSearch cap 200/200 | FOOD/SOURCES/CREATORS_BALESTIER.json, _note_BALESTIER.md |
+| 2026-10-02 | Singapore — Punggol (PGL) | discovery W1 (partial) | One Punggol / Punggol Coast HC + Coney/Punggol Point/Sook Ching sights | 9 (5 food + 4 sights; 0 geocoded) | halted ~17 searches in: session WebSearch cap 200/200; ~35 single-source/unmeasured leads held in _note_PUNGGOL.md | FOOD/SIGHTS/SOURCES/CREATORS_PUNGGOL.json, _note_PUNGGOL.md |
+| 2026-10-02 | Orlando | scaffold + W1 Michelin (partial) | 18 areas/taxonomy, build-orlando.py, 22 outlets | 0 (leads only) | stopped: session WebSearch cap 200/200 hit after 8 calls | consolidate.py, SOURCES_CORE.json, _PENDING_LEADS.md |
 
+| 2026-10-02 | Singapore NVN | food+sights W1 | Newton FC Bib canon | 6 | 15 held single-source; halted by WebSearch 200 cap | FOOD/SIGHTS/CREATORS/SOURCES_NOVENA.json, geo/_geoout_novena_w1.json |
 **Builds landed 2026-08-24:** Columbus → **86 pins** (62 sights + 24 food), all 4 gates green, 41 UNVERIFIED queued.
 Dayton → **74 pins** (55 sights + 19 food), geocheck/statuscheck/buildcheck green; sourcecheck FAIL = 2 single-source
 places (Aullwood, Third Perk) that build GATE 1 drops, so the page is clean. Cleveland (engine) → Lakewood/West-Side +
