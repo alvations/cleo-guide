@@ -1,0 +1,3290 @@
+{
+ "areas": [
+  {
+   "id": "FTL",
+   "n": "Fort Lauderdale, Hollywood & Broward"
+  },
+  {
+   "id": "NMIA",
+   "n": "North Miami, Aventura, Sunny Isles & Miami Gardens"
+  },
+  {
+   "id": "WYN",
+   "n": "Wynwood, Design District, Little Haiti & MiMo"
+  },
+  {
+   "id": "DTB",
+   "n": "Downtown, Brickell & Overtown"
+  },
+  {
+   "id": "LHAV",
+   "n": "Little Havana, Hialeah, Doral & West Dade"
+  },
+  {
+   "id": "MBCH",
+   "n": "Miami Beach, Surfside & Bal Harbour"
+  },
+  {
+   "id": "CGCG",
+   "n": "Coral Gables, Coconut Grove & Key Biscayne"
+  },
+  {
+   "id": "SDADE",
+   "n": "South Dade — Kendall, Homestead, Redland & Florida City"
+  },
+  {
+   "id": "GLADE",
+   "n": "Everglades NP, Biscayne NP & the Tamiami Trail"
+  }
+ ],
+ "ac": {
+  "FTL": "#4F81BD",
+  "NMIA": "#8064A2",
+  "WYN": "#E05A8A",
+  "DTB": "#E8973A",
+  "LHAV": "#C0504D",
+  "MBCH": "#2EB5C9",
+  "CGCG": "#9BBB59",
+  "SDADE": "#D4A017",
+  "GLADE": "#3D8B5A"
+ },
+ "cuisines": [
+  {
+   "id": "CUBAN",
+   "n": "Cuban — sandwiches, croquetas, ventanita cafecito"
+  },
+  {
+   "id": "BAKE",
+   "n": "Bakeries, Pastelitos & Key Lime Pie"
+  },
+  {
+   "id": "SEAF",
+   "n": "Seafood, Stone Crab & Raw Bars"
+  },
+  {
+   "id": "HAIT",
+   "n": "Haitian — griot, diri ak djon djon"
+  },
+  {
+   "id": "CARIB",
+   "n": "Caribbean — Jamaican, Bahamian, Trini & Puerto Rican"
+  },
+  {
+   "id": "PERU",
+   "n": "Peruvian & Ceviche"
+  },
+  {
+   "id": "VENCO",
+   "n": "Venezuelan & Colombian — arepas, cachapas"
+  },
+  {
+   "id": "LATAM",
+   "n": "Nicaraguan, Argentine, Brazilian & Mexican"
+  },
+  {
+   "id": "GLADF",
+   "n": "Glades & Keys — conch, gator, frog legs"
+  },
+  {
+   "id": "FARM",
+   "n": "Tropical Fruit Stands, Farms & U-Pick"
+  },
+  {
+   "id": "MKT",
+   "n": "Markets & Food Halls"
+  },
+  {
+   "id": "US",
+   "n": "American, New American & Steak"
+  },
+  {
+   "id": "BURG",
+   "n": "Burgers, BBQ, Diners & Sandwiches"
+  },
+  {
+   "id": "EU",
+   "n": "Italian, French, Spanish & Pizza"
+  },
+  {
+   "id": "MED",
+   "n": "Mediterranean & Middle Eastern"
+  },
+  {
+   "id": "ASIAN",
+   "n": "Japanese, Chinese, Thai & Asian"
+  },
+  {
+   "id": "COF",
+   "n": "Coffee & Cafés"
+  },
+  {
+   "id": "BAR",
+   "n": "Bars, Breweries & Cocktails"
+  },
+  {
+   "id": "VIRAL",
+   "n": "Viral / Social"
+  }
+ ],
+ "cats": [
+  {
+   "id": "ICON",
+   "n": "Iconic & Must-See"
+  },
+  {
+   "id": "BEACH",
+   "n": "Beaches & Waterfront"
+  },
+  {
+   "id": "DECO",
+   "n": "Art Deco, MiMo & Architecture"
+  },
+  {
+   "id": "ART",
+   "n": "Art, Murals & Galleries"
+  },
+  {
+   "id": "MUS",
+   "n": "Museums"
+  },
+  {
+   "id": "HIST",
+   "n": "History & Heritage"
+  },
+  {
+   "id": "PARK",
+   "n": "Parks & Gardens"
+  },
+  {
+   "id": "WILD",
+   "n": "Everglades, Wildlife & Nature"
+  },
+  {
+   "id": "BOAT",
+   "n": "Boats, Airboats & Islands"
+  },
+  {
+   "id": "ENT",
+   "n": "Music, Nightlife & Performing Arts"
+  },
+  {
+   "id": "FAM",
+   "n": "Family & Kids"
+  },
+  {
+   "id": "ODD",
+   "n": "Oddities & Hidden Gems"
+  },
+  {
+   "id": "FREE",
+   "n": "Free to Visit"
+  }
+ ],
+ "P": [
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Anhinga Trail (Royal Palm)",
+   "ad": "Royal Palm Visitor Center, State Road 9336, Everglades National Park, FL",
+   "w": "The park's most popular trail: a paved path and boardwalk over sawgrass marsh and Taylor Slough where alligators, turtles and anhingas gather — best in the dry-season winter.",
+   "k": "Walk it early morning Dec–Apr; watch for vultures on car rubber.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"
+    ],
+    [
+     "NATGEO",
+     "https://www.nationalgeographic.com/travel/national-parks/article/everglades-activities"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Shark Valley",
+   "ad": "36000 SW 8th St, Miami, FL (Tamiami Trail)",
+   "w": "Everglades NP's northern entrance: a 15-mile paved loop through the river of grass to a 360° observation tower — by tram tour, bicycle or on foot.",
+   "g": [
+    "ICON",
+    "DECO",
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"
+    ],
+    [
+     "NATGEO",
+     "https://www.nationalgeographic.com/travel/national-parks/article/everglades-activities"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Pa-hay-okee Overlook",
+   "ad": "Main Park Road, Everglades National Park, FL",
+   "w": "A short boardwalk to a raised platform with sweeping views over the sawgrass 'river of grass'.",
+   "g": [
+    "BEACH",
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/everglades-national-park/things-to-do/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Flamingo Visitor Center & Marina",
+   "ad": "Flamingo, Everglades National Park, FL",
+   "w": "The park's far southern end on Florida Bay: boat tours and rentals into the backcountry, crocodiles and manatees at the marina.",
+   "g": [
+    "BEACH",
+    "PARK",
+    "WILD",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"
+    ],
+    [
+     "NATGEO",
+     "https://www.nationalgeographic.com/travel/national-parks/article/everglades-activities"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Bonnet House Museum & Gardens",
+   "ad": "900 N Birch Rd, Fort Lauderdale, FL",
+   "w": "The 1920s Caribbean-plantation-style waterfront estate of artists Frederic and Evelyn Bartlett, between the Intracoastal and the beach.",
+   "g": [
+    "BEACH",
+    "ART",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bonnet_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Las Olas Boulevard",
+   "ad": "Las Olas Blvd, Fort Lauderdale, FL",
+   "w": "Fort Lauderdale's main strolling street of restaurants, galleries and boutiques, running from downtown to the beach.",
+   "g": [
+    "BEACH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Riverwalk Fort Lauderdale",
+   "ad": "Riverwalk, New River, Fort Lauderdale, FL",
+   "w": "A brick promenade along the New River past mansions, the Stranahan House and riverside bars.",
+   "g": [
+    "BEACH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Stranahan House",
+   "ad": "335 SE 6th Ave, Fort Lauderdale, FL",
+   "w": "Built 1901 as Frank Stranahan's trading post — the oldest surviving structure in Broward County, now a museum.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stranahan_House"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Fort Lauderdale Beach",
+   "ad": "Fort Lauderdale Beach Blvd (A1A), Fort Lauderdale, FL",
+   "w": "The former spring-break mecca, now a palm-lined promenade of white sand and turquoise water.",
+   "g": [
+    "BEACH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"
+    ],
+    [
+     "CULTURETRIP",
+     "https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "Miami Beach Architectural District (Art Deco Historic District)",
+   "ad": "Ocean Drive & Collins Ave, South Beach, Miami Beach, FL",
+   "w": "The world's largest concentration of 1920s–30s Art Deco buildings, pastel hotels along Ocean Drive — on the National Register.",
+   "k": "Walk Ocean Drive at dusk when the neon comes on.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "DECO",
+    "ART"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Miami_Beach_Architectural_District"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "The Wolfsonian–FIU",
+   "ad": "1001 Washington Ave, Miami Beach, FL",
+   "w": "Design museum and library in a restored 1927 storage building — 180,000 objects on how design shaped the modern world.",
+   "g": [
+    "DECO",
+    "MUS"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wolfsonian-FIU"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Lincoln Road Mall",
+   "ad": "Lincoln Rd, Miami Beach, FL",
+   "w": "Morris Lapidus' 1960 pedestrian mall — a mile of cafés, shops and people-watching.",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lincoln_Road"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "South Pointe Park",
+   "ad": "1 Washington Ave, Miami Beach, FL",
+   "w": "Waterfront park and pier at the tip of South Beach watching cruise ships slide out of Government Cut.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "PARK",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/South_Pointe_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "Holocaust Memorial Miami Beach",
+   "ad": "1933-1945 Meridian Ave, Miami Beach, FL",
+   "w": "Kenneth Treister's 1990 memorial: a 42-ft bronze arm rising from a reflecting pool, ringed by figures and a granite wall of victims' names.",
+   "g": [
+    "BEACH"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Holocaust_Memorial_Miami_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "The Bass",
+   "ad": "2100 Collins Ave, Miami Beach, FL",
+   "w": "Miami Beach's contemporary art museum in a 1930s Deco building in Collins Park.",
+   "g": [
+    "BEACH",
+    "DECO",
+    "ART",
+    "MUS"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bass_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Bayfront Park",
+   "ad": "301 Biscayne Blvd, Miami, FL",
+   "w": "Downtown's 32-acre waterfront park on Biscayne Bay, with the Noguchi-designed amphitheatre and Challenger memorial.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "PARK",
+    "ENT"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bayfront_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Pérez Art Museum Miami",
+   "ad": "1103 Biscayne Blvd, Miami, FL",
+   "w": "PAMM — Miami's flagship contemporary art museum in a Herzog & de Meuron building with hanging gardens on the bay.",
+   "g": [
+    "BEACH",
+    "DECO",
+    "ART",
+    "MUS"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Pérez_Art_Museum_Miami"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Phillip and Patricia Frost Museum of Science",
+   "ad": "1101 Biscayne Blvd, Miami, FL",
+   "w": "Science museum, planetarium and a three-level aquarium with an oculus looking up into the Gulf Stream tank.",
+   "g": [
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/things-to-do/best-miami-attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Phillip_and_Patricia_Frost_Museum_of_Science"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Wynwood Walls",
+   "ad": "2516 NW 2nd Ave, Miami, FL",
+   "w": "Tony Goldman's 2009 outdoor street-art museum that turned Wynwood's warehouses into the world's mural capital.",
+   "g": [
+    "ICON",
+    "ART",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Wynwood_Walls"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Vizcaya Museum and Gardens",
+   "ad": "3251 S Miami Ave, Miami, FL",
+   "w": "James Deering's 1916 Italian Renaissance–style villa and formal gardens on Biscayne Bay — Miami's grandest historic estate.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Vizcaya_Museum_and_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Fairchild Tropical Botanic Garden",
+   "ad": "10901 Old Cutler Rd, Coral Gables, FL",
+   "w": "83 acres of palms, cycads and rare tropical plants — one of the country's great tropical botanical gardens.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fairchild_Tropical_Botanic_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Biscayne National Park — Dante Fascell Visitor Center",
+   "ad": "9700 SW 328th St, Homestead, FL",
+   "w": "The mainland gateway to a park that is 95% water: museum, art gallery, ranger talks, and boat trips out to the keys, reefs and Stiltsville.",
+   "g": [
+    "ART",
+    "MUS",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/bisc/index.htm"
+    ],
+    [
+     "EARTHTREKKERS",
+     "https://www.earthtrekkers.com/best-things-to-do-in-biscayne-national-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Biscayne_National_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Boca Chita Key",
+   "ad": "Boca Chita Key, Biscayne National Park, FL",
+   "w": "The park's most-visited island, greeted by the ornamental lighthouse Mark Honeywell built in the 1930s.",
+   "g": [
+    "BEACH",
+    "HIST",
+    "PARK",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/bisc/index.htm"
+    ],
+    [
+     "EARTHTREKKERS",
+     "https://www.earthtrekkers.com/best-things-to-do-in-biscayne-national-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Boca_Chita_Key"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Stiltsville",
+   "ad": "Biscayne Bay off Cape Florida, Biscayne National Park, FL",
+   "w": "The six surviving stilt houses standing in the shallows of Biscayne Bay since the 1930s — seen on guided boat tours.",
+   "g": [
+    "BEACH",
+    "HIST",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/bisc/index.htm"
+    ],
+    [
+     "EARTHTREKKERS",
+     "https://www.earthtrekkers.com/best-things-to-do-in-biscayne-national-park"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Stiltsville"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Big Cypress Oasis Visitor Center",
+   "ad": "52105 Tamiami Trail E, Ochopee, FL",
+   "w": "Big Cypress National Preserve's main visitor centre on the Tamiami Trail — alligators line the canal out front.",
+   "g": [
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/tripideas/half-day-at-big-cypress-national-preserve.htm"
+    ],
+    [
+     "SHAKAGUIDE",
+     "https://www.shakaguide.com/article/big-cypress-national-preserve/big-cypress-national-preserve-itinerary"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Big_Cypress_National_Preserve"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Kirby Storter Roadside Park Boardwalk",
+   "ad": "Tamiami Trail, Big Cypress National Preserve, FL",
+   "w": "A boardwalk into a cypress strand that ends at a gator hole where anhingas dry their wings.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/tripideas/half-day-at-big-cypress-national-preserve.htm"
+    ],
+    [
+     "SHAKAGUIDE",
+     "https://www.shakaguide.com/article/big-cypress-national-preserve/big-cypress-national-preserve-itinerary"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Clyde Butcher's Big Cypress Gallery",
+   "ad": "52388 Tamiami Trail E, Ochopee, FL",
+   "w": "Gallery of Everglades photographer Clyde Butcher's monumental black-and-white swamp photographs; guided swamp walks.",
+   "g": [
+    "ART",
+    "WILD"
+   ],
+   "s": [
+    [
+     "SHAKAGUIDE",
+     "https://www.shakaguide.com/article/big-cypress-national-preserve/big-cypress-national-preserve-itinerary"
+    ],
+    [
+     "AJC",
+     "https://www.ajc.com/travel/exploring-the-everglades-9-destinations-to-visit-in-wild-south-florida/EWBQ6BL6QNCFJDHAIMVSZ52Y7U/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Clyde_Butcher"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Loop Road Scenic Drive",
+   "ad": "Loop Road (CR 94), Big Cypress National Preserve, FL",
+   "w": "A 27-mile gravel detour off the Tamiami Trail through cypress swamp and pinelands — prime gator spotting.",
+   "g": [
+    "WILD"
+   ],
+   "s": [
+    [
+     "NPS",
+     "https://www.nps.gov/tripideas/half-day-at-big-cypress-national-preserve.htm"
+    ],
+    [
+     "SHAKAGUIDE",
+     "https://www.shakaguide.com/article/big-cypress-national-preserve/big-cypress-national-preserve-itinerary"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Ochopee Post Office",
+   "ad": "38000 Tamiami Trail E, Ochopee, FL",
+   "w": "The smallest post office in the United States — a 61-sq-ft former irrigation-pipe shed pressed into service after a 1953 fire.",
+   "k": "Mail a postcard from it.",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "ROADSIDEAMERICA",
+     "https://www.roadsideamerica.com/tip/4575"
+    ],
+    [
+     "ISLANDS",
+     "https://www.islands.com/1941557/ochopee-florida-america-smallest-post-office-odd-town-big-roadside-curiosities"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ochopee,_Florida"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "GLADE",
+   "n": "Skunk Ape Research Headquarters",
+   "ad": "40904 Tamiami Trail E, Ochopee, FL",
+   "w": "Roadside shrine-cum-campground devoted to Florida's Bigfoot, the Skunk Ape.",
+   "g": [
+    "ART"
+   ],
+   "s": [
+    [
+     "ISLANDS",
+     "https://www.islands.com/1941557/ochopee-florida-america-smallest-post-office-odd-town-big-roadside-curiosities"
+    ],
+    [
+     "AJC",
+     "https://www.ajc.com/travel/exploring-the-everglades-9-destinations-to-visit-in-wild-south-florida/EWBQ6BL6QNCFJDHAIMVSZ52Y7U/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Fruit & Spice Park",
+   "ad": "24801 SW 187th Ave, Homestead, FL",
+   "w": "Miami-Dade's 37-acre Redland botanical park of 500+ edible tropical fruits, spices and nuts — taste what's in season.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insider-s-guide-homestead"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fruit_and_Spice_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Coral Castle",
+   "ad": "28655 S Dixie Hwy, Homestead, FL",
+   "w": "Ed Leedskalnin's single-handed carved-coral monument (1923–51), still unexplained.",
+   "g": [
+    "ICON"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insider-s-guide-homestead"
+    ],
+    [
+     "GULFSHOREBUSINESS",
+     "https://gulfshorebusiness.com/doing-redland-right"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Coral_Castle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Monkey Jungle",
+   "ad": "14805 SW 216th St, Miami, FL",
+   "w": "Since 1933: the humans walk in cages while the primates roam free.",
+   "g": [
+    "BOAT",
+    "FAM",
+    "FREE"
+   ],
+   "s": [
+    [
+     "GULFSHOREBUSINESS",
+     "https://gulfshorebusiness.com/doing-redland-right"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Monkey_Jungle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Everglades Alligator Farm",
+   "ad": "40351 SW 192nd Ave, Homestead, FL",
+   "w": "Florida's oldest alligator farm (1940s) at the Everglades' edge — airboat rides and gator shows.",
+   "g": [
+    "WILD",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "GULFSHOREBUSINESS",
+     "https://gulfshorebusiness.com/doing-redland-right"
+    ],
+    [
+     "FLORIDARAMBLER",
+     "https://www.floridarambler.com/?p=566"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Crandon Park Beach",
+   "ad": "6747 Crandon Blvd, Key Biscayne, FL",
+   "w": "Key Biscayne's two-mile family beach with calm water, cabanas and beachside paella.",
+   "g": [
+    "BEACH",
+    "PARK",
+    "BOAT",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/things-to-do/best-miami-beaches"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Crandon_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Bill Baggs Cape Florida State Park",
+   "ad": "1200 S Crandon Blvd, Key Biscayne, FL",
+   "w": "The tip of Key Biscayne: a mile of wild beach, nature trails and Miami-Dade's oldest structure, the 1825 Cape Florida Light.",
+   "g": [
+    "BEACH",
+    "PARK",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/things-to-do/best-miami-beaches"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Bill_Baggs_Cape_Florida_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Cape Florida Light",
+   "ad": "Bill Baggs Cape Florida State Park, Key Biscayne, FL",
+   "w": "The 1825 brick lighthouse — the oldest standing structure in Miami-Dade; climb it on ranger-led tours.",
+   "g": [
+    "BEACH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Cape_Florida_Light"
+    ],
+    [
+     "NRHP",
+     "https://www.nps.gov/NR/travel/geo-flor/46.htm"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Historic Virginia Key Beach Park",
+   "ad": "4020 Virginia Beach Dr, Miami, FL",
+   "w": "Opened in 1945 as the 'colored only' beach of segregated Miami; now a historic park on Virginia Key.",
+   "g": [
+    "BEACH",
+    "HIST",
+    "PARK",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/things-to-do/best-miami-beaches"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Virginia_Key_Beach_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Haulover Beach",
+   "ad": "10800 Collins Ave, Miami Beach, FL",
+   "w": "Wide family beach between Bal Harbour and Sunny Isles — kite flying since 1992, a skate park, and a clothing-optional section to the north.",
+   "g": [
+    "BEACH",
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/things-to-do/best-miami-beaches"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haulover_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "South Beach",
+   "ad": "Ocean Dr & Collins Ave, Miami Beach, FL",
+   "w": "Miami's most famous sand, framed by lifeguard towers and the Art Deco skyline of Ocean Drive.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "DECO",
+    "ART"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/things-to-do/best-miami-beaches"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/South_Beach"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Biltmore Hotel",
+   "ad": "1200 Anastasia Ave, Coral Gables, FL",
+   "w": "1926 Mediterranean Revival grand hotel and South Florida's only National Historic Landmark resort.",
+   "g": [
+    "DECO",
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITFLORIDA",
+     "https://www.visitflorida.com/places-to-go/southeast/coral-gables/"
+    ],
+    [
+     "CORALGABLES",
+     "https://coralgables.com/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Biltmore_Hotel_(Coral_Gables,_Florida)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Venetian Pool",
+   "ad": "2701 De Soto Blvd, Coral Gables, FL",
+   "w": "A 1924 public pool carved from a coral-rock quarry — waterfalls, grottoes and Venetian bridges; on the National Register.",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITFLORIDA",
+     "https://www.visitflorida.com/places-to-go/southeast/coral-gables/"
+    ],
+    [
+     "CORALGABLES",
+     "https://coralgables.com/attractions"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Venetian_Pool"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Miracle Mile (Coral Gables)",
+   "ad": "Miracle Mile, Coral Gables, FL",
+   "w": "Coral Gables' downtown boulevard of shops, cafés and galleries.",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "VISITFLORIDA",
+     "https://www.visitflorida.com/places-to-go/southeast/coral-gables/"
+    ],
+    [
+     "CORALGABLES",
+     "https://coralgables.com/attractions"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Lowe Art Museum",
+   "ad": "1301 Stanford Dr, Coral Gables, FL",
+   "w": "University of Miami's art museum, home of the Kress Collection of Renaissance and Baroque art.",
+   "g": [
+    "ART",
+    "MUS"
+   ],
+   "s": [
+    [
+     "VISITFLORIDA",
+     "https://www.visitflorida.com/places-to-go/southeast/coral-gables/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lowe_Art_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Calle Ocho (SW 8th Street)",
+   "ad": "SW 8th St, Little Havana, Miami, FL",
+   "w": "The heart of Cuban Miami: cigar rollers, ventanitas, giant painted roosters and the Walk of Fame stars for Celia Cruz and Gloria Estefan.",
+   "g": [
+    "ICON",
+    "ART"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/12-historic-sites-in-little-havana"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Little_Havana"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Domino Park (Máximo Gómez Park)",
+   "ad": "801 SW 15th Ave, Miami, FL",
+   "w": "Shaded pavilion where the Máximo Gómez Domino Club play fierce daily games — the symbol of Little Havana.",
+   "g": [
+    "ICON",
+    "PARK",
+    "ENT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/12-historic-sites-in-little-havana"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Little_Havana"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "Tower Theater",
+   "ad": "1508 SW 8th St, Miami, FL",
+   "w": "A 1926 Art Deco cinema at Calle Ocho and 15th Ave, still screening films and hosting cultural events.",
+   "g": [
+    "ICON",
+    "DECO",
+    "ART",
+    "ENT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/12-historic-sites-in-little-havana"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tower_Theater_(Miami)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "Cuban Memorial Boulevard",
+   "ad": "SW 13th Ave, Little Havana, Miami, FL",
+   "w": "A tree-lined median of monuments to Cuban history — the Eternal Torch of the Brigade 2506, the Bay of Pigs memorial.",
+   "g": [
+    "BEACH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/12-historic-sites-in-little-havana"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Little_Havana"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Freedom Tower",
+   "ad": "600 Biscayne Blvd, Miami, FL",
+   "w": "1925 Giralda-style tower built for the Miami News; 1962–74 the Cuban Refugee Center that processed ~300,000 exiles — the 'Ellis Island of the South'. National Historic Landmark (2008).",
+   "g": [
+    "DECO",
+    "HIST",
+    "WILD",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/20-architecturally-buildings-downtown"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/arts-culture/the-eight-oldest-and-most-iconic-buildings-in-miami-8455204/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Freedom_Tower_(Miami)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "HistoryMiami Museum",
+   "ad": "101 W Flagler St, Miami, FL",
+   "w": "South Florida's history museum in the Cultural Plaza; it also manages the Miami Circle.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/HistoryMiami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Olympia Theater",
+   "ad": "174 E Flagler St, Miami, FL",
+   "w": "John Eberson's 1926 atmospheric movie palace for Paramount — stars twinkle on the ceiling; a Miami Film Festival venue.",
+   "g": [
+    "ENT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/20-architecturally-buildings-downtown"
+    ],
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Olympia_Theater_(Miami)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Miami Circle",
+   "ad": "401 Brickell Ave, Miami, FL",
+   "w": "A 2,000-year-old Tequesta circle of 24 post-holes cut into limestone at the mouth of the Miami River, found in 1998. National Historic Landmark.",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Miami_Circle"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Historic Lyric Theater (Black Archives)",
+   "ad": "819 NW 2nd Ave, Miami, FL",
+   "w": "Overtown's 1913 theatre at the heart of 'Little Broadway', where Count Basie, Billie Holiday and Aretha Franklin played; now the Black Archives' home.",
+   "g": [
+    "ART",
+    "HIST",
+    "ENT"
+   ],
+   "s": [
+    [
+     "LONELYPLANET",
+     "https://www.lonelyplanet.com/usa/miami/attractions/black-archives-historic-lyric-theater/a/poi-sig/1457840/361916"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Lyric_Theater_(Miami)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Black Police Precinct and Courthouse Museum",
+   "ad": "480 NW 11th St, Miami, FL",
+   "w": "The 1950 precinct and courthouse where Miami's first Black officers served — now a museum of their story.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "FROMMERS",
+     "https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Black_Police_Precinct_and_Courthouse_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Ancient Spanish Monastery",
+   "ad": "16711 W Dixie Hwy, North Miami Beach, FL",
+   "w": "A 12th-century Cistercian cloister from Segovia, bought by William Randolph Hearst, shipped in crates and reassembled in North Miami Beach.",
+   "g": [
+    "BEACH",
+    "HIST"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Monastery_of_St._Bernard_de_Clairvaux"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Oleta River State Park",
+   "ad": "3400 NE 163rd St, North Miami Beach, FL",
+   "w": "Florida's largest urban park: 1,000+ acres of mangrove estuary with kayaking, paddleboarding and 15 miles of mountain-bike trails.",
+   "g": [
+    "PARK",
+    "WILD",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Oleta_River_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Museum of Contemporary Art North Miami (MOCA)",
+   "ad": "770 NE 125th St, North Miami, FL",
+   "w": "Contemporary art museum with ~500 works and free last-Friday Jazz at MOCA concerts.",
+   "g": [
+    "ART",
+    "MUS",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Contemporary_Art,_North_Miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Arch Creek Park",
+   "ad": "1855 NE 135th St, North Miami, FL",
+   "w": "A natural limestone bridge over Arch Creek, Tequesta archaeological site and nature centre.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Arch_Creek"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NMIA",
+   "n": "Greynolds Park",
+   "ad": "17530 W Dixie Hwy, North Miami Beach, FL",
+   "w": "1930s county park with a rock-built 'castle' mound, a rookery and a 1964 nine-hole course.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Greynolds_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Rubell Museum",
+   "ad": "1100 NW 23rd St, Miami, FL",
+   "w": "One of the largest private contemporary-art collections in the world (7,200+ works), in Allapattah — with two Kusama Infinity Mirror Rooms.",
+   "g": [
+    "ART",
+    "MUS"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/arts-culture/rubell-museum-opening-could-bring-changes-to-miamis-allapattah-neighborhood-11322834/"
+    ],
+    [
+     "GLOBALPHILE",
+     "https://globalphile.com/museums-ofmiami-top-picks/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Rubell_Museum"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Margulies Collection at the Warehouse",
+   "ad": "591 NW 27th St, Miami, FL",
+   "w": "A 50,000-sq-ft Wynwood warehouse showing developer Martin Margulies' contemporary art and photography collection.",
+   "g": [
+    "ART",
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "GLOBALPHILE",
+     "https://globalphile.com/museums-ofmiami-top-picks/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Margulies_Collection"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Institute of Contemporary Art, Miami (ICA Miami)",
+   "ad": "61 NE 41st St, Miami, FL",
+   "w": "Free contemporary art museum in the Design District, with a sculpture garden.",
+   "g": [
+    "ART",
+    "MUS",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "GLOBALPHILE",
+     "https://globalphile.com/museums-ofmiami-top-picks/"
+    ],
+    [
+     "DINERSCLUB",
+     "https://resources.dinersclub.com/travel/the-art-of-travel-miami"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Institute_of_Contemporary_Art,_Miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Museum of Graffiti",
+   "ad": "276 NW 26th St, Miami, FL",
+   "w": "The world's first museum dedicated to graffiti art, in Wynwood.",
+   "g": [
+    "ART",
+    "MUS"
+   ],
+   "s": [
+    [
+     "GLOBALPHILE",
+     "https://globalphile.com/museums-ofmiami-top-picks/"
+    ],
+    [
+     "DINERSCLUB",
+     "https://resources.dinersclub.com/travel/the-art-of-travel-miami"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Miami Design District",
+   "ad": "NE 39th–41st St, Miami, FL",
+   "w": "Luxury flagships threaded with serious public art and architecture — Buckminster Fuller's Fly's Eye Dome, the Le Corbusier-inspired garage.",
+   "g": [
+    "DECO",
+    "ART"
+   ],
+   "s": [
+    [
+     "DINERSCLUB",
+     "https://resources.dinersclub.com/travel/the-art-of-travel-miami"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Miami_Design_District"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Hollywood Beach Broadwalk",
+   "ad": "Hollywood Beach Broadwalk, Hollywood, FL",
+   "w": "A 2½-mile 1950s-flavoured beachfront promenade of mom-and-pop shops and ice-cream parlours, with free music at the Hollywood Beach Theatre.",
+   "g": [
+    "BEACH",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/things-to-do/attractions/"
+    ],
+    [
+     "FODORS",
+     "https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hollywood_Beach,_Florida"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Hugh Taylor Birch State Park",
+   "ad": "3109 E Sunrise Blvd, Fort Lauderdale, FL",
+   "w": "180 acres of Old Florida hammock and mangrove between the ocean and the Intracoastal — paddling, trails, picnic lawns.",
+   "g": [
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/things-to-do/attractions/"
+    ],
+    [
+     "FODORS",
+     "https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hugh_Taylor_Birch_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Museum of Discovery and Science",
+   "ad": "401 SW 2nd St, Fort Lauderdale, FL",
+   "w": "200+ hands-on exhibits, live-animal habitats and a five-storey IMAX on the Riverwalk.",
+   "g": [
+    "BEACH",
+    "MUS",
+    "FAM"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/articles/post/why-greater-fort-lauderdale-kid-approved/"
+    ],
+    [
+     "FODORS",
+     "https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Museum_of_Discovery_and_Science"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Flamingo Gardens",
+   "ad": "3750 S Flamingo Rd, Davie, FL",
+   "w": "60-acre botanical garden and wildlife sanctuary with some of Florida's largest, oldest trees and a 1930s house museum.",
+   "g": [
+    "MUS",
+    "HIST",
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/things-to-do/attractions/"
+    ],
+    [
+     "FODORS",
+     "https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Flamingo_Gardens"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Butterfly World",
+   "ad": "3600 W Sample Rd, Coconut Creek, FL",
+   "w": "The 'Butterfly Capital of the World': 20,000 butterflies and birds in screened aviaries and gardens.",
+   "g": [
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "VISITLAUDERDALE",
+     "https://www.visitlauderdale.com/articles/post/why-greater-fort-lauderdale-kid-approved/"
+    ],
+    [
+     "FODORS",
+     "https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Butterfly_World_(Florida)"
+    ]
+   ]
+  }
+ ],
+ "F": [
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "L'Atelier de Joël Robuchon Miami",
+   "ad": "Design District, Miami, FL",
+   "w": "Miami's only two-Michelin-star restaurant (2026 Florida guide): Robuchon's counter-dining format in the Design District.",
+   "k": "Order: Chef's counter tasting menu",
+   "cz": [
+    "EU",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Shingo",
+   "ad": "Coral Gables, FL",
+   "w": "One Michelin star (2026) — Coral Gables omakase counter.",
+   "k": "Order: Edomae omakase",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Ariete",
+   "ad": "3540 Main Hwy, Miami, FL",
+   "w": "One Michelin star (2026): chef Michael Beltran's Coconut Grove flagship, Miami-Cuban flavours in fine-dining form.",
+   "k": "Order: Cuban-inflected tasting dishes",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Boia De",
+   "ad": "Little River, Miami, FL",
+   "w": "One Michelin star (2026): the strip-mall Italian in Little River that became one of Miami's hardest reservations.",
+   "k": "Order: Handmade pastas",
+   "cz": [
+    "EU"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Cote Miami",
+   "ad": "3900 NE 2nd Ave, Miami, FL",
+   "w": "One Michelin star (2026): the Miami outpost of the New York Korean steakhouse.",
+   "k": "Order: Korean BBQ butcher's feast",
+   "cz": [
+    "ASIAN",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Elcielo Miami",
+   "ad": "31 SE 5th St, Miami, FL",
+   "w": "One Michelin star (2026): chef Juan Manuel Barrientos' Colombian tasting menu on the Miami River in Brickell.",
+   "k": "Order: Colombian tasting menu",
+   "cz": [
+    "VENCO",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Hiden",
+   "ad": "313 NW 25th St, Miami, FL",
+   "w": "One Michelin star (2026): an eight-seat omakase hidden behind a Wynwood taco counter.",
+   "k": "Order: Omakase behind a taco shop",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Le Jardinier Miami",
+   "ad": "151 NE 41st St, Miami, FL",
+   "w": "One Michelin star (2026): garden-led French dining in the Design District.",
+   "k": "Order: Vegetable-forward French",
+   "cz": [
+    "EU",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Los Félix",
+   "ad": "Coconut Grove, Miami, FL",
+   "w": "One Michelin star (2026): heirloom-corn Mexican cooking in Coconut Grove.",
+   "k": "Order: Heirloom-corn Mexican",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Mutra",
+   "ad": "North Miami, FL",
+   "w": "One Michelin star (2026) — the first kosher restaurant in the world to earn a Michelin star.",
+   "k": "Order: Kosher tasting menu",
+   "cz": [
+    "MED",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Ogawa",
+   "ad": "7223 NW 2nd Ave, Miami, FL",
+   "w": "One Michelin star (2026): a serene Japanese omakase in Little River.",
+   "k": "Order: Kyoto-style omakase",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "Stubborn Seed",
+   "ad": "101 Washington Ave, Miami Beach, FL",
+   "w": "One Michelin star (2026): Top Chef winner Jeremy Ford's South of Fifth tasting room.",
+   "k": "Order: Chef Jeremy Ford's tasting menu",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Tambourine Room by Tristan Brandt",
+   "ad": "6801 Collins Ave, Miami Beach, FL",
+   "w": "One Michelin star (2026): German star chef Tristan Brandt's tasting room inside the Carillon on North Beach.",
+   "k": "Order: Tasting menu",
+   "cz": [
+    "EU",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "The Surf Club Restaurant",
+   "ad": "9011 Collins Ave, Surfside, FL",
+   "w": "One Michelin star (2026): Thomas Keller's mid-century continental dining room in the restored 1930 Surf Club.",
+   "k": "Order: Thomas Keller's continental classics",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ],
+    [
+     "MIAMILIVING",
+     "https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Tâm Tâm",
+   "ad": "99 NW 1st St, Miami, FL",
+   "w": "Michelin Bib Gourmand — heads Miami's Bib list; Vietnamese cooking in a tiny downtown room.",
+   "k": "Order: Phở and Vietnamese home cooking",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.miamiandbeaches.com/restaurants/michelin-bib-gourmand-restaurants-in-miami"
+    ],
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Bachour",
+   "ad": "2020 Salzedo St, Coral Gables, FL",
+   "w": "Michelin Bib Gourmand: pastry chef Antonio Bachour's all-day bakery-café.",
+   "k": "Order: Pastry-chef plated desserts and croissants",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "Chug's Diner",
+   "ad": "3444 Main Hwy, Coconut Grove, Miami, FL",
+   "w": "Michelin Bib Gourmand Cuban diner from Ariete's Michael Beltran & Monika Dominguez; its short-rib croqueta inspired the Infatuation's unique-croquetas guide.",
+   "k": "Order: Pan con lechón, short-rib croqueta, Cuban diner breakfast",
+   "cz": [
+    "CUBAN",
+    "BURG"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-unique-croquetas-miami"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/en/best-of/best-cuban-restaurants-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "El Turco",
+   "ad": "184 NE 50th Terrace, Miami, FL",
+   "w": "Michelin Bib Gourmand Turkish restaurant.",
+   "k": "Order: Turkish grill and mezze",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Ghee Indian Kitchen",
+   "ad": "8965 SW 72nd Pl, Miami, FL",
+   "w": "Michelin Bib Gourmand: chef Niven Patel's Indian kitchen cooking with produce from his own Homestead farm.",
+   "k": "Order: Modern Indian (Niven Patel)",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Hometown Barbecue Miami",
+   "ad": "Allapattah, Miami, FL",
+   "w": "Michelin Bib Gourmand: the Brooklyn barbecue institution's Miami pit in Allapattah.",
+   "k": "Order: Brisket and pork belly",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "La Natural",
+   "ad": "7289 NW 2nd Ave, Miami, FL",
+   "w": "Michelin Bib Gourmand neighbourhood restaurant in Little River.",
+   "k": "Order: Seasonal Latin plates",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Lucali",
+   "ad": "1930 Bay Rd, Miami Beach, FL",
+   "w": "Michelin Bib Gourmand: the Miami Beach branch of Brooklyn's famous Carroll Gardens pizzeria.",
+   "k": "Order: Brooklyn-style pies",
+   "cz": [
+    "EU"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Mandolin Aegean Bistro",
+   "ad": "4312 NE 2nd Ave, Miami, FL",
+   "w": "Michelin Bib Gourmand: Greek-Turkish cooking in a whitewashed 1940s house and garden.",
+   "k": "Order: Aegean mezze in a cottage garden",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Michael's Genuine Food & Drink",
+   "ad": "130 NE 40th St, Miami, FL",
+   "w": "Michelin Bib Gourmand: James Beard winner Michael Schwartz's Design District pioneer (2007).",
+   "k": "Order: Wood-oven seasonal plates",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Phuc Yea",
+   "ad": "MiMo District, Miami, FL",
+   "w": "Michelin Bib Gourmand Viet-Cajun spot on Biscayne Boulevard.",
+   "k": "Order: Cajun-Viet crab fried rice",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Sanguich de Miami",
+   "ad": "2057 SW 8th St, Miami, FL",
+   "w": "Michelin Bib Gourmand and New Times' Best Cuban Sandwich 2024 — the modern standard-bearer for the Cubano on Calle Ocho.",
+   "k": "Order: The Cubano — week-marinated pork, house-brined ham, house bread",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://miaminewtimes.com/restaurants/10-best-cuban-sandwiches-in-miami-21365736"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/en/best-of/best-cuban-restaurants-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Zitz Sum",
+   "ad": "396 Alhambra Cir Ste 155, Coral Gables, FL",
+   "w": "Michelin Bib Gourmand dim-sum-and-noodles spot from chef Pablo Zitzmann.",
+   "k": "Order: Dim sum",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CGCG",
+   "n": "Tinta y Café",
+   "ad": "1315 Ponce de Leon Blvd, Coral Gables, FL",
+   "w": "Michelin Bib Gourmand café.",
+   "k": "Order: Empanadas and café",
+   "cz": [
+    "LATAM",
+    "COF"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://secretmiami.com/michelin-bib-gourmand-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Barra Callao",
+   "ad": "17034 W Dixie Hwy, North Miami Beach, FL",
+   "w": "New Michelin Bib Gourmand 2026: tiny counter-service Peruvian seafood bar in a North Miami Beach strip mall.",
+   "k": "Order: Ceviche made to order",
+   "cz": [
+    "PERU"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://blog.resy.com/2026/05/michelin-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Cotoa",
+   "ad": "North Miami, FL",
+   "w": "New Michelin Bib Gourmand 2026: chef Alejandra Espinoza's Ecuadorian cooking.",
+   "k": "Order: Ecuadorian with inventive twists",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://blog.resy.com/2026/05/michelin-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Double Luck",
+   "ad": "1085 NE 79th St, Miami, FL",
+   "w": "New Michelin Bib Gourmand 2026: creative Chinese classics in a dim Upper East Side room.",
+   "k": "Order: Crispy crab-leg rangoon, Hennessy orange chicken",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://blog.resy.com/2026/05/michelin-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Versailles Restaurant",
+   "ad": "3555 SW 8th St, Miami, FL",
+   "w": "Little Havana's landmark since 1971 — New Times calls its ventanita 'ground zero for coffee culture in Miami'; Michelin-recommended.",
+   "k": "Order: Cafecito at the ventanita, croquetas, Cuban sandwich",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.directoriocubano.info/?p=59325"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/miamis-ten-best-cafecito-windows-8524291/"
+    ],
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/restaurants/best-cuban-restaurants-in-miami"
+    ],
+    [
+     "MARKWIENS",
+     "https://tubitv.com/es-us/tv-shows/200290436/s01-e05-miami-part-1"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Havana Harry's",
+   "ad": "4612 S Le Jeune Rd, Coral Gables, FL",
+   "w": "Coral Gables Cuban institution since 1995; New Times' best Cuban sandwiches and Michelin's best Cuban restaurants list (2024).",
+   "k": "Order: Cuban sandwich, vaca frita",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://miaminewtimes.com/restaurants/10-best-cuban-sandwiches-in-miami-21365736"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/en/best-of/best-cuban-restaurants-miami"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "El Mago de las Fritas",
+   "ad": "5828 SW 8th St, Miami, FL",
+   "w": "Ortelio 'El Mago' Cárdenas' frita counter — New Times' best frita cubana, Eater 38 'best fritas in Miami', and where President Obama ordered fritas in 2010.",
+   "k": "Order: Frita cubana / frita confundida",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "EATERMIAMI",
+     "https://web-archive.nli.org.il/National_Library/oe_/https://miami.eater.com/"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/the-ten-best-fritas-cubanas-in-miami-8483691/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "Joe's Stone Crab",
+   "ad": "11 Washington Ave, Miami Beach, FL",
+   "w": "Miami Beach's oldest restaurant (1913) and the home of stone crab; open mid-October to mid-May for the season. Eater 38 'original Miami Beach power lunch'.",
+   "k": "Order: Stone crab claws with mustard sauce, key lime pie",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "EATERMIAMI",
+     "https://web-archive.nli.org.il/National_Library/oe_/https://miami.eater.com/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.tripexpert.com/miami/restaurants/joes-stone-crab"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/uncategorized/100-favorite-dishes-joes-stone-crab-claws-6607546/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Chez Le Bebe",
+   "ad": "114 NE 54th St, Miami, FL",
+   "w": "Little Haiti griot specialist — crunchy fried pork with pikliz, huge plates for under $10.",
+   "k": "Order: Griot with pikliz",
+   "cz": [
+    "HAIT"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/chez-le-bebe"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/location/chez-le-bebe-6411020/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Chef Creole",
+   "ad": "200 NW 54th St, Miami, FL",
+   "w": "Wilkinson 'Ken' Sejour's Haitian-Bahamian seafood counter — 'if you want to talk Haitian food, you start at Chef Creole'; Anthony Bourdain filmed here for No Reservations.",
+   "k": "Order: Griot, conch salad, fried snapper",
+   "cz": [
+    "HAIT",
+    "CARIB",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/?p=40319580"
+    ],
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/miami/reviews/chef-creole-seafood-catering"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "DTB",
+   "n": "Cvi.che 105",
+   "ad": "105 NE 3rd Ave, Miami, FL",
+   "w": "Chef Juan Chipoco's downtown Peruvian — New Times Best Ceviche 2024; on Infatuation and Time Out's Peruvian lists.",
+   "k": "Order: Ceviche in leche de tigre or rocoto",
+   "cz": [
+    "PERU"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/cviche-105"
+    ],
+    [
+     "TIMEOUT",
+     "https://timeout.com/miami/restaurants/ceviche-105"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/restaurants/ten-best-ceviches-in-miami-7585851"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Chef's Counter at MAASS",
+   "ad": "525 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL",
+   "w": "Fort Lauderdale's Michelin star (2026): chef Ryan Ratino's counter at MAASS in the Four Seasons.",
+   "k": "Order: Chef's counter tasting",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Recoveco",
+   "ad": "6000 SW 74th St, South Miami, FL",
+   "w": "Maria Teresa Gallina & Nicolas Martinez: James Beard Best Chef: South semifinalists 2026.",
+   "k": "Order: Seasonal Venezuelan-inflected plates",
+   "cz": [
+    "LATAM"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/2026-miami-james-beard-semifinalists-restaurants-and-chefs-40519122/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Amara at Paraiso",
+   "ad": "3101 NE 7th Ave, Edgewater, Miami, FL",
+   "w": "Michael Schwartz's bayfront Latin restaurant in Edgewater — James Beard 2026 semifinalist for Outstanding Wine & Beverages.",
+   "k": "Order: Wood-fired Latin seafood on the bay",
+   "cz": [
+    "LATAM",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/2026-miami-james-beard-semifinalists-restaurants-and-chefs-40519122/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Bar Bucce",
+   "ad": "Miami, FL",
+   "w": "James Beard 2026 semifinalist, Best New Bar.",
+   "k": "Order: Italian-leaning cocktails",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "JAMESBEARD",
+     "https://www.jamesbeard.org/stories/james-beard-award-semifinalists-2026"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/2026-miami-james-beard-semifinalists-restaurants-and-chefs-40519122/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Heritage",
+   "ad": "Fort Lauderdale, FL",
+   "w": "Michelin Bib Gourmand (2025, retained 2026): chef Rino Cerbone's Italian.",
+   "k": "Order: Wood-fired pizza, handmade pasta",
+   "cz": [
+    "EU"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.visitlauderdale.com/blog/stories/post/2026-michelin-guide-restaurants-greater-fort-lauderdale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Daniel's, A Florida Steakhouse",
+   "ad": "Hotel Wren / Las Olas area, Fort Lauderdale, FL",
+   "w": "Michelin-recommended (2026): chef Daniel Ganem's Florida-sourced steakhouse.",
+   "k": "Order: Florida-raised beef, live-fire",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.visitlauderdale.com/blog/stories/post/2026-michelin-guide-restaurants-greater-fort-lauderdale/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Evelyn's",
+   "ad": "Four Seasons Hotel Fort Lauderdale, FL",
+   "w": "Michelin-recommended (2026) Eastern Mediterranean at the Four Seasons, chef Brandon Salomon.",
+   "k": "Order: Eastern Mediterranean mezze",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.visitlauderdale.com/blog/stories/post/2026-michelin-guide-restaurants-greater-fort-lauderdale/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Larb Thai-Isan",
+   "ad": "Fort Lauderdale, FL",
+   "w": "Michelin-recommended (2026); the Infatuation calls it the best Thai restaurant in South Florida.",
+   "k": "Order: Isan larb, northeastern Thai",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.visitlauderdale.com/blog/stories/post/2026-michelin-guide-restaurants-greater-fort-lauderdale/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com:443/miami/neighborhoods/fort-lauderdale"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Robert Is Here",
+   "ad": "19200 SW 344th St, Homestead, FL",
+   "w": "The Redland's famous fruit stand, run by Robert Moehling since he was six (1960): lychees, sapotes, carambolas — and milkshakes in every flavour — on the road to the Everglades.",
+   "k": "Order: Fresh tropical-fruit milkshake (mamey, key lime, guanabana)",
+   "cz": [
+    "FARM"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insider-s-guide-homestead"
+    ],
+    [
+     "NBCNEWS",
+     "https://www.nbcnews.com/id/wbna38327726"
+    ],
+    [
+     "FOXNEWS",
+     "https://www.foxnews.com/food-drink/fruit-stand-started-by-6-year-old-boy-celebrates-50th-anniversary"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Schnebly Redland's Winery",
+   "ad": "30205 SW 217th Ave, Homestead, FL",
+   "w": "Wine made from subtropical fruit — lychee, carambola, avocado — on tropical grounds with weekend live music.",
+   "k": "Order: Lychee and carambola fruit wines",
+   "cz": [
+    "FARM"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insider-s-guide-homestead"
+    ],
+    [
+     "GULFSHOREBUSINESS",
+     "https://gulfshorebusiness.com/doing-redland-right"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "El Brazo Fuerte Bakery",
+   "ad": "Miami, FL",
+   "w": "Pan cubano baker for 40+ years; Infatuation rates its pastelitos among the county's best and New Times lists it in Miami's ten best.",
+   "k": "Order: Guava pastelitos, pan cubano",
+   "cz": [
+    "BAKE",
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/miamis-ten-best-pastelitos-7735773/"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/el-brazo-fuerte-bakery"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Enriqueta's Sandwich Shop",
+   "ad": "186 NE 29th St, Miami, FL",
+   "w": "Family-run old-school Cuban lunch counter holding out amid Edgewater/Wynwood's towers — sandwiches stuffed with croquetas.",
+   "k": "Order: Cubano preparado con croquetas, Cuban breakfast",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://miaminewtimes.com/restaurants/10-best-cuban-sandwiches-in-miami-21365736"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/reviews/enriquetas-sandwich-shop"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Islas Canarias Restaurant",
+   "ad": "13695 SW 26th St, Miami, FL",
+   "w": "Croqueta king since 1977 — the Infatuation's pick for Miami's best croquetas, and 'the most Miami drive-thru'.",
+   "k": "Order: Ham croquetas (and the drive-thru)",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-unique-croquetas-miami"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/where-to-find-the-most-iconic-cuban-dishes-in-miami-40515462/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "La Carreta",
+   "ad": "3632 SW 8th St, Miami, FL",
+   "w": "Versailles' sister restaurant since the 1970s ('the food is actually better here'); its ventanitas are fixtures across the county.",
+   "k": "Order: Home-style Cuban plates, ventanita cafecito",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com:443/miami/cuisines/cuban"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/miamis-ten-best-cafecito-windows-8524291/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Latin Cafe 2000 (Brickell)",
+   "ad": "Brickell, Miami, FL",
+   "w": "Flagami's Cuban café's Brickell outpost — a true ventanita, under-the-radar croquetas and a New Times top-100 Cuban sandwich.",
+   "k": "Order: Cuban sandwich, croquetas, ventanita cafecito",
+   "cz": [
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/restaurants/latin-cafe-2000"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/miamis-ten-best-cafecito-windows-8524291/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Cafe La Trova",
+   "ad": "971 SW 8th St, Miami, FL",
+   "w": "Cantinero Julio Cabrera's Havana-style cocktail bar with JBF-winner Michelle Bernstein's kitchen and live trova — recognised by the Florida Michelin Guide.",
+   "k": "Order: Julio Cabrera's daiquiris, Michelle Bernstein's ropa vieja",
+   "cz": [
+    "CUBAN",
+    "BAR"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/best-of/best-cuban-restaurants-miami"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com:443/miami/cuisines/cuban"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Naomi's Garden Restaurant & Lounge",
+   "ad": "Little Haiti, Miami, FL",
+   "w": "Classic Little Haiti spot with a lush courtyard of hammocks and roosters; some of Miami's best Haitian food.",
+   "k": "Order: Oxtail, fried snapper — in a garden courtyard",
+   "cz": [
+    "HAIT",
+    "CARIB"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/the-ten-best-restaurants-in-little-haiti-8837825/"
+    ],
+    [
+     "CAPLINNEWS",
+     "https://caplinnews.fiu.edu/best-haitian-restaurants-in-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Piman Bouk Haitian Restaurant",
+   "ad": "Little Haiti, Miami, FL",
+   "w": "An essential Little Haiti stop for Haitian home cooking.",
+   "k": "Order: Griot, legim, diri djon djon",
+   "cz": [
+    "HAIT"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/the-ten-best-restaurants-in-little-haiti-8837825/"
+    ],
+    [
+     "CAPLINNEWS",
+     "https://caplinnews.fiu.edu/best-haitian-restaurants-in-miami/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "La Esquina del Lechón",
+   "ad": "Doral, FL",
+   "w": "Eater 38: 'the pan con lechón is arguably the best in town' — crackling-studded roast pork on Cuban bread.",
+   "k": "Order: Pan con lechón",
+   "cz": [
+    "CUBAN",
+    "BURG"
+   ],
+   "s": [
+    [
+     "EATERMIAMI",
+     "https://web-archive.nli.org.il/National_Library/oe_/https://miami.eater.com/"
+    ],
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/restaurants/dorals-best-restaurants"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "Coopertown Restaurant",
+   "ad": "22700 SW 8th St, Miami, FL",
+   "w": "Tamiami Trail swamp-food stand since the early 1960s, beside the Original Air Boat Tour (1945) — frog legs and gator tail straight from the Glades.",
+   "k": "Order: Frog legs and gator tail, cornmeal-fried",
+   "cz": [
+    "GLADF"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/restaurants/best-places-to-eat-in-the-everglades"
+    ],
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/l/tours-and-excursions/coopertown-everglades-airboat-tour-and-restaurant/2160"
+    ],
+    [
+     "NBCNEWS",
+     "https://www.nbcnews.com/id/wbna34351068"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "GLADE",
+   "n": "City Seafood",
+   "ad": "702 Begonia St, Everglades City, FL",
+   "w": "Everglades City waterfront fish house famous for stone crab claws landed by its own boats.",
+   "k": "Order: Stone crab claws off its own boats, gator bites",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/restaurants/best-places-to-eat-in-the-everglades"
+    ],
+    [
+     "PARADISECOAST",
+     "https://www.paradisecoast.com/plan-your-trip/articles/the-dining-of-everglades-city"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "GLADE",
+   "n": "Joanie's Blue Crab Cafe",
+   "ad": "39395 Tamiami Trail E, Ochopee, FL",
+   "w": "Tin-roofed Tamiami Trail café in Ochopee serving catfish, frog legs, gator and blue crab.",
+   "k": "Order: Frog legs, soft-shell crab, gator",
+   "cz": [
+    "GLADF",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "FODORS",
+     "https://www.fodors.com/world/north-america/usa/florida/the-everglades/things-to-do/sights/family"
+    ],
+    [
+     "PARADISECOAST",
+     "https://www.paradisecoast.com/plan-your-trip/articles/the-dining-of-everglades-city"
+    ]
+   ]
+  }
+ ],
+ "S": {
+  "AJC": {
+   "k": "AJC",
+   "t": "AJC",
+   "u": "",
+   "l": ""
+  },
+  "CORALGABLES": {
+   "k": "CORALGABLES",
+   "t": "CORALGABLES",
+   "u": "",
+   "l": ""
+  },
+  "CRAZYTOURIST": {
+   "k": "CRAZYTOURIST",
+   "t": "CRAZYTOURIST",
+   "u": "",
+   "l": ""
+  },
+  "CULTURETRIP": {
+   "k": "CULTURETRIP",
+   "t": "CULTURETRIP",
+   "u": "",
+   "l": ""
+  },
+  "DINERSCLUB": {
+   "k": "DINERSCLUB",
+   "t": "DINERSCLUB",
+   "u": "",
+   "l": ""
+  },
+  "EARTHTREKKERS": {
+   "k": "EARTHTREKKERS",
+   "t": "EARTHTREKKERS",
+   "u": "",
+   "l": ""
+  },
+  "FLORIDARAMBLER": {
+   "k": "FLORIDARAMBLER",
+   "t": "FLORIDARAMBLER",
+   "u": "",
+   "l": ""
+  },
+  "FODORS": {
+   "k": "FODOR'S",
+   "t": "FODOR'S",
+   "u": "",
+   "l": ""
+  },
+  "FROMMERS": {
+   "k": "FROMMER'S",
+   "t": "FROMMER'S",
+   "u": "",
+   "l": ""
+  },
+  "GLOBALPHILE": {
+   "k": "GLOBALPHILE",
+   "t": "GLOBALPHILE",
+   "u": "",
+   "l": ""
+  },
+  "GMCVB": {
+   "k": "GREATER MIAMI CVB",
+   "t": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",
+   "u": "https://www.miamiandbeaches.com",
+   "l": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)"
+  },
+  "GULFSHOREBUSINESS": {
+   "k": "GULFSHOREBUSINESS",
+   "t": "GULFSHOREBUSINESS",
+   "u": "",
+   "l": ""
+  },
+  "ISLANDS": {
+   "k": "ISLANDS",
+   "t": "ISLANDS",
+   "u": "",
+   "l": ""
+  },
+  "LONELYPLANET": {
+   "k": "LONELYPLANET",
+   "t": "LONELYPLANET",
+   "u": "",
+   "l": ""
+  },
+  "MIAMINEWTIMES": {
+   "k": "MIAMI NEW TIMES",
+   "t": "Miami New Times (incl. Best of Miami)",
+   "u": "https://www.miaminewtimes.com",
+   "l": "Miami New Times (incl. Best of Miami)"
+  },
+  "NATGEO": {
+   "k": "NATIONAL GEOGRAPHIC",
+   "t": "NATIONAL GEOGRAPHIC",
+   "u": "",
+   "l": ""
+  },
+  "NPS": {
+   "k": "NATIONAL PARK SVC",
+   "t": "National Park Service",
+   "u": "https://www.nps.gov/ever/",
+   "l": "National Park Service"
+  },
+  "NRHP": {
+   "k": "NATIONAL REGISTER",
+   "t": "NATIONAL REGISTER",
+   "u": "",
+   "l": ""
+  },
+  "ROADSIDEAMERICA": {
+   "k": "ROADSIDEAMERICA",
+   "t": "ROADSIDEAMERICA",
+   "u": "",
+   "l": ""
+  },
+  "SHAKAGUIDE": {
+   "k": "SHAKAGUIDE",
+   "t": "SHAKAGUIDE",
+   "u": "",
+   "l": ""
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT MIAMI",
+   "t": "Time Out Miami",
+   "u": "https://www.timeout.com/miami",
+   "l": "Time Out Miami"
+  },
+  "VISITFLORIDA": {
+   "k": "VISIT FLORIDA",
+   "t": "Visit Florida",
+   "u": "https://www.visitflorida.com",
+   "l": "Visit Florida"
+  },
+  "VISITLAUDERDALE": {
+   "k": "VISIT LAUDERDALE",
+   "t": "Visit Lauderdale (Greater Fort Lauderdale CVB)",
+   "u": "https://www.visitlauderdale.com",
+   "l": "Visit Lauderdale (Greater Fort Lauderdale CVB)"
+  },
+  "WIKIPEDIA": {
+   "k": "WIKIPEDIA",
+   "t": "Wikipedia",
+   "u": "https://en.wikipedia.org",
+   "l": "Wikipedia"
+  }
+ },
+ "FS": {
+  "CAPLINNEWS": {
+   "k": "CAPLINNEWS",
+   "t": "CAPLINNEWS",
+   "u": "",
+   "l": ""
+  },
+  "EATERMIAMI": {
+   "k": "EATER MIAMI",
+   "t": "Eater Miami",
+   "u": "https://miami.eater.com",
+   "l": "Eater Miami"
+  },
+  "FODORS": {
+   "k": "FODOR'S",
+   "t": "FODOR'S",
+   "u": "",
+   "l": ""
+  },
+  "FOXNEWS": {
+   "k": "FOXNEWS",
+   "t": "FOXNEWS",
+   "u": "",
+   "l": ""
+  },
+  "GMCVB": {
+   "k": "GREATER MIAMI CVB",
+   "t": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",
+   "u": "https://www.miamiandbeaches.com",
+   "l": "Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)"
+  },
+  "GULFSHOREBUSINESS": {
+   "k": "GULFSHOREBUSINESS",
+   "t": "GULFSHOREBUSINESS",
+   "u": "",
+   "l": ""
+  },
+  "INFATUATION": {
+   "k": "THE INFATUATION",
+   "t": "The Infatuation (Miami)",
+   "u": "https://www.theinfatuation.com/miami",
+   "l": "The Infatuation (Miami)"
+  },
+  "JAMESBEARD": {
+   "k": "JAMES BEARD",
+   "t": "James Beard Foundation Awards",
+   "u": "https://www.jamesbeard.org/awards",
+   "l": "James Beard Foundation Awards"
+  },
+  "MARKWIENS": {
+   "k": "MARKWIENS",
+   "t": "MARKWIENS",
+   "u": "",
+   "l": ""
+  },
+  "MIAMILIVING": {
+   "k": "MIAMILIVING",
+   "t": "MIAMILIVING",
+   "u": "",
+   "l": ""
+  },
+  "MIAMINEWTIMES": {
+   "k": "MIAMI NEW TIMES",
+   "t": "Miami New Times (incl. Best of Miami)",
+   "u": "https://www.miaminewtimes.com",
+   "l": "Miami New Times (incl. Best of Miami)"
+  },
+  "MICHELIN": {
+   "k": "MICHELIN",
+   "t": "MICHELIN Guide Florida (Miami)",
+   "u": "https://guide.michelin.com/us/en/florida/miami/restaurants",
+   "l": "MICHELIN Guide Florida (Miami)"
+  },
+  "MICHELIN_BIB": {
+   "k": "MICHELIN BIB GOURMAND",
+   "t": "MICHELIN Bib Gourmand (Florida)",
+   "u": "https://guide.michelin.com/us/en/florida/miami/restaurants/bib-gourmand",
+   "l": "MICHELIN Bib Gourmand (Florida)"
+  },
+  "MICHELIN_EDITORIAL": {
+   "k": "MICHELIN EDITORIAL",
+   "t": "MICHELIN_EDITORIAL",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_STAR": {
+   "k": "MICHELIN STAR",
+   "t": "MICHELIN Star (Florida)",
+   "u": "https://guide.michelin.com/us/en/florida/miami/restaurants/1-star-michelin",
+   "l": "MICHELIN Star (Florida)"
+  },
+  "NBCNEWS": {
+   "k": "NBCNEWS",
+   "t": "NBCNEWS",
+   "u": "",
+   "l": ""
+  },
+  "PARADISECOAST": {
+   "k": "PARADISECOAST",
+   "t": "PARADISECOAST",
+   "u": "",
+   "l": ""
+  },
+  "TIMEOUT": {
+   "k": "TIME OUT MIAMI",
+   "t": "Time Out Miami",
+   "u": "https://www.timeout.com/miami",
+   "l": "Time Out Miami"
+  }
+ }
+}
