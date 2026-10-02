@@ -109,3 +109,35 @@ geocheck PASS (high 112 · med 3), statuscheck CONSISTENT, buildcheck PASS; `npm
   and PRESTAU (Michelin, pinned). Held (cuisine not surfaced): Shunsaiten Tsuchiya, Hiraishi, OIMATSU Tempura Suzuki,
   Numata; Roushouki (Kobe) single-source. **Final: 199 discovered, 172 rendered (65 sights + 107 food); high 167 · med 5;
   4 gates PASS.** Session closed at ~202 searches (main ~90 + workers 112); next wave per RESUME "Next actions".
+
+## 2026-10-02 — W3 (session 3): parallel workers + main drinks/canon
+Workers (brief `_W3_worker_brief.md`, no git; main consolidates):
+- **W3A** MINAM Michelin (30 searches): Michelin Minami is **exhausted** — every Namba/Shinsaibashi/Sennichimae venue
+  returned was already in the dataset. +24 Michelin (MINAM 4, CHUO 12, KITA 8), 28 high pins. Held 15 (pinned, no dish
+  surfaced): Rakushin, Empathie, Naniwakappo NOBORU, xiang hua, isolata, Ajikitcho Bumbuan, Ajikitcho Horieten, Macauda,
+  Fujiichi, Fujiya 1935, NELU KORAIBASHI, Chi-Fu, DuKKAh, P greco, La bonne tâche. DROPPED: Chukasoba Mugen (venue page
+  shows only "Bib Gourmand 2024" — may have left the selection).
+- **W3B** ANIME (25): +4 sights (LUCUA Characters World — Pokémon Center Osaka & Nintendo OSAKA moved there 2026-04;
+  Tezuka Osamu Manga Museum, closes 2026-12-01→2027-03-04; Tetsujin-28 monument; Kobe Anpanman Museum) + 2 cafés
+  (Pokémon Café, Kirby Café — both Daimaru Shinsaibashi 9F). Tagged existing USJ, Den Den Town, Tower of the Sun,
+  CupNoodles Museum with `anime`. Held: Mandarake Grand Chaos, Jump Shop, Animate (single-source); dropped Gundam Base
+  Osaka (doesn't exist; KITTE Gundam Café was a finished pop-up). New key SILICONERA (major games-news outlet).
+- **W3D** outer Michelin (30): +23 (CHUO 18, TNJ 4, NORTH 1). Michelin search by suburb (Sakai, Toyonaka, Suita…) returns
+  only Osaka-wide list pages — **dead end for SOUTH/EAST/BAY/NORTH**; those need editorial sources (W3F). Yoshinosushi's
+  hakozushi dish corroborated by Mark Wiens (Migrationology) — added as CREATOR_MARKWIENS.
+- **W3E** pin backlog (18): 17 high from Michelin venue pages. **Mashino Ken rejected**: venue-page coord sits ~1.3 km
+  from its 1-3-6 Awajimachi address → UNVERIFIED (helper). Unresolved: Yoshinosushi, Kitahama Anagoya.
+  Fixes: gastroteka bimendi → MICHELIN_BIB; Nishishinsaibashi Yuno URL → /nishishinsaibashi-yuno.
+Main W3M (~27 searches): drinks/coffee/canon with ≥2 keys — Craftroom & Bar Nayuta (Time Out + Asia's 50 Best Bars),
+Izakaya Toyo (Time Out + Netflix Street Food: Asia), Ult Coffee Roasters (Time Out + World's 100 Best Coffee Shops 2026
+No. 24), Marufuku Coffee (Time Out + OSAKA-INFO), Hanadako (Time Out + Inside Osaka; promoted from pending),
+Dotonbori Imai (OSAKA-INFO + Inside Osaka + Lonely Planet; promoted), Chibo, Mimiu (udon-suki), Hokkyokusei (omurice,
+1925), Misono Kobe (teppanyaki origin 1945; Feel Kobe + Daily Sports), Roushouki (Visit Hyogo + ja.wikipedia; promoted).
+Held single-source: Bible Club Osaka(→W3G), Bar Shiki, Bar Juniper, Bar Hiramatsu (50Best Discovery only), Bar Bota,
+Tachinomi Shomin, Matsuura Liquor, Winestand Perche, Uoyaki, Tiger Lily, Make One Two (Time Out only), Beer Belly
+Tosabori (Time Out JP only), Minoh Beer Warehouse (rurubu only), Takoyaki Yoriyabunzaemon (LP only), Yukari (branch
+mismatch: OSAKA-INFO Sennichimae vs Inside Osaka Kita). Dead ends: Tabelog 百名店 list pages (image-only results), Mark
+Wiens video search (use migrationology.com domain instead — works). Creator channel now live: Mark Wiens (Migrationology,
+~11M YouTube) — attached to Yoshinosushi; his guide also names Kogaryu, Kushikatsu Daruma, Endo Sushi, Ramen Yashichi.
+Restaurant pins for non-Michelin W3M places: UNVERIFIED (no place pin surfaced) → geocode helper.
+Mid-wave rebuild: 293 discovered; 4 gates PASS; validate + npm test PASS.

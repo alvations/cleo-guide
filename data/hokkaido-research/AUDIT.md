@@ -274,3 +274,14 @@ coords in infobox → UNVERIFIED). Held: Koshimizu Natural Flower Garden (pin 43
 round-up; caveat). Held: Kitakaro Otaru Honkan (unattributed).
 **W75 DONAN:** Sushi-dokoro Kihara (hakodate.travel + rurubu). Dropped: Kantarō (chain, branch not named in sources). Held: Uomasa
 Goryōkaku (rurubu only), Kaikōbō, Bingoya (hakodate.travel only).
+**Final build (session 3):** 327 discovered → 184 rendered (156 sights + 28 food). sourcecheck PASS 327 (1 lone authority) · geocheck
+PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. 143 UNVERIFIED held.
+Food share 153/327 = 47% (session start 26%). ANIME 7. JOZANKEITOURISM given a real rationale (SOURCES_HOKKAIDO_W75.json).
+Channel mix (session 3 second sources): guidebook editorial ~40% (RURUBU, MAPPLE), official tourism ~35% (HOKKAIDOTOURISM,
+SAPPOROTRAVEL, HAKODATETRAVEL, OTARUTOURISM, KUSHIROTOURISM, OBIKAN, LAKETOYA, JOZANKEITOURISM, NISEKOTOURISM, RISHIRIPLUS), encyclopedic
+pins (WIKIPEDIA_JA) ~15%, travel media/creators ~10% (TIMEOUT, GOODLUCKTRIP, RAMENADVENTURES creator, HOKKAIDOSHIMBUN/TripEat, FAMITSU).
+**W76 IBURI (post-final, 2 searches):** Mt Tarumae (visit-hokkaido + japan-guide + wiki pin), Ōyunuma River footbath (noboribetsu-spa.jp =
+NOBORIBETSUTOURISM + visit-hokkaido; "大湯沼" coord rejected — no own article). Held: Koke-no-dōmon moss gorge (no coord).
+**W77 IBURI:** Soba-dokoro Fukuan (promoted: rurubu + MAPPLE Noboribetsu list; caveat).
+**W78 NSK:** Niseko Goshiki Onsen (promoted from held: visit-hokkaido + wiki pin), Niseko Yumoto Onsen & Ōyunuma (niseko-ta.jp + wiki;
+med — onsen-area point). Town names left generic (Rankoshi not read in results). Chisenupuri pin read (42.88806,140.59667) — no 2nd source.
