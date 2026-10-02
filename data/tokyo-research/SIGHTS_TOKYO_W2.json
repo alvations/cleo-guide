@@ -881,6 +881,14 @@
     [
      "GOTOKYO",
      "https://www.gotokyo.org/en/spot/11/index.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/shibamata-taishakuten"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3047.html"
     ]
    ],
    "closed": false
@@ -2169,6 +2177,344 @@
     [
      "WIKIPEDIA",
      "https://en.wikipedia.org/wiki/%C5%8Chashi_Junction"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JHOKU",
+   "n": "Gokoku-ji (護国寺)",
+   "address": "5-40-1 Ōtsuka, Bunkyō-ku, Tokyo 112-0012",
+   "w": "Shōgun Tsunayoshi's 1681 temple for his mother — one of the few great Edo-period halls to survive earthquake and war intact, quiet and rarely visited.",
+   "k": "intact Edo main hall",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Gokoku-ji"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/museums/gokokuji"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JHOKU",
+   "n": "Tokyo Dome City (東京ドームシティ)",
+   "address": "1-3-61 Kōraku, Bunkyō-ku, Tokyo 112-0004",
+   "w": "Home of the Yomiuri Giants (55,000 seats) plus a roller coaster that threads through a building, the LaQua spa and the Japanese Baseball Hall of Fame.",
+   "k": "Giants baseball, LaQua spa",
+   "g": [
+    "POP",
+    "ONSEN"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tokyo_Dome"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3039.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JHOKU",
+   "n": "Yushima Seidō (湯島聖堂)",
+   "address": "1-4-25 Yushima, Bunkyō-ku, Tokyo 113-0034",
+   "w": "Black-lacquered Confucian temple founded by the shōguns' Confucian scholars — the Edo academy where samurai officials were trained; giant bronze Confucius in the grounds.",
+   "k": "Confucius temple",
+   "g": [
+    "TEMPLE",
+    "CASTLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yushima_Seid%C5%8D"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3074.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "KANTO",
+   "n": "Sankei-en, Yokohama (三溪園)",
+   "address": "58-1 Honmoku-sannotani, Naka-ku, Yokohama, Kanagawa 231-0824",
+   "w": "Silk merchant Hara Sankei's stroll garden of historic buildings moved from Kyoto, Kamakura and Gifu — a three-storey pagoda over the pond and a gasshō farmhouse.",
+   "k": "relocated historic buildings",
+   "g": [
+    "GARDEN",
+    "CASTLE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sankei-en"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e2156.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "KANTO",
+   "n": "Yokohama Chinatown (横浜中華街)",
+   "address": "Yamashitachō, Naka-ku, Yokohama, Kanagawa 231-0023",
+   "w": "Japan's largest Chinatown — ten ornate gates, the Kantei-byō and Ma Zu temples and 500-odd shops steaming nikuman and xiaolongbao.",
+   "k": "Kantei-byō, nikuman",
+   "g": [
+    "MKT",
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Yokohama_Chinatown"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3201.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "CYD",
+   "n": "Hibiya Park (日比谷公園)",
+   "address": "1-6 Hibiya-kōen, Chiyoda-ku, Tokyo 100-0012",
+   "w": "Japan's first Western-style park (1903), across the moat from the Imperial Palace — rose beds, an open-air concert hall and the century-old Matsumoto-rō restaurant.",
+   "k": "Western-style park, open-air concerts",
+   "g": [
+    "NATURE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hibiya_Park"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/26/index.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/hibiya-park"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "CYD",
+   "n": "National Diet Building (国会議事堂)",
+   "address": "1-7-1 Nagatachō, Chiyoda-ku, Tokyo 100-0014",
+   "w": "The stepped-pyramid granite parliament (1936) — free guided tours of the House of Councillors chamber run on weekdays.",
+   "k": "free weekday tours",
+   "g": [
+    "CASTLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/National_Diet_Building"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/514/index.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/things-to-do/national-diet-tour"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "CYD",
+   "n": "Kitanomaru Park (北の丸公園)",
+   "address": "1-1 Kitanomaru-kōen, Chiyoda-ku, Tokyo 102-0091",
+   "w": "Wooded former Edo Castle enclosure north of the palace — the Budōkan, the Science Museum and MOMAT among cherry trees by the Chidorigafuchi moat.",
+   "k": "cherry trees by the moat",
+   "g": [
+    "NATURE",
+    "CASTLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Kitanomaru_Park"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/kitanomaru-park"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "TAITO",
+   "n": "Ameya-Yokochō (Ameyoko, アメ横)",
+   "address": "6-10-7 Ueno, Taitō-ku, Tokyo 110-0005",
+   "w": "Postwar black-market street under the Yamanote tracks between Ueno and Okachimachi — fishmongers shouting year-end deals, dried goods, spices, sneakers and standing izakaya.",
+   "k": "market street under the tracks",
+   "g": [
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3012.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SJK",
+   "n": "Omoide Yokochō (思い出横丁)",
+   "address": "1-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo 160-0023",
+   "w": "'Memory Lane' — a smoky postwar alley of yakitori and motsu-yaki counters squeezed against the tracks at Shinjuku's west exit.",
+   "k": "yakitori smoke alley",
+   "g": [
+    "NIGHT",
+    "MKT"
+   ],
+   "sources": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/63/index.html"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3011.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 1,
+   "a": "SBY",
+   "n": "Takeshita-dōri (竹下通り)",
+   "address": "1-17 Jingūmae, Shibuya-ku, Tokyo 150-0001",
+   "w": "Harajuku's 400 m teen-fashion street opposite the station — crêpes, kawaii shops, rainbow candy floss and weekend crowds shoulder to shoulder.",
+   "k": "crêpes, kawaii fashion",
+   "g": [
+    "POP",
+    "MKT",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/48/index.html"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Takeshita_Street"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3006.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JOTO",
+   "n": "Katsushika Shibamata Tora-san Museum (葛飾柴又寅さん記念館)",
+   "address": "6-22-19 Shibamata, Katsushika-ku, Tokyo 125-0052",
+   "w": "Museum of the 48-film 'Otoko wa Tsurai yo' saga — the Kurumaya dango shop set and props from the films shot in Shibamata from 1969 to 1995.",
+   "k": "Tora-san film sets",
+   "g": [
+    "MUS",
+    "POP"
+   ],
+   "sources": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/985/index.html"
+    ],
+    [
+     "JAPANGUIDE",
+     "https://www.japan-guide.com/e/e3047.html"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JOTO",
+   "n": "KochiKame Museum, Kameari (こち亀記念館)",
+   "address": "Kameari, Katsushika-ku, Tokyo",
+   "w": "Compact museum for Osamu Akimoto's 200-volume manga 'KochiKame: Tokyo Beat Cops', recreating the Kameari Park police box — start of a trail of bronze statues of Ryōtsu and friends around Kameari Station.",
+   "k": "Kochikame statue trail",
+   "g": [
+    "MUS",
+    "POP"
+   ],
+   "sources": [
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/1869/index.html"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/museums/kochikame-museum"
+    ]
+   ],
+   "closed": false
+  },
+  {
+   "t": 2,
+   "a": "JOTO",
+   "n": "Nishiarai Daishi (西新井大師)",
+   "address": "1-15-1 Nishiarai, Adachi-ku, Tokyo 123-0841",
+   "w": "Sōji-ji, the great Shingon temple of Adachi (founded 826) — peony gardens, kusa-dango stalls at the gate and a February daruma-burning rite.",
+   "k": "peonies, daruma kuyō",
+   "g": [
+    "TEMPLE",
+    "FREE"
+   ],
+   "sources": [
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/tokyo/attractions/nishiarai-daishi"
+    ],
+    [
+     "GOTOKYO",
+     "https://www.gotokyo.org/en/spot/ev159/index.html"
     ]
    ],
    "closed": false

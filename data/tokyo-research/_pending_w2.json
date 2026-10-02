@@ -1,24 +1,6 @@
 {
- "note": "held sights — need coords and/or a 2nd credible source; do not write until both exist",
+ "note": "held sights — need coords and/or a 2nd credible source; do not write until both exist | METHOD: wikidata.org-restricted 'X latitude longitude' returns Wikidata P625 for streets/alleys that en.wikipedia infoboxes lack.",
  "items": [
-  {
-   "n": "Omoide Yokocho",
-   "a": "SJK",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/63/index.html",
-   "need": "coords + 2nd"
-  },
-  {
-   "n": "Ameyoko",
-   "a": "TAITO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
-   "need": "coords + 2nd"
-  },
-  {
-   "n": "Takeshita Street",
-   "a": "SBY",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/48/index.html; WIKIPEDIA https://en.wikipedia.org/wiki/Takeshita_Street",
-   "need": "street coords"
-  },
   {
    "n": "Harmonica Alley Kichijoji",
    "a": "TAMA",
@@ -44,64 +26,16 @@
    "need": "coords + 2nd"
   },
   {
-   "n": "Tokyo Dome",
-   "a": "JHOKU",
-   "have": "WIKIPEDIA coords 35.7056,139.7519",
-   "need": "2nd"
-  },
-  {
-   "n": "Gokoku-ji",
-   "a": "JHOKU",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Gokoku-ji coords 35.72175,139.725639",
-   "need": "2nd"
-  },
-  {
    "n": "Todoroki Valley",
    "a": "JOSAI",
    "have": "GOTOKYO https://www.gotokyo.org/en/destinations/southern-tokyo/todoroki-valley/index.html; WIKIPEDIA Todoroki Ryokuchi?; TIMEOUT https://www.timeout.com/tokyo/things-to-do/todoroki-valley; address 1-22-26 Todoroki",
    "need": "coords"
   },
   {
-   "n": "Taishakuten-sando",
-   "a": "JOTO",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/33/index.html",
-   "need": "coords+2nd"
-  },
-  {
-   "n": "Kochi-Kame statues Kameari",
-   "a": "JOTO",
-   "have": "GOTOKYO spot/1228; KochiKame Museum GOTOKYO spot/1869",
-   "need": "coords"
-  },
-  {
-   "n": "Nishiarai Daishi",
-   "a": "JOTO",
-   "have": "GOTOKYO ev159; address 1-15-1 Nishi-Arai, Adachi",
-   "need": "coords"
-  },
-  {
-   "n": "Yushima Seido",
-   "a": "CYD",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Yushima_Seid%C5%8D coords 35.70083,139.76639",
-   "need": "2nd"
-  },
-  {
    "n": "Togoshi Ginza",
    "a": "JONAN",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/174/index.html; station point 35.61602,139.71501 (Togoshi-ginza Station)",
    "need": "2nd + street pin"
-  },
-  {
-   "n": "Yokohama Chinatown",
-   "a": "KANTO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Yokohama_Chinatown coords 35.442815,139.645929",
-   "need": "2nd"
-  },
-  {
-   "n": "Sankei-en",
-   "a": "KANTO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sankei-en coords 35.41695,139.660042",
-   "need": "2nd"
   },
   {
    "n": "Owakudani",
@@ -136,14 +70,8 @@
   {
    "n": "Horikiri Shobuen Iris Garden",
    "a": "JOTO",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/860/index.html; 2-19-1 Horikiri",
-   "need": "coords + 2nd"
-  },
-  {
-   "n": "Katsushika Shibamata Tora-san Museum",
-   "a": "JOTO",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/985/index.html; 6-22-19 Shibamata",
-   "need": "coords + 2nd"
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/860/index.html; 2-19-1 Horikiri; Wikidata Q11427321 coords 35.742361,139.825972",
+   "need": "2nd"
   },
   {
    "n": "Shoin Shrine",
