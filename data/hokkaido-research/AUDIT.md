@@ -211,3 +211,9 @@ Tourism Association). Held: Kirin Chitose brewery (MAPPLE list only; address Kam
 Brewery Eniwa (address only), Fukuan soba Noboribetsu (rurubu only). Wiki-pin miss ×3 (corporate plants have no own infobox).
 **W50 TKC:** Cranberry Honten (obikan.jp = OBIKAN, Obihiro Tourism & Convention Assoc. + MAPPLE; promoted from held), Masuya
 Honten (rurubu + MAPPLE bakery list). Held: Mugioto, Hanabatake Farm (MAPPLE only).
+**W51:** Nanbantei zantare (rurubu + MAPPLE spots), Satō Shokudō Rishiri (rishiri-plus.jp = RISHIRIPLUS island tourism portal + MAPPLE).
+Held: Kani no Shōya Nemuro, Rausu no Kaimi Shiretoko Shokudō (MAPPLE only), Senchan Shokudō (kushiro-lakeakan only), Karafuto
+Shokudō Wakkanai (rurubu only), Isoyakitei Rishiri (rishiri-plus only). "Otomari" in a result summary = mis-romanised 鴛泊 → address
+kept generic ("ferry terminal") rather than correct it from memory.
+**W52:** Michi-no-eki Mukawa (shishamo; rurubu + wiki pin), Sarufutsu Kōen (scallops; visit-hokkaido + rurubu + wiki pin). Swan 44
+Nemuro pin read (43.26175,145.43847) but no signature food sourced → not added.
