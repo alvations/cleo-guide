@@ -409,3 +409,26 @@ SFWEEKLY, SMCPARKS, SMDAILYJOURNAL, SPRUDGE, LIVINGNEWDEAL, KTVU). NW and SE rea
 (Wikipedia pins + SF Rec & Park/SFGATE/Hoodline) (AVE); Royal Feast (MICHELIN Bib + SF Chronicle Top 100 + SM Daily Journal), Pacifica State Beach/
 Linda Mar and San Pedro Valley Park (Wikipedia pins + SFGATE/SF Standard/San Mateo County Parks) (PEN). Kajiken, Wonderful, Pausa already in the
 dataset (dedup).
+
+## W6 (2026-10-02, session_01Hg5dmhczkVf2CSHxgwBCVu) — close every NEED area, then expand
+**Pin agent (30 searches, `geo/_geoout_w6pin.json`):** 8 of 133 UNVERIFIED pinned — 6 high (Wikipedia infobox coords: Old Mandarin Islamic,
+Pier 70, Castro Camera, The Saloon, John's Grill, Caffe Trieste), 2 med (Rainbow Honor Walk = one point for a multi-street walk; Sam's Grill =
+coordinate quoted by a wikipedia-restricted result without naming the page). Koi Palace NOT pinned: Wikipedia coords are the old 365 Gellert
+site while the record is the Serramonte flagship. Lesson: `allowed_domains=[en.wikipedia.org]` + "<name> <street> coordinates" is the only
+reliable WebSearch pin channel for restaurants; Michelin/mapcarta/Atlas queries returned nothing for these.
+**Batch 1 (main searches 1–8):** Zeitgeist (SFGATE ×2 + 7x7) MIS; Toronado (SFGATE + Chronicle + Time Out; ownership dispute but open) HAI;
+Tommy's Mexican (SFGATE + Time Out + Richmond Review 60th, Oct 2025) AVE; Hallidie Building, SF Main Library, Mills Building (Wikipedia pins +
+Chronicle/SFGATE/SFPL) DTN; Levi's Plaza (Wikipedia pin + Chronicle + TCLF + SFGATE; was held) NECN; Trattoria Contadina (Infatuation +
+Chronicle + SFGATE), Osmanthus Dim Sum Lounge (Infatuation + Time Out + Hoodline) NECN. Held: Bocconcino (Infatuation only).
+Technique: `allowed_domains` restricted to the credible SF palette turns one query into 2–3 corroborating outlets per place.
+**Batch 2 (searches 9–17):** Holy Virgin Cathedral (Wikipedia pin + SFGATE + SF Standard 2025) AVE; Top of the Mark (Wikipedia + Time Out +
+Hoodline Sept 2026; pinned to the Mark Hopkins hotel) NOB; Hotel Utah Saloon (Wikipedia + SFGATE + 7x7 oldest bars + Chronicle) DTN; Redwood
+Room (7x7 + Chronicle + Wikipedia/Clift) DTN; Yamo (Infatuation + Chronicle + Mission Local) and Roosters Peruvian Rotisserie (Infatuation +
+Chronicle rotisserie ranking + Mission Local 2025 review) MIS.
+MEASURED & DROPPED / NOT ADDED: Mission Cultural Center for Latino Arts — closed Jan 2026 (Chronicle, Mission Local, Hoodline), reopening
+unconfirmed; Sam Wo — permanently closed late 2024 (Chronicle 'Goodbye to Sam Wo'); Edinburgh Castle Pub — closed 2025 (Wikipedia); Sam
+Jordan's Bar — closed 2019; Julius' Castle — Chronicle reports it is 'to finally reopen' (not yet open); St. Patrick's Church — no 2nd outlet;
+Pioneer Park — duplicate of the Coit Tower card.
+**BUILD W6-1:** 503 researched → **368 on the map (179 sights + 189 food)**. sourcecheck PASS 503/503 (61 lone authority) · geocheck PASS ·
+statuscheck CONSISTENT · buildcheck PASS · validate DATA OK · npm test ALL PASS. **Every area now meets its density target** (AVE 70, DTN 81,
+HAI 45, MIS 76, NECN 75, NOB 40, NW 50, PEN 36, SE 30). Source keys RICHMONDSUNSET, TCLF given rationales.
