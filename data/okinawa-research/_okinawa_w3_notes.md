@@ -55,3 +55,6 @@
 83-84. Mapple 29444 Ishigaki izakaya 5: Umanchu Izakaya Gen Sohonten, Maguro Hitoshi Ishiganto (47011623), Ichigyo Ichie, Kotteppen (47013317), Natsuya; Adan-tei (Ōkawa 430; OT 91324 + pref cert) kept; Mori no Kenja (rurubu only)
 85-87. ANIME: One Piece Card Game shop @ San-A Naha Main Place (RS 1731935), Kemono Friends × Wattaa Naha Meshi Walk (2026 event, not a place); Pokémon Center Okinawa (Rycom, opened 2022-08-11; OT news 1006026 + Game Watch 1409089 + official) kept
 88. Rycom coords search — no coordinate (GLTJP/malls.com only) → Pokémon Center UNVERIFIED
+89. Wikipedia coords: Sueyoshi-gū 26.230167,127.714056 (kept, + SamuraiWiki); Sōgen-ji 26.220333,127.690583 (Wikipedia only → held); Gokoku-ji (sygic only)
+90. Sōgen-ji: Wikipedia + SamuraiWiki Sogenji → kept, pin high (ICP 1972)
+91. Ryūtan (MLIT tagengo R2-00482 + SamuraiWiki) kept; Okinawa Karate Kaikan (JG e7130 + Japan Experience) kept; Tomari International Cemetery (SamuraiWiki only) held; Mekaru tombs lead
