@@ -50,12 +50,6 @@
    "need": "coords"
   },
   {
-   "n": "Horikiri Shobuen Iris Garden",
-   "a": "JOTO",
-   "have": "GOTOKYO https://www.gotokyo.org/en/spot/860/index.html; 2-19-1 Horikiri; Wikidata Q11427321 coords 35.742361,139.825972",
-   "need": "2nd"
-  },
-  {
    "n": "Shoin Shrine",
    "a": "JOSAI",
    "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Sh%C5%8Din_shrine coords 35.6472333,139.6560889 (35°38′50.04″N 139°39′21.92″E)",
@@ -146,22 +140,10 @@
    "need": "pin + 2 sources"
   },
   {
-   "n": "Setagaya Art Museum",
-   "a": "JOSAI",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Setagaya_Art_Museum coords 35.631589,139.621897",
-   "need": "2nd"
-  },
-  {
    "n": "Nakano Sun Mall",
    "a": "JOSAI",
    "have": "Wikidata Q11367445 coords 35.706476,139.663581",
    "need": "2 sources"
-  },
-  {
-   "n": "Artizon Museum",
-   "a": "CHUO",
-   "have": "WIKIPEDIA https://en.wikipedia.org/wiki/Artizon_Museum coords 35.6789,139.7719",
-   "need": "2nd"
   },
   {
    "n": "Kachidoki Bridge",
@@ -174,6 +156,18 @@
    "a": "TAMA",
    "have": "GOTOKYO https://www.gotokyo.org/en/spot/252/index.html; Wikidata Q48753510 coords 35.6325,139.269167",
    "need": "2nd"
+  },
+  {
+   "n": "Koiwa Iris Garden",
+   "a": "JOTO",
+   "have": "GOTOKYO https://www.gotokyo.org/en/spot/541/index.html; TIMEOUT https://www.timeout.com/tokyo/attractions/koiwa-iris-garden; 4 Kita-Koiwa",
+   "need": "coords"
+  },
+  {
+   "n": "Gyosen Park",
+   "a": "JOTO",
+   "have": "TIMEOUT https://www.timeout.com/tokyo/museums/gyosen-park",
+   "need": "coords + 2nd"
   }
  ]
 }
