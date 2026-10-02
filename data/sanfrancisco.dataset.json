@@ -1508,7 +1508,7 @@
    "t": 2,
    "a": "DTN",
    "n": "Yerba Buena Gardens",
-   "ad": "Yerba Buena Gardens, Mission St between 3rd & 4th St, San Francisco, CA 94103",
+   "ad": "Yerba Buena Gardens, SoMa, San Francisco, CA 94103",
    "w": "Three city blocks of gardens, public art and free concerts; walk behind the falling-water curtain of the Martin Luther King Jr. Memorial.",
    "k": "park garden free art",
    "g": [
@@ -1552,7 +1552,7 @@
    "t": 1,
    "a": "AVE",
    "n": "Sutro Heights Park",
-   "ad": "Sutro Heights Park, Point Lobos Ave & 48th Ave, San Francisco, CA 94121",
+   "ad": "Sutro Heights Park, above the Cliff House / Ocean Beach, San Francisco, CA 94121",
    "w": "Adolph Sutro's 1885 hilltop garden above the Cliff House — the parapet, stone wall and statue plinths, with views over Ocean Beach. Free, part of the GGNRA.",
    "k": "park view history free",
    "g": [
@@ -1576,7 +1576,7 @@
    "t": 1,
    "a": "NW",
    "n": "Lyon Street Steps",
-   "ad": "Lyon Street Steps, Lyon St between Broadway & Green St, San Francisco, CA 94123",
+   "ad": "Lyon Street Steps, Lyon St (Pacific Heights–Cow Hollow, at the Presidio's Broadway Gate), San Francisco, CA 94123",
    "w": "Nearly 300 hedge-lined steps linking Pacific Heights and Cow Hollow to the Presidio's Broadway Gate, with bay views. Free.",
    "k": "stairway view free",
    "g": [
@@ -1673,7 +1673,7 @@
    "t": 1,
    "a": "SE",
    "n": "Crane Cove Park",
-   "ad": "Crane Cove Park, Illinois St & 19th St, Dogpatch, San Francisco, CA 94107",
+   "ad": "Crane Cove Park, Dogpatch waterfront, San Francisco, CA 94107",
    "w": "Seven-acre Port park in Dogpatch on the old Union Iron Works shipyard — a small public beach for kayaks and paddleboards, the historic cranes, a big playground and grills. Free.",
    "k": "park waterfront beach free",
    "g": [
@@ -1701,7 +1701,7 @@
    "t": 1,
    "a": "SE",
    "n": "Heron's Head Park",
-   "ad": "Heron's Head Park, Jennings St & Cargo Way, San Francisco, CA 94124",
+   "ad": "Heron's Head Park, Bayview waterfront, San Francisco, CA 94124",
    "w": "22-acre restored wetland on a Bayview pier spit — shoreline trails thick with migratory birds and the off-grid EcoCenter. Free.",
    "k": "park nature waterfront birds free",
    "g": [
@@ -1729,7 +1729,7 @@
    "t": 2,
    "a": "SE",
    "n": "Bayview Opera House",
-   "ad": "Bayview Opera House, 4705 3rd St, San Francisco, CA 94124",
+   "ad": "Bayview Opera House, 3rd St, Bayview, San Francisco, CA 94124",
    "w": "SF's oldest theater building (1888), survivor of the 1906 quake — now the Bayview's community arts hub.",
    "k": "theatre history landmark",
    "g": [
@@ -1753,7 +1753,7 @@
    "t": 2,
    "a": "SE",
    "n": "India Basin Shoreline Park",
-   "ad": "India Basin Shoreline Park, Hunters Point Blvd, San Francisco, CA 94124",
+   "ad": "India Basin Shoreline Park, Bayview waterfront, San Francisco, CA 94124",
    "w": "10-acre Bayview waterfront park (opened 2024-25) — paths, food gardens, amphitheaters and a food pavilion for chef pop-ups. Free.",
    "k": "park waterfront free",
    "g": [
@@ -1770,6 +1770,510 @@
     [
      "SFSTANDARD",
      "https://sfstandard.com/2024/10/22/san-francisco-opens-two-new-waterfront-parks/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Huntington Park",
+   "ad": "Huntington Park, 1050 Taylor St, San Francisco, CA 94108",
+   "w": "1.3-acre Nob Hill square between Grace Cathedral and the Fairmont, centred on its Fountain of the Tortoises. Free.",
+   "k": "park nob hill free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Huntington_Park_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Fairmont San Francisco",
+   "ad": "950 Mason St, San Francisco, CA 94108",
+   "w": "The 1907 grand hotel crowning Nob Hill, where the UN Charter was drafted in 1945 — lobby and view terraces open to all.",
+   "k": "historic hotel landmark nob hill",
+   "g": [
+    "VIEW",
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fairmont_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Macondray Lane",
+   "ad": "Macondray Lane (stairs at Taylor St), Russian Hill, San Francisco, CA 94133",
+   "w": "Leafy two-block pedestrian lane on Russian Hill — Armistead Maupin's model for Barbary Lane in Tales of the City. Free.",
+   "k": "hidden gem stairway lane free",
+   "g": [
+    "ODD",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Macondray_Lane"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NOB",
+   "n": "Ina Coolbrith Park",
+   "ad": "Ina Coolbrith Park, Russian Hill, San Francisco, CA 94133",
+   "w": "Tiny terraced Russian Hill park with a sweeping view over the Financial District and the Bay Bridge. Free.",
+   "k": "park view free",
+   "g": [
+    "PARK",
+    "VIEW",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Russian_Hill,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "HAI",
+   "n": "Haight & Ashbury (Haight-Ashbury)",
+   "ad": "Haight St & Ashbury St, San Francisco, CA 94117",
+   "w": "The corner where 1960s flower power blossomed — Victorian hillsides, vintage and record shops along Upper Haight.",
+   "k": "historic district shopping music free",
+   "g": [
+    "ARCH",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/haight-ashbury"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Haight-Ashbury"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Buena Vista Park",
+   "ad": "Buena Vista Park, Haight-Ashbury, San Francisco, CA 94117",
+   "w": "SF's oldest official park (1867) — a wooded hill above the Haight with city and bay views. Free.",
+   "k": "park view free",
+   "g": [
+    "PARK",
+    "VIEW",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/haight-ashbury"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Buena_Vista_Park"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HAI",
+   "n": "Corona Heights Park",
+   "ad": "Corona Heights Park (by the Randall Museum), San Francisco, CA 94114",
+   "w": "Red-chert rock outcrop above the Castro and the Haight with a 360-degree view (and the Randall Museum at its foot). Free.",
+   "k": "park view free",
+   "g": [
+    "MUS",
+    "PARK",
+    "VIEW",
+    "FAM"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/haight-ashbury"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Corona_Heights_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Fort Mason",
+   "ad": "Fort Mason Center, Marina waterfront, San Francisco, CA 94123",
+   "w": "Former Army post turned waterfront arts and community campus between the Marina and Aquatic Park — piers, galleries, theatres and the Great Meadow. Free to wander.",
+   "k": "waterfront history park free",
+   "g": [
+    "PARK",
+    "ENT",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/marina-pacific-heights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fort_Mason"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NW",
+   "n": "Crissy Field",
+   "ad": "Crissy Field, Presidio, San Francisco, CA 94129",
+   "w": "Former military airfield turned restored tidal marsh and bayfront promenade, with the Golden Gate dead ahead. Free.",
+   "k": "park waterfront view beach free",
+   "g": [
+    "PARK",
+    "VIEW",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/marina-pacific-heights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Crissy_Field"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NW",
+   "n": "Alta Plaza Park",
+   "ad": "Alta Plaza Park, Pacific Heights, San Francisco, CA 94115",
+   "w": "Terraced Pacific Heights hilltop park — from the top you see clear across the bay to Sausalito. Free.",
+   "k": "park view free",
+   "g": [
+    "PARK",
+    "VIEW",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/pacific-heights"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Alta_Plaza_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "City Lights Bookstore",
+   "ad": "City Lights Bookstore, Columbus Ave at Jack Kerouac Alley, North Beach, San Francisco, CA 94133",
+   "w": "Lawrence Ferlinghetti's 1953 bookstore and publisher — ground zero of the Beat movement, three floors of books and poetry.",
+   "k": "bookstore beat history landmark",
+   "g": [
+    "ARCH"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/best-bookstores-san-francisco"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/City_Lights_Bookstore"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Washington Square",
+   "ad": "Washington Square, North Beach (facing Saints Peter and Paul Church), San Francisco, CA 94133",
+   "w": "North Beach's green heart under the twin spires of Saints Peter and Paul — morning tai chi, focaccia from the corner bakery. Free.",
+   "k": "park north beach free",
+   "g": [
+    "PARK",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/north-beach"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Washington_Square_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NECN",
+   "n": "Old St. Mary's Cathedral",
+   "ad": "Old St. Mary's Cathedral, California St, Chinatown, San Francisco, CA 94108",
+   "w": "California's first cathedral (1854), built of granite quarried in China and brick shipped round Cape Horn, at the edge of Chinatown.",
+   "k": "church history landmark cathedral",
+   "g": [
+    "ARCH",
+    "SHOP"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/itinerary/explore-chinatown-nob-hill-north-beach-self-guided-walking-tour"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Old_St._Mary's_Cathedral"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Ocean Beach",
+   "ad": "Ocean Beach, western edge of the Sunset/Richmond, San Francisco, CA",
+   "w": "Seven miles of wild Pacific sand on the city's western edge, from the Cliff House to Fort Funston — big surf, bonfire rings, sunsets. Free.",
+   "k": "beach waterfront view free",
+   "g": [
+    "VIEW",
+    "ARCH",
+    "WATER",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/must-see-attractions-san-franciscos-richmond-sunset-neighborhoods"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Ocean_Beach,_San_Francisco"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Fort Funston",
+   "ad": "Fort Funston, southwest San Francisco coast (GGNRA), San Francisco, CA",
+   "w": "Wind-scoured coastal bluffs where hang-gliders launch over the Pacific; sandy trails down to the beach. Free (GGNRA).",
+   "k": "view park beach free",
+   "g": [
+    "PARK",
+    "VIEW",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/must-see-attractions-san-franciscos-richmond-sunset-neighborhoods"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Fort_Funston"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "San Francisco Zoo",
+   "ad": "San Francisco Zoo & Gardens, by Ocean Beach, Sunset District, San Francisco, CA",
+   "w": "Northern California's largest zoo, by Ocean Beach.",
+   "k": "zoo family animals",
+   "g": [
+    "FAM",
+    "WATER"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/must-see-attractions-san-franciscos-richmond-sunset-neighborhoods"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/San_Francisco_Zoo"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "AVE",
+   "n": "Stern Grove",
+   "ad": "Sigmund Stern Recreation Grove, Sunset District, San Francisco, CA",
+   "w": "33-acre eucalyptus-and-redwood dell whose free summer Stern Grove Festival concerts draw throngs.",
+   "k": "park music concerts free",
+   "g": [
+    "PARK",
+    "ENT",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/must-see-attractions-san-franciscos-richmond-sunset-neighborhoods"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Sigmund_Stern_Recreation_Grove"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Clarion Alley",
+   "ad": "Clarion Alley, between Mission & Valencia, 17th & 18th St, San Francisco, CA 94110",
+   "w": "The Clarion Alley Mural Project's open-air gallery — 700+ murals since 1992 on social, economic and environmental justice. Free.",
+   "k": "murals art free",
+   "g": [
+    "MUS",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/guide-to-san-franciscos-mission-district-murals"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Clarion_Alley"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "The Women's Building",
+   "ad": "3543 18th St, San Francisco, CA 94110",
+   "w": "Women-led community centre (1979) wrapped in the MaestraPeace mural honouring women leaders and artists worldwide.",
+   "k": "murals art landmark free",
+   "g": [
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/guide-to-san-franciscos-mission-district-murals"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Women's_Building_(San_Francisco)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Harvey Milk Plaza",
+   "ad": "Harvey Milk Plaza, Market St / Castro St / 17th St, San Francisco, CA 94114",
+   "w": "Memorial plaza to Harvey Milk at the Castro's crossroads — under the giant rainbow flag, the entrance to Castro station.",
+   "k": "history LGBTQ landmark free",
+   "g": [
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/discover-san-franciscos-castro-neighborhood-10-must-do-activities"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Harvey_Milk_Plaza"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Mount Davidson",
+   "ad": "Mount Davidson Park, San Francisco, CA",
+   "w": "The city's highest natural point (928 ft) — a 1.5-mile forest loop to the historic Mount Davidson Cross.",
+   "k": "hike view park free",
+   "g": [
+    "PARK",
+    "VIEW",
+    "ARCH",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/best-hikes-san-francisco-beyond"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Mount_Davidson_(California)"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "Glen Canyon Park",
+   "ad": "Glen Canyon Park, Glen Park, San Francisco, CA",
+   "w": "70-acre wild canyon with rock outcrops and a creek in the middle of the city. Free.",
+   "k": "park hike nature free",
+   "g": [
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/best-hikes-san-francisco-beyond"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Glen_Canyon_Park"
     ]
    ]
   }
@@ -3758,8 +4262,8 @@
      "https://www.fox26medford.com/news/state/bib-gourmand-restaurants-in-san-francisco/article_c77d67b1-168a-503f-aa8f-3c48f3fdf78a.html"
     ],
     [
-     "JOINPEARL",
-     "https://joinpearl.co/restaurants/san-francisco/a16"
+     "MICHELIN_BIB",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/a16"
     ]
    ]
   },
@@ -4641,6 +5145,70 @@
    ]
   },
   {
+   "t": 2,
+   "a": "DTN",
+   "n": "Miller & Lux",
+   "ad": "700 Terry A Francois Blvd, San Francisco, CA 94158",
+   "w": "MICHELIN-listed (2026) steakhouse by Chase Center in Mission Bay.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/miller-lux"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTN",
+   "n": "Via Aurelia",
+   "ad": "300 Toni Stone Xing, San Francisco, CA 94158",
+   "w": "MICHELIN-listed (2026) contemporary Italian in Mission Bay.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/en/california/san-francisco/restaurant/via-aurelia"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "PEN",
+   "n": "Kan Kiin",
+   "ad": "201 Southgate Ave, Daly City, CA 94015",
+   "w": "MICHELIN-listed — Daly City's Michelin Thai.",
+   "cz": [
+    "SEA"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/daly-city/restaurant/kan-kiin"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SE",
+   "n": "La Cigale",
+   "ad": "679 Chenery St, San Francisco, CA 94131",
+   "w": "MICHELIN-listed (2026) one-man-kitchen Southwest-French bistro in Glen Park.",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/la-cigale-1245358"
+    ]
+   ]
+  },
+  {
    "t": 1,
    "a": "MIS",
    "n": "Ernest",
@@ -4757,6 +5325,130 @@
     [
      "SFEXAMINER",
      "https://www.sfexaminer.com/culture/food-and-drink/the-valley-club-brings-retro-future-vibes-to-sf-union-square/article_8155ab65-625c-44b8-9dc9-906ff2b7cc7c.html"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Friends Only",
+   "ad": "1501 California St, San Francisco, CA 94109",
+   "w": "Tiny Japanese omakase counter on Nob Hill/Polk — MICHELIN-listed and on the Eater SF 38.",
+   "cz": [
+    "JP"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/california/san-francisco/restaurant/friends-only"
+    ],
+    [
+     "EATERSF",
+     "https://admin.goldenstate.is/california-venues-top-eaters-list-of-38-essential-restaurants/ (Eater SF 38, May-2024 edition as reproduced)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MIS",
+   "n": "Delfina",
+   "ad": "3621 18th St, San Francisco, CA 94110",
+   "w": "The Mission's long-running neighbourhood Italian by Dolores Park (spaghetti, roast chicken) — MICHELIN-listed and on the Eater SF 38.",
+   "cz": [
+    "IT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/br/pt_BR/california/san-francisco/restaurant/delfina"
+    ],
+    [
+     "EATERSF",
+     "https://admin.goldenstate.is/california-venues-top-eaters-list-of-38-essential-restaurants/ (Eater SF 38, May-2024 edition as reproduced)"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NOB",
+   "n": "Tonga Room & Hurricane Bar",
+   "ad": "950 Mason St (Fairmont San Francisco), San Francisco, CA 94108",
+   "w": "Legendary 1945 tiki bar in the Fairmont's old pool — a band on a floating barge and an indoor rainstorm every half hour.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/nob-hill"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Tonga_Room"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NECN",
+   "n": "Vesuvio Cafe",
+   "ad": "Vesuvio Cafe, Columbus Ave at Jack Kerouac Alley, North Beach, San Francisco, CA 94133",
+   "w": "The Beat Generation's bar (1948) across Jack Kerouac Alley from City Lights — poetry, jazz and stained glass.",
+   "cz": [
+    "BAR"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/neighborhoods/north-beach"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Vesuvio_Cafe"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "AVE",
+   "n": "Good Luck Dim Sum",
+   "ad": "736 Clement St, San Francisco, CA 94118",
+   "w": "Speedy, cheap Richmond-District dim sum counter famed for juicy siu mai — an inspectors' off-guide favourite.",
+   "cz": [
+    "CANT"
+   ],
+   "s": [
+    [
+     "SFTRAVEL",
+     "https://www.sftravel.com/article/san-franciscos-best-dim-sum-neighborhood"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/us/en/article/dining-out/san-francisco-city-guide-food-bakeries-bars-dessert"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MIS",
+   "n": "Arizmendi Bakery (Valencia)",
+   "ad": "1268 Valencia St, San Francisco, CA 94110",
+   "w": "Worker-owned cooperative bakery (a Cheese Board disciple) — sourdough loaves, the daily-changing vegetarian pizza, morning buns; also on Michelin inspectors' off-guide list.",
+   "cz": [
+    "BAKE"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/san-francisco/reviews/arizmendi-bakery-2"
+    ],
+    [
+     "MICHELIN_EDITORIAL",
+     "https://guide.michelin.com/us/en/article/dining-out/san-francisco-city-guide-food-bakeries-bars-dessert"
+    ],
+    [
+     "TASTINGTABLE",
+     "https://www.tastingtable.com/2019572/best-san-francisco-bakeries-sourdough-bread-local"
     ]
    ]
   },
@@ -5124,12 +5816,6 @@
    "u": "",
    "l": ""
   },
-  "JOINPEARL": {
-   "k": "JOINPEARL",
-   "t": "JOINPEARL",
-   "u": "",
-   "l": ""
-  },
   "KQED": {
    "k": "KQED BAY AREA",
    "t": "KQED / Check, Please! Bay Area / Bay Area Bites",
@@ -5151,6 +5837,12 @@
   "MICHELIN_BIB": {
    "k": "MICHELIN BIB",
    "t": "MICHELIN BIB",
+   "u": "",
+   "l": ""
+  },
+  "MICHELIN_EDITORIAL": {
+   "k": "MICHELIN EDITORIAL",
+   "t": "MICHELIN_EDITORIAL",
    "u": "",
    "l": ""
   },
@@ -5253,6 +5945,12 @@
   "TABLEJOURNEY": {
    "k": "TABLEJOURNEY",
    "t": "TABLEJOURNEY",
+   "u": "",
+   "l": ""
+  },
+  "TASTINGTABLE": {
+   "k": "TASTINGTABLE",
+   "t": "TASTINGTABLE",
    "u": "",
    "l": ""
   },

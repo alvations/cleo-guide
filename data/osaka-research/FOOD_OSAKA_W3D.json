@@ -235,6 +235,10 @@
    [
     "MICHELIN_BIB",
     "https://guide.michelin.com/en/osaka-region/osaka/restaurant/yoshinosushi"
+   ],
+   [
+    "CREATOR_MARKWIENS",
+    "https://migrationology.com/osaka-food-guide-japan/"
    ]
   ]
  },
@@ -397,7 +401,7 @@
   "closed": false,
   "sources": [
    [
-    "MICHELIN",
+    "MICHELIN_BIB",
     "https://guide.michelin.com/us/en/osaka-region/osaka/restaurant/gastroteka-bimendi"
    ]
   ]
