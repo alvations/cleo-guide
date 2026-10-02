@@ -31,3 +31,10 @@
 50-52. coffee: rurubu potohoto (Sakaemachi; 2014 JCRC 5th) 23876, HUU'S 23763, rokkan Shuri 23661, Hibari-ya 80042391, Kissa Colors; japantravel Tamagusuku 62987 (Matsuo 2-19-39); Mapple 51265 Kokusai cafes; OT sumai rokkan 21012
 53. rurubu Chatan: VONGO & ANCHOR, Tacoloco (+OT s1103) kept, Seaside Steak BEEFY'S, R cafe, Transit Cafe, oHacorté Minatogawa — single so far
 54. Itoman Osakana Center (OT 0116 + Mapple 47001258 + rurubu 80042887; Stripes address 4-19-1 Nishizaki)
+55-56. rurubu Naha soba: Shuri Soba (80042467), Shuri Soba Nakada (Mawashi 1-36, 2021), Teshiraji soba (Shuri Tera 1-1), Mutsumibashi Kadoya (Makishi 1-3-49, 1952), Don-tei (24h), Hanagasa 80042511, Den soba, Doraemon soba; Mapple 49231 soba: Tiandaa (fuchiba soba) kept, Brazil Shokudo, Naha-tei
+57. Mapple 50031 Motobu soba road: Kishimoto, Yanbaru Soba, Sobaya Yoshiko (47011738, tebichi) kept w/ OT 0006
+58-59. rurubu Kouri: KOURI SHRIMP (Kouri 314; single), Cafe t&c Touraku (Kouri 1882-10; single); Kouri Ōhashi: Stripes return-to-kouri GPS N26.695396 E128.021848 + OCVB film office 25827 + GLTJP 14862
+60. KozaWeb eats: Cafe Ocean 46 (40+ yrs tacos), Rollup Koza 341, Steak House OK 240, Charlie's 138, Shiki Sonoda 187 (kept w/ rurubu 22566); features: Gate 2 St 41, A-sign 246, GO local gourmet 268, taco rice 240, A-lunch 284
+61. KozaWeb A-lunch 284: Highway Drive-In, Kaizoku Kobo (kept w/ OKINAWAPREF), Restaurant Kuni; 268: Red Kitchen & Cafe, Grand Shokudo, Matsumoto Diner, Shiki; bakeries 280, senbero 283, donuts 241
+62. Highway Drive-In (KozaWeb 284 + Stripes 'don't drive by' + japantravel 6426; GLTJP 10957); Seaside Drive-In (Stripes 1.278523) lead
+63-64. OT 0071 local fast food: A&W (shop 862 Makiminato), Jef Yonabaru (shop 528; held, OT only), Blue Seal Makiminato (shop 39) + OT news 1402341 (2024 reopening, 400 queue) + rurubu 23803 → kept
