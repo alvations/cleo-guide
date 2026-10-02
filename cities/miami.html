@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Miami field guide — 59 sights and 12 places to eat across Miami-Dade, Fort Lauderdale/Broward and the Everglades, each traceable to its source (Michelin, James Beard, the Miami Herald, Miami New Times, the Sun Sentinel, Eater Miami, the National Park Service), on one interactive map with area, collection and cuisine filters, a trip builder and exports.">
+<title>Miami Field Guide — Sourced</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
+  body{margin:0;background:var(--iron);color:var(--bone);
+    font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.58;font-weight:300;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 0 0;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--patina);margin:0 0 20px;}
+  h1{font-family:"Archivo Black",sans-serif;font-size:clamp(38px,8.5vw,82px);line-height:.92;
+    letter-spacing:-.03em;text-transform:uppercase;margin:0;}
+  h1 .thin{display:block;font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;
+    text-transform:none;letter-spacing:-.01em;color:var(--patina);
+    font-size:clamp(26px,5.6vw,58px);line-height:1.05;margin-top:8px;}
+  .standfirst{max-width:58ch;margin:26px 0 8px;font-size:18px;color:var(--bone-dim);}
+  .standfirst strong{color:var(--bone);font-weight:500;}
+
+  /* Map */
+  #map{height:60vh;min-height:380px;width:100%;margin:30px 0 0;
+    border:1px solid var(--hair);border-radius:3px;background:var(--slab);z-index:1;}
+  .maplegend{display:flex;flex-wrap:wrap;gap:14px;padding:12px 2px 0;
+    font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--bone-dim);}
+  .maplegend span{display:flex;align-items:center;gap:6px;}
+  .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
+  #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
+    border-left:3px solid var(--rust);font-size:14.5px;}
+  #tilewarn button{margin-left:8px;}
+  .leaflet-container{background:#0E1316;}
+  .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
+  .leaflet-popup-tip{background:var(--slab);}
+  .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
+  .leaflet-popup-content b{font-family:"Archivo Black",sans-serif;font-size:13px;
+    display:block;margin-bottom:5px;line-height:1.2;}
+  .leaflet-popup-content a{color:var(--patina);}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--bone-dim);}
+
+  /* Controls */
+  .controls{padding:28px 0 26px;}
+  .ctrl-label{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--bone-dim);margin:0 0 10px;}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;
+    padding:7px 12px;background:transparent;color:var(--bone-dim);border:1px solid var(--hair);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .chip:hover{border-color:var(--patina-dim);color:var(--bone);}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .chip[aria-pressed="true"]{background:var(--patina);border-color:var(--patina);color:var(--iron);font-weight:700;}
+  #search{width:100%;max-width:420px;background:var(--slab);border:1px solid var(--hair);
+    color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:13px;
+    padding:11px 13px;border-radius:2px;margin-bottom:20px;}
+  #search:focus{outline:none;border-color:var(--patina);}
+  #search::placeholder{color:var(--bone-dim);}
+  .count{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--brass);
+    letter-spacing:.1em;border-top:1px solid var(--hair);padding-top:14px;}
+
+  /* Cluster */
+  .cluster{display:flex;align-items:baseline;gap:14px;margin:52px 0 4px;
+    padding-bottom:12px;border-bottom:2px solid var(--patina-dim);}
+  .cluster h2{font-family:"Archivo Black",sans-serif;font-size:19px;letter-spacing:-.01em;
+    text-transform:uppercase;margin:0;}
+  .cluster .meta{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.08em;margin-left:auto;white-space:nowrap;}
+
+  /* Entry */
+  .entry{padding:26px 0 24px;border-bottom:1px solid var(--hair);display:flex;gap:16px;align-items:flex-start;}
+  .marker{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:700;
+    color:var(--brass);padding-top:6px;min-width:28px;letter-spacing:.04em;}
+  .body-col{flex:1;min-width:0;}
+  .entry h3{font-family:"Archivo Black",sans-serif;font-size:clamp(18px,3vw,23px);
+    line-height:1.15;letter-spacing:-.02em;margin:0 0 5px;}
+  .addr{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-dim);
+    letter-spacing:.02em;margin:0 0 13px;}
+  .addr a{color:var(--patina);text-decoration:none;border-bottom:1px solid var(--patina-dim);}
+  .addr a:hover{color:var(--brass);border-color:var(--brass);}
+  .what{margin:0 0 13px;max-width:66ch;}
+  .note{display:flex;gap:11px;background:var(--slab);border-left:3px solid var(--brass);
+    padding:11px 14px;margin:0 0 13px;font-size:15px;max-width:66ch;}
+  .note.warn{border-left-color:var(--rust);}
+  .note .tag{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--brass);padding-top:4px;white-space:nowrap;font-weight:700;}
+  .note.warn .tag{color:var(--rust);}
+  .ledger{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding-top:11px;
+    border-top:1px dashed var(--hair);}
+  .ledger .lbl{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--patina-dim);margin-right:3px;}
+  .src{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    padding:4px 8px;border:1px solid var(--patina-dim);border-radius:2px;
+    color:var(--patina);text-decoration:none;transition:.15s;}
+  .src:hover,.src:focus-visible{background:var(--patina);color:var(--iron);}
+  .src .num{color:var(--brass);}
+  .src:hover .num{color:var(--iron);}
+  .src.extra{border-color:#4A4038;color:var(--brass);}
+  .src.extra:hover{background:var(--brass);color:var(--iron);}
+  .modebar{display:flex;gap:0;margin:34px 0 0;border:1px solid var(--hair);border-radius:3px;overflow:hidden;}
+  .modebtn{flex:1;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;padding:14px 10px;background:transparent;color:var(--bone-dim);
+    border:0;cursor:pointer;transition:.15s;}
+  .modebtn:hover{color:var(--bone);background:var(--slab);}
+  .modebtn:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+  .modebtn[aria-pressed="true"]{background:var(--patina);color:var(--iron);font-weight:700;}
+  body.foodmode .modebtn[aria-pressed="true"]{background:var(--brass);}
+
+  .pick{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 19px;
+    border:1px solid var(--patina-dim);border-radius:3px;background:transparent;cursor:pointer;
+    margin:5px 0 0;position:relative;transition:.15s;}
+  .pick:hover{border-color:var(--patina);}
+  .pick:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .pick:checked{background:var(--patina);border-color:var(--patina);}
+  .pick:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--iron);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);}
+  .pickwrap{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:28px;}
+  .seenbtn{width:22px;height:22px;border-radius:50%;border:1px solid var(--hair);
+    background:transparent;color:var(--bone-dim);font-size:11px;line-height:1;cursor:pointer;
+    padding:0;transition:.15s;display:flex;align-items:center;justify-content:center;}
+  .seenbtn:hover{border-color:var(--brass);color:var(--brass);}
+  .seenbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .seenbtn.on{background:var(--brass);border-color:var(--brass);color:var(--iron);font-weight:700;}
+  .entry.seen{opacity:.45;}
+  .entry.seen:hover{opacity:.8;}
+  .entry.seen h3{text-decoration:line-through;text-decoration-color:var(--bone-dim);
+    text-decoration-thickness:1px;}
+  .seenbadge{background:transparent!important;color:var(--brass)!important;
+    border:1px solid var(--brass)!important;}
+  .chip.preset{border-color:var(--patina-dim);color:var(--patina);}
+  .chip.preset:hover{background:var(--patina);color:var(--iron);}
+  .chip.gchip{border-style:dashed;}
+  .chip.gchip.needkey{opacity:.5;}
+  .chip.warnchip{border-color:var(--hair);color:var(--bone-dim);}
+  .chip.warnchip:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+
+  #tripbar{position:sticky;bottom:0;z-index:50;background:var(--slab);
+    border-top:2px solid var(--brass);margin:0 -20px;padding:12px 20px;
+    box-shadow:0 -8px 24px rgba(0,0,0,.5);}
+  .tripinner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .tripcount{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--bone-dim);margin-right:6px;}
+  .tripcount b{color:var(--brass);font-size:15px;}
+  .tripbtn{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.06em;
+    padding:8px 12px;background:transparent;color:var(--patina);border:1px solid var(--patina-dim);
+    border-radius:2px;cursor:pointer;transition:.15s;}
+  .tripbtn:hover{background:var(--patina);color:var(--iron);}
+  .tripbtn:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  .tripbtn.ghost{color:var(--bone-dim);border-color:var(--hair);}
+  .tripbtn.ghost:hover{background:var(--rust);color:var(--bone);border-color:var(--rust);}
+  .applelink{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-dim);
+    text-decoration:none;border-bottom:1px solid var(--hair);margin-left:10px;}
+  .applelink:hover{color:var(--brass);border-color:var(--brass);}
+  .czbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:8.5px;
+    letter-spacing:.12em;text-transform:uppercase;padding:3px 6px;border-radius:2px;
+    border:1px solid var(--hair);color:var(--bone-dim);margin-right:5px;}
+  .tierbadge{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 7px;border-radius:2px;
+    vertical-align:middle;margin-left:9px;font-weight:700;position:relative;top:-2px;}
+  .t1{background:var(--brass);color:var(--iron);}
+  .t2{background:transparent;color:var(--patina);border:1px solid var(--patina-dim);}
+  .t3{background:transparent;color:var(--bone-dim);border:1px solid var(--hair);}
+  .cites{font-family:"JetBrains Mono",monospace;font-size:9.5px;color:var(--bone-dim);
+    letter-spacing:.1em;margin-left:auto;padding-left:10px;white-space:nowrap;}
+  .empty{padding:56px 0;text-align:center;font-family:"Instrument Serif",serif;
+    font-style:italic;font-size:21px;color:var(--bone-dim);}
+
+  /* Appendix */
+  .appendix{margin:76px 0 0;padding:38px 0 20px;border-top:2px solid var(--patina-dim);}
+  .appendix h2{font-family:"Archivo Black",sans-serif;font-size:19px;text-transform:uppercase;
+    letter-spacing:-.01em;margin:0 0 8px;}
+  .appendix > p{color:var(--bone-dim);max-width:62ch;margin:0 0 24px;}
+  .srcrow{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:15px 0;
+    border-bottom:1px solid var(--hair);align-items:baseline;}
+  .srcrow .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.03em;
+    color:var(--brass);border:1px solid var(--hair);padding:4px 8px;border-radius:2px;white-space:nowrap;}
+  .srcrow .t{font-size:15.5px;}
+  .srcrow .t a{color:var(--patina);word-break:break-word;text-decoration:none;
+    border-bottom:1px solid var(--patina-dim);}
+  .srcrow .t a:hover{color:var(--brass);border-color:var(--brass);}
+  .srcrow .t span{display:block;font-size:13px;color:var(--bone-dim);margin-top:3px;}
+  footer{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--bone-dim);
+    letter-spacing:.04em;line-height:1.9;padding:32px 0 60px;}
+
+  @media (max-width:620px){
+    header{padding-top:38px;}
+    .entry{flex-direction:column;gap:0;}
+    .marker{padding-top:0;margin-bottom:7px;}
+    .cluster{flex-wrap:wrap;}
+    .cluster .meta{margin-left:0;width:100%;margin-top:5px;}
+    .note{flex-direction:column;gap:4px;}
+    #map{height:52vh;}
+  }
+  .locate-btn{width:34px;height:34px;line-height:1;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--slab);color:var(--bone);border:1px solid var(--hair);border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.45);margin-left:10px;}
+  .locate-btn:hover{border-color:var(--patina);color:var(--patina);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Field guide · Miami, Fort Lauderdale &amp; the Everglades, sourced</p>
+  <h1>Miami<span class="thin">Fort Lauderdale to the Everglades — ventanitas, Art Deco &amp; the River of Grass</span></h1>
+  <p class="standfirst">59 sights and 12 places to eat from Fort Lauderdale down through Miami-Dade to Everglades and Biscayne national parks, each traceable to the source that named it. The food runs on what South Florida does best: the Cuban sandwich and a ventanita cafecito, croquetas and pastelitos, stone crab, Haitian griot, Peruvian ceviche, arepas, key lime pie, Redland tropical fruit, and gator and frog legs at the edge of the Glades. <strong>Switch modes below</strong>, filter by <strong>area</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+</header>
+
+<div id="map"></div>
+<div id="tilewarn">Map tiles couldn't load from this network. <button class="tripbtn" id="tileRetry">Try another tile server</button></div>
+<div id="baseWrap">
+  <p class="ctrl-label" style="margin:18px 0 9px">Base map</p>
+  <div class="chips" id="baseFilter"></div>
+</div>
+<div class="maplegend">
+  <span><i style="background:#4F81BD"></i>Fort Lauderdale, Hollywood & Broward</span>
+  <span><i style="background:#8064A2"></i>North Miami, Aventura, Sunny Isles & Miami Gardens</span>
+  <span><i style="background:#E05A8A"></i>Wynwood, Design District, Little Haiti & MiMo</span>
+  <span><i style="background:#E8973A"></i>Downtown, Brickell & Overtown</span>
+  <span><i style="background:#C0504D"></i>Little Havana, Hialeah, Doral & West Dade</span>
+  <span><i style="background:#2EB5C9"></i>Miami Beach, Surfside & Bal Harbour</span>
+  <span><i style="background:#9BBB59"></i>Coral Gables, Coconut Grove & Key Biscayne</span>
+  <span><i style="background:#D4A017"></i>South Dade — Kendall, Homestead, Redland & Florida City</span>
+  <span><i style="background:#3D8B5A"></i>Everglades NP, Biscayne NP & the Tamiami Trail</span>
+  <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
+</div>
+
+<div class="modebar">
+  <button id="modeSights" class="modebtn" aria-pressed="true">Sights &amp; attractions</button>
+  <button id="modeFood" class="modebtn" aria-pressed="false">Food, drink &amp; desserts</button>
+</div>
+
+<div class="controls">
+  <div id="cuisineWrap" hidden>
+    <p class="ctrl-label">Cuisine</p>
+    <div class="chips" id="cuisineFilter"></div>
+  </div>
+  <p class="ctrl-label">Search</p>
+  <input id="search" type="search" placeholder="Art Deco, Vizcaya, Everglades, cafecito…" autocomplete="off">
+  <p class="ctrl-label">Filter by source</p>
+  <div class="chips" id="srcFilter"></div>
+  <p class="ctrl-label">Filter by area</p>
+  <div class="chips" id="dayFilter"></div>
+  <div id="catWrap" hidden>
+    <p class="ctrl-label">Filter by collection</p>
+    <div class="chips" id="catFilter"></div>
+  </div>
+  <p class="ctrl-label">Filter by rank &mdash; my call, region by region</p>
+  <div class="chips" id="rankFilter"></div>
+  <p class="ctrl-label">Sort</p>
+  <div class="chips" id="sortFilter"></div>
+  <p class="ctrl-label">Been there?</p>
+  <div class="chips" id="seenFilter"></div>
+  <p class="ctrl-label">Quick picks &mdash; tick a whole set at once</p>
+  <div class="chips" id="presets"></div>
+  <p class="count" id="count"></p>
+</div>
+
+<main id="list"></main>
+
+<div id="tripbar" hidden>
+  <div class="tripinner">
+    <span class="tripcount"><b id="tripN">0</b> on your list</span>
+    <button class="tripbtn" id="tripShow">Show only my list</button>
+    <button class="tripbtn" id="tripGoogle">Open in Google Maps</button>
+    <button class="tripbtn" id="tripKml">Download for My Maps (.kml)</button>
+    <button class="tripbtn" id="tripJson">Save list (.json)</button>
+    <button class="tripbtn ghost" id="tripClear">Clear</button>
+  </div>
+</div>
+
+<section class="appendix">
+  <h2>Sources</h2>
+  <p>Everything below traces to one of these. Where a source numbered its entry, the number appears on the tag so you can find it in the original.</p>
+  <div class="note" style="max-width:none;margin-bottom:26px"><span class="tag">How ranks work</span><span><strong>Must see</strong>, <strong>worth the detour</strong> and <strong>deep cut</strong> are my judgement, not any source's. They are graded <em>within each region</em> — a must-see in the suburbs is not competing with a must-see downtown, so filtering to must-see still gives you a workable day in each area. Roughly: must-see means you would regret missing it; deep cut means a plaque, a private house, a two-minute stop, or something so seasonal you need luck. The count on the right of each entry shows how many separate sources named it, which is a different and more objective signal — sort by that if you would rather trust the crowd than me.</span></div>
+  <div id="srcList"></div>
+</section>
+
+<footer>
+  Hours, admission and opening days change — verify before you drive.<br>
+  A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced across Michelin, James Beard, the Miami Herald, Miami New Times, the South Florida Sun Sentinel, Eater Miami, The Infatuation, WLRN, the National Park Service and Florida State Parks, plus official sites and vetted creators. Every place is merit-measured before it earns a pin; every coordinate is verified into data/geocodes.json and every place status-checked. Restaurant pins still awaiting a verified place coordinate are held back until they have one.</span><br><br>
+  <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
+  <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+
+const S = {
+  "AJC":{k:"AJC",t:"AJC",u:"",l:""},
+  "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura",u:"https://www.atlasobscura.com/things-to-do/miami-florida",l:"Atlas Obscura"},
+  "CORALGABLES":{k:"CORALGABLES",t:"CORALGABLES",u:"",l:""},
+  "CRAZYTOURIST":{k:"CRAZYTOURIST",t:"CRAZYTOURIST",u:"",l:""},
+  "CULTURETRIP":{k:"CULTURETRIP",t:"CULTURETRIP",u:"",l:""},
+  "DINERSCLUB":{k:"DINERSCLUB",t:"DINERSCLUB",u:"",l:""},
+  "EARTHTREKKERS":{k:"EARTHTREKKERS",t:"EARTHTREKKERS",u:"",l:""},
+  "FLORIDARAMBLER":{k:"FLORIDARAMBLER",t:"FLORIDARAMBLER",u:"",l:""},
+  "FODORS":{k:"FODOR'S",t:"FODOR'S",u:"",l:""},
+  "FROMMERS":{k:"FROMMER'S",t:"FROMMER'S",u:"",l:""},
+  "GLOBALPHILE":{k:"GLOBALPHILE",t:"GLOBALPHILE",u:"",l:""},
+  "GMCVB":{k:"GREATER MIAMI CVB",t:"Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",u:"https://www.miamiandbeaches.com",l:"Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)"},
+  "GULFSHOREBUSINESS":{k:"GULFSHOREBUSINESS",t:"GULFSHOREBUSINESS",u:"",l:""},
+  "ISLANDS":{k:"ISLANDS",t:"ISLANDS",u:"",l:""},
+  "LOCAL10":{k:"LOCAL 10 (WPLG)",t:"WPLG Local 10",u:"https://www.local10.com",l:"WPLG Local 10"},
+  "LONELYPLANET":{k:"LONELYPLANET",t:"LONELYPLANET",u:"",l:""},
+  "MDPL":{k:"MDPL",t:"MDPL",u:"",l:""},
+  "MIAMINEWTIMES":{k:"MIAMI NEW TIMES",t:"Miami New Times (incl. Best of Miami)",u:"https://www.miaminewtimes.com",l:"Miami New Times (incl. Best of Miami)"},
+  "NATGEO":{k:"NATIONAL GEOGRAPHIC",t:"NATIONAL GEOGRAPHIC",u:"",l:""},
+  "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service",u:"https://www.nps.gov/ever/",l:"National Park Service"},
+  "NRHP":{k:"NATIONAL REGISTER",t:"NATIONAL REGISTER",u:"",l:""},
+  "ROADSIDEAMERICA":{k:"ROADSIDEAMERICA",t:"ROADSIDEAMERICA",u:"",l:""},
+  "SHAKAGUIDE":{k:"SHAKAGUIDE",t:"SHAKAGUIDE",u:"",l:""},
+  "TIMEOUT":{k:"TIME OUT MIAMI",t:"Time Out Miami",u:"https://www.timeout.com/miami",l:"Time Out Miami"},
+  "VISITFLORIDA":{k:"VISIT FLORIDA",t:"Visit Florida",u:"https://www.visitflorida.com",l:"Visit Florida"},
+  "VISITLAUDERDALE":{k:"VISIT LAUDERDALE",t:"Visit Lauderdale (Greater Fort Lauderdale CVB)",u:"https://www.visitlauderdale.com",l:"Visit Lauderdale (Greater Fort Lauderdale CVB)"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org",l:"Wikipedia"}
+};
+
+const AREAS = [
+  {id:"FTL",n:"Fort Lauderdale, Hollywood & Broward",c:"#4F81BD"},
+  {id:"NMIA",n:"North Miami, Aventura, Sunny Isles & Miami Gardens",c:"#8064A2"},
+  {id:"WYN",n:"Wynwood, Design District, Little Haiti & MiMo",c:"#E05A8A"},
+  {id:"DTB",n:"Downtown, Brickell & Overtown",c:"#E8973A"},
+  {id:"LHAV",n:"Little Havana, Hialeah, Doral & West Dade",c:"#C0504D"},
+  {id:"MBCH",n:"Miami Beach, Surfside & Bal Harbour",c:"#2EB5C9"},
+  {id:"CGCG",n:"Coral Gables, Coconut Grove & Key Biscayne",c:"#9BBB59"},
+  {id:"SDADE",n:"South Dade — Kendall, Homestead, Redland & Florida City",c:"#D4A017"},
+  {id:"GLADE",n:"Everglades NP, Biscayne NP & the Tamiami Trail",c:"#3D8B5A"}
+];
+
+const P = [
+{t:1,a:"GLADE",n:"Anhinga Trail (Royal Palm)",ad:"Royal Palm Visitor Center, State Road 9336, Everglades National Park, FL",la:25.38167,ln:-80.60972,w:"The park's most popular trail: a paved path and boardwalk over sawgrass marsh and Taylor Slough where alligators, turtles and anhingas gather — best in the dry-season winter.",k:"Walk it early morning Dec–Apr; watch for vultures on car rubber.",g:["ICON","BEACH","PARK","WILD"],s:[["NPS","https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"],["NATGEO","https://www.nationalgeographic.com/travel/national-parks/article/everglades-activities"]]},
+{t:1,a:"GLADE",n:"Shark Valley",ad:"36000 SW 8th St, Miami, FL (Tamiami Trail)",la:25.70778,ln:-80.76306,w:"Everglades NP's northern entrance: a 15-mile paved loop through the river of grass to a 360° observation tower — by tram tour, bicycle or on foot.",g:["ICON","DECO","WILD"],s:[["NPS","https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"],["NATGEO","https://www.nationalgeographic.com/travel/national-parks/article/everglades-activities"]]},
+{t:2,a:"GLADE",n:"Pa-hay-okee Overlook",ad:"Main Park Road, Everglades National Park, FL",la:25.44145,ln:-80.78392,w:"A short boardwalk to a raised platform with sweeping views over the sawgrass 'river of grass'.",g:["BEACH","WILD"],s:[["NPS","https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"],["FROMMERS","https://www.frommers.com/destinations/everglades-national-park/things-to-do/"]]},
+{t:1,a:"GLADE",n:"Flamingo Visitor Center & Marina",ad:"Flamingo, Everglades National Park, FL",la:25.14083,ln:-80.92417,w:"The park's far southern end on Florida Bay: boat tours and rentals into the backcountry, crocodiles and manatees at the marina.",g:["BEACH","PARK","WILD","BOAT"],s:[["NPS","https://www.nps.gov/thingstodo/walk-the-anhinga-trail.htm"],["NATGEO","https://www.nationalgeographic.com/travel/national-parks/article/everglades-activities"]]},
+{t:1,a:"FTL",n:"Bonnet House Museum & Gardens",ad:"900 N Birch Rd, Fort Lauderdale, FL",la:26.13528,ln:-80.10556,w:"The 1920s Caribbean-plantation-style waterfront estate of artists Frederic and Evelyn Bartlett, between the Intracoastal and the beach.",g:["BEACH","ART","MUS","HIST"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"],["CULTURETRIP","https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bonnet_House"]]},
+{t:1,a:"FTL",n:"Stranahan House",ad:"335 SE 6th Ave, Fort Lauderdale, FL",la:26.11806,ln:-80.13806,w:"Built 1901 as Frank Stranahan's trading post — the oldest surviving structure in Broward County, now a museum.",g:["MUS","HIST"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/florida/fort-lauderdale/attractions"],["CULTURETRIP","https://theculturetrip.com/articles/20-must-visit-attractions-in-fort-lauderdale"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Stranahan_House"]]},
+{t:1,a:"MBCH",n:"Miami Beach Architectural District (Art Deco Historic District)",ad:"Ocean Drive & Collins Ave, South Beach, Miami Beach, FL",la:25.78583,ln:-80.13417,w:"The world's largest concentration of 1920s–30s Art Deco buildings, pastel hotels along Ocean Drive — on the National Register.",k:"Walk Ocean Drive at dusk when the neon comes on.",g:["ICON","BEACH","DECO","ART"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Miami_Beach_Architectural_District"]]},
+{t:1,a:"MBCH",n:"The Wolfsonian–FIU",ad:"1001 Washington Ave, Miami Beach, FL",la:25.78084,ln:-80.13257,w:"Design museum and library in a restored 1927 storage building — 180,000 objects on how design shaped the modern world.",g:["DECO","MUS"],s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wolfsonian-FIU"]]},
+{t:2,a:"MBCH",n:"Lincoln Road Mall",ad:"Lincoln Rd, Miami Beach, FL",la:25.79056,ln:-80.13639,w:"Morris Lapidus' 1960 pedestrian mall — a mile of cafés, shops and people-watching.",g:["HIST"],s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lincoln_Road"]]},
+{t:2,a:"MBCH",n:"South Pointe Park",ad:"1 Washington Ave, Miami Beach, FL",la:25.76834,ln:-80.13185,w:"Waterfront park and pier at the tip of South Beach watching cruise ships slide out of Government Cut.",g:["ICON","BEACH","PARK","BOAT"],s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/South_Pointe_Park"]]},
+{t:1,a:"MBCH",n:"Holocaust Memorial Miami Beach",ad:"1933-1945 Meridian Ave, Miami Beach, FL",la:25.79551,ln:-80.13622,w:"Kenneth Treister's 1990 memorial: a 42-ft bronze arm rising from a reflecting pool, ringed by figures and a granite wall of victims' names.",g:["BEACH"],s:[["LONELYPLANET","https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/miami/south-beach/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Holocaust_Memorial_Miami_Beach"]]},
+{t:1,a:"MBCH",n:"The Bass",ad:"2100 Collins Ave, Miami Beach, FL",la:25.79740,ln:-80.12995,w:"Miami Beach's contemporary art museum in a 1930s Deco building in Collins Park.",g:["BEACH","DECO","ART","MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bass_Museum"]]},
+{t:1,a:"DTB",n:"Bayfront Park",ad:"301 Biscayne Blvd, Miami, FL",la:25.77500,ln:-80.18600,w:"Downtown's 32-acre waterfront park on Biscayne Bay, with the Noguchi-designed amphitheatre and Challenger memorial.",g:["ICON","BEACH","PARK","ENT"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bayfront_Park"]]},
+{t:1,a:"DTB",n:"Pérez Art Museum Miami",ad:"1103 Biscayne Blvd, Miami, FL",la:25.78589,ln:-80.18671,w:"PAMM — Miami's flagship contemporary art museum in a Herzog & de Meuron building with hanging gardens on the bay.",g:["BEACH","DECO","ART","MUS"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Pérez_Art_Museum_Miami"]]},
+{t:1,a:"DTB",n:"Phillip and Patricia Frost Museum of Science",ad:"1101 Biscayne Blvd, Miami, FL",la:25.78530,ln:-80.18780,w:"Science museum, planetarium and a three-level aquarium with an oculus looking up into the Gulf Stream tank.",g:["MUS","FAM"],s:[["TIMEOUT","https://timeout.com/miami/things-to-do/best-miami-attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Phillip_and_Patricia_Frost_Museum_of_Science"]]},
+{t:1,a:"WYN",n:"Wynwood Walls",ad:"2516 NW 2nd Ave, Miami, FL",la:25.80102,ln:-80.19949,w:"Tony Goldman's 2009 outdoor street-art museum that turned Wynwood's warehouses into the world's mural capital.",g:["ICON","ART","MUS","HIST"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Wynwood_Walls"]]},
+{t:1,a:"CGCG",n:"Vizcaya Museum and Gardens",ad:"3251 S Miami Ave, Miami, FL",la:25.74361,ln:-80.21028,w:"James Deering's 1916 Italian Renaissance–style villa and formal gardens on Biscayne Bay — Miami's grandest historic estate.",g:["ICON","BEACH","MUS","HIST"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Vizcaya_Museum_and_Gardens"]]},
+{t:1,a:"CGCG",n:"Fairchild Tropical Botanic Garden",ad:"10901 Old Cutler Rd, Coral Gables, FL",la:25.67866,ln:-80.27374,w:"83 acres of palms, cycads and rare tropical plants — one of the country's great tropical botanical gardens.",g:["PARK"],s:[["LONELYPLANET","https://www.lonelyplanet.com/usa/miami/practical-information/money-costs"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Fairchild_Tropical_Botanic_Garden"]]},
+{t:1,a:"GLADE",n:"Biscayne National Park — Dante Fascell Visitor Center",ad:"9700 SW 328th St, Homestead, FL",la:25.46430,ln:-80.33480,w:"The mainland gateway to a park that is 95% water: museum, art gallery, ranger talks, and boat trips out to the keys, reefs and Stiltsville.",g:["ART","MUS","HIST","PARK"],s:[["NPS","https://www.nps.gov/bisc/index.htm"],["EARTHTREKKERS","https://www.earthtrekkers.com/best-things-to-do-in-biscayne-national-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Biscayne_National_Park"]]},
+{t:1,a:"GLADE",n:"Boca Chita Key",ad:"Boca Chita Key, Biscayne National Park, FL",la:25.52310,ln:-80.17460,w:"The park's most-visited island, greeted by the ornamental lighthouse Mark Honeywell built in the 1930s.",g:["BEACH","HIST","PARK","BOAT"],s:[["NPS","https://www.nps.gov/bisc/index.htm"],["EARTHTREKKERS","https://www.earthtrekkers.com/best-things-to-do-in-biscayne-national-park"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Boca_Chita_Key"]]},
+{t:2,a:"GLADE",n:"Ochopee Post Office",ad:"38000 Tamiami Trail E, Ochopee, FL",la:25.90126,ln:-81.29735,w:"The smallest post office in the United States — a 61-sq-ft former irrigation-pipe shed pressed into service after a 1953 fire.",k:"Mail a postcard from it.",g:["HIST"],s:[["ROADSIDEAMERICA","https://www.roadsideamerica.com/tip/4575"],["ISLANDS","https://www.islands.com/1941557/ochopee-florida-america-smallest-post-office-odd-town-big-roadside-curiosities"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ochopee,_Florida"]]},
+{t:2,a:"SDADE",n:"Fruit & Spice Park",ad:"24801 SW 187th Ave, Homestead, FL",la:25.53380,ln:-80.49226,w:"Miami-Dade's 37-acre Redland botanical park of 500+ edible tropical fruits, spices and nuts — taste what's in season.",g:["PARK"],s:[["GMCVB","https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insider-s-guide-homestead"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Fruit_and_Spice_Park"]]},
+{t:1,a:"SDADE",n:"Coral Castle",ad:"28655 S Dixie Hwy, Homestead, FL",la:25.50028,ln:-80.44500,w:"Ed Leedskalnin's single-handed carved-coral monument (1923–51), still unexplained.",g:["ICON"],s:[["GMCVB","https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insider-s-guide-homestead"],["GULFSHOREBUSINESS","https://gulfshorebusiness.com/doing-redland-right"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Coral_Castle"]]},
+{t:2,a:"SDADE",n:"Monkey Jungle",ad:"14805 SW 216th St, Miami, FL",la:25.56637,ln:-80.43131,w:"Since 1933: the humans walk in cages while the primates roam free.",g:["BOAT","FAM","FREE"],s:[["GULFSHOREBUSINESS","https://gulfshorebusiness.com/doing-redland-right"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Monkey_Jungle"]]},
+{t:2,a:"SDADE",n:"Everglades Alligator Farm",ad:"40351 SW 192nd Ave, Homestead, FL",la:25.39340,ln:-80.50122,w:"Florida's oldest alligator farm (1940s) at the Everglades' edge — airboat rides and gator shows.",g:["WILD","BOAT"],s:[["GULFSHOREBUSINESS","https://gulfshorebusiness.com/doing-redland-right"],["FLORIDARAMBLER","https://www.floridarambler.com/?p=566"]]},
+{t:1,a:"CGCG",n:"Crandon Park Beach",ad:"6747 Crandon Blvd, Key Biscayne, FL",la:25.71390,ln:-80.15510,w:"Key Biscayne's two-mile family beach with calm water, cabanas and beachside paella.",g:["BEACH","PARK","BOAT","FAM"],s:[["TIMEOUT","https://timeout.com/miami/things-to-do/best-miami-beaches"],["FROMMERS","https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Crandon_Park"]]},
+{t:1,a:"CGCG",n:"Bill Baggs Cape Florida State Park",ad:"1200 S Crandon Blvd, Key Biscayne, FL",la:25.67361,ln:-80.15944,w:"The tip of Key Biscayne: a mile of wild beach, nature trails and Miami-Dade's oldest structure, the 1825 Cape Florida Light.",g:["BEACH","PARK","BOAT"],s:[["TIMEOUT","https://timeout.com/miami/things-to-do/best-miami-beaches"],["FROMMERS","https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Bill_Baggs_Cape_Florida_State_Park"]]},
+{t:2,a:"CGCG",n:"Cape Florida Light",ad:"Bill Baggs Cape Florida State Park, Key Biscayne, FL",la:25.66659,ln:-80.15596,w:"The 1825 brick lighthouse — the oldest standing structure in Miami-Dade; climb it on ranger-led tours.",g:["BEACH","HIST"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Cape_Florida_Light"],["NRHP","https://www.nps.gov/NR/travel/geo-flor/46.htm"]]},
+{t:2,a:"CGCG",n:"Historic Virginia Key Beach Park",ad:"4020 Virginia Beach Dr, Miami, FL",la:25.73596,ln:-80.15595,w:"Opened in 1945 as the 'colored only' beach of segregated Miami; now a historic park on Virginia Key.",g:["BEACH","HIST","PARK","BOAT"],s:[["TIMEOUT","https://timeout.com/miami/things-to-do/best-miami-beaches"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Virginia_Key_Beach_Park"]]},
+{t:1,a:"NMIA",n:"Haulover Beach",ad:"10800 Collins Ave, Miami Beach, FL",la:25.91092,ln:-80.12339,w:"Wide family beach between Bal Harbour and Sunny Isles — kite flying since 1992, a skate park, and a clothing-optional section to the north.",g:["BEACH","PARK","FAM"],s:[["TIMEOUT","https://timeout.com/miami/things-to-do/best-miami-beaches"],["FROMMERS","https://www.frommers.com/destinations/miami/the-best-beaches-in-miami/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Haulover_Park"]]},
+{t:1,a:"CGCG",n:"Biltmore Hotel",ad:"1200 Anastasia Ave, Coral Gables, FL",la:25.72149,ln:-80.26838,w:"1926 Mediterranean Revival grand hotel and South Florida's only National Historic Landmark resort.",g:["DECO","HIST"],s:[["VISITFLORIDA","https://www.visitflorida.com/places-to-go/southeast/coral-gables/"],["CORALGABLES","https://coralgables.com/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Biltmore_Hotel_(Coral_Gables,_Florida)"]]},
+{t:1,a:"CGCG",n:"Venetian Pool",ad:"2701 De Soto Blvd, Coral Gables, FL",la:25.74611,ln:-80.27417,w:"A 1924 public pool carved from a coral-rock quarry — waterfalls, grottoes and Venetian bridges; on the National Register.",g:["HIST"],s:[["VISITFLORIDA","https://www.visitflorida.com/places-to-go/southeast/coral-gables/"],["CORALGABLES","https://coralgables.com/attractions"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Venetian_Pool"]]},
+{t:2,a:"CGCG",n:"Lowe Art Museum",ad:"1301 Stanford Dr, Coral Gables, FL",la:25.71943,ln:-80.27566,w:"University of Miami's art museum, home of the Kress Collection of Renaissance and Baroque art.",g:["ART","MUS"],s:[["VISITFLORIDA","https://www.visitflorida.com/places-to-go/southeast/coral-gables/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Lowe_Art_Museum"]]},
+{t:1,a:"DTB",n:"Freedom Tower",ad:"600 Biscayne Blvd, Miami, FL",la:25.78026,ln:-80.18964,w:"1925 Giralda-style tower built for the Miami News; 1962–74 the Cuban Refugee Center that processed ~300,000 exiles — the 'Ellis Island of the South'. National Historic Landmark (2008).",g:["DECO","HIST","WILD","BOAT"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/history-and-heritage/20-architecturally-buildings-downtown"],["MIAMINEWTIMES","https://www.miaminewtimes.com/arts-culture/the-eight-oldest-and-most-iconic-buildings-in-miami-8455204/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Freedom_Tower_(Miami)"]]},
+{t:2,a:"DTB",n:"HistoryMiami Museum",ad:"101 W Flagler St, Miami, FL",la:25.77470,ln:-80.19630,w:"South Florida's history museum in the Cultural Plaza; it also manages the Miami Circle.",g:["MUS","HIST"],s:[["FROMMERS","https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/HistoryMiami"]]},
+{t:2,a:"DTB",n:"Olympia Theater",ad:"174 E Flagler St, Miami, FL",la:25.77420,ln:-80.19052,w:"John Eberson's 1926 atmospheric movie palace for Paramount — stars twinkle on the ceiling; a Miami Film Festival venue.",g:["ENT"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/history-and-heritage/20-architecturally-buildings-downtown"],["FROMMERS","https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Olympia_Theater_(Miami)"]]},
+{t:2,a:"DTB",n:"Miami Circle",ad:"401 Brickell Ave, Miami, FL",la:25.76947,ln:-80.18896,w:"A 2,000-year-old Tequesta circle of 24 post-holes cut into limestone at the mouth of the Miami River, found in 1998. National Historic Landmark.",g:["HIST"],s:[["FROMMERS","https://www.frommers.com/destinations/miami/things-to-do/historic-homes--sites/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Miami_Circle"]]},
+{t:1,a:"NMIA",n:"Ancient Spanish Monastery",ad:"16711 W Dixie Hwy, North Miami Beach, FL",la:25.92917,ln:-80.15472,w:"A 12th-century Cistercian cloister from Segovia, bought by William Randolph Hearst, shipped in crates and reassembled in North Miami Beach.",g:["BEACH","HIST"],s:[["GMCVB","https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"],["CRAZYTOURIST","https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Monastery_of_St._Bernard_de_Clairvaux"]]},
+{t:1,a:"NMIA",n:"Oleta River State Park",ad:"3400 NE 163rd St, North Miami Beach, FL",la:25.91889,ln:-80.14000,w:"Florida's largest urban park: 1,000+ acres of mangrove estuary with kayaking, paddleboarding and 15 miles of mountain-bike trails.",g:["PARK","WILD","BOAT"],s:[["GMCVB","https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"],["CRAZYTOURIST","https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Oleta_River_State_Park"]]},
+{t:2,a:"NMIA",n:"Museum of Contemporary Art North Miami (MOCA)",ad:"770 NE 125th St, North Miami, FL",la:25.89041,ln:-80.18325,w:"Contemporary art museum with ~500 works and free last-Friday Jazz at MOCA concerts.",g:["ART","MUS","ENT","FREE"],s:[["GMCVB","https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"],["CRAZYTOURIST","https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_of_Contemporary_Art,_North_Miami"]]},
+{t:2,a:"NMIA",n:"Arch Creek Park",ad:"1855 NE 135th St, North Miami, FL",la:25.90111,ln:-80.16139,w:"A natural limestone bridge over Arch Creek, Tequesta archaeological site and nature centre.",g:["PARK"],s:[["GMCVB","https://miamiandbeaches.com/neighborhoods/north-miami-beach-area"],["CRAZYTOURIST","https://www.thecrazytourist.com/14-best-things-to-do-in-north-miami-fl/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Arch_Creek"]]},
+{t:1,a:"FTL",n:"Hugh Taylor Birch State Park",ad:"3109 E Sunrise Blvd, Fort Lauderdale, FL",la:26.14500,ln:-80.10500,w:"180 acres of Old Florida hammock and mangrove between the ocean and the Intracoastal — paddling, trails, picnic lawns.",g:["PARK","WILD"],s:[["VISITLAUDERDALE","https://www.visitlauderdale.com/things-to-do/attractions/"],["FODORS","https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hugh_Taylor_Birch_State_Park"]]},
+{t:2,a:"FTL",n:"Museum of Discovery and Science",ad:"401 SW 2nd St, Fort Lauderdale, FL",la:26.12045,ln:-80.14745,w:"200+ hands-on exhibits, live-animal habitats and a five-storey IMAX on the Riverwalk.",g:["BEACH","MUS","FAM"],s:[["VISITLAUDERDALE","https://www.visitlauderdale.com/articles/post/why-greater-fort-lauderdale-kid-approved/"],["FODORS","https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Museum_of_Discovery_and_Science"]]},
+{t:2,a:"FTL",n:"Flamingo Gardens",ad:"3750 S Flamingo Rd, Davie, FL",la:26.07373,ln:-80.31286,w:"60-acre botanical garden and wildlife sanctuary with some of Florida's largest, oldest trees and a 1930s house museum.",g:["MUS","HIST","PARK","WILD"],s:[["VISITLAUDERDALE","https://www.visitlauderdale.com/things-to-do/attractions/"],["FODORS","https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Flamingo_Gardens"]]},
+{t:2,a:"FTL",n:"Butterfly World",ad:"3600 W Sample Rd, Coconut Creek, FL",la:26.26866,ln:-80.17159,w:"The 'Butterfly Capital of the World': 20,000 butterflies and birds in screened aviaries and gardens.",g:["PARK","WILD"],s:[["VISITLAUDERDALE","https://www.visitlauderdale.com/articles/post/why-greater-fort-lauderdale-kid-approved/"],["FODORS","https://cdn.fodors.com/world/north-america/usa/florida/fort-lauderdale-and-broward-county/things-to-do/sights"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Butterfly_World_(Florida)"]]},
+{t:1,a:"SDADE",n:"Zoo Miami",ad:"12400 SW 152nd St, Miami, FL",la:25.61053,ln:-80.39796,w:"The only subtropical zoo in the continental US — 2,000+ animals in open, moated habitats.",g:["WILD","FAM"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Zoo_Miami"]]},
+{t:1,a:"SDADE",n:"Deering Estate",ad:"16701 SW 72nd Ave, Palmetto Bay, FL",la:25.61562,ln:-80.30648,w:"Charles Deering's 1920s bayfront estate with what's believed to be the largest old-growth coastal tropical hardwood hammock in the continental US — nature walks, boat trips, night hikes.",g:["BEACH","HIST","PARK","BOAT"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Deering_Estate"]]},
+{t:2,a:"CGCG",n:"Matheson Hammock Park",ad:"9610 Old Cutler Rd, Coral Gables, FL",la:25.67973,ln:-80.27358,w:"County park whose man-made atoll pool is refreshed by Biscayne Bay's tides.",g:["BEACH","PARK"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Matheson_Hammock_Park"]]},
+{t:3,a:"SDADE",n:"Homestead Bayfront Park",ad:"9698 SW 328th St, Homestead, FL",la:25.46250,ln:-80.33933,w:"Bayside county park and marina next to Biscayne NP's visitor centre, on land donated in 1938.",g:["ICON","BEACH","PARK"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Homestead_Bayfront_Park"]]},
+{t:1,a:"MBCH",n:"Española Way",ad:"Española Way, Miami Beach, FL",la:25.79065,ln:-80.13005,w:"N.B.T. Roney's 1925 'historic Spanish village' — two pink-stucco, tile-roofed blocks of cafés under striped awnings.",g:["HIST"],s:[["GMCVB","https://www.miamiandbeaches.com/things-to-do/history-and-heritage/inside-miamis-historic-spanish-village"],["MDPL","https://mdpl.org/welcome-center/plan-your-visit/what-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Española_Way"]]},
+{t:2,a:"MBCH",n:"Miami Beach Botanical Garden",ad:"2000 Convention Center Dr, Miami Beach, FL",la:25.79581,ln:-80.13569,w:"4.5 acres of orchids, a Japanese garden and a living wall beside the Convention Center — free.",g:["BEACH","PARK","FREE"],s:[["MDPL","https://mdpl.org/welcome-center/plan-your-visit/what-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Miami_Beach_Botanical_Garden"]]},
+{t:2,a:"MBCH",n:"Jewish Museum of Florida–FIU",ad:"301 Washington Ave, Miami Beach, FL",la:25.77242,ln:-80.13455,w:"Florida Jewish history since 1763, housed in two restored former synagogues in South of Fifth.",g:["MUS","HIST"],s:[["MDPL","https://mdpl.org/welcome-center/plan-your-visit/what-to-do/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Jewish_Museum_of_Florida"]]},
+{t:2,a:"CGCG",n:"The Kampong",ad:"4013 S Douglas Rd, Miami, FL",la:25.71472,ln:-80.24972,w:"Plant explorer David Fairchild's nine-acre Coconut Grove estate, now a National Tropical Botanical Garden; tours by reservation.",g:["PARK","ODD"],s:[["ATLASOBSCURA","https://atlasobscura.com/places/the-kampong"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Kampong"]]},
+{t:1,a:"CGCG",n:"The Barnacle Historic State Park",ad:"3485 Main Hwy, Miami, FL",la:25.72487,ln:-80.24213,w:"The 1891 home of Commodore Ralph Munroe — the oldest house in Miami still on its original site, on a waterfront lawn that hosts bluegrass and folk nights.",g:["BEACH","HIST","PARK"],s:[["GMCVB","https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insiders-guide-coconut-grove"],["WIKIPEDIA","https://en.wikipedia.org/wiki/The_Barnacle_Historic_State_Park"]]},
+{t:3,a:"CGCG",n:"CocoWalk",ad:"3015 Grand Ave, Miami, FL",la:25.72874,ln:-80.24209,w:"Coconut Grove's renovated open-air shopping and dining centre.",g:["PARK"],s:[["GMCVB","https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insiders-guide-coconut-grove"],["GMCVB","https://www.miamiandbeaches.com/l/shopping/cocowalk/2890"],["WIKIPEDIA","https://en.wikipedia.org/wiki/CocoWalk"]]},
+{t:3,a:"CGCG",n:"Miami Seaquarium — CLOSED",ad:"4400 Rickenbacker Causeway, Miami, FL",la:25.73306,ln:-80.16553,w:"Virginia Key's marine park (1955) permanently closed on 12 October 2025 after 70 years; a replacement aquarium is planned for ~2030.",closed:1,g:["PARK","FAM"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Miami_Seaquarium"],["LOCAL10","https://www.local10.com/news/local/2025/09/26/its-official-the-miami-seaquarium-is-up-for-sale/"]]},
+{t:1,a:"LHAV",n:"Hialeah Park Race Track",ad:"2200 E 4th Ave, Hialeah, FL",la:25.84806,ln:-80.27833,w:"1925 racetrack on the National Register — 200 acres of royal palms, a casino, quarter-horse racing and its famous Audubon-sanctuary colony of pink flamingos.",g:["ART","PARK","WILD"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hialeah_Park_Race_Track"],["CRAZYTOURIST","https://www.thecrazytourist.com/15-best-things-to-do-in-opa-locka-fl/"]]},
+{t:1,a:"NMIA",n:"Opa-locka City Hall",ad:"777 Sharazad Blvd, Opa-locka, FL",la:25.90472,ln:-80.25306,w:"Glenn Curtiss's 1926 Arabian Nights city: the domed, minaretted Moorish Revival city hall is the starting point for a tour of ~90 Moorish buildings.",g:["DECO","ART"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Opa-locka_City_Hall"],["CRAZYTOURIST","https://www.thecrazytourist.com/15-best-things-to-do-in-opa-locka-fl/"]]},
+{t:2,a:"NMIA",n:"Hard Rock Stadium",ad:"347 Don Shula Dr, Miami Gardens, FL",la:25.95806,ln:-80.23889,w:"Home of the Miami Dolphins and the Hurricanes; Super Bowl LIV and the Miami Grand Prix circuit.",g:["ENT"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hard_Rock_Stadium"],["CRAZYTOURIST","https://www.thecrazytourist.com/15-best-things-to-do-in-opa-locka-fl/"]]}
+];
+
+const FS = {
+  "CAPLINNEWS":{k:"CAPLINNEWS",t:"CAPLINNEWS",u:"",l:""},
+  "EATERMIAMI":{k:"EATER MIAMI",t:"Eater Miami",u:"https://miami.eater.com",l:"Eater Miami"},
+  "FLORIDARAMBLER":{k:"FLORIDARAMBLER",t:"FLORIDARAMBLER",u:"",l:""},
+  "FODORS":{k:"FODOR'S",t:"FODOR'S",u:"",l:""},
+  "FOXNEWS":{k:"FOXNEWS",t:"FOXNEWS",u:"",l:""},
+  "GMCVB":{k:"GREATER MIAMI CVB",t:"Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)",u:"https://www.miamiandbeaches.com",l:"Greater Miami Convention & Visitors Bureau (miamiandbeaches.com)"},
+  "GULFSHOREBUSINESS":{k:"GULFSHOREBUSINESS",t:"GULFSHOREBUSINESS",u:"",l:""},
+  "INFATUATION":{k:"THE INFATUATION",t:"The Infatuation (Miami)",u:"https://www.theinfatuation.com/miami",l:"The Infatuation (Miami)"},
+  "JAMESBEARD":{k:"JAMES BEARD",t:"James Beard Foundation Awards",u:"https://www.jamesbeard.org/awards",l:"James Beard Foundation Awards"},
+  "LONELYPLANET":{k:"LONELYPLANET",t:"LONELYPLANET",u:"",l:""},
+  "MARKWIENS":{k:"MARKWIENS",t:"MARKWIENS",u:"",l:""},
+  "MIAMILIVING":{k:"MIAMILIVING",t:"MIAMILIVING",u:"",l:""},
+  "MIAMINEWTIMES":{k:"MIAMI NEW TIMES",t:"Miami New Times (incl. Best of Miami)",u:"https://www.miaminewtimes.com",l:"Miami New Times (incl. Best of Miami)"},
+  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide Florida (Miami)",u:"https://guide.michelin.com/us/en/florida/miami/restaurants",l:"MICHELIN Guide Florida (Miami)"},
+  "MICHELIN_BIB":{k:"MICHELIN BIB GOURMAND",t:"MICHELIN Bib Gourmand (Florida)",u:"https://guide.michelin.com/us/en/florida/miami/restaurants/bib-gourmand",l:"MICHELIN Bib Gourmand (Florida)"},
+  "MICHELIN_EDITORIAL":{k:"MICHELIN EDITORIAL",t:"MICHELIN_EDITORIAL",u:"",l:""},
+  "MICHELIN_STAR":{k:"MICHELIN STAR",t:"MICHELIN Star (Florida)",u:"https://guide.michelin.com/us/en/florida/miami/restaurants/1-star-michelin",l:"MICHELIN Star (Florida)"},
+  "NBCNEWS":{k:"NBCNEWS",t:"NBCNEWS",u:"",l:""},
+  "PARADISECOAST":{k:"PARADISECOAST",t:"PARADISECOAST",u:"",l:""},
+  "TIMEOUT":{k:"TIME OUT MIAMI",t:"Time Out Miami",u:"https://www.timeout.com/miami",l:"Time Out Miami"}
+};
+
+const CUISINES = [
+  {id:"CUBAN",n:"Cuban — sandwiches, croquetas, ventanita cafecito"},
+  {id:"BAKE",n:"Bakeries, Pastelitos & Key Lime Pie"},
+  {id:"SEAF",n:"Seafood, Stone Crab & Raw Bars"},
+  {id:"HAIT",n:"Haitian — griot, diri ak djon djon"},
+  {id:"CARIB",n:"Caribbean — Jamaican, Bahamian, Trini & Puerto Rican"},
+  {id:"PERU",n:"Peruvian & Ceviche"},
+  {id:"VENCO",n:"Venezuelan & Colombian — arepas, cachapas"},
+  {id:"LATAM",n:"Nicaraguan, Argentine, Brazilian & Mexican"},
+  {id:"GLADF",n:"Glades & Keys — conch, gator, frog legs"},
+  {id:"FARM",n:"Tropical Fruit Stands, Farms & U-Pick"},
+  {id:"MKT",n:"Markets & Food Halls"},
+  {id:"US",n:"American, New American & Steak"},
+  {id:"BURG",n:"Burgers, BBQ, Diners & Sandwiches"},
+  {id:"EU",n:"Italian, French, Spanish & Pizza"},
+  {id:"MED",n:"Mediterranean & Middle Eastern"},
+  {id:"ASIAN",n:"Japanese, Chinese, Thai & Asian"},
+  {id:"COF",n:"Coffee & Cafés"},
+  {id:"BAR",n:"Bars, Breweries & Cocktails"},
+  {id:"VIRAL",n:"Viral / Social"}
+];
+
+const CATS = [
+  {id:"ICON",n:"Iconic & Must-See"},
+  {id:"BEACH",n:"Beaches & Waterfront"},
+  {id:"DECO",n:"Art Deco, MiMo & Architecture"},
+  {id:"ART",n:"Art, Murals & Galleries"},
+  {id:"MUS",n:"Museums"},
+  {id:"HIST",n:"History & Heritage"},
+  {id:"PARK",n:"Parks & Gardens"},
+  {id:"WILD",n:"Everglades, Wildlife & Nature"},
+  {id:"BOAT",n:"Boats, Airboats & Islands"},
+  {id:"ENT",n:"Music, Nightlife & Performing Arts"},
+  {id:"FAM",n:"Family & Kids"},
+  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"FREE",n:"Free to Visit"}
+];
+
+const F = [
+{t:1,a:"CGCG",n:"Shingo",ad:"Coral Gables, FL",cz:["ASIAN"],la:25.75310,ln:-80.25670,w:"One Michelin star (2026) — Coral Gables omakase counter.",k:"Order: Edomae omakase",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:1,a:"CGCG",n:"Ariete",ad:"3540 Main Hwy, Miami, FL",cz:["US"],la:25.72528,ln:-80.24500,w:"One Michelin star (2026): chef Michael Beltran's Coconut Grove flagship, Miami-Cuban flavours in fine-dining form.",k:"Order: Cuban-inflected tasting dishes",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:1,a:"WYN",n:"Boia De",ad:"Little River, Miami, FL",cz:["EU"],la:25.82431,ln:-80.19139,w:"One Michelin star (2026): the strip-mall Italian in Little River that became one of Miami's hardest reservations.",k:"Order: Handmade pastas",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:2,a:"WYN",n:"Hiden",ad:"313 NW 25th St, Miami, FL",cz:["ASIAN"],la:25.80083,ln:-80.20139,w:"One Michelin star (2026): an eight-seat omakase hidden behind a Wynwood taco counter.",k:"Order: Omakase behind a taco shop",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:1,a:"CGCG",n:"Los Félix",ad:"Coconut Grove, Miami, FL",cz:["LATAM"],la:25.72761,ln:-80.24250,w:"One Michelin star (2026): heirloom-corn Mexican cooking in Coconut Grove.",k:"Order: Heirloom-corn Mexican",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:1,a:"NMIA",n:"Mutra",ad:"North Miami, FL",cz:["MED","US"],la:25.88920,ln:-80.15410,w:"One Michelin star (2026) — the first kosher restaurant in the world to earn a Michelin star.",k:"Order: Kosher tasting menu",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:2,a:"WYN",n:"Ogawa",ad:"7223 NW 2nd Ave, Miami, FL",cz:["ASIAN"],la:25.84150,ln:-80.20060,w:"One Michelin star (2026): a serene Japanese omakase in Little River.",k:"Order: Kyoto-style omakase",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:1,a:"MBCH",n:"Stubborn Seed",ad:"101 Washington Ave, Miami Beach, FL",cz:["US"],la:25.77019,ln:-80.13492,w:"One Michelin star (2026): Top Chef winner Jeremy Ford's South of Fifth tasting room.",k:"Order: Chef Jeremy Ford's tasting menu",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:2,a:"MBCH",n:"Tambourine Room by Tristan Brandt",ad:"6801 Collins Ave, Miami Beach, FL",cz:["EU","US"],la:25.85278,ln:-80.12000,w:"One Michelin star (2026): German star chef Tristan Brandt's tasting room inside the Carillon on North Beach.",k:"Order: Tasting menu",s:[["MICHELIN_STAR","https://resident.com/luxury-news/2026/06/10/michelin-guide-florida-2026-how-miami-fort-lauderdale-and-orlando-fared-statewide"],["MIAMILIVING","https://www.miamilivingmagazine.com/post/miami-michelin-guide-2026-every-michelin-starred-restaurant-you-need-to-know"]]},
+{t:1,a:"DTB",n:"Tâm Tâm",ad:"99 NW 1st St, Miami, FL",cz:["ASIAN"],la:25.77520,ln:-80.19510,w:"Michelin Bib Gourmand — heads Miami's Bib list; Vietnamese cooking in a tiny downtown room.",k:"Order: Phở and Vietnamese home cooking",s:[["MICHELIN_BIB","https://www.miamiandbeaches.com/restaurants/michelin-bib-gourmand-restaurants-in-miami"],["MICHELIN_BIB","https://secretmiami.com/michelin-bib-gourmand-miami/"]]},
+{t:2,a:"WYN",n:"Hometown Barbecue Miami",ad:"Allapattah, Miami, FL",cz:["BURG"],la:25.79744,ln:-80.21570,w:"Michelin Bib Gourmand: the Brooklyn barbecue institution's Miami pit in Allapattah.",k:"Order: Brisket and pork belly",s:[["MICHELIN_BIB","https://secretmiami.com/michelin-bib-gourmand-miami/"]]},
+{t:1,a:"MBCH",n:"Joe's Stone Crab",ad:"11 Washington Ave, Miami Beach, FL",cz:["SEAF"],la:25.76920,ln:-80.13500,w:"Miami Beach's oldest restaurant (1913) and the home of stone crab; open mid-October to mid-May for the season. Eater 38 'original Miami Beach power lunch'.",k:"Order: Stone crab claws with mustard sauce, key lime pie",s:[["EATERMIAMI","https://web-archive.nli.org.il/National_Library/oe_/https://miami.eater.com/"],["INFATUATION","https://www.tripexpert.com/miami/restaurants/joes-stone-crab"],["MIAMINEWTIMES","https://www.miaminewtimes.com/uncategorized/100-favorite-dishes-joes-stone-crab-claws-6607546/"]]}
+];
+
+P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
+F.forEach((p,i)=>{p.id='f'+i;p.kind='food';p.s.forEach(t=>{});});
+const ALL = P.concat(F);
+const BYID = {}; ALL.forEach(p=>BYID[p.id]=p);
+const SRCOF = p => p.kind==='food' ? FS : S;
+
+/* ── trip list, persisted where possible ── */
+let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
+try{const r=localStorage.getItem('mia_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('mia_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('mia_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('mia_seen',JSON.stringify([...SEEN]));}catch(e){}}
+
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Miami FL')+'&query_place_id=';}
+function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
+const AC = {FTL:'#4F81BD',NMIA:'#8064A2',WYN:'#E05A8A',DTB:'#E8973A',LHAV:'#C0504D',MBCH:'#2EB5C9',CGCG:'#9BBB59',SDADE:'#D4A017',GLADE:'#3D8B5A'};
+let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
+
+function mountMap(){
+  if(mapMounted || typeof L==='undefined' || !L.map) return false;
+  mapMounted=true;
+  document.getElementById('map').innerHTML='';
+  map = L.map('map',{scrollWheelZoom:false}).setView([25.7742,-80.1914],9);
+/* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
+const BASES=[
+ {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'street',l:'Streets',    free:1, dark:1, u:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  o:{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}},
+ {id:'light', l:'Light',      free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxNativeZoom:16,maxZoom:19}},
+ {id:'sat',   l:'Satellite',  free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri, Maxar, Earthstar Geographics',maxZoom:19},
+  overlay:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'},
+ {id:'terrain',l:'Terrain',   free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  o:{attribution:'&copy; Esri',maxZoom:19}}
+];
+const FALLBACK=['dark','street','light'];   // auto-failover chain for the default
+
+let baseLayer=null, labelLayer=null, curBase=null, tileOK=false, tileErrors=0, fbIdx=0;
+
+function clearBase(){
+  if(baseLayer){map.removeLayer(baseLayer);baseLayer=null;}
+  if(labelLayer){map.removeLayer(labelLayer);labelLayer=null;}
+}
+
+function setBase(id,manual){
+  if(!map) return;
+  const b=BASES.find(x=>x.id===id); if(!b) return;
+  clearBase(); curBase=id; tileOK=false; tileErrors=0;
+  document.getElementById('map').classList.toggle('osmdark',!!b.dark);
+  document.getElementById('tilewarn').style.display='none';
+  baseLayer=L.tileLayer(b.u,Object.assign({crossOrigin:true},b.o));
+  baseLayer.on('tileload',()=>{tileOK=true;document.getElementById('tilewarn').style.display='none';});
+  baseLayer.on('tileerror',()=>{
+    tileErrors++;
+    if(!tileOK && tileErrors>=4 && !manual) autoFallback();
+  });
+  baseLayer.addTo(map); baseLayer.bringToBack();
+  if(b.overlay){labelLayer=L.tileLayer(b.overlay,{maxZoom:19,opacity:.95,crossOrigin:true}).addTo(map);}
+  if(!manual) setTimeout(()=>{if(curBase===id && !tileOK) autoFallback();},6000);
+  markBaseChips();
+}
+function autoFallback(){
+  fbIdx++;
+  if(fbIdx>=FALLBACK.length){document.getElementById('tilewarn').style.display='block';return;}
+  setBase(FALLBACK[fbIdx]);
+}
+
+
+function markBaseChips(){
+  document.querySelectorAll('#baseFilter .chip').forEach(c=>{
+    c.setAttribute('aria-pressed', c.dataset.v===curBase);
+  });
+}
+
+document.getElementById('baseFilter').innerHTML =
+  BASES.map(b=>'<button class="chip'+''+'" data-v="'+b.id+'"'
+    +' aria-pressed="'+(b.id==='dark')+'">'+b.l.toUpperCase()+'</button>').join('');
+document.getElementById('baseFilter').addEventListener('click',e=>{
+  const b=e.target.closest('.chip'); if(!b) return;
+  setBase(b.dataset.v,true);
+});
+document.getElementById('tileRetry').onclick=()=>{
+  document.getElementById('tilewarn').style.display='none';
+  fbIdx=(fbIdx+1)%FALLBACK.length; setBase(FALLBACK[fbIdx]);
+};
+map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+window.addEventListener('resize',()=>map.invalidateSize());
+
+/* ── Always-on vector backdrop ──────────────────────────────────────────────
+   Drawn from coordinates in this file, so subtle municipality labels still show even if every tile server is unreachable. */
+const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
+ [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
+ [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
+ [41.6470,-81.4560],[41.6820,-81.3900],[41.7250,-81.3300],[41.7600,-81.2750],[41.7850,-81.1900]];
+const RIVER=[[41.5140,-81.7080],[41.5000,-81.7085],[41.4930,-81.7030],[41.4880,-81.7040],
+ [41.4835,-81.6975],[41.4790,-81.6935],[41.4720,-81.6870],[41.4640,-81.6740],[41.4560,-81.6660],
+ [41.4400,-81.6550],[41.4200,-81.6300],[41.3950,-81.6100],[41.3700,-81.5920],[41.3400,-81.5820],
+ [41.3100,-81.5760],[41.2800,-81.5700],[41.2500,-81.5620],[41.2200,-81.5350],[41.1950,-81.5100]];
+const ARTERIES=[
+ [[41.4995,-81.6930],[41.5030,-81.6700],[41.5045,-81.6450],[41.5060,-81.6100],[41.5085,-81.5990]], // Euclid Ave
+ [[41.4850,-81.7040],[41.4845,-81.7270],[41.4840,-81.7390],[41.4855,-81.7990],[41.4845,-81.8460]], // Detroit Ave
+ [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
+ [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
+];
+const LABELS=[["Fort Lauderdale", 26.1435, -80.1634], ["North Miami", 25.9128, -80.1761], ["Wynwood", 25.813, -80.2017], ["Downtown", 25.7775, -80.1901], ["Little Havana", 25.8481, -80.2783], ["Miami Beach", 25.7891, -80.1326], ["Coral Gables", 25.7169, -80.2262], ["South Dade — Kendall", 25.5261, -80.4162], ["Everglades NP", 25.5086, -80.6982]];
+
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
+backdrop=L.layerGroup().addTo(map);
+LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
+  html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
+  iconSize:[0,0]})}).addTo(backdrop));
+backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
+
+layer = L.layerGroup().addTo(map);
+  markers = [];
+
+
+ALL.forEach((p,i)=>{
+  const r = p.t===1?10:(p.t===2?6.5:4.5);
+  const m = L.circleMarker([p.la,p.ln],{radius:r,color:AC[p.a],
+    weight:p.t===1?3:1.5,fillColor:AC[p.a],fillOpacity:p.t===1?.85:(p.t===2?.5:.25)});
+  m.bindPopup('<b>'+p.n+'</b>'
+    +'<em style="color:'+(p.t===1?'#C89B4A':'#9AA3A2')+'">'+({1:'Must see',2:'Worth the detour',3:'Deep cut'})[p.t]+'</em><br>'+p.ad
+    +'<br><a href="'+gmaps(p)+'" target="_blank" rel="noopener">Google Maps &rarr;</a>'
+    +' &middot; <a href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &rarr;</a>');
+  m._id = p.id; markers.push(m);
+});
+  map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
+  setBase('dark'); markBaseChips();
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
+
+  /* ── "Show my location" ──────────────────────────────────────────────────
+     Privacy by design: the position never leaves the device. One geolocation
+     snapshot per visit (no watch/tracking), held only in memory — no
+     localStorage, no network. It is cleared on refresh, but the marker persists
+     while you filter, toggle, zoom or pan, so you keep your bearings. Pressing
+     the button again just re-centres; it does not ask for or re-read location. */
+  let userLoc=null, userLayer=null;
+  function locateMe(){
+    if(userLoc){ map.setView(userLoc, Math.max(map.getZoom(),14)); return; }
+    if(!navigator.geolocation){ alert("This browser can't share a location."); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      const la=pos.coords.latitude, ln=pos.coords.longitude, acc=pos.coords.accuracy||0;
+      userLoc=[la,ln];
+      if(!userLayer) userLayer=L.layerGroup().addTo(map);
+      userLayer.clearLayers();
+      if(acc) L.circle(userLoc,{radius:acc,color:'#4C8FE0',weight:1,opacity:.6,fillColor:'#4C8FE0',fillOpacity:.12,interactive:false}).addTo(userLayer);
+      L.circleMarker(userLoc,{radius:7,color:'#fff',weight:2,fillColor:'#4C8FE0',fillOpacity:1}).addTo(userLayer)
+        .bindPopup('You are here.<br><span style="color:#9AA3A2">Shown only on your device — not stored or shared, and gone when you refresh.</span>');
+      if(userLayer.bringToFront) userLayer.bringToFront();
+      map.setView(userLoc, Math.max(map.getZoom(),14));
+    }, function(err){
+      alert(err && err.code===1 ? 'Location permission denied.' : "Couldn't get your location.");
+    }, {enableHighAccuracy:true, timeout:10000, maximumAge:0});
+  }
+  const LocateCtl=L.Control.extend({options:{position:'topleft'},
+    onAdd:function(){
+      const b=L.DomUtil.create('button','locate-btn');
+      b.type='button'; b.innerHTML='◎';
+      b.title='Show my location on the map (stays on your device only)';
+      b.setAttribute('aria-label','Show my location on the map');
+      L.DomEvent.on(b,'click',L.DomEvent.stop);
+      L.DomEvent.on(b,'click',locateMe);
+      return b;
+    }});
+  map.addControl(new LocateCtl());
+  return true;
+}
+
+const list=document.getElementById('list'), countEl=document.getElementById('count');
+let fSrc='all', fArea='all', fRank='all', fQ='', fSort='area';
+
+function tag(t,tbl){
+  const [id,num]=t, m=(tbl||S)[id];
+  const cls = id==='ADD' ? 'src extra' : 'src';
+  const label = m.k + (num?' <span class="num">'+num+'</span>':'');
+  return m.u ? '<a class="'+cls+'" href="'+m.u+'" target="_blank" rel="noopener">'+label+'</a>'
+             : '<span class="'+cls+'">'+label+'</span>';
+}
+
+const TIER={1:{l:"Must see",c:"t1"},2:{l:"Worth the detour",c:"t2"},3:{l:"Deep cut",c:"t3"}};
+const CZN={}; CUISINES.forEach(c=>CZN[c.id]=c.n);
+const CATN={}; CATS.forEach(c=>CATN[c.id]=c.n);
+function cites(p){const tbl=SRCOF(p);return new Set(p.s.map(t=>tbl[t[0]].k)).size;}
+
+let MODE='sights', fCz='all', fCat='all';
+
+function match(p){
+  if(seenMode==='hide' && SEEN.has(p.id)) return false;
+  if(seenMode==='only' && !SEEN.has(p.id)) return false;
+  if(tripOnly) return TRIP.has(p.id);
+  if(fArea!=='all' && p.a!==fArea) return false;
+  const tbl=SRCOF(p);
+  if(fSrc!=='all' && !p.s.some(t=>tbl[t[0]].k===fSrc)) return false;
+  if(fRank!=='all' && String(p.t)!==fRank) return false;
+  if(MODE==='food' && fCz!=='all' && !(p.cz||[]).includes(fCz)) return false;
+  if(fCat!=='all' && !(p.g||[]).includes(fCat)) return false;
+  if(fQ && !(p.n+' '+p.ad+' '+p.w+' '+(p.k||'')).toLowerCase().includes(fQ)) return false;
+  return true;
+}
+
+function card(p,n){
+  const tbl=SRCOF(p), nc=cites(p), seen=new Set();
+  const tags=p.s.filter(t=>{const k=t[0]+t[1];if(seen.has(k))return false;seen.add(k);return true;})
+                .map(t=>tag(t,tbl)).join('');
+  const cz=(p.cz||[]).map(c=>'<span class="czbadge">'+CZN[c]+'</span>').join('')
+          +(p.g||[]).map(c=>'<span class="czbadge">'+(CATN[c]||c)+'</span>').join('');
+  const isSeen=SEEN.has(p.id);
+  return '<article class="entry'+(isSeen?' seen':'')+'"><div class="pickwrap">'
+    +'<input type="checkbox" class="pick" data-id="'+p.id+'"'+(TRIP.has(p.id)?' checked':'')
+    +' aria-label="Add '+p.n.replace(/"/g,'')+' to my list">'
+    +'<span class="marker">'+n+'</span>'
+    +'<button class="seenbtn'+(isSeen?' on':'')+'" data-seen="'+p.id+'" title="'
+    +(isSeen?'Marked as visited \u2014 tap to undo':'Mark as visited')+'" aria-pressed="'+isSeen+'">'
+    +(isSeen?'\u2713':'\u25CB')+'</button>'
+    +'</div><div class="body-col">'
+    +'<h3>'+p.n+'<span class="tierbadge '+TIER[p.t].c+'">'+TIER[p.t].l+'</span>'
+    +(isSeen?'<span class="tierbadge seenbadge">Visited</span>':'')+'</h3>'
+    +(cz?'<p style="margin:0 0 8px">'+cz+'</p>':'')
+    +'<p class="addr"><a href="'+gmaps(p)+'" target="_blank" rel="noopener">'+p.ad+' &nearr;</a>'
+    +'<a class="applelink" href="'+amaps(p)+'" target="_blank" rel="noopener">Apple Maps &nearr;</a></p>'
+    +'<p class="what">'+p.w+'</p>'
+    +(p.k?'<div class="note'+(p.warn?' warn':'')+'"><span class="tag">'+(p.warn?'Watch out':'Know before')+'</span><span>'+p.k+'</span></div>':'')
+    +'<div class="ledger"><span class="lbl">Sourced from</span>'+tags
+    +'<span class="cites">'+nc+(nc===1?' source':' sources')+'</span></div>'
+    +'</div></article>';
+}
+
+function render(){
+  const DATA = tripOnly ? ALL : (MODE==='food'?F:P);
+  let html='', shown=0; const vis=new Set(), ids=[];
+  AREAS.forEach(ar=>{
+    if(!tripOnly && fArea!=='all' && fArea!==ar.id) return;
+    let items = DATA.map((p,i)=>({p,i})).filter(o=>o.p.a===ar.id && match(o.p));
+    if(!items.length) return;
+    if(fSort==='rank')  items.sort((x,y)=>x.p.t-y.p.t || cites(y.p)-cites(x.p));
+    if(fSort==='cited') items.sort((x,y)=>cites(y.p)-cites(x.p) || x.p.t-y.p.t);
+    shown+=items.length;
+    html+='<div class="cluster"><h2>'+ar.n+'</h2><span class="meta">'+items.length+' places</span></div>';
+    items.forEach(({p,i})=>{vis.add(p.id);ids.push(p.id);html+=card(p,String(i+1).padStart(3,'0'));});
+  });
+  shownIds=ids;
+  list.innerHTML = html || '<p class="empty">Nothing matches that combination.</p>';
+  const sv=DATA.filter(p=>SEEN.has(p.id)).length;
+  countEl.textContent='SHOWING '+shown+' OF '+DATA.length
+    +(MODE==='food'&&!tripOnly?' PLACES TO EAT':' PLACES')
+    +(sv?'  \u00B7  '+sv+' VISITED':'');
+  if(!layer){updateTrip();return;}
+  layer.clearLayers();
+  markers.forEach(m=>{
+    if(!vis.has(m._id)) return;
+    const p=BYID[m._id], s=SEEN.has(m._id);
+    m.setStyle(s?{color:'#5A6A6C',fillColor:'#5A6A6C',fillOpacity:.12,weight:1,dashArray:'2,3'}
+                :{color:AC[p.a],fillColor:AC[p.a],
+                  fillOpacity:p.t===1?.85:(p.t===2?.5:.25),weight:p.t===1?3:1.5,dashArray:null});
+    layer.addLayer(m);
+  });
+  updateTrip();
+}
+
+/* ── mode toggle ── */
+function setMode(m){
+  MODE=m;
+  document.body.classList.toggle('foodmode',m==='food');
+  document.getElementById('modeSights').setAttribute('aria-pressed',m==='sights');
+  document.getElementById('modeFood').setAttribute('aria-pressed',m==='food');
+  document.getElementById('cuisineWrap').hidden = (m!=='food');
+  document.getElementById('search').placeholder = m==='food'
+    ? 'laksa, dim sum, pastrami, cannoli\u2026' : 'witchcraft, waterfall, chess, kielbasa\u2026';
+  buildSrcChips(); render();
+}
+document.getElementById('modeSights').onclick=()=>{tripOnly=false;setMode('sights');};
+document.getElementById('modeFood').onclick=()=>{tripOnly=false;setMode('food');};
+
+function buildSrcChips(){
+  const tbl = MODE==='food'?FS:S;
+  const keys=[...new Set(Object.values(tbl).map(s=>s.k))];
+  document.getElementById('srcFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL SOURCES</button>']
+    .concat(keys.map(k=>'<button class="chip" aria-pressed="false" data-v="'+k+'">'+k+'</button>')).join('');
+  fSrc='all';
+}
+
+document.getElementById('cuisineFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">EVERYTHING</button>']
+  .concat(CUISINES.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+document.getElementById('rankFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">ALL RANKS</button>'
+ +'<button class="chip" aria-pressed="false" data-v="1">MUST SEE</button>'
+ +'<button class="chip" aria-pressed="false" data-v="2">WORTH THE DETOUR</button>'
+ +'<button class="chip" aria-pressed="false" data-v="3">DEEP CUTS</button>';
+document.getElementById('sortFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="area">BY AREA</button>'
+ +'<button class="chip" aria-pressed="false" data-v="rank">MUST-SEE FIRST</button>'
+ +'<button class="chip" aria-pressed="false" data-v="cited">MOST-SOURCED FIRST</button>';
+document.getElementById('dayFilter').innerHTML =
+  ['<button class="chip" aria-pressed="true" data-v="all">WHOLE REGION</button>']
+  .concat(AREAS.map(a=>'<button class="chip" aria-pressed="false" data-v="'+a.id+'">'+a.n.toUpperCase()+'</button>')).join('');
+// Collections filter — only shown when the city defines CATS (cross-cutting themes over all boroughs).
+document.getElementById('catWrap').hidden = (CATS.length===0);
+if(CATS.length){
+  document.getElementById('catFilter').innerHTML =
+    ['<button class="chip" aria-pressed="true" data-v="all">ALL COLLECTIONS</button>']
+    .concat(CATS.map(c=>'<button class="chip" aria-pressed="false" data-v="'+c.id+'">'+c.n.toUpperCase()+'</button>')).join('');
+}
+
+function wire(id,set){
+  document.getElementById(id).addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#'+id+' .chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); set(b.dataset.v); render();
+  });
+}
+wire('srcFilter',v=>fSrc=v);
+wire('dayFilter',v=>fArea=v);
+wire('rankFilter',v=>fRank=v);
+wire('sortFilter',v=>fSort=v);
+wire('cuisineFilter',v=>fCz=v);
+wire('catFilter',v=>fCat=v);
+document.getElementById('search').addEventListener('input',e=>{fQ=e.target.value.toLowerCase().trim();render();});
+
+/* ── scoring: drives the "top N" presets ── */
+function score(p){return (4-p.t)*100 + cites(p)*10 + (p.t===1?5:0);}
+function ranked(pool){return pool.slice().sort((a,b)=>score(b)-score(a)||a.n.localeCompare(b.n));}
+
+const PRESETS=[
+ {id:'top10', l:'Top 10 must-see', f:()=>ranked(P.filter(p=>p.t===1)).slice(0,10)},
+ {id:'top20', l:'Top 20 must-see', f:()=>ranked(P.filter(p=>p.t<=2)).slice(0,20)},
+ {id:'mustAll', l:'Every must-see (33)', f:()=>P.filter(p=>p.t===1)},
+ {id:'perArea', l:'Top 5 in each area', f:()=>AREAS.flatMap(a=>ranked(P.filter(p=>p.a===a.id)).slice(0,5))},
+ {id:'food10', l:'Top 10 places to eat', f:()=>ranked(F).slice(0,10)},
+ {id:'foodMust', l:'Every must-eat', f:()=>F.filter(p=>p.t===1)},
+ {id:'shown', l:'Everything currently shown', f:()=>null}
+];
+document.getElementById('presets').innerHTML =
+  PRESETS.map(x=>'<button class="chip preset" data-p="'+x.id+'">+ '+x.l.toUpperCase()+'</button>').join('')
+ +'<button class="chip preset warnchip" data-p="clearSeen">RESET VISITED</button>';
+
+let shownIds=[];
+document.getElementById('presets').addEventListener('click',e=>{
+  const b=e.target.closest('.preset'); if(!b) return;
+  if(b.dataset.p==='clearSeen'){
+    if(!SEEN.size) return alert('Nothing marked as visited yet.');
+    if(!confirm('Clear all '+SEEN.size+' places you have marked as visited?')) return;
+    SEEN.clear();saveSeen();render();return;
+  }
+  const pr=PRESETS.find(x=>x.id===b.dataset.p);
+  const picks = pr.f() || shownIds.map(id=>BYID[id]);
+  let added=0, skipped=0;
+  picks.forEach(p=>{
+    if(SEEN.has(p.id)){skipped++;return;}          // don't re-add places you've already visited
+    if(!TRIP.has(p.id)){TRIP.add(p.id);added++;}
+  });
+  saveTrip();render();
+  b.textContent='\u2713 ADDED '+added;
+  setTimeout(()=>{b.textContent='+ '+pr.l.toUpperCase();},1600);
+  if(skipped) setTimeout(()=>alert('Added '+added+'. Skipped '+skipped+' already marked as visited.'),120);
+});
+
+document.getElementById('seenFilter').innerHTML =
+  '<button class="chip" aria-pressed="true" data-v="all">SHOW ALL</button>'
+ +'<button class="chip" aria-pressed="false" data-v="hide">HIDE VISITED</button>'
+ +'<button class="chip" aria-pressed="false" data-v="only">ONLY VISITED</button>';
+wire('seenFilter',v=>seenMode=v);
+
+/* ── my list ── */
+list.addEventListener('click',e=>{
+  const b=e.target.closest('.seenbtn'); if(!b) return;
+  const id=b.dataset.seen;
+  if(SEEN.has(id)){SEEN.delete(id);}else{SEEN.add(id);TRIP.delete(id);}
+  saveSeen();saveTrip();render();
+});
+list.addEventListener('change',e=>{
+  const c=e.target.closest('.pick'); if(!c) return;
+  c.checked?TRIP.add(c.dataset.id):TRIP.delete(c.dataset.id);
+  saveTrip(); updateTrip(); if(tripOnly) render();
+});
+function tripItems(){return [...TRIP].map(id=>BYID[id]).filter(Boolean);}
+function updateTrip(){
+  const n=TRIP.size;
+  document.getElementById('tripbar').hidden = n===0;
+  document.getElementById('tripN').textContent = n;
+  document.getElementById('tripShow').textContent = tripOnly?'Show everything again':'Show only my list';
+}
+document.getElementById('tripShow').onclick=()=>{tripOnly=!tripOnly;render();
+  const mp=document.getElementById('map');
+  if(mp&&mp.scrollIntoView) try{mp.scrollIntoView({behavior:'smooth'});}catch(e){}};
+document.getElementById('tripClear').onclick=()=>{
+  if(!confirm('Remove all '+TRIP.size+' places from your list?')) return;
+  TRIP.clear();saveTrip();tripOnly=false;render();};
+
+function dl(name,type,text){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([text],{type:type}));
+  a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+}
+document.getElementById('tripGoogle').onclick=()=>{
+  const it=tripItems(); if(!it.length) return;
+  if(it.length===1){window.open(gmaps(it[0]),'_blank');return;}
+  const pts=it.slice(0,10).map(p=>p.la+','+p.ln);
+  const url='https://www.google.com/maps/dir/?api=1&origin='+pts[0]
+    +'&destination='+pts[pts.length-1]
+    +(pts.length>2?'&waypoints='+pts.slice(1,-1).join('|'):'')+'&travelmode=driving';
+  if(it.length>10) alert('Google Maps directions cap out at 10 stops. Opening the first 10 \u2014 use the .kml download for the full list.');
+  window.open(url,'_blank');
+};
+document.getElementById('tripKml').onclick=()=>{
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const kml='<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document>'
+    +'<name>Cleveland \u2014 my list</name>'
+    +tripItems().map(p=>'<Placemark><name>'+esc(p.n)+'</name><description>'
+      +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
+      +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
+    +'</Document></kml>';
+  dl('miami-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
+};
+document.getElementById('tripJson').onclick=()=>{
+  dl('miami-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+    ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
+      google:gmaps(p),apple:amaps(p)})),null,2));
+};
+document.getElementById('saveGuide').onclick=()=>{
+  dl('miami-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+};
+
+document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
+  '<div class="srcrow"><span class="k">'+s.k+'</span><div class="t">'
+  +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
+  +'<span>'+s.l+'</span></div></div>').join('')
+  + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a cuisine label alone doesn’t qualify. The region’s canon comes first: the <b>Cuban sandwich</b> and medianoche, <b>croquetas</b>, <b>pastelitos</b> and the <b>ventanita cafecito</b>, the <b>frita</b>, <b>stone crab</b>, Haitian <b>griot</b>, Peruvian <b>ceviche</b>, <b>arepas</b>, <b>key lime pie</b>, conch, Nicaraguan fritanga, Redland tropical fruit, and gator and frog legs at the Glades edge. A cuisine tag names the kitchen’s own tradition, never one dish it happens to serve.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched, merit-measured and fact-checked'
+  + '<span>Every place is traceable to at least two credible sources (or one institutional authority — Michelin, James Beard, the National Park Service) — the Miami Herald, Miami New Times, the Sun Sentinel, Eater Miami, The Infatuation, WLRN, Time Out, the Greater Miami and Fort Lauderdale tourism boards, Florida State Parks, Atlas Obscura and vetted creators — recorded in data/sources.json. Yelp, TripAdvisor and Google ratings never count as a recommender. Every coordinate is verified into data/geocodes.json and every place status-checked.</span></div></div>';
+
+setMode('sights');
+
+/* Loader: the guide renders immediately and never waits on a CDN. The map
+   mounts as soon as Leaflet arrives; if it never does, everything else works. */
+const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
+ +'Everything else works \u2014 all 71 places, the filters, your list and every export.';
+function noMapNotice(msg){
+  const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
+  const md=document.getElementById('map'); if(!md||mapMounted) return;
+  md.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100%;'
+   +'padding:28px;text-align:center;font-size:15px;color:#9AA3A2;line-height:1.6">'+msg+'</div>';
+}
+(function(){
+  if(mountMap()){ render(); return; }
+  noMapNotice('Loading map\u2026');
+  const s=document.createElement('script');
+  s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+  s.onload=()=>{ if(mountMap()) render(); };
+  s.onerror=()=>noMapNotice(NOMAP);
+  document.head.appendChild(s);
+  setTimeout(()=>noMapNotice(NOMAP),8000);
+})();
+</script>
+</body>
+</html>

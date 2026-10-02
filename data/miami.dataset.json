@@ -763,7 +763,7 @@
    "t": 2,
    "a": "GLADE",
    "n": "Kirby Storter Roadside Park Boardwalk",
-   "ad": "Tamiami Trail, Big Cypress National Preserve, FL",
+   "ad": "48900 Tamiami Trail E, Ochopee, FL 34141",
    "w": "A boardwalk into a cypress strand that ends at a gator hole where anhingas dry their wings.",
    "g": [
     "ICON",
@@ -1791,6 +1791,312 @@
      "https://en.wikipedia.org/wiki/Butterfly_World_(Florida)"
     ]
    ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Zoo Miami",
+   "ad": "12400 SW 152nd St, Miami, FL",
+   "w": "The only subtropical zoo in the continental US — 2,000+ animals in open, moated habitats.",
+   "g": [
+    "WILD",
+    "FAM"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Zoo_Miami"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Deering Estate",
+   "ad": "16701 SW 72nd Ave, Palmetto Bay, FL",
+   "w": "Charles Deering's 1920s bayfront estate with what's believed to be the largest old-growth coastal tropical hardwood hammock in the continental US — nature walks, boat trips, night hikes.",
+   "g": [
+    "BEACH",
+    "HIST",
+    "PARK",
+    "BOAT"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Deering_Estate"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Matheson Hammock Park",
+   "ad": "9610 Old Cutler Rd, Coral Gables, FL",
+   "w": "County park whose man-made atoll pool is refreshed by Biscayne Bay's tides.",
+   "g": [
+    "BEACH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Matheson_Hammock_Park"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "SDADE",
+   "n": "Homestead Bayfront Park",
+   "ad": "9698 SW 328th St, Homestead, FL",
+   "w": "Bayside county park and marina next to Biscayne NP's visitor centre, on land donated in 1938.",
+   "g": [
+    "ICON",
+    "BEACH",
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/parks-recreation/miami-dade-county-parks"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Homestead_Bayfront_Park"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "MBCH",
+   "n": "Española Way",
+   "ad": "Española Way, Miami Beach, FL",
+   "w": "N.B.T. Roney's 1925 'historic Spanish village' — two pink-stucco, tile-roofed blocks of cafés under striped awnings.",
+   "g": [
+    "HIST"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/things-to-do/history-and-heritage/inside-miamis-historic-spanish-village"
+    ],
+    [
+     "MDPL",
+     "https://mdpl.org/welcome-center/plan-your-visit/what-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Española_Way"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Miami Beach Botanical Garden",
+   "ad": "2000 Convention Center Dr, Miami Beach, FL",
+   "w": "4.5 acres of orchids, a Japanese garden and a living wall beside the Convention Center — free.",
+   "g": [
+    "BEACH",
+    "PARK",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MDPL",
+     "https://mdpl.org/welcome-center/plan-your-visit/what-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Miami_Beach_Botanical_Garden"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Jewish Museum of Florida–FIU",
+   "ad": "301 Washington Ave, Miami Beach, FL",
+   "w": "Florida Jewish history since 1763, housed in two restored former synagogues in South of Fifth.",
+   "g": [
+    "MUS",
+    "HIST"
+   ],
+   "s": [
+    [
+     "MDPL",
+     "https://mdpl.org/welcome-center/plan-your-visit/what-to-do/"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Jewish_Museum_of_Florida"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "The Kampong",
+   "ad": "4013 S Douglas Rd, Miami, FL",
+   "w": "Plant explorer David Fairchild's nine-acre Coconut Grove estate, now a National Tropical Botanical Garden; tours by reservation.",
+   "g": [
+    "PARK",
+    "ODD"
+   ],
+   "s": [
+    [
+     "ATLASOBSCURA",
+     "https://atlasobscura.com/places/the-kampong"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Kampong"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "CGCG",
+   "n": "The Barnacle Historic State Park",
+   "ad": "3485 Main Hwy, Miami, FL",
+   "w": "The 1891 home of Commodore Ralph Munroe — the oldest house in Miami still on its original site, on a waterfront lawn that hosts bluegrass and folk nights.",
+   "g": [
+    "BEACH",
+    "HIST",
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insiders-guide-coconut-grove"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/The_Barnacle_Historic_State_Park"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CGCG",
+   "n": "CocoWalk",
+   "ad": "3015 Grand Ave, Miami, FL",
+   "w": "Coconut Grove's renovated open-air shopping and dining centre.",
+   "g": [
+    "PARK"
+   ],
+   "s": [
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/plan-your-trip/miami-trip-ideas/insider-guides/insiders-guide-coconut-grove"
+    ],
+    [
+     "GMCVB",
+     "https://www.miamiandbeaches.com/l/shopping/cocowalk/2890"
+    ],
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/CocoWalk"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "CGCG",
+   "n": "Miami Seaquarium — CLOSED",
+   "ad": "4400 Rickenbacker Causeway, Miami, FL",
+   "w": "Virginia Key's marine park (1955) permanently closed on 12 October 2025 after 70 years; a replacement aquarium is planned for ~2030.",
+   "closed": true,
+   "g": [
+    "PARK",
+    "FAM"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Miami_Seaquarium"
+    ],
+    [
+     "LOCAL10",
+     "https://www.local10.com/news/local/2025/09/26/its-official-the-miami-seaquarium-is-up-for-sale/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "LHAV",
+   "n": "Hialeah Park Race Track",
+   "ad": "2200 E 4th Ave, Hialeah, FL",
+   "w": "1925 racetrack on the National Register — 200 acres of royal palms, a casino, quarter-horse racing and its famous Audubon-sanctuary colony of pink flamingos.",
+   "g": [
+    "ART",
+    "PARK",
+    "WILD"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hialeah_Park_Race_Track"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/15-best-things-to-do-in-opa-locka-fl/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NMIA",
+   "n": "Opa-locka City Hall",
+   "ad": "777 Sharazad Blvd, Opa-locka, FL",
+   "w": "Glenn Curtiss's 1926 Arabian Nights city: the domed, minaretted Moorish Revival city hall is the starting point for a tour of ~90 Moorish buildings.",
+   "g": [
+    "DECO",
+    "ART"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Opa-locka_City_Hall"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/15-best-things-to-do-in-opa-locka-fl/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NMIA",
+   "n": "Hard Rock Stadium",
+   "ad": "347 Don Shula Dr, Miami Gardens, FL",
+   "w": "Home of the Miami Dolphins and the Hurricanes; Super Bowl LIV and the Miami Grand Prix circuit.",
+   "g": [
+    "ENT"
+   ],
+   "s": [
+    [
+     "WIKIPEDIA",
+     "https://en.wikipedia.org/wiki/Hard_Rock_Stadium"
+    ],
+    [
+     "CRAZYTOURIST",
+     "https://www.thecrazytourist.com/15-best-things-to-do-in-opa-locka-fl/"
+    ]
+   ]
   }
  ],
  "F": [
@@ -1798,7 +2104,7 @@
    "t": 1,
    "a": "WYN",
    "n": "L'Atelier de Joël Robuchon Miami",
-   "ad": "Design District, Miami, FL",
+   "ad": "151 NE 41st St, Miami, FL",
    "w": "Miami's only two-Michelin-star restaurant (2026 Florida guide): Robuchon's counter-dining format in the Design District.",
    "k": "Order: Chef's counter tasting menu",
    "cz": [
@@ -2605,6 +2911,10 @@
     [
      "MIAMINEWTIMES",
      "https://www.miaminewtimes.com/food-drink/2026-miami-james-beard-semifinalists-restaurants-and-chefs-40519122/"
+    ],
+    [
+     "MICHELIN",
+     "https://www.miaminewtimes.com/food-drink/new-miami-restaurants-added-to-florida-michelin-guide-2025-22247268/"
     ]
    ]
   },
@@ -2655,7 +2965,7 @@
    "t": 1,
    "a": "FTL",
    "n": "Heritage",
-   "ad": "Fort Lauderdale, FL",
+   "ad": "903 NE 5th Ave, Fort Lauderdale, FL",
    "w": "Michelin Bib Gourmand (2025, retained 2026): chef Rino Cerbone's Italian.",
    "k": "Order: Wood-fired pizza, handmade pasta",
    "cz": [
@@ -2672,7 +2982,7 @@
    "t": 2,
    "a": "FTL",
    "n": "Daniel's, A Florida Steakhouse",
-   "ad": "Hotel Wren / Las Olas area, Fort Lauderdale, FL",
+   "ad": "620 S Federal Hwy, Fort Lauderdale, FL",
    "w": "Michelin-recommended (2026): chef Daniel Ganem's Florida-sourced steakhouse.",
    "k": "Order: Florida-raised beef, live-fire",
    "cz": [
@@ -2689,7 +2999,7 @@
    "t": 2,
    "a": "FTL",
    "n": "Evelyn's",
-   "ad": "Four Seasons Hotel Fort Lauderdale, FL",
+   "ad": "525 N Fort Lauderdale Beach Blvd, Fort Lauderdale, FL",
    "w": "Michelin-recommended (2026) Eastern Mediterranean at the Four Seasons, chef Brandon Salomon.",
    "k": "Order: Eastern Mediterranean mezze",
    "cz": [
@@ -2706,7 +3016,7 @@
    "t": 1,
    "a": "FTL",
    "n": "Larb Thai-Isan",
-   "ad": "Fort Lauderdale, FL",
+   "ad": "6234 N Federal Hwy, Fort Lauderdale, FL",
    "w": "Michelin-recommended (2026); the Infatuation calls it the best Thai restaurant in South Florida.",
    "k": "Order: Isan larb, northeastern Thai",
    "cz": [
@@ -2773,7 +3083,7 @@
    "t": 1,
    "a": "LHAV",
    "n": "El Brazo Fuerte Bakery",
-   "ad": "Miami, FL",
+   "ad": "1697 SW 32nd Ave, Miami, FL",
    "w": "Pan cubano baker for 40+ years; Infatuation rates its pastelitos among the county's best and New Times lists it in Miami's ten best.",
    "k": "Order: Guava pastelitos, pan cubano",
    "cz": [
@@ -2923,7 +3233,7 @@
    "t": 2,
    "a": "WYN",
    "n": "Piman Bouk Haitian Restaurant",
-   "ad": "Little Haiti, Miami, FL",
+   "ad": "5921 NE 2nd Ave, Miami, FL",
    "w": "An essential Little Haiti stop for Haitian home cooking.",
    "k": "Order: Griot, legim, diri djon djon",
    "cz": [
@@ -2944,7 +3254,7 @@
    "t": 2,
    "a": "LHAV",
    "n": "La Esquina del Lechón",
-   "ad": "Doral, FL",
+   "ad": "8601 NW 58th St, Doral, FL",
    "w": "Eater 38: 'the pan con lechón is arguably the best in town' — crackling-studded roast pork on Cuban bread.",
    "k": "Order: Pan con lechón",
    "cz": [
@@ -3029,6 +3339,461 @@
      "https://www.paradisecoast.com/plan-your-trip/articles/the-dining-of-everglades-city"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Elyu Omakase",
+   "ad": "Coral Gables, FL",
+   "w": "New Michelin-recommended (2026) omakase counter in Coral Gables.",
+   "k": "Order: Omakase",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://themiamiguide.com/miami-leads-floridas-2026-michelin-guide/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Grand Central",
+   "ad": "MiMo District, Miami, FL",
+   "w": "Michelin-recommended (2025) in the MiMo neighbourhood.",
+   "k": "Order: Seasonal small plates",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.condoblackbook.com/blog/michelin-guide-adds-6-new-miami-restaurants-in-2025"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Itamae AO",
+   "ad": "Midtown / Design District, Miami, FL",
+   "w": "Chef Nando Chang's ten-seat Nikkei counter — Michelin star in 2025; Itamae began as a Bib Gourmand stall.",
+   "k": "Order: Nikkei omakase",
+   "cz": [
+    "PERU",
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://resident.com/amp/story/luxury-news/2025/04/19/michelin-stars-align-greater-miami-and-miami-beach-cement-status-as-floridas-culinary-capital-in-2025"
+    ],
+    [
+     "MICHELIN",
+     "https://www.condoblackbook.com/blog/michelin-guide-adds-6-new-miami-restaurants-in-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "Palma",
+   "ad": "Little Havana, Miami, FL",
+   "w": "Michelin-recommended (2025) near Little Havana.",
+   "k": "Order: Modern Latin plates",
+   "cz": [
+    "CUBAN",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.condoblackbook.com/blog/michelin-guide-adds-6-new-miami-restaurants-in-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Sereira",
+   "ad": "Coconut Grove, Miami, FL",
+   "w": "Michelin-recommended (2025) seafood restaurant in Coconut Grove.",
+   "k": "Order: Japanese-Brazilian seafood",
+   "cz": [
+    "SEAF",
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.condoblackbook.com/blog/michelin-guide-adds-6-new-miami-restaurants-in-2025"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "DTB",
+   "n": "Torno Subito",
+   "ad": "Julia & Henry's, 200 E Flagler St, Miami, FL",
+   "w": "Michelin-recommended (2025) Italian inside the Julia & Henry's food hall downtown.",
+   "k": "Order: Neapolitan-style pizza and pasta",
+   "cz": [
+    "EU"
+   ],
+   "g": [
+    "MKT"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.condoblackbook.com/blog/michelin-guide-adds-6-new-miami-restaurants-in-2025"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Kojin 2.0",
+   "ad": "Coral Gables, FL",
+   "w": "Michelin-recommended (2025): contemporary menu with Japanese influences.",
+   "k": "Order: Japanese-influenced contemporary tasting",
+   "cz": [
+    "ASIAN",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.miaminewtimes.com/food-drink/new-miami-restaurants-added-to-florida-michelin-guide-2025-22247268/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Sunny's Steakhouse",
+   "ad": "Little River, Miami, FL",
+   "w": "Michelin-recommended (2025) Little River steakhouse in an Old Florida garden setting.",
+   "k": "Order: Old-Florida steakhouse with pasta",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.miaminewtimes.com/food-drink/new-miami-restaurants-added-to-florida-michelin-guide-2025-22247268/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "ViceVersa",
+   "ad": "Downtown Miami, FL",
+   "w": "Michelin-recommended (2025) Neapolitan pizza in an intimate downtown room; its burger is on New Times' best-burgers list.",
+   "k": "Order: Neapolitan pizza; the much-talked-about burger",
+   "cz": [
+    "EU",
+    "BURG"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://www.miaminewtimes.com/food-drink/new-miami-restaurants-added-to-florida-michelin-guide-2025-22247268/"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-burgers-in-miami-florida-20348117/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "WYN",
+   "n": "Zak the Baker",
+   "ad": "295 NW 26th St, Miami, FL",
+   "w": "Zak Stern's Wynwood sourdough bakery — a Michelin Bib Gourmand in the inaugural 2022 Florida guide.",
+   "k": "Order: Sourdough, babka, kosher bakery-café",
+   "cz": [
+    "BAKE",
+    "BURG"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.miaminewtimes.com/food-drink/all-65-miami-restaurants-listed-in-the-2022-florida-michelin-guide-14685652/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "LHAV",
+   "n": "Lung Yai Thai Tapas",
+   "ad": "1731 SW 8th St, Miami, FL",
+   "w": "Tiny, cash-and-queue Thai tapas counter — Michelin Bib Gourmand (2022).",
+   "k": "Order: Thai tapas (khao soi, crispy pork)",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.miaminewtimes.com/food-drink/all-65-miami-restaurants-listed-in-the-2022-florida-michelin-guide-14685652/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Red Rooster Overtown",
+   "ad": "Overtown, Miami, FL",
+   "w": "Marcus Samuelsson's Overtown outpost of Harlem's Red Rooster — Michelin Bib Gourmand (2022).",
+   "k": "Order: Fried yardbird, Overtown soul food",
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.miaminewtimes.com/food-drink/all-65-miami-restaurants-listed-in-the-2022-florida-michelin-guide-14685652/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "WYN",
+   "n": "Doya",
+   "ad": "Wynwood, Miami, FL",
+   "w": "Aegean meze house in Wynwood — Michelin Bib Gourmand (2022).",
+   "k": "Order: Aegean meze from the wood grill",
+   "cz": [
+    "MED"
+   ],
+   "s": [
+    [
+     "MICHELIN_BIB",
+     "https://www.miaminewtimes.com/food-drink/all-65-miami-restaurants-listed-in-the-2022-florida-michelin-guide-14685652/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "The Den at Sushi Azabu",
+   "ad": "The Stanton South Beach, 161 Ocean Dr, Miami Beach, FL",
+   "w": "Hidden omakase room inside Sushi Azabu (Greystone Hotel) — one Michelin star in the inaugural 2022 guide.",
+   "k": "Order: Omakase",
+   "cz": [
+    "ASIAN"
+   ],
+   "s": [
+    [
+     "MICHELIN_STAR",
+     "https://www.timeout.com/miami/news/here-are-miamis-2022-michelin-starred-restaurants-061022"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "DTB",
+   "n": "Brasserie Laurel",
+   "ad": "Miami Worldcenter, Miami, FL",
+   "w": "Michael Beltran's French-meets-Miami brasserie in Miami Worldcenter — Michelin-recommended (2023).",
+   "k": "Order: French-inspired Miami brasserie",
+   "cz": [
+    "EU",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/dining-out/michelin-guide-florida-miami-new-additions-february-2023"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/news/the-michelin-guide-just-recognized-eight-new-miami-restaurants-020823"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Fiola Miami — CLOSED",
+   "ad": "1500 San Ignacio Ave, Coral Gables, FL",
+   "w": "Lavish Coral Gables Italian from the team behind Michelin-starred Fiola D.C. — Michelin-recommended (2023).",
+   "k": "Order: Ornate Italian, Fabio Trabocchi",
+   "closed": true,
+   "cz": [
+    "EU",
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/dining-out/michelin-guide-florida-miami-new-additions-february-2023"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/news/the-michelin-guide-just-recognized-eight-new-miami-restaurants-020823"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "MBCH",
+   "n": "Lido at The Surf Club",
+   "ad": "9011 Collins Ave, Surfside, FL",
+   "w": "The Four Seasons Surf Club's champagne-bar terrace restaurant — Michelin-recommended (2023).",
+   "k": "Order: Coastal Italian on the terrace",
+   "cz": [
+    "EU",
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/dining-out/michelin-guide-florida-miami-new-additions-february-2023"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/news/the-michelin-guide-just-recognized-eight-new-miami-restaurants-020823"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CGCG",
+   "n": "Lion & the Rambler — CLOSED",
+   "ad": "804 Ponce de Leon Blvd, Coral Gables, FL",
+   "w": "Chef Michael Bolen's contemporary American in the former Eating House space — Michelin-recommended (2023).",
+   "k": "Order: Inventive contemporary American",
+   "closed": true,
+   "cz": [
+    "US"
+   ],
+   "s": [
+    [
+     "MICHELIN",
+     "https://guide.michelin.com/us/en/article/dining-out/michelin-guide-florida-miami-new-additions-february-2023"
+    ],
+    [
+     "TIMEOUT",
+     "https://www.timeout.com/miami/news/the-michelin-guide-just-recognized-eight-new-miami-restaurants-020823"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "SDADE",
+   "n": "Apocalypse BBQ",
+   "ad": "8695 SW 124th Ave, Miami, FL",
+   "w": "Some of Miami's best barbecue, smoked in a rundown caddie shack on Kendall's Killian Greens golf course — New Times readers' Best Barbecue 2025.",
+   "k": "Order: Brisket and burnt ends from a golf-course shack",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/best-of-miami/2025/readers-choice/best-barbecue-23486909"
+    ],
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/miami/neighborhoods/kendall"
+    ],
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/guides/best-bbq-miami"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Smoke & Dough",
+   "ad": "West Kendall, Miami, FL",
+   "w": "West Kendall pit fusing Miami's Latin staples with American barbecue — on the Infatuation's Kendall guide and New Times' ten best barbecue.",
+   "k": "Order: Latin-Miami barbecue (pastelito-inspired, croqueta mac)",
+   "cz": [
+    "BURG",
+    "LATAM"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://theinfatuation.com/miami/neighborhoods/kendall"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/miamis-ten-best-barbecue-spots-8542116/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "SDADE",
+   "n": "Pinecrest Bakery",
+   "ad": "Pinecrest, FL",
+   "w": "Cuban bakery chain whose original on US-1 in Pinecrest is the most consistent (Infatuation) — New Times readers' Best Bakery 2025.",
+   "k": "Order: Guava-and-cheese pastelitos, cafecito",
+   "cz": [
+    "BAKE",
+    "CUBAN"
+   ],
+   "s": [
+    [
+     "INFATUATION",
+     "https://www.theinfatuation.com/miami/neighborhoods/pinecrest"
+    ],
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/best-of-miami/2025/readers-choice/best-bakery-23486629"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "FTL",
+   "n": "Southport Raw Bar",
+   "ad": "1536 Cordova Rd, Fort Lauderdale, FL",
+   "w": "Porthole-doored, no-frills raw bar on the Intracoastal, unchanged since the 1970s — a Fort Lauderdale locals' legend for half a century.",
+   "k": "Order: Peel-and-eat shrimp, raw oysters and clams",
+   "cz": [
+    "SEAF"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-old-school-restaurants-in-fort-lauderdale-23842312/"
+    ],
+    [
+     "FLORIDARAMBLER",
+     "https://www.floridarambler.com/?p=515"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "FTL",
+   "n": "Lester's Diner",
+   "ad": "250 W State Road 84, Fort Lauderdale, FL",
+   "w": "Open 24/7 since 1967–68 — a neon-lit 'retro since it was new' roadside greasy spoon with enormous plates.",
+   "k": "Order: 24-hour diner breakfast under the neon",
+   "cz": [
+    "BURG"
+   ],
+   "s": [
+    [
+     "MIAMINEWTIMES",
+     "https://www.miaminewtimes.com/food-drink/best-old-school-restaurants-in-fort-lauderdale-23842312/"
+    ],
+    [
+     "LONELYPLANET",
+     "https://www-lonelyplanet-com-57e2.imagizer.com/usa/florida/fort-lauderdale/restaurants"
+    ]
+   ]
   }
  ],
  "S": {
@@ -3037,6 +3802,12 @@
    "t": "AJC",
    "u": "",
    "l": ""
+  },
+  "ATLASOBSCURA": {
+   "k": "ATLAS OBSCURA",
+   "t": "Atlas Obscura",
+   "u": "https://www.atlasobscura.com/things-to-do/miami-florida",
+   "l": "Atlas Obscura"
   },
   "CORALGABLES": {
    "k": "CORALGABLES",
@@ -3110,9 +3881,21 @@
    "u": "",
    "l": ""
   },
+  "LOCAL10": {
+   "k": "LOCAL 10 (WPLG)",
+   "t": "WPLG Local 10",
+   "u": "https://www.local10.com",
+   "l": "WPLG Local 10"
+  },
   "LONELYPLANET": {
    "k": "LONELYPLANET",
    "t": "LONELYPLANET",
+   "u": "",
+   "l": ""
+  },
+  "MDPL": {
+   "k": "MDPL",
+   "t": "MDPL",
    "u": "",
    "l": ""
   },
@@ -3190,6 +3973,12 @@
    "u": "https://miami.eater.com",
    "l": "Eater Miami"
   },
+  "FLORIDARAMBLER": {
+   "k": "FLORIDARAMBLER",
+   "t": "FLORIDARAMBLER",
+   "u": "",
+   "l": ""
+  },
   "FODORS": {
    "k": "FODOR'S",
    "t": "FODOR'S",
@@ -3225,6 +4014,12 @@
    "t": "James Beard Foundation Awards",
    "u": "https://www.jamesbeard.org/awards",
    "l": "James Beard Foundation Awards"
+  },
+  "LONELYPLANET": {
+   "k": "LONELYPLANET",
+   "t": "LONELYPLANET",
+   "u": "",
+   "l": ""
   },
   "MARKWIENS": {
    "k": "MARKWIENS",
