@@ -21,19 +21,19 @@ Kyoto city's 11 **wards (-ku)** grouped as locals do (Rakuchū centre, Rakutō e
 
 ## State
 - 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
-- 2026-10-02 W1 partial: **12 discovered** (HGS 10 sights + 1 food, CTR 1 food), all passing ≥2 credible or lone Michelin.
-  Coordinates: 3 pins (Kōdai-ji high, Hōkan-ji high, Yasaka Shrine med); 3 held UNVERIFIED. Addresses are ward/district
-  level where no source gave a street number (rule 4a: never from memory). 8 single-source sights + 8 Michelin leads are in
-  `_PENDING_LEADS.json`. **No page built, not live.** Files: SIGHTS_KYOTO_HGS1.json, FOOD_KYOTO_HGS1.json,
-  SOURCES_KYOTO_W1.json, geo/_geoout_kyoto_hgs1.json. Density: every area NEED (HGS 11/75, CTR 1/95, others 0).
+- 2026-10-02 W1 partial (12 places) — halted at the shared 200-search cap (see AUDIT).
+- 2026-10-02 **W2 (relaunch, own budget)** — in progress. ~130 discovered (101 sights + 29 food). First build GREEN:
+  `cities/kyoto.html` 88 pins, sourcecheck/geocheck/statuscheck/buildcheck PASS (not yet linked live).
+  Files: SIGHTS_KYOTO_{HGS1,HGS2,UNESCO,CTR1,SAKYO1,RKSAI1,KITA1,FSHMI1,UJI1,RKHKU1,KYFU1}.json,
+  FOOD_KYOTO_{HGS1,W2}.json, SOURCES_KYOTO_{W1,W2}.json, geo/_geoout_kyoto_*.json.
+  Helpers: `_kyoto_add.py` (append/dedup), `_kyoto_rows.py` (sight rows → SIGHTS + geoout), `_kyoto_food.py`
+  (food rows → FOOD + UNVERIFIED geoout).
+- Search budget: 86 used this session (counted in AUDIT per batch).
 
 ## In-flight wave
-- **W1 (2026-10-02) — HGS — HALTED, BLOCKED.** After ~14 searches the tool returned *"this session has used its
-  web search budget (200 of 200 WebSearch calls)… ask the user to raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION"*.
-  The cap is **session-wide, shared by all ~16 agents**, and is a hard cap, not a rate limit: retries fail the same way.
-  WebSearch is the only allowed channel, so no further discovery, fact-check or geocoding is possible until the cap is raised.
-  **To resume:** finish W1 from `_PENDING_LEADS.json` (corroborate the single-source sights, then pull area/address/dish
-  for the Michelin Bib ramen shops), then run waves in this order: CTR, SAKYO, KITA, RKSAI, FSHMI, UJI, RKHKU, KYFU.
+- W2 continues: sights fill per area (Wikipedia-coordinate batches of ≤6 names that surely have enwiki articles + a
+  japan-guide / kyoto.travel domain-filtered second-source query), then Michelin food by ward+genre.
+  Held single-source leads with coords are listed in AUDIT batch 2/4 — corroborate first (cheap wins).
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py kyoto` → iterate on every `NEED +N`.

@@ -38,7 +38,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Le Cirio
 
 ## chicago-il
-- registry entries: **130** · verified pins: **108** (high 106 · med 2 · low 0)
+- registry entries: **143** · verified pins: **121** (high 119 · med 2 · low 0)
 - ⛔ ship-worthy but **NOT yet geocoded** (7) — need a place-pin:
     - Birrieria Zaragoza
     - Borinquen Lounge
@@ -372,7 +372,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Ikema Island & Ikema Ōhashi (池間島)
 
 ## osaka
-- registry entries: **185** · verified pins: **162** (high 157 · med 5 · low 0)
+- registry entries: **192** · verified pins: **169** (high 164 · med 5 · low 0)
 - ⚠️ **UNVERIFIED** in registry (23) — held by the gate, need the helper:
     - Aizuya Honten (Tamade)
     - Az
