@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Holland Village (Singapore) field guide — 1 sights and 1 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
+<meta name="description" content="Holland Village (Singapore) field guide — 2 sights and 5 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
 <title>Holland Village — Singapore &amp; SEA field guide</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -231,7 +231,7 @@
 <header>
   <p class="eyebrow">Neighbourhood guide · Singapore</p>
   <h1>Holland Village<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">1 sights and 1 places to eat in <strong>Holland Village</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
+  <p class="standfirst">2 sights and 5 places to eat in <strong>Holland Village</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -312,8 +312,13 @@
 <script>
 
 const S = {
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
+  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
   "VISITSG":{k:"VISIT SINGAPORE (STB)",t:"Visit Singapore (Singapore Tourism Board)",u:"https://www.visitsingapore.com/",l:"Visit Singapore (Singapore Tourism Board)"},
-  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"}
+  "WIKI":{k:"WIKI",t:"Wikipedia (English)",u:"https://en.wikipedia.org/",l:"Wikipedia (English)"},
+  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
 };
 
 const AREAS = [
@@ -321,12 +326,19 @@ const AREAS = [
 ];
 
 const P = [
+{t:2,a:"HOLLANDVILLAGE",n:"Holland Drive Market & Food Centre",ad:"44 Holland Drive, Singapore 270044",la:1.30812,ln:103.79277,w:"The Holland Drive estate's two-storey market and food centre, home to a Michelin Bib Gourmand claypot rice (New Lucky), a Michelin-recognised kway chap (Cheng Heng), Margaret Drive Sin Kee chicken rice and a well-loved Malay breakfast stall — the residents' hawker centre just south of the Holland V bar strip.",k:"Hawker centre & wet market; cooked food upstairs",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["SETHLUI","https://sethlui.com/holland-drive-food-centre-guide-singapore/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-holland-drive-food-centre"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
 {t:3,a:"HOLLANDVILLAGE",n:"Holland Village",ad:"Lorong Mambong, Holland Village",la:1.31111,ln:103.79500,w:"A long-time bohemian expat enclave of eateries, bars and shophouses off Holland Road.",k:"Heritage",g:["HERITAGE"],s:[["VISITSG","https://www.visitsingapore.com/see-do-singapore/places-to-see/holland-village/"],["WIKI","https://en.wikipedia.org/wiki/Holland_Village,_Singapore"]]}
 ];
 
 const FS = {
+  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
+  "HERWORLD":{k:"HERWORLD",t:"Her World Singapore",u:"https://www.herworld.com",l:"Her World Singapore"},
+  "HUNGRYGOWHERE":{k:"HUNGRYGOWHERE",t:"HungryGoWhere",u:"https://hungrygowhere.com",l:"HungryGoWhere"},
   "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"}
+  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
+  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
+  "SGFOODONFOOT":{k:"SGFOODONFOOT",t:"SG Food on Foot",u:"https://www.sgfoodonfoot.com",l:"SG Food on Foot"},
+  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
 };
 
 const CUISINES = [
@@ -368,6 +380,10 @@ const CATS = [
 ];
 
 const F = [
+{t:1,a:"HOLLANDVILLAGE",n:"New Lucky Claypot Rice",ad:"Holland Drive Market & Food Centre, #02-19, 44 Holland Drive, S270044",cz:["CHINESE"],la:1.30812,ln:103.79277,w:"Holland Drive's headline stall and a Michelin Bib Gourmand year after year (incl. 2024 and 2025): every claypot is cooked from scratch over charcoal, so the grains stay separate with a crackling crust — call ahead, because the wait can run to an hour.",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/new-lucky-claypot-rice"],["EATBOOK","https://eatbook.sg/new-lucky-claypot-rice/"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
+{t:2,a:"HOLLANDVILLAGE",n:"Cheng Heng Kway Chap and Braised Duck Rice",ad:"Holland Drive Market & Food Centre, #02-05, 44 Holland Drive, S270044",cz:["CHINESE"],la:1.30812,ln:103.79277,w:"A Michelin-recognised kway chap (Michelin Plate, 2018) where the broad rice sheets swim in a herbal soy broth beside braised pork and innards, plus the stall's famous finely sliced braised duck — expect a 30-minute morning queue.",s:[["SETHLUI","https://sethlui.com/cheng-heng-kway-chap-vs-blanco-court-kway-chap-singapore/"],["SGFOODONFOOT","https://www.sgfoodonfoot.com/2016/04/cheng-heng-kway-chap-and-braised-duck.html"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-holland-drive-food-centre"]]},
+{t:2,a:"HOLLANDVILLAGE",n:"Shima's Kitchen",ad:"Holland Drive Market & Food Centre, #02-12, 44 Holland Drive, S270044",cz:["MALAY"],la:1.30812,ln:103.79277,w:"The Malay stall at Holland Drive that tastes like someone's mum cooked it — creamy coconut lontong and mee soto in the morning, then a changing nasi padang spread (rendang, petai, curry chicken) that sells out early.",s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"],["HERWORLD","https://www.herworld.com/life/foodanddrink/hawker-stalls-holland-drive-food-centre"],["HUNGRYGOWHERE","https://hungrygowhere.com/what-to-eat/holland-drive-food-centre-guide/"]]},
+{t:3,a:"HOLLANDVILLAGE",n:"Hakka Noodle (Holland Drive)",ad:"Holland Drive Market & Food Centre, #02-15, 44 Holland Drive, S270044",cz:["CHINESE","NOODLE"],la:1.30812,ln:103.79277,w:"One of Holland Drive's busier stalls: springy Hakka noodles heaped with yong tau foo pieces and crisp fried wantons — a generous neighbourhood bowl.",s:[["EATBOOK","https://eatbook.sg/holland-drive-food/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/10-best-hawker-stalls-holland-drive-food-centre"]]},
 {t:2,a:"HOLLANDVILLAGE",n:"Margaret Drive Sin Kee Chicken Rice",ad:"#02-06 Holland Drive Market & Food Centre, 44 Holland Drive",cz:["CHICKENRICE"],la:1.30812,ln:103.79277,w:"Steamed chicken rice since 1978; on the Michelin Bib Gourmand list since 2018.",s:[["MICHELIN","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/margaret-drive-sin-kee-famous-chicken-rice"],["SETHLUI","https://sethlui.com/best-must-try-chicken-rice-singapore/"]]}
 ];
 
@@ -393,7 +409,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.31111,103.795],16);
+  map = L.map('map',{scrollWheelZoom:false}).setView([1.30812,103.79277],16);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',

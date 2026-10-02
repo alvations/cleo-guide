@@ -24,7 +24,9 @@ flock -w 3600 $LOCK python3 tools/rebuild-city.py philadelphia-pa --build   # + 
 ```
 
 ## In-flight wave
-(none)
+W1 (sights backbone + food canon) — BLOCKED before any query ran: the session-wide WebSearch budget
+(200/200, shared by all concurrent agents) was already exhausted at 2026-10-02 when this agent started research.
+No discovery files written yet. On relaunch: start W1 from scratch (Next actions 1-2).
 
 ## State
 - 2026-10-02 scaffold: consolidate.py, _AGENT_BRIEF.md, AUDIT.md, RESUME.md, tools/build-philadelphia.py.

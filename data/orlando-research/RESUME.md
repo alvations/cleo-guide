@@ -25,10 +25,19 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - `SPACE` Space Coast ~25
 
 ## State
-- Scaffolded 2026-10-02 (consolidate.py, brief, AUDIT, RESUME, tools/build-orlando.py, sources.json entry).
+- Scaffolded 2026-10-02 (consolidate.py, brief, AUDIT, RESUME, tools/build-orlando.py, sources.json entry
+  `orlando-fl` registered from SOURCES_CORE.json — 22 outlets with `credible` rationale).
+- **0 places discovered (0 / ~517).** Wave 1 (Michelin opening move) was cut off after 8 WebSearch calls:
+  the session-wide WebSearch cap (`200 of 200`, shared by all ~16 concurrent agents) was exhausted. Retried
+  once — hard block ("ask the user to raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION"), not a rate limit.
+- Leads gathered so far are in `_PENDING_LEADS.md` (Michelin 2026 stars/Bibs/new Recommended with source
+  URLs; Space Mountain coordinate). Nothing was promoted to a research record without a sourced address +
+  named dish, so nothing builds yet; `cities/orlando.html` is NOT built and the index card stays "being built".
 
 ## In-flight wave
-(none yet)
+- **W1 MICHELIN (food opening move)** — half-done. Remaining queries: full 2026 Orlando Recommended list;
+  address + one named dish for each starred/Bib place; Natsu/Capa/Papa Llama status. Then write
+  `FOOD_MICHELIN.json` (MICHELIN + a 2nd source where possible), then W2 Mills 50 Vietnamese.
 
 ## Next actions (ordered)
 1. Discovery waves area by area (food canon first: Mills 50 Vietnamese, Michelin, Puerto Rican Kissimmee,

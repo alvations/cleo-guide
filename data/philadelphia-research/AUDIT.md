@@ -10,3 +10,13 @@
   Diners/Scrapple, Bakeries/Pretzels/Water Ice) + immigrant kitchens (Mexican, Vietnamese, Cambodian/Indonesian/SEA,
   Chinese, African, Latin/Caribbean, Middle Eastern). Collections: 13 incl. Revolutionary & Colonial History, Murals &
   Public Art, Sports & Rocky.
+
+## 2026-10-02 · Stage 1 — Discover sources (W1) — BLOCKED by the shared WebSearch cap
+- Seeded the registry with 27 outlets (SOURCES_core.json → data/sources.json, each with a `credible` rationale):
+  Michelin Philadelphia 2025, James Beard, NPS, Inquirer/LaBan, Philly Mag/Foobooz, Eater Philly, Infatuation,
+  Visit Philadelphia, Billy Penn/WHYY, PhillyVoice, Atlas Obscura, Hidden City, Mural Arts, Parks & Rec, travel
+  (Lonely Planet, Time Out, Condé Nast Traveler), regional (Main Line Today, NJ Monthly, Courier-Post), 6abc.
+  These are registered as candidate palette; per-place credibility is still established by search per wave.
+- First WebSearch calls returned "this session has used its web search budget (200 of 200 WebSearch calls)" —
+  the cap is session-wide and shared by all ~17 concurrent agents, already exhausted before this agent's first
+  query. Backed off 10 min and retried (see next entry). NOTHING was added from memory (CLAUDE.md 4a; no-fabrication).

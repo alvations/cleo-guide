@@ -3,29 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Newton & Novena (Singapore) field guide — 1 sights and 9 places to eat, each sourced (Michelin, local news, vetted creators) on one pastel interactive map (light &amp; dark) with cuisine, collection and source filters, a trip builder and Google/Apple exports.">
-<title>Newton & Novena — Singapore &amp; SEA field guide</title>
+<meta name="description" content="Hokkaido field guide — 9 sights and 0 places to eat, each traceable to its source (Michelin, UNESCO, Japanese press and vetted creators) on one interactive map with area, collection and cuisine filters.">
+<title>Hokkaido Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Instrument+Serif:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  /* Pastel theme — LIGHT default :root; DARK via prefers-color-scheme. Marker --c-* set by const AC. */
   :root{
-    color-scheme: light dark;
-    --iron:#FCF8FB; --slab:#F3ECF6; --hair:#E6DAEA;
-    --patina:#3E9A88; --patina-dim:#BFE0D8;
-    --brass:#B9863A; --rust:#C56F73;
-    --bone:#2E2838; --bone-dim:#6E6480;
-    --c-dt:#F2A1A1; --c-uc:#BCA7E6; --c-ws:#84CBB9; --c-sub:#9CBEEC;
+    --iron:#12171A; --slab:#1B2226; --hair:#2E393E;
+    --patina:#74AE99; --patina-dim:#3E5D53;
+    --brass:#C89B4A; --rust:#B45B3E;
+    --bone:#E9E5DB; --bone-dim:#9AA3A2;
+    --c-dt:#74AE99; --c-uc:#C89B4A; --c-ws:#B45B3E; --c-sub:#7E8FC4;
   }
-  @media (prefers-color-scheme:dark){:root{
-    --iron:#191521; --slab:#241E30; --hair:#382E48;
-    --patina:#93D6C6; --patina-dim:#3E5D53;
-    --brass:#E8C57C; --rust:#E4989B;
-    --bone:#ECE7F2; --bone-dim:#A79FB8;
-  }}
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} *{transition:none!important;}}
@@ -53,12 +45,11 @@
   .maplegend span{display:flex;align-items:center;gap:6px;}
   .maplegend i{width:9px;height:9px;border-radius:50%;display:inline-block;}
   /* Darkens light OSM tiles to match the page when the dark tile server is unreachable */
-  .osmdark .leaflet-tile-pane{filter:none;}
-  @media (prefers-color-scheme:dark){.osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}}
+  .osmdark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.87) saturate(.55);}
   #tilewarn{display:none;margin:10px 0 0;padding:11px 14px;background:var(--slab);
     border-left:3px solid var(--rust);font-size:14.5px;}
   #tilewarn button{margin-left:8px;}
-  .leaflet-container{background:var(--slab);}
+  .leaflet-container{background:#0E1316;}
   .leaflet-popup-content-wrapper{background:var(--slab);color:var(--bone);border-radius:3px;}
   .leaflet-popup-tip{background:var(--slab);}
   .leaflet-popup-content{margin:12px 14px;font-family:"Newsreader",serif;font-size:14.5px;line-height:1.45;}
@@ -229,10 +220,10 @@
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Neighbourhood guide · Singapore</p>
-  <h1>Newton & Novena<span class="thin">a town of Singapore — sights &amp; hawker food, sourced</span></h1>
-  <p class="standfirst">1 sights and 9 places to eat in <strong>Newton & Novena</strong>, a town of Singapore, each traceable to the source that named it (Michelin, local news &amp; vetted local/viral creators). Renders in soft pastel, <strong>light or dark</strong>. <strong>Switch modes below</strong>, filter by area, cuisine or collection, and tick anything to build your own list, then export it to Google or Apple Maps. <a href="index.html" style="color:var(--patina)">← all Singapore towns</a></p>
-  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
+  <p class="eyebrow">Field guide · Hokkaido (北海道), sourced</p>
+  <h1>Hokkaido<span class="thin">Sapporo · Otaru & Shakotan · Niseko & Yōtei · Hakodate & Dōnan · Shikotsu-Tōya & Iburi</span></h1>
+  <p class="standfirst">9 sights and 0 places to eat across <strong>Hokkaido</strong>, every one traceable to its source. <strong>Switch modes below</strong>, filter by <strong>area</strong>, <strong>collection</strong> or <strong>cuisine</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../Japan/index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
 <div id="map"></div>
@@ -242,7 +233,7 @@
   <div class="chips" id="baseFilter"></div>
 </div>
 <div class="maplegend">
-  <span><i style="background:#BCA7E6"></i>Newton & Novena</span>
+  <span><i style="background:#D9534F"></i>Sapporo</span>
   <span style="opacity:.7">&nbsp;|&nbsp; Big solid pin = must see &middot; small faint pin = deep cut</span>
 </div>
 
@@ -257,7 +248,7 @@
     <div class="chips" id="cuisineFilter"></div>
   </div>
   <p class="ctrl-label">Search</p>
-  <input id="search" type="search" placeholder="chicken rice, laksa, temple, market…" autocomplete="off">
+  <input id="search" type="search" placeholder="ramen, sushi, temple, onsen…" autocomplete="off">
   <p class="ctrl-label">Filter by source</p>
   <div class="chips" id="srcFilter"></div>
   <p class="ctrl-label">Filter by area</p>
@@ -300,8 +291,8 @@
 <footer>
   Hours, admission and opening days change — verify before you drive.<br>
   A few listed places are seasonal, tour-only, or open one day a year. Those are flagged.<br>
-  Compiled August 2026 · <strong>last verified 2026-08-26</strong>. Map tiles © OpenStreetMap contributors.<br>
-  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): Michelin, UNESCO, local news &amp; magazines and vetted local/viral creators. Coordinates verified into data/geocodes.json; every place status-checked open. Some spots are pending a final coordinate pass.</span><br><br>
+  Compiled August 2026 · <strong>last verified 2026-10-02</strong>. Map tiles © OpenStreetMap contributors.<br>
+  <span style="opacity:.8">Web-researched and fact-checked via the pipeline (data/sources.json, docs/SOURCES.md): sourced in Japanese and English across Michelin, UNESCO, Japanese national and regional press, official tourism bodies and vetted creators. Every coordinate is verified into data/geocodes.json and every place status-checked open.</span><br><br>
   <button class="tripbtn" id="saveGuide">Save this whole guide to your device</button>
   <span style="display:block;margin-top:8px;opacity:.75">Saves an .html file that works offline apart from the map tiles. On iPhone or iPad: Share &rarr; Save to Files, then open it from the Files app.</span>
 </footer>
@@ -312,81 +303,76 @@
 <script>
 
 const S = {
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "ROOTSSG":{k:"ROOTS.GOV.SG (NHB)",t:"Roots.gov.sg (NHB)",u:"https://www.roots.gov.sg",l:"Roots.gov.sg (NHB)"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"}
+  "HOKKAIDODIGITALMUSEUM":{k:"HOKKAIDODIGITALMUSEUM",t:"Hokkaido Digital Museum (hokkaido-digital-museum.jp)",u:"https://hokkaido-digital-museum.jp/en/",l:"Hokkaido Digital Museum (hokkaido-digital-museum.jp)"},
+  "HOKKAIDOTOURISM":{k:"HOKKAIDO TOURISM",t:"HOKKAIDO LOVE! — Hokkaido Official Tourism Site (visit-hokkaido.jp)",u:"https://www.visit-hokkaido.jp/en/",l:"HOKKAIDO LOVE! — Hokkaido Official Tourism Site (visit-hokkaido.jp)"},
+  "JAPANGUIDE":{k:"JAPAN-GUIDE",t:"japan-guide.com",u:"https://www.japan-guide.com/",l:"japan-guide.com"},
+  "JNTO":{k:"JNTO",t:"Japan National Tourism Organization (japan.travel)",u:"https://www.japan.travel/",l:"Japan National Tourism Organization (japan.travel)"},
+  "JUSTONECOOKBOOK":{k:"JUSTONECOOKBOOK",t:"Just One Cookbook (Namiko Chen)",u:"https://www.justonecookbook.com/hokkaido-sapporo-travel-guide",l:"Just One Cookbook (Namiko Chen)"},
+  "OFFICIAL":{k:"OFFICIAL SITE",t:"OFFICIAL SITE",u:"",l:""},
+  "SAPPOROTRAVEL":{k:"SAPPOROTRAVEL",t:"Sapporo Travel (Sapporo City official tourism site)",u:"https://www.sapporo.travel/en/",l:"Sapporo Travel (Sapporo City official tourism site)"},
+  "TOKYOARTBEAT":{k:"TOKYOARTBEAT",t:"Tokyo Art Beat",u:"https://tokyoartbeat.com/en/",l:"Tokyo Art Beat"},
+  "WIKIPEDIA":{k:"WIKIPEDIA",t:"Wikipedia",u:"https://en.wikipedia.org/",l:"Wikipedia"}
 };
 
 const AREAS = [
-  {id:"NEWTONNOVENA",n:"Newton & Novena",c:"#BCA7E6"}
+  {id:"SPR",n:"Sapporo (Ōdōri · Susukino · Nijō Market · Maruyama · Moiwa · Jōzankei)",c:"#D9534F"}
 ];
 
 const P = [
-{t:1,a:"NEWTONNOVENA",n:"Newton Food Centre",ad:"500 Clemenceau Avenue North, Singapore 229495",la:1.31199,ln:103.83957,w:"Newton Circus Food Centre opened in 1971 as a tourist-friendly open-air hawker centre at the Newton roundabout; rebuilt in 2006 and immortalised as the satay-and-chilli-crab feast in Crazy Rich Asians. With close to 100 stalls it placed five on the 2025 MICHELIN Bib Gourmand list — the most of any hawker centre — and is the gastronomic heart of Newton.",k:"Mostly evening stalls; open late",g:["MKT","PARK"],s:[["ROOTSSG","https://www.roots.gov.sg/stories-landing/stories/Hawker-Centres/Newton-Circus-Food-Centre"],["EATBOOK","https://eatbook.sg/newton-food-centre/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]}
+{t:1,a:"SPR",n:"Sapporo Clock Tower (札幌市時計台)",ad:"Kita 1-jo Nishi 2-chome, Chuo-ku, Sapporo, Hokkaido 060-0001, Japan",la:43.06256,ln:141.35360,w:"The 1878 wooden drill hall of the Sapporo Agricultural College, its clock still striking the hours — the city's symbol and an Important Cultural Property.",k:"clock tower",g:["ICON","CASTLE","VIEW"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sapporo_Clock_Tower"],["JNTO","https://www.japan.travel/spot/1921"],["OFFICIAL","https://sapporoshi-tokeidai.jp/english/"]]},
+{t:1,a:"SPR",n:"Former Hokkaido Government Office (Akarenga, 赤れんが庁舎)",ad:"Kita 3-jo Nishi 6-chome, Chuo-ku, Sapporo, Hokkaido 060-8588, Japan",la:43.06397,ln:141.34800,w:"The 1888 neo-baroque red-brick seat of the Hokkaido Development Commission — reopened 25 July 2025 after a multi-year restoration as a museum of Hokkaido history with a free garden.",k:"red brick government office",g:["ICON","CASTLE","FREE","GARDEN"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Former_Hokkaid%C5%8D_Government_Office"],["HOKKAIDOTOURISM","https://visit-hokkaido.jp/en/spot/detail_11185.html"],["SAPPOROTRAVEL","https://www.sapporo.travel/en/spot/facility/former_hokkaido_government_office/"]]},
+{t:1,a:"SPR",n:"Ōdōri Park (大通公園)",ad:"Ōdōri Nishi 1–12-chome, Chuo-ku, Sapporo, Hokkaido 060-0042, Japan",la:43.05975,ln:141.34646,w:"The 1.5 km green firebreak that splits Sapporo north from south — stage of the Sapporo Snow Festival in February, beer gardens and the autumn food festival.",k:"odori park snow festival",g:["ICON","NATURE","FREE","GARDEN"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Odori_Park"],["JAPANGUIDE","https://www.japan-guide.com/e/e5301.html"]]},
+{t:1,a:"SPR",n:"Moerenuma Park (モエレ沼公園)",ad:"1-1 Moerenuma-kōen, Higashi-ku, Sapporo, Hokkaido 007-0011, Japan",la:43.12389,ln:141.43000,w:"Isamu Noguchi's last great work: a former landfill sculpted into one park-sized artwork — Mt Moere, the Glass Pyramid, the Sea Fountain.",k:"isamu noguchi art park",g:["MUS","NATURE","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Moerenuma_Park"],["SAPPOROTRAVEL","https://www.sapporo.travel/en/night-view-guide/spot/moerenuma/"],["TOKYOARTBEAT","https://tokyoartbeat.com/en/venues/-/moerenuma-park"]]},
+{t:2,a:"SPR",n:"Historical Village of Hokkaido (北海道開拓の村)",ad:"50-1 Konopporo, Atsubetsu-chō, Atsubetsu-ku, Sapporo, Hokkaido 004-0006, Japan",la:43.04819,ln:141.49699,w:"Open-air museum of 50-plus relocated Meiji–early Shōwa buildings — herring lodges, farmhouses, a horse-drawn tram — telling the story of Hokkaido's settlement.",k:"open-air museum meiji",g:["MUS","CASTLE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Historical_Village_of_Hokkaido"],["JAPANGUIDE","https://japan-guide.com/e/e5303.html"],["HOKKAIDOTOURISM","https://en.visit-hokkaido.jp/?p=1026"]]},
+{t:2,a:"SPR",n:"Sapporo Hitsujigaoka Observation Hill (さっぽろ羊ヶ丘展望台)",ad:"1 Hitsujigaoka, Toyohira-ku, Sapporo, Hokkaido 062-0045, Japan",la:42.99917,ln:141.39452,w:"The hill with the bronze of Dr William S. Clark pointing to the horizon ('Boys, be ambitious!') over sheep pasture and the Ishikari Plain.",k:"clark statue view",g:["VIEW","ICON"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hitsujigaoka_Observation_Hill"],["HOKKAIDOTOURISM","https://www.visit-hokkaido.jp/en/spot/detail_10027.html"],["SAPPOROTRAVEL","https://sapporo.travel/en/spot/facility/sapporo_hitsujigaoka_observation_hill"],["JNTO","https://www.japan.travel/en/spot/555/"]]},
+{t:1,a:"SPR",n:"Mount Moiwa (藻岩山)",ad:"Moiwayama, Minami-ku, Sapporo, Hokkaido, Japan",la:43.02250,ln:141.32222,w:"Ropeway and mini-cable car to a 531 m summit for one of Japan's 'new three great night views' over the Sapporo grid.",k:"night view ropeway",g:["VIEW","NATURE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Mount_Moiwa"],["JUSTONECOOKBOOK","https://www.justonecookbook.com/hokkaido-sapporo-travel-guide"]]},
+{t:1,a:"SPR",n:"Hokkaido Shrine (北海道神宮)",ad:"474 Miyagaoka, Chuo-ku, Sapporo, Hokkaido 064-8505, Japan",la:43.05423,ln:141.30770,w:"Hokkaido's principal Shinto shrine in the Maruyama primeval forest, founded 1869 for the island's pioneer deities — cherry and plum blossom in spring.",k:"shrine maruyama",g:["TEMPLE","NATURE","FREE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Hokkaid%C5%8D_Shrine"],["JUSTONECOOKBOOK","https://www.justonecookbook.com/hokkaido-sapporo-travel-guide"]]},
+{t:2,a:"SPR",n:"Sapporo TV Tower (さっぽろテレビ塔)",ad:"Ōdōri Nishi 1-chome, Chuo-ku, Sapporo, Hokkaido 060-0042, Japan",la:43.06111,ln:141.35639,w:"The 147 m 1957 tower at the head of Ōdōri Park — the 90 m deck looks straight down the park's length.",k:"tower observation",g:["VIEW","ICON","NATURE"],s:[["WIKIPEDIA","https://en.wikipedia.org/wiki/Sapporo_TV_Tower"],["JUSTONECOOKBOOK","https://www.justonecookbook.com/hokkaido-sapporo-travel-guide"]]}
 ];
 
 const FS = {
-  "ASIAONE":{k:"ASIAONE",t:"AsiaOne",u:"https://www.asiaone.com",l:"AsiaOne"},
-  "DFD":{k:"DFD",t:"Daniel Food Diary",u:"https://danielfooddiary.com/",l:"Daniel Food Diary"},
-  "EATBOOK":{k:"EATBOOK",t:"Eatbook.sg",u:"https://eatbook.sg",l:"Eatbook.sg"},
-  "IEATISHOOTIPOST":{k:"IEATISHOOTIPOST",t:"Dr Leslie Tay (ieatishootipost)",u:"https://ieatishootipost.sg",l:"Dr Leslie Tay (ieatishootipost)"},
-  "MICHELIN":{k:"MICHELIN",t:"MICHELIN Guide",u:"https://guide.michelin.com/",l:"MICHELIN Guide"},
-  "MICHELIN_BIB":{k:"MICHELIN BIB",t:"MICHELIN Guide — Bib Gourmand",u:"https://guide.michelin.com/",l:"MICHELIN Guide — Bib Gourmand"},
-  "MISSTAMCHIAK":{k:"MISS TAM CHIAK",t:"Miss Tam Chiak",u:"https://www.misstamchiak.com",l:"Miss Tam Chiak"},
-  "MTC":{k:"MTC",t:"Miss Tam Chiak (misstamchiak.com)",u:"https://www.misstamchiak.com/",l:"Miss Tam Chiak (misstamchiak.com)"},
-  "ORDINARYPATRONS":{k:"ORDINARYPATRONS",t:"Ordinary Patrons",u:"https://ordinarypatrons.com",l:"Ordinary Patrons"},
-  "SETHLUI":{k:"SETH LUI",t:"Seth Lui",u:"https://sethlui.com",l:"Seth Lui"},
-  "WOMENSWEEKLY":{k:"WOMENSWEEKLY",t:"The Singapore Women's Weekly",u:"https://www.womensweekly.com.sg",l:"The Singapore Women's Weekly"}
+
 };
 
 const CUISINES = [
-  {id:"CHICKENRICE",n:"Hainanese Chicken Rice"},
-  {id:"LAKSA",n:"Laksa & Curry Noodles"},
-  {id:"NOODLE",n:"Wok Noodles (Char Kway Teow, Hokkien Mee, Bak Chor Mee)"},
-  {id:"BKT",n:"Bak Kut Teh & Soups"},
-  {id:"HAWKER",n:"Hawker & Zi Char"},
-  {id:"MALAY",n:"Malay & Nasi Padang"},
-  {id:"INDIAN",n:"Indian & Roti Prata"},
-  {id:"CHINESE",n:"Chinese, Dim Sum & Teochew"},
-  {id:"SEAFOOD",n:"Chilli Crab & Seafood"},
-  {id:"THAI",n:"Thai"},
-  {id:"VIET",n:"Vietnamese"},
-  {id:"INDO",n:"Indonesian, Satay & Rendang"},
-  {id:"FILIPINO",n:"Filipino"},
-  {id:"KHMER",n:"Khmer (Cambodian)"},
-  {id:"LAO",n:"Lao"},
-  {id:"BURMESE",n:"Burmese"},
-  {id:"PERANAKAN",n:"Peranakan / Nyonya"},
-  {id:"KOPI",n:"Kaya Toast, Kopitiam & Breakfast"},
-  {id:"DESSERT",n:"Chendol, Kueh & Durian"},
-  {id:"CAFE",n:"Cafés & Modern"},
-  {id:"VIRAL",n:"Viral / Social"}
+  {id:"SUSHI",n:"Sushi & Kaisen-don"},
+  {id:"RAMEN",n:"Ramen & Tsukemen"},
+  {id:"NOODLE",n:"Soba & Udon"},
+  {id:"KAISEKI",n:"Kaiseki, Kyō-ryōri & Ryōtei"},
+  {id:"IZAKAYA",n:"Izakaya, Yakitori & Yokochō"},
+  {id:"TEMPURA",n:"Tempura, Tonkatsu & Agemono"},
+  {id:"KONAMON",n:"Okonomiyaki, Takoyaki & Kushikatsu"},
+  {id:"WAGYU",n:"Wagyu, Yakiniku & Sukiyaki"},
+  {id:"TEISHOKU",n:"Teishoku, Curry & Yōshoku"},
+  {id:"OKINAWA",n:"Okinawan & Ryūkyū"},
+  {id:"HOKKAIDO",n:"Hokkaido Seafood, Jingisukan & Ainu"},
+  {id:"TOFU",n:"Tofu, Shōjin & Vegetarian"},
+  {id:"SWEET",n:"Wagashi, Matcha & Sweets"},
+  {id:"CAFE",n:"Kissaten & Coffee"},
+  {id:"SAKE",n:"Sake, Awamori, Whisky & Bars"},
+  {id:"MKT",n:"Markets, Depachika & Street Food"},
+  {id:"FINE",n:"Michelin & Fine Dining"},
+  {id:"INT",n:"International & Fusion"}
 ];
 
 const CATS = [
   {id:"ICON",n:"Iconic & Must-See"},
-  {id:"HERITAGE",n:"Heritage & Culture"},
-  {id:"TEMPLE",n:"Temples, Mosques & Shrines"},
-  {id:"MKT",n:"Markets & Hawker Centres"},
-  {id:"PARK",n:"Parks, Gardens & Nature"},
+  {id:"UNESCO",n:"UNESCO World Heritage"},
+  {id:"TEMPLE",n:"Temples & Shrines"},
+  {id:"CASTLE",n:"Castles, Palaces & History"},
+  {id:"GARDEN",n:"Gardens & Teahouses"},
   {id:"MUS",n:"Museums & Galleries"},
-  {id:"VIEW",n:"Views & Skyline"},
-  {id:"ARCH",n:"Architecture & Landmarks"},
-  {id:"FAM",n:"Family & Kids"},
-  {id:"ODD",n:"Oddities & Hidden Gems"},
+  {id:"NATURE",n:"Nature, Parks & Coast"},
+  {id:"ONSEN",n:"Onsen & Sentō"},
+  {id:"MKT",n:"Markets & Shopping Streets"},
+  {id:"NIGHT",n:"Nightlife, Yokochō & Districts"},
+  {id:"POP",n:"Anime, Pop Culture & Oddities"},
+  {id:"VIEW",n:"Views & Observation Decks"},
   {id:"FREE",n:"Free to Visit"}
 ];
 
 const F = [
-{t:1,a:"NEWTONNOVENA",n:"Heng Carrot Cake",ad:"#01-28 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"A Newton fixture since 1971 and a MICHELIN Bib Gourmand stall: the owner has 50+ years at the wok and still steams the radish cake in-house rather than buying it factory-made, frying black and white versions (plus oyster omelette) with vegetable oil only — no pork or lard.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/heng"],["EATBOOK","https://eatbook.sg/heng-carrot-cake/"],["IEATISHOOTIPOST","https://ieatishootipost.sg/heng-carrot-cake-something-in-newton-worth-going-for/"]]},
-{t:1,a:"NEWTONNOVENA",n:"Kwee Heng Duck Noodle",ad:"#01-13 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE","HAWKER"],la:1.31199,ln:103.83957,w:"A 40-year-old braised-duck stall whose boneless, herbal-braised duck — over rice, congee or noodles — earned back-to-back MICHELIN Bib Gourmand listings (2023–2025); one of five Newton stalls that made the 2025 Bib list, the most of any hawker centre.",g:["MKT"],s:[["MICHELIN_BIB","https://guide.michelin.com/en/singapore-region/singapore/restaurant/kwee-heng"],["EATBOOK","https://eatbook.sg/newton-food-centre/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Kwang Kee Teochew Fish Porridge",ad:"#01-20 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["CHINESE"],la:1.31199,ln:103.83957,w:"A 60-year-old Teochew fish-porridge stall now run by the second generation — fresh-sliced fish in a clean broth, as porridge or soup — MICHELIN Bib Gourmand 2021–2023 and on Seth Lui's Newton best-of (Oct 2024 update).",s:[["MICHELIN_BIB","https://guide.michelin.com/sg/en/singapore-region/singapore/restaurant/kwang-kee-teochew-fish-porridge"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Newton Old Signboard 25 Fried Hokkien Prawn Noodle",ad:"#01-25 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["NOODLE","HAWKER"],la:1.31199,ln:103.83957,w:"Newton's Hokkien mee benchmark: a smoky, lard-laced tangle of bee hoon and yellow noodles simmered down in a generous prawn stock — singled out by Eatbook for its wok hei and reviewed by the Ordinary Patrons blog.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["ORDINARYPATRONS","https://ordinarypatrons.com/2023/07/18/newton-old-signboard-25-9-fried-kway-teow/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/newton-food-centre-10-best-hawker-stalls"]]},
-{t:3,a:"NEWTONNOVENA",n:"Bee Heng Satay, BBQ Prawn & Otah",ad:"#01-12 Newton Food Centre, 500 Clemenceau Avenue North, Singapore 229495",cz:["MALAY","HAWKER"],la:1.31199,ln:103.83957,w:"The family business behind Bee Heng Popiah (founded 1930, at Newton since 1977, now third-generation Gary Tan) — long Newton's resident popiah roll, written up by ieatishootipost and Miss Tam Chiak; since 2023 the stall has stopped the popiah and trades as Bee Heng Satay, BBQ Prawn & Otah.",g:["MKT"],s:[["IEATISHOOTIPOST","https://ieatishootipost.sg/bee-heng-poh-piah-what-is-your-opinion-of-newton-food-centre/"],["MISSTAMCHIAK","https://www.misstamchiak.com/newton-food-centre-singapore/"],["WOMENSWEEKLY","https://www.womensweekly.com.sg/food/newton-food-centre-10-best-hawker-stalls"]]},
-{t:2,a:"NEWTONNOVENA",n:"Wee Nam Kee Chicken Rice",ad:"#01-08 United Square, 101 Thomson Road, Novena",cz:["CHICKENRICE"],la:1.31741,ln:103.84362,w:"Founded 1987; a consistent big-name chicken rice institution ranked by Eatbook & Seth Lui.",s:[["EATBOOK","https://eatbook.sg/best-chicken-rice-singapore/"],["SETHLUI","https://sethlui.com/best-chicken-rice-singapore/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Hup Kee Fried Oyster Omelette",ad:"#01-73 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Juicy-oyster orh luak with crispy edges; new Michelin Bib Gourmand.",s:[["MICHELIN","https://guide.michelin.com/en/singapore-region/singapore/restaurant/hup-kee-fried-oyster-omelette"],["DFD","https://danielfooddiary.com/2025/09/10/hupkeefriedoyster/"]]},
-{t:2,a:"NEWTONNOVENA",n:"Song Kee Teochew Fish Porridge",ad:"#01-91 Newton Food Centre, 500 Clemenceau Avenue North",cz:["HAWKER"],la:1.31199,ln:103.83957,w:"Comforting Teochew fish porridge with deboned mackerel; new to the 2025 Michelin Bib list.",s:[["MICHELIN","https://guide.michelin.com/sg/en/article/michelin-guide-ceremony/singapore-bib-gourmand-2025"],["ASIAONE","https://www.asiaone.com/lifestyle/michelin-bib-gourmand-2025-boon-tong-kee-balestier-and-kotuwa-among-11-new-entries-list"]]},
-{t:2,a:"NEWTONNOVENA",n:"Alliance Seafood (Newton Food Centre)",ad:"#01-27 Newton Food Centre, 500 Clemenceau Avenue North",cz:["MALAY"],la:1.31199,ln:103.83957,w:"Newton's iconic sambal stingray & satay hub, featured in Crazy Rich Asians.",g:["MKT"],s:[["EATBOOK","https://eatbook.sg/newton-food-centre/"],["MTC","https://www.misstamchiak.com/newton-food-centre-singapore/"],["SETHLUI","https://sethlui.com/newton-food-centre-singapore/"]]}
+
 ];
 
 P.forEach((p,i)=>{p.id='s'+i;p.kind='sight';});
@@ -397,21 +383,21 @@ const SRCOF = p => p.kind==='food' ? FS : S;
 
 /* ── trip list, persisted where possible ── */
 let TRIP = new Set(), SEEN = new Set(), tripOnly=false, seenMode='all';
-try{const r=localStorage.getItem('sg_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
-try{const r=localStorage.getItem('sg_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
-function saveTrip(){try{localStorage.setItem('sg_trip',JSON.stringify([...TRIP]));}catch(e){}}
-function saveSeen(){try{localStorage.setItem('sg_seen',JSON.stringify([...SEEN]));}catch(e){}}
+try{const r=localStorage.getItem('hkd_trip'); if(r) TRIP=new Set(JSON.parse(r));}catch(e){}
+try{const r=localStorage.getItem('hkd_seen'); if(r) SEEN=new Set(JSON.parse(r));}catch(e){}
+function saveTrip(){try{localStorage.setItem('hkd_trip',JSON.stringify([...TRIP]));}catch(e){}}
+function saveSeen(){try{localStorage.setItem('hkd_seen',JSON.stringify([...SEEN]));}catch(e){}}
 
-function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Newton & Novena')+'&query_place_id=';}
+function gmaps(p){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.n+', '+p.ad+', Hokkaido')+'&query_place_id=';}
 function amaps(p){return 'https://maps.apple.com/?q='+encodeURIComponent(p.n)+'&ll='+p.la+','+p.ln;}
-const AC = {NEWTONNOVENA:'#BCA7E6'};
+const AC = {SPR:'#D9534F'};
 let map=null, layer=null, backdrop=null, markers=[], mapMounted=false;
 
 function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([1.31199,103.83957],15);
+  map = L.map('map',{scrollWheelZoom:false}).setView([43.0615,141.4024],11);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -480,7 +466,7 @@ map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
 window.addEventListener('resize',()=>map.invalidateSize());
 
 /* ── Always-on vector backdrop ──────────────────────────────────────────────
-   Drawn from coordinates in this file, so the guide still reads even if every tile server is unreachable. */
+   Drawn from coordinates in this file, so subtle area labels still show even if every tile server is unreachable. */
 const SHORE=[[41.4870,-82.0500],[41.4930,-81.9600],[41.4880,-81.8700],[41.4885,-81.8050],
  [41.4930,-81.7700],[41.5010,-81.7350],[41.5065,-81.7130],[41.5115,-81.6950],[41.5150,-81.6800],
  [41.5290,-81.6480],[41.5430,-81.6230],[41.5620,-81.5760],[41.5900,-81.5330],[41.6180,-81.5010],
@@ -495,12 +481,13 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[];
+const LABELS=[["Sapporo", 43.055, 141.3729]];
 
+// Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
 LABELS.forEach(([n,la,ln])=>L.marker([la,ln],{interactive:false,icon:L.divIcon({className:'',
   html:'<span style="font:600 10px/1 \'JetBrains Mono\',monospace;letter-spacing:.14em;'
-   +'text-transform:uppercase;color:#8C8498;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.28)">'+n+'</span>',
+   +'text-transform:uppercase;color:#6E7C7B;white-space:nowrap;text-shadow:0 0 5px #12171A">'+n+'</span>',
   iconSize:[0,0]})}).addTo(backdrop));
 backdrop.eachLayer(l=>l.bringToBack&&l.bringToBack());
 
@@ -519,7 +506,7 @@ ALL.forEach((p,i)=>{
   m._id = p.id; markers.push(m);
 });
   map.whenReady(()=>setTimeout(()=>map.invalidateSize(),200));
-  setBase((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light'); markBaseChips();
+  setBase('dark'); markBaseChips();
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=false;
 
   /* ── "Show my location" ──────────────────────────────────────────────────
@@ -806,16 +793,16 @@ document.getElementById('tripKml').onclick=()=>{
       +esc(p.ad+' \u2014 '+TIER[p.t].l+'. '+p.w.replace(/<[^>]+>/g,''))
       +'</description><Point><coordinates>'+p.ln+','+p.la+',0</coordinates></Point></Placemark>').join('')
     +'</Document></kml>';
-  dl('singapore-my-list.kml','application/vnd.google-earth.kml+xml',kml);
+  dl('hokkaido-my-list.kml','application/vnd.google-earth.kml+xml',kml);
   alert('Saved. To turn this into a real custom Google map: open Google My Maps \u2192 Create a new map \u2192 Import \u2192 choose this .kml file. It works on phone and desktop and you can share it.');
 };
 document.getElementById('tripJson').onclick=()=>{
-  dl('singapore-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
+  dl('hokkaido-my-list.json','application/json',JSON.stringify(tripItems().map(p=>
     ({name:p.n,address:p.ad,rank:TIER[p.t].l,lat:p.la,lng:p.ln,
       google:gmaps(p),apple:amaps(p)})),null,2));
 };
 document.getElementById('saveGuide').onclick=()=>{
-  dl('singapore-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
+  dl('hokkaido-field-guide.html','text/html','<!DOCTYPE html>\n'+document.documentElement.outerHTML);
 };
 
 document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.values(FS)).map(s=>
@@ -823,14 +810,17 @@ document.getElementById('srcList').innerHTML = Object.values(S).concat(Object.va
   +(s.u?'<a href="'+s.u+'" target="_blank" rel="noopener">'+s.t+'</a>':s.t)
   +'<span>'+s.l+'</span></div></div>').join('')
   + '<div class="srcrow"><span class="k">BASE MAPS</span><div class="t">Free, no-key tiles'  + '<span>Only free base layers that need no key &mdash; OpenStreetMap, CARTO and Esri. Every place also carries its own Google Maps and Apple Maps links for directions.</span></div></div>'
-  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched &amp; fact-checked'  + '<span>Every place is traceable to a credible source — Michelin, UNESCO, local news &amp; magazines, and vetted local/viral creators — in data/sources.json. Coordinates are verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor never count toward the two-source bar.</span></div></div>';
+  + '<div class="srcrow"><span class="k">FOOD RULES</span><div class="t">How the cuisine filters were policed'
+  + '<span>Every food card names a specific dish — a label alone doesn’t qualify. A cuisine tag names the kitchen’s own tradition, never one dish it serves. Tabelog and Retty scores may measure popularity but never count as a source.</span></div></div>'
+  + '<div class="srcrow"><span class="k">HOW SOURCED</span><div class="t">Web-searched in Japanese and English, fact-checked'
+  + '<span>Every place is traceable to two credible sources, or a lone Michelin / UNESCO / Agency for Cultural Affairs designation — recorded in data/sources.json. Every coordinate is verified into data/geocodes.json and every place status-checked open. Yelp/TripAdvisor/Tabelog never count toward the two-source bar.</span></div></div>';
 
 setMode('sights');
 
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 183 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 9 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;

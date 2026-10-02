@@ -1,0 +1,8 @@
+{
+ "outlets": [
+  {"key":"SGFOODONFOOT","name":"SG Food on Foot","url":"https://www.sgfoodonfoot.com"},
+  {"key":"ORDINARYPATRONS","name":"The Ordinary Patrons","url":"https://ordinarypatrons.com"},
+  {"key":"TIMEOUTSG","name":"Time Out Singapore","url":"https://www.timeout.com/singapore"}
+ ],
+ "note": "Holland Village (HLV) wave 1. All other keys used (MICHELIN, MICHELIN_BIB, SETHLUI, EATBOOK, MISSTAMCHIAK, WOMENSWEEKLY, HERWORLD, HUNGRYGOWHERE, IEATISHOOTIPOST, MOTHERSHIP, WIKIPEDIA) are already registered in data/sources.json (cities.singapore) and reused here."
+}

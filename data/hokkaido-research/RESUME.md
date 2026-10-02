@@ -20,16 +20,22 @@ Measured by `python3 tools/density.py hokkaido` on the DISCOVERED set. Total ≈
 Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi), Dō-nan (Hakodate), Dō-hoku (Asahikawa/Furano/Biei/Wakkanai), Dō-tō (Tokachi/Kushiro/Shiretoko/Abashiri) — with Sapporo as its own area.
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
+- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
+- 2026-10-02 W01 (SPR sights): 12 discovered (all ≥2 credible), 9 geocoded high + 3 UNVERIFIED; built & all gates
+  green (9 pins). **Blocked:** session WebSearch budget exhausted (200/200) after ~14 queries by this agent — raise
+  `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` (or relaunch in a fresh session) to continue. NOT live.
+- Counts vs target: SPR 12/130 · OTARU 0/50 · NSK 0/35 · DONAN 0/75 · IBURI 0/40 · DHOKU 0/60 · TKC 0/35 · DOTO 0/55 · SOYA 0/20.
+- Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- **W01 — Sapporo (SPR) sights + food canon.** Files: `_w01_spr.py` (compact ledger) → `python3 _w01_spr.py` emits
-  `SIGHTS_HOKKAIDO_W01.json`, `FOOD_HOKKAIDO_W01.json`, `geo/_geoout_hokkaido_w01.json`. Method: batched WebSearch
-  "Wikipedia coordinates A; B; C" (returns Wikipedia + japan-guide/sapporo.travel/visit-hokkaido URLs + published
-  coords in one query); food via Tabelog Hyakumeiten/Michelin 2017/press + creators. Remaining: Sapporo sights
-  (Jozankei, Art Park, Hokkaido Museum, Hitsujigaoka, Botanic Garden…), food canon (miso ramen, soup curry,
-  jingisukan, kaisendon, sweets, beer).
-- Helper: `_hk.py` (S()/F()/emit()) — every wave script is re-runnable and deterministic.
+- **W01 — Sapporo (SPR)** STOPPED at the session WebSearch cap (200/200, shared by all agents). Its committed output
+  is complete and gated; resume with **W01b** = the remaining SPR queries below.
+- W01b queries still to run: Sapporo sights batch 2 (Ōkurayama — need 2nd source; Nakajima Park/Hōheikan; Tanukikōji;
+  Nijō Market; Shiroi Koibito Park; Maruyama Zoo; Sapporo Art Park; Hokkaido Museum; Takino Suzuran; Hoheikyo);
+  SPR food canon: miso ramen (Sumire, Saimi, Shingen, Keyaki, Aji no Sanpei — Tabelog 百名店 2025 / Michelin 2017 Bib),
+  soup curry (Suage, Garaku, Picante, Samurai), jingisukan (Daruma), Nijō kaisendon, Rokkatei/Kitakaro, Sapporo
+  Beer Garden; creators: Just One Cookbook, Ramen Adventures, Paolo fromTOKYO, Abroad in Japan.
+- Helper: `_hk.py` (S()/F()/emit()); wave ledgers `_w<NN>_<area>.py` are re-runnable (`python3 _w01_spr.py`).
 
 ## Next actions
 1. Discovery waves per area (canon first) → `python3 tools/density.py hokkaido` → iterate on every `NEED +N`.

@@ -27,7 +27,18 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
 - 2026-10-02 scaffold: consolidate.py (7 areas, Wisconsin cuisine taxonomy), _AGENT_BRIEF.md, AUDIT.md, this file,
   tools/build-madison.py. Keys were pre-registered (research.js, geocode-status.py, rebuild-city.py, density.py).
 
+- **2026-10-02 W1 (food canon) TRUNCATED** — WebSearch session cap hit (200/200, shared by all agents) after ~22
+  Madison searches. Kept 3 food (FOOD_CANON.json); 14 outlets (SOURCES_W1.json, registered); 1 geocode
+  (geo/_geoout_w1.json, The Old Fashioned, med). 19 food + 1 sight leads with URLs in `_PENDING_LEADS.md`.
+  Density: 3 / ~210. **No page built** (build asserts a geocoded tier-1 in all 7 areas).
+
+## Next (ordered) — needs a fresh WebSearch budget (raise CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION or relaunch)
+1. Finish `_PENDING_LEADS.md` (dish/address/status per lead) → append to FOOD_CANON.json in batches of ~10, commit each.
+2. Remaining W1 canon queries (list at the bottom of `_PENDING_LEADS.md`) + creator pass → CREATORS_W1.json.
+3. W2 sights per area (SIGHTS_<AREA>.json) — every area needs a geocodable tier-1 (Capitol, UW Memorial Union
+   Terrace, Olbrich, Arboretum, Mustard Museum/Pheasant Branch, Cave of the Mounds/Little Norway, Taliesin).
+4. Iterate `python3 tools/density.py madison-wi` until every area OK → geocode waves (geo/_geoout_*.json) →
+   `flock … python3 tools/rebuild-city.py madison-wi --build` → 4 gates → relink CARD:madison-wi, CITIES.md row.
+
 ## In-flight wave
-- **W1 food canon** (tag `CANON`) → `FOOD_CANON.json`, `SOURCES_W1.json`, `CREATORS_W1.json`. Queries: curds,
-  fish fry, supper clubs/old fashioned, farmers' market, brats, Babcock, kringle, Hmong/Lao, New Glarus, JB honorees,
-  Infatuation Madison, Madison Mag/Isthmus best-of, creators (YouTube/TikTok Madison food). Then W2 sights per area.
+- (none — W1 closed as truncated; resume from Next step 1)

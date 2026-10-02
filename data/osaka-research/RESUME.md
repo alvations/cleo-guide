@@ -20,20 +20,26 @@ Measured by `python3 tools/density.py osaka` on the DISCOVERED set. Total ≈ 46
 Osaka's own **Kita (north) / Minami (south)** downtown split plus its **wards (-ku)**, then the Hokusetsu/Kawachi/Senshū suburbs and the Kansai day-trip ring. Nara belongs to the Kyoto map — don't duplicate it here.
 
 ## State
-- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys). Discovery not started.
+- 2026-10-02 scaffolded (areas, taxonomy, wrappers, registry keys).
+- 2026-10-02 **W1 truncated**: the session-wide WebSearch cap (200/200, shared by ~16 agents) was exhausted ~22
+  searches into W1. Discovered **28** (24 Michelin food + 4 sights; KITA 17, CHUO 7, MINAM 2, TNJ 1, EAST 1, rest 0);
+  geocoded 4 high + 1 UNVERIFIED. Held: `_held_W1.json` (3 Bib pending address, 9 single-source sights incl. Shitennō-ji
+  with its verified coord). Page NOT built, card NOT live, Japan NOT flipped. Needs a fresh session / raised
+  `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` to continue.
+
+### Proven channels (use first next session)
+- `allowed_domains:["guide.michelin.com"]` + "Osaka Bib Gourmand <cuisine> address" → 3–6 venue pages with
+  addresses per call; "<name> <street> latitude longitude" on the same domain returns the venue-page lat/lng (a real
+  place pin). Hyōgo/Kobe: same with "hyogo-region". Expect ~150+ Osaka-region Michelin places.
+- `allowed_domains:["en.wikipedia.org"]` "<A> coordinates; <B> coordinates" → 2 sight coords per call.
+- `allowed_domains:["japan-guide.com"]` / `["osaka-info.jp"]` area queries → sight lists (source 1).
 
 ## In-flight wave
-- **W1 (2026-10-02)** — all areas. Files: `FOOD_OSAKA_W1.json`, `SIGHTS_OSAKA_W1.json`, `SOURCES_OSAKA_W1.json`,
-  `CREATORS_OSAKA_W1.json`, `geo/_geoout_osaka_W1.json` (helper: append-as-you-go, dedup by name).
-  Channels: (a) Michelin Guide Japan 2026 Osaka-region venue pages (Bib/stars/Selected — lone institution; venue
-  page also carries lat/lng = place pin); (b) sights backbone from japan-guide + OSAKA-INFO area pages, each
-  landmark geocoded + 2nd-sourced from its Wikipedia article coords; (c) konamon/canon via Time Out Osaka,
-  Inside Osaka, Lonely Planet, Tabelog Hyakumeiten; (d) creators (Mark Wiens, Best Ever Food Review, Paolo
-  fromTOKYO, Abroad in Japan, Only in Japan) for Osaka food.
-  Remaining queries: everything (just started).
+- none (W1 closed early — see State).
 
 ## Next actions
-1. Discovery waves per area (canon first) → `python3 tools/density.py osaka` → iterate on every `NEED +N`.
+0. Geocode the 23 W1 Michelin restaurants (Michelin-domain lat/lng) + resolve the 3 held Bib addresses.
+1. Discovery waves per area (canon first: takoyaki/okonomiyaki/kushikatsu/kitsune udon/horumon via Time Out, Inside Osaka, Lonely Planet, Tabelog Hyakumeiten, dancyu, creators) → `python3 tools/density.py osaka` → iterate on every `NEED +N`.
 2. Geocode waves → `geo/_geoout_osaka_*.json` → `python3 tools/rebuild-city.py osaka --build` (under the shared lock).
 3. Re-verify pin placement (CLAUDE.md 4b) + closure pass (4c) until statuscheck reports zero unchecked.
 
