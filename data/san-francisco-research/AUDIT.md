@@ -337,3 +337,13 @@ pin + Time Out + SFGATE). Restaurants beyond Atlas Obscura stay UNVERIFIED for t
 **MEASURED & DROPPED / held:** Sam Wo — CLOSED (SF Chronicle 'Goodbye to Sam Wo', 2025) → not added; Walzwerk — permanently closed
 (Atlas Obscura) → not added; Frances / HK Lounge Bistro already in the dataset (dedup — helpers now never write a geo record for a
 duplicate name); Bread n' Chu (Infatuation only) → held; Toronado/Zeitgeist/Tommy's (no Wikipedia coordinate) → for a later food query.
+**Food batch 4 (searches 35–40):** Zam Zam (SF Travel martini trail × Hoodline × 7x7), Hayes Street Grill (SFGATE 2022 × Hoodline —
+status re-check advised), Souvla (HAI); Brenda's French Soul Food, Tommy's Joynt (NOB); Red's Java House, John's Grill (was held — now
+63 Ellis St, SFGATE × SF Travel) (DTN); Mama's on Washington Square, Mario's Bohemian Cigar Store (NECN).
+**DROPPED / held:** Toronado — sold Apr 2026 and closed for a 'Toronado Deluxe' reopening announced for June 2026 (SF Standard
+2026-05-31); reopening not yet confirmed → held; China Live + Cold Drinks Bar — China Live under eviction (SF Standard 2025-02) →
+status unclear, held; Waterbar (Infatuation only) and Top of the Mark (address-only confirmation) → held.
+**Creator pass (searches 41–42):** Mark Wiens — rejected (no SF video found). **Anthony Bourdain, The Layover: San Francisco** (Travel
+Channel; episode guide via SF Station + NBC Bay Area) → `CREATORS_W5.json`, key BOURDAIN attached to Swan Oyster Depot, House of Prime
+Rib, Tonga Room, Comstock Saloon (each already ≥2 credible). Channel mix this wave so far: Wikipedia+outlet sights 26 · editorial food
+19 (SF Standard, SFGATE, Infatuation, Time Out, SF Travel, Hoodline, Chronicle, 7x7, Michelin 1, Atlas Obscura 2) · creator 1 (4 attaches).

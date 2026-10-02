@@ -256,5 +256,242 @@
    "Italian"
   ],
   "dish": "linguine alle vongole"
+ },
+ {
+  "t": 2,
+  "a": "HAI",
+  "n": "Zam Zam",
+  "address": "1633 Haight St, San Francisco, CA 94117",
+  "w": "1941 Persian-Deco cocktail lounge (a Haight St Legacy Business) where the late Bruno Mooshei poured bone-dry martinis at the round bar — still the drink to order.",
+  "closed": false,
+  "sources": [
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/article/experience-san-francisco-martini-trail"
+   ],
+   [
+    "HOODLINE",
+    "https://hoodline.com/2016/10/vice-city-guide-drink-at-zam-zam-bar/"
+   ],
+   [
+    "SEVENXSEVEN",
+    "https://www.7x7.com/classic-martini-bars-san-francisco-2659448439.html"
+   ]
+  ],
+  "cz": [
+   "Bar"
+  ],
+  "dish": "dry gin martini"
+ },
+ {
+  "t": 3,
+  "a": "HAI",
+  "n": "Hayes Street Grill",
+  "address": "320 Hayes St, San Francisco, CA 94102",
+  "w": "Patricia Unterman's 1979 seafood grill by the Symphony and City Hall — white tablecloths, simply grilled local fish with a choice of sauces, and the crème brûlée.",
+  "closed": false,
+  "sources": [
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/hayes-valley-restaurants-17378416.php"
+   ],
+   [
+    "HOODLINE",
+    "https://hoodline.com/2014/03/hayes-street-grill-celebrates-35th-anniversary-tomorrow/"
+   ]
+  ],
+  "cz": [
+   "Seafood",
+   "Californian"
+  ],
+  "dish": "grilled local fish"
+ },
+ {
+  "t": 3,
+  "a": "HAI",
+  "n": "Souvla",
+  "address": "517 Hayes St, San Francisco, CA 94102",
+  "w": "The Hayes Valley original (2014) of SF's Greek fast-casual hit — spit-roasted lamb or chicken sandwiches and frozen Greek yogurt with baklava crumbles.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/souvla"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/souvla"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/San-Francisco-favorite-Soulva-returns-after-15400449.php"
+   ]
+  ],
+  "cz": [
+   "Greek"
+  ],
+  "dish": "lamb souvla sandwich & frozen Greek yogurt"
+ },
+ {
+  "t": 2,
+  "a": "NOB",
+  "n": "Brenda's French Soul Food",
+  "address": "652 Polk St, San Francisco, CA 94102",
+  "w": "Brenda Buenviaje's Tenderloin brunch institution — New Orleans-meets-French soul food: crawfish beignets, shrimp & grits and fried-chicken plates; expect a line.",
+  "closed": false,
+  "sources": [
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/brendas-french-soul-food"
+   ],
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/article/san-franciscos-iconic-eats-every-neighborhood"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/local/article/polk-street-18000261.php"
+   ]
+  ],
+  "cz": [
+   "Southern",
+   "Cajun/Creole"
+  ],
+  "dish": "crawfish beignets & shrimp and grits"
+ },
+ {
+  "t": 2,
+  "a": "NOB",
+  "n": "Tommy's Joynt",
+  "address": "1101 Geary Blvd (at Van Ness Ave), San Francisco, CA 94109",
+  "w": "SF's last great hofbrau (since 1947) — a memorabilia-plastered cafeteria line carving brisket, turkey and corned beef, buffalo stew, and a wall of beers.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/tommys-joynt"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/Iconic-San-Francisco-restaurants-announces-15667544.php"
+   ],
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2022/12/30/cure-your-new-years-day-hangover-at-these-beloved-comfort-food-spots"
+   ]
+  ],
+  "cz": [
+   "American",
+   "Hofbrau"
+  ],
+  "dish": "hand-carved brisket sandwich & buffalo stew"
+ },
+ {
+  "t": 2,
+  "a": "DTN",
+  "n": "Red's Java House",
+  "address": "Pier 30, The Embarcadero (at Bryant St), San Francisco, CA 94105",
+  "w": "1955 longshoremen's shack on the waterfront under the Bay Bridge — the double cheeseburger on sourdough with pickles and mustard, and a cheap beer on the pier.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/reds-java-house"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/reds-java-house"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/San-Franciscans-keep-legendary-Red-s-Java-House-15567087.php"
+   ]
+  ],
+  "cz": [
+   "American",
+   "Burgers"
+  ],
+  "dish": "cheeseburger on sourdough"
+ },
+ {
+  "t": 2,
+  "a": "DTN",
+  "n": "John's Grill",
+  "address": "63 Ellis St, San Francisco, CA 94102",
+  "w": "Since 1908 — Sam Spade ordered 'chops, baked potatoes, sliced tomatoes' here in The Maltese Falcon; dark-wood Hammett shrine off Union Square, falcon statue upstairs.",
+  "closed": false,
+  "sources": [
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/san-francisco-family-owned-restaurants-17672914.php"
+   ],
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/article/lunch-spots-san-francisco-every-occasion"
+   ]
+  ],
+  "cz": [
+   "American",
+   "Steakhouse"
+  ],
+  "dish": "Sam Spade's lamb chops"
+ },
+ {
+  "t": 2,
+  "a": "NECN",
+  "n": "Mama's on Washington Square",
+  "address": "1701 Stockton St, San Francisco, CA 94133",
+  "w": "North Beach's 50-year brunch line — the 'Mama's Monte Cristo', berry French toast and Benedicts facing Washington Square and Saints Peter & Paul.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/mamas-on-washington-square"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/mamas-on-washington-square"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/mamas-brunch-restaurant-san-francisco-17869372.php"
+   ],
+   [
+    "SFTRAVEL",
+    "https://www.sftravel.com/article/where-to-get-brunch-san-francisco"
+   ]
+  ],
+  "cz": [
+   "American",
+   "Brunch"
+  ],
+  "dish": "Monte Cristo & French toast"
+ },
+ {
+  "t": 2,
+  "a": "NECN",
+  "n": "Mario's Bohemian Cigar Store Café",
+  "address": "566 Columbus Ave (at Union St), San Francisco, CA 94133",
+  "w": "Vintage North Beach café on Washington Square — no cigars any more, just hot focaccia sandwiches on Liguria Bakery bread (meatball, eggplant) with a Campari or cappuccino.",
+  "closed": false,
+  "sources": [
+   [
+    "SFSTANDARD",
+    "https://sfstandard.com/2023/09/06/san-francisco-loves-marios-bohemian-cigar-store-cafe/"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/marios-bohemian-cigar-store"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/essays/article/My-great-grandfather-loved-this-cafe-in-San-16455922.php"
+   ]
+  ],
+  "cz": [
+   "Italian",
+   "Café"
+  ],
+  "dish": "meatball focaccia sandwich"
  }
 ]
