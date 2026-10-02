@@ -570,5 +570,116 @@
    "Bar"
   ],
   "dish": "pizza & cocktails"
+ },
+ {
+  "t": 1,
+  "a": "PEN",
+  "n": "Koi Palace",
+  "address": "Serramonte Center, Daly City, CA 94015",
+  "w": "The Bay Area's dim sum cathedral since 1996 (rainbow xiao long bao, a several-hundred-dish banquet menu, 2,000-a-weekend crowds) — relocated in Sept 2026 to a 20,000-sq-ft flagship inside Serramonte Center.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/koi-palace"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/projects/best-san-francisco-dim-sum/"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/bay-area-strip-mall-dim-sum-restaurant-san-19361923.php"
+   ]
+  ],
+  "cz": [
+   "Cantonese",
+   "Dim Sum"
+  ],
+  "dish": "rainbow xiao long bao & dim sum"
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Greens",
+  "address": "Fort Mason Center, Landmark Building A, San Francisco, CA 94123",
+  "w": "The 1979 Zen Center restaurant that made vegetarian fine dining — Green Gulch Farm produce, Golden Gate Bridge views through the warehouse windows; the black-bean chili and mesquite-grilled brochettes are standbys.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/us/san-francisco/greens/restaurant"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/greens-restaurant"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/waterfront-san-francisco-restaurant-greens-19396094.php"
+   ]
+  ],
+  "cz": [
+   "Vegetarian",
+   "Californian"
+  ],
+  "dish": "black bean chili & seasonal vegetarian plates"
+ },
+ {
+  "t": 2,
+  "a": "NW",
+  "n": "Spruce",
+  "address": "3640 Sacramento St, San Francisco, CA 94118",
+  "w": "Presidio Heights' clubby, Michelin-listed Californian dining room — a seasonal prix fixe (crudo, duck breast) and a famously good burger at the bar.",
+  "closed": false,
+  "sources": [
+   [
+    "MICHELIN",
+    "https://guide.michelin.com/jp/ja/california/san-francisco/restaurant/spruce"
+   ],
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/spruce"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/spruce"
+   ]
+  ],
+  "cz": [
+   "Californian"
+  ],
+  "dish": "seasonal prix fixe & bar burger"
+ },
+ {
+  "t": 2,
+  "a": "NOB",
+  "n": "Harris' Restaurant",
+  "address": "Van Ness Ave at Pacific Ave, San Francisco, CA 94109",
+  "w": "Old-guard steakhouse since 1984 — dry-aged Midwestern beef shown off in the window case, martinis and a clubby room favoured by Bonds and Montana.",
+  "closed": false,
+  "sources": [
+   [
+    "INFATUATION",
+    "https://www.theinfatuation.com/san-francisco/reviews/harris-restaurant"
+   ],
+   [
+    "SFGATE",
+    "https://www.sfgate.com/food/article/sf-harris-restaurant-turns-40-19410988.php"
+   ],
+   [
+    "TIMEOUT",
+    "https://www.timeout.com/san-francisco/restaurants/harris-restaurant"
+   ],
+   [
+    "SFCHRON",
+    "https://www.sfchronicle.com/projects/best-steak-restaurants-sf-bay-area/"
+   ]
+  ],
+  "cz": [
+   "Steakhouse",
+   "American"
+  ],
+  "dish": "dry-aged New York strip & martini"
  }
 ]

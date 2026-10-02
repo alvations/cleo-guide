@@ -365,3 +365,8 @@ Hoodline/SFGATE), Harvey Milk's Castro Camera at 575 Castro (Wikipedia + SF Stan
 Alley (Wikipedia pin + SF Travel + SFGATE), Chinese Historical Society of America (Atlas pin 37.793759,-122.408964 + Time Out + Wikipedia)
 (NECN). Vermont Street pinned (Atlas 37.758919,-122.403958). DROPPED: El Techo — rebranded 'Cubita' after an Apr-2025 closure (SF Standard)
 → not added; Grateful Dead House still no published pin (Atlas has only the Haight-Ashbury itinerary).
+**Batch 7 (searches 54–58):** Koi Palace (Infatuation × SF Chronicle best dim sum × SFGATE; relocated to a Serramonte Center flagship
+Sept 2026 — exact unit unconfirmed, held UNVERIFIED) (PEN); Greens (MICHELIN listing × Infatuation × SFGATE; pinned med to Fort Mason
+Landmark Bldg A, the building its own site names), Spruce (MICHELIN × Infatuation × Time Out) (NW); Harris' Restaurant (Infatuation ×
+SFGATE 40th × Time Out × Chronicle best steak) (NOB). DROPPED: Hong Kong Flower Lounge (Millbrae) — closed (SFGATE/Chronicle 2022);
+Elite Cafe — closed 2019; Hong Kong Palace Millbrae — no address in-hand → held.
