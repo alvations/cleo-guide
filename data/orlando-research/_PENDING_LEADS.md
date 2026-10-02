@@ -32,3 +32,13 @@ prevuemeetings.com/?p=150904 (61 Orlando restaurants: 1×2★, 5×1★, 14 Bib, 
 - Attractions: Wikipedia/latitude.to coords surface in one search each → high confidence.
 - Restaurants: google.com `!3d!4d` and Apple Maps place pages did NOT surface decimals for Bánh Mì Boy or
   Domu (Apple returns place-id URLs only) → expect restaurants to be UNVERIFIED for the browser helper.
+
+## Session 2 held leads (single credible source so far — need a 2nd before promotion)
+- Bánh Mì Nha Trang — 1237 E Colonial Dr (Frommer's Little Vietnam)
+- Banh Mi Cali, Bamita, Paris Banh Mi, P's VietMi Café — Tasty Chomps "Top 5 Places for Banh Mi in Orlando" (2025-08)
+- Black Bean Deli — Orlando Weekly Best Cuban Sandwich 2025 winner (finalists Cubans on the Run, Zaza Cuban Comfort Food)
+- Pig Floyd's Urban Barbakoa — #1 Mills 50 restaurant, OW 2026 readers' poll
+- Kaya (Filipino, Mills 50), Four Flamingos, Wine Bar George (Disney Springs), Walala Hand Pulled Noodles, Piggza — Time Out best restaurants 2026
+- Z Asian — Bib 2023–25; 2026 status unconfirmed
+- Puerto Rican (Kissimmee): Tropico Mofongo, Pal Campo, Sofrito Latin Cafe, Grillers Puerto Rico, La Lechonera El Jibarito,
+  El Cilantrillo — only Yelp/benable surfaced; Orlando Weekly "25 of the best Central Florida restaurants serving Puerto Rican food" exists (30944523) — use it as the 1st credible source next wave.
