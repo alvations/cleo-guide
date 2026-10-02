@@ -42,6 +42,7 @@ RDIR = {
     "indianapolis-in": "data/indianapolis-research",
     "liege": "data/liege-research",
     "philadelphia-pa": "data/philadelphia-research",
+    "san-francisco-ca": "data/san-francisco-research",
 }
 # human labels for Singapore area codes (best-effort; unknown codes print the raw code)
 SG_LABELS = {"TPY":"Toa Payoh","BSH":"Bishan","AMK":"Ang Mo Kio","PPM":"Potong Pasir & MacPherson",
