@@ -58,3 +58,6 @@
 89. Wikipedia coords: Sueyoshi-gū 26.230167,127.714056 (kept, + SamuraiWiki); Sōgen-ji 26.220333,127.690583 (Wikipedia only → held); Gokoku-ji (sygic only)
 90. Sōgen-ji: Wikipedia + SamuraiWiki Sogenji → kept, pin high (ICP 1972)
 91. Ryūtan (MLIT tagengo R2-00482 + SamuraiWiki) kept; Okinawa Karate Kaikan (JG e7130 + Japan Experience) kept; Tomari International Cemetery (SamuraiWiki only) held; Mekaru tombs lead
+92. Mapple 51451 michi-no-eki TOP5: 1 Kyoda, 2 Itoman, 3 Kadena (47010973; deck over Kadena AB) kept as sight, 4 Toyosaki (mango) kept, 5 Yuiyui Kunigami (Kunigami donuts) kept — all w/ OT 0139
+93-94. rurubu 23587 gourmet 16 (Cafe Irayoi, Takamine distillery Ishigaki, Milmil); rurubu 22464 soba 16: Shuri, Takaesu (kept w/ OT central), Arayama, Kishimoto, Tamakaya, Tiandaa, Kamekame, Sachichan (kept w/ OT north), Umi to Mugi to, Miyako Soba Ai, Nakamura, Kingetsu Yomitan (kept w/ OT 0006), PapaSubu, Kiseki (shellfish dashi), STAND EIBUN; rurubu 2479 old-house soba 4; plus.rurubu old-guard 6; Yomitanzan soba 80043265
+95. rurubu 2479 old-house soba: Shimujō (Naha; rurubu only), Yagiya, Makabe Chinā (kept w/ Mapple 47010445), Suumanumee; plus.rurubu old-guard 6: Shuri, Takaesu, Kishimoto, Yanbaru, Tamakaya, Kamekame (rurubu only → held)
