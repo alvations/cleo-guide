@@ -29,6 +29,14 @@ json.dump(union(o,t),open(f,'w'),ensure_ascii=False,indent=1)
 PY
           git add "$f";;
         docs/GEOCODE-BACKLOG.md) git checkout --theirs "$f"; git add "$f";;
+        docs/AGENT-PROMPTS.md|docs/RESEARCH-LOG.md|docs/CITIES.md)  # append-only / per-row docs: keep both sides
+          python3 - "$f" <<'PY'
+import re,sys
+f=sys.argv[1]; s=open(f).read()
+s=re.sub(r"^<<<<<<< [^\n]*\n(.*?)^=======\n(.*?)^>>>>>>> [^\n]*\n", lambda m: m.group(1)+"".join(l for l in m.group(2).splitlines(True) if not (l.startswith("| Osaka") and "| Osaka" in m.group(1))), s, flags=re.S|re.M)
+open(f,"w").write(s)
+PY
+          git add "$f";;
         *) echo "UNHANDLED CONFLICT $f"; exit 1;;
       esac
     done

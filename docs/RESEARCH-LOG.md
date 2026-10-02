@@ -337,3 +337,17 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
   (Kalaya, Friday Saturday Sunday, South Philly Barbacoa, Vedge, Zahav, Pat's, Geno's, Jim's, John's, Dalessandro's).
   Plan restaurant pins for the browser helper from the start; spend the search budget on discovery + sights.
 - Rejected: an 'interpolated' coordinate built from neighbouring addresses on philadelphiabuildings.org (not a place pin).
+
+### 2026-10-02 — Hokkaido session 2 (≈140 searches → 140 discovered / 104 on the map)
+- **`allowed_domains:["ja.wikipedia.org"]` + 3 Japanese names + 座標** is the best sight geocoder found so far: ~2.6 of 3
+  coordinates per call (infobox DMS quoted in the summary), and it works for minor sights (waterfalls, passes, Jōmon sites,
+  museums) that the English Wikipedia lacks. Background geocode workers using it pinned 25 of 34 held sights.
+- **Second source cheaply:** domain-restricted area queries to `japan-guide.com`, `visit-hokkaido.jp`, `sapporo.travel`
+  return 10 staff/official URLs per call; for food, `rurubu.jp` + `mapple.net` (JTB / Shobunsha guidebook editorial) +
+  city tourism bodies (`otaru.gr.jp`, `hakodate.travel`) return named shops with addresses and hours.
+- **Dead ends:** restaurant lat/lng never surfaced (gltjp/mapple/rurubu give address only); unrestricted "Wikipedia
+  coordinates A; B; C" got ~1/3; creator queries (Paolo fromTOKYO, Abroad in Japan, Ramen Beast, youtube.com domain)
+  returned no vettable channel naming a specific Hokkaido place in result text.
+- **Lesson (honesty):** writing addresses with block numbers / postcodes "from knowledge" while transcribing sourced
+  coordinates is an easy CLAUDE.md 4a slip — audit every address against the result text before committing.
+

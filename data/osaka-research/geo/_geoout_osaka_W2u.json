@@ -21,7 +21,7 @@
  },
  {
   "n": "Matsuba Sohonten",
-  "address": "Shin-Umeda Shokudogai, 9-26 Kakudacho, Kita-ku, Osaka, Japan",
+  "address": "Shin-Umeda Shokudōgai, Kita-ku, Osaka, Japan",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -61,7 +61,7 @@
  },
  {
   "n": "Kuromon Market",
-  "address": "2-4-1 Nipponbashi, Chuo-ku, Osaka 542-0073, Japan",
+  "address": "Nipponbashi, Chuo-ku, Osaka, Japan",
   "lat": 34.665278,
   "lng": 135.506944,
   "confidence": "high",
@@ -91,7 +91,7 @@
  },
  {
   "n": "Nakanoshima Museum of Art, Osaka",
-  "address": "4-3-1 Nakanoshima, Kita-ku, Osaka 530-0005, Japan",
+  "address": "Nakanoshima, Kita-ku, Osaka, Japan",
   "lat": 34.692389,
   "lng": 135.491472,
   "confidence": "high",
@@ -128,5 +128,45 @@
   "geoSource": "UNVERIFIED — address from ja.wikipedia 会津屋; no place pin surfaced",
   "status": "open",
   "statusSource": "ja.wikipedia 会津屋 (operating, multiple branches) + Lonely Planet"
+ },
+ {
+  "n": "Sennichimae Doguyasuji",
+  "address": "Namba-sennichimae, Chuo-ku, Osaka, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — jawiki article has no coordinates",
+  "status": "open",
+  "statusSource": "OSAKA-INFO spot page (current)"
+ },
+ {
+  "n": "Usamitei Matsubaya",
+  "address": "3-8-1 Minamisenba, Chuo-ku, Osaka 542-0081, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — address from ja.wikipedia; no place pin surfaced",
+  "status": "open",
+  "statusSource": "OSAKA-INFO feature (current, price listed)"
+ },
+ {
+  "n": "Jiyuken Namba Honten",
+  "address": "Namba Center Street, Namba, Chuo-ku, Osaka, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — no place pin surfaced",
+  "status": "open",
+  "statusSource": "OSAKA-INFO feature (Namba Main Store listed with phone)"
+ },
+ {
+  "n": "551 Hōrai Honten (Namba)",
+  "address": "3-6-3 Namba, Chuo-ku, Osaka 542-0076, Japan",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED — address from ja.wikipedia 蓬萊 (飲食店); no place pin surfaced",
+  "status": "open",
+  "statusSource": "Time Out '10 things you must eat in Osaka' (stores throughout the city)"
  }
 ]
