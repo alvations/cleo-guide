@@ -34,7 +34,10 @@ Hokkaido's own **subprefectural regions** — Dō-ō (Sapporo/Otaru/Niseko/Iburi
 - Commands: `python3 tools/density.py hokkaido` · `flock -w 3600 .git/cleo-shared.lock python3 tools/rebuild-city.py hokkaido --build`.
 
 ## In-flight wave
-- none (session 3 closed cleanly at ≈178 searches).
+- **Session 4 (2026-10-02)** — local clone was stale/unrelated history; reset to origin (backup branch `backup-stale-local`).
+  Pin probe (4 searches): `<shop> 緯度経度`/mapion/OSM/`!3d` queries return NO restaurant coordinates → restaurant pins only
+  via host-landmark wiki coords (markets, historic buildings) at `med`. Background agents (brief `_hk_s4_brief.md`, ≤30 searches each):
+  W80 host-landmark pins for unpinned food · W81 anime wave 2 · W82 SPR+OTARU food · W83 DONAN+NSK+DHOKU food · W84 DOTO/IBURI/TKC/SOYA food+sights.
 
 ## Search ledger
 - session 1: ~14 · session 2: ≈188 · session 3: ≈178 (me ~151 + W40 agent 15 + W60 agent 12).

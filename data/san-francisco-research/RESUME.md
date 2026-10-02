@@ -15,6 +15,12 @@
 - WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
+**W6 (2026-10-02 session 4, session_01Hg5dmhczkVf2CSHxgwBCVu)** — start: 488 researched (density NEED: AVE+2 DTN+4 HAI+1 MIS+2 NECN+3 NOB+1).
+(1) background pin agent (≤30 searches) on `_sf_pin_w6_A.txt` (133 UNVERIFIED; Wikipedia/Michelin-sourced first) → `geo/_geoout_w6pin.json`;
+(2) main: close every NEED area, then keep expanding past target with credible canon (Michelin/Bib, Chronicle Top 100, Infatuation × SF Standard,
+creators) → `FOOD_W6.json`, `SIGHTS_W6.json`, `geo/_geoout_w6.json`, `CREATORS_W6.json`. Search counter (main): 0.
+
+## State — W5 (wave 3 of 2026-10-02, session_013SchN5xr8QFAgVqjZY37dr) — DONE (ended at batch 15)
 **W5 (wave 3 of 2026-10-02, session_013SchN5xr8QFAgVqjZY37dr)** — (1) background pin agent (≤30 searches) on the
 87 unpinned listed in `_sf_unpinned_w5.txt` → `geo/_geoout_w5pin.json`; (2) main: sights-first discovery per area
 (MIS, AVE, DTN, NECN, HAI, NOB, NW, PEN, SE) via batched Wikipedia-coordinate queries + a 2nd outlet → `SIGHTS_W5.json`
