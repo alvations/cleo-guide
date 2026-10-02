@@ -1,3 +1,22 @@
-{"outlets":[
- {"key":"MAPPLE","name":"Mapple (まっぷる, Shobunsha guidebooks)","url":"https://www.mapple.net","credible":"Web edition of Shobunsha's まっぷる — one of Japan's two largest printed travel-guidebook series, editor-written spot pages with address/hours; counts as ONE editorial source"}
-]}
+{
+ "outlets": [
+  {
+   "key": "MAPPLE",
+   "name": "Mapple (まっぷる, Shobunsha guidebooks)",
+   "url": "https://www.mapple.net",
+   "credible": "Web edition of Shobunsha's まっぷる — one of Japan's two largest printed travel-guidebook series, editor-written spot pages with address/hours; counts as ONE editorial source"
+  },
+  {
+   "key": "SAVORJAPAN",
+   "name": "Savor Japan",
+   "url": "https://savorjapan.com",
+   "credible": "Named in the Japan brief as a credible English food outlet (editorial 'Discover Oishii Japan' features); one source"
+  },
+  {
+   "key": "MIYAKOJIMACITY",
+   "name": "Miyakojima City cultural-properties site",
+   "url": "https://miyakojimabunkazai.jp",
+   "credible": "Official municipal cultural-property register (designation facts); one source"
+  }
+ ]
+}
