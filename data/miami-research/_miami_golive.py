@@ -8,7 +8,7 @@ CARD='''    <!-- CARD:miami-fl -->
         <p class="desc">Fort Lauderdale and Hollywood through Miami-Dade to Everglades, Biscayne and Big Cypress —
           Cuban sandwiches, croquetas and ventanita cafecito, the frita, stone crab, Haitian griot, every Michelin
           star and Bib, Art Deco South Beach, Little Havana, Wynwood and the Glades. Every pin sourced and placed.</p>
-        <p class="stat">80 sights · 12 food on the map (277 researched, 64% food &amp; drink) · updated 2026-10-02</p>
+        <p class="stat">91 sights · 12 food on the map (340 researched, 64% food &amp; drink) · updated 2026-10-02</p>
         <span class="go">Open the Miami guide →</span>
       </a>
       <div class="subrow">
@@ -19,7 +19,7 @@ CARD='''    <!-- CARD:miami-fl -->
 h=open('index.html').read()
 h2,n=re.subn(r'    <!-- CARD:miami-fl -->.*?<!-- /CARD:miami-fl -->',lambda m:CARD,h,flags=re.S)
 assert n==1; open('index.html','w').write(h2)
-ROW="| Miami FL (+ Fort Lauderdale/Broward + Everglades & Biscayne NPs) | `cities/miami.html` | `data/miami.dataset.json` | `data/miami-research/` | 92 | **live (growing)** 2026-10-02 · 277 researched (177 food & drink = 64%) / 92 pinned (80 sights + 12 food); 9 areas (targets sum 500 in RESUME.md); 4 gates + validate + test green; 185 UNVERIFIED pins (mostly restaurants — WebSearch never surfaces their place pins) await tools/geocode-helper.html. Rebuild: `python3 tools/rebuild-city.py miami-fl --build`. |\n"
+ROW="| Miami FL (+ Fort Lauderdale/Broward + Everglades & Biscayne NPs) | `cities/miami.html` | `data/miami.dataset.json` | `data/miami-research/` | 103 | **live (growing)** 2026-10-02 · 340 researched (218 food & drink = 64%) / 103 pinned (91 sights + 12 food); 9 areas (targets sum 500 in RESUME.md); 4 gates + validate + test green; 237 UNVERIFIED pins (mostly restaurants — WebSearch never surfaces their place pins) await tools/geocode-helper.html. Rebuild: `python3 tools/rebuild-city.py miami-fl --build`. |\n"
 c=open('docs/CITIES.md').read()
 lines=c.splitlines(True)
 idx=[i for i,l in enumerate(lines) if l.startswith('| Miami FL')]

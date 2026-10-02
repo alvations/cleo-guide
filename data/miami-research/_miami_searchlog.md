@@ -145,3 +145,9 @@
 144 Infatuation Doral arepas (Las Arepas de Maria, Arepa Point, K'Chapas, Frank Cachapas, Pa' Que Tiby)
 145 NT best arepas (Las Arepas de Maria Best Arepas 2025; La Latina 2024; Doggi's 2022; El Arepazo 2) → 1 added
 146 Key lime pie (TO best pies, Fireman Derek's TO+Inf; Fookem's delivery-only → not a place; Kush KLP TO Market) → 2 added
+147 Croquetas (NT Best Croquetas 2024 Dos Croquetas, 2025 Vicky Bakery; Islas Canarias) — Dos Croquetas DROPPED: Infatuation review is negative ('too expensive for their quality'); Vicky held (NT only)
+148 Infatuation 15 best Hialeah (La Fresa Francesa, Mi Fondita, Franky's, S&N, La Viña Aragon, Breadman, Shima, Trigo, Fritanga Las Piedrecitas, La Bodeguita, Rinconcito de Santa Barbara, Presidente, Charlie's)
+149 NT Hialeah (Franky's, Rinconcito) → 3 added incl. Shima (now ∩ Infatuation 15 best Hialeah)
+150 Status: Bakehouse (GMCVB 2026 Open Studios events), Turner River Rd (NPS scenic drives)
+151 NT 13 best FTL beach (Archibalds, Casablanca, Coconuts, Evelyn's, La Fuga, Maass, Ocean Prime, Parrot Lounge, S3, Steak 954, Takato, Vitolo, Wine Garden); Infatuation FTL beach
+152 Infatuation 20 classic FTL (Tropical Acres, Rainbow Palace, Greek Islands, Egg N' You, Mai-Kai, Hot Dog Heaven, Runway 84, Peter Pan Diner, Times Square Pizza, Lester's, Floridian, Cap's, Old Heidelberg, Jack's…) → 5 added

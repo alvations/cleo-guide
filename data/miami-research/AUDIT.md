@@ -100,3 +100,22 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Build:** 277 discovered (177 food & drink = 64%) → 92 on page (80 sights + 12 food). sourcecheck 277 PASS (31 lone
   authority); geocheck PASS (2 block-level pins flagged); statuscheck CONSISTENT, 0 unchecked; buildcheck PASS;
   `npm run validate` DATA OK; `npm test` ALL PASS. Card + CITIES.md row refreshed.
+
+## 2026-10-02 (session 3, cont.) · waves F5b/S6b + geocode w6/w7 + build 2
+- **Added** (since build 1): 41 food & drink + 23 sights. Highlights: Wynwood/downtown breweries (Wynwood Brewing, J. Wakefield,
+  Veza Sur, Biscayne Bay — NT ∩ Time Out), 8 coffee shops (Time Out 26 ∩ Infatuation coffee guides), Coconut Grove bars
+  (Taurus since 1969, Monty's, Flanigan's), North Beach (Cafe Prima Pasta, Katana, Sushi Erika, Mi Colombia, Silverlake),
+  Haitian (Pack Supermarket), arepas (Las Arepas de Maria — NT Best Arepas 2025), key lime pie (Fireman Derek's), Hialeah
+  (Franky's Deli, El Rinconcito de Santa Barbara, Shima — Infatuation 15 best Hialeah ∩ NT), north Dade creator-corroborated
+  (Awash Ethiopian, Dumpling King, Zaika — Infatuation ∩ Josiah Eats). Sights: 11 NPS Everglades/Biscayne/Big Cypress
+  (lone NPS authority), Ted Smallwood Store, Museum of the Everglades, Miccosukee Village, Big Cypress Bend boardwalk,
+  Time Out beaches (Lummus Park, North Beach, Surfside, Bal Harbour), Fillmore, Bandshell, Calle Ocho Walk of Fame.
+- **MEASURED & DROPPED:** Dos Croquetas (NT Best Croquetas 2024, but Infatuation's review is negative — "too expensive for their
+  quality"); Fookem's key lime pie (delivery-only, not a place); Viernes Culturales (monthly event, not a place; GMCVB page
+  cited didn't name it). Held single-outlet: Vicky Bakery (NT only ×2), Doggi's Arepa Bar (NT only ×2), Medium Cool, Arepa Point.
+- **Geocode w6** (16 searches): 8 pins (4 high: Nike HM-69 Wikipedia, Gulf Coast VC hmdb, H.P. Williams hmdb, Bakehouse Wikipedia;
+  4 med). Coe VC / Mahogany Hammock / Nine Mile Pond / West Lake unresolved (only non-allowed map sites printed coords).
+  **w7** (12 searches): 3 high (Lummus Park, Ted Smallwood Store, Everglades Laundry/Museum); 8 unverified (centroid-only or
+  wrong building — rejected).
+- **Build 2:** 340 discovered (218 food & drink = 64%) → 103 on page (91 sights + 12 food). sourcecheck 340 PASS (42 lone
+  authority); geocheck PASS; statuscheck CONSISTENT, 0 unchecked; buildcheck PASS; validate DATA OK; test ALL PASS.
