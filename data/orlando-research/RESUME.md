@@ -27,7 +27,7 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 ## State (session 2, 2026-10-02)
 - **LIVE**: `cities/orlando.html` built, 4 gates green (sourcecheck FAILs only on HELD single-source records, which the
   build drops by design), `npm run validate` + `npm test` green; index card `CARD:orlando-fl` live; CITIES.md row LIVE.
-- ~210 places researched; ~140 pinned on the page (almost all sights — theme-park rides/pavilions/resorts pinned from
+- 208 places researched (153 sights + 55 food); 142 pinned (136 sights + 6 food) on the page (almost all sights — theme-park rides/pavilions/resorts pinned from
   Wikipedia/Wikidata/Coasterpedia; Atlas Obscura; city museums/springs/Space Coast). Restaurants: ~60 researched, few
   pinned — WebSearch never surfaces restaurant place-pin decimals (Google/Apple/mapcarta tested) → UNVERIFIED with
   address for `tools/geocode-helper.html`; only Wikipedia-article restaurants get pins (pin-pass agent `foodpins1`).
@@ -44,17 +44,23 @@ Run protocol: `docs/RUN-2026-10-02.md` (shared lock, commit+push every batch, §
 - Status to re-check: Willie's Pinchos (DDD 2017; no 2026 confirmation found).
 
 ## In-flight wave
-- W8 FOOD PINS: pin-pass agent writing `geo/_geoout_foodpins1.json` (Wikipedia/Wikidata coords for ~45 WDW/Universal/
-  Orlando restaurants). On relaunch: if the file exists, write research records for its names (Disney ones: DFB
-  'eaten at every WDW restaurant' + Wikipedia), then rebuild.
+- (none — session 2 closed cleanly; W8 food-pin pass finished: 2/42 resolved, rest → helper)
 
-## Next actions (ordered)
-1. Discovery waves area by area (food canon first: Mills 50 Vietnamese, Michelin, Puerto Rican Kissimmee,
-   Cuban, Florida flavors, park icons; then sights per park from OFFICIAL + Wikipedia + press/creators).
-2. Geocode each wave → `geo/_geoout_<tag>.json` (Wikipedia/latitude.to coords for attractions; google
-   `!3d!4d`/Apple `coordinate=` for restaurants; else UNVERIFIED).
-3. `flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-city.py orlando-fl --build`
-4. `python3 tools/density.py orlando-fl` → iterate on NEED +N areas.
+## Next actions (ordered) — next-wave plan
+1. **Restaurant pins (biggest gap)**: run `tools/geocode-helper.html` in a browser over the ~50 UNVERIFIED restaurants
+   (addresses are in geo/_geoout_{michelin,michelinrec,vn1,jbf1,ddd1,local1,parkeats1,unieats1}.json) → `_geoout_helper1.json`.
+2. **Corroborate HELD single-source** (14; list in State) — one search each or a shared round-up (Orlando Sentinel/
+   Visit Orlando "things to do downtown", Atlas Obscura + Orlando Weekly oddities).
+3. **Food canon still thin**: Puerto Rican Kissimmee (OW slideshow 30944523 names El Cilantrillo, Achiote, Guavate, Melao —
+   find 2nd sources: Orlando Sentinel/Visit Orlando Latin guide), Cuban, Florida flavors (gator/key lime), Mills 50 Thai/
+   Korean/Chinese (OW "27 essential Mills 50 restaurants"), Winter Park (Prato etc.), Kissimmee, Disney Springs (Wine Bar
+   George, Raglan Road, The Boathouse — DFB + Michelin), creators pass (Disney Food Blog YouTube, Orlando Informer, TikTok).
+4. **Sights by NEED**: DTO/MILLS (Thornton Park, Milk District, Audubon Park), IDR (I-Drive: ICON Park, Aquatica,
+   WonderWorks, Orlando Eye), KISS (Lake Toho, Kissimmee Lakefront Park, Lake Nona), SPRNG (Sanford Riverwalk, Wekiva
+   Island, Alexander/Silver Springs — pins exist in `_geoout_pinpass4.json`, need 2nd source), EAST (UCF Arboretum, Little
+   Big Econ, Black Hammock), WEST, DSP/CWALK (resort icons), MK Hall of Presidents/Liberty Square.
+5. Closure re-check: Willie's Pinchos (no 2026 confirmation).
+6. Each wave: `flock … python3 tools/rebuild-city.py orlando-fl --build` → npm validate/test → `_orl_golive.py` → `_orl_push.sh`.
 
 ## Commands
 ```bash
@@ -68,4 +74,4 @@ flock -w 3600 /home/user/cleo-guide/.git/cleo-shared.lock python3 tools/rebuild-
 
 ## Acceptance checklist
 - [ ] every area at target (density.py OK)  - [ ] --sourcecheck/--geocheck/--statuscheck/--buildcheck green
-- [ ] npm run validate + npm test green       - [ ] index card live with real counts; CITIES.md row
+- [x] npm run validate + npm test green       - [x] index card live with real counts; CITIES.md row

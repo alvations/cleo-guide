@@ -390,3 +390,17 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - `allowed_domains` per outlet (japan-guide.com, kyoto.travel, en/ja.wikipedia.org, guide.michelin.com) makes each search return ~10 citable pages of ONE outlet, so attribution is exact. Mixed-outlet or 8+-name queries cause internal retries costing 3–6 searches.
 - Michelin: ward+genre list queries ("Kyoto Nakagyo-ku One MICHELIN Star Japanese restaurant address") give 3–7 venues with addresses. Pins come from a separate "<A>; <B>; <C> Kyoto address latitude longitude" query (3 pins per search). Asking for dish and lat/lng together loses the lat/lng.
 - Dead end: creator channel (YouTube-filtered, general, timeout.com) surfaced tour vendors and unattributed videos, with no verifiable Kyoto creator. Time Out's Kyoto coverage on timeout.com sits under /tokyo and is thin.
+
+## 2026-10-02 — Orlando (session 2)
+- **Theme parks geocode beautifully via search**: batched `A; B; C coordinates` with `allowed_domains=["en.wikipedia.org"]`
+  returns infobox coords for 3–7 attractions per call; Coasterpedia/Wikidata fill most gaps (Epic Universe rides, EPCOT
+  pavilions, resorts). 5 background pin-pass agents resolved 111 of 154 requested places.
+- **Restaurants do not**: Google `!3d!4d`, Apple Maps (place-id URLs only), mapcarta/latlong — no decimals surfaced for any
+  Orlando restaurant; Wikipedia/Wikidata have coords for only ~6 (Be Our Guest, Space 220, Sci-Fi Dine-In, V&A, Otto's).
+  Budget food discovery for the helper backlog, not for pins.
+- **Summariser borrow check**: two coordinates were copied from a neighbouring result (Slinky Dog Dash ← Rock 'n' Roller
+  Coaster; Cocoa Beach Pier ← Ron Jon). Always dedupe coordinates across a wave before merging.
+- **Agent pin files must carry statusSource** — geo-merge is last-write-wins by filename, so an agent file with empty
+  statusSource that sorts after the research geo file silently blanks the closure check (79 records patched).
+- **Addresses**: only use a street address printed in a result; otherwise a sourced locality (10 memory-typed addresses
+  were caught and replaced before commit).
