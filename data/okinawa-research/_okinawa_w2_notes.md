@@ -55,3 +55,8 @@
 123-124. JG e7201: Tamatorizaki, Yonehara Beach (snorkel), Yonehara palm grove (Natural Monument); JG e7225: Yubu buffalo (9:15–16:30, 2000 yen), Urauchi River cruise, Pinaisara Falls 55 m, Hoshizuna; JG news 0052 UNESCO 2021
 125-126. Yubu wiki 24.345,123.935 (0.15 km²) + JNTO spot 472; Stripes Ishigaki food: no named GPS
 127-128. Mapple Ishigaki: Kinatsuyu 来夏世 47010966 (Ishigaki 203), Taira Shoten, Nakayoshi Shokudo, Kato soba (article 29568); Mapple Miyako: Kojasobaya 47012974 (Shimozato 1517-1), Maruyoshi Shokudo (Gusukube Sunakawa 975), Rakuen no Kajitsu (Kurima 476-1), Doug's 47012422, Usagiya; article 30654 (Miyako soba 10), 327160 dinner 16
+129-130. VO Yaeyama itinerary: Sabanisen izakaya, Hirugi (Hotel Miyahira), Funakura no Sato, Ryuka Ishigaki-beef yakiniku (Grandvrio), Anparu Shokudo (Yaima Village); VO Kume: Washima kuruma-ebi soba (Undiscovered Gems GP 2019), Eef Beach (100 best), Hatenohama, Tatami-ishi; VO beaches-kume-miyako-yaeyama page
+131. VO beaches page: Kume (Hatenohama, Eef, Shinrihama); Miyako (Maehama, Aragusuku, Sunayama tree tunnel, Shigira); Kohama (Coral Beach, Kubazaki), Kayama Island star sand
+132-133. AO Bise Village 26.70903,127.880013 (639-26 Bise); Higashi-hennazaki lighthouse: no coords (bunka.go.jp heritage 163198 exists; lighthouse 1967, Japan's 50 lighthouses) — stop
+134-135. Blue Cave N26.443665 E127.772546; VO onna-coast: Busena Marine Park underwater observatory, Moon/Sun Marina/Manza/Mission/Tiger beaches; VO snorkeling guide; VO beaches-northern-okinawa page
+136-137. Miibaru Beach glass-boat (Nanjo, Stripes); GODAC Nago; VO beaches north: Emerald (100 best), Kariyushi, Okuma, Mission, Hamabaru, Manza
