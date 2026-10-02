@@ -110,3 +110,7 @@
 109 Infatuation Downtown listings (Tâm Tâm, ViceVersa, Over Under, Miami Slice, Café Fenicia, Manolo & Rene, Right Hand, Cotoita, Garcia's, Jolene Sound Room…)
 110 Time Out Brickell + downtown (LPM, NAOE, Felice, Claudie, Zeru, River Oyster Bar, Kaori, Delilah, Lafayette; Zuma, Area 31, Seaspice, Il Gabbiano) → Claudie, Kaori (∩ NT Required Eating)
 111 Time Out things to do Downtown (23) + Brickell (17) → 5 sights + La Sandwicherie, Jaguar Sun
+112 Time Out 10 best things to do FTL (Stranahan, Butterfly World, Broward Center, FTL Beach, Flamingo Gardens, Hugh Taylor Birch, Seminole Hard Rock, Las Olas, The Yard, Jungle Queen)
+113 Time Out 7 best beaches near FTL → 8 FTL sights added
+114 Time Out Coral Gables 21 + Coconut Grove restaurants
+115 Infatuation Coral Gables + Coconut Grove 19 → 11 added (Daniel's Miami, Luca Osteria, Carbone Vino ∩NT, LoKal…)
