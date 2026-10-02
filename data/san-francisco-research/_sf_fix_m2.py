@@ -36,3 +36,22 @@ for f in sorted(glob.glob(os.path.join(D, "*.json"))):
         if r["n"] == "Restaurant Naides":   # now starred (2026): the earlier Bib listing is superseded
             n0 = len(r["sources"]); r["sources"] = [t for t in r["sources"] if t[0] != "MICHELIN_BIB"]; ch |= len(r["sources"]) != n0
     if ch: json.dump(d, open(f, "w"), ensure_ascii=False, indent=1)
+
+# --- 2026 James Beard semifinalist support for existing records (axios 2026-01-23) — award key, idempotent
+J26 = "https://www.axios.com/local/san-francisco/2026/01/23/the-bay-area-s-2026-james-beard-award-semifinalists"
+JB = {"Foreign Cinema": "Outstanding Restaurant semifinalist 2026", "Smuggler's Cove": "Outstanding Bar semifinalist 2026",
+      "Pacific Cocktail Haven (PCH)": "Outstanding Professional in Cocktail Service semifinalist 2026 (Kevin Diedrich)",
+      "The Progress": "Outstanding Wine & Other Beverages Program semifinalist 2026",
+      "The Morris": "Outstanding Professional in Beverage Service semifinalist 2026 (Paul Einbund)",
+      "Nightbird": "Best Chef: California semifinalist 2026 (Kim Alter)", "Sons & Daughters": "Best Chef: California semifinalist 2026 (Harrison Cheney)",
+      "Mijoté": "Best Chef: California semifinalist 2026 (Kosuke Tada)", "Quince": "Outstanding Chef semifinalist 2026 (Michael Tusk)",
+      "State Bird Provisions": "Outstanding Restaurateur semifinalists 2026 (Brioza & Krasinski)"}
+for f in sorted(glob.glob(os.path.join(D, "*.json"))):
+    b = os.path.basename(f)
+    if b.startswith(("_", "sf_")) or "dataset" in b: continue
+    d = json.load(open(f)); arr = d if isinstance(d, list) else d.get("sights", []) + d.get("food", [])
+    ch = False
+    for r in arr:
+        if r["n"] in JB and not any(t[0] == "JAMESBEARD" and "2026" in t[1] for t in r["sources"]):
+            r["sources"].append(["JAMESBEARD", f"{J26} — {JB[r['n']]}"]); ch = True
+    if ch: json.dump(d, open(f, "w"), ensure_ascii=False, indent=1)

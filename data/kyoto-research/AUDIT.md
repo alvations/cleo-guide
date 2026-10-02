@@ -277,3 +277,15 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   returned addresses but no lat/lng and no dish → held.
 - **Build: 362 discovered (183 + 179 = 49% food) / 296 rendered (178 + 118)**; all 4 gates PASS (high 277 · med 19); validate +
   test ALL PASS. ANIME 7. Searches ≈ 185 total this session.
+
+### W3 batches 12–13 + close-out (2026-10-02)
+- Michelin +5 with venue pins: Doppo ★★ (KITA), Gion Matayoshi ★★, Germoglio ★, ima ★, Kentan Horibe ★. Food +3: Smart Coffee
+  (Inside Kyoto + Leaf), Gion Tokuya (Time Out + Leaf), Kasagiya (Inside Kyoto + MATCHA). Kagizen address from Inside Kyoto.
+- Held (no dish / no pin / stale): YOKOI ★, Hirosawa, Asperge Blanche, L'aparté, Kiyamachi Ran, Gion Kajisho, middle, Nakazen,
+  Shimogamo Saryo; Mescita Pane e Vino (2025 listing only); Hinode Udon (LP + Inside Kyoto = same author); Umezono (only a different
+  'Umezono Oyatsu' shop surfaced).
+- **FINAL W3 build: 370 discovered (183 sights + 187 food = 51% food) / 301 rendered (178 + 123); all 4 gates PASS (high 282 ·
+  med 19 · low 0); validate DATA OK; npm test ALL PASS; ★ Anime 7.** Closures found this wave: none. Searches ≈ 193.
+- Per-area discovered/target: CTR 93/95 · HGS 63/75 · UJI 44/50 · KITA 38/50 · RKSAI 36/55 · SAKYO 34/60 · FSHMI 27/45 ·
+  KYFU 18/25 · RKHKU 17/30. Food share by area: CTR 77% · HGS 67% · KITA 50% · SAKYO 44% · UJI 36% · FSHMI 30% · RKSAI 28% ·
+  KYFU 17% · RKHKU 12% — outer areas stay sight-heavy because Michelin covers Kyoto city + Nara only.

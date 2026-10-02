@@ -66,3 +66,37 @@
 64 Infatuation South Beach (Prime 112, The Joyce, Bazaar, Orilla, Blue Ribbon, Yardbird, Bodega, Maison Valentine, Stormy Monday — single-source, held)
 65 Hialeah Park / Opa-locka City Hall / Hard Rock Stadium / Guitar Hotel (Crazy Tourist + Wikipedia)
 66 FTL icons (NT 14 best old-school FTL; Florida Rambler Southport; LP FTL restaurants: Lester's; Rustic Inn held)
+
+## Session 3 (2026-10-02) — main agent (subagent geocode w4 capped at 30, logged in its geo file)
+67-70 Restaurant place-pin probes for Versailles (google !3d!4d, mapcarta, "GPS coordinates", raw "!3d25") — 0 coords; restaurant pinning via WebSearch confirmed dead
+71 NT best Cuban sandwich (Enriqueta's, Latin Cafe 2000 Top 100, Sanguich best 2024); Tasting Table 9 best cubanos found
+72 Tasting Table cubanos (Puerto Sagua, Sergio's)
+73 Saveur/other best Cuban restaurants (La Carreta, Islas Canarias — not attributable)
+74 NT Required Eating 2025 (Bali Café, Bar Bucce, Carbone Vino, Claudie, Cotoa, Daniel's Miami, Doggi's, Hiden, Kaori, Kojin, Ogawa, Puerto Sagua, Recoveco, Sunny's, Zucca)
+75 NT Top 50 2026 (Ariete, Kush, Mamey, Maroosh, Lucali — no full list)
+76 Michelin FTL (5 recognitions — all already in)
+77 Eater/Infatuation FTL (Larb, Steak 954, Evelyn's, Laspada's)
+78 Time Out FTL (Catch & Cut)
+79 Time Out FTL full list (Daniel's, MAASS, Larb, Evelyn's, Heritage, The Katherine, Rustic Inn, Catch & Cut, Southport, Top Hat Deli, Mai-Kai, Coconuts)
+80 Infatuation FTL 25 (Greek Islands Taverna, Steak 954, Egg N' You, Takato, Il Paesano, Lasso Gaucho, Kousine, Burlock Coast)
+81 Fodor's FTL (Cafe Martorano, LaSpada's, Casa Sensei, Floridian, Le Tub, Georgia Pig, Steak 954, The Katherine, Old FL Breakfast House, 3030 Ocean…)
+82 NT old-school FTL + downtown FTL (Tropical Acres, Floridian, Cap's Place, Jack's, Frank's, Georgia Pig, Laspada's, Mai-Kai, Rustic Inn; Casa Sensei, Catch & Cut, Katherine, Ukiah, House on the River)
+83 Status: Mai-Kai reopened Nov 2024 (Local10/Visit Lauderdale); Cap's Place open (Wikipedia/NRHP/Florida Rambler)
+84 Broward breweries (NT 10 best FTL breweries 2022: Funky Buddha, Tarpon River, LauderAle, Invasive Species, 3 Sons, Tripping Animals, Gulf Stream, 26°) [tool ran 2 sub-searches]
+85 Visit Lauderdale breweries guide (Invasive Species, Funky Buddha, Tripping Animals)
+86 Hollywood/Dania best restaurants — junk (OpenTable/SEO) → nothing kept
+87 Michelin Florida 2026 full Miami list [tool ran 4 sub-searches] — new: Krüs Kitchen (Green Star) ; Bistro Ocho, Mano Libera still location-unknown
+88 Time Out 24 best South Beach restaurants (Macchialina, Kissaki, Casa Isola, Queen, Byblos, Orilla, Planta, Abbalé, Carbone, Tropezón, RED, Prime Italian, MILA, Joliet, Taquiza, Stiltsville Fish Bar)
+89 Infatuation South Beach guides (49 names: Macchialina, Prime 112, Mac's Club Deuce, CJ's, Tropezón, Orilla, La Sandwicherie, Sweet Liberty, Ted's Hideaway, Papi Steak, Big Pink…)
+90 Time Out best bars South Beach (Shelborne bar, Brother's Keeper, Bay Club, Sweet Liberty, Swizzle, Monterrey, Mac's Club Deuce, Medium Cool, Watr, Abbey Brewing, Ted's Hideaway, ScapeGoat)
+91 Time Out 23 best bars Miami (ViceVersa, Gramps Getaway, Over Under, Medium Cool, Dante's HiFi, Swizzle, Gramps, Sweet Liberty, Café La Trova, Bar Kaiju, Kaori, The Corner, The Sylvester, Mac's, Kaona, Ball & Chain, Brother's Keeper, Lost Boy, Mama Tried)
+92 Infatuation bar guides (cocktail/best bars/downtown/South Beach/outdoor) → 15 intersections added
+93 Infatuation Little Havana neighbourhood listings (~50 names)
+94 Time Out 18 best Little Havana restaurants (+ things to do, Bistro Ocho review) → 11 intersections added
+95 NT best Kendall/Pinecrest/South Miami (Café Bonjour, Two Chefs, Pla-Tu, Ghee, Shaddai, Keg South, Hole in the Wall, Pisco y Nazca, Cafe Oriental)
+96 NT Best Restaurant (South Miami-Dade) 2023 Pla-Tu, 2024 Cafe Oriental, 2025 Café Bonjour
+97 Infatuation Kendall/Pinecrest/South Miami neighbourhood listings [2 sub-searches] → Cafe Oriental, Pla-Tu, Shaddai, Keg South added
+98 Infatuation Pastelito Power Rankings (Ricky Coral Way, Cakeland, La Nueva Fe, Versailles, Party Cake, Pinecrest, Breadman, Las Delicias)
+99 NT ten best pastelitos (Pastelmania, Vicky, Lucerne, Versailles, Karla, El Brazo Fuerte; Ricky, La Nueva Fe, Breadman) → 3 added
+100 Infatuation 20 iconic Miami dishes (Fritanga Caña Brava, Piononos, Miracle Fry conch fritters, El Rey de las Fritas, B&M roti, Sanguich, A.C.'s Icees, Zak, Islas Canarias, Knaus Berry Farm, Ricky, La Uchireña, Flanigan's Grove, Chef Creole, Versailles, Graziano's)
+101 NT Knaus Berry Farm / A.C.'s Icees / B&M → 2 added

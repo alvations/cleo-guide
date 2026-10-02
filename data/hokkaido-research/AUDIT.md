@@ -248,3 +248,38 @@ Fuhdo, Yukimura (COCONO), Kirin Beer Garden Urban.
 Residence, Former Nagayama Residence; food — Kiwami Yūhi jingisukan (sapporo.travel + GoodLuckTrip jingisukan-12). Held (GoodLuckTrip
 only): Matsuo Jingisukan Sapporo Ekimae (also rurubu-held — URL not retained, re-query), Lambsuke, Kitanoki no Kaze, Hitsujiya,
 Daikokuya Hakodate, Iidaya; Soup Curry TREASURE. Sapporo City Archives: no 2nd source surfaced.
+**W65 SPR:** Sapporo Satoland, Hiraoka Park plum grove, Seikatei (ja.wikipedia pins + sapporo.travel / visit-hokkaido).
+**W66 SPR:** Jōzankei Dam & Sapporo Lake, Mt Hakken / Kannon-iwa (ja.wikipedia pins + jozankei.jp = JOZANKEITOURISM, Jōzankei Tourism
+Association + visit-hokkaido). Chi-Ka-Ho underground walkway: no own coord (only an adjoining building's) → not added.
+**W67 SPR sweets:** Rokkatei Sapporo Honten (rurubu + visit-hokkaido; replaces the s2 drop — dish now named), Kinotoya Ōdōri (rurubu +
+sapporo.travel soft-serve feature; promoted from held), Ōdōri BISSE sweets hall (sapporo.travel + visit-hokkaido). Held: ISHIYA Café Ōdōri.
+**W68:** Space Apple Yoichi (rurubu + wiki pin), Misogi no Sato Kikonai (visit-hokkaido Dōnan feature + wiki pin). Biei Oka no Kura
+(43.59214,142.46378) — no named dish → not added.
+**W69 DOTO:** Kushiro Rāmen Maruhira (rurubu + Ramen Adventures top-100 #66), Uocchi Rāmen Kōbō (rurubu + kushiro-lakeakan).
+Held: Kadoya, Hokuto, Junsui Harutori (kushiro-lakeakan only); Teshikaga Ramen (only the Kitahiroshima branch surfaced).
+**W70 DHOKU:** Tsuruya Asahikawa (rurubu + RA #40). Held: Tenkin Yonjō (RA #33 + unattributed listing), Furarīto shinko-yaki alley
+(visit-hokkaido only), Rāmen Kura, Mikazuki, Kusabi (rurubu only).
+**NSK food — exhaustion note:** Niseko Cheese Kōbō, Niseko Gelato, Takahashi MANDRIANO / PRATIVO, Ange de Fromage each surfaced in only
+ONE outlet (rurubu or niseko-ta.jp) across 4 Niseko food queries this session → held, not filled. visit-hokkaido dish pages
+(室蘭やきとり / 白老牛 / 豚丼) name no shops → no 2nd source for Toridatsu / Ushi no Sato / Hanatokachi.
+**W71 ANIME overlay (2 searches):** Golden Kamuy notes added to Abashiri Prison Museum (Gendai), Upopoy (kamuy-anime.com official
+campaign + Bijutsu Techō exhibition), Noboribetsu Jigokudani (Famitsu: 2024 Hell Festival collab) → ANIME collection 4 → 7.
+**Tooling (lesson → code):** `tools/japan_consolidate.py` `_take()` dropped exact-name duplicates silently, so an overlay record
+could not add sources/notes to an existing place. New `_overlay()` merges ONLY sources + a missing "anime" note (never prose,
+area or pin). Verified behaviour-neutral for Tokyo/Kyoto/Osaka/Okinawa (their consolidated outputs byte-identical).
+**W72 DOTO:** Nusamai Bridge (visit-hokkaido + kushiro-lakeakan + wiki pin), Kamuiwakka Hot Falls (visit-hokkaido + ja.wikipedia; no
+coords in infobox → UNVERIFIED). Held: Koshimizu Natural Flower Garden (pin 43.94194,144.413417 read; 2nd source not attributable).
+**W73 DHOKU:** Asahibashi Bridge, Fukiage Onsen (visit-hokkaido + wiki pins), Biei Shirogane Onsen (visit-hokkaido + wiki; no coords → UNVERIFIED).
+**W74 OTARU:** Kama-ei factory store pan-roll (MAPPLE + otaru.gr.jp kamaboko guide), Kitaichi Hall lamp café (rurubu + MAPPLE retro-café
+round-up; caveat). Held: Kitakaro Otaru Honkan (unattributed).
+**W75 DONAN:** Sushi-dokoro Kihara (hakodate.travel + rurubu). Dropped: Kantarō (chain, branch not named in sources). Held: Uomasa
+Goryōkaku (rurubu only), Kaikōbō, Bingoya (hakodate.travel only).
+**Final build (session 3):** 327 discovered → 184 rendered (156 sights + 28 food). sourcecheck PASS 327 (1 lone authority) · geocheck
+PASS · statuscheck CONSISTENT (0 unchecked) · buildcheck PASS · validate DATA OK · npm test ALL PASS. 143 UNVERIFIED held.
+Food share 153/327 = 47% (session start 26%). ANIME 7. JOZANKEITOURISM given a real rationale (SOURCES_HOKKAIDO_W75.json).
+Channel mix (session 3 second sources): guidebook editorial ~40% (RURUBU, MAPPLE), official tourism ~35% (HOKKAIDOTOURISM,
+SAPPOROTRAVEL, HAKODATETRAVEL, OTARUTOURISM, KUSHIROTOURISM, OBIKAN, LAKETOYA, JOZANKEITOURISM, NISEKOTOURISM, RISHIRIPLUS), encyclopedic
+pins (WIKIPEDIA_JA) ~15%, travel media/creators ~10% (TIMEOUT, GOODLUCKTRIP, RAMENADVENTURES creator, HOKKAIDOSHIMBUN/TripEat, FAMITSU).
+**W76 IBURI (post-final, 2 searches):** Mt Tarumae (visit-hokkaido + japan-guide + wiki pin), Ōyunuma River footbath (noboribetsu-spa.jp =
+NOBORIBETSUTOURISM + visit-hokkaido; "大湯沼" coord rejected — no own article). Held: Koke-no-dōmon moss gorge (no coord).
+**W77 IBURI:** Soba-dokoro Fukuan (promoted: rurubu + MAPPLE Noboribetsu list; caveat).

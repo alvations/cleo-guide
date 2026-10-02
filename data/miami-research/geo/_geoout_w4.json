@@ -1,0 +1,332 @@
+[
+ {
+  "n": "Las Olas Boulevard",
+  "address": "Las Olas Blvd, Fort Lauderdale",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Riverwalk Fort Lauderdale",
+  "address": "New River, Fort Lauderdale",
+  "lat": 26.119983,
+  "lng": -80.145733,
+  "confidence": "med",
+  "geoSource": "HMDB 'Fort Lauderdale' marker at Hoch Heritage Center, 219 SW 2nd Ave (https://www.hmdb.org/m.asp?m=172079) printed 26° 7.199′ N, 80° 8.744′ W - History Fort Lauderdale complex beside the Riverwalk/New River; proxy point on a 1+ mile linear walk",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Fort Lauderdale Beach",
+  "address": "A1A, Fort Lauderdale",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (rejected: gps-latitude-longitude.com generic geocode 26°9'44.983\"N 80°6'1.013\"W lands ~4 km north of the Las Olas/A1A beach core)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Hollywood Beach Broadwalk",
+  "address": "Hollywood FL",
+  "lat": 26.008833,
+  "lng": -80.114976,
+  "confidence": "med",
+  "geoSource": "Sygic POI 'Hollywood Beach' (https://travel.sygic.com/en/poi/hollywood-beach-poi:15425) printed 26°0'31.799\"N 80°6'53.912\"W - beach-level point; Broadwalk runs ~100-150 m west of it, re-verify placement (4b)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Stiltsville",
+  "address": "Biscayne Bay",
+  "lat": 25.6535,
+  "lng": -80.171501,
+  "confidence": "med",
+  "geoSource": "Wikipedia 'Stiltsville' coord (via DBpedia mirror dbpedia.org/page/Stiltsville; https://en.wikipedia.org/wiki/Stiltsville): 25.653500, -80.171501 (25°39'12\"N 80°10'17\"W) - district-level coord for the stilt-house cluster",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Big Cypress Oasis Visitor Center",
+  "address": "52105 Tamiami Trail E, Ochopee",
+  "lat": 25.8575,
+  "lng": -81.034333,
+  "confidence": "med",
+  "geoSource": "confluence.org (https://confluence.org/confluence.php?id=745) prints 'Oasis Ranger Station ... 25°51.450N 81°02.06W'; corroborated by Wikipedia Big Cypress National Preserve infobox coord 25°51′32″N 81°02′02″W (25.85889,-81.03389) which sits at the Oasis VC; address per NPS https://www.nps.gov/places/oasis-visitor-center.htm",
+  "status": "open",
+  "statusSource": "NPS places page lists Oasis Visitor Center hours Tue-Sat 9:00-4:30 (searched 2026-10-02)"
+ },
+ {
+  "n": "Kirby Storter Roadside Park Boardwalk",
+  "address": "48900 Tamiami Trail E, Ochopee",
+  "lat": 25.868247,
+  "lng": -81.154278,
+  "confidence": "med",
+  "geoSource": "USF Florida Educational Technology Clearinghouse Clippix photo page for Kirby Storter boardwalk (https://etc.usf.edu/clippix/picture/kirby-s-storter-park-sign-in-rock.html) prints GPS 25°52'5.69\"N 81°9'15.40\"W (photo GPS, not an official POI coord)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Clyde Butcher's Big Cypress Gallery",
+  "address": "52388 Tamiami Trail E, Ochopee",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Loop Road Scenic Drive",
+  "address": "CR 94, Big Cypress",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (main-agent review: coordinate printed by an unconfirmed page — Search-result printed coordinate for Loop Road 25°45'39.935\"N 80°49'41.369\"W (from travel.sygic.com/en/poi/loop-road-poi:34440 / 100floridatrails.com result set)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Skunk Ape Research Headquarters",
+  "address": "40904 Tamiami Trail E, Ochopee",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "South Beach",
+  "address": "Miami Beach",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Miracle Mile (Coral Gables)",
+  "address": "Miracle Mile, Coral Gables",
+  "lat": 25.749573,
+  "lng": -80.258605,
+  "confidence": "med",
+  "geoSource": "Printed coord 25°44'58.463\"N 80°15'30.979\"W in search results for Miracle Mile (travel.sygic.com/ko/poi/miracle-mile-poi:33433557 result set; Wikipedia https://en.wikipedia.org/wiki/Miracle_Mile_(Coral_Gables) confirms Coral Way between SW 37th-42nd Ave) - point on a linear street",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Calle Ocho (SW 8th Street)",
+  "address": "SW 8th St, Little Havana, Miami",
+  "lat": 25.765617,
+  "lng": -80.21895,
+  "confidence": "med",
+  "geoSource": "HMDB marker 'Little Havana Honors Our Veterans' (https://www.hmdb.org/m.asp?m=134732) printed 25° 45.937′ N, 80° 13.137′ W, on 8th Street east of 15th Avenue - a point ON Calle Ocho at Domino Park block; linear street",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Domino Park (Máximo Gómez Park)",
+  "address": "801 SW 15th Ave, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (Wikipedia article https://en.wikipedia.org/wiki/M%C3%A1ximo_G%C3%B3mez_Park exists but coord not surfaced; adjacent HMDB m=134732 point 25.765617,-80.21895 is on 8th St east of 15th Ave - usable only as proxy)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Tower Theater",
+  "address": "1508 SW 8th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": "WLRN 2023-01-31 (https://www.wlrn.org/arts-culture/2023-01-31/whats-next-for-the-tower-theater-in-little-havana): MDC handed keys to City of Miami, which has plans for the theater - building extant; current programming not confirmed"
+ },
+ {
+  "n": "Cuban Memorial Boulevard",
+  "address": "SW 13th Ave, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Historic Lyric Theater (Black Archives)",
+  "address": "819 NW 2nd Ave, Miami",
+  "lat": 25.781889,
+  "lng": -80.198,
+  "confidence": "high",
+  "geoSource": "Wikipedia 'Lyric Theater (Miami)' NRHP infobox (https://en.wikipedia.org/wiki/Lyric_Theater_(Miami)), NRHP #88002965: 25°46′54.8″N 80°11′52.8″W",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Black Police Precinct and Courthouse Museum",
+  "address": "480 NW 11th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (NRHP NRIS 100004974, building listed at 1009 NW 5th Ave / 480 NW 11th St; coord not surfaced)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Greynolds Park",
+  "address": "17530 W Dixie Hwy, North Miami Beach",
+  "lat": 25.945981,
+  "lng": -80.156247,
+  "confidence": "med",
+  "geoSource": "FWC Great Florida Birding & Wildlife Trail site page (https://floridabirdingtrail.com/site/greynolds-park/) GPS 25.945981, -80.156247 - park entrance/parking point, 17530 W Dixie Hwy (not Arch Creek)",
+  "status": "open",
+  "statusSource": "Miami-Dade Parks official page https://www.miamidade.gov/parks/greynolds.asp lists park as active (searched 2026-10-02)"
+ },
+ {
+  "n": "Rubell Museum",
+  "address": "1100 NW 23rd St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Margulies Collection at the Warehouse",
+  "address": "591 NW 27th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Institute of Contemporary Art, Miami (ICA Miami)",
+  "address": "61 NE 41st St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED (main-agent review: coordinate printed by an unconfirmed page — Search-result printed coord for ICA Miami 25°48'50\"N 80°11'29\"W (result set: trek.zone/en/united-states/places/438413/institute-of-contemporary-art-miami, en.wi)",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Museum of Graffiti",
+  "address": "276 NW 26th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Miami Design District",
+  "address": "Miami Design District, Miami",
+  "lat": 25.812778,
+  "lng": -80.192222,
+  "confidence": "med",
+  "geoSource": "Wikipedia 'Miami Design District' infobox coord (https://en.wikipedia.org/wiki/Miami_Design_District): 25°48′46″N 80°11′32″W (25.81278,-80.19222) - neighborhood-level",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Versailles Restaurant",
+  "address": "3555 SW 8th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Michelin Guide 2023 recommendation reported by Cubanet; miamiandbeaches.com listing (searched 2026-10-02)"
+ },
+ {
+  "n": "Robert Is Here",
+  "address": "19200 SW 344th St, Homestead",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "Official site robertishere.com (our-story/about-us pages live, searched 2026-10-02)"
+ },
+ {
+  "n": "Coopertown Restaurant",
+  "address": "22700 SW 8th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "miamiandbeaches.com official listing: open daily 9am-5pm (searched 2026-10-02)"
+ },
+ {
+  "n": "Schnebly Redland's Winery",
+  "address": "30205 SW 217th Ave, Homestead",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Lester's Diner",
+  "address": "250 W State Road 84, Fort Lauderdale",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Zak the Baker",
+  "address": "295 NW 26th St, Miami",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Southport Raw Bar",
+  "address": "1536 Cordova Rd, Fort Lauderdale",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "City Seafood",
+  "address": "702 Begonia St, Everglades City",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "unknown",
+  "statusSource": ""
+ },
+ {
+  "n": "Joanie's Blue Crab Cafe",
+  "address": "39395 Tamiami Trail E, Ochopee",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "UNVERIFIED",
+  "status": "open",
+  "statusSource": "floridafoodsafety.org inspection record 2025-05-08; Infatuation review (searched 2026-10-02)"
+ }
+]
