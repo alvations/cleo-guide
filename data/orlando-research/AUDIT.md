@@ -90,3 +90,15 @@
   Status NOT re-checked since the 2017 feature → flagged for the closure pass.
 - Creator probe ("Orlando food tour YouTube Mark Wiens / Best Ever Food Review / Sonny Side"): no findable Orlando video
   surfaced → dead end recorded; DDD (Food Network TV) used as the creator/TV channel this wave.
+
+## 2026-10-02 · Session 2 · W7 (pin-pass 4: oddities, Epic rest, Space Coast, north springs)
+- Pin-pass agent 4 (16 searches) → `_geoout_pinpass4.json` 27/30 (Atlas Obscura place pages, Coasterpedia, Wikipedia,
+  hmdb, USFS). Closures: Skeletons: Museum of Osteology (closed, Atlas Obscura); Singing Runway (grooves removed 2008);
+  Exploration Tower (Port Canaveral) not reopened as of Jan 2026 per Wikipedia → none added as pins.
+- Research: `SIGHTS_EPIC2` (5 → all 11 Epic rides now in), `SIGHTS_SPACE2` (5: Apollo/Saturn V Center, Ron Jon, Brevard
+  Zoo, Space View Park, Jetty Park), `SIGHTS_NATURE2` (Cassadaga — Bungalower + Victor Block; Hontoon Island — reopened
+  Oct 20 after 3-year closure), `SIGHTS_CITY2` (Kerouac House + 4 Atlas-Obscura-only oddities HELD single-source).
+- Re-verify catch: Cocoa Beach Pier's coordinate was identical to Ron Jon Surf Shop's Wikipedia point → pier set UNVERIFIED.
+- Status: 79 agent pin records had empty statusSource and sorted after the research geo files (last-write-wins) → patched
+  to carry the research record's status source; statuscheck CONSISTENT.
+- Main searches ≈ 68; agents 56 → ≈ 124 this session.
