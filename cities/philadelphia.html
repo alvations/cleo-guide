@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Philadelphia field guide — 107 sights and 15 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
+<meta name="description" content="Philadelphia field guide — 116 sights and 15 places to eat across Philadelphia, the Main Line, South Jersey and the Brandywine / Valley Forge day trips, each traceable to its source (Michelin, James Beard, the Philadelphia Inquirer, Philadelphia Magazine, Eater Philly, The Infatuation, the National Park Service), on one interactive map with neighborhood, collection and cuisine filters, a trip builder and exports.">
 <title>Philadelphia Field Guide — Sourced</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
       onerror="this.onerror=null;this.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';">
@@ -222,7 +222,7 @@
 <header>
   <p class="eyebrow">Field guide · Philadelphia, the Main Line, South Jersey &amp; the Brandywine, sourced</p>
   <h1>Philadelphia<span class="thin">Independence Hall, the mural city &amp; the sandwich capital</span></h1>
-  <p class="standfirst">107 sights and 15 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
+  <p class="standfirst">116 sights and 15 places to eat from Old City out to the Main Line, Camden and the Brandywine Valley, each traceable to the source that named it. Independence Hall, the Liberty Bell and the Art Museum steps anchor the map; the food runs on what Philadelphia is famous for &mdash; the cheesesteak and the roast pork Italian, the hoagie, tomato pie, soft pretzels, water ice and scrapple, Reading Terminal and the Italian Market, the Mexican and Vietnamese kitchens of South Philly, and a Michelin and James Beard bench. <strong>Switch modes below</strong>, filter by <strong>neighborhood</strong> or <strong>collection</strong>, and tick anything to build your own list, then export it to Google or Apple Maps.</p>
   <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--patina);margin:14px 0 0;">Last verified 2026-08-08 · <a href="../index.html" style="color:var(--bone-dim);text-decoration:none;">← all cities</a></p>
 </header>
 
@@ -313,15 +313,19 @@
 
 const S = {
   "ATLASOBSCURA":{k:"ATLAS OBSCURA",t:"Atlas Obscura — Philadelphia",u:"https://www.atlasobscura.com/things-to-do/philadelphia-pennsylvania",l:"Atlas Obscura — Philadelphia"},
+  "BILLYPENN":{k:"BILLY PENN / WHYY",t:"BILLY PENN / WHYY",u:"",l:""},
   "FAIRMOUNTPARK":{k:"PHILA. PARKS & REC",t:"Fairmount Park Conservancy",u:"https://myphillypark.org/",l:"Fairmount Park Conservancy"},
   "FROMMERS":{k:"FROMMERS",t:"Frommer's — Bucks County",u:"https://www.frommers.com/destinations/bucks-county/things-to-do/",l:"Frommer's — Bucks County"},
+  "HIDDENCITY":{k:"HIDDEN CITY PHILADELPHIA",t:"HIDDEN CITY PHILADELPHIA",u:"",l:""},
   "INFATUATION":{k:"THE INFATUATION",t:"THE INFATUATION",u:"",l:""},
+  "INQUIRER":{k:"PHILADELPHIA INQUIRER",t:"PHILADELPHIA INQUIRER",u:"",l:""},
   "LONELYPLANET":{k:"LONELY PLANET",t:"LONELY PLANET",u:"",l:""},
   "MAINLINETODAY":{k:"MAIN LINE TODAY",t:"Main Line Today",u:"https://mainlinetoday.com/",l:"Main Line Today"},
   "NJMONTHLY":{k:"NEW JERSEY MONTHLY",t:"New Jersey Monthly",u:"https://njmonthly.com/",l:"New Jersey Monthly"},
   "NORTHEASTTIMES":{k:"NORTHEASTTIMES",t:"Northeast Times",u:"https://northeasttimes.com/",l:"Northeast Times"},
   "NPS":{k:"NATIONAL PARK SVC",t:"National Park Service — Independence NHP",u:"https://www.nps.gov/inde/",l:"National Park Service — Independence NHP"},
   "PHILAGOV":{k:"PHILAGOV",t:"City of Philadelphia (phila.gov)",u:"https://www.phila.gov/",l:"City of Philadelphia (phila.gov)"},
+  "PHILLYMAG":{k:"PHILADELPHIA MAGAZINE",t:"PHILADELPHIA MAGAZINE",u:"",l:""},
   "RUTGERSCAMDEN":{k:"RUTGERSCAMDEN",t:"Rutgers University–Camden: Explore Camden",u:"https://camden.rutgers.edu/discover-camden/explore-camden/have-fun-in-around-camden",l:"Rutgers University–Camden: Explore Camden"},
   "SJMAGAZINE":{k:"SJMAGAZINE",t:"SJ Magazine",u:"https://sjmagazine.net/",l:"SJ Magazine"},
   "UNCOVERINGPA":{k:"UNCOVERINGPA",t:"Uncovering PA (Jim Cheney)",u:"https://uncoveringpa.com/",l:"Uncovering PA (Jim Cheney)"},
@@ -453,7 +457,16 @@ const P = [
 {t:2,a:"MAIN",n:"Andalusia Historic House & Gardens",ad:"1237 State Rd, Bensalem, PA 19020",la:40.06194,ln:-74.95833,w:"The Biddle family's Greek Revival mansion (early 19th c.) and 65 acres of formal gardens and woods on the Delaware.",k:"historic house",g:["HIST","ARCH","PARK"],s:[["VISITPHILLY","https://www.visitphilly.com/areas/bucks-county/new-hope/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Andalusia_(estate)"]]},
 {t:2,a:"DAY",n:"Colonial Theatre (Phoenixville)",ad:"227 Bridge St, Phoenixville, PA 19460",la:40.13410,ln:-75.51750,w:"The 1903 movie palace where the audience fled the theatre in 1958's The Blob — every July it hosts Blobfest and re-stages the run-out; arthouse films year-round on Phoenixville's Bridge Street.",k:"venue",g:["HIST","ARCH","ARTS"],s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/greater-philadelphia-main-streets/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Colonial_Theatre_(Phoenixville,_Pennsylvania)"]]},
 {t:1,a:"SJ",n:"Walt Whitman's Tomb (Harleigh Cemetery)",ad:"1640 Haddon Ave, Camden, NJ 08103",la:39.92389,ln:-75.08972,w:"The 'plain massive stone temple' Whitman designed for himself after Blake's 'Death's Door' — its door kept ajar so his soul is free — in 130-acre Harleigh Cemetery on the Cooper River.",k:"cemetery",g:["ARCH","WATER","FREE"],s:[["SJMAGAZINE","https://sjmagazine.net/featured/4-things-to-know-about-harleigh-cemetery"],["NJMONTHLY","https://njmonthly.com/articles/things-to-do/visit-these-new-jersey-cemeteries-for-a-fascinating-walk-through-history/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Harleigh_Cemetery"]]},
-{t:2,a:"SJ",n:"Hadrosaurus Foulkii Leidy Site",ad:"Maple Ave, Haddonfield, NJ 08033",la:39.91018,ln:-75.02856,w:"Where one of the world's first nearly complete dinosaur skeletons was dug up in 1858 — a National Historic Landmark marker in a Haddonfield ravine (the town also has a Hadrosaurus statue downtown).",k:"historic site",g:["HIST","ARCH","SPORT"],s:[["NJMONTHLY","https://njmonthly.com/articles/news/things-you-dont-know-about-new-jersey/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hadrosaurus_Foulkii_Leidy_Site"]]}
+{t:2,a:"SJ",n:"Hadrosaurus Foulkii Leidy Site",ad:"Maple Ave, Haddonfield, NJ 08033",la:39.91018,ln:-75.02856,w:"Where one of the world's first nearly complete dinosaur skeletons was dug up in 1858 — a National Historic Landmark marker in a Haddonfield ravine (the town also has a Hadrosaurus statue downtown).",k:"historic site",g:["HIST","ARCH","SPORT"],s:[["NJMONTHLY","https://njmonthly.com/articles/news/things-you-dont-know-about-new-jersey/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Hadrosaurus_Foulkii_Leidy_Site"]]},
+{t:2,a:"CC",n:"Wanamaker Building & Grand Court Organ",ad:"1300 Market St, Philadelphia, PA 19107",la:39.95166,ln:-75.16217,w:"National Historic Landmark department-store palace whose Grand Court houses the Wanamaker Organ, the world's largest operating musical instrument (28,750 pipes); after Macy's closed in 2025 the new owners brought back performances and the Christmas Light Show (Inquirer, Philly Mag 2025).",k:"landmark",g:["HIST","ARCH","ARTS"],s:[["INQUIRER","https://www.inquirer.com/arts/wanamaker-organ-concerts-light-show-dickens-village-20251010.html"],["PHILLYMAG","https://www.phillymag.com/things-to-do/2025/09/10/wanamaker-building-performances-pipe-up/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/John_Wanamaker_Store"]]},
+{t:2,a:"CC",n:"Walnut Street Theatre",ad:"825 Walnut St, Philadelphia, PA 19107",la:39.94833,ln:-75.15556,w:"The oldest operating theatre in the US (1808) and a National Historic Landmark — first gas footlights in 1837; still stages plays and Tony-winning musicals each season.",k:"theatre",g:["HIST","ARCH","ARTS"],s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/attractions/walnut-street-theatre/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Walnut_Street_Theater"]]},
+{t:2,a:"CC",n:"The Rosenbach",ad:"2008-2010 Delancey Pl, Philadelphia, PA 19103",la:39.94750,ln:-75.17500,w:"Rare-book house museum near Rittenhouse holding Joyce's handwritten Ulysses manuscript, Lewis Carroll's own Alice and a first-edition Don Quixote (Visit Philly; Philly Mag Best of Philly).",k:"museum",g:["HIST","MUS"],s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/attractions/the-rosenbach-museum-and-library/"],["PHILLYMAG","https://www.phillymag.com/best-of-philly-archive/the-rosenbach-museum-library/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Rosenbach_Museum_and_Library"]]},
+{t:2,a:"CC",n:"Franklin Square",ad:"200 N 6th St, Philadelphia, PA 19106",la:39.95551,ln:-75.15079,w:"One of William Penn's five original squares, revived 20 years ago with a carousel, Philly-landmark mini golf and the winter Chinese Lantern Festival (Visit Philly; Inquirer 2026).",k:"park",g:["HIST","ARCH","PARK","FAM"],s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/attractions/franklin-square/"],["INQUIRER","https://www.inquirer.com/news/philadelphia/franklin-square-birthday-history-park-20260725.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Franklin_Square_(Philadelphia)"]]},
+{t:2,a:"NW",n:"Stenton",ad:"4601 N 18th St, Philadelphia, PA 19140",la:40.02378,ln:-75.15461,w:"James Logan's c.1730 Georgian estate — both Washington and Howe headquartered here around the Battle of Germantown; on the Historic Germantown OnePass (Visit Philly; Billy Penn 2026).",k:"historic",g:["HIST","ARCH"],s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/attractions/stenton/"],["BILLYPENN","https://billypenn.com/2026/07/28/historic-germantown-onepass-germantown-history/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Stenton_(mansion)"]]},
+{t:2,a:"NW",n:"Ebenezer Maxwell Mansion",ad:"200 W Tulpehocken St, Philadelphia, PA 19144",la:40.03806,ln:-75.18389,w:"Philadelphia's only Victorian house museum (1859), open Fri-Sun (Visit Philly Germantown guide; Hidden City).",k:"historic",g:["HIST","MUS","ARCH","ODD"],s:[["VISITPHILLY","https://www.visitphilly.com/areas/philadelphia-neighborhoods/germantown/"],["HIDDENCITY","https://hiddencityphila.org/2020/11/161-year-old-victorian-house-museum-ahead-of-the-virtual-curve/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Ebenezer_Maxwell_House"]]},
+{t:2,a:"NW",n:"Awbury Arboretum",ad:"1 Awbury Rd, Philadelphia, PA 19138",la:40.05167,ln:-75.16889,w:"Free 55-acre Quaker-abolitionist Cope family estate opened to the public in 1916 — 2,000+ trees, a working farm and gardens (Visit Philly; Hidden City).",k:"park",g:["HIST","ARCH","PARK","ODD"],s:[["VISITPHILLY","https://www.visitphilly.com/things-to-do/attractions/awbury-arboretum/"],["HIDDENCITY","https://hiddencityphila.org/2012/05/at-awbury-the-landscape-and-the-ideals-persist/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Awbury_Arboretum"]]},
+{t:3,a:"NW",n:"Concord School House",ad:"6309 Germantown Ave, Philadelphia, PA 19144",la:40.04370,ln:-75.18100,w:"1775 schoolhouse, Philadelphia's first English-language school and an 1839 abolitionist meeting place; tours second Saturdays May-Oct (Visit Philly Black-history guide).",k:"historic",g:["HIST"],s:[["VISITPHILLY","https://www.visitphilly.com/articles/philadelphia/african-american-historic-sites-in-philadelphia/"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Concord_School_House_(Philadelphia)"]]},
+{t:2,a:"NW",n:"Thomas Mill Covered Bridge",ad:"Thomas Mill Rd at Forbidden Drive, Wissahickon Valley Park, Philadelphia, PA 19118",la:40.07187,ln:-75.22559,w:"The Wissahickon's red covered bridge on the Orange Trail, loved enough to get its own Inquirer column of love letters (Atlas Obscura; Inquirer; Philly Mag Wissahickon guide).",k:"landmark",g:["ARCH","PARK","ODD"],s:[["ATLASOBSCURA","https://www.atlasobscura.com/places/germantown-covered-bridge"],["INQUIRER","https://www.inquirer.com/philly/columnists/helen_ubinas/wissahickon-helen-ubinas-thomas-mill-red-covered-bridge-love-letters-20180905.html"],["WIKIPEDIA","https://en.wikipedia.org/wiki/Thomas_Mill_Covered_Bridge"]]}
 ];
 
 const FS = {
@@ -465,10 +478,12 @@ const FS = {
   "INQUIRER":{k:"PHILADELPHIA INQUIRER",t:"PHILADELPHIA INQUIRER",u:"",l:""},
   "JAMESBEARD":{k:"JAMES BEARD",t:"JAMES BEARD",u:"",l:""},
   "LABAN":{k:"INQUIRER · CRAIG LABAN",t:"INQUIRER · CRAIG LABAN",u:"",l:""},
+  "MAINLINETODAY":{k:"MAIN LINE TODAY",t:"Main Line Today",u:"https://mainlinetoday.com/",l:"Main Line Today"},
   "MARKWIENS":{k:"MARKWIENS",t:"MARKWIENS",u:"",l:""},
   "MICHELIN_BIB":{k:"MICHELIN BIB GOURMAND",t:"MICHELIN BIB GOURMAND",u:"",l:""},
   "MICHELIN_REC":{k:"MICHELIN RECOMMENDED",t:"MICHELIN RECOMMENDED",u:"",l:""},
   "MICHELIN_STAR":{k:"MICHELIN STAR",t:"MICHELIN STAR",u:"",l:""},
+  "NORTHEASTTIMES":{k:"NORTHEASTTIMES",t:"Northeast Times",u:"https://northeasttimes.com/",l:"Northeast Times"},
   "PHILLYMAG":{k:"PHILADELPHIA MAGAZINE",t:"PHILADELPHIA MAGAZINE",u:"",l:""},
   "TIMEOUT":{k:"TIME OUT",t:"TIME OUT",u:"",l:""},
   "VISITPHILLY":{k:"VISIT PHILADELPHIA",t:"Visit Philadelphia",u:"https://www.visitphilly.com/",l:"Visit Philadelphia"},
@@ -555,7 +570,7 @@ function mountMap(){
   if(mapMounted || typeof L==='undefined' || !L.map) return false;
   mapMounted=true;
   document.getElementById('map').innerHTML='';
-  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.159],10);
+  map = L.map('map',{scrollWheelZoom:false}).setView([39.9534,-75.1593],10);
 /* Base layers — free, no-key tiles only (CARTO / OpenStreetMap / Esri). */
 const BASES=[
  {id:'dark',  l:'Dark',       free:1, dark:0, u:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
@@ -639,7 +654,7 @@ const ARTERIES=[
  [[41.4770,-81.6870],[41.4768,-81.7300],[41.4768,-81.7790],[41.4770,-81.7980]],                     // Madison Ave
  [[41.5000,-81.6930],[41.4850,-81.7030],[41.4700,-81.7020],[41.4380,-81.7000],[41.4200,-81.7000]]   // W 25th / Broadview
 ];
-const LABELS=[["Center City", 39.9525, -75.1582], ["South Philly", 39.9214, -75.1614], ["Fishtown", 39.9708, -75.131], ["University City", 39.9464, -75.2002], ["North Philly", 39.983, -75.2005], ["Northwest", 40.0468, -75.1997], ["Northeast Philly", 40.0669, -75.0449], ["The Main Line", 40.0736, -75.1527], ["South Jersey", 39.9266, -75.0894], ["Brandywine", 40.1006, -75.2916]];
+const LABELS=[["Center City", 39.9524, -75.1584], ["South Philly", 39.9214, -75.1614], ["Fishtown", 39.9708, -75.131], ["University City", 39.9464, -75.2002], ["North Philly", 39.983, -75.2005], ["Northwest", 40.0465, -75.1941], ["Northeast Philly", 40.0669, -75.0449], ["The Main Line", 40.0736, -75.1527], ["South Jersey", 39.9266, -75.0894], ["Brandywine", 40.1006, -75.2916]];
 
 // Real geography comes from the tiles; here we add only area labels (derived from pin centroids).
 backdrop=L.layerGroup().addTo(map);
@@ -978,7 +993,7 @@ setMode('sights');
 /* Loader: the guide renders immediately and never waits on a CDN. The map
    mounts as soon as Leaflet arrives; if it never does, everything else works. */
 const NOMAP='The map library is blocked on this network, so the map cannot draw.<br>'
- +'Everything else works \u2014 all 122 places, the filters, your list and every export.';
+ +'Everything else works \u2014 all 131 places, the filters, your list and every export.';
 function noMapNotice(msg){
   const bw=document.getElementById('baseWrap'); if(bw) bw.hidden=true;
   const md=document.getElementById('map'); if(!md||mapMounted) return;
