@@ -116,11 +116,12 @@
  {
   "n": "Redwood Room (Clift Hotel)",
   "address": "495 Geary St (Clift Royal Sonesta Hotel), San Francisco, CA 94102",
-  "lat": null,
+  "lat": 37.7867,
+  "lng": -122.4111,
+  "geoSource": "Wikipedia — The Clift Royal Sonesta Hotel, 495 Geary St (37°47′12″N 122°24′40″W); the bar is inside the hotel",
+  "confidence": "high",
   "status": "open",
-  "statusSource": "https://www.7x7.com/oldest-bars-san-francisco-2671645223.html (six prewar bars that remain open)",
-  "lng": null,
-  "confidence": "UNVERIFIED"
+  "statusSource": "https://www.7x7.com/oldest-bars-san-francisco-2671645223.html (six prewar bars that remain open)"
  },
  {
   "n": "Yamo",
@@ -509,5 +510,35 @@
   "statusSource": "https://www.theinfatuation.com/san-francisco/reviews/shotwells (current review)",
   "lng": null,
   "confidence": "UNVERIFIED"
+ },
+ {
+  "n": "Burlingame Railroad Station",
+  "address": "Burlingame Caltrain station, Burlingame, CA 94010",
+  "lat": 37.58,
+  "lng": -122.345,
+  "geoSource": "Wikipedia — Burlingame station (37°34′48″N 122°20′42″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.smdailyjournal.com/news/local/burlingame-s-front-door-train-station-museum-set-to-reopen-this-fall/article_5edc374c-77c4-11ef-9e42-ebd53946224f.html"
+ },
+ {
+  "n": "Milagra Ridge",
+  "address": "Milagra Ridge, off Sharp Park Rd, Pacifica, CA 94044",
+  "lat": 37.63917,
+  "lng": -122.47917,
+  "geoSource": "Wikipedia — Milagra Ridge (37°38′21″N 122°28′45″W)",
+  "confidence": "med",
+  "status": "open",
+  "statusSource": "https://www.nps.gov/places/000/milagra-ridge-trailhead.htm"
+ },
+ {
+  "n": "Gray Whale Cove State Beach",
+  "address": "Gray Whale Cove State Beach, Highway 1 at Devil's Slide, CA 94038",
+  "lat": 37.56556,
+  "lng": -122.51444,
+  "geoSource": "Wikipedia — Gray Whale Cove State Beach (37°33′56″N 122°30′52″W)",
+  "confidence": "high",
+  "status": "open",
+  "statusSource": "https://www.parks.ca.gov/EventDetails/18201"
  }
 ]
