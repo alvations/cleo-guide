@@ -53,3 +53,21 @@ Héliport, Bistrot d'en Face, Yannick, Sébastian, Caudalie, Pot au Lait) — no
 **Corrections from geocode:** Maison du Péket = Rue de l'Épée 2 (OSM node) not 4; Brasserie C = Impasse des Ursulines 14.
 **Held:** Le Dernier Ragot (Diamond Boulet 2005–06, single source), Sandwicherie Pollux (mapstr only), Thermes de Spa (needs
 2nd credible), Chez Nathalie / Côté cour-Côté jardin (Boulet de cristal 2021 — rankeat/mapstr only).
+
+## 2026-10-02 (session 2) — Wave 2 batches 2–3 + FIRST BUILD
+**Searches:** lead ≈104 · agents 26 (≈130 total this session).
+**Added:** LIE sights +6 (Ansembourg, MMIL, Transports museum, Cointe memorial, Sart-Tilman open-air museum, Batte market);
+LIER sights +10 (Remouchamps, Coo, Franchimont, Botrange, Val-St-Lambert, Thermes de Spa, Villa Royale museum, Stavelot
+abbey); LIE food +4 (As Ouhès, Au Point de Vue, Jupille brewery…); LIER food +12 (Michelin: Le Roannay, Un Max de Goût,
+Arabelle Meirlaen, Le Coq aux Champs, La Roseraie; Bib: La Chapellerie, Au Dos de la Cuillère, Le Coin des Saveurs, La
+Maison Thaï; beer: Val-Dieu, Grain d'Orge; Siroperie Meurens).
+**Key hygiene:** La Roseraie / La Maison Thaï re-keyed to the press outlets that reported the award (INFOLUX/FORBES,
+PARISMATCHBE/LAVENIR) — a press URL never sits under the MICHELIN key.
+**Geocode:** agent pass 2 → 7 pins (Tchantchès museum, Cointe, Batte, Val-St-Lambert, MMIL, Café Lequet, Tchantchès et
+Nanesse); lead → Au Point de Vue (Mapcarta W402678454, high), Gaufrette Saperlipopette (med), Villa Royale (med), Thermes de
+Spa (med). Address corrections: Au Point de Vue = Place Verte 10; As Ouhès = Place du Marché 19-21; Siroperie Meurens = Rue
+de la Kan 2, Aubel; Gaufrette Saperlipopette = Rue des Mineurs 6. Technique: `allowed_domains:["mapcarta.com"]` + the
+exact name/OSM id makes the search summary print coordinates (≈50 % hit rate for restaurants; ≈90 % for sights via Wikipedia).
+**Build:** `rebuild-city.py liege --build` → sourcecheck PASS 65/65 (6 on a lone Michelin), geocheck PASS (43 on page:
+high 29 · med 14), statuscheck CONSISTENT (43 open, 0 closed), buildcheck PASS; 22 discovered places held (no pin yet).
+`npm run validate` DATA OK · `npm test` ALL PASS.
