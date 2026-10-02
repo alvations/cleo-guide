@@ -42,3 +42,18 @@ commit and replaced with chō-level addresses (rule 4a).
 in one query fails (one venue dominates). Ramen Touhichi (Sakyō) + Noodle Shop Rennosuke (Kita) confirmed; Menya
 Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surfaces (as W1) → food pins UNVERIFIED.
 **Searches used this session: 19.**
+
+### batch 2 (2026-10-02) — HGS pins + SAKYO 13 + Places of Scenic Beauty
+- Wikipedia coordinates (high) for Chion-in, Kennin-ji, Shōren-in, Maruyama Park, Yasaka Shrine (upgraded med→high).
+- HGS +2: Chishaku-in (WIKIPEDIA + kyoto.travel map guide PDF), Sennyū-ji (WIKIPEDIA + KYOTOTOURISM shrine_temple/181).
+- SAKYO +11 / KITA +2 / RKSAI +1: Philosopher's Path, Nanzen-ji, Eikan-dō, Heian Jingū, Hōnen-in, KYOCERA Museum,
+  NMMAK, Murin-an, Konchi-in, Shugakuin; Daisen-in, Kyoto Imperial Palace; Katsura Imperial Villa. Places of Scenic
+  Beauty (Murin-an, Konchi-in, Shugakuin, Daisen-in, Katsura) cite the designation (BUNKACHO, via the Wikipedia list
+  that tabulates it with coordinates) plus the article — always ≥2 keys, so they do not rest on a lone authority.
+- **Address policy (rule 4a) tightened:** chō names I had typed from general knowledge were stripped. Sight addresses are now
+  ward-level unless a source printed the street address (Tōfuku-ji via ANA, Rokuharamitsu-ji via Wikipedia, Michelin venues).
+- Held (one source, coords in hand): Shisen-dō (Wiki 35.04374,135.79623), Shinnyo-dō (35.021894,135.790417), Yoshida Shrine
+  (35.025349,135.784632), Kyoto Botanical Garden (35.04833,135.76111), Manshu-in (35.048817,135.80306), Keage Incline
+  (35.0078,135.7902); HGS: Gion Shirakawa, Ishibe-kōji, Entoku-in (japan-guide e3902/e3927), Shōgunzuka (e3954), Yasui
+  Konpira-gū, Rokudō Chinnō-ji (kyoto.travel map mention only).
+- Searches used: 31.
