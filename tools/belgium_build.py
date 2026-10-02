@@ -125,6 +125,11 @@ def build(CFG):
         _zoom = 14 if _span < 0.025 else 13 if _span < 0.05 else 12 if _span < 0.11 else 11 if _span < 0.26 else 10 if _span < 0.55 else 9 if _span < 1.1 else 8
     else:
         _clat, _clng, _zoom = CFG["FALLBACK"]
+    # Opt-in VIEW override: CFG["VIEW"] = (lat, lng, zoom). For maps whose pins span open ocean (e.g. Okinawa:
+    # main island + Miyako/Yaeyama ~400 km away) the percentile-derived centre can land in the sea. Absent key =
+    # unchanged derived behaviour for every other city. The centre must still sit inside the pin bounds (--buildcheck).
+    if CFG.get("VIEW"):
+        _clat, _clng, _zoom = CFG["VIEW"]
     _byarea = _dd(list)
     for _r in DS["P"] + DS["F"]:
         if _r["n"] in _pins: _byarea[_r["a"]].append(_pins[_r["n"]])

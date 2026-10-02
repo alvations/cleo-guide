@@ -37,6 +37,12 @@ DS["F"] = [r for r in DS["F"] if _has_pin(r["n"])]
 if _dropped:
     print("NOTE: %d place(s) not yet geocoded — dropped from this build (queued for the geocode-helper):" % len(_dropped))
     for n in _dropped: print("   -", n)
+# An area whose every place is still un-pinned is hidden until its first pin lands (it would otherwise
+# render as an empty legend entry / empty filter). Areas WITH pins still must carry a tier-1 (asserted below).
+_live = {r["a"] for r in DS["P"] + DS["F"]}
+_hidden = [a["id"] for a in DS["areas"] if a["id"] not in _live]
+DS["areas"] = [a for a in DS["areas"] if a["id"] in _live]
+if _hidden: print("NOTE: area(s) with no pinned place yet — hidden from this build:", ", ".join(_hidden))
 
 def js(v): return json.dumps(v, ensure_ascii=False)
 
