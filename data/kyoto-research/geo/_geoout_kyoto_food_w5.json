@@ -71,7 +71,7 @@
  },
  {
   "n": "Kagizen Yoshifusa (鍵善良房)",
-  "address": "Shijō-dōri, Gion, Higashiyama-ku, Kyoto (near Yasaka Shrine)",
+  "address": "264 Gionmachi Kitagawa, Higashiyama-ku, Kyoto",
   "lat": null,
   "lng": null,
   "confidence": "unverified",
@@ -648,5 +648,85 @@
   "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
   "status": "open",
   "statusSource": "MATCHA Miyazu feature + Amanohashidate official listing — checked 2026-10-02"
+ },
+ {
+  "n": "Doppo",
+  "address": "1-1 Izumoji Matsunoshita-chō, Kita-ku, Kyoto 603-8133",
+  "lat": 35.042915,
+  "lng": 135.762222,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/doppo",
+  "status": "open",
+  "statusSource": "MICHELIN Guide 2026 (Two Stars), checked 2026-10-02"
+ },
+ {
+  "n": "Gion Matayoshi",
+  "address": "570-123 Gionmachi Minamigawa, Higashiyama-ku, Kyoto 605-0074",
+  "lat": 35.003349,
+  "lng": 135.774545,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/gion-matayoshi",
+  "status": "open",
+  "statusSource": "MICHELIN Guide 2026 (Two Stars), checked 2026-10-02"
+ },
+ {
+  "n": "Germoglio",
+  "address": "2F, 172 Higashisakai-chō, Shimogyō-ku, Kyoto 600-8217",
+  "lat": 34.989348,
+  "lng": 135.758377,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/germoglio",
+  "status": "open",
+  "statusSource": "MICHELIN Guide 2026 (One Star), checked 2026-10-02"
+ },
+ {
+  "n": "ima",
+  "address": "183-4 Fudō-chō, Nakagyō-ku, Kyoto 604-8215",
+  "lat": 35.006178,
+  "lng": 135.756091,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/ima-1242636",
+  "status": "open",
+  "statusSource": "MICHELIN Guide 2026 (One Star), checked 2026-10-02"
+ },
+ {
+  "n": "Kentan Horibe",
+  "address": "273 Tenjinyama-chō, Nakagyō-ku, Kyoto 604-8221",
+  "lat": 35.004999,
+  "lng": 135.757018,
+  "confidence": "high",
+  "geoSource": "MICHELIN Guide venue page geo https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kentan-horibe",
+  "status": "open",
+  "statusSource": "MICHELIN Guide 2026 (One Star), checked 2026-10-02"
+ },
+ {
+  "n": "Smart Coffee (スマート珈琲店)",
+  "address": "537 Tenshōjimae-chō, Teramachi-dōri Sanjō-agaru, Nakagyō-ku, Kyoto",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Inside Kyoto (open 8:00–19:00) + Leaf KYOTO — checked 2026-10-02"
+ },
+ {
+  "n": "Gion Tokuya (ぎおん徳屋)",
+  "address": "Gion, Higashiyama-ku, Kyoto",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Time Out + Leaf KYOTO — operating; checked 2026-10-02"
+ },
+ {
+  "n": "Kasagiya (かさぎ屋)",
+  "address": "349 Masuya-chō, Kōdai-ji, Higashiyama-ku, Kyoto (top of Ninenzaka steps)",
+  "lat": null,
+  "lng": null,
+  "confidence": "unverified",
+  "geoSource": "address from the cited source; no place-pin coordinate surfaced via WebSearch — held for tools/geocode-helper.html",
+  "status": "open",
+  "statusSource": "Inside Kyoto (11:00–18:00, closed Tue) + MATCHA — checked 2026-10-02"
  }
 ]

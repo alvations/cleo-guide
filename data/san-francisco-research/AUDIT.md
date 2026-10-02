@@ -74,3 +74,47 @@ Residual: 7 UNVERIFIED food/Peninsula pins → browser helper (`docs/GEOCODE-BAC
 ## Stage 3 — Fact-check (open/closed + notability)  ·  Stage 4 — Re-rank  ·  Stage 5 — Location-verify
 ·  Stage 6 — Build & gate  — all PENDING. Gates (enforced in code): `--sourcecheck` (≥2 credible or
 lone Michelin/JB), `--geocheck`, `--statuscheck`, jsdom render-verify.
+
+---
+# 2026-10-02 MODERNISATION RUN (dedicated SF session; WebSearch budget ~200; WebFetch blocked)
+
+## Stage M1 — plumbing (DONE)
+`tools/density.py` RDIR += `san-francisco-ca`; `<!-- CARD:san-francisco-ca -->` markers on the hub card; helpers
+`_sf_add.py` (dedup-append), `_sf_geo.py` (geoout append; null coords forced UNVERIFIED), `_sf_mich.py` (Michelin-listing
+records + status stubs), `_sf_push.sh`, `_sf_counts.sh`; RESUME `## Targets` (sum 500). `rebuild-city.py` already had the key.
+
+## Stage 2-R — credibility & key-hygiene audit of the 148 existing records (offline review + 1 search) — `_sf_fix_m2.py`
+Reviewed every record's source keys against: ≥2 credible or lone Michelin/JB award; Yelp/TA/Google/OpenTable = 0;
+lone-authority keys only for the award itself. Result — **0 dropped, 8 corrected** (all still pass):
+- **San Tung**: `SEVENXSEVEN` pointed at an axios.com URL → relabelled `AXIOS`.
+- **Burma Love**: `SFGATE` pointed at sfstation.com → `SFSTATION` (+ Mission Local remains).
+- **b. Patisserie**: `JAMESBEARD` cited a bakemag.com trade article → `BAKEMAG` (editorial; Infatuation remains).
+- **Abacá**: `JAMESBEARD` cited a vogue.ph feature → `VOGUEPH` (editorial); Michelin listing remains (lone-OK).
+- **Foreign Cinema**: `JAMESBEARD` cited the restaurant's own about-page → `OFFICIAL` (self-claim, not an award
+  source). Still has Infatuation; flagged for a 2nd independent source in a later wave.
+- **Mandalay Restaurant**: `JAMESBEARD` previously cited a Wikipedia URL → verified: **JBF America's Classics 2024**
+  (Hoodline 2024-02, KRON4); now JAMESBEARD + HOODLINE + KRON4 + WIKIPEDIA.
+- **Restaurant Naides**: **first Michelin star, 2026 guide** (sfist 2026-06-25) → MICHELIN_STAR; superseded Bib removed.
+- **Californios**: **three Michelin stars (2026)** noted in the blurb.
+Held as weak-but-passing (re-source when budget allows): Chibog (KQED generic URL), Basque Cultural Center
+(OFFICIAL + Patch), The Stinking Rose / Boudin / Buena Vista (Wikipedia + official — historic icons, kept).
+
+## Stage 3-R — closure sweep (Aug→Oct 2026)
+Searches: "SF restaurant closures September 2026", "… August 2026". Found: **Prelude** (333 Battery St, Michelin-listed,
+closed 2026-09-19 — whatnow.com) → NOT added (non-notable, 2-yr run; MEASURED & DROPPED). **Central Kitchen** (closed)
+— not in set. **We Be Sushi** (closed Feb 2026) — not in set. **Serpentine** (2495 3rd St) closed; the address is now
+**Wolfsbane** (Michelin ★ 2026). **Café Jacqueline**: still has a Michelin page but was already logged closed in wave 2
+— proof a Michelin page alone is NOT open-proof; not added. None of the 148 existing records surfaced as closed.
+
+## Stage 6-W3 — FOOD-FIRST discovery, wave W3A/W3B (Michelin channel)
+Method: `guide.michelin.com`-restricted searches by SF ZIP code (`"Michelin Guide restaurant San Francisco 941xx"`) —
+each returns 4–9 venue pages with the guide's own address + cuisine; Michelin listing/star/Bib = lone institutional
+authority (key hygiene: MICHELIN / MICHELIN_BIB / MICHELIN_STAR = the listing/award only). Stars cross-checked against
+the 2026 star list (sfist 2026-06-25). Status = current Michelin listing (checked 2026-10-02) + closure sweep above.
+- `FOOD_W3A.json` (16): 2026 stars (Atelier Crenn, Benu, Quince ★★★; Saison, Lazy Bear, Birdsong, Kiln, Sons &
+  Daughters ★★) + Bibs (Okane, Outerlands, Flores, Good Good Culture Club, Trestle, Dumpling Home, Del Popolo, A16).
+- `FOOD_W3B.json` (37 so far): ZIPs 94110/94103/94107/94109/94118/94133/94102/94115/94122/94111/94108/94117/94114.
+- Held (no full street address in results): Lord Stanley, La Folie, Fiorella, Lapaba, Lynx, Hinodeya, Waraku, Nari,
+  Hai Ky Mi Gia (707 Ellis — single source SF Standard), Udon Mugizo (single source Infatuation), Long Bridge Pizza.
+- Pins: restaurant place-pins are rarely in search snippets — Atelier Crenn pinned (latlong.net POI); the rest are
+  recorded with address + status and `UNVERIFIED` coords (gate holds them) pending a pin wave / the browser helper.

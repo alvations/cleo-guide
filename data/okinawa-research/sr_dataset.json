@@ -2528,6 +2528,75 @@
      "https://www.japan-experience.com/fr/a-la-decouverte-du-japon/okinawa/musees-et-galeries-dart/okinawa-un-nouveau-musee-du-karate"
     ]
    ]
+  },
+  {
+   "t": 2,
+   "a": "CHUBU",
+   "n": "Michi-no-Eki Kadena observation deck (道の駅かでな)",
+   "ad": "Kadena, Okinawa, Japan",
+   "w": "Roadside station beside Kadena Air Base whose rooftop observation deck looks straight across the runway — the place locals and plane-spotters watch fighter jets take off and land; Mapple ranks it Okinawa's No. 3 michi-no-eki.",
+   "k": "Air-base viewpoint & roadside station",
+   "g": [
+    "VIEW",
+    "POP",
+    "FREE"
+   ],
+   "s": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/51451/"
+    ],
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0139_sp"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YAEYA",
+   "n": "Ishigaki-jima Limestone Cave (石垣島鍾乳洞)",
+   "ad": "Ishigaki, Okinawa, Japan",
+   "w": "Japan's southernmost show cave: 3.2 km of limestone formed over some 200,000 years in southern Ishigaki, with a lit walkway through the formations.",
+   "k": "Show cave",
+   "g": [
+    "NATURE",
+    "TEMPLE"
+   ],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80042710"
+    ],
+    [
+     "GLTJP",
+     "https://www.gltjp.com/en/directory/item/16112/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YAEYA",
+   "n": "Nishihama Beach, Hateruma Island (ニシ浜)",
+   "ad": "Hateruma, Taketomi, Yaeyama District, Okinawa, Japan",
+   "w": "The beach that gave its name to 'Hateruma Blue' — powder-white sand and impossibly saturated turquoise water on Japan's southernmost inhabited island; stay overnight for the star-field sky.",
+   "k": "Beach ('Hateruma Blue')",
+   "g": [
+    "NATURE",
+    "ICON",
+    "FREE",
+    "VIEW"
+   ],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/11290"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/264420/"
+    ]
+   ]
   }
  ],
  "F": [
@@ -3227,6 +3296,10 @@
     [
      "OKINAWATRAVELER",
      "https://www.okinawatraveler.net/shop/779"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80043200"
     ]
    ]
   },
@@ -3269,6 +3342,10 @@
     [
      "OKINAWATRAVELER",
      "https://www.okinawatraveler.net/feature/0114_sp"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/2479"
     ]
    ]
   },
@@ -3927,6 +4004,10 @@
     [
      "MAPPLE",
      "https://www.mapple.net/article/49231/"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22464"
     ]
    ]
   },
@@ -4018,6 +4099,10 @@
     [
      "JAPANTRAVEL",
      "https://en.japantravel.com/okinawa/highway-drive-in-restaurant/6426"
+    ],
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0130_sp"
     ]
    ]
   },
@@ -4442,6 +4527,368 @@
     [
      "OKINAWATRAVELER",
      "https://www.okinawatraveler.net/shop/91324"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/29790/"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "HOKBU",
+   "n": "Michi-no-Eki Yuiyui Kunigami (道の駅 ゆいゆい国頭)",
+   "ad": "Kunigami, Okinawa, Japan",
+   "w": "The Yanbaru roadside station that gathers Kunigami village's food: Oku-grown green tea, karagi tea and the local Kunigami doughnuts — the last big food stop before Cape Hedo.",
+   "cz": [
+    "MKT",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/51451/"
+    ],
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0139_sp"
+    ]
+   ]
+  },
+  {
+   "t": 3,
+   "a": "NANBU",
+   "n": "Michi-no-Eki Toyosaki (道の駅 豊崎)",
+   "ad": "Toyosaki, Tomigusuku, Okinawa, Japan",
+   "w": "The roadside station closest to Naha Airport, stocked with Tomigusuku's mango products and island produce — a last-stop for food souvenirs.",
+   "cz": [
+    "MKT",
+    "SWEET"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/51451/"
+    ],
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0139_sp"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CHUBU",
+   "n": "Takaesu Soba, Urasoe (高江洲そば)",
+   "ad": "Iso, Urasoe, Okinawa, Japan",
+   "w": "An Urasoe institution counted among the 'traditional royal-road' soba shops by Rurubu and voted into the Okinawa Times noodle-lovers' central-region list.",
+   "cz": [
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATIMES",
+     "https://www.okinawatimes.co.jp/articles/-/1243603"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22464"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "CHUBU",
+   "n": "Kingetsu Soba Yomitan Honten (金月そば 読谷本店)",
+   "ad": "Yomitan, Okinawa, Japan",
+   "w": "Yomitan soba house on both Okinawa Traveler's area-by-area soba list and Rurubu's 16 best Okinawa-soba shops.",
+   "cz": [
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0006_sp"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22464"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "HOKBU",
+   "n": "Sachichan Soba (幸っちゃんそば)",
+   "ad": "Northern Okinawa (Hokubu), Okinawa, Japan",
+   "w": "A northern soba shop picked in the Okinawa Times 2023 noodle-lovers' poll (north edition) and Rurubu's 16 'famous & characterful' soba shops.",
+   "cz": [
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATIMES",
+     "https://www.okinawatimes.co.jp/articles/-/1247918"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22464"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NANBU",
+   "n": "Chadokoro Makabe Chinā, Itoman (茶処 真壁ちなー)",
+   "ad": "223 Makabe, Itoman, Okinawa, Japan",
+   "w": "Soba and herb tea served in a red-tiled, stone-walled homestead whose house and grounds are a national Registered Tangible Cultural Property — the old southern-village Okinawa landscape intact.",
+   "cz": [
+    "OKINAWA",
+    "CAFE"
+   ],
+   "g": [],
+   "s": [
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/47010445/"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/2479"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "NAHA",
+   "n": "Keishoku no Mise Ruby, Tomari (軽食の店ルビー)",
+   "ad": "Tomari, Naha, Okinawa, Japan",
+   "w": "Sixty-plus-year-old Tomari diner whose name belies mountainous portions: some 80 dishes from champuru to loco moco, but half the room orders the C-lunch. Namie Amuro used to drop in after dance practice.",
+   "cz": [
+    "TEISHOKU",
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATIMES",
+     "https://www.okinawatimes.co.jp/articles/-/1145089"
+    ],
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0130_sp"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22565"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NAHA",
+   "n": "Ayagu Shokudō, Shuri — CLOSED",
+   "ad": "Hisagawa-chō, Shuri, Naha, Okinawa, Japan",
+   "w": "Shuri's 'tasty, fast, cheap' shokudō, opened 1979 with a menu that once topped 100 dishes, closed at the end of October 2023 after 44 years when rising costs made it unsustainable. Kept on the map as a closed landmark of Okinawan shokudō culture — do not travel for it.",
+   "closed": true,
+   "cz": [
+    "TEISHOKU",
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATIMES",
+     "https://www.okinawatimes.co.jp/articles/-/1233368"
+    ],
+    [
+     "RYUKYUSHIMPO",
+     "https://ryukyushimpo.jp/news/entry-2334724.html"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/47011574/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NAHA",
+   "n": "Ichigin Shokudō, Kumoji — CLOSED",
+   "ad": "Kumoji, Naha, Okinawa, Japan",
+   "w": "Downtown Naha's 24-hour Okinawan diner, a C-lunch favourite, closed on 23 January after staff shortages and soaring costs (Okinawa Times). Listed as closed — do not travel for it.",
+   "closed": true,
+   "cz": [
+    "TEISHOKU",
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATIMES",
+     "https://www.okinawatimes.co.jp/articles/-/1514070"
+    ],
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0130_sp"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NAHA",
+   "n": "Yanbaru Shokudō, Naha (やんばる食堂)",
+   "ad": "In front of Okinawa University, Naha, Okinawa, Japan",
+   "w": "Opened 1974 opposite Okinawa University and still feeding students from a menu of more than eighty dishes — an Okinawan 'mother's cooking' shokudō in both Rurubu's and Okinawa Traveler's local-diner picks.",
+   "cz": [
+    "TEISHOKU",
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0105_sp"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22565"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NAHA",
+   "n": "Oshokujidokoro Mikado, Naha (お食事処 みかど)",
+   "ad": "Route 58, Naha, Okinawa, Japan",
+   "w": "A Route 58 shokudō where Okinawan mothers cook the island's everyday dishes — champuru, soups, chanpon rice — fast and cheap.",
+   "cz": [
+    "TEISHOKU",
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0105_sp"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22565"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "NANBU",
+   "n": "Kaiyō Shokudō, Tomigusuku (海洋食堂)",
+   "ad": "Tomigusuku, Okinawa, Japan",
+   "w": "Tomigusuku shokudō famous for yushi-dōfu, soft just-made island tofu carried over from the adjoining tofu works and served in soup or soba.",
+   "cz": [
+    "TOFU",
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "OKINAWATRAVELER",
+     "https://www.okinawatraveler.net/feature/0105_sp"
+    ],
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/22565"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YAEYA",
+   "n": "Mori no Kenja, Ishigaki (森の賢者)",
+   "ad": "1F, 49-2 Arakawa, Ishigaki, Okinawa, Japan",
+   "w": "Small Ishigaki-town kitchen cooking island vegetables, fish and Ishigaki beef without chemical seasonings, with awamori, sake and more than 45 home-made fruit and herb liqueurs; book ahead.",
+   "cz": [
+    "IZAKAYA",
+    "WAGYU"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80042737"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/29790/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YAEYA",
+   "n": "Maguro Senmon Izakaya Hitoshi, Ishigantō (まぐろ専門居酒屋 ひとし 石敢當店)",
+   "ad": "197-1 Ōkawa, Ishigaki, Okinawa, Japan",
+   "w": "Ishigaki's famous tuna izakaya, packed with locals and visitors alike for heaped plates of just-landed island tuna; book or queue at 16:30.",
+   "cz": [
+    "IZAKAYA",
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/article/16942"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/47011623/"
+    ]
+   ]
+  },
+  {
+   "t": 1,
+   "a": "YAEYA",
+   "n": "KITCHEN inaba, Iriomote (キッチン イナバ)",
+   "ad": "742-6 Uehara, Taketomi, Yaeyama District, Okinawa, Japan",
+   "w": "Iriomote's island-food kitchen near Uehara port: rare local ingredients — irabu sea-snake soup, gazami crab, Ryukyu wild boar in season — alongside traditional and Western-style plates, with jungle-green mountains in the windows.",
+   "cz": [
+    "OKINAWA"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80043585"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/spot/47011256/"
+    ]
+   ]
+  },
+  {
+   "t": 2,
+   "a": "YAEYA",
+   "n": "Shima Gourmet ROCO, Iriomote (島ぐるめ ROCO)",
+   "ad": "58 Uehara, Taketomi, Yaeyama District, Okinawa, Japan",
+   "w": "Uehara dining room cooking Iriomote's sea and mountain catch — grilled crab, sashimi salad, squid-ink rice croquettes and grouper simmered in island salt.",
+   "cz": [
+    "OKINAWA",
+    "SUSHI"
+   ],
+   "g": [],
+   "s": [
+    [
+     "RURUBU",
+     "https://rurubu.jp/andmore/spot/80043524"
+    ],
+    [
+     "MAPPLE",
+     "https://www.mapple.net/article/30147/"
     ]
    ]
   }
@@ -4464,6 +4911,12 @@
    "t": "GAME Watch (Impress Watch)",
    "u": "https://game.watch.impress.co.jp",
    "l": "GAME Watch (Impress Watch)"
+  },
+  "GLTJP": {
+   "k": "GLTJP",
+   "t": "Good Luck Trip (gltjp.com)",
+   "u": "https://www.gltjp.com",
+   "l": "Good Luck Trip (gltjp.com)"
   },
   "GOVONLINE": {
    "k": "GOVONLINE",
@@ -4507,6 +4960,12 @@
    "u": "",
    "l": ""
   },
+  "MAPPLE": {
+   "k": "MAPPLE",
+   "t": "Mapple (まっぷる, Shobunsha guidebooks)",
+   "u": "https://www.mapple.net",
+   "l": "Mapple (まっぷる, Shobunsha guidebooks)"
+  },
   "MIYAKOJIMACITY": {
    "k": "MIYAKOJIMACITY",
    "t": "Miyakojima City cultural-properties site",
@@ -4530,6 +4989,18 @@
    "t": "OKINAWA TIMES",
    "u": "",
    "l": ""
+  },
+  "OKINAWATRAVELER": {
+   "k": "OKINAWATRAVELER",
+   "t": "Okinawa Traveler (沖縄トラベラー, by the editors of local magazine Rikka Docca)",
+   "u": "https://www.okinawatraveler.net",
+   "l": "Okinawa Traveler (沖縄トラベラー, by the editors of local magazine Rikka Docca)"
+  },
+  "RURUBU": {
+   "k": "RURUBU",
+   "t": "Rurubu (るるぶ&more, JTB Publishing)",
+   "u": "https://rurubu.jp",
+   "l": "Rurubu (るるぶ&more, JTB Publishing)"
   },
   "RYUKYUSHIMPO": {
    "k": "RYUKYU SHIMPO",
