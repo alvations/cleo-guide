@@ -229,3 +229,20 @@ validate DATA OK · npm test ALL PASS. 28 UNVERIFIED held. Card + CITIES row ref
   second-source query returned only other cities → still held.
 - **FINAL (build #5): 290 researched → 265 on the map (102 sights + 163 food); food 62.4%.** Registry for SF:
   236 high / 28 med / 1 low / 25 UNVERIFIED. All 4 gates + validate + test green.
+
+## Stage W4 — wave 2 of 2026-10-02 (session_0159tKUL6tQ8pvUJRBHa67Nx)
+**Pin pass (background agent, 30 searches) → `geo/_geoout_w4pin.json`:** 9 of 25 held pinned, all high —
+Kan Kiin (Michelin venue page), Ina Coolbrith Park + India Basin Shoreline Park (mapcarta/OSM objects — the park's
+own way, not the neighbourhood centroid), Tenderloin Museum (Wikipedia, Cadillac Hotel bldg), Bison Paddock, Wild
+Parrots (Filbert & Kearny), Li Po, Hang Ah, Clarion Alley (Atlas Obscura place coords). Still UNVERIFIED (16): Boudin,
+It's-It, Chibog, Bread Basket, Basque CC, Wursthall (closed), Lyon St Steps, Lunette, House of Prime Rib, Valley Club,
+Good Luck Dim Sum, Arizmendi, Piccino, Marcella's, Gumbo Social, Mitchell's. No closures found.
+**Discovery batch 1 (searches 1–22, main):** sources — SF Chronicle Top 100 2026 (published 2026-03-30, via the
+enprimeurclub transcription of the ranked list; city labels there are unreliable so every SF name is re-confirmed by a
+2nd outlet with a street address), Infatuation reviews/neighbourhood guides, Time Out, 7x7, Sunset magazine, SF Standard
+(2026-04 dim sum panel), SF Travel. Added (FOOD_W4): Khan Toke Thai House, Trad'r Sam, Breadbelly, Lily, Wing Lee
+Bakery, Yuanbao Jiaozi (AVE); Fù Huì Huá, La Vaca Birria (MIS); Sandy's (HAI); Palette Tea House (NECN).
+**MEASURED & DROPPED / excluded:** Shanghai Dumpling King (Time Out + Infatuation both mark CLOSED); Ton Kiang (Time Out
+marks closed); Dumpling King Clement, Hook Fish Co, Gaspare's, Han Il Kwan, Hong Kong Lounge II (single credible source
+so far — held); destination.com 'guides' rejected as AI/SEO content; parkhill/splitmetrics/genera 'best of' pages rejected
+(content farms). Eater SF 38 surfaced only in a 2024 snapshot → used as ONE source only, with fresh status required.

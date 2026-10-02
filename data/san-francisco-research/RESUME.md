@@ -15,7 +15,10 @@
 - WebSearch used this session: ~173 main (per tool call) + 18 pin agent A ≈ 191+ (fan-out may push the platform count to the cap).
 
 ## In-flight wave
-(none — the 2026-10-02 modernisation session closed cleanly; see State.)
+**W4 (session_0159tKUL6tQ8pvUJRBHa67Nx, wave 2 of 2026-10-02)** — (a) background pin agent → `geo/_geoout_w4pin.json`
+for the 25 UNVERIFIED (≤30 searches); (b) discovery weakest-first AVE → MIS → DTN → NECN → HAI → SE (+NOB/NW/PEN),
+food ≥50%/area; files `FOOD_W4.json`, `SIGHTS_W4.json`, geo `geo/_geoout_w4.json` (force-added, geo/_*.json is
+gitignored). Search counter (main): see AUDIT "Stage W4".
 
 ## State — 2026-10-02 modernisation session (FINAL)
 - **290 researched / 265 rendered** (was 148 / 141). Food 181 = 62.4% (food-first ✓). 4 gates + validate + test green.
