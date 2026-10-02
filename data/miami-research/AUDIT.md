@@ -20,3 +20,10 @@ Follows docs/PIPELINE.md (stages 0→6) and docs/RUN-2026-10-02.md §5a. One dat
 - **Food canon (named before searching):** Cuban sandwich & medianoche, croquetas, pastelitos + ventanita
   cafecito/colada, the frita, stone crab, Haitian griot, Peruvian ceviche, arepas, key lime pie, conch fritters,
   Nicaraguan fritanga, Redland tropical fruit (Robert Is Here milkshakes), gator & frog legs at the Glades edge.
+
+## 2026-10-02 · Stage 1 — Discover sources (wave F1) — BLOCKED
+- Seed outlet palette written to `SOURCES_SEED.json` (29 outlets with `credible` rationale; registered into
+  data/sources.json on the first `rebuild-city.py` run).
+- WebSearch: 1 call succeeded (geocode-method probe, Versailles place pin via google.com `!3d!4d`); every
+  subsequent call refused — session budget 200/200 exhausted (shared across the ~16 concurrent agents).
+  No places were extracted; nothing fabricated. Discovery resumes when the search budget is raised/reset.
