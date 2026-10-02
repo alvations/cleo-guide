@@ -38,7 +38,7 @@ build's geocode gate. Restaurant place-pins often will not surface via WebSearch
     - Le Cirio
 
 ## chicago-il
-- registry entries: **113** · verified pins: **91** (high 89 · med 2 · low 0)
+- registry entries: **130** · verified pins: **108** (high 106 · med 2 · low 0)
 - ⛔ ship-worthy but **NOT yet geocoded** (7) — need a place-pin:
     - Birrieria Zaragoza
     - Borinquen Lounge
