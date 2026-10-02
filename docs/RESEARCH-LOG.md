@@ -291,3 +291,12 @@ With ~16 concurrent agents in one session, `WebSearch` returned "this session ha
 - The Roots.gov.sg (NHB) **Balestier Food Trail** names the heritage canon (Loong Fatt, Sing Hon Loong/Ghee Leong, Sweetlands, Lam Yeo, Kai Juan BKT, Tandoori Corner) in one search — an institutional seed list; each still needs a 2nd editorial source.
 - For a hawker centre, asking WebSearch for an outlet's "list of stalls" (HGW 15, SethLui 11, WW 10, DFD 10) returns the names in one call — far cheaper than per-stall searches.
 - Dead end: hit the shared session WebSearch cap (200/200) after 22 BLS searches; 13 food kept, ~20 single-source leads HELD in `_note_BALESTIER.md`.
+
+### 2026-10-02 — Okinawa W1 (search techniques & dead ends)
+- **Stars and Stripes Okinawa** (okinawa.stripes.com) food/travel listings print venue GPS (`N 26.660328, E 127.895893`
+  for Kishimoto Shokudo) — the best restaurant-coordinate channel found for Okinawa via WebSearch.
+- `"<sight> coordinates wikipedia"` (one place per query) surfaces the infobox DMS about half the time (Tamaudun,
+  Naminoue, Sefa-utaki); multi-place queries, `北緯 東経` queries and mapcarta/latitude.to queries did not.
+- UNESCO WHC 972 component coordinates are 2–3-dp centroids (Shuri/Tamaudun/Shikinaen all "26.2/127.683") — never pins.
+- Dead end: the session WebSearch cap (200, shared across all concurrent agents) ended the wave after 17 searches.
+
