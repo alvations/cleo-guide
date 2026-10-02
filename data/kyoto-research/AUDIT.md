@@ -158,3 +158,16 @@ Inoichi address only (dish not surfaced → held). Restaurant lat/lng never surf
   (char-grill izakaya), Sushizen (kyō-zushi), Ryoriya Otaya, Washoku Haru (saba-zushi roll), Bistro Cerisier — Bib unless noted.
 - Held: Bistro Yanagihara, BOCCA del VINO (dish not surfaced).
 - Searches used (main): 136; plus the background pin worker (≤20).
+
+### batch 12 (2026-10-02) — background pin worker + go-live + UJI/FSHMI sights
+- **Pin worker** (18 searches): 44/46 Michelin venues pinned from Michelin venue-page lat/lng (`geo/_geoout_kyoto_mpins.json`).
+  Spot-checked: all fall in the stated ward/chō. UNVERIFIED: Kyoudon Kisoba Okakita and Shutei Bankara (no venue page surfaced; not
+  marked closed, since no source said so). Rennosuke's new Michelin address (116-2 Higashitate-chō, Kamigyō-ku) was written into the food record.
+- **Build:** 208 discovered / 198 rendered; sourcecheck, geocheck, statuscheck and buildcheck PASS; `npm run validate` and `npm test` ALL PASS.
+- **GO-LIVE:** the Japan hub CARD:kyoto now links to cities/kyoto.html; root CARD:japan reads "4 of 5 maps live"; docs/CITIES.md has a Kyoto row; prose in
+  tools/build-kyoto.py was rewritten (no "vetted creators" claim, since none were vetted).
+- UJI +5: Kōshō-ji, Tale of Genji Museum, Uji Bridge, Yoshiki-en (JG + WIKIPEDIA_JA pins); Naramachi (JG e2165 + JA; UNVERIFIED,
+  because only an approximate district centre surfaced).
+- FSHMI +3: Fushimi Momoyama Mausoleum, Sekihō-ji (KT map guide + JA), Fujinomori Shrine (KT taxi-tips feature + JA).
+- Held: Gokō-no-miya (34.934722,135.7675; the kyoto.travel plaque found covers the shrine's ORIGINAL site, so it was not used as the 2nd source).
+- Searches used: main 149 + worker 18 = 167.
