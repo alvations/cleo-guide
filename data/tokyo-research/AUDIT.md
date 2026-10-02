@@ -330,3 +330,70 @@ izakaya (Tonkichi, Tachibana, Kenta), Ethiopia curry; Time Out 2025 new-ramen li
 **Build (batch 7):** 537 discovered / 411 rendered (244 sights + 167 food); food 278/537 = **51.8%** (≥50% target met);
 UNVERIFIED held 126; sourcecheck PASS 537 · geocheck PASS · statuscheck CONSISTENT · buildcheck PASS; validate + test green.
 **Searches:** ~125 tool calls by this agent (+~25 tool-chained sub-searches) + 92 by three background agents.
+
+---
+## W7 — finishing pass (2026-10-02, session_01LvabJcJR7Zay1SoN8gzwc7)
+
+### Stage 1 — close the last NEED areas, food & drink first (§2b)
+Searches: ~20. Sources discovered/reused: Time Out venue pages, Tokyo Weekender, Tokyo Cheapo, Sprudge, Frommer's,
+MICHELIN Guide venue pages (Bib), Ota City official tourism ('Unique Ota'), Visit Sumida (Sumida tourism assoc.),
+Culture Trip, Japan Travel, Kanpai, FUN! JAPAN (JTB), Japan Foundation (JFF), Anime News Network.
+New outlet keys registered in `SOURCES_TOKYO_W7.json` (each with a `credible` rationale): ANN, JAPANTRAVEL, KANPAI,
+FUNJAPAN, JAPANFOUNDATION, OTACITY, VISITSUMIDA, CULTURETRIP, FROMMERS, WEBJAPAN, UNSEENJAPAN.
+Kept (`_w7_close_verified.json` → `FOOD_TOKYO_W7.json` / `SIGHTS_TOKYO_W7.json`, all via `_tokyo_w7_ingest.py`):
+- JONAN +3: Meguro Sushi Taichi (MICHELIN_BIB), Teuchisobadokoro Shisen-an (MICHELIN_BIB), Hoanyon/Kangei Honten Kamata
+  hanetsuki gyoza (TIMEOUT + OTACITY + JAPANTRAVEL) — Kamata's winged-gyoza canon.
+- SMKT +2: Kameido Gyoza Honten (TIMEOUT + TOKYOWEEKENDER — clears the W6 hold, which had only Time Out),
+  Higashi-Mukojima Coffee-Ten (TIMEOUT + VISITSUMIDA + CULTURETRIP — clears the W5 hold).
+- JOSAI +1 Bear Pond Espresso (TIMEOUT + SPRUDGE + TOKYOCHEAPO) · SJK +1 Tempura Shinjuku Tsunahachi (TIMEOUT +
+  TOKYOCHEAPO + FROMMERS) · TAITO +1 noura, Asakusa (MICHELIN_BIB 2026).
+- JOTO +1 Captain Tsubasa statues, Yotsugi–Tateishi (ANIME; ANN + JAPANTRAVEL + KANPAI) · TAMA +1 Seiseki-Sakuragaoka
+  Whisper of the Heart pilgrimage (ANIME; FUNJAPAN + JAPANFOUNDATION + JAPANTRAVEL).
+Channel mix this stage: Michelin 3 · editorial/travel sites 5 · municipal tourism 2 · anime press 1.
+MEASURED & DROPPED: **Allpress Espresso Tokyo Roastery** (Kiyosumi) — closes autumn 2026, relocating to Miyota, Nagano
+(haveagood-holiday news) → not added (would be a closing place). **Funabashiya Kameido** — Time Out (Hiroo Koyomi page)
++ official + PR reposts only; no second independent editorial → not added. **Tonkatsu Hasegawa** — Michelin page
+still cites the 2023 Bib only → stays held. **Sailor Moon / Azabu Hikawa Shrine** — only a Minato PDF + commercial
+blogs → not added. **Namiki Yabusoba** — no credible current source surfaced → not added.
+Density after: **all 13 areas OK** (JONAN 36/35, SMKT 40/40, JOSAI 40/40, JOTO 20/20, SJK 50/50, TAITO 50/50, TAMA 30/30).
+
+### Stage 2 — anime & pop-culture wave (§2c)
++3 sights (`_w7_anime_verified.json`): Gashapon Department Store Ikebukuro (TIMEOUT + FUNJAPAN + OFFICIAL),
+Tokyo Character Street (TIMEOUT + JNTO + WEBJAPAN), Oizumi Anime Gate (GOTOKYO + JNTO + UNSEENJAPAN), each with an
+`"anime"` franchise note. Existing W5/W6 anime records (Pokémon Café, Kirby Café, Sanrio Puroland, Tokyo Anime Center,
+Animate Ikebukuro, Mandarake, Suga Shrine stairs) were already discovered — this wave pinned them (stage 3).
+ANIME layer after build: 38 records in the `ANIME` collection (22 carry an explicit franchise note).
+
+### Stage 3 — pin the UNVERIFIED (CLAUDE.md 4a/4b)
+`geo/_geofix_tokyo_w7.json` via `_tokyo_w7_fix.py` (refuses a Google gs whose `!3d!4d` ≠ lat/lng and any gs that is
+not a Google place pin / Michelin / Wikipedia / Wikidata) → `_tokyo_w7_applyfix.py`. **24 pins** (+ Seiseki and
+3 anime adds pinned at ingest): high 15 · med 9.
+- Google place pin `!3d!4d`: Animate Ikebukuro (1).
+- ja.wikipedia 座標 (3 names per query, ~50% hit rate): Isetan Shinjuku, Ginza Mitsukoshi, Nihombashi Mitsukoshi, Meikyoku
+  Kissa Lion, Takemura, Botan, Daikokuya Tempura, Ozawa Shuzo, Naniwaya, Suginami Animation Museum, Toei Animation Museum,
+  Tokiwasō Manga Museum, Tokyo Anime Center, Amazake-chaya, Todoroki Valley (med), Tokyo Solamachi→Kirby Café (med),
+  Shibamata Taishakuten→sandō (med), Otemachi One→Virtù (med).
+- en.wikipedia: Suga Shrine (med — stairs at its gate), Sunshine City→Pokémon Center Mega Tokyo / Gashapon (med),
+  DiverCity→Gundam Base (med), Soshigaya-Ōkura Stn→Ultraman street (med), Yotsugi Stn→Tsubasa trail (med),
+  Ōizumi-gakuen Stn→Anime Gate (high — gate is on the station deck), Tokyo Stn→Character Street (med).
+- **Lesson / caution:** the search summariser cross-contaminates coordinates between names in a multi-name query
+  (八ッ手屋 was given Daikokuya's Asakusa point; ぼたん and 竹むら got one identical point). Rule applied: accept a
+  coordinate only when the matching article is in the result links AND the point is plausible for the address;
+  identical points for two shops → `med`. Rejected for unclear provenance: Nonbei Yokochō, Kita-Senju Nomiya Yokochō,
+  Tofuya Ukai, Iseya (the いせや総本店 point is the Honten, our record is the park branch).
+- Dead channels (measured): Google `!3d!4d` for small bars/kissaten 0/6 this session; Michelin venue pages print no
+  coordinates in search summaries (0/8); Apple Maps place pages and OSM nodes don't expose coordinates via WebSearch.
+- Sourced address fixes (`_w7_addrfix.json` → `_tokyo_w7_addrfix.py`): Tamahide 1-17-10 Ningyōchō; Komagata Maekawa
+  2-7-5 Komagata; Ishikawa Brewery 1 Kumagawa, Fussa; Yoshimuraya 1-6-4 Okano, Yokohama; Guchokuni moved to 3F 6-21
+  Kagurazaka (Michelin 2026); Tokyo Anime Center = DNP Plaza Shibuya in Shibuya MODI 2F, 1-21-3 Jinnan.
+  Flag for the helper: Café de l'Ambre — Google address search shows 7-15-7 Ginza vs our Time Out 8-10-15 (unresolved);
+  Kameido Gyoza — Apple Maps 5-3-3 vs Time Out 5-3-4 (same block).
+
+### Stage 4 — re-verify low-confidence pins
+geocheck after build: high 403 · med 36 · **low 0** → nothing to upgrade.
+
+### Build + gates (W7)
+`rebuild-city.py tokyo --build`: **552 discovered / 439 rendered** (260 sights + 179 food on the map; food 288/552 = 52% of
+discovered); UNVERIFIED held 113; sourcecheck PASS (552, 118 lone authority) · geocheck PASS · statuscheck CONSISTENT
+(0 unchecked, 1 closed) · buildcheck PASS · `npm run validate` DATA OK · `npm test` ALL PASS. Japan hub CARD:tokyo,
+root CARD:japan, CITIES.md row refreshed (Tokyo marked **DENSE**).
